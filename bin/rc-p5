@@ -1,0 +1,80 @@
+#!/usr/local/bin/perl
+## benchmark Rosettacode programs, output and timings go in 'bench'
+#c# 2018-06-30
+
+#  Special designations
+#  graphical - image output, usually tested against reference image
+#  trivial - some have no tests, which is OK
+#
+#  Programs not tested:
+#  toodamnslow - extract timings embedded in programs with:
+#  nocode - have no runnable code
+#  skiptest - hard to test
+#  interactive - requires user input
+#  forever - hangs, never terminates
+#  broken - hangs, never terminates
+
+use warnings;
+
+use Parallel::ForkManager;
+
+chdir "$ENV{HOME}/perl5/Rosetta-Code" || die;
+
+$dir = `date '+%Y-%m-%d'`; chomp $dir;
+mkdir "bench/$dir"   if ! -e "bench/$dir";
+unlink "bench/last" if   -e "bench/last";
+system qq{cd bench; symlink $dir last};
+
+$exe  = 'perl';
+
+system "date";
+
+my $skip = 'interactive|toodamnslow|skiptest|nocode|forever|broken';
+
+# find Perl5 programs
+for my $prog (@ARGV) {
+    next if $prog =~ /\.(pl|[0-9])$/;
+    next if $prog =~ /^Temp-/;
+    @status = `head -12 $prog`;
+    next unless $status[0] =~ m#(env |bin/)perl\b#;
+    next if grep { /^#t#.*($skip)/ } @status;
+    next if grep { /^#m#.*BROKEN/i } @status;
+
+    $clargs = `grep 'RC.cli' $prog`; chomp $clargs; 
+    $clargs =~ s/^.*RC.cli:\s+//; 
+    $clargs =~ s/"/\\"/g; 
+
+    $precmd = `grep 'RC.prep:' $prog`; chomp $precmd; 
+    $precmd =~ s/^.*RC.prep:\s+//; 
+    $precmd =~ s/\s+$//;
+
+    $difftest = `grep 'RC.file' $prog`; chomp $difftest; 
+    $difftest =~ s/^.*RC.file:\s+//; 
+    $difftest =~ s/\s+$//;
+
+    push @Programs, $prog;
+    $Ppre{$prog} =  $precmd if $precmd ne '';
+    $Prun{$prog} =  $clargs if $clargs ne '';
+    $Pfile{$prog} = $difftest if $difftest ne '';
+}
+
+# run in parallel 
+my $pm = Parallel::ForkManager->new(8);
+RUN:
+for my $prog (@Programs) {
+    $pm->start and next RUN;
+
+    my $run = $prog;
+    $run .= " $Prun{$prog}" if defined $Prun{$prog};
+
+    system "$Ppre{$prog}" if defined $Ppre{$prog};
+    system "rc-runone '$exe $run' > bench/$dir/$prog.out 2> bench/$dir/$prog.err";
+    system "diff -s -wb -q ref/$Pfile{$prog} run/$Pfile{$prog} >> bench/$dir/$prog.out" if defined $Pfile{$prog};
+
+    $pm->finish;
+}
+$pm->wait_all_children;
+
+# clean up
+system('bin/rc-ts');
+system "date";
