@@ -43,11 +43,11 @@ print F <<EOP;
 #c# $ymd <RC
 #p# OK
 
-my $result;
+my \$result;
 
 $perl5
 
-my $ref = <<EOD;
+my \$ref = <<EOD;
 EOD
 
 use Test::More;
