@@ -1,0 +1,68 @@
+#!/usr/local/bin/perl
+#u# http://rosettacode.org/wiki/AKS_test_for_primes
+#c# 2018-06-30 <RC
+
+use Modern::Perl;
+
+use strict;
+use warnings;
+# Select one of these lines.  Math::BigInt is in core, but quite slow.
+#use Math::BigInt;  sub binomial { Math::BigInt->new(shift)->bnok(shift) }
+# use Math::Pari "binomial";
+use ntheory ":all";
+ 
+sub binprime {
+  my $p = shift;
+  return 0 unless $p >= 2;
+  # binomial is symmetric, so only test half the terms
+  for (1 .. ($p>>1)) { return 0 if binomial($p,$_) % $p }
+  1;
+}
+sub coef {                   # For prettier printing
+  my($n,$e) = @_;
+  return $n unless $e;
+  $n = "" if $n==1;
+  $e==1 ? "${n}x" : "${n}x^$e";
+}
+sub binpoly {
+  my $p = shift;
+  join(" ", coef(1,$p),
+            map { join("",("+","-")[($p-$_)&1]," ",coef(binomial($p,$_),$_)) }
+            reverse 0..$p-1 );
+}
+my $result;
+$result .= "expansions of (x-1)^p:\n";
+$result .= binpoly($_)."\n" for 0..9;
+$result .= "Primes to 80: [". join(",", grep { binprime($_) } 2..80). "]\n";
+
+
+
+my $ref = <<END;
+expansions of (x-1)^p:
+1
+x - 1
+x^2 - 2x + 1
+x^3 - 3x^2 + 3x - 1
+x^4 - 4x^3 + 6x^2 - 4x + 1
+x^5 - 5x^4 + 10x^3 - 10x^2 + 5x - 1
+x^6 - 6x^5 + 15x^4 - 20x^3 + 15x^2 - 6x + 1
+x^7 - 7x^6 + 21x^5 - 35x^4 + 35x^3 - 21x^2 + 7x - 1
+x^8 - 8x^7 + 28x^6 - 56x^5 + 70x^4 - 56x^3 + 28x^2 - 8x + 1
+x^9 - 9x^8 + 36x^7 - 84x^6 + 126x^5 - 126x^4 + 84x^3 - 36x^2 + 9x - 1
+Primes to 80: [2,3,5,7,11,13,17,19,23,29,31,37,41,43,47,53,59,61,67,71,73,79]
+END
+
+# Real AKS[edit]
+# The ntheory module has implementations of the full AKS algorithm in Perl, C, and C+GMP. This is vastly faster than the method used in this task and is polynomial time, but like all current AKS implementations is still much slower than other methods such as BPSW, APR-CL, and ECPP.
+
+# Library: ntheory
+#use ntheory ":all";
+# Uncomment next line to see the r and s values used.  Set to 2 for more detail.
+# prime_set_config(verbose => 1);
+say $result .= join(" ", grep { is_aks_prime($_) } 1_000_000_000 .. 1_000_000_100);
+
+$ref .= '1000000007 1000000009 1000000021 1000000033 1000000087 1000000093 1000000097';
+
+use Test::More;
+is ($result, $ref);
+done_testing();
