@@ -1,0 +1,51 @@
+#!/usr/local/bin/perl
+#u# http://rosettacode.org/wiki/ABC_Problem
+#c# 2018-06-30 <RC
+#p# OK
+
+#Recursive solution that can handle characters appearing on different blocks:
+
+use warnings;
+use strict;
+ 
+sub can_make_word {
+    my ($word, @blocks) = @_;
+    $_ = uc join q(), sort split // for @blocks;
+    my %blocks;
+    $blocks{$_}++ for @blocks;
+    return _can_make_word(uc $word, %blocks)
+}
+ 
+ 
+sub _can_make_word {
+    my ($word, %blocks) = @_;
+    my $char = substr $word, 0, 1, q();
+ 
+    my @candidates = grep 0 <= index($_, $char), keys %blocks;
+    for my $candidate (@candidates) {
+        next if $blocks{$candidate} <= 0;
+        local $blocks{$candidate} = $blocks{$candidate} - 1;
+        return 1 if q() eq $word or _can_make_word($word, %blocks);
+    }
+    return
+}
+Testing:
+use Test::More tests => 8;
+ 
+my @blocks1 = qw(BO XK DQ CP NA GT RE TG QD FS JW HU VI AN OB ER FS LY PC ZM);
+is(can_make_word("A",       @blocks1), 1);
+is(can_make_word("BARK",    @blocks1), 1);
+is(can_make_word("BOOK",    @blocks1), undef);
+is(can_make_word("TREAT",   @blocks1), 1);
+is(can_make_word("COMMON",  @blocks1), undef);
+is(can_make_word("SQUAD",   @blocks1), 1);
+is(can_make_word("CONFUSE", @blocks1), 1);
+ 
+my @blocks2 = qw(US TZ AO QA);
+is(can_make_word('auto', @blocks2), 1);
+ 
+
+
+use Test::More;
+#is ($result, $ref);
+#done_testing();
