@@ -1,0 +1,31 @@
+#!/usr/local/bin/perl
+#u# http://rosettacode.org/wiki/Find_palindromic_numbers_in_both_binary_and_ternary_bases
+#c# 2018-07-02 <RC
+#p# OK
+
+use Modern::Perl;
+use ntheory qw/fromdigits todigitstring/;
+ 
+my $result = "0  0  0\n";  # Hard code the 0 result
+for (0..2e5) {
+  # Generate middle-1-palindrome in base 3.
+  my $pal = todigitstring($_, 3);
+  my $b3 = $pal . "1" . reverse($pal);
+  # Convert base 3 number to base 2
+  my $b2 = todigitstring(fromdigits($b3, 3), 2);
+  # Print results (including base 10) if base-2 palindrome
+  $result .= fromdigits($b2,2)."  $b3  $b2\n"   if $b2 eq reverse($b2);
+}
+
+my $ref = <<EOD;
+0  0  0
+1  1  1
+6643  100010001  1100111110011
+1422773  2200021200022  101011011010110110101
+5415589  101012010210101  10100101010001010100101
+90396755477  22122022220102222022122  1010100001100000100010000011000010101
+EOD
+
+use Test::More;
+is ($ref, $result);
+done_testing();
