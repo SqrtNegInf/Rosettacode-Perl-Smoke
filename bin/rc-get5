@@ -13,7 +13,7 @@ $w =~ s/#.*//;
 (my $f = $w) =~ s#/#_#g;
 $f =~ s#'#_#g;
 $f =~ s#\$#_#g;
-$f .= '.pl';
+#$f .= '.pl';
 
 if (-e "$f") {
 for my $i (reverse 1..8) {
@@ -41,8 +41,14 @@ print F <<EOP;
 #!/usr/local/bin/perl
 #u# http://rosettacode.org/wiki/$w
 #c# $ymd <RC
+#p# OK
+
+my $result;
 
 $perl5
+
+my $ref = <<EOD;
+EOD
 
 use Test::More;
 #is (\$result, \$ref);
