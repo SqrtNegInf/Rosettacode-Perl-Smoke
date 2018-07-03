@@ -16,5 +16,5 @@ Re-using programs from Perl 6 smoke testing project, with slight modifications.
 
 Relying on [Thundergnat's](http://rosettacode.org/wiki/User:Thundergnat) 
 very flexible Rosettacode task
-[Run examples](http://rosettacode.org/wiki/Rosetta_Code/Run_examples) 
+[Run examples](http://rosettacode.org/wiki/Rosetta_Code/Run_examples#Perl_6) 
 to handle cases where the task has multiple code sections.
