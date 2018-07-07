@@ -1,0 +1,29 @@
+#!/usr/local/bin/perl
+#u# http://rosettacode.org/wiki/Abundant,_deficient_and_perfect_number_classifications
+#c# 2018-07-07 <RC
+#p# OK
+
+use feature 'say';
+use ntheory;
+
+#We can use the <=> operator to return a comparison of -1, 0, or 1, which classifies the results. Let's look at the values from 1 to 30:
+
+use ntheory qw/divisor_sum/;
+say my $result1 = join " ", map { divisor_sum($_)-$_ <=> $_ } 1..30;
+
+
+# We can see 6 is the first perfect number, 12 is the first abundant number, and 1 is classified as a deficient number.
+# Showing the totals for the first 20k numbers:
+
+my %h;
+$h{divisor_sum($_)-$_ <=> $_}++ for 1..20000;
+say my $result2 = "Perfect: $h{0}    Deficient: $h{-1}    Abundant: $h{1}";
+
+
+my $ref = <<EOD;
+EOD
+
+use Test::More;
+is ($result1, '-1 -1 -1 -1 -1 0 -1 -1 -1 -1 -1 1 -1 -1 -1 -1 -1 1 -1 1 -1 -1 -1 1 -1 -1 -1 0 -1 1');
+is ($result2, 'Perfect: 4    Deficient: 15043    Abundant: 4953');
+done_testing();
