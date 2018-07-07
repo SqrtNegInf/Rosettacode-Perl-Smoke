@@ -1,0 +1,146 @@
+#!/usr/local/bin/perl
+#u# http://rosettacode.org/wiki/9_billion_names_of_God_the_integer
+#c# 2018-07-04 <RC
+#p# OK
+
+use feature 'say';
+
+use ntheory qw/:all/;
+ 
+sub triangle_row {
+  my($n,@row) = (shift);
+  # Tally by first element of the unrestricted integer partitions.
+  forpart { $row[ $_[0] - 1 ]++ } $n;
+  my @out; for (@row) { push @out, $_ if $_; } # DH remove empty slots
+  @out;
+}
+
+my @res1;
+push @res1, sprintf "%2d: %s", $_, join(" ",triangle_row($_)) for 1..25;
+push @res1, "P($_) = " . partitions($_) for (23, 123, 1234, 12345);
+say for @res1;
+
+# Translation of: Perl6
+
+my @res2;
+ 
+use strict;
+use warnings;
+ 
+# Where perl6 uses arbitrary precision integers everywhere
+# that you don't tell it not to do so, perl5 will only use
+# them where you *do* tell it do so.
+use Math::BigInt;
+use constant zero => Math::BigInt->bzero;
+use constant one  => Math::BigInt->bone;
+ 
+my @todo = [one];
+my @sums = (zero);
+sub nextrow {
+   my $n = shift;
+   for my $l (@todo .. $n) {
+      $sums[$l] = zero;
+      #print "$l\r" if $l < $n;
+      my @r;
+      for my $x (reverse 0 .. $l-1) {
+         my $todo = $todo[$x];
+         $sums[$x] += shift @$todo if @$todo;
+         push @r, $sums[$x];
+      }
+      push @todo, \@r;
+   }
+   @{ $todo[$n] };
+}
+ 
+push @res2, "rows:";
+for(1..25) {
+   push @res2, sprintf("%2d: ", $_).
+   join(' ', nextrow($_)); #, "\n";
+}
+
+push @res2, "sums:";
+for (23, 123, 1234) { #, 12345) {
+   my $i = 0;
+   $i += $_ for nextrow($_);
+   push @res2, $_ . "." x (8 - length) .
+   $i; #, "\n";
+}
+
+say for @res2;
+ 
+
+my $ref1 = <<EOD;
+ 1: 1
+ 2: 1 1
+ 3: 2 1
+ 4: 3 1 1
+ 5: 5 1 1
+ 6: 7 2 1 1
+ 7: 11 2 1 1
+ 8: 15 4 1 1 1
+ 9: 22 4 2 1 1
+10: 30 7 2 1 1 1
+11: 42 8 3 1 1 1
+12: 56 12 4 2 1 1 1
+13: 77 14 5 2 1 1 1
+14: 101 21 6 3 1 1 1 1
+15: 135 24 9 3 2 1 1 1
+16: 176 34 10 5 2 1 1 1 1
+17: 231 41 13 5 3 1 1 1 1
+18: 297 55 17 7 3 2 1 1 1 1
+19: 385 66 21 8 4 2 1 1 1 1
+20: 490 88 25 11 5 3 1 1 1 1 1
+21: 627 105 33 12 6 3 2 1 1 1 1
+22: 792 137 39 16 7 4 2 1 1 1 1 1
+23: 1002 165 49 18 9 4 3 1 1 1 1 1
+24: 1255 210 60 24 10 6 3 2 1 1 1 1 1
+25: 1575 253 73 27 13 6 4 2 1 1 1 1 1
+P(23) = 1255
+P(123) = 2552338241
+P(1234) = 156978797223733228787865722354959930
+P(12345) = 69420357953926116819562977205209384460667673094671463620270321700806074195845953959951425306140971942519870679768681736
+EOD
+
+my $ref2 = <<EOD;
+rows:
+ 1: 1
+ 2: 1 1
+ 3: 1 1 1
+ 4: 1 2 1 1
+ 5: 1 2 2 1 1
+ 6: 1 3 3 2 1 1
+ 7: 1 3 4 3 2 1 1
+ 8: 1 4 5 5 3 2 1 1
+ 9: 1 4 7 6 5 3 2 1 1
+10: 1 5 8 9 7 5 3 2 1 1
+11: 1 5 10 11 10 7 5 3 2 1 1
+12: 1 6 12 15 13 11 7 5 3 2 1 1
+13: 1 6 14 18 18 14 11 7 5 3 2 1 1
+14: 1 7 16 23 23 20 15 11 7 5 3 2 1 1
+15: 1 7 19 27 30 26 21 15 11 7 5 3 2 1 1
+16: 1 8 21 34 37 35 28 22 15 11 7 5 3 2 1 1
+17: 1 8 24 39 47 44 38 29 22 15 11 7 5 3 2 1 1
+18: 1 9 27 47 57 58 49 40 30 22 15 11 7 5 3 2 1 1
+19: 1 9 30 54 70 71 65 52 41 30 22 15 11 7 5 3 2 1 1
+20: 1 10 33 64 84 90 82 70 54 42 30 22 15 11 7 5 3 2 1 1
+21: 1 10 37 72 101 110 105 89 73 55 42 30 22 15 11 7 5 3 2 1 1
+22: 1 11 40 84 119 136 131 116 94 75 56 42 30 22 15 11 7 5 3 2 1 1
+23: 1 11 44 94 141 163 164 146 123 97 76 56 42 30 22 15 11 7 5 3 2 1 1
+24: 1 12 48 108 164 199 201 186 157 128 99 77 56 42 30 22 15 11 7 5 3 2 1 1
+25: 1 12 52 120 192 235 248 230 201 164 131 100 77 56 42 30 22 15 11 7 5 3 2 1 1
+sums:
+23......1243
+123.....2552338241
+1234....156978797223733228787865722354959930
+EOD
+
+
+use Test::More;
+my $result1 = join "\n", @res1;
+chop $ref1;
+is ($result1, $ref1);
+my $result2 = join "\n", @res2;
+chop $ref2;
+is ($result2, $ref2);
+
+done_testing();
