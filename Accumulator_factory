@@ -1,0 +1,24 @@
+#!/usr/local/bin/perl
+#u# http://rosettacode.org/wiki/Accumulator_factory
+#c# 2018-07-07 <RC
+#p# OK
+
+my $result;
+
+#There's a little deviation: the syntax $x->(5) differs from the usual x(5).
+# Translation of: Ruby
+
+sub accumulator {
+  my $sum = shift;
+  sub { $sum += shift }
+}
+ 
+my $x = accumulator(1);
+$x->(5);
+accumulator(3);
+$result = $x->(2.3);
+print $result, "\n";
+
+use Test::More;
+is ($result, '8.3');
+done_testing();
