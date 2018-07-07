@@ -1,0 +1,30 @@
+#!/usr/local/bin/perl
+#u# http://rosettacode.org/wiki/A%2BB
+#c# 2018-07-05 <RC
+#p# OK
+
+use feature 'say';
+
+my $result;
+
+open F, "<ref/a+b.txt";
+
+#for (<STDIN>) {
+for (<F>) {
+my ($a,$b) = split(' ', scalar($_));
+$result .= "$a $b " . ($a + $b) . "\n";
+}
+say $result;
+
+#using the List::Util module[edit]
+#say sum split /\s+/,  scalar <STDIN>;
+
+my $ref = <<EOD;
+1 2 3
+3 1 4
+3 2 5
+EOD
+
+use Test::More;
+is ($result, $ref);
+done_testing();
