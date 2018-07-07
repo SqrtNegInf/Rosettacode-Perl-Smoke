@@ -5,12 +5,14 @@
 use warnings;
 use strict 'vars';
 
+chdir "$ENV{HOME}/perl5/Rosetta-Code/meta";
+
 my(%P);
 
-print `perl -v`; 
+print `perl -v | head -2`; 
 
 # update only once a day
-#if (.95 < -M "Category:Programming_Tasks") {
+if (.95 < -M "Category:Programming_Tasks") {
 print "updating from RC…\n";
 system <<"END";
 mv Category:Programming_Tasks Category:Programming_Tasks~
@@ -20,7 +22,7 @@ mv Reports:Tasks_not_implemented_in_Perl Reports:Tasks_not_implemented_in_Perl~
 /opt/local/bin/curl -s -O http://rosettacode.org/wiki/Category:Draft_Programming_Tasks
 /opt/local/bin/curl -s -O http://rosettacode.org/wiki/Reports:Tasks_not_implemented_in_Perl
 END
-#}
+}
 
 ## characterize RC tasks
 
@@ -99,20 +101,20 @@ my($l) = @_;
 # study task source code, set various condition flags
 sub document {
 my($p) = @_;
-my($task,$header,$compiles,$mout,$merr,$jout,$jerr,$skip,$srand);
+my($task,$header,$compiles,$pout,$perr,$skip,$srand);
 
     $task = "../$p";
     return 0 if ! -e $task;
-    return 0 if defined $P{$p}{'M'};
+    return 0 if defined $P{$p}{'P'};
 
-    $header = `grep '^#[mjcft]#' $task`;
+    $header = `grep '^#[pcft]#' $task`;
 
-    $P{$p}{'P'} = $header =~ /Perl:\s*OK/ ? 'G' : 'B';
+    $P{$p}{'P'} = $header =~ /\bOK\b/ ? 'G' : 'B';
     $compiles = `perl -c $task 2>&1 1>/dev/null`;
-    $mout = "../bench/last/$p.out";
-    $P{$p}{'O'} = -e $mout ? 'O' : '.';
-    $merr = (-e $mout) ? `grep STDERR $mout` : undef;
-    $P{$p}{'P'} = '!' if $compiles =~ /SORRY/ || ($P{$p}{'P'} eq 'G' && $merr);
+    $pout = "../bench/last/$p.out";
+    $P{$p}{'O'} = -e $pout ? 'O' : '.';
+    $perr = (-e $pout) ? `grep STDERR $pout` : undef;
+    $P{$p}{'P'} = '!' if $compiles =~ /SORRY/ || ($P{$p}{'P'} eq 'G' && $perr);
 
 #    $P{$p}{'J'} = $header =~ /JVM:\s*OK/ ? 'G' : 'B';
 #    $jout = "../bench/jvm/$p.out";
@@ -138,7 +140,7 @@ my($l) = @_;
 
     return '' unless $l =~ m#<li><a href="/wiki/# && $l !~ /Category:/;
     my($p) = $l =~ m#<li><a href="/wiki/(.*?)"#;
-    return '' if $p =~ /Niecza|Pugs|Rakudo/;    # stray stuff from 'unimplemented'
+    #return '' if $p =~ /Niecza|Pugs|Rakudo/;    # stray stuff from 'unimplemented'
     $p =~ s/Brain\*\*\*\*/Brainfuck/;           # 'fix' Brainfuck name
     return pfix($p);
 }
@@ -166,67 +168,3 @@ return $x;
 
 # these are being ignored, for various reasons
 __DATA__
-Arena_storage_pool
-Aspect_Oriented_Programming
-Assertions
-Bitmap_PPM_conversion_through_a_pipe
-Call_a_function
-Call_an_object_method
-Color_of_a_screen_pixel
-Command-line_arguments
-Concurrent_computing
-Create_a_file_on_magnetic_tape
-Deepcopy
-Doubly-linked_list_Traversal
-Flow-control_structures
-Function_prototype
-GUI/Maximum_window_dimensions
-GUI_component_interaction
-GUI_enabling/disabling_of_controls
-Hello_world/Line_printer
-Hello_world/Newbie
-Interactive_programming
-JortSort
-Linux_CPU_utilization
-Max_licenses_in_use
-Memory_layout_of_a_data_structure
-Modulinos
-Most_frequent_k_chars_distance
-Mouse_position
-Musical_scale
-Mutex
-Narcissist
-Native_shebang
-Null_object
-OLE_Automation
-OpenGL
-Operator_precedence
-Parametrized_SQL_statement
-Program_termination
-RCRPG
-Random_number_generator_(included)
-Record_sound
-Scope_modifiers
-Selective_File_Copy
-Self-hosting_compiler
-Shell_one-liner
-Simple_windowed_application
-Singly-linked_list_Element_definition
-Singly-linked_list_Element_insertion
-Snake
-Speech_synthesis
-Stair-climbing_puzzle
-Table_creation/Postal_addresses
-Terminal_control_Positional_read
-Terminal_control_Hiding_the_cursor
-Undefined_values
-User_input/Graphical
-Variable_size_Set
-Variables
-Video_display_modes
-Weather_Routing
-Window_creation
-Window_creation/X11
-Window_management
-Write_to_Windows_event_log
-Yahoo!_search_interface
