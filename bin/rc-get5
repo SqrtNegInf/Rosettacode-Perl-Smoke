@@ -52,7 +52,7 @@ my \$ref = <<EOD;
 EOD
 
 use Test::More;
-#is (\$result, \$ref);
+#is (\$ref, \$result);
 #done_testing();
 EOP
 
