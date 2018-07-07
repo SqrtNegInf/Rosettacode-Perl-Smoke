@@ -1,6 +1,7 @@
 #!/usr/local/bin/perl
 #u# http://rosettacode.org/wiki/AKS_test_for_primes
 #c# 2018-06-30 <RC
+#p# OK
 
 use Modern::Perl;
 
