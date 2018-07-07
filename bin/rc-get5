@@ -43,6 +43,7 @@ print F <<EOP;
 #c# $ymd <RC
 #p# OK
 
+use feature 'say';
 my \$result;
 
 $perl5
