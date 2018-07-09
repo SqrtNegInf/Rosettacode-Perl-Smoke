@@ -1,0 +1,39 @@
+#!/usr/local/bin/perl
+#u# http://rosettacode.org/wiki/100_doors
+#c# 2018-07-09 <RC
+#p# OK
+
+use feature 'say';
+my $result;
+
+my @doors;
+for my $pass (1 .. 100) {
+    for (1 .. 100) {
+        if (0 == $_ % $pass) {
+            $doors[$_] = not $doors[$_];
+        };
+    };
+};
+
+for (1 .. 100) { $result .= "Door $_ is open\n" if $doors[$_] }
+#$result .= "Door $_ is " . $doors[$_] ? "open" : "closed" . "\n" for 1 .. 100;
+
+say $result;
+
+my $ref = <<END;
+Door 1 is open
+Door 4 is open
+Door 9 is open
+Door 16 is open
+Door 25 is open
+Door 36 is open
+Door 49 is open
+Door 64 is open
+Door 81 is open
+Door 100 is open
+END
+
+use Test::More;
+is ($result, $ref);
+done_testing();
+
