@@ -1,51 +1,45 @@
 
-This is perl 5, version 26, subversion 2 (v5.26.2) built for darwin-2level
-
-Copyright 1987-2018, Larry Wall
-
-Perl may be copied only under the terms of either the Artistic License or the
-GNU General Public License, which may be found in the Perl 5 source kit.
-
-Complete documentation for Perl, including FAQ lists, should be found on
-this system using "man perl" or "perldoc perl".  If you have access to the
-Internet, point your browser at http://www.perl.org/, the Perl Home Page.
-
+This is perl 5, version 28, subversion 0 (v5.28.0) built for darwin-2level
 updating from RC…
-+------------> Perl: Good/Bad [/1]
-|+-----------> SmOke testing []
-||+----------> sKipping validation []
-|||+---------> Interactive []
++------------> Perl: Good/Bad [16/3]
+|+-----------> SmOke testing [1]
+||+----------> sKipping validation [3]
+|||+---------> Interactive [2]
 ||||+--------> Touched (modified by me) []
-|||||+-------> Random seed []
+|||||+-------> Random seed [1]
 ||||||+------> File output []
-|||||||+-----> Draft [222]
-||||||||+----> Ignoring [64]
-|||||||||+---> Void (no local copy) [1099]
-||||||||||+--> Un-implemented/reliable [306]
+|||||||+-----> Draft [221]
+||||||||+----> Ignoring []
+|||||||||+---> Void (no local copy) [1086]
+||||||||||+--> Un-implemented/reliable [307]
 |||||||||||
-.........V. 100_doors
-.........V. 15_Puzzle_Game
+B.......... 100_doors
+B.......... 100_doors-2
+G.K........ 15_Puzzle_Game-1
+G.KI....... 15_Puzzle_Game-2
 .......D.VU 15_Puzzle_Game_in_3D
 .........VU 15_puzzle_solver
 .......D.VU 16_Puzzle_Game
 .........VU 2048
-.........V. 24_game
-.........V. 24_game_Solve
+G.KI....... 24_game
+G.......... 24_game_Solve
 .........VU 4-rings_or_4-squares_puzzle
-.........V. 99_Bottles_of_Beer
-.........V. 9_billion_names_of_God_the_integer
-.........V. A%2BB
+G.......... 99_Bottles_of_Beer
+G.......... 9_billion_names_of_God_the_integer
+GO......... A%2BB
 .......D.VU A*_search_algorithm
-.........V. ABC_Problem
-B.......... AKS_test_for_primes-2
+G.......... ABC_Problem
+G.......... AKS_test_for_primes-1
+G.......... AKS_test_for_primes-2
+G.......... AKS_test_for_primes-3
 .......D.VU ASCII_art_diagram_converter
 .........VU AVL_tree
 .......D.VU Abbreviations,_automatic
 .......D.VU Abbreviations,_easy
 .......D.VU Abbreviations,_simple
 .........V. Abstract_type
-.........V. Abundant,_deficient_and_perfect_number_classifications
-.........V. Accumulator_factory
+G.......... Abundant,_deficient_and_perfect_number_classifications
+G.......... Accumulator_factory
 .........V. Ackermann_function
 .........V. Active_Directory_Connect
 .........VU Active_Directory_Search_for_a_user
@@ -70,7 +64,7 @@ B.......... AKS_test_for_primes-2
 .........VU Apply_a_digital_filter_direct_form_II_transposed
 .........V. Arbitrary-precision_integers_included
 .........VU Archimedean_spiral
-........XVU Arena_storage_pool
+.........VU Arena_storage_pool
 .........V. Arithmetic-geometric_mean
 .........V. Arithmetic-geometric_mean_Calculate_Pi
 .........V. Arithmetic_Complex
@@ -81,8 +75,8 @@ B.......... AKS_test_for_primes-2
 .........V. Array_concatenation
 .........V. Array_length
 .........V. Arrays
-.......DXVU Aspect_Oriented_Programming
-........XV. Assertions
+.......D.VU Aspect_Oriented_Programming
+.........V. Assertions
 .......D.VU Assertions_in_design_by_contract
 .........V. Associative_array_Creation
 .........V. Associative_array_Iteration
@@ -124,7 +118,7 @@ B.......... AKS_test_for_primes-2
 .........V. Bitmap_Flood_fill
 .........VU Bitmap_Histogram
 .........VU Bitmap_Midpoint_circle_algorithm
-........XVU Bitmap_PPM_conversion_through_a_pipe
+.........VU Bitmap_PPM_conversion_through_a_pipe
 .........V. Bitmap_Read_a_PPM_file
 .........VU Bitmap_Read_an_image_through_a_pipe
 .........V. Bitmap_Write_a_PPM_file
@@ -145,13 +139,13 @@ B.......... AKS_test_for_primes-2
 .........V. CSV_to_HTML_translation
 .........V. CUSIP
 .........V. Caesar_cipher
-.......D.VU Calculating_the_value_of_e
+.........VU Calculating_the_value_of_e
 .........V. Calendar
 .........V. Calendar_-_for_%22REAL%22_programmers
 .........V. Call_a_foreign-language_function
-........XV. Call_a_function
+.........V. Call_a_function
 .........VU Call_a_function_in_a_shared_library
-........XV. Call_an_object_method
+.........V. Call_an_object_method
 .........VU Canny_edge_detector
 .......D.VU Cantor_set
 .......D.VU Card_shuffles
@@ -187,7 +181,7 @@ B.......... AKS_test_for_primes-2
 .........V. Closures_Value_capture
 .......D.VU Code_segment_unload
 .........V. Collections
-........XVU Color_of_a_screen_pixel
+.........VU Color_of_a_screen_pixel
 .........VU Color_quantization
 .......D.V. Color_wheel
 .........V. Colour_bars_Display
@@ -198,7 +192,7 @@ B.......... AKS_test_for_primes-2
 .........V. Combinations_with_repetitions
 .......D.VU Combinations_with_repetitions_Square_Digit_Chain
 .........V. Comma_quibbling
-........XV. Command-line_arguments
+.........V. Command-line_arguments
 .........VU Commatizing_numbers
 .........V. Comments
 .........V. Compare_a_list_of_strings
@@ -210,7 +204,7 @@ B.......... AKS_test_for_primes-2
 .........V. Compiler_syntax_analyzer
 .........V. Compiler_virtual_machine_interpreter
 .........V. Compound_data_type
-........XV. Concurrent_computing
+.........V. Concurrent_computing
 .........V. Conditional_structures
 .........V. Conjugate_transpose
 .........VU Constrained_genericity
@@ -225,12 +219,12 @@ B.......... AKS_test_for_primes-2
 .........V. Conway%27s_Game_of_Life
 .........V. Copy_a_string
 .........V. Count_in_factors
-.........V. Count_in_octal
+G.......... Count_in_octal
 .........V. Count_occurrences_of_a_substring
 .........V. Count_the_coins
 .........V. Cramer%27s_rule
 .........V. Create_a_file
-........XVU Create_a_file_on_magnetic_tape
+.........VU Create_a_file_on_magnetic_tape
 .........V. Create_a_two-dimensional_array_at_runtime
 .........V. Create_an_HTML_table
 .......D.V. Create_an_object_Native_demonstration
@@ -252,7 +246,7 @@ B.......... AKS_test_for_primes-2
 .......D.VU Decision_tables
 .........VU Deconvolution_1D
 .........VU Deconvolution_2D%2B
-........XV. Deepcopy
+.........V. Deepcopy
 .........V. Define_a_primitive_data_type
 .........V. Delegates
 .........V. Delete_a_file
@@ -277,7 +271,7 @@ B.......... AKS_test_for_primes-2
 .........VU Doubly-linked_list_Definition
 .........V. Doubly-linked_list_Element_definition
 .........V. Doubly-linked_list_Element_insertion
-........XVU Doubly-linked_list_Traversal
+.........VU Doubly-linked_list_Traversal
 .........V. Dragon_curve
 .........V. Draw_a_clock
 .........V. Draw_a_cuboid
@@ -356,7 +350,7 @@ B.......... AKS_test_for_primes-2
 .......D.V. Find_first_and_last_set_bit_of_a_long_integer
 .........V. Find_largest_left_truncatable_prime_in_a_given_base
 .........V. Find_limit_of_recursion
-.........V. Find_palindromic_numbers_in_both_binary_and_ternary_bases
+G.......... Find_palindromic_numbers_in_both_binary_and_ternary_bases
 .......D.VU Find_the_intersection_of_a_line_with_a_plane
 .........V. Find_the_intersection_of_two_lines
 .........V. Find_the_last_Sunday_of_each_month
@@ -370,7 +364,7 @@ B.......... AKS_test_for_primes-2
 .........V. FizzBuzz
 .........V. Flatten_a_list
 .........V. Flipping_bits_game
-........XV. Flow-control_structures
+.........V. Flow-control_structures
 .........V. Floyd%27s_triangle
 .........V. Floyd-Warshall_algorithm
 .........V. Forest_fire
@@ -388,11 +382,11 @@ B.......... AKS_test_for_primes-2
 .........V. Function_composition
 .........V. Function_definition
 .........V. Function_frequency
-........XV. Function_prototype
+.........V. Function_prototype
 .......D.VU Functional_coverage_tree
-........XV. GUI_Maximum_window_dimensions
-........XVU GUI_component_interaction
-........XVU GUI_enabling_disabling_of_controls
+.........V. GUI_Maximum_window_dimensions
+.........VU GUI_component_interaction
+.........VU GUI_enabling_disabling_of_controls
 .........VU Galton_box_animation
 .........V. Gamma_function
 .......D.VU Gauss-Jordan_matrix_inversion
@@ -432,8 +426,8 @@ B.......... AKS_test_for_primes-2
 .........V. Hash_join
 .........V. Haversine_formula
 .........V. Hello_world_Graphical
-........XV. Hello_world_Line_printer
-........XV. Hello_world_Newbie
+.........V. Hello_world_Line_printer
+.........V. Hello_world_Newbie
 .........V. Hello_world_Newline_omission
 .........V. Hello_world_Standard_error
 .........V. Hello_world_Text
@@ -482,7 +476,7 @@ B.......... AKS_test_for_primes-2
 .........V. Integer_overflow
 .......D.VU Integer_roots
 .........V. Integer_sequence
-........XV. Interactive_programming
+.........V. Interactive_programming
 .........V. Introspection
 .........V. Inverted_index
 .........V. Inverted_syntax
@@ -491,7 +485,7 @@ B.......... AKS_test_for_primes-2
 .........V. Jaro_distance
 .........V. Jensen%27s_Device
 .......D.VU Jewels_and_Stones
-........XV. JortSort
+.........V. JortSort
 .........V. Josephus_problem
 .........VU Joystick_position
 .........V. Julia_set
@@ -534,7 +528,7 @@ B.......... AKS_test_for_primes-2
 .........V. Levenshtein_distance
 .......D.V. Levenshtein_distance_Alignment
 .........V. Linear_congruential_generator
-.......DXVU Linux_CPU_utilization
+.......D.VU Linux_CPU_utilization
 .........V. List_comprehensions
 .......D.VU List_rooted_trees
 .........V. Literals_Floating_point
@@ -589,13 +583,12 @@ B.......... AKS_test_for_primes-2
 .......D.VU Matrix_chain_multiplication
 .........V. Matrix_multiplication
 .........V. Matrix_transposition
-........X.. Max_licenses_in_use
 .........V. Maximum_triangle_path_sum
 .........V. Maze_generation
 .........V. Maze_solving
 .........VU Median_filter
 .........VU Memory_allocation
-........XV. Memory_layout_of_a_data_structure
+.........V. Memory_layout_of_a_data_structure
 .........V. Menu
 .......D.V. Mersenne_primes
 .........V. Metaprogramming
@@ -607,7 +600,7 @@ B.......... AKS_test_for_primes-2
 .......D.V. Modular_arithmetic
 .........V. Modular_exponentiation
 .........V. Modular_inverse
-.......DXV. Modulinos
+.......D.V. Modulinos
 .......D.VU Monads_List_monad
 .......D.VU Monads_Maybe_monad
 .......D.VU Monads_Writer_monad
@@ -616,8 +609,8 @@ B.......... AKS_test_for_primes-2
 .........V. Monty_Hall_problem
 .......D.VU Morpion_solitaire
 .........V. Morse_code
-.......DXV. Most_frequent_k_chars_distance
-........XV. Mouse_position
+.......D.V. Most_frequent_k_chars_distance
+.........V. Mouse_position
 .........V. Move-to-front_algorithm
 .......D.VU Multi-dimensional_array
 .......D.VU Multidimensional_Newton-Raphson_method
@@ -630,8 +623,7 @@ B.......... AKS_test_for_primes-2
 .........V. Multisplit
 .........V. Munchausen_numbers
 .........V. Munching_squares
-.......DXVU Musical_scale
-........X.. Mutex
+.......D.VU Musical_scale
 .........V. Mutual_recursion
 .........V. N%27th
 .......D.VU N-body_problem
@@ -640,9 +632,9 @@ B.......... AKS_test_for_primes-2
 .........V. Named_parameters
 .......D.V. Names_to_numbers
 .........VU Naming_conventions
-........XV. Narcissist
+.........V. Narcissist
 .........V. Narcissistic_decimal_number
-.......DXV. Native_shebang
+.......D.V. Native_shebang
 .........V. Natural_sorting
 .........VU Nautical_bell
 .........VU Negative_base_numbers
@@ -655,13 +647,13 @@ B.......... AKS_test_for_primes-2
 .........VU Nonoblock
 .........VU Nonogram_solver
 .........V. Nth_root
-........XV. Null_object
+.........V. Null_object
 .........V. Number_names
 .........V. Number_reversal_game
 .........V. Numeric_error_propagation
 .........VU Numerical_integration
 .........VU Numerical_integration_Gauss-Legendre_Quadrature
-........XVU OLE_Automation
+.........VU OLE_Automation
 .........V. Object_serialization
 .........V. Odd_word_problem
 .......D.VU Old_Russian_measure_of_length
@@ -669,11 +661,11 @@ B.......... AKS_test_for_primes-2
 .........V. One-dimensional_cellular_automata
 .......D.VU One-time_pad
 .........V. One_of_n_lines_in_a_file
-........XV. OpenGL
+.........V. OpenGL
 .......D.VU OpenGL_Pixel_Shader
 .......D.VU OpenGL_Utah_Teapot
 .........VU OpenWebNet_Password
-........XV. Operator_precedence
+.........V. Operator_precedence
 .........V. Optional_parameters
 .......D.V. Orbital_elements
 .........V. Order_disjoint_list_items
@@ -685,9 +677,9 @@ B.......... AKS_test_for_primes-2
 .........V. Pangram_checker
 .........V. Paraffins
 .........V. Parallel_Brute_Force
-.........V. Parallel_calculations
+B.......... Parallel_calculations
 .........VU Parametric_polymorphism
-........XV. Parametrized_SQL_statement
+.........V. Parametrized_SQL_statement
 .......D.VU Parse_EBNF
 .........V. Parse_an_IP_Address
 .......D.V. Parse_command-line_arguments
@@ -702,7 +694,7 @@ B.......... AKS_test_for_primes-2
 .........V. Pascal_matrix_generation
 .........V. Password_generator
 .........VU Pathological_floating_point_problems
-.........V. Pattern_matching
+G....R..... Pattern_matching
 .........V. Penney%27s_game
 .......D.VU Penrose_tiling
 .........VU Pentagram
@@ -757,7 +749,7 @@ B.......... AKS_test_for_primes-2
 .........VU Problem_of_Apollonius
 .......D.VU Process_SMIL_directives_in_XML_data
 .........V. Program_name
-........XV. Program_termination
+.........V. Program_termination
 .......D.VU Proof
 .......D.V. Proper_divisors
 .........V. Pythagoras_tree
@@ -769,14 +761,14 @@ B.......... AKS_test_for_primes-2
 .........V. Queue_Usage
 .........V. Quickselect_algorithm
 .........V. Quine
-........XV. RCRPG
+.........V. RCRPG
 .........V. RIPEMD-160
 .........VU RSA_code
 .......D.VU Railway_circuit
 .........VU Ramer-Douglas-Peucker_line_simplification
 .......D.VU Ramsey%27s_theorem
 .........V. Random_number_generator_device
-........XV. Random_number_generator_included
+.........V. Random_number_generator_included
 .........V. Random_numbers
 .........V. Range_expansion
 .........V. Range_extraction
@@ -790,7 +782,7 @@ B.......... AKS_test_for_primes-2
 .........V. Read_entire_file
 .......D.VU Readline_interface
 .........V. Real_constants_and_functions
-........XVU Record_sound
+.........VU Record_sound
 .......D.VU Recursive_descent_parser_generator
 .........V. Reduced_row_echelon_form
 .........VU Reflection_Get_source
@@ -848,13 +840,13 @@ B.......... AKS_test_for_primes-2
 .........V. Same_Fringe
 .......D.VU Sattolo_cycle
 .........VU Scope_Function_names_and_labels
-........XV. Scope_modifiers
+.........V. Scope_modifiers
 .........V. Search_a_list
 .........V. Search_a_list_of_records
 .........V. Secure_temporary_file
-.......DXVU Selective_File_Copy
+.......D.VU Selective_File_Copy
 .........V. Self-describing_numbers
-.......DXVU Self-hosting_compiler
+.......D.VU Self-hosting_compiler
 .........V. Self-referential_sequence
 .........V. Semiprime
 .........V. Semordnilap
@@ -869,7 +861,7 @@ B.......... AKS_test_for_primes-2
 .........V. Set_of_real_numbers
 .........V. Set_puzzle
 .........V. Seven-sided_dice_from_five-sided_dice
-........XV. Shell_one-liner
+.........V. Shell_one-liner
 .........VU Shoelace_formula_for_polygonal_area
 .........V. Short-circuit_evaluation
 .......D.V. Shortest_common_supersequence
@@ -880,19 +872,19 @@ B.......... AKS_test_for_primes-2
 .........V. Sierpinski_triangle_Graphical
 .........V. Sieve_of_Eratosthenes
 .........V. Simple_database
-........XV. Simple_windowed_application
+.........V. Simple_windowed_application
 .........V. Simulate_input_Keyboard
 .........VU Simulate_input_Mouse
 .......D.VU Simulated_annealing
 .......D.VU Sine_wave
 .........V. Singleton
-........XV. Singly-linked_list_Element_definition
-........XV. Singly-linked_list_Element_insertion
+.........V. Singly-linked_list_Element_definition
+.........V. Singly-linked_list_Element_insertion
 .......D.VU Singly-linked_list_Element_removal
 .........V. Singly-linked_list_Traversal
 .........V. Sleep
 .........V. Smith_numbers
-.......DXV. Snake
+.......D.V. Snake
 .......D.VU Snake_And_Ladder
 .........V. Sockets
 .........V. Sokoban
@@ -937,16 +929,17 @@ B.......... AKS_test_for_primes-2
 .........V. Sparkline_in_unicode
 .........V. Special_characters
 .........V. Special_variables
-........XV. Speech_synthesis
+.........V. Speech_synthesis
 .......D.VU Spelling_of_ordinal_numbers
 .........VU Spinning_rod_animation_Text
 .........V. Spiral_matrix
 .........V. Split_a_character_string_based_on_change_of_character
 .......D.VU Spoof_game
+.........VU Square-free_integers
 .........V. Stable_marriage_problem
 .........V. Stack
 .........V. Stack_traces
-........XV. Stair-climbing_puzzle
+.........V. Stair-climbing_puzzle
 .........V. Start_from_a_main_routine
 .......D.VU Starting_a_web_browser
 .........V. State_name_puzzle
@@ -991,7 +984,7 @@ B.......... AKS_test_for_primes-2
 .........V. Synchronous_concurrency
 .........V. System_time
 .......D.VU Table_creation
-........XV. Table_creation_Postal_addresses
+.........V. Table_creation_Postal_addresses
 .........V. Take_notes_on_the_command_line
 .......D.VU Tamagotchi_emulator
 .......D.VU Tarjan
@@ -1003,9 +996,9 @@ B.......... AKS_test_for_primes-2
 .........V. Terminal_control_Cursor_positioning
 .........V. Terminal_control_Dimensions
 .........VU Terminal_control_Display_an_extended_character
-........XVU Terminal_control_Hiding_the_cursor
+.........VU Terminal_control_Hiding_the_cursor
 .........VU Terminal_control_Inverse_video
-........XVU Terminal_control_Positional_read
+.........VU Terminal_control_Positional_read
 .........V. Terminal_control_Preserve_screen
 .......D.VU Terminal_control_Restricted_width_positional_input_No_wrapping
 .......D.VU Terminal_control_Restricted_width_positional_input_With_wrapping
@@ -1056,7 +1049,7 @@ B.......... AKS_test_for_primes-2
 .......D.VU Ukkonen%E2%80%99s_Suffix_Tree_Construction
 .........V. Ulam_spiral_for_primes
 .........V. Unbias_a_random_generator
-........XV. Undefined_values
+.........V. Undefined_values
 .......D.VU Unicode_polynomial_equation
 .........V. Unicode_strings
 .........V. Unicode_variable_names
@@ -1066,7 +1059,7 @@ B.......... AKS_test_for_primes-2
 .........V. Update_a_configuration_file
 .........VU Use_another_language_to_call_a_function
 .......D.V. User_defined_pipe_and_redirection_operators
-........XV. User_input_Graphical
+.........V. User_input_Graphical
 .........V. User_input_Text
 .......D.VU Using_a_Speech_engine_to_highlight_words
 .......D.VU Using_the_Meetup.com_API
@@ -1076,14 +1069,14 @@ B.......... AKS_test_for_primes-2
 .........V. Van_der_Corput_sequence
 .........V. Variable-length_quantity
 .........V. Variable_size_Get
-........XV. Variable_size_Set
-........XV. Variables
+.........V. Variable_size_Set
+.........V. Variables
 .........V. Variadic_function
 .......D.V. Vector
 .........V. Vector_products
 .........VU Verify_distribution_uniformity_Chi-squared_test
 .........VU Verify_distribution_uniformity_Naive
-........XVU Video_display_modes
+.........VU Video_display_modes
 .........V. Vigen%C3%A8re_cipher
 .........VU Vigen%C3%A8re_cipher_Cryptanalysis
 .........V. Visualize_a_tree
@@ -1094,12 +1087,12 @@ B.......... AKS_test_for_primes-2
 .........V. Water_collected_between_towers
 .......D.VU Waveform_analysis_Doh_ray_me
 .......D.VU Waveform_analysis_Top_and_tail
-.......DXVU Weather_Routing
+.......D.VU Weather_Routing
 .........V. Web_scraping
 .......D.V. Welch%27s_t-test
-........XV. Window_creation
-........XV. Window_creation_X11
-........XV. Window_management
+.........V. Window_creation
+.........V. Window_creation_X11
+.........V. Window_management
 .........V. Wireworld
 .......D.VU Word_break_problem
 .......D.VU Word_count
@@ -1109,7 +1102,7 @@ B.......... AKS_test_for_primes-2
 .........V. Write_entire_file
 .........V. Write_float_arrays_to_a_text_file
 .........V. Write_language_name_in_3D_ASCII
-........XV. Write_to_Windows_event_log
+.........V. Write_to_Windows_event_log
 .........V. XML_DOM_serialization
 .........V. XML_Input
 .........V. XML_Output
@@ -1117,7 +1110,7 @@ B.......... AKS_test_for_primes-2
 .........V. XML_XPath
 .........V. Xiaolin_Wu%27s_line_algorithm
 .........V. Y_combinator
-........XV. Yahoo!_search_interface
+.........V. Yahoo!_search_interface
 .........V. Yin_and_yang
 .........V. Zebra_puzzle
 .........VU Zeckendorf_arithmetic
