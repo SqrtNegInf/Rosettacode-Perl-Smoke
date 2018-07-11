@@ -1,0 +1,49 @@
+#!/usr/local/bin/perl
+## get/split multi-part tasks using 'RC-run.p6'
+#  David H.  2018-07-10
+
+$template = <<'EOD';
+#!/usr/local/bin/perl
+#u# http://rosettacode.org/wiki/X-task-X
+#c# X-date-X <RC
+#p# OK
+
+use feature 'say';
+my $result;
+
+X-code-X
+
+#say $result;
+
+my $ref = <<END;
+END
+
+use Test::More;
+#is ($result, $ref);
+#done_testing();
+EOD
+
+$task = shift || die;
+$taskdir = "$ENV{HOME}/perl6/Rosetta-Code/thundergnat/rc-run/rc/perl/$task";
+
+#chdir "$ENV{HOME}/perl6/Rosetta-Code/thundergnat/rc-run";
+#system "perl6 RC-run.p6 --lang=perl $task";
+
+chdir "$ENV{HOME}/perl5/Rosetta-Code";
+
+$date = `date +%Y-%m-%d`; chomp $date;
+
+$c = 0;
+for $t (glob "$taskdir/*pl") {
+    $c++;
+    $source = `cat $t`;
+    $code = $template;
+    $code =~ s/X-task-X/$task/;
+    $code =~ s/X-date-X/$date/;
+    $code =~ s/X-code-X/$source/;
+    ($tnew = $t) =~ s/(\d).pl/-$1/;
+    open F, ">${task}-$c";
+    print F $code;
+    close F;
+    system "chmod +x ${task}-$c";
+}
