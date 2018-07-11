@@ -1,0 +1,36 @@
+#!/usr/local/bin/perl
+#u# http://rosettacode.org/wiki/Ackermann_function
+#c# 2018-07-10 <RC
+#p# OK
+
+use feature 'say';
+my $result;
+
+use Memoize;  memoize('ack2');
+use bigint try=>"GMP";
+
+sub ack2 {
+   my ($m, $n) = @_;
+   $m == 0 ? $n + 1 :
+   $m == 1 ? $n + 2 :
+   $m == 2 ? 2*$n + 3 :
+   $m == 3 ? 8 * (2**$n - 1) + 5 :
+   $n == 0 ? ack2($m-1, 1)
+           : ack2($m-1, ack2($m, $n-1));
+}
+
+$result = "ack2(3,4) is ". ack2(3,4). "\n";
+$result .= "ack2(4,1) is ". ack2(4,1). "\n";
+$result .= "ack2(4,2) has ". length(ack2(4,2)). " digits\n";
+
+say $result;
+
+my $ref = <<END;
+ack2(3,4) is 125
+ack2(4,1) is 65533
+ack2(4,2) has 19729 digits
+END
+
+use Test::More;
+is ($result, $ref);
+done_testing();
