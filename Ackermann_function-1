@@ -1,0 +1,28 @@
+#!/usr/local/bin/perl
+#u# http://rosettacode.org/wiki/Ackermann_function
+#c# 2018-07-10 <RC
+#p# OK
+
+use feature 'say';
+my $result;
+
+{
+    my @memo;
+    sub A {
+        my( $m, $n ) = @_;
+        $memo[ $m ][ $n ] and return $memo[ $m ][ $n ];
+        $m or return $n + 1;
+        return $memo[ $m ][ $n ] = (
+            $n
+               ? A( $m - 1, A( $m, $n - 1 ) )
+               : A( $m - 1, 1 )
+        );
+    }
+}
+
+say $result = A(4,1);
+say A(4,2);
+
+use Test::More;
+is ($result, 65533);
+done_testing();
