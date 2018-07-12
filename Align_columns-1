@@ -1,0 +1,108 @@
+#!/usr/local/bin/perl
+#u# http://rosettacode.org/wiki/Align_columns
+#c# 2018-07-11 <RC
+#p# OK
+
+use feature 'say';
+my $result;
+
+use strict;
+use warnings;
+
+#die "Call : perl columnaligner.pl <inputfile> <printorientation>!\n" unless
+#   @ARGV == 2 ; #$ARGV[ 0 ] contains example file , $ARGV[1] any of 'left' , 'right' or 'center'
+#die "last argument must be one of center, left or right!\n" unless
+#   $ARGV[ 1 ] =~ /center|left|right/ ;
+
+#sub printLines( $$$ ) ;
+
+#open INFILE , "<" , "$ARGV[ 0 ]" or die "Can't open $ARGV[ 0 ]!\n" ;
+#my @lines = <INFILE> ;
+#close INFILE ;
+
+my @lines = split /\n/, <<'END';
+Given$a$text$file$of$many$lines,$where$fields$within$a$line$
+are$delineated$by$a$single$'dollar'$character,$write$a$program
+that$aligns$each$column$of$fields$by$ensuring$that$words$in$each$
+column$are$separated$by$at$least$one$space.
+Further,$allow$for$each$word$in$a$column$to$be$either$left$
+justified,$right$justified,$or$center$justified$within$its$column.
+END
+
+chomp @lines ;
+my @fieldwidths = map length, split /\$/ , $lines[ 0 ] ;
+foreach my $i ( 1..$#lines ) {
+   my @words = split /\$/ , $lines[ $i ] ;
+   foreach my $j ( 0..$#words ) {
+      if ( $j <= $#fieldwidths ) {
+         if ( length $words[ $j ] > $fieldwidths[ $j ] ) {
+               $fieldwidths[ $j ] = length $words[ $j ] ;
+         }
+      }
+      else {
+         push @fieldwidths, length $words[ $j ] ;
+      }
+   }
+}
+
+$result .= printLine( $_ , 'left'  , \@fieldwidths ) foreach @lines ;
+$result .= printLine( $_ , 'right' , \@fieldwidths ) foreach @lines ;
+$result .= printLine( $_ , 'center', \@fieldwidths ) foreach @lines ;
+
+say $result;
+
+sub printLine {
+my $text;
+   my $line = shift ;
+   my $orientation = shift ;
+   my $widthref = shift ;
+   my @words = split /\$/, $line ;
+   foreach my $k ( 0..$#words ) {
+      my $printwidth = $widthref->[ $k ] + 1 ;
+      if ( $orientation eq 'center' ) {
+         $printwidth++ ;
+      }
+      if ( $orientation eq 'left' ) {
+         $text .= $words[ $k ] ;
+         $text .= " " x ( $printwidth - length $words[ $k ] ) ;
+      }
+      elsif ( $orientation eq 'right' ) {
+         $text .= " " x ( $printwidth - length $words[ $k ] ) ;
+         $text .= $words[ $k ] ;
+      }
+      elsif ( $orientation eq 'center' ) {
+         my $left = int( ( $printwidth - length $words[ $k ] )     / 2 ) ;
+         my $right = $printwidth - length( $words[ $k ] ) - $left      ;
+         $text .= " " x $left ;
+         $text .= $words[ $k ] ;
+         $text .= " " x $right ;
+      }
+   }
+   $text .= "\n" ;
+   return $text;
+}
+
+my $ref = <<END;
+Given      a          text       file   of     many      lines,     where    fields  within  a      line 
+are        delineated by         a      single 'dollar'  character, write    a       program 
+that       aligns     each       column of     fields    by         ensuring that    words   in     each 
+column     are        separated  by     at     least     one        space.   
+Further,   allow      for        each   word   in        a          column   to      be      either left 
+justified, right      justified, or     center justified within     its      column. 
+      Given          a       text   file     of      many     lines,    where  fields  within      a line
+        are delineated         by      a single  'dollar' character,    write       a program
+       that     aligns       each column     of    fields         by ensuring    that   words     in each
+     column        are  separated     by     at     least        one   space.
+   Further,      allow        for   each   word        in          a   column      to      be either left
+ justified,      right justified,     or center justified     within      its column.
+   Given         a          text      file     of      many       lines,     where    fields   within     a     line 
+    are      delineated      by        a     single  'dollar'   character,   write       a     program 
+    that       aligns       each     column    of     fields        by      ensuring   that     words     in    each 
+   column       are      separated     by      at      least       one       space.  
+  Further,     allow        for       each    word      in          a        column     to       be     either  left 
+ justified,    right     justified,    or    center  justified    within      its     column. 
+END
+
+use Test::More;
+is ($result, $ref);
+done_testing();
