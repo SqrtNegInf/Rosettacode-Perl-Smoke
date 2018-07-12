@@ -26,8 +26,8 @@ EOD
 $task = shift || die;
 $taskdir = "$ENV{HOME}/perl6/Rosetta-Code/thundergnat/rc-run/rc/perl/$task";
 
-#chdir "$ENV{HOME}/perl6/Rosetta-Code/thundergnat/rc-run";
-#system "perl6 RC-run.p6 --lang=perl $task";
+chdir "$ENV{HOME}/perl6/Rosetta-Code/thundergnat/rc-run";
+system "perl6 RC-run.p6 --lang=perl $task";
 
 chdir "$ENV{HOME}/perl5/Rosetta-Code";
 
@@ -35,15 +35,16 @@ $date = `date +%Y-%m-%d`; chomp $date;
 
 $c = 0;
 for $t (glob "$taskdir/*pl") {
-    $c++;
     $source = `cat $t`;
     $code = $template;
     $code =~ s/X-task-X/$task/;
     $code =~ s/X-date-X/$date/;
     $code =~ s/X-code-X/$source/;
     ($tnew = $t) =~ s/(\d).pl/-$1/;
-    open F, ">${task}-$c";
-    print F $code;
-    close F;
-    system "chmod +x ${task}-$c";
+
+    $c++;
+    $fname = "${task}-$c";
+    die 'File already exists, aborting (delete by hand first)' if -e $fname;
+    open F, ">$fname"; print F $code; close F;
+    system "chmod +x $fname";
 }
