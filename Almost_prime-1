@@ -1,0 +1,30 @@
+#!/usr/local/bin/perl
+#u# http://rosettacode.org/wiki/Almost_prime
+#c# 2018-07-11 <RC
+#p# OK
+
+use feature 'say';
+my $result;
+
+use ntheory qw/factor/;
+
+sub almost {
+  my($k,$n) = @_;
+  my $i = 1;
+  map { $i++ while scalar factor($i) != $k; $i++ } 1..$n;
+}
+$result .= "$_ : " . join(" ", almost($_,10)) . "\n" for 1..5;
+
+say $result;
+
+my $ref = <<END;
+1 : 2 3 5 7 11 13 17 19 23 29
+2 : 4 6 9 10 14 15 21 22 25 26
+3 : 8 12 18 20 27 28 30 42 44 45
+4 : 16 24 36 40 54 56 60 81 84 88
+5 : 32 48 72 80 108 112 120 162 168 176
+END
+
+use Test::More;
+is ($result, $ref);
+done_testing();
