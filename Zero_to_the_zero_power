@@ -1,0 +1,24 @@
+#!/usr/local/bin/perl
+#u# http://rosettacode.org/wiki/Zero_to_the_zero_power
+#c# 2018-07-11 <RC
+#p# OK
+
+use feature 'say';
+my $result;
+
+$result .= 0 ** 0 . "\n";
+ 
+use Math::Complex;
+ 
+$result .= cplx(0,0) ** cplx(0,0) . "\n";
+
+say $result;
+
+my $ref = <<EOD;
+1
+1
+EOD
+
+use Test::More;
+is ($result, $ref);
+done_testing();
