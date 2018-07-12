@@ -1,0 +1,77 @@
+#!/usr/local/bin/perl
+#u# http://rosettacode.org/wiki/Aliquot_sequence_classifications
+#c# 2018-07-11 <RC
+#p# OK
+
+use feature 'say';
+my $result;
+
+use ntheory qw/divisor_sum/;
+ 
+sub aliquot {
+  my($n, $maxterms, $maxn) = @_;
+  $maxterms = 16 unless defined $maxterms;
+  $maxn = 2**47 unless defined $maxn;
+ 
+  my %terms = ($n => 1);
+  my @allterms = ($n);
+  for my $term (2 .. $maxterms) {
+    $n = divisor_sum($n)-$n;
+    # push onto allterms here if we want the cyclic term to display
+    last if $n > $maxn;
+    return ("terminates",@allterms, 0) if $n == 0;
+    if (defined $terms{$n}) {
+      return ("perfect",@allterms)  if $term == 2 && $terms{$n} == 1;
+      return ("amicible",@allterms) if $term == 3 && $terms{$n} == 1;
+      return ("sociable-".($term-1),@allterms) if $term >  3 && $terms{$n} == 1;
+      return ("aspiring",@allterms) if $terms{$n} == $term-1;
+      return ("cyclic-".($term-$terms{$n}),@allterms)   if $terms{$n} < $term-1;
+    }
+    $terms{$n} = $term;
+    push @allterms, $n;
+  }
+  ("non-term",@allterms);
+}
+ 
+for my $n (1..10) {
+  my($class, @seq) = aliquot($n);
+  $result .= sprintf "%14d %10s [@seq]\n", $n, $class;
+}
+print "\n";
+for my $n (qw/11 12 28 496 220 1184 12496 1264460 790 909 562 1064 1488 15355717786080/) {
+  my($class, @seq) = aliquot($n);
+  $result .= sprintf "%14d %10s [@seq]\n", $n, $class;
+}
+
+say $result;
+
+my $ref = <<EOD;
+             1 terminates [1 0]
+             2 terminates [2 1 0]
+             3 terminates [3 1 0]
+             4 terminates [4 3 1 0]
+             5 terminates [5 1 0]
+             6    perfect [6]
+             7 terminates [7 1 0]
+             8 terminates [8 7 1 0]
+             9 terminates [9 4 3 1 0]
+            10 terminates [10 8 7 1 0]
+            11 terminates [11 1 0]
+            12 terminates [12 16 15 9 4 3 1 0]
+            28    perfect [28]
+           496    perfect [496]
+           220   amicible [220 284]
+          1184   amicible [1184 1210]
+         12496 sociable-5 [12496 14288 15472 14536 14264]
+       1264460 sociable-4 [1264460 1547860 1727636 1305184]
+           790   aspiring [790 650 652 496]
+           909   aspiring [909 417 143 25 6]
+           562   cyclic-2 [562 284 220]
+          1064   cyclic-2 [1064 1336 1184 1210]
+          1488   non-term [1488 2480 3472 4464 8432 9424 10416 21328 22320 55056 95728 96720 236592 459792 881392 882384]
+15355717786080   non-term [15355717786080 44534663601120]
+EOD
+
+use Test::More;
+is ($result, $ref);
+done_testing();
