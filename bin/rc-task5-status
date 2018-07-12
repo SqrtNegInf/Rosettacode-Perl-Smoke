@@ -168,3 +168,5 @@ return $x;
 
 # these are being ignored, for various reasons
 __DATA__
+Active_Directory_Connect
+Abstract_type
