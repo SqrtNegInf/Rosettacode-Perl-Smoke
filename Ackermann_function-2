@@ -13,8 +13,8 @@ sub A {
     else            { A($m - 1, A($m, $n - 1)) }
 }
 
-say $result = A(4,1);
+say $result = A(3,2);
 
 use Test::More;
-is ($result, 65533);
+is ($result, 29);
 done_testing();
