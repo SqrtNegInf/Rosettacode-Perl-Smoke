@@ -1,20 +1,20 @@
 
-This is perl 5, version 28, subversion 0 (v5.28.0) built for darwin-2level
-updating from RC…
-+------------> Perl: Good/Bad [16/3]
-|+-----------> SmOke testing [1]
+This is perl 5, version 28, subversion 0 (v5.28.0) built for darwin-thread-multi-2level
++------------> Perl: Good/Bad [33/]
+|+-----------> SmOke testing [31]
 ||+----------> sKipping validation [3]
 |||+---------> Interactive [2]
 ||||+--------> Touched (modified by me) []
 |||||+-------> Random seed [1]
 ||||||+------> File output []
 |||||||+-----> Draft [221]
-||||||||+----> Ignoring []
-|||||||||+---> Void (no local copy) [1086]
+||||||||+----> Ignoring [2]
+|||||||||+---> Void (no local copy) [1077]
 ||||||||||+--> Un-implemented/reliable [307]
 |||||||||||
-B.......... 100_doors
-B.......... 100_doors-2
+GO......... 100_doors-1
+GO......... 100_doors-2
+GO......... 100_doors-3
 G.K........ 15_Puzzle_Game-1
 G.KI....... 15_Puzzle_Game-2
 .......D.VU 15_Puzzle_Game_in_3D
@@ -22,35 +22,39 @@ G.KI....... 15_Puzzle_Game-2
 .......D.VU 16_Puzzle_Game
 .........VU 2048
 G.KI....... 24_game
-G.......... 24_game_Solve
+GO......... 24_game_Solve
 .........VU 4-rings_or_4-squares_puzzle
-G.......... 99_Bottles_of_Beer
-G.......... 9_billion_names_of_God_the_integer
+GO......... 99_Bottles_of_Beer
+GO......... 9_billion_names_of_God_the_integer
 GO......... A%2BB
 .......D.VU A*_search_algorithm
-G.......... ABC_Problem
-G.......... AKS_test_for_primes-1
-G.......... AKS_test_for_primes-2
-G.......... AKS_test_for_primes-3
+GO......... ABC_Problem
+GO......... AKS_test_for_primes-1
+GO......... AKS_test_for_primes-2
+GO......... AKS_test_for_primes-3
 .......D.VU ASCII_art_diagram_converter
 .........VU AVL_tree
 .......D.VU Abbreviations,_automatic
 .......D.VU Abbreviations,_easy
 .......D.VU Abbreviations,_simple
-.........V. Abstract_type
-G.......... Abundant,_deficient_and_perfect_number_classifications
-G.......... Accumulator_factory
-.........V. Ackermann_function
-.........V. Active_Directory_Connect
+........XV. Abstract_type
+GO......... Abundant,_deficient_and_perfect_number_classifications
+GO......... Accumulator_factory
+GO......... Ackermann_function-1
+GO......... Ackermann_function-2
+GO......... Ackermann_function-3
+........XV. Active_Directory_Connect
 .........VU Active_Directory_Search_for_a_user
-.........V. Active_object
-.........V. Add_a_variable_to_a_class_instance_at_runtime
+GO......... Active_object
+GO......... Add_a_variable_to_a_class_instance_at_runtime
 .......D.VU Addition-chain_exponentiation
 .......D.VU Addition_chains
-.........V. Address_of_a_variable
-.........V. Align_columns
-.........V. Aliquot_sequence_classifications
-.........V. Almost_prime
+GO......... Address_of_a_variable
+!O......... Align_columns-1
+GO......... Align_columns-2
+GO......... Aliquot_sequence_classifications
+GO......... Almost_prime-1
+GO......... Almost_prime-2
 .........V. Amb
 .........V. Amicable_pairs
 .........V. Anagrams
@@ -219,7 +223,7 @@ G.......... Accumulator_factory
 .........V. Conway%27s_Game_of_Life
 .........V. Copy_a_string
 .........V. Count_in_factors
-G.......... Count_in_octal
+GO......... Count_in_octal
 .........V. Count_occurrences_of_a_substring
 .........V. Count_the_coins
 .........V. Cramer%27s_rule
@@ -350,7 +354,7 @@ G.......... Count_in_octal
 .......D.V. Find_first_and_last_set_bit_of_a_long_integer
 .........V. Find_largest_left_truncatable_prime_in_a_given_base
 .........V. Find_limit_of_recursion
-G.......... Find_palindromic_numbers_in_both_binary_and_ternary_bases
+GO......... Find_palindromic_numbers_in_both_binary_and_ternary_bases
 .......D.VU Find_the_intersection_of_a_line_with_a_plane
 .........V. Find_the_intersection_of_two_lines
 .........V. Find_the_last_Sunday_of_each_month
@@ -677,7 +681,7 @@ G.......... Find_palindromic_numbers_in_both_binary_and_ternary_bases
 .........V. Pangram_checker
 .........V. Paraffins
 .........V. Parallel_Brute_Force
-B.......... Parallel_calculations
+GO......... Parallel_calculations
 .........VU Parametric_polymorphism
 .........V. Parametrized_SQL_statement
 .......D.VU Parse_EBNF
@@ -694,7 +698,7 @@ B.......... Parallel_calculations
 .........V. Pascal_matrix_generation
 .........V. Password_generator
 .........VU Pathological_floating_point_problems
-G....R..... Pattern_matching
+GO...R..... Pattern_matching
 .........V. Penney%27s_game
 .......D.VU Penrose_tiling
 .........VU Pentagram
@@ -1115,6 +1119,7 @@ G....R..... Pattern_matching
 .........V. Zebra_puzzle
 .........VU Zeckendorf_arithmetic
 .........V. Zeckendorf_number_representation
-.........V. Zero_to_the_zero_power
+GO......... Zero_to_the_zero_power
 .........VU Zhang-Suen_thinning_algorithm
-.........V. Zig-zag_matrix
+GO......... Zig-zag_matrix-1
+GO......... Zig-zag_matrix-2
