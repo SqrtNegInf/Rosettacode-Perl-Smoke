@@ -1,0 +1,39 @@
+#!/usr/local/bin/perl
+#u# http://rosettacode.org/wiki/Amb
+#c# 2018-07-11 <RC
+#p# OK
+
+
+use strict;
+use warnings;
+use feature 'say';
+use re 'eval';
+
+my $result;
+
+sub amb ($@) {
+    my $var = shift;
+    join ' || ', map { "(?{ $var = '$_' })" } @_;
+}
+
+sub joins {
+    substr(shift,-1,1) eq substr(shift,0,1)
+}
+
+my ($a,$b,$c,$d);
+'' =~ m/
+    (??{  amb '$a', qw[the that a]           })
+    (??{  amb '$b', qw[frog elephant thing]  })
+    (??{  amb '$c', qw[walked treaded grows] })
+    (??{  amb '$d', qw[slowly quickly]       })
+    (?(?{ joins($b, $c)                      })|(*FAIL))
+    (?(?{ joins($a, $b)                      })|(*FAIL))
+    (?(?{ joins($c, $d)                      })|(*FAIL))
+    (?{   $result = "$a $b $c $d"                  })
+/x;
+
+say $result;
+
+use Test::More;
+is ($result, 'that thing grows slowly');
+done_testing();
