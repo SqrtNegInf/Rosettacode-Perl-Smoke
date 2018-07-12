@@ -6,7 +6,8 @@ How hard can it be?  :-)
 
 ## Timeline 
 
-Currently just getting started.  Will be testing against the just-released 5.28 version.
+Currently just getting started. Initially, will be testing against the just-released 5.28 version.
+Once the first pass of all tasks is complete, will then switch to testing against blead.
 
 Will be done by Christmas.  ;-)
 
