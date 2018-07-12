@@ -21,7 +21,6 @@ my $result;
 }
 
 say $result = A(4,1);
-say A(4,2);
 
 use Test::More;
 is ($result, 65533);
