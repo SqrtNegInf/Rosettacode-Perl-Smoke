@@ -24,7 +24,12 @@ use Test::More;
 EOD
 
 $task = shift || die;
-$taskdir = "$ENV{HOME}/perl6/Rosetta-Code/thundergnat/rc-run/rc/perl/$task";
+
+(my $tname = $task) =~ s#/#_#g;
+$tname =~ s#'#_#g;
+$tname =~ s#\$#_#g;
+
+$taskdir = "$ENV{HOME}/perl6/Rosetta-Code/thundergnat/rc-run/rc/perl/$tname";
 
 chdir "$ENV{HOME}/perl6/Rosetta-Code/thundergnat/rc-run";
 system "perl6 RC-run.p6 --lang=perl $task";
@@ -37,14 +42,17 @@ $c = 0;
 for $t (glob "$taskdir/*pl") {
     $source = `cat $t`;
     $code = $template;
-    $code =~ s/X-task-X/$task/;
+    $code =~ s/X-task-X/$taskpath/;
     $code =~ s/X-date-X/$date/;
     $code =~ s/X-code-X/$source/;
     ($tnew = $t) =~ s/(\d).pl/-$1/;
 
     $c++;
-    $fname = "${task}-$c";
+    $fname = "${tname}-$c";
     die 'File already exists, aborting (delete by hand first)' if -e $fname;
     open F, ">$fname"; print F $code; close F;
     system "chmod +x $fname";
 }
+
+$DB::single = 1;
+rename "${tname}-1", $tname if 1 == $c;
