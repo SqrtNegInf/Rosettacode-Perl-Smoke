@@ -1,0 +1,30 @@
+#!/usr/local/bin/perl
+#u# http://rosettacode.org/wiki/Amicable_pairs
+#c# 2018-07-13 <RC
+#p# OK
+
+use feature 'say';
+my $result;
+
+use ntheory qw/divisor_sum/;
+for my $x (1..20000) {
+  my $y = divisor_sum($x)-$x;
+  $result .= "$x $y\n" if $y > $x && $x == divisor_sum($y)-$y;
+}
+
+say $result;
+
+my $ref = <<END;
+220 284
+1184 1210
+2620 2924
+5020 5564
+6232 6368
+10744 10856
+12285 14595
+17296 18416
+END
+
+use Test::More;
+is ($result, $ref);
+done_testing();
