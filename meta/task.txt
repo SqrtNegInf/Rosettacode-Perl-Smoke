@@ -1,16 +1,16 @@
 
 This is perl 5, version 28, subversion 0 (v5.28.0) built for darwin-thread-multi-2level
-+------------> Perl: Good/Bad [33/]
-|+-----------> SmOke testing [31]
++------------> Perl: Good/Bad [44/]
+|+-----------> SmOke testing [41]
 ||+----------> sKipping validation [3]
 |||+---------> Interactive [2]
 ||||+--------> Touched (modified by me) []
-|||||+-------> Random seed [1]
-||||||+------> File output []
+|||||+-------> Random seed [2]
+||||||+------> File output [1]
 |||||||+-----> Draft [221]
 ||||||||+----> Ignoring [2]
-|||||||||+---> Void (no local copy) [1077]
-||||||||||+--> Un-implemented/reliable [307]
+|||||||||+---> Void (no local copy) [1070]
+||||||||||+--> Un-implemented/reliable [306]
 |||||||||||
 GO......... 100_doors-1
 GO......... 100_doors-2
@@ -50,15 +50,18 @@ GO......... Add_a_variable_to_a_class_instance_at_runtime
 .......D.VU Addition-chain_exponentiation
 .......D.VU Addition_chains
 GO......... Address_of_a_variable
-!O......... Align_columns-1
+GO......... Align_columns-1
 GO......... Align_columns-2
 GO......... Aliquot_sequence_classifications
 GO......... Almost_prime-1
 GO......... Almost_prime-2
-.........V. Amb
-.........V. Amicable_pairs
-.........V. Anagrams
-.........V. Anagrams_Deranged_anagrams
+GO......... Amb-1
+GO......... Amb-2
+GO......... Amb-3
+GO......... Amicable_pairs
+GO......... Anagrams-1
+GO......... Anagrams-2
+GO......... Anagrams_Deranged_anagrams
 .........VU Angle_difference_between_two_bearings
 .........V. Animate_a_pendulum
 .........V. Animation
@@ -102,7 +105,7 @@ GO......... Almost_prime-2
 .........V. Balanced_brackets
 .........V. Balanced_ternary
 .......D.VU Banker%27s_algorithm
-.........V. Barnsley_fern
+GO...RF.... Barnsley_fern
 .......D.VU Base58Check_encoding
 .......D.V. Base64_encode_data
 .........V. Benford%27s_law
@@ -939,7 +942,7 @@ GO...R..... Pattern_matching
 .........V. Spiral_matrix
 .........V. Split_a_character_string_based_on_change_of_character
 .......D.VU Spoof_game
-.........VU Square-free_integers
+.........V. Square-free_integers
 .........V. Stable_marriage_problem
 .........V. Stack
 .........V. Stack_traces
@@ -1116,9 +1119,9 @@ GO...R..... Pattern_matching
 .........V. Y_combinator
 .........V. Yahoo!_search_interface
 .........V. Yin_and_yang
-.........V. Zebra_puzzle
+GO......... Zebra_puzzle
 .........VU Zeckendorf_arithmetic
-.........V. Zeckendorf_number_representation
+GO......... Zeckendorf_number_representation
 GO......... Zero_to_the_zero_power
 .........VU Zhang-Suen_thinning_algorithm
 GO......... Zig-zag_matrix-1
