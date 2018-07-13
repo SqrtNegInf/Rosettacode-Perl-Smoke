@@ -1,0 +1,41 @@
+#!/usr/local/bin/perl
+#u# http://rosettacode.org/wiki/Anagrams
+#c# 2018-07-13 <RC
+#p# OK
+
+use feature 'say';
+my $result;
+
+#use LWP::Simple;
+use List::Util qw(max);
+
+my @words = split("\n", `cat ref/unixdict.txt`);
+#my @words = split(' ', get('http://www.puzzlers.org/pub/wordlists/unixdict.txt'));
+my %anagram;
+foreach my $word (@words) {
+    push @{ $anagram{join('', sort(split(//, $word)))} }, $word;
+}
+
+my @temp;
+my $count = max(map {scalar @$_} values %anagram);
+foreach my $ana (sort values %anagram) {
+    if (@$ana >= $count) {
+        push @temp, "@$ana\n";
+    }
+}
+
+for $grams (sort @temp) { $result .= $grams }
+say $result; 
+
+my $ref = <<END;
+abel able bale bela elba
+alger glare lager large regal
+angel angle galen glean lange
+caret carte cater crate trace
+elan lane lean lena neal
+evil levi live veil vile
+END
+
+use Test::More;
+is ($result, $ref);
+done_testing();
