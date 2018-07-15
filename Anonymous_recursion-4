@@ -1,0 +1,19 @@
+#!/usr/local/bin/perl
+#u# http://rosettacode.org/wiki/
+#c# 2018-07-13 <RC
+#p# BROKEN
+
+use feature 'say';
+my $result;
+
+use v5.16;
+$result .= sub {
+  my $n = shift;
+  $n < 2 ? $n . ' ' : __SUB__->($n-2) + __SUB__->($n-1) . ' '
+}->($_) for 0..10;
+
+say $result;
+
+use Test::More;
+is ($result, '0 1 1 2 3 5 8 13 21 34 55 ');
+done_testing();
