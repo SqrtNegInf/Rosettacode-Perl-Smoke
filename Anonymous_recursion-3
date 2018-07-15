@@ -1,0 +1,25 @@
+#!/usr/local/bin/perl
+#u# http://rosettacode.org/wiki/
+#c# 2018-07-13 <RC
+#p# OK
+#n# but fib(0) incorrect, not that it matters...
+
+use feature 'say';
+my $result;
+
+sub fibo {
+    my $n = shift;
+    $n < 0 and die 'Negative argument';
+    no strict 'refs';
+    $n < 3 ? 1 : (caller(0))[3]->($n - 1) + (caller(0))[3]->($n - 2);
+}
+
+$result .= (fibo($_) . " ") for (0 .. 10);
+say $result;
+
+my $ref = <<END;
+END
+
+use Test::More;
+is ($result, '1 1 1 2 3 5 8 13 21 34 55 ');
+done_testing();
