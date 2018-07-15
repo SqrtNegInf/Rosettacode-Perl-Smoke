@@ -1,0 +1,50 @@
+#!/usr/local/bin/perl
+#u# http://rosettacode.org/wiki/Assertions
+#c# 2018-07-14 <RC
+#p# OK
+
+use feature 'say';
+my $result;
+
+
+# While not exactly an assertion, a common Perl idiom is to use or die to throw an exception when a certain statement is false.
+
+#print "Give me a number: ";
+#chomp(my $a = <>);
+
+$a = 42;
+ 
+$a == 42 or die "Error message1\n";
+ 
+# Alternatives
+die "Error message2\n" unless $a == 42;
+die "Error message3\n" if not $a == 42;
+die "Error message4\n" if $a != 42;
+
+# This idiom is typically used during file operations:
+
+# open my $fh, '<', 'file'
+#     or die "Cannot open file: $!\n"; # $! contains the error message from the last error
+# It is not needed whith the "autodie" pragma:
+
+# use autodie;
+# open my $fh, '<', 'file'; # automatically throws an exception on failure
+# Some third-party modules provide other ways of using assertions in Perl:
+
+use Carp::Assert;
+assert($a == 42);
+# There is also a number of ways to test assertions in test suites, for example:
+
+use Test::More;
+is $a, 42;
+ok $a == 42;
+cmp_ok $a, '==', 42, 'The answer should be 42';
+done_testing();
+# etc.
+
+my $ref = <<EOD;
+EOD
+
+use Test::More;
+#is ($result, $ref);
+#done_testing();
