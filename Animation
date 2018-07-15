@@ -1,0 +1,22 @@
+#!/usr/local/bin/perl
+#u# http://rosettacode.org/wiki/Animation
+#t# skiptest
+#c# 2018-07-13 <RC
+#p# BROKEN
+#n# Firefox/graphical
+
+use feature 'say';
+my $result;
+
+#Library: XUL::GuiGui[edit]
+use XUL::Gui;
+ 
+my $dir = '(.+)(.)';
+interval {
+    ID(lbl)->value =~ s/$dir/$2$1/;
+} 75;
+ 
+display Label
+    id    => 'lbl',
+    value => "Hello World! ",
+    onclick => sub {toggle $dir => '(.+)(.)', '(.)(.+)'};
