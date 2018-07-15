@@ -151,6 +151,7 @@ sub pfix {
 my($p) = @_;
 
     $p =~ s#/#_#g;
+    $p =~ s#!##g;
     $p =~ s#\$#_#g;
     $p =~ s#[()]##g;
     return $p;
