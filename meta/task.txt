@@ -1,15 +1,15 @@
 
 This is perl 5, version 28, subversion 0 (v5.28.0) built for darwin-thread-multi-2level
-+------------> Perl: Good/Bad [44/]
-|+-----------> SmOke testing [41]
-||+----------> sKipping validation [3]
++------------> Perl: Good/Bad [54/1]
+|+-----------> SmOke testing [42]
+||+----------> sKipping validation [6]
 |||+---------> Interactive [2]
 ||||+--------> Touched (modified by me) []
 |||||+-------> Random seed [2]
-||||||+------> File output [1]
+||||||+------> File output [2]
 |||||||+-----> Draft [221]
 ||||||||+----> Ignoring [2]
-|||||||||+---> Void (no local copy) [1070]
+|||||||||+---> Void (no local copy) [1061]
 ||||||||||+--> Un-implemented/reliable [306]
 |||||||||||
 GO......... 100_doors-1
@@ -63,9 +63,11 @@ GO......... Anagrams-1
 GO......... Anagrams-2
 GO......... Anagrams_Deranged_anagrams
 .........VU Angle_difference_between_two_bearings
-.........V. Animate_a_pendulum
-.........V. Animation
-.........V. Anonymous_recursion
+G.K........ Animate_a_pendulum
+B.K........ Animation
+G.......... Anonymous_recursion-1
+G.......... Anonymous_recursion-2
+G.......... Anonymous_recursion-3
 .........V. Append_a_record_to_the_end_of_a_text_file
 .........V. Apply_a_callback_to_an_array
 .........VU Apply_a_digital_filter_direct_form_II_transposed
@@ -79,11 +81,11 @@ GO......... Anagrams_Deranged_anagrams
 .........V. Arithmetic_Rational
 .......D.V. Arithmetic_coding_As_a_generalized_change_of_radix
 .........V. Arithmetic_evaluation
-.........V. Array_concatenation
-.........V. Array_length
-.........V. Arrays
+G.......... Array_concatenation
+G.......... Array_length
+G.......... Arrays
 .......D.VU Aspect_Oriented_Programming
-.........V. Assertions
+G.......... Assertions
 .......D.VU Assertions_in_design_by_contract
 .........V. Associative_array_Creation
 .........V. Associative_array_Iteration
@@ -1117,8 +1119,8 @@ GO...R..... Pattern_matching
 .........V. XML_XPath
 .........V. Xiaolin_Wu%27s_line_algorithm
 .........V. Y_combinator
-.........V. Yahoo!_search_interface
-.........V. Yin_and_yang
+G.K........ Yahoo_search_interface
+GO....F.... Yin_and_yang
 GO......... Zebra_puzzle
 .........VU Zeckendorf_arithmetic
 GO......... Zeckendorf_number_representation
