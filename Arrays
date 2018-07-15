@@ -1,0 +1,58 @@
+#!/usr/local/bin/perl
+#u# http://rosettacode.org/wiki/Arrays
+#c# 2018-07-14 <RC
+#p# OK
+
+use feature 'say';
+my $result;
+
+# In-line
+
+ my @empty;
+ my @empty_too = ();
+ 
+ my @populated   = ('This', 'That', 'And', 'The', 'Other');
+ $result .= sprintf "%s\n", $populated[2];  # And
+ 
+ my $aref = ['This', 'That', 'And', 'The', 'Other'];
+ $result .= sprintf "%s\n", $aref->[2];  # And
+ 
+# Dynamic
+
+my @arr;
+ 
+push @arr, 1;
+push @arr, 3;
+ 
+$arr[0] = 2;
+ 
+$result .= sprintf "%s\n", $arr[0];
+
+# Two-dimensional
+
+ my @multi_dimensional = (
+     [0, 1, 2, 3],
+     [qw(a b c d e f g)],
+     [qw(! $ % & *)],
+ );
+ 
+for $x (@multi_dimensional) {
+    $result .= sprintf "$_ " for @$x;
+    $result .= "\n";
+}
+
+say $result;
+#exit;
+
+my $ref = <<'EOD';
+And
+And
+2
+0 1 2 3 
+a b c d e f g 
+! $ % & * 
+EOD
+
+use Test::More;
+is ($result, $ref);
+done_testing();
