@@ -1,0 +1,38 @@
+#!/usr/local/bin/perl
+#u# http://rosettacode.org/wiki/Arithmetic-geometric_mean/Calculate_Pi
+#c# 2018-07-15 <RC
+#p# OK
+
+use feature 'say';
+my $result;
+
+use Math::BigFloat try => "GMP,Pari";
+ 
+# The following is a translation, almost line-for-line, of the Ruby code. It is slower than the above and the last digit or two may not be correct.
+
+# Translation of: Ruby
+use strict;
+use warnings;
+use Math::BigFloat;
+ 
+Math::BigFloat->div_scale(100);
+ 
+my $a = my $n = 1;
+my $g = 1 / sqrt(Math::BigFloat->new(2));
+my $z = 0.25;
+for( 0 .. 17 ) {
+	my $x = [ ($a + $g) * 0.5, sqrt($a * $g) ];
+	my $var = $x->[0] - $a;
+	$z -= $var * $var * $n;
+	$n += $n;
+	($a, $g) = @$x;
+}
+say $result = ($a * $a / $z) . "\n";
+
+my $ref = <<EOD;
+3.141592653589793238462643383279502884197169399375105820974944592307816406286208998628034825342117067
+EOD
+
+use Test::More;
+is ($result, $ref);
+done_testing();
