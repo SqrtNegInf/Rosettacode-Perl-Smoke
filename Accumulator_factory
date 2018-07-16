@@ -1,6 +1,6 @@
 #!/usr/local/bin/perl
 #u# http://rosettacode.org/wiki/Accumulator_factory
-#c# 2018-07-07 <RC
+#c# 2018-07-07 <>RC
 #p# OK
 
 my $result;
