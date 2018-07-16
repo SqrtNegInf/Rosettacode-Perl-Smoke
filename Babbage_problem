@@ -1,0 +1,24 @@
+#!/usr/local/bin/perl
+#u# http://rosettacode.org/wiki/Babbage_problem
+#c# 2018-07-15 <RC
+#p# OK
+
+use feature 'say';
+my $result;
+
+use strict ;
+use warnings ;
+ 
+my $current = 0 ;
+while ( ($current ** 2 ) % 1000000  != 269696 ) {
+   $current++ ;
+}
+say $result = sprintf "The square of $current is " . ($current * $current) . " !\n" ;
+
+my $ref = <<EOD;
+The square of 25264 is 638269696 !
+EOD
+
+use Test::More;
+is ($result, $ref);
+done_testing();
