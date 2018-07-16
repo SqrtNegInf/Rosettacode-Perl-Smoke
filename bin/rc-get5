@@ -48,6 +48,8 @@ my \$result;
 
 $perl5
 
+# say \$result; 
+
 my \$ref = <<EOD;
 EOD
 
