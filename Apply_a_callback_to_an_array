@@ -1,0 +1,51 @@
+#!/usr/local/bin/perl
+#u# http://rosettacode.org/wiki/Apply_a_callback_to_an_array
+#c# 2018-07-15 <RC
+#p# OK
+
+use feature 'say';
+my $result;
+
+
+# create array
+my @a = (1, 2, 3, 4, 5);
+ 
+# create callback function
+sub mycallback {
+  return 2 * shift;
+}
+ 
+# use array indexing
+for (my $i = 0; $i < scalar @a; $i++) {
+  $result .= "mycallback($a[$i]) = ". mycallback($a[$i]). "\n";
+}
+ 
+# using foreach
+foreach my $x (@a) {
+  print "mycallback($x) = ", mycallback($x), "\n";
+}
+ 
+# using map (useful for transforming an array)
+my @b = map mycallback($_), @a;                # @b is now (2, 4, 6, 8, 10)
+ 
+# and the same using an anonymous function
+my @c = map { $_ * 2 } @a;                     # @c is now (2, 4, 6, 8, 10)
+ 
+# use a callback stored in a variable
+my $func = \&mycallback;
+my @d = map $func->($_), @a;                  # @d is now (2, 4, 6, 8, 10)
+ 
+# filter an array 
+my @e = grep { $_ % 2 == 0 } @a;               # @e is now (2, 4)
+
+my $ref = <<EOD;
+mycallback(1) = 2
+mycallback(2) = 4
+mycallback(3) = 6
+mycallback(4) = 8
+mycallback(5) = 10
+EOD
+
+use Test::More;
+is ($result, $ref);
+done_testing();
