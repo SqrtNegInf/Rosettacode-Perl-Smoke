@@ -1,0 +1,25 @@
+#!/usr/local/bin/perl
+#u# http://rosettacode.org/wiki/Averages/Arithmetic_mean
+#c# 2018-07-15 <>RC
+#p# OK
+#n# removed example with non-existent module Data::Average
+
+use feature 'say';
+my $result;
+
+
+sub avg {
+  @_ or return 0;
+  my $sum = 0;
+  $sum += $_ foreach @_;
+  return $sum/@_;
+}
+ 
+$result .= avg(qw(3 1 4 1 5 9)). "\n";
+
+say $result; 
+
+use Test::More;
+chomp $result;
+is ($result, '3.83333333333333');
+done_testing();
