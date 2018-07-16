@@ -1,0 +1,42 @@
+#!/usr/local/bin/perl
+#u# http://rosettacode.org/wiki/Averages/Simple_moving_average
+#c# 2018-07-15 <RC
+#p# OK
+
+use feature 'say';
+my $result;
+
+# Using an initializer function which returns an anonymous closure which closes over an instance (separate for each call to the initializer!) of the lexical variables $period, @list, and $sum:
+
+sub sma_generator {
+    my $period = shift;
+    my (@list, $sum);
+ 
+    return sub {
+        my $number = shift;
+        push @list, $number;
+        $sum += $number;
+        $sum -= shift @list if @list > $period;
+        return $sum / @list;
+    }
+}
+ 
+# Usage:
+my $sma = sma_generator(3);
+for (1, 2, 3, 2, 7) {
+    $result .= sprintf "append $_ --> sma = %.2f  (with period 3)\n", $sma->($_);
+}
+
+say $result; 
+
+my $ref = <<EOD;
+append 1 --> sma = 1.00  (with period 3)
+append 2 --> sma = 1.50  (with period 3)
+append 3 --> sma = 2.00  (with period 3)
+append 2 --> sma = 2.33  (with period 3)
+append 7 --> sma = 4.00  (with period 3)
+EOD
+
+use Test::More;
+is ($result, $ref);
+done_testing();
