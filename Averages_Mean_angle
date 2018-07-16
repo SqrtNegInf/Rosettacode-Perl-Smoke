@@ -1,0 +1,38 @@
+#!/usr/local/bin/perl
+#u# http://rosettacode.org/wiki/Averages/Mean_angle
+#c# 2018-07-15 <RC
+#p# OK
+
+use feature 'say';
+my $result;
+
+
+sub Pi () { 3.1415926535897932384626433832795028842 }
+ 
+sub meanangle {
+  my($x, $y) = (0,0);
+  ($x,$y) = ($x + sin($_), $y + cos($_)) for @_;
+  my $atan = atan2($x,$y);
+  $atan += 2*Pi while $atan < 0;    # Ghetto fmod
+  $atan -= 2*Pi while $atan > 2*Pi;
+  $atan;
+}
+ 
+sub meandegrees {
+  meanangle( map { $_ * Pi/180 } @_ ) * 180/Pi;
+}
+ 
+$result .= sprintf "The mean angle of [@$_] is: ". meandegrees(@$_) . " degrees\n"
+  for ([350,10], [90,180,270,360], [10,20,30]);
+
+say $result;
+
+my $ref = <<EOD;
+The mean angle of [350 10] is: 360 degrees
+The mean angle of [90 180 270 360] is: 270 degrees
+The mean angle of [10 20 30] is: 20 degrees
+EOD
+
+use Test::More;
+is ($result, $ref);
+done_testing();
