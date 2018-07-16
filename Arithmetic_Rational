@@ -1,0 +1,42 @@
+#!/usr/local/bin/perl
+#u# http://rosettacode.org/wiki/Arithmetic/Rational
+#c# 2018-07-15 <>RC
+#p# OK
+#n# as with Perl 6, limit brought down to 2**15 (NB: 6 is faster)
+
+use feature 'say';
+my $result;
+
+# Perl's Math::BigRat core module implements arbitrary-precision rational numbers. The bigrat pragma can be used to turn on transparent BigRat support:
+
+use bigrat;
+ 
+#foreach my $candidate (2 .. 2**19) {
+foreach my $candidate (2 .. 2**15) {
+    my $sum = 1 / $candidate;
+    foreach my $factor (2 .. sqrt($candidate)+1) {
+        if ($candidate % $factor == 0) {
+            $sum += 1 / $factor + 1 / ($candidate / $factor);
+        }
+    }
+    if ($sum->denominator() == 1) {
+        $result .= sprintf "Sum of reciprocal factors of $candidate = $sum exactly ". ($sum == 1 ? "perfect!" : ""). "\n";
+    }
+}
+
+say $result;
+
+my $ref = <<EOD;
+Sum of reciprocal factors of 2 = 2 exactly 
+Sum of reciprocal factors of 28 = 1 exactly perfect!
+Sum of reciprocal factors of 120 = 2 exactly 
+Sum of reciprocal factors of 496 = 1 exactly perfect!
+Sum of reciprocal factors of 672 = 2 exactly 
+Sum of reciprocal factors of 8128 = 1 exactly perfect!
+Sum of reciprocal factors of 30240 = 3 exactly 
+Sum of reciprocal factors of 32760 = 3 exactly 
+EOD
+
+use Test::More;
+is ($result, $ref);
+done_testing();
