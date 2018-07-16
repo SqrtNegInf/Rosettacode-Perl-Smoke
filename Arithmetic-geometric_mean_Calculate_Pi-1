@@ -1,0 +1,42 @@
+#!/usr/local/bin/perl
+#u# http://rosettacode.org/wiki/Arithmetic-geometric_mean/Calculate_Pi
+#c# 2018-07-15 <RC
+#p# OK
+
+use feature 'say';
+my $result;
+
+# We use excess precision internally to make sure the last digits are rounded correctly (the caveat being that no number of fixed guard digits can work for all of Pi). For performance we try to use the GMP or Pari backends for Math::BigInt, which if installed will make this run hundreds of times faster. Because Math::BigInt is inefficient, we've used the methods directly when possible to avoid unnecessary copies, although it obfuscates somewhat. Additionally using the object methods lets us trim excess digits from intermediates as part of the calculation (e.g. in the square root).
+# The number of steps used is based on the desired accuracy rather than being hard coded, as this is intended to work for 1M digits as well as for 100.
+
+use Math::BigFloat try => "GMP,Pari";
+ 
+my $digits = shift || 100;   # Get number of digits from command line
+say $result = agm_pi($digits). "\n";
+ 
+sub agm_pi {
+  my $digits = shift;
+  my $acc = $digits + 8;
+  my $HALF = Math::BigFloat->new("0.5");
+  my ($an, $bn, $tn, $pn) = (Math::BigFloat->bone, $HALF->copy->bsqrt($acc),
+                             $HALF->copy->bmul($HALF), Math::BigFloat->bone);
+  while ($pn < $acc) {
+    my $prev_an = $an->copy;
+    $an->badd($bn)->bmul($HALF, $acc);
+    $bn->bmul($prev_an)->bsqrt($acc);
+    $prev_an->bsub($an);
+    $tn->bsub($pn * $prev_an * $prev_an);
+    $pn->badd($pn);
+  }
+  $an->badd($bn);
+  $an->bmul($an,$acc)->bdiv(4*$tn, $digits);
+  return $an;
+}
+
+my $ref = <<EOD;
+3.141592653589793238462643383279502884197169399375105820974944592307816406286208998628034825342117068
+EOD
+
+use Test::More;
+is ($result, $ref);
+done_testing();
