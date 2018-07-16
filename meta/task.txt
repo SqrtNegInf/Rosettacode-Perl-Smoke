@@ -1,15 +1,15 @@
 
 This is perl 5, version 28, subversion 0 (v5.28.0) built for darwin-thread-multi-2level
-+------------> Perl: Good/Bad [54/1]
-|+-----------> SmOke testing [42]
-||+----------> sKipping validation [6]
++------------> Perl: Good/Bad [77/1]
+|+-----------> SmOke testing [70]
+||+----------> sKipping validation [8]
 |||+---------> Interactive [2]
-||||+--------> Touched (modified by me) []
-|||||+-------> Random seed [2]
-||||||+------> File output [2]
+||||+--------> Touched (modified by me) [4]
+|||||+-------> Random seed [3]
+||||||+------> File output [3]
 |||||||+-----> Draft [221]
 ||||||||+----> Ignoring [2]
-|||||||||+---> Void (no local copy) [1061]
+|||||||||+---> Void (no local copy) [1040]
 ||||||||||+--> Un-implemented/reliable [306]
 |||||||||||
 GO......... 100_doors-1
@@ -39,7 +39,7 @@ GO......... AKS_test_for_primes-3
 .......D.VU Abbreviations,_simple
 ........XV. Abstract_type
 GO......... Abundant,_deficient_and_perfect_number_classifications
-GO......... Accumulator_factory
+GO..T...... Accumulator_factory
 GO......... Ackermann_function-1
 GO......... Ackermann_function-2
 GO......... Ackermann_function-3
@@ -65,44 +65,46 @@ GO......... Anagrams_Deranged_anagrams
 .........VU Angle_difference_between_two_bearings
 G.K........ Animate_a_pendulum
 B.K........ Animation
-G.......... Anonymous_recursion-1
-G.......... Anonymous_recursion-2
-G.......... Anonymous_recursion-3
-.........V. Append_a_record_to_the_end_of_a_text_file
-.........V. Apply_a_callback_to_an_array
+GO......... Anonymous_recursion-1
+GO......... Anonymous_recursion-2
+GO......... Anonymous_recursion-3
+GO....F.... Append_a_record_to_the_end_of_a_text_file
+GO......... Apply_a_callback_to_an_array
 .........VU Apply_a_digital_filter_direct_form_II_transposed
-.........V. Arbitrary-precision_integers_included
+GO......... Arbitrary-precision_integers_included-1
+GO......... Arbitrary-precision_integers_included-2
 .........VU Archimedean_spiral
 .........VU Arena_storage_pool
-.........V. Arithmetic-geometric_mean
-.........V. Arithmetic-geometric_mean_Calculate_Pi
-.........V. Arithmetic_Complex
-.........V. Arithmetic_Integer
-.........V. Arithmetic_Rational
-.......D.V. Arithmetic_coding_As_a_generalized_change_of_radix
-.........V. Arithmetic_evaluation
-G.......... Array_concatenation
-G.......... Array_length
-G.......... Arrays
+GO......... Arithmetic-geometric_mean
+GO......... Arithmetic-geometric_mean_Calculate_Pi-1
+GO......... Arithmetic-geometric_mean_Calculate_Pi-2
+GO......... Arithmetic_Complex
+GO......... Arithmetic_Integer
+GO..T...... Arithmetic_Rational
+GO.....D... Arithmetic_coding_As_a_generalized_change_of_radix
+GO......... Arithmetic_evaluation
+GO......... Array_concatenation
+GO......... Array_length
+GO......... Arrays
 .......D.VU Aspect_Oriented_Programming
-G.......... Assertions
+GO......... Assertions
 .......D.VU Assertions_in_design_by_contract
-.........V. Associative_array_Creation
-.........V. Associative_array_Iteration
-.........V. Atomic_updates
+G.K.T...... Associative_array_Creation
+GO......... Associative_array_Iteration
+G.K..R..... Atomic_updates
 .......D.VU AudioAlarm
 .......D.VU Audio_Overlap_Loop
 .......D.VU Audio_frequency_generator
 .........VU Average_loop_length
-.........V. Averages_Arithmetic_mean
-.........V. Averages_Mean_angle
+GO..T...... Averages_Arithmetic_mean
+GO......... Averages_Mean_angle
 .........V. Averages_Mean_time_of_day
-.........V. Averages_Median
-.........V. Averages_Mode
-.........V. Averages_Pythagorean_means
-.........V. Averages_Root_mean_square
-.........V. Averages_Simple_moving_average
-.........V. Babbage_problem
+GO......... Averages_Median
+GO......... Averages_Mode
+GO......... Averages_Pythagorean_means
+GO......... Averages_Root_mean_square
+GO......... Averages_Simple_moving_average
+GO......... Babbage_problem
 .......D.VU Bacon_cipher
 .........V. Balanced_brackets
 .........V. Balanced_ternary
