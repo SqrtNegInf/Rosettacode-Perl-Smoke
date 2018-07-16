@@ -1,0 +1,48 @@
+#!/usr/local/bin/perl
+#u# http://rosettacode.org/wiki/Averages/Pythagorean_means
+#c# 2018-07-15 <RC
+#p# OK
+
+use feature 'say';
+my $result;
+
+
+sub A
+{
+        my $a = 0;
+        $a += $_ for @_;
+        return $a / @_;
+}
+sub G
+{
+        my $p = 1;
+        $p *= $_ for @_;
+        return  $p**(1/@_); # power of 1/n == root of n
+}
+sub H
+{
+        my $h = 0;
+        $h += 1/$_ for @_;
+        return @_/$h;
+}
+my @ints = (1..10);
+ 
+my $a = A(@ints);
+my $g = G(@ints);
+my $h = H(@ints);
+ 
+$result = sprintf "A=$a\nG=$g\nH=$h\n";
+die "Error" unless $a >= $g and $g >= $h;
+
+
+say $result; 
+
+my $ref = <<EOD;
+A=5.5
+G=4.52872868811677
+H=3.41417152147406
+EOD
+
+use Test::More;
+is ($result, $ref);
+done_testing();
