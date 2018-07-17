@@ -1,0 +1,23 @@
+#!/usr/local/bin/perl
+#u# http://rosettacode.org/wiki/Binary_digits
+#c# 2018-07-16 <RC
+#p# OK
+
+use feature 'say';
+my $result;
+
+for (5, 50, 9000) {
+  $result .= sprintf "%b\n", $_;
+}
+
+say $result; 
+
+my $ref = <<'EOD';
+101
+110010
+10001100101000
+EOD
+
+use Test::More;
+is ($result, $ref);
+done_testing();
