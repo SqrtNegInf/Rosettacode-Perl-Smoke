@@ -13,9 +13,8 @@ my $result;
 
 X-code-X
 
-#say $result;
-
-my $ref = <<END;
+say $result;
+my $ref = <<'END';
 END
 
 use Test::More;
