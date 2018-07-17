@@ -1,0 +1,49 @@
+#!/usr/local/bin/perl
+#u# http://rosettacode.org/wiki/Benford%27s_law
+#c# 2018-07-16 <RC
+#p# OK
+
+use feature 'say';
+my $result;
+
+use strict ;
+use warnings ;
+use POSIX qw( log10 ) ;
+ 
+my @fibonacci = ( 0 , 1  ) ;
+while ( @fibonacci != 1000 ) {
+   push @fibonacci , $fibonacci[ -1 ] + $fibonacci[ -2 ] ;
+}
+my @actuals ;
+my @expected ;
+for my $i( 1..9 ) {
+   my $sum = 0 ;
+   map { $sum++ if $_ =~ /\A$i/ } @fibonacci ;
+   push @actuals , $sum / 1000  ;
+   push @expected , log10( 1 + 1/$i ) ;
+}
+print "         Observed         Expected\n" ;
+for my $i( 1..9 ) {
+   $result .= sprintf "$i : " ;
+   my $r= sprintf ( "%.2f" , 100 * $actuals[ $i - 1 ] ) ;
+   $result .= sprintf "%11s %%" , $r ;
+   $r = sprintf ( "%.2f" , 100 * $expected[ $i - 1 ] ) ;
+   $result .= sprintf "%15s %%\n" , $r;
+}
+
+say $result;  
+my $ref = <<'EOD';
+1 :       30.10 %          30.10 %
+2 :       17.70 %          17.61 %
+3 :       12.50 %          12.49 %
+4 :        9.50 %           9.69 %
+5 :        8.00 %           7.92 %
+6 :        6.70 %           6.69 %
+7 :        5.60 %           5.80 %
+8 :        5.30 %           5.12 %
+9 :        4.50 %           4.58 %
+EOD
+
+use Test::More;
+is ($result, $ref);
+done_testing();
