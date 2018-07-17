@@ -1,0 +1,43 @@
+#!/usr/local/bin/perl
+#u# http://rosettacode.org/wiki/
+#c# 2018-07-16 <RC
+#p# OK
+
+srand 123456;
+
+use feature 'say';
+my $result;
+
+sub generate {
+    my $n = shift;
+    my $str = '[' x $n;
+    substr($str, rand($n + $_), 0) = ']' for 1..$n;
+    return $str;
+}
+
+sub balanced {
+    shift =~ /^ (\[ (?1)* \])* $/x;
+}
+
+for (0..8) {
+    my $input = generate($_);
+    $result .= (sprintf balanced($input) ? " ok:" : "bad:") . " '$input'\n";
+}
+
+say $result;
+
+my $ref = <<'END';
+ ok: ''
+ ok: '[]'
+ ok: '[[]]'
+bad: ']]][[['
+ ok: '[][][[]]'
+bad: ']][]]][[[['
+ ok: '[][][[]][[]]'
+ ok: '[[[]][[][[]]]]'
+bad: ']][][[[]]]][[[[]'
+END
+
+use Test::More;
+is ($result, $ref);
+done_testing();
