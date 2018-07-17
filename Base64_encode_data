@@ -1,0 +1,22 @@
+#!/usr/local/bin/perl
+#u# http://rosettacode.org/wiki/Base64_encode_data
+#c# 2018-07-16 <RC
+#p# OK
+
+use strict;
+use warnings;
+use MIME::Base64;
+open(my($fh), "<", "ref/rc.ico") or die;
+local $/;
+my @lines = split /\n/, encode_base64(<$fh>);
+ 
+#The first and last lines of output are:
+my $first = 'AAABAAIAEBAAAAAAAABoBQAAJgAAACAgAAAAAAAAqAgAAI4FAAAoAAAAEAAAACAAAAABAAgAAAAA';
+my $last  = 'AAABAAAAAQAAAAEAAAABAAAAAQAAAAEAAAABAAAAAQAAAAEAAAABAAAAAQAAAAE=';
+
+
+use Test::More;
+is($lines[0],  $first);
+is($lines[-1], $last);
+#is($result.substr(*-23,23), 'QAAAAEAAAABAAAAAQAAAAE=');
+done_testing();
