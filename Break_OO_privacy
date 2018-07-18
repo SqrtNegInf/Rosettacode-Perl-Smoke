@@ -1,0 +1,36 @@
+#!/usr/local/bin/perl
+#u# http://rosettacode.org/wiki/Break_OO_privacy
+#c# 2018-07-17 <RC
+#p# OK
+
+use feature 'say';
+my $result;
+
+
+# Perl's object model does not enforce privacy. An object is just a blessed reference, and a blessed reference can be dereferenced just like an ordinary reference.
+
+package Foo;
+sub new {
+	my $class = shift;
+	my $self = { _bar => 'I am ostensibly private' };
+	return bless $self, $class;
+}
+ 
+sub get_bar {
+	my $self = shift;
+	return $self->{_bar};
+}
+ 
+package main;
+my $foo = Foo->new();
+$result .= sprintf "$_\n" for $foo->get_bar(), $foo->{_bar};
+
+say $result; 
+my $ref = <<'EOD';
+I am ostensibly private
+I am ostensibly private
+EOD
+
+use Test::More;
+is ($result, $ref);
+done_testing();
