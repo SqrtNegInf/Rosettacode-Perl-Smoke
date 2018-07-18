@@ -1,0 +1,103 @@
+#!/usr/local/bin/perl
+#u# http://rosettacode.org/wiki/Brace_expansion
+#c# 2018-07-17 <RC
+#p# OK
+
+use feature 'say';
+my $result;
+
+# Perl has a built-in glob function which does brace expansion, but it can't be used to solve this task because it also does shell-like word splitting, wildcard expansion, and tilde expansion at the same time.
+# The File::Glob core module gives access to the more low-level bsd_glob function which actually supports exclusive brace expansion, however it does not comply with this task's specification when it comes to preserving backslashes and handling unbalanced brace characters.
+# So here is a manual solution that implements the specification precisely:
+
+sub brace_expand {
+    my $input = shift;
+    my @stack = ([my $current = ['']]);
+ 
+    while ($input =~ /\G ((?:[^\\{,}]++ | \\(?:.|\z))++ | . )/gx) {
+        if ($1 eq '{') {
+            push @stack, [$current = ['']];
+        }
+        elsif ($1 eq ',' && @stack > 1) {
+            push @{$stack[-1]}, ($current = ['']);
+        }
+        elsif ($1 eq '}' && @stack > 1) {
+            my $group = pop @stack;
+            $current = $stack[-1][-1];
+ 
+            # handle the case of brace pairs without commas:
+            @{$group->[0]} = map { "{$_}" } @{$group->[0]} if @$group == 1;
+ 
+            @$current = map {
+                my $c = $_;
+                map { map { $c . $_ } @$_ } @$group;
+            } @$current;
+        }
+        else { $_ .= $1 for @$current; }
+    }
+ 
+    # handle the case of missing closing braces:
+    while (@stack > 1) {
+        my $right = pop @{$stack[-1]};
+        my $sep;
+        if (@{$stack[-1]}) { $sep = ',' }
+        else               { $sep = '{'; pop @stack }
+        $current = $stack[-1][-1];
+        @$current = map {
+            my $c = $_;
+            map { $c . $sep . $_ } @$right;
+        } @$current;
+    }
+ 
+    return @$current;
+}
+
+# Usage demonstration:
+
+while (my $input = <DATA>) {
+    chomp($input);
+    $result .= sprintf "$input\n";
+    $result .= sprintf "    $_\n" for brace_expand($input);
+    $result .= sprintf "\n";
+}
+
+say $result; 
+
+my $ref = <<'EOD';
+~/{Downloads,Pictures}/*.{jpg,gif,png}
+    ~/Downloads/*.jpg
+    ~/Downloads/*.gif
+    ~/Downloads/*.png
+    ~/Pictures/*.jpg
+    ~/Pictures/*.gif
+    ~/Pictures/*.png
+
+It{{em,alic}iz,erat}e{d,}, please.
+    Itemized, please.
+    Itemize, please.
+    Italicized, please.
+    Italicize, please.
+    Iterated, please.
+    Iterate, please.
+
+{,{,gotta have{ ,\, again\, }}more }cowbell!
+    cowbell!
+    more cowbell!
+    gotta have more cowbell!
+    gotta have\, again\, more cowbell!
+
+{}} some }{,{\\{ edge, edge} \,}{ cases, {here} \\\\\}
+    {}} some }{,{\\ edge \,}{ cases, {here} \\\\\}
+    {}} some }{,{\\ edge \,}{ cases, {here} \\\\\}
+
+EOD
+
+use Test::More;
+is ($result, $ref);
+done_testing();
+ 
+__DATA__
+~/{Downloads,Pictures}/*.{jpg,gif,png}
+It{{em,alic}iz,erat}e{d,}, please.
+{,{,gotta have{ ,\, again\, }}more }cowbell!
+{}} some }{,{\\{ edge, edge} \,}{ cases, {here} \\\\\}
