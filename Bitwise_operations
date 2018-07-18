@@ -1,0 +1,42 @@
+#!/usr/local/bin/perl
+#u# http://rosettacode.org/wiki/Bitwise_operations
+#c# 2018-07-17 <RC
+#p# OK
+
+use feature 'say';
+my $result;
+
+
+use integer;
+ 
+sub bitwise($$) {
+   ($a, $b) = @_;
+   $result .= sprintf 'a and b: '. ($a & $b) ."\n";
+   $result .= sprintf 'a or b: '.  ($a | $b) ."\n";
+   $result .= sprintf 'a xor b: '. ($a ^ $b) ."\n";
+   $result .= sprintf 'not a: '.   (~$a)     ."\n";
+   $result .= sprintf 'a >> b: '. ($a >> $b) . "\n"; # logical right shift
+ 
+   use integer; # "use integer" enables bitwise operations to return signed ints
+   $result .= sprintf "after use integer:\n";
+   $result .= sprintf 'a << b: '. ($a << $b) . "\n"; # left shift
+   $result .= sprintf 'a >> b: '. ($a >> $b) . "\n"; # arithmetic right shift
+}
+
+bitwise(7,2);
+say $result;
+
+my $ref = <<'EOD';
+a and b: 2
+a or b: 7
+a xor b: 5
+not a: -8
+a >> b: 1
+after use integer:
+a << b: 28
+a >> b: 1
+EOD
+
+use Test::More;
+is ($result, $ref);
+done_testing();
