@@ -38,7 +38,7 @@ for my $prog (@ARGV) {
     @status = `head -12 $prog`;
     next unless $status[0] =~ m#(env |bin/)perl\b#;
     next if grep { /^#t#.*($skip)/ } @status;
-    next if grep { /^#m#.*BROKEN/i } @status;
+    next if grep { /^#p#.*BROKEN/i } @status;
 
     $clargs = `grep 'RC.cli' $prog`; chomp $clargs; 
     $clargs =~ s/^.*RC.cli:\s+//; 
