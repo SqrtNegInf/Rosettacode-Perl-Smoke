@@ -39,17 +39,17 @@ $date = `date +%Y-%m-%d`; chomp $date;
 
 $c = 0;
 for $t (glob "$taskdir/*pl") {
-    $source = `cat $t`;
-    $code = $template;
-    $code =~ s/X-task-X/$taskpath/;
-    $code =~ s/X-date-X/$date/;
-    $code =~ s/X-code-X/$source/;
+    $code = `cat $t`;
+    $source = $template;
+    $source =~ s/X-task-X/$task/;
+    $source =~ s/X-date-X/$date/;
+    $source =~ s/X-code-X/$code/;
     ($tnew = $t) =~ s/(\d).pl/-$1/;
 
     $c++;
     $fname = "${tname}-$c";
     die 'File already exists, aborting (delete by hand first)' if -e $fname;
-    open F, ">$fname"; print F $code; close F;
+    open F, ">$fname"; print F $source; close F;
     system "chmod +x $fname";
 }
 
