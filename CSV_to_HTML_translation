@@ -1,0 +1,53 @@
+#!/usr/local/bin/perl
+#u# http://rosettacode.org/wiki/CSV_to_HTML_translation
+#c# 2018-07-20 <RC
+#p# OK
+
+use feature 'say';
+my $result;
+
+# Provide the CSV data as standard input. With a command-line argument, the first row will use <th> instead of <td>.
+
+use HTML::Entities;
+ 
+sub row {
+$DB::single = 1;
+    my $elem = shift;
+    my $cells = join '', map {"<$elem>$_</$elem>"} split ',', shift;
+    $result .= sprintf '<tr>' . $cells . "</tr>\n";
+}
+ 
+my $text = <<'END';
+Character,Speech
+The multitude,The messiah! Show us the messiah!
+Brians mother,<angry>Now you listen here! He's not the messiah; he's a very naughty boy! Now go away!</angry>
+The multitude,Who are you?
+Brians mother,I'm his mother; that's who!
+The multitude,Behold his mother! Behold his mother!
+END
+
+my ($first, @rest) = map
+    {my $x = $_; chomp $x; encode_entities $x} split /\n/, $text;
+
+$result .= sprintf "<table>\n";
+row @ARGV ? 'th' : 'td', $first;
+row 'td', $_ foreach @rest;
+$result .= sprintf "</table>\n";
+
+say $result; 
+
+
+my $ref = <<'EOD';
+<table>
+<tr><td>Character</td><td>Speech</td></tr>
+<tr><td>The multitude</td><td>The messiah! Show us the messiah!</td></tr>
+<tr><td>Brians mother</td><td>&lt;angry&gt;Now you listen here! He&#39;s not the messiah; he&#39;s a very naughty boy! Now go away!&lt;/angry&gt;</td></tr>
+<tr><td>The multitude</td><td>Who are you?</td></tr>
+<tr><td>Brians mother</td><td>I&#39;m his mother; that&#39;s who!</td></tr>
+<tr><td>The multitude</td><td>Behold his mother! Behold his mother!</td></tr>
+</table>
+EOD
+
+use Test::More;
+is ($result, $ref);
+done_testing();
