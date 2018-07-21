@@ -1,0 +1,30 @@
+#!/usr/local/bin/perl
+#u# http://rosettacode.org/wiki/Caesar_cipher
+#c# 2018-07-20 <RC
+#p# OK
+
+use feature 'say';
+my $result;
+
+sub caesar {
+        my ($message, $key, $decode) = @_;
+        $key = 26 - $key if $decode;
+        $message =~ s/([A-Z])/chr(((ord(uc $1) - 65 + $key) % 26) + 65)/geir;
+}
+ 
+my $msg = 'THE FIVE BOXING WIZARDS JUMP QUICKLY';
+my $enc = caesar($msg, 10);
+my $dec = caesar($enc, 10, 'decode');
+ 
+say $result = "msg: $msg\nenc: $enc\ndec: $dec";
+ 
+my $ref = <<'EOD';
+msg: THE FIVE BOXING WIZARDS JUMP QUICKLY
+enc: DRO PSFO LYHSXQ GSJKBNC TEWZ AESMUVI
+dec: THE FIVE BOXING WIZARDS JUMP QUICKLY
+EOD
+
+use Test::More;
+chop $ref;
+is ($result, $ref);
+done_testing();
