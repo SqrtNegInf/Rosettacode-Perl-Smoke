@@ -1,0 +1,42 @@
+#!/usr/local/bin/perl
+#u# http://rosettacode.org/wiki/CSV_data_manipulation
+#t# skiptest
+#c# 2018-07-19 <RC
+#p# OK
+#n# beyond stated scope of task
+
+use feature 'say';
+my $result;
+
+use warnings;
+use strict;
+
+use Text::CSV;
+use List::Util 'sum';
+
+my $csv = 'Text::CSV'->new({eol => "\n"})
+          or die 'Cannot use CSV: ' . 'Text::CSV'->error_diag;
+
+my $file = shift;
+my @rows;
+open my $FH, '<', $file or die "Cannot open $file: $!";
+my @header = @{ $csv->getline($FH) };
+while (my $row = $csv->getline($FH)) {
+    push @rows, $row;
+}
+$csv->eof or $csv->error_diag;
+
+#
+# The processing is the same.
+#
+
+# Print the output.
+$csv->print(*STDOUT, $_) for \@header, @rows;
+
+say $result;
+my $ref = <<'END';
+END
+
+use Test::More;
+#is ($result, $ref);
+#done_testing();
