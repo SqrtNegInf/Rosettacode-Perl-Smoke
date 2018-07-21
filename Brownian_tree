@@ -7,6 +7,7 @@
 srand 123456;
 
 #use warnings;
+use strict;
 
 # Simulation code. Tremendously slow, partly because it doesn't use a grid-based collision checking. Showing three sample images with different STEP and ATTRACT parameters, to demonstrate how sensitive the result is to them.
 # Code runs until the tree reached specified radius. Output is written to "test.eps" of wherever the current directory is. The 0-0 sample took maybe 3 hours (I don't really know, I went for dinner.)
@@ -114,7 +115,7 @@ my $count;
 PARTICLE: while (1) {
         my $a = rand(2 * PI);
         my $p = [ $r_start * cos($a), $r_start * sin($a) ];
-        while ($m = move($p)) {
+        while (my $m = move($p)) {
 #                given ($_) { # DH change
                         if    ($m == 1) { next }
                         elsif ($m == 2) { $count++; last; }
