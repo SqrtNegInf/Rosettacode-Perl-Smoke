@@ -1,0 +1,20 @@
+#!/usr/local/bin/perl
+#u# http://rosettacode.org/wiki/CRC-32
+#c# 2018-07-19 <RC
+#p# OK
+
+use feature 'say';
+my $result;
+
+use 5.010 ;
+use strict ;
+use warnings ;
+use Digest::CRC qw( crc32 ) ;
+ 
+my $crc = Digest::CRC->new( type => "crc32" ) ;
+$crc->add ( "The quick brown fox jumps over the lazy dog" )  ;
+say $result = "The checksum is " . $crc->hexdigest( ) ;
+
+use Test::More;
+is ($result, 'The checksum is 414fa339');
+done_testing();
