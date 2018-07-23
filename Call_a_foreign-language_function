@@ -1,0 +1,45 @@
+#!/usr/local/bin/perl
+#u# http://rosettacode.org/wiki/Call_a_foreign-language_function
+#c# 2018-07-21 <RC
+#p# OK
+#n# only catch one output
+
+use feature 'say';
+my $result;
+
+
+# Perl code calls a C function c_dup() passing a string 'Hello' as an argument, which gets transparently converted to a C string, the c_dup() function makes a copy of that string using strdup() function, stores pointer to the copy in the copy variable and returns it. The returned char pointer gets converted transparently to a Perl string value and gets returned to the calling Perl code which prints it. Then the Perl code calls a C function c_free() to free the allocated memory. Both of the C functions are defined inline in the Perl program and are automatically compiled (only once, unless they change) and linked at runtime. Here is the entire program:
+
+use Inline C => q{
+    char *copy;
+    char * c_dup(char *orig) {
+        return copy = strdup(orig);
+    }
+    void c_free() {
+        free(copy);
+    }
+};
+$result .= sprintf c_dup('Hello') . "\n";
+c_free();
+
+# Another example, instead of returning the copy to Perl code it prints it using C printf:
+
+use Inline C => q{
+    void c_hello (char *text) {
+        char *copy = strdup(text);
+        printf("Hello, %s!\n", copy);
+        free(copy);
+    }
+};
+c_hello 'world';
+
+
+say $result; 
+
+my $ref = <<'EOD';
+Hello
+EOD
+
+use Test::More;
+is ($result, $ref);
+done_testing();
