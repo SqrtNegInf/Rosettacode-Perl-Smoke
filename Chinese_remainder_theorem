@@ -1,0 +1,40 @@
+#!/usr/local/bin/perl
+#u# http://rosettacode.org/wiki/Chinese_remainder_theorem
+#c# 2018-07-22 <>RC
+#p# OK
+
+use feature 'say';
+my $result;
+
+
+# There are at least three CPAN modules for this: ntheory (Math::Prime::Util), Math::ModInt, and Math::Pari. All three handle bigints.
+
+# Library: ntheory
+use ntheory qw/chinese/;
+$result .= chinese([2,3], [3,5], [2,7]) . "\n";
+
+# The function returns undef if no common residue class exists. The combined modulus can be obtained using the lcm function applied to the moduli (e.g. lcm(3,5,7) = 105 in the example above).
+
+use Math::ModInt qw(mod);
+use Math::ModInt::ChineseRemainder qw(cr_combine);
+$result .= cr_combine(mod(2,3),mod(3,5),mod(2,7)) . "\n";
+
+# This returns a Math::ModInt object, which if no common residue class exists will be a special undefined object. The modulus and residue methods may be used to extract the integer components.
+
+# Non-pairwise-coprime[edit]
+# All three modules will also handle cases where the moduli are not pairwise co-prime but a solution exists, e.g.:
+
+use ntheory qw/chinese lcm/;
+$result .= chinese( [2328,16256], [410,5418] ). " mod " . lcm(16256,5418) . "\n";
+
+say $result; 
+
+my $ref = <<'EOD';
+23
+mod(23, 105)
+28450328 mod 44037504
+EOD
+
+use Test::More;
+is ($result, $ref);
+done_testing();
