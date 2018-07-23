@@ -1,0 +1,44 @@
+#!/usr/local/bin/perl
+#u# http://rosettacode.org/wiki/Chebyshev_coefficients
+#c# 2018-07-22 <RC
+#p# OK
+
+use feature 'say';
+my $result;
+
+# Translation of: C
+use constant PI => 3.141592653589793;
+ 
+sub chebft {
+  my($func, $a, $b, $n) = @_;
+  my($bma, $bpa) = ( 0.5*($b-$a), 0.5*($b+$a) );
+ 
+  my @pin = map { ($_ + 0.5) * (PI/$n) } 0..$n-1;
+  my @f = map { $func->( cos($_) * $bma + $bpa ) } @pin;
+  my @c = (0) x $n;
+  for my $j (0 .. $n-1) {
+    $c[$j] += $f[$_] * cos($j * $pin[$_])   for 0..$n-1;
+    $c[$j] *= (2.0/$n);
+  }
+  @c;
+}
+ 
+$result .= sprintf "$_\n" for chebft(sub{cos($_[0])}, 0, 1, 10);
+
+say $result; 
+my $ref = <<'EOD';
+1.64716947539031
+-0.232299371615172
+-0.0537151146220477
+0.00245823526698163
+0.000282119057433938
+-7.72222915566001e-06
+-5.89855645105608e-07
+1.15214274787334e-08
+6.59629917354465e-10
+-1.00219943455215e-11
+EOD
+
+use Test::More;
+is ($result, $ref);
+done_testing();
