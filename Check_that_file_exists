@@ -1,0 +1,21 @@
+#!/usr/local/bin/perl
+#u# http://rosettacode.org/wiki/Check_that_file_exists
+#t# nocode
+#c# 2018-07-22 <RC
+#p# OK
+#n# re-write this?
+
+# use File::Spec::Functions qw(catfile rootdir);
+# # here
+# print -e 'input.txt';
+# print -d 'docs';
+# # root dir
+# print -e catfile rootdir, 'input.txt';
+# print -d catfile rootdir, 'docs';
+# Without a Perl Module
+# A 1 is printed if the file or dir exists.
+# 
+# perl -e 'print -e "./input.txt", "\n";'
+# perl -e 'print -d "./docs", "\n";'
+# perl -e 'print -e "/input.txt", "\n";'
+# perl -e 'print -d "/docs", "\n";'
