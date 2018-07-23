@@ -1,0 +1,12 @@
+#!/usr/local/bin/perl
+#u# http://rosettacode.org/wiki/Check_output_device_is_a_terminal
+#t# nocode
+#c# 2018-07-22 <RC
+#p# OK
+
+# The -t function on a filehandle tells you whether it's a terminal.
+# 
+# $ perl -e "warn -t STDOUT ? 'Terminal' : 'Other'"
+# Terminal
+# $ perl -e "warn -t STDOUT ? 'Terminal' : 'Other'" > x.tmp
+# Other
