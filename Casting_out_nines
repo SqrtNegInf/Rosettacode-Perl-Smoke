@@ -1,0 +1,63 @@
+#!/usr/local/bin/perl
+#u# http://rosettacode.org/wiki/Casting_out_nines
+#c# 2018-07-21 <RC
+#p# OK
+
+use feature 'say';
+my $result;
+
+sub co9 {  # Follows the simple procedure asked for in Part 1
+  my $n = shift;
+  return $n if $n < 10;
+  my $sum = 0; $sum += $_ for split(//,$n);
+  co9($sum);
+}
+ 
+sub showadd {
+  my($n,$m) = @_;
+  $result .= sprintf "( $n [".co9($n)."] + $m [".co9($m)."] ) [".co9(co9($n)+co9($m))."]". 
+        "   =   ". $n+$m." [".co9($n+$m)."]\n";
+}
+ 
+sub co9filter {
+  my $base = shift;
+  die unless $base >= 2;
+  my($beg, $end, $basem1) = (1, $base*$base-1, $base-1);
+  my @list = grep { $_ % $basem1 == $_*$_ % $basem1 } $beg .. $end;
+  ($end, scalar(@list), @list);
+}
+ 
+$result .= sprintf "Part 1: Create a simple filter and demonstrate using simple example.\n";
+showadd(6395, 1259);
+ 
+$result .= sprintf "\nPart 2: Use this to filter a range with ".co9(k). " == ". co9(k^2)."\n";
+$result .= sprintf join(" ", grep { co9($_) == co9($_*$_) } 1..99). "\n";
+ 
+$result .= sprintf "\nPart 3: Use efficient method on range.\n";
+for my $base (10, 17) {
+  my($N, $n, @l) = co9filter($base);
+  $result .= sprintf "[@l]\nIn base %d, trying %d numbers instead of %d saves %.4f%%\n\n",
+         $base, $n, $N, 100-($n/$N)*100;
+}
+
+say $result; 
+
+my $ref = <<'EOD';
+Part 1: Create a simple filter and demonstrate using simple example.
+1259 [4]
+
+Part 2: Use this to filter a range with k == 2
+1 9 10 18 19 27 28 36 37 45 46 54 55 63 64 72 73 81 82 90 91 99
+
+Part 3: Use efficient method on range.
+[1 9 10 18 19 27 28 36 37 45 46 54 55 63 64 72 73 81 82 90 91 99]
+In base 10, trying 22 numbers instead of 99 saves 77.7778%
+
+[1 16 17 32 33 48 49 64 65 80 81 96 97 112 113 128 129 144 145 160 161 176 177 192 193 208 209 224 225 240 241 256 257 272 273 288]
+In base 17, trying 36 numbers instead of 288 saves 87.5000%
+
+EOD
+
+use Test::More;
+is ($result, $ref);
+done_testing();
