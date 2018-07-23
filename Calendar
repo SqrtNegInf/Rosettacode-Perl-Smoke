@@ -1,0 +1,152 @@
+#!/usr/local/bin/perl
+#u# http://rosettacode.org/wiki/Calendar
+#c# 2018-07-21 <RC
+#p# OK
+
+use feature 'say';
+my $result;
+
+use strict;
+use warnings;
+use Time::Local;
+ 
+my @names = qw/ JAN FEB MAR APR MAY JUN JUL AUG SEP OCT NOV DEC/;
+ 
+my $year = shift ||'2018';
+ 
+for my $month (0..11) {
+    $result .= sprintf " $names[$month] $year\n";
+    $result .= sprintf calendar($year, $month) . "\n\n";
+}
+ 
+sub calendar {
+    my ($year, $month) = @_;
+    my @mon_days = qw/31 28 31 30 31 30 31 31 30 31 30 31/;
+    ++$mon_days[1] if $year % 4 == 0 && ($year % 400 == 0 || $year % 100 != 0);
+ 
+    my $cal = " Sun Mon Tue Wed Thu Fri Sat\n";
+ 
+    # Months are indexed beginning at 0
+    my $time = timegm(0,0,0,1,$month,$year);
+    my $wday = (gmtime $time)[6];
+ 
+    $cal .= "    " x $wday;
+ 
+    my $mday = 1;
+ 
+    while ($mday <= $mon_days[$month]) {
+        $cal .= sprintf "%4s", $mday++;
+        $cal .= "\n" if ($wday + $mday -1) % 7 == 0;
+    }
+    return $cal;
+}
+# Let's use this as a placeholder until a better solution arrives, OK?
+
+
+say $result; 
+my $ref = <<'EOD';
+ JAN 2018
+ Sun Mon Tue Wed Thu Fri Sat
+       1   2   3   4   5   6
+   7   8   9  10  11  12  13
+  14  15  16  17  18  19  20
+  21  22  23  24  25  26  27
+  28  29  30  31
+
+ FEB 2018
+ Sun Mon Tue Wed Thu Fri Sat
+                   1   2   3
+   4   5   6   7   8   9  10
+  11  12  13  14  15  16  17
+  18  19  20  21  22  23  24
+  25  26  27  28
+
+ MAR 2018
+ Sun Mon Tue Wed Thu Fri Sat
+                   1   2   3
+   4   5   6   7   8   9  10
+  11  12  13  14  15  16  17
+  18  19  20  21  22  23  24
+  25  26  27  28  29  30  31
+
+
+ APR 2018
+ Sun Mon Tue Wed Thu Fri Sat
+   1   2   3   4   5   6   7
+   8   9  10  11  12  13  14
+  15  16  17  18  19  20  21
+  22  23  24  25  26  27  28
+  29  30
+
+ MAY 2018
+ Sun Mon Tue Wed Thu Fri Sat
+           1   2   3   4   5
+   6   7   8   9  10  11  12
+  13  14  15  16  17  18  19
+  20  21  22  23  24  25  26
+  27  28  29  30  31
+
+ JUN 2018
+ Sun Mon Tue Wed Thu Fri Sat
+                       1   2
+   3   4   5   6   7   8   9
+  10  11  12  13  14  15  16
+  17  18  19  20  21  22  23
+  24  25  26  27  28  29  30
+
+
+ JUL 2018
+ Sun Mon Tue Wed Thu Fri Sat
+   1   2   3   4   5   6   7
+   8   9  10  11  12  13  14
+  15  16  17  18  19  20  21
+  22  23  24  25  26  27  28
+  29  30  31
+
+ AUG 2018
+ Sun Mon Tue Wed Thu Fri Sat
+               1   2   3   4
+   5   6   7   8   9  10  11
+  12  13  14  15  16  17  18
+  19  20  21  22  23  24  25
+  26  27  28  29  30  31
+
+ SEP 2018
+ Sun Mon Tue Wed Thu Fri Sat
+                           1
+   2   3   4   5   6   7   8
+   9  10  11  12  13  14  15
+  16  17  18  19  20  21  22
+  23  24  25  26  27  28  29
+  30
+
+ OCT 2018
+ Sun Mon Tue Wed Thu Fri Sat
+       1   2   3   4   5   6
+   7   8   9  10  11  12  13
+  14  15  16  17  18  19  20
+  21  22  23  24  25  26  27
+  28  29  30  31
+
+ NOV 2018
+ Sun Mon Tue Wed Thu Fri Sat
+                   1   2   3
+   4   5   6   7   8   9  10
+  11  12  13  14  15  16  17
+  18  19  20  21  22  23  24
+  25  26  27  28  29  30
+
+ DEC 2018
+ Sun Mon Tue Wed Thu Fri Sat
+                           1
+   2   3   4   5   6   7   8
+   9  10  11  12  13  14  15
+  16  17  18  19  20  21  22
+  23  24  25  26  27  28  29
+  30  31
+
+EOD
+
+use Test::More;
+is ($result, $ref);
+done_testing();
