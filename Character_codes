@@ -1,0 +1,23 @@
+#!/usr/local/bin/perl
+#u# http://rosettacode.org/wiki/Character_codes
+#c# 2018-07-22 <RC
+#p# OK
+
+use feature 'say';
+my $result;
+
+
+# Here character is just a string of length 1
+
+$result .= sprintf ord('a'). "\n"; # prints "97"
+$result .= sprintf chr(97). "\n"; # prints "a"
+
+say $result; 
+my $ref = <<'EOD';
+97
+a
+EOD
+
+use Test::More;
+is ($result, $ref);
+done_testing();
