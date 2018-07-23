@@ -1,0 +1,44 @@
+#!/usr/local/bin/perl
+#u# http://rosettacode.org/wiki/Catalan_numbers
+#c# 2018-07-21 <RC
+#p# OK
+
+use feature 'say';
+my $result;
+
+sub factorial { my $f = 1; $f *= $_ for 2 .. $_[0]; $f; }
+sub catalan {
+  my $n = shift;
+  factorial(2*$n) / factorial($n+1) / factorial($n);
+}
+
+$result .= sprintf "$_\t@{[ catalan($_) ]}\n" for 0 .. 20;
+
+say $result;
+my $ref = <<'END';
+0	1
+1	1
+2	2
+3	5
+4	14
+5	42
+6	132
+7	429
+8	1430
+9	4862
+10	16796
+11	58786
+12	208012
+13	742900
+14	2674440
+15	9694845
+16	35357670
+17	129644790
+18	477638700
+19	1767263190
+20	6564120420
+END
+
+use Test::More;
+is ($result, $ref);
+done_testing();
