@@ -1,0 +1,39 @@
+#!/usr/local/bin/perl
+#u# http://rosettacode.org/wiki/Catalan_numbers/Pascal%27s_triangle
+#c# 2018-07-21 <RC
+#p# OK
+
+use feature 'say';
+my $result;
+
+# Translation of: C++
+
+use constant N => 15;
+my @t = (0, 1);
+for(my $i = 1; $i <= N; $i++) {
+    for(my $j = $i; $j > 1; $j--) { $t[$j] += $t[$j-1] }
+    $t[$i+1] = $t[$i];
+    for(my $j = $i+1; $j>1; $j--) { $t[$j] += $t[$j-1] }
+    $result .= sprintf $t[$i+1] - $t[$i]. " ";
+}
+$result .= "\n";
+
+# After the 28th Catalan number, this overflows 64-bit integers. We could add use bigint; use Math::GMP ":constant"; to make it work, albeit not at a fast pace. However we can use a module to do it much faster:
+
+# Library: ntheory
+use ntheory qw/binomial/;
+@c1000 = map { binomial( 2*$_, $_) / ($_+1) } 1 .. 1000;
+
+# The Math::Pari module also has a binomial, but isn't as fast and overflows its stack after 3400.
+
+say $result; 
+
+my $ref = <<'EOD';
+1 2 5 14 42 132 429 1430 4862 16796 58786 208012 742900 2674440 9694845 
+EOD
+
+$lastline = '2046105521468021692642519982997827217179245642339057975844538099572176010191891863964968026156453752449015750569428595097318163634370154637380666882886375203359653243390929717431080443509007504772912973142253209352126946839844796747697638537600100637918819326569730982083021538057087711176285777909275869648636874856805956580057673173655666887003493944650164153396910927037406301799052584663611016897272893305532116292143271037140718751625839812072682464343153792956281748582435751481498598087586998603921577523657477775758899987954012641033870640665444651660246024318184109046864244732001962029120';
+use Test::More;
+is ($result, $ref);
+is (@c1000[-1], $lastline);
+done_testing();
