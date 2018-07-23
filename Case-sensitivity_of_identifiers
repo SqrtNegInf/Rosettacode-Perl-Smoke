@@ -1,0 +1,17 @@
+#!/usr/local/bin/perl
+#u# http://rosettacode.org/wiki/Case-sensitivity_of_identifiers
+#c# 2018-07-21 <RC
+#p# OK
+
+use feature 'say';
+my $result;
+
+# These variables are all different
+$dog='Benjamin';
+$Dog='Samba';
+$DOG='Bernie';
+say $result = "The three dogs are named $dog, $Dog, and $DOG";
+
+use Test::More;
+is ($result, 'The three dogs are named Benjamin, Samba, and Bernie');
+done_testing();
