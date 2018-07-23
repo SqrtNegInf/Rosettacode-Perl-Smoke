@@ -1,0 +1,86 @@
+#!/usr/local/bin/perl
+#u# http://rosettacode.org/wiki/Calendar_-_for_%22REAL%22_programmers
+#t# skiptest
+#c# 2018-07-21 <RC
+#p# OK
+
+use feature 'say';
+my $result;
+
+# Since we can't use eval or print (or any other keywords)
+# at the top level, we need to abuse backticks in order to print anything, as in the infamous JAPH with no letters or numbers. Consequently, the calendar is printed to standard error instead of standard output.
+
+$PROGRAM = '\'
+ 
+MY @START_DOW = (3, 6, 6, 2, 4, 0, 
+                 2, 5, 1, 3, 6, 1);
+MY @DAYS = (31, 28, 31, 30, 31, 30,
+            31, 31, 30, 31, 30, 31);
+ 
+MY @MONTHS;
+FOREACH MY $M (0 .. 11) {
+    FOREACH MY $R (0 .. 5) {
+        $MONTHS[$M][$R] = JOIN " ",
+            MAP { $_ < 1 || $_ > $DAYS[$M] ? "  " : SPRINTF "%2D", $_ }
+            MAP { $_ - $START_DOW[$M] + 1 }
+            $R * 7 .. $R * 7 + 6;
+    }
+}
+ 
+SUB P { WARN $_[0], "\\N" }
+P UC "                                                       [INSERT SNOOPY HERE]";
+P "                                                               1969";
+P "";
+FOREACH (UC("      JANUARY               FEBRUARY               MARCH                 APRIL                  MAY                   JUNE"),
+         UC("        JULY                 AUGUST              SEPTEMBER              OCTOBER               NOVEMBER              DECEMBER")) {
+    P $_;
+    MY @MS = SPLICE @MONTHS, 0, 6;
+    P JOIN "  ", ((UC "SU MO TU WE TH FR SA") X 6);
+    P JOIN "  ", MAP { SHIFT @$_ } @MS FOREACH 0 .. 5;
+}
+ 
+\'';
+ 
+# LOWERCASE LETTERS
+$E = '%' | '@';
+$C = '#' | '@';
+$H = '(' | '@';
+$O = '/' | '@';
+$T = '4' | '@';
+$R = '2' | '@';
+$A = '!' | '@';
+$Z = ':' | '@';
+$P = '0' | '@';
+$L = ',' | '@';
+ 
+`${E}${C}${H}${O} $PROGRAM | ${T}${R} A-Z ${A}-${Z} | ${P}${E}${R}${L}`;
+
+# Although, if we are abusing the backticks and other innocent programs, why not just: $_=$ARGV[0]//1969;`\143\141\154 $_ >&2`
+
+say $result; 
+
+my $ref = <<'EOD';
+                                                       [INSERT SNOOPY HERE]
+                                                               1969
+
+      JANUARY               FEBRUARY               MARCH                 APRIL                  MAY                   JUNE
+SU MO TU WE TH FR SA  SU MO TU WE TH FR SA  SU MO TU WE TH FR SA  SU MO TU WE TH FR SA  SU MO TU WE TH FR SA  SU MO TU WE TH FR SA
+          1  2  3  4                     1                     1         1  2  3  4  5               1  2  3   1  2  3  4  5  6  7
+ 5  6  7  8  9 10 11   2  3  4  5  6  7  8   2  3  4  5  6  7  8   6  7  8  9 10 11 12   4  5  6  7  8  9 10   8  9 10 11 12 13 14
+12 13 14 15 16 17 18   9 10 11 12 13 14 15   9 10 11 12 13 14 15  13 14 15 16 17 18 19  11 12 13 14 15 16 17  15 16 17 18 19 20 21
+19 20 21 22 23 24 25  16 17 18 19 20 21 22  16 17 18 19 20 21 22  20 21 22 23 24 25 26  18 19 20 21 22 23 24  22 23 24 25 26 27 28
+26 27 28 29 30 31     23 24 25 26 27 28     23 24 25 26 27 28 29  27 28 29 30           25 26 27 28 29 30 31  29 30               
+                                            30 31                                                                                 
+        JULY                 AUGUST              SEPTEMBER              OCTOBER               NOVEMBER              DECEMBER
+SU MO TU WE TH FR SA  SU MO TU WE TH FR SA  SU MO TU WE TH FR SA  SU MO TU WE TH FR SA  SU MO TU WE TH FR SA  SU MO TU WE TH FR SA
+       1  2  3  4  5                  1  2      1  2  3  4  5  6            1  2  3  4                     1      1  2  3  4  5  6
+ 6  7  8  9 10 11 12   3  4  5  6  7  8  9   7  8  9 10 11 12 13   5  6  7  8  9 10 11   2  3  4  5  6  7  8   7  8  9 10 11 12 13
+13 14 15 16 17 18 19  10 11 12 13 14 15 16  14 15 16 17 18 19 20  12 13 14 15 16 17 18   9 10 11 12 13 14 15  14 15 16 17 18 19 20
+20 21 22 23 24 25 26  17 18 19 20 21 22 23  21 22 23 24 25 26 27  19 20 21 22 23 24 25  16 17 18 19 20 21 22  21 22 23 24 25 26 27
+27 28 29 30 31        24 25 26 27 28 29 30  28 29 30              26 27 28 29 30 31     23 24 25 26 27 28 29  28 29 30 31         
+                      31                                                                30                                        
+EOD
+
+use Test::More;
+#is ($result, $ref);
+#done_testing();
