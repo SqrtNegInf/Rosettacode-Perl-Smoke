@@ -1,0 +1,29 @@
+#!/usr/local/bin/perl
+#u# http://rosettacode.org/wiki/Comma_quibbling
+#c# 2018-07-23 <RC
+#p# OK
+
+use feature 'say';
+my $result;
+
+sub comma_quibbling(@) {
+    return "{$_}" for
+        @_ < 2 ? "@_" :
+        join(', ', @_[0..@_-2]) . ' and ' . $_[-1];
+}
+
+$result .= comma_quibbling(@$_). "\n" for
+    [], [qw(ABC)], [qw(ABC DEF)], [qw(ABC DEF G H)];
+
+say $result;
+
+my $ref = <<'END';
+{}
+{ABC}
+{ABC and DEF}
+{ABC, DEF, G and H}
+END
+
+use Test::More;
+is ($result, $ref);
+done_testing();
