@@ -1,0 +1,45 @@
+#!/usr/local/bin/perl
+#u# http://rosettacode.org/wiki/Chinese_zodiac
+#c# 2018-07-23 <RC
+#p# OK
+#n# Unicode problems in output, but logic is right
+
+use feature 'say';
+my $result;
+
+
+sub zodiac {
+  my $year = shift;
+  my @animals = qw/Rat Ox Tiger Rabbit Dragon Snake Horse Goat Monkey Rooster Dog Pig/;
+  my @elements = qw/Wood Fire Earth Metal Water/;
+  my @terrestrial_han = qw/¿ ¿ ¿ ¿ ¿ ¿ ¿ ¿ ¿ ¿ ¿ ¿/;
+  my @terrestrial_pinyin = qw/z¿ ch¿u yín m¿o chén sì w¿ wèi sh¿n y¿u x¿ hài/;
+  my @celestial_han = qw/¿ ¿ ¿ ¿ ¿ ¿ ¿ ¿ ¿ ¿/;
+  my @celestial_pinyin = qw/ji¿ y¿ b¿ng d¿ng wù j¿ g¿ng x¿n rén g¿i/;
+  my @aspect = qw/yang yin/;
+ 
+  my $cycle_year = ($year-4) % 60;
+  my($i2, $i10, $i12) = ($cycle_year % 2, $cycle_year % 10, $cycle_year % 12);
+ 
+  ($year,
+   $celestial_han[$i10], $terrestrial_han[$i12],
+   $celestial_pinyin[$i10], $terrestrial_pinyin[$i12],
+   $elements[$i10 >> 1], $animals[$i12], $aspect[$i2], $cycle_year+1);
+}
+ 
+$result .= sprintf("%4d: %s%s (%s-%s) %s %s; %s - year %d of the cycle\n", zodiac($_))
+  for (1935, 1938, 1968, 1972, 1976, 2017);
+
+say $result; 
+my $ref = <<'EOD';
+1935: ¿¿ (y¿-hài) Wood Pig; yin - year 12 of the cycle
+1938: ¿¿ (wù-yín) Earth Tiger; yang - year 15 of the cycle
+1968: ¿¿ (wù-sh¿n) Earth Monkey; yang - year 45 of the cycle
+1972: ¿¿ (rén-z¿) Water Rat; yang - year 49 of the cycle
+1976: ¿¿ (b¿ng-chén) Fire Dragon; yang - year 53 of the cycle
+2017: ¿¿ (d¿ng-y¿u) Fire Rooster; yin - year 34 of the cycle
+EOD
+
+use Test::More;
+is ($result, $ref);
+done_testing();
