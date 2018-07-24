@@ -1,0 +1,28 @@
+#!/usr/local/bin/perl
+#u# http://rosettacode.org/wiki/Closures/Value_capture
+#c# 2018-07-23 <RC
+#p# OK
+
+use feature 'say';
+my $result;
+
+my @f = map(sub { $_ * $_ }, 0 .. 9);   # @f is an array of subs
+$result .= $f[$_](). "\n" for (0 .. 8); # call and print all but last
+
+say $result; 
+
+my $ref = <<'EOD';
+0
+1
+4
+9
+16
+25
+36
+49
+64
+EOD
+
+use Test::More;
+is ($result, $ref);
+done_testing();
