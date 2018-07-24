@@ -1,0 +1,41 @@
+#!/usr/local/bin/perl
+#u# http://rosettacode.org/wiki/Collections
+#c# 2018-07-23 <RC
+#p# OK
+
+use feature 'say';
+my $result;
+
+
+# Perl has array and hashes.
+
+use strict;
+my @c = (); # create an empty "array" collection
+ 
+# fill it
+push @c, 10, 11, 12;
+push @c, 65;
+# print it
+$result .= join(" ",@c) . "\n";
+ 
+# create an empty hash
+my %h = ();
+# add some pair
+$h{'one'} = 1;
+$h{'two'} = 2;
+# print it
+foreach my $i ( sort keys %h ) {
+    $result .= $i . " -> " . $h{$i} . "\n";
+}
+
+
+say $result; 
+my $ref = <<'EOD';
+10 11 12 65
+one -> 1
+two -> 2
+EOD
+
+use Test::More;
+is ($result, $ref);
+done_testing();
