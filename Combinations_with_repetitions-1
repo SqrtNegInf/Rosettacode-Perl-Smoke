@@ -1,0 +1,33 @@
+#!/usr/local/bin/perl
+#u# http://rosettacode.org/wiki/Combinations_with_repetitions
+#c# 2018-07-23 <RC
+#p# OK
+
+use feature 'say';
+my $result;
+
+sub p { $_[0] ? map p($_[0] - 1, [@{$_[1]}, $_[$_]], @_[$_ .. $#_]), 2 .. $#_ : $_[1] }
+sub f { $_[0] ? $_[0] * f($_[0] - 1) : 1 }
+sub pn{ f($_[0] + $_[1] - 1) / f($_[0]) / f($_[1] - 1) }
+
+for (p(2, [], qw(iced jam plain))) {
+        $result .= "@$_\n";
+}
+
+$result .= sprintf "\nThere are %d ways to pick 7 out of 10\n", pn(7,10);
+
+say $result;
+my $ref = <<'END';
+iced iced
+iced jam
+iced plain
+jam jam
+jam plain
+plain plain
+
+There are 11440 ways to pick 7 out of 10
+END
+
+use Test::More;
+is ($result, $ref);
+done_testing();
