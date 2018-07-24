@@ -1,0 +1,73 @@
+#!/usr/local/bin/perl
+#u# http://rosettacode.org/wiki/Cholesky_decomposition
+#c# 2018-07-23 <RC
+#p# OK
+#n# output munged
+
+use feature 'say';
+my $result;
+
+
+sub cholesky { 
+  my $matrix = shift; 
+  my $chol = [ map { [(0) x @$matrix ] } @$matrix ]; 
+  for my $row (0..@$matrix-1) { 
+    for my $col (0..$row) { 
+      my $x = $$matrix[$row][$col]; 
+      $x -= $$chol[$row][$_]*$$chol[$col][$_] for 0..$col; 
+      $$chol[$row][$col] = $row == $col ? sqrt $x : $x/$$chol[$col][$col]; 
+    } 
+  } 
+  return $chol; 
+} 
+ 
+my $example1 = [ [ 25, 15, -5 ], 
+		 [ 15, 18,  0 ], 
+		 [ -5,  0, 11 ] ]; 
+push @result, "Example 1:"; 
+(map {push @result,sprintf "%7.4f", $_ } @$_) for @{ cholesky $example1 }; 
+ 
+my $example2 = [ [ 18, 22,  54,  42], 
+		 [ 22, 70,  86,  62], 
+		 [ 54, 86, 174, 134], 
+		 [ 42, 62, 134, 106] ]; 
+push @result, "\nExample 2:"; 
+(map { push @result, sprintf "%7.4f", $_ } @$_) for @{ cholesky $example2 };
+ 
+say $result = join "\n", @result; 
+
+my $ref = <<'EOD';
+Example 1:
+ 5.0000
+ 0.0000
+ 0.0000
+ 3.0000
+ 3.0000
+ 0.0000
+-1.0000
+ 1.0000
+ 3.0000
+
+Example 2:
+ 4.2426
+ 0.0000
+ 0.0000
+ 0.0000
+ 5.1854
+ 6.5659
+ 0.0000
+ 0.0000
+12.7279
+ 3.0460
+ 1.6497
+ 0.0000
+ 9.8995
+ 1.6246
+ 1.8497
+ 1.3926
+EOD
+
+use Test::More;
+chop $ref;
+is ($result, $ref);
+done_testing();
