@@ -1,0 +1,42 @@
+#!/usr/local/bin/perl
+#u# http://rosettacode.org/wiki/Spiral_matrix
+#c# 2018-07-24 <RC
+#p# OK
+
+use feature 'say';
+my $result;
+
+sub spiral
+ {my ($n, $x, $y, $dx, $dy, @a) = (shift, 0, 0, 1, 0);
+  foreach (0 .. $n**2 - 1)
+     {$a[$y][$x] = $_;
+      my ($nx, $ny) = ($x + $dx, $y + $dy);
+      ($dx, $dy) =
+          $dx ==  1 && ($nx == $n || defined $a[$ny][$nx])
+        ? ( 0,  1)
+        : $dy ==  1 && ($ny == $n || defined $a[$ny][$nx])
+        ? (-1,  0)
+        : $dx == -1 && ($nx  <  0 || defined $a[$ny][$nx])
+        ? ( 0, -1)
+        : $dy == -1 && ($ny  <  0 || defined $a[$ny][$nx])
+        ? ( 1,  0)
+        : ($dx, $dy);
+      ($x, $y) = ($x + $dx, $y + $dy);}
+  return @a;}
+ 
+foreach (spiral 5)
+   {$result .= sprintf "%3d", $_ foreach @$_; $result .= "\n" }
+
+say $result; 
+
+my $ref = <<'EOD';
+  0  1  2  3  4
+ 15 16 17 18  5
+ 14 23 24 19  6
+ 13 22 21 20  7
+ 12 11 10  9  8
+EOD
+
+use Test::More;
+is ($result, $ref);
+done_testing();
