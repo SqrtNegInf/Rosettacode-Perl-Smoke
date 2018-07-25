@@ -1,0 +1,20 @@
+#!/usr/local/bin/perl
+#u# http://rosettacode.org/wiki/Command-line_arguments
+#t# nocode
+#c# 2018-07-24 <RC
+#p# OK
+
+# Works with: Perl version 5.x
+# @ARGV is the array containing all command line parameters
+
+my @params = @ARGV;
+my $params_size = @ARGV; 
+my $second = $ARGV[1];
+my $fifth = $ARGV[4];
+# If you don't mind importing a module:
+
+use Getopt::Long;
+GetOptions ( 
+    'help|h'     => \my $help,
+    'verbose|v'  => \my $verbose,
+);
