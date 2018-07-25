@@ -1,0 +1,30 @@
+#!/usr/local/bin/perl
+#u# http://rosettacode.org/wiki/Concurrent_computing
+#t# skiptest
+#c# 2018-07-24 <RC
+#p# OK
+
+srand 123456;
+
+use feature 'say';
+my $result;
+
+# Library: Time::HiResHiRes
+use threads;
+use Time::HiRes qw(sleep);
+ 
+$_->join for map {
+    threads->create(sub {
+        sleep rand; 
+        print shift, "\n";
+    }, $_)
+} qw(Enjoy Rosetta Code);
+
+exit;
+
+use Test::More;
+is (length($result), 19);
+like  ($result, qr/Enjoy/);
+like  ($result, qr/Rosetta/);
+like  ($result, qr/Code/);
+done_testing();
