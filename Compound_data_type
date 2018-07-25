@@ -1,0 +1,31 @@
+#!/usr/local/bin/perl
+#u# http://rosettacode.org/wiki/Compound_data_type
+#t# nocode
+#c# 2018-07-24 <RC
+#p# OK
+#n# re-write with more up-to-date Perl OO, or Moose?
+
+use feature 'say';
+my $result;
+
+# Array[edit]
+my @point = (3, 8);
+
+# Hash[edit]
+my %point = (
+   x => 3,
+   y => 8
+);
+
+# Class instance[edit]
+
+package Point;
+ 
+use strict;
+use Class::Struct;
+struct(
+    x => '$',
+    y => '$',
+);
+ 
+my $point = Point->new(x => 3, y => 8);
