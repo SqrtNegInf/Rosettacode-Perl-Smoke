@@ -1,0 +1,28 @@
+#!/usr/local/bin/perl
+#u# http://rosettacode.org/wiki/Concurrent_computing
+#c# 2018-07-24 <RC
+#p# OK
+
+use feature 'say';
+my $result;
+my @res;
+
+use feature qw( say );
+use Coro;
+use Coro::Timer qw( sleep );
+ 
+$_->join for map {
+    async {
+        sleep rand; 
+        push @res, @_;
+    } $_
+} qw( Enjoy Rosetta Code );
+ 
+say $result  = join ":", @res; 
+
+use Test::More;
+is (length($result), 18);
+like  ($result, qr/Enjoy/);
+like  ($result, qr/Rosetta/);
+like  ($result, qr/Code/);
+done_testing();
