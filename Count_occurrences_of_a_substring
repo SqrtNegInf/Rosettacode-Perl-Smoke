@@ -1,0 +1,31 @@
+#!/usr/local/bin/perl
+#u# http://rosettacode.org/wiki/Count_occurrences_of_a_substring
+#c# 2018-07-25 <RC
+#p# OK
+
+use feature 'say';
+my $result;
+
+
+sub countSubstring {
+  my $str = shift;
+  my $sub = quotemeta(shift);
+  my $count = () = $str =~ /$sub/g;
+  return $count;
+#  or return scalar( () = $str =~ /$sub/g );
+}
+ 
+$result .=  countSubstring("the three truths","th"). "\n"; # prints "3"
+$result .=  countSubstring("ababababab","abab"). "\n"; # prints "2"
+
+
+say $result; 
+
+my $ref = <<'EOD';
+3
+2
+EOD
+
+use Test::More;
+is ($result, $ref);
+done_testing();
