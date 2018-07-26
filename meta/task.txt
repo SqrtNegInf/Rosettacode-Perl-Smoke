@@ -1,17 +1,17 @@
 
 This is perl 5, version 28, subversion 0 (v5.28.0) built for darwin-thread-multi-2level
 updating from RC…
-+------------> Perl: Good/Bad [154/2]
++------------> Perl: Good/Bad [168/2]
 |+-----------> SmOke testing [130]
-||+----------> sKipping validation [20]
+||+----------> sKipping validation [29]
 |||+---------> Interactive [6]
-||||+--------> Touched (modified by me) [9]
-|||||+-------> Random seed [13]
+||||+--------> Touched (modified by me) [10]
+|||||+-------> Random seed [14]
 ||||||+------> File output [13]
-|||||||+-----> Draft [224]
+|||||||+-----> Draft [226]
 ||||||||+----> Ignoring [2]
-|||||||||+---> Void (no local copy) [978]
-||||||||||+--> Un-implemented/reliable [310]
+|||||||||+---> Void (no local copy) [967]
+||||||||||+--> Un-implemented/reliable [312]
 |||||||||||
 G.......... 100_doors-1
 GO......... 100_doors-2
@@ -217,21 +217,22 @@ G.......... Combinations_with_repetitions-2
 .......D.VU Combinations_with_repetitions_Square_Digit_Chain
 G.......... Comma_quibbling-1
 G.......... Comma_quibbling-2
-.........V. Command-line_arguments
+G.K........ Command-line_arguments
 .........VU Commatizing_numbers
-.........V. Comments
-.........V. Compare_a_list_of_strings
+G.K........ Comments
+G...T...... Compare_a_list_of_strings
 .........VU Compare_sorting_algorithms%27_performance
-.........V. Compile-time_calculation
-.........V. Compiler_AST_interpreter
-.........V. Compiler_code_generator
+G.......... Compile-time_calculation
+G.K........ Compiler_AST_interpreter
+G.K........ Compiler_code_generator
 .........V. Compiler_lexical_analyzer
-.........V. Compiler_syntax_analyzer
-.........V. Compiler_virtual_machine_interpreter
-.........V. Compound_data_type
-.........V. Concurrent_computing
-.........V. Conditional_structures
-.........V. Conjugate_transpose
+G.K........ Compiler_syntax_analyzer
+G.K........ Compiler_virtual_machine_interpreter
+G.K........ Compound_data_type
+G.K..R..... Concurrent_computing-1
+G.......... Concurrent_computing-2
+G.K........ Conditional_structures
+G.......... Conjugate_transpose
 .........VU Constrained_genericity
 .........V. Constrained_random_points_on_a_circle
 .........V. Continued_fraction
@@ -552,6 +553,7 @@ GO......... Find_palindromic_numbers_in_both_binary_and_ternary_bases
 .........V. Letter_frequency
 .........V. Levenshtein_distance
 .......D.V. Levenshtein_distance_Alignment
+.......D.VU Lexicographical_numbers
 .........V. Linear_congruential_generator
 .......D.VU Linux_CPU_utilization
 .........V. List_comprehensions
@@ -960,7 +962,7 @@ GO...R..... Pattern_matching
 .........V. Speech_synthesis
 .......D.VU Spelling_of_ordinal_numbers
 .........VU Spinning_rod_animation_Text
-.........V. Spiral_matrix
+G.......... Spiral_matrix
 .........V. Split_a_character_string_based_on_change_of_character
 .......D.VU Spoof_game
 .........V. Square-free_integers
@@ -1005,6 +1007,7 @@ GO...R..... Pattern_matching
 .........V. Sum_of_a_series
 .........V. Sum_of_squares
 .........V. Sum_to_100
+.......D.VU Sunflower_fractal
 .........VU Superellipse
 .......D.V. Superpermutation_minimisation
 .........VU Sutherland-Hodgman_polygon_clipping
