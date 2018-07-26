@@ -1,0 +1,181 @@
+#!/usr/local/bin/perl
+#u# http://rosettacode.org/wiki/Convert_decimal_number_to_rational
+#c# 2018-07-25 <RC
+#p# OK
+
+use feature 'say';
+my $result;
+
+# Note: the following is considerably more complicated than what was specified, because the specification is not, well, specific. Three methods are provided with different interpretation of what "conversion" means: keeping the string representation the same, keeping machine representation the same, or find best approximation with denominator in a reasonable range. None of them takes integer overflow seriously (though the best_approx is not as badly subject to it), so not ready for real use.
+
+sub gcd {
+        my ($m, $n) = @_;
+        ($m, $n) = ($n, $m % $n) while $n;
+        return $m
+}
+ 
+sub rat_machine {
+        my $n = shift;
+        my $denom = 1;
+        while ($n != int $n) {
+                # assuming the machine format is base 2, and multiplying
+                # by 2 doesn't change the mantissa
+                $n *= 2;
+ 
+                # multiply denom by 2, ignoring (very) possible overflow
+                $denom <<= 1;
+        }
+        if ($n) {
+                my $g = gcd($n, $denom);
+                $n /= $g;
+                $denom /= $g;
+        }
+        return $n, $denom;
+}
+ 
+# helper, make continued fraction back into normal fraction
+sub get_denom {
+        my ($num, $denom) = (1, pop @_);
+        for (reverse @_) {
+                ($num, $denom) = ($denom, $_ * $denom + $num);
+        }
+        wantarray ? ($num, $denom) : $denom
+}
+ 
+sub best_approx {
+        my ($n, $limit) = @_;
+        my ($denom, $neg);
+        if ($n < 0) {
+                $neg = 1;
+                $n = -$n;
+        }
+ 
+        my $int = int($n);
+        my ($num, $denom, @coef) = (1, $n - $int);
+ 
+        # continued fraction, sort of
+        while (1) {
+                # make sure it terminates
+                last if $limit * $denom < 1;
+                my $i = int($num / $denom);
+ 
+                # not the right way to get limit, but it works
+                push @coef, $i;
+ 
+                if (get_denom(@coef) > $limit) {
+                        pop @coef;
+                        last;
+                }
+ 
+                # we lose precision here, but c'est la vie
+                ($num, $denom) = ($denom, $num - $i * $denom);
+        }
+ 
+        ($num, $denom) = get_denom @coef;
+        $num += $denom * $int;
+ 
+        return $neg ? -$num : $num, $denom;
+}
+ 
+sub rat_string {
+        my $n = shift;
+        my $denom = 1;
+        my $neg;
+ 
+        # trival xyz.0000 ... case
+        $n =~ s/\.0+$//;
+        return $n, 1 unless $n =~ /\./;
+ 
+        if ($n =~ /^-/) {
+                $neg = 1;
+                $n =~ s/^-//;
+        }
+ 
+        # shift decimal point to the right till it's gone
+        $denom *= 10    while $n =~ s/\.(\d)/$1\./;
+        $n =~ s/\.$//;
+ 
+        # removing leading zeros lest it looks like octal
+        $n =~ s/^0*//;
+        if ($n) {
+                my $g = gcd($n, $denom);
+                $n /= $g;
+                $denom /= $g;
+        }
+        return $neg ? -$n : $n, $denom;
+}
+ 
+my $limit = 1e8;
+my $x = 3/8;
+$result .= sprintf "3/8 = $x:\n";
+$result .= sprintf "machine: %d/%d\n", rat_machine $x;
+$result .= sprintf "string:  %d/%d\n", rat_string  $x;
+$result .= sprintf "approx below $limit:  %d/%d\n", best_approx $x, $limit;
+ 
+$x = 137/4291;
+$result .= sprintf"\n137/4291 = $x:\n";
+$result .= sprintf "machine: %d/%d\n", rat_machine $x;
+$result .= sprintf "string:  %d/%d\n", rat_string  $x;
+$result .= sprintf "approx below $limit:  %d/%d\n", best_approx $x, $limit;
+ 
+$x = sqrt(1/2);
+$result .= sprintf "\n1/sqrt(2) = $x\n";
+$result .= sprintf "machine: %d/%d\n", rat_machine $x;
+$result .= sprintf "string:  %d/%d\n", rat_string  $x;
+$result .= sprintf "approx below 10:  %d/%d\n", best_approx $x, 10;
+$result .= sprintf "approx below 100:  %d/%d\n", best_approx $x, 100;
+$result .= sprintf "approx below 1000:  %d/%d\n", best_approx $x, 1000;
+$result .= sprintf "approx below 10000:  %d/%d\n", best_approx $x, 10000;
+$result .= sprintf "approx below 100000:  %d/%d\n", best_approx $x, 100000;
+$result .= sprintf "approx below $limit:  %d/%d\n", best_approx $x, $limit;
+ 
+$x = -4 * atan2(1,1);
+$result .= sprintf "\n-Pi = $x\n";
+$result .= sprintf "machine: %d/%d\n", rat_machine $x;
+$result .= sprintf "string:  %d/%d\n", rat_string  $x;
+ 
+for (map { 10 ** $_ } 1 .. 10) {
+        $result .= sprintf "approx below %g: %d / %d\n", $_, best_approx($x, $_)
+}
+
+say $result; 
+
+my $ref = <<'EOD';
+3/8 = 0.375:
+machine: 3/8
+string:  3/8
+approx below 100000000:  3/8
+
+137/4291 = 0.0319272896760662:
+machine: 2300603678209305/72057594037927936
+string:  159636448380331/5000000000000000
+approx below 100000000:  137/4291
+
+1/sqrt(2) = 0.707106781186548
+machine: 6369051672525773/9007199254740992
+string:  176776695296637/250000000000000
+approx below 10:  5/7
+approx below 100:  29/41
+approx below 1000:  408/577
+approx below 10000:  5741/8119
+approx below 100000:  33461/47321
+approx below 100000000:  38613965/54608393
+
+-Pi = -3.14159265358979
+machine: -884279719003555/281474976710656
+string:  -314159265358979/100000000000000
+approx below 10: -22 / 7
+approx below 100: -22 / 7
+approx below 1000: -355 / 113
+approx below 10000: -355 / 113
+approx below 100000: -208341 / 66317
+approx below 1e+06: -1146408 / 364913
+approx below 1e+07: -5419351 / 1725033
+approx below 1e+08: -245850922 / 78256779
+approx below 1e+09: -1881244168 / 598818617
+approx below 1e+10: -9978066541 / 3176117225
+EOD
+
+use Test::More;
+is ($result, $ref);
+done_testing();
