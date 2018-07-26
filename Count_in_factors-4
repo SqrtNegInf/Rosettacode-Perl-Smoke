@@ -1,0 +1,44 @@
+#!/usr/local/bin/perl
+#u# http://rosettacode.org/wiki/Count_in_factors
+#c# 2018-07-25 <RC
+#p# OK
+
+use feature 'say';
+my $result;
+
+sub factors {
+  my($n, $p, @out) = (shift, 3);
+  return if $n < 1;
+  while (!($n&1)) { $n >>= 1; push @out, 2; }
+  while ($n > 1 && $p*$p <= $n) {
+    while ( ($n % $p) == 0) {
+      $n /= $p;
+      push @out, $p;
+    }
+    $p += 2;
+  }
+  push @out, $n if $n > 1;
+  @out;
+}
+
+$result .= "$_ = ". join(" x ", factors($_)). "\n" for 100000000000 .. 100000000010;
+
+say $result;
+
+my $ref = <<'END';
+100000000000 = 2 x 2 x 2 x 2 x 2 x 2 x 2 x 2 x 2 x 2 x 2 x 5 x 5 x 5 x 5 x 5 x 5 x 5 x 5 x 5 x 5 x 5
+100000000001 = 11 x 11 x 23 x 4093 x 8779
+100000000002 = 2 x 3 x 7 x 1543 x 1543067
+100000000003 = 100000000003
+100000000004 = 2 x 2 x 17573 x 1422637
+100000000005 = 3 x 5 x 19 x 1627 x 215659
+100000000006 = 2 x 3947 x 12667849
+100000000007 = 353 x 283286119
+100000000008 = 2 x 2 x 2 x 3 x 3 x 3 x 462962963
+100000000009 = 7 x 13 x 53 x 1979 x 10477
+100000000010 = 2 x 5 x 101 x 3541 x 27961
+END
+
+use Test::More;
+is ($result, $ref);
+done_testing();
