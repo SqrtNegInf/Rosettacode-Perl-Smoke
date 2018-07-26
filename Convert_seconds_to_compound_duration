@@ -1,0 +1,36 @@
+#!/usr/local/bin/perl
+#u# http://rosettacode.org/wiki/Convert_seconds_to_compound_duration
+#c# 2018-07-25 <RC
+#p# OK
+
+use feature 'say';
+my $result;
+
+
+sub compound_duration {
+    my $sec = shift;
+    no warnings 'numeric';
+ 
+    return join ', ', grep { $_ > 0 }
+        int($sec/60/60/24/7)    . " wk",
+        int($sec/60/60/24) % 7  . " d",
+        int($sec/60/60)    % 24 . " hr",
+        int($sec/60)       % 60 . " min",
+        int($sec)          % 60 . " sec";
+}
+
+
+for (7259, 86400, 6000000) {
+    $result .= sprintf "%7d sec  =  %s\n", $_, compound_duration($_)
+}
+
+say $result; 
+my $ref = <<'EOD';
+   7259 sec  =  2 hr, 59 sec
+  86400 sec  =  1 d
+6000000 sec  =  9 wk, 6 d, 10 hr, 40 min
+EOD
+
+use Test::More;
+is ($result, $ref);
+done_testing();
