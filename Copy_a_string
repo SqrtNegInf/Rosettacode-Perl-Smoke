@@ -1,0 +1,50 @@
+#!/usr/local/bin/perl
+#u# http://rosettacode.org/wiki/Copy_a_string
+#c# 2018-07-25 <RC
+#p# OK
+
+use feature 'say';
+my $result;
+
+
+# To copy a string, just use ordinary assignment:
+
+my $original = 'Hello.';
+my $new = $original;
+$new = 'Goodbye.';
+$result .=  "$original\n";   # prints "Hello."
+# To create a reference to an existing string, so that modifying the referent changes the original string, use a backslash:
+
+my $original = 'Hello.';
+my $ref = \$original;
+$$ref = 'Goodbye.';
+$result .=  "$original\n";   # prints "Goodbye."
+# If you want a new name for the same string, so that you can modify it without dereferencing a reference, assign a reference to a typeglob:
+
+my $original = 'Hello.';
+our $alias;
+local *alias = \$original;
+$alias = 'Good evening.';
+$result .=  "$original\n";   # prints "Good evening."
+# Note that our $alias, though in most cases a no-op, is necessary under stricture. Beware that local binds dynamically, so any subroutines called in this scope will see (and possibly modify!) the value of $alias assigned here.
+# To make a lexical variable that is an alias of some other variable, the Lexical::Alias module can be used:
+
+use Lexical::Alias;
+my $original = 'Hello.';
+my $alias;
+alias $alias, $original;
+$alias = 'Good evening.';
+$result .=  "$original\n";   # prints "Good evening."
+
+
+say $result; 
+my $ref = <<'EOD';
+Hello.
+Goodbye.
+Good evening.
+Good evening.
+EOD
+
+use Test::More;
+is ($result, $ref);
+done_testing();
