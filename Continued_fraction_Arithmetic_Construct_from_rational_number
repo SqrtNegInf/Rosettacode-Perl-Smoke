@@ -1,0 +1,58 @@
+#!/usr/local/bin/perl
+#u# http://rosettacode.org/wiki/Continued_fraction/Arithmetic/Construct_from_rational_number
+#c# 2018-07-25 <RC
+#p# OK
+
+use feature 'say';
+my $result;
+
+# To do output one digit at a time, we first turn off buffering to be pedantic, then use a closure that yields one term per call.
+
+$|=1;
+ 
+sub rc2f {
+  my($num, $den) = @_;
+  return sub { return unless $den;
+               my $q = int($num/$den);
+               ($num, $den) = ($den, $num - $q*$den);
+               $q; };
+}
+ 
+sub rcshow {
+  my $sub = shift;
+  $result .=  "[";
+  my $n = $sub->();
+  $result .=  "$n" if defined $n;
+  $result .=  "; $n" while defined($n = $sub->());
+  $result .=  "]\n";
+}
+ 
+rcshow(rc2f(@$_)) 
+   for ([1,2],[3,1],[23,8],[13,11],[22,7],[-151,77]);
+$result .=  "\n";
+rcshow(rc2f(@$_)) 
+   for ([14142,10000],[141421,100000],[1414214,1000000],[14142136,10000000]);
+$result .=  "\n";
+rcshow(rc2f(314285714,100000000));
+
+say $result; 
+
+my $ref = <<'EOD';
+[0; 2]
+[3]
+[2; 1; 7]
+[1; 5; 2]
+[3; 7]
+[-1; -1; -24; -1; -2]
+
+[1; 2; 2; 2; 2; 2; 1; 1; 29]
+[1; 2; 2; 2; 2; 2; 2; 3; 1; 1; 3; 1; 7; 2]
+[1; 2; 2; 2; 2; 2; 2; 2; 3; 6; 1; 2; 1; 12]
+[1; 2; 2; 2; 2; 2; 2; 2; 2; 2; 6; 1; 2; 4; 1; 1; 2]
+
+[3; 7; 7142857]
+EOD
+
+use Test::More;
+is ($result, $ref);
+done_testing();
