@@ -1,0 +1,66 @@
+#!/usr/local/bin/perl
+#u# http://rosettacode.org/wiki/Create_a_two-dimensional_array_at_runtime
+#c# 2018-07-26 <RC
+#p# OK
+
+use feature 'say';
+my $result;
+
+# Works with: Perl version 5.x
+# Predefining an array (or multi-dimension array) size is unnecessary, Perl dynamically resizes the array to meet the requirements. Of course I'm assuming that the user is entering array size 0 based.
+
+sub make_array($ $){
+  # get array sizes from provided params, but force numeric value
+  my $x = ($_[0] =~ /^\d+$/) ? shift : 0;
+  my $y = ($_[0] =~ /^\d+$/) ? shift : 0;
+ 
+  # define array, then add multi-dimensional elements
+  my @array;
+  $array[0][0] = 'X '; # first by first element
+  $array[5][7] = 'X ' if (5 <= $y and 7 <= $x); # sixth by eighth element, if the max size is big enough
+  $array[12][15] = 'X ' if (12 <= $y and 15 <= $x); # thirteenth by sixteenth element, if the max size is big enough
+ 
+  # loop through the elements expected to exist base on input, and display the elements contents in a grid
+  foreach my $dy (0 .. $y){
+    foreach my $dx (0 .. $x){
+      (defined $array[$dy][$dx]) ? (print $array[$dy][$dx]) : (print '. ');
+    }
+    print "\n";
+  }
+}
+
+#The above is a bit verbose, here is a simpler implementation:
+
+sub array {
+    my ($x, $y) = @_;
+    map {[ (0) x $x ]} 1 .. $y
+}
+ 
+my @square2 = array 3, 3;
+$result .= "@$_\n" for @square2;
+ 
+# everything above this line is mostly redundant in perl,
+# since perl would have created the array automatically when used.
+# however, the above function initializes the array elements to 0,
+# while perl would have used undef
+#
+#  $cube[3][4][5] = 60  # this is valid even if @cube was previously undefined
+ 
+$square3[1][1] = 1;
+$result .= "@$_\n" for @square3;
+
+say $result;
+
+my $ref = <<'EOD';
+0 0 0
+0 0 0
+0 0 0
+
+ 1
+
+EOD
+
+use Test::More;
+chop $ref;
+is ($result, $ref);
+done_testing();
