@@ -1,0 +1,40 @@
+#!/usr/local/bin/perl
+#u# http://rosettacode.org/wiki/Cumulative_standard_deviation
+#c# 2018-07-26 <RC
+#p# OK
+
+use feature 'say';
+my $result;
+
+# A much shorter version using a closure and a property of the variance:
+
+# <(x - <x>)²> = <x²> - <x>²
+{
+    my $num, $sum, $sum2;
+    sub stddev {
+	my $x = shift;
+	$num++;
+	return sqrt(
+	    ($sum2 += $x**2) / $num -
+	    (($sum += $x) / $num)**2
+	);
+    }
+}
+
+$result .= stddev($_). "\n" for qw(2 4 4 4 5 5 7 9);
+
+say $result;
+my $ref = <<'END';
+0
+1
+0.942809041582063
+0.866025403784439
+0.979795897113272
+1
+1.39970842444753
+2
+END
+
+use Test::More;
+is ($result, $ref);
+done_testing();
