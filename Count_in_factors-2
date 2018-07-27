@@ -7,23 +7,37 @@
 use feature 'say';
 my $result;
 
-use Math::Pari qw/factorint allocatemem/;
+#use Math::Pari qw/factorint allocatemem/;
+use Math::Pari;
+use Math::Pari 'factorint';
 
-allocatemem(1e8);
+#allocatemem(1e8);
 
 sub factor {
   my ($pn,$pc) = @{Math::Pari::factorint(shift)};
+  $result .= 'pn: ' . $pn . ' pc: ' . $pc . "\n";
   return map { ($pn->[$_]) x $pc->[$_] } 0 .. $#$pn;
 }
 
-$result .= "$_ = ". join(" x ", factor($_)). "\n" for 1000000000000000003 .. 1000000000000000010;
+#$result .= "$_ = ". join(" x ", factor($_)). "\n" for 1000000000000000003 .. 1000000000000000010;
+if (0) { 
+my $x = 100000; $result .= "$x = " . join('*', factor($x)) . "\n";
+my $x = 100001; $result .= "$x = " . join('*', factor($x)) . "\n";
+my $x = 100002; $result .= "$x = " . join('*', factor($x)) . "\n";
+my $x = 100003; $result .= "$x = " . join('*', factor($x)) . "\n";
+my $x = 100004; $result .= "$x = " . join('*', factor($x)) . "\n";
+my $x = 100005; $result .= "$x = " . join('*', factor($x)) . "\n";
+} else { 
+$result .= "$_ = ". join(" x ", factor($_)). "\n" for 1000..1010;
+}
 
 say $result;
+exit;
 
-#1000000000000000000 = 2 x 2 x 2 x 2 x 2 x 2 x 2 x 2 x 2 x 2 x 2 x 2 x 2 x 2 x 2 x 2 x 2 x 2 x 5 x 5 x 5 x 5 x 5 x 5 x 5 x 5 x 5 x 5 x 5 x 5 x 5 x 5 x 5 x 5 x 5 x 5
-#1000000000000000001 = 101 x 9901 x 999999000001
-#1000000000000000002 = 2 x 3 x 17 x 131 x 1427 x 52445056723
-my $ref = <<'END';
+my $refx = <<'END';
+1000000000000000000 = 2 x 2 x 2 x 2 x 2 x 2 x 2 x 2 x 2 x 2 x 2 x 2 x 2 x 2 x 2 x 2 x 2 x 2 x 5 x 5 x 5 x 5 x 5 x 5 x 5 x 5 x 5 x 5 x 5 x 5 x 5 x 5 x 5 x 5 x 5 x 5
+1000000000000000001 = 101 x 9901 x 999999000001
+1000000000000000002 = 2 x 3 x 17 x 131 x 1427 x 52445056723
 1000000000000000003 = 1000000000000000003
 1000000000000000004 = 2 x 2 x 1801 x 246809 x 562425889
 1000000000000000005 = 3 x 5 x 44087 x 691381 x 2187161
