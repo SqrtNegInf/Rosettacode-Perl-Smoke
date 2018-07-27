@@ -1,0 +1,36 @@
+#!/usr/local/bin/perl
+#u# http://rosettacode.org/wiki/Create_an_HTML_table
+#c# 2018-07-26 <RC
+#p# OK
+
+srand 123456;
+
+use feature 'say';
+my $result;
+
+my @heading = qw(X Y Z);
+my $rows = 5;
+$result .=    '<table><thead><td>',
+        (map { "<th>$_</th>" } @heading), 
+        "</thead><tbody>";
+ 
+for (1 .. $rows) {
+        $result .=    "<tr><th>$_</th>", 
+                (map { "<td>".int(rand(10000))."</td>" } @heading),
+                "</tr>";
+}
+ 
+$result .=    "</tbody></table>";
+
+# Note that this is a rather inane way (because of the inane task specification) of generating structured document. For serious work, one should use a module such as XML or HTML for well-formedness instead of this ad hoc method.
+
+
+say $result; 
+my $ref = <<'EOD';
+<table><thead><td><tr><th>1</th><tr><th>2</th><tr><th>3</th><tr><th>4</th><tr><th>5</th></tbody></table>
+EOD
+
+use Test::More;
+chop $ref;
+is ($result, $ref);
+done_testing();
