@@ -1,0 +1,34 @@
+#!/usr/local/bin/perl
+#u# http://rosettacode.org/wiki/Create_a_file
+#t# nocode
+#c# 2018-07-26 <RC
+#p# OK
+
+#use File::Spec::Functions qw(catfile rootdir);
+#{ # here
+#    open my $fh, '>', 'output.txt';
+#    mkdir 'docs';
+#};
+#{ # root dir
+#    open my $fh, '>', catfile rootdir, 'output.txt';
+#    mkdir catfile rootdir, 'docs';
+#};
+#Without Perl Modules
+#Current directory
+
+#perl -e 'qx(touch output.txt)'
+#perl -e 'mkdir docs'
+#Root directory
+#
+#perl -e 'qx(touch /output.txt)'
+#perl -e 'mkdir "/docs"'
+#For comparison with Perl 6
+#
+#for my $prefix (qw( ./ / )) {
+#   mkdir "${prefix}docs";
+#   open my $FH, '>', "${prefix}docs/output.txt";
+#}
+#Cleanup
+
+#unlink $_ for qw(/docs/output.txt ./docs/output.txt);
+#rmdir  $_ for qw(/docs ./docs);
