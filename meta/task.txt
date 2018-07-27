@@ -1,19 +1,19 @@
 
 This is perl 5, version 28, subversion 0 (v5.28.0) built for darwin-thread-multi-2level
 updating from RC…
-+------------> Perl: Good/Bad [168/2]
-|+-----------> SmOke testing [130]
-||+----------> sKipping validation [29]
-|||+---------> Interactive [6]
++------------> Perl: Good/Bad [191/3]
+|+-----------> SmOke testing [160]
+||+----------> sKipping validation [33]
+|||+---------> Interactive [7]
 ||||+--------> Touched (modified by me) [10]
-|||||+-------> Random seed [14]
-||||||+------> File output [13]
-|||||||+-----> Draft [226]
+|||||+-------> Random seed [16]
+||||||+------> File output [14]
+|||||||+-----> Draft [228]
 ||||||||+----> Ignoring [2]
-|||||||||+---> Void (no local copy) [967]
-||||||||||+--> Un-implemented/reliable [312]
+|||||||||+---> Void (no local copy) [950]
+||||||||||+--> Un-implemented/reliable [313]
 |||||||||||
-G.......... 100_doors-1
+GO......... 100_doors-1
 GO......... 100_doors-2
 GO......... 100_doors-3
 G.K........ 15_Puzzle_Game-1
@@ -211,54 +211,59 @@ GO....F.... Colour_pinstripe_Display
 GO......... Combinations-1
 GO......... Combinations-2
 GO......... Combinations-3
-G.......... Combinations_and_permutations
-G.......... Combinations_with_repetitions-1
-G.......... Combinations_with_repetitions-2
+GO......... Combinations_and_permutations
+GO......... Combinations_with_repetitions-1
+GO......... Combinations_with_repetitions-2
 .......D.VU Combinations_with_repetitions_Square_Digit_Chain
-G.......... Comma_quibbling-1
-G.......... Comma_quibbling-2
+GO......... Comma_quibbling-1
+GO......... Comma_quibbling-2
 G.K........ Command-line_arguments
 .........VU Commatizing_numbers
 G.K........ Comments
-G...T...... Compare_a_list_of_strings
+GO..T...... Compare_a_list_of_strings
 .........VU Compare_sorting_algorithms%27_performance
-G.......... Compile-time_calculation
+GO......... Compile-time_calculation
 G.K........ Compiler_AST_interpreter
 G.K........ Compiler_code_generator
-.........V. Compiler_lexical_analyzer
+GO......... Compiler_lexical_analyzer-1
+GO......... Compiler_lexical_analyzer-2
 G.K........ Compiler_syntax_analyzer
 G.K........ Compiler_virtual_machine_interpreter
 G.K........ Compound_data_type
 G.K..R..... Concurrent_computing-1
-G.......... Concurrent_computing-2
+GO......... Concurrent_computing-2
 G.K........ Conditional_structures
-G.......... Conjugate_transpose
+GO......... Conjugate_transpose
 .........VU Constrained_genericity
-.........V. Constrained_random_points_on_a_circle
-.........V. Continued_fraction
-.........V. Continued_fraction_Arithmetic_Construct_from_rational_number
+GO...RF.... Constrained_random_points_on_a_circle
+GO......... Continued_fraction
+GO......... Continued_fraction_Arithmetic_Construct_from_rational_number
 .......D.VU Continued_fraction_Arithmetic_Gmatrix_NG,_Contined_Fraction_N
 .......D.VU Continued_fraction_Arithmetic_Gmatrix_NG,_Contined_Fraction_N1,_Contined_Fraction_N2
-.........V. Convert_decimal_number_to_rational
-.........V. Convert_seconds_to_compound_duration
+GO......... Convert_decimal_number_to_rational
+GO......... Convert_seconds_to_compound_duration
 .......D.VU Convex_hull
-.........V. Conway%27s_Game_of_Life
-.........V. Copy_a_string
-.........V. Count_in_factors
+G.K........ Conway%27s_Game_of_Life-1
+G.KI....... Conway%27s_Game_of_Life-2
+GO......... Copy_a_string
+GO......... Count_in_factors-1
+B.......... Count_in_factors-2
+GO......... Count_in_factors-3
 GO......... Count_in_octal
-.........V. Count_occurrences_of_a_substring
-.........V. Count_the_coins
-.........V. Cramer%27s_rule
-.........V. Create_a_file
+GO......... Count_occurrences_of_a_substring
+GO......... Count_the_coins
+GO......... Cramer%27s_rule
+G.K........ Create_a_file
 .........VU Create_a_file_on_magnetic_tape
-.........V. Create_a_two-dimensional_array_at_runtime
-.........V. Create_an_HTML_table
-.......D.V. Create_an_object_Native_demonstration
+GO......... Create_a_two-dimensional_array_at_runtime
+GO...R..... Create_an_HTML_table
+GO.....D... Create_an_object_Native_demonstration
 .........VU Create_an_object_at_a_given_address
-.........V. Cumulative_standard_deviation
+GO......... Cumulative_standard_deviation-1
+GO......... Cumulative_standard_deviation-2
 .......D.VU Currency
-.........V. Currying
-.........V. Cut_a_rectangle
+GO......... Currying
+G.K........ Cut_a_rectangle
 .......D.VU Cycle_detection
 .........V. DNS_query
 .......D.VU Damm_algorithm
@@ -385,6 +390,7 @@ GO......... Find_palindromic_numbers_in_both_binary_and_ternary_bases
 .........V. First-class_functions
 .........V. First-class_functions_Use_numbers_analogously
 .........V. First_class_environments
+.......D.VU First_missing_positive
 .........V. Five_weekends
 .......D.V. Fivenum
 .........V. FizzBuzz
@@ -701,6 +707,7 @@ GO......... Find_palindromic_numbers_in_both_binary_and_ternary_bases
 .........V. Ordered_words
 .......D.V. P-value_correction
 .........V. Palindrome_detection
+.......D.VU Palindrome_pairs
 .........V. Pangram_checker
 .........V. Paraffins
 .........V. Parallel_Brute_Force
@@ -848,7 +855,7 @@ GO...R..... Pattern_matching
 .........V. Rosetta_Code_Fix_code_tags
 .......D.VU Rosetta_Code_List_authors_of_task_descriptions
 .......D.VU Rosetta_Code_Rank_languages_by_number_of_users
-.........VU Rosetta_Code_Rank_languages_by_popularity
+.........V. Rosetta_Code_Rank_languages_by_popularity
 .......D.VU Rosetta_Code_Run_examples
 .......D.VU Rosetta_Code_Tasks_sorted_by_average_lines_of_code
 .......D.VU Rosetta_Code_Tasks_without_examples
@@ -962,7 +969,7 @@ GO...R..... Pattern_matching
 .........V. Speech_synthesis
 .......D.VU Spelling_of_ordinal_numbers
 .........VU Spinning_rod_animation_Text
-G.......... Spiral_matrix
+GO......... Spiral_matrix
 .........V. Split_a_character_string_based_on_change_of_character
 .......D.VU Spoof_game
 .........V. Square-free_integers
