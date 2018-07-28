@@ -1,0 +1,29 @@
+#!/usr/local/bin/perl
+#u# http://rosettacode.org/wiki/DNS_query
+#c# 2018-07-28 <RC
+#p# OK
+
+use feature 'say';
+use warnings;
+my $result;
+
+
+# Unfortunately IPv6 was only added to Perl 5.14, a relatively new version.
+
+require 5.014;    # Older versions can't resolve IPv6 with just core Socket module
+ 
+use Socket qw(getaddrinfo getnameinfo);
+my ($err, @res) = getaddrinfo("www.kame.net", 0,
+                { protocol=>Socket::IPPROTO_TCP } );
+die "getaddrinfo error: $err" if $err;
+ 
+@r1 = getnameinfo($res[0]->{addr}, Socket::NI_NUMERICHOST);
+@r2 = getnameinfo($res[1]->{addr}, Socket::NI_NUMERICHOST);
+print "$r1[1]\n";
+print "$r2[1]\n";
+
+use Test::More;
+is ($r1[1], '203.178.141.194');
+is ($r2[1], '2001:200:dff:fff1:216:3eff:feb1:44d7');
+done_testing();
+
