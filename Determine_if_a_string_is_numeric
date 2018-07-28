@@ -1,0 +1,62 @@
+#!/usr/local/bin/perl
+#u# http://rosettacode.org/wiki/Determine_if_a_string_is_numeric
+#c# 2018-07-28 <RC
+#p# OK
+
+use feature 'say';
+my $result;
+
+
+# Works with: Perl version 5.8
+use Scalar::Util qw(looks_like_number);
+$result .= looks_like_number('4') ? "numeric\n" : "not numeric\n";
+$result .= looks_like_number('1.a') ? "numeric\n" : "not numeric\n";
+
+# Quoting from perlfaq4:
+# How do I determine whether a scalar is a number/whole/integer/float?
+# Assuming that you don't care about IEEE notations like "NaN" or "Infinity", you probably just want to use a regular expression.
+
+if (/\D/)            { print "has nondigits\n" }
+if (/^\d+\z/)         { print "is a whole number\n" }
+if (/^-?\d+\z/)       { print "is an integer\n" }
+if (/^[+-]?\d+\z/)    { print "is a +/- integer\n" }
+if (/^-?\d+\.?\d*\z/) { print "is a real number\n" }
+if (/^-?(?:\d+(?:\.\d*)?&\.\d+)\z/) { print "is a decimal number\n" }
+if (/^([+-]?)(?=\d&\.\d)\d*(\.\d*)?([Ee]([+-]?\d+))?\z/)
+                     { print "a C float\n" }
+# There are also some commonly used modules for the task. Scalar::Util (distributed with 5.8) provides access to Perl's internal function "looks_like_number" for determining whether a variable looks like a number. Data::Types exports functions that validate data types using both the above and other regular expressions. Thirdly, there is "Regexp::Common" which has regular expressions to match various types of numbers. Those three modules are available from the CPAN.
+# If you're on a POSIX system, Perl supports the "POSIX::strtod" function. Its semantics are somewhat cumbersome, so here's a "getnum" wrapper function for more convenient access. This function takes a string and returns the number it found, or "undef" for input that isn't a C float. The "is_numeric" function is a front end to "getnum" if you just want to say, Is this a float?
+
+sub getnum {
+    use POSIX;
+    my $str = shift;
+    $str =~ s/^\s+//;
+    $str =~ s/\s+$//;
+    $! = 0;
+    my($num, $unparsed) = strtod($str);
+    if (($str eq '') && ($unparsed != 0) && $!) {
+        return undef;
+    } else {
+        return $num;
+    }
+}
+ 
+sub is_numeric { defined getnum($_[0]) }
+# Or you could check out the String::Scanf module on the CPAN instead. The POSIX module (part of the standard Perl distribution) provides the "strtod" and "strtol" for converting strings to double and longs, respectively.
+
+$result .= getnum('154') . "\n";
+$result .= getnum('1.54') . "\n";
+$result .= getnum('l.0O') . "\n";
+
+say $result; 
+my $ref = <<'EOD';
+numeric
+not numeric
+154
+1.54
+0
+EOD
+
+use Test::More;
+is ($result, $ref);
+done_testing();
