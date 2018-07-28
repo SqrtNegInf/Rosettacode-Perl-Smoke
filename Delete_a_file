@@ -1,0 +1,23 @@
+#!/usr/local/bin/perl
+#u# http://rosettacode.org/wiki/Delete_a_file
+#n# nocode
+#c# 2018-07-28 <RC
+#p# OK
+
+#use File::Spec::Functions qw(catfile rootdir);
+## here
+#unlink 'input.txt';
+#rmdir 'docs';
+## root dir
+#unlink catfile rootdir, 'input.txt';
+#rmdir catfile rootdir, 'docs';
+#Without Perl Modules
+#Current directory
+#
+#perl -e 'unlink input.txt'
+#perl -e 'rmdir docs'
+#
+#Root Directory
+#
+#perl -e 'unlink "/input.txt"'
+#perl -e 'rmdir "/docs"'
