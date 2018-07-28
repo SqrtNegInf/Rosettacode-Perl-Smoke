@@ -1,0 +1,65 @@
+#!/usr/local/bin/perl
+#u# http://rosettacode.org/wiki/Digital_root/Multiplicative_digital_root
+#c# 2018-07-28 <RC
+#p# OK
+
+use feature 'say';
+my $result;
+
+# Translation of: D
+use warnings;
+use strict;
+ 
+sub mdr {
+  my $n = shift;
+  my($count, $mdr) = (0, $n);
+  while ($mdr > 9) {
+    my($m, $dm) = ($mdr, 1);
+    while ($m) {
+      $dm *= $m % 10;
+      $m = int($m/10);
+    }
+    $mdr = $dm;
+    $count++;
+  }
+  ($count, $mdr);
+}
+ 
+$result .= "Number: (MP, MDR)\n======  =========\n";
+foreach my $n (123321, 7739, 893, 899998) {
+  $result .= sprintf("%6d: (%d, %d)\n", $n, mdr($n));
+}
+$result .= "\nMP: [n0..n4]\n==  ========\n";
+foreach my $target (0..9) {
+  my $i = 0;
+  my @n = map { $i++ while (mdr($i))[1] != $target; $i++; } 1..5;
+  $result .= " $target: [". join(", ", @n). "]\n";
+}
+
+say $result; 
+
+my $ref = <<'EOD';
+Number: (MP, MDR)
+======  =========
+123321: (3, 8)
+  7739: (3, 8)
+   893: (3, 2)
+899998: (2, 0)
+
+MP: [n0..n4]
+==  ========
+ 0: [0, 10, 20, 25, 30]
+ 1: [1, 11, 111, 1111, 11111]
+ 2: [2, 12, 21, 26, 34]
+ 3: [3, 13, 31, 113, 131]
+ 4: [4, 14, 22, 27, 39]
+ 5: [5, 15, 35, 51, 53]
+ 6: [6, 16, 23, 28, 32]
+ 7: [7, 17, 71, 117, 171]
+ 8: [8, 18, 24, 29, 36]
+ 9: [9, 19, 33, 91, 119]
+EOD
+
+use Test::More;
+is ($result, $ref);
+done_testing();
