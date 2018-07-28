@@ -1,0 +1,26 @@
+#!/usr/local/bin/perl
+#u# http://rosettacode.org/wiki/Deepcopy
+#c# 2018-07-28 <RC
+#p# OK
+
+use feature 'say';
+my $result;
+
+use Storable; # Storable::dclone() is exactly what you are looking for.
+ 
+use strict;
+use warnings;
+use Storable;
+use Data::Dumper;
+ 
+my $src = { foo => 0, bar => [0, 1] };
+$src->{baz} = $src;
+my $dst = Storable::dclone($src);
+$result .= Dumper($src);
+$result .= Dumper($dst);
+
+say $result; 
+
+use Test::More;
+is_deeply ($src, $dst);
+done_testing();
