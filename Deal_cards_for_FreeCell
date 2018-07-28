@@ -1,0 +1,69 @@
+#!/usr/local/bin/perl
+#u# http://rosettacode.org/wiki/Deal_cards_for_FreeCell
+#c# 2018-07-28 <RC
+#p# OK
+
+srand 123456;
+
+use feature 'say';
+my $result;
+
+
+use strict;
+use warnings;
+ 
+use utf8;
+ 
+sub deal {
+    my $s = shift;
+ 
+    my $rnd = sub {
+        return (($s = ($s * 214013 + 2531011) & 0x7fffffff) >> 16 );
+    };
+ 
+    my @d;
+    for my $b (split "", "A23456789TJQK") {
+        push @d, map("$_$b", qw/d c h s/);
+    }
+ 
+    for my $idx (reverse 0 .. $#d) {
+        my $r = $rnd->() % ($idx + 1);
+        @d[$r, $idx] = @d[$idx, $r];
+    }
+ 
+    return [reverse @d];
+}
+ 
+my $hand_idx = shift(@ARGV) // 11_982;
+ 
+my $cards = deal($hand_idx);
+ 
+my $num_cards_in_height = 8;
+my $string = '';
+ 
+while (@$cards)
+{
+    $string .= join(' ', splice(@$cards, 0, 8)) . "\n";
+}
+ 
+binmode STDOUT, ':encoding(utf-8)';
+$result .= "Hand $hand_idx\n";
+$result .= $string;
+
+
+say $result; 
+my $ref = <<'EOD';
+Hand 11982
+hA sA h4 dA c2 s6 sT sJ
+c3 h3 sQ dQ s8 h7 cA sK
+cK h6 s5 c4 h9 hJ s9 d3
+dJ c5 d5 d8 c9 cT hK d7
+d6 d2 hT hQ c6 dT s4 s7
+cJ c7 h8 d9 h2 cQ d4 h5
+dK c8 s2 s3
+EOD
+
+
+use Test::More;
+is ($result, $ref);
+done_testing();
