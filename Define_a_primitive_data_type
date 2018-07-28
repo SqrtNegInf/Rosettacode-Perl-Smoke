@@ -1,0 +1,48 @@
+#!/usr/local/bin/perl
+#u# http://rosettacode.org/wiki/Define_a_primitive_data_type
+#c# 2018-07-28 <RC
+#p# OK
+
+use Test::More;
+use feature 'say';
+
+# Works with: Perl version 5
+
+package One_To_Ten;
+#use Carp qw(croak);
+use Tie::Scalar qw();
+use base qw(Tie::StdScalar);
+ 
+sub STORE {
+    my $self = shift;
+    my $val = int shift;
+    say 'out of bounds' if $val < 1 or $val > 10;
+    return undef if $val < 1 or $val > 10;
+    $$self = $val;
+};
+ 
+package main;
+tie my $t1, 'One_To_Ten';
+tie my $t2, 'One_To_Ten';
+tie my $t3, 'One_To_Ten';
+tie my $t4, 'One_To_Ten';
+tie my $t5, 'One_To_Ten';
+$t1 = 3;   # ok
+$t2 = 5; # ok, silently coerced to int
+$t3 = -2;  # dies, too small
+$t4 = 11;  # dies, too big
+$t5 = 'xyzzy';
+
+is($t1,3);
+is($t2,5);
+is($t3,undef);
+is($t4,undef);
+is($t5,undef);
+done_testing();
+
+say $result; 
+my $ref = <<'EOD';
+EOD
+
+#is ($result, $ref);
+#done_testing();
