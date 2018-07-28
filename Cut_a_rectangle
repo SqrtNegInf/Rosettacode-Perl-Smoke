@@ -1,14 +1,12 @@
 #!/usr/local/bin/perl
 #u# http://rosettacode.org/wiki/Cut_a_rectangle
-#t# skiptest
 #c# 2018-07-26 <RC
 #p# OK
 
 use feature 'say';
 my $result;
 
-
-# Translation of: C
+#Translation of: C
 
 use strict;
 use warnings;
@@ -80,23 +78,54 @@ sub solve {
 }
  
 sub MAIN {
-    #print "ok\n";
+    #$result .= "ok\n";
     my ($y, $x);
-    for my $y (1 .. 10) {
+    #for my $y (1 .. 10) { # DH - slow
+    for my $y (1 .. 9) {
 	for my $x (1 .. $y) {
 	    if (!($x & 1) || !($y & 1)) {
 		$result .= sprintf("%d x %d: %d\n", $y, $x, solve($y, $x, 1));
 	    }
 	}
     }
-}
- 
-MAIN();
 
 say $result; 
 my $ref = <<'EOD';
+2 x 1: 1
+2 x 2: 2
+3 x 2: 3
+4 x 1: 1
+4 x 2: 4
+4 x 3: 9
+4 x 4: 22
+5 x 2: 5
+5 x 4: 39
+6 x 1: 1
+6 x 2: 6
+6 x 3: 23
+6 x 4: 90
+6 x 5: 263
+6 x 6: 1018
+7 x 2: 7
+7 x 4: 151
+7 x 6: 2947
+8 x 1: 1
+8 x 2: 8
+8 x 3: 53
+8 x 4: 340
+8 x 5: 1675
+8 x 6: 11174
+8 x 7: 55939
+8 x 8: 369050
+9 x 2: 9
+9 x 4: 553
+9 x 6: 31721
+9 x 8: 1812667
 EOD
 
 use Test::More;
-#is ($result, $ref);
-#done_testing();
+is ($result, $ref);
+done_testing();
+}
+ 
+MAIN();
