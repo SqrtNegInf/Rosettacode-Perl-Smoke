@@ -1,0 +1,7 @@
+#!/usr/local/bin/perl
+#u# http://rosettacode.org/wiki/Documentation
+#t# nocode
+#c# 2018-07-28 <RC
+#p# OK
+
+# Perl's documentation mechanism is called POD (Plain Old Documentation). Basically, any line that starts with an equal sign followed by a word (e.g. =head1) starts a documentation comment; and it lasts until a line that begins with =cut. Many formatting commands are recognized; for example, a line beginning with =item starts a section for an item, text wrapped in I< ... > is italicized, text wrapped in C< ... > is formatted as code, etc. See the perlpod and perlpodspec manuals for more details about the format.
