@@ -1,17 +1,16 @@
 
 This is perl 5, version 28, subversion 0 (v5.28.0) built for darwin-thread-multi-2level
-updating from RC…
-+------------> Perl: Good/Bad [191/3]
-|+-----------> SmOke testing [160]
-||+----------> sKipping validation [33]
++------------> Perl: Good/Bad [218/3]
+|+-----------> SmOke testing [179]
+||+----------> sKipping validation [37]
 |||+---------> Interactive [7]
 ||||+--------> Touched (modified by me) [10]
-|||||+-------> Random seed [16]
+|||||+-------> Random seed [19]
 ||||||+------> File output [14]
-|||||||+-----> Draft [228]
+|||||||+-----> Draft [226]
 ||||||||+----> Ignoring [2]
-|||||||||+---> Void (no local copy) [950]
-||||||||||+--> Un-implemented/reliable [313]
+|||||||||+---> Void (no local copy) [923]
+||||||||||+--> Un-implemented/reliable [311]
 |||||||||||
 GO......... 100_doors-1
 GO......... 100_doors-2
@@ -152,6 +151,7 @@ GO......... Break_OO_privacy
 GO..TRF.... Brownian_tree
 G.KI.R..... Bulls_and_cows
 G.KI.R..... Bulls_and_cows_Player
+.......D.VU Burrows%E2%80%93Wheeler_transform
 GO......... CRC-32
 GO..T...... CSV_data_manipulation-1
 G.K........ CSV_data_manipulation-2
@@ -263,42 +263,44 @@ GO......... Cumulative_standard_deviation-1
 GO......... Cumulative_standard_deviation-2
 .......D.VU Currency
 GO......... Currying
-G.K........ Cut_a_rectangle
+GO......... Cut_a_rectangle
 .......D.VU Cycle_detection
-.........V. DNS_query
+GO......... DNS_query
 .......D.VU Damm_algorithm
 .......D.VU Data_Encryption_Standard
-.........V. Date_format
-.........V. Date_manipulation
-.........V. Day_of_the_week
-.........V. Deal_cards_for_FreeCell
+GO......... Date_format
+GO......... Date_manipulation
+GO......... Day_of_the_week-1
+GO......... Day_of_the_week-2
+GO......... Day_of_the_week-3
+GO...R..... Deal_cards_for_FreeCell
 .........V. Death_Star
 .......D.VU Decimal_floating_point_number_to_binary
 .......D.VU Decision_tables
 .........VU Deconvolution_1D
 .........VU Deconvolution_2D%2B
-.........V. Deepcopy
-.........V. Define_a_primitive_data_type
-.........V. Delegates
-.........V. Delete_a_file
+GO......... Deepcopy
+GO......... Define_a_primitive_data_type
+G.K........ Delegates
+GO......... Delete_a_file
 .......D.VU Deming%27s_Funnel
-.........V. Department_Numbers
-.........V. Detect_division_by_zero
-.........V. Determine_if_a_string_is_numeric
-.........V. Determine_if_only_one_instance_is_running
+GO......... Department_Numbers
+GO......... Detect_division_by_zero
+GO......... Determine_if_a_string_is_numeric
+G.K........ Determine_if_only_one_instance_is_running
 .......D.VU Determine_if_two_triangles_overlap
-.......D.V. Dice_game_probabilities
-.........V. Digital_root
-.........V. Digital_root_Multiplicative_digital_root
-.......D.V. Dijkstra%27s_algorithm
-.........V. Dinesman%27s_multiple-dwelling_problem
-.........V. Dining_philosophers
-.........V. Discordian_date
+GO.....D... Dice_game_probabilities
+GO......... Digital_root
+GO......... Digital_root_Multiplicative_digital_root
+GO.....D... Dijkstra%27s_algorithm
+G.......... Dinesman%27s_multiple-dwelling_problem
+G.K..R..... Dining_philosophers
+G.......... Discordian_date
 .......D.VU Display_a_linear_combination
-.........V. Distributed_programming
+G.K........ Distributed_programming
 .......D.VU Diversity_prediction_theorem
-.........V. Documentation
-.........V. Dot_product
+G.K........ Documentation
+G.......... Dot_product
 .........VU Doubly-linked_list_Definition
 .........V. Doubly-linked_list_Element_definition
 .........V. Doubly-linked_list_Element_insertion
@@ -310,7 +312,7 @@ G.K........ Cut_a_rectangle
 .........VU Draw_a_rotating_cube
 .........V. Draw_a_sphere
 .......D.VU Draw_pixel_2
-.........V. Dutch_national_flag_problem
+G....R..... Dutch_national_flag_problem
 .........V. Dynamic_variable_names
 .........V. Echo_server
 .........VU Eertree
@@ -390,7 +392,6 @@ GO......... Find_palindromic_numbers_in_both_binary_and_ternary_bases
 .........V. First-class_functions
 .........V. First-class_functions_Use_numbers_analogously
 .........V. First_class_environments
-.......D.VU First_missing_positive
 .........V. Five_weekends
 .......D.V. Fivenum
 .........V. FizzBuzz
@@ -559,7 +560,6 @@ GO......... Find_palindromic_numbers_in_both_binary_and_ternary_bases
 .........V. Letter_frequency
 .........V. Levenshtein_distance
 .......D.V. Levenshtein_distance_Alignment
-.......D.VU Lexicographical_numbers
 .........V. Linear_congruential_generator
 .......D.VU Linux_CPU_utilization
 .........V. List_comprehensions
@@ -707,7 +707,6 @@ GO......... Find_palindromic_numbers_in_both_binary_and_ternary_bases
 .........V. Ordered_words
 .......D.V. P-value_correction
 .........V. Palindrome_detection
-.......D.VU Palindrome_pairs
 .........V. Pangram_checker
 .........V. Paraffins
 .........V. Parallel_Brute_Force
@@ -907,7 +906,6 @@ GO...R..... Pattern_matching
 .........V. Sierpinski_triangle
 .........V. Sierpinski_triangle_Graphical
 .........V. Sieve_of_Eratosthenes
-.......D.VU Similar_string_groups
 .........V. Simple_database
 .........V. Simple_windowed_application
 .........V. Simulate_input_Keyboard
@@ -936,6 +934,7 @@ GO...R..... Pattern_matching
 .........V. Sort_an_array_of_composite_structures
 .........V. Sort_an_integer_array
 .........V. Sort_disjoint_sublist
+.......D.VU Sort_numbers_lexicographically
 .........V. Sort_stability
 .........V. Sort_three_variables
 .........V. Sort_using_a_custom_comparator
@@ -1147,7 +1146,7 @@ GO......... Spiral_matrix
 .........V. XML_Output
 .......D.V. XML_Validation
 .........V. XML_XPath
-.........V. Xiaolin_Wu%27s_line_algorithm
+GO......... Xiaolin_Wu%27s_line_algorithm
 GO......... Y_combinator
 G.K........ Yahoo_search_interface
 GO....F.... Yin_and_yang
