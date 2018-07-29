@@ -1,0 +1,112 @@
+#!/usr/local/bin/perl
+#u# http://rosettacode.org/wiki/Dinesman%27s_multiple-dwelling_problem
+#c# 2018-07-28 <RC
+#p# OK
+
+my $result;
+
+
+# A solution that parses a structured version of the problem text, translates it into a Perl expression, and uses it for a brute-force search:
+
+#Setup
+
+use strict;
+#use warnings;
+use feature qw(state say);
+use List::Util 1.33 qw(pairmap);
+use Algorithm::Permute qw(permute);
+ 
+our %predicates = (
+#                       | object    | sprintf format for Perl expression |
+#   --------------------+-----------+------------------------------------+
+    'on bottom'      => [ ''        , '$f[%s] == 1'                      ],
+    'on top'         => [ ''        , '$f[%s] == @f'                     ],
+    'lower than'     => [ 'person'  , '$f[%s] < $f[%s]'                  ],
+    'higher than'    => [ 'person'  , '$f[%s] > $f[%s]'                  ],
+    'directly below' => [ 'person'  , '$f[%s] == $f[%s] - 1'             ],
+    'directly above' => [ 'person'  , '$f[%s] == $f[%s] + 1'             ],
+    'adjacent to'    => [ 'person'  , 'abs($f[%s] - $f[%s]) == 1'        ],
+    'on'             => [ 'ordinal' , '$f[%s] == \'%s\''                 ],
+);
+ 
+our %nouns = (
+    'person'  => qr/[a-z]+/i,
+    'ordinal' => qr/1st | 2nd | 3rd | \d+th/x,
+);
+ 
+sub parse_and_solve {
+    my @facts = @_;
+ 
+    state $parser = qr/^(?<subj>$nouns{person}) (?<not>not )?(?|@{[
+                            join '|', pairmap {
+                                "(?<pred>$a)" .
+                                ($b->[0] ? " (?<obj>$nouns{$b->[0]})" : '')
+                            } %predicates
+                        ]})$/;
+ 
+    my (@expressions, %ids, $i);
+    my $id = sub { defined $_[0] ? $ids{$_[0]} //= $i++ : () };
+ 
+    foreach (@facts) {
+        /$parser/ or die "Cannot parse '$_'\n";
+ 
+        my $pred = $predicates{$+{pred}};
+        my $expr = '(' . sprintf($pred->[1], $id->($+{subj}),
+                         $pred->[0] eq 'person' ? $id->($+{obj}) : $+{obj}). ')';
+        $expr = '!' . $expr if $+{not};
+ 
+        push @expressions, $expr;
+    }
+ 
+    my @f = 1..$i;
+    eval 'no warnings "numeric";
+          permute {
+              $result .= join(", ", pairmap { "$f[$b] $a" } %ids)
+                  if ('.join(' && ', @expressions).');
+          } @f;';
+}
+
+
+# Note that it can easily be extended by modifying the %predicates and %nouns hashes at the top.
+# Problem statement
+# Since trying to extract information from free-form text feels a little too flaky, the problem statement is instead expected as structured text with one fact per line, each of them having one of these two forms:
+
+# <name> <position>
+# <name> not <position>
+#...where <position> can be any of:
+#
+# on bottom
+# on top
+# lower than <name>
+# higher than <name>
+# directly below <name>
+# directly above <name>
+# adjacent to <name>
+# on <numeral> (e.g. 1st, 2nd, etc.)
+#It is assumed that there are as many floors as there are different names.
+#Thus, the problem statement from the task description translates to:
+
+parse_and_solve(<DATA>);
+
+say $result; 
+
+#When there are multiple matching configurations,
+#it lists them all (on separate lines).
+
+use Test::More;
+#is ($result, $ref);
+like($result, qr/1 Smith/);
+like($result, qr/2 Cooper/);
+like($result, qr/3 Baker/);
+like($result, qr/4 Fletcher/);
+like($result, qr/5 Miller/);
+done_testing();
+ 
+__DATA__
+Baker not on top
+Cooper not on bottom
+Fletcher not on top
+Fletcher not on bottom
+Miller higher than Cooper
+Smith not adjacent to Fletcher
+Fletcher not adjacent to Cooper
