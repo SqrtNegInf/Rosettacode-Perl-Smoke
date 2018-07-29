@@ -1,0 +1,114 @@
+#!/usr/local/bin/perl
+#u# http://rosettacode.org/wiki/Dining_philosophers
+#t# skiptest
+#c# 2018-07-28 <RC
+#p# OK
+
+srand 123456;
+
+use feature 'say';
+my $result;
+
+
+# This solution requires that perl have been compiled with threads enabled.
+# Deadlock is prevented by having even numbered and odd numbered philosophers
+# grab their forks in opposite orders.
+
+ 
+use threads;
+use threads::shared;
+my @names = qw(Aristotle Kant Spinoza Marx Russell);
+ 
+my @forks = ('On Table') x @names;
+share $forks[$_] for 0 .. $#forks;
+ 
+sub pick_up_forks {
+   my $philosopher = shift;
+   my ($first, $second) = ($philosopher, $philosopher-1);
+   ($first, $second) = ($second, $first) if $philosopher % 2;
+   for my $fork ( @forks[ $first, $second ] ) {
+      lock $fork;
+      cond_wait($fork) while $fork ne 'On Table';
+      $fork = 'In Hand';
+   }
+}
+ 
+sub drop_forks {
+   my $philosopher = shift;
+   for my $fork ( @forks[$philosopher, $philosopher-1] ) {
+      lock $fork;
+      die unless $fork eq 'In Hand';
+      $fork = 'On Table';
+      cond_signal($fork);
+   }
+}
+ 
+sub philosopher {
+   my $philosopher = shift;
+   my $name = $names[$philosopher];
+   for my $meal ( 1..5 ) {
+      print $name, " is pondering\n";
+      sleep 1 + rand 8;
+      print $name, " is hungry\n";
+      pick_up_forks( $philosopher );
+      $result .= $name, " is eating\n";
+      sleep 1 + rand 8;
+      drop_forks( $philosopher );
+   }
+   print $name, " is done\n";
+}
+ 
+my @t = map { threads->new(\&philosopher, $_) } 0 .. $#names;
+for my $thread ( @t ) {
+   $thread->join;
+}
+ 
+print "Done\n";
+
+__END__
+ 
+One solution based on Coro and AnyEvent[edit]
+To prevent deadlock the philosophers must not start eating at the same time and the time between getting the first fork and getting second one must be shorter as possible.
+
+ 
+#!/usr/bin/perl
+use common::sense;
+use Coro;
+use AnyEvent;
+use Coro::AnyEvent;
+use EV;
+ 
+my @philosophers = qw(Aristotle Kant Spinoza Marx Russell);
+my @forks = (1..@philosophers);
+my @fork_sem;
+ 
+$fork_sem[$_] = new Coro::Semaphore for (0..$#philosophers);
+ 
+ 
+for(my $i = $#philosophers; $i >= 0; $i--){
+	say $philosophers[$i] . " has fork #" . $forks[$i] . " and fork #" . $forks[$i-1];
+	async {
+		my ($name, ,$no, $forks_got) = (@_);
+ 
+		$Coro::current->{desc} = $name;
+		Coro::AnyEvent::sleep(rand 4);
+ 
+		while(1){
+			say $name . " is hungry.";
+			$$forks_got[$no]->down();
+			Coro::AnyEvent::sleep(rand 1); #Let's make deadlock!
+			$$forks_got[$no-1]->down();
+			say $name . " is eating.";
+			Coro::AnyEvent::sleep(1 + rand 8);
+ 
+			$$forks_got[$no]->up();
+			$$forks_got[$no-1]->up();
+ 
+			say $name . " is thinking.";
+			Coro::AnyEvent::sleep(1 + rand 8);
+		}
+	}($philosophers[$i], $i, \@fork_sem);
+}
+ 
+EV::loop;
+ 
