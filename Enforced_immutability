@@ -1,0 +1,31 @@
+#!/usr/local/bin/perl
+#u# http://rosettacode.org/wiki/Enforced_immutability
+#c# 2018-07-31 <RC
+#p# OK
+
+# The constant pragma allows you to create subroutines that always return the same value and that cannot be modified:
+
+use constant PI => 3.14159;
+use constant MSG => "Hello World";
+
+# The module Readonly.pm provides a means of enforcing immutablity upon scalars and arrays, however, this imposes a considerable performance penalty:
+
+use Readonly;
+ 
+Readonly::Scalar my $pi => 3.14159;
+Readonly::Scalar my $msg => "Hello World";
+ 
+Readonly::Array my @arr => (1, 2, 3, 4, 5);
+Readonly::Hash my %hash => (
+    "a" => 1,
+    "b" => 2,
+    "c" => 3
+);
+
+
+#eval {  PI += 1 }; # compile-time failure
+eval { $pi += 1 };
+
+use Test::More;
+is ($pi, 3.14159);
+done_testing();
