@@ -1,0 +1,27 @@
+#!/usr/local/bin/perl
+#u# http://rosettacode.org/wiki/Environment_variables
+#c# 2018-07-31 <RC
+#p# OK
+
+use feature 'say';
+my $result;
+
+
+# The %ENV hash maps environment variables to their values:
+
+$result .= $ENV{HOME}. "\n";
+# The POSIXmodule also has getenv() which is the same thing as a function.
+
+use POSIX 'getenv';
+$result .= getenv("HOME")."\n";
+
+say $result; 
+
+my $ref = <<'EOD';
+/Users/dhoekman
+/Users/dhoekman
+EOD
+
+use Test::More;
+is ($result, $ref);
+done_testing();
