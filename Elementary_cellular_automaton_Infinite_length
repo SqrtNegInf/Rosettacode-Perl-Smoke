@@ -1,0 +1,57 @@
+#!/usr/local/bin/perl
+#u# http://rosettacode.org/wiki/Elementary_cellular_automaton/Infinite_length
+#c# 2018-07-31 <>RC
+#p# OK
+
+use feature 'say';
+my $result;
+
+# The edges of a pattern is implicitly repeating. The code will try to lineup output by padding up to 40 spaces to the left, but since the cells keep expanding, that has to end somewhere.
+
+sub evolve {
+	my ($rule, $pattern) = @_;
+	my $offset = 0;
+ 
+    my $cnt = 0;
+	while (1) {
+        last if $cnt++ > 12;
+		my ($l, $r, $st);
+		$pattern =~ s/^((.)\g2*)/$2$2/ and $l = $2, $offset -= length($2);
+		$pattern =~ s/(.)\g1*$/$1$1/   and $r = $1;
+ 
+		$st = $pattern;
+ 
+		$pattern =~ tr/01/.#/;
+		$result .= sprintf "%5d| %s%s\n", $offset, ' ' x (40 + $offset), $pattern;
+ 
+		$pattern = join '', map(1 & ($rule>>oct "0b$_"),
+				$l x 3,
+				map(substr($st, $_, 3), 0 .. length($st)-3),
+				$r x 3);
+	}
+}
+ 
+evolve(90, "010");
+
+say $result; 
+
+my $ref = <<'EOD';
+   -1|                                        ..#..
+   -2|                                       ..#.#..
+   -3|                                      ..#...#..
+   -4|                                     ..#.#.#.#..
+   -5|                                    ..#.......#..
+   -6|                                   ..#.#.....#.#..
+   -7|                                  ..#...#...#...#..
+   -8|                                 ..#.#.#.#.#.#.#.#..
+   -9|                                ..#...............#..
+  -10|                               ..#.#.............#.#..
+  -11|                              ..#...#...........#...#..
+  -12|                             ..#.#.#.#.........#.#.#.#..
+  -13|                            ..#.......#.......#.......#..
+EOD
+#---(infinite more lines snipped)---
+
+use Test::More;
+is ($result, $ref);
+done_testing();
