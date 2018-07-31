@@ -13,7 +13,7 @@ Will be done by Christmas.  ;-)
 
 ## Tools
 
-Re-using my own set of programs ([here](./bin) from the Perl 6 smoke testing project, 
+Re-using my own set of programs ([here](./bin)) from the Perl 6 smoke testing project, 
 with slight modifications.
 
 Relying on [Thundergnat's](http://rosettacode.org/wiki/User:Thundergnat) 
