@@ -1,0 +1,42 @@
+#!/usr/local/bin/perl
+#u# http://rosettacode.org/wiki/Emirp_primes
+#c# 2018-07-31 <RC
+#p# OK
+
+my $result;
+
+use Math::Prime::Util qw/:all/;
+use v5.16;  # To get say
+ 
+# Return the first $count emirps using expanding segments.
+# Can efficiently generate millions of emirps.
+sub emirp_list {
+  my $count = shift;
+  my($i, $inc, @n) = (13, 100+10*$count);
+  while (@n < $count) {
+    forprimes {
+      push @n, $_ if is_prime(reverse $_) && $_ ne reverse($_);
+    } $i, $i+$inc-1;
+    ($i, $inc) = ($i+$inc, int($inc * 1.03) + 1000);
+  }
+  splice @n, $count;  # Trim off excess emirps
+  @n;
+}
+ 
+$result .= "First 20: " . (join " ", emirp_list(20)) . "\n";
+$result .= "Between 7700 and 8000:";
+forprimes { $result .= " $_" if is_prime(reverse $_) && $_ ne reverse($_) } 7700,8000;
+$result .= "\n";
+$result .= "The 10_000'th emirp: ". (emirp_list(10000))[-1] . "\n";
+
+say $result; 
+
+my $ref = <<'EOD';
+First 20: 13 17 31 37 71 73 79 97 107 113 149 157 167 179 199 311 337 347 359 389
+Between 7700 and 8000: 7717 7757 7817 7841 7867 7879 7901 7927 7949 7951 7963
+The 10_000'th emirp: 948349
+EOD
+
+use Test::More;
+is ($result, $ref);
+done_testing();
