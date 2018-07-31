@@ -1,0 +1,65 @@
+#!/usr/local/bin/perl
+#u# http://rosettacode.org/wiki/Elliptic_curve_arithmetic
+#c# 2018-07-31 <RC
+#p# OK
+
+use feature 'say';
+my $result;
+
+# Translation of: C
+
+package EC;
+our ($a, $b) = (0, 7);
+{
+    package EC::Point;
+    sub new { my $class = shift; bless [ @_ ], $class }
+    sub zero { bless [], shift }
+    sub x { shift->[0] }; sub y { shift->[1] };
+    sub double {
+        my $self = shift;
+        return $self unless @$self;
+        my $L = (3 * $self->x**2) / (2*$self->y);
+        my $x = $L**2 - 2*$self->x;
+        bless [ $x, $L * ($self->x - $x) - $self->y ], ref $self;
+    }
+    use overload
+    '==' => sub { my ($p, $q) = @_; $p->x == $q->x and $p->y == $q->y },
+    '+' => sub {
+        my ($p, $q) = @_;
+        return $p->double if $p == $q;
+        return $p unless @$q;
+        return $q unless @$p;
+        my $slope = ($q->y - $p->y) / ($q->x - $p->x);
+        my $x = $slope**2 - $p->x - $q->x;
+        bless [ $x, $slope * ($p->x - $x)  - $p->y ], ref $p;
+    },
+    q{""} => sub {
+        my $self = shift;
+        return @$self
+        ? sprintf "EC-point at x=%f, y=%f", @$self
+        : 'EC point at infinite';
+    }
+}
+ 
+package Test;
+my $a = +EC::Point->new(-($EC::b - 1)**(1/3), 1);
+my $b = +EC::Point->new(-($EC::b - 4)**(1/3), 2);
+my $c = $a + $b, "\n";
+$result .= "$_\n" for $a, $b, $c;
+$result .= "check alignment... ";
+$result .= abs(($b->x - $a->x)*(-$c->y - $a->y) - ($b->y - $a->y)*($c->x - $a->x)) < 0.001
+    ? "ok" : "wrong";
+ 
+say $result; 
+
+my $ref = <<'EOD';
+EC-point at x=-1.817121, y=1.000000
+EC-point at x=-1.442250, y=2.000000
+EC-point at x=10.375375, y=-33.524509
+check alignment... ok
+EOD
+
+use Test::More;
+chop $ref;
+is ($result, $ref);
+done_testing();
