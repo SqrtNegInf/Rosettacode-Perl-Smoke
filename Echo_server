@@ -1,0 +1,61 @@
+#!/usr/local/bin/perl
+#u# http://rosettacode.org/wiki/Echo_server
+#t# interactive
+#c# 2018-07-30 <RC
+#p# OK
+
+use feature 'say';
+my $result;
+
+
+# This server will run indefinitely listening in the port 12321 and forking every time a client connects, the childs listen to the client and write back.
+# This is an example using the IO::Socket module:
+
+use IO::Socket;
+my $use_fork = 1;
+ 
+my $sock = new IO::Socket::INET (
+                                 LocalHost => '127.0.0.1',
+                                 LocalPort => '12321',
+                                 Proto => 'tcp',
+                                 Listen => 1,   # maximum queued connections
+                                 Reuse => 1,
+                                )
+		or die "socket: $!";	# no newline, so perl appends stuff
+ 
+$SIG{CHLD} = 'IGNORE' if $use_fork;	# let perl deal with zombies
+ 
+print "listening...\n";
+while (1) {
+	# declare $con 'my' so it's closed by parent every loop
+        my $con = $sock->accept()
+		or die "accept: $!";
+	fork and next if $use_fork;	# following are for child only
+ 
+	print "incoming..\n";
+	print $con "echo:$_" while(<$con>);	# read each line and write back
+	print "done\n";
+ 
+	last	if $use_fork;	# if not forking, loop
+}
+ 
+# child will reach here and close its copy of $sock before exit
+
+#x##This is an equivalent program using the Net::Server module:
+#x#
+#x#package Echo;
+#x#use base 'Net::Server::Fork';
+#x#sub process_request {
+#x#    print while <STDIN>;
+#x#}
+#x#Echo->run(port => 12321, log_level => 3);
+#x##It also prints the IP address and port number of every connection.
+#x##This is a more complicated example using preforking:
+#x#
+#x#package Echo;
+#x#use base 'Net::Server::PreFork';
+#x#sub process_request {
+#x#    print while <STDIN>;
+#x#}
+#x#Echo->run(port => 12321, log_level => 3);
+#x##By default it spawns 5 child processes at startup, makes sure there are always at least 2 and at most 10 spare children available for new requests, each of which will be killed after processing 1000 requests and new ones will take their place.
