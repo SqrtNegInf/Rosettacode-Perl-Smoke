@@ -1,16 +1,15 @@
 
 This is perl 5, version 28, subversion 0 (v5.28.0) built for darwin-thread-multi-2level
-updating from RC…
-+------------> Perl: Good/Bad [232/4]
++------------> Perl: Good/Bad [240/4]
 |+-----------> SmOke testing [193]
-||+----------> sKipping validation [42]
+||+----------> sKipping validation [43]
 |||+---------> Interactive [9]
-||||+--------> Touched (modified by me) [10]
+||||+--------> Touched (modified by me) [11]
 |||||+-------> Random seed [21]
 ||||||+------> File output [16]
 |||||||+-----> Draft [226]
 ||||||||+----> Ignoring [2]
-|||||||||+---> Void (no local copy) [908]
+|||||||||+---> Void (no local copy) [900]
 ||||||||||+--> Un-implemented/reliable [311]
 |||||||||||
 GO......... 100_doors-1
@@ -321,15 +320,15 @@ G.KI....... Echo_server
 .........VU Egyptian_division
 .........VU Egyptian_fractions
 G.......... Element-wise_operations
-.........V. Elementary_cellular_automaton
-.......D.V. Elementary_cellular_automaton_Infinite_length
-.......D.V. Elementary_cellular_automaton_Random_Number_Generator
+G.......... Elementary_cellular_automaton
+G...T..D... Elementary_cellular_automaton_Infinite_length
+G......D... Elementary_cellular_automaton_Random_Number_Generator
 .......D.V. Elliptic_curve_arithmetic
-.........V. Emirp_primes
-.........V. Empty_directory
-.........V. Empty_program
-.........V. Empty_string
-.........V. Enforced_immutability
+G.......... Emirp_primes
+G.......... Empty_directory
+G.K........ Empty_program
+G.......... Empty_string
+G.......... Enforced_immutability
 .........V. Entropy
 .........V. Entropy_Narcissist
 .........V. Enumerations
