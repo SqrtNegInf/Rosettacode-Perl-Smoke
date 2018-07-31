@@ -1,0 +1,11 @@
+#!/usr/local/bin/perl
+#u# http://rosettacode.org/wiki/Empty_program
+#t# nocode
+#c# 2018-07-31 <RC
+#p# OK
+
+#The empty program is valid and does nothing but return a successful exit code:
+ 
+#Of course, this then requires you to specify the interpreter on the command line (i.e. perl empty.pl). So slightly more correct as a stand-alone program, is:
+
+# The smallest possible Perl one-liner is perl -e0.
