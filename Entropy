@@ -1,0 +1,23 @@
+#!/usr/local/bin/perl
+#u# http://rosettacode.org/wiki/Entropy
+#c# 2018-07-31 <RC
+#p# OK
+
+use feature 'say';
+my $result;
+
+sub entropy {
+    my %count; $count{$_}++ for @_;
+    my $entropy = 0;
+    for (values %count) {
+        my $p = $_/@_;
+        $entropy -= $p * log $p;
+    }
+    $entropy / log 2
+}
+ 
+say $result = entropy split //, "1223334444";
+
+use Test::More;
+is ($result, 1.84643934467102);
+done_testing();
