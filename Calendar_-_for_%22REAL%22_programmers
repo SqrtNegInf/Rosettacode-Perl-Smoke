@@ -3,6 +3,7 @@
 #t# skiptest
 #c# 2018-07-21 <RC
 #p# OK
+#n# works, testing is the problem
 
 use feature 'say';
 my $result;
