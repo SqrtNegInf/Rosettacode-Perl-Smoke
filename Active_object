@@ -2,6 +2,7 @@
 #u# http://rosettacode.org/wiki/Active_object
 #c# 2018-07-11 <RC
 #p# OK
+#n# timing flaps?
 
 use feature 'say';
 my $result;
@@ -76,15 +77,15 @@ $x->delete;
 
 say $result;
 
-#my $ref = <<EOD;
-#sin after 2 seconds: 5.51642065360625e-16
-#0 after .5 seconds: 5.51642065360625e-16
-#EOD
-
 my $ref = <<EOD;
-sin after 2 seconds: 0.0154508497187478
-sin after .5 seconds: 0.0154508497187478
+sin after 2 seconds: 5.51642065360625e-16
+sin after .5 seconds: 5.51642065360625e-16
 EOD
+
+#my $ref = <<EOD;
+#sin after 2 seconds: 0.0154508497187478
+#sin after .5 seconds: 0.0154508497187478
+#EOD
 
 use Test::More;
 is ($result, $ref);
