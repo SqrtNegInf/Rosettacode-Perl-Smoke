@@ -1,15 +1,16 @@
 
 This is perl 5, version 28, subversion 0 (v5.28.0) built for darwin-thread-multi-2level
-+------------> Perl: Good/Bad [218/3]
-|+-----------> SmOke testing [179]
-||+----------> sKipping validation [37]
-|||+---------> Interactive [7]
+updating from RC…
++------------> Perl: Good/Bad [232/4]
+|+-----------> SmOke testing [193]
+||+----------> sKipping validation [42]
+|||+---------> Interactive [9]
 ||||+--------> Touched (modified by me) [10]
-|||||+-------> Random seed [19]
-||||||+------> File output [14]
+|||||+-------> Random seed [21]
+||||||+------> File output [16]
 |||||||+-----> Draft [226]
 ||||||||+----> Ignoring [2]
-|||||||||+---> Void (no local copy) [923]
+|||||||||+---> Void (no local copy) [908]
 ||||||||||+--> Un-implemented/reliable [311]
 |||||||||||
 GO......... 100_doors-1
@@ -274,7 +275,7 @@ GO......... Day_of_the_week-1
 GO......... Day_of_the_week-2
 GO......... Day_of_the_week-3
 GO...R..... Deal_cards_for_FreeCell
-.........V. Death_Star
+GO......... Death_Star
 .......D.VU Decimal_floating_point_number_to_binary
 .......D.VU Decision_tables
 .........VU Deconvolution_1D
@@ -293,32 +294,33 @@ GO.....D... Dice_game_probabilities
 GO......... Digital_root
 GO......... Digital_root_Multiplicative_digital_root
 GO.....D... Dijkstra%27s_algorithm
-G.......... Dinesman%27s_multiple-dwelling_problem
+GO......... Dinesman%27s_multiple-dwelling_problem
 G.K..R..... Dining_philosophers
-G.......... Discordian_date
+GO......... Discordian_date
 .......D.VU Display_a_linear_combination
 G.K........ Distributed_programming
 .......D.VU Diversity_prediction_theorem
 G.K........ Documentation
-G.......... Dot_product
+GO......... Dot_product
 .........VU Doubly-linked_list_Definition
-.........V. Doubly-linked_list_Element_definition
-.........V. Doubly-linked_list_Element_insertion
+G.K........ Doubly-linked_list_Element_definition
+G.K........ Doubly-linked_list_Element_insertion
 .........VU Doubly-linked_list_Traversal
-.........V. Dragon_curve
-.........V. Draw_a_clock
-.........V. Draw_a_cuboid
+GO....F.... Dragon_curve
+G.KI....... Draw_a_clock
+GO......... Draw_a_cuboid-1
+GO...R..... Draw_a_cuboid-2
 .........VU Draw_a_pixel
 .........VU Draw_a_rotating_cube
-.........V. Draw_a_sphere
+GO...RF.... Draw_a_sphere
 .......D.VU Draw_pixel_2
-G....R..... Dutch_national_flag_problem
-.........V. Dynamic_variable_names
-.........V. Echo_server
+GO...R..... Dutch_national_flag_problem
+GO......... Dynamic_variable_names
+G.KI....... Echo_server
 .........VU Eertree
 .........VU Egyptian_division
 .........VU Egyptian_fractions
-.........V. Element-wise_operations
+G.......... Element-wise_operations
 .........V. Elementary_cellular_automaton
 .......D.V. Elementary_cellular_automaton_Infinite_length
 .......D.V. Elementary_cellular_automaton_Random_Number_Generator
@@ -1141,11 +1143,11 @@ GO......... Spiral_matrix
 .........V. Write_float_arrays_to_a_text_file
 .........V. Write_language_name_in_3D_ASCII
 .........V. Write_to_Windows_event_log
-.........V. XML_DOM_serialization
-.........V. XML_Input
-.........V. XML_Output
-.......D.V. XML_Validation
-.........V. XML_XPath
+GO......... XML_DOM_serialization
+GO......... XML_Input
+GO......... XML_Output
+!OK....D... XML_Validation
+B.......... XML_XPath
 GO......... Xiaolin_Wu%27s_line_algorithm
 GO......... Y_combinator
 G.K........ Yahoo_search_interface
