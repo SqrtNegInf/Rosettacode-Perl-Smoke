@@ -1,0 +1,54 @@
+#!/usr/local/bin/perl
+#u# http://rosettacode.org/wiki/XML/DOM_serialization
+#c# 2018-07-30 <RC
+#p# OK
+#n# incomplete, need LibXML
+
+use feature 'say';
+my $result;
+
+
+#Library: XML::SimpleSimple
+use XML::Simple;
+$result = XMLout( { root => { element => "Some text here" } }, NoAttr => 1, RootName => "" );
+
+
+#Library: XML::DOM::BagOfTricksBagOfTricks
+use XML::DOM::BagOfTricks qw(createDocument createTextElement);
+ 
+my ($doc, $root) = createDocument('root');
+$root->appendChild(
+    createTextElement($doc, 'element', 'Some text here')
+);
+$result .= $doc->toString;
+
+if (0) {
+#Library: LibXML
+#use XML::LibXML;
+ 
+$xml = XML::LibXML::Document->new('1.0');
+$node = $xml->createElement('root');
+$xml->setDocumentElement($node);
+$node2 = $xml->createElement('element');
+$text = $xml->createTextNode('Some text here');
+$node2->addChild($text);
+$node->appendWellBalancedChunk('text');
+$node->addChild($node2);
+ 
+$result .= $xml->toString;
+
+#<?xml version="1.0"?>
+#<root>text<element>Some text here</element></root>
+}
+
+say $result; 
+my $ref = <<'EOD';
+  <root>
+    <element>Some text here</element>
+  </root>
+<root><element>Some text here</element></root>
+EOD
+
+use Test::More;
+is ($result, $ref);
+done_testing();
