@@ -1,0 +1,54 @@
+#!/usr/local/bin/perl
+#u# http://rosettacode.org/wiki/XML_Validation
+#t# skiptest
+#c# 2018-07-30 <RC
+#p# OK
+
+use feature 'say';
+my $result;
+
+use 5.018_002;
+use warnings;
+use Try::Tiny;
+#use XML::LibXML; # DH not installed...
+ 
+our $VERSION = 1.000_000;
+ 
+my $parser = XML::LibXML->new();
+ 
+my $good_xml         = '<a>5</a>';
+my $bad_xml          = '<a>5<b>foobar</b></a>';
+my $xmlschema_markup = <<'END';
+<xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <xsd:element name="a" type="xsd:integer"/>
+</xsd:schema>
+END
+ 
+my $xmlschema = XML::LibXML::Schema->new( string => $xmlschema_markup );
+ 
+for ( $good_xml, $bad_xml ) {
+    my $doc = $parser->parse_string($_);
+    try {
+        $xmlschema->validate($doc);
+    }
+    finally {
+        if (@_) {
+            say "Not valid: @_";
+        }
+        else {
+            say 'Valid';
+        }
+    };
+}
+
+
+say $result; 
+my $ref = <<'EOD';
+Valid
+Not valid: unknown-7fe99976a9a0:0: Schemas validity error :
+  Element 'a': Element content is not allowed, because the type definition is simple.
+EOD
+
+use Test::More;
+#is ($result, $ref);
+#done_testing();
