@@ -1,0 +1,40 @@
+#!/usr/local/bin/perl
+#u# http://rosettacode.org/wiki/XML/Output
+#c# 2018-07-30 <RC
+#p# OK
+
+use feature 'say';
+my $result;
+
+#Library: XML::MiniMini
+use strict;
+use XML::Mini::Document;
+ 
+my @students = ( [ "April", "Bubbly: I'm > Tam and <= Emily" ], 
+                 [ "Tam O'Shanter", "Burns: \"When chapman billies leave the street ...\"" ],
+		 [ "Emily", "Short & shrift" ]
+                );
+ 
+my $doc = XML::Mini::Document->new();
+my $root = $doc->getRoot();
+my $studs = $root->createChild("CharacterRemarks");
+foreach my $s (@students)
+{
+    my $stud = $studs->createChild("Character");
+    $stud->attribute("name", $s->[0]);
+    $stud->text($s->[1]);
+}
+say $result = $doc->toString();
+
+my $ref = <<'EOD';
+<CharacterRemarks>
+  <Character name="April">Bubbly: I'm &gt; Tam and &lt;= Emily</Character>
+  <Character name="Tam O'Shanter">Burns: &quot;When chapman billies leave the street ...&quot;</Character>
+  <Character name="Emily">Short &amp; shrift</Character>
+ </CharacterRemarks>
+
+EOD
+
+use Test::More;
+is ($result, $ref);
+done_testing();
