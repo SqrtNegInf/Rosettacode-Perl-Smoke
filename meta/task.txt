@@ -1,15 +1,15 @@
 
 This is perl 5, version 28, subversion 0 (v5.28.0) built for darwin-thread-multi-2level
-+------------> Perl: Good/Bad [251/4]
-|+-----------> SmOke testing [193]
++------------> Perl: Good/Bad [276/5]
+|+-----------> SmOke testing [226]
 ||+----------> sKipping validation [43]
 |||+---------> Interactive [9]
-||||+--------> Touched (modified by me) [11]
-|||||+-------> Random seed [21]
-||||||+------> File output [16]
+||||+--------> Touched (modified by me) [12]
+|||||+-------> Random seed [22]
+||||||+------> File output [18]
 |||||||+-----> Draft [226]
-||||||||+----> Ignoring [3]
-|||||||||+---> Void (no local copy) [890]
+||||||||+----> Ignoring [4]
+|||||||||+---> Void (no local copy) [869]
 ||||||||||+--> Un-implemented/reliable [311]
 |||||||||||
 GO......... 100_doors-1
@@ -319,47 +319,50 @@ G.KI....... Echo_server
 .........VU Eertree
 .........VU Egyptian_division
 .........VU Egyptian_fractions
-G.......... Element-wise_operations
-G.......... Elementary_cellular_automaton
-G...T..D... Elementary_cellular_automaton_Infinite_length
-G......D... Elementary_cellular_automaton_Random_Number_Generator
-G......D... Elliptic_curve_arithmetic
-G.......... Emirp_primes
-G.......... Empty_directory
+GO......... Element-wise_operations
+GO......... Elementary_cellular_automaton
+GO..T..D... Elementary_cellular_automaton_Infinite_length
+GO.....D... Elementary_cellular_automaton_Random_Number_Generator
+GO.....D... Elliptic_curve_arithmetic
+GO......... Emirp_primes
+GO......... Empty_directory
 G.K........ Empty_program
-G.......... Empty_string
-G.......... Enforced_immutability
-G.......... Entropy
-G.......... Entropy_Narcissist
-G.......... Enumerations
-G.......... Environment_variables
-G.......... Equilibrium_index
-G.......... Ethiopian_multiplication
-G......D... Euler%27s_identity
-G.......... Euler%27s_sum_of_powers_conjecture-1
-G.......... Euler%27s_sum_of_powers_conjecture-2
-.........V. Euler_method
-.........V. Evaluate_binomial_coefficients
-.........V. Even_or_odd
-.........V. Events
-.........V. Evolutionary_algorithm
-.........V. Exceptions
-.........V. Exceptions_Catch_an_exception_thrown_in_a_nested_call
-.........V. Executable_library
-.........V. Execute_Brainfuck
-.........V. Execute_HQ9%2B
-.........V. Execute_SNUSP
-.........V. Execute_a_Markov_algorithm
-.........V. Execute_a_system_command
-.........V. Exponentiation_operator
-.........V. Exponentiation_order
-.........V. Extend_your_language
-.........V. Extensible_prime_generator
+GO......... Empty_string
+GO......... Enforced_immutability
+GO......... Entropy
+GO......... Entropy_Narcissist
+GO......... Enumerations
+GO......... Environment_variables
+GO......... Equilibrium_index
+GO......... Ethiopian_multiplication
+GO.....D... Euler%27s_identity
+GO......... Euler%27s_sum_of_powers_conjecture-1
+GO......... Euler%27s_sum_of_powers_conjecture-2
+GO......... Euler_method
+GO......... Evaluate_binomial_coefficients
+GO......... Even_or_odd
+GO......... Events
+GO...R..... Evolutionary_algorithm
+GO......... Exceptions
+G.......... Exceptions_Catch_an_exception_thrown_in_a_nested_call
+G.......... Executable_library
+B.......... Execute_Brainfuck
+G.......... Execute_HQ9%2B
+........XV. Execute_SNUSP
+G.......... Execute_a_Markov_algorithm
+GO......... Execute_a_system_command
+G.......... Exponentiation_operator-1
+G.......... Exponentiation_operator-2
+G.......... Exponentiation_order
+G...T...... Extend_your_language
+GO......... Extensible_prime_generator-1
+GO......... Extensible_prime_generator-2
+GO......... Extensible_prime_generator-3
 .......D.VU External_sort
-.......D.V. Extract_file_extension
-.........V. Extreme_floating_point_values
+GO.....D... Extract_file_extension
+GO......... Extreme_floating_point_values
 .........V. FASTA_format
-G.......... FTP
+GO......... FTP
 .........V. Factorial
 .........V. Factors_of_a_Mersenne_number
 .........V. Factors_of_an_integer
@@ -1128,7 +1131,7 @@ GO......... Spiral_matrix
 .......D.VU Waveform_analysis_Doh_ray_me
 .......D.VU Waveform_analysis_Top_and_tail
 .......D.VU Weather_Routing
-.........V. Web_scraping
+GO......... Web_scraping
 .......D.V. Welch%27s_t-test
 .........V. Window_creation
 .........V. Window_creation_X11
@@ -1140,13 +1143,14 @@ GO......... Spiral_matrix
 .........V. Word_wrap
 .........VU World_Cup_group_stage
 .........V. Write_entire_file
-.........V. Write_float_arrays_to_a_text_file
-.........V. Write_language_name_in_3D_ASCII
+GO....F.... Write_float_arrays_to_a_text_file-1
+GO....F.... Write_float_arrays_to_a_text_file-2
+G.......... Write_language_name_in_3D_ASCII
 ........XV. Write_to_Windows_event_log
 GO......... XML_DOM_serialization
 GO......... XML_Input
 GO......... XML_Output
-!OK....D... XML_Validation
+G.K....D... XML_Validation
 B.......... XML_XPath
 GO......... Xiaolin_Wu%27s_line_algorithm
 GO......... Y_combinator
