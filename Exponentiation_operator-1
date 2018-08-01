@@ -1,0 +1,46 @@
+#!/usr/local/bin/perl
+#u# http://rosettacode.org/wiki/Exponentiation_operator
+#c# 2018-08-01 <RC
+#p# OK
+
+use feature 'say';
+my $result;
+
+use strict ;
+
+sub expon {
+   my ( $base , $expo ) = @_ ;
+   if ( $expo == 0 ) {
+      return 1 ;
+   }
+   elsif ( $expo == 1 ) {
+      return $base ;
+   }
+   elsif ( $expo > 1 ) {
+      my $prod = 1 ;
+      foreach my $n ( 0..($expo - 1) ) {
+	 $prod *= $base ;
+      }
+      return $prod ;
+   }
+   elsif ( $expo < 0 ) {
+      return 1 / ( expon ( $base , -$expo ) ) ;
+   }
+}
+$result .= "3 to the power of 10 as a function is " . expon( 3 , 10 ) . " !\n" ;
+$result .= "3 to the power of 10 as a builtin is " . 3**10 . " !\n" ;
+$result .= "5.5 to the power of -3 as a function is " . expon( 5.5 , -3 ) . " !\n" ;
+$result .= "5.5 to the power of -3 as a builtin is " . 5.5**-3 . " !\n" ;
+
+say $result;
+
+my $ref = <<'END';
+3 to the power of 10 as a function is 59049 !
+3 to the power of 10 as a builtin is 59049 !
+5.5 to the power of -3 as a function is 0.00601051840721262 !
+5.5 to the power of -3 as a builtin is 0.00601051840721262 !
+END
+
+use Test::More;
+is ($result, $ref);
+done_testing();
