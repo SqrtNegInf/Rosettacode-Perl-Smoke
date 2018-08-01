@@ -1,0 +1,76 @@
+#!/usr/local/bin/perl
+#u# http://rosettacode.org/wiki/Execute_HQ9%2B
+#c# 2018-08-01 <RC
+#p# OK
+#n# '9' is too verbose to test...
+#n# not bother to fix given/when on RC
+
+use feature 'say';
+my $result;
+
+# This implementation uses the switch feature.
+
+#!/usr/bin/perl
+use warnings;
+use strict;
+use feature qw(say switch);
+
+my @programme = 'HQ';
+#my @programme = 'hHq+++Qq';
+#my @programme = <> or die "No input. Specify a program file or pipe it to the standard input.\n";
+
+for (@programme) {
+    for my $char (split //) {
+#        given ($char) {
+            if    ($char eq 'H') { hello()             }
+            elsif ($char eq 'Q') { quinne(@programme)  }
+            elsif ($char eq '9') { bottles()           }
+            else                 { die "Unknown instruction $char.\n" } # Comment this line to ignore other instructions.
+#        }
+    }
+}
+
+sub hello {
+    $result .= 'Hello World' . "\n";
+}
+
+sub quinne {
+    $result = join('', @programme) . "\n";
+}
+
+sub bottles {
+    for my $n (reverse 0 .. 99) {
+        my $before = bottle_count($n);
+        my $after  = bottle_count($n - 1);
+        my $action = bottle_action($n);
+        say "\u$before of beer on the wall, $before of beer.";
+        say "$action, $after of beer on the wall.";
+        say q() if $n;
+    }
+}
+
+sub bottle_count {
+    my $n = shift;
+#    given ($n) {
+        if ($n == -1)    { return '99 bottles'      }
+        elsif ($n ==  0) { return 'no more bottles' }
+        elsif ($n ==  1) { return '1 bottle'        }
+        else             { return "$n bottles"      }
+#    }
+}
+
+sub bottle_action {
+    my $n = shift;
+    return 'Take one down and pass it around' if $n > 0;
+    return 'Go to the store and buy some more';
+}
+
+
+say $result; 
+my $ref = <<'EOD';
+HQ
+EOD
+
+use Test::More;
+is ($result, $ref);
+done_testing();
