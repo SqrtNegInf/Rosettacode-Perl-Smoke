@@ -1,0 +1,40 @@
+#!/usr/local/bin/perl
+#u# http://rosettacode.org/wiki/Extract_file_extension
+#c# 2018-08-01 <RC
+#p# OK
+
+use feature 'say';
+my $result;
+
+# Translation of: Perl 6
+
+sub extension {
+    my $path = shift;
+    $path =~ / \. [a-z0-9]+ $ /xi;
+    $& // '';
+}
+
+$result .= sprintf "%-35s %-11s\n", $_, "'".extension($_)."'"
+for qw[
+    http://example.com/download.tar.gz
+    CharacterModel.3DS
+    .desktop
+    document
+    document.txt_backup
+    /etc/pam.d/login
+];
+
+say $result; 
+
+my $ref = <<'EOD';
+http://example.com/download.tar.gz  '.gz'      
+CharacterModel.3DS                  '.3DS'     
+.desktop                            '.desktop' 
+document                            ''         
+document.txt_backup                 ''         
+/etc/pam.d/login                    ''         
+EOD
+
+use Test::More;
+is ($result, $ref);
+done_testing();
