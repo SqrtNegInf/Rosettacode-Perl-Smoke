@@ -1,0 +1,31 @@
+#!/usr/local/bin/perl
+#u# http://rosettacode.org/wiki/Execute_a_Markov_algorithm
+#c# 2018-08-01 <RC
+#p# OK
+
+use feature 'say';
+my $result;
+
+#This program expects a source file as an argument and uses the standard input and output devices for the algorithm's I/O.
+
+#@ARGV == 1 or die "Please provide exactly one source file as an argument.\n";
+open my $source, '<ref/rules.markov1'; #, $ARGV[0] or die "I couldn't open \"$ARGV[0]\" for reading. ($!.)\n";
+my @rules;
+while (<$source>)
+   {/\A#/ and next;
+    my @a = /(.*?)\s+->\s+(\.?)(.*)/ or die "Syntax error: $_";
+    push @rules, \@a;}
+close $source;
+
+my $input = 'I bought a B of As from T S.';
+
+OUTER:
+   {foreach (@rules)
+       {my ($from, $terminating, $to) = @$_;
+        $input =~ s/\Q$from\E/$to/
+            and ($terminating ? last OUTER : redo OUTER);}}
+say $input;
+
+use Test::More;
+is($input, 'I bought a bag of apples from my brother.');
+done_testing();
