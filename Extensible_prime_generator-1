@@ -1,0 +1,36 @@
+#!/usr/local/bin/perl
+#u# http://rosettacode.org/wiki/Extensible_prime_generator
+#c# 2018-08-01 <RC
+#p# OK
+
+use feature 'say';
+my $result;
+
+use Math::Prime::Util qw(nth_prime prime_count primes);
+# Direct solutions.
+# primes([start],end) returns an array reference with all primes in the range
+# prime_count([start],end) uses sieving or LMO to return fast prime counts
+# nth_prime(n) does just that.  It runs quite fast for native size inputs.
+$result .= "First 20: ". join(" ", @{primes(nth_prime(20))}) . "\n";
+$result .= "Between 100 and 150: ". join(" ", @{primes(100,150)}) . "\n";
+$result .= prime_count(7700,8000). " primes between 7700 and 8000" . "\n";
+$result .= "${_}th prime: ". nth_prime($_) . "\n" for map { 10**$_ } 1..8;
+
+say $result;
+my $ref = <<'END';
+First 20: 2 3 5 7 11 13 17 19 23 29 31 37 41 43 47 53 59 61 67 71
+Between 100 and 150: 101 103 107 109 113 127 131 137 139 149
+30 primes between 7700 and 8000
+10th prime: 29
+100th prime: 541
+1000th prime: 7919
+10000th prime: 104729
+100000th prime: 1299709
+1000000th prime: 15485863
+10000000th prime: 179424673
+100000000th prime: 2038074743
+END
+
+use Test::More;
+is ($result, $ref);
+done_testing();
