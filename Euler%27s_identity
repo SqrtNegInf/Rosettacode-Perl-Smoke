@@ -1,0 +1,14 @@
+#!/usr/local/bin/perl
+#u# http://rosettacode.org/wiki/Euler%27s_identity
+#c# 2018-07-31 <RC
+#p# OK
+
+use feature 'say';
+my $result;
+
+use Math::Complex;
+say $result = sprintf "%s", exp(pi * i) + 1; #, "\n";
+
+use Test::More;
+is ($result, '1.22464679914735e-16i');
+done_testing();
