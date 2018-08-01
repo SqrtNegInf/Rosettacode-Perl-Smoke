@@ -1,0 +1,38 @@
+#!/usr/local/bin/perl
+#u# http://rosettacode.org/wiki/Execute_a_system_command
+#c# 2018-08-01 <RC
+#p# OK
+
+use feature 'say';
+my $result;
+
+my @results = qx(uname);
+# runs command and returns its STDOUT as a string
+push @results, `uname`;
+# ditto, alternative syntax
+ 
+push @results, system "uname";
+# runs command and returns its exit status; its STDOUT gets output to our STDOUT
+ 
+push @results, `uname`;
+#The same, but with back quotes
+ 
+#exec "ls";
+# replace current process with another
+#Also see:
+#http://perldoc.perl.org/perlipc.html#Using-open()-for-IPC
+#http://perldoc.perl.org/IPC/Open3.html
+
+say $result = join "\n", @results;; 
+my $ref = <<'EOD';
+Darwin
+
+Darwin
+
+0
+Darwin
+EOD
+
+use Test::More;
+is ($result, $ref);
+done_testing();
