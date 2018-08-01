@@ -1,0 +1,19 @@
+#!/usr/local/bin/perl
+#u# http://rosettacode.org/wiki/Web_scraping
+#c# 2018-07-31 <RC
+#p# OK
+
+use feature 'say';
+my $result;
+
+#Library: LWP
+use LWP::Simple;
+
+my $url = "https://en.wikipedia.org/wiki/List_of_time_zone_abbreviations";
+say $@;
+
+get($url) =~ /(Chuuk Time)/ and print "$1\n";
+
+use Test::More;
+is $1, 'Chuuk Time';
+done_testing();
