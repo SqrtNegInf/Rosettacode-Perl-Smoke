@@ -1,0 +1,24 @@
+#!/usr/local/bin/perl
+#u# http://rosettacode.org/wiki/Extensible_prime_generator
+#c# 2018-08-01 <RC
+#p# OK
+
+use feature 'say';
+my $result;
+
+use bigint;
+use Math::Prime::Util qw/forprimes prime_get_config/;
+warn "No GMP, expect slow results\n" unless prime_get_config->{gmp};
+my $n = 10**200;
+forprimes { $result .= ($_-$n) . "\n" } $n,$n+1000;
+
+say $result;
+my $ref = <<'END';
+357
+627
+799
+END
+
+use Test::More;
+is ($result, $ref);
+done_testing();
