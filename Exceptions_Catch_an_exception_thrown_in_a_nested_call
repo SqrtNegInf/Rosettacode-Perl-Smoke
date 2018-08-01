@@ -1,0 +1,39 @@
+#!/usr/local/bin/perl
+#u# http://rosettacode.org/wiki/Exceptions/Catch_an_exception_thrown_in_a_nested_call
+#c# 2018-08-01 <RC
+#p# OK
+
+# Note: Both exceptions are caught and one is re-raised rather than only one being caught.
+
+sub testcode {
+sub foo {
+    foreach (0..1) {
+        eval { bar($_) };
+        if ($@ =~ /U0/) { print "Function foo caught exception U0\n"; }
+        else { die; } # propagate the exception
+    }
+}
+ 
+sub bar {
+    baz(@_); # Nest those calls
+}
+ 
+sub baz {
+    my $i = shift;
+    die ($i ? "U1" : "U0");
+}
+ 
+eval { foo(); };
+print STDERR $@ if $@;
+}
+
+my $ref = <<'EOD';
+Function foo caught exception U0
+U1 at Exceptions_Catch_an_exception_thrown_in_a_nested_call line 23.
+	...propagated at Exceptions_Catch_an_exception_thrown_in_a_nested_call line 13.
+EOD
+
+use Test::More;
+use Test::Output;
+combined_is(\&testcode,$ref);
+done_testing();
