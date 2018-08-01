@@ -1,0 +1,46 @@
+#!/usr/local/bin/perl
+#u# http://rosettacode.org/wiki/Exceptions
+#c# 2018-08-01 <RC
+#p# OK
+#n# hard to test
+
+use Test::More;
+
+# Using eval
+
+# Exceptions using the core eval function:
+
+# throw an exception
+# die "Danger, danger, Will Robinson!";
+ 
+# catch an exception and show it
+eval {
+    die "this could go wrong mightily";
+};
+print $@ if $@;
+
+is ($@, "this could go wrong mightily at Exceptions line 18.\n");
+done_testing()
+ 
+# rethrow
+#die $@;
+
+#See http://perldoc.perl.org/perlvar.html#%24EVAL_ERROR for the meaning of the special variable $@. See http://search.cpan.org/dist/Error for advanced object based-exception handling.
+
+#Using Try::Tiny
+#The same using the Try::Tiny module:
+
+# throw an exception
+# die "Danger, danger, Will Robinson!";
+# catch an exception and show it
+#try {
+#    die "this could go wrong mightily";
+#} catch {
+#    say $_;
+#};
+# rethrow (inside of catch)
+#die $_;
+
+#Other styles
+#More complicated exception handling can be achieved in Perl using TryCatch or Exception::Class modules.
+
