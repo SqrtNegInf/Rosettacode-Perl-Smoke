@@ -1,0 +1,47 @@
+#!/usr/local/bin/perl
+#u# http://rosettacode.org/wiki/Ethiopian_multiplication
+#c# 2018-07-31 <RC
+#p# OK
+
+use feature 'say';
+my $result;
+
+use strict;
+ 
+sub halve { int((shift) / 2); }
+sub double { (shift) * 2; }
+sub iseven { ((shift) & 1) == 0; }
+ 
+sub ethiopicmult
+{
+    my ($plier, $plicand, $tutor) = @_;
+    print "ethiopic multiplication of $plier and $plicand\n" if $tutor;
+    my $r = 0;
+    while ($plier >= 1)
+    {
+	$r += $plicand unless iseven($plier);
+	if ($tutor) {
+	    $result .= "$plier, $plicand ". (iseven($plier) ? " struck" : " kept") . "\n";
+	}
+	$plier = halve($plier);
+	$plicand = double($plicand);
+    }
+    return $r;
+}
+ 
+$result .= ethiopicmult(17,34, 1). "\n";
+
+say $result; 
+
+my $ref = <<'EOD';
+17, 34  kept
+8, 68  struck
+4, 136  struck
+2, 272  struck
+1, 544  kept
+578
+EOD
+
+use Test::More;
+is ($result, $ref);
+done_testing();
