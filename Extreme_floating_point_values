@@ -1,0 +1,102 @@
+#!/usr/local/bin/perl
+#u# http://rosettacode.org/wiki/Extreme_floating_point_values
+#c# 2018-08-01 <RC
+#p# OK
+
+use feature 'say';
+my $result;
+
+# Perl numbers have three formats (integer, floating-point, string) and perlnumber explains the automatic conversions. Arithmetic tends to convert numbers to integers.
+# To get negative zero, one must negate a floating-point zero, not an integer zero.
+# So -0 is "0", -0.0 is "-0", but -(1.0 - 1.0) is again "0" because the result of 1.0 - 1.0 is an integer zero.
+# Stringification of minus zero may or may not keep the sign in the string, depending on the platform and Perl version.
+# If the sign is important, use printf "%f" instead ("%g" won't work: it gives "0").
+# Division by zero, sqrt(-1) and log(0) are fatal errors.
+# To get infinity and NaN, use corresponding string and force a numeric conversion by adding zero to it, or prepending a "+" or "-":
+
+use strict;
+use warnings;
+ 
+my $nzero = -0.0;
+my $nan = 0 + "nan";
+my $pinf = +"inf";
+my $ninf = -"inf";
+ 
+$result .= sprintf "\$nzero = %.1f\n", $nzero;
+$result .= "\$nan = $nan\n";
+$result .= "\$pinf = $pinf\n";
+$result .= "\$ninf = $ninf\n\n";
+ 
+$result .= sprintf "atan2(0, 0) = %g\n", atan2(0, 0);
+$result .= sprintf "atan2(0, \$nzero) = %g\n", atan2(0, $nzero);
+$result .= sprintf "sin(\$pinf) = %g\n", sin($pinf);
+$result .= sprintf "\$pinf / -1 = %g\n", $pinf / -1;
+$result .= sprintf "\$ninf + 1e100 = %g\n\n", $ninf + 1e100;
+ 
+$result .= sprintf "nan test: %g\n", (1 + 2 * 3 - 4) / (-5.6e7 * $nan);
+$result .= sprintf "nan == nan? %s\n", ($nan == $nan) ? "yes" : "no";
+$result .= sprintf "nan == 42? %s\n", ($nan == 42) ? "yes" : "no";
+
+my $ref1 = <<'EOD';
+EOD
+
+# Here is a rare example of NaN and infinity for an integer type.
+# Math::BigInt, a module that comes with Perl, provides integers of arbitrary sizes,
+# but also has NaN, positive infinity, and negative infinity.
+# There is no negative zero.
+
+use strict;
+use warnings;
+ 
+use Math::BigInt;
+ 
+$nan = Math::BigInt->bnan();
+$pinf = Math::BigInt->binf();
+$ninf = Math::BigInt->binf('-');
+ 
+$result .= "\$nan = $nan\n";
+$result .= "\$pinf = $pinf\n";
+$result .= "\$ninf = $ninf\n\n";
+ 
+my $huge = Math::BigInt->new("123456789");
+$huge->bmul($huge)->bmul($huge)->bmul($huge);
+ 
+$result .= "\$huge = $huge\n";
+$result .= sprintf "\$ninf + \$huge = %s\n", $ninf->copy()->badd($huge);
+$result .= sprintf "\$pinf - \$huge = %s\n", $pinf->copy()->bsub($huge);
+$result .= sprintf "\$nan * \$huge = %s\n", $nan->copy()->bmul($huge);
+$result .= sprintf "\$nan == \$nan? %s\n", defined($nan->bcmp($nan)) ? "maybe" : "no";
+$result .= sprintf "\$nan == \$huge? %s\n", defined($nan->bcmp($huge)) ? "maybe" : "no";
+
+say $result; 
+
+my $ref = <<'EOD';
+$nzero = -0.0
+$nan = NaN
+$pinf = inf
+$ninf = -inf
+
+atan2(0, 0) = 0
+atan2(0, $nzero) = 3.14159
+sin($pinf) = NaN
+$pinf / -1 = -Inf
+$ninf + 1e100 = -Inf
+
+nan test: NaN
+nan == nan? no
+nan == 42? no
+$nan = NaN
+$pinf = inf
+$ninf = -inf
+
+$huge = 53965948844821664748141453212125737955899777414752273389058576481
+$ninf + $huge = -inf
+$pinf - $huge = inf
+$nan * $huge = NaN
+$nan == $nan? no
+$nan == $huge? no
+EOD
+
+use Test::More;
+is ($result, $ref);
+done_testing();
