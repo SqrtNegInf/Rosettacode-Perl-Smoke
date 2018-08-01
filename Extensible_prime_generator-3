@@ -1,0 +1,40 @@
+#!/usr/local/bin/perl
+#u# http://rosettacode.org/wiki/Extensible_prime_generator
+#c# 2018-08-01 <RC
+#p# OK
+
+use feature 'say';
+my $result;
+
+use Math::Prime::Util qw/forprimes/;
+use Math::Prime::Util::PrimeArray;
+tie my @primes, 'Math::Prime::Util::PrimeArray';
+
+$result .= "First 20: " . join(" ", @primes[0..19]) . "\n";  # Slice from the tied array
+$result .= "Between 100 and 150: ";  forprimes { $result .= " $_"; } 100,150;  $result .= "\n";
+# Count with forprimes
+my $c = 0;
+forprimes { $c++ } 7700,8000;
+$result .= "$c primes between 7700 and 8000\n";
+# The tied array tries to do the right thing -- sieve a window if it sees
+# forward or backward iteration, and nth_prime if it looks like random access.
+$result .= "${_}th prime: ". $primes[$_-1] . "\n" for map { 10**$_ } 1..8;
+
+say $result;
+my $ref = <<'END';
+First 20: 2 3 5 7 11 13 17 19 23 29 31 37 41 43 47 53 59 61 67 71
+Between 100 and 150:  101 103 107 109 113 127 131 137 139 149
+30 primes between 7700 and 8000
+10th prime: 29
+100th prime: 541
+1000th prime: 7919
+10000th prime: 104729
+100000th prime: 1299709
+1000000th prime: 15485863
+10000000th prime: 179424673
+100000000th prime: 2038074743
+END
+
+use Test::More;
+is ($result, $ref);
+done_testing();
