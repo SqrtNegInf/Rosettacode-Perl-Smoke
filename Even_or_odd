@@ -1,0 +1,37 @@
+#!/usr/local/bin/perl
+#u# http://rosettacode.org/wiki/Even_or_odd
+#c# 2018-08-01 <RC
+#p# OK
+
+use feature 'say';
+my $result;
+
+for(0..10){
+    $result .= "$_ is ". qw(even odd)[$_ % 2]."\n";
+}
+
+#or
+
+$result .= 6 % 2  ? 'odd' : 'even';   # prints even
+$result .= "\n";
+
+
+say $result; 
+my $ref = <<'EOD';
+0 is even
+1 is odd
+2 is even
+3 is odd
+4 is even
+5 is odd
+6 is even
+7 is odd
+8 is even
+9 is odd
+10 is even
+even
+EOD
+
+use Test::More;
+is ($result, $ref);
+done_testing();
