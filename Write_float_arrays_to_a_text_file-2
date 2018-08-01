@@ -1,0 +1,27 @@
+#!/usr/local/bin/perl
+#u# http://rosettacode.org/wiki/Write_float_arrays_to_a_text_file
+#c# 2018-08-01 <RC
+#p# OK
+#f# RC file: sqrt-2.dat
+
+# Alternatively, with the CPAN List::MoreUtils package:
+
+use autodie;
+use List::MoreUtils qw(each_array);
+ 
+sub writedat {
+    my ($filename, $x, $y, $xprecision, $yprecision) = @_;
+    open my $fh, ">", $filename;
+ 
+    my $ea = each_array(@$x, @$y);
+    while ( my ($i, $j) = $ea->() ) {
+        printf $fh "%.*g\t%.*g\n", $xprecision||3, $i, $yprecision||5, $j;
+    }
+ 
+    close $fh;
+}
+ 
+my @x = (1, 2, 3, 1e11);
+my @y = map sqrt, @x;
+ 
+writedat("run/sqrt-2.dat", \@x, \@y);
