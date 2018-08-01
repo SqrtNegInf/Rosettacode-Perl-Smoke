@@ -3,14 +3,15 @@
 #c# 2018-07-17 <>RC
 #p# OK
 #f# RC file: brownian_tree.eps
+#n# Used to be really slow? Not so in 5.28...
 
 srand 123456;
 
 #use warnings;
 use strict;
 
-# Simulation code. Tremendously slow, partly because it doesn't use a grid-based collision checking. Showing three sample images with different STEP and ATTRACT parameters, to demonstrate how sensitive the result is to them.
-# Code runs until the tree reached specified radius. Output is written to "test.eps" of wherever the current directory is. The 0-0 sample took maybe 3 hours (I don't really know, I went for dinner.)
+# Simulation code. Showing three sample images with different STEP and ATTRACT parameters, to demonstrate how sensitive the result is to them.
+# Code runs until the tree reached specified radius. Output is written to "test.eps" of wherever the current directory is.
 
 sub PI() { atan2(1,1) * 4 }     # The, er, pi
 sub STEP() { .5 }               # How far does the particle move each step. Affects
