@@ -1,0 +1,45 @@
+#!/usr/local/bin/perl
+#u# http://rosettacode.org/wiki/Evaluate_binomial_coefficients
+#c# 2018-08-01 <RC
+#p# OK
+
+use feature 'say';
+my $result;
+
+sub binomial1 {
+    use bigint;
+    my ($r, $n, $k) = (1, @_);
+    for (1 .. $k) { $r *= $n--; $r /= $_ }
+    $r;
+}
+ 
+$result .= binomial1(5, 3) . "\n";
+
+# Since the bigint module already has a binomial method, this could also be written as:
+
+sub binomial2 {
+    use bigint;
+    my($n,$k) = @_;
+    (0+$n)->bnok($k);
+}
+$result .= binomial2(5, 3) . "\n";
+
+# For better performance, especially with large inputs, one can also use something like:
+
+# Library: ntheory
+use ntheory qw/binomial/;
+$result .= length(binomial(100000,50000)). "\n";
+
+# The Math::Pari module also has binomial, but it needs large amounts of added stack space for large arguments (this is due to using a very old version of the underlying Pari library).
+
+say $result; 
+
+my $ref = <<'EOD';
+10
+10
+30101
+EOD
+
+use Test::More;
+is ($result, $ref);
+done_testing();
