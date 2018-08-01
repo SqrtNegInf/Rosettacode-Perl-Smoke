@@ -40,6 +40,7 @@ $date = `date +%Y-%m-%d`; chomp $date;
 $c = 0;
 for $t (glob "$taskdir/*pl") {
     $code = `cat $t`;
+    $code =~ s/\n[ ]+\n/\n\n/g;
     $source = $template;
     $source =~ s/X-task-X/$task/;
     $source =~ s/X-date-X/$date/;
