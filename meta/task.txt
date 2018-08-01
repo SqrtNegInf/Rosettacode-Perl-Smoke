@@ -1,6 +1,6 @@
 
 This is perl 5, version 28, subversion 0 (v5.28.0) built for darwin-thread-multi-2level
-+------------> Perl: Good/Bad [240/4]
++------------> Perl: Good/Bad [251/4]
 |+-----------> SmOke testing [193]
 ||+----------> sKipping validation [43]
 |||+---------> Interactive [9]
@@ -8,8 +8,8 @@ This is perl 5, version 28, subversion 0 (v5.28.0) built for darwin-thread-multi
 |||||+-------> Random seed [21]
 ||||||+------> File output [16]
 |||||||+-----> Draft [226]
-||||||||+----> Ignoring [2]
-|||||||||+---> Void (no local copy) [900]
+||||||||+----> Ignoring [3]
+|||||||||+---> Void (no local copy) [890]
 ||||||||||+--> Un-implemented/reliable [311]
 |||||||||||
 GO......... 100_doors-1
@@ -323,20 +323,21 @@ G.......... Element-wise_operations
 G.......... Elementary_cellular_automaton
 G...T..D... Elementary_cellular_automaton_Infinite_length
 G......D... Elementary_cellular_automaton_Random_Number_Generator
-.......D.V. Elliptic_curve_arithmetic
+G......D... Elliptic_curve_arithmetic
 G.......... Emirp_primes
 G.......... Empty_directory
 G.K........ Empty_program
 G.......... Empty_string
 G.......... Enforced_immutability
-.........V. Entropy
-.........V. Entropy_Narcissist
-.........V. Enumerations
-.........V. Environment_variables
-.........V. Equilibrium_index
-.........V. Ethiopian_multiplication
-.......D.V. Euler%27s_identity
-.........V. Euler%27s_sum_of_powers_conjecture
+G.......... Entropy
+G.......... Entropy_Narcissist
+G.......... Enumerations
+G.......... Environment_variables
+G.......... Equilibrium_index
+G.......... Ethiopian_multiplication
+G......D... Euler%27s_identity
+G.......... Euler%27s_sum_of_powers_conjecture-1
+G.......... Euler%27s_sum_of_powers_conjecture-2
 .........V. Euler_method
 .........V. Evaluate_binomial_coefficients
 .........V. Even_or_odd
@@ -358,7 +359,7 @@ G.......... Enforced_immutability
 .......D.V. Extract_file_extension
 .........V. Extreme_floating_point_values
 .........V. FASTA_format
-.........V. FTP
+G.......... FTP
 .........V. Factorial
 .........V. Factors_of_a_Mersenne_number
 .........V. Factors_of_an_integer
@@ -1141,7 +1142,7 @@ GO......... Spiral_matrix
 .........V. Write_entire_file
 .........V. Write_float_arrays_to_a_text_file
 .........V. Write_language_name_in_3D_ASCII
-.........V. Write_to_Windows_event_log
+........XV. Write_to_Windows_event_log
 GO......... XML_DOM_serialization
 GO......... XML_Input
 GO......... XML_Output
