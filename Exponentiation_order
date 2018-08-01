@@ -1,0 +1,21 @@
+#!/usr/local/bin/perl
+#u# http://rosettacode.org/wiki/Exponentiation_order
+#c# 2018-08-01 <RC
+#p# OK
+
+use feature 'say';
+my $result;
+
+$result .= "$_ = " . eval($_) . "\n"  for  qw/5**3**2  (5**3)**2  5**(3**2)/;
+
+say $result; 
+
+my $ref = <<'EOD';
+5**3**2 = 1953125
+(5**3)**2 = 15625
+5**(3**2) = 1953125
+EOD
+
+use Test::More;
+is ($result, $ref);
+done_testing();
