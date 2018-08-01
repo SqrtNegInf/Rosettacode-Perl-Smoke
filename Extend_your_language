@@ -1,0 +1,126 @@
+#!/usr/local/bin/perl
+#u# http://rosettacode.org/wiki/Extend_your_language
+#c# 2018-08-01 <>RC
+#p# OK
+#n# removed given/when
+
+use feature 'say';
+my $result;
+
+# Closures enable user-defined control structures, but the syntax is not always identical to that of built-in control structures. This example is a start, but needs improving.
+
+use warnings;
+use strict;
+use v5.10;
+
+# All the new `keywords' are in fact functions.  Most of them return lists
+# of four closures, one of which is then executed by if2.  Here are indexes into
+# these lists:
+
+use constant {
+    IdxThen     => 0,
+    IdxElse1    => 1,
+    IdxElse2    => 2,
+    IdxOrElse   => 3
+};
+
+# Most of the magic is in the (&) prototype, which lets a function accept a
+# closure marked by nothing except braces.
+
+sub orelse(&) {
+    my $clause = shift;
+    return undef, undef, undef, $clause;
+}
+
+sub else2(&@) {
+    my $clause = shift;
+    die "Can't have two `else2' clauses"
+        if defined $_[IdxElse2];
+
+    return (undef, $_[IdxElse1], $clause, $_[IdxOrElse]);
+}
+
+sub else1(&@) {
+    my $clause = shift;
+    die "Can't have two `else1' clauses"
+        if defined $_[IdxElse1];
+
+    return (undef, $clause, $_[IdxElse2], $_[IdxOrElse]);
+}
+
+sub then2(&@) {
+    die "Can't have two `then2' clauses"
+        if defined $_[1+IdxThen];
+
+    splice @_, 1+IdxThen, 1;
+    return @_;
+}
+
+# Here, we collect the two conditions and four closures (some of which will be
+# undefined if some clauses are missing).  We work out which of the four
+# clauses (closures) to call, and call it if it exists.
+
+use constant {
+    # Defining True and False is almost always bad practice, but here we
+    # have a valid reason.
+    True  => (0 == 0),
+    False => (0 == 1)
+};
+
+sub if2($$@) {
+    my $cond1 = !!shift;    # Convert to Boolean to guarantee matching
+    my $cond2 = !!shift;    # against either True or False
+
+    die "if2 must be followed by then2, else1, else2, &/or orelse"
+        if @_ != 4
+        or grep {defined and ref $_ ne 'CODE'} @_;
+
+    my $index;
+    if (!$cond1 && !$cond2) {$index = IdxOrElse}
+    if (!$cond1 &&  $cond2) {$index = IdxElse2 }
+    if ( $cond1 && !$cond2) {$index = IdxElse1 }
+    if ( $cond1 &&  $cond2) {$index = IdxThen  }
+
+    my $closure = $_[$index];
+    &$closure   if defined $closure;
+}
+
+# This is test code.  You can play with it by deleting up to three of the
+# four clauses.
+
+sub test_bits($) {
+    (my $n) = @_;
+
+    $result .= "Testing $n: ";
+
+    if2 $n & 1, $n & 2, then2 {
+        $result .= "Both bits 0 and 1 are set\n";
+    }
+    else1 {
+        $result .= "Only bit 0 is set\n";
+    }
+    else2 {
+        $result .= "Only bit 1 is set\n";
+    }
+    orelse {
+        $result .= "Neither bit is set\n";
+    }
+}
+
+test_bits $_   for 0 .. 7;
+
+say $result; 
+my $ref = <<'EOD';
+Testing 0: Neither bit is set
+Testing 1: Only bit 0 is set
+Testing 2: Only bit 1 is set
+Testing 3: Both bits 0 and 1 are set
+Testing 4: Neither bit is set
+Testing 5: Only bit 0 is set
+Testing 6: Only bit 1 is set
+Testing 7: Both bits 0 and 1 are set
+EOD
+
+use Test::More;
+is ($result, $ref);
+done_testing();
