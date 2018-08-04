@@ -1,0 +1,21 @@
+#!/usr/local/bin/perl
+#u# http://rosettacode.org/wiki/Factorial
+#c# 2018-08-03 <RC
+#p# OK
+
+use feature 'say';
+my $result;
+
+# recursive
+
+sub factorial
+{
+  my $n = shift;
+  ($n == 0)? 1 : $n*factorial($n-1);
+}
+
+say $result = factorial(5);
+
+use Test::More;
+is ($result, 120);
+done_testing();
