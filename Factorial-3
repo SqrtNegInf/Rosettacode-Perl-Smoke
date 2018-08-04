@@ -1,0 +1,25 @@
+#!/usr/local/bin/perl
+#u# http://rosettacode.org/wiki/Factorial
+#c# 2018-08-03 <RC
+#p# OK
+
+# functional
+
+use feature 'say';
+my $result;
+
+use List::Util qw(reduce);
+
+sub factorial
+{
+  my $n = shift;
+  reduce { $a * $b } 1, 1 .. $n
+}
+
+say $result = factorial(5);
+my $ref = <<'END';
+END
+
+use Test::More;
+is ($result, 120);
+done_testing();
