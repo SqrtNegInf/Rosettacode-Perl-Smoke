@@ -1,0 +1,69 @@
+#!/usr/local/bin/perl
+#u# http://rosettacode.org/wiki/Faulhaber%27s_formula
+#c# 2018-08-03 <RC
+#p# OK
+
+use feature 'say';
+my $result;
+
+use 5.014;
+use Math::Algebra::Symbols;
+
+sub bernoulli_number {
+    my ($n) = @_;
+
+    return 0 if $n > 1 && $n % 2;
+
+    my @A;
+    for my $m (0 .. $n) {
+        $A[$m] = symbols(1) / ($m + 1);
+
+        for (my $j = $m ; $j > 0 ; $j--) {
+            $A[$j - 1] = $j * ($A[$j - 1] - $A[$j]);
+        }
+    }
+
+    return $A[0];
+}
+
+sub binomial {
+    my ($n, $k) = @_;
+    return 1 if $k == 0 || $n == $k;
+    binomial($n - 1, $k - 1) + binomial($n - 1, $k);
+}
+
+sub faulhaber_s_formula {
+    my ($p) = @_;
+
+    my $formula = 0;
+    for my $j (0 .. $p) {
+        $formula += binomial($p + 1, $j)
+                 *  bernoulli_number($j)
+                 *  symbols('n')**($p + 1 - $j);
+    }
+
+    (symbols(1) / ($p + 1) * $formula)
+        =~ s/\$n/n/gr =~ s/\*\*/^/gr =~ s/\*/ /gr;
+}
+
+foreach my $i (0 .. 9) {
+    $result .= "$i: ". faulhaber_s_formula($i) . "\n";
+}
+
+say $result; 
+my $ref = <<'EOD';
+0: n
+1: 1/2 n+1/2 n^2
+2: 1/6 n+1/2 n^2+1/3 n^3
+3: 1/4 n^2+1/2 n^3+1/4 n^4
+4: -1/30 n+1/3 n^3+1/2 n^4+1/5 n^5
+5: -1/12 n^2+5/12 n^4+1/2 n^5+1/6 n^6
+6: 1/42 n-1/6 n^3+1/2 n^5+1/2 n^6+1/7 n^7
+7: 1/12 n^2-7/24 n^4+7/12 n^6+1/2 n^7+1/8 n^8
+8: -1/30 n+2/9 n^3-7/15 n^5+2/3 n^7+1/2 n^8+1/9 n^9
+9: -3/20 n^2+1/2 n^4-7/10 n^6+3/4 n^8+1/2 n^9+1/10 n^10
+EOD
+
+use Test::More;
+is ($result, $ref);
+done_testing();
