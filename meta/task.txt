@@ -1,20 +1,22 @@
 
 This is perl 5, version 28, subversion 0 (v5.28.0) built for darwin-thread-multi-2level
-+------------> Perl: Good/Bad [276/5]
-|+-----------> SmOke testing [226]
-||+----------> sKipping validation [43]
-|||+---------> Interactive [9]
-||||+--------> Touched (modified by me) [12]
++------------> Perl: Good/Bad [318/6]
+|+-----------> smOke testing [273]
+||+----------> sKipping validation [46]
+|||+---------> Interactive [11]
+||||+--------> Touched (modified by me) [15]
 |||||+-------> Random seed [22]
-||||||+------> File output [18]
-|||||||+-----> Draft [226]
-||||||||+----> Ignoring [4]
-|||||||||+---> Void (no local copy) [869]
-||||||||||+--> Un-implemented/reliable [311]
+||||||+------> File output [21]
+|||||||+-----> Draft [228]
+||||||||+----> Ignoring [5]
+|||||||||+---> Void (no local copy) [846]
+||||||||||+--> Un-implemented/reliable [310]
 |||||||||||
 GO......... 100_doors-1
 GO......... 100_doors-2
 GO......... 100_doors-3
+GO......... 100_doors-4
+GO......... 100_doors-5
 G.K........ 15_Puzzle_Game-1
 G.KI....... 15_Puzzle_Game-2
 .......D.VU 15_Puzzle_Game_in_3D
@@ -43,6 +45,8 @@ GO..T...... Accumulator_factory
 GO......... Ackermann_function-1
 GO......... Ackermann_function-2
 GO......... Ackermann_function-3
+GO......... Ackermann_function-4
+GO......... Ackermann_function-5
 ........XV. Active_Directory_Connect
 .........VU Active_Directory_Search_for_a_user
 GO......... Active_object
@@ -68,12 +72,13 @@ B.K........ Animation
 GO......... Anonymous_recursion-1
 GO......... Anonymous_recursion-2
 GO......... Anonymous_recursion-3
+B.......... Anonymous_recursion-4
 GO....F.... Append_a_record_to_the_end_of_a_text_file
 GO......... Apply_a_callback_to_an_array
 .........VU Apply_a_digital_filter_direct_form_II_transposed
 GO......... Arbitrary-precision_integers_included-1
 GO......... Arbitrary-precision_integers_included-2
-.........VU Archimedean_spiral
+GO..T.F.... Archimedean_spiral
 .........VU Arena_storage_pool
 GO......... Arithmetic-geometric_mean
 GO......... Arithmetic-geometric_mean_Calculate_Pi-1
@@ -166,7 +171,7 @@ G.K........ Call_a_function
 .........VU Call_a_function_in_a_shared_library
 G.K........ Call_an_object_method
 .........VU Canny_edge_detector
-.......D.VU Cantor_set
+GO..T..D... Cantor_set
 .......D.VU Card_shuffles
 GO......... Carmichael_3_strong_pseudoprimes
 .........VU Cartesian_product_of_two_or_more_lists
@@ -249,6 +254,8 @@ GO......... Copy_a_string
 GO......... Count_in_factors-1
 B.......... Count_in_factors-2
 GO......... Count_in_factors-3
+GO......... Count_in_factors-4
+GO......... Count_in_factors-5
 GO......... Count_in_octal
 GO......... Count_occurrences_of_a_substring
 GO......... Count_the_coins
@@ -273,6 +280,7 @@ GO......... Date_manipulation
 GO......... Day_of_the_week-1
 GO......... Day_of_the_week-2
 GO......... Day_of_the_week-3
+GO......... Day_of_the_week-4
 GO...R..... Deal_cards_for_FreeCell
 GO......... Death_Star
 .......D.VU Decimal_floating_point_number_to_binary
@@ -292,7 +300,7 @@ G.K........ Determine_if_only_one_instance_is_running
 GO.....D... Dice_game_probabilities
 GO......... Digital_root
 GO......... Digital_root_Multiplicative_digital_root
-GO.....D... Dijkstra%27s_algorithm
+GO......... Dijkstra%27s_algorithm
 GO......... Dinesman%27s_multiple-dwelling_problem
 G.K..R..... Dining_philosophers
 GO......... Discordian_date
@@ -344,38 +352,48 @@ GO......... Even_or_odd
 GO......... Events
 GO...R..... Evolutionary_algorithm
 GO......... Exceptions
-G.......... Exceptions_Catch_an_exception_thrown_in_a_nested_call
-G.......... Executable_library
+GO......... Exceptions_Catch_an_exception_thrown_in_a_nested_call
+GO......... Executable_library
 B.......... Execute_Brainfuck
-G.......... Execute_HQ9%2B
+GO......... Execute_HQ9%2B
 ........XV. Execute_SNUSP
-G.......... Execute_a_Markov_algorithm
+GO......... Execute_a_Markov_algorithm
 GO......... Execute_a_system_command
-G.......... Exponentiation_operator-1
-G.......... Exponentiation_operator-2
-G.......... Exponentiation_order
-G...T...... Extend_your_language
+GO......... Exponentiation_operator-1
+GO......... Exponentiation_operator-2
+GO......... Exponentiation_order
+GO..T...... Extend_your_language
 GO......... Extensible_prime_generator-1
 GO......... Extensible_prime_generator-2
 GO......... Extensible_prime_generator-3
+GO......... Extensible_prime_generator-4
 .......D.VU External_sort
 GO.....D... Extract_file_extension
 GO......... Extreme_floating_point_values
-.........V. FASTA_format
+GO......... FASTA_format
 GO......... FTP
-.........V. Factorial
-.........V. Factors_of_a_Mersenne_number
-.........V. Factors_of_an_integer
-.........V. Farey_sequence
-.........V. Fast_Fourier_transform
-.......D.V. Faulhaber%27s_formula
-.......D.V. Faulhaber%27s_triangle
+GO......... Factorial-1
+GO......... Factorial-2
+GO......... Factorial-3
+GO......... Factorial-4
+GO......... Factors_of_a_Mersenne_number-1
+GO......... Factors_of_a_Mersenne_number-2
+GO......... Factors_of_an_integer-1
+GO......... Factors_of_an_integer-2
+GO......... Factors_of_an_integer-3
+GO......... Farey_sequence-1
+G.K........ Farey_sequence-2
+GO......... Fast_Fourier_transform
+GO.....D... Faulhaber%27s_formula
+GO.....D... Faulhaber%27s_triangle
 .......D.VU Feigenbaum_constant_calculation
 .......D.VU Fibonacci_heap
-.........V. Fibonacci_n-step_number_sequences
-.........V. Fibonacci_sequence
-.........V. Fibonacci_word
-.........V. Fibonacci_word_fractal
+GO......... Fibonacci_n-step_number_sequences
+GO......... Fibonacci_sequence-1
+GO......... Fibonacci_sequence-2
+GO......... Fibonacci_sequence-3
+G.......... Fibonacci_word
+GO....F.... Fibonacci_word_fractal
 .......D.V. File_extension_is_in_extensions_list
 .........V. File_input_output
 .........V. File_modification_time
@@ -822,6 +840,7 @@ GO...R..... Pattern_matching
 .........V. Read_entire_file
 .......D.VU Readline_interface
 .........V. Real_constants_and_functions
+.......D.VU Recaman%27s_sequence
 .........VU Record_sound
 .......D.VU Recursive_descent_parser_generator
 .........V. Reduced_row_echelon_form
@@ -1056,7 +1075,7 @@ GO......... Spiral_matrix
 .........V. Text_processing_Max_licenses_in_use
 .......D.VU Text_to_HTML
 .........V. Textonyms
-.........V. The_ISAAC_Cipher
+GO......... The_ISAAC_Cipher
 .........VU The_Name_Game
 .........V. The_Twelve_Days_of_Christmas
 .........VU Thiele%27s_interpolation_formula
@@ -1125,27 +1144,29 @@ GO......... Spiral_matrix
 .........V. Visualize_a_tree
 .........VU Vogel%27s_approximation_method
 .........VU Voronoi_diagram
-.........V. Walk_a_directory_Non-recursively
-.........V. Walk_a_directory_Recursively
-.........V. Water_collected_between_towers
+GO..T...... Walk_a_directory_Non-recursively
+GO......... Walk_a_directory_Recursively
+GO......... Water_collected_between_towers
 .......D.VU Waveform_analysis_Doh_ray_me
 .......D.VU Waveform_analysis_Top_and_tail
 .......D.VU Weather_Routing
 GO......... Web_scraping
-.......D.V. Welch%27s_t-test
-.........V. Window_creation
-.........V. Window_creation_X11
-.........V. Window_management
-.........V. Wireworld
+.......D... Welch%27s_t-test
+GO.....D... Welch%27s_t-test-1
+GO.....D... Welch%27s_t-test-2
+........XV. Window_creation
+G.KI....... Window_creation_X11
+G.KI....... Window_management
+GO......... Wireworld
 .......D.VU Word_break_problem
 .......D.VU Word_count
 .........VU Word_search
-.........V. Word_wrap
+GO......... Word_wrap
 .........VU World_Cup_group_stage
-.........V. Write_entire_file
+GO....F.... Write_entire_file
 GO....F.... Write_float_arrays_to_a_text_file-1
 GO....F.... Write_float_arrays_to_a_text_file-2
-G.......... Write_language_name_in_3D_ASCII
+GO......... Write_language_name_in_3D_ASCII
 ........XV. Write_to_Windows_event_log
 GO......... XML_DOM_serialization
 GO......... XML_Input
