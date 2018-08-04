@@ -1,0 +1,20 @@
+#!/usr/local/bin/perl
+#u# http://rosettacode.org/wiki/Write_entire_file
+#c# 2018-08-01 <RC
+#p# OK
+#f# RC file: write_entire_file.dat
+
+# Traditional way, in case using CPAN modules is not an option:
+
+my $filename = 'run/write_entire_file.dat';
+my $data = 'Testing... 1 2 3';
+
+open my $fh, '>:encoding(UTF-8)', $filename or die "Could not open '$filename':  $!";
+print $fh $data;
+close $fh;
+
+#The modern recommended way, is to use one of these CPAN modules:
+#use File::Slurper 'write_text';
+#write_text($filename, $data);
+#use Path::Tiny;
+#path($filename)->spew_utf8($data);
