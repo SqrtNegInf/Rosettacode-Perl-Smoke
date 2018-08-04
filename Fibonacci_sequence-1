@@ -1,0 +1,23 @@
+#!/usr/local/bin/perl
+#u# http://rosettacode.org/wiki/Fibonacci_sequence
+#c# 2018-08-03 <RC
+#p# OK
+
+use feature 'say';
+my $result;
+
+# iterative
+
+sub fib_iter {
+  my $n = shift;
+  use bigint try => "GMP,Pari";
+  my ($v2,$v1) = (-1,1);
+  ($v2,$v1) = ($v1,$v2+$v1) for 0..$n;
+  $v1;
+}
+
+say $result = fib_iter(50);
+
+use Test::More;
+is ($result, 12586269025);
+done_testing();
