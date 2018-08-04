@@ -45,7 +45,7 @@ while ($_ = <DATA>) { chomp; mark($_,'X') }
 my @cols = (
 "Perl: Good/Bad [${\tally('P','G')}/${\tally('P','B')}]",       # P
 #"JVM: Good/Bad [${\tally('J','G')}/${\tally('J','B')}]",        # J
-"SmOke testing [${\tally('O')}]",                               # O
+"smOke testing [${\tally('O')}]",                               # O
 "sKipping validation [${\tally('K')}]",                         # K
 "Interactive [${\tally('I')}]",                                 # I
 "Touched (modified by me) [${\tally('T')}]",                    # T
@@ -79,7 +79,13 @@ my($p);
 
     if ($t eq 'X') { return unless $p = pfix($l)  }
     else           { return unless $p = pname($l) }
+
     $P{$p}{$t} = $t;
+    return unless $t eq 'D';
+
+    for my $i (1 .. 9) {
+        $P{"${p}-$i"}{$t} = $t if -e "../${p}-$i";
+    }
 }
 
 #####
@@ -91,9 +97,7 @@ my($l) = @_;
 
     my $cnt = 0;
     $cnt += document("${p}");
-    $cnt += document("${p}-1");
-    $cnt += document("${p}-2");
-    $cnt += document("${p}-3");
+    $cnt += document("${p}-$_") for 1 .. 9;
     $P{$p}{'V'} = 'V' if 0 == $cnt; # don't seem to have this task
 }
 
@@ -173,3 +177,4 @@ Active_Directory_Connect
 Abstract_type
 Write_to_Windows_event_log
 Execute_SNUSP
+Window_creation
