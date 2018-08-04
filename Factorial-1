@@ -1,0 +1,41 @@
+#!/usr/local/bin/perl
+#u# http://rosettacode.org/wiki/Factorial
+#c# 2018-08-03 <RC
+#p# OK
+
+use warnings;
+use feature 'say';
+my $result;
+
+# Iterative
+
+sub factorial1
+{
+  my $n = shift;
+  my $r = 1;
+  for (my $i = 1; $i <= $n; ++$i)
+  {
+    $r *= $i;
+  };
+  $r;
+}
+
+# using a .. range
+sub factorial2 {
+    my $r = 1;
+    $r *= $_ for 1..shift;
+    $r;
+}
+
+$result .= factorial1(5) .  "\n";
+$result .= factorial2(5) .  "\n";
+
+say $result;
+my $ref = <<'END';
+120
+120
+END
+
+use Test::More;
+is ($result, $ref);
+done_testing();
