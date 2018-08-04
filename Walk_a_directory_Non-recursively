@@ -1,0 +1,38 @@
+#!/usr/local/bin/perl
+#u# http://rosettacode.org/wiki/Walk_a_directory/Non-recursively
+#c# 2018-08-03 <>RC
+#p# OK
+
+use feature 'say';
+my $result;
+
+opendir my $dh, 'ref';
+$result .= "$_\n" for grep { /^sqrt/ } readdir $dh;
+closedir $dh;
+
+#Or using globbing, with the <> operator,
+
+$result .= "$_\n" while <ref/sqrt*>;
+
+#Or the same with the builtin glob() function,
+
+$result .= join "\n", @filenames = glob('ref/sqrt*');
+
+#The glob() function takes any expression for its pattern, whereas <> is only for a literal.
+#my $pattern = '*.c';
+#my @filenames = glob($pattern);
+
+say $result;
+my $ref = <<'EOD';
+sqrt-1.dat
+sqrt-2.dat
+ref/sqrt-1.dat
+ref/sqrt-2.dat
+ref/sqrt-1.dat
+ref/sqrt-2.dat
+EOD
+
+use Test::More;
+chop $ref;
+is ($result, $ref);
+done_testing();
