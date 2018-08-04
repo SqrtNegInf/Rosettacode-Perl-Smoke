@@ -1,0 +1,42 @@
+#!/usr/local/bin/perl
+#u# http://rosettacode.org/wiki/Fast_Fourier_transform
+#c# 2018-08-03 <RC
+#p# OK
+
+use feature 'say';
+my $result;
+
+# Translation of: Perl 6
+
+use strict;
+use warnings;
+use Math::Complex;
+
+sub fft {
+    return @_ if @_ == 1;
+    my @evn = fft(@_[grep { not $_ % 2 } 0 .. $#_ ]);
+    my @odd = fft(@_[grep { $_ % 2 } 1 .. $#_ ]);
+    my $twd = 2*i* pi / @_;
+    $odd[$_] *= exp( $_ * -$twd ) for 0 .. $#odd;
+    return
+    (map { $evn[$_] + $odd[$_] } 0 .. $#evn ),
+    (map { $evn[$_] - $odd[$_] } 0 .. $#evn );
+}
+
+$result .= "$_\n" for fft qw(1 1 1 1 0 0 0 0);
+
+say $result; 
+my $ref = <<'EOD';
+4
+1-2.41421356237309i
+0
+1-0.414213562373095i
+0
+1+0.414213562373095i
+0
+1+2.41421356237309i
+EOD
+
+use Test::More;
+is ($result, $ref);
+done_testing();
