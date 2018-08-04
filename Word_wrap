@@ -1,0 +1,78 @@
+#!/usr/local/bin/perl
+#u# http://rosettacode.org/wiki/Word_wrap
+#c# 2018-08-03 <RC
+#p# OK
+#n# note double-space after 'face.'
+
+use feature 'say';
+
+# Regex. Also showing degraded behavior on very long words:
+
+my $s = "In olden times when wishing still helped one, there lived a king
+whose daughters were all beautiful, but the youngest was so beautiful
+that the sun itself, which has seen so much, was astonished whenever
+it shone in her face.  Close-by-the-king's-castle-lay-a-great-dark
+forest, and under an old lime-tree in the forest was a well, and when
+the day was very warm, the king's child went out into the forest and
+sat down by the side of the cool fountain, and when she was bored she
+took a golden ball, and threw it up on high and caught it, and this
+ball was her favorite plaything.";
+
+$s =~ s/\b\s+/ /g;
+$s =~ s/\s*$/\n\n/;
+
+my $result1;
+($result1 = $s) =~ s/\s*(.{1,66})\s/$1\n/g;
+
+my $result2;
+($result2 = $s)=~ s/\s*(.{1,25})\s/$1\n/g;
+
+say $result1;
+say $result2; 
+
+my $ref1 = <<'EOD';
+In olden times when wishing still helped one, there lived a king
+whose daughters were all beautiful, but the youngest was so
+beautiful that the sun itself, which has seen so much, was
+astonished whenever it shone in her face. 
+Close-by-the-king's-castle-lay-a-great-dark forest, and under an
+old lime-tree in the forest was a well, and when the day was very
+warm, the king's child went out into the forest and sat down by
+the side of the cool fountain, and when she was bored she took a
+golden ball, and threw it up on high and caught it, and this ball
+was her favorite plaything.
+
+EOD
+
+my $ref2 = <<'EOD';
+In olden times when
+wishing still helped one,
+there lived a king whose
+daughters were all
+beautiful, but the
+youngest was so beautiful
+that the sun itself,
+which has seen so much,
+was astonished whenever
+it shone in her face. 
+Close-by-the-king's-castle-lay-a-great-dark
+forest, and under an old
+lime-tree in the forest
+was a well, and when the
+day was very warm, the
+king's child went out
+into the forest and sat
+down by the side of the
+cool fountain, and when
+she was bored she took a
+golden ball, and threw it
+up on high and caught it,
+and this ball was her
+favorite plaything.
+
+EOD
+
+use Test::More;
+is ($result1, $ref1);
+is ($result2, $ref2);
+done_testing();
