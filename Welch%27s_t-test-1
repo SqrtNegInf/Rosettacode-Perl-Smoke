@@ -1,0 +1,195 @@
+#!/usr/local/bin/perl
+#u# http://rosettacode.org/wiki/Welch%27s_t-test
+#c# 2018-08-03 <RC
+#p# OK
+#n# cumulative error changed; possibly how my Perl is compiled? 
+
+use feature 'say';
+my $result;
+
+# Using Burkardt's betain[edit]
+
+# We use a slightly more accurate lgamma than the C code. Note that Perl can be compiled with different underlying floating point representations -- double, long double, or quad double.
+
+# Translation of: C
+
+use warnings;
+use strict;
+
+sub lgamma {
+  my $x = shift;
+  my $log_sqrt_two_pi = 0.91893853320467274178;
+  my @lanczos_coef = (
+      0.99999999999980993, 676.5203681218851, -1259.1392167224028,
+      771.32342877765313, -176.61502916214059, 12.507343278686905,
+      -0.13857109526572012, 9.9843695780195716e-6, 1.5056327351493116e-7 );
+  my $base = $x + 7.5;
+  my $sum = 0;
+  $sum += $lanczos_coef[$_] / ($x + $_)  for reverse (1..8);
+  $sum += $lanczos_coef[0];
+  $sum = $log_sqrt_two_pi + log($sum/$x) + ( ($x+0.5)*log($base) - $base );
+  $sum;
+}
+
+use List::Util 'sum';
+sub calculate_Pvalue {
+	my $array1 = shift;
+	my $array2 = shift;
+	if (scalar @$array1 <= 1) {
+	return 1.0;
+	}
+	if (scalar @$array2 <= 1) {
+	return 1.0;
+	}
+	my $mean1 = sum(@{ $array1 });
+	$mean1 /= scalar @$array1;
+	my $mean2 = sum(@{ $array2 });
+	$mean2 /= scalar @$array2;
+	if ($mean1 == $mean2) {
+	return 1.0;
+	}
+	my $variance1 = 0.0;
+	my $variance2 = 0.0;
+	foreach my $x (@$array1) {
+	$variance1 += ($x-$mean1)*($x-$mean1);
+	}
+	foreach my $x (@$array2) {
+	$variance2 += ($x-$mean2)*($x-$mean2);
+	}
+	if (($variance1 == 0.0) && ($variance2 == 0.0)) {
+	return 1.0;
+	}
+	$variance1 = $variance1/(scalar @$array1-1);
+	$variance2 = $variance2/(scalar @$array2-1);
+	my $array1_size = scalar @$array1;
+	my $array2_size = scalar @$array2;
+	my $WELCH_T_STATISTIC = ($mean1-$mean2)/sqrt($variance1/$array1_size+$variance2/$array2_size);
+	my $DEGREES_OF_FREEDOM = (($variance1/$array1_size+$variance2/(scalar @$array2))**2)
+	/
+	(
+	($variance1*$variance1)/($array1_size*$array1_size*($array1_size-1))+
+	($variance2*$variance2)/($array2_size*$array2_size*($array2_size-1))
+	);
+	my $A = $DEGREES_OF_FREEDOM/2;
+	my $value = $DEGREES_OF_FREEDOM/($WELCH_T_STATISTIC*$WELCH_T_STATISTIC+$DEGREES_OF_FREEDOM);
+#from here, translation of John Burkhardt's C
+	my $beta = lgamma($A)+0.57236494292470009-lgamma($A+0.5);
+	my $acu = 10**(-15);
+	my($ai,$cx,$indx,$ns,$pp,$psq,$qq,$rx,$temp,$term,$xx);
+# Check the input arguments.
+	return $value if $A <= 0.0;# || $q <= 0.0;
+	return $value if $value < 0.0 || 1.0 < $value;
+# Special cases
+	return $value if $value == 0.0 || $value == 1.0;
+	$psq = $A + 0.5;
+	$cx = 1.0 - $value;
+	if ($A < $psq * $value) {
+		($xx, $cx, $pp, $qq, $indx) = ($cx, $value, 0.5, $A, 1);
+	} else {
+		($xx, $pp, $qq, $indx) = ($value, $A, 0.5, 0);
+	}
+	$term = 1.0;
+	$ai = 1.0;
+	$value = 1.0;
+	$ns = int($qq + $cx * $psq);
+#Soper reduction formula.
+	$rx = $xx / $cx;
+	$temp = $qq - $ai;
+	$rx = $xx if $ns == 0;
+	while (1) {
+		$term = $term * $temp * $rx / ( $pp + $ai );
+		$value = $value + $term;
+		$temp = abs ($term);
+		if ($temp <= $acu && $temp <= $acu * $value) {
+	   	$value = $value * exp ($pp * log($xx)
+	                          + ($qq - 1.0) * log($cx) - $beta) / $pp;
+	   	$value = 1.0 - $value if $indx;
+	   	last;
+		}
+	 	$ai = $ai + 1.0;
+		$ns = $ns - 1;
+		if (0 <= $ns) {
+			$temp = $qq - $ai;
+			$rx = $xx if $ns == 0;
+		} else {
+			$temp = $psq;
+			$psq = $psq + 1.0;
+		}
+	}
+	return $value;
+}
+my @d1 = (27.5,21.0,19.0,23.6,17.0,17.9,16.9,20.1,21.9,22.6,23.1,19.6,19.0,21.7,21.4);
+my @d2 = (27.1,22.0,20.8,23.4,23.4,23.5,25.8,22.0,24.8,20.2,21.9,22.1,22.9,20.5,24.4);
+my @d3 = (17.2,20.9,22.6,18.1,21.7,21.4,23.5,24.2,14.7,21.8);
+my @d4 = (21.5,22.8,21.0,23.0,21.6,23.6,22.5,20.7,23.4,21.8,20.7,21.7,21.5,22.5,23.6,21.5,22.5,23.5,21.5,21.8);
+my @d5 = (19.8,20.4,19.6,17.8,18.5,18.9,18.3,18.9,19.5,22.0);
+my @d6 = (28.2,26.6,20.1,23.3,25.2,22.1,17.7,27.6,20.6,13.7,23.2,17.5,20.6,18.0,23.9,21.6,24.3,20.4,24.0,13.2);
+my @d7 = (30.02,29.99,30.11,29.97,30.01,29.99);
+my @d8 = (29.89,29.93,29.72,29.98,30.02,29.98);
+my @x = (3.0,4.0,1.0,2.1);
+my @y = (490.2,340.0,433.9);
+my @s1 = (1.0/15,10.0/62.0);
+my @s2 = (1.0/10,2/50.0);
+my @v1 = (0.010268,0.000167,0.000167);
+my @v2 = (0.159258,0.136278,0.122389);
+my @z1 = (9/23.0,21/45.0,0/38.0);
+my @z2 = (0/44.0,42/94.0,0/22.0);
+
+my @CORRECT_ANSWERS = (0.021378001462867,
+0.148841696605327,
+0.0359722710297968,
+0.090773324285671,
+0.0107515611497845,
+0.00339907162713746,
+0.52726574965384,
+0.545266866977794);
+
+my $pvalue = calculate_Pvalue(\@d1,\@d2);
+my $error = abs($pvalue - $CORRECT_ANSWERS[0]);
+$result .= sprintf("Test sets 1 p-value = %.14g\n",$pvalue);
+
+$pvalue = calculate_Pvalue(\@d3,\@d4);
+$error += abs($pvalue - $CORRECT_ANSWERS[1]);
+$result .= sprintf("Test sets 2 p-value = %.14g\n",$pvalue);
+
+$pvalue = calculate_Pvalue(\@d5,\@d6);
+$error += abs($pvalue - $CORRECT_ANSWERS[2]);
+$result .= sprintf("Test sets 3 p-value = %.14g\n",$pvalue);
+
+$pvalue = calculate_Pvalue(\@d7,\@d8);
+$error += abs($pvalue - $CORRECT_ANSWERS[3]);
+$result .= sprintf("Test sets 4 p-value = %.14g\n",$pvalue);
+
+$pvalue = calculate_Pvalue(\@x,\@y);
+$error += abs($pvalue - $CORRECT_ANSWERS[4]);
+
+$pvalue = calculate_Pvalue(\@v1,\@v2);
+$error += abs($pvalue - $CORRECT_ANSWERS[5]);
+$result .= sprintf("Test sets 6 p-value = %.14g\n",$pvalue);
+
+$pvalue = calculate_Pvalue(\@s1,\@s2);
+$error += abs($pvalue - $CORRECT_ANSWERS[6]);
+$result .= sprintf("Test sets 7 p-value = %.14g\n",$pvalue);
+
+$pvalue = calculate_Pvalue(\@z1,\@z2);
+$error += abs($pvalue - $CORRECT_ANSWERS[7]);
+$result .= sprintf("Test sets z p-value = %.14g\n",$pvalue);
+
+$result .= sprintf("the cumulative error is %g\n", $error);
+
+say $result;
+my $ref = <<'EOD';
+Test sets 1 p-value = 0.021378001462867
+Test sets 2 p-value = 0.14884169660533
+Test sets 3 p-value = 0.035972271029797
+Test sets 4 p-value = 0.090773324285661
+Test sets 6 p-value = 0.0033990716271375
+Test sets 7 p-value = 0.52726574965384
+Test sets z p-value = 0.54526686697779
+the cumulative error is 1.11139e-14
+EOD
+# the cumulative error is 4.87106e-15
+
+use Test::More;
+is ($result, $ref);
+done_testing();
