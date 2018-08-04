@@ -1,0 +1,120 @@
+#!/usr/local/bin/perl
+#u# http://rosettacode.org/wiki/Wireworld
+#c# 2018-08-03 <RC
+#p# OK
+
+use feature 'say';
+my $result;
+
+# Read the initial World from stdin and print 10 steps to stdout
+
+my @input = split /\n/, <<END;
+tH.........
+.   .
+   ...
+.   .
+Ht.. ......
+
+END
+
+#my @f = ([],(map {chomp;['',( split // ),'']} <>),[]);
+my @f = ([],(map {chomp;['',( split // ),'']} @input),[]);
+
+for (1 .. 10) {
+	$result .= join "", map {"@$_\n"} @f;
+	my @a = ([]);
+	for my $y (1 .. $#f-1) {
+		my $r = $f[$y];
+		my $rr = [''];
+		for my $x (1 .. $#$r-1) {
+			my $c = $r->[$x];
+			push @$rr,
+				$c eq 'H' ? 't' :
+				$c eq 't' ? '.' :
+				$c eq '.' ? (join('', map {"@{$f[$_]}[$x-1 .. $x+1]"=~/H/g} ($y-1 .. $y+1)) =~ /^H{1,2}$/ ? 'H' : '.') :
+				$c;
+		}
+		push @$rr, '';
+		push @a, $rr;
+	}
+	@f = (@a,[]);
+}
+
+say $result; 
+
+my $ref = <<'EOD';
+
+ t H . . . . . . . . . 
+ .       . 
+       . . . 
+ .       . 
+ H t . .   . . . . . . 
+
+
+ . t H . . . . . . . . 
+ H       . 
+       . . . 
+ H       . 
+ t . . .   . . . . . . 
+
+
+ H . t H . . . . . . . 
+ t       . 
+       . . . 
+ t       . 
+ . H . .   . . . . . . 
+
+
+ t H . t H . . . . . . 
+ .       H 
+       . . . 
+ .       . 
+ H t H .   . . . . . . 
+
+
+ . t H . t H . . . . . 
+ H       t 
+       H H H 
+ H       . 
+ t . t H   . . . . . . 
+
+
+ H . t H . t H . . . . 
+ t       . 
+       t t t 
+ t       . 
+ . H . t   . . . . . . 
+
+
+ t H . t H . t H . . . 
+ .       H 
+       . . . 
+ .       . 
+ H t H .   . . . . . . 
+
+
+ . t H . t H . t H . . 
+ H       t 
+       H H H 
+ H       . 
+ t . t H   . . . . . . 
+
+
+ H . t H . t H . t H . 
+ t       . 
+       t t t 
+ t       . 
+ . H . t   . . . . . . 
+
+
+ t H . t H . t H . t H 
+ .       H 
+       . . . 
+ .       . 
+ H t H .   . . . . . . 
+
+EOD
+
+use Test::More;
+is ($result, $ref);
+done_testing();
