@@ -1,0 +1,72 @@
+#!/usr/local/bin/perl
+#u# http://rosettacode.org/wiki/Factors_of_a_Mersenne_number
+#c# 2018-08-03 <RC
+#p# OK
+
+use feature 'say';
+my $result;
+
+use Math::GMP;
+
+# Use GMP's simple probable prime test.
+sub is_prime { Math::GMP->new(shift)->probab_prime(20); }
+
+# Lucas-Lehmer test, deterministic for 2^p-1 given p
+sub is_mersenne_prime {
+  my($p, $mp, $s) = ($_[0], Math::GMP->new(2)**$_[0]-1, Math::GMP->new(4));
+  return 1 if $p == 2;
+  $s = ($s * $s - 2) % $mp  for 3 .. $p;
+  $s == 0;
+}
+
+for my $p (2 .. 100, 929) {
+  next unless is_prime($p);
+  my $mp = Math::GMP->new(2) ** $p - 1;
+  my $lim = $mp->bsqrt();
+  $lim = 1000000 if $lim > 1000000;   # We're using it as a pre-test
+  my $factor;
+  for (my $q = Math::GMP->new(2*$p+1);  $q <= $lim && !$factor;  $q += 2*$p) {
+    next unless ($q & 7) == 1 || ($q & 7) == 7;
+    next unless is_prime($q);
+    $factor = $q if Math::GMP->new(2)->powm_gmp($p,$q) == 1;  #  $mp % $q == 0
+  }
+  if ($factor) {
+    $result .= "M$p = $factor * ".$mp/$factor."\n";
+  } else {
+    $result .= "M$p is ". (is_mersenne_prime($p) ? "prime" : "composite"). "\n";
+  }
+}
+
+say $result;
+my $ref = <<'END';
+M2 is prime
+M3 is prime
+M5 is prime
+M7 is prime
+M11 = 23 * 89
+M13 is prime
+M17 is prime
+M19 is prime
+M23 = 47 * 178481
+M29 = 233 * 2304167
+M31 is prime
+M37 = 223 * 616318177
+M41 = 13367 * 164511353
+M43 = 431 * 20408568497
+M47 = 2351 * 59862819377
+M53 = 6361 * 1416003655831
+M59 = 179951 * 3203431780337
+M61 is prime
+M67 is composite
+M71 = 228479 * 10334355636337793
+M73 = 439 * 21514198099633918969
+M79 = 2687 * 224958284260258499201
+M83 = 167 * 57912614113275649087721
+M89 is prime
+M97 = 11447 * 13842607235828485645766393
+M929 = 13007 * 348890248924938259750454781163390930305120269538278042934009621348894657205785201247454118966026150852149399410259938217062100192168747352450719561908445272675574320888385228421992652298715687625495638077382028762529439880103124705348782610789919949159935587158612289264184273
+END
+
+use Test::More;
+is ($result, $ref);
+done_testing();
