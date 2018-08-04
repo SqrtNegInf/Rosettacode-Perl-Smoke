@@ -1,0 +1,18 @@
+#!/usr/local/bin/perl
+#u# http://rosettacode.org/wiki/Factors_of_an_integer
+#c# 2018-08-03 <RC
+#p# OK
+
+use feature 'say';
+my $result;
+
+sub factors
+{
+        my($n) = @_;
+        return grep { $n % $_ == 0 }(1 .. $n);
+}
+say $result = join ' ',factors(64);
+
+use Test::More;
+is ($result, '1 2 4 8 16 32 64');
+done_testing();
