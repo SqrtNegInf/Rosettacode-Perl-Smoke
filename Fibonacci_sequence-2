@@ -1,0 +1,18 @@
+#!/usr/local/bin/perl
+#u# http://rosettacode.org/wiki/Fibonacci_sequence
+#c# 2018-08-03 <RC
+#p# OK
+
+use feature 'say';
+my $result;
+
+sub fibRec {
+    my $n = shift;
+    $n < 2 ? $n : fibRec($n - 1) + fibRec($n - 2);
+}
+
+say $result = fibRec(30);
+
+use Test::More;
+is ($result, 832040);
+done_testing();
