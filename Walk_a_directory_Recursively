@@ -1,0 +1,49 @@
+#!/usr/local/bin/perl
+#u# http://rosettacode.org/wiki/Walk_a_directory/Recursively
+#c# 2018-08-03 <RC
+#p# OK
+#n# testing just File::Find
+
+use feature 'say';
+my $result;
+
+# Use the File::Find module from CPAN:
+
+# Works with: Perl version 5.x
+use File::Find qw(find);
+my $dir      = 'ref/test';
+my $pattern  = 'txt';
+my $callback = sub { $result .= $File::Find::name. "\n" if /$pattern/ };
+find $callback, $dir;
+
+#Or if you need maximum performance and are on a 'nix system, open a pipe to the GNU find program:
+
+sub shellquote { "'".(shift =~ s/'/'\\''/gr). "'" }
+
+sub find_files {
+    my $dir = shellquote(shift);
+    my $test = shellquote(shift);
+
+    local $/ = "\0";
+    open my $pipe, "find $dir -iname $test -print0 |" or die "find: $!.\n";
+    while (<$pipe>) { print "$_\n"; }  # Here you could do something else with each file path, other than simply printing it.
+    close $pipe;
+}
+
+say $result; say '';
+
+find_files('ref/test', '*txt');
+# find_files('.', '*.mp3');
+
+
+my $ref = <<'EOD';
+ref/test/not-in-kansas.txt
+ref/test/reverse_words.txt
+ref/test/sample.txt
+ref/test/dir1/not-in-kansas.txt
+ref/test/dir2/sample.txt
+EOD
+
+use Test::More;
+is ($result, $ref);
+done_testing();
