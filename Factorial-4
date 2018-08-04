@@ -1,0 +1,38 @@
+#!/usr/local/bin/perl
+#u# http://rosettacode.org/wiki/Factorial
+#c# 2018-08-03 <RC
+#p# OK
+
+# modules
+
+use feature 'say';
+my $result;
+
+use ntheory qw/factorial/;
+# factorial returns a UV (native unsigned int) or Math::BigInt depending on size
+$result .= length(  factorial(10000)  );
+$result .= "\n";
+
+use bigint;
+$result .= length(  10000->bfac  );
+$result .= "\n";
+
+use Math::GMP;
+$result .= length(  Math::GMP->new(10000)->bfac  );
+$result .= "\n";
+
+use Math::Pari qw/ifact/;
+$result .= length(  ifact(10000)  );
+$result .= "\n";
+
+say $result;
+my $ref = <<'END';
+35660
+35660
+35660
+35660
+END
+
+use Test::More;
+is ($result, $ref);
+done_testing();
