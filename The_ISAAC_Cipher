@@ -1,0 +1,56 @@
+#!/usr/local/bin/perl
+#u# http://rosettacode.org/wiki/The_ISAAC_Cipher
+#c# 2018-08-02 <RC
+#p# OK
+
+use feature 'say';
+my $result;
+
+# Perl has had an ISAAC module for a few years, and it is the recommended way to use ISAAC. This example uses Math::Random::ISAAC which is a pure Perl implementation, but will also allow faster operation if the Math::Random::ISAAC::XS module is installed.
+# Since ISAAC does not do its own seeding, the Bytes::Random::Secure module is recommended
+# for general use as it includes ISAAC plus a portable way to get good entropy,
+# as well as additional convenience functions.
+
+use warnings;
+use strict;
+use Math::Random::ISAAC;
+
+my $message = "a Top Secret secret";
+my $key = "this is my secret key";
+
+my $enc = xor_isaac($key, $message);
+my $dec = xor_isaac($key, join "", pack "H*", $enc);
+
+$result .= "Message: $message\n";
+$result .= "Key    : $key\n";
+$result .= "XOR    : $enc\n";
+$result .= "XOR dcr: ". join("", pack "H*", $dec). "\n";
+
+sub xor_isaac {
+  my($key, $msg) = @_;
+
+  # Make an ISAAC stream with the desired seed
+  my $rng = Math::Random::ISAAC->new( map { ord } split "",$key );
+
+  # Get ISAAC output in the order the task wants
+  my @iranda = map { $_ % 95 + 32 }  # Alpha-tize as the task desires
+               reverse               # MRI gives state from the end
+               map { $rng->irand }   # Get random inputs...
+               0..255;               # a state chunk at a time
+  # Encode:
+  join "", map { sprintf "%02X",$_ }         # join hex digits
+           map { ord($_) ^ shift(@iranda) }  # xor it with rand char
+           split "", $msg;                   # Take each character
+}
+
+say $result; 
+my $ref = <<'EOD';
+Message: a Top Secret secret
+Key    : this is my secret key
+XOR    : 1C0636190B1260233B35125F1E1D0E2F4C5422
+XOR dcr: a Top Secret secret
+EOD
+
+use Test::More;
+is ($result, $ref);
+done_testing();
