@@ -1,0 +1,26 @@
+#!/usr/local/bin/perl
+#u# http://rosettacode.org/wiki/Find_limit_of_recursion
+#c# 2018-08-06 <RC
+#p# OK
+#n# stop at 1E6, but could easily go on
+
+use feature 'say';
+my $result;
+
+#Maximum recursion depth is memory dependent.
+
+my $x = 0;
+my $max = 1_000_000;
+recurse($x);
+
+sub recurse ($x) {
+    ++$x;
+#   print ++$x,"\n";
+   say $x and return if $x >= $max;
+   recurse($x);
+}
+
+
+use Test::More;
+is ($x, $max);
+done_testing();
