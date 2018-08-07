@@ -1,0 +1,17 @@
+#!/usr/local/bin/perl
+#u# http://rosettacode.org/wiki/Filter
+#c# 2018-08-04 <RC
+#p# OK
+
+use feature 'say';
+my $result;
+
+my @a = (1, 2, 3, 4, 5, 6);
+my @even = grep { $_%2 == 0 } @a;
+
+
+say $result = join ' ', @even;
+
+use Test::More;
+is ($result, '2 4 6');
+done_testing();
