@@ -1,0 +1,47 @@
+#!/usr/local/bin/perl
+#u# http://rosettacode.org/wiki/Find_common_directory_path
+#c# 2018-08-04 <RC
+#p# BROKEN
+
+use feature 'say';
+my $result;
+
+#A solution which lets the regex engine do all the work (it operates on the concatenation of the given paths delimited by null-bytes, which should be safe since null-bytes are not allowed inside paths):
+
+sub common_prefix1 {
+    my $sep = shift;
+    my $paths = join "\0", map { $_.$sep } @_;
+    $paths =~ /^ ( [^\0]* ) $sep [^\0]* (?: \0 \1 $sep [^\0]* )* $/sx;
+    return $1;
+}
+#A more conventional solution, which tallies up all potential prefixes from the given paths and then looks for the longest one that occurred the same number of times as there are paths:
+
+use List::Util qw(first);
+
+sub common_prefix2 {
+    my ($sep, @paths) = @_;
+    my %prefixes;
+
+    foreach (@paths) {
+        do { ++$prefixes{$_} } while s/$sep [^$sep]* $//g
+    }
+
+    return first { $prefixes{$_} == @paths } reverse sort keys %prefixes;
+}
+
+my @paths = qw(/home/user1/tmp/coverage/test 
+               /home/user1/tmp/covert/operator
+               /home/user1/tmp/coven/members);
+$result .= common_prefix1('/', @paths). "\n";
+$result .= common_prefix2('/', @paths). "\n";
+
+say $result; 
+
+my $ref = <<'EOD';
+/home/user1/tmp
+/home/user1/tmp
+EOD
+
+use Test::More;
+is ($result, $ref);
+done_testing();
