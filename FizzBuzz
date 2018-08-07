@@ -1,0 +1,158 @@
+#!/usr/local/bin/perl
+#u# http://rosettacode.org/wiki/FizzBuzz
+#c# 2018-08-06 <RC
+#p# OK
+
+use feature 'say';
+my $result;
+
+for my $i (1..100) {
+    push @res1, $i % 15 == 0 ? "FizzBuzz"
+      : $i %  3 == 0 ? "Fizz"
+      : $i %  5 == 0 ? "Buzz"
+      : $i;
+}
+say for @res1;
+
+# More concisely:
+$result3 .= ('Fizz'x!($_ % 3) . 'Buzz'x!($_ % 5) || $_) . "\n" for 1 .. 100;
+
+# For code-golfing:
+push @res4, +(Fizz)[$_%3].(Buzz)[$_%5]||$_,$/for 1..1e2;
+
+# For array of values:
+$result5 = join "\n", map((Fizz)[$_%3].(Buzz)[$_%5]||$_,1..100);
+
+# Cheating:
+#@a = ("FizzBuzz", 0, 0, "Fizz", 0, "Buzz", "Fizz", 0, 0, "Fizz", "Buzz", 0, "Fizz");
+#say $a[$_ % 15] || $_ for 1..100;
+
+# as a subroutine:
+sub fizz_buzz {
+    join("\n", map {
+        sub mult {$_ % shift == 0};
+        my @out;
+        if (mult(3)) { push @out, "Fizz"; }
+        if (mult(5)) { push @out, "Buzz"; }
+        if (!@out) {push @out, $_; }
+        join('', @out);
+    } (1..100))."\n";
+}
+$result2 = fizz_buzz;
+
+
+say $result; 
+
+my $ref = <<'EOD';
+1
+2
+Fizz
+4
+Buzz
+Fizz
+7
+8
+Fizz
+Buzz
+11
+Fizz
+13
+14
+FizzBuzz
+16
+17
+Fizz
+19
+Buzz
+Fizz
+22
+23
+Fizz
+Buzz
+26
+Fizz
+28
+29
+FizzBuzz
+31
+32
+Fizz
+34
+Buzz
+Fizz
+37
+38
+Fizz
+Buzz
+41
+Fizz
+43
+44
+FizzBuzz
+46
+47
+Fizz
+49
+Buzz
+Fizz
+52
+53
+Fizz
+Buzz
+56
+Fizz
+58
+59
+FizzBuzz
+61
+62
+Fizz
+64
+Buzz
+Fizz
+67
+68
+Fizz
+Buzz
+71
+Fizz
+73
+74
+FizzBuzz
+76
+77
+Fizz
+79
+Buzz
+Fizz
+82
+83
+Fizz
+Buzz
+86
+Fizz
+88
+89
+FizzBuzz
+91
+92
+Fizz
+94
+Buzz
+Fizz
+97
+98
+Fizz
+Buzz
+EOD
+
+use Test::More;
+my $result1 = join "\n", @res1; $result1 .= "\n";
+my $result4 = join "", @res4; 
+$result5 .= "\n";
+is ($result1, $ref);
+is ($result2, $ref);
+is ($result3, $ref);
+is ($result4, $ref);
+is ($result5, $ref);
+done_testing();
