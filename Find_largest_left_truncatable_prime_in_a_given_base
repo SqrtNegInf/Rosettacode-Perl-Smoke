@@ -1,0 +1,55 @@
+#!/usr/local/bin/perl
+#u# http://rosettacode.org/wiki/Find_largest_left_truncatable_prime_in_a_given_base
+#c# 2018-08-06 <RC
+#p# OK
+
+use feature 'say';
+my $result;
+
+# Similar to the Pari solution. Uses ntheory for primality tests and Math::GMPz for bigints that aren't dog slow. We use is_prob_prime in the loop which does the BPSW test, then generate a proof for the selected result.
+# a(18) has a max candidate list of 1,449,405 entries and takes a bit over 20 minutes to solve.
+
+#Library: ntheory
+use ntheory qw/:all/;
+use Math::GMPz;
+
+sub lltp {
+  my($n, $b, $best) = (shift, Math::GMPz->new(1));
+  my @v = map { Math::GMPz->new($_) } @{primes($n-1)};
+  while (@v) {
+    $best = vecmax(@v);
+    $b *= $n;
+    my @u;
+    foreach my $vi (@v) {
+      push @u, grep { is_prob_prime($_) } map { $vi + $_*$b } 1 .. $n-1;
+    }
+    @v = @u;
+  }
+  die unless is_provable_prime($best);
+  $best;
+}
+
+$result .= sprintf "%2d %s\n", $_, lltp($_)  for 3 .. 17;
+
+say $result; 
+my $ref = <<'EOD';
+ 3 23
+ 4 4091
+ 5 7817
+ 6 4836525320399
+ 7 817337
+ 8 14005650767869
+ 9 1676456897
+10 357686312646216567629137
+11 2276005673
+12 13092430647736190817303130065827539
+13 812751503
+14 615419590422100474355767356763
+15 34068645705927662447286191
+16 1088303707153521644968345559987
+17 13563641583101
+EOD
+
+use Test::More;
+is ($result, $ref);
+done_testing();
