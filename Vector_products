@@ -1,0 +1,50 @@
+#!/usr/local/bin/perl
+#u# http://rosettacode.org/wiki/Vector_products
+#c# 2018-08-06 <RC
+#p# OK
+
+use feature 'say';
+my $result;
+
+package Vector;
+use List::Util 'sum';
+use List::MoreUtils 'pairwise';
+
+sub new { shift; bless [@_] }
+
+use overload (
+        '""'    => sub { "(@{+shift})" },
+        '&'     => sub { sum pairwise { $a * $b } @{+shift}, @{+shift} },
+        '^'     => sub {
+                                my @a = @{+shift};
+                                my @b = @{+shift};
+                                bless [ $a[1]*$b[2] - $a[2]*$b[1],
+                                        $a[2]*$b[0] - $a[0]*$b[2],
+                                        $a[0]*$b[1] - $a[1]*$b[0] ]
+                        },
+);
+
+package main;
+my $a = Vector->new(3, 4, 5);
+my $b = Vector->new(4, 3, 5);
+my $c = Vector->new(-5, -12, -13);
+
+$result .= "a = $a b = $b c = $c\n";
+$result .= "$a . $b = ". ($a & $b). "\n";
+$result .= "$a x $b = ". ($a ^ $b). "\n";
+$result .= "$a . ($b x $c) = ". ($a & ($b ^ $c)) . "\n";
+$result .= "$a x ($b x $c) = ". ($a ^ ($b ^ $c)) . "\n";
+
+say $result; 
+
+my $ref = <<'EOD';
+a = (3 4 5) b = (4 3 5) c = (-5 -12 -13)
+(3 4 5) . (4 3 5) = 49
+(3 4 5) x (4 3 5) = (5 5 -7)
+(3 4 5) . ((4 3 5) x (-5 -12 -13)) = 6
+(3 4 5) x ((4 3 5) x (-5 -12 -13)) = (-267 204 -3)
+EOD
+
+use Test::More;
+is ($result, $ref);
+done_testing();
