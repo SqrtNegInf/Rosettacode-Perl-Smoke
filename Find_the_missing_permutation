@@ -1,0 +1,26 @@
+#!/usr/local/bin/perl
+#u# http://rosettacode.org/wiki/Find_the_missing_permutation
+#c# 2018-08-06 <RC
+#p# OK
+
+use feature 'say';
+my $result;
+
+
+# Because the set of all permutations contains all its own rotations,
+# the first missing rotation is the target.
+
+sub check_perm {
+    my %hash; @hash{@_} = ();
+    for my $s (@_) { exists $hash{$_} or return $_
+        for map substr($s,1) . substr($s,0,1), (1..length $s); }
+}
+
+# Check and display
+@perms = qw(ABCD CABD ACDB DACB BCDA ACBD ADCB CDAB DABC BCAD CADB CDBA
+            CBAD ABDC ADBC BDCA DCBA BACD BADC BDAC CBDA DBCA DCAB);
+say $result = check_perm(@perms); #, "\n";
+
+use Test::More;
+is ($result, 'DBAC');
+done_testing();
