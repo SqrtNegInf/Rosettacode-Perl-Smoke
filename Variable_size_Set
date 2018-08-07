@@ -1,0 +1,8 @@
+#!/usr/local/bin/perl
+#u# http://rosettacode.org/wiki/Variable_size/Set
+#t# skiptest
+#c# 2018-08-06 <RC
+#p# OK
+
+# I suppose you could use vec() or similar to twiddle a single bit. The thing is, as soon as you store this in a variable, the SV (the underlying C implementation of the most simple data type) already takes a couple dozen of bytes.
+# In Perl, memory is readily and happily traded for expressiveness and ease of use.
