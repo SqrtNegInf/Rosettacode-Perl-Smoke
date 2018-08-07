@@ -1,0 +1,27 @@
+#!/usr/local/bin/perl
+#u# http://rosettacode.org/wiki/File_size
+#c# 2018-08-04 <RC
+#p# OK
+
+use feature 'say';
+my $result;
+
+my $fn = 'ref/lines_of_text.txt';
+
+my $size1 = -s $fn;
+#my $size2 = -s '/input.txt';
+#Or, to be 100% cross-platform:
+
+use File::Spec::Functions qw(catfile rootdir);
+my $size2 = -s $fn;
+#my $size2 = -s catfile rootdir, 'input.txt';
+#Alternative way to get the size:
+
+my $size3 = (stat $fn)[7];  # builtin stat() returns an array with file size at index 7
+#my $size2 = (stat '/input.txt')[7];
+
+say $result = "$size1 $size2 $size3"; 
+
+use Test::More;
+is ($result, '35 35 35');
+done_testing();
