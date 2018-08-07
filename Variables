@@ -1,0 +1,49 @@
+#!/usr/local/bin/perl
+#u# http://rosettacode.org/wiki/Variables
+#t# skiptest
+#c# 2018-08-06 <RC
+#p# OK
+
+# In perl, variables are global by default and can be manipulated from anywhere in the program. Variables can be used without first being declared, providing that the strict pragmatic directive is not in effect:
+
+sub dofruit {
+  $fruit='apple';
+}
+
+dofruit; 
+print "The fruit is $fruit";
+# Variables can be declared prior to use and may be prefixed with scope modifiers our, my, or local see scope modifiers for the differences. Variables which haven't been assigned to have the undefined value by default. The undefined value acts just like 0 (if used as a number) or the empty string (if used as a string), except it can be distinguished from either of these with the defined function. If warnings are enabled, perl will print a message like "Use of uninitialized value $foo in addition (+)" whenever you use the undefined value as a number or string.
+# Initialization and assignment are the same thing in Perl: just use the = operator. Note that the rvalue's context (scalar or list) is determined based on the lvalue.
+
+my $x = @a;                   # Scalar assignment; $x is set to the
+                              # number of elements in @a.
+my ($x) = @a;                 # List assignment; $x is set to the first
+                              # element of @a.
+my @b = @a;                   # List assignment; @b becomes the same length
+                              # as @a and each element becomes the same.
+my ($x, $y, @b) = @a;         # List assignment; $x and $y get the first
+                              # two elements of @a, and @b the rest.
+my ($x, $y, @b, @c, $z) = @a; # Same thing, and also @c becomes empty
+                              # and $z undefined.
+# The kind of value a variable can hold depends on its sigil, "sigil" being a slang term for "funny character in front of a variable name". $dollarsigns can hold scalars: the undefined value, numbers, strings, or references. @atsigns can hold arrays of scalars, and %percentsigns can hold hashes of scalars (associative arrays mapping strings to scalars); nested data structures are constructed by making arrays or hashes of references to arrays or hashes.
+# There are two other sigils, but they behave quite unlike the others. A token of the form &foo refers to a subroutine named foo. In older versions of Perl, ampersands were necessary for calling user-defined subroutines, but since they no longer are, they have only a handful of obscure uses, like making references to named subroutines. Note that you can't assign to an ampersand-marked name. But you can assign to a typeglob, a kind of object represented with the notation *var. A typeglob *foo represents the symbol-table entry for all of the otherwise independent variables $foo, @foo, %foo, and &foo. Assigning a string "bar" to *foo makes these variables aliases for $bar, @bar, %bar, and &bar respectively. Alternatively, you can assign a reference to a typeglob, which creates an alias only for the variable of the appropriate type. In particular, you can say *twiddle = sub {...} to change the definition of the subroutine &twiddle without affecting $twiddle and friends.
+
+# The strict pragmatic directive[edit]
+# If the strict pragmatic directive is in effect, then variables need explicit scope declaration, so should be prefixed with a my or our keyword depending on the required level of scope:
+
+use strict;
+our $fruit;             # declare a variable as global
+our $veg = "carrot";    # declare a global variable and define its value
+# Local and global variables[edit]
+# The following example shows the use of local and global variables:
+
+$fruit="apple";    # this will be global by default
+
+sub dofruit {
+  print "My global fruit was $fruit,";    # use the global variable
+  my $fruit="banana";                      # declare a new local variable
+  print "and the local fruit is $fruit.\n";
+}
+
+dofruit;
+print "The global fruit is still $fruit";
