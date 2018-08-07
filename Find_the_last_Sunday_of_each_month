@@ -1,0 +1,43 @@
+#!/usr/local/bin/perl
+#u# http://rosettacode.org/wiki/Find_the_last_Sunday_of_each_month
+#c# 2018-08-06 <RC
+#p# OK
+
+use feature 'say';
+my $result;
+
+
+use strict ;
+use warnings ;
+use DateTime ;
+
+for my $i( 1..12 ) {
+   my $date = DateTime->last_day_of_month( year => 2013, # $ARGV[ 0 ] , 
+	 month => $i ) ;
+   while ( $date->dow != 7 ) {
+      $date = $date->subtract( days => 1 ) ;
+   }
+   my $ymd = $date->ymd ;
+   $result .= "$ymd\n" ;
+}
+
+say $result; 
+
+my $ref = <<'EOD';
+2013-01-27
+2013-02-24
+2013-03-31
+2013-04-28
+2013-05-26
+2013-06-30
+2013-07-28
+2013-08-25
+2013-09-29
+2013-10-27
+2013-11-24
+2013-12-29
+EOD
+
+use Test::More;
+is ($result, $ref);
+done_testing();
