@@ -1,0 +1,84 @@
+#!/usr/local/bin/perl
+#u# http://rosettacode.org/wiki/First_class_environments
+#c# 2018-08-06 <RC
+#p# OK
+
+use feature 'say';
+my $result;
+
+
+# The Safe module (which is part of perl's standard distribution) is everything that one might want in a First Class Environment, and a bit more. The module's primary purpose is to provide a safe execution environment for untrustworthy code, and by doing so, it lends itself very well to this task's goal.
+# My use of the module is relatively straightforward.
+# Create a Safe object. Within that Safe, set up $value and $count variables, with appropriate initial values. Tell the Safe what "external" functions (from outside of the Safe object) it may run. Add a function, inside of the Safe, which will be run in the Safe, using the Safe's $value and $count variables. Add the Safe to an array. Repeat eleven more times.
+# Notice that to the function in the safe, $value and $count look like (and are!) perfectly ordinary variables.
+# Next, repeatedly perform the task, until the required conditions are met, and print the counts.
+
+use strict;
+use warnings;
+
+use Safe;
+
+sub hail_next {
+    my $n = shift;
+    return 1 if $n == 1;
+    return $n * 3 + 1 if $n % 2;
+    $n / 2;
+};
+
+my @enviornments;
+for my $initial ( 1..12 ) {
+   my $env = Safe->new;
+   ${ $env->varglob('value') } = $initial;
+   ${ $env->varglob('count') } = 0;
+   $env->share('&hail_next');
+   $env->reval(q{
+      sub task {
+         return if $value == 1;
+         $value = hail_next( $value );
+         ++$count;
+      }
+   });
+   push @enviornments, $env;
+}
+
+my @value_refs = map $_->varglob('value'), @enviornments;
+my @tasks = map $_->varglob('task'), @enviornments;
+while( grep { $$_ != 1 } @value_refs ) {
+    $result .= sprintf "%4s", $$_ for @value_refs;
+    $result .= "\n";
+    $_->() for @tasks;
+}
+
+$result .= "Counts\n";
+
+$result .= sprintf "%4s", ${$_->varglob('count')} for @enviornments;
+$result .= "\n";
+
+say $result; 
+my $ref = <<'EOD';
+   1   2   3   4   5   6   7   8   9  10  11  12
+   1   1  10   2  16   3  22   4  28   5  34   6
+   1   1   5   1   8  10  11   2  14  16  17   3
+   1   1  16   1   4   5  34   1   7   8  52  10
+   1   1   8   1   2  16  17   1  22   4  26   5
+   1   1   4   1   1   8  52   1  11   2  13  16
+   1   1   2   1   1   4  26   1  34   1  40   8
+   1   1   1   1   1   2  13   1  17   1  20   4
+   1   1   1   1   1   1  40   1  52   1  10   2
+   1   1   1   1   1   1  20   1  26   1   5   1
+   1   1   1   1   1   1  10   1  13   1  16   1
+   1   1   1   1   1   1   5   1  40   1   8   1
+   1   1   1   1   1   1  16   1  20   1   4   1
+   1   1   1   1   1   1   8   1  10   1   2   1
+   1   1   1   1   1   1   4   1   5   1   1   1
+   1   1   1   1   1   1   2   1  16   1   1   1
+   1   1   1   1   1   1   1   1   8   1   1   1
+   1   1   1   1   1   1   1   1   4   1   1   1
+   1   1   1   1   1   1   1   1   2   1   1   1
+Counts
+   0   1   7   2   5   8  16   3  19   6  14   9
+EOD
+
+use Test::More;
+is ($result, $ref);
+done_testing();
