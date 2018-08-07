@@ -1,0 +1,73 @@
+#!/usr/local/bin/perl
+#u# http://rosettacode.org/wiki/Vigen%C3%A8re_cipher
+#c# 2018-08-06 <>RC
+#p# OK
+
+use feature 'say';
+use strict;
+my $result;
+
+#if( @ARGV != 3 ){
+#  printHelp();
+#}
+
+sub MAIN { 
+my(@ARGV) = @_;
+my($output);
+  # translate to upper-case, remove anything else
+map( (tr/a-z/A-Z/, s/[^A-Z]//g), @ARGV );
+
+my $cipher_decipher = $ARGV[ 0 ];
+
+if( $cipher_decipher !~ /ENC|DEC/ ){
+  printHelp();  # user should say what to do
+}
+
+$output .= "Key: " . (my $key = $ARGV[ 2 ]) . "\n";
+
+if( $cipher_decipher =~ /ENC/ ){
+  $output .= "Plain-text: " . (my $plain = $ARGV[ 1 ]) . "\n";
+  $output .= "Encrypted: " . Vigenere( 1, $key, $plain ) . "\n";
+}elsif( $cipher_decipher =~ /DEC/ ){
+  $output .= "Cipher-text: " . (my $cipher = $ARGV[ 1 ]) . "\n";
+  $output .= "Decrypted: " . Vigenere( -1, $key, $cipher ) . "\n";
+}
+
+return $output;
+}
+
+sub printHelp{
+  print "Usage:\n" .
+        "Encrypting:\n perl cipher.pl ENC (plain text) (key)\n" .
+        "Decrypting:\n perl cipher.pl DEC (cipher text) (key)\n";
+  exit -1;
+}
+
+sub Vigenere{
+  my ($direction, $key, $text) = @_;
+  my $cipher;
+  for( my $count = 0; $count < length($text); $count ++ ){
+    my $key_offset = $direction * ord substr( $key, $count % length($key), 1);
+    my $char_offset = ord substr( $text, $count, 1 );
+    $cipher .= chr 65 + ((($char_offset % 26) + ($key_offset % 26)) % 26);
+      # 65 is the ASCII character code for 'A'
+  }
+  return $cipher;
+}
+
+$result .= MAIN('ENC', 'Beware the Jabberwock, my son! The jaws that bite, the claws that catch!', 'VIGENERECIPHER');
+$result .= MAIN('DEC', 'WMCEEIKLGRPIFVMEUGXQPWQVIOIAVEYXUEKFKBTALVXTGAFXYEVKPAGY', 'VIGENERECIPHER');
+
+say $result; 
+my $ref = <<'EOD';
+Key: VIGENERECIPHER
+Plain-text: BEWARETHEJABBERWOCKMYSONTHEJAWSTHATBITETHECLAWSTHATCATCH
+Encrypted: WMCEEIKLGRPIFVMEUGXQPWQVIOIAVEYXUEKFKBTALVXTGAFXYEVKPAGY
+Key: VIGENERECIPHER
+Cipher-text: WMCEEIKLGRPIFVMEUGXQPWQVIOIAVEYXUEKFKBTALVXTGAFXYEVKPAGY
+Decrypted: BEWARETHEJABBERWOCKMYSONTHEJAWSTHATBITETHECLAWSTHATCATCH
+EOD
+
+use Test::More;
+is ($result, $ref);
+done_testing();
