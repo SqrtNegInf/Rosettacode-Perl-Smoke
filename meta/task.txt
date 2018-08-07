@@ -1,16 +1,16 @@
 
 This is perl 5, version 28, subversion 0 (v5.28.0) built for darwin-thread-multi-2level
-+------------> Perl: Good/Bad [318/6]
++------------> Perl: Good/Bad [342/7]
 |+-----------> smOke testing [273]
-||+----------> sKipping validation [46]
+||+----------> sKipping validation [48]
 |||+---------> Interactive [11]
-||||+--------> Touched (modified by me) [15]
+||||+--------> Touched (modified by me) [19]
 |||||+-------> Random seed [22]
-||||||+------> File output [21]
-|||||||+-----> Draft [228]
+||||||+------> File output [22]
+|||||||+-----> Draft [230]
 ||||||||+----> Ignoring [5]
-|||||||||+---> Void (no local copy) [846]
-||||||||||+--> Un-implemented/reliable [310]
+|||||||||+---> Void (no local copy) [824]
+||||||||||+--> Un-implemented/reliable [312]
 |||||||||||
 GO......... 100_doors-1
 GO......... 100_doors-2
@@ -323,6 +323,7 @@ GO...RF.... Draw_a_sphere
 .......D.VU Draw_pixel_2
 GO...R..... Dutch_national_flag_problem
 GO......... Dynamic_variable_names
+.......D.VU EKG_sequence_convergence
 G.KI....... Echo_server
 .........VU Eertree
 .........VU Egyptian_division
@@ -394,29 +395,29 @@ GO......... Fibonacci_sequence-2
 GO......... Fibonacci_sequence-3
 G.......... Fibonacci_word
 GO....F.... Fibonacci_word_fractal
-.......D.V. File_extension_is_in_extensions_list
-.........V. File_input_output
+G......D... File_extension_is_in_extensions_list
+G.....F.... File_input_output
 .........V. File_modification_time
-.........V. File_size
+G.......... File_size
 .......D.VU File_size_distribution
-.........V. Filter
+G.......... Filter
 .......D.VU Find_URI_in_text
-.........V. Find_common_directory_path
+B.......... Find_common_directory_path
 .......D.VU Find_duplicate_files
-.......D.V. Find_first_and_last_set_bit_of_a_long_integer
-.........V. Find_largest_left_truncatable_prime_in_a_given_base
-.........V. Find_limit_of_recursion
+G......D... Find_first_and_last_set_bit_of_a_long_integer
+G.......... Find_largest_left_truncatable_prime_in_a_given_base
+G.......... Find_limit_of_recursion
 GO......... Find_palindromic_numbers_in_both_binary_and_ternary_bases
 .......D.VU Find_the_intersection_of_a_line_with_a_plane
-.........V. Find_the_intersection_of_two_lines
-.........V. Find_the_last_Sunday_of_each_month
-.........V. Find_the_missing_permutation
+G.......... Find_the_intersection_of_two_lines
+G.......... Find_the_last_Sunday_of_each_month
+G.......... Find_the_missing_permutation
 .......D.VU Finite_state_machine
-.........V. First-class_functions
-.........V. First-class_functions_Use_numbers_analogously
-.........V. First_class_environments
-.........V. Five_weekends
-.......D.V. Fivenum
+G.......... First-class_functions
+G.......... First-class_functions_Use_numbers_analogously
+G.......... First_class_environments
+G.......... Five_weekends
+G...T..D... Fivenum
 .........V. FizzBuzz
 .........V. Flatten_a_list
 .........V. Flipping_bits_game
@@ -507,6 +508,7 @@ GO......... Find_palindromic_numbers_in_both_binary_and_ternary_bases
 .........VU Hough_transform
 .........V. Huffman_coding
 .........VU Hunt_The_Wumpus
+.......D.VU I%27m_a_software_engineer,_get_me_out_of_here
 .......D.VU I.Q._Puzzle
 .........V. IBAN
 .......D.VU IPC_via_named_pipe
@@ -592,6 +594,7 @@ GO......... Find_palindromic_numbers_in_both_binary_and_ternary_bases
 .........V. Literals_String
 .........V. Logical_operations
 .........V. Long_multiplication
+.......D.VU Long_primes
 .......D.V. Longest_Common_Substring
 .......D.V. Longest_common_prefix
 .........V. Longest_common_subsequence
@@ -840,7 +843,7 @@ GO...R..... Pattern_matching
 .........V. Read_entire_file
 .......D.VU Readline_interface
 .........V. Real_constants_and_functions
-.......D.VU Recaman%27s_sequence
+.........VU Recaman%27s_sequence
 .........VU Record_sound
 .......D.VU Recursive_descent_parser_generator
 .........V. Reduced_row_echelon_form
@@ -950,7 +953,7 @@ GO...R..... Pattern_matching
 .........V. Solve_a_Hidato_puzzle
 .........V. Solve_a_Holy_Knight%27s_tour
 .........VU Solve_a_Hopido_puzzle
-.........VU Solve_a_Numbrix_puzzle
+G.......... Solve_a_Numbrix_puzzle
 .......D.VU Solve_a_Rubik%27s_Cube
 .........VU Solve_the_no_connection_puzzle
 .......D.V. Solving_coin_problems
@@ -1129,23 +1132,23 @@ GO......... The_ISAAC_Cipher
 .........V. Vampire_number
 .........V. Van_der_Corput_sequence
 .........V. Variable-length_quantity
-.........V. Variable_size_Get
-.........V. Variable_size_Set
-.........V. Variables
-.........V. Variadic_function
-.......D.V. Vector
-.........V. Vector_products
+G...T...... Variable_size_Get
+G.K........ Variable_size_Set
+G.K........ Variables
+G.......... Variadic_function
+G......D... Vector
+G.......... Vector_products
 .........VU Verify_distribution_uniformity_Chi-squared_test
 .........VU Verify_distribution_uniformity_Naive
 .......D.VU Vibrating_rectangles
 .........VU Video_display_modes
-.........V. Vigen%C3%A8re_cipher
+G...T...... Vigen%C3%A8re_cipher
 .........VU Vigen%C3%A8re_cipher_Cryptanalysis
-.........V. Visualize_a_tree
+G.......... Visualize_a_tree
 .........VU Vogel%27s_approximation_method
 .........VU Voronoi_diagram
 GO..T...... Walk_a_directory_Non-recursively
-GO......... Walk_a_directory_Recursively
+GO..T...... Walk_a_directory_Recursively
 GO......... Water_collected_between_towers
 .......D.VU Waveform_analysis_Doh_ray_me
 .......D.VU Waveform_analysis_Top_and_tail
