@@ -1,6 +1,6 @@
 #!/usr/local/bin/perl
 #u# http://rosettacode.org/wiki/Walk_a_directory/Recursively
-#c# 2018-08-03 <RC
+#c# 2018-08-03 <>RC
 #p# OK
 #n# testing just File::Find
 
