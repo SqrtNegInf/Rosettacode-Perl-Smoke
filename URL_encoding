@@ -1,0 +1,40 @@
+#!/usr/local/bin/perl
+#u# http://rosettacode.org/wiki/URL_encoding
+#c# 2018-08-07 <RC
+#p# OK
+
+use feature 'say';
+my $result;
+
+sub urlencode {
+    my $s = shift;
+    $s =~ s/([^-A-Za-z0-9_.!~*'() ])/sprintf("%%%02X", ord($1))/eg;
+    $s =~ tr/ /+/;
+    return $s;
+}
+
+$result = urlencode('http://foo bar/')."\n";
+
+use URI::Escape;
+
+my $s = 'http://foo/bar/';
+$result .= uri_escape($s) . "\n";
+
+#Use standard CGI module:
+#use 5.10.0;
+#use CGI;
+#
+#my $s = 'http://foo/bar/';
+#say $s = CGI::escape($s);
+#say $s = CGI::unescape($s);
+
+
+say $result;
+my $ref = <<'EOD';
+http%3A%2F%2Ffoo+bar%2F
+http%3A%2F%2Ffoo%2Fbar%2F
+EOD
+
+use Test::More;
+is ($result, $ref);
+done_testing();
