@@ -1,0 +1,13 @@
+#!/usr/local/bin/perl
+#u# http://rosettacode.org/wiki/Flow-control_structures
+#t# nocode
+#c# 2018-08-07 <RC
+#p# OK
+
+# Works with: Perl version 5.x
+# goto[edit]
+# Goto is typically looked down upon by most Perl programmers
+
+# FORK:
+# some code
+# goto FORK;
