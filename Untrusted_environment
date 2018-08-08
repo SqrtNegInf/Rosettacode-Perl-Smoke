@@ -1,0 +1,13 @@
+#!/usr/local/bin/perl
+#u# http://rosettacode.org/wiki/Untrusted_environment
+#t# nocode
+#c# 2018-08-07 <RC
+#p# OK
+
+# Perl can be invoked in taint mode with the command line option -T. While in this mode input from the user, and all variables derived from it, cannot be used in certain contexts until 'sanitized' by being passed through a regular expression.
+
+# #!/usr/bin/perl -T
+# my $f = $ARGV[0];
+# open FILE, ">$f" or die 'Cannot open file for writing';
+# print FILE "Modifying an arbitrary file\n";
+# close FILE;
