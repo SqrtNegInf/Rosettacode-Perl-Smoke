@@ -3,7 +3,7 @@
 #c# 2018-07-02 <RC
 #p# OK
 
-use Modern::Perl;
+use feature 'say';
 use ntheory qw/fromdigits todigitstring/;
  
 my $result = "0  0  0\n";  # Hard code the 0 result
