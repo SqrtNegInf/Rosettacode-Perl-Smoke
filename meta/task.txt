@@ -1,15 +1,15 @@
 
 This is perl 5, version 28, subversion 0 (v5.28.0) built for darwin-thread-multi-2level
-+------------> Perl: Good/Bad [342/7]
++------------> Perl: Good/Bad [367/7]
 |+-----------> smOke testing [273]
-||+----------> sKipping validation [48]
-|||+---------> Interactive [11]
-||||+--------> Touched (modified by me) [19]
-|||||+-------> Random seed [22]
+||+----------> sKipping validation [52]
+|||+---------> Interactive [12]
+||||+--------> Touched (modified by me) [20]
+|||||+-------> Random seed [25]
 ||||||+------> File output [22]
-|||||||+-----> Draft [230]
-||||||||+----> Ignoring [5]
-|||||||||+---> Void (no local copy) [824]
+|||||||+-----> Draft [229]
+||||||||+----> Ignoring [6]
+|||||||||+---> Void (no local copy) [800]
 ||||||||||+--> Un-implemented/reliable [312]
 |||||||||||
 GO......... 100_doors-1
@@ -323,7 +323,7 @@ GO...RF.... Draw_a_sphere
 .......D.VU Draw_pixel_2
 GO...R..... Dutch_national_flag_problem
 GO......... Dynamic_variable_names
-.......D.VU EKG_sequence_convergence
+.........VU EKG_sequence_convergence
 G.KI....... Echo_server
 .........VU Eertree
 .........VU Egyptian_division
@@ -418,15 +418,15 @@ G.......... First-class_functions_Use_numbers_analogously
 G.......... First_class_environments
 G.......... Five_weekends
 G...T..D... Fivenum
-.........V. FizzBuzz
-.........V. Flatten_a_list
-.........V. Flipping_bits_game
-.........V. Flow-control_structures
-.........V. Floyd%27s_triangle
-.........V. Floyd-Warshall_algorithm
-.........V. Forest_fire
-.........V. Fork
-.........V. Formal_power_series
+G.......... FizzBuzz
+G.......... Flatten_a_list
+G....R..... Flipping_bits_game
+G.K........ Flow-control_structures
+G.......... Floyd%27s_triangle
+G.......... Floyd-Warshall_algorithm
+G....R..... Forest_fire
+G.......... Fork
+G.......... Formal_power_series
 .........V. Formatted_numeric_output
 .........V. Forward_difference
 .........V. Four_bit_adder
@@ -1112,26 +1112,27 @@ GO......... The_ISAAC_Cipher
 .........V. UTF-8_encode_and_decode
 .......D.VU Ukkonen%E2%80%99s_Suffix_Tree_Construction
 .........V. Ulam_spiral_for_primes
-.........V. Unbias_a_random_generator
-.........V. Undefined_values
+G....R..... Unbias_a_random_generator
+G.......... Undefined_values
 .......D.VU Unicode_polynomial_equation
-.........V. Unicode_strings
-.........V. Unicode_variable_names
-.........V. Universal_Turing_machine
-.........V. Unix_ls
-.......D.V. Untrusted_environment
-.........V. Update_a_configuration_file
+G.K........ Unicode_strings
+G.......... Unicode_variable_names
+G.......... Universal_Turing_machine
+G.......... Unix_ls
+G.K....D... Untrusted_environment
+G.......... Update_a_configuration_file
 .........VU Use_another_language_to_call_a_function
-.......D.V. User_defined_pipe_and_redirection_operators
-.........V. User_input_Graphical
-.........V. User_input_Text
+G......D... User_defined_pipe_and_redirection_operators
+........XV. User_input_Graphical
+G.KI....... User_input_Text
 .......D.VU Using_a_Speech_engine_to_highlight_words
 .......D.VU Using_the_Meetup.com_API
 .......D.VU VList
-.........V. Validate_International_Securities_Identification_Number
-.........V. Vampire_number
-.........V. Van_der_Corput_sequence
-.........V. Variable-length_quantity
+G.......... Validate_International_Securities_Identification_Number
+G.......... Vampire_number-1
+G.......... Vampire_number-2
+G.......... Van_der_Corput_sequence
+G.......... Variable-length_quantity
 G...T...... Variable_size_Get
 G.K........ Variable_size_Set
 G.K........ Variables
@@ -1162,7 +1163,7 @@ G.KI....... Window_creation_X11
 G.KI....... Window_management
 GO......... Wireworld
 .......D.VU Word_break_problem
-.......D.VU Word_count
+G...T..D..U Word_count
 .........VU Word_search
 GO......... Word_wrap
 .........VU World_Cup_group_stage
