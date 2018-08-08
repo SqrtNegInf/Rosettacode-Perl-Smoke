@@ -1,0 +1,77 @@
+#!/usr/local/bin/perl
+#u# http://rosettacode.org/wiki/Vampire_number
+#c# 2018-08-06 <RC
+#p# OK
+
+use feature 'say';
+my @res;
+
+use warnings;
+use strict;
+use feature qw(say);
+
+sub fangs {
+    my $vampire = shift;
+    my $length  = length 0 + $vampire;
+    return if $length % 2;
+    my $fang_length = $length / 2;
+    my $from        = '1' . '0' x ($fang_length - 1);
+    my $to          = '9' x $fang_length;
+    my $sorted      = join q(), sort split //, $vampire;
+    my @fangs;
+    for my $f1 ($from .. 1 + sqrt $vampire) {
+        next if $vampire % $f1;
+        my $f2 = $vampire / $f1;
+        next if $sorted ne join q(), sort split //, $f1 . $f2;
+        next if 2 == grep '0' eq substr($_, -1 , 1), $f1, $f2; # Needed for the 26th number.
+        push @fangs, [$f1, $f2];
+    }
+    return @fangs;
+}
+
+my $count = 0;
+my $i     = 9;
+while ($count < 25) {
+    $i++;
+    my @f = fangs($i);
+    $count++, push @res, join ' ', "$count. $i:", map "[@$_]", @f if @f;
+}
+
+push @res, join ' ', $_, map "[@$_]", fangs($_) for 16758243290880, 24959017348650, 14593825548650;
+
+say my $result = join "\n", @res;
+my $ref = <<'END';
+1. 1260: [21 60]
+2. 1395: [15 93]
+3. 1435: [35 41]
+4. 1530: [30 51]
+5. 1827: [21 87]
+6. 2187: [27 81]
+7. 6880: [80 86]
+8. 102510: [201 510]
+9. 104260: [260 401]
+10. 105210: [210 501]
+11. 105264: [204 516]
+12. 105750: [150 705]
+13. 108135: [135 801]
+14. 110758: [158 701]
+15. 115672: [152 761]
+16. 116725: [161 725]
+17. 117067: [167 701]
+18. 118440: [141 840]
+19. 120600: [201 600]
+20. 123354: [231 534]
+21. 124483: [281 443]
+22. 125248: [152 824]
+23. 125433: [231 543]
+24. 125460: [204 615] [246 510]
+25. 125500: [251 500]
+16758243290880 [1982736 8452080] [2123856 7890480] [2751840 6089832] [2817360 5948208]
+24959017348650 [2947050 8469153] [2949705 8461530] [4125870 6049395] [4129587 6043950] [4230765 5899410]
+14593825548650
+END
+
+use Test::More;
+chop $ref;
+is ($result, $ref);
+done_testing();
