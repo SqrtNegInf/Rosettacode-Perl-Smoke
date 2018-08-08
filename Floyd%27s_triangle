@@ -1,0 +1,61 @@
+#!/usr/local/bin/perl
+#u# http://rosettacode.org/wiki/Floyd%27s_triangle
+#c# 2018-08-07 <RC
+#p# OK
+
+use feature 'say';
+my $result;
+
+use strict;
+use warnings;
+
+sub displayFloydTriangle {
+  my $numRows = shift;
+  print "\ndisplaying a $numRows row Floyd's triangle:\n\n";
+  my $maxVal = int($numRows * ($numRows + 1) / 2); # calculate the max value.
+  my $digit = 0;
+  foreach my $row (1 .. $numRows) {
+    my $col = 0;
+    my $output = '';
+    foreach (1 .. $row) {
+      ++$digit;
+      ++$col;
+      my $colMaxDigit = $maxVal - $numRows + $col;
+      $output .= sprintf " %*d", length($colMaxDigit), $digit;
+    }
+    $result .= "$output\n";
+  }
+  return;
+}
+
+# ==== Main ================================================
+#my @counts;
+#@counts = @ARGV;
+#@counts = (5, 14) unless @ARGV;
+
+#foreach my $count (@counts) {
+#  displayFloydTriangle($count);
+#}
+  displayFloydTriangle(14);
+
+say $result; 
+my $ref = <<'EOD';
+  1
+  2  3
+  4  5  6
+  7  8  9 10
+ 11 12 13 14 15
+ 16 17 18 19 20 21
+ 22 23 24 25 26 27 28
+ 29 30 31 32 33 34 35 36
+ 37 38 39 40 41 42 43 44  45
+ 46 47 48 49 50 51 52 53  54  55
+ 56 57 58 59 60 61 62 63  64  65  66
+ 67 68 69 70 71 72 73 74  75  76  77  78
+ 79 80 81 82 83 84 85 86  87  88  89  90  91
+ 92 93 94 95 96 97 98 99 100 101 102 103 104 105
+EOD
+
+use Test::More;
+is ($result, $ref);
+done_testing();
