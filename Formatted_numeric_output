@@ -1,0 +1,15 @@
+#!/usr/local/bin/perl
+#u# http://rosettacode.org/wiki/Formatted_numeric_output
+#c# 2018-08-07 <RC
+#p# OK
+
+use feature 'say';
+my $result;
+
+
+# Works with: Perl version 5.x
+say $result = sprintf "%09.3f", 7.125;
+
+use Test::More;
+is ($result, '00007.125');
+done_testing();
