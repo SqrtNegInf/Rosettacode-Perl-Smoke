@@ -1,0 +1,9 @@
+#!/usr/local/bin/perl
+#u# http://rosettacode.org/wiki/User_input/Text
+#t# interactive
+#c# 2018-08-07 <RC
+#p# OK
+
+my $string = <>; # equivalent to readline(*STDIN)
+my $integer = <>;
+print "S:${string}I:$integer\n";
