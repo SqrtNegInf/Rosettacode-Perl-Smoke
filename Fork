@@ -1,0 +1,77 @@
+#!/usr/local/bin/perl
+#u# http://rosettacode.org/wiki/Fork
+#c# 2018-08-07 <RC
+#p# OK
+
+# Works with: Perl version 5.x
+# In the child code, you may have to re-open database handles and such.
+    use Test::More; 
+
+FORK:
+if ($pid = fork()) {
+    # parent code
+    print "Parental unit: $pid\n";
+} elsif (defined($pid)) {
+#    setsid; # tells apache to let go of this process and let it run solo
+#    # disconnect ourselves from input, output, and errors
+#    close(STDOUT);
+#    close(STDIN);
+#    close(STDERR);    
+#    # re-open to /dev/null to prevent irrelevant warn messages.
+#    open(STDOUT, '>/dev/null');
+#    open(STDIN, '>/dev/null');
+#    open(STDERR, '>>/home/virtual/logs/err.log');
+
+    # child code
+    print "Childish thing: $pid\n";
+    ok $0 eq 'Fork';
+
+    exit; # important to exit
+} elsif($! =~ /emporar/){
+    warn '[' . localtime() . "] Failed to Fork - Will try again in 10 seconds.\n";
+    sleep(10);
+    goto FORK;
+} else {
+    warn '[' . localtime() . "] Unable to fork - $!";
+    exit(0);
+}
+
+#Obviously you could do a Fork in a lot less lines, but this code covers all the bases.
+#Another example using Proc::Fork module:
+
+# use Proc::Fork;
+# run_fork {
+#     child {
+#         # child code ...
+#     }
+#     parent {
+#         # parent code ...
+#     }
+# };
+# Or:
+# 
+# use Proc::Fork;
+# # parent code ...
+# run_fork {
+#     child {
+#         # child code ...
+#     }
+# };
+# # parent code continues ...
+# More complex example with retries and error handling:
+# 
+# use Proc::Fork;
+# run_fork {
+#     child {
+#         # child code ...
+#     }
+#     parent {
+#         # parent code ...
+#     }
+#     retry {
+#         # retry code ...
+#     }
+#     error {
+#         # error handling ...
+#     }
+# };
