@@ -6,7 +6,6 @@
 use feature 'say';
 my $result;
 
-#use Modern::Perl;
 use List::Util qw{ min max sum };
 
 sub water_collected {
