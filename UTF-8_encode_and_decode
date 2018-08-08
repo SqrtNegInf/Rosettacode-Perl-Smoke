@@ -1,0 +1,41 @@
+#!/usr/local/bin/perl
+#u# http://rosettacode.org/wiki/UTF-8_encode_and_decode
+#c# 2018-08-07 <RC
+#p# OK
+
+use feature 'say';
+my $result;
+
+use strict;
+use warnings;
+use Unicode::UCD 'charinfo';         # getting the unicode name of the character
+use utf8;                            # using non-ascii-characters in source code
+binmode STDOUT, ":encoding(UTF-8)";  # printing non-ascii-characters to screen
+
+my @chars = map {ord} qw/A ö Ж € 𝄞/; # @chars contains the unicode points
+my $print_format = '%5s  %-35s';
+$result .= sprintf "$print_format %8s  %s\n" , 'char', 'name', 'unicode', 'utf-8 encoding';
+map{
+	my $name = charinfo($_)->{'name'}; # get unicode name
+	$result .= sprintf "$print_format  %06x  " , chr, lc $name, $_;
+	my $utf8 = chr;                    # single char (using implicit $_)
+	utf8::encode($utf8);               # inplace encoding into utf8 parts
+	map{                               # for each utf8 char print ord
+		$result .= sprintf " %x", ord;
+	} split //, $utf8;
+	$result .= "\n";
+} @chars;
+
+say $result; 
+my $ref = <<'EOD';
+ char  name                                 unicode  utf-8 encoding
+    A  latin capital letter a               000041   41
+    ö  latin small letter o with diaeresis  0000f6   c3 b6
+    Ж  cyrillic capital letter zhe          000416   d0 96
+    €  euro sign                            0020ac   e2 82 ac
+    𝄞  musical symbol g clef                01d11e   f0 9d 84 9e
+EOD
+
+use Test::More;
+is ($result, $ref);
+done_testing();
