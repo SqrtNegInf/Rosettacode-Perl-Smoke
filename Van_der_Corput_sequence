@@ -1,0 +1,38 @@
+#!/usr/local/bin/perl
+#u# http://rosettacode.org/wiki/Van_der_Corput_sequence
+#c# 2018-08-06 <RC
+#p# OK
+
+use feature 'say';
+my $result;
+
+# Translation of: Perl6
+
+sub vdc {
+    my @value = shift;
+    my $base = shift // 2;
+    use integer;
+    push @value, $value[-1] / $base while $value[-1] > 0;
+    my ($x, $sum) = (1, 0);
+    no integer;
+    $sum += ($_ % $base) / ($x *= $base) for @value;
+    return $sum;
+}
+
+for my $base ( 2 .. 5 ) {
+    $result .= "base $base: ". join ' ', map { vdc($_, $base) } 0 .. 10;
+    $result .= "\n";
+}
+
+
+say $result; 
+my $ref = <<'EOD';
+base 2: 0 0.5 0.25 0.75 0.125 0.625 0.375 0.875 0.0625 0.5625 0.3125
+base 3: 0 0.333333333333333 0.666666666666667 0.111111111111111 0.444444444444444 0.777777777777778 0.222222222222222 0.555555555555556 0.888888888888889 0.037037037037037 0.37037037037037
+base 4: 0 0.25 0.5 0.75 0.0625 0.3125 0.5625 0.8125 0.125 0.375 0.625
+base 5: 0 0.2 0.4 0.6 0.8 0.04 0.24 0.44 0.64 0.84 0.08
+EOD
+
+use Test::More;
+is ($result, $ref);
+done_testing();
