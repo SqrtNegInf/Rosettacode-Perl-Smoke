@@ -1,0 +1,42 @@
+#!/usr/local/bin/perl
+#u# http://rosettacode.org/wiki/Validate_International_Securities_Identification_Number
+#c# 2018-08-07 <RC
+#p# OK
+
+# We reuse the luhn_test() function from Luhn test of credit card numbers#Perl.
+
+use strict;
+use English;
+use POSIX;
+use Test::Simple tests => 7;
+
+ok(   validate_isin('US0378331005'),  'Test 1');	
+ok( ! validate_isin('US0373831005'),  'Test 2');
+ok( ! validate_isin('U50378331005'),  'Test 3');
+ok( ! validate_isin('US03378331005'), 'Test 4');
+ok(   validate_isin('AU0000XVGZA3'),  'Test 5');	
+ok(   validate_isin('AU0000VXGZA3'),  'Test 6');
+ok(   validate_isin('FR0000988040'),  'Test 7');	
+exit 0;
+
+sub luhn_test
+{
+        my @rev = reverse split //,$_[0];
+        my ($sum1,$sum2,$i) = (0,0,0);
+
+        for(my $i=0;$i<@rev;$i+=2)
+        {
+                $sum1 += $rev[$i];
+                last if $i == $#rev;
+                $sum2 += 2*$rev[$i+1]%10 + int(2*$rev[$i+1]/10);
+        }
+        return ($sum1+$sum2) % 10 == 0;
+}
+
+sub validate_isin {
+    my $isin = shift;
+    $isin =~ /\A[A-Z]{2}[A-Z\d]{9}\d\z/s or return 0;
+    my $base10 = join(q{}, map {scalar(POSIX::strtol($ARG, 36))}
+                               split(//s, $isin));
+    return luhn_test($base10);
+}
