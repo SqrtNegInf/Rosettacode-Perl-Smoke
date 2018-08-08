@@ -3,7 +3,7 @@
 #c# 2018-06-30 <RC
 #p# OK
 
-use Modern::Perl;
+use feature 'say';
 
 use strict;
 use warnings;
