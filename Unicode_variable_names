@@ -1,0 +1,53 @@
+#!/usr/local/bin/perl
+#u# http://rosettacode.org/wiki/Unicode_variable_names
+#c# 2018-08-07 <RC
+#p# OK
+
+my $result;
+
+# Requires Perl 5.8.1 at the minimum. See http://perldoc.perl.org/utf8.html
+
+use utf8;
+
+my $Δ = 1;
+$Δ++;
+$result .= $Δ . "\n";
+# $ sigil can be omitted by using lvalue subroutine:
+
+use utf8;
+
+BEGIN {
+    my $val;
+    sub Δ () : lvalue {
+        $val;
+    }
+}
+
+Δ = 1;
+Δ++;
+$result .= Δ. "\n";
+
+#or with Perl 5.10 and state modifier:
+use utf8;
+use v5.10;
+
+sub Δ () : lvalue {
+    state $val;
+}
+
+Δ = 1;
+Δ++;
+$result .= Δ . "\n";
+#One can have Unicode in identifier or subroutine names and also in package or class names. Use of Unicode for the last two purposes is, due to file and directory names, dependent on the filesystem.
+
+print $result; 
+
+my $ref = <<'EOD';
+2
+2
+2
+EOD
+
+use Test::More;
+is ($result, $ref);
+done_testing();
