@@ -1,15 +1,15 @@
 
 This is perl 5, version 28, subversion 0 (v5.28.0) built for darwin-thread-multi-2level
-+------------> Perl: Good/Bad [367/7]
++------------> Perl: Good/Bad [375/7]
 |+-----------> smOke testing [273]
 ||+----------> sKipping validation [52]
 |||+---------> Interactive [12]
-||||+--------> Touched (modified by me) [20]
+||||+--------> Touched (modified by me) [21]
 |||||+-------> Random seed [25]
 ||||||+------> File output [22]
 |||||||+-----> Draft [229]
 ||||||||+----> Ignoring [6]
-|||||||||+---> Void (no local copy) [800]
+|||||||||+---> Void (no local copy) [793]
 ||||||||||+--> Un-implemented/reliable [312]
 |||||||||||
 GO......... 100_doors-1
@@ -426,16 +426,17 @@ G.......... Floyd%27s_triangle
 G.......... Floyd-Warshall_algorithm
 G....R..... Forest_fire
 G.......... Fork
-G.......... Formal_power_series
-.........V. Formatted_numeric_output
-.........V. Forward_difference
+G.......... Formal_power_series-1
+G.......... Formal_power_series-2
+G.......... Formatted_numeric_output
+G...T...... Forward_difference
 .........V. Four_bit_adder
 .......D.VU Four_is_magic
 .........VU Four_is_the_number_of_letters_in_the_...
 .........V. Fractal_tree
 .........V. Fractran
 .......D.VU Free_polyominoes_enumeration
-.......D.V. French_Republican_calendar
+G......D... French_Republican_calendar
 .........V. Function_composition
 .........V. Function_definition
 .........V. Function_frequency
@@ -1106,10 +1107,10 @@ GO......... The_ISAAC_Cipher
 .........V. Twelve_statements
 .......D.V. Two_Sum
 .......D.VU Type_detection
-.........V. URL_decoding
-.........V. URL_encoding
-.........V. URL_parser
-.........V. UTF-8_encode_and_decode
+G.......... URL_decoding
+G.......... URL_encoding
+G.......... URL_parser
+G.......... UTF-8_encode_and_decode
 .......D.VU Ukkonen%E2%80%99s_Suffix_Tree_Construction
 .........V. Ulam_spiral_for_primes
 G....R..... Unbias_a_random_generator
