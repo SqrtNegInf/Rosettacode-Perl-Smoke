@@ -1,0 +1,18 @@
+#!/usr/local/bin/perl
+#u# http://rosettacode.org/wiki/Flatten_a_list
+#c# 2018-08-06 <RC
+#p# OK
+
+use feature 'say';
+my $result;
+
+sub flatten {
+    map { ref eq 'ARRAY' ? flatten(@$_) : $_ } @_
+}
+
+my @lst = ([1], 2, [[3,4], 5], [[[]]], [[[6]]], 7, 8, []);
+say $result .= join ' ', flatten(@lst);
+
+use Test::More;
+is ($result, '1 2 3 4 5 6 7 8');
+done_testing();
