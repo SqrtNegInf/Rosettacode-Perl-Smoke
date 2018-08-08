@@ -1,0 +1,44 @@
+#!/usr/local/bin/perl
+#u# http://rosettacode.org/wiki/Unbias_a_random_generator
+#c# 2018-08-07 <RC
+#p# OK
+
+srand 123456;
+
+use feature 'say';
+my $result;
+
+
+sub randn {
+        my $n = shift;
+        return int(rand($n) / ($n - 1));
+}
+
+for my $n (3 .. 6) {
+        $result .= "Bias $n: ";
+        my (@raw, @fixed);
+        for (1 .. 10000) {
+                my $x = randn($n);
+                $raw[$x]++;
+                $fixed[$x]++    if randn($n) != $x
+        }
+        $result .= "@raw, ";
+        $result .= sprintf("%3g+-%.3g%%    fixed: ", $raw[0]/100,
+		100 * sqrt($raw[0] * $raw[1]) / ($raw[0] + $raw[1])**1.5);
+        $result .= "@fixed, ";
+        $result .= sprintf("%3g+-%.3g%%\n", 100*$fixed[0]/($fixed[0] + $fixed[1]),
+		100 * sqrt($fixed[0] * $fixed[1]) / ($fixed[0] + $fixed[1])**1.5);
+
+}
+
+say $result; 
+my $ref = <<'EOD';
+Bias 3: 6691 3309, 66.91+-0.471%    fixed: 2182 2223, 49.5346+-0.753%
+Bias 4: 7427 2573, 74.27+-0.437%    fixed: 1722 1924, 47.2298+-0.827%
+Bias 5: 7951 2049, 79.51+-0.404%    fixed: 1572 1627, 49.1404+-0.884%
+Bias 6: 8307 1693, 83.07+-0.375%    fixed: 1375 1431, 49.0021+-0.944%
+EOD
+
+use Test::More;
+is ($result, $ref);
+done_testing();
