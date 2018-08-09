@@ -1,0 +1,27 @@
+#!/usr/local/bin/perl
+#u# http://rosettacode.org/wiki/File_modification_time
+#c# 2018-08-08 <RC
+#p# OK
+
+use feature 'say';
+my $result;
+
+$file = 'ref/write_entire_file.dat';
+$copy = 'run/write_entire_file.dat';
+
+# Works with: Perl version 5
+say my $mtime1 = (stat($file))[9]; # seconds since the epoch
+
+# you should use the more legible version below:
+use File::stat qw(stat);
+say my $mtime2 = stat($file)->mtime; # seconds since the epoch
+
+# keep atime unchanged, set mtime to current time
+system "cp -p $file $copy";
+utime(stat($copy)->atime, time, $copy);
+say my $mtime3 = stat($copy)->mtime; # seconds since the epoch
+
+use Test::More;
+is  ($mtime1, $mtime2);
+isnt($mtime1, $mtime3);
+done_testing();
