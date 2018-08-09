@@ -1,0 +1,17 @@
+#!/usr/local/bin/perl
+#u# http://rosettacode.org/wiki/GUI/Maximum_window_dimensions
+#t# interactive
+#c# 2018-08-08 <RC
+#p# OK
+
+# Library: Perl/Tk[edit]
+
+use Tk;
+
+sub get_size {
+	my $mw = MainWindow->new();
+	return ($mw->maxsize);
+}
+
+print join " ", my @res = get_size();
+# 1665 2022
