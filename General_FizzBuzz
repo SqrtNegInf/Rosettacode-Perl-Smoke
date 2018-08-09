@@ -8,7 +8,7 @@ my $result;
 
 use 5.020;
 use strict;
-use warnings;
+#use warnings;
 
 #Get a max number from the user
 #say("Please enter the maximum possible multiple. ");
@@ -28,7 +28,7 @@ my $max = 20;
 #chomp($buffer = <STDIN>);
 #push @factors, $buffer;
 
-my @factors = split ' ', '3 Fizz 5 Buzz 7 Baxx';
+my @factors = split ',', '3 Fizz,5 Buzz,7 Baxx';
 
 #Counting from 1 to max
 for(my $i = 1; $i <= $max; $i++)
@@ -61,7 +61,6 @@ for(my $i = 1; $i <= $max; $i++)
 }
 
 say $result; 
-exit;
 
 my $ref = <<'EOD';
 1
