@@ -1,16 +1,16 @@
 
 This is perl 5, version 28, subversion 0 (v5.28.0) built for darwin-thread-multi-2level
-+------------> Perl: Good/Bad [375/7]
++------------> Perl: Good/Bad [386/7]
 |+-----------> smOke testing [273]
-||+----------> sKipping validation [52]
-|||+---------> Interactive [12]
+||+----------> sKipping validation [53]
+|||+---------> Interactive [13]
 ||||+--------> Touched (modified by me) [21]
 |||||+-------> Random seed [25]
-||||||+------> File output [22]
+||||||+------> File output [24]
 |||||||+-----> Draft [229]
 ||||||||+----> Ignoring [6]
-|||||||||+---> Void (no local copy) [793]
-||||||||||+--> Un-implemented/reliable [312]
+|||||||||+---> Void (no local copy) [783]
+||||||||||+--> Un-implemented/reliable [311]
 |||||||||||
 GO......... 100_doors-1
 GO......... 100_doors-2
@@ -301,7 +301,8 @@ GO.....D... Dice_game_probabilities
 GO......... Digital_root
 GO......... Digital_root_Multiplicative_digital_root
 GO......... Dijkstra%27s_algorithm
-GO......... Dinesman%27s_multiple-dwelling_problem
+GO......... Dinesman%27s_multiple-dwelling_problem-1
+G.......... Dinesman%27s_multiple-dwelling_problem-2
 G.K..R..... Dining_philosophers
 GO......... Discordian_date
 .......D.VU Display_a_linear_combination
@@ -397,7 +398,7 @@ G.......... Fibonacci_word
 GO....F.... Fibonacci_word_fractal
 G......D... File_extension_is_in_extensions_list
 G.....F.... File_input_output
-.........V. File_modification_time
+G.......... File_modification_time
 G.......... File_size
 .......D.VU File_size_distribution
 G.......... Filter
@@ -430,19 +431,19 @@ G.......... Formal_power_series-1
 G.......... Formal_power_series-2
 G.......... Formatted_numeric_output
 G...T...... Forward_difference
-.........V. Four_bit_adder
+G.......... Four_bit_adder
 .......D.VU Four_is_magic
 .........VU Four_is_the_number_of_letters_in_the_...
-.........V. Fractal_tree
-.........V. Fractran
+G.....F.... Fractal_tree
+G.......... Fractran
 .......D.VU Free_polyominoes_enumeration
 G......D... French_Republican_calendar
-.........V. Function_composition
-.........V. Function_definition
-.........V. Function_frequency
-.........V. Function_prototype
+G.......... Function_composition
+G.......... Function_definition
+G.......... Function_frequency
+G.......... Function_prototype
 .......D.VU Functional_coverage_tree
-.........V. GUI_Maximum_window_dimensions
+G.KI....... GUI_Maximum_window_dimensions
 .........VU GUI_component_interaction
 .........VU GUI_enabling_disabling_of_controls
 .........VU Galton_box_animation
@@ -1112,7 +1113,7 @@ G.......... URL_encoding
 G.......... URL_parser
 G.......... UTF-8_encode_and_decode
 .......D.VU Ukkonen%E2%80%99s_Suffix_Tree_Construction
-.........V. Ulam_spiral_for_primes
+G.....F.... Ulam_spiral_for_primes
 G....R..... Unbias_a_random_generator
 G.......... Undefined_values
 .......D.VU Unicode_polynomial_equation
@@ -1164,7 +1165,7 @@ G.KI....... Window_creation_X11
 G.KI....... Window_management
 GO......... Wireworld
 .......D.VU Word_break_problem
-G...T..D..U Word_count
+G...T..D... Word_count
 .........VU Word_search
 GO......... Word_wrap
 .........VU World_Cup_group_stage
