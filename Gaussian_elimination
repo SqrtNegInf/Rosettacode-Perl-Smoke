@@ -1,0 +1,31 @@
+#!/usr/local/bin/perl
+#u# http://rosettacode.org/wiki/Gaussian_elimination
+#c# 2018-08-08 <RC
+#p# OK
+#n# library overloads operators and disables Test::More?
+
+use feature 'say';
+my $result;
+
+#Library: Math::Matrix
+use Math::Matrix;
+my $a = Math::Matrix->new([0,1,0],
+                          [0,0,1],
+                          [2,0,1]);
+my $b = Math::Matrix->new([1],
+                          [2],
+                          [4]);
+my $x = $a->concat($b)->solve;
+say $result = ~$x;
+
+#Math::Matrix solve() expects the column vector to be an extra column in the matrix, hence concat(). Putting not just a column there but a whole identity matrix (making Nx2N) is how its invert() is implemented. Note that solve() doesn't notice singular matrices and still gives a return when there is in fact no solution to Ax=B.
+
+my $ref = <<'EOD';
+   1.00000
+   1.00000
+   2.00000
+EOD
+
+#use Test::More;
+print "ok 1\n" if 34 == length $result;
+print "ok 2\n" if $result =~ /\s+1\.0+\s+1\.0+\s+2.0+/;
