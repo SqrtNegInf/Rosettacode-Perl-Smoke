@@ -1,0 +1,46 @@
+#!/usr/local/bin/perl
+#u# http://rosettacode.org/wiki/Function_frequency
+#c# 2018-08-08 <RC
+#p# OK
+#n# any changes to 'Almost_prime-2' might affect this task
+
+use feature 'say';
+my $result;
+
+# We leverage the PPI::Tokenizer module.
+
+use PPI::Tokenizer;
+my $Tokenizer = PPI::Tokenizer->new( './Almost_prime-2' );
+my %counts;
+while (my $token = $Tokenizer->get_token) {
+    # We consider all Perl identifiers. The following regex is close enough.
+    if ($token =~ /\A[\$\@\%*[:alpha:]]/) {
+        $counts{$token}++;
+    }
+}
+my @desc_by_occurrence =
+    sort {$counts{$b} <=> $counts{$a} || $a cmp $b}
+         keys(%counts);
+my @top_ten_by_occurrence = @desc_by_occurrence[0 .. 9];
+foreach my $token (@top_ten_by_occurrence) {
+    $result .= $counts{$token}. "\t". $token. "\n";
+}
+
+say $result; 
+my $ref = <<'EOD';
+18	my
+10	$n
+9	$candidate
+8	$next
+7	$p
+6	$k
+6	$sieve
+6	while
+4	$primes
+4	$q
+EOD
+
+
+use Test::More;
+is ($result, $ref);
+done_testing();
