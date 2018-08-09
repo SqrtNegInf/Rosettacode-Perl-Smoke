@@ -1,0 +1,13 @@
+#!/usr/local/bin/perl
+#u# http://rosettacode.org/wiki/Generate_lower_case_ASCII_alphabet
+#c# 2018-08-08 <RC
+#p# OK
+
+use feature 'say';
+my $result;
+
+say $result = join '', 'a'..'z';
+
+use Test::More;
+is ($result, 'abcdefghijklmnopqrstuvwxyz');
+done_testing();
