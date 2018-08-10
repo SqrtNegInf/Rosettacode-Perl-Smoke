@@ -1,0 +1,33 @@
+#!/usr/local/bin/perl
+#u# http://rosettacode.org/wiki/Truncatable_primes
+#c# 2018-08-09 <RC
+#p# OK
+
+use feature 'say';
+my $result;
+
+use ntheory ":all";
+sub isltrunc {
+  my $n = shift;
+  return (is_prime($n) && $n !~ /0/ && ($n < 10 || isltrunc(substr($n,1))));
+}
+sub isrtrunc {
+  my $n = shift;
+  return (is_prime($n) && $n !~ /0/ && ($n < 10 || isrtrunc(substr($n,0,-1))));
+}
+for (reverse @{primes(1e6)}) {
+  if (isltrunc($_)) { $result .= "ltrunc: $_\n"; last; }
+}
+for (reverse @{primes(1e6)}) {
+  if (isrtrunc($_)) { $result .= "rtrunc: $_\n"; last; }
+}
+
+say $result;
+my $ref = <<'END';
+ltrunc: 998443
+rtrunc: 739399
+END
+
+use Test::More;
+is ($result, $ref);
+done_testing();
