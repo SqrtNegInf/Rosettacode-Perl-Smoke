@@ -2,6 +2,7 @@
 #u# http://rosettacode.org/wiki/Zebra_puzzle
 #c# 2018-07-11 <RC
 #p# OK
+#n# minor change not on RC
 
 use feature 'say';
 my $result;
