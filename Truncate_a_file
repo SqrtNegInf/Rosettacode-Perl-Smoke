@@ -1,0 +1,23 @@
+#!/usr/local/bin/perl
+#u# http://rosettacode.org/wiki/Truncate_a_file
+#c# 2018-08-09 <RC
+#p# OK
+#r# RC prep: cp ref/truncate.base run/truncate.txt
+
+# Open a file for writing, and truncate it to 1234 bytes.
+#open FOO, ">>file" or die;
+#truncate(FOO, 1234);
+#close FOO;
+
+$file = 'run/truncate.txt';
+
+# Truncate a file to 567 bytes.
+truncate($file, 100);
+
+$fsize = `wc -c $file`; 
+chop $fsize;
+$fsize =~ s/^\s+//;
+
+use Test::More;
+is ($fsize, '100 run/truncate.txt');
+done_testing();
