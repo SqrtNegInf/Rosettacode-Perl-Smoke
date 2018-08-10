@@ -1,0 +1,58 @@
+#!/usr/local/bin/perl
+#u# http://rosettacode.org/wiki/Tree_traversal
+#c# 2018-08-09 <RC
+#p# OK
+
+use feature 'say';
+my $result;
+
+# Tree nodes are represented by 3-element arrays: [0] - the value; [1] - left child; [2] - right child.
+
+sub preorder
+{
+	my $t = shift or return ();
+	return ($t->[0], preorder($t->[1]), preorder($t->[2]));
+}
+
+sub inorder
+{
+	my $t = shift or return ();
+	return (inorder($t->[1]), $t->[0], inorder($t->[2]));
+}
+
+sub postorder
+{
+	my $t = shift or return ();
+	return (postorder($t->[1]), postorder($t->[2]), $t->[0]);
+}
+
+sub depth
+{
+	my @ret;
+	my @a = ($_[0]);
+	while (@a) {
+		my $v = shift @a or next;
+		push @ret, $v->[0];
+		push @a, @{$v}[1,2];
+	}
+	return @ret;
+}
+
+my $x = [1,[2,[4,[7]],[5]],[3,[6,[8],[9]]]];
+
+$result .= "pre:   @{[preorder($x)]}\n";
+$result .= "in:    @{[inorder($x)]}\n";
+$result .= "post:  @{[postorder($x)]}\n";
+$result .= "depth: @{[depth($x)]}\n";
+
+say $result; 
+my $ref = <<'EOD';
+pre:   1 2 4 7 5 3 6 8 9
+in:    7 4 2 5 1 8 6 9 3
+post:  7 4 5 2 8 9 6 3 1
+depth: 1 2 3 4 5 6 7 8 9
+EOD
+
+use Test::More;
+is ($result, $ref);
+done_testing();
