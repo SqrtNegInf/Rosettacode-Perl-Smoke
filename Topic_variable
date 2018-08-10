@@ -1,0 +1,41 @@
+#!/usr/local/bin/perl
+#u# http://rosettacode.org/wiki/Topic_variable
+#t# skiptest
+#c# 2018-08-09 <RC
+#p# OK
+#n# not such a great explainer?
+
+use feature 'say';
+my $result;
+
+# In Perl the topic variable is $_.  
+# It is the default parameter for loops, and some functions (here 'sqrt'):
+
+print sqrt . " " for (4, 16, 64);
+print "\n";
+
+# The topic parameter is lexical, so its use can be nested into lexical scopes. 
+# However, assignment to the topic variable at loop declaration is not lexical, 
+# and the 'local' keyword is needed to enable loops to nest here:
+
+for (1..2) {
+  print "outer $_:\n";
+  local $_;
+  for (1..3) {
+    print " inner $_,";
+  }
+  print " fini\n";
+}
+
+say $result; 
+my $ref = <<'EOD';
+2 4 8
+outer 1:
+ inner 1, inner 2, inner 3, fini
+outer 2:
+ inner 1, inner 2, inner 3, fini
+EOD
+
+use Test::More;
+#is ($result, $ref);
+#done_testing();
