@@ -1,0 +1,45 @@
+#!/usr/local/bin/perl
+#u# http://rosettacode.org/wiki/Two_Sum
+#c# 2018-08-09 <RC
+#p# OK
+
+use feature 'say';
+my $result;
+
+# Translation of: Python
+
+sub two_sum{
+  my @arr = @{shift @_};
+  my $num = shift;
+  my $i = 0;
+  my $j = $#arr - 1;
+  while ($i < $j) {
+    if ($arr[$i] + $arr[$j] == $num) {
+      return ($i, $j);
+    }
+    if ($arr[$i] + $arr[$j] < $num) {
+      $i += 1;
+    }
+    else {
+      $j -= 1;
+      return;
+    }
+  }
+}
+
+ 
+my @numbers = (0, 2, 11, 19, 90);
+my ($n1, $n2) = two_sum(\@numbers, 21);
+$result .= "$n1 $n2\n";
+($n1, $n2) = two_sum(\@numbers, 25);
+$result .= "$n1 $n2\n";
+
+say ":$result:"; 
+my $ref = <<'EOD';
+1 3
+ 
+EOD
+
+use Test::More;
+is ($result, $ref);
+done_testing();
