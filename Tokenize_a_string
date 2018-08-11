@@ -1,0 +1,43 @@
+#!/usr/local/bin/perl
+#u# http://rosettacode.org/wiki/Tokenize_a_string
+#c# 2018-08-10 <RC
+#p# OK
+
+use feature 'say';
+my $result;
+
+
+$result .= join('.', split /,/, 'Hello,How,Are,You,Today'), "\n";
+$result .= "\n";
+
+#CLI one-liner form:
+
+# echo "Hello,How,Are,You,Today" | perl -aplF/,/ -e '$" = "."; $_ = "@F";'
+# which is a compact way of telling Perl to do
+
+BEGIN { $/ = "\n"; $\ = "\n"; }
+#LINE: while (defined($_ = <ARGV>)) {
+LINE: while (defined($_ = <DATA>)) {
+    chomp $_;
+    our(@F) = split(/,/, $_, 0);
+    $" = '.';
+    $_ = "@F";
+}
+continue {
+    die "-p destination: $!\n" unless $result .= $_;
+}
+
+say $result; 
+
+my $ref = <<'EOD';
+Hello.How.Are.You.Today
+Hello.How.Are.You.Today
+EOD
+
+use Test::More;
+chop $ref;
+is ($result, $ref);
+done_testing();
+
+__END__
+Hello,How,Are,You,Today
