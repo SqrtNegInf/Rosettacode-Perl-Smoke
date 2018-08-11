@@ -1,0 +1,73 @@
+#!/usr/local/bin/perl
+#u# http://rosettacode.org/wiki/Time_a_function
+#t# skiptest
+#c# 2018-08-10 <RC
+#p# OK
+
+use feature 'say';
+my $result;
+
+# Example of using the built-in Benchmark core module - it compares two versions of recursive factorial functions:
+
+use Benchmark;
+use Memoize;
+
+sub fac1 {
+    my $n = shift;
+    return $n == 0 ? 1 : $n * fac1($n - 1);
+}
+sub fac2 {
+    my $n = shift;
+    return $n == 0 ? 1 : $n * fac2($n - 1);
+}
+memoize('fac2');
+
+my $result = timethese(100000, {
+    'fac1' => sub { fac1(50) },
+    'fac2' => sub { fac2(50) },
+});
+Benchmark::cmpthese($result);
+
+# Benchmark: timing 100000 iterations of fac1, fac2...
+#       fac1:  6 wallclock secs ( 5.45 usr +  0.00 sys =  5.45 CPU) @ 18348.62/s (n=100000)
+#       fac2:  1 wallclock secs ( 0.84 usr +  0.00 sys =  0.84 CPU) @ 119047.62/s (n=100000)
+#          Rate fac1 fac2
+# fac1  18349/s   -- -85%
+# fac2 119048/s 549%   --
+
+#Example without using Benchmark:
+
+sub cpu_time {
+  my ($user,$system,$cuser,$csystem) = times;
+  $user + $system
+}
+
+sub time_it {
+  my $action = shift;
+  my $startTime = cpu_time();
+  $action->(@_);
+  my $finishTime = cpu_time();
+  $finishTime - $startTime
+}
+
+printf "Identity(4) takes %f seconds.\n", time_it(sub {@_}, 4);
+# outputs "Identity(4) takes 0.000000 seconds."
+
+sub sum {
+  my $x = shift;
+  foreach (0 .. 999999) {
+    $x += $_;
+  }
+  $x
+}
+
+printf "Sum(4) takes %f seconds.\n", time_it(\&sum, 4);
+# outputs "Sum(4) takes 0.280000 seconds."
+
+#say $result; 
+my $ref = <<'EOD';
+EOD
+
+use Test::More;
+#is ($result, $ref);
+#done_testing();
