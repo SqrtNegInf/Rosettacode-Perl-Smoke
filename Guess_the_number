@@ -1,0 +1,9 @@
+#!/usr/local/bin/perl
+#u# http://rosettacode.org/wiki/Guess_the_number
+#t# interactive
+#c# 2018-08-11 <RC
+#p# OK
+
+my $number = 1 + int rand 10;
+do { print "Guess a number between 1 and 10: " } until <> == $number;
+print "You got it!\n";
