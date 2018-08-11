@@ -1,0 +1,131 @@
+#!/usr/local/bin/perl
+#u# http://rosettacode.org/wiki/Palindrome_detection
+#c# 2018-08-11 <RC
+#p# OK
+
+use feature 'say';
+my $result;
+
+
+# There is more than one way to do this.
+# 
+# palindrome uses the built-in function reverse().
+# palindrome_c uses iteration; it is a translation of the C solution.
+# palindrome_r uses recursion.
+# palindrome_e uses a recursive regular expression.
+#All of these functions take a parameter,
+#or default to $_ if there is no parameter.
+#None of these functions ignore case or strip characters;
+#if you want do that, you can use ($s = lc $s) =~ s/[\W_]//g
+#before you call these functions.
+
+# Palindrome.pm
+#package Palindrome;
+
+use strict;
+use warnings;
+
+#use Exporter 'import';
+#our @EXPORT = qw(palindrome palindrome_c palindrome_r palindrome_e);
+
+sub palindrome
+{
+    my $s = (@_ ? shift : $_);
+    return $s eq reverse $s;
+}
+
+sub palindrome_c
+{
+    my $s = (@_ ? shift : $_);
+    for my $i (0 .. length($s) >> 1)
+    {
+        return 0 unless substr($s, $i, 1) eq substr($s, -1 - $i, 1);
+    }
+    return 1;
+}
+
+sub palindrome_r
+{
+    my $s = (@_ ? shift : $_);
+    if (length $s <= 1) { return 1; }
+    elsif (substr($s, 0, 1) ne substr($s, -1, 1)) { return 0; }
+    else { return palindrome_r(substr($s, 1, -1)); }
+}
+
+sub palindrome_e
+{
+    (@_ ? shift : $_) =~ /^(.?|(.)(?1)\2)$/ + 0
+}
+
+
+$result .= sprintf("%d, %d, %d, %d: %s\n",
+       palindrome, palindrome_c, palindrome_r, palindrome_e, $_)
+for
+    qw/a aa ab abba aBbA abca abba1 1abba
+    ingirumimusnocteetconsumimurigni/,
+    'ab cc ba',	'ab ccb a';
+
+printf "\n";
+
+say $result; 
+my $ref = <<'EOD';
+1, 1, 1, 1: a
+1, 1, 1, 1: aa
+0, 0, 0, 0: ab
+1, 1, 1, 1: abba
+0, 0, 0, 0: aBbA
+0, 0, 0, 0: abca
+0, 0, 0, 0: abba1
+0, 0, 0, 0: 1abba
+1, 1, 1, 1: ingirumimusnocteetconsumimurigni
+1, 1, 1, 1: ab cc ba
+0, 0, 0, 0: ab ccb a
+EOD
+
+use Test::More;
+is ($result, $ref);
+done_testing();
+
+#1;
+__END__
+This example shows how to use the functions:
+
+# pbench.pl
+use strict;
+use warnings;
+
+use Benchmark qw(cmpthese);
+use Palindrome;
+
+my $latin = "ingirumimusnocteetconsumimurigni";
+cmpthese(100_000, {
+    palindrome => sub { palindrome $latin },
+    palindrome_c => sub { palindrome_c $latin },
+    palindrome_r => sub { palindrome_r $latin },
+    palindrome_e => sub { palindrome_e $latin },
+});
+
+Output: on a machine running Perl 5.10.1 on amd64-openbsd:
+$ perl pbench.pl
+1, 1, 1, 1: a
+1, 1, 1, 1: aa
+0, 0, 0, 0: ab
+1, 1, 1, 1: abba
+0, 0, 0, 0: aBbA
+0, 0, 0, 0: abca
+0, 0, 0, 0: abba1
+0, 0, 0, 0: 1abba
+1, 1, 1, 1: ingirumimusnocteetconsumimurigni
+1, 1, 1, 1: ab cc ba
+0, 0, 0, 0: ab ccb a
+
+            (warning: too few iterations for a reliable count)
+                  Rate palindrome_r palindrome_e palindrome_c   palindrome
+palindrome_r   51020/s           --         -50%         -70%         -97%
+palindrome_e  102041/s         100%           --         -41%         -94%
+palindrome_c  172414/s         238%          69%           --         -90%
+palindrome   1666667/s        3167%        1533%         867%           --
+With this machine, palindrome() ran far faster than the alternatives
+(and too fast for a reliable count).
+The Perl regular expression engine recursed twice as fast as the Perl interpreter.
+
