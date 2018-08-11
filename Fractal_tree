@@ -2,7 +2,7 @@
 #u# http://rosettacode.org/wiki/Fractal_tree
 #c# 2018-08-08 <RC
 #p# OK
-#f# RC file: fractal_tree.svg
+#f# RC file: fractal_tree.png
 
 # using the GD::Simple module.
 
