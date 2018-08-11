@@ -1,16 +1,16 @@
 
 This is perl 5, version 28, subversion 0 (v5.28.0) built for darwin-thread-multi-2level
 updating from RC…
-+------------> Perl: Good/Bad [407/7]
++------------> Perl: Good/Bad [439/7]
 |+-----------> smOke testing [1]
-||+----------> sKipping validation [54]
-|||+---------> Interactive [13]
-||||+--------> Touched (modified by me) [22]
-|||||+-------> Random seed [26]
-||||||+------> File output [25]
+||+----------> sKipping validation [60]
+|||+---------> Interactive [17]
+||||+--------> Touched (modified by me) [24]
+|||||+-------> Random seed [27]
+||||||+------> File output [26]
 |||||||+-----> Draft [232]
 ||||||||+----> Ignoring [6]
-|||||||||+---> Void (no local copy) [767]
+|||||||||+---> Void (no local copy) [740]
 ||||||||||+--> Un-implemented/reliable [313]
 |||||||||||
 G.......... 100_doors-1
@@ -458,21 +458,26 @@ G....R..... Generate_Chess960_starting_position
 G.......... Generate_lower_case_ASCII_alphabet
 .......D.VU Generate_random_chess_position
 G.......... Generator_Exponential
-.........V. Generic_swap
+G.......... Generic_swap
 .......D.VU Geometric_algebra
-.........V. Get_system_command_output
-.........V. Globally_replace_text_in_several_files
+G.......... Get_system_command_output
+G.......... Globally_replace_text_in_several_files
 .........VU Go_Fish
-.........V. Gray_code
-.........V. Grayscale_image
-.........V. Greatest_common_divisor
-.........V. Greatest_element_of_a_list
-.........V. Greatest_subsequential_sum
+G.......... Gray_code
+GO....F.... Grayscale_image
+G.......... Greatest_common_divisor-1
+G.......... Greatest_common_divisor-2
+G.......... Greatest_common_divisor-3
+G.......... Greatest_common_divisor-4
+G.K........ Greatest_common_divisor-5
+G.......... Greatest_element_of_a_list
+G....R..... Greatest_subsequential_sum-1
+G.......... Greatest_subsequential_sum-2
 .......D.VU Greed
 .........VU Greyscale_bars_Display
-.........V. Guess_the_number
-.........V. Guess_the_number_With_feedback
-.........V. Guess_the_number_With_feedback_player
+G.KI....... Guess_the_number
+G.KI....... Guess_the_number_With_feedback
+G.KI....... Guess_the_number_With_feedback_player
 .........V. HTTP
 .........V. HTTPS
 .........V. HTTPS_Authenticated
@@ -735,7 +740,7 @@ G.......... Generator_Exponential
 .........V. Ordered_Partitions
 .........V. Ordered_words
 .......D.V. P-value_correction
-.........V. Palindrome_detection
+G.......... Palindrome_detection
 .........V. Pangram_checker
 .........V. Paraffins
 .........V. Parallel_Brute_Force
@@ -864,7 +869,7 @@ G....R..... Pattern_matching
 .........V. Rep-string
 .......D.V. Repeat
 .........V. Repeat_a_string
-.........V. Resistor_mesh
+G.......... Resistor_mesh
 .........V. Respond_to_an_unknown_method_call
 .........VU Retrieve_and_search_chat_history
 .........V. Return_multiple_values
@@ -1073,28 +1078,28 @@ G.......... Spiral_matrix
 .......D.VU Terminal_control_Restricted_width_positional_input_With_wrapping
 .........V. Terminal_control_Ringing_the_terminal_bell
 .........VU Terminal_control_Unicode_output
-.........V. Ternary_logic
-.........V. Test_a_function
-.........V. Test_integerness
+G.......... Ternary_logic
+G.......... Test_a_function
+G.......... Test_integerness
 .......D.VU Tetris
 .......D.VU Text_between
-.........V. Text_processing_1
-.........V. Text_processing_2
-.........V. Text_processing_Max_licenses_in_use
+G.......... Text_processing_1
+G.......... Text_processing_2
+G.......... Text_processing_Max_licenses_in_use
 .......D.VU Text_to_HTML
-.........V. Textonyms
+G...T...... Textonyms
 G.......... The_ISAAC_Cipher
 .........VU The_Name_Game
-.........V. The_Twelve_Days_of_Christmas
+G.......... The_Twelve_Days_of_Christmas
 .........VU Thiele%27s_interpolation_formula
-.........V. Thue-Morse
-.........V. Tic-tac-toe
+G.......... Thue-Morse
+G.KI....... Tic-tac-toe
 .......D.VU Time-based_One-time_Password_Algorithm
-.........V. Time_a_function
-.........V. Tokenize_a_string
-.........V. Tokenize_a_string_with_escaping
+G.K........ Time_a_function
+G.......... Tokenize_a_string
+G.......... Tokenize_a_string_with_escaping
 .......D.VU Tonelli-Shanks_algorithm
-.........V. Top_rank_per_group
+G...T...... Top_rank_per_group
 G.K........ Topic_variable
 G.......... Topological_sort
 .......D.VU Topological_sort_Extracted_top_item
@@ -1108,7 +1113,7 @@ G.......... Trigonometric_functions
 G.......... Truncatable_primes-1
 G.......... Truncatable_primes-2
 G.......... Truncatable_primes-3
-GO......... Truncate_a_file
+G.......... Truncate_a_file
 G.....F.... Truth_table
 G.......... Twelve_statements
 G......D... Two_Sum
