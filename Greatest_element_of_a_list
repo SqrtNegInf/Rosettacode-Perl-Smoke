@@ -1,0 +1,24 @@
+#!/usr/local/bin/perl
+#u# http://rosettacode.org/wiki/Greatest_element_of_a_list
+#c# 2018-08-11 <RC
+#p# OK
+
+use feature 'say';
+my $result;
+
+sub max {
+    my $max = shift;
+    for (@_) { $max = $_ if $_ > $max }
+    return $max;
+}
+
+# It is already implemented in the module List::Util's max() function:
+# use List::Util qw(max);
+
+$result .= max(qw<1 -1 01 1e0 1.1>);
+
+say $result; 
+
+use Test::More;
+is ($result, 1.1);
+done_testing();
