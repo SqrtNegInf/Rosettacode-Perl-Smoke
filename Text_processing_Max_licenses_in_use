@@ -1,0 +1,45 @@
+#!/usr/local/bin/perl
+#u# http://rosettacode.org/wiki/Text_processing/Max_licenses_in_use
+#c# 2018-08-11 <RC
+#p# OK
+
+use feature 'say';
+my $result;
+
+use strict;
+
+my $out = 0;
+my $max_out = -1;
+my @max_times;
+
+open FH, '<ref/mlijobs.txt' or die "Can't open file: $!";
+while (<FH>) {
+    chomp;
+    if (/OUT/) {
+        $out++;
+    } else {
+        $out--;
+    }
+    if ($out > $max_out) {
+        $max_out = $out;
+        @max_times = ();
+    }
+    if ($out == $max_out) {
+        push @max_times, (split)[3];
+    }
+}
+close FH;
+
+$result .= "Maximum simultaneous license use is $max_out at the following times:\n";
+$result .= "  $_\n" foreach @max_times;
+
+say $result; 
+my $ref = <<'EOD';
+Maximum simultaneous license use is 99 at the following times:
+  2008/10/03_08:39:34
+  2008/10/03_08:40:40
+EOD
+
+use Test::More;
+is ($result, $ref);
+done_testing();
