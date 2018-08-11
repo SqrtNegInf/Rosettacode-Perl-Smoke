@@ -1,0 +1,79 @@
+#!/usr/local/bin/perl
+#u# http://rosettacode.org/wiki/Greatest_common_divisor
+#t# skiptest
+#c# 2018-08-11 <RC
+#p# OK
+
+sub gcd_iter($$) {
+  my ($u, $v) = @_;
+  while ($v) {
+    ($u, $v) = ($v, $u % $v);
+  }
+  return abs($u);
+}
+
+sub gcd($$) {
+  my ($u, $v) = @_;
+  if ($v) {
+    return gcd($v, $u % $v);
+  } else {
+    return abs($u);
+  }
+}
+
+sub gcd_bin($$) {
+  my ($u, $v) = @_;
+  $u = abs($u);
+  $v = abs($v);
+  if ($u < $v) {
+    ($u, $v) = ($v, $u);
+  }
+  if ($v == 0) {
+    return $u;
+  }
+  my $k = 1;
+  while ($u & 1 == 0 && $v & 1 == 0) {
+    $u >>= 1;
+    $v >>= 1;
+    $k <<= 1;
+  }
+  my $t = ($u & 1) ? -$v : $u;
+  while ($t) {
+    while ($t & 1 == 0) {
+      $t >>= 1;
+    }
+    if ($t > 0) {
+      $u = $t;
+    } else {
+      $v = -$t;
+    }
+    $t = $u - $v;
+  }
+  return $u * $k;
+}
+
+use Benchmark qw(cmpthese);
+use Math::BigInt;
+use Math::Pari;
+use Math::Prime::Util;
+
+my $u = 40902;
+my $v = 24140;
+cmpthese(-5, {
+  'gcd_rec' => sub { gcd($u, $v); },
+  'gcd_iter' => sub { gcd_iter($u, $v); },
+  'gcd_bin' => sub { gcd_bin($u, $v); },
+  'gcd_bigint' => sub { Math::BigInt::bgcd($u,$v)->numify(); },
+  'gcd_pari' => sub { Math::Pari::gcd($u,$v)->pari2iv(); },
+  'gcd_mpu' => sub { Math::Prime::Util::gcd($u,$v); },
+});
+
+__END__
+
+                Rate gcd_bigint   gcd_bin   gcd_rec  gcd_iter gcd_pari   gcd_mpu
+gcd_bigint   12605/s         --      -92%      -96%      -98%     -99%     -100%
+gcd_bin     166125/s      1218%        --      -51%      -74%     -86%      -97%
+gcd_rec     337959/s      2581%      103%        --      -47%     -72%      -94%
+gcd_iter    638859/s      4968%      285%       89%        --     -48%      -88%
+gcd_pari   1225921/s      9625%      638%      263%       92%       --      -77%
+gcd_mpu    5432589/s     42998%     3170%     1507%      750%     343%        --
