@@ -1,0 +1,40 @@
+#!/usr/local/bin/perl
+#u# http://rosettacode.org/wiki/HTTPS/Authenticated
+#t# skiptest
+#c# 2018-08-11 <RC
+#p# OK
+#n# credentials fail at this time...
+
+use feature 'say';
+my $result;
+
+# Library: LWP
+
+use LWP::UserAgent qw();
+my $ua = LWP::UserAgent->new;
+my $netloc = 'http://www.buddhism-dict.net/cgi-bin/xpr-dealt.pl:80';
+$ua->credentials(
+   $netloc,
+   'CJK-E and Buddhist Dictionaries', # basic realm
+   'guest',  # user
+   '',       # empty pw
+);
+
+
+#use WWW::Mechanize qw();
+#my $mech = WWW::Mechanize->new;
+#$mech->get('https://login.yahoo.com/');
+#$mech->submit_form(with_fields => {
+#    login         => 'XXXXXX',
+#    passwd        => 'YYYYYY',
+#    '.persistent' => 'y',  # tick checkbox
+#});
+
+
+say $result; 
+my $ref = <<'EOD';
+EOD
+
+use Test::More;
+#is ($result, $ref);
+#done_testing();
