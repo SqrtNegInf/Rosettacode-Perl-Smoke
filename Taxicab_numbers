@@ -1,0 +1,112 @@
+#!/usr/local/bin/perl
+#u# http://rosettacode.org/wiki/Taxicab_numbers
+#c# 2018-08-11 <RC
+#p# OK
+
+use feature 'say';
+my $result;
+
+
+Uses segmentation so memory use is constrained as high values are searched for. Also has parameter to look for Ta(3) and Ta(4) numbers (which is when segmentation is really needed). By default shows the first 25 numbers; with one argument shows that many; with two arguments shows results in the range.
+
+my($beg, $end) = (@ARGV==0) ? (1,25) : (@ARGV==1) ? (1,shift) : (shift,shift);
+
+my $lim = 1e14;  # Ought to be dynamic as should segment size
+my @basis = map { $_*$_*$_ } (1 .. int($lim ** (1.0/3.0) + 1));
+my $paira = 2;  # We're looking for Ta(2) and larger
+
+my ($segsize, $low, $high, $i) = (500_000_000, 0, 0, 0);
+
+while ($i < $end) {
+  $low = $high+1;
+  die "lim too low" if $low > $lim;
+  $high = $low + $segsize - 1;
+  $high = $lim if $high > $lim;
+  foreach my $p (_find_pairs_segment(\@basis, $paira, $low, $high,
+                 sub { sprintf("%4d^3 + %4d^3", $_[0], $_[1]) })    ) {
+    $i++;
+    next if $i < $beg;
+    last if $i > $end;
+    my $n = shift @$p;
+    printf "%4d: %10d  = %s\n", $i, $n, join("  = ", @$p);
+  }
+}
+
+sub _find_pairs_segment {
+  my($p, $len, $start, $end, $formatsub) = @_;
+  my $plen = $#$p;
+
+  my %allpairs;
+  foreach my $i (0 .. $plen) {
+    my $pi = $p->[$i];
+    next if ($pi+$p->[$plen]) < $start;
+    last if (2*$pi) > $end;
+    foreach my $j ($i .. $plen) {
+      my $sum = $pi + $p->[$j];
+      next if $sum < $start;
+      last if $sum > $end;
+      push @{ $allpairs{$sum} }, $i, $j;
+    }
+    # If we wanted to save more memory, we could filter and delete every entry
+    # where $n < 2 * $p->[$i+1].  This can cut memory use in half, but is slow.
+  }
+
+  my @retlist;
+  foreach my $list (grep { scalar @$_ >= $len*2 } values %allpairs) {
+    my $n = $p->[$list->[0]] + $p->[$list->[1]];
+    my @pairlist;
+    while (@$list) {
+      push @pairlist, $formatsub->(1 + shift @$list, 1 + shift @$list);
+    }
+    push @retlist, [$n, @pairlist];
+  }
+  @retlist = sort { $a->[0] <=> $b->[0] } @retlist;
+  return @retlist;
+}
+
+Output:
+   1:       1729  =    1^3 +   12^3  =    9^3 +   10^3
+   2:       4104  =    2^3 +   16^3  =    9^3 +   15^3
+   3:      13832  =    2^3 +   24^3  =   18^3 +   20^3
+   4:      20683  =   10^3 +   27^3  =   19^3 +   24^3
+   5:      32832  =    4^3 +   32^3  =   18^3 +   30^3
+   6:      39312  =    2^3 +   34^3  =   15^3 +   33^3
+   7:      40033  =    9^3 +   34^3  =   16^3 +   33^3
+   8:      46683  =    3^3 +   36^3  =   27^3 +   30^3
+   9:      64232  =   17^3 +   39^3  =   26^3 +   36^3
+  10:      65728  =   12^3 +   40^3  =   31^3 +   33^3
+  11:     110656  =    4^3 +   48^3  =   36^3 +   40^3
+  12:     110808  =    6^3 +   48^3  =   27^3 +   45^3
+  13:     134379  =   12^3 +   51^3  =   38^3 +   43^3
+  14:     149389  =    8^3 +   53^3  =   29^3 +   50^3
+  15:     165464  =   20^3 +   54^3  =   38^3 +   48^3
+  16:     171288  =   17^3 +   55^3  =   24^3 +   54^3
+  17:     195841  =    9^3 +   58^3  =   22^3 +   57^3
+  18:     216027  =    3^3 +   60^3  =   22^3 +   59^3
+  19:     216125  =    5^3 +   60^3  =   45^3 +   50^3
+  20:     262656  =    8^3 +   64^3  =   36^3 +   60^3
+  21:     314496  =    4^3 +   68^3  =   30^3 +   66^3
+  22:     320264  =   18^3 +   68^3  =   32^3 +   66^3
+  23:     327763  =   30^3 +   67^3  =   51^3 +   58^3
+  24:     373464  =    6^3 +   72^3  =   54^3 +   60^3
+  25:     402597  =   42^3 +   69^3  =   56^3 +   61^3
+
+With arguments 2000 2006:
+
+2000: 1671816384  =  428^3 + 1168^3  =  940^3 +  944^3
+2001: 1672470592  =   29^3 + 1187^3  =  632^3 + 1124^3
+2002: 1673170856  =  458^3 + 1164^3  =  828^3 + 1034^3
+2003: 1675045225  =  522^3 + 1153^3  =  744^3 + 1081^3
+2004: 1675958167  =  492^3 + 1159^3  =  711^3 + 1096^3
+2005: 1676926719  =   63^3 + 1188^3  =  714^3 + 1095^3
+2006: 1677646971  =   99^3 + 1188^3  =  891^3 +  990^3
+
+
+
+say $result; 
+my $ref = <<'EOD';
+EOD
+
+use Test::More;
+#is ($result, $ref);
+#done_testing();
