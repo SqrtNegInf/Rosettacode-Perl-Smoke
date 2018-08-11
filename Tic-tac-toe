@@ -1,0 +1,167 @@
+#!/usr/local/bin/perl
+#u# http://rosettacode.org/wiki/Tic-tac-toe
+#t# interactive
+#c# 2018-08-10 <RC
+#p# OK
+
+# A basic negamax search (with caching) is done to find the best move.
+# If there are several equally good moves, one of them is selected randomly.
+# The computer player is not perfect, and so a human player can sometimes win.
+# This is not perl's fault, but mine; it ought to always be a tie, or a win for
+# the computer. Anyone who can identify the mistake, is welcome to fix it.
+
+use warnings;
+use strict;
+
+my $initial = join ",", qw(abc def ghi);
+my %reverse = qw(X O O X);
+
+# In list context, returns best move,
+# In scalar context, returns the score of best move.
+my %cache;
+sub best_move {
+	my ($b, $me) = @_;
+	if( exists $cache{$b,$me,wantarray} ) {
+		return $cache{$b,$me,wantarray};
+	} elsif( my $s = score( $b, $me ) ) {
+		return $cache{$b,$me,wantarray} = (wantarray ? undef : $s);
+	}
+	my $him = $reverse{$me};
+	my ($best, @best) = (-999);
+	for my $m (moves($b)) {
+		(my $with_m = $b) =~ s/$m/$me/ or die;
+		# The || operator supplies scalar context to best_move(...)
+		my $s = -(score($with_m, $him) || best_move($with_m, $him));
+		if( $s > $best ) {
+			($best, @best) = ($s, $m);
+		} elsif( $s == $best ) {
+			push @best, $m;
+		}
+	}
+	$cache{$b,$me,wantarray} = wantarray ? $best[rand @best] : $best;
+}
+
+my $winner = q[([XOxo])(?:\1\1|...\1...\1|..\1..\1|....\1....\1)];
+sub score {
+	my ($b, $me) = @_;
+	$b =~ m/$winner/o or return 0;
+	return $1 eq $me ? +1 : -1;
+}
+
+sub moves {
+	my ($b) = @_;
+	$b =~ /([^xoXO,\n])/g;
+}
+
+sub print_board {
+	my ($b) = @_;
+	$b =~ s/\B/|/g;
+	$b =~ s/,/\n-+-+-\n/g;
+	print $b, "\n";
+}
+
+sub prompt {
+	my ($b, $color) = @_;
+	my @moves = moves($b);
+	unless( @moves ) {
+		return;
+	}
+	while( 1 ) {
+		print "Place your $color on one of [@moves]: ";
+		defined(my $m = <>) or return;
+		chomp($m);
+		return $m if grep $m eq $_, @moves;
+	}
+}
+
+my @players = (
+	{ whose => "your", name => "You",
+	  verb => "You place", get_move => \&prompt },
+	{ whose => "the computer's", name => "Computer",
+	  verb => "The computer places", get_move => \&best_move },
+);
+my $whose_turn = int rand 2;
+
+my $color = "X";
+my $b = $initial;
+
+while( 1 ) {
+	my $p = $players[$whose_turn];
+	print_board($b);
+	print "It is $p->{whose} turn.\n";
+	# The parens around $m supply list context to the right side
+	# or the = operator, which causes sub best_move to return the
+	# best move, rather than the score of the best move.
+	my ( $m ) = $p->{get_move}->($b, $color);
+	if( $m ) {
+		print "$p->{verb} an $color at $m\n";
+		$b =~ s/$m/$color/;
+		my $s = score($b, $color) or next;
+		print_board($b);
+		print "$p->{name} ", $s > 0 ? "won!\n" : "lost!\n";
+	} else {
+		print "$p->{name} cannot move.\n";
+	}
+	print "Game over.\nNew Game...\n";
+	($b, $color, $whose_turn) = ($initial, "X", int rand 2);
+	redo;
+} continue {
+	$color = $reverse{$color};
+	$whose_turn = !$whose_turn;
+}
+
+my $ref = <<'EOD';
+a|b|c
+-+-+-
+d|e|f
+-+-+-
+g|h|i
+It is your turn.
+Place your X on one of [a b c d e f g h i]: e
+You place an X at e
+a|b|c
+-+-+-
+d|X|f
+-+-+-
+g|h|i
+It is the computer's turn.
+The computer places an O at c
+a|b|O
+-+-+-
+d|X|f
+-+-+-
+g|h|i
+It is your turn.
+Place your X on one of [a b d f g h i]: a
+You place an X at a
+X|b|O
+-+-+-
+d|X|f
+-+-+-
+g|h|i
+It is the computer's turn.
+The computer places an O at f
+X|b|O
+-+-+-
+d|X|O
+-+-+-
+g|h|i
+It is your turn.
+Place your X on one of [b d g h i]: i
+You place an X at i
+X|b|O
+-+-+-
+d|X|O
+-+-+-
+g|h|X
+You won!
+Game over.
+New Game...
+a|b|c
+-+-+-
+d|e|f
+-+-+-
+g|h|i
+It is your turn.
+Place your X on one of [a b c d e f g h i]:
+EOD
