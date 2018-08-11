@@ -1,0 +1,51 @@
+#!/usr/local/bin/perl
+#u# http://rosettacode.org/wiki/Text_processing/2
+#c# 2018-08-11 <RC
+#p# OK
+
+use feature 'say';
+my $result;
+
+use List::MoreUtils 'natatime';
+use constant FIELDS => 49;
+
+binmode STDIN, ':crlf';
+  # Read the newlines properly even if we're not running on
+  # Windows.
+
+my ($line, $good_records, %dates) = (0, 0);
+open F, '<', 'ref/text-proc.txt';
+while ($_ = <F>)
+   {++$line;
+    my @fs = split /\s+/;
+    @fs == FIELDS or die "$line: Bad number of fields.\n";
+    for (shift @fs)
+       {/\d{4}-\d{2}-\d{2}/ or die "$line: Bad date format.\n";
+        ++$dates{$_};}
+    my $iterator = natatime 2, @fs;
+    my $all_flags_okay = 1;
+    while ( my ($val, $flag) = $iterator->() )
+       {$val =~ /\d+\.\d+/ or die "$line: Bad value format.\n";
+        $flag =~ /\A-?\d+/ or die "$line: Bad flag format.\n";
+        $flag < 1 and $all_flags_okay = 0;}
+    $all_flags_okay and ++$good_records;}
+
+push @res, "Good records: $good_records\n".
+   "Repeated timestamps:\n";
+push @res, map {"  $_\n"} grep {$dates{$_} > 1} sort keys %dates;
+
+say $result = join '', @res; 
+
+my $ref = <<'EOD';
+Good records: 5017
+Repeated timestamps:
+  1990-03-25
+  1991-03-31
+  1992-03-29
+  1993-03-28
+  1995-03-26
+EOD
+
+use Test::More;
+is ($result, $ref);
+done_testing();
