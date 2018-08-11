@@ -1,0 +1,7 @@
+#!/usr/local/bin/perl
+#u# http://rosettacode.org/wiki/Globally_replace_text_in_several_files
+#n# skiptest
+#c# 2018-08-11 <RC
+#p# OK
+
+# perl -pi -e "s/Goodbye London\!/Hello New York\!/g;" a.txt b.txt c.txt
