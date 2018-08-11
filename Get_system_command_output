@@ -1,0 +1,56 @@
+#!/usr/local/bin/perl
+#u# http://rosettacode.org/wiki/Get_system_command_output
+#c# 2018-08-10 <RC
+#p# OK
+
+use feature 'say';
+my $result;
+
+# Uses the qx{} construct (which is a synonym for backticks, e.g. `command`) to execute a given command and redirect its output.
+# A (somewhat contrived*) example, capturing only STDOUT:
+
+my @directories = grep { chomp; -d } `ls`;
+for (@directories) {
+    $result .= "$_\n";
+}
+
+# Perl's opendir function should be used in preference to parsing ls--it's safer, faster, and more portable.
+# Perl also honors shell redirections:
+
+#my $command = shift or die "No command supplied\n";
+$command = 'uname';
+my @output_and_errors = qx/$command 2>&1/ or die "Couldn't execute command\n";
+$result .= shift @output_and_errors;
+
+# qx// is implemented internally with the built-in function readpipe, which can be invoked directly as readpipe EXPR (where EXPR is some command) and assigned to scalars or lists just like qx/command/ or `command`.
+# The open command can also be used to open pipes using the -| mode:
+
+use autodie;
+my $enc = ':encoding(UTF-8)';
+my $child_pid = open(my $pipe, "-|$enc", 'ls');
+while (<$pipe>) {
+  # Print all files whose names are all lowercase
+    $result .= $_ if m/^Array/;
+}
+
+say $result; 
+
+my $ref = << 'END';
+_Inline
+bench
+bin
+exp
+lib
+meta
+ref
+run
+tmp
+Darwin
+Array_concatenation
+Array_length
+Arrays
+END
+
+use Test::More;
+is ($result, $ref);
+done_testing();
