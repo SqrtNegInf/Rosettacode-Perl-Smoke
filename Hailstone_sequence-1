@@ -1,0 +1,54 @@
+#!/usr/local/bin/perl
+#u# http://rosettacode.org/wiki/Hailstone_sequence
+#c# 2018-08-11 <RC
+#p# OK
+
+use feature 'say';
+my $result;
+
+use warnings;
+use strict;
+
+my @h = hailstone(27);
+$result .= "Length of hailstone(27) = " . scalar @h . "\n";
+$result .= "[" . join(", ", @h[0 .. 3], "...", @h[-4 .. -1]) . "]\n";
+
+my ($max, $n) = (0, 0);
+for my $x (1 .. 99_999) {
+    @h = hailstone($x);
+    if (scalar @h > $max) {
+        ($max, $n) = (scalar @h, $x);
+    }
+}
+
+$result .= "Max length $max was found for hailstone($n) for numbers < 100_000\n";
+
+sub hailstone {
+    my ($n) = @_;
+
+    my @sequence = ($n);
+
+    while ($n > 1) {
+        if ($n % 2 == 0) {
+            $n = int($n / 2);
+        } else {
+            $n = $n * 3 + 1;
+        }
+
+        push @sequence, $n;
+    }
+
+    return @sequence;
+}
+
+say $result;
+
+my $ref = <<'END';
+Length of hailstone(27) = 112
+[27, 82, 41, 124, ..., 8, 4, 2, 1]
+Max length 351 was found for hailstone(77031) for numbers < 100_000
+END
+
+use Test::More;
+is ($result, $ref);
+done_testing();
