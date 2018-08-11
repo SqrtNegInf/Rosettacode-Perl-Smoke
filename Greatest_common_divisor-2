@@ -1,0 +1,22 @@
+#!/usr/local/bin/perl
+#u# http://rosettacode.org/wiki/Greatest_common_divisor
+#c# 2018-08-11 <RC
+#p# OK
+
+use feature 'say';
+my $result;
+
+sub gcd($$) {
+  my ($u, $v) = @_;
+  if ($v) {
+    return gcd($v, $u % $v);
+  } else {
+    return abs($u);
+  }
+}
+
+say $result = gcd(49865, 69811);
+
+use Test::More;
+is ($result, 9973);
+done_testing();
