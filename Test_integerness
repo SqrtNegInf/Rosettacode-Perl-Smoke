@@ -1,0 +1,40 @@
+#!/usr/local/bin/perl
+#u# http://rosettacode.org/wiki/Test_integerness
+#c# 2018-08-11 <RC
+#p# OK
+
+use feature 'say';
+my $result;
+
+use Math::Complex;
+
+sub is_int {
+    my $number = shift;
+
+    if (ref $number eq 'Math::Complex') {
+        return 0 if $number->Im != 0;
+        $number = $number->Re;
+    }
+
+    return int($number) == $number;
+}
+
+for (5, 4.1, sqrt(2), sqrt(4), 1.1e10, 3.0-0.0*i, 4-3*i, 5.6+0*i) {
+    $result .= sprintf "%20s is%s an integer\n", $_, (is_int($_) ? "" : " NOT");
+}
+
+say $result; 
+my $ref = <<'EOD';
+                   5 is an integer
+                 4.1 is NOT an integer
+     1.4142135623731 is NOT an integer
+                   2 is an integer
+         11000000000 is an integer
+                   3 is an integer
+                4-3i is NOT an integer
+                 5.6 is NOT an integer
+EOD
+
+use Test::More;
+is ($result, $ref);
+done_testing();
