@@ -1,0 +1,32 @@
+#!/usr/local/bin/perl
+#u# http://rosettacode.org/wiki/Hailstone_sequence
+#c# 2018-08-11 <RC
+#p# OK
+
+use feature 'say';
+my $result;
+
+use strict;
+
+sub hailstone {
+    @_ = local $_ = shift;
+    push @_, $_ = $_ % 2 ? 3 * $_ + 1 : $_ / 2 while $_ > 1;
+    @_;
+}
+
+my @h = hailstone($_ = 27);
+$result .= "$_: @h[0 .. 3] ... @h[-4 .. -1] (".@h.")\n";
+
+@h = ();
+for (1 .. 99_999) { @h = ($_, $h[2]) if ($h[2] = hailstone($_)) > $h[1] }
+$result .= sprintf "%d: (%d)\n", @h;
+
+say $result;
+my $ref = <<'END';
+27: 27 82 41 124 ... 8 4 2 1 (112)
+77031: (351)
+END
+
+use Test::More;
+is ($result, $ref);
+done_testing();
