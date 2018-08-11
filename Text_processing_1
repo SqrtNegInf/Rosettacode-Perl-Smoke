@@ -1,0 +1,218 @@
+#!/usr/local/bin/perl
+#u# http://rosettacode.org/wiki/Text_processing/1
+#c# 2018-08-11 <RC
+#p# OK
+
+use feature 'say';
+my $result;
+
+
+# An AWK-like solution[edit]
+use strict;
+use warnings;
+
+my $nodata = 0;               # Current run of consecutive flags<0 in lines of file
+my $nodata_max = -1;          # Max consecutive flags<0 in lines of file
+my $nodata_maxline = "!";     # ... and line number(s) where it occurs
+
+#my $infiles = join ", ", @ARGV;
+
+my $tot_file = 0;
+my $num_file = 0;
+
+open F, '<', 'ref/text-proc.txt';
+while ($_ = <F>) {
+  chomp;
+  my $tot_line = 0;             # sum of line data
+  my $num_line = 0;             # number of line data items with flag>0
+  my $rejects  = 0;
+
+  # extract field info, skipping initial date field
+  my ($date, @fields) = split;
+  while (@fields and my ($datum, $flag) = splice @fields, 0, 2) {
+    if ($flag+1 < 2) {
+      $nodata++;
+      $rejects++;
+      next;
+    }
+
+    # check run of data-absent fields
+    if($nodata_max == $nodata and $nodata > 0){
+      $nodata_maxline = "$nodata_maxline, $date";
+    }
+    if($nodata_max < $nodata and $nodata > 0){
+      $nodata_max = $nodata;
+      $nodata_maxline = $date;
+    }
+    # re-initialise run of nodata counter
+    $nodata = 0; 
+    # gather values for averaging
+    $tot_line += $datum;
+    $num_line++;
+  }
+
+  # totals for the file so far
+  $tot_file += $tot_line;
+  $num_file += $num_line;
+
+  #printf "Line: %11s  Reject: %2i  Accept: %2i  Line_tot: %10.3f  Line_avg: %10.3f\n",
+  #       $date, $rejects, $num_line, $tot_line, ($num_line>0)? $tot_line/$num_line: 0;
+
+}
+
+printf "\n";
+#$result .= sprintf "File(s)  = %s\n", $infiles;
+$result .= sprintf "Total    = %10.3f\n", $tot_file;
+$result .= sprintf "Readings = %6i\n", $num_file;
+$result .= sprintf "Average  = %10.3f\n", $tot_file / $num_file;
+
+$result .= sprintf "\nMaximum run(s) of %i consecutive false readings ends at line starting with date(s): %s\n", 
+       $nodata_max, $nodata_maxline;
+
+#bash$ perl -f readings.pl readings.txt | tail
+say $result; 
+my $ref = <<'EOD';
+Total    = 1358393.400
+Readings = 129403
+Average  =     10.497
+
+Maximum run(s) of 589 consecutive false readings ends at line starting with date(s): 1993-03-05
+EOD
+
+use Test::More;
+is ($result, $ref);
+done_testing();
+
+__END__
+# An object-oriented solution[edit]
+use strict;
+use warnings;
+
+use constant RESULT_TEMPLATE => "%-19s = %12.3f / %-6u = %.3f\n";
+
+my $parser = Parser->new;
+
+# parse lines and print results
+printf RESULT_TEMPLATE, $parser->parse(split)
+    while <>;
+
+$parser->finish;
+
+# print total and summary
+printf "\n".RESULT_TEMPLATE."\n", $parser->result;
+printf "the maximum of %u consecutive bad values was reached %u time(s)\n",
+    $parser->bad_max, scalar $parser->bad_ranges;
+
+# print bad ranges
+print for map { '  '.join(' - ', @$_)."\n" } $parser->bad_ranges;
+
+BEGIN {
+    package main::Parser;
+
+    sub new {
+        my $obj = {
+            SUM => 0,
+            COUNT => 0,
+            CURRENT_DATE => undef,
+            BAD_DATE => undef,
+            BAD_RANGES => [],
+            BAD_MAX => 0,
+            BAD_COUNT => 0
+        };
+
+        return bless $obj;
+    }
+
+    sub _average {
+        my ($sum, $count) = @_;
+        return ($sum, $count, $count && $sum / $count);
+    }
+
+    sub _push_bad_range_if_necessary {
+        my ($parser) = @_;
+        my ($count, $max) = @$parser{qw(BAD_COUNT BAD_MAX)};
+
+        return if $count < $max;
+
+        if ($count > $max) {
+            $parser->{BAD_RANGES} = [];
+            $parser->{BAD_MAX} = $count;
+        }
+
+        push @{$parser->{BAD_RANGES}}, [ @$parser{qw(BAD_DATE CURRENT_DATE)} ];
+    }
+
+    sub _check {
+        my ($parser, $flag) = @_;
+        if ($flag <= 0) {
+            ++$parser->{BAD_COUNT};
+            $parser->{BAD_DATE} = $parser->{CURRENT_DATE}
+                unless defined $parser->{BAD_DATE};
+
+            return 0;
+        }
+        else {
+            $parser->_push_bad_range_if_necessary;
+            $parser->{BAD_COUNT} = 0;
+            $parser->{BAD_DATE} = undef;
+            return 1;
+        }
+    }
+
+    sub bad_max {
+        my ($parser) = @_;
+        return $parser->{BAD_MAX}
+    }
+
+    sub bad_ranges {
+        my ($parser) = @_;
+        return @{$parser->{BAD_RANGES}}
+    }
+
+    sub parse {
+        my $parser = shift;
+        my $date = shift;
+
+        $parser->{CURRENT_DATE} = $date;
+
+        my $sum = 0;
+        my $count = 0;
+
+        while (my ($value, $flag) = splice @_, 0, 2) {
+            next unless $parser->_check($flag);
+            $sum += $value;
+            ++$count;
+        }
+
+        $parser->{SUM} += $sum;
+        $parser->{COUNT} += $count;
+
+        return ("average($date)", _average($sum, $count));
+    }
+
+    sub result {
+        my ($parser) = @_;
+        return ('total-average', _average(@$parser{qw(SUM COUNT)}));
+    }
+
+    sub finish {
+        my ($parser) = @_;
+        $parser->_push_bad_range_if_necessary
+    }
+}
+
+Sample output:
+$ perl readings.pl < readings.txt | tail
+average(2004-12-27) =       57.100 / 23     = 2.483
+average(2004-12-28) =       77.800 / 23     = 3.383
+average(2004-12-29) =       56.300 / 23     = 2.448
+average(2004-12-30) =       65.300 / 23     = 2.839
+average(2004-12-31) =       47.300 / 23     = 2.057
+
+total-average       =  1358393.400 / 129403 = 10.497
+
+the maximum of 589 consecutive bad values was reached 1 time(s)
+  1993-02-09 - 1993-03-05
+
+$
+
