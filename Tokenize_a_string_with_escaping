@@ -1,0 +1,46 @@
+#!/usr/local/bin/perl
+#u# http://rosettacode.org/wiki/Tokenize_a_string_with_escaping
+#c# 2018-08-10 <RC
+#p# OK
+
+use feature 'say';
+
+# The built-in split function can be used with a regex that matches the delimiter (although advanced backtracking control verbs are needed to skip escaped delimiters):
+
+sub tokenize1 {
+    my ($string, $sep, $esc) = (shift, quotemeta shift, quotemeta shift);
+
+    my @fields = split /$esc . (*SKIP)(*FAIL) | $sep/sx, $string, -1;
+    return map { s/$esc(.)/$1/gsr } @fields;
+}
+
+# A more traditional approach is to parse the input string step by step (using a repeatedly-matching regex of the form /\G.../g), and throw away the separators (which can be done implicitly using \K):
+
+$string = 'one^|uno||three^^^^|four^^^|^cuatro|';
+
+
+sub tokenize2 {
+    my ($string, $sep, $esc) = (shift, quotemeta shift, quotemeta shift);
+
+    my @fields = $string =~ /\G (?:^ | $sep) \K (?: [^$sep$esc] | $esc .)*/gsx;
+    return map { s/$esc(.)/$1/gsr } @fields;
+}
+
+# In both cases, stripping the escape characters happens as a separate step.
+
+$result1 .= "'$_'\n" for tokenize1($string, '|', '^');
+$result2 .= "'$_'\n" for tokenize2($string, '|', '^');
+print $result;
+
+my $ref = <<'EOD';
+'one|uno'
+''
+'three^^'
+'four^|cuatro'
+''
+EOD
+
+use Test::More;
+is ($result1, $ref);
+is ($result2, $ref);
+done_testing();
