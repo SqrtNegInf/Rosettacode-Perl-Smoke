@@ -1,0 +1,33 @@
+#!/usr/local/bin/perl
+#u# http://rosettacode.org/wiki/Sum_and_product_of_an_array
+#c# 2018-08-12 <RC
+#p# OK
+
+use feature 'say';
+my $result;
+
+my @list = ( 1, 2, 3, 4 );
+
+my ( $sum, $prod ) = ( 0, 1 );
+$sum  += $_ foreach @list;
+$prod *= $_ foreach @list;
+$result = "Sum: $sum\nProduct: $prod\n";
+# Or using the List::Util module:
+
+use List::Util qw/sum0 product/;
+@list = (1..9);
+$result .= sprintf "Sum: %d\n", sum0(@list);    # sum0 returns 0 for an empty list
+$result .= sprintf "Product: %d\n", product(@list);
+
+say $result; 
+
+my $ref = <<'EOD';
+Sum: 10
+Product: 24
+Sum: 45
+Product: 362880
+EOD
+
+use Test::More;
+is ($result, $ref);
+done_testing();
