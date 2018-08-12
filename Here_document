@@ -1,0 +1,97 @@
+#!/usr/local/bin/perl
+#u# http://rosettacode.org/wiki/Here_document
+#c# 2018-08-12 <RC
+#p# OK
+
+use feature 'say';
+my $result;
+
+
+# In Perl, there must not be a space between the "<<" and the token string. The ending token must always be the entire end line (i.e. no surrounding spaces) for it to be recognised. Interpolation is allowed, like a double-quoted string:
+
+$town_name = 'Worchestershire';
+$result = <<END;
+1, High Street,
+$town_name,
+West Midlands.
+WM4 5HD.
+END
+# If the token string contains spaces, the token after the "<<" must be quoted; otherwise the double-quotes is implicit:
+
+$result .= <<"NO MORE INGREDIENTS";
+egg
+milk
+flour
+NO MORE INGREDIENTS
+
+# It is possible to make a here-document that behaves differently than a double-quoted string, by applying a different kind of quoting to the token. For example, if you use single quotes, then the here document will not support interpolation, like a normal single-quoted string:
+
+$result .= <<'FOO';
+No
+$interpolation
+here
+FOO
+
+#Alternately, you can use backticks to cause the here document to be executed
+#and the result returned, just like a normal backtick operator:
+
+$result .= <<`BAR`;
+ls ref/test 
+BAR
+
+# Note that in the above examples, that a semicolon was left
+# after the here document's token string.
+# This is because (unlike PHP) the here document does not start
+# immediately at the "<<END" token -- it starts on the next line.
+# The "<<END" is actually an expression, whose value will be substituted
+# by the contents of the here document.
+# The "<<END" must still live inside a valid statement on the line that it's used.
+# To further illustrate this fact, we can use the "<<END" inside a complex,
+# nested expression:
+
+$result .=(<<EOF . "lamb\n");
+Mary had
+  a little
+EOF
+
+#Although, technically speaking, it is also possible to break a statement
+#into two parts, with the here document in the middle
+#(i.e. continue the statement on the line after the terminating token).
+#However, please don't do this.
+
+$result .=(<<EOF
+Mary had
+  a little
+EOF
+   . "lamb\n");
+
+
+say $result; 
+my $ref = <<'EOD';
+1, High Street,
+Worchestershire,
+West Midlands.
+WM4 5HD.
+egg
+milk
+flour
+No
+$interpolation
+here
+dir1
+dir2
+dir3
+not-in-kansas.txt
+reverse_words.txt
+sample.txt
+Mary had
+  a little
+lamb
+Mary had
+  a little
+lamb
+EOD
+
+use Test::More;
+is ($result, $ref);
+done_testing();
