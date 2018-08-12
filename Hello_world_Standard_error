@@ -1,0 +1,11 @@
+#!/usr/local/bin/perl
+#u# http://rosettacode.org/wiki/Hello_world/Standard_error
+#t# skiptest
+#c# 2018-08-12 <RC
+#p# OK
+
+warn "Goodbye, World!\n";
+
+#Or:
+
+print STDERR "Goodbye, World!\n";
