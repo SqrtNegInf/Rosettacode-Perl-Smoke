@@ -1,0 +1,26 @@
+#!/usr/local/bin/perl
+#u# http://rosettacode.org/wiki/Happy_numbers
+#c# 2018-08-12 <RC
+#p# OK
+
+use feature 'say';
+my $result;
+
+# Since all recurrences end with 1 or repeat (37,58,89,145,42,20,4,16), we can do this test very quickly without having to make hashes of seen numbers.
+
+use List::Util qw(sum);
+
+sub ishappy {
+  my $s = shift;
+  while ($s > 6 && $s != 89) {
+    $s = sum(map { $_*$_ } split(//,$s));
+  }
+  $s == 1;
+}
+
+my $n = 0;
+say $result = join(" ", map { 1 until ishappy(++$n); $n; } 1..8);
+
+use Test::More;
+is ($result, '1 7 10 13 19 23 28 31');
+done_testing();
