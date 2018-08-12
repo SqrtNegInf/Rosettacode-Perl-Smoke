@@ -1,0 +1,53 @@
+#!/usr/local/bin/perl
+#u# http://rosettacode.org/wiki/Hash_join
+#c# 2018-08-12 <RC
+#p# OK
+
+use feature 'say';
+my $result;
+
+use Data::Dumper qw(Dumper);
+
+sub hashJoin {
+    my ($table1, $index1, $table2, $index2) = @_;
+    my %h;
+    # hash phase
+    foreach my $s (@$table1) {
+	push @{ $h{$s->[$index1]} }, $s;
+    }
+    # join phase
+    map { my $r = $_;
+	  map [$_, $r], @{ $h{$r->[$index2]} }
+    } @$table2;
+}
+
+@table1 = ([27, "Jonah"],
+           [18, "Alan"],
+           [28, "Glory"],
+           [18, "Popeye"],
+           [28, "Alan"]);
+@table2 = (["Jonah", "Whales"],
+           ["Jonah", "Spiders"],
+           ["Alan", "Ghosts"],
+           ["Alan", "Zombies"],
+           ["Glory", "Buffy"]);
+
+$Data::Dumper::Indent = 0;
+foreach my $row (hashJoin(\@table1, 1, \@table2, 0)) {
+    $result .= Dumper($row) . "\n";
+}
+
+say $result; 
+my $ref = <<'EOD';
+$VAR1 = [[27,'Jonah'],['Jonah','Whales']];
+$VAR1 = [[27,'Jonah'],['Jonah','Spiders']];
+$VAR1 = [[18,'Alan'],['Alan','Ghosts']];
+$VAR1 = [[28,'Alan'],['Alan','Ghosts']];
+$VAR1 = [[18,'Alan'],['Alan','Zombies']];
+$VAR1 = [[28,'Alan'],['Alan','Zombies']];
+$VAR1 = [[28,'Glory'],['Glory','Buffy']];
+EOD
+
+use Test::More;
+is ($result, $ref);
+done_testing();
