@@ -1,0 +1,36 @@
+#!/usr/local/bin/perl
+#u# http://rosettacode.org/wiki/Sum_of_a_series
+#c# 2018-08-12 <RC
+#p# OK
+
+use feature 'say';
+my $result;
+
+my $sum = 0;
+$sum += 1 / $_ ** 2 foreach 1..1000;
+$result .= "$sum\n";
+
+#or
+
+use List::Util qw(reduce);
+$sum = reduce { $a + 1 / $b ** 2 } 0, 1..1000;
+$result .= "$sum\n";
+
+# An other way of doing it is to define the series as a closure:
+
+my $S = do { my ($sum, $k); sub { $sum += 1/++$k**2 } };
+my @S = map &$S, 1 .. 1000;
+$result .= $S[-1];
+
+say $result; 
+
+my $ref = <<'EOD';
+1.64393456668156
+1.64393456668156
+1.64393456668156
+EOD
+
+use Test::More;
+chop $ref;
+is ($result, $ref);
+done_testing();
