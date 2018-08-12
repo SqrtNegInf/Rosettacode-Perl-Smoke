@@ -6,10 +6,10 @@
 use feature 'say';
 my $result;
 
+# Uses segmentation so memory use is constrained as high values are searched for. Also has parameter to look for Ta(3) and Ta(4) numbers (which is when segmentation is really needed). By default shows the first 25 numbers; with one argument shows that many; with two arguments shows results in the range.
 
-Uses segmentation so memory use is constrained as high values are searched for. Also has parameter to look for Ta(3) and Ta(4) numbers (which is when segmentation is really needed). By default shows the first 25 numbers; with one argument shows that many; with two arguments shows results in the range.
-
-my($beg, $end) = (@ARGV==0) ? (1,25) : (@ARGV==1) ? (1,shift) : (shift,shift);
+#my($beg, $end) = (@ARGV==0) ? (1,25) : (@ARGV==1) ? (1,shift) : (shift,shift);
+my($beg, $end) = (1,25);
 
 my $lim = 1e14;  # Ought to be dynamic as should segment size
 my @basis = map { $_*$_*$_ } (1 .. int($lim ** (1.0/3.0) + 1));
@@ -28,7 +28,7 @@ while ($i < $end) {
     next if $i < $beg;
     last if $i > $end;
     my $n = shift @$p;
-    printf "%4d: %10d  = %s\n", $i, $n, join("  = ", @$p);
+    $result .= sprintf "%4d: %10d  = %s\n", $i, $n, join("  = ", @$p);
   }
 }
 
@@ -64,7 +64,8 @@ sub _find_pairs_segment {
   return @retlist;
 }
 
-Output:
+say $result; 
+my $ref = <<'EOD';
    1:       1729  =    1^3 +   12^3  =    9^3 +   10^3
    2:       4104  =    2^3 +   16^3  =    9^3 +   15^3
    3:      13832  =    2^3 +   24^3  =   18^3 +   20^3
@@ -90,23 +91,8 @@ Output:
   23:     327763  =   30^3 +   67^3  =   51^3 +   58^3
   24:     373464  =    6^3 +   72^3  =   54^3 +   60^3
   25:     402597  =   42^3 +   69^3  =   56^3 +   61^3
-
-With arguments 2000 2006:
-
-2000: 1671816384  =  428^3 + 1168^3  =  940^3 +  944^3
-2001: 1672470592  =   29^3 + 1187^3  =  632^3 + 1124^3
-2002: 1673170856  =  458^3 + 1164^3  =  828^3 + 1034^3
-2003: 1675045225  =  522^3 + 1153^3  =  744^3 + 1081^3
-2004: 1675958167  =  492^3 + 1159^3  =  711^3 + 1096^3
-2005: 1676926719  =   63^3 + 1188^3  =  714^3 + 1095^3
-2006: 1677646971  =   99^3 + 1188^3  =  891^3 +  990^3
-
-
-
-say $result; 
-my $ref = <<'EOD';
 EOD
 
 use Test::More;
-#is ($result, $ref);
-#done_testing();
+is ($result, $ref);
+done_testing();
