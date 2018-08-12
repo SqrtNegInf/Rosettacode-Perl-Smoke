@@ -1,0 +1,54 @@
+#!/usr/local/bin/perl
+#u# http://rosettacode.org/wiki/Hamming_numbers
+#c# 2018-08-12 <RC
+#p# OK
+
+use feature 'say';
+my $result;
+
+use List::Util 'min';
+# If you want the large output, uncomment either the one line
+# marked (1) or the two lines marked (2)
+#use Math::GMP qw/:constant/;        # (1) uncomment this to use Math::GMP
+use Math::GMPz;                     # (2) uncomment this plus later line for Math::GMPz
+
+sub ham_gen {
+	my @s = ([1], [1], [1]);
+	my @m = (2, 3, 5);
+	@m = map { Math::GMPz->new($_) } @m;     # (2) uncomment for Math::GMPz
+
+	return sub {
+		my $n = min($s[0][0], $s[1][0], $s[2][0]);
+		for (0 .. 2) {
+			shift @{$s[$_]} if $s[$_][0] == $n;
+			push @{$s[$_]}, $n * $m[$_]
+		}
+
+		return $n
+	}
+}
+
+my ($h, $i) = ham_gen;
+
+++$i, $result .= $h->(). " " until $i > 20;
+$result .= "...\n";
+
+++$i, $h->() until $i == 1690;
+$result .= ++$i. "-th: ". $h->(). "\n";
+
+# You will need to pick one of the bigint choices
+++$i, $h->() until $i == 999999;
+$result .= sprintf "%d-th: %s\n", ++$i, $h->();
+
+say $result; 
+
+my $ref = <<'EOD';
+1 2 3 4 5 6 8 9 10 12 15 16 18 20 24 25 27 30 32 36 40 ...
+1691-th: 2125764000
+1000000-th: 519312780448388736089589843750000000000000000000000000000000000000000000000000000000
+EOD
+# The core module bigint (Math::BigInt) is very slow, even with the GMP backend. There are some common alternatives. Math::GMP is handy and takes about 15 seconds. Math::GMPz takes slightly more work but finishes in about 5 seconds.
+
+use Test::More;
+is ($result, $ref);
+done_testing();
