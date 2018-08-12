@@ -1,0 +1,119 @@
+#!/usr/local/bin/perl
+#u# http://rosettacode.org/wiki/Sum_to_100
+#c# 2018-08-12 <RC
+#p# OK
+
+# Works with: Perl version 5.10
+
+use warnings;
+use feature qw{ say };
+
+my $string = '123456789';
+my $length = length $string;
+my @possible_ops = ("" , '+', '-');
+
+{
+    my @ops;
+    sub Next {
+        return @ops = (0) x ($length) unless @ops;
+
+        my $i = 0;
+        while ($i < $length) {
+            if ($ops[$i]++ > $#possible_ops - 1) {
+                $ops[$i++] = 0;
+                next
+            }
+            # + before the first number
+            next if 0 == $i && '+' eq $possible_ops[ $ops[0] ];
+
+            return @ops
+        }
+        return
+    }
+}
+
+sub evaluate {
+    my ($expression) = @_;
+    my $sum;
+    $sum += $_ for $expression =~ /([-+]?[0-9]+)/g;
+    return $sum
+}
+
+my %count = ( my $max_count = 0 => 0 );
+
+push @res, 'Show all solutions that sum to 100';
+
+while (my @ops = Next()) {
+    my $expression = "";
+    for my $i (0 .. $length - 1) {
+        $expression .= $possible_ops[ $ops[$i] ];
+        $expression .= substr $string, $i, 1;
+    }
+    my $sum = evaluate($expression);
+    ++$count{$sum};
+    $max_count = $sum if $count{$sum} > $count{$max_count};
+    push @res, $expression if 100 == $sum;
+}
+
+push @res, 'Show the sum that has the maximum number of solutions';
+push @res, "sum: $max_count; solutions: $count{$max_count}";
+
+my $n = 1;
+++$n until ! exists $count{$n};
+push @res, "Show the lowest positive sum that can't be expressed";
+push @res, $n;
+
+push @res, 'Show the ten highest numbers that can be expressed';
+push @res, $_ for (sort { $b <=> $a } keys %count)[0 .. 9];
+
+say $result = join "\n", @res; 
+
+my $ref = <<'EOD';
+Show all solutions that sum to 100
+123-45-67+89
+12-3-4+5-6+7+89
+12+3+4+5-6-7+89
+123+4-5+67-89
+-1+2-3+4+5+6+78+9
+1+2+3-4+5+6+78+9
+12+3-4+5+67+8+9
+1+23-4+56+7+8+9
+1+2+34-5+67-8+9
+1+23-4+5+6+78-9
+123+45-67+8-9
+123-4-5-6-7+8-9
+Show the sum that has the maximum number of solutions
+sum: 9; solutions: 46
+Show the lowest positive sum that can't be expressed
+211
+Show the ten highest numbers that can be expressed
+123456789
+23456790
+23456788
+12345687
+12345669
+3456801
+3456792
+3456790
+3456788
+3456786
+EOD
+
+use Test::More;
+chop $ref;
+is ($result, $ref);
+done_testing();
+
+
+
+__END__
+oneliner version[edit]
+The first task posed can be solved simply with (pay attention to doublequotes around the program: adjust for you OS):
+
+
+perl -E "say for grep{eval $_ == 100} glob '{-,}'.join '{+,-,}',1..9"
+
+While the whole task can be solved by:
+
+
+perl -MList::Util="first" -E "@c[0..10**6]=(0..10**6);say for grep{$e=eval;$c[$e]=undef if $e>=0;$h{$e}++;eval $_==100}glob'{-,}'.join'{+,-,}',1..9;END{say for(sort{$h{$b}<=>$h{$a}}grep{$_>=0}keys %h)[0],first{defined $_}@c;say for(sort{$b<=>$a}grep{$_>0}keys %h)[0..9]}"
