@@ -1,0 +1,34 @@
+#!/usr/local/bin/perl
+#u# http://rosettacode.org/wiki/Happy_numbers
+#c# 2018-08-12 <RC
+#p# OK
+
+use feature 'say';
+my $result;
+
+# Or we can solve using only the rudimentary task knowledge as below. Note the slightly different ways of doing the digit sum and finding the first 8 numbers where ishappy(n) is true -- this shows there's more than one way to do even these small sub-tasks.
+
+# Translation of: Perl 6
+
+use List::Util qw(sum);
+sub is_happy {
+    my ($n) = @_;
+    my %seen;
+    while (1) {
+        $n = sum map { $_ ** 2 } split //, $n;
+        return 1 if $n == 1;
+        return 0 if $seen{$n}++;
+    }
+}
+
+my $n;
+is_happy( ++$n ) and $result .= "$n " or redo for 1..8;
+
+
+say $result; 
+my $ref = <<'EOD';
+EOD
+
+use Test::More;
+is ($result, '1 7 10 13 19 23 28 31 ');
+done_testing();
