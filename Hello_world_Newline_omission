@@ -1,0 +1,7 @@
+#!/usr/local/bin/perl
+#u# http://rosettacode.org/wiki/Hello_world/Newline_omission
+#t# skiptest
+#c# 2018-08-12 <RC
+#p# OK
+
+print "Goodbye, World!";    # A newline does not occur automatically
