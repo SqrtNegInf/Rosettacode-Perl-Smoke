@@ -1,0 +1,22 @@
+#!/usr/local/bin/perl
+#u# http://rosettacode.org/wiki/Terminal_control/Clear_the_screen
+#t# interactive
+#c# 2018-08-12 <RC
+#p# OK
+
+# Assuming some ANSI terminal, easiest way is call your system's clear command:
+
+#system('clear')
+#If it's needed often:
+
+$clear = `clear`; # clear simply prints some escape sequence, cache it
+#... later:
+#print $clear;
+
+# We can also obtain the sequence using the Term::Cap module:
+
+use Term::Cap;
+
+$terminal = Term::Cap->Tgetent();
+$clear = $terminal->Tputs('cl');
+print $clear;
