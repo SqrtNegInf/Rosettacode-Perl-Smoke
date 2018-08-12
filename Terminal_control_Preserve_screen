@@ -1,0 +1,16 @@
+#!/usr/local/bin/perl
+#u# http://rosettacode.org/wiki/Terminal_control/Preserve_screen
+#t# interactive
+#c# 2018-08-12 <RC
+#p# OK
+
+# Translation of: C
+print "\033[?1049h\033[H";
+print "Alternate screen buffer\n";
+
+for (my $i = 5; $i > 0; --$i) {
+    print "going back in $i...\n";
+    sleep(1);
+}
+
+print "\033[?1049l";
