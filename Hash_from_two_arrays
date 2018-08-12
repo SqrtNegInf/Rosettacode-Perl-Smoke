@@ -1,0 +1,33 @@
+#!/usr/local/bin/perl
+#u# http://rosettacode.org/wiki/Hash_from_two_arrays
+#c# 2018-08-12 <RC
+#p# OK
+
+use feature 'say';
+my $result;
+
+my @keys = qw(a b c);
+my @vals = (1, 2, 3);
+my %hash;
+@hash{@keys} = @vals;
+$result .= "$_ : $hash{$_}\n" for sort keys %hash;
+
+#Alternatively, using Library: List::MoreUtilsMoreUtils:
+
+use List::MoreUtils qw(zip);
+my %hash2 = zip @keys, @vals;
+$result .= "$_ : $hash2{$_}\n" for sort keys %hash;
+
+say $result; 
+my $ref = <<'EOD';
+a : 1
+b : 2
+c : 3
+a : 1
+b : 2
+c : 3
+EOD
+
+use Test::More;
+is ($result, $ref);
+done_testing();
