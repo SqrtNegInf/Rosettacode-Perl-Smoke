@@ -1,15 +1,16 @@
 
 This is perl 5, version 28, subversion 0 (v5.28.0) built for darwin-thread-multi-2level
-+------------> Perl: Good/Bad [448/7]
+updating from RC…
++------------> Perl: Good/Bad [472/7]
 |+-----------> smOke testing [381]
-||+----------> sKipping validation [62]
-|||+---------> Interactive [17]
+||+----------> sKipping validation [76]
+|||+---------> Interactive [25]
 ||||+--------> Touched (modified by me) [24]
 |||||+-------> Random seed [27]
 ||||||+------> File output [26]
 |||||||+-----> Draft [232]
 ||||||||+----> Ignoring [8]
-|||||||||+---> Void (no local copy) [732]
+|||||||||+---> Void (no local copy) [708]
 ||||||||||+--> Un-implemented/reliable [313]
 |||||||||||
 GO......... 100_doors-1
@@ -456,7 +457,7 @@ GO......... General_FizzBuzz
 GO...R..... Generate_Chess960_starting_position
 GO......... Generate_lower_case_ASCII_alphabet
 .......D.VU Generate_random_chess_position
-GO......... Generator_Exponential
+GOKI....... Generator_Exponential
 GO......... Generic_swap
 .......D.VU Geometric_algebra
 GO......... Get_system_command_output
@@ -483,21 +484,21 @@ G.K........ HTTPS_Authenticated
 G.K........ HTTPS_Client-authenticated
 G.......... Hailstone_sequence-1
 G.......... Hailstone_sequence-2
-G.......... Hailstone_sequence-3
-.........V. Hamming_numbers
-.........V. Handle_a_signal
-.........V. Happy_numbers
-.........V. Harshad_or_Niven_series
-.........V. Hash_from_two_arrays
-.........V. Hash_join
-.........V. Haversine_formula
-.........V. Hello_world_Graphical
-.........V. Hello_world_Line_printer
-.........V. Hello_world_Newbie
-.........V. Hello_world_Newline_omission
-.........V. Hello_world_Standard_error
-.........V. Hello_world_Text
-.........V. Hello_world_Web_server
+G.......... Hamming_numbers
+G.KI....... Handle_a_signal
+G.......... Happy_numbers-1
+G.......... Happy_numbers-2
+G.......... Harshad_or_Niven_series
+G.......... Hash_from_two_arrays
+G.......... Hash_join
+G.......... Haversine_formula
+G.......... Hello_world_Graphical
+G.K........ Hello_world_Line_printer
+G.K........ Hello_world_Newbie
+G.K........ Hello_world_Newline_omission
+G.K........ Hello_world_Standard_error
+G.K........ Hello_world_Text
+G.K........ Hello_world_Web_server
 .........V. Here_document
 .........V. Heronian_triangles
 .......D.VU Hexapawn
@@ -1050,34 +1051,34 @@ GO......... Spiral_matrix
 .........V. Sum_multiples_of_3_and_5
 .........V. Sum_of_a_series
 .........V. Sum_of_squares
-.........V. Sum_to_100
+G.......... Sum_to_100
 .......D.VU Sunflower_fractal
 .........VU Superellipse
-.......D.V. Superpermutation_minimisation
+G......D... Superpermutation_minimisation
 .........VU Sutherland-Hodgman_polygon_clipping
-.........V. Symmetric_difference
-.........V. Synchronous_concurrency
+G.......... Symmetric_difference
+G.......... Synchronous_concurrency
 GO......... System_time
 .......DXVU Table_creation
 ........XV. Table_creation_Postal_addresses
-.........V. Take_notes_on_the_command_line
+G.KI....... Take_notes_on_the_command_line
 .......D.VU Tamagotchi_emulator
 .......D.VU Tarjan
 G.......... Taxicab_numbers
 G.......... Temperature_conversion
-.........V. Terminal_control_Clear_the_screen
+G.KI....... Terminal_control_Clear_the_screen
 .........VU Terminal_control_Coloured_text
 .........VU Terminal_control_Cursor_movement
-.........V. Terminal_control_Cursor_positioning
-.........V. Terminal_control_Dimensions
+G.KI....... Terminal_control_Cursor_positioning
+G.KI....... Terminal_control_Dimensions
 .........VU Terminal_control_Display_an_extended_character
 .........VU Terminal_control_Hiding_the_cursor
 .........VU Terminal_control_Inverse_video
 .........VU Terminal_control_Positional_read
-.........V. Terminal_control_Preserve_screen
+G.KI....... Terminal_control_Preserve_screen
 .......D.VU Terminal_control_Restricted_width_positional_input_No_wrapping
 .......D.VU Terminal_control_Restricted_width_positional_input_With_wrapping
-.........V. Terminal_control_Ringing_the_terminal_bell
+G.KI....... Terminal_control_Ringing_the_terminal_bell
 .........VU Terminal_control_Unicode_output
 GO......... Ternary_logic
 GO......... Test_a_function
