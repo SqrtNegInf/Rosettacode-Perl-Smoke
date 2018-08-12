@@ -1,0 +1,11 @@
+#!/usr/local/bin/perl
+#u# http://rosettacode.org/wiki/Hello_world/Line_printer
+#t# skiptest
+#c# 2018-08-12 <RC
+#p# OK
+
+# Assuming that the line printer is attached to /dev/lp0
+
+open O, ">", "/dev/lp0";
+print O "Hello World!\n";
+close O;
