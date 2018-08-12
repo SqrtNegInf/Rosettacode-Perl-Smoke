@@ -1,0 +1,81 @@
+#!/usr/local/bin/perl
+#u# http://rosettacode.org/wiki/Hello_world/Graphical
+#c# 2018-08-12 <RC
+#p# OK
+
+use feature 'say';
+my $result;
+
+
+# Works with: Perl version 5.8.8
+# Library: Perl/Tk[edit]
+# Just output as a label in a window:
+
+use strict;
+use warnings;
+use Tk;
+
+my $main = MainWindow->new;
+$main->Label(-text => 'Goodbye, World')->pack;
+MainLoop();
+
+__END__
+Output as text on a button that exits the current application:
+
+use strict;
+use warnings;
+use Tk;
+
+my $main = MainWindow->new;
+$main->Button(
+  -text => 'Goodbye, World',
+  -command => \&exit,
+)->pack;
+MainLoop();
+Library: Perl/Gtk2[edit]
+use strict;
+use warnings;
+use Gtk2 '-init';
+
+my $window = Gtk2::Window->new;
+$window->set_title('Goodbye world');
+$window->signal_connect(
+  destroy => sub { Gtk2->main_quit; }
+);
+
+my $label = Gtk2::Label->new('Goodbye, world');
+$window->add($label);
+
+$window->show_all;
+Gtk2->main;
+Library: Perl/Qt[edit]
+use strict;
+use warnings;
+use QtGui4;
+
+my $app = Qt::Application(\@ARGV);
+my $label = Qt::Label('Goodbye, World');
+$label->show;
+exit $app->exec;
+Library: XUL::GuiGui[edit]
+use strict;
+use warnings;
+use XUL::Gui;
+
+display Label 'Goodbye, World!';
+use strict;
+use warnings;
+use XUL::Gui;
+
+display Button
+    label => 'Goodbye, World!',
+    oncommand => sub {quit};
+
+
+say $result; 
+my $ref = <<'EOD';
+EOD
+
+use Test::More;
+#is ($result, $ref);
+#done_testing();
