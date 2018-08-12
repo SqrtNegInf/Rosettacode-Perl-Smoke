@@ -1,0 +1,23 @@
+#!/usr/local/bin/perl
+#u# http://rosettacode.org/wiki/Take_notes_on_the_command_line
+#t# interactive
+#c# 2018-08-12 <RC
+#p# OK
+
+my $file = 'notes.txt';
+if ( @ARGV ) {
+  open NOTES, '>>', $file or die "Can't append to file $file: $!";
+  print NOTES scalar localtime, "\n\t@ARGV\n";
+} else {
+  open NOTES, '<', $file or die "Can't read file $file: $!";
+  print <NOTES>;
+}
+close NOTES;
+
+say $result; 
+my $ref = <<'EOD';
+Thu Apr 22 19:01:41 2010
+	Test line 1.
+Thu Apr 22 19:01:45 2010
+	Test line 2.
+EOD
