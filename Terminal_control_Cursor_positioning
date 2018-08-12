@@ -1,0 +1,13 @@
+#!/usr/local/bin/perl
+#u# http://rosettacode.org/wiki/Terminal_control/Cursor_positioning
+#t# interactive
+#c# 2018-08-12 <RC
+#p# OK
+
+# Using the Term::Cap module:
+
+use Term::Cap;
+
+my $t = Term::Cap->Tgetent;
+print $t->Tgoto("cm", 2, 5); # 0-based
+print "Hello\n";
