@@ -1,0 +1,36 @@
+#!/usr/local/bin/perl
+#u# http://rosettacode.org/wiki/String_prepend
+#c# 2018-08-13 <RC
+#p# OK
+
+use feature 'say';
+my $result;
+
+use feature ':all';
+
+# explicit concatentation
+$_ = 'bar';
+$_ = 'Foo' . $_;
+$result .= "$_\n";
+ 
+# lvalue substr
+$_ = 'bar';
+substr $_, 0, 0, 'Foo';
+$result .= "$_\n";
+ 
+# interpolation as concatenation
+# (NOT safe if concatenate sigils)
+$_ = 'bar';
+$_ = "Foo$_";
+$result .= "$_\n";
+
+say $result; 
+my $ref = <<'EOD';
+Foobar
+Foobar
+Foobar
+EOD
+
+use Test::More;
+is ($result, $ref);
+done_testing();
