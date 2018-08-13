@@ -1,0 +1,40 @@
+#!/usr/local/bin/perl
+#u# http://rosettacode.org/wiki/Strip_a_set_of_characters_from_a_string
+#c# 2018-08-13 <RC
+#p# OK
+
+use feature 'say';
+my $result;
+
+
+# Note: this example uses a regular expression character class. Certain characters, like hyphens and brackets, may need to be escaped.
+
+sub stripchars1 {
+    my ($s, $chars) = @_;
+    $s =~ s/[$chars]//g;
+    return $s;
+}
+
+$str = 'She was a soul stripper. She took my heart!';
+$result1 .= stripchars1($str, "aei");
+$result2 .= stripchars2($str, "aei");
+
+# Another good option for stripping characters is to use the tr/// operator. This option is very efficient when the set of characters to strip is fixed at compile time, because tr/// is specifically designed for transforming and deleting characters. Note that hyphens also have special meaning in this case.
+
+$str =~ tr/aei//d;
+
+# Since the characters used for tr/// must be fixed at compile time, unfortunately, it requires the use of an eval to do this generally for any set of characters provided at runtime:
+
+sub stripchars2 {
+    my ($s, $chars) = @_;
+    eval("\$s =~ tr/$chars//d;");
+    return $s;
+}
+
+say $result;
+
+use Test::More;
+is ($result1, 'Sh ws  soul strppr. Sh took my hrt!');
+is ($result2, 'Sh ws  soul strppr. Sh took my hrt!');
+is ($str, 'Sh ws  soul strppr. Sh took my hrt!');
+done_testing();
