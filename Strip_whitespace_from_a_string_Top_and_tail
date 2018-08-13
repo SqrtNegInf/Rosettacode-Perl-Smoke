@@ -1,0 +1,30 @@
+#!/usr/local/bin/perl
+#u# http://rosettacode.org/wiki/Strip_whitespace_from_a_string/Top_and_tail
+#c# 2018-08-13 <RC
+#p# OK
+
+use feature 'say';
+my $result;
+
+sub ltrim { shift =~ s/^\s+//r }
+sub rtrim { shift =~ s/\s+$//r }
+sub trim { ltrim rtrim shift }
+
+# Usage:
+my $p = "       this is a string      ";
+$result .= "'". $p. "'\n";
+$result .= "'". trim($p). "'\n";
+$result .= "'". ltrim($p). "'\n";
+$result .= "'". rtrim($p). "'\n";
+
+say $result; 
+my $ref = <<'EOD';
+'       this is a string      '
+'this is a string'
+'this is a string      '
+'       this is a string'
+EOD
+
+use Test::More;
+is ($result, $ref);
+done_testing();
