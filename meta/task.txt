@@ -1,7 +1,6 @@
 
 This is perl 5, version 28, subversion 0 (v5.28.0) built for darwin-thread-multi-2level
-updating from RC…
-+------------> Perl: Good/Bad [472/7]
++------------> Perl: Good/Bad [485/7]
 |+-----------> smOke testing [381]
 ||+----------> sKipping validation [76]
 |||+---------> Interactive [25]
@@ -10,7 +9,7 @@ updating from RC…
 ||||||+------> File output [26]
 |||||||+-----> Draft [232]
 ||||||||+----> Ignoring [8]
-|||||||||+---> Void (no local copy) [708]
+|||||||||+---> Void (no local copy) [695]
 ||||||||||+--> Un-implemented/reliable [313]
 |||||||||||
 GO......... 100_doors-1
@@ -499,15 +498,15 @@ G.K........ Hello_world_Newline_omission
 G.K........ Hello_world_Standard_error
 G.K........ Hello_world_Text
 G.K........ Hello_world_Web_server
-.........V. Here_document
-.........V. Heronian_triangles
+G.......... Here_document
+G.......... Heronian_triangles
 .......D.VU Hexapawn
-.........V. Hickerson_series_of_almost_integers
-.........V. Higher-order_functions
+G.......... Hickerson_series_of_almost_integers
+G.......... Higher-order_functions
 .......D.VU Hilbert_curve
-.........V. History_variables
-.........V. Hofstadter-Conway__10,000_sequence
-.........V. Hofstadter_Figure-Figure_sequences
+G.......... History_variables
+G.......... Hofstadter-Conway__10,000_sequence
+G.......... Hofstadter_Figure-Figure_sequences
 .........V. Hofstadter_Q_sequence
 .........V. Holidays_related_to_Easter
 .........V. Honeycombs
@@ -1044,13 +1043,13 @@ GO......... Spiral_matrix
 .........V. Substring_Top_and_tail
 .........V. Subtractive_generator
 .........V. Sudoku
-.......D.V. Suffix_tree
+G......D... Suffix_tree
 .........VU Sum_and_Product_Puzzle
-.........V. Sum_and_product_of_an_array
-.........V. Sum_digits_of_an_integer
-.........V. Sum_multiples_of_3_and_5
-.........V. Sum_of_a_series
-.........V. Sum_of_squares
+G.......... Sum_and_product_of_an_array
+G.......... Sum_digits_of_an_integer
+G.......... Sum_multiples_of_3_and_5
+G.......... Sum_of_a_series
+G.......... Sum_of_squares
 G.......... Sum_to_100
 .......D.VU Sunflower_fractal
 .........VU Superellipse
