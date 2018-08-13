@@ -1,0 +1,15 @@
+#!/usr/local/bin/perl
+#u# http://rosettacode.org/wiki/String_append
+#c# 2018-08-13 <RC
+#p# OK
+
+use feature 'say';
+
+my $str = 'Foo';
+$str .= 'bar';
+say $str;
+
+
+use Test::More;
+is ($str, 'Foobar');
+done_testing();
