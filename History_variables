@@ -1,0 +1,63 @@
+#!/usr/local/bin/perl
+#u# http://rosettacode.org/wiki/History_variables
+#c# 2018-08-12 <RC
+#p# OK
+
+use feature 'say';
+my $result;
+
+# Implemented via tie (and what's the usefulness of this?)
+
+package History;
+
+sub TIESCALAR {
+	my $cls = shift;
+	my $cur_val = shift;
+	return bless [];
+}
+
+sub FETCH {
+	return shift->[-1]
+}
+
+sub STORE {
+	my ($var, $val) = @_;
+	push @$var, $val;
+	return $val;
+}
+
+sub get(\$) { @{tied ${+shift}} }
+sub on(\$) { tie ${+shift}, __PACKAGE__ } 
+sub off(\$) { untie ${+shift} }
+sub undo(\$) { pop @{tied ${+shift}} }
+
+package main;
+
+my $x = 0;
+History::on($x);
+
+for ("a" .. "d") { $x = $_ }
+
+$result .= "History: @{[History::get($x)]}\n";
+
+for (1 .. 3) {
+	$result .= "undo $_, ";
+	History::undo($x);
+	$result .= "current value: $x\n";
+}
+
+History::off($x);
+$result .= "\$x is: $x\n";
+
+say $result; 
+my $ref = <<'EOD';
+History: a b c d
+undo 1, current value: c
+undo 2, current value: b
+undo 3, current value: a
+$x is: a
+EOD
+
+use Test::More;
+is ($result, $ref);
+done_testing();
