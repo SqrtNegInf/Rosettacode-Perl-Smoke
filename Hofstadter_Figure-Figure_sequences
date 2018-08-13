@@ -1,0 +1,70 @@
+#!/usr/local/bin/perl
+#u# http://rosettacode.org/wiki/Hofstadter_Figure-Figure_sequences
+#c# 2018-08-12 <RC
+#p# OK
+
+use feature 'say';
+my $result;
+
+
+# The program produces a table with the first 10 values of R and S. It also calculates
+# R(40) which is 982, S(960) which is 1000, and R(41) which is 1030.
+# Then we go through the first 1000 outputs, mark those which are seen, then check if all values in the range one through one thousand were seen.
+
+use strict;
+use warnings;
+
+my @r = ( undef, 1 );
+my @s = ( undef, 2 );
+
+sub ffsr {
+  my $n = shift;
+  while( $#r < $n ) {
+    push @r, $s[$#r]+$r[-1];
+    push @s, grep { $s[-1]<$_ } $s[-1]+1..$r[-1]-1, $r[-1]+1;
+  }
+  return $n;
+}
+
+sub ffr { $r[ffsr shift] }
+sub ffs { $s[ffsr shift] }
+
+$result .= sprintf "  i: R(i) S(i)\n";
+$result .= sprintf "==============\n";
+$result .= sprintf "%3d:  %3d  %3d\n", $_, ffr($_), ffs($_) for 1..10;
+$result .= sprintf "\nR(40)=%3d S(960)=%3d R(41)=%3d\n", ffr(40), ffs(960), ffr(41);
+
+my %seen;
+$seen{ffr($_)}++ for 1 .. 40;
+$seen{ffs($_)}++ for 1 .. 960;
+if( 1000 == keys %seen and grep $seen{$_}, 1 .. 1000 ) {
+	$result .= "All occured exactly once.\n";
+} else {
+	my @missed = grep !$seen{$_}, 1 .. 1000;
+	my @dupped = sort { $a <=> $b} grep $seen{$_}>1, keys %seen;
+	$result .= "These were missed: @missed\n";
+	$result .= "These were duplicated: @dupped\n";
+}
+
+say $result; 
+my $ref = <<'EOD';
+  i: R(i) S(i)
+==============
+  1:    1    2
+  2:    3    4
+  3:    7    5
+  4:   12    6
+  5:   18    8
+  6:   26    9
+  7:   35   10
+  8:   45   11
+  9:   56   13
+ 10:   69   14
+
+R(40)=982 S(960)=1000 R(41)=1030
+All occured exactly once.
+EOD
+
+use Test::More;
+is ($result, $ref);
+done_testing();
