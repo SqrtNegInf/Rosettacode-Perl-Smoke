@@ -1,0 +1,62 @@
+#!/usr/local/bin/perl
+#u# http://rosettacode.org/wiki/String_comparison
+#c# 2018-08-13 <RC
+#p# OK
+
+use feature 'say';
+my $result;
+
+
+# Scalar variables are weakly typed in Perl, and there are two sets of comparison operators that can be used on them: One set for (coercive) numeric comparison, and one set for (coercive) lexical string comparison. The second set is demonstrated in the following:
+
+use v5.16;  # ...for fc(), which does proper Unicode casefolding.
+            # With older Perl versions you can use lc() as a poor-man's substitute.
+
+sub compare {
+    my ($a, $b) = @_;
+    my $A = "'$a'";
+    my $B = "'$b'";
+
+    $result .= "$A and $B are lexically equal.\n"     if $a eq $b;
+    $result .= "$A and $B are not lexically equal.\n" if $a ne $b;
+
+    $result .= "$A is lexically before $B.\n"         if $a lt $b;
+    $result .= "$A is lexically after $B.\n"          if $a gt $b;
+
+    $result .= "$A is not lexically before $B.\n"     if $a ge $b;
+    $result .= "$A is not lexically after $B.\n"      if $a le $b;
+
+    $result .= "The lexical relationship is: ". ($a cmp $b). "\n";
+    $result .= "The case-insensitive lexical relationship is: ". (fc($a) cmp fc($b)) . "\n";
+    $result .= "\n";
+}
+
+compare('Hello', 'Hello');
+compare('5', '5.0');
+compare('perl', 'Perl');
+
+say $result;
+my $ref = <<'EOD';
+'Hello' and 'Hello' are lexically equal.
+'Hello' is not lexically before 'Hello'.
+'Hello' is not lexically after 'Hello'.
+The lexical relationship is: 0
+The case-insensitive lexical relationship is: 0
+
+'5' and '5.0' are not lexically equal.
+'5' is lexically before '5.0'.
+'5' is not lexically after '5.0'.
+The lexical relationship is: -1
+The case-insensitive lexical relationship is: -1
+
+'perl' and 'Perl' are not lexically equal.
+'perl' is lexically after 'Perl'.
+'perl' is not lexically before 'Perl'.
+The lexical relationship is: 1
+The case-insensitive lexical relationship is: 0
+
+EOD
+
+use Test::More;
+is ($result, $ref);
+done_testing();
