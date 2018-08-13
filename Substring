@@ -1,0 +1,27 @@
+#!/usr/local/bin/perl
+#u# http://rosettacode.org/wiki/Substring
+#c# 2018-08-13 <RC
+#p# OK
+
+use feature 'say';
+my $result;
+
+my $str = 'abcdefgh';
+$result .= substr($str, 2, 3). "\n"; # Returns 'cde'
+$result .= substr($str, 2). "\n"; # Returns 'cdefgh'
+$result .= substr($str, 0, -1). "\n"; #Returns 'abcdefg'
+$result .= substr($str, index($str, 'd'), 3). "\n"; # Returns 'def'
+$result .= substr($str, index($str, 'de'), 3). "\n"; # Returns 'def'
+
+say $result; 
+my $ref = <<'EOD';
+cde
+cdefgh
+abcdefg
+def
+def
+EOD
+
+use Test::More;
+is ($result, $ref);
+done_testing();
