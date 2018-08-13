@@ -1,0 +1,81 @@
+#!/usr/local/bin/perl
+#u# http://rosettacode.org/wiki/Suffix_tree
+#c# 2018-08-12 <RC
+#p# OK
+#n# testing is insufficient
+
+use feature 'say';
+my $result;
+
+# Translation of: Perl 6
+
+use strict;
+use warnings;
+use Data::Dumper;
+
+sub classify {
+    my $h = {};
+    for (@_) { push @{$h->{substr($_,0,1)}}, $_ }
+    return $h;
+}
+sub suffixes {
+    my $str = shift;
+    map { substr $str, $_ } 0 .. length($str) - 1;
+}
+sub suffix_tree {
+    return +{} if @_ == 0;
+    return +{ $_[0] => +{} } if @_ == 1;
+    my $h = {};
+    my $classif = classify @_;
+    for my $key (keys %$classif) {
+        my $subtree = suffix_tree(
+            map { substr $_, 1 } @{$classif->{$key}}
+        );
+        my @subkeys = keys %$subtree;
+        if (@subkeys == 1) {
+            my ($subkey) = @subkeys;
+            $h->{"$key$subkey"} = $subtree->{$subkey};
+        } else { $h->{$key} = $subtree }
+    }
+    return $h;
+}
+
+
+print +Dumper my $z = suffix_tree suffixes 'banana$';
+say '';
+
+for my $k (sort keys %{$z}) {
+    $result .= "$k\n";
+    #say ${$z}{$k}; # ?
+}
+
+say $result; 
+
+my $ref = <<'EOD';
+$
+a
+banana$
+na
+EOD
+
+my $refx = <<'EOD';
+$VAR1 = {
+          '$' => {},
+          'a' => {
+                   '$' => {},
+                   'na' => {
+                             'na$' => {},
+                             '$' => {}
+                           }
+                 },
+          'banana$' => {},
+          'na' => {
+                    'na$' => {},
+                    '$' => {}
+                  }
+        };
+EOD
+
+use Test::More;
+is ($result, $ref);
+done_testing();
