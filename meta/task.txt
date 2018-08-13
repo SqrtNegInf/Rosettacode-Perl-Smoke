@@ -1,15 +1,15 @@
 
 This is perl 5, version 28, subversion 0 (v5.28.0) built for darwin-thread-multi-2level
-+------------> Perl: Good/Bad [485/7]
++------------> Perl: Good/Bad [513/7]
 |+-----------> smOke testing [381]
-||+----------> sKipping validation [76]
-|||+---------> Interactive [25]
+||+----------> sKipping validation [78]
+|||+---------> Interactive [26]
 ||||+--------> Touched (modified by me) [24]
-|||||+-------> Random seed [27]
+|||||+-------> Random seed [29]
 ||||||+------> File output [26]
-|||||||+-----> Draft [232]
+|||||||+-----> Draft [234]
 ||||||||+----> Ignoring [8]
-|||||||||+---> Void (no local copy) [695]
+|||||||||+---> Void (no local copy) [672]
 ||||||||||+--> Un-implemented/reliable [313]
 |||||||||||
 GO......... 100_doors-1
@@ -507,11 +507,15 @@ G.......... Higher-order_functions
 G.......... History_variables
 G.......... Hofstadter-Conway__10,000_sequence
 G.......... Hofstadter_Figure-Figure_sequences
-.........V. Hofstadter_Q_sequence
-.........V. Holidays_related_to_Easter
-.........V. Honeycombs
+G.......... Hofstadter_Q_sequence-1
+G.......... Hofstadter_Q_sequence-2
+G.......... Hofstadter_Q_sequence-3
+G.......... Holidays_related_to_Easter
+G.KI.R..... Honeycombs
 .........VU Horizontal_sundial_calculations
-.........V. Horner%27s_rule_for_polynomial_evaluation
+G.......... Horner%27s_rule_for_polynomial_evaluation-1
+G.......... Horner%27s_rule_for_polynomial_evaluation-2
+G.......... Horner%27s_rule_for_polynomial_evaluation-3
 .........V. Host_introspection
 .........V. Hostname
 .........VU Hough_transform
@@ -1023,26 +1027,28 @@ GO......... Spiral_matrix
 .........V. Stern-Brocot_sequence
 .........VU Straddling_checkerboard
 .........V. Stream_Merge
-.........V. String_append
-.........V. String_case
-.........V. String_comparison
-.........V. String_concatenation
-.........V. String_interpolation_included
-.........V. String_length
-.........V. String_matching
-.........V. String_prepend
-.........V. Strip_a_set_of_characters_from_a_string
-.........V. Strip_block_comments
-.........V. Strip_comments_from_a_string
-.........V. Strip_control_codes_and_extended_characters_from_a_string
-.........V. Strip_whitespace_from_a_string_Top_and_tail
-.........V. Subleq
-.......D.V. Subset_sum_problem
+G.......... String_append
+G.......... String_case
+G.......... String_comparison
+G.......... String_concatenation
+G.......... String_interpolation_included
+G.......... String_length
+G.K........ String_matching
+G.......... String_prepend
+G.......... Strip_a_set_of_characters_from_a_string
+G.......... Strip_block_comments
+G.......... Strip_comments_from_a_string
+G....R..... Strip_control_codes_and_extended_characters_from_a_string
+G.......... Strip_whitespace_from_a_string_Top_and_tail
+G.......... Subleq
+.......D... Subset_sum_problem
+G......D... Subset_sum_problem-1
+G......D... Subset_sum_problem-2
 .......D.VU Substitution_Cipher
-.........V. Substring
-.........V. Substring_Top_and_tail
-.........V. Subtractive_generator
-.........V. Sudoku
+G.......... Substring
+G.......... Substring_Top_and_tail
+G.......... Subtractive_generator
+G.......... Sudoku
 G......D... Suffix_tree
 .........VU Sum_and_Product_Puzzle
 G.......... Sum_and_product_of_an_array
