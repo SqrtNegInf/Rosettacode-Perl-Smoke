@@ -1,0 +1,22 @@
+#!/usr/local/bin/perl
+#u# http://rosettacode.org/wiki/Horner%27s_rule_for_polynomial_evaluation
+#c# 2018-08-13 <RC
+#p# OK
+
+use feature 'say';
+my $result;
+
+
+# Recursive version[edit]
+
+sub horner {
+    my ($coeff, $x) = @_;
+    @$coeff and
+    $$coeff[0] + $x * horner( [@$coeff[1 .. $#$coeff]], $x ) 
+}
+
+say $result = horner( [ -19, 7, -4, 6 ], 3 );
+
+use Test::More;
+is ($result, 128);
+done_testing();
