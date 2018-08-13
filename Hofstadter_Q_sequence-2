@@ -1,0 +1,49 @@
+#!/usr/local/bin/perl
+#u# http://rosettacode.org/wiki/Hofstadter_Q_sequence
+#c# 2018-08-13 <RC
+#p# OK
+
+use feature 'say';
+my $result;
+
+use warnings;
+use strict;
+
+my @hofstadters = ( 1 , 1 );
+while ( @hofstadters < 100000 ) {
+   my $nextn = @hofstadters + 1;
+# array index counting starts at 0 , so we have to subtract 1 from the numbers!
+   push @hofstadters ,  $hofstadters [ $nextn - 1 - $hofstadters[ $nextn - 1 - 1 ] ]  
+      + $hofstadters[ $nextn - 1 - $hofstadters[ $nextn - 2 - 1 ]];
+}
+for my $i ( 0..9 ) {
+   $result .= "$hofstadters[ $i ]\n";
+}
+$result .= "The 1000'th term is $hofstadters[ 999 ]!\n";
+my $less_than_preceding = 0;
+for my $i ( 0..99998 ) {
+   $less_than_preceding++ if $hofstadters[ $i + 1 ] < $hofstadters[ $i ];
+}
+$result .= "Up to and including the 100000'th term, $less_than_preceding terms are less " .
+   "than their preceding terms!\n";
+
+
+say $result;
+my $ref = <<'END';
+1
+1
+2
+3
+3
+4
+5
+5
+6
+6
+The 1000'th term is 502!
+Up to and including the 100000'th term, 49798 terms are less than their preceding terms!
+END
+
+use Test::More;
+is ($result, $ref);
+done_testing();
