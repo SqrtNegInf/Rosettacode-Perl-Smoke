@@ -1,0 +1,47 @@
+#!/usr/local/bin/perl
+#u# http://rosettacode.org/wiki/String_length
+#c# 2018-08-13 <RC
+#p# OK
+
+use feature 'say';
+my $result;
+
+
+# Byte Length[edit]
+# Works with: Perl version 5.8
+# Strings in Perl consist of characters. Measuring the byte length therefore requires conversion to some binary representation (called encoding, both noun and verb).
+
+use utf8; # so we can use literal characters like ☺ in source
+use Encode qw(encode);
+
+$result .= length encode 'UTF-8', "Hello, world! ☺";
+$result .= "\n";
+# 17. The last character takes 3 bytes, the others 1 byte each.
+
+$result .= length encode 'UTF-16', "Hello, world! ☺";
+$result .= "\n";
+# 32. 2 bytes for the BOM, then 15 byte pairs for each character.
+# Character Length[edit]
+# Works with: Perl version 5.X
+my $length = length "Hello, world!";
+# Grapheme Length[edit]
+# Since Perl 5.12, /\X/ matches an extended grapheme cluster. See "Unicode overhaul" in perl5120delta and also UAX #29.
+# Perl understands that "\x{1112}\x{1161}\x{11ab}\x{1100}\x{1173}\x{11af}" (한글) contains 2 graphemes, just like "\x{d55c}\x{ae00}" (한글). The longer string uses Korean combining jamo characters.
+
+# Works with: Perl version 5.12
+use v5.12;
+my $string = "\x{1112}\x{1161}\x{11ab}\x{1100}\x{1173}\x{11af}";  # 한글
+my $len;
+$len++ while ($string =~ /\X/g);
+$result .= sprintf "Grapheme length: %d\n", $len;
+
+say $result; 
+my $ref = <<'EOD';
+17
+32
+Grapheme length: 2
+EOD
+
+use Test::More;
+is ($result, $ref);
+done_testing();
