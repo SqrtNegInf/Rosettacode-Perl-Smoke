@@ -1,0 +1,31 @@
+#!/usr/local/bin/perl
+#u# http://rosettacode.org/wiki/Strip_comments_from_a_string
+#c# 2018-08-13 <RC
+#p# OK
+
+use feature 'say';
+my $result;
+
+sub rm_comment {
+my($text) = @_;
+    $text =~ s/[#;].*$//s; # remove comment
+    $text =~ s/^\s+//;     # remove leading whitespace
+    $text =~ s/\s+$//;     # remove trailing whitespace
+    return $text;
+}
+
+$result .= rm_comment('   # glorp 1 + 2'); $result .= "\n";
+$result .= rm_comment('2 + 3; # floop'); $result .= "\n";
+$result .= rm_comment('print "# HEY!"'); $result .= "\n"; # the task is dumb
+
+say $result;
+
+my $ref = <<'EOD';
+
+2 + 3
+print "
+EOD
+
+use Test::More;
+is ($result, $ref);
+done_testing();
