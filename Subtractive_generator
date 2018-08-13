@@ -1,0 +1,54 @@
+#!/usr/local/bin/perl
+#u# http://rosettacode.org/wiki/Subtractive_generator
+#c# 2018-08-13 <RC
+#p# OK
+
+use feature 'say';
+my $result;
+
+use 5.10.0;
+use strict;
+
+{ # bracket state data into a lexical scope
+	my @state;
+	my $mod = 1_000_000_000;
+
+	sub bentley_clever {
+		my @s = ( shift() % $mod, 1);
+		push @s, ($s[-2] - $s[-1]) % $mod	while @s < 55;
+		@state = map($s[(34 + 34 * $_) % 55], 0 .. 54);
+		subrand() for (55 .. 219);
+	}
+
+	sub subrand()
+	{
+		bentley_clever(0) unless @state; # just incase
+
+		my $x = (shift(@state) - $state[-24]) % $mod;
+		push @state, $x;
+		$x;
+	}
+}
+
+bentley_clever(292929);
+my @res;
+push @res, subrand() for (1 .. 10);
+
+say $result = join "\n", @res; 
+my $ref = <<'EOD';
+467478574
+512932792
+539453717
+20349702
+615542081
+378707948
+933204586
+824858649
+506003769
+380969305
+EOD
+
+use Test::More;
+chop $ref;
+is ($result, $ref);
+done_testing();
