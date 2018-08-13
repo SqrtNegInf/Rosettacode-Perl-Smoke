@@ -1,0 +1,33 @@
+#!/usr/local/bin/perl
+#u# http://rosettacode.org/wiki/String_case
+#c# 2018-08-13 <RC
+#p# OK
+
+use feature 'say';
+my $result;
+
+# Works with: Perl version 5.x
+my $string = "alphaBETA";
+$result .= uc($string). "\n"; # => "ALPHABETA"
+$result .= lc($string). "\n"; # => "alphabeta"
+$string =~ tr/[a-z][A-Z]/[A-Z][a-z]/; 
+$result .= "$string\n"; # => ALPHAbeta 
+
+$result .= ucfirst($string). "\n"; # => "AlphaBETA"
+$result .= lcfirst("FOObar"). "\n"; # => "fOObar"
+
+# DH - Good to know!
+#Also works in Perl 4 if the my is removed. 
+
+say $result; 
+my $ref = <<'EOD';
+ALPHABETA
+alphabeta
+ALPHAbeta
+ALPHAbeta
+fOObar
+EOD
+
+use Test::More;
+is ($result, $ref);
+done_testing();
