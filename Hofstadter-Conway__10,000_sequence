@@ -1,0 +1,61 @@
+#!/usr/local/bin/perl
+#u# http://rosettacode.org/wiki/Hofstadter-Conway_$10,000_sequence
+#c# 2018-08-12 <RC
+#p# OK
+
+use feature 'say';
+my $result;
+
+use warnings ; 
+use strict ;
+
+my $limit = 2 ** 20 ;
+my @numbers = ( 0 , 1 , 1 ) ;
+my $mallows ;
+my $max_i ;
+foreach my $i ( 3..$limit ) {
+   push ( @numbers , $numbers[ $numbers[ $i - 1 ]] + $numbers[ $i - $numbers[ $i - 1 ] ] ) ;
+}
+for ( my $rangelimit = 1 ; $rangelimit < 20 ; $rangelimit++ ) {
+   my $max = 0 ;
+   for ( my $i = 2 ** $rangelimit ; $i < ( 2 ** ( $rangelimit + 1 ) ) ; $i++ ) {
+      my $rat = $numbers[ $i ] / $i ;
+      $mallows = $i if $rat >= 0.55 ;
+      if ( $rat > $max ) {
+	 $max = $rat ;
+	 $max_i = $i ;
+      }
+   }
+   my $upperlimit = $rangelimit + 1 ;
+   $result .= "Between 2 ^ $rangelimit and 2 ^ $upperlimit the maximum value is $max at $max_i !\n" ;
+}
+$result .= "The prize would have been won at $mallows !\n";
+
+say $result; 
+
+my $ref = <<'EOD';
+Between 2 ^ 1 and 2 ^ 2 the maximum value is 0.666666666666667 at 3 !
+Between 2 ^ 2 and 2 ^ 3 the maximum value is 0.666666666666667 at 6 !
+Between 2 ^ 3 and 2 ^ 4 the maximum value is 0.636363636363636 at 11 !
+Between 2 ^ 4 and 2 ^ 5 the maximum value is 0.608695652173913 at 23 !
+Between 2 ^ 5 and 2 ^ 6 the maximum value is 0.590909090909091 at 44 !
+Between 2 ^ 6 and 2 ^ 7 the maximum value is 0.576086956521739 at 92 !
+Between 2 ^ 7 and 2 ^ 8 the maximum value is 0.567415730337079 at 178 !
+Between 2 ^ 8 and 2 ^ 9 the maximum value is 0.559459459459459 at 370 !
+Between 2 ^ 9 and 2 ^ 10 the maximum value is 0.554937413073713 at 719 !
+Between 2 ^ 10 and 2 ^ 11 the maximum value is 0.550100874243443 at 1487 !
+Between 2 ^ 11 and 2 ^ 12 the maximum value is 0.547462892647566 at 2897 !
+Between 2 ^ 12 and 2 ^ 13 the maximum value is 0.544144747863964 at 5969 !
+Between 2 ^ 13 and 2 ^ 14 the maximum value is 0.542442708780362 at 11651 !
+Between 2 ^ 14 and 2 ^ 15 the maximum value is 0.540071097511587 at 22223 !
+Between 2 ^ 15 and 2 ^ 16 the maximum value is 0.538784020584256 at 45083 !
+Between 2 ^ 16 and 2 ^ 17 the maximum value is 0.537043656999866 at 89516 !
+Between 2 ^ 17 and 2 ^ 18 the maximum value is 0.536020067811561 at 181385 !
+Between 2 ^ 18 and 2 ^ 19 the maximum value is 0.534645431078112 at 353683 !
+Between 2 ^ 19 and 2 ^ 20 the maximum value is 0.533779229963368 at 722589 !
+The prize would have been won at 1489 !
+EOD
+
+use Test::More;
+is ($result, $ref);
+done_testing();
