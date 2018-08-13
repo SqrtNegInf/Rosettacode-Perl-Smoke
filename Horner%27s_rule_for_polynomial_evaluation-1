@@ -1,0 +1,27 @@
+#!/usr/local/bin/perl
+#u# http://rosettacode.org/wiki/Horner%27s_rule_for_polynomial_evaluation
+#c# 2018-08-13 <RC
+#p# OK
+
+use feature 'say';
+my $result;
+
+
+use 5.10.0;
+use strict;
+use warnings;
+
+sub horner(\@$){
+	my ($coef, $x) = @_;
+	my $result = 0;
+	$result = $result * $x + $_ for reverse @$coef;
+	return $result;
+}
+
+my @coeff = (-19.0, 7, -4, 6);
+my $x = 3;
+say $result = horner @coeff, $x;
+
+use Test::More;
+is ($result, 128);
+done_testing();
