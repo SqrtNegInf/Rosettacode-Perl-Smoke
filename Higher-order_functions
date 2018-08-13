@@ -1,0 +1,68 @@
+#!/usr/local/bin/perl
+#u# http://rosettacode.org/wiki/Higher-order_functions
+#c# 2018-08-12 <RC
+#p# OK
+
+use feature 'say';
+my $result;
+
+sub another {
+    # take a function and a value
+    my $func = shift;
+    my $val  = shift;
+
+    # call the function with the value as argument
+    return $func->($val);
+};
+
+sub reverser {
+    return scalar reverse shift;
+};
+
+# pass named coderef
+push @res, another \&reverser, 'data';
+# pass anonymous coderef
+push @res, another sub {return scalar reverse shift}, 'data';
+
+# if all you have is a string and you want to act on that,
+# set up a dispatch table
+my %dispatch = (
+    square => sub {return shift() ** 2},
+    cube   => sub {return shift() ** 3},
+    rev    => \&reverser,
+);
+
+push @res, another $dispatch{$_}, 123 for qw(square cube rev);
+sub apply (&@) {            # use & as the first item in a prototype to take bare blocks like map and grep
+    my ($sub, @ret) = @_;   # this function applies a function that is expected to modify $_ to a list
+    $sub->() for @ret;      # it allows for simple inline application of the s/// and tr/// constructs
+    @ret
+}
+
+push @res, join ", " => apply {tr/aeiou/AEIOU/} qw/one two three four/;
+# OnE, twO, thrEE, fOUr
+sub first {shift->()}
+
+sub second {'second'}
+
+push @res, first \&second;
+
+push @res, first sub{'sub'};
+
+
+say $result = join "\n", @res; 
+my $ref = <<'EOD';
+atad
+atad
+15129
+1860867
+321
+OnE, twO, thrEE, fOUr
+second
+sub
+EOD
+
+use Test::More;
+chop $ref;
+is ($result, $ref);
+done_testing();
