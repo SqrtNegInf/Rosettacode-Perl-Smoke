@@ -1,0 +1,38 @@
+#!/usr/local/bin/perl
+#u# http://rosettacode.org/wiki/Square_but_not_cube
+#c# 2018-08-14 >RC
+#p# OK
+#n# part 1 on RC
+
+use feature 'say';
+
+while ($cnt < 30) {
+    $n++;
+    $h{$n**2}++;
+    $h{$n**3}--;
+    $cnt++ if $h{$n**2} > 0;
+}
+
+$result .= "First 30 positive integers that are a square but not a cube:\n";
+$result .= "$_ " for sort { $a <=> $b } grep { $h{$_} == 1 } keys %h;
+#$result .= "$_ " for sort { $a <=> $b } grep { $h{$_} == 1 } %h; # cute, but not for RC
+
+$result .= "\n\nFirst 3 positive integers that are both a square and a cube:\n";
+$result .= "$_ " for sort { $a <=> $b } grep { $h{$_} == 0 } keys %h;
+#$result .= "$_ " for sort { $a <=> $b } grep { ! $h{$_} } keys %h; # also too cute
+
+say $result;
+
+my $ref = <<'END';
+First 30 positive integers that are a square but not a cube:
+4 9 16 25 36 49 81 100 121 144 169 196 225 256 289 324 361 400 441 484 529 576 625 676 784 841 900 961 1024 1089 
+
+First 3 positive integers that are both a square and a cube:
+1 64 729 
+END
+
+use Test::More;
+chop $ref;
+is($result, $ref);
+done_testing();
+
