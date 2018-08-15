@@ -1,0 +1,33 @@
+#!/usr/local/bin/perl
+#u# http://rosettacode.org/wiki/Sleep
+#t# interactive
+#c# 2018-08-14 <RC
+#p# OK
+
+use feature 'say';
+
+say 'enter seconds:';
+$seconds = <>;
+print "Sleeping...\n";
+sleep $seconds; # number is in seconds
+print "Awake!\n";
+
+# microseconds and nanoseconds using the Time::HiRes module:
+use Time::HiRes qw( usleep nanosleep );
+
+say 'enter microseconds:';
+$microseconds = <>;
+print "Sleeping...\n";
+usleep $microseconds;
+print "Awake!\n";
+
+say 'enter nanoseconds:';
+$nanoseconds = <>;
+print "Sleeping...\n";
+nanosleep $nanoseconds;
+print "Awake!\n";
+
+#It's also possible to sleep for fractional seconds by abusing the select function:
+say "Sleeping...";
+select undef, undef, undef, 0.5;
+say "Awake!";
