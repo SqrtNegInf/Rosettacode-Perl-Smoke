@@ -1,0 +1,29 @@
+#!/usr/local/bin/perl
+#u# http://rosettacode.org/wiki/Soundex
+#c# 2018-08-14 <RC
+#p# OK
+
+use feature 'say';
+my $result;
+
+
+#The Text::Soundex core module supports various soundex algorithms.
+
+use Text::Soundex;
+$result .= soundex("Soundex"). "\n"; # S532
+$result .= soundex("Example"). "\n"; # E251
+$result .= soundex("Sownteks"). "\n"; # S532
+$result .= soundex("Ekzampul"). "\n"; # E251
+
+
+say $result; 
+my $ref = <<'EOD';
+S532
+E251
+S532
+E251
+EOD
+
+use Test::More;
+is ($result, $ref);
+done_testing();
