@@ -1,0 +1,65 @@
+#!/usr/local/bin/perl
+#u# http://rosettacode.org/wiki/Jump_anywhere
+#c# 2018-08-14 <RC
+#p# OK
+
+use feature 'say';
+my $result;
+
+
+# Perl's goto LABEL and goto EXPR are a little too powerful to be safe. Use only under extreme duress (actually, not even then). goto &SUB is esoteric but much more innocuous and can occasionally be handy.
+
+sub outer {
+    $result .= "In outer, calling inner:\n";
+    inner();
+  OUTER:
+    $result .= "at label OUTER\n";
+}
+
+sub inner {
+    $result .= "In inner\n";
+
+    goto SKIP;      # goto same block level
+    $result .= "This should be skipped\n";
+  SKIP:
+    $result .= "at label SKIP\n";
+
+    goto OUTER;     # goto whatever OUTER label there is on frame stack.
+                    # if there isn't any, exception will be raised
+    $result .= "Inner should never reach here\n";
+}
+
+sub disguise {
+    goto &outer;    # a different type of goto, it replaces the stack frame
+                    # with the outer() function's and pretend we called
+                    # that function to begin with
+    $result .= "Can't reach this statement\n";
+}
+
+$result .= "Calling outer:\n";
+outer();
+
+$result .= "\nCalling disguise:\n";
+disguise();
+
+#print "\nCalling inner:\n";
+#inner();                # will die
+
+say $result; 
+my $ref = <<'EOD';
+Calling outer:
+In outer, calling inner:
+In inner
+at label SKIP
+at label OUTER
+
+Calling disguise:
+In outer, calling inner:
+In inner
+at label SKIP
+at label OUTER
+EOD
+
+use Test::More;
+is ($result, $ref);
+done_testing();
