@@ -1,0 +1,94 @@
+#!/usr/local/bin/perl
+#u# http://rosettacode.org/wiki/Kronecker_product
+#c# 2018-08-14 <RC
+#p# OK
+
+use feature 'say';
+my $result;
+
+use strict;
+use warnings;
+use PDL;
+use PDL::NiceSlice;
+
+sub kron{
+	my $A = shift;
+	my $B = shift;
+	my ($r0, $c0) = $A->dims;
+	my ($r1, $c1) = $B->dims;
+	my $kron = zeroes($r0 * $r1, $c0 * $c1);
+	for(my $i = 0; $i < $r0; ++$i){
+		for(my $j = 0; $j < $c0; ++$j){
+			$kron(
+				($i * $r1) : (($i + 1) * $r1 - 1),
+				($j * $c1) : (($j + 1) * $c1 - 1)
+			) .= $A($i,$j) * $B;
+		}
+	}
+	return $kron;
+}
+
+my @mats = (
+	[pdl([[1,2], [3,4]]), pdl([[0,5], [6,7]])],
+	[pdl([[0,1,0], [1,1,1], [0,1,0]]), pdl([[1,1,1,1], [1,0,0,1], [1,1,1,1]])],
+);
+for my $mat(@mats){
+	$result .= "A = $mat->[0]\n";
+	$result .= "B = $mat->[1]\n";
+	$result .= "kron(A,B) = " . kron($mat->[0], $mat->[1]) . "\n";
+}
+
+say $result; 
+my $ref = <<'EOD';
+A = 
+[
+ [1 2]
+ [3 4]
+]
+
+B = 
+[
+ [0 5]
+ [6 7]
+]
+
+kron(A,B) = 
+[
+ [ 0  5  0 10]
+ [ 6  7 12 14]
+ [ 0 15  0 20]
+ [18 21 24 28]
+]
+
+A = 
+[
+ [0 1 0]
+ [1 1 1]
+ [0 1 0]
+]
+
+B = 
+[
+ [1 1 1 1]
+ [1 0 0 1]
+ [1 1 1 1]
+]
+
+kron(A,B) = 
+[
+ [0 0 0 0 1 1 1 1 0 0 0 0]
+ [0 0 0 0 1 0 0 1 0 0 0 0]
+ [0 0 0 0 1 1 1 1 0 0 0 0]
+ [1 1 1 1 1 1 1 1 1 1 1 1]
+ [1 0 0 1 1 0 0 1 1 0 0 1]
+ [1 1 1 1 1 1 1 1 1 1 1 1]
+ [0 0 0 0 1 1 1 1 0 0 0 0]
+ [0 0 0 0 1 0 0 1 0 0 0 0]
+ [0 0 0 0 1 1 1 1 0 0 0 0]
+]
+
+EOD
+
+use Test::More;
+is ($result, $ref);
+done_testing();
