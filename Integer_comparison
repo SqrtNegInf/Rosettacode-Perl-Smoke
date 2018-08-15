@@ -1,0 +1,66 @@
+#!/usr/local/bin/perl
+#u# http://rosettacode.org/wiki/Integer_comparison
+#c# 2018-08-13 <RC
+#p# OK
+
+use feature 'say';
+my $result;
+
+# Works with: Perl version 5.x
+#Separate tests for less than, greater than, and equals
+
+sub test_num {
+    my $f = shift;
+    my $s = shift;
+    if ($f < $s){
+        return -1; # returns -1 if $f is less than $s
+    } elsif ($f > $s) {
+        return 1; # returns 1 if $f is greater than $s
+    } elsif ($f == $s) {
+# = operator is an assignment
+# == operator is a numeric comparison
+       return 0; # returns 0 $f is equal to $s
+    };
+};
+#All three tests in one. If $f is less than $s return -1, greater than return 1, equal to return 0
+
+sub test_num2 {
+    return $_[0] <=> $_[1];
+};
+#Note: In Perl, $a and $b are (kind of) reserved identifiers for the built-in sort function. It's good style to use more meaningful names, anyway.
+
+# Get input, test and display
+#print "Enter two integers: ";
+
+%pairs = (
+ 0 => 2,
+ 2 => 1,
+ 1 => 1,
+);
+
+#($x, $y) = split ' ', <>;
+for  my $x (sort keys %pairs) {
+my $y = $pairs{$x};
+$result .= $x. (" is less than ", " is equal to ",
+           " is greater than ")[test_num($x, $y) + 1]. $y. "\n";
+}
+for  my $x (sort keys %pairs) {
+my $y = $pairs{$x};
+$result .= $x. (" is less than ", " is equal to ",
+           " is greater than ")[test_num2($x, $y) + 1]. $y. "\n";
+}
+
+say $result; 
+
+my $ref = <<'EOD';
+0 is less than 2
+1 is equal to 1
+2 is greater than 1
+0 is less than 2
+1 is equal to 1
+2 is greater than 1
+EOD
+
+use Test::More;
+is ($result, $ref);
+done_testing();
