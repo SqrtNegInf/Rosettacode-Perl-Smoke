@@ -1,0 +1,59 @@
+#!/usr/local/bin/perl
+#u# http://rosettacode.org/wiki/I_before_E_except_after_C
+#c# 2018-08-13 <RC
+#p# OK
+
+use feature 'say';
+my $output;
+
+use warnings;
+use strict;
+
+# Stretch Goal[edit]
+
+sub result {
+    my ($support, $against) = @_;
+    my $ratio  = sprintf '%.2f', $support / $against;
+    my $result = $ratio >= 2;
+    $output .= "$support / $against = $ratio. ". ('NOT ' x !$result) . "PLAUSIBLE\n";
+    return $result;
+}
+
+my @keys  = qw(ei cei ie cie);
+my %count;
+
+open F, '<', 'ref/1_2_all_freq.txt';
+while ($_ = <F>) {
+    my @columns = split;
+    next if 3 < @columns;
+    my ($word, $freq) = @columns[0, 2];
+    for my $k (@keys) {
+        $count{$k} += $freq if -1 != index $word, $k;
+    }
+}
+
+my ($support, $against, $result);
+
+$output .= 'I before E when not preceded by C: ';
+$support = $count{ie} - $count{cie};
+$against = $count{ei} - $count{cei};
+$result += result($support, $against);
+
+$output .= 'E before I when preceded by C: ';
+$support = $count{cei};
+$against = $count{cie};
+$result += result($support, $against);
+
+$output .= 'Overall: '. ('NOT ' x ($result < 2)). "PLAUSIBLE.\n";
+
+say $output;
+
+my $ref = <<'EOD';
+I before E when not preceded by C: 8148 / 4826 = 1.69. NOT PLAUSIBLE
+E before I when preceded by C: 327 / 994 = 0.33. NOT PLAUSIBLE
+Overall: NOT PLAUSIBLE.
+EOD
+
+use Test::More;
+is ($output, $ref);
+done_testing();
