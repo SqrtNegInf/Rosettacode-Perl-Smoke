@@ -1,0 +1,38 @@
+#!/usr/local/bin/perl
+#u# http://rosettacode.org/wiki/Input_loop
+#t# nocode
+#c# 2018-08-13 <RC
+#p# OK
+
+# The angle brackets operator ( <...> ) reads one line at a time from a filehandle in scalar context:
+open FH, "< $filename" or die "can't open file: $!";
+while (my $line = <FH>) {
+    chomp $line; # removes trailing newline
+    # process $line
+}
+close FH or die "can't close file: $!";
+
+# Or you can get a list of all lines when you use it in list context:
+@lines = <FH>;
+
+# Or a simpler program for lines of files entered as command line arguments or standard input:
+while (<>) {
+    # $_ contains a line
+}
+
+# Invoking perl with the -p or -n option implies the above loop, executing its code once per input line, with the line stored in $_. -p will print $_ automatically at the end of each iteration, -n will not.
+
+my $ref = <<'EOD';
+$ seq 5 | perl -pe '$_ = "Hello $_"'
+Hello 1
+Hello 2
+Hello 3
+Hello 4
+Hello 5
+$ seq 5 | perl -ne 'print "Hello $_"'
+Hello 1
+Hello 2
+Hello 3
+Hello 4
+Hello 5
+EOD
