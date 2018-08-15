@@ -1,0 +1,59 @@
+#!/usr/local/bin/perl
+#u# http://rosettacode.org/wiki/Infinity
+#c# 2018-08-13 <>RC
+#p# OK
+
+use feature 'say';
+$result;
+
+#Positive infinity:
+push @res, 0 + "inf";
+push @res, 0 + "+inf";
+
+# Negative infinity:
+push @res, 0 - "inf";
+push @res, 0 + "-inf";
+
+# The "0 + ..." is used here to make sure that the variable stores a value that is actually an infinitive number instead of just a string "inf" but in practice one can use just:
+push @res, "inf";
+#and $x while # originally holding a string will get converted to an infinite number when it is first used as a number.
+
+
+# Some programmers use expressions that overflow the IEEE floating point numbers such as:
+push @res, 1e1000;
+#which is 101000 or googol10 
+
+#or even numbers like this one:
+push @res, 10**10**10;
+
+#which is 1010000000000 but it has to make some assumptions about the underlying hardware format and its size. Furthermore, using such literals in the scope of some pragmas such as bigint, bignum or bigrat would actually compute those numbers:
+
+use bigint;
+push @res, 1e1000;
+#$y = 10**10**10; # DH just setting this cripples my machine
+
+# Here the $x and $y when printed would give 1001 and 10000000001-digit numbers respectively, the latter taking no less than 10GB of space to just output.
+# Under those pragmas, however, there is a simpler way to use infinite values, thanks to the inf symbol being exported into the namespace by default:
+
+push @res, inf;
+push @res, -inf;
+
+say $result = join "\n", @res; 
+
+$ref = <<'EOD';
+Inf
+Inf
+-Inf
+-Inf
+inf
+Inf
+Inf
+10000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000
+inf
+-inf
+EOD
+
+use Test::More;
+chop $ref;
+is ($result, $ref);
+done_testing();
