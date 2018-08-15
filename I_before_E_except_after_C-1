@@ -1,0 +1,54 @@
+#!/usr/local/bin/perl
+#u# http://rosettacode.org/wiki/I_before_E_except_after_C
+#c# 2018-08-13 <RC
+#p# OK
+
+use feature 'say';
+my $output;
+
+use warnings;
+use strict;
+
+sub result {
+    my ($support, $against) = @_;
+    my $ratio  = sprintf '%.2f', $support / $against;
+    my $result = $ratio >= 2;
+    $output .= "$support / $against = $ratio. ". ('NOT ' x !$result) . "PLAUSIBLE\n";
+    return $result;
+}
+
+my @keys  = qw(ei cei ie cie);
+my %count;
+
+open F, '<', 'ref/unixdict.txt';
+while ($_ = <F>) {
+    for my $k (@keys) {
+        $count{$k}++ if -1 != index $_, $k;
+    }
+}
+
+my ($support, $against, $result);
+
+$output .= 'I before E when not preceded by C: ';
+$support = $count{ie} - $count{cie};
+$against = $count{ei} - $count{cei};
+$result += result($support, $against);
+
+$output .= 'E before I when preceded by C: ';
+$support = $count{cei};
+$against = $count{cie};
+$result += result($support, $against);
+
+$output .= 'Overall: '. ('NOT ' x ($result < 2)). "PLAUSIBLE.\n";
+
+say $output;
+
+my $ref = <<'EOD';
+I before E when not preceded by C: 465 / 213 = 2.18. PLAUSIBLE
+E before I when preceded by C: 13 / 24 = 0.54. NOT PLAUSIBLE
+Overall: NOT PLAUSIBLE.
+EOD
+
+use Test::More;
+is ($output, $ref);
+done_testing();
