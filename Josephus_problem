@@ -1,0 +1,22 @@
+#!/usr/local/bin/perl
+#u# http://rosettacode.org/wiki/Josephus_problem
+#c# 2018-08-14 <RC
+#p# OK
+
+use feature 'say';
+my $result;
+
+# Translation of: Perl6
+
+my @prisoner = 0 .. 40;
+my $k = 3;
+until (@prisoner == 1) {
+    push @prisoner, shift @prisoner for 1 .. $k-1;
+    shift @prisoner;
+}
+
+say $result = "Prisoner @prisoner survived.";
+
+use Test::More;
+is ($result, 'Prisoner 30 survived.');
+done_testing();
