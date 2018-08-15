@@ -1,0 +1,28 @@
+#!/usr/local/bin/perl
+#u# http://rosettacode.org/wiki/Kernighans_large_earthquake_problem
+#c# 2018-08-14 <RC
+#p# OK
+
+use feature 'say';
+my $result;
+
+#perl -n -e '/(\S+)\s*$/ and $1 > 6 and print' data.txt
+while ($_ = <DATA>) {
+    /(\S+)\s*$/;
+    $result .= $_ if $1 > 6;
+}
+
+say $result; 
+my $ref = <<'EOD';
+    8/27/1883    Krakatoa            8.8
+    5/18/1980    MountStHelens       7.6
+EOD
+
+use Test::More;
+is ($result, $ref);
+done_testing();
+
+__END__
+    8/27/1883    Krakatoa            8.8
+    5/18/1980    MountStHelens       7.6
+    3/13/2009    CostaRica           5.1
