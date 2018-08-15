@@ -1,0 +1,17 @@
+#!/usr/local/bin/perl
+#u# http://rosettacode.org/wiki/Hostname
+#c# 2018-08-13 <RC
+#p# OK
+
+use feature 'say';
+my $result;
+
+# Works with: Perl version 5.8.6
+#Library: Sys::HostnameHostname
+use Sys::Hostname;
+
+say $name = hostname;
+
+use Test::More;
+is ($name, 'Mac-Pro.local');
+done_testing();
