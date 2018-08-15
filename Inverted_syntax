@@ -1,0 +1,25 @@
+#!/usr/local/bin/perl
+#u# http://rosettacode.org/wiki/Inverted_syntax
+#t# skiptest
+#c# 2018-08-13 <RC
+#p# OK
+
+# Perl already has that:
+
+if ($guess == 6) { print "Wow! Lucky Guess!"; };    # Traditional syntax
+print 'Wow! Lucky Guess!' if $guess == 6;           # Inverted syntax (note missing braces and parens)
+unless ($guess == 6) { print "Sorry, your guess was wrong!"; }   # Traditional syntax
+print 'Huh! You Guessed Wrong!' unless $guess == 6;              # Inverted syntax
+# Inverted syntax can also be used with the ternary operator.
+# However this may produce different results to the traditional syntax form because when inverted syntax is used, we are effectively making an assignment to a ternary expression. so in the following example code, instead of the assignment being made to variable a (as it is in the traditional syntax form), the inverted syntax form will cause assignment to be made to either b or c, depending on value of the ok variable:
+
+# Note that the results obtained by the inverted syntax form
+# may produce differing results from the traditional syntax form
+$a = $ok ? $b : $c;     # Traditional syntax
+($ok ? $b : $c) = $a;   # Inverted syntax
+# We can also emulate inverted syntax for scalar assignment by creating a function as follows:
+
+sub assign { $_[1] = $_[0] }
+$a = $b;       # Traditional syntax
+assign $b, $a; # Inverted syntax
+# Inverted list assignment is not possible because it prevents arrays from flattening.
