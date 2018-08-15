@@ -1,0 +1,72 @@
+#!/usr/local/bin/perl
+#u# http://rosettacode.org/wiki/Jaro_distance
+#c# 2018-08-14 <RC
+#p# OK
+
+use feature 'say';
+my $result;
+
+use List::Util qw(min max);
+
+sub jaro {
+    my ($s, $t) = @_;
+
+    my $s_len = length($s);
+    my $t_len = length($t);
+
+    return 1 if $s_len == 0 and $t_len == 0;
+
+    my $match_distance = int(max($s_len, $t_len) / 2) - 1;
+
+    my @s_matches;
+    my @t_matches;
+
+    my @s = split(//, $s);
+    my @t = split(//, $t);
+
+    my $matches = 0;
+    foreach my $i (0 .. $#s) {
+
+        my $start = max(0, $i - $match_distance);
+        my $end = min($i + $match_distance + 1, $t_len);
+
+        foreach my $j ($start .. $end - 1) {
+            $t_matches[$j] and next;
+            $s[$i] eq $t[$j] or next;
+            $s_matches[$i] = 1;
+            $t_matches[$j] = 1;
+            $matches++;
+            last;
+        }
+    }
+
+    return 0 if $matches == 0;
+
+    my $k              = 0;
+    my $transpositions = 0;
+
+    foreach my $i (0 .. $#s) {
+        $s_matches[$i] or next;
+        until ($t_matches[$k]) { ++$k }
+        $s[$i] eq $t[$k] or ++$transpositions;
+        ++$k;
+    }
+
+    (($matches / $s_len) + ($matches / $t_len) +
+        (($matches - $transpositions / 2) / $matches)) / 3;
+}
+
+$result .= sprintf("%f\n", jaro("MARTHA",    "MARHTA"));
+$result .= sprintf("%f\n", jaro("DIXON",     "DICKSONX"));
+$result .= sprintf("%f\n", jaro("JELLYFISH", "SMELLYFISH"));
+
+say $result; 
+my $ref = <<'EOD';
+0.944444
+0.766667
+0.896296
+EOD
+
+use Test::More;
+is ($result, $ref);
+done_testing();
