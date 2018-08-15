@@ -1,0 +1,64 @@
+#!/usr/local/bin/perl
+#u# http://rosettacode.org/wiki/Stern-Brocot_sequence
+#c# 2018-08-13 <RC
+#p# OK
+
+use feature 'say';
+my $result;
+
+use strict;
+use warnings;
+
+sub stern_brocot {
+    my @list = (1, 1);
+    sub {
+	push @list, $list[0] + $list[1], $list[1];
+	shift @list;
+    }
+}
+
+{ 
+    my $generator = stern_brocot;
+    $result .= join ' ', map &$generator, 1 .. 15;
+    $result .= "\n";
+}
+
+for (1 .. 10, 100) {
+    my $index = 1;
+    my $generator = stern_brocot;
+    $index++ until $generator->() == $_;
+    $result .= "first occurrence of $_ is at index $index\n";
+}
+
+{
+    sub gcd {
+	my ($u, $v) = @_;
+	$v ? gcd($v, $u % $v) : abs($u);
+    }
+    my $generator = stern_brocot;
+    my ($a, $b) = ($generator->(), $generator->());
+    for (1 .. 1000) {
+	die "unexpected GCD for $a and $b" unless gcd($a, $b) == 1;
+	($a, $b) = ($b, $generator->());
+    }
+}
+
+say $result;
+my $ref = <<'END';
+1 1 2 1 3 2 3 1 4 3 5 2 5 3 4
+first occurrence of 1 is at index 1
+first occurrence of 2 is at index 3
+first occurrence of 3 is at index 5
+first occurrence of 4 is at index 9
+first occurrence of 5 is at index 11
+first occurrence of 6 is at index 33
+first occurrence of 7 is at index 19
+first occurrence of 8 is at index 21
+first occurrence of 9 is at index 35
+first occurrence of 10 is at index 39
+first occurrence of 100 is at index 1179
+END
+
+use Test::More;
+is ($result, $ref);
+done_testing();
