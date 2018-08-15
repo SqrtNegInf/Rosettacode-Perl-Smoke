@@ -1,0 +1,16 @@
+#!/usr/local/bin/perl
+#u# http://rosettacode.org/wiki/Split_a_character_string_based_on_change_of_character
+#c# 2018-08-13 <>RC
+#p# OK
+
+use feature 'say';
+
+# Works with: Perl version 5.x
+my $str = 'gHHH5YY++///\\';
+$str =~ s/((.)\g{-1}*)/$1, /g; # remove trailing ,
+$str =~ s/, $//;
+say  $str;
+
+use Test::More;
+is ($str, "g, HHH, 5, YY, ++, ///, \\");
+done_testing();
