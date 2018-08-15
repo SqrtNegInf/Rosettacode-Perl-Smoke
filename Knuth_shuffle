@@ -1,0 +1,30 @@
+#!/usr/local/bin/perl
+#u# http://rosettacode.org/wiki/Knuth_shuffle
+#c# 2018-08-14 <RC
+#p# OK
+
+srand 123456;
+
+use feature 'say';
+my $result;
+
+sub shuffle {
+  my @a = @_;
+  foreach my $n (1 .. $#a) {
+    my $k = int rand $n + 1;
+    $k == $n or @a[$k, $n] = @a[$n, $k];
+  }
+  return @a;
+}
+
+my @cards = <H1 H2 H3 D1 D2 D3 S1 S2 S3 C1 C2 C3>;
+
+say $result = join " ", shuffle(@cards); 
+my $ref = <<'EOD';
+D3 S2 S1 C3 H2 C1 D1 D2 S3 H1 C2 H3
+EOD
+
+use Test::More;
+chop $ref;
+is ($result, $ref);
+done_testing();
