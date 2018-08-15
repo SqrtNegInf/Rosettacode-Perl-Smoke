@@ -1,0 +1,37 @@
+#!/usr/local/bin/perl
+#u# http://rosettacode.org/wiki/Iterated_digits_squaring
+#c# 2018-08-13 <RC
+#p# OK
+
+use feature 'say';
+
+# Translation of: perl6
+
+use warnings;
+use strict;
+
+my @sq = map { $_ ** 2 } 0 .. 9;
+my %cache;
+my $cnt = 0;
+
+sub Euler92 {
+    my $n = 0 + join( '', sort split( '', shift ) );
+    $cache{$n} //= ($n == 1 || $n == 89) ? $n : 
+    Euler92( sum( @sq[ split '', $n ] ) )
+}
+
+sub sum {
+   my $sum;
+   $sum += shift while @_;
+   $sum;
+}
+
+for (1 .. 100_000_000) {
+   ++$cnt if Euler92( $_ ) == 89;
+}
+
+say $cnt;
+
+use Test::More;
+is ($cnt, 85744333);
+done_testing();
