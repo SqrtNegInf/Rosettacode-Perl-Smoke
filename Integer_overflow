@@ -1,0 +1,35 @@
+#!/usr/local/bin/perl
+#u# http://rosettacode.org/wiki/Integer_overflow
+#c# 2018-08-13 <RC
+#p# OK
+
+use feature 'say';
+my $result;
+
+# Using Perl 5.18 on 64-bit Linux with use integer:
+
+use strict;
+use warnings;
+use integer;
+use feature 'say';
+
+$result .= "Testing 64-bit signed overflow:" . "\n";
+$result .= -(-9223372036854775807-1) . "\n";
+$result .= 5000000000000000000+5000000000000000000 . "\n";
+$result .= -9223372036854775807 - 9223372036854775807 . "\n";
+$result .= 3037000500 * 3037000500 . "\n";
+$result .= (-9223372036854775807-1) / -1 . "\n";
+
+say $result; 
+my $ref = <<'EOD';
+Testing 64-bit signed overflow:
+-9223372036854775808
+-8446744073709551616
+2
+-9223372036709301616
+-9223372036854775808
+EOD
+
+use Test::More;
+is ($result, $ref);
+done_testing();
