@@ -1,0 +1,23 @@
+#!/usr/local/bin/perl
+#u# http://rosettacode.org/wiki/Include_a_file
+#t# nocode
+#c# 2018-08-13 <RC
+#p# OK
+
+# Here we include the file include.pl into our main program:
+#main.perl:
+
+# #!/usr/bin/perl
+do "include.pl";        # Utilize source from another file
+sayhello();
+
+# include.pl:
+
+sub sayhello {
+  print "Hello World!";
+}
+# From documentation:If "do" cannot read the file, it returns undef and sets $! to the error.
+# If "do" can read the file but cannot compile it, it returns undef and sets
+# an error message in [email protected]
+# If the file is successfully compiled, "do" returns the value of the last
+# expression evaluated.
