@@ -1,0 +1,33 @@
+#!/usr/local/bin/perl
+#u# http://rosettacode.org/wiki/Special_variables
+#t# nocode
+#c# 2018-08-14 <>RC
+#p# OK
+
+# Works with: Perl 5.28
+# A selection of the variables with special meaning to Perl. If you find it hard to remember the 'punctuation' names, longer 'English' names are available via a core module.
+
+# use English;                     # enables use of long variable names
+# 
+# $.     $INPUT_LINE_NUMBER        # sequence number
+# $,     $OUTPUT_FIELD_SEPARATOR   # output field separator
+# $;     $SUBSCRIPT_SEPARATOR      # subscript separator for multidimensional array emulation
+# $_     $ARG                      # topic/current/default variable
+# $"     $LIST_SEPARATOR           # alternative output field separator
+# $+     $LAST_PAREN_MATCH         # last substring matched to a regular expression subpattern
+# $0     $PROGRAM_NAME             # name of the program being executed
+# $!     $ERRNO                    # error number from host operating system
+# $@     $EVAL_ERROR               # error from the last "eval" operator
+# $/     $INPUT_RECORD_SEPARATOR   # input record separator
+# $\     $OUTPUT_RECORD_SEPARATOR  # output record separator for 'print'
+# $|     $OUTPUT_AUTOFLUSH         # controls output buffering
+# $&     $MATCH                    # string matched by last regular expression
+# $'     $POSTMATCH                # substring following last matched regular expression
+# $`     $PREMATCH                 # substring preceding last matched regular expression
+# 
+# @ARGV                            # array containing the command line parameters
+# @F                               # array of fields of each line read in when auto-split is on
+# @INC                             # array of library search paths
+# 
+# %ENV                             # associative container holding the environment variables
+# %SIG                             # associative container holding signal handlers
