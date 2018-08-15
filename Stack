@@ -1,0 +1,9 @@
+#!/usr/local/bin/perl
+#u# http://rosettacode.org/wiki/Stack
+#t# nocode
+#c# 2018-08-13 <RC
+#p# OK
+
+# Perl comes prepared to treat its arrays as stacks, giving us the push and pop functions for free. To add empty, we basically give a new name to "not":
+
+sub empty{ not @_ }
