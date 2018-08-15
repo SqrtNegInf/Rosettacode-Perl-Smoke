@@ -1,0 +1,49 @@
+#!/usr/local/bin/perl
+#u# http://rosettacode.org/wiki/Knuth%27s_algorithm_S
+#c# 2018-08-14 <RC
+#p# OK
+
+srand 123456;
+
+use feature 'say';
+my $result;
+
+use strict;
+
+sub s_of_n_creator {
+    my $n = shift;
+    my @sample;
+    my $i = 0;
+    sub {
+        my $item = shift;
+        $i++;
+        if ($i <= $n) {
+            # Keep first n items
+            push @sample, $item;
+        } elsif (rand() < $n / $i) {
+            # Keep item
+            @sample[rand $n] = $item;
+        }
+        @sample
+    }
+}
+
+my @items = (0..9);
+my @bin;
+
+foreach my $trial (1 .. 100000) {
+    my $s_of_n = s_of_n_creator(3);
+    my @sample;
+    foreach my $item (@items) {
+        @sample = $s_of_n->($item);
+    }
+    foreach my $s (@sample) {
+        $bin[$s]++;
+    }
+}
+
+say $result = join ' ', @bin;
+
+use Test::More;
+is ($result, '30086 29900 29970 29902 30007 30133 29970 30006 30020 30006');
+done_testing();
