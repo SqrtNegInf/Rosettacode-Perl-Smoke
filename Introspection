@@ -1,0 +1,99 @@
+#!/usr/local/bin/perl
+#u# http://rosettacode.org/wiki/Introspection
+#c# 2018-08-13 <>RC
+#p# OK
+
+use feature 'say';
+my $result;
+
+# Works with: Perl version 5.x
+require v5.6.1;    # run time version check
+require 5.6.1;     # ditto
+require 5.006_001; # ditto; preferred for backwards compatibility
+#To check if a variable exists, do a name lookup of it in the package symbol table:
+
+#$bloop = -123;   # uncomment this line to see the difference
+no strict 'refs'; # referring to variable by name goes against 'strict' pragma
+if (defined($::{'bloop'})) {print abs(${'bloop'})} else {print "bloop isn't defined"};
+#To check if certain built-in function is available (maybe you are using a stripped down build of perl binary, for example), one can use eval, but make sure the statement you are eval'ing doesn't have side effect:
+
+eval('abs(0)');  # eval("") instead of eval{}; the latter is not for run-time check
+print "abs() doesn't seem to be available\n" if @!;
+
+#To check if a package or object provides certain method name, use 'can':
+use Math::Complex;
+my $cpl = Math::Complex->new(1,1);
+
+$result .= "package Math::Complex has 'make' method\n"
+        if Math::Complex->can('make');
+
+$result .= "object \$cpl does not have 'explode' method\n"
+        unless $cpl->can('explode');
+
+# Keep in mind that what a package has as method names are not equal to what method names can be called on this package, due to things like AUTOLOAD.
+# For most uses, introspection is meaningless, just call the method (and catch exceptions if it's important).
+# An example that solves the task:
+
+use 5.010;
+our $bloop = -12;
+if (defined $::bloop) {
+    if (eval { abs(1) }) {
+        $result .= 'abs($bloop) is ' . abs($::bloop) . "\n";
+    }
+    else {
+        say 'abs() is not available';
+    }
+}
+else {
+    say '$bloop is not defined';
+}
+# Note that this program will exit with a message "Perl v5.10.0 required" if run under perl version lower than 5.10 and it actually uses a feature introduced in that version (say).
+# The program checks whether the variable is actually defined and not if it just exists.
+# In Perl a variable can exist and have an undefined value, and checking for existence is problematic because many read-only operations may create an empty slot in the global namespace as a side effect. It doesn't make sense to calculate absolute values of existent but undefined variables so it doesn't matter in this task.
+# It can be tested by commenting out the our $bloop line.
+# The existence of abs() function is tested using eval that returns false if the abs(1) cannot be invoked which can be tested by changing the name of the function in the eval test.
+
+# Extra task:
+use 5.010;
+package test;
+use Regexp::Common;
+use List::Util qw(sum);
+
+our $a = 7;
+our $b = 1;
+our $c = 2;
+our $d = -5;
+our $e = 'text';
+our $f = 0.25;
+
+my @ints = grep { /^$RE{num}{int}$/ } map { $$_ // '' } values %::test::;
+my $num = @ints;
+my $sum = sum @ints;
+$result .= "$num integers, sum = $sum\n";
+
+# It prints:
+#4 integers, sum = 5
+
+# This example uses the test namespace instead of the default, because there already are some integer numbers in the main namespace like the PID, etc.
+# The program to sum those numbers would be:
+
+use 5.010;
+use Regexp::Common;
+use List::Util qw(sum);
+my @ints = grep { /^$RE{num}{int}$/ } map { $$_ // '' } values %::;
+my $num = @ints;
+my $sum = sum @ints;
+say "$num integers, sum = $sum";
+# varies, no testing...
+
+say $result; 
+my $ref = <<'EOD';
+package Math::Complex has 'make' method
+object $cpl does not have 'explode' method
+abs($bloop) is 12
+4 integers, sum = 5
+EOD
+
+use Test::More;
+is ($result, $ref);
+done_testing();
