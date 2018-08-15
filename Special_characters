@@ -1,0 +1,220 @@
+#!/usr/local/bin/perl
+#u# http://rosettacode.org/wiki/Special_characters
+#t# nocode
+#c# 2018-08-14 <RC
+#p# OK
+
+# Note that in perl quotation operator designations may temporarily change a symbol into an enclosure and the meaning of symbols may vary according to context.
+
+# Assignment operator symbols[edit]
+#  = assignment operator 
+# Arithmetic operator symbols[edit]
+#  + addition (also optional unary positive number designator)
+#  - subtraction (also negative number designator and named unary operator prefix)
+#  * multiplication (also used as a prefix sigil for typeglob variables)
+#  / division (also used as a regularexpression delimiter)
+#  % modulus (also used as a placeholder prefix)
+#  ** exponent
+# Note that perl does not provide an integer division operator, but does support modulus
+# 
+# Bitwise operator symbols[edit]
+#  & bitwise AND operator
+#  | bitwise OR operator
+#  ^ bitwise XOR operator
+#  ~ bitwise NOT operator
+# Comparative operator symbols[edit]
+#  == numeric equality
+#  < numeric less than (also used as a readline enclosure)
+#  > numeric greater than (also used as a readline enclosure)
+#  <= numeric less than or equal to
+#  >= numeric greater than or equal to
+#  <> numeric inequality (also used for readline input)
+#  <=> numeric tristate comparative
+#  ~~ smartmatch operator
+# Comment markers[edit]
+#  # prefixes comments
+# Context switching operators[edit]
+#  =()= Array context operator
+#  ~~ String context operator
+#  -+- Convert numerical prefix to numerical context
+#  0+ Numerical context prefix
+# Data type indicators[edit]
+#  $ prefix sigil and prototyping placeholder for scalar variables (also used as a placeholder modifier for element reordering)
+#  @ prefix sigil and prototyping placeholder for array variables
+#  % prefix sigil and prototyping placeholder for associative container variables
+#  & prefix sigil and prototyping placeholder for subroutine names (also used as a bitwise AND operator)
+#  * prefix sigil and prototyping placeholder for typeglob variables
+# Enclosures[edit]
+#  ' Literal string enclosures
+#  " Interpolated string enclosures
+#  / Regular expression enclosures
+#  ( ) Overriding precedence, list construction, control element enclosures, treat functions as terms rather than operators
+#  [ ] Array reference enclosure, Array definition structure
+#  < > Readline enclosures
+#  { } Group statements together into blocks of code, literal character representation construct
+#  $( ) Dereferencing enclosures
+#  @{[ ]} Interpolates enclosed array inside a string
+# Escape sequences[edit]
+# These escape sequences can be used in any construct with interpolation. See Quote-and-Quote-like-Operators for more info.
+# 
+# 
+# 
+#  \t 
+#  tab (HT,TAB) 
+# 
+# 
+# 
+#  \n 
+#  newline (NL) 
+# 
+# 
+# 
+#  \r 
+#  carriage return (CR) 
+# 
+# 
+# 
+#  \f 
+#  form feed (FF) 
+# 
+# 
+# 
+#  \b 
+#  backspace (BS) 
+# 
+# 
+# 
+#  \a 
+#  alarm (BEL) 
+# 
+# 
+# 
+#  \e 
+#  escape (ESC) 
+# 
+# 
+# 
+#  \0?? 
+#  octal char 
+#  example: \033 (ESC)
+# 
+# 
+#  \x?? 
+#  hex char 
+#  example: \x1b (ESC)
+# 
+# 
+#  \x{???} 
+#  wide hex char 
+#  example: \x{263a} (SMILEY)
+# 
+# 
+#  \c? 
+#  control char 
+#  example: \c[ (ESC)
+# 
+# 
+#  \N{U+????} 
+#  Unicode character 
+#  example: \N{U+263D} (FIRST QUARTER MOON)
+# 
+# 
+#  \N{????} 
+#  named Unicode character 
+#  example: \N{FIRST QUARTER MOON}, see charnames
+# 
+# Here document allocation[edit]
+#  << The double open chevron symbol may be used to allocate here documents
+# Nudge operators[edit]
+#  ++ incremental nudge operator
+#  -- decremental nudge operator
+#  ~- decremental nudge (positive numbers only)
+# Shift operators[edit]
+#  << bitshift left (dyadic) (also here document allocation)
+#  >> bitshift right (dyadic)
+# Combination assignment operators[edit]
+# Arithmetic Combination Assignment Operators[edit]
+#  += addition
+#  -= subtraction
+#  *= multiplication
+#  /= division
+#  **= exponent
+#  %= modulus
+# String Manipulation Combination Assignment Operators[edit]
+#  x= repetition
+#  .= concatenation
+# Shift Combination Assignment Operators[edit]
+#  <<= Binary Shift Left
+#  >>= Binary Shift Right
+# Logical Combination Assignment Operators[edit]
+#  ||= OR
+#  &&= AND
+# Bitwise Combination Assignment Operators[edit]
+#  |= BWOR
+#  &= BWAND
+#  ^= BWXOR
+# Ellipsis, Range, Flip Flop, Concatenation, Repetition[edit]
+#  . concatenation (also regular expression wildcard)
+#  x repetition operator
+#  .. range or flipflop operator, depends on context
+#  ... ellipsis operator
+# Quoting Operators[edit]
+#  q literal string enclosure designator
+#  qq interpolated string enclosure designator
+#  qr regular expression enclosure designator
+#  qw word list enclosure designator
+#  qx external command enclosure designator
+# Referencing and dereferencing operators[edit]
+#  \ referencing operator (also escape sequencing prefix, and regular expression symbol grouping)
+#  $$ dereferencing operator
+#  -> dereferencing and associative container lookup
+# Regular expression symbols[edit]
+#  / modifier and delimiter
+#  =~ regular expression binding operator
+#  ~ regular expression negation operator
+#  [ ] match box enclosure
+#  [^ ] compliment box enclosure
+#  \ symbol grouping prefix character
+#  . wildcard
+#  ( ) grouping subexpressions, phrase enclosure, marked subexpression definition, negation operation enclosures
+#  (?: ) non backreferenced grouping enclosures
+#  (?= ) positive lookahead enclosures
+#  (?! ) negative lookahead enclosures
+#  (?<= ) positive lookbehind enclosures
+#  (?<! ) negative lookbehind enclosures
+#  (? ) enforcement or negation operation enclosures
+#  + repetition operator
+#  * repetition operator
+#  | alternation operator
+#  , count separator
+#  $ anchor
+# Special variables[edit]
+#  $. sequence number
+#  $, output field separator
+#  $;
+#  $_ default variable
+#  $" alternative output field separator
+#  $# output specifier for formatted numbers
+#  $*
+#  $! autoflush flag
+#  $+ last substring matched to a regular expression subpattern
+#  $0
+#  $/
+#  $\
+#  $|
+#  $& string matched by last regular expression
+#  $' substring following last matched regular expression
+#  $` substring preceding last matched regular expression
+#  %ENV associative container holding the environment variables
+#  %SIG
+#  @+
+#  @-
+#  @ARGV array containing the command line parameters
+#  @F
+#  @INC library search path
+# Statement, argument and element separators[edit]
+#  ; end of statement marker
+#  , function argument separator, list element separator
+# Ternary operators[edit]
+#  ? , : The hook and colon are used together to produce ternary operation syntax
+# Miscellaneous symbols[edit]
