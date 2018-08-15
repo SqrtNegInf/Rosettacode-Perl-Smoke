@@ -1,0 +1,38 @@
+#!/usr/local/bin/perl
+#u# http://rosettacode.org/wiki/Jensen%27s_Device
+#c# 2018-08-14 <RC
+#p# OK
+
+use feature 'say';
+
+my $i;
+sub sum1 {
+    my ($i, $lo, $hi, $term) = @_; 
+    my $temp = 0;
+    for ($$i = $lo; $$i <= $hi; $$i++) {
+        $temp += $term->();
+    }
+    return $temp;
+}
+
+say $result1 = sum1(\$i, 1, 100, sub { 1 / $i });
+
+
+# Or you can take advantage of the fact that elements of the @_ are aliases of the original:
+my $i;
+sub sum2 {
+    my (undef, $lo, $hi, $term) = @_; 
+    my $temp = 0;
+    for ($_[0] = $lo; $_[0] <= $hi; $_[0]++) {
+        $temp += $term->();
+    }
+    return $temp;
+}
+
+say $result2 = sum2($i, 1, 100, sub { 1 / $i });
+
+
+use Test::More;
+is ($result1, 5.18737751763962);
+is ($result2, 5.18737751763962);
+done_testing();
