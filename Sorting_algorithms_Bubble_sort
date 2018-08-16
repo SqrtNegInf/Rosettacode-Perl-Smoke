@@ -1,0 +1,24 @@
+#!/usr/local/bin/perl
+#u# http://rosettacode.org/wiki/Sorting_algorithms/Bubble_sort
+#c# 2018-08-15 <RC
+#p# OK
+
+use feature 'say';
+my $result;
+
+
+# Sorts an array in place
+sub bubble_sort {
+    for my $i (0 .. $#_){
+        for my $j ($i + 1 .. $#_){
+            $_[$j] < $_[$i] and @_[$i, $j] = @_[$j, $i];
+        }
+    }
+}
+
+use Test::More;
+srand 123456;
+say 'input: ' . join ' ', @a = @b = map+(int rand 100), 0 .. 50;
+bubble_sort(@b);
+is_deeply(\@b, [sort { $a <=> $b } @b]);
+done_testing();
