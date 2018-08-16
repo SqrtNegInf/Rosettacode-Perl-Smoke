@@ -8,8 +8,8 @@ use feature 'say';
 
 while ($cnt < 30) {
     $n++;
-    $h{$n**2}++;
-    $h{$n**3}--;
+    $h{$n**2}++;              # tally, is a square
+    $h{$n**3}--;              # strike, is also a cube
     $cnt++ if $h{$n**2} > 0;
 }
 
