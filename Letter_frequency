@@ -1,0 +1,48 @@
+#!/usr/local/bin/perl
+#u# http://rosettacode.org/wiki/Letter_frequency
+#c# 2018-08-15 <RC
+#p# OK
+
+use feature 'say';
+my $result;
+
+# Counts letters in files given on command line or piped to stdin. Case insensitive.
+
+open F, '<', 'ref/word-count.txt';
+
+while ($_ = <F>) { $cnt{lc chop}++ while length }
+$result .= "$_: " . ($cnt{$_}//0) . "\n" for 'a' .. 'z';
+
+say $result; 
+my $ref = <<'EOD';
+a: 207145
+b: 37461
+c: 67300
+d: 108743
+e: 330660
+f: 56248
+g: 48568
+h: 176810
+i: 175268
+j: 5838
+k: 14490
+l: 99575
+m: 62227
+n: 170059
+o: 184375
+p: 43356
+q: 2533
+r: 148649
+s: 161977
+t: 235463
+u: 68235
+v: 26245
+w: 56481
+x: 4025
+y: 39223
+z: 1906
+EOD
+
+use Test::More;
+is ($result, $ref);
+done_testing();
