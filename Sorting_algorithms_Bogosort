@@ -1,0 +1,28 @@
+#!/usr/local/bin/perl
+#u# http://rosettacode.org/wiki/Sorting_algorithms/Bogosort
+#c# 2018-08-15 <RC
+#p# OK
+
+use feature 'say';
+my $result;
+
+use List::Util qw(shuffle);
+
+sub bogosort
+ {my @l = @_;
+  @l = shuffle(@l) until in_order(@l);
+  return @l;}
+
+sub in_order
+ {my $last = shift;
+  foreach (@_)
+     {$_ >= $last or return 0;
+      $last = $_;}
+  return 1;}
+
+use Test::More;
+#srand 123456;
+# super slow...
+say 'input: ' . join ' ', @a = map+(int rand 100), 0 .. 10;
+is_deeply([bogosort(@a)], [sort { $a <=> $b } @a]);
+done_testing();
