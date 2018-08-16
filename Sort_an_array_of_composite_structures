@@ -1,0 +1,52 @@
+#!/usr/local/bin/perl
+#u# http://rosettacode.org/wiki/Sort_an_array_of_composite_structures
+#c# 2018-08-15 <RC
+#p# OK
+
+use feature 'say';
+my $result;
+
+use Data::Dumper;
+use warnings;
+
+# Sort by name using cmp to compare strings:
+@people = (['joe', 120], ['foo', 31], ['bar', 51]);
+@people = sort { $a->[0] cmp $b->[0] } @people;
+$result .= Dumper(@people);
+
+# Sort by number using <=> to compare numbers:
+@people = (['joe', 120], ['foo', 31], ['bar', 51]);
+@people = sort { $a->[1] <=> $b->[1] } @people;
+$result .= Dumper(@people);
+
+say $result; 
+my $ref = <<'EOD';
+$VAR1 = [
+          'bar',
+          51
+        ];
+$VAR2 = [
+          'foo',
+          31
+        ];
+$VAR3 = [
+          'joe',
+          120
+        ];
+$VAR1 = [
+          'foo',
+          31
+        ];
+$VAR2 = [
+          'bar',
+          51
+        ];
+$VAR3 = [
+          'joe',
+          120
+        ];
+EOD
+
+use Test::More;
+is ($result, $ref);
+done_testing();
