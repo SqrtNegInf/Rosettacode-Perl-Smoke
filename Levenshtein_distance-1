@@ -1,0 +1,40 @@
+#!/usr/local/bin/perl
+#u# http://rosettacode.org/wiki/Levenshtein_distance
+#c# 2018-08-15 <RC
+#p# OK
+
+use feature 'say';
+my $result;
+
+
+# Recursive algorithm, as in the C sample. You are invited to comment out the line where it says so, and see the speed difference. By the way, there's the Memoize standard module, but it requires setting quite a few parameters to work right for this example, so I'm just showing the simple minded caching scheme here.
+
+use List::Util qw(min);
+
+my %cache;
+
+sub leven {
+    my ($s, $t) = @_;
+
+    return length($t) if $s eq '';
+    return length($s) if $t eq '';
+
+    $cache{$s}{$t} //=    # try commenting out this line
+      do {
+        my ($s1, $t1) = (substr($s, 1), substr($t, 1));
+
+        (substr($s, 0, 1) eq substr($t, 0, 1))
+          ? leven($s1, $t1)
+          : 1 + min(
+                    leven($s1, $t1),
+                    leven($s,  $t1),
+                    leven($s1, $t ),
+            );
+      };
+}
+
+say $result = leven('rosettacode', 'raisethysword');
+
+use Test::More;
+is ($result, 8);
+done_testing();
