@@ -1,0 +1,56 @@
+#!/usr/local/bin/perl
+#u# http://rosettacode.org/wiki/Sort_three_variables
+#c# 2018-08-15 <RC
+#p# OK
+
+use feature 'say';
+my $result;
+
+use 5.010_000;
+
+# Sort strings
+
+my $x = 'lions, tigers, and';
+my $y = 'bears, oh my!';
+my $z = '(from the "Wizard of OZ")';
+
+# When assigning a list to list, the values are mapped
+( $x, $y, $z ) = sort ( $x, $y, $z );
+
+push @res, 'Case 1:';
+push @res, "  x = $x";
+push @res, "  y = $y";
+push @res, "  z = $z";
+
+# Sort numbers
+
+$x = 77444;
+$y = -12;
+$z = 0;
+
+# The sort function can take a customizing block parameter.
+# The spaceship operator creates a by-value numeric sort
+( $x, $y, $z ) = sort { $a <=> $b } ( $x, $y, $z );
+
+push @res, 'Case 2:';
+push @res, "  x = $x";
+push @res, "  y = $y";
+push @res, "  z = $z";
+
+say $result = join "\n", @res; 
+
+my $ref = <<'EOD';
+Case 1:
+  x = (from the "Wizard of OZ")
+  y = bears, oh my!
+  z = lions, tigers, and
+Case 2:
+  x = -12
+  y = 0
+  z = 77444
+EOD
+
+use Test::More;
+chop $ref;
+is ($result, $ref);
+done_testing();
