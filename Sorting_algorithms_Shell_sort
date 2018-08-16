@@ -1,0 +1,26 @@
+#!/usr/local/bin/perl
+#u# http://rosettacode.org/wiki/Sorting_algorithms/Shell_sort
+#c# 2018-08-15 <RC
+#p# OK
+
+use feature 'say';
+my $result;
+
+sub shell_sort {
+    my (@a, $h, $i, $j, $k) = @_;
+    for ($h = @a; $h = int $h / 2;) {
+        for $i ($h .. $#a) {
+            $k = $a[$i];
+            for ($j = $i; $j >= $h && $k < $a[$j - $h]; $j -= $h) {
+                $a[$j] = $a[$j - $h];
+            }
+            $a[$j] = $k;
+        }
+    }
+    @a;
+}
+
+use Test::More;
+say 'input: ' . join ' ', @a = map+(int rand 100), 0 .. 50;
+is_deeply([shell_sort(@a)], [sort { $a <=> $b } @a]);
+done_testing();
