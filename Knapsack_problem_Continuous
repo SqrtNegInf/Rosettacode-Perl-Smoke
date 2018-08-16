@@ -1,0 +1,54 @@
+#!/usr/local/bin/perl
+#u# http://rosettacode.org/wiki/Knapsack_problem/Continuous
+#c# 2018-08-15 <RC
+#p# OK
+
+use feature 'say';
+my $result;
+
+my @items = sort { $b->[2]/$b->[1] <=> $a->[2]/$a->[1] }
+(
+        [qw'beef    3.8 36'],
+        [qw'pork    5.4 43'],
+        [qw'ham     3.6 90'],
+        [qw'greaves 2.4 45'],
+        [qw'flitch  4.0 30'],
+        [qw'brawn   2.5 56'],
+        [qw'welt    3.7 67'],
+        [qw'salami  3.0 95'],
+        [qw'sausage 5.9 98'],
+);
+
+my ($limit, $value) = (15, 0);
+
+$result .= "item   fraction weight value\n";
+for (@items) {
+        my $ratio = $_->[1] > $limit ? $limit/$_->[1] : 1;
+        $result .= "$_->[0]\t";
+        $value += $_->[2] * $ratio;
+        $limit -= $_->[1];
+        if ($ratio == 1) {
+                $result .= "  all\t$_->[1]\t$_->[2]\n";
+        } else {
+                $result .= sprintf "%5.3f   %s   %8.3f\n", $ratio, $_->[1] * $ratio, $_->[2] * $ratio;
+                last;
+        }
+}
+
+$result .= ("-" x 40). "\ntotal value: $value\n";
+
+say $result;
+my $ref = <<'EOD';
+item   fraction weight value
+salami	  all	3.0	95
+ham	  all	3.6	90
+brawn	  all	2.5	56
+greaves	  all	2.4	45
+welt	0.946   3.5     63.378
+----------------------------------------
+total value: 349.378378378378
+EOD
+
+use Test::More;
+is ($result, $ref);
+done_testing();
