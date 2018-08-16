@@ -1,0 +1,26 @@
+#!/usr/local/bin/perl
+#u# http://rosettacode.org/wiki/Sorting_algorithms/Insertion_sort
+#c# 2018-08-15 <RC
+#p# OK
+
+use feature 'say';
+my $result;
+
+sub insertion_sort {
+    my (@list) = @_;
+    foreach my $i (1 .. $#list) {
+        my $j = $i;
+        my $k = $list[$i];
+        while ( $j > 0 && $k < $list[$j - 1]) {
+            $list[$j] = $list[$j - 1];
+            $j--;
+        }
+        $list[$j] = $k;
+    }
+    return @list;
+}
+
+use Test::More;
+say 'input: ' . join ' ', @a = map+(int rand 100), 0 .. 50;
+is_deeply([insertion_sort(@a)], [sort { $a <=> $b } @a]);
+done_testing();
