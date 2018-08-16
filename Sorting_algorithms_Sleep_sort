@@ -1,0 +1,37 @@
+#!/usr/local/bin/perl
+#u# http://rosettacode.org/wiki/Sorting_algorithms/Sleep_sort
+#c# 2018-08-15 <RC
+#p# OK
+
+use feature 'say';
+my $result;
+
+
+#Basically the C code.
+
+#1 while ($_ = shift and @ARGV and !fork);
+#sleep $_;
+#print "$_\n";
+#wait;
+
+# A more optimal solution makes use of Coro, a cooperative threading library. It has the added effect of being much faster, fully deterministic (sleep is not exact), and it allows you to easily collect the return value:
+
+use Coro;
+$ret = Coro::Channel->new;
+@nums = qw(1 32 2 59 2 39 43 15 8 9 12 9 11);
+
+for my $n (@nums){
+	async {
+		Coro::cede for 1..$n;
+		$ret->put($n);
+	}
+}
+
+push @a, $ret->get for 1..@nums;
+
+
+say $result = join ' ', @a;; 
+
+use Test::More;
+is ($result, '1 2 2 8 9 9 11 12 15 32 39 43 59');
+done_testing();
