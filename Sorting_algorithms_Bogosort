@@ -23,6 +23,6 @@ sub in_order
 use Test::More;
 #srand 123456;
 # super slow...
-say 'input: ' . join ' ', @a = map+(int rand 100), 0 .. 10;
+say 'input: ' . join ' ', @a = map+(int rand 100), 0 .. 5;
 is_deeply([bogosort(@a)], [sort { $a <=> $b } @a]);
 done_testing();
