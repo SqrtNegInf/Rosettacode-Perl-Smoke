@@ -1,0 +1,28 @@
+#!/usr/local/bin/perl
+#u# http://rosettacode.org/wiki/Sorting_algorithms/Pancake_sort
+#c# 2018-08-15 <RC
+#p# OK
+
+use feature 'say';
+my $result;
+
+
+sub pancake {
+        my @x = @_;
+        for my $idx (0 .. $#x - 1) {
+                my $min = $idx;
+                $x[$min] > $x[$_] and $min = $_           for $idx + 1 .. $#x;
+
+                next if $x[$min] == $x[$idx];
+
+                @x[$min .. $#x] = reverse @x[$min .. $#x] if $x[$min] != $x[-1];
+                @x[$idx .. $#x] = reverse @x[$idx .. $#x];
+        }
+        @x;
+}
+
+use Test::More;
+#srand 123456; # fragile!
+say 'input: ' . join ' ', @a = map+(int rand 100), 0 .. 50;
+is_deeply([pancake(@a)], [sort { $a <=> $b } @a]);
+done_testing();
