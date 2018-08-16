@@ -1,0 +1,9 @@
+#!/usr/local/bin/perl
+#u# http://rosettacode.org/wiki/Sort_stability
+#t# nocode
+#c# 2018-08-15 <RC
+#p# OK
+
+# The stability of Perl's in-built sort function is version-dependent. If you want to guarantee a stable sort from it, you should use the following sort pragma:
+
+use sort 'stable';
