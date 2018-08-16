@@ -1,0 +1,83 @@
+#!/usr/local/bin/perl
+#u# http://rosettacode.org/wiki/Linear_congruential_generator
+#c# 2018-08-15 <RC
+#p# OK
+
+use feature 'say';
+my $result;
+
+# Creates a magic scalar whose value is next in the LCG sequence when read.
+
+use strict;
+
+package LCG;
+
+use overload '0+'  => \&get;
+
+use integer;
+sub gen_bsd { (1103515245 * shift() + 12345) % (1 << 31) }
+
+sub gen_ms  {
+	my $s = (214013 * shift() + 2531011) % (1 << 31);
+	$s, $s / (1 << 16)
+}
+
+sub set { $_[0]->{seed} = $_[1] } # srand
+sub get {
+	my $o = shift;
+	($o->{seed}, my $r) = $o->{meth}->($o->{seed});
+	$r //= $o->{seed}
+}
+
+sub new {
+	my $cls = shift;
+	my %opts = @_;
+	bless {
+		seed => $opts{seed},
+		meth => $opts{meth} eq 'MS' ? \&gen_ms : \&gen_bsd,
+	}, ref $cls || $cls;
+}
+
+package main;
+
+my $rand = LCG->new;
+
+$result .= "BSD:\n";
+$result .= "$rand\n" for 1 .. 10;
+
+$rand = LCG->new(meth => 'MS');
+
+$result .= "\nMS:\n";
+$result .= "$rand\n" for 1 .. 10;
+
+say $result; 
+
+my $ref = <<'EOD';
+BSD:
+12345
+1406932606
+654583775
+1449466924
+229283573
+1109335178
+1051550459
+1293799192
+794471793
+551188310
+
+MS:
+38
+7719
+21238
+2437
+8855
+11797
+8365
+32285
+10450
+30612
+EOD
+
+use Test::More;
+is ($result, $ref);
+done_testing();
