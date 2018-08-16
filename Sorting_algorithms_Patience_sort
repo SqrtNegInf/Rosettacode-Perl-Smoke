@@ -1,0 +1,34 @@
+#!/usr/local/bin/perl
+#u# http://rosettacode.org/wiki/Sorting_algorithms/Patience_sort
+#c# 2018-08-15 <RC
+#p# OK
+
+use feature 'say';
+my $result;
+
+# Translation of: Perl 6
+
+sub patience_sort {
+    my @s = [shift];
+    for my $card (@_) {
+	my @t = grep { $_->[-1] > $card } @s;
+	if (@t) { push @{shift(@t)}, $card }
+	else { push @s, [$card] }
+    }
+    my @u;
+    while (my @v = grep @$_, @s) {
+	my $value = (my $min = shift @v)->[-1];
+	for (@v) {
+	    ($min, $value) =
+	    ($_, $_->[-1]) if $_->[-1] < $value
+	}
+	push @u, pop @$min;
+    }
+    return @u
+}
+
+use Test::More;
+#srand 123456; # fragile!
+say 'input: ' . join ' ', @a = map+(int rand 100), 0 .. 50;
+is_deeply([patience_sort(@a)], [sort { $a <=> $b } @a]);
+done_testing();
