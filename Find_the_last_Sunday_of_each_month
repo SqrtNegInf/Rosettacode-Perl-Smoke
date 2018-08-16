@@ -2,6 +2,7 @@
 #u# http://rosettacode.org/wiki/Find_the_last_Sunday_of_each_month
 #c# 2018-08-06 <RC
 #p# OK
+#n# cf. Last_Friday_of_each_month
 
 use feature 'say';
 my $result;
