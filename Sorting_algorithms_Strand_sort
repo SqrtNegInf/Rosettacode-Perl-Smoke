@@ -1,0 +1,47 @@
+#!/usr/local/bin/perl
+#u# http://rosettacode.org/wiki/Sorting_algorithms/Strand_sort
+#c# 2018-08-15 <RC
+#p# OK
+
+use feature 'say';
+my $result;
+
+use 5.10.0;    # for given/when
+sub merge {
+        my ($x, $y) = @_;
+        my @out;
+        while (@$x and @$y) {
+                $t = $x->[-1] <=> $y->[-1];
+                    if ($t == 1)     { unshift @out, pop @$x }
+                    elsif ($t == -1) { unshift @out, pop @$y }
+                    else             { splice @out, 0, 0, pop(@$x), pop(@$y) }
+        }
+        return @$x, @$y, @out
+}
+
+sub strand {
+        my $x = shift;
+        my @out = shift @$x // return;
+        if (@$x) {
+                for (-@$x .. -1) {
+                        if ($x->[$_] >= $out[-1]) {
+                                push @out, splice @$x, $_, 1
+                        }
+                }
+        }
+        return @out
+}
+
+sub strand_sort {
+        my @x = @_;
+        my @out;
+        while (my @strand = strand(\@x)) {
+                @out = merge(\@out, \@strand)
+        }
+        @out
+}
+
+use Test::More;
+say 'input: ' . join ' ', @a = map+(int rand 100), 0 .. 50;
+is_deeply([strand_sort(@a)], [sort { $a <=> $b } @a]);
+done_testing();
