@@ -1,7 +1,8 @@
 #!/usr/local/bin/perl
 #u# http://rosettacode.org/wiki/Last_Friday_of_each_month
 #c# 2018-08-14 <RC
-#p# BROKEN
+#p# OK
+#n# cf. Find_the_last_Sunday_of_each_month
 
 use feature 'say';
 my $result;
@@ -11,11 +12,12 @@ use DateTime ;
 use feature qw( say ) ;
 
 foreach my $month ( 1..12 ) {
-   my $dt = DateTime->last_day_of_month( year => $ARGV[ 0 ] , month => $month ) ;
+   my $dt = DateTime->last_day_of_month( year => 2012 , month => $month ) ;
+   #my $dt = DateTime->last_day_of_month( year => $ARGV[ 0 ] , month => $month ) ;
    while ( $dt->day_of_week != 5 ) {
       $dt->subtract( days => 1 ) ;
    }
-   say $dt->ymd ;
+   $result .= $dt->ymd . "\n";
 }
 
 say $result; 
@@ -35,5 +37,5 @@ my $ref = <<'EOD';
 EOD
 
 use Test::More;
-#is ($result, $ref);
-#done_testing();
+is ($result, $ref);
+done_testing();
