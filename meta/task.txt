@@ -1,16 +1,17 @@
 
 This is perl 5, version 28, subversion 0 (v5.28.0) built for darwin-thread-multi-2level
-+------------> Perl: Good/Bad [577/8]
+updating from RC…
++------------> Perl: Good/Bad [624/7]
 |+-----------> smOke testing [480]
-||+----------> sKipping validation [93]
+||+----------> sKipping validation [96]
 |||+---------> Interactive [33]
 ||||+--------> Touched (modified by me) [31]
-|||||+-------> Random seed [35]
+|||||+-------> Random seed [46]
 ||||||+------> File output [29]
 |||||||+-----> Draft [234]
 ||||||||+----> Ignoring [14]
-|||||||||+---> Void (no local copy) [611]
-||||||||||+--> Un-implemented/reliable [313]
+|||||||||+---> Void (no local copy) [567]
+||||||||||+--> Un-implemented/reliable [312]
 |||||||||||
 GO......... 100_doors-1
 GO......... 100_doors-2
@@ -573,10 +574,10 @@ G.KI....... Keyboard_input_Flush_the_keyboard_buffer
 G.KI....... Keyboard_input_Keypress_check
 G.KI....... Keyboard_input_Obtain_a_Y_or_N_response
 .........VU Keyboard_macros
-.........V. Knapsack_problem_0-1
-.........V. Knapsack_problem_Bounded
-.........V. Knapsack_problem_Continuous
-.........V. Knapsack_problem_Unbounded
+G.......... Knapsack_problem_0-1
+G.......... Knapsack_problem_Bounded
+G.......... Knapsack_problem_Continuous
+G.......... Knapsack_problem_Unbounded
 GO...R..... Knight%27s_tour
 GO...R..... Knuth%27s_algorithm_S
 GO.....D... Knuth%27s_power_tree
@@ -591,22 +592,23 @@ G.......... LZW_compression
 G....R..... Langton%27s_ant
 G.......... Largest_int_from_concatenated_ints
 .......D.VU Largest_number_divisible_by_its_digits
-B.......... Last_Friday_of_each_month
+G.......... Last_Friday_of_each_month
 G....R..... Last_letter-first_letter
-.........V. Leap_year
-.........V. Least_common_multiple
-.........V. Left_factorials
-.........V. Leonardo_numbers
-.........V. Letter_frequency
-.........V. Levenshtein_distance
-.......D.V. Levenshtein_distance_Alignment
-.........V. Linear_congruential_generator
+G.......... Leap_year
+G.......... Least_common_multiple
+G.......... Left_factorials
+G.......... Leonardo_numbers
+G.......... Letter_frequency
+G.......... Levenshtein_distance-1
+G.......... Levenshtein_distance-2
+G......D... Levenshtein_distance_Alignment
+G.......... Linear_congruential_generator
 .......D.VU Linux_CPU_utilization
-.........V. List_comprehensions
+G.......... List_comprehensions
 .......D.VU List_rooted_trees
-.........V. Literals_Floating_point
-.........V. Literals_Integer
-.........V. Literals_String
+G.K........ Literals_Floating_point
+G.......... Literals_Integer
+G.K........ Literals_String
 .........V. Logical_operations
 .........V. Long_multiplication
 .........VU Long_primes
@@ -973,36 +975,37 @@ GO......... Solve_a_Numbrix_puzzle
 .......D.VU Solve_a_Rubik%27s_Cube
 .........VU Solve_the_no_connection_puzzle
 .......DXV. Solving_coin_problems
-.........V. Sort_a_list_of_object_identifiers
-.........V. Sort_an_array_of_composite_structures
-.........V. Sort_an_integer_array
-.........V. Sort_disjoint_sublist
+G.......... Sort_a_list_of_object_identifiers-1
+G.......... Sort_a_list_of_object_identifiers-2
+G.......... Sort_an_array_of_composite_structures
+G.......... Sort_an_integer_array
+G.......... Sort_disjoint_sublist
 .......D.VU Sort_numbers_lexicographically
-.........V. Sort_stability
-.........V. Sort_three_variables
-.........V. Sort_using_a_custom_comparator
+G.K........ Sort_stability
+G.......... Sort_three_variables
+G.......... Sort_using_a_custom_comparator
 .......D.VU Sorting_Algorithms_Circle_Sort
-.........V. Sorting_algorithms_Bead_sort
-.........V. Sorting_algorithms_Bogosort
-.........V. Sorting_algorithms_Bubble_sort
-.........V. Sorting_algorithms_Cocktail_sort
-.........V. Sorting_algorithms_Comb_sort
-.........V. Sorting_algorithms_Counting_sort
-.......D.V. Sorting_algorithms_Cycle_sort
-.........V. Sorting_algorithms_Gnome_sort
-.........V. Sorting_algorithms_Heapsort
-.........V. Sorting_algorithms_Insertion_sort
-.........V. Sorting_algorithms_Merge_sort
-.........V. Sorting_algorithms_Pancake_sort
-.......D.V. Sorting_algorithms_Patience_sort
-.........V. Sorting_algorithms_Permutation_sort
-.........V. Sorting_algorithms_Quicksort
-.........V. Sorting_algorithms_Radix_sort
-.........V. Sorting_algorithms_Selection_sort
-.........V. Sorting_algorithms_Shell_sort
-.........V. Sorting_algorithms_Sleep_sort
-.........V. Sorting_algorithms_Stooge_sort
-.........V. Sorting_algorithms_Strand_sort
+G....R..... Sorting_algorithms_Bead_sort
+G....R..... Sorting_algorithms_Bogosort
+G....R..... Sorting_algorithms_Bubble_sort
+G....R..... Sorting_algorithms_Cocktail_sort
+G....R..... Sorting_algorithms_Comb_sort
+G.......... Sorting_algorithms_Counting_sort
+G....R.D... Sorting_algorithms_Cycle_sort
+G.......... Sorting_algorithms_Gnome_sort
+G....R..... Sorting_algorithms_Heapsort
+G.......... Sorting_algorithms_Insertion_sort
+G....R..... Sorting_algorithms_Merge_sort
+G....R..... Sorting_algorithms_Pancake_sort
+G....R.D... Sorting_algorithms_Patience_sort
+G....R..... Sorting_algorithms_Permutation_sort
+G.......... Sorting_algorithms_Quicksort
+G.......... Sorting_algorithms_Radix_sort
+G.......... Sorting_algorithms_Selection_sort
+G.......... Sorting_algorithms_Shell_sort
+G.......... Sorting_algorithms_Sleep_sort
+G.......... Sorting_algorithms_Stooge_sort
+G.......... Sorting_algorithms_Strand_sort
 .......D.VU Sorting_algorithms_Tree_sort_on_a_linked_list
 GO......... Soundex
 GO....F.... Sparkline_in_unicode
@@ -1015,7 +1018,7 @@ GO......... Spiral_matrix
 GO..T...... Split_a_character_string_based_on_change_of_character
 .......D.VU Spoof_game
 GO......... Square-free_integers
-.......D..U Square_but_not_cube
+.......D... Square_but_not_cube
 GO..T..D... Square_but_not_cube-1
 GO..T..D... Square_but_not_cube-2
 GO......... Stable_marriage_problem
