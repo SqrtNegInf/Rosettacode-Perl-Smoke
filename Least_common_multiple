@@ -1,0 +1,48 @@
+#!/usr/local/bin/perl
+#u# http://rosettacode.org/wiki/Least_common_multiple
+#c# 2018-08-15 <RC
+#p# OK
+
+use feature 'say';
+my $result;
+
+
+# Using GCD:
+sub gcd {
+	my ($x, $y) = @_;
+	while ($x) { ($x, $y) = ($y % $x, $x) }
+	$y
+}
+
+sub lcm {
+	my ($x, $y) = @_;
+	($x && $y) and $x / gcd($x, $y) * $y or 0
+}
+
+$result .= lcm(1001, 221) . "\n";
+
+#Or by repeatedly increasing the smaller of the two until LCM is reached:
+sub lcm2 {
+	use integer;
+	my ($x, $y) = @_;
+	my ($f, $s) = @_;
+	while ($f != $s) {
+		($f, $s, $x, $y) = ($s, $f, $y, $x) if $f > $s;
+		$f = $s / $x * $x;
+		$f += $x if $f < $s;
+	}
+	$f
+}
+
+$result .= lcm2(1001, 221) . "\n";
+
+
+say $result; 
+my $ref = <<'EOD';
+17017
+17017
+EOD
+
+use Test::More;
+is ($result, $ref);
+done_testing();
