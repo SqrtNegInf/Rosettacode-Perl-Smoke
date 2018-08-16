@@ -1,0 +1,22 @@
+#!/usr/local/bin/perl
+#u# http://rosettacode.org/wiki/Sorting_algorithms/Selection_sort
+#c# 2018-08-15 <RC
+#p# OK
+
+use feature 'say';
+my $result;
+
+# Translation of: Tcl
+
+sub selection_sort
+  {my @a = @_;
+   foreach my $i (0 .. $#a - 1)
+      {my $min = $i + 1;
+       $a[$_] < $a[$min] and $min = $_ foreach $min .. $#a;
+       $a[$i] > $a[$min] and @a[$i, $min] = @a[$min, $i];}
+   return @a;}
+
+use Test::More;
+say 'input: ' . join ' ', @a = @b = map+(int rand 100), 0 .. 50;
+is_deeply([selection_sort(@a)], [sort { $a <=> $b } @a]);
+done_testing();
