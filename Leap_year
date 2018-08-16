@@ -1,0 +1,48 @@
+#!/usr/local/bin/perl
+#u# http://rosettacode.org/wiki/Leap_year
+#c# 2018-08-15 <RC
+#p# OK
+
+use feature 'say';
+my $result;
+
+use Test::More;
+
+sub isleap1 {
+    my $year = shift;
+    if ($year % 100 == 0) {
+        return ($year % 400 == 0);
+    }
+    return ($year % 4 == 0);
+}
+
+#Or more concisely:
+sub isleap2 { !($_[0] % 100) ? !($_[0] % 400) : !($_[0] % 4) }
+
+for $y (qw<2000 2004 2015 2016>) {
+$result .= isleap1($y) ? 'Y' : 'N';
+$result .= isleap2($y) ? 'Y' : 'N';
+}
+
+say $result;
+
+is ($result, 'YYYYNNYY');
+done_testing();
+
+__END__
+
+#Alternatively, using functions/methods from CPAN modules:
+use Date::Manip;
+print Date_LeapYear(2016);
+
+use Date::Manip::Base;
+my $dmb = new Date::Manip::Base;
+print $dmb->leapyear(2000);
+
+use DateTime;
+my $date = DateTime->new(year => 2000);
+print $date->is_leap_year();
+
+say $result; 
+my $ref = <<'EOD';
+EOD
