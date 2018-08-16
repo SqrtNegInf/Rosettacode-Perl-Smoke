@@ -1,0 +1,28 @@
+#!/usr/local/bin/perl
+#u# http://rosettacode.org/wiki/Sorting_algorithms/Counting_sort
+#c# 2018-08-15 <RC
+#p# OK
+
+use feature 'say';
+my $result;
+
+sub counting_sort
+{
+    my ($a, $min, $max) = @_;
+
+    my @cnt = (0) x ($max - $min + 1);
+    $cnt[$_ - $min]++ foreach @$a;
+
+    my $i = $min;
+    @$a = map {($i++) x $_} @cnt;
+}
+
+#my @ages = map {int(rand(140))} 1 .. 100;
+#counting_sort(\@ages, 0, 140);
+#print join("\n", @ages), "\n";
+
+use Test::More;
+say 'input: ' . join ' ', @a = @b = map+(int rand 100), 0 .. 50;
+counting_sort(\@b,0,99);
+is_deeply(\@b, [sort { $a <=> $b } @b]);
+done_testing();
