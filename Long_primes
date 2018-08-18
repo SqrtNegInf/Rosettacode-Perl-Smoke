@@ -1,0 +1,45 @@
+#!/usr/local/bin/perl
+#u# http://rosettacode.org/wiki/Long_primes
+#c# 2018-08-16 >RC
+#p# OK
+
+# {{trans|Sidef}}
+
+use feature 'say';
+my $result;
+
+use ntheory qw/divisors powmod/;
+
+sub is_long_prime {
+my($p) = @_;
+    for $d (divisors($p-1)) {
+        return $d+1 == $p if powmod(10, $d, $p)== 1;
+    }
+    0;
+}
+
+$result .= "Long primes ≤ 500:\n";
+$result .= (join ' ', grep {is_long_prime($_) } 1 .. 500). "\n\n";
+ 
+for $n (500, 1000, 2000, 4000, 8000, 16000, 32000, 64000) {
+    $result .= sprintf "Number of long primes ≤ $n: %d\n",  scalar grep {is_long_prime($_) } 1 .. $n;
+}
+
+say $result; 
+my $ref = <<'EOD';
+Long primes ≤ 500:
+7 17 19 23 29 47 59 61 97 109 113 131 149 167 179 181 193 223 229 233 257 263 269 313 337 367 379 383 389 419 433 461 487 491 499
+
+Number of long primes ≤ 500: 35
+Number of long primes ≤ 1000: 60
+Number of long primes ≤ 2000: 116
+Number of long primes ≤ 4000: 218
+Number of long primes ≤ 8000: 390
+Number of long primes ≤ 16000: 716
+Number of long primes ≤ 32000: 1300
+Number of long primes ≤ 64000: 2430
+EOD
+
+use Test::More;
+is ($result, $ref);
+done_testing();
