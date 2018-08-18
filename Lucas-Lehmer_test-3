@@ -1,0 +1,44 @@
+#!/usr/local/bin/perl
+#u# http://rosettacode.org/wiki/Lucas-Lehmer_test
+#c# 2018-08-17 <RC
+#p# OK
+
+use feature 'say';
+my $result;
+
+use ntheory qw/:all/;
+use bigint try=>"GMP,Pari";
+forprimes {
+  my $p = $_;
+  my $mp1 = 2**$p;
+  $result .= "M$p\n" if $p == 2 || 0 == (lucas_sequence($mp1-1, 4, 1, $mp1))[0];
+} 4432 ;
+#} 43_112_609;
+
+say $result; 
+my $ref = <<'EOD';
+M2
+M3
+M5
+M7
+M13
+M17
+M19
+M31
+M61
+M89
+M107
+M127
+M521
+M607
+M1279
+M2203
+M2281
+M3217
+M4253
+M4423
+EOD
+
+use Test::More;
+is ($result, $ref);
+done_testing();
