@@ -1,0 +1,44 @@
+#!/usr/local/bin/perl
+#u# http://rosettacode.org/wiki/Sierpinski_triangle
+#c# 2018-08-17 <RC
+#p# OK
+
+use feature 'say';
+my $result;
+
+sub sierpinski {
+    my ($n) = @_;
+    my @down = '*';
+    my $space = ' ';
+    foreach (1..$n) {
+        @down = (map("$space$_$space", @down), map("$_ $_", @down));
+        $space = "$space$space";
+    }
+    return @down;
+}
+
+$result .= "$_\n" foreach sierpinski 4;
+say $result; 
+
+my $ref = <<'EOD';
+               *               
+              * *              
+             *   *             
+            * * * *            
+           *       *           
+          * *     * *          
+         *   *   *   *         
+        * * * * * * * *        
+       *               *       
+      * *             * *      
+     *   *           *   *     
+    * * * *         * * * *    
+   *       *       *       *   
+  * *     * *     * *     * *  
+ *   *   *   *   *   *   *   * 
+* * * * * * * * * * * * * * * *
+EOD
+
+use Test::More;
+is ($result, $ref);
+done_testing();
