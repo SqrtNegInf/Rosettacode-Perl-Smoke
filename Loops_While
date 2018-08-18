@@ -1,0 +1,44 @@
+#!/usr/local/bin/perl
+#u# http://rosettacode.org/wiki/Loops/While
+#c# 2018-08-17 <RC
+#p# OK
+
+use feature 'say';
+my $n = 1024;
+while($n){
+    $result1 .= "$n\n";
+    $n = int $n / 2;
+}
+
+#or written as a for-loop and using the bit-shift operator
+for(my $n = 1024; $n > 0; $n >>= 1){
+    $result2 .= "$n\n";
+}
+
+#until (condition) is equivalent to while (not condition).
+my $n = 1024;
+until($n == 0){
+    $result3 .= "$n\n";
+    $n = int $n / 2;
+}
+
+say $result; 
+my $ref = <<'EOD';
+1024
+512
+256
+128
+64
+32
+16
+8
+4
+2
+1
+EOD
+
+use Test::More;
+is ($result1, $ref);
+is ($result2, $ref);
+is ($result3, $ref);
+done_testing();
