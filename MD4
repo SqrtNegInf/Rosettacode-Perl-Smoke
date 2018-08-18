@@ -1,0 +1,20 @@
+#!/usr/local/bin/perl
+#u# http://rosettacode.org/wiki/MD4
+#c# 2018-08-17 <RC
+#p# OK
+
+use feature 'say';
+my $result;
+
+
+#!/usr/bin/perl
+use strict ;
+use warnings ;
+
+use Digest::MD4  qw( md4_hex ) ;
+
+say $result = "Rosetta Code => " . md4_hex( "Rosetta Code" ); # , "\n" ;
+
+use Test::More;
+is ($result, 'Rosetta Code => a52bcfc6a0d0d300cdc5ddbfbefe478b');
+done_testing();
