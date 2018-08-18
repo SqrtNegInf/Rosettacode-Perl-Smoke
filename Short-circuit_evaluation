@@ -1,0 +1,41 @@
+#!/usr/local/bin/perl
+#u# http://rosettacode.org/wiki/Short-circuit_evaluation
+#c# 2018-08-17 <RC
+#p# OK
+
+use feature 'say';
+my $result;
+
+
+# Perl uses short-circuit boolean evaluation.
+
+sub a { $result .= 'A'; return $_[0] }
+sub b { $result .= 'B'; return $_[0] }
+
+# Test-driver
+sub test {
+    for my $op ('&&','||') {
+        for (qw(1,1 1,0 0,1 0,0)) {
+           my ($x,$y) = /(.),(.)/;
+           $result .= my $str = "a($x) $op b($y)"; #, ': ';
+           eval $str; $result .= "\n"; } }
+}    
+
+# Test and display
+test(); print "\n";
+
+say $result; 
+my $ref = <<'EOD';
+a(1) && b(1)AB
+a(1) && b(0)AB
+a(0) && b(1)A
+a(0) && b(0)A
+a(1) || b(1)A
+a(1) || b(0)A
+a(0) || b(1)AB
+a(0) || b(0)AB
+EOD
+
+use Test::More;
+is ($result, $ref);
+done_testing();
