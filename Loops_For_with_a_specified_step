@@ -1,0 +1,21 @@
+#!/usr/local/bin/perl
+#u# http://rosettacode.org/wiki/Loops/For_with_a_specified_step
+#c# 2018-08-17 <RC
+#p# OK
+
+use feature 'say';
+my $result;
+
+for($i=2; $i <= 8; $i += 2) {
+  $result .= "$i, ";
+}
+$result .= "who do we appreciate?\n";
+
+say $result; 
+my $ref = <<'EOD';
+2, 4, 6, 8, who do we appreciate?
+EOD
+
+use Test::More;
+is ($result, $ref);
+done_testing();
