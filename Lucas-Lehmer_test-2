@@ -1,0 +1,27 @@
+#!/usr/local/bin/perl
+#u# http://rosettacode.org/wiki/Lucas-Lehmer_test
+#t# toodamnslow
+#c# 2018-08-17 <RC
+#p# OK
+
+use feature 'say';
+my $result;
+
+# The ntheory module offers a couple options. This is direct:
+#Library: ntheory
+use ntheory qw/:all/;
+$|=1; # flush output on every print
+my $n = 0;
+for (1..46) {
+  1 while !is_mersenne_prime(++$n);
+  print "M$n\n";
+  #$result .= "M$n\n";
+}
+
+say $result; 
+my $ref = <<'EOD';
+EOD
+
+use Test::More;
+#is ($result, $ref);
+#done_testing();
