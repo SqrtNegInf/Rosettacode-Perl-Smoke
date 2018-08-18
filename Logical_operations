@@ -1,0 +1,39 @@
+#!/usr/local/bin/perl
+#u# http://rosettacode.org/wiki/Logical_operations
+#c# 2018-08-15 <RC
+#p# OK
+
+use feature 'say';
+my $result;
+
+sub show_bool
+{
+        return shift() ? 'true' : 'false';
+}
+
+sub test_logic
+{
+        my ($a, $b) = @_;
+        push @res, "a and b is ". show_bool $a && $b;
+        push @res, "a or b is ". show_bool $a || $b;
+        push @res, "not a is ". show_bool !$a;
+        push @res, "a xor b is ". show_bool($a xor $b);
+}
+# There are also and, or, and not operators. These are just like &&, ||, and ! (respectively) except for their precedences, which are much lower.
+
+$t = 1;
+$f = 0;
+test_logic($t,$f);
+
+say $result = join "\n", @res; 
+my $ref = <<'EOD';
+a and b is false
+a or b is true
+not a is false
+a xor b is true
+EOD
+
+use Test::More;
+chop $ref;
+is ($result, $ref);
+done_testing();
