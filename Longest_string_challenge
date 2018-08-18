@@ -1,0 +1,27 @@
+#!/usr/local/bin/perl
+#u# http://rosettacode.org/wiki/Longest_string_challenge
+#c# 2018-08-16 <RC
+#p# OK
+
+use feature 'say';
+my $result;
+
+# #!/usr/bin/perl -n
+# END{ print $all }
+
+open F, '<'. 'ref/lsc.txt';
+while ($_ = <F>) {
+substr($_, length($l)) and $result = $l = $_
+	or substr($l, length) or $result .= $_;
+}
+
+say $result; 
+my $ref = <<'EOD';
+ccc
+ddd
+ggg
+EOD
+
+use Test::More;
+is ($result, $ref);
+done_testing();
