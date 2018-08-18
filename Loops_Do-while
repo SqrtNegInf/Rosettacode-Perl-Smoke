@@ -1,0 +1,36 @@
+#!/usr/local/bin/perl
+#u# http://rosettacode.org/wiki/Loops/Do-while
+#c# 2018-08-17 <RC
+#p# OK
+
+use feature 'say';
+my $result;
+
+my $val = 0;
+do {
+   $val++;
+   $result .= "$val\n";
+} while ($val % 6);
+
+# do ... until (condition) is equivalent to do ... while (not condition).
+my $val = 0;
+do {
+   $val++;
+   $result2 .= "$val\n";
+} until ($val % 6 == 0);
+
+
+say $result;
+my $ref = <<'EOD';
+1
+2
+3
+4
+5
+6
+EOD
+
+use Test::More;
+is ($result, $ref);
+is ($result2, $ref);
+done_testing();
