@@ -1,0 +1,24 @@
+#!/usr/local/bin/perl
+#u# http://rosettacode.org/wiki/Sockets
+#n# nocode
+#c# 2018-08-15 <RC
+#p# OK
+
+# use Socket;
+# 
+# $host = gethostbyname('localhost');
+# $in = sockaddr_in(256, $host);
+# $proto = getprotobyname('tcp');
+# socket(Socket_Handle, AF_INET, SOCK_STREAM, $proto);
+# connect(Socket_Handle, $in);
+# send(Socket_Handle, 'hello socket world', 0, $in);
+# close(Socket_Handle);
+# 
+# #Object oriented version.
+# use Socket::Class;
+# 
+# $sock = Socket::Class->new(
+#   'remote_port' => 256,
+# ) || die Socket::Class->error;
+# $sock->send('hello socket world');
+# $sock->free;
