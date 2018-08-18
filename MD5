@@ -1,0 +1,20 @@
+#!/usr/local/bin/perl
+#u# http://rosettacode.org/wiki/MD5
+#c# 2018-08-17 <RC
+#p# OK
+
+use feature 'say';
+
+#Library: Digest::MD5
+use Digest::MD5 qw(md5_hex);
+
+say $result = md5_hex("The quick brown fox jumped over the lazy dog's back"); #, "\n";
+
+#The same in OO manner
+#$md5 = Digest::MD5->new;
+#$md5->add("The quick brown fox jumped over the lazy dog's back");
+#print $md5->hexdigest, "\n";
+
+use Test::More;
+is ($result, 'e38ca1d920c4b8b8d3946b2c72f01680');
+done_testing();
