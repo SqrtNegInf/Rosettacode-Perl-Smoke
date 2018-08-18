@@ -2,7 +2,6 @@
 #u# http://rosettacode.org/wiki/Suffix_tree
 #c# 2018-08-12 <RC
 #p# OK
-#n# testing is insufficient
 
 use feature 'say';
 my $result;
@@ -40,38 +39,23 @@ sub suffix_tree {
     return $h;
 }
 
-
-print +Dumper my $z = suffix_tree suffixes 'banana$';
-say '';
-
-for my $k (sort keys %{$z}) {
-    $result .= "$k\n";
-    #say ${$z}{$k}; # ?
-}
-
-say $result; 
+$Data::Dumper::Sortkeys = 1;
+say $result = +Dumper my $z = suffix_tree suffixes 'banana$';
 
 my $ref = <<'EOD';
-$
-a
-banana$
-na
-EOD
-
-my $refx = <<'EOD';
 $VAR1 = {
           '$' => {},
           'a' => {
                    '$' => {},
                    'na' => {
-                             'na$' => {},
-                             '$' => {}
+                             '$' => {},
+                             'na$' => {}
                            }
                  },
           'banana$' => {},
           'na' => {
-                    'na$' => {},
-                    '$' => {}
+                    '$' => {},
+                    'na$' => {}
                   }
         };
 EOD
