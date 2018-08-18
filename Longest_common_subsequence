@@ -1,0 +1,26 @@
+#!/usr/local/bin/perl
+#u# http://rosettacode.org/wiki/Longest_common_subsequence
+#c# 2018-08-16 <RC
+#p# OK
+
+use feature 'say';
+my $result;
+
+sub lcs {
+    my ($a, $b) = @_;
+    if (!length($a) || !length($b)) {
+        return "";
+    }
+    if (substr($a, 0, 1) eq substr($b, 0, 1)) {
+        return substr($a, 0, 1) . lcs(substr($a, 1), substr($b, 1));
+    }
+    my $c = lcs(substr($a, 1), $b) || "";
+    my $d = lcs($a, substr($b, 1)) || "";
+    return length($c) > length($d) ? $c : $d;
+}
+
+say $result .= lcs("thisisatest", "testing123testing");
+
+use Test::More;
+is ($result, 'tsitest');
+done_testing();
