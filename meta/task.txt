@@ -1,17 +1,16 @@
 
 This is perl 5, version 28, subversion 0 (v5.28.0) built for darwin-thread-multi-2level
-updating from RC…
-+------------> Perl: Good/Bad [624/7]
-|+-----------> smOke testing [480]
-||+----------> sKipping validation [96]
-|||+---------> Interactive [33]
-||||+--------> Touched (modified by me) [31]
-|||||+-------> Random seed [46]
-||||||+------> File output [29]
-|||||||+-----> Draft [234]
++------------> Perl: Good/Bad [687/7]
+|+-----------> smOke testing [567]
+||+----------> sKipping validation [104]
+|||+---------> Interactive [34]
+||||+--------> Touched (modified by me) [33]
+|||||+-------> Random seed [50]
+||||||+------> File output [31]
+|||||||+-----> Draft [233]
 ||||||||+----> Ignoring [14]
-|||||||||+---> Void (no local copy) [567]
-||||||||||+--> Un-implemented/reliable [312]
+|||||||||+---> Void (no local copy) [516]
+||||||||||+--> Un-implemented/reliable [311]
 |||||||||||
 GO......... 100_doors-1
 GO......... 100_doors-2
@@ -346,7 +345,7 @@ GO......... Enumerations
 GO......... Environment_variables
 GO......... Equilibrium_index
 GO......... Ethiopian_multiplication
-GO.....D... Euler%27s_identity
+GO......... Euler%27s_identity
 GO......... Euler%27s_sum_of_powers_conjecture-1
 GO......... Euler%27s_sum_of_powers_conjecture-2
 GO......... Euler_method
@@ -574,10 +573,10 @@ G.KI....... Keyboard_input_Flush_the_keyboard_buffer
 G.KI....... Keyboard_input_Keypress_check
 G.KI....... Keyboard_input_Obtain_a_Y_or_N_response
 .........VU Keyboard_macros
-G.......... Knapsack_problem_0-1
-G.......... Knapsack_problem_Bounded
-G.......... Knapsack_problem_Continuous
-G.......... Knapsack_problem_Unbounded
+GO......... Knapsack_problem_0-1
+GO......... Knapsack_problem_Bounded
+GO......... Knapsack_problem_Continuous
+GO......... Knapsack_problem_Unbounded
 GO...R..... Knight%27s_tour
 GO...R..... Knuth%27s_algorithm_S
 GO.....D... Knuth%27s_power_tree
@@ -588,58 +587,62 @@ GO...R..... Knuth_shuffle
 GO......... Kronecker_product
 .........VU Kronecker_product_based_fractals
 .........VU LU_decomposition
-G.......... LZW_compression
-G....R..... Langton%27s_ant
-G.......... Largest_int_from_concatenated_ints
+GO......... LZW_compression
+GO...R..... Langton%27s_ant
+GO......... Largest_int_from_concatenated_ints
 .......D.VU Largest_number_divisible_by_its_digits
-G.......... Last_Friday_of_each_month
-G....R..... Last_letter-first_letter
-G.......... Leap_year
-G.......... Least_common_multiple
-G.......... Left_factorials
-G.......... Leonardo_numbers
-G.......... Letter_frequency
-G.......... Levenshtein_distance-1
-G.......... Levenshtein_distance-2
-G......D... Levenshtein_distance_Alignment
-G.......... Linear_congruential_generator
+GO......... Last_Friday_of_each_month
+GO...R..... Last_letter-first_letter
+GO......... Leap_year
+GO......... Least_common_multiple
+GO......... Left_factorials
+GO......... Leonardo_numbers
+GO......... Letter_frequency
+GO......... Levenshtein_distance-1
+GO......... Levenshtein_distance-2
+GO.....D... Levenshtein_distance_Alignment
+GO......... Linear_congruential_generator
 .......D.VU Linux_CPU_utilization
-G.......... List_comprehensions
+GO......... List_comprehensions
 .......D.VU List_rooted_trees
 G.K........ Literals_Floating_point
-G.......... Literals_Integer
+GO......... Literals_Integer
 G.K........ Literals_String
-.........V. Logical_operations
-.........V. Long_multiplication
-.........VU Long_primes
-.......D.V. Longest_Common_Substring
-.......D.V. Longest_common_prefix
-.........V. Longest_common_subsequence
-.........V. Longest_increasing_subsequence
-.........V. Longest_string_challenge
-.........V. Look-and-say_sequence
-.........V. Loop_over_multiple_arrays_simultaneously
-.........V. Loops_Break
-.........V. Loops_Continue
-.........V. Loops_Do-while
-.........V. Loops_Downward_for
-.........V. Loops_For
-.........V. Loops_For_with_a_specified_step
-.........V. Loops_Foreach
+GO......... Logical_operations
+GO......... Long_multiplication
+GO..T...... Long_primes
+GO.....D... Longest_Common_Substring
+GO.....D... Longest_common_prefix
+GO......... Longest_common_subsequence
+GO......... Longest_increasing_subsequence-1
+GO......... Longest_increasing_subsequence-2
+GO......... Longest_string_challenge
+GO..T...... Look-and-say_sequence
+GO......... Loop_over_multiple_arrays_simultaneously
+GO...R..... Loops_Break
+GO......... Loops_Continue
+GO......... Loops_Do-while
+GO......... Loops_Downward_for
+GO......... Loops_For
+GO......... Loops_For_with_a_specified_step
+GO......... Loops_Foreach
 .........VU Loops_Increment_loop_index_within_loop_body
-.........V. Loops_Infinite
-.........V. Loops_N_plus_one_half
-.........V. Loops_Nested
-.........V. Loops_While
-.........V. Lucas-Lehmer_test
+G.K........ Loops_Infinite
+GO......... Loops_N_plus_one_half
+GO...R..... Loops_Nested
+GO......... Loops_While
+G.......... Lucas-Lehmer_test-1
+G.K........ Lucas-Lehmer_test-2
+G.......... Lucas-Lehmer_test-3
+G.......... Lucas-Lehmer_test-4
 .........VU Lucky_and_even_lucky_numbers
-.........V. Ludic_numbers
-.........V. Luhn_test_of_credit_card_numbers
-.........V. Lychrel_numbers
-.........V. MAC_Vendor_Lookup
-.........V. MD4
-.........V. MD5
-.........V. MD5_Implementation
+G.......... Ludic_numbers
+G.......... Luhn_test_of_credit_card_numbers
+G.......... Lychrel_numbers
+G.......... MAC_Vendor_Lookup
+G.......... MD4
+G.......... MD5
+G.......... MD5_Implementation
 .........VU Machine_code
 .........V. Mad_Libs
 .......D.VU Magic_8-Ball
@@ -674,7 +677,7 @@ G.K........ Literals_String
 .........V. Miller%E2%80%93Rabin_primality_test
 .........V. Minesweeper_game
 .......D.V. Modular_arithmetic
-.........V. Modular_exponentiation
+GO......... Modular_exponentiation
 .........V. Modular_inverse
 .......D.V. Modulinos
 .......D.VU Monads_List_monad
@@ -902,7 +905,7 @@ GO......... Resistor_mesh
 .......D.VU Rosetta_Code_Run_examples
 .......D.VU Rosetta_Code_Tasks_sorted_by_average_lines_of_code
 .......D.VU Rosetta_Code_Tasks_without_examples
-.........V. Rot-13
+G.......... Rot-13
 .........V. Run-length_encoding
 .......D.VU Run_as_a_daemon_or_service
 .........V. Runge-Kutta_method
@@ -936,76 +939,84 @@ GO......... Resistor_mesh
 .........V. Sequence_of_primes_by_trial_division
 .........V. Sequence_of_primorial_primes
 .........V. Set
-.........V. Set_consolidation
-.........V. Set_of_real_numbers
-.........V. Set_puzzle
-.........V. Seven-sided_dice_from_five-sided_dice
-.........V. Shell_one-liner
+G.......... Set_consolidation
+G.......... Set_of_real_numbers
+G....R..... Set_puzzle
+G....R..... Seven-sided_dice_from_five-sided_dice
+G.K........ Shell_one-liner
 .........VU Shoelace_formula_for_polygonal_area
-.........V. Short-circuit_evaluation
-.......D.V. Shortest_common_supersequence
+G.......... Short-circuit_evaluation
+GO.....D... Shortest_common_supersequence
 .......D.VU Show_Ascii_table
-.........V. Show_the_epoch
-.........V. Sierpinski_carpet
+GO......... Show_the_epoch
+G.......... Sierpinski_carpet
 .........VU Sierpinski_pentagon
-.........V. Sierpinski_triangle
-.........V. Sierpinski_triangle_Graphical
-.........V. Sieve_of_Eratosthenes
-.........V. Simple_database
-.........V. Simple_windowed_application
-.........V. Simulate_input_Keyboard
+G.......... Sierpinski_triangle
+G.K........ Sierpinski_triangle_Graphical
+GO......... Sieve_of_Eratosthenes-1
+GO......... Sieve_of_Eratosthenes-2
+GO......... Sieve_of_Eratosthenes-3
+GO......... Sieve_of_Eratosthenes-4
+GO......... Sieve_of_Eratosthenes-5
+GO......... Sieve_of_Eratosthenes-6
+GO......... Sieve_of_Eratosthenes-7
+GO......... Sieve_of_Eratosthenes-8
+GO......... Sieve_of_Eratosthenes-9
+GO....F.... Simple_database
+G.KI....... Simple_windowed_application
+G.K........ Simulate_input_Keyboard
 .........VU Simulate_input_Mouse
 .......D.VU Simulated_annealing
 .......D.VU Sine_wave
-.........V. Singleton
-.........V. Singly-linked_list_Element_definition
-.........V. Singly-linked_list_Element_insertion
+G.K........ Singleton
+G.K........ Singly-linked_list_Element_definition
+G.K........ Singly-linked_list_Element_insertion
 .......D.VU Singly-linked_list_Element_removal
-.........V. Singly-linked_list_Traversal
+GO......... Singly-linked_list_Traversal
 G.KI....... Sleep
-G.......... Smith_numbers
+GO......... Smith_numbers
 G.KI...D... Snake
 .......D.VU Snake_And_Ladder
-.........V. Sockets
-G.......... Sokoban
+GO......... Sockets
+GO......... Sokoban
 GO....F.... Solve_a_Hidato_puzzle
-G.K........ Solve_a_Holy_Knight%27s_tour
+GO....F.... Solve_a_Holy_Knight%27s_tour
 .........VU Solve_a_Hopido_puzzle
 GO......... Solve_a_Numbrix_puzzle
 .......D.VU Solve_a_Rubik%27s_Cube
 .........VU Solve_the_no_connection_puzzle
 .......DXV. Solving_coin_problems
-G.......... Sort_a_list_of_object_identifiers-1
-G.......... Sort_a_list_of_object_identifiers-2
-G.......... Sort_an_array_of_composite_structures
-G.......... Sort_an_integer_array
-G.......... Sort_disjoint_sublist
+GO......... Sort_a_list_of_object_identifiers-1
+GO......... Sort_a_list_of_object_identifiers-2
+GO......... Sort_an_array_of_composite_structures
+GO......... Sort_an_integer_array
+GO......... Sort_disjoint_sublist
 .......D.VU Sort_numbers_lexicographically
 G.K........ Sort_stability
-G.......... Sort_three_variables
-G.......... Sort_using_a_custom_comparator
+GO......... Sort_three_variables
+GO......... Sort_using_a_custom_comparator
 .......D.VU Sorting_Algorithms_Circle_Sort
-G....R..... Sorting_algorithms_Bead_sort
-G....R..... Sorting_algorithms_Bogosort
-G....R..... Sorting_algorithms_Bubble_sort
-G....R..... Sorting_algorithms_Cocktail_sort
-G....R..... Sorting_algorithms_Comb_sort
-G.......... Sorting_algorithms_Counting_sort
-G....R.D... Sorting_algorithms_Cycle_sort
-G.......... Sorting_algorithms_Gnome_sort
-G....R..... Sorting_algorithms_Heapsort
-G.......... Sorting_algorithms_Insertion_sort
-G....R..... Sorting_algorithms_Merge_sort
-G....R..... Sorting_algorithms_Pancake_sort
-G....R.D... Sorting_algorithms_Patience_sort
-G....R..... Sorting_algorithms_Permutation_sort
-G.......... Sorting_algorithms_Quicksort
-G.......... Sorting_algorithms_Radix_sort
-G.......... Sorting_algorithms_Selection_sort
-G.......... Sorting_algorithms_Shell_sort
-G.......... Sorting_algorithms_Sleep_sort
-G.......... Sorting_algorithms_Stooge_sort
-G.......... Sorting_algorithms_Strand_sort
+GO...R..... Sorting_algorithms_Bead_sort
+GO...R..... Sorting_algorithms_Bogosort
+GO...R..... Sorting_algorithms_Bubble_sort
+GO...R..... Sorting_algorithms_Cocktail_sort
+GO...R..... Sorting_algorithms_Comb_sort
+GO......... Sorting_algorithms_Counting_sort
+GO...R.D... Sorting_algorithms_Cycle_sort
+GO......... Sorting_algorithms_Gnome_sort
+GO...R..... Sorting_algorithms_Heapsort
+GO......... Sorting_algorithms_Insertion_sort
+GO...R..... Sorting_algorithms_Merge_sort
+GO...R..... Sorting_algorithms_Pancake_sort
+GO...R.D... Sorting_algorithms_Patience_sort
+GO...R..... Sorting_algorithms_Permutation_sort
+GO......... Sorting_algorithms_Quicksort
+GO......... Sorting_algorithms_Radix_sort
+GO......... Sorting_algorithms_Selection_sort
+GO......... Sorting_algorithms_Shell_sort
+GO......... Sorting_algorithms_Sleep_sort
+GO......... Sorting_algorithms_Stooge_sort
+GO......... Sorting_algorithms_Strand_sort
 .......D.VU Sorting_algorithms_Tree_sort_on_a_linked_list
 GO......... Soundex
 GO....F.... Sparkline_in_unicode
