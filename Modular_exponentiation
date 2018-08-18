@@ -1,0 +1,18 @@
+#!/usr/local/bin/perl
+#u# http://rosettacode.org/wiki/Modular_exponentiation
+#c# 2018-08-16 <RC
+#p# OK
+
+use feature 'say';
+my $result;
+
+use bigint;
+
+my $a = 2988348162058574136915891421498819466320163312926952423791023078876139;
+my $b = 2351399303373464486466122544523690094744975233415544072992656881240319;
+my $m = 10 ** 40;
+say $result = $a->bmodpow($b, $m);
+
+use Test::More;
+is ($result, 1527229998585248450016808958343740453059);
+done_testing();
