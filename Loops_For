@@ -1,0 +1,43 @@
+#!/usr/local/bin/perl
+#u# http://rosettacode.org/wiki/Loops/For
+#c# 2018-08-17 <RC
+#p# OK
+
+use feature 'say';
+my $result;
+
+for(my $x = 1; $x <= 5; $x++) {
+  for(my $y = 1; $y <= $x; $y++) {
+    $result1 .= "*";
+  } 
+  $result1 .= "\n";
+}
+foreach (1..5) {
+  foreach (1..$_) {
+    $result2 .= '*';
+  }
+  $result2 .= "\n";
+}
+
+#However, if we lift the constraint of two loops the code will be simpler:
+$result3 .= ('*' x $_ . "\n") for 1..5;
+
+#or equivalently
+map {$result4 .= '*' x $_ . "\n"} 1..5;
+
+
+say $result1;
+my $ref = <<'EOD';
+*
+**
+***
+****
+*****
+EOD
+
+use Test::More;
+is ($result1, $ref);
+is ($result2, $ref);
+is ($result3, $ref);
+is ($result4, $ref);
+done_testing();
