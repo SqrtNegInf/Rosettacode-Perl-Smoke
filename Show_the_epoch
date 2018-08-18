@@ -1,0 +1,12 @@
+#!/usr/local/bin/perl
+#u# http://rosettacode.org/wiki/Show_the_epoch
+#c# 2018-08-16 <RC
+#p# OK
+
+use feature 'say';
+
+say $result = scalar gmtime 0;
+
+use Test::More;
+is ($result, 'Thu Jan  1 00:00:00 1970');
+done_testing();
