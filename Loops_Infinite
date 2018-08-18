@@ -1,0 +1,12 @@
+#!/usr/local/bin/perl
+#u# http://rosettacode.org/wiki/Loops/Infinite
+#t# skiptest
+#c# 2018-08-17 <RC
+#p# OK
+
+while(1){
+    print "SPAM\n";
+}
+
+#or equivalently
+print "SPAM\n" while 1;
