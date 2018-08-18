@@ -1,0 +1,50 @@
+#!/usr/local/bin/perl
+#u# http://rosettacode.org/wiki/Look-and-say_sequence
+#c# 2018-08-17 <>RC
+#p# OK
+
+use feature 'say';
+my $result;
+
+sub lookandsay {
+  my $str = shift;
+  $str =~ s/((.)\2*)/length($1) . $2/ge;
+  return $str;
+}
+
+my $num = "1";
+foreach (1..15) {
+  $result .= "$num\n";
+  $num = lookandsay($num);
+}
+
+#Using string as a cyclic buffer:
+for (my $s = "1\n"; $s =~ s/((.)\2*)//s;) {
+	$result2 .= $1;
+	$s .= ($1 ne "\n" and length($1)).$2;
+    last if $1 eq "\n" and length($s) > 80; # DH - terminator for testing
+}
+
+say $result; 
+my $ref = <<'EOD';
+1
+11
+21
+1211
+111221
+312211
+13112221
+1113213211
+31131211131221
+13211311123113112211
+11131221133112132113212221
+3113112221232112111312211312113211
+1321132132111213122112311311222113111221131221
+11131221131211131231121113112221121321132132211331222113112211
+311311222113111231131112132112311321322112111312211312111322212311322113212221
+EOD
+
+use Test::More;
+is ($result, $ref);
+is ($result2, $ref);
+done_testing();
