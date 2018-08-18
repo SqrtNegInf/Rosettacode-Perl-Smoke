@@ -1,11 +1,10 @@
 #!/usr/local/bin/perl
 #u# http://rosettacode.org/wiki/Solve_a_Holy_Knight%27s_tour
-#t# skiptest
 #c# 2018-08-14 <RC
 #p# OK
+#f# RC file: holy_knight_tour.txt
 
-use feature 'say';
-my $result;
+my $fn = 'run/holy_knight_tour.txt';
 
 # We perform a brute-force search. As an enhancement, we unroll the search by one level and use Parallel::ForkManager to search the top-level sub-trees concurrently, subject to the number of cores of course. We implement the search with explicit recursion, which impacts performance but improves readability and provides a use case for the "local" keyword.
 
@@ -51,7 +50,8 @@ sub as_string {
             $str .= "\n";
         }
     }
-    return $str;
+    #return $str;
+    open F, ">>$fn"; print F $str; close F;
 }
 
 sub as_idx_hash {
@@ -221,9 +221,9 @@ sub _find_tour_helper {
 package main;
 use strict;
 
+unlink "$fn";
 solve_size_8_problem();
 #solve_size_13_problem();
-
 
 exit 0;
 
@@ -346,12 +346,3 @@ Found a tour after first move (1, 7) in 1443.340089 seconds:
   -  -  -  - 40 51 42 47 44  -  -  -  - 
   -  -  -  -  - 48  - 50  -  -  -  -  - 
   -  -  -  -  - 41  - 43  -  -  -  -  - 
-
-
-say $result; 
-my $ref = <<'EOD';
-EOD
-
-use Test::More;
-#is ($result, $ref);
-#done_testing();
