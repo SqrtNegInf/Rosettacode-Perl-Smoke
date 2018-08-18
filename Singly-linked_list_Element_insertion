@@ -1,0 +1,66 @@
+#!/usr/local/bin/perl
+#u# http://rosettacode.org/wiki/Singly-linked_list/Element_insertion
+#t# nocode
+#c# 2018-08-16 <RC
+#p# OK
+
+# If you don't really need the constant-time insertion property of singly linked lists, just use an array. You can traverse and splice it any way.
+
+my @l  = ($A, $B);
+push @l, $C, splice @l, 1;
+
+# However, if you really need a linked list, or all you got is an algorithm in a foreign language, you can use references to accomplish the translation.
+
+sub insert_after {
+  # first argument: node to insert after
+  # second argument: node to insert
+  $_[1]{next} = $_[0]{next};
+  $_[0]{next} = $_[1];
+}
+
+my %B = (
+    data => 3,
+    next => undef, # not a circular list
+);
+my %A = (
+    data => 1,
+    next => \%B,
+);
+my %C = (
+    data => 2,
+);
+insert_after \%A, \%C;
+
+# Note that you don't have to name your new nodes. The following works just as well:
+insert_after \%A, { data => 2 };
+
+# Note the curly braces instead of round parentheses.
+# It is straightforward to extend the function to take an arbitrary number of list nodes to insert:
+
+sub insert_after {
+  my $node = $_[0];
+  my $next = $node->{next};
+  shift;
+  while (defined $_[0]) {
+    $node->{next} = $_[0];
+    $node = $node->{next};
+    shift;
+  }
+  $node->{next} = $next;
+}
+
+# With this, it's rather easy to build a list:
+my %list = ( data => 'A' );
+insert_after \%list, { data => 'B' }, { data => 'C' };
+
+# List handling is simplified if the variables themselves contain references. For example:
+my $list2;
+
+# create a new list ('A'. 'B', 'C') and store it in $list2
+insert_after $list2 = { data => 'A' }, { data => 'B' }, { data => 'C' };
+
+# append two new nodes ('D', 'E') after the first element
+insert_after $list2, { data => 'A2' }, { data => 'A3' };
+
+# append new nodes ('A2a', 'A2b') after the second element (which now is 'A2')
+insert_after $list2->{next}, { data => 'A2a' }, { data => 'A2b' };
