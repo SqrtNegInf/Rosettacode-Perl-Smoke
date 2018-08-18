@@ -1,0 +1,41 @@
+#!/usr/local/bin/perl
+#u# http://rosettacode.org/wiki/Loops/Continue
+#c# 2018-08-17 <RC
+#p# OK
+
+use feature 'say';
+my $result;
+
+foreach (1..10) {
+    $result .= $_;
+    if ($_ % 5 == 0) {
+        $result .= "\n";
+        next;
+    }
+    $result .= ', ';
+}
+
+#It is also possible to use a goto statement
+#to jump over the iterative code section for a particular loop:
+
+foreach (1..10) {
+    $result2 .= $_;
+    if ($_ % 5 == 0) {
+        $result2 .= "\n";
+        goto MYLABEL;
+    }
+    $result2 .= ', ';
+MYLABEL:
+}
+
+
+say $result; 
+my $ref = <<'EOD';
+1, 2, 3, 4, 5
+6, 7, 8, 9, 10
+EOD
+
+use Test::More;
+is ($result, $ref);
+is ($result2, $ref);
+done_testing();
