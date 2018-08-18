@@ -1,0 +1,41 @@
+#!/usr/local/bin/perl
+#u# http://rosettacode.org/wiki/Seven-sided_dice_from_five-sided_dice
+#c# 2018-08-17 <RC
+#p# OK
+
+srand 123456;
+
+use feature 'say';
+my $result;
+
+# Using dice5 twice to generate numbers in the range 0 to 24. If we consider these modulo 8 and re-call if we get zero, we have eliminated 4 cases and created the necessary number in the range from 1 to 7.
+
+sub dice5 { 1+int rand(5) }
+
+sub dice7 {
+  while(1) {
+    my $d7 = (5*dice5()+dice5()-6) % 8;
+    return $d7 if $d7;
+  }
+}
+
+my %count7;
+my $n = 1000000;
+$count7{dice7()}++ for 1..$n;
+$result .= sprintf "%s: %5.2f%%\n", $_, 100*($count7{$_}/$n*7-1) for sort keys %count7;
+
+say $result; 
+
+my $ref = <<'EOD';
+1:  0.04%
+2: -0.55%
+3:  0.03%
+4:  0.21%
+5: -0.07%
+6:  0.21%
+7:  0.13%
+EOD
+
+use Test::More;
+is ($result, $ref);
+done_testing();
