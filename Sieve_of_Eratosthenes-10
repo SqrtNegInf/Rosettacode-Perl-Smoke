@@ -1,0 +1,25 @@
+#!/usr/local/bin/perl
+#u# http://rosettacode.org/wiki/Sieve_of_Eratosthenes
+#c# 2018-08-16 <RC
+#p# OK
+
+use feature 'say';
+my $result;
+
+sub sieve {
+	my ($s, $p) = "." . ("x" x shift);
+
+	1 while ++$p
+		and $s =~ /^(.{$p,}?)x/g
+		and $p = length($1)
+		and $s =~ s/(.{$p})./${1}./g
+		and substr($s, $p, 1) = "x";
+	$s
+}
+
+#print sieve(1000);
+say $result = join ' ', sieve(100);
+
+use Test::More;
+is ($result, '.xx.x.x...x.x...x.x...x.....x.x.....x...x.x...x.....x.....x.x.....x...x.x.....x...x.....x.......x...x');
+done_testing();
