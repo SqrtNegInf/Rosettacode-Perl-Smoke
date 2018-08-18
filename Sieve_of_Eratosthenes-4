@@ -1,0 +1,31 @@
+#!/usr/local/bin/perl
+#u# http://rosettacode.org/wiki/Sieve_of_Eratosthenes
+#c# 2018-08-16 <RC
+#p# OK
+
+use feature 'say';
+my $result;
+
+sub dj_vector {
+  my($end) = @_;
+  return @{([],[],[2],[2,3],[2,3])[$end]} if $end <= 4;
+  $end-- if ($end & 1) == 0; # Ensure end is odd
+
+  my ($sieve, $n, $limit, $s_end) = ( '', 3, int(sqrt($end)), $end >> 1 );
+  while ( $n <= $limit ) {
+    for (my $s = ($n*$n) >> 1; $s <= $s_end; $s += $n) {
+      vec($sieve, $s, 1) = 1;
+    }
+    do { $n += 2 } while vec($sieve, $n >> 1, 1) != 0;
+  }
+  my @primes = (2);
+  do { push @primes, 2*$_+1 if !vec($sieve,$_,1) } for (1..int(($end-1)/2));
+  @primes;
+}
+
+
+say $result = join ' ', dj_vector(100);
+
+use Test::More;
+is ($result, '2 3 5 7 11 13 17 19 23 29 31 37 41 43 47 53 59 61 67 71 73 79 83 89 97');
+done_testing();
