@@ -1,0 +1,43 @@
+#!/usr/local/bin/perl
+#u# http://rosettacode.org/wiki/Longest_increasing_subsequence
+#c# 2018-08-16 <RC
+#p# OK
+
+use feature 'say';
+my $result;
+
+
+# Dynamic programming
+# Translation of: Perl 6
+
+sub lis {
+    my @l = map [], 1 .. @_;
+    push @{$l[0]}, +$_[0];
+    for my $i (1 .. @_-1) {
+        for my $j (0 .. $i - 1) {
+            if ($_[$j] < $_[$i] and @{$l[$i]} < @{$l[$j]} + 1) {
+                $l[$i] = [ @{$l[$j]} ];
+            }
+        }
+        push @{$l[$i]}, $_[$i];
+    }
+    my ($max, $l) = 0, [];
+    for (@l) {
+        ($max, $l) = (scalar(@$_), $_) if @$_ > $max;
+    }
+    return @$l;
+}
+
+$result .= (join ' ', lis 3, 2, 6, 4, 5, 1) . "\n";
+$result .= (join ' ', lis 0,8,4,12,2,10,6,14,1,9,5,13,3,11,7,15) . "\n";
+
+
+say $result; 
+my $ref = <<'EOD';
+2 4 5
+0 2 6 9 11 15
+EOD
+
+use Test::More;
+is ($result, $ref);
+done_testing();
