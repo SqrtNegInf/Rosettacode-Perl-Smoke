@@ -1,0 +1,30 @@
+#!/usr/local/bin/perl
+#u# http://rosettacode.org/wiki/Loops/Downward_for
+#c# 2018-08-17 <RC
+#p# OK
+
+use feature 'say';
+my $result;
+
+foreach (reverse 0..10) {
+  $result .= "$_\n";
+}
+
+say $result; 
+my $ref = <<'EOD';
+10
+9
+8
+7
+6
+5
+4
+3
+2
+1
+0
+EOD
+
+use Test::More;
+is ($result, $ref);
+done_testing();
