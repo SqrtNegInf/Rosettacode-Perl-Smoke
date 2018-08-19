@@ -1,0 +1,54 @@
+#!/usr/local/bin/perl
+#u# http://rosettacode.org/wiki/Respond_to_an_unknown_method_call
+#c# 2018-08-18 <RC
+#p# OK
+
+use feature 'say';
+my $result;
+# my @res;
+
+package Example;
+sub new {
+    bless {}
+}
+sub foo {
+    $result .= "this is foo\n";
+}
+sub bar {
+    $result .= "this is bar\n";
+}
+sub AUTOLOAD {
+    my $name = $Example::AUTOLOAD;
+    my ($self, @args) = @_;
+    $result .= "tried to handle unknown method $name\n";
+    if (@args) {
+        $result .= "it had arguments: @args\n";
+    }
+}
+sub DESTROY {}          # dummy method to prevent AUTOLOAD from
+                        # being triggered when an Example is
+                        # destroyed
+
+package main;
+my $example = Example->new;
+
+$example->foo;          # $result .=s "this is foo"
+$example->bar;          # $result .=s "this is bar"
+$example->grill;        # $result .=s "tried to handle unknown method Example::grill"
+$example->ding("dong"); # $result .=s "tried to handle unknown method Example::ding"
+                        # and "it had arguments: dong"
+
+
+say $result; 
+#say $result = join "\n", @res;
+my $ref = <<'EOD';
+this is foo
+this is bar
+tried to handle unknown method Example::grill
+tried to handle unknown method Example::ding
+it had arguments: dong
+EOD
+
+use Test::More;
+is ($result, $ref);
+done_testing();
