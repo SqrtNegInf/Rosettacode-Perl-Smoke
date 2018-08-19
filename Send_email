@@ -1,0 +1,87 @@
+#!/usr/local/bin/perl
+#u# http://rosettacode.org/wiki/Send_email
+#t# skiptest
+#c# 2018-08-18 <RC
+#p# OK
+
+use feature 'say';
+my $result;
+
+# This subroutine throws an appropriate error if it fails to connect to the server or authenticate. It should work on any platform Perl does.
+
+use Net::SMTP;
+use Authen::SASL;
+  # Net::SMTP's 'auth' method needs Authen::SASL to work, but
+  # this is undocumented, and if you don't have the latter, the
+  # method will just silently fail. Hence we explicitly use
+  # Authen::SASL here.
+
+sub send_email
+ {my %o =
+     (from => '', to => [], cc => [],
+      subject => '', body => '',
+      host => '', user => '', password => '',
+      @_);
+  ref $o{$_} or $o{$_} = [$o{$_}] foreach 'to', 'cc';
+
+  my $smtp = new Net::SMTP($o{host} ? $o{host} : ())
+      or die "Couldn't connect to SMTP server";
+
+  $o{password} and
+     $smtp->auth($o{user}, $o{password}) ||
+     die 'SMTP authentication failed';
+
+  $smtp->mail($o{user});
+  $smtp->recipient($_) foreach @{$o{to}}, @{$o{cc}};
+  $smtp->data;
+  $o{from} and $smtp->datasend("From: $o{from}\n");
+  $smtp->datasend('To: ' . join(', ', @{$o{to}}) . "\n");
+  @{$o{cc}} and $smtp->datasend('Cc: ' . join(', ', @{$o{cc}}) . "\n");
+  $o{subject} and $smtp->datasend("Subject: $o{subject}\n");
+  $smtp->datasend("\n$o{body}");
+  $smtp->dataend;
+
+  return 1;}
+
+#send_email
+#   from => 'A. T. Tappman',
+#   to => ['[email protected]', '[email protected]'],
+#   cc => '[email protected]',
+#   subject => 'Important message',
+#   body => 'I yearn for you tragically.',
+#   host => 'smtp.example.com:587',
+#   user => '[email protected]',
+#   password => 'yossarian';
+
+#If the host parameter is omitted, send_email falls back on the SMTP_Hosts defined in Net::Config. Hence, only two arguments are strictly necessary:
+
+#send_email
+#   to => '[email protected]',
+#   user => '[email protected]';
+
+
+#Library: LWP
+# LWP can send email by a POST to a mailto: URL. The message is given as a HTTP request. This is mainly of interest for treating different types of URLs in a common way. LWP sends merely by running the sendmail program, or on MacOS classic by SMTP (to SMTPHOSTS environment variable). For reference, the $ua->post() method does not suit since it constructs a message as MIME "form data".
+
+use strict;
+use LWP::UserAgent;
+use HTTP::Request;
+
+sub send_email {
+  my ($from, $to, $cc, $subject, $text) = @_;
+
+  my $ua = LWP::UserAgent->new;
+  my $req = HTTP::Request->new (POST => "mailto:$to",
+                                [ From => $from,
+                                  Cc => $cc,
+                                  Subject => $subject ],
+                                $text);
+  my $resp = $ua->request($req);
+  if (! $resp->is_success) {
+    print $resp->status_line,"\n";
+  }
+}
+
+send_email('[email protected]', '[email protected]', '',
+           "very important subject",
+           "Body text\n");
