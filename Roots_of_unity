@@ -1,0 +1,42 @@
+#!/usr/local/bin/perl
+#u# http://rosettacode.org/wiki/Roots_of_unity
+#c# 2018-08-18 <RC
+#p# OK
+
+use feature 'say';
+my $result;
+# my @res;
+
+# Works with: Perl version 5.6.0
+#Library: Math::ComplexComplex
+# The root() function returns a list of the N many N'th roots of any complex Z, in this case 1.
+
+use Math::Complex;
+
+foreach my $n (2 .. 10) {
+  $result .= sprintf "%2d", $n;
+  my @roots = root(1,$n);
+  foreach my $root (@roots) {
+    $root->display_format(style => 'cartesian', format => '%.3f');
+    $result .= " $root";
+  }
+  $result .= "\n";
+}
+
+say $result; 
+
+my $ref = <<'EOD';
+ 2 1.000 -1.000+0.000i
+ 3 1.000 -0.500+0.866i -0.500-0.866i
+ 4 1.000 0.000+1.000i -1.000+0.000i -0.000-1.000i
+ 5 1.000 0.309+0.951i -0.809+0.588i -0.809-0.588i 0.309-0.951i
+ 6 1.000 0.500+0.866i -0.500+0.866i -1.000+0.000i -0.500-0.866i 0.500-0.866i
+ 7 1.000 0.623+0.782i -0.223+0.975i -0.901+0.434i -0.901-0.434i -0.223-0.975i 0.623-0.782i
+ 8 1.000 0.707+0.707i 0.000+1.000i -0.707+0.707i -1.000+0.000i -0.707-0.707i -0.000-1.000i 0.707-0.707i
+ 9 1.000 0.766+0.643i 0.174+0.985i -0.500+0.866i -0.940+0.342i -0.940-0.342i -0.500-0.866i 0.174-0.985i 0.766-0.643i
+10 1.000 0.809+0.588i 0.309+0.951i -0.309+0.951i -0.809+0.588i -1.000+0.000i -0.809-0.588i -0.309-0.951i 0.309-0.951i 0.809-0.588i
+EOD
+
+use Test::More;
+is ($result, $ref);
+done_testing();
