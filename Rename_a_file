@@ -1,0 +1,27 @@
+#!/usr/local/bin/perl
+#u# http://rosettacode.org/wiki/Rename_a_file
+#c# 2018-08-18 <RC
+#p# OK
+
+use feature 'say';
+my $result;
+
+rename 'ref/rename-source.txt', 'run/rename-dest.txt';
+print "ok 1\n" if -e 'run/rename-dest.txt';
+rename 'run/rename-dest.txt', 'ref/rename-source.txt'; # now move if back for next run
+
+use File::Copy qw(move);
+use File::Spec::Functions qw(catfile rootdir);
+
+# here
+move 'ref/rename-source.txt', 'run/rename-dest.txt';
+print "ok 2\n" if -e 'run/rename-dest.txt';
+move 'run/rename-dest.txt', 'ref/rename-source.txt'; # now move if back for next run
+
+#move 'docs', 'mydocs';
+
+# root dir
+#move (catfile rootdir, 'input.txt'), (catfile rootdir, 'output.txt');
+#move (catfile rootdir, 'docs'), (catfile rootdir, 'mydocs');
+
+#The core rename($oldfile,$newfile) can rename a file within a directory, but has the usual limitations of the rename() system call or C library function, which means generally not working across filesystems, and perhaps not working to rename directories. move() does a copy and delete when necessary.
