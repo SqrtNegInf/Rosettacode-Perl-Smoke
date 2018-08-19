@@ -1,0 +1,30 @@
+#!/usr/local/bin/perl
+#u# http://rosettacode.org/wiki/Reverse_a_string
+#c# 2018-08-18 <RC
+#p# OK
+#n# minimal testing
+
+use feature 'say';
+my $result;
+# my @res;
+
+
+# This reverses characters (code points):
+
+$string = "visor";
+$result .= reverse $string;  # becomes "rosiv"
+
+# This reverses graphemes:
+$string = "Jose\x{301}"; # "José" in NFD
+#$result .= join("", reverse $string =~ /\X/g); # becomes "ésoJ"
+
+
+say $result; 
+my $ref = <<'EOD';
+rosiv
+EOD
+
+use Test::More;
+chop $ref;
+is ($result, $ref);
+done_testing();
