@@ -1,0 +1,74 @@
+#!/usr/local/bin/perl
+#u# http://rosettacode.org/wiki/Run-length_encoding
+#c# 2018-08-18 <RC
+#p# OK
+
+use feature 'say';
+my $result;
+
+
+# Simple version using ASCII numerals as length markers, like the example in the task description (won't work correctly on input strings that already contain digits):
+
+sub encode {
+    shift =~ s/(.)\1*/length($&).$1/grse;
+}
+
+sub decode {
+    shift =~ s/(\d+)(.)/$2 x $1/grse;
+}
+
+# Modified version that can take arbitrary byte strings as input (produces encoded byte strings that are compatible with the C solution):
+
+sub encode {
+    shift =~ s/(.)\1{0,254}/pack("C", length($&)).$1/grse;
+}
+
+sub decode {
+    shift =~ s/(.)(.)/$2 x unpack("C", $1)/grse;
+}
+
+# Further modified version that supports compact representation of longer non-repeating substrings, just like the C solution (so should be fully compatible with that solution for both encoding and decoding):
+
+sub encode {
+    my $str = shift;
+    my $ret = "";
+    my $nonrep = "";
+    while ($str =~ m/(.)\1{0,127}|\z/gs) {
+        my $len = length($&);
+        if (length($nonrep) && (length($nonrep) == 127 || $len != 1)) {
+            $ret .= pack("C", 128 + length($nonrep)) . $nonrep;
+            $nonrep = "";
+        }
+        if    ($len == 1) { $nonrep .= $1 }
+        elsif ($len > 1)  { $ret .= pack("C", $len) . $1 }
+    }
+    return $ret;
+}
+
+sub decode {
+    my $str = shift;
+    my $ret = "";
+    for (my $i = 0; $i < length($str);) {
+        my $len = unpack("C", substr($str, $i, 1));
+        if ($len <= 128) {
+            $ret .= substr($str, $i + 1, 1) x $len;
+            $i += 2;
+        }
+        else {
+            $ret .= substr($str, $i + 1, $len - 128);
+            $i += 1 + $len - 128;
+        }
+    }
+    return $ret;
+}
+
+# Demonstration of the third version:
+
+use Data::Dump qw(dd);
+my $str = "XXXXXABCDEFGHIoooooooooooooooooooooooooAAAAAA";
+my $enc = encode($str);
+say $result = decode($enc);
+
+use Test::More;
+is ($result, 'XXXXXABCDEFGHIoooooooooooooooooooooooooAAAAAA');
+done_testing();
