@@ -2,6 +2,7 @@
 #u# http://rosettacode.org/wiki/Logical_operations
 #c# 2018-08-15 <RC
 #p# OK
+#n# could use a re-write along the lines of Perl 6 entry
 
 use feature 'say';
 my $result;
