@@ -1,0 +1,25 @@
+#!/usr/local/bin/perl
+#u# http://rosettacode.org/wiki/Roots_of_a_quadratic_function
+#c# 2018-08-18 <RC
+#p# OK
+
+use feature 'say';
+
+# When using Math::Complex perl automatically convert numbers when necessary.
+
+use Math::Complex;
+
+($x1,$x2) = solveQuad(1,2,3);
+
+say $result .= "x1 = $x1, x2 = $x2";
+
+sub solveQuad
+{
+	my ($a,$b,$c) = @_;
+	my $root = sqrt($b**2 - 4*$a*$c);
+	return ( -$b + $root )/(2*$a), ( -$b - $root )/(2*$a);
+}
+
+use Test::More;
+is ($result, 'x1 = -1+1.4142135623731i, x2 = -1-1.4142135623731i');
+done_testing();
