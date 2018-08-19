@@ -1,0 +1,61 @@
+#!/usr/local/bin/perl
+#u# http://rosettacode.org/wiki/Same_Fringe
+#c# 2018-08-18 <RC
+#p# OK
+
+use feature 'say';
+my $result;
+
+# We use a pair of tree iterators to walk through the trees. So we pick the next leaf from each tree while the leaves are identical. If we've picked the last leaf of both trees simulaneously, then both trees had the "same" fringe. If we find a difference or one of the trees runs out of leaves before the other, we immediately return with a "different" fringe.
+# The tree iterator is pretty simple: we use array references with index 0 as the left subtree and index 1 holding the right subtree. So as we go down the tree towards the first leaf, we push each right subtree that we will consider later onto the rtree stack. Eventually, we'll hit a leaf and return it. The next time we go into the iterator, we simply pull off the last deferred subtree and continue the process.
+
+use strict;
+
+my @trees = (
+    # 0..2 are same
+    [ 'd', [ 'c', [ 'a', 'b', ], ], ],
+    [ [ 'd', 'c' ], [ 'a', 'b' ] ],
+    [ [ [ 'd', 'c', ], 'a', ], 'b', ],
+    # and this one's different!
+    [ [ [ [ [ [ 'a' ], 'b' ], 'c', ], 'd', ], 'e', ], 'f' ],
+);
+
+for my $tree_idx (1 .. $#trees) {
+    $result .= "tree[". ($tree_idx-1) . "] vs tree[$tree_idx]: " .
+           cmp_fringe($trees[$tree_idx-1], $trees[$tree_idx]). "\n";
+}
+
+sub cmp_fringe {
+    my $ti1 = get_tree_iterator(shift);
+    my $ti2 = get_tree_iterator(shift);
+    while (1) {
+        my ($L, $R) = ($ti1->(), $ti2->());
+        next if defined($L) and defined($R) and $L eq $R;
+        return "Same" if !defined($L) and !defined($R);
+        return "Different";
+    }
+}
+
+sub get_tree_iterator {
+    my @rtrees = (shift);
+    my $tree;
+    return sub {
+        $tree = pop @rtrees;
+        ($tree, $rtrees[@rtrees]) = @$tree while ref $tree;
+        return $tree;
+    }
+}
+
+
+
+
+say $result; 
+my $ref = <<'EOD';
+tree[0] vs tree[1]: Same
+tree[1] vs tree[2]: Same
+tree[2] vs tree[3]: Different
+EOD
+
+use Test::More;
+is ($result, $ref);
+done_testing();
