@@ -1,0 +1,15 @@
+#!/usr/local/bin/perl
+#u# http://rosettacode.org/wiki/Make_directory_path
+#c# 2018-08-18 <RC
+#p# OK
+
+# Using the File::Path core module:
+use File::Path qw(make_path);
+
+$path = 'path/to/dir';
+die if -e $path;
+make_path('path/to/dir');
+die unless  -e $path;
+sleep 10;
+system "rm -r path";
+print "ok - 1\n";
