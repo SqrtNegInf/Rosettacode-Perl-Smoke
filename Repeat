@@ -1,0 +1,32 @@
+#!/usr/local/bin/perl
+#u# http://rosettacode.org/wiki/Repeat
+#c# 2018-08-18 <RC
+#p# OK
+
+use feature 'say';
+my $result;
+
+# Translation of: C
+
+sub repeat {
+    my ($sub, $n) = @_;
+    $sub->() for 1..$n;
+}
+
+sub example {
+    $result .= "Example\n";
+}
+
+repeat(\&example, 4);
+
+say $result; 
+my $ref = <<'EOD';
+Example
+Example
+Example
+Example
+EOD
+
+use Test::More;
+is ($result, $ref);
+done_testing();
