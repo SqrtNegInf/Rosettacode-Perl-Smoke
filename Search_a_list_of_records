@@ -1,0 +1,56 @@
+#!/usr/local/bin/perl
+#u# http://rosettacode.org/wiki/Search_a_list_of_records
+#c# 2018-08-18 <RC
+#p# OK
+
+use feature 'say';
+my $result;
+
+
+# The first function from the core module List::Util provides short-circuiting search using a block as predicate. However, it can only return the value of the found element, not its index &#8211; so for the first test-case we need to operate on the list of indices.
+
+use feature 'say';
+use List::Util qw(first);
+
+my @cities = (
+  { name => 'Lagos',                population => 21.0  },
+  { name => 'Cairo',                population => 15.2  },
+  { name => 'Kinshasa-Brazzaville', population => 11.3  },
+  { name => 'Greater Johannesburg', population =>  7.55 },
+  { name => 'Mogadishu',            population =>  5.85 },
+  { name => 'Khartoum-Omdurman',    population =>  4.98 },
+  { name => 'Dar Es Salaam',        population =>  4.7  },
+  { name => 'Alexandria',           population =>  4.58 },
+  { name => 'Abidjan',              population =>  4.4  },
+  { name => 'Casablanca',           population =>  3.98 },
+);
+
+my $index1 = first { $cities[$_]{name} eq 'Dar Es Salaam' } 0..$#cities;
+push @res, $index1;
+
+my $record2 = first { $_->{population} < 5 } @cities;
+push @res, $record2->{name};
+
+my $record3 = first { $_->{name} =~ /^A/ } @cities;
+push @res, $record3->{population};
+
+
+# The CPAN module List::MoreUtils provides the first_index function which could be used to write that first case more elegantly:
+
+use List::MoreUtils qw(first_index);
+
+push @res, $index1 = first_index { $_->{name} eq 'Dar Es Salaam' } @cities;
+
+
+say $result = join "\n", @res; 
+my $ref = <<'EOD';
+6
+Khartoum-Omdurman
+4.58
+6
+EOD
+
+use Test::More;
+chop $ref;
+is ($result, $ref);
+done_testing();
