@@ -1,0 +1,46 @@
+#!/usr/local/bin/perl
+#u# http://rosettacode.org/wiki/Modular_inverse
+#c# 2018-08-18 <RC
+#p# OK
+
+use feature 'say';
+my $result;
+# my @res;
+
+
+# Various CPAN modules can do this, such as:
+
+# use bigint; say 42->bmodinv(2017);
+# or
+# use Math::ModInt qw/mod/;  say mod(42, 2017)->inverse->residue;
+# or
+# use Math::Pari qw/PARI lift/; say lift PARI "Mod(1/42,2017)";
+# or
+# use Math::GMP qw/:constant/; say 42->bmodinv(2017);
+# or
+# use ntheory qw/invmod/; say invmod(42, 2017);
+# or we can write our own:
+
+sub invmod {
+  my($a,$n) = @_;
+  my($t,$nt,$r,$nr) = (0, 1, $n, $a % $n);
+  while ($nr != 0) {
+    # Use this instead of int($r/$nr) to get exact unsigned integer answers
+    my $quot = int( ($r - ($r % $nr)) / $nr );
+    ($nt,$t) = ($t-$quot*$nt,$nt);
+    ($nr,$r) = ($r-$quot*$nr,$nr);
+  }
+  return if $r > 1;
+  $t += $n if $t < 0;
+  $t;
+}
+
+say $result = invmod(42,2017);
+
+# Notes: Special cases to watch out for include (1) where the inverse doesn't exist, such as invmod(14,28474), which should return undef or raise an exception, not return a wrong value. (2) the high bit of a or n is set, e.g. invmod(11,2**63), (3) negative first arguments, e.g. invmod(-11,23).
+# The modules and code above handle these cases,
+# but some other language implementations for this task do not.
+
+use Test::More;
+is ($result, 1969);
+done_testing();
