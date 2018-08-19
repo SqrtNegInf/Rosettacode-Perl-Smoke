@@ -46,10 +46,12 @@ print F <<EOP;
 
 use feature 'say';
 my \$result;
+# my \@res;
 
 $perl5
 
 say \$result; 
+#say \$result = join "\\n", \@res;
 my \$ref = <<'EOD';
 EOD
 
