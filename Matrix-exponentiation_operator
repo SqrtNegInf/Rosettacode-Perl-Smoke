@@ -1,0 +1,184 @@
+#!/usr/local/bin/perl
+#u# http://rosettacode.org/wiki/Matrix-exponentiation_operator
+#c# 2018-08-18 <RC
+#p# OK
+
+use feature 'say';
+my $result;
+
+use strict;
+package SquareMatrix;
+use Carp;                       # standard, "it's not my fault" module
+
+use overload (
+        '""'    => \&_string,   # overload string operator so we can just print
+        '*'     => \&_mult,     # multiplication, needed for expo
+        '*='    => \&_mult,     # ditto, explicitly defined to trigger copy
+        '**'    => \&_expo,     # overload exponentiation
+        '='     => \&_copy,     # copy operator
+);
+
+sub make {
+        my $cls = shift;
+        my $n = @_;
+        for (@_) {
+                # verify each row given is the right length
+                confess "Bad data @$_: matrix must be square "
+                        if @$_ != $n;
+        }
+
+        bless [ map [@$_], @_ ] # important: actually copy all the rows
+}
+
+sub identity {
+        my $self = shift;
+        my $n = @$self - 1;
+        my @rows = map [ (0) x $_, 1, (0) x ($n - $_) ], 0 .. $n;
+        bless \@rows
+}
+
+sub zero {
+        my $self = shift;
+        my $n = @$self;
+        bless [ map [ (0) x $n ], 1 .. $n ]
+}
+
+sub _string {
+        "[ ".join("\n  " =>
+                map join(" " => map(sprintf("%12.6g", $_), @$_)), @{+shift}
+        )."  ]\n";
+}
+
+sub _mult {
+        my ($a, $b) = @_;
+        my $x = $a->zero;
+        my @idx = (0 .. $#$x);
+        for my $j (@idx) {
+                my @col = map($a->[$_][$j], @idx);
+                for my $i (@idx) {
+                        my $row = $b->[$i];
+                        $x->[$i][$j] += $row->[$_] * $col[$_] for @idx;
+                }
+        }
+        $x
+}
+
+sub _expo {
+        my ($self, $n) = @_;
+        confess "matrix **: must be non-negative integer power"
+                        unless $n >= 0 && $n == int($n);
+
+        my ($tmp, $out) = ($self, $self->identity);
+        do {
+                $out *= $tmp    if $n & 1;
+                $tmp *= $tmp;
+        } while $n >>= 1;
+
+        $out
+}
+
+sub _copy { bless [ map [ @$_ ], @{+shift} ] }
+
+# now use our matrix class
+package main;
+
+my $m = SquareMatrix->make(
+                [1, 2, 0],
+                [0, 3, 1],
+                [1, 0, 0] );
+$result .= "### Order $_\n". $m ** $_        for 0 .. 10;
+
+$m = SquareMatrix->make(
+        [ 1.0001, 0,      0, 1       ],
+        [ 0,      1.001,  0, 0       ],
+        [ 0,      0,      1, 0.99998 ],
+        [ 1e-8,   0,      0, 1.0002  ]);
+
+$result .= "\n### Matrix is now\n".  $m;
+$result .= "\n### Big power:\n".     $m ** 100_000;
+$result .= "\n### Too big:\n".       $m ** 1_000_000;
+$result .= "\n### WAY too big:\n".   $m ** 1_000_000_000_000;
+$result .= "\n### But identity matrix can handle that\n".
+                $m->identity ** 1_000_000_000_000;
+
+say $result; 
+my $ref = <<'EOD';
+### Order 0
+[            1            0            0
+             0            1            0
+             0            0            1  ]
+### Order 1
+[            1            2            0
+             0            3            1
+             1            0            0  ]
+### Order 2
+[            1            8            2
+             1            9            3
+             1            2            0  ]
+### Order 3
+[            3           26            8
+             4           29            9
+             1            8            2  ]
+### Order 4
+[           11           84           26
+            13           95           29
+             3           26            8  ]
+### Order 5
+[           37          274           84
+            42          311           95
+            11           84           26  ]
+### Order 6
+[          121          896          274
+           137         1017          311
+            37          274           84  ]
+### Order 7
+[          395         2930          896
+           448         3325         1017
+           121          896          274  ]
+### Order 8
+[         1291         9580         2930
+          1465        10871         3325
+           395         2930          896  ]
+### Order 9
+[         4221        31322         9580
+          4790        35543        10871
+          1291         9580         2930  ]
+### Order 10
+[        13801       102408        31322
+         15661       116209        35543
+          4221        31322         9580  ]
+
+### Matrix is now
+[       1.0001            0            0            1
+             0        1.001            0            0
+             0            0            1      0.99998
+         1e-08            0            0       1.0002  ]
+
+### Big power:
+[  6.45679e+10            0            0  1.04473e+15
+             0   2.5571e+43            0            0
+   3.99043e+10            0            1  6.45666e+14
+   1.04473e+07            0            0  1.69041e+11  ]
+
+### Too big:
+[ 1.33788e+113            0            0 2.16474e+117
+             0          Inf            0            0
+   8.2684e+112            0            1 1.33786e+117
+  2.16474e+109            0            0 3.50262e+113  ]
+
+### WAY too big:
+[          NaN          NaN          NaN          NaN
+           NaN          NaN          NaN          NaN
+           NaN          NaN          NaN          NaN
+           NaN          NaN          NaN          NaN  ]
+
+### But identity matrix can handle that
+[            1            0            0            0
+             0            1            0            0
+             0            0            1            0
+             0            0            0            1  ]
+EOD
+
+use Test::More;
+is ($result, $ref);
+done_testing();
