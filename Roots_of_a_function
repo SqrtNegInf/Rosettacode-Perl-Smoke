@@ -1,0 +1,57 @@
+#!/usr/local/bin/perl
+#u# http://rosettacode.org/wiki/Roots_of_a_function
+#c# 2018-08-18 <RC
+#p# OK
+
+use feature 'say';
+my $result;
+
+sub f
+{
+        my $x = shift;
+
+        return ($x * $x * $x - 3*$x*$x + 2*$x);
+}
+
+my $step = 0.001; # Smaller step values produce more accurate and precise results
+my $start = -1;
+my $stop = 3;
+my $value = &f($start);
+my $sign = $value > 0;
+
+# Check for root at start
+
+$result .= "Root found at $start\n" if ( 0 == $value );
+
+for(    my $x = $start + $step;
+        $x <= $stop;
+        $x += $step )
+{
+        $value = &f($x);
+
+        if ( 0 == $value )
+        {
+                # We hit a root
+                $result .= "Root found at $x\n";
+        }
+        elsif ( ( $value > 0 ) != $sign )
+        {
+                # We passed a root
+                $result .= "Root found near $x\n";
+        }
+
+        # Update our sign
+        $sign = ( $value > 0 );
+}
+
+
+say $result;
+my $ref = <<'EOD';
+Root found near 8.81239525796218e-16
+Root found near 1
+Root found near 2.00099999999989
+EOD
+
+use Test::More;
+is ($result, $ref);
+done_testing();
