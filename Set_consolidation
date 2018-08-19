@@ -6,22 +6,21 @@
 use feature 'say';
 my $result;
 
-
 # We implement the key data structure, a set of sets, as an array containing references to arrays of scalars.
 
 use strict;
 use English;
-use Smart::Comments;
+#use Smart::Comments;
 use Data::Dumper;
 
 my @ex1 = consolidate( (['A', 'B'], ['C', 'D']) );
-### Example 1: @ex1
+# ### Example 1: @ex1
 my @ex2 = consolidate( (['A', 'B'], ['B', 'D']) );
-### Example 2: @ex2
+# ### Example 2: @ex2
 my @ex3 = consolidate( (['A', 'B'], ['C', 'D'], ['D', 'B']) );
 ### Example 3: @ex3
 my @ex4 = consolidate( (['H', 'I', 'K'], ['A', 'B'], ['C', 'D'], ['D', 'B'], ['F', 'G', 'H']) );
-### Example 4: @ex4
+# ### Example 4: @ex4
 
 $Data::Dumper::Sortkeys = 1;
 $result .= "Example 1:\n"; $result .= Dumper @ex1;
@@ -49,7 +48,7 @@ sub set_union {
     my %union;
     foreach my $a_elt (@{$a}) { $union{$a_elt}++; }
     foreach my $b_elt (@{$b}) { $union{$b_elt}++; }
-    return keys(%union);
+    return sort keys(%union); # DH added 'sort', stable for testing
 }
 
 sub set_intersection {
@@ -77,29 +76,29 @@ $VAR2 = [
 Example 2:
 $VAR1 = [
           'A',
-          'D',
-          'B'
+          'B',
+          'D'
         ];
 Example 3:
 $VAR1 = [
-          'B',
-          'D',
           'A',
-          'C'
+          'B',
+          'C',
+          'D'
         ];
 Example 4:
 $VAR1 = [
+          'F',
           'G',
           'H',
           'I',
-          'K',
-          'F'
+          'K'
         ];
 $VAR2 = [
-          'C',
           'A',
-          'D',
-          'B'
+          'B',
+          'C',
+          'D'
         ];
 EOD
 
