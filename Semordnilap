@@ -1,0 +1,36 @@
+#!/usr/local/bin/perl
+#u# http://rosettacode.org/wiki/Semordnilap
+#c# 2018-08-18 <RC
+#p# OK
+
+use feature 'say';
+my $result;
+
+open F, '<', 'ref/unixdict.txt';
+
+while ($_ = <F>) {
+	chomp;
+	my $r = reverse;
+	$seen{$r}++ and $c++ < 10 and $result .= "$_ $r\n" or $seen{$_}++;
+}
+
+$result .= "$c\n";
+
+say $result; 
+my $ref = <<'EOD';
+ca ac
+dab bad
+diva avid
+dna and
+drab bard
+drib bird
+dub bud
+ed de
+elba able
+enid dine
+158
+EOD
+
+use Test::More;
+is ($result, $ref);
+done_testing();
