@@ -1,0 +1,148 @@
+#!/usr/local/bin/perl
+#u# http://rosettacode.org/wiki/Set
+#c# 2018-08-18 <RC
+#p# OK
+
+use feature 'say';
+my $result;
+
+# For real code, try Set::Object from CPAN. Here we provide a primitive implementation using hashes.
+
+use strict;
+
+package Set; # likely will conflict with stuff on CPAN
+use overload
+	'""'	=> \&str,
+	'bool'	=> \&count,
+	'+='	=> \&add,
+	'-='	=> \&del,
+	'-'	=> \&diff,
+	'=='	=> \&eq,
+	'&'	=> \&intersection,
+	'|'	=> \&union,
+	'^'	=> \&xdiff;
+
+sub str {
+	my $set = shift;
+	# This has drawbacks: stringification is used as set key
+	# if the set is added to another set as an element, which
+	# may cause inconsistencies if the element set is modified
+	# later.  In general, a hash key loses its object identity
+	# anyway, so it's not unique to us.
+	"Set{ ".  join(", " => sort map("$_", values %$set)) . " }"
+}
+
+sub new {
+	my $pkg = shift;
+	my $h = bless {};
+	$h->add($_) for @_;
+	$h
+}
+
+sub add {
+	my ($set, $elem) = @_;
+	$set->{$elem} = $elem;
+	$set
+}
+
+sub del {
+	my ($set, $elem) = @_;
+	delete $set->{$elem};
+	$set
+}
+
+sub has { # set has element
+	my ($set, $elem) = @_;
+	exists $set->{$elem}
+}
+
+sub union {
+	my ($this, $that) = @_;
+	bless { %$this, %$that }
+}
+
+sub intersection {
+	my ($this, $that) = @_;
+	my $s = new Set;
+	for (keys %$this) {
+		$s->{$_} = $this->{$_} if exists $that->{$_}
+	}
+	$s
+}
+
+sub diff {
+	my ($this, $that) = @_;
+	my $s = Set->new;
+	for (keys %$this) {
+		$s += $this->{$_} unless exists $that->{$_}
+	}
+	$s
+}
+
+sub xdiff { # xor, symmetric diff
+	my ($this, $that) = @_;
+	my $s = new Set;
+	bless { %{ ($this - $that) | ($that - $this) } }
+}
+
+sub count { scalar(keys %{+shift}) }
+
+sub eq {
+	my ($this, $that) = @_;
+	!($this - $that) && !($that - $this);
+}
+
+sub contains { # this is a superset of that
+	my ($this, $that) = @_;
+	for (keys %$that) {
+		return 0 unless $this->has($_)
+	}
+	return 1
+}
+
+package main;
+my ($x, $y, $z, $w);
+
+$x = Set->new(1, 2, 3);
+$x += $_ for (5 .. 7);
+$y = Set->new(1, 2, 4, $x); # not the brightest idea
+
+$result .= "set x is: $x\nset y is: $y\n";
+for (1 .. 4, $x) {
+	$result .= "$_ is". ($y->has($_) ? "" : " not") . " in y\n";
+}
+
+$result .= "union: ". ($x | $y) . "\n";
+$result .= "intersect: ". ($x & $y) . "\n";
+$result .= "z = x - y = ". ($z = $x - $y) . "\n";
+$result .= "y is ". ($x->contains($y) ? "" : "not ") . "a subset of x\n";
+$result .= "z is ". ($x->contains($z) ? "" : "not ") . "a subset of x\n";
+$result .= "z = (x | y) - (x & y) = ". ($z = ($x | $y) - ($x & $y)) . "\n";
+$result .= "w = x ^ y = ". ($w = ($x ^ $y)) . "\n";
+$result .= "w is ". (($w == $z) ? "" : "not ") . "equal to z\n";
+$result .= "w is ". (($w == $x) ? "" : "not ") . "equal to x\n";
+
+say $result; 
+
+my $ref = <<'EOD';
+set x is: Set{ 1, 2, 3, 5, 6, 7 }
+set y is: Set{ 1, 2, 4, Set{ 1, 2, 3, 5, 6, 7 } }
+1 is in y
+2 is in y
+3 is not in y
+4 is in y
+Set{ 1, 2, 3, 5, 6, 7 } is in y
+union: Set{ 1, 2, 3, 4, 5, 6, 7, Set{ 1, 2, 3, 5, 6, 7 } }
+intersect: Set{ 1, 2 }
+z = x - y = Set{ 3, 5, 6, 7 }
+y is not a subset of x
+z is a subset of x
+z = (x | y) - (x & y) = Set{ 3, 4, 5, 6, 7, Set{ 1, 2, 3, 5, 6, 7 } }
+w = x ^ y = Set{ 3, 4, 5, 6, 7, Set{ 1, 2, 3, 5, 6, 7 } }
+w is equal to z
+w is not equal to x
+EOD
+
+use Test::More;
+is ($result, $ref);
+done_testing();
