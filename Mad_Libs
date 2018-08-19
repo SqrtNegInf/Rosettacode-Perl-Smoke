@@ -1,0 +1,26 @@
+#!/usr/local/bin/perl
+#u# http://rosettacode.org/wiki/Mad_Libs
+#t# interactive
+#c# 2018-08-18 <RC
+#p# OK
+
+# Use the name of the file with a story as the parameter to the programme.
+
+use warnings;
+use strict;
+
+my $template = shift;
+open my $IN, '<', $template or die $!;
+my $story = do { local $/ ; <$IN> };
+
+my %blanks;
+undef $blanks{$_} for $story =~ m/<(.*?)>/g;
+
+for my $blank (sort keys %blanks) {
+    print "$blank: ";
+    chomp (my $replacement = <>);
+    $blanks{$blank} = $replacement;
+}
+
+$story =~ s/<(.*?)>/$blanks{$1}/g;
+print $story;
