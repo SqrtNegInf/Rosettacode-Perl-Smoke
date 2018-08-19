@@ -7,6 +7,7 @@ use feature 'say';
 my $result;
 
 use utf8;
+binmode STDOUT, ':encoding(utf-8)';
 
 # numbers used as boundaries to real sets.  Each has 3 components:
 #	the real value x;
