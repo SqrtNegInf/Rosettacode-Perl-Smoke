@@ -1,0 +1,43 @@
+#!/usr/local/bin/perl
+#u# http://rosettacode.org/wiki/Miller%E2%80%93Rabin_primality_test
+#c# 2018-08-18 <RC
+#p# OK
+
+use feature 'say';
+my $result;
+
+
+# Modules
+# Library: ntheory
+
+#While normally one would use is_prob_prime, is_prime, or is_provable_prime, which will do a BPSW test and possibly more, we can use just the Miller-Rabin test if desired. For large values we can use an object (e.g. bigint, Math::GMP, Math::Pari, etc.) or just a numeric string.
+
+use ntheory qw/is_strong_pseudoprime miller_rabin_random/;
+sub is_prime_mr {
+  my $n = shift;
+  # If 32-bit, we can do this with 3 bases.
+  return is_strong_pseudoprime($n, 2, 7, 61) if ($n >> 32) == 0;
+  # If 64-bit, 7 is all we need.
+  return is_strong_pseudoprime($n, 2, 325, 9375, 28178, 450775, 9780504, 1795265022) if ($n >> 64) == 0;
+  # Otherwise, perform a number of random base tests, and the result is a probable prime test.
+  return miller_rabin_random($n, 20);
+}
+
+#Math::Primality also has this functionality, though its function takes only one base and requires the input number to be less than the base.
+#use Math::Primality qw/is_strong_pseudoprime/;
+#sub is_prime_mr {
+#  my $n = shift;
+#  return 0 if $n < 2;
+#  for (2,3,5,7,11,13,17,19,23,29,31,37) {
+#    return 0 unless $n <= $_ || is_strong_pseudoprime($n,$_);
+#  }
+#  1;
+#}
+
+for (1..100) { $result .= "$_ " if is_prime_mr($_) }
+
+# Math::Pari can be used in a fashion similar to the Pari/GP custom function. The builtin accessed using a second argument to ispseudoprime was added to a later version of Pari (the Perl module uses version 2.1.7) so is not accessible directly from Perl.
+
+use Test::More;
+is ($result, '2 3 5 11 13 17 19 23 29 31 37 41 43 47 53 59 67 71 73 79 83 89 97 ');
+done_testing();
