@@ -1,0 +1,67 @@
+#!/usr/local/bin/perl
+#u# http://rosettacode.org/wiki/Search_a_list
+#c# 2018-08-18 <RC
+#p# OK
+
+use feature 'say';
+my $result;
+
+use List::Util qw(first);
+
+my @haystack = qw(Zig Zag Wally Ronald Bush Krusty Charlie Bush Bozo);
+
+foreach my $needle (qw(Washington Bush)) {
+  my $index = first { $haystack[$_] eq $needle } (0 .. $#haystack); # note that "eq" was used because we are comparing strings
+                                                                    # you would use "==" for numbers
+  if (defined $index) {
+    $result .= "$index $needle\n";
+  } else {
+    $result .= "$needle is not in haystack\n";
+  }
+}
+
+# You could install a non-standard module List::MoreUtils:
+
+use List::MoreUtils qw(first_index);
+
+my @haystack = qw(Zig Zag Wally Ronald Bush Krusty Charlie Bush Bozo);
+
+foreach my $needle (qw(Washington Bush)) {
+  my $index = first_index { $_ eq $needle } @haystack; # note that "eq" was used because we are comparing strings
+                                                       # you would use "==" for numbers
+  if (defined $index) {
+    $result .= "$index $needle\n";
+  } else {
+    $result .= "$needle is not in haystack\n";
+  }
+}
+
+# Alternatively, if you need to do this a lot, you could create a hash table mapping values to indices in the haystack:
+
+my @haystack = qw(Zig Zag Wally Ronald Bush Krusty Charlie Bush Bozo);
+
+my %haystack_indices;
+@haystack_indices{ @haystack } = (0 .. $#haystack); # Caution: this finds the largest index, not the smallest
+
+foreach my $needle (qw(Washington Bush)) {
+  my $index = $haystack_indices{$needle};
+  if (defined $index) {
+    $result .= "$index $needle\n";
+  } else {
+    $result .= "$needle is not in haystack\n";
+  }
+}
+
+say $result; 
+my $ref = <<'EOD';
+Washington is not in haystack
+4 Bush
+-1 Washington
+4 Bush
+Washington is not in haystack
+7 Bush
+EOD
+
+use Test::More;
+is ($result, $ref);
+done_testing();
