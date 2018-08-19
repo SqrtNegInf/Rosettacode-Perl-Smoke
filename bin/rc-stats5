@@ -34,8 +34,7 @@ while ($_ = <ERR>) {
     #($m,$s) = /user\s+(\d+)m(.*)s/;
     #$time = 60*$m + $s;
     ($time) = /user\s+(\d+)/;
-    #print STDERR "$_\n" if $time > 500;
-    push @top, int($time) if $time > 100;
+    push @top, int($time) if $time > 25;
     $sum += $time;
 }
 
