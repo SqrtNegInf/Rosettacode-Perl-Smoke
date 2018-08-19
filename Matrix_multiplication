@@ -1,0 +1,56 @@
+#!/usr/local/bin/perl
+#u# http://rosettacode.org/wiki/Matrix_multiplication
+#c# 2018-08-18 <>RC
+#p# OK
+#n# not using Perl 6 data, floating point...
+
+use feature 'say';
+my $result;
+
+# For most applications involving extensive matrix arithmetic, using the CPAN module called "PDL" (that stands for "Perl Data Language") would probably be the easiest and most efficient approach. That said, here's an implementation of matrix multiplication in plain Perl.
+
+sub mmult
+ {
+  our @a; local *a = shift;
+  our @b; local *b = shift;
+  my @p = [];
+  my $rows = @a;
+  my $cols = @{ $b[0] };
+  my $n = @b - 1;
+  for (my $r = 0 ; $r < $rows ; ++$r)
+     {
+      for (my $c = 0 ; $c < $cols ; ++$c)
+         {
+          $p[$r][$c] += $a[$r][$_] * $b[$_][$c]
+           foreach 0 .. $n;
+         }
+     }
+  return [@p];
+ }
+
+# This function takes two references to arrays of arrays and returns the product as a reference to a new anonymous array of arrays.
+
+@a = (
+   [1, 2],
+   [3, 4]
+);
+
+@b = (
+   [-3, -8, 3],
+   [-2,  1, 4]
+);
+
+$c = mmult(\@a,\@b);
+
+say $result = display($c);
+
+sub display { join("\n" => map join(" " => map(sprintf("%4d", $_), @$_)), @{+shift})."\n" }
+
+my $ref = <<'EOD';
+  -7   -6   11
+ -17  -20   25
+EOD
+
+use Test::More;
+is ($result, $ref);
+done_testing();
