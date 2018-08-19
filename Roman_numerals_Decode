@@ -1,0 +1,44 @@
+#!/usr/local/bin/perl
+#u# http://rosettacode.org/wiki/Roman_numerals/Decode
+#c# 2018-08-18 <RC
+#p# OK
+
+use feature 'say';
+my $result;
+
+use 5.10.0;
+
+{
+ my @trans = (
+                [M  => 1000],     [CM => 900], 
+                [D  => 500],      [CD => 400], 
+                [C  => 100],      [XC => 90],
+                [L  => 50],       [XL => 40],
+                [X  => 10],       [IX => 9],
+                [V  => 5],        [IV => 4],
+                [I  => 1],
+ );
+
+  sub from_roman {
+        my $r = shift;
+        my $n = 0;
+        foreach my $pair (@trans) {
+          my ($k, $v) = @$pair;
+          $n += $v while $r =~ s/^$k//i;
+        }
+        return $n
+  }
+}
+
+$result .= "$_: ". from_roman($_) . "\n" for qw(MCMXC MDCLXVI MMVIII);
+
+say $result; 
+my $ref = <<'EOD';
+MCMXC: 1990
+MDCLXVI: 1666
+MMVIII: 2008
+EOD
+
+use Test::More;
+is ($result, $ref);
+done_testing();
