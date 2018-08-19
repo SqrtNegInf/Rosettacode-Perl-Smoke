@@ -1,0 +1,33 @@
+#!/usr/local/bin/perl
+#u# http://rosettacode.org/wiki/Monte_Carlo_methods
+#c# 2018-08-18 <RC
+#p# OK
+
+srand 123456;
+
+use feature 'say';
+
+sub pi {
+  my $nthrows = shift;
+  my $inside = 0;
+  foreach (1 .. $nthrows) {
+    my $x = rand() * 2 - 1;
+    my $y = rand() * 2 - 1;
+    if (sqrt($x*$x + $y*$y) < 1) {
+      $inside++;
+    }
+  }
+  return 4 * $inside / $nthrows;
+}
+
+$result .= sprintf "%9d: %07f\n", $_, pi($_) for 10**4, 10**6;
+
+say $result; 
+my $ref = <<'EOD';
+    10000: 3.129200
+  1000000: 3.139348
+EOD
+
+use Test::More;
+is ($result, $ref);
+done_testing();
