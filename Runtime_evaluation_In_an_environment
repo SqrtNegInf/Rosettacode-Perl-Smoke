@@ -1,0 +1,20 @@
+#!/usr/local/bin/perl
+#u# http://rosettacode.org/wiki/Runtime_evaluation/In_an_environment
+#c# 2018-08-18 <RC
+#p# OK
+
+use feature 'say';
+my $result;
+
+sub eval_with_x
+   {my $code = shift;
+    my $x = shift;
+    my $first = eval $code;
+    $x = shift;
+    return eval($code) - $first;}
+
+say $result = eval_with_x('3 * $x', 5, 10); #, "\n"; # Prints "15".
+
+use Test::More;
+is ($result, 15);
+done_testing();
