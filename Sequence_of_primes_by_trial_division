@@ -1,0 +1,31 @@
+#!/usr/local/bin/perl
+#u# http://rosettacode.org/wiki/Sequence_of_primes_by_trial_division
+#c# 2018-08-18 <RC
+#p# OK
+
+use feature 'say';
+my $result;
+
+sub isprime {
+  my $n = shift;
+  return ($n >= 2) if $n < 4;
+  return unless $n % 2 && $n % 3;
+  my $sqrtn = int(sqrt($n));
+  for (my $i = 5; $i <= $sqrtn; $i += 6) {
+    return unless $n % $i && $n % ($i+2);
+  }
+  1;
+}
+
+$result .= join(" ", grep { isprime($_) } 0 .. 100 ). "\n";
+$result .= join(" ", grep { isprime($_) } 12345678 .. 12345678+100 ). "\n";
+
+say $result; 
+my $ref = <<'EOD';
+2 3 5 7 11 13 17 19 23 29 31 37 41 43 47 53 59 61 67 71 73 79 83 89 97
+12345701 12345709 12345713 12345727 12345731 12345743 12345769
+EOD
+
+use Test::More;
+is ($result, $ref);
+done_testing();
