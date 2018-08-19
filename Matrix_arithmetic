@@ -1,0 +1,56 @@
+#!/usr/local/bin/perl
+#u# http://rosettacode.org/wiki/Matrix_arithmetic
+#c# 2018-08-18 <RC
+#p# OK
+
+use feature 'say';
+my $result;
+
+# Translation of: C
+
+use strict;
+use warnings;
+use PDL;
+use PDL::NiceSlice;
+
+sub permanent{
+	my $mat = shift;
+	my $n = shift // $mat->dim(0);
+	return undef if $mat->dim(0) != $mat->dim(1);
+	return $mat(0,0) if $n == 1;
+	my $sum = 0;
+	--$n;
+	my $m = $mat(1:,1:)->copy;
+	for(my $i = 0; $i <= $n; ++$i){
+		$sum += $mat($i,0) * permanent($m, $n);
+		last if $i == $n;
+		$m($i,:) .= $mat($i,1:);
+	}
+	return sclr($sum);
+}
+
+my $M = pdl([[2,9,4], [7,5,3], [6,1,8]]);
+$result .= "M = $M\n";
+$result .= "det(M) = " . $M->determinant . ".\n";
+$result .= "det(M) = " . $M->det . ".\n";
+$result .= "perm(M) = " . permanent($M) . ".\n";
+# determinant and det are already defined in PDL, see[1]. permanent has to be defined manually.
+
+say $result; 
+
+my $ref = <<'EOD';
+M = 
+[
+ [2 9 4]
+ [7 5 3]
+ [6 1 8]
+]
+
+det(M) = -360.
+det(M) = -360.
+perm(M) = 900.
+EOD
+
+use Test::More;
+is ($result, $ref);
+done_testing();
