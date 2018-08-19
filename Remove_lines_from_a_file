@@ -1,0 +1,42 @@
+#!/usr/local/bin/perl
+#u# http://rosettacode.org/wiki/Remove_lines_from_a_file
+#c# 2018-08-18 <RC
+#p# OK
+#f# RC file: calendar-2016.txt
+
+# The value of deleting certain lines from a file notwithstanding, here's how you'd normally do it in Perl (call with perl rmlines -from=3 -to=10 filename:#!/usr/bin/perl -n -s -i
+# print unless $. >= $from && $. <= $to;
+# If you want a backup file (maybe because deleting lines from a file in place is a pretty silly idea), change the -i in the first line to -i.bak, for example.
+
+use strict ;
+use Tie::File ;
+
+sub deletelines {
+   my $arguments = shift ;
+   my( $file , $startfrom , $howmany ) = @{$arguments} ;
+   tie my @lines , 'Tie::File' , $file or die "Can't find file $file!\n" ;
+   my $nrecs = @lines ;
+   if ( $startfrom > $nrecs ) {
+      print "Error! Starting to delete lines past the end of the file!\n" ;
+      return ;
+   }
+   if ( ( $startfrom + $howmany ) > $nrecs ) {
+      print "Error! Trying to delete lines past the end of the file!\n" ;
+      return ;
+   }
+   splice @lines , $startfrom - 1 , $howmany ;
+   untie @lines ;
+}
+
+system ("cp ref/calendar-2016.base run/calendar-2016.txt");
+my $beg = 3;
+my $len = 8;
+
+@ARGV = qw(run/calendar-2016.txt 3 8);
+
+#if ( @ARGV != 3 ) {
+#   print "Error! Invoke with deletelines <filename> <start> <skiplines> !\n" ;
+#   exit( 1 ) ;
+#}
+
+deletelines( \@ARGV ) ;
