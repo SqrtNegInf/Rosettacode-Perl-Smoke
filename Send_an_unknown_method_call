@@ -1,0 +1,25 @@
+#!/usr/local/bin/perl
+#u# http://rosettacode.org/wiki/Send_an_unknown_method_call
+#c# 2018-08-18 <RC
+#p# OK
+
+use feature 'say';
+my $result;
+
+
+package Example;
+sub new {
+    bless {}
+}
+sub foo {
+    my ($self, $x) = @_;
+    return 42 + $x;
+}
+
+package main;
+my $name = "foo";
+say $result = Example->new->$name(5); # "\n"; # prints "47"
+
+use Test::More;
+is ($result, 47);
+done_testing();
