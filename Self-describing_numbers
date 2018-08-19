@@ -1,0 +1,36 @@
+#!/usr/local/bin/perl
+#u# http://rosettacode.org/wiki/Self-describing_numbers
+#c# 2018-08-18 <RC
+#p# OK
+
+use feature 'say';
+my $result;
+
+# The idea is to make two arrays: the first one contains the digits at their positions and the second one contains the digits counts.
+# The number is self-descriptive If the arrays are equal.
+
+sub is_selfdesc
+{
+	local $_ = shift;
+	my @b = (0) x length;
+	$b[$_]++ for my @a = split //;
+	return "@a" eq "@b";
+}
+
+# check all numbers from 0 to 100k plus two 'big' ones
+for (0 .. 100000, 3211000, 42101000) {
+	$result .= "$_\n" if is_selfdesc($_);
+}
+
+say $result; 
+my $ref = <<'EOD';
+1210
+2020
+21200
+3211000
+42101000
+EOD
+
+use Test::More;
+is ($result, $ref);
+done_testing();
