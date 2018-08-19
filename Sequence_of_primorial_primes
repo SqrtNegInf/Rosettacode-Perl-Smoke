@@ -1,0 +1,25 @@
+#!/usr/local/bin/perl
+#u# http://rosettacode.org/wiki/Sequence_of_primorial_primes
+#c# 2018-08-18 <RC
+#p# OK
+
+use feature 'say';
+my $result;
+
+# Library: ntheory
+
+use ntheory ":all";
+my $i = 0;
+for (1..1e6) { 
+  my $n = pn_primorial($_);
+  if (is_prime($n-1) || is_prime($n+1)) {
+    $result .= "$_ ";
+    last if ++$i >= 20;
+  }
+}
+
+say $result; 
+
+use Test::More;
+is ($result, '1 2 3 4 5 6 11 13 24 66 68 75 167 171 172 287 310 352 384 457 ');
+done_testing();
