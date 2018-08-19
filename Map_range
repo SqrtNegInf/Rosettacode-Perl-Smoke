@@ -1,0 +1,38 @@
+#!/usr/local/bin/perl
+#u# http://rosettacode.org/wiki/Map_range
+#c# 2018-08-18 <RC
+#p# OK
+
+use feature 'say';
+my $result;
+
+use strict ;
+
+sub mapValue {
+   my ( $range1 , $range2 , $number ) = @_ ;
+   return ( $range2->[ 0 ] +
+      (( $number - $range1->[ 0 ] ) * ( $range2->[ 1 ] - $range2->[ 0 ] ) ) / ( $range1->[ -1 ] 
+      - $range1->[ 0 ] ) ) ;
+}
+my @numbers = 0..10 ;
+my @interval = ( -1 , 0 ) ;
+$result .= "The mapped value for $_ is " . mapValue( \@numbers , \@interval , $_ ) . " !\n" foreach @numbers ;
+
+say $result; 
+my $ref = <<'EOD';
+The mapped value for 0 is -1 !
+The mapped value for 1 is -0.9 !
+The mapped value for 2 is -0.8 !
+The mapped value for 3 is -0.7 !
+The mapped value for 4 is -0.6 !
+The mapped value for 5 is -0.5 !
+The mapped value for 6 is -0.4 !
+The mapped value for 7 is -0.3 !
+The mapped value for 8 is -0.2 !
+The mapped value for 9 is -0.1 !
+The mapped value for 10 is 0 !
+EOD
+
+use Test::More;
+is ($result, $ref);
+done_testing();
