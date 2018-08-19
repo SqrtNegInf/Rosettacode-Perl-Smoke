@@ -1,0 +1,74 @@
+#!/usr/local/bin/perl
+#u# http://rosettacode.org/wiki/Matrix_transposition
+#c# 2018-08-18 <RC
+#p# OK
+
+use feature 'say';
+my $result;
+
+use Data::Dumper;
+
+# Library: Math::MatrixMatrix
+
+# use Math::Matrix;
+# $m = Math::Matrix->new(
+#   [1, 1, 1, 1],
+#   [2, 4, 8, 16],
+#   [3, 9, 27, 81],
+#   [4, 16, 64, 256],
+#   [5, 25, 125, 625],
+# );
+# 
+# $m->transpose->print;
+
+# Manually:
+
+my @m = (
+  [1, 1, 1, 1],
+  [2, 4, 8, 16],
+  [3, 9, 27, 81],
+  [4, 16, 64, 256],
+  [5, 25, 125, 625],
+);
+
+my @transposed;
+foreach my $j (0..$#{$m[0]}) {
+  push(@transposed, [map $_->[$j], @m]);
+}
+
+say $result = Dumper @transposed;
+
+my $ref = <<'EOD';
+$VAR1 = [
+          1,
+          2,
+          3,
+          4,
+          5
+        ];
+$VAR2 = [
+          1,
+          4,
+          9,
+          16,
+          25
+        ];
+$VAR3 = [
+          1,
+          8,
+          27,
+          64,
+          125
+        ];
+$VAR4 = [
+          1,
+          16,
+          81,
+          256,
+          625
+        ];
+EOD
+
+use Test::More;
+is ($result, $ref);
+done_testing();
