@@ -1,0 +1,18 @@
+#!/usr/local/bin/perl
+#u# http://rosettacode.org/wiki/RIPEMD-160
+#c# 2018-08-19 <RC
+#p# OK
+
+use feature 'say';
+
+use Crypt::RIPEMD160;
+say $result = unpack "H*", Crypt::RIPEMD160->hash("Rosetta Code");
+
+
+# The CryptX module also implements RIPEMD-160 along with the 128-, 256-, and 320-bit variants, as well many many other hashes. This gives identical output as above as expected.
+#use Crypt::Digest::RIPEMD160 qw/ripemd160_hex/;
+#say ripemd160_hex("Rosetta Code")
+
+use Test::More;
+is ($result, 'b3be159860842cebaa7174c8fff0aa9e50a5199f');
+done_testing();
