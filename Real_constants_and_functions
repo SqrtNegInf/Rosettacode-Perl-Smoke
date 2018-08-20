@@ -1,0 +1,46 @@
+#!/usr/local/bin/perl
+#u# http://rosettacode.org/wiki/Real_constants_and_functions
+#c# 2018-08-19 <RC
+#p# OK
+
+use feature 'say';
+my $result;
+# my @res;
+
+use POSIX; # for floor() and ceil()
+
+push @res, exp(1); # e
+push @res, 4 * atan2(1, 1); # pi
+push @res, sqrt(4); # square root
+push @res, log($res[0]); # natural logarithm; log10() available in POSIX module
+push @res, exp(2); # exponential
+push @res, abs(-3); # absolute value
+push @res, floor(3.2); # floor
+push @res, ceil(3.2); # ceiling
+push @res, 2 ** 10; # power
+
+use Math::Trig;
+push @res, pi; # alternate way to get pi
+
+use Math::Complex;
+push @res, pi; # alternate way to get pi
+
+say $result = join "\n", @res;
+my $ref = <<'EOD';
+2.71828182845905
+3.14159265358979
+2
+1
+7.38905609893065
+3
+3
+4
+1024
+3.14159265358979
+3.14159265358979
+EOD
+
+use Test::More;
+chop $ref;
+is ($result, $ref);
+done_testing();
