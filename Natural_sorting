@@ -1,0 +1,148 @@
+#!/usr/local/bin/perl
+#u# http://rosettacode.org/wiki/Natural_sorting
+#c# 2018-08-19 <RC
+#p# OK
+
+use feature 'say';
+my $result;
+
+# This implements all 8 requirements*:
+
+use feature 'fc';
+use Unicode::Normalize;
+
+sub natural_sort {
+    my @items = map {
+        my $str = fc(NFKD($_));
+        $str =~ s/\s+/ /;
+        $str =~ s/|^(?:the|a|an) \b|\p{Nonspacing_Mark}| $//g;
+        my @fields = $str =~ /(?!\z) ([^0-9]*+) ([0-9]*+)/gx;
+        [$_, \@fields]
+    } @_;
+    return map { $_->[0] } sort {
+        my @x = @{$a->[1]};
+        my @y = @{$b->[1]};
+        my $numeric;
+        while (@x && @y) {
+            my ($x, $y) = (shift @x, shift @y);
+            return (($numeric = !$numeric) ? $x cmp $y : $x <=> $y or next);
+        }
+        return @x <=> @y;
+    } @items;
+}
+
+# *) Note that decomposing the strings to the NFKD normalization form and subsequently stripping off all code points of the Nonspacing_Mark category, removes differences caused by accents / ligatures / alternate character forms / etc. in a standards-compliant way. This coincides with all the examples given in the task description, with the exception that it does not replace "ʒ" with "s" &#8212; one could add $str =~ tr/ʒ/s/; for that but it seems a bit whimsical.)
+
+use utf8;        # interpret this script's source code as UTF8
+use Test::More;  # for plan(), is_deeply()
+use Data::Dump;  # for dd()
+
+my @testcases = (
+    ['Leading spaces',   '%sleading spaces: %i',  map {' ' x $_} 2, 3, 1, 0             ],
+    ['Adjacent spaces',  'adjacent%s spaces: %i', map {' ' x $_} 2, 3, 1, 0             ],
+    ['Different spaces', 'equiv.%sspaces: %i',    split //, "\x0b\n\t\x0c\r "           ],
+    ['Case differences', '%s INDEPENENT: %i',     'casE', 'case', 'caSE', 'cASE'        ],
+    ['Numeric fields',   'foo%ibar%ibaz%i.txt',   [100, 10, 0], [100, 99, 0],
+                                                  [1000,99,9], [1000,99,10]             ],
+    ['Title case',       '%s',                    'The 39 steps', 'The 40th step more',
+                                                  'Wanda', 'The Wind in the Willows'    ],
+    ['Accents',          'Equiv. %s accents: %i', 'y', 'Y', "\x{dd}", "\x{fd}"          ],
+    ['Ligatures',        '%s',                    "Ĳ ligatured ij", 'no ligature'       ],
+    ['Alternate forms',  'Start with an %s: %i',  's', 'ſ', 'ß'                         ],
+);
+
+plan tests => scalar @testcases;
+
+foreach (@testcases) {
+    my ($name, $pattern, @args) = @$_;
+    my $i = 0;
+    my @strings = map { sprintf $pattern, ref $_ ? @$_ : $_, $i++ } @args;
+
+    is_deeply( [natural_sort(reverse sort @strings)], \@strings, $name );
+
+    dd @strings;
+    print "\n";
+}
+
+
+__END__
+#Output:
+1..9
+ok 1 - Leading spaces
+(
+  "  leading spaces: 0",
+  "   leading spaces: 1",
+  " leading spaces: 2",
+  "leading spaces: 3",
+)
+
+ok 2 - Adjacent spaces
+(
+  "adjacent   spaces: 0",
+  "adjacent    spaces: 1",
+  "adjacent  spaces: 2",
+  "adjacent spaces: 3",
+)
+
+ok 3 - Different spaces
+(
+  "equiv.\13spaces: 0",
+  "equiv.\nspaces: 1",
+  "equiv.\tspaces: 2",
+  "equiv.\fspaces: 3",
+  "equiv.\rspaces: 4",
+  "equiv. spaces: 5",
+)
+
+ok 4 - Case differences
+(
+  "casE INDEPENENT: 0",
+  "case INDEPENENT: 1",
+  "caSE INDEPENENT: 2",
+  "cASE INDEPENENT: 3",
+)
+
+ok 5 - Numeric fields
+(
+  "foo100bar10baz0.txt",
+  "foo100bar99baz0.txt",
+  "foo1000bar99baz9.txt",
+  "foo1000bar99baz10.txt",
+)
+
+ok 6 - Title case
+(
+  "The 39 steps",
+  "The 40th step more",
+  "Wanda",
+  "The Wind in the Willows",
+)
+
+ok 7 - Accents
+(
+  "Equiv. y accents: 0",
+  "Equiv. Y accents: 1",
+  "Equiv. \xDD accents: 2",
+  "Equiv. \xFD accents: 3",
+)
+
+ok 8 - Ligatures
+("\x{132} ligatured ij", "no ligature")
+
+ok 9 - Alternate forms
+(
+  "Start with an s: 0",
+  "Start with an \x{17F}: 1",
+  "Start with an \xDF: 2",
+)
+
+
+
+say $result; 
+#say $result = join "\n", @res;
+my $ref = <<'EOD';
+EOD
+
+use Test::More;
+#is ($result, $ref);
+#done_testing();
