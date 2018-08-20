@@ -1,0 +1,93 @@
+#!/usr/local/bin/perl
+#u# http://rosettacode.org/wiki/Quine
+#t# skiptest
+#c# 2018-08-19 <RC
+#p# OK
+
+use feature 'say';
+my $result;
+# my @res;
+
+
+#This relatively simple Perl example imitates the C example.
+
+$s = q($s = q(%s); printf($s, $s);
+); printf($s, $s);
+
+#Note the terminating newline.
+
+#Self-reading (some consider cheating)[edit]
+#Accessing source code via DATA filehandle:seek(DATA, 0, 0);
+#print <DATA>
+__DATA__
+even simpler:
+
+open ME, $0 and print <ME>;
+open 0; print <0>;
+Quine Generator[edit]
+Perhaps the simplest quine in Perl 5 is:
+
+$_=q{print"\$_=q{$_};eval"};eval
+By carefully examining the code, you will find that you can insert any valid perl sentences before and after the print statement in q{}.
+It is just a few lines of codes away before you come up with a quine generator that turns a given perl script into a quine. Note this quine generator itself is a quine.
+cf. http://blog.livedoor.jp/dankogai/archives/51519405.html
+
+
+
+{local$_=q{
+{
+    package Quine;
+    use strict;
+    use warnings;
+    our $VERSION = sprintf "%d.%02d", q$Revision: 0.2 $ =~ /(\d+)/g;
+    my $head = '{local$_=q' . "\x7B\n";
+    my $tail = 'print"{local\$_=q{$_};eval}\n"' . "\x7D;eval}\n";
+
+    sub new {
+        my $class = shift;
+        my $quine = $head . shift;
+        my $ret   = shift || 1;
+        my $ln    = ( $quine =~ tr/\n/\n/ );
+        $ln++;
+        $quine .= "return $ret if caller(1)or(caller)[2]!=$ln;$tail";
+        bless \$quine, $class;
+    }
+
+    sub from_file {
+        my ( $class, $fn, $ret ) = @_;
+        local $/;
+        open my $fh, '<', $fn or die "$fn : $!";
+        my $src = <$fh>;
+        close $fh;
+        $class->new( $src, $ret );
+    }
+
+    sub quine { ${ $_[0] } }
+
+=head1 NAME
+
+Quine - turn your perl modules/apps into a true quine!
+
+=head1 VERSION
+
+$Id: Quine.pm,v 0.2 2010/09/15 20:23:53 dankogai Exp dankogai $
+
+=head1 SYNOPSIS
+
+  use Quine;
+  print Quine->from_file("woot.pl")->quine;
+  print Quine->from_file("moot.psgi", '$app')->quine;
+
+=cut
+}
+return 1 if caller(1);print"{local\$_=q{$_};eval}\n"};eval}
+
+
+say $result; 
+#say $result = join "\n", @res;
+my $ref = <<'EOD';
+EOD
+
+use Test::More;
+#is ($result, $ref);
+#done_testing();
