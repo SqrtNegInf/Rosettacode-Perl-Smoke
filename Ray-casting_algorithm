@@ -1,0 +1,128 @@
+#!/usr/local/bin/perl
+#u# http://rosettacode.org/wiki/Ray-casting_algorithm
+#c# 2018-08-19 <RC
+#p# OK
+
+use feature 'say';
+my $result;
+
+use strict;
+use List::Util qw(max min);
+
+sub point_in_polygon
+{
+    my ( $point, $polygon ) = @_;
+
+    my $count = 0;
+    foreach my $side ( @$polygon ) {
+	$count++ if ray_intersect_segment($point, $side);
+    }
+    return ($count % 2 == 0) ? 0 : 1;
+}
+
+ 
+my $eps = 0.0001;
+my $inf = 1e600;
+
+sub ray_intersect_segment
+{
+    my ($point, $segment) = @_;
+
+    my ($A, $B) = @$segment;
+
+    my @P = @$point; # copy it
+
+    ($A, $B) = ($B, $A) if $A->[1] > $B->[1];
+
+    $P[1] += $eps if ($P[1] == $A->[1]) || ($P[1] == $B->[1]);
+
+    return 0 if ($P[1] < $A->[1]) || ( $P[1] > $B->[1]) || ($P[0] > max($A->[0],$B->[1]) );
+    return 1 if $P[0] < min($A->[0], $B->[0]);
+
+    my $m_red = ($A->[0] != $B->[0]) ? ( $B->[1] - $A->[1] )/($B->[0] - $A->[0]) : $inf;
+    my $m_blue = ($A->[0] != $P[0]) ? ( $P[1] - $A->[1] )/($P[0] - $A->[0]) : $inf;
+
+    return ($m_blue >= $m_red) ? 1 : 0;
+}
+Testing:
+
+# the following are utilities to use the same Fortran data...
+sub point
+{
+    [shift, shift];
+}
+sub create_polygon
+{
+    my ($pts, $sides) = @_;
+    my @poly;
+    for(my $i = 0; $i < $#$sides; $i += 2) {
+	push @poly, [ $pts->[$sides->[$i]-1], $pts->[$sides->[$i+1]-1] ];
+    }
+    \@poly;
+}
+
+my @pts = ( point(0,0), point(10,0), point(10,10), point(0,10), 
+	    point(2.5,2.5), point(7.5,2.5), point(7.5,7.5), point(2.5,7.5), 
+	    point(0,5), point(10,5), 
+	    point(3,0), point(7,0), point(7,10), point(3,10) );
+
+my %pgs = (
+    squared => create_polygon(\@pts, [ 1,2, 2,3, 3,4, 4,1 ] ),
+    squaredhole => create_polygon(\@pts, [ 1,2, 2,3, 3,4, 4,1, 5,6, 6,7, 7,8, 8,5 ] ),
+    strange => create_polygon(\@pts, [ 1,5, 5,4, 4,8, 8,7, 7,3, 3,2, 2,5 ] ),
+    exagon => create_polygon(\@pts, [ 11,12, 12,10, 10,13, 13,14, 14,9, 9,11 ]) ,
+);
+
+my @p = ( point(5,5), point(5, 8), point(-10, 5), point(0,5), point(10,5), &
+	  point(8,5), point(10,10) );
+
+foreach my $pol ( sort keys %pgs ) {
+    no strict 'refs';
+    $result .= "$pol\n";
+    my $rp = $pgs{$pol};
+    foreach my $tp ( @p ) {
+	$result .= "\t($tp->[0],$tp->[1]) " . 
+           ( point_in_polygon($tp, $rp) ? "INSIDE" : "OUTSIDE" ) . "\n";
+    }
+}
+
+
+say $result;
+my $ref = <<'EOD';
+exagon
+	(5,5) INSIDE
+	(5,8) INSIDE
+	(-10,5) OUTSIDE
+	(0,5) OUTSIDE
+	(10,5) INSIDE
+	(8,5) INSIDE
+	(10,10) OUTSIDE
+squared
+	(5,5) INSIDE
+	(5,8) INSIDE
+	(-10,5) OUTSIDE
+	(0,5) OUTSIDE
+	(10,5) INSIDE
+	(8,5) INSIDE
+	(10,10) OUTSIDE
+squaredhole
+	(5,5) OUTSIDE
+	(5,8) INSIDE
+	(-10,5) OUTSIDE
+	(0,5) OUTSIDE
+	(10,5) INSIDE
+	(8,5) INSIDE
+	(10,10) OUTSIDE
+strange
+	(5,5) OUTSIDE
+	(5,8) OUTSIDE
+	(-10,5) OUTSIDE
+	(0,5) OUTSIDE
+	(10,5) OUTSIDE
+	(8,5) OUTSIDE
+	(10,10) OUTSIDE
+EOD
+
+use Test::More;
+is ($result, $ref);
+done_testing();
