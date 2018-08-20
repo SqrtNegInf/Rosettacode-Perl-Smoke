@@ -1,0 +1,15 @@
+#!/usr/local/bin/perl
+#u# http://rosettacode.org/wiki/Random_number_generator_(included)
+#t# nocode
+#c# 2018-08-19 <RC
+#p# OK
+
+# Previous to Perl 5.20.0 (May 2014), Perl's rand function will try and call drand48, random or rand from the C library stdlib.h in that order.
+
+# Beginning with Perl 5.20.0, a drand48() implementation is built into Perl and used on all platforms. The implementation is from FreeBSD and uses a 48-bit linear congruential generator with this formula:
+
+# Seeds for drand48 are 32-bit and the initial seed uses 4 bytes of data read from /dev/urandom if possible; a 32-bit mix of various system values otherwise.
+
+# Additionally, there are many PRNG's available as modules. Two good Mersenne Twister modules are Math::Random::MTwist and Math::Random::MT::Auto. Modules supporting other distributions can be found in Math::Random and Math::GSL::Randist among others. CSPRNGs include Bytes::Random::Secure, Math::Random::Secure, Math::Random::ISAAC, and many more.
+
+
