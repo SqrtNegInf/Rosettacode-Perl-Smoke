@@ -1,0 +1,19 @@
+#!/usr/local/bin/perl
+#u# http://rosettacode.org/wiki/Native_shebang
+#n# nocode
+#c# 2018-08-19 <RC
+#p# OK
+
+
+# Perl is a script language. It's natural and easy to script native Perl code.
+# File: echo.pl
+
+#!/usr/bin/perl
+print "@ARGV\n";
+
+#Usage:
+#
+#./echo.pl Hello, world!
+#
+#Output:
+#Hello, world!
