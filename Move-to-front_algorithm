@@ -1,0 +1,49 @@
+#!/usr/local/bin/perl
+#u# http://rosettacode.org/wiki/Move-to-front_algorithm
+#c# 2018-08-19 <RC
+#p# OK
+
+use feature 'say';
+my $result;
+
+use strict;
+use warnings;
+sub encode {
+	my ($str) = @_;
+	my $table = join '', 'a' .. 'z';
+	map {
+		$table =~ s/(.*?)$_/$_$1/ or die;
+		length($1);
+	} split //, $str;
+}
+
+sub decode {
+	my $table = join '', 'a' .. 'z';
+	join "", map {
+		$table =~ s/(.{$_})(.)/$2$1/ or die;
+		$2;
+	} @_;
+}
+
+for my $test ( qw(broood bananaaa hiphophiphop) ) {
+	my @encoded = encode($test);
+	$result .= "$test: @encoded\n";
+	my $decoded = decode(@encoded);
+	$result .= "in" x ( $decoded ne $test );
+	$result .= "correctly decoded to $decoded\n";
+}
+
+say $result; 
+
+my $ref = <<'EOD';
+broood: 1 17 15 0 0 5
+correctly decoded to broood
+bananaaa: 1 1 13 1 1 1 0 0
+correctly decoded to bananaaa
+hiphophiphop: 7 8 15 2 15 2 2 3 2 2 3 2
+correctly decoded to hiphophiphop
+EOD
+
+use Test::More;
+is ($result, $ref);
+done_testing();
