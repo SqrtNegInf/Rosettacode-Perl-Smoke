@@ -1,0 +1,72 @@
+#!/usr/local/bin/perl
+#u# http://rosettacode.org/wiki/Regular_expressions
+#c# 2018-08-18 <RC
+#p# OK
+
+use feature 'say';
+my $result;
+# my @res;
+
+#Test
+
+$string = "I am a string";
+if ($string =~ /string$/) {
+   $result .= "Ends with 'string'\n";
+}
+
+if ($string !~ /^You/) {
+   $result .= "Does not start with 'You'\n";
+}
+
+#Substitute
+
+$string = "I am a string";
+$string =~ s/ a / another /; # makes "I am a string" into "I am another string"
+$result .= "$string\n";
+
+# In Perl 5.14+, you can return a new substituted string without altering the original string:
+$string = "I am a string";
+$string2 = $string =~ s/ a / another /r; # $string2 == "I am another string", $string is unaltered
+$result .= "$string2\n";
+
+# Test and Substitute
+
+$string = "I am a string";
+if ($string =~ s/\bam\b/was/) { # \b is a word border
+   $result .= "I was able to find and replace 'am' with 'was'\n";
+}
+
+
+# Options
+
+# add the following just after the last / for additional control
+# g = globally (match as many as possible)
+# i = case-insensitive
+# s = treat all of $string as a single line (in case you have line breaks in the content)
+# m = multi-line (the expression is run on each line individually)
+
+$string =~ s/i/u/ig; # would change "I am a string" into "u am a strung"
+$result .= "$string\n";
+
+# Omission of the regular expression binding operators
+# If regular expression matches are being made against the topic variable, it is possible to omit the regular expression binding operators:
+$_ = "I like banana milkshake.";
+if (/banana/) {          # The regular expression binding operator is omitted
+  $result .= "Match found\n";
+}
+
+say $result; 
+
+my $ref = <<'EOD';
+Ends with 'string'
+Does not start with 'You'
+I am another string
+I am another string
+I was able to find and replace 'am' with 'was'
+u was a strung
+Match found
+EOD
+
+use Test::More;
+is ($result, $ref);
+done_testing();
