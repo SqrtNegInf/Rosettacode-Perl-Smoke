@@ -1,0 +1,57 @@
+#!/usr/local/bin/perl
+#u# http://rosettacode.org/wiki/Reduced_row_echelon_form
+#c# 2018-08-19 <>RC
+#p# OK
+
+use feature 'say';
+my $result;
+# my @res;
+
+# Translation of: Python
+# Note that the function defined here takes an array reference, not an array.
+
+sub rref
+ {our @m; local *m = shift;
+  @m or return;
+  my ($lead, $rows, $cols) = (0, scalar(@m), scalar(@{$m[0]}));
+
+  foreach my $r (0 .. $rows - 1) {
+     $lead < $cols or return;
+      my $i = $r;
+
+      until ($m[$i][$lead])
+         {++$i == $rows or next;
+          $i = $r;
+          ++$lead == $cols and return;}
+
+      @m[$i, $r] = @m[$r, $i];
+      my $lv = $m[$r][$lead];
+      $_ /= $lv foreach @{ $m[$r] };
+
+      my @mr = @{ $m[$r] };
+      foreach my $i (0 .. $rows - 1)
+         {$i == $r and next;
+          ($lv, my $n) = ($m[$i][$lead], -1);
+          $_ -= $lv * $mr[++$n] foreach @{ $m[$i] };}
+
+      ++$lead;}}
+
+sub display { join("\n" => map join(" " => map(sprintf("%4d", $_), @$_)), @{+shift})."\n" }
+
+my @m = (
+      [  1,  2,  -1,  -4 ],
+      [  2,  3,  -1, -11 ],
+      [ -2,  0,  -3,  22 ]);
+
+rref(\@m);
+say $result = display(\@m);
+
+my $ref = <<'EOD';
+   1    0    0   -8
+   0    1    0    1
+   0    0    1   -2
+EOD
+
+use Test::More;
+is ($result, $ref);
+done_testing();
