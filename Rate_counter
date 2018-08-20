@@ -1,0 +1,23 @@
+#!/usr/local/bin/perl
+#u# http://rosettacode.org/wiki/Rate_counter
+#n# skiptest
+#c# 2018-08-19 <RC
+#p# OK
+
+#The Benchmark module can rate code per time, or per loops executed:
+
+use Benchmark;
+
+timethese -1,{ 'Job1' => &job1, 'Job2' => &job2 };
+
+sub job1
+{
+	$num = 1 + 0.5 * sqrt(-2 * log rand) * cos(2 * $PI * rand)
+}
+sub job2
+{
+	$num = 1 + 0.5 * sqrt(-2 * log rand) * cos(2 * $PI * rand)
+}
+
+# A negative COUNT will run each job for at least COUNT seconds.
+# A positive COUNT will run each job COUNT times.
