@@ -1,0 +1,25 @@
+#!/usr/local/bin/perl
+#u# http://rosettacode.org/wiki/Random_numbers
+#c# 2018-08-19 <RC
+#p# OK
+#n# no fixed seed, testing that average value is within 1% of unity
+
+#srand 123456;
+
+use feature 'say';
+my $result;
+
+my $PI = 2 * atan2 1, 0;
+
+my @nums = map {
+    1 + 0.5 * sqrt(-2 * log rand) * cos(2 * $PI * rand)
+} 1..1000000;
+
+for (@nums) {$sum += $_ }
+$result = sprintf "%.3f\n", $sum / 1000000;
+
+say $result;
+
+use Test::More;
+ok ($result> 0.99 && $result < 1.01);
+done_testing();
