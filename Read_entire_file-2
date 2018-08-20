@@ -1,0 +1,35 @@
+#!/usr/local/bin/perl
+#u# http://rosettacode.org/wiki/Read_entire_file
+#c# 2018-08-19 <RC
+#p# OK
+
+use feature 'say';
+
+# Memory-mapping
+
+use File::Map 'map_file';
+map_file(my $result1, 'ref/sample.txt');
+
+use Sys::Mmap;
+Sys::Mmap->new(my $result2, 0, 'ref/sample.txt')
+  or die "Cannot Sys::Mmap->new: $!";
+# File::Map has the advantage of not requiring an explicit munmap(). Its tie is faster than the tie form of Sys::Mmap too.
+
+say $result; 
+#say $result = join "\n", @res;
+my $ref = <<'EOD';
+An inverted index is a data structure used to create full text search.
+This is done entirely in memory.
+
+Given a set of text files, implement a program to create an inverted index.
+Also create a user interface to do a search using that inverted index which
+returns a list of files that contain the query term / terms. The search
+index can be in memory.
+
+snorp glorp yorp 
+EOD
+
+use Test::More;
+is ($result1, $ref);
+is ($result2, $ref);
+done_testing();
