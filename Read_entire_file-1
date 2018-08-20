@@ -1,0 +1,57 @@
+#!/usr/local/bin/perl
+#u# http://rosettacode.org/wiki/Read_entire_file
+#c# 2018-08-19 <RC
+#p# OK
+
+use feature 'say';
+my $result;
+
+# The modern recommended way, is using one of these CPAN modules:
+
+#  use File::Slurper 'read_text';
+# my $text = read_text($filename, $data);
+#  use Path::Tiny;
+# my $text = path($filename)->slurp_utf8;
+#  use IO::All;
+# $text = io($filename)->utf8->all;
+
+# Traditional ways, without CPAN modules:
+
+$filename = 'ref/sample.txt';
+
+# 1
+open my $fh, '<:encoding(UTF-8)', $filename or die "Could not open '$filename':  $!";
+read $fh, $result1, -s $filename;
+close $fh;
+
+# 2
+{
+  local $/ = undef;
+  open my $fh, '<:encoding(UTF-8)', $filename or die "Could not open '$filename':  $!";
+  $result2 = <$fh>;
+  close $fh;
+}
+
+# 3
+my $result3 = do { local( @ARGV, $/ ) = ( $filename ); <> };
+
+#For a one-liner from shell, use -0[code]. It normally specifies the oct char code of record separator ($/), so for example perl -n -040 would read chunks of text ending at each space ($/ = ' '). However, -0777 has special meaning: $/ = undef, so the whole file is read in at once (chr 0777 happens to be "ǿ", but Larry doesn't think one should use that as record separator).
+# perl -n -0777 -e 'print "file len: ".length' stuff.txt
+
+my $ref = <<'EOD';
+An inverted index is a data structure used to create full text search.
+This is done entirely in memory.
+
+Given a set of text files, implement a program to create an inverted index.
+Also create a user interface to do a search using that inverted index which
+returns a list of files that contain the query term / terms. The search
+index can be in memory.
+
+snorp glorp yorp 
+EOD
+
+use Test::More;
+is ($result1, $ref);
+is ($result2, $ref);
+is ($result3, $ref);
+done_testing();
