@@ -1,0 +1,29 @@
+#!/usr/local/bin/perl
+#u# http://rosettacode.org/wiki/Random_number_generator_(device)
+#t# skiptest
+#c# 2018-08-19 <RC
+#p# OK
+
+# Typically one would use a module as they will work on UNIX, Win32, and other O/S's. Crypt::Random::Seed, for instance, will use Win32 sources, EGD/PRNGD, /dev/u?random, or if none of those exist for some reason, a userspace entropy method.
+
+use Crypt::Random::Seed;
+my $source = Crypt::Random::Seed->new( NonBlocking => 1 ); # Allow non-blocking sources like /dev/urandom
+print "$_\n" for $source->random_values(10);               # A method returning an array of 32-bit values
+
+# or (similar but many more dependencies):
+#use Crypt::Random::Source qw/get_weak/;    # Alternately get_strong
+#print unpack('L*',get_weak(4)), "\n" for 1..10;
+
+# Or we can read values from /dev/urandom ourselves:
+sub read_random {
+        my $device = '/dev/urandom';
+        open my $in, "<:raw", $device   # :raw because it's not unicode string
+                or die "Can't open $device: $!";
+ 
+        sysread $in, my $rand, 4 * shift;
+        unpack('L*', $rand);
+}
+ 
+print "$_\n" for read_random(10);
+
+# Whether /dev/urandom is good enough for cryptographic work is debated, though on most UNIX systems it is at least as good as the Win32 Crypto API.
