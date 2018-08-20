@@ -1,0 +1,31 @@
+#!/usr/local/bin/perl
+#u# http://rosettacode.org/wiki/Quickselect_algorithm
+#c# 2018-08-19 <RC
+#p# OK
+
+use feature 'say';
+my $result;
+
+my @list = qw(9 8 7 6 5 0 1 2 3 4);
+say $result = join ' ', map { qselect(\@list, $_) } 1 .. 10 and print "\n";
+
+sub qselect
+{
+    my ($list, $k) = @_;
+    my $pivot = @$list[int rand @{ $list } - 1];
+    my @left  = grep { $_ < $pivot } @$list;
+    my @right = grep { $_ > $pivot } @$list;
+    if ($k <= @left)
+    {
+        return qselect(\@left, $k);
+    }
+    elsif ($k > @left + 1)
+    {
+        return qselect(\@right, $k - @left - 1);
+    }
+    else { $pivot }
+}
+
+use Test::More;
+is ($result, '0 1 2 3 4 5 6 7 8 9');
+done_testing();
