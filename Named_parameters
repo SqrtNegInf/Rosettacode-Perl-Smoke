@@ -1,0 +1,102 @@
+#!/usr/local/bin/perl
+#u# http://rosettacode.org/wiki/Named_parameters
+#c# 2018-08-19 <RC
+#p# OK
+#n# only testing 1st/simple example
+
+use feature 'say';
+my $result;
+# my @res;
+
+# Perl has no non-experimental formal parameters. Instead, Perl subroutines access all of their arguments through the special array @_. You can easily implement named arguments by making your function interpret @_ (or part of it) as a hash.
+
+sub funkshun {
+my %h = @_;
+  # Print every argument and its value.
+    $result .= qq(Argument "$_" has value "$h{$_}".\n)
+        foreach sort keys %h;
+  # If a 'verbosity' argument was passed in, print its value
+  # whatever that value may be.
+    $result .= "Verbosity specified as $h{verbosity}.\n" if exists $h{verbosity};
+  # Say that safe mode is on if 'safe' is set to a true value.
+  # Otherwise, say that it's off.
+    $result .= "Safe mode ". ($h{safe} ? 'on' : 'off'). ".\n";
+}
+
+# The semantics of calling such a function follow directly from the semantics of using a hash. For instance, if you provide multiple values for the same named argument, only the last one will be used. An example call:
+funkshun(
+    verbosity   => 3,
+    password    => 'foobie blech',
+    extra_lives => 3,
+    '42'        => 'answer',
+    password    => 'joshua'
+);
+
+my $ref = <<'EOD';
+Argument "42" has value "answer".
+Argument "extra_lives" has value "3".
+Argument "password" has value "joshua".
+Argument "verbosity" has value "3".
+Verbosity specified as 3.
+Safe mode off.
+EOD
+
+say $result; 
+
+use Test::More;
+is ($result, $ref);
+done_testing();
+
+__END__
+#Further flexibility can be obtained by using Pass by reference semantics:sub event
+{
+    my ($params_ref, $name) = @_;
+    my %params = %$params_ref;
+    my @known_params = qw(attendees event food time);
+
+    $result2 .= sprintf "%s called event() with the following named parameters:\n". 
+        $name // 'Anonymous';
+
+    say sort map { 
+        sprintf "%s: %s\n", 
+            ucfirst $_,
+            ref $params{$_} eq ref [] 
+            ? join ', ', @{ $params{$_} }
+            : $params{$_};
+    } grep exists $params{$_}, @known_params;
+    delete $params{$_} foreach @known_params;
+
+    say "But I didn't recognize these ones:";
+    while (my ($key, $val) = each %params)
+    {
+        say "$key: $val";
+    }
+}
+
+event(
+    {   # Curly braces with no label (e.g. 'sub' before it) 
+        # create a reference to an anonymous hash
+        attendees => ['Bob', 'Betty', 'George', 'Bertha'],
+        event     => 'birthday',
+        foo       => 'bar',
+        food      => 'cake',
+        frogblast => 'vent core',
+        time      => 3,
+    },
+    "Joe Schmoe"
+);
+
+my $ref2 = <<'EOD';
+Joe Schmoe called event() with the following named parameters:
+Attendees: Bob, Betty, George, Bertha
+Event: birthday
+Food: cake
+Time: 3
+
+But I didn't recognize these ones:
+frogblast: vent core
+foo: bar
+EOD
+
+# This is useful when you want your function to take both named (the hash) and positional (Joe Schmoe's $name) parameters.
+
