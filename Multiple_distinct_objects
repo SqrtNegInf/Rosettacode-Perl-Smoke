@@ -1,0 +1,15 @@
+#!/usr/local/bin/perl
+#u# http://rosettacode.org/wiki/Multiple_distinct_objects
+#t# nocode
+#c# 2018-08-19 <RC
+#p# OK
+
+# incorrect:
+# (Foo->new) x $n;
+# here Foo->new can be any expression that returns a reference representing
+# a new object
+# which is incorrect since Foo->new is only evaluated once.
+
+# A correct version is:
+# map { Foo->new } 1 .. $n;
+# which evaluates Foo->new $n times and collects each result in a list.
