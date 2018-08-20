@@ -1,0 +1,29 @@
+#!/usr/local/bin/perl
+#u# http://rosettacode.org/wiki/Multisplit
+#c# 2018-08-19 <RC
+#p# OK
+
+use feature 'say';
+my $result;
+
+sub multisplit {
+   my ($sep, $string, %opt) = @_ ;
+   $sep = join '|', map quotemeta($_), @$sep;
+   $sep = "($sep)" if $opt{keep_separators};
+   split /$sep/, $string, -1;
+}
+
+$result .= "'$_' " for multisplit ['==','!=','='], "a!===b=!=c"; 
+$result .= "\n";
+$result .= "'$_' " for multisplit ['==','!=','='], "a!===b=!=c", keep_separators => 1;
+$result .= "\n";
+
+say $result; 
+my $ref = <<'EOD';
+'a' '' 'b' '' 'c' 
+'a' '!=' '' '==' 'b' '=' '' '!=' 'c' 
+EOD
+
+use Test::More;
+is ($result, $ref);
+done_testing();
