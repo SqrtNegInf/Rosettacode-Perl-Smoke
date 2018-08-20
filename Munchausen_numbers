@@ -1,0 +1,23 @@
+#!/usr/local/bin/perl
+#u# http://rosettacode.org/wiki/Munchausen_numbers
+#c# 2018-08-19 <RC
+#p# OK
+
+use feature 'say';
+my $result;
+# my @res;
+
+use List::Util "sum";
+for my $n (1..5000) {
+  $result .= "$n\n" if $n == sum( map { $_**$_ } split(//,$n) );
+}
+
+say $result; 
+my $ref = <<'EOD';
+1
+3435
+EOD
+
+use Test::More;
+is ($result, $ref);
+done_testing();
