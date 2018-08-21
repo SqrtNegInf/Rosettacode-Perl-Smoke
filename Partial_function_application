@@ -1,0 +1,40 @@
+#!/usr/local/bin/perl
+#u# http://rosettacode.org/wiki/Partial_function_application
+#c# 2018-08-20 <RC
+#p# OK
+
+use feature 'say';
+my $result;
+
+# Note: this is written according to my understanding of the task spec and the discussion page; it doesn't seem a consensus was reached regarding what counts as a "partial" yet.
+
+sub fs(&) { 
+        my $func = shift;
+        sub { map $func->($_), @_ }
+}
+
+sub double($) { shift() * 2 }
+sub square($) { shift() ** 2 }
+
+my $fs_double = fs(\&double);
+my $fs_square = fs(\&square);
+
+my @s = 0 .. 3;
+$result .= "fs_double(@s): @{[ $fs_double->(@s) ]}\n";
+$result .= "fs_square(@s): @{[ $fs_square->(@s) ]}\n";
+
+@s = (2, 4, 6, 8);
+$result .= "fs_double(@s): @{[ $fs_double->(@s) ]}\n";
+$result .= "fs_square(@s): @{[ $fs_square->(@s) ]}\n";
+
+say $result; 
+my $ref = <<'EOD';
+fs_double(0 1 2 3): 0 2 4 6
+fs_square(0 1 2 3): 0 1 4 9
+fs_double(2 4 6 8): 4 8 12 16
+fs_square(2 4 6 8): 4 16 36 64
+EOD
+
+use Test::More;
+is ($result, $ref);
+done_testing();
