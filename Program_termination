@@ -1,0 +1,17 @@
+#!/usr/local/bin/perl
+#u# http://rosettacode.org/wiki/Program_termination
+#t# nocode
+#c# 2018-08-20 <RC
+#p# OK
+
+
+if ($problem) {
+    exit integerErrorCode;
+    # conventionally, error code 0 is the code for "OK"
+    #  (you can also omit the argument in this case)
+    # while anything else is an actual problem
+}
+# The DESTROY() methods of all objects are called, in an unspecified order (see "Global Destruction" in perlobj.pod). This includes objects in global variables or with circular references which otherwise keep them alive during normal running.
+# END { } blocks are executed in reverse order of their creation (see perlmod.pod).
+# The underlying C library exit() runs its C level atexit() callbacks.
+# An exit without these cleanups can be done with POSIX::_exit() (as noted in perlfunc.pod under the normal exit()). This is the _exit() system call (which the C library generally provides in equivalent form on non-Unix/non-POSIX systems too).
