@@ -1,0 +1,70 @@
+#!/usr/local/bin/perl
+#u# http://rosettacode.org/wiki/Ordered_Partitions
+#c# 2018-08-20 <RC
+#p# OK
+
+use feature 'say';
+my $result;
+# my @res;
+
+
+# Code 1: threaded generator method. This code demonstrates how to make something like Python's
+# generators or Go's channels by using Thread::Queue. Granted, this is horribly inefficient, with constantly creating and killing threads and whatnot (every time a partition is created, a thread is made to produce the next partition, so thousands if not millions of threads live and die, depending on the problem size). But algorithms are often more naturally expressed in a coroutine manner -- for this example, "making a new partition" and "picking elements for a partition" can be done in separate recursions cleanly if so desired. It's about 20 times slower than the next code example, so there.
+
+use Thread 'async';
+use Thread::Queue;
+
+sub make_slices {
+        my ($n, @avail) = (shift, @{ +shift });
+
+        my ($q, @part, $gen);
+        $gen = sub {
+                my $pos = shift;        # where to start in the list
+                if (@part == $n) {
+                        # we accumulated enough for a partition, emit them and
+                        # wait for main thread to pick them up, then back up
+                        $q->enqueue(\@part, \@avail);
+                        return;
+                }
+
+                # obviously not enough elements left to make a partition, back up
+                return if (@part + @avail < $n);
+
+                for my $i ($pos .. @avail - 1) {                # try each in turn
+                        push @part, splice @avail, $i, 1;       # take one
+                        $gen->($i);                             # go deeper
+                        splice @avail, $i, 0, pop @part;        # put it back
+                }
+        };
+
+        $q = new Thread::Queue;
+        (async{ &$gen;                  # start the main work load
+                $q->enqueue(undef)      # signal that there's no more data
+        })->detach;     # let the thread clean up after itself, not my problem
+
+        return $q;
+}
+
+my $qa = make_slices(2, [0..3]);
+while (my $a = $qa->dequeue) {
+        my $qb = make_slices(2, $qa->dequeue);
+
+        while (my $b = $qb->dequeue) {
+                my $rb = $qb->dequeue;
+                $result .= "@$a | @$b | @$rb\n";
+        }
+}
+
+say $result;
+my $ref = <<'EOD';
+0 1 | 2 3 | 
+0 2 | 1 3 | 
+0 3 | 1 2 | 
+1 2 | 0 3 | 
+1 3 | 0 2 | 
+2 3 | 0 1 | 
+EOD
+
+use Test::More;
+is ($result, $ref);
+done_testing();
