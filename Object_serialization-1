@@ -1,0 +1,57 @@
+#!/usr/local/bin/perl
+#u# http://rosettacode.org/wiki/Object_serialization
+#c# 2018-08-20 <RC
+#p# OK
+
+use feature 'say';
+my $result;
+
+#Library: Storable
+{
+    package Greeting;
+    sub new {
+        my $v = "Hello world!\n"; 
+        bless \$v, shift;
+    };
+    sub stringify {
+        ${shift()};
+    };
+};
+{
+    package Son::of::Greeting;
+    use base qw(Greeting); # inherit methods
+    sub new { # overwrite method of super class
+        my $v = "Hello world from Junior!\n"; 
+        bless \$v, shift;
+    };
+};
+{
+    use Storable qw(store retrieve);
+    package main;
+    my $g1 = Greeting->new;
+    my $s1 = Son::of::Greeting->new;
+    $result .= $g1->stringify;
+    $result .= $s1->stringify;
+
+    store $g1, 'run/objects.dat';
+    my $g2 = retrieve 'run/objects.dat';
+
+    store $s1, 'run/objects.dat';
+    my $s2 = retrieve 'run/objects.dat';
+
+    $result .= $g2->stringify;
+    $result .= $s2->stringify;
+};
+
+say $result;
+
+my $ref = <<'EOD';
+Hello world!
+Hello world from Junior!
+Hello world!
+Hello world from Junior!
+EOD
+
+use Test::More;
+is ($result, $ref);
+done_testing();
