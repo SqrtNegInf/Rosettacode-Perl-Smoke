@@ -1,0 +1,8 @@
+#!/usr/local/bin/perl
+#u# http://rosettacode.org/wiki/Operator_precedence
+#t# nocode
+#c# 2018-08-20 <RC
+#p# OK
+#n# re-write with actual content?
+
+# See the relevant documentation for a table of Perl 5 operators ordered by precedence level.
