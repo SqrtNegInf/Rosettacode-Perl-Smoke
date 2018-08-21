@@ -1,0 +1,84 @@
+#!/usr/local/bin/perl
+#u# http://rosettacode.org/wiki/Polymorphic_copy
+#c# 2018-08-20 <RC
+#p# OK
+
+use feature 'say';
+my $result;
+
+package T;
+sub new {
+        my $cls = shift;
+        bless [ @_ ], $cls
+}
+
+sub set_data {
+        my $self = shift;
+        @$self = @_;
+}
+
+sub copy {
+        my $self = shift;
+        bless [ @$self ], ref $self;
+}
+
+sub manifest {
+        my $self = shift;
+        $result .= "type T, content: @$self\n\n";
+}
+
+package S;
+our @ISA = 'T';
+# S is inheriting from T.
+# 'manifest' method is overriden, while 'new', 'copy' and
+# 'set_data' are all inherited.
+sub manifest {
+        my $self = shift;
+        $result .= "type S, content: @$self\n\n";
+}
+
+package main;
+
+$result .= "# creating \$t as a T\n";
+my $t = T->new('abc');
+$t->manifest;
+
+$result .= "# creating \$s as an S\n";
+my $s = S->new('SPQR');
+$s->manifest;
+
+$result .= "# make var \$x as a copy of \$t\n";
+my $x = $t->copy;
+$x->manifest;
+
+$result .= "# now as a copy of \$s\n";
+$x = $s->copy;
+$x->manifest;
+
+$result .= "# show that this copy is indeed a separate entity\n";
+$x->set_data('totally different');
+$result .= "\$x is: ";
+$x->manifest;
+
+say $result; 
+my $ref = <<'EOD';
+# creating $t as a T
+type T, content: abc
+
+# creating $s as an S
+type S, content: SPQR
+
+# make var $x as a copy of $t
+type T, content: abc
+
+# now as a copy of $s
+type S, content: SPQR
+
+# show that this copy is indeed a separate entity
+$x is: type S, content: totally different
+
+EOD
+
+use Test::More;
+is ($result, $ref);
+done_testing();
