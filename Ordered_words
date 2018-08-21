@@ -1,0 +1,27 @@
+#!/usr/local/bin/perl
+#u# http://rosettacode.org/wiki/Ordered_words
+#c# 2018-08-20 <RC
+#p# OK
+
+use feature 'say';
+my $result;
+
+use strict;
+use warnings;
+
+open(FH, "<", "ref/unixdict.txt") or die "Can't open file!\n";
+my @words;
+while (<FH>) {
+   chomp;
+   push @{$words[length]}, $_ if $_ eq join("", sort split(//));
+}
+close FH;
+say $result = "@{$words[-1]}\n";
+
+my $ref = <<'EOD';
+abbott accent accept access accost almost bellow billow biopsy chilly choosy choppy effort floppy glossy knotty
+EOD
+
+use Test::More;
+is ($result, $ref);
+done_testing();
