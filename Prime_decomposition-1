@@ -1,0 +1,21 @@
+#!/usr/local/bin/perl
+#u# http://rosettacode.org/wiki/Prime_decomposition
+#c# 2018-08-20 <RC
+#p# OK
+
+use feature 'say';
+my $result;
+
+sub prime_factors {
+	my ($n, $d, @out) = (shift, 1);
+	while ($n > 1 && $d++) {
+		$n /= $d, push @out, $d until $n % $d;
+	}
+	@out
+}
+
+say $result = "@{[prime_factors(1001)]}";
+
+use Test::More;
+is ($result, '7 11 13');
+done_testing();
