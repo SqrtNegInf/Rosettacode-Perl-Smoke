@@ -1,0 +1,89 @@
+#!/usr/local/bin/perl
+#u# http://rosettacode.org/wiki/Parsing/Shunting-yard_algorithm
+#c# 2018-08-20 <RC
+#p# OK
+
+use feature 'say';
+my $result;
+
+# Translation of: Perl 6
+
+my %prec = (
+    '^' => 4,
+    '*' => 3,
+    '/' => 3,
+    '+' => 2,
+    '-' => 2,
+    '(' => 1
+);
+
+my %assoc = (
+    '^' => 'right',
+    '*' => 'left',
+    '/' => 'left',
+    '+' => 'left',
+    '-' => 'left'
+);
+
+sub shunting_yard {
+    my @inp = split ' ', $_[0];
+    my @ops;
+    my @res;
+
+    my $report = sub { $result .= sprintf "%25s    %-7s %10s %s\n", "@res", "@ops", $_[0], "@inp" };
+    my $shift  = sub { $report->("shift @_");  push @ops, @_ };
+    my $reduce = sub { $report->("reduce @_"); push @res, @_ };
+
+    while (@inp) {
+        my $token = shift @inp;
+        if    ( $token =~ /\d/ ) { $reduce->($token) }
+        elsif ( $token eq '(' )  { $shift->($token) }
+        elsif ( $token eq ')' ) {
+            while ( @ops and "(" ne ( my $x = pop @ops ) ) { $reduce->($x) }
+        } else {
+            my $newprec = $prec{$token};
+            while (@ops) {
+                my $oldprec = $prec{ $ops[-1] };
+                last if $newprec > $oldprec;
+                last if $newprec == $oldprec and $assoc{$token} eq 'right';
+                $reduce->( pop @ops );
+            }
+            $shift->($token);
+        }
+    }
+    $reduce->( pop @ops ) while @ops;
+    return @res;
+}
+
+local $, = " ";
+@res = shunting_yard '3 + 4 * 2 / ( 1 - 5 ) ^ 2 ^ 3';
+
+say $result;
+say $final = join " ", @res; 
+my $ref = <<'EOD';
+                                       reduce 3 + 4 * 2 / ( 1 - 5 ) ^ 2 ^ 3
+                        3               shift + 4 * 2 / ( 1 - 5 ) ^ 2 ^ 3
+                        3    +         reduce 4 * 2 / ( 1 - 5 ) ^ 2 ^ 3
+                      3 4    +          shift * 2 / ( 1 - 5 ) ^ 2 ^ 3
+                      3 4    + *       reduce 2 / ( 1 - 5 ) ^ 2 ^ 3
+                    3 4 2    +         reduce * ( 1 - 5 ) ^ 2 ^ 3
+                  3 4 2 *    +          shift / ( 1 - 5 ) ^ 2 ^ 3
+                  3 4 2 *    + /        shift ( 1 - 5 ) ^ 2 ^ 3
+                  3 4 2 *    + / (     reduce 1 - 5 ) ^ 2 ^ 3
+                3 4 2 * 1    + / (      shift - 5 ) ^ 2 ^ 3
+                3 4 2 * 1    + / ( -   reduce 5 ) ^ 2 ^ 3
+              3 4 2 * 1 5    + / (     reduce - ^ 2 ^ 3
+            3 4 2 * 1 5 -    + /        shift ^ 2 ^ 3
+            3 4 2 * 1 5 -    + / ^     reduce 2 ^ 3
+          3 4 2 * 1 5 - 2    + / ^      shift ^ 3
+          3 4 2 * 1 5 - 2    + / ^ ^   reduce 3 
+        3 4 2 * 1 5 - 2 3    + / ^     reduce ^ 
+      3 4 2 * 1 5 - 2 3 ^    + /       reduce ^ 
+    3 4 2 * 1 5 - 2 3 ^ ^    +         reduce / 
+  3 4 2 * 1 5 - 2 3 ^ ^ /              reduce + 
+EOD
+
+use Test::More;
+is ($result, $ref);
+is ($final, '3 4 2 * 1 5 - 2 3 ^ ^ / +');
+done_testing();
