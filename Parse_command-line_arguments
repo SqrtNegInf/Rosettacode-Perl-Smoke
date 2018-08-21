@@ -1,0 +1,42 @@
+#!/usr/local/bin/perl
+#u# http://rosettacode.org/wiki/Parse_command-line_arguments
+#c# 2018-08-20 <RC
+#p# OK
+
+use feature 'say';
+
+# Use the Getopt::Long module:
+
+# Copyright Shlomi Fish, 2013 under the MIT/X11 License.
+
+use strict;
+use warnings;
+
+use Getopt::Long qw(GetOptions);
+my $output_path;
+my $verbose = '';
+my $length = 24;
+
+GetOptions(
+    "length=i" => \$length,
+    "output|o=s" => \$output_path,
+    "verbose!" => \$verbose,
+) or die ("Error in command line arguments");
+
+my $result = q{Outputting to '}. ($output_path // '(undefined)'). q{' path, with } .
+    ($verbose ? "Verbosity" : "No verbosity") .
+    " and a length of $length.";
+say $result;
+
+# $ perl getopt-test.pl --verbose -o foo.xml
+# Outputting to 'foo.xml' path, with Verbosity and a length of 24.
+# $ perl getopt-test.pl --verbose
+# Outputting to '(undefined)' path, with Verbosity and a length of 24.
+# $ perl getopt-test.pl --verbose --length=190
+# Outputting to '(undefined)' path, with Verbosity and a length of 190.
+# $ perl getopt-test.pl --verbose --length=190 -o test.txt
+# Outputting to 'test.txt' path, with Verbosity and a length of 190.
+
+use Test::More;
+is($result, q{Outputting to '(undefined)' path, with No verbosity and a length of 24.});
+done_testing();
