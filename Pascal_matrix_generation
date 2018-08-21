@@ -1,0 +1,90 @@
+#!/usr/local/bin/perl
+#u# http://rosettacode.org/wiki/Pascal_matrix_generation
+#c# 2018-08-20 <RC
+#p# OK
+
+my $result;
+
+use warnings;
+use strict;
+use feature qw{ say };
+ 
+sub upper {
+    my ($i, $j) = @_;
+    my @m;
+    for my $x (0 .. $i - 1) {
+        for my $y (0 .. $j - 1) {
+            $m[$x][$y] = $x > $y          ? 0
+                       : ! $x || $x == $y ? 1
+                                          : $m[$x-1][$y-1] + $m[$x][$y-1];
+        }
+    }
+    return \@m
+}
+
+ 
+sub lower {
+    my ($i, $j) = @_;
+    my @m;
+    for my $x (0 .. $i - 1) {
+        for my $y (0 .. $j - 1) {
+            $m[$x][$y] = $x < $y          ? 0
+                       : ! $x || $x == $y ? 1
+                                          : $m[$x-1][$y-1] + $m[$x-1][$y];
+        }
+    }
+    return \@m
+}
+
+ 
+sub symmetric {
+    my ($i, $j) = @_;
+    my @m;
+    for my $x (0 .. $i - 1) {
+        for my $y (0 .. $j - 1) {
+            $m[$x][$y] = ! $x || ! $y ? 1
+                                      : $m[$x-1][$y] + $m[$x][$y-1];
+        }
+    }
+    return \@m
+}
+
+ 
+sub pretty {
+    my $m = shift;
+    for my $row (@$m) {
+        $result .= join(', ', @$row) . "\n";
+    }
+}
+
+ 
+pretty(upper(5, 5));
+$result .= ('-' x 14) . "\n";
+pretty(lower(5, 5));
+$result .= ('-' x 14) . "\n";
+pretty(symmetric(5, 5));
+
+say $result; 
+my $ref = <<'EOD';
+1, 1, 1, 1, 1
+0, 1, 2, 3, 4
+0, 0, 1, 3, 6
+0, 0, 0, 1, 4
+0, 0, 0, 0, 1
+--------------
+1, 0, 0, 0, 0
+1, 1, 0, 0, 0
+1, 2, 1, 0, 0
+1, 3, 3, 1, 0
+1, 4, 6, 4, 1
+--------------
+1, 1, 1, 1, 1
+1, 2, 3, 4, 5
+1, 3, 6, 10, 15
+1, 4, 10, 20, 35
+1, 5, 15, 35, 70
+EOD
+
+use Test::More;
+is ($result, $ref);
+done_testing();
