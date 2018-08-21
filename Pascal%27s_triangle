@@ -1,0 +1,102 @@
+#!/usr/local/bin/perl
+#u# http://rosettacode.org/wiki/Pascal%27s_triangle
+#c# 2018-08-20 <RC
+#p# OK
+#n# put Tartaglia code into -2 task?
+
+use feature 'say';
+my $result;
+# my @res;
+
+
+# These functions perform as requested in the task: they print out the first n lines. If n <= 0, they print nothing. The output is simple (no fancy formatting).
+
+sub pascal {
+  my $rows = shift;
+  my @next = (1);
+  for my $n (1 .. $rows) {
+    print "@next\n";
+    @next = (1, (map $next[$_]+$next[$_+1], 0 .. $n-2), 1);
+  }
+}
+
+# If you want more than 68 rows, then use either "use bigint" or "use Math::GMP qw/:constant/" inside the function to enable bigints. We can also use a binomial function which will expand to bigints if many rows are requested:
+
+# Library: ntheory
+use ntheory qw/binomial/;
+sub pascal2 {
+  my $rows = shift;
+  for my $n (0 .. $rows-1) {
+    print join(" ", map { binomial($n,$_) } 0 .. $n), "\n";
+  }
+}
+
+pascal(12);
+
+say $result; 
+#say $result = join "\n", @res;
+my $ref = <<'EOD';
+EOD
+
+use Test::More;
+#is ($result, $ref);
+#done_testing();
+
+__END__
+Here is a non-obvious version using bignum, which is limited to the first 23 rows because of the algorithm used:
+
+use bignum;
+sub pascal_line { $_[0] ? unpack "A(A6)*", 1000001**$_[0] : 1 }
+sub pascal { print "@{[map -+-$_, pascal_line $_]}\n" for 0..$_[0]-1 }
+This triangle is build using the 'sock' or 'hockey stick' pattern property. Here I use the word tartaglia and not pascal because in my country it's called after the Niccolò Fontana, known also as Tartaglia. A full graphical implementation of 16 properties that can be found in the triangle can be found at mine Tartaglia's triangle
+
+
+#!/usr/bin/perl
+use strict;
+use warnings;
+
+{
+  my @tartaglia ;  
+  sub tartaglia {
+      my ($x,$y) = @_;
+      if ($x == 0 or $y == 0)  { $tartaglia[$x][$y]=1 ; return 1};
+      my $ret ;
+      foreach my $yps (0..$y){
+        $ret += ( $tartaglia[$x-1][$yps] || tartaglia($x-1,$yps) );
+      }
+      $tartaglia[$x][$y] = $ret;
+      return $ret;
+  }
+}
+sub tartaglia_row {
+    my $y = shift;
+    my $x = 0;
+    my @row;
+    $row[0] = &tartaglia($x,$y+1);
+    foreach my $pos (0..$y-1) {push @row, tartaglia(++$x,--$y)}
+    return @row;
+}
+
+ 
+for (0..5) {print join ' ', tartaglia_row($_),"\n"}
+print "\n\n";
+
+ 
+print tartaglia(3,3),"\n";
+my @third = tartaglia_row(5);
+print "@third\n";
+
+which output
+
+1
+1 1
+1 2 1
+1 3 3 1
+1 4 6 4 1
+1 5 10 10 5 1
+
+
+20
+1 5 10 10 5 1
+
+
