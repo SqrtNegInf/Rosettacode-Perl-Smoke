@@ -1,0 +1,46 @@
+#!/usr/local/bin/perl
+#u# http://rosettacode.org/wiki/Odd_word_problem
+#c# 2018-08-20 <RC
+#p# OK
+
+use feature 'say';
+my $result;
+# my @res;
+
+
+# All versions process text until EOF, not dot.
+
+Output:
+
+#what,si,the;gninaem,of:efil.
+#Closure version[edit]
+sub r
+{
+	my ($f, $c) = @_;
+	return sub { $result .= $c; $f->(); };
+}
+
+$r = sub {};
+
+#while (read STDIN, $_, 1) {
+while (read DATA, $_, 1) {
+	$w = /^[a-zA-Z]$/;
+	$n++ if ($w && !$l);
+	$l = $w;
+	if ($n & 1 || !$w) {
+		$r->(); $r = sub{};
+		$result .= $_;
+	} else {
+		$r = r($r, $_);
+	}
+}
+$r->();
+
+say $result; 
+
+use Test::More;
+is ($result, "what,si,the;gninaem,of:efil.\n");
+done_testing();
+
+__END__
+what,is,the;meaning,of:life.
