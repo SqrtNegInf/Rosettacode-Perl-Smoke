@@ -1,0 +1,160 @@
+#!/usr/local/bin/perl
+#u# http://rosettacode.org/wiki/Old_lady_swallowed_a_fly
+#c# 2018-08-20 <RC
+#p# OK
+
+use feature 'say';
+my $result;
+
+#Using string subst:
+my @animals = (
+	"fly",
+	"spider/That wriggled and jiggled and tickled inside her.\n",
+	"bird//Quite absurd!",
+	"cat//Fancy that!",
+	"dog//What a hog!",
+	"pig//Her mouth was so big!",
+	"goat//She just opened her throat!",
+	"cow//I don't know how;",
+	"donkey//It was rather wonkey!",
+	"horse:",
+);
+
+my $s = "swallow";
+my $e = $s."ed";
+my $t = "There was an old lady who $e a ";
+local $_ = $t."But I don't know why she $e the fly;\nPerhaps she'll die!\n\n";
+
+my ($a, $b, $c, $d);
+while (my $x = shift @animals) {
+	s/$c//;
+	($a, $b, $c) = split('/', $x);
+	$d = " the $a";
+
+	$c =~ s/;/ she $e$d;\n/;
+	$c =~ s/!/, to $s$d;\n/;
+
+	s/$t/"$t$a,\n$c".(($b||$c) && "${b}She $e$d to catch the ")/e;
+
+	s/:.*/--\nShe's dead, of course!\n/s;
+	$result .= $_;
+}
+
+#x# Using compression:
+#x# (Assumes a Unix-like OS and the availability of the uudecode and bunzip2 utilities).
+#x# 
+#x# open OUT, "| uudecode | bunzip2" and
+#x# print OUT <DATA> and
+#x# close OUT;
+#x# 
+#x# __DATA__
+#x# begin-base64 644 -
+#x# QlpoOTFBWSZTWUSbX/0AAZRfgAAQYIUACBFgbIA//96gQAK9oAAAxhMTQYIx
+#x# DIwmDEoAAAAAAxhMTQYIxDIwmBSkiNIaJtCCAzJPU1G4ueVmGZMsMzBz0N5v
+#x# hr4j29SRSSCZgyv8BDAAdOE3oFIFIhMAQMtm2Zy/MbRs9U1pgzCzGcaGnTYN
+#x# u5NJ+/D4TfkcZZ39PmNJuN8rxjMrJTfvr8rFkxmTDMGFjDLBleGh3L8zlhuO
+#x# 9vcq6rom3TonOONxyJ1TlG3dz2Tu3xZNtzTLgZu21y1r0dOW/HLntrgdi9ow
+#x# hlHTsnRVbJ98DxjYs/K87Q1rJjWazCO7kHbIXUj9DS7dSMHVNSmhwrjHMc8D
+#x# INk476V5jJDmnOPXZM38aeAd+DUp/39ccxmDEf3H7u30Rk6zDLGZkPYNq9CP
+#x# Pzj39xsVe+KeupMjKsjONsG6dk1bajByHYPOMHxneP2Og3q+dR9ryGk19o0n
+#x# onYPUfEfhVc1V+kcbJwmQ/nRwn3Hp6pP4TqvTO/2TfNJkvrrbt8+a9N92oy2
+#x# FeXUOI8486Wvor1zajqPDfpwnrn2jOzvo8hkOPrpVajlwnjqPfIry5c0TbKL
+#x# 559fx8xqpsquRaFYV9I9fT6p7RrI/Gv/F3JFOFCQRJtf/Q==
+#x# ====
+
+say $result; 
+my $ref = <<'EOD';
+There was an old lady who swallowed a fly,
+But I don't know why she swallowed the fly;
+Perhaps she'll die!
+
+There was an old lady who swallowed a spider,
+That wriggled and jiggled and tickled inside her.
+She swallowed the spider to catch the fly,
+But I don't know why she swallowed the fly;
+Perhaps she'll die!
+
+There was an old lady who swallowed a bird,
+Quite absurd, to swallow the bird;
+She swallowed the bird to catch the spider,
+That wriggled and jiggled and tickled inside her.
+She swallowed the spider to catch the fly,
+But I don't know why she swallowed the fly;
+Perhaps she'll die!
+
+There was an old lady who swallowed a cat,
+Fancy that, to swallow the cat;
+She swallowed the cat to catch the bird,
+She swallowed the bird to catch the spider,
+That wriggled and jiggled and tickled inside her.
+She swallowed the spider to catch the fly,
+But I don't know why she swallowed the fly;
+Perhaps she'll die!
+
+There was an old lady who swallowed a dog,
+What a hog, to swallow the dog;
+She swallowed the dog to catch the cat,
+She swallowed the cat to catch the bird,
+She swallowed the bird to catch the spider,
+That wriggled and jiggled and tickled inside her.
+She swallowed the spider to catch the fly,
+But I don't know why she swallowed the fly;
+Perhaps she'll die!
+
+There was an old lady who swallowed a pig,
+Her mouth was so big, to swallow the pig;
+She swallowed the pig to catch the dog,
+She swallowed the dog to catch the cat,
+She swallowed the cat to catch the bird,
+She swallowed the bird to catch the spider,
+That wriggled and jiggled and tickled inside her.
+She swallowed the spider to catch the fly,
+But I don't know why she swallowed the fly;
+Perhaps she'll die!
+
+There was an old lady who swallowed a goat,
+She just opened her throat, to swallow the goat;
+She swallowed the goat to catch the pig,
+She swallowed the pig to catch the dog,
+She swallowed the dog to catch the cat,
+She swallowed the cat to catch the bird,
+She swallowed the bird to catch the spider,
+That wriggled and jiggled and tickled inside her.
+She swallowed the spider to catch the fly,
+But I don't know why she swallowed the fly;
+Perhaps she'll die!
+
+There was an old lady who swallowed a cow,
+I don't know how she swallowed the cow;
+She swallowed the cow to catch the goat,
+She swallowed the goat to catch the pig,
+She swallowed the pig to catch the dog,
+She swallowed the dog to catch the cat,
+She swallowed the cat to catch the bird,
+She swallowed the bird to catch the spider,
+That wriggled and jiggled and tickled inside her.
+She swallowed the spider to catch the fly,
+But I don't know why she swallowed the fly;
+Perhaps she'll die!
+
+There was an old lady who swallowed a donkey,
+It was rather wonkey, to swallow the donkey;
+She swallowed the donkey to catch the cow,
+She swallowed the cow to catch the goat,
+She swallowed the goat to catch the pig,
+She swallowed the pig to catch the dog,
+She swallowed the dog to catch the cat,
+She swallowed the cat to catch the bird,
+She swallowed the bird to catch the spider,
+That wriggled and jiggled and tickled inside her.
+She swallowed the spider to catch the fly,
+But I don't know why she swallowed the fly;
+Perhaps she'll die!
+
+There was an old lady who swallowed a horse--
+She's dead, of course!
+EOD
+
+use Test::More;
+is ($result, $ref);
+done_testing();
