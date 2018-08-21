@@ -1,0 +1,45 @@
+#!/usr/local/bin/perl
+#u# http://rosettacode.org/wiki/Odd_word_problem
+#c# 2018-08-20 <RC
+#p# OK
+
+use feature 'say';
+
+# Recursion version
+sub rev
+{
+	my $c;
+	#read STDIN, $c, 1;
+	read DATA, $c, 1;
+	if ($c =~ /^[a-zA-Z]$/) {
+		my $r = rev();
+		$result .= $c;
+		return $r;
+	} else {
+		return $c;
+	}
+}
+
+#while (read STDIN, $_, 1) {
+while (read DATA, $_, 1) {
+	$w = /^[a-zA-Z]$/;
+	$n++ if ($w && !$l);
+	$l = $w;
+	if ($n & 1) {
+		$result .= $_;
+	} else {
+		my $r = rev();
+		$result .= $_;
+		$result .= $r;
+		$n = 0; $l = 0;
+	}
+}
+
+say $result; 
+
+use Test::More;
+is ($result, "what,si,the;gninaem,of:efil.\n");
+done_testing();
+
+__END__
+what,is,the;meaning,of:life.
