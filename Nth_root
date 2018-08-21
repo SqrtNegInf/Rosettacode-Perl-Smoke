@@ -1,0 +1,38 @@
+#!/usr/local/bin/perl
+#u# http://rosettacode.org/wiki/Nth_root
+#c# 2018-08-20 <RC
+#p# OK
+
+use feature 'say';
+my $result;
+
+# Translation of: Tcl
+use strict;
+
+sub nthroot ($$)
+{
+    my ( $n, $A ) = @_;
+
+    my $x0 = $A / $n;
+    my $m = $n - 1.0;
+    while(1) {
+	my $x1 = ($m * $x0 + $A / ($x0 ** $m)) / $n;
+	return $x1 if abs($x1 - $x0) < abs($x0 * 1e-9);
+	$x0 = $x1;
+    }
+}
+$result .= nthroot(3, 2**3). "\n";
+$result .= nthroot(10, 7131.5 ** 10). "\n";
+$result .= nthroot(0.5, 7). "\n";
+
+
+say $result; 
+my $ref = <<'EOD';
+2
+7131.5
+49
+EOD
+
+use Test::More;
+is ($result, $ref);
+done_testing();
