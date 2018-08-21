@@ -1,0 +1,32 @@
+#!/usr/local/bin/perl
+#u# http://rosettacode.org/wiki/One_of_n_lines_in_a_file
+#c# 2018-08-20 <RC
+#p# OK
+
+srand 123456;
+
+use feature 'say';
+my $result;
+
+use warnings;
+use strict;
+
+sub one_of_n {
+    my $n = shift;
+    my $return = 1;
+    for my $line (2 .. $n) {
+        $return = $line if 1 > rand $line;
+    }
+    return $return;
+}
+
+my $repeat = 1_000_000;
+my $size   = 10;
+
+my @freq;
+++$freq[ one_of_n($size) - 1 ] for 1 .. $repeat;
+say $result .= "@freq\n";
+
+use Test::More;
+is ($result, "100102 100259 99763 100235 100339 100442 100056 99939 99676 99189\n");
+done_testing();
