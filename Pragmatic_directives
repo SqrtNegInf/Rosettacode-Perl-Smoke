@@ -1,0 +1,30 @@
+#!/usr/local/bin/perl
+#u# http://rosettacode.org/wiki/Pragmatic_directives
+#t# nocode
+#c# 2018-08-20 <RC
+#p# OK
+
+# By convention pragmatic modules are named using lowercase letters.
+# 
+# List of pragmatic modules
+# 
+#  diagnostics
+#  english
+#  feature
+#  integer
+#  lib
+#  ops
+#  sort
+#  strict
+#  switch
+#  warnings
+# Utilization
+# 
+# Pragmatic modules have local scope and are utilized using the use directive:
+# 
+use warnings;  # use warnings pragma module
+use strict;    # use strict pragma module
+# To disable behaviour of a pragmatic module:
+# 
+no warnings;   # disable warnings pragma module
+no strict;     # disable strict pragma module
