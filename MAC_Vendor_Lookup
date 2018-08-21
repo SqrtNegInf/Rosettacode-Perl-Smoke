@@ -20,14 +20,15 @@ my @macs = (
     '10:dd:b1',                  'D4:F4:6F:C9:EF:8D',
     'FC-A1-3E',                  '88:53:2E:67:07:BE',
     '23:45:67',                  'FC:FB:FB:01:FA:21',
+    'BC:5F:F4',
 );
-    #'BC:5F:F4',
 
 for my $mac (@macs) {
     my $vendor = get_mac_vendor($mac);
     if ($vendor) {
         $result .= "$mac = $vendor\n";
     }
+    sleep 5;
 }
 
 sub get_mac_vendor {
@@ -85,12 +86,6 @@ FC-A1-3E = Samsung Electronics Co.,Ltd
 FC:FB:FB:01:FA:21 = Cisco Systems, Inc
 BC:5F:F4 = ASRock Incorporation
 EOD
-
-#FC-A1-3EFC:FB:FB:01:FA:21 = Samsung Electronics Co.,Ltd
-#00,0d,4b = Roku, Inc.
-#10:dd:b1 = Apple, Inc.
-#FC-A1-3E = Samsung Electronics Co.,Ltd
-#88:53:2E:67:07:BE = Intel Corporate
 
 use Test::More;
 is ($result, $ref);
