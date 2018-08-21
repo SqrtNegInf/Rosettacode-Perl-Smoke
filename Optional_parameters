@@ -1,0 +1,37 @@
+#!/usr/local/bin/perl
+#u# http://rosettacode.org/wiki/Optional_parameters
+#c# 2018-08-20 <RC
+#p# OK
+
+use feature 'say';
+my $result;
+
+# Perl 5 has no formal parameters, so all function arguments must be processed in the function body.
+# This function expects its first argument to be a reference to an array of arrays. It interprets any remaining arguments as a hash of optional parameters.
+
+sub sorttable
+ {my @table = @{shift()};
+  my %opt =
+     (ordering => sub {$_[0] cmp $_[1]}, column => 0, reverse => 0, @_);
+  my $col = $opt{column};
+  my $func = $opt{ordering};
+  my @result = sort
+      {$func->($a->[$col], $b->[$col])}
+      @table;
+  return ($opt{reverse} ? [reverse @result] : \@result);}
+
+#An example of use:
+my $a = [["a", "b", "c"], ["", "q", "z"], ["zap", "zip", "Zot"]];
+foreach (@{sorttable $a, column => 1, reverse => 1})
+   {foreach (@$_)
+       {$result .= sprintf "%-5s", $_;}
+    print "\n";}
+
+
+say $result; 
+my $ref = <<'EOD';
+EOD
+
+use Test::More;
+is ($result, 'zap  zip  Zot       q    z    a    b    c    ');
+done_testing();
