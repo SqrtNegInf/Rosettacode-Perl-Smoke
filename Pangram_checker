@@ -1,0 +1,17 @@
+#!/usr/local/bin/perl
+#u# http://rosettacode.org/wiki/Pangram_checker
+#c# 2018-08-20 <RC
+#p# OK
+
+use feature 'say';
+my $result;
+
+use List::MoreUtils 'all';
+
+sub pangram {all {$_[0] =~ /$_/i} 'a' .. 'z';}
+
+say $result = "Yes.\n" if pangram 'Cozy lummox gives smart squid who asks for job pen.';
+
+use Test::More;
+is ($result, $ref);
+done_testing();
