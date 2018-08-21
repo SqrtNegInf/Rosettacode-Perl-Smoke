@@ -1,0 +1,49 @@
+#!/usr/local/bin/perl
+#u# http://rosettacode.org/wiki/Parallel_Brute_Force
+#c# 2018-08-20 <RC
+#p# OK
+
+use feature 'say';
+my $result;
+
+# Uses threads library to do naive search using 26 threads ("aaaaa" .. "azzzz", "baaaa" .. "bzzzz", etc.). No effort is made to early exit.
+
+use Digest::SHA qw/sha256_hex/;
+use threads;
+use threads::shared;
+my @results :shared;
+
+$result .= "$_ : ".join(" ",search($_)). "\n" for (qw/
+  1115dd800feaacefdf481f1f9070374a2a81e27880f187396db67958b207cbad
+  3a7bd3e2360a3d29eea436fcfb7e44c735d117c42d1c1835420b6b9942dd4f1b
+  74e1bb62f8dabb8125a58852b63bdf6eaef667cb56ac7f7cdba6d7305c50a22f
+/);
+
+ 
+sub search {
+  my $hash = shift;
+  @results = ();
+  $_->join() for map { threads->create('tsearch', $_, $hash) } 0..25;
+  return @results;
+}
+
+sub tsearch {
+  my($tnum, $hash) = @_;
+  my $s = chr(ord("a")+$tnum) . "aaaa";
+
+  for (1..456976) { # 26^4
+    push @results, $s if sha256_hex($s) eq $hash;
+    $s++;
+  }
+}
+
+say $result; 
+my $ref = <<'EOD';
+1115dd800feaacefdf481f1f9070374a2a81e27880f187396db67958b207cbad : zyzzx
+3a7bd3e2360a3d29eea436fcfb7e44c735d117c42d1c1835420b6b9942dd4f1b : apple
+74e1bb62f8dabb8125a58852b63bdf6eaef667cb56ac7f7cdba6d7305c50a22f : mmmmm
+EOD
+
+use Test::More;
+is ($result, $ref);
+done_testing();
