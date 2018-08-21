@@ -1,0 +1,40 @@
+#!/usr/local/bin/perl
+#u# http://rosettacode.org/wiki/Non-decimal_radices/Input
+#c# 2018-08-20 <RC
+#p# OK
+
+use feature 'say';
+my $result;
+
+# The hex() function parses hexadecimal strings. The oct() function parses octal strings, as well as hexadecimal, octal, or binary strings with the appropriate prefix ("0x", "0", and "0b", respectively). There is no need to parse decimal strings because in Perl decimal strings and numbers are interchangeable.
+
+my $dec = "0123459";
+my $hex_noprefix = "abcf123";
+my $hex_withprefix = "0xabcf123";
+my $oct_noprefix = "7651";
+my $oct_withprefix = "07651";
+my $bin_withprefix = "0b101011001";
+
+$result .= 0 + $dec. "\n";   # => 123459
+$result .= hex($hex_noprefix). "\n";    # => 180154659
+$result .= hex($hex_withprefix). "\n";    # => 180154659
+$result .= oct($hex_withprefix). "\n";    # => 180154659
+$result .= oct($oct_noprefix). "\n";    # => 4009
+$result .= oct($oct_withprefix). "\n";    # => 4009
+$result .= oct($bin_withprefix). "\n";    # => 345
+# nothing for binary without prefix
+
+say $result; 
+my $ref = <<'EOD';
+123459
+180154659
+180154659
+180154659
+4009
+4009
+345
+EOD
+
+use Test::More;
+is ($result, $ref);
+done_testing();
