@@ -1,0 +1,46 @@
+#!/usr/local/bin/perl
+#u# http://rosettacode.org/wiki/Order_disjoint_list_items
+#c# 2018-08-20 <RC
+#p# OK
+
+use feature 'say';
+my $result;
+# my @res;
+
+
+sub dsort {
+        my ($m, $n) = @_;
+        my %h;
+        $h{$_}++ for @$n;
+        map $h{$_}-- > 0 ? shift @$n : $_, @$m;
+}
+
+for (split "\n", <<"IN")
+        the cat sat on the mat  | mat cat
+        the cat sat on the mat  | cat mat
+        A B C A B C A B C       | C A C A
+        A B C A B D A B E       | E A D A
+        A B                     | B
+        A B                     | B A
+        A B B A                 | B A
+IN
+{
+
+        my ($a, $b) = map([split], split '\|');
+        $result .= "@$a | @$b -> @{[dsort($a, $b)]}\n";
+}
+
+say $result; 
+my $ref = <<'EOD';
+the cat sat on the mat | mat cat -> the mat sat on the cat
+the cat sat on the mat | cat mat -> the cat sat on the mat
+A B C A B C A B C | C A C A -> C B A C B A A B C
+A B C A B D A B E | E A D A -> E B C A B D A B A
+A B | B -> A B
+A B | B A -> B A
+A B B A | B A -> B A B A
+EOD
+
+use Test::More;
+is ($result, $ref);
+done_testing();
