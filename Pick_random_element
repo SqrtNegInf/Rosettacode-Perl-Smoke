@@ -1,0 +1,16 @@
+#!/usr/local/bin/perl
+#u# http://rosettacode.org/wiki/Pick_random_element
+#c# 2018-08-20 <RC
+#p# OK
+
+srand 123456;
+
+use feature 'say';
+my $result;
+
+my @array = qw(a b c d e f g h i j k l m n o p q r s t u v w x y z);
+say $result .= $array[ rand @array ];
+
+use Test::More;
+is ($result, 'y');
+done_testing();
