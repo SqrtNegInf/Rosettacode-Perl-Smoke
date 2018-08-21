@@ -1,0 +1,33 @@
+#!/usr/local/bin/perl
+#u# http://rosettacode.org/wiki/Phrase_reversals
+#c# 2018-08-20 <RC
+#p# OK
+
+use feature 'say';
+my $result;
+
+use feature 'say';
+my $s = "rosetta code phrase reversal";
+
+push @res, "0. Input               : ". $s;
+push @res, "1. String reversed     : ". scalar reverse $s;
+push @res, "2. Each word reversed  : ". join " ", reverse split / /, reverse $s;
+push @res, "3. Word-order reversed : ". join " ", reverse split / /,$s;
+
+# Or, using a regex:
+push @res, "2. Each word reversed  : ". $s =~ s/[^ ]+/reverse $&/gre;
+
+say $result = join "\n", @res;
+
+my $ref = <<'EOD';
+0. Input               : rosetta code phrase reversal
+1. String reversed     : lasrever esarhp edoc attesor
+2. Each word reversed  : attesor edoc esarhp lasrever
+3. Word-order reversed : reversal phrase code rosetta
+2. Each word reversed  : attesor edoc esarhp lasrever
+EOD
+
+use Test::More;
+chop $ref;
+is ($result, $ref);
+done_testing();
