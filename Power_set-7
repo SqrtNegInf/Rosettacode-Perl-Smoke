@@ -1,0 +1,42 @@
+#!/usr/local/bin/perl
+#u# http://rosettacode.org/wiki/Power_set
+#c# 2018-08-20 <RC
+#p# OK
+
+use feature 'say';
+my $result;
+
+package Set {
+    sub new       { bless { map {$_ => undef} @_[1..$#_] }, shift; }
+    sub elements  { sort keys %{shift()} }
+    sub as_string { 'Set(' . join(' ', sort keys %{shift()}) . ')' }
+    # ...more set methods could be defined here...
+}
+
+use List::Util qw(reduce);
+
+sub powerset {
+    @{( reduce { [@$a, map { Set->new($_->elements, $b) } @$a ] }
+               [Set->new()], shift->elements )};
+}
+
+my $set = Set->new(1, 2, 3);
+my @subsets = powerset($set);
+
+$result .= $_->as_string. "\n" for @subsets;
+
+say $result;
+my $ref = <<'END';
+Set()
+Set(1)
+Set(2)
+Set(1 2)
+Set(3)
+Set(1 3)
+Set(2 3)
+Set(1 2 3)
+END
+
+use Test::More;
+is ($result, $ref);
+done_testing();
