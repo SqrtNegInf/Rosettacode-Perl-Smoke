@@ -1,0 +1,47 @@
+#!/usr/local/bin/perl
+#u# http://rosettacode.org/wiki/Partition_an_integer_X_into_N_primes
+#c# 2018-08-20 <RC
+#p# OK
+
+use feature 'say';
+my $result;
+# my @res;
+
+
+# It is tempting to use the partition iterator which takes a "isprime" flag, but this task calls for unique values. Hence the combination iterator over an array of primes makes more sense.
+# Library: ntheory
+
+use ntheory ":all";
+
+sub prime_partition {
+  my($num, $parts) = @_;
+  return is_prime($num) ? [$num] : undef if $parts == 1;
+  my @p = @{primes($num)};
+  my $r;
+  forcomb { lastfor, $r = [@p[@_]] if vecsum(@p[@_]) == $num; } @p, $parts;
+  $r;
+}
+
+foreach my $test ([18,2], [19,3], [20,4], [99807,1], [99809,1], [2017,24], [22699,1], [22699,2], [22699,3], [22699,4], [40355,3]) {
+  my $partar = prime_partition(@$test);
+  $result .= sprintf "Partition %5d into %2d prime piece%s %s\n", $test->[0], $test->[1], ($test->[1] == 1) ? ": " : "s:", defined($partar) ? join("+",@$partar) : "not possible";
+}
+
+say $result; 
+my $ref = <<'EOD';
+Partition    18 into  2 prime pieces: 5+13
+Partition    19 into  3 prime pieces: 3+5+11
+Partition    20 into  4 prime pieces: not possible
+Partition 99807 into  1 prime piece:  not possible
+Partition 99809 into  1 prime piece:  99809
+Partition  2017 into 24 prime pieces: 2+3+5+7+11+13+17+19+23+29+31+37+41+43+47+53+59+61+67+71+73+79+97+1129
+Partition 22699 into  1 prime piece:  22699
+Partition 22699 into  2 prime pieces: 2+22697
+Partition 22699 into  3 prime pieces: 3+5+22691
+Partition 22699 into  4 prime pieces: 2+3+43+22651
+Partition 40355 into  3 prime pieces: 3+139+40213
+EOD
+
+use Test::More;
+is ($result, $ref);
+done_testing();
