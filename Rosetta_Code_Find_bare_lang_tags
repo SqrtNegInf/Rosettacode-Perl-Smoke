@@ -1,0 +1,55 @@
+#!/usr/local/bin/perl
+#u# http://rosettacode.org/wiki/Rosetta_Code/Find_bare_lang_tags
+#c# 2018-08-21 <>RC
+#p# OK
+
+use feature 'say';
+my $result;
+
+# This is a simple implementation that does not attempt either extra credit.
+
+my $lang = 'no language';
+my $total = 0;
+my %blanks = ();
+while ($_ = <DATA>) {
+  if (m/<lang>/) {
+    if (exists $blanks{lc $lang}) {
+      $blanks{lc $lang}++
+    } else {
+      $blanks{lc $lang} = 1
+    }
+    $total++
+  } elsif (m/==\s*\{\{\s*header\s*\|\s*([^\s\}]+)\s*\}\}\s*==/) {
+    $lang = lc $1
+  }
+}
+
+if ($total) {
+	$result .= "$total bare language tag" . ($total > 1 ? 's' : '') . ".\n\n";
+	while ( my ($k, $v) = each(%blanks) ) {
+		$result .= "$k in $v\n"
+	}
+}
+
+say $result; 
+my $ref = <<'EOD';
+2 bare language tags.
+
+perl in 1
+no language in 1
+EOD
+
+use Test::More;
+ok ($result =~ /perl in 1/ && $result =~ /no language in 1/ && $result =~ /2 bare language tags/);
+done_testing();
+
+__END__
+Description
+
+<lang>Pseudocode</lang>
+
+=={{header|C}}==
+<lang C>printf("Hello world!\n");</lang>
+
+=={{header|Perl}}==
+<lang>print "Hello world!\n"</lang>
