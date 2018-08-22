@@ -1,0 +1,51 @@
+#!/usr/local/bin/perl
+#u# http://rosettacode.org/wiki/Pernicious_numbers
+#c# 2018-08-21 <RC
+#p# OK
+
+use feature 'say';
+
+# Translation of: C
+
+sub is_pernicious {
+    my $n = shift;
+    my $c = 2693408940;  # primes < 32 as set bits
+    while ($n) { $c >>= 1; $n &= ($n - 1); }
+    $c & 1;
+}
+
+my ($i, @p) = 0;
+while (@p < 25) {
+    push @p, $i if is_pernicious($i);
+    $i++;
+}
+
+$result .= join ' ', @p;
+$result .= "\n";
+($i, @p) = (888888877,);
+while ($i < 888888888) {
+    push @p, $i if is_pernicious($i);
+    $i++;
+}
+
+$result .= join(' ', @p) . "\n";
+
+# Alternately, generating the same output using a method similar to Pari/GP:
+# Library: ntheory
+use ntheory qw/is_prime hammingweight/;
+my $i = 1;
+my @pern = map { $i++ while !is_prime(hammingweight($i)); $i++; } 1..25;
+$result1 .= "@pern\n";
+$result1 .= join(" ", grep { is_prime(hammingweight($_)) } 888888877 .. 888888888). "\n";
+
+say $result; 
+
+my $ref = <<'EOD';
+3 5 6 7 9 10 11 12 13 14 17 18 19 20 21 22 24 25 26 28 31 33 34 35 36
+888888877 888888878 888888880 888888883 888888885 888888886
+EOD
+
+use Test::More;
+is ($result, $ref);
+is ($result1, $ref);
+done_testing();
