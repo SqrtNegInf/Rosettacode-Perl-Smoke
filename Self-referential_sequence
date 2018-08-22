@@ -1,6 +1,6 @@
 #!/usr/local/bin/perl
 #u# http://rosettacode.org/wiki/Self-referential_sequence
-#c# 2018-08-18 <RC
+#c# 2018-08-18 <>RC
 #p# OK
 
 use feature 'say';
