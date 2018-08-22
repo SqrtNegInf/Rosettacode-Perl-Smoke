@@ -1,0 +1,65 @@
+#!/usr/local/bin/perl
+#u# http://rosettacode.org/wiki/Permutations/Derangements
+#c# 2018-08-21 <RC
+#p# OK
+
+use feature 'say';
+
+# Using a module[edit]
+use ntheory ":all";
+
+# Count derangements using derangement iterator
+sub countderange {
+  my($n,$s) = (shift,0);
+  forderange { $s++ } $n;
+  $s;
+}
+# Count derangements using inclusion-exclusion
+sub subfactorial1 {
+  my $n = shift;
+  vecsum(map{ vecprod((-1)**($n-$_),binomial($n,$_),factorial($_)) }0..$n);
+}
+# Count derangements using simple recursion without special functions
+sub subfactorial2 {
+  my $n = shift;
+  use bigint;  no warnings 'recursion';
+  ($n < 1)  ?  1  :  $n * subfactorial2($n-1) + (-1)**$n;
+}
+
+$result .= "Derangements of 4 items:\n";
+forderange { $result .= "@_\n" } 4;
+$result .= sprintf "\n%3s %15s %15s\n","N","List count","!N";
+$result .= sprintf "%3d %15d %15d %15d\n",$_,countderange($_),subfactorial1($_),subfactorial2($_) for 0..9;
+$result .= sprintf "%3d %15s %s\n",$_,"",subfactorial2($_) for 20,200;
+
+say $result;
+my $ref = <<'EOD';
+Derangements of 4 items:
+1 0 3 2
+1 2 3 0
+1 3 0 2
+2 0 3 1
+2 3 0 1
+2 3 1 0
+3 0 1 2
+3 2 0 1
+3 2 1 0
+
+  N      List count              !N
+  0               1               1               1
+  1               0               0               0
+  2               1               1               1
+  3               2               2               2
+  4               9               9               9
+  5              44              44              44
+  6             265             265             265
+  7            1854            1854            1854
+  8           14833           14833           14833
+  9          133496          133496          133496
+ 20                 895014631192902121
+200                 290131015521620609254546237518688936375622413566095185632876940298382875066633305125595907908697818551860745708196640009079772455670451355426573609799907339222509103785567575227183775791345718826220455840965346196540544976439608810006794385963854831693077054723298130736781093200499800934036993104223443563872463385599425635345341317933466521378117877578807421014599223577201
+EOD
+
+use Test::More;
+is ($result, $ref);
+done_testing();
