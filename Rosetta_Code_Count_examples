@@ -1,0 +1,43 @@
+#!/usr/local/bin/perl
+#u# http://rosettacode.org/wiki/Rosetta_Code/Count_examples
+#t# skiptest
+#c# 2018-08-21 <RC
+#p# BROKEN
+
+use feature 'say';
+my $result;
+
+use LWP::Simple;
+
+my $site = "http://rosettacode.org";
+my $list_url = "/mw/api.php?action=query&list=categorymembers&cmtitle=Category:Programming_Tasks&cmlimit=500&format=xml";
+
+for (get("$site$list_url") =~ /cm.*?title="(.*?)"/g) {
+    (my $slug = $_) =~ tr/ /_/;
+    my $count = () = get("$site/wiki/$slug") =~ /toclevel-1/g;
+    $result .= "$_: $count examples\n";
+}
+
+say $result;  exit;
+my $ref = <<'EOD';
+EOD
+
+use Test::More;
+is ($result, $ref);
+done_testing();
+
+__END__
+Library: Mojolicious
+use v5.10;
+use Mojo::UserAgent;
+
+my $site = "http://rosettacode.org";
+my $list_url = "/mw/api.php?action=query&list=categorymembers&cmtitle=Category:Programming_Tasks&cmlimit=500&format=xml";
+
+my $ua = Mojo::UserAgent->new;
+$ua->get("$site$list_url")->res->dom->find('cm')->each(sub {
+    (my $slug = $_->{title}) =~ tr/ /_/;
+    my $count = $ua->get("$site/wiki/$slug")->res->dom->find("#toc .toclevel-1")->size;
+    say "$_->{title}: $count examples";
+});
+
