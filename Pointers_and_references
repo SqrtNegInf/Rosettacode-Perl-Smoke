@@ -1,0 +1,49 @@
+#!/usr/local/bin/perl
+#u# http://rosettacode.org/wiki/Pointers_and_references
+#c# 2018-08-21 <RC
+#p# OK
+
+use feature 'say';
+
+# Works with: Perl version 5.x
+# Perl has "references" that roughly correspond with "smart pointers" of C-like languages. Due to reference-counting semantics, they can never point to something that does not exist. Any scalar container (which includes array elements and hash values, but not hash keys) can hold a reference to a data structure.
+
+# start with some var definitions
+my $scalar = 'aa';
+my @array = ('bb', 'cc');
+my %hash = ( dd => 'DD', ee => 'EE' );
+
+# make references
+my $scalarref = \$scalar;
+my $arrayref = \@array;
+my $hashref = \%hash;
+
+# Using a reference
+
+# accessing the value
+$result .= $$scalarref;     # 'aa'
+$result .= @$arrayref;      # 'bbcc'
+$result .= $arrayref->[1];  # 'cc'
+$result .= $hashref->{ee};  # 'EE'
+
+# changing the value
+$$scalarref = 'a new string'; # changes $scalar
+$arrayref->[0] = 'foo';       # changes the first value of @array
+$hashref->{'dd'} = 'bar';     # changes the value with key 'dd' in %hash
+
+$result .= $hashref->{dd};
+
+# You may also create anonymous references:
+
+my $scalarref = \'a scalar';
+my $arrayref1 = ['an', 'array'];
+my $hashref1 = { firstkey => 'a', secondkey => 'hash' };
+
+$result .= $$arrayref1[1];
+$result .= $$hashref1{'secondkey'};
+
+#say $result; 
+
+use Test::More;
+is ($result, 'aa2ccEEbararrayhash');
+done_testing();
