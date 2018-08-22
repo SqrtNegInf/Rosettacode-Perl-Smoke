@@ -1,0 +1,101 @@
+#!/usr/local/bin/perl
+#u# http://rosettacode.org/wiki/Permutations_by_swapping
+#c# 2018-08-21 <RC
+#p# OK
+
+use feature 'say';
+my $result;
+
+# S-J-T Based[edit]
+
+use strict;
+use warnings;
+
+# This code uses "Even's Speedup," as described on
+# the Wikipedia page about the Steinhaus–Johnson–
+# Trotter algorithm.
+
+# Any resemblance between this code and the Python
+# code elsewhere on the page is purely a coincidence,
+# caused by them both implementing the same algorithm.
+
+# The code was written to be read relatively easily
+# while demonstrating some common perl idioms.
+
+sub perms(&@) {
+   my $callback = shift;
+   my @perm = map [$_, -1], @_;
+   $perm[0][1] = 0;
+
+   my $sign = 1;
+   while( ) {
+      $callback->($sign, map $_->[0], @perm);
+      $sign *= -1;
+
+      my ($chosen, $index) = (-1, -1);
+      for my $i ( 0 .. $#perm ) {
+         ($chosen, $index) = ($perm[$i][0], $i)
+           if $perm[$i][1] and $perm[$i][0] > $chosen;
+      }
+      return if $index == -1;
+
+      my $direction = $perm[$index][1];
+      my $next = $index + $direction;
+
+      @perm[ $index, $next ] = @perm[ $next, $index ];
+
+      if( $next <= 0 or $next >= $#perm ) {
+         $perm[$next][1] = 0;
+      } elsif( $perm[$next + $direction][0] > $chosen ) {
+         $perm[$next][1] = 0;
+      }
+
+      for my $i ( 0 .. $next - 1 ) {
+         $perm[$i][1] = +1 if $perm[$i][0] > $chosen;
+      }
+      for my $i ( $next + 1 .. $#perm ) {
+         $perm[$i][1] = -1 if $perm[$i][0] > $chosen;
+      }
+   }
+}
+
+my $n = shift(@ARGV) || 4;
+
+perms {
+   my ($sign, @perm) = @_;
+   $result .= "[". join(", ", @perm) . "]";
+   $result .= $sign < 0 ? " => -1\n" : " => +1\n";   
+} 1 .. $n;
+
+say $result; 
+
+my $ref = <<'EOD';
+[1, 2, 3, 4] => +1
+[1, 2, 4, 3] => -1
+[1, 4, 2, 3] => +1
+[4, 1, 2, 3] => -1
+[4, 1, 3, 2] => +1
+[1, 4, 3, 2] => -1
+[1, 3, 4, 2] => +1
+[1, 3, 2, 4] => -1
+[3, 1, 2, 4] => +1
+[3, 1, 4, 2] => -1
+[3, 4, 1, 2] => +1
+[4, 3, 1, 2] => -1
+[4, 3, 2, 1] => +1
+[3, 4, 2, 1] => -1
+[3, 2, 4, 1] => +1
+[3, 2, 1, 4] => -1
+[2, 3, 1, 4] => +1
+[2, 3, 4, 1] => -1
+[2, 4, 3, 1] => +1
+[4, 2, 3, 1] => -1
+[4, 2, 1, 3] => +1
+[2, 4, 1, 3] => -1
+[2, 1, 4, 3] => +1
+[2, 1, 3, 4] => -1
+EOD
+
+use Test::More;
+is ($result, $ref);
+done_testing();
