@@ -1,0 +1,38 @@
+#!/usr/local/bin/perl
+#u# http://rosettacode.org/wiki/Perfect_shuffle
+#c# 2018-08-21 <RC
+#p# OK
+
+use feature 'say';
+
+use List::Util qw(all);
+
+sub perfect_shuffle {
+   my $mid = @_ / 2;
+   map { @_[$_, $_ + $mid] } 0..($mid - 1);
+}
+
+for my $size (8, 24, 52, 100, 1020, 1024, 10000) {
+
+    my @shuffled = my @deck = 1 .. $size;
+    my $n = 0;
+    do { $n++; @shuffled = perfect_shuffle(@shuffled) }
+        until all { $shuffled[$_] == $deck[$_] } 0..$#shuffled;
+
+    $result .= sprintf "%5d cards: %4d\n", $size, $n;
+}
+
+say $result; 
+my $ref = <<'EOD';
+    8 cards:    3
+   24 cards:   11
+   52 cards:    8
+  100 cards:   30
+ 1020 cards: 1018
+ 1024 cards:   10
+10000 cards:  300
+EOD
+
+use Test::More;
+is ($result, $ref);
+done_testing();
