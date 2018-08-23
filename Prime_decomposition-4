@@ -2,7 +2,7 @@
 #u# http://rosettacode.org/wiki/Prime_decomposition
 #c# 2018-08-20 <RC
 #p# BROKEN
-#n# Math::Pari upgraded but not consistent?
+#n# Math::Pari 'factorint' produces unreliable results? cf 'Count_in_factors-2'
 
 use feature 'say';
 my $result;
