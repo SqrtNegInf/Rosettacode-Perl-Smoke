@@ -1,0 +1,99 @@
+#!/usr/local/bin/perl
+#u# http://rosettacode.org/wiki/Calculating_the_value_of_e
+#c# 2018-08-22 >RC
+#p# OK
+
+use feature 'say';
+
+use bigrat;
+
+sub factorial { my $r = 1; $r *= $_ for 1..shift; $r; }
+
+#$sumb = Math::BigRat->new('0');
+for my $n (0..40) {
+    #$f = Math::BigRat->new($n)->bfac();
+    $sumb += 1/factorial($n);
+    #printf("$n %.19f\n", $sumb) if $n > 15;
+}
+
+say $sumb;
+
+use Math::BigFloat;
+Math::BigFloat->precision(-30);
+
+say $x = Math::BigFloat->new(6613313319248080001/2432902008176640000);
+exit;
+
+#print $sumb->as_float(40); print "\n";
+#printf "%.40f", $sumb->as_float(40); print "\n";
+#say '   2.7182818284590452353602874713526624977572470936999595';
+
+#$str = Math::BigRat->new($sumb->bstr);
+#$ee = Math::BigRat->new("$str");
+#print $ee->as_float(5), "\n";
+
+my $ref =<<'END';
+2.71828182845904523536028747135266249775724709369995957496696762772407663035354759457138217852516642742746639193200305992181741359662904357290033429526059563073813232862794349076323382988075319525101901157383418793070215408914993488416750924476146066808226480016847741185374234544243710753907774499206955170276183860626133138458300075204493382656029760673711320070932870912744374704723069697720931014169283681902551510865746377211125238978442505695369677078544996996794686445490598793163688923009879312773617821542499922957635148220826989519366803318252886939849646510582093923982948879332036250944311730123819706841614039701983767932068328237646480429531180232878250981945581530175671736133206981125099618188159304169035159888851934580727386673858942287922849989208680582574927961048419844436346324496848756023362482704197862320900216099023530436994184914631409343173814364054625315209618369088870701676839642437814059271456354906130310720851038375051011574770417189861068739696552126715468895703503540212340784981933432106817012100562788023519303322474501585390473041995777709350366041699732972508868769664035557071622684471625608
+END
+
+use Test::More;
+#is($e, '2.71828182845904');
+#chop $ref;
+is($sumb, '6613313319248080001/2432902008176640000'); # N = 20
+is($sumb, '2217887688014775253706633418653155893774469751201/815915283247897734345611269596115894272000000000'); # N = 40
+done_testing();
+
+__END__
+
+# good to 11 digits
+if (0) {
+use Number::Fraction;
+$sum = Number::Fraction->new(0, 1);
+for my $n (0..13) {
+    $sum += Number::Fraction->new(1, factorial($n));
+}
+say sprintf "%.11f = %s", $sum, $sum;
+exit;
+}
+
+# good to 17 digits
+if (0) {
+$sum = 0;
+for my $n (0..20) {
+    $sum += 1/factorial($n);
+    printf("$n %.19f\n", $sum) if $n > 15;
+}
+say sprintf "   %.19f", $sum;
+say '   2.7182818284590452353602874713526624977572470936999595';
+exit;
+}
+
+# no good ?
+if (1) {
+use Math::Decimal qw(dec_add dec_rndiv dec_canonise);
+my $sum = dec_canonise("0.0");
+my $one = dec_canonise("1.0");
+for my $n (4..10) {
+#    my $temp = sprintf "%.1f", factorial($n);
+    my $fact = dec_canonise(factorial($n));
+say 'f: ' . $fact;
+    $term = dec_rndiv("EVN",$one,$fact);
+say 't: ' . $term;
+say 'a: ' . dec_add($sum,$term);
+    $sum = dec_add($sum,$term); 
+    $termx = $term;
+say 's: ' . $sum;
+}
+exit;
+}
+
+# good, but stalls at 14 digits
+if (0) {
+use Math::BigFloat;
+$sumb = Math::BigFloat->new('0');
+for my $n (0..20) {
+    $sumb += 1/factorial($n);
+    print $sumb->bstr, "\n";
+}
+exit;
+}
