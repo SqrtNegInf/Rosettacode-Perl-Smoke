@@ -1,25 +1,25 @@
 #!/usr/local/bin/perl
 #u# http://rosettacode.org/wiki/Count_in_factors
 #c# 2018-07-25 <RC
-#p# BROKEN
-#n# unreliable results
+#p# OK
+#n# Math::Pari 'factorint' produces unreliable results?  cf 'Prime_decomposition-4'
+#n# 2018-08-22 specifically: 1000000000000000000
 
 use feature 'say';
 my $result;
 
-#use Math::Pari qw/factorint allocatemem/;
-use Math::Pari;
-use Math::Pari 'factorint';
+use Math::Pari qw/factorint allocatemem/;
+#use Math::Pari 'factorint';
 
-#allocatemem(1e8);
+allocatemem(1e8);
 
 sub factor {
   my ($pn,$pc) = @{Math::Pari::factorint(shift)};
-  $result .= 'pn: ' . $pn . ' pc: ' . $pc . "\n";
+#  $result .= 'pn: ' . $pn . ' pc: ' . $pc . "\n";
   return map { ($pn->[$_]) x $pc->[$_] } 0 .. $#$pn;
 }
 
-#$result .= "$_ = ". join(" x ", factor($_)). "\n" for 1000000000000000003 .. 1000000000000000010;
+$result .= "$_ = ". join(" x ", factor($_)). "\n" for 1000000000000000001 .. 1000000000000000010;
 if (0) { 
 my $x = 100000; $result .= "$x = " . join('*', factor($x)) . "\n";
 my $x = 100001; $result .= "$x = " . join('*', factor($x)) . "\n";
@@ -27,15 +27,12 @@ my $x = 100002; $result .= "$x = " . join('*', factor($x)) . "\n";
 my $x = 100003; $result .= "$x = " . join('*', factor($x)) . "\n";
 my $x = 100004; $result .= "$x = " . join('*', factor($x)) . "\n";
 my $x = 100005; $result .= "$x = " . join('*', factor($x)) . "\n";
-} else { 
-$result .= "$_ = ". join(" x ", factor($_)). "\n" for 1000..1010;
 }
 
 say $result;
-exit;
 
-my $refx = <<'END';
-1000000000000000000 = 2 x 2 x 2 x 2 x 2 x 2 x 2 x 2 x 2 x 2 x 2 x 2 x 2 x 2 x 2 x 2 x 2 x 2 x 5 x 5 x 5 x 5 x 5 x 5 x 5 x 5 x 5 x 5 x 5 x 5 x 5 x 5 x 5 x 5 x 5 x 5
+#1000000000000000000 = 2 x 2 x 2 x 2 x 2 x 2 x 2 x 2 x 2 x 2 x 2 x 2 x 2 x 2 x 2 x 2 x 2 x 2 x 5 x 5 x 5 x 5 x 5 x 5 x 5 x 5 x 5 x 5 x 5 x 5 x 5 x 5 x 5 x 5 x 5 x 5
+my $ref = <<'END';
 1000000000000000001 = 101 x 9901 x 999999000001
 1000000000000000002 = 2 x 3 x 17 x 131 x 1427 x 52445056723
 1000000000000000003 = 1000000000000000003
