@@ -1,15 +1,16 @@
 
 This is perl 5, version 28, subversion 0 (v5.28.0) built for darwin-thread-multi-2level
-+------------> Perl: Good/Bad [894/11]
-|+-----------> smOke testing [767]
+updating from RC…
++------------> Perl: Good/Bad [899/10]
+|+-----------> smOke testing [766]
 ||+----------> sKipping validation [131]
 |||+---------> Interactive [43]
-||||+--------> Touched (modified by me) [39]
+||||+--------> Touched (modified by me) [41]
 |||||+-------> Random seed [64]
 ||||||+------> File output [34]
 |||||||+-----> Draft [234]
 ||||||||+----> Ignoring [23]
-|||||||||+---> Void (no local copy) [334]
+|||||||||+---> Void (no local copy) [333]
 ||||||||||+--> Un-implemented/reliable [313]
 |||||||||||
 GO......... 100_doors-1
@@ -164,7 +165,9 @@ G.K........ CSV_data_manipulation-2
 GO......... CSV_to_HTML_translation
 GO..T...... CUSIP
 GO......... Caesar_cipher
-.........VU Calculating_the_value_of_e
+..........U Calculating_the_value_of_e
+G...T...... Calculating_the_value_of_e-1
+G...T...... Calculating_the_value_of_e-2
 GO......... Calendar
 G.K........ Calendar_-_for_%22REAL%22_programmers
 GO......... Call_a_foreign-language_function
@@ -254,7 +257,7 @@ G.K........ Conway%27s_Game_of_Life-1
 G.KI....... Conway%27s_Game_of_Life-2
 GO......... Copy_a_string
 GO......... Count_in_factors-1
-B.......... Count_in_factors-2
+G.......... Count_in_factors-2
 GO......... Count_in_factors-3
 GO......... Count_in_factors-4
 GO......... Count_in_factors-5
@@ -776,7 +779,9 @@ GO......... Parsing_Shunting-yard_algorithm
 GO......... Partial_function_application
 .......D.VU Particle_Swarm_Optimization
 GO......... Partition_an_integer_X_into_N_primes
-GO......... Pascal%27s_triangle
+G.......... Pascal%27s_triangle-1
+G.......... Pascal%27s_triangle-2
+G.......... Pascal%27s_triangle-3
 GO......... Pascal%27s_triangle_Puzzle
 GO......... Pascal_matrix_generation
 GO......... Password_generator
