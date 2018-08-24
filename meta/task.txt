@@ -1,11 +1,10 @@
 
 This is perl 5, version 28, subversion 0 (v5.28.0) built for darwin-thread-multi-2level
-updating from RC…
-+------------> Perl: Good/Bad [899/10]
-|+-----------> smOke testing [766]
++------------> Perl: Good/Bad [900/10]
+|+-----------> smOke testing [771]
 ||+----------> sKipping validation [131]
 |||+---------> Interactive [43]
-||||+--------> Touched (modified by me) [41]
+||||+--------> Touched (modified by me) [42]
 |||||+-------> Random seed [64]
 ||||||+------> File output [34]
 |||||||+-----> Draft [234]
@@ -166,8 +165,10 @@ GO......... CSV_to_HTML_translation
 GO..T...... CUSIP
 GO......... Caesar_cipher
 ..........U Calculating_the_value_of_e
-G...T...... Calculating_the_value_of_e-1
-G...T...... Calculating_the_value_of_e-2
+GO..T...... Calculating_the_value_of_e-1
+GO..T...... Calculating_the_value_of_e-2
+G...T...... Calculating_the_value_of_e-3
+G.......... Calculating_the_value_of_e-4
 GO......... Calendar
 G.K........ Calendar_-_for_%22REAL%22_programmers
 GO......... Call_a_foreign-language_function
@@ -257,7 +258,7 @@ G.K........ Conway%27s_Game_of_Life-1
 G.KI....... Conway%27s_Game_of_Life-2
 GO......... Copy_a_string
 GO......... Count_in_factors-1
-G.......... Count_in_factors-2
+GO......... Count_in_factors-2
 GO......... Count_in_factors-3
 GO......... Count_in_factors-4
 GO......... Count_in_factors-5
@@ -644,7 +645,7 @@ GO......... Lucas-Lehmer_test-4
 GO......... Ludic_numbers
 GO......... Luhn_test_of_credit_card_numbers
 GO......... Lychrel_numbers
-GO......... MAC_Vendor_Lookup
+!O......... MAC_Vendor_Lookup
 GO......... MD4
 GO......... MD5
 GO......... MD5_Implementation
@@ -779,9 +780,9 @@ GO......... Parsing_Shunting-yard_algorithm
 GO......... Partial_function_application
 .......D.VU Particle_Swarm_Optimization
 GO......... Partition_an_integer_X_into_N_primes
-G.......... Pascal%27s_triangle-1
-G.......... Pascal%27s_triangle-2
-G.......... Pascal%27s_triangle-3
+GO......... Pascal%27s_triangle-1
+GO......... Pascal%27s_triangle-2
+GO......... Pascal%27s_triangle-3
 GO......... Pascal%27s_triangle_Puzzle
 GO......... Pascal_matrix_generation
 GO......... Password_generator
@@ -850,7 +851,7 @@ GO......... Primality_by_trial_division
 GO......... Prime_decomposition-1
 GO......... Prime_decomposition-2
 GO......... Prime_decomposition-3
-BO......... Prime_decomposition-4
+B.......... Prime_decomposition-4
 .........VU Primes_-_allocate_descendants_to_their_ancestors
 GO......... Primorial_numbers
 GO......... Priority_queue
