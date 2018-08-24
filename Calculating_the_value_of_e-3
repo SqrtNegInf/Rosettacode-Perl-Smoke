@@ -1,0 +1,39 @@
+#!/usr/local/bin/perl
+#u# http://rosettacode.org/wiki/Calculating_the_value_of_e
+#c# 2018-08-23 >RC
+#p# OK
+
+use feature 'say';
+
+use bigrat;
+
+use Math::Decimal qw(dec_canonise dec_mul dec_rndiv_and_rem);
+
+sub factorial { my $r = 1; $r *= $_ for 1..shift; $r; }
+for $n (0..70) { $sum += 1/factorial($n); }
+
+my($num,$den) = $sum =~ m#(\d+)/(\d+)#;
+say "numerator:   $num";
+say "denominator: $den";
+
+$ten     = dec_canonise("10");
+$num_dec = dec_canonise($num);
+$den_dec = dec_canonise($den);
+
+($q, $r) = dec_rndiv_and_rem("FLR", $num_dec, $den_dec);
+$e = "$q.";
+for (1..104) {
+    $num_dec = dec_mul($r, $ten);
+    ($q, $r) = dec_rndiv_and_rem("FLR", $num_dec, $den_dec);
+    $e .= $q;
+}
+
+say '2.7182818284590452353602874713526624977572470936999595749669676277240766303535475945713821785251664274|2746';
+say $result = substr $e, 0,102;
+
+my $ref = '2.7182818284590452353602874713526624977572470936999595749669676277240766303535475945713821785251664274';
+
+use Test::More;
+is($result, $ref);
+done_testing();
+
