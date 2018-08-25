@@ -1,6 +1,6 @@
 #!/usr/local/bin/perl
 #u# http://rosettacode.org/wiki/Calculating_the_value_of_e
-#c# 2018-08-23 >RC
+#c# >RC, 2018-08-24 >RC
 #p# OK
 
 use feature 'say';
@@ -9,20 +9,23 @@ use bigrat;
 
 use Math::Decimal qw(dec_canonise dec_mul dec_rndiv_and_rem);
 
-sub factorial { my $r = 1; $r *= $_ for 1..shift; $r; }
-for $n (0..70) { $sum += 1/factorial($n); }
+sub factorial { my $n = 1; $n *= $_ for 1..shift; $n }
+
+for $n (0..70) { 
+    $sum += 1/factorial($n); 
+}
 
 my($num,$den) = $sum =~ m#(\d+)/(\d+)#;
 say "numerator:   $num";
 say "denominator: $den";
 
-$ten     = dec_canonise("10");
 $num_dec = dec_canonise($num);
 $den_dec = dec_canonise($den);
+$ten     = dec_canonise("10");
 
 ($q, $r) = dec_rndiv_and_rem("FLR", $num_dec, $den_dec);
 $e = "$q.";
-for (1..104) {
+for (1..100) {
     $num_dec = dec_mul($r, $ten);
     ($q, $r) = dec_rndiv_and_rem("FLR", $num_dec, $den_dec);
     $e .= $q;
