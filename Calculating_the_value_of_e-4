@@ -12,12 +12,12 @@ use Math::Decimal qw(dec_canonise dec_mul dec_rndiv_and_rem dec_sub);
 
 # very inefficient
 #sub factorial { my $r = 1; $r *= $_ for 1..shift; $r; }
-#for $n (0..600) { $sum += 1/factorial($n); }
+#for $n (0..500) { $sum += 1/factorial($n); }
 
 $sum = 1.0;
 $f   = 1;
-for $n (1..600) {
-    $f *= $n;
+for $n (1..500) {
+    $f   *= $n;
     $sum += 1/$f;
 }
 
@@ -31,7 +31,7 @@ $den_dec = dec_canonise($den);
 
 ($q, $r) = dec_rndiv_and_rem("FLR", $num_dec, $den_dec);
 $e = "$q.";
-for (1..1150) {
+for (1..1135) {
     $num_dec = dec_mul($r, $ten);
     ($q, $r) = dec_rndiv_and_rem("FLR", $num_dec, $den_dec);
     $e .= $q;
