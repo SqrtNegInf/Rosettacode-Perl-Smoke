@@ -1,16 +1,16 @@
 
 This is perl 5, version 28, subversion 0 (v5.28.0) built for darwin-thread-multi-2level
-+------------> Perl: Good/Bad [900/10]
-|+-----------> smOke testing [771]
++------------> Perl: Good/Bad [904/10]
+|+-----------> smOke testing [773]
 ||+----------> sKipping validation [131]
 |||+---------> Interactive [43]
-||||+--------> Touched (modified by me) [42]
+||||+--------> Touched (modified by me) [44]
 |||||+-------> Random seed [64]
 ||||||+------> File output [34]
 |||||||+-----> Draft [234]
 ||||||||+----> Ignoring [23]
-|||||||||+---> Void (no local copy) [333]
-||||||||||+--> Un-implemented/reliable [313]
+|||||||||+---> Void (no local copy) [332]
+||||||||||+--> Un-implemented/reliable [312]
 |||||||||||
 GO......... 100_doors-1
 GO......... 100_doors-2
@@ -164,11 +164,10 @@ G.K........ CSV_data_manipulation-2
 GO......... CSV_to_HTML_translation
 GO..T...... CUSIP
 GO......... Caesar_cipher
-..........U Calculating_the_value_of_e
 GO..T...... Calculating_the_value_of_e-1
-GO..T...... Calculating_the_value_of_e-2
-G...T...... Calculating_the_value_of_e-3
-G.......... Calculating_the_value_of_e-4
+GO......... Calculating_the_value_of_e-2
+GO..T...... Calculating_the_value_of_e-3
+GO......... Calculating_the_value_of_e-4
 GO......... Calendar
 G.K........ Calendar_-_for_%22REAL%22_programmers
 GO......... Call_a_foreign-language_function
@@ -645,7 +644,7 @@ GO......... Lucas-Lehmer_test-4
 GO......... Ludic_numbers
 GO......... Luhn_test_of_credit_card_numbers
 GO......... Lychrel_numbers
-!O......... MAC_Vendor_Lookup
+GO......... MAC_Vendor_Lookup
 GO......... MD4
 GO......... MD5
 GO......... MD5_Implementation
@@ -786,7 +785,9 @@ GO......... Pascal%27s_triangle-3
 GO......... Pascal%27s_triangle_Puzzle
 GO......... Pascal_matrix_generation
 GO......... Password_generator
-.........VU Pathological_floating_point_problems
+..........U Pathological_floating_point_problems
+G...T...... Pathological_floating_point_problems-1
+G...T...... Pathological_floating_point_problems-2
 GO...R..... Pattern_matching
 .......D.VU Peano_curve
 G.KI.R..... Penney%27s_game
@@ -1106,7 +1107,8 @@ GO.....D... Suffix_tree
 .........VU Sum_and_Product_Puzzle
 GO......... Sum_and_product_of_an_array
 GO......... Sum_digits_of_an_integer
-GO......... Sum_multiples_of_3_and_5
+GO......... Sum_multiples_of_3_and_5-1
+G...T...... Sum_multiples_of_3_and_5-2
 GO......... Sum_of_a_series
 GO......... Sum_of_squares
 GO......... Sum_to_100
