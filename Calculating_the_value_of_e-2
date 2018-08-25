@@ -1,6 +1,6 @@
 #!/usr/local/bin/perl
 #u# http://rosettacode.org/wiki/Calculating_the_value_of_e
-#c# 2018-08-23 >RC
+#c# 2018-08-23
 #p# OK
 
 use feature 'say';
