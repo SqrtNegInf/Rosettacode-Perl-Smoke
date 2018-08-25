@@ -1,0 +1,40 @@
+#!/usr/local/bin/perl
+#u# http://rosettacode.org/wiki/Pathological_floating_point_problems
+#c# 2016-08-24 >RC
+#p# OK
+
+use feature 'say';
+use bigrat;
+
+#say '1st: Convergent s';
+
+my @s = qw(2, -4);
+
+for my $n (2..99) {
+    $s[$n]= 111.0 - 1130.0/$s[-1] + 3000.0/($s[-1]*$s[-2]);
+}
+
+for $n (3..8, 20, 30, 35, 50, 100) {
+    ($nu,$de) = $s[$n-1] =~ m#^(\d+)/(\d+)#;;
+    $result .= sprintf "n = %3d %.15f\n", $n, $nu/$de;
+}
+
+say $result;
+
+my $ref = <<'EOD';
+n =   3 18.500000000000000
+n =   4 9.378378378378379
+n =   5 7.801152737752162
+n =   6 7.154414480975249
+n =   7 6.806784736923633
+n =   8 6.592632768704439
+n =  20 6.043552110189269
+n =  30 6.006786093031206
+n =  35 6.002716153954351
+n =  50 6.000175846627188
+n = 100 6.000000019319478
+EOD
+
+use Test::More;
+is($result,$ref);
+done_testing();
