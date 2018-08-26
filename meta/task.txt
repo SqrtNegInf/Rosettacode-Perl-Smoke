@@ -1,16 +1,15 @@
 
 This is perl 5, version 28, subversion 0 (v5.28.0) built for darwin-thread-multi-2level
-updating from RC…
-+------------> Perl: Good/Bad [904/11]
-|+-----------> smOke testing [776]
++------------> Perl: Good/Bad [905/11]
+|+-----------> smOke testing [775]
 ||+----------> sKipping validation [132]
 |||+---------> Interactive [43]
-||||+--------> Touched (modified by me) [44]
+||||+--------> Touched (modified by me) [45]
 |||||+-------> Random seed [64]
 ||||||+------> File output [34]
 |||||||+-----> Draft [233]
 ||||||||+----> Ignoring [23]
-|||||||||+---> Void (no local copy) [333]
+|||||||||+---> Void (no local copy) [332]
 ||||||||||+--> Un-implemented/reliable [312]
 |||||||||||
 GO......... 100_doors-1
@@ -68,7 +67,7 @@ GO......... Amicable_pairs
 GO......... Anagrams-1
 GO......... Anagrams-2
 GO......... Anagrams_Deranged_anagrams
-.........VU Angle_difference_between_two_bearings
+G...T.....U Angle_difference_between_two_bearings
 G.K........ Animate_a_pendulum
 B.K........ Animation
 GO......... Anonymous_recursion-1
@@ -168,7 +167,7 @@ GO......... Caesar_cipher
 GO..T...... Calculating_the_value_of_e-1
 GO......... Calculating_the_value_of_e-2
 GO..T...... Calculating_the_value_of_e-3
-GOK........ Calculating_the_value_of_e-4
+G.K........ Calculating_the_value_of_e-4
 GO......... Calendar
 G.K........ Calendar_-_for_%22REAL%22_programmers
 GO......... Call_a_foreign-language_function
@@ -258,7 +257,7 @@ G.K........ Conway%27s_Game_of_Life-1
 G.KI....... Conway%27s_Game_of_Life-2
 GO......... Copy_a_string
 GO......... Count_in_factors-1
-BO......... Count_in_factors-2
+B.......... Count_in_factors-2
 GO......... Count_in_factors-3
 GO......... Count_in_factors-4
 GO......... Count_in_factors-5
@@ -789,7 +788,7 @@ GO......... Pascal_matrix_generation
 GO......... Password_generator
 GO..T...... Pathological_floating_point_problems-1
 GO..T...... Pathological_floating_point_problems-2
-G.......... Pathological_floating_point_problems-3
+GO......... Pathological_floating_point_problems-3
 GO...R..... Pattern_matching
 .......D.VU Peano_curve
 G.KI.R..... Penney%27s_game
