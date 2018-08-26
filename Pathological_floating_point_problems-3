@@ -1,0 +1,32 @@
+#!/usr/local/bin/perl
+#u# http://rosettacode.org/wiki/Pathological_floating_point_problems
+#c# 2016-08-24 
+#p# OK
+#n# demonstrating that 'bigrat' can be used to solve all three problems
+
+use feature 'say';
+use bigrat;
+
+# borrowing result from 'Calculating the value of e' task
+$n = 32561133701373476427912330475884581607687531065877567210421813247164172713574202714721554378508046501;
+$d = 11978571669969891796072783721689098736458938142546425857555362864628009582789845319680000000000000000;
+$e = $n/$d;
+
+$years   = 25;
+$balance = $e - 1;
+
+for $i (1..$years) { $balance = $i * $balance - 1 }
+my($num,$den) = $balance =~ m#(\d+)/(\d+)#;
+say $result2 = sprintf "After year %d, you will have \$%1.15g in your account.", $years, $num/$den;
+
+$a = 77617;
+$b = 33096;
+$c = 333.75*$b**6 + $a**2 * ( 11*$a**2 * $b**2 - $b**6 - 121*$b**4 - 2) + 5.5*$b**8 + $a/(2*$b);
+my($num,$den) = $c =~ m#(-?\d+)/(\d+)#;
+
+say $result3 = sprintf "%0.16g", $num/$den;
+
+use Test::More;
+is($result2,'After year 25, you will have $0.0399387296732302 in your account.');
+is($result3,'-0.8273960599468214');
+done_testing();
