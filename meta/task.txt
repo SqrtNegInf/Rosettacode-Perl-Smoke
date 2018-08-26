@@ -1,15 +1,16 @@
 
 This is perl 5, version 28, subversion 0 (v5.28.0) built for darwin-thread-multi-2level
-+------------> Perl: Good/Bad [904/10]
-|+-----------> smOke testing [773]
-||+----------> sKipping validation [131]
+updating from RC…
++------------> Perl: Good/Bad [904/11]
+|+-----------> smOke testing [776]
+||+----------> sKipping validation [132]
 |||+---------> Interactive [43]
 ||||+--------> Touched (modified by me) [44]
 |||||+-------> Random seed [64]
 ||||||+------> File output [34]
-|||||||+-----> Draft [234]
+|||||||+-----> Draft [233]
 ||||||||+----> Ignoring [23]
-|||||||||+---> Void (no local copy) [332]
+|||||||||+---> Void (no local copy) [333]
 ||||||||||+--> Un-implemented/reliable [312]
 |||||||||||
 GO......... 100_doors-1
@@ -167,7 +168,7 @@ GO......... Caesar_cipher
 GO..T...... Calculating_the_value_of_e-1
 GO......... Calculating_the_value_of_e-2
 GO..T...... Calculating_the_value_of_e-3
-GO......... Calculating_the_value_of_e-4
+GOK........ Calculating_the_value_of_e-4
 GO......... Calendar
 G.K........ Calendar_-_for_%22REAL%22_programmers
 GO......... Call_a_foreign-language_function
@@ -204,7 +205,7 @@ G.KI....... Checkpoint_synchronization
 GO..T...... Chinese_remainder_theorem
 GO......... Chinese_zodiac
 GO......... Cholesky_decomposition
-.......D.VU Church_Numerals
+.........VU Church_Numerals
 .......D.VU Cipolla%27s_algorithm
 GO......... Circles_of_given_radius_through_two_points
 G.K........ Classes
@@ -257,7 +258,7 @@ G.K........ Conway%27s_Game_of_Life-1
 G.KI....... Conway%27s_Game_of_Life-2
 GO......... Copy_a_string
 GO......... Count_in_factors-1
-GO......... Count_in_factors-2
+BO......... Count_in_factors-2
 GO......... Count_in_factors-3
 GO......... Count_in_factors-4
 GO......... Count_in_factors-5
@@ -273,7 +274,7 @@ GO.....D... Create_an_object_Native_demonstration
 .........VU Create_an_object_at_a_given_address
 GO......... Cumulative_standard_deviation-1
 GO......... Cumulative_standard_deviation-2
-.......D.VU Currency
+.........VU Currency
 GO......... Currying
 GO......... Cut_a_rectangle
 .......D.VU Cycle_detection
@@ -681,6 +682,7 @@ GO......... Metaprogramming
 GO......... Middle_three_digits
 GO......... Miller%E2%80%93Rabin_primality_test-1
 GO......... Miller%E2%80%93Rabin_primality_test-2
+.......D.VU Mind_boggling_card_trick
 G.KI....... Minesweeper_game
 GO.....D... Modular_arithmetic
 GO......... Modular_exponentiation
@@ -785,9 +787,9 @@ GO......... Pascal%27s_triangle-3
 GO......... Pascal%27s_triangle_Puzzle
 GO......... Pascal_matrix_generation
 GO......... Password_generator
-..........U Pathological_floating_point_problems
-G...T...... Pathological_floating_point_problems-1
-G...T...... Pathological_floating_point_problems-2
+GO..T...... Pathological_floating_point_problems-1
+GO..T...... Pathological_floating_point_problems-2
+G.......... Pathological_floating_point_problems-3
 GO...R..... Pattern_matching
 .......D.VU Peano_curve
 G.KI.R..... Penney%27s_game
@@ -1108,7 +1110,7 @@ GO.....D... Suffix_tree
 GO......... Sum_and_product_of_an_array
 GO......... Sum_digits_of_an_integer
 GO......... Sum_multiples_of_3_and_5-1
-G...T...... Sum_multiples_of_3_and_5-2
+GO..T...... Sum_multiples_of_3_and_5-2
 GO......... Sum_of_a_series
 GO......... Sum_of_squares
 GO......... Sum_to_100
