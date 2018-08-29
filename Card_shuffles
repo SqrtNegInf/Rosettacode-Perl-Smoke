@@ -1,0 +1,58 @@
+#!/usr/local/bin/perl
+#u# http://rosettacode.org/wiki/Card_shuffles
+#c# 2018-08-28 >RC
+#p# OK
+
+use feature 'say';
+
+srand 123456;
+
+sub overhand {
+    our @cards; local *cards = shift;
+    my(@splits,@shuffle);
+    my $x = int +@cards / 5;
+    push @splits, (1..$x)[int rand $x] for 1..+@cards;
+    while (@cards) {
+        push @shuffle, [splice @cards, 0, shift @splits];
+    }
+    @cards = flatten(reverse @shuffle);
+}
+
+sub flatten { map { ref $_ eq 'ARRAY' ? @$_ : $_ } @_ }
+
+sub riffle {
+    our @cards; local *cards = shift;
+    splice @cards, @cards/2 - $_, 0, pop @cards for 0 .. (@cards/2)-1;
+}
+
+@cards = 1..20;
+overhand(\@cards) for 1..10;
+$result .= join ' ', @cards, "\n";
+
+@cards = 1..20;
+riffle(\@cards) for 1..10;
+$result .= join ' ', @cards, "\n";
+
+say $result; 
+
+my $ref = <<'EOD';
+4 5 7 3 10 2 8 9 1 11 13 14 6 17 12 18 20 15 19 16 
+1 10 19 9 18 8 17 7 16 6 15 5 14 4 13 3 12 2 11 20 
+EOD
+
+use Test::More;
+is ($result, $ref);
+done_testing();
+
+__END__
+
+sub riffle  {
+    my(@pile) = @_;
+    my @pile2 = splice @pile, 0, int +@pile / 2 ;
+say Dumper@pile; say Dumper@pile2; exit;
+
+    #roundrobin(
+    #    @pile.rotor(  (1 .. 3).roll(7), :partial ),
+    #    @pile2.rotor( (1 .. 3).roll(9), :partial ),
+    #).flat
+}
