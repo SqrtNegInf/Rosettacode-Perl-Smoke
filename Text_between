@@ -1,0 +1,69 @@
+#!/usr/local/bin/perl
+#u# http://rosettacode.org/wiki/Text_between
+#c# 2018-08-28 >RC
+#p# OK
+
+use feature 'say';
+my @res;
+
+sub text_between {
+    my($text, $start, $end) = @_;
+    return join ',', $text =~ /$start(.*?)$end/g;
+}
+
+my $text = 'Hello Rosetta Code world';
+
+# String start and end delimiter
+push @res,  '1> '. text_between($text,  'Hello ', ' world' );
+
+# Regex string start delimiter
+push @res,  '2> '. text_between($text,  qr/^/, ' world' );
+
+# Regex string end delimiter
+push @res,  '3> '. text_between($text,  'Hello ',  qr/$/ );
+
+# End delimiter only valid after start delimiter
+push @res,  '4> '. text_between('</div><div style="chinese">你好嗎</div>', '<div style="chinese">', '</div>' );
+
+# End delimiter not found, default to string end
+push @res,  '5> '. text_between('<text>Hello <span>Rosetta Code</span> world</text><table style="myTable">', '<text>', qr/<table>|$/ );
+
+# Start delimiter not found, return blank string
+push @res,  '6> '. text_between('<table style="myTable"><tr><td>hello world</td></tr></table>', '<table>', '</table>' );
+
+# Multiple end delimiters, match frugally
+push @res,  '7> '. text_between( 'The quick brown fox jumps over the lazy other fox', 'quick ', ' fox' );
+
+# Multiple start delimiters, match frugally
+push @res,  '8> '. text_between( 'One fish two fish red fish blue fish', 'fish ', ' red' );
+
+# Start delimiter is end delimiter
+push @res,  '9> '. text_between('FooBarBazFooBuxQuux', 'Foo', 'Foo' );
+
+# Return all matching strings when multiple matches are possible
+push @res,  '10> '. text_between( $text, 'e', 'o' );
+
+# Ignore start and end delimiter string embedded in longer words
+my $text = 'Soothe a guilty conscience today, string wrangling is not the best tool to use for this job.';
+push @res,  '11> '.  text_between($text, qr/\bthe /, qr/ to\b/);
+
+say $result = join "\n", @res;
+
+my $ref = <<'EOD';
+1> Rosetta Code
+2> Hello Rosetta Code
+3> Rosetta Code world
+4> 你好嗎
+5> Hello <span>Rosetta Code</span> world</text><table style="myTable">
+6> 
+7> brown
+8> two fish
+9> BarBaz
+10> ll,tta C, w
+11> best tool
+EOD
+
+use Test::More;
+chop $ref;
+is ($result, $ref);
+done_testing();
