@@ -1,16 +1,16 @@
 
 This is perl 5, version 28, subversion 0 (v5.28.0) built for darwin-thread-multi-2level
-+------------> Perl: Good/Bad [905/11]
-|+-----------> smOke testing [775]
++------------> Perl: Good/Bad [910/11]
+|+-----------> smOke testing [776]
 ||+----------> sKipping validation [132]
 |||+---------> Interactive [43]
-||||+--------> Touched (modified by me) [45]
-|||||+-------> Random seed [64]
+||||+--------> Touched (modified by me) [49]
+|||||+-------> Random seed [65]
 ||||||+------> File output [34]
-|||||||+-----> Draft [233]
-||||||||+----> Ignoring [23]
-|||||||||+---> Void (no local copy) [332]
-||||||||||+--> Un-implemented/reliable [312]
+|||||||+-----> Draft [235]
+||||||||+----> Ignoring [24]
+|||||||||+---> Void (no local copy) [328]
+||||||||||+--> Un-implemented/reliable [308]
 |||||||||||
 GO......... 100_doors-1
 GO......... 100_doors-2
@@ -67,7 +67,7 @@ GO......... Amicable_pairs
 GO......... Anagrams-1
 GO......... Anagrams-2
 GO......... Anagrams_Deranged_anagrams
-G...T.....U Angle_difference_between_two_bearings
+GO..T...... Angle_difference_between_two_bearings
 G.K........ Animate_a_pendulum
 B.K........ Animation
 GO......... Anonymous_recursion-1
@@ -176,7 +176,7 @@ G.K........ Call_a_function
 G.K........ Call_an_object_method
 .........VU Canny_edge_detector
 GO..T..D... Cantor_set
-.......D.VU Card_shuffles
+G...TR.D... Card_shuffles
 GO......... Carmichael_3_strong_pseudoprimes
 .........VU Cartesian_product_of_two_or_more_lists
 GO......... Case-sensitivity_of_identifiers
@@ -266,19 +266,21 @@ GO......... Count_occurrences_of_a_substring
 GO......... Count_the_coins
 GO......... Cramer%27s_rule
 G.K........ Create_a_file
-.........VU Create_a_file_on_magnetic_tape
+........XVU Create_a_file_on_magnetic_tape
 GO......... Create_a_two-dimensional_array_at_runtime
 GO...R..... Create_an_HTML_table
 GO.....D... Create_an_object_Native_demonstration
 .........VU Create_an_object_at_a_given_address
 GO......... Cumulative_standard_deviation-1
 GO......... Cumulative_standard_deviation-2
-.........VU Currency
+G...T.....U Currency
 GO......... Currying
 GO......... Cut_a_rectangle
 .......D.VU Cycle_detection
 GO......... DNS_query
-.......D.VU Damm_algorithm
+.......D... Damm_algorithm
+G...T..D... Damm_algorithm-1
+G......D... Damm_algorithm-2
 .......D.VU Data_Encryption_Standard
 GO......... Date_format
 GO......... Date_manipulation
@@ -1145,7 +1147,7 @@ GO......... Ternary_logic
 GO......... Test_a_function
 GO......... Test_integerness
 .......D.VU Tetris
-.......D.VU Text_between
+G...T..D... Text_between
 GO......... Text_processing_1
 GO......... Text_processing_2
 GO......... Text_processing_Max_licenses_in_use
