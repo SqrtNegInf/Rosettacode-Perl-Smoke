@@ -173,21 +173,30 @@ return $x;
 
 # these are being ignored, for various reasons
 __DATA__
-Arena_storage_pool
+Draw_a_pixel
+Draw_a_pixel_2
+Color_of_a_screen_pixel
 Abstract_type
 Active_Directory_Connect
+Arena_storage_pool
+Aspect_Oriented_Programming
+Assertions_in_design_by_contract
 Create_a_file_on_magnetic_tape
 Execute_SNUSP
 Inheritance_Multiple
 Inheritance_Single
 JortSort
+Linux_CPU_utilization
 Metered_concurrency
 Modulinos
 Morse_code
 Mouse_position
 Narcissist
 Native_shebang
+OLE_Automation
 Parametrized_SQL_statement
+Record_sound
+Sine_wave
 SOAP
 SQL-based_authentication
 Solving_coin_problems
@@ -196,5 +205,6 @@ Stair-climbing_puzzle
 Table_creation
 Table_creation_Postal_addresses
 User_input_Graphical
+Video_display_modes
 Window_creation
 Write_to_Windows_event_log
