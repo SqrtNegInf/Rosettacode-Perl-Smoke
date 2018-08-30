@@ -1,0 +1,62 @@
+#!/usr/local/bin/perl
+#u# http://rosettacode.org/wiki/Chaocipher
+#c# 2018-08-28 >RC
+#p# OK
+
+use feature 'say';
+
+sub init {
+    @left  = split '', 'HXUCZVAMDSLKPEFJRIGTWOBNYQ';
+    @right = split '', 'PTLNBQDEOYSFAVZKGJRIHWXUMC';
+}
+
+sub encode {
+    my($letter) = @_;
+    my $index = index join('', @right), $letter;
+    my $enc   = $left[$index];
+    left_permute($index);
+    right_permute($index);
+    $enc
+}
+
+sub decode {
+    my($letter) = @_;
+    my $index = index join('', @left), $letter;
+    my $dec   = $right[$index];
+    left_permute($index);
+    right_permute($index);
+    $dec
+}
+
+sub right_permute {
+    my($index) = @_;
+    rotate(\@right, $index + 1);
+    rotate(\@right, 1, 2, 13);
+}
+
+sub left_permute {
+    my($index) = @_;
+    rotate(\@left, $index);
+    rotate(\@left, 1, 1, 13);
+}
+
+sub rotate {
+    our @list; local *list = shift;
+    my($n,$s,$e) = @_;
+    @list = $s ? @list[@i, 0..$s-1, $s+$n..$e+$n-1, $s..$s+$n-1, $e+1..$#list]
+               : @list[$n..$#list, 0..$n-1]
+}
+
+init; $emsg .= encode($_) for split '', 'WELLDONEISBETTERTHANWELLSAID';
+init; $dmsg .= decode($_) for split '', $emsg;
+
+say $result = "$emsg\n$dmsg\n";
+
+my $ref = <<'EOD';
+OAHQHCNYNXTSZJRRHJBYHQKSOUJY
+WELLDONEISBETTERTHANWELLSAID
+EOD
+
+use Test::More;
+is ($result, $ref);
+done_testing();
