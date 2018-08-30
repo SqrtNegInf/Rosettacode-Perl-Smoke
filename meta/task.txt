@@ -1,16 +1,15 @@
 
 This is perl 5, version 28, subversion 0 (v5.28.0) built for darwin-thread-multi-2level
-updating from RC…
-+------------> Perl: Good/Bad [914/11]
-|+-----------> smOke testing [781]
++------------> Perl: Good/Bad [916/11]
+|+-----------> smOke testing [788]
 ||+----------> sKipping validation [132]
 |||+---------> Interactive [43]
-||||+--------> Touched (modified by me) [53]
+||||+--------> Touched (modified by me) [56]
 |||||+-------> Random seed [65]
 ||||||+------> File output [34]
 |||||||+-----> Draft [235]
-||||||||+----> Ignoring [25]
-|||||||||+---> Void (no local copy) [325]
+||||||||+----> Ignoring [35]
+|||||||||+---> Void (no local copy) [322]
 ||||||||||+--> Un-implemented/reliable [304]
 |||||||||||
 GO......... 100_doors-1
@@ -93,9 +92,9 @@ GO......... Arithmetic_evaluation
 GO......... Array_concatenation
 GO......... Array_length
 GO......... Arrays
-.......D.VU Aspect_Oriented_Programming
+.......DXVU Aspect_Oriented_Programming
 GO......... Assertions
-.......D.VU Assertions_in_design_by_contract
+.......DXVU Assertions_in_design_by_contract
 G.K.T...... Associative_array_Creation
 GO......... Associative_array_Iteration
 G.K..R..... Atomic_updates
@@ -179,8 +178,8 @@ G.K........ Call_an_object_method
 GO..T..D... Cantor_set
 GO..TR.D... Card_shuffles
 GO......... Carmichael_3_strong_pseudoprimes
-G...T...... Cartesian_product_of_two_or_more_lists-1
-G...T...... Cartesian_product_of_two_or_more_lists-2
+GO..T...... Cartesian_product_of_two_or_more_lists-1
+GO..T...... Cartesian_product_of_two_or_more_lists-2
 GO......... Case-sensitivity_of_identifiers
 GO......... Casting_out_nines
 GO......... Catalan_numbers-1
@@ -189,13 +188,13 @@ GO......... Catalan_numbers-3
 GO......... Catalan_numbers_Pascal%27s_triangle
 GO......... Catamorphism
 .........VU Catmull%E2%80%93Clark_subdivision_surface
-G...T..D... Chaocipher
+GO..T..D... Chaocipher
 GO...RF.... Chaos_game
 GO......... Character_codes
 G.KI....... Chat_server
 GO.....D... Chebyshev_coefficients
 GO......... Check_Machin-like_formulas
-GO.....D... Check_input_device_is_a_terminal
+!O.....D... Check_input_device_is_a_terminal
 G.K....D... Check_output_device_is_a_terminal
 G.K........ Check_that_file_exists
 G.KI....... Checkpoint_synchronization
@@ -214,7 +213,7 @@ GO..TR..... Closest-pair_problem
 GO......... Closures_Value_capture
 .......D.VU Code_segment_unload
 GO......... Collections
-.........VU Color_of_a_screen_pixel
+........XVU Color_of_a_screen_pixel
 .........VU Color_quantization
 GO....FD... Color_wheel
 GO....F.... Colour_bars_Display
@@ -230,7 +229,7 @@ GO......... Combinations_with_repetitions-2
 GO......... Comma_quibbling-1
 GO......... Comma_quibbling-2
 G.K........ Command-line_arguments
-G...T...... Commatizing_numbers
+GO..T...... Commatizing_numbers
 G.K........ Comments
 GO..T...... Compare_a_list_of_strings
 .........VU Compare_sorting_algorithms%27_performance
@@ -327,7 +326,8 @@ GO....F.... Dragon_curve
 G.KI....... Draw_a_clock
 GO......... Draw_a_cuboid-1
 GO...R..... Draw_a_cuboid-2
-.........VU Draw_a_pixel
+........XVU Draw_a_pixel
+........X.. Draw_a_pixel_2
 .........VU Draw_a_rotating_cube
 GO...RF.... Draw_a_sphere
 .......D.VU Draw_pixel_2
@@ -397,7 +397,7 @@ G.K........ Farey_sequence-2
 GO......... Fast_Fourier_transform
 GO.....D... Faulhaber%27s_formula
 GO.....D... Faulhaber%27s_triangle
-.......D.VU Feigenbaum_constant_calculation
+GO..T..D..U Feigenbaum_constant_calculation
 .......D.VU Fibonacci_heap
 GO......... Fibonacci_n-step_number_sequences
 GO......... Fibonacci_sequence-1
@@ -611,7 +611,7 @@ GO......... Levenshtein_distance-1
 GO......... Levenshtein_distance-2
 GO.....D... Levenshtein_distance_Alignment
 GO......... Linear_congruential_generator
-.......D.VU Linux_CPU_utilization
+.......DXVU Linux_CPU_utilization
 GO......... List_comprehensions
 .......D.VU List_rooted_trees
 G.K........ Literals_Floating_point
@@ -744,7 +744,7 @@ G.KI....... Number_reversal_game
 GO......... Numeric_error_propagation
 .........VU Numerical_integration
 .........VU Numerical_integration_Gauss-Legendre_Quadrature
-.........VU OLE_Automation
+........XVU OLE_Automation
 GO......... Object_serialization-1
 GO......... Object_serialization-2
 GO......... Odd_word_problem
@@ -901,7 +901,7 @@ GO......... Read_entire_file-2
 .......D.VU Readline_interface
 GO......... Real_constants_and_functions
 .........VU Recaman%27s_sequence
-.........VU Record_sound
+........XVU Record_sound
 .......D.VU Recursive_descent_parser_generator
 GO..T...... Reduced_row_echelon_form
 .........VU Reflection_Get_source
@@ -1007,7 +1007,7 @@ G.KI....... Simple_windowed_application
 G.K........ Simulate_input_Keyboard
 .........VU Simulate_input_Mouse
 .......D.VU Simulated_annealing
-.......D.VU Sine_wave
+.......DXVU Sine_wave
 G.K........ Singleton
 G.K........ Singly-linked_list_Element_definition
 G.K........ Singly-linked_list_Element_insertion
@@ -1031,7 +1031,7 @@ GO......... Sort_a_list_of_object_identifiers-2
 GO......... Sort_an_array_of_composite_structures
 GO......... Sort_an_integer_array
 GO......... Sort_disjoint_sublist
-.......D.VU Sort_numbers_lexicographically
+GO..T..D..U Sort_numbers_lexicographically
 G.K........ Sort_stability
 GO..T...... Sort_three_variables
 GO......... Sort_using_a_custom_comparator
@@ -1184,7 +1184,7 @@ GO......... Truncate_a_file
 GO....F.... Truth_table
 GO......... Twelve_statements
 GO.....D... Two_Sum
-.......D.VU Type_detection
+GO..T..D..U Type_detection
 GO......... URL_decoding
 GO......... URL_encoding
 GO......... URL_parser
@@ -1221,7 +1221,7 @@ GO......... Vector_products
 .........VU Verify_distribution_uniformity_Chi-squared_test
 .........VU Verify_distribution_uniformity_Naive
 .......D.VU Vibrating_rectangles
-.........VU Video_display_modes
+........XVU Video_display_modes
 GO..T...... Vigen%C3%A8re_cipher
 .........VU Vigen%C3%A8re_cipher_Cryptanalysis
 GO......... Visualize_a_tree
