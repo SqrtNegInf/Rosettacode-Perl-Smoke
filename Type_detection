@@ -1,0 +1,50 @@
+#!/usr/local/bin/perl
+#u# http://rosettacode.org/wiki/Type_detection
+#c# 2018-08-30 >RC
+#p# OK
+
+use feature 'say';
+
+sub detect {
+    my($var) = @_;
+    ref $var;
+}
+
+my $scalar    = 1;
+my @array     = (1, 2);
+my %hash      = ('a' => 1);
+my $regex     = qr/foo.*bar/;
+my $reference = \%hash;
+
+push @res, detect(\$scalar);
+push @res, detect(\@array);
+push @res, detect(\%hash);
+push @res, detect($regex);
+push @res, detect(\$reference);
+
+# but easy to fool
+push @res, detect(\@{$scalar});
+
+say $result = join "\n", @res;
+
+my $ref = <<'EOD';
+SCALAR
+ARRAY
+HASH
+Regexp
+REF
+ARRAY
+EOD
+
+use Test::More;
+chop $ref;
+is ($result, $ref);
+done_testing();
+
+__END__
+
+=={{header|Perl}}==
+{{trans|Perl 6}}
+<lang perl></lang>
+{{out}}
+<pre></pre>
