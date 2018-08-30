@@ -1,0 +1,69 @@
+#!/usr/local/bin/perl
+#u# http://rosettacode.org/wiki/Feigenbaum_constant_calculation
+#c# 2018-08-30 >RC
+#p# OK
+#n# fails with native squaring, works with Math-GSL 
+#n# except on Mac OS: https://github.com/leto/math--gsl/issues/151
+
+use warnings;
+use strict 'vars';
+
+use feature 'say';
+
+#use Math::GSL::PowInt qw /gsl_pow_2 gsl_pow_4 gsl_pow_int/;
+
+my $result;
+
+my $maxi  = 13;
+my $maxij = 10;
+my $a1    = 1.0;
+my $a2    = 0.0;
+my $d1    = 3.2;
+
+print " i         d\n";
+
+my @res;
+for my $i (2 .. $maxi) {
+    my $a = $a1 + ($a1 - $a2)/$d1;
+    for (1 .. $maxij) {
+        my $x = 0; my $y = 0;
+        for (1 .. 2**$i) {
+            $y = 1 - 2 * $y * $x;
+            $x = $a - $x*$x;            # right
+            #$x = $a - gsl_pow_2($x);   # right
+            #$x = $a - $x**2;           # potentially wrong
+        }
+        $a -= $x/$y;
+     }
+
+     $d1 = ($a1 - $a2)/($a - $a1);
+     $a2 = $a1;
+     $a1 = $a;
+     $result .= sprintf "%2d %20.17f\n", $i, $d1;
+}
+
+$result .= "δ = $d1\n";
+
+say $result;
+
+my $ref = <<'END';
+ 2  3.21851142203808660
+ 3  4.38567759856833650
+ 4  4.60094927653805641
+ 5  4.65513049539196455
+ 6  4.66611194782284588
+ 7  4.66854858145148466
+ 8  4.66906066077106008
+ 9  4.66917155451497567
+10  4.66919515403927843
+11  4.66920025650363701
+12  4.66920097509784338
+13  4.66920537204031838
+δ = 4.66920537204032
+END
+
+# using $x**2, δ = 4.66920315860471
+
+use Test::More;
+is($result, $ref);
+done_testing();
