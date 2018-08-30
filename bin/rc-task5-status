@@ -173,6 +173,7 @@ return $x;
 
 # these are being ignored, for various reasons
 __DATA__
+Arena_storage_pool
 Abstract_type
 Active_Directory_Connect
 Create_a_file_on_magnetic_tape
