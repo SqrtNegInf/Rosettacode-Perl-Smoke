@@ -1,0 +1,27 @@
+#!/usr/local/bin/perl
+#u# http://rosettacode.org/wiki/Sort_numbers_lexicographically
+#c# 2018-08-30 >RC
+#p# OK
+
+use feature 'say';
+
+# as a sub
+sub lex {
+    my($n) = @_;
+    sort $n > 0 ? 1..$n : $n..1;
+}
+printf("%4d: [%s]\n", $_, join ',', lex($_)) for 13, 21, -22;
+
+# as a one-liner
+$result .= sprintf("%4d: [%s]\n", $_, join ',', sort $_ > 0 ? 1..$_ : $_..1) for 13, 21, -22;
+#say $result; 
+
+my $ref = <<'EOD';
+  13: [1,10,11,12,13,2,3,4,5,6,7,8,9]
+  21: [1,10,11,12,13,14,15,16,17,18,19,2,20,21,3,4,5,6,7,8,9]
+ -22: [-1,-10,-11,-12,-13,-14,-15,-16,-17,-18,-19,-2,-20,-21,-22,-3,-4,-5,-6,-7,-8,-9,0,1]
+EOD
+
+use Test::More;
+is ($result, $ref);
+done_testing();
