@@ -2,12 +2,10 @@
 #u# http://rosettacode.org/wiki/Check_input_device_is_a_terminal
 #c# 2018-07-22 <RC
 #p# OK
+#n# tests as 'ok' when run from batch
 
 use feature 'say';
-my $result;
 
-use strict;
-use warnings;
 use 5.010;
 if (-t) {
     say $result = "Input comes from tty.";
@@ -16,11 +14,11 @@ else {
     say $result = "Input doesn't come from tty.";
 }
 
-# $ perl istty.pl
+# $ Check_input_device_is_a_terminal
 # Input comes from tty.
-# $ true | perl istty.pl
+# $ true | Check_input_device_is_a_terminal
 # Input doesn't come from tty.
 
 use Test::More;
-is ($result, 'Input comes from tty.');
+is ($result, q{Input doesn't come from tty.});
 done_testing();
