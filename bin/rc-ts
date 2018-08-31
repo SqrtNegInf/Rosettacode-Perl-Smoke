@@ -3,4 +3,4 @@
 #  David H.  2016-08-22
 
 d=`date +%Y-%m-%d`
-perl -i -npe 's/(\d+)m(.*)s/{60*$1 + $2}/e' bench/$d*/*err
+perl -i -npe 's/(\d+)m(.*)s/{60*$1 + $2}/e' bench/$d/*err
