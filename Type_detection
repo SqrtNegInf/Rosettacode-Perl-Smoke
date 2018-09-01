@@ -1,50 +1,40 @@
 #!/usr/local/bin/perl
 #u# http://rosettacode.org/wiki/Type_detection
-#c# 2018-08-30 >RC
+#c# 2018-08-31 >RC
 #p# OK
 
 use feature 'say';
 
-sub detect {
-    my($var) = @_;
-    ref $var;
-}
+$scalar    = 1;
+@array     = (1, 2);
+%hash      = ('a' => 1);
+$regex     = qr/foo.*bar/;
+$reference = \%hash;
+sub greet { print "Hello world!" };
+$subref    = \&greet;
 
-my $scalar    = 1;
-my @array     = (1, 2);
-my %hash      = ('a' => 1);
-my $regex     = qr/foo.*bar/;
-my $reference = \%hash;
-
-push @res, detect(\$scalar);
-push @res, detect(\@array);
-push @res, detect(\%hash);
-push @res, detect($regex);
-push @res, detect(\$reference);
+$fmt = "%-11s is type:  %s\n";
+$result .= sprintf $fmt, '$scalar',    ref(\$scalar);
+$result .= sprintf $fmt, '@array',     ref(\@array);
+$result .= sprintf $fmt, '%hash',      ref(\%hash);
+$result .= sprintf $fmt, '$regex',     ref($regex);
+$result .= sprintf $fmt, '$reference', ref(\$reference);
+$result .= sprintf $fmt, '$subref',    ref($subref);
 
 # but easy to fool
-push @res, detect(\@{$scalar});
+# ref(\@{$scalar});
 
-say $result = join "\n", @res;
+say $result;
 
 my $ref = <<'EOD';
-SCALAR
-ARRAY
-HASH
-Regexp
-REF
-ARRAY
+$scalar     is type:  SCALAR
+@array      is type:  ARRAY
+%hash       is type:  HASH
+$regex      is type:  Regexp
+$reference  is type:  REF
+$subref     is type:  CODE
 EOD
 
 use Test::More;
-chop $ref;
 is ($result, $ref);
 done_testing();
-
-__END__
-
-=={{header|Perl}}==
-{{trans|Perl 6}}
-<lang perl></lang>
-{{out}}
-<pre></pre>
