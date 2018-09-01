@@ -1,0 +1,85 @@
+#!/usr/local/bin/perl
+#u# http://rosettacode.org/wiki/Old_Russian_measure_of_length
+#c# 2018-08-31 >RC
+#p# OK
+
+use feature 'say';
+
+sub convert {
+    my($magnitude, $unit) = @_;
+     my %factor = (
+        tochka     => 0.000254,
+        liniya     => 0.00254,
+        diuym      => 0.0254,
+        vershok    => 0.04445,
+        piad       => 0.1778,
+        fut        => 0.3048,
+        arshin     => 0.7112,
+        sazhen     => 2.1336,
+        versta     => 1066.8,
+        milia      => 7467.6,
+        centimeter => 0.01,
+        meter      => 1.0,
+        kilometer  => 1000.0,
+    );
+
+    my $base= $magnitude * $factor{$unit};
+    my $out .= "$magnitude $unit to:\n";
+    for (sort { $factor{$a} <=> $factor{$b} } keys %factor) {
+        $out .= sprintf "%10s: %s\n", $_, sigdig($base / $factor{$_}, 5) unless $_ eq $unit
+    }
+    return $out;
+}
+
+sub sigdig {
+    my($num,$sig) = @_;
+    return $num unless $num =~ /\./; # only mogrify numbers with fractional component
+
+    $num =~ /([1-9]\d*\.?\d*)/;
+    my $prefix = $`;
+    my $match  = $&;
+    return $num if length($match) < $sig; # no limitation will apply
+
+    $sig++ if $match =~ /\./;
+    my $digits = substr $match, 0, $sig;
+    my $nextd  = substr $match, $sig, 1;
+    $digits =~ s/(.)$/{1+$1}/e if $nextd > 5;
+    return $prefix . $digits;
+}
+
+$result .= convert(1,'meter');
+$result .= convert(1,'milia');
+say $result;
+
+my $ref = <<'EOD';
+1 meter to:
+    tochka: 3937.0
+    liniya: 393.70
+centimeter: 100
+     diuym: 39.370
+   vershok: 22.497
+      piad: 5.6243
+       fut: 3.2808
+    arshin: 1.4061
+    sazhen: 0.46869
+ kilometer: 0.001
+    versta: 0.00093738
+     milia: 0.00013391
+1 milia to:
+    tochka: 29400000
+    liniya: 2940000
+centimeter: 746760
+     diuym: 294000
+   vershok: 168000
+      piad: 42000
+       fut: 24500
+    arshin: 10500
+     meter: 7467.6
+    sazhen: 3500
+ kilometer: 7.4676
+    versta: 7
+EOD
+
+use Test::More;
+is ($result, $ref);
+done_testing();
