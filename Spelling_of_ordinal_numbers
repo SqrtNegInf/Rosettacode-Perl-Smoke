@@ -1,0 +1,39 @@
+#!/usr/local/bin/perl
+#u# http://rosettacode.org/wiki/Spelling_of_ordinal_numbers
+#c# 2018-08-31 >RC
+#p# OK
+#n# any identity operation could be used to force a numeric conversion, '1*' or '/1'
+
+use feature 'say';
+
+use Lingua::EN::Numbers 'num2en_ordinal';
+
+$result .= sprintf "%16s : %s\n", $_, num2en_ordinal(0+$_) for
+    <1 2 3 4 5 11 65 100 101 272 23456 8007006005004003 123 00123.0 '00123.0' 1.23e2 '1.23e2'>;
+
+say $result; exit;
+
+my $ref = <<'END';
+               1 : first
+               2 : second
+               3 : third
+               4 : fourth
+               5 : fifth
+              11 : eleventh
+              65 : sixty-fifth
+             100 : one hundredth
+             101 : one hundred and first
+             272 : two hundred and seventy-second
+           23456 : twenty-three thousand four hundred and fifty-sixth
+8007006005004003 : eight quadrillion, seven trillion, six billion, five million, four thousand and third
+             123 : one hundred and twenty-third
+         00123.0 : one hundred and twenty-third
+         00123.0 : one hundred and twenty-third
+          1.23e2 : one hundred and twenty-third
+          1.23e2 : one hundred and twenty-third
+END
+
+
+use Test::More;
+is ($result, $ref);
+done_testing();
