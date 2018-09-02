@@ -1,16 +1,17 @@
 
 This is perl 5, version 28, subversion 0 (v5.28.0) built for darwin-thread-multi-2level
-+------------> Perl: Good/Bad [919/11]
-|+-----------> smOke testing [791]
+updating from RC…
++------------> Perl: Good/Bad [921/11]
+|+-----------> smOke testing [793]
 ||+----------> sKipping validation [132]
 |||+---------> Interactive [43]
-||||+--------> Touched (modified by me) [59]
-|||||+-------> Random seed [65]
+||||+--------> Touched (modified by me) [61]
+|||||+-------> Random seed [67]
 ||||||+------> File output [35]
-|||||||+-----> Draft [235]
+|||||||+-----> Draft [231]
 ||||||||+----> Ignoring [35]
-|||||||||+---> Void (no local copy) [319]
-||||||||||+--> Un-implemented/reliable [302]
+|||||||||+---> Void (no local copy) [317]
+||||||||||+--> Un-implemented/reliable [297]
 |||||||||||
 GO......... 100_doors-1
 GO......... 100_doors-2
@@ -685,7 +686,7 @@ GO......... Metaprogramming
 GO......... Middle_three_digits
 GO......... Miller%E2%80%93Rabin_primality_test-1
 GO......... Miller%E2%80%93Rabin_primality_test-2
-.......D.VU Mind_boggling_card_trick
+GO..TR.D..U Mind_boggling_card_trick
 G.KI....... Minesweeper_game
 GO.....D... Modular_arithmetic
 GO......... Modular_exponentiation
@@ -730,7 +731,7 @@ GO......... Natural_sorting
 .........VU Nautical_bell
 .........VU Negative_base_numbers
 GO......... Nested_function
-.......D.VU Nested_templated_data
+.........VU Nested_templated_data
 GO......... Non-continuous_subsequences
 GO......... Non-decimal_radices_Convert
 GO......... Non-decimal_radices_Input
@@ -749,7 +750,7 @@ GO......... Object_serialization-1
 GO......... Object_serialization-2
 GO......... Odd_word_problem
 GO......... Odd_word_problem-2
-GO..T..D..U Old_Russian_measure_of_length
+GO..T..D... Old_Russian_measure_of_length
 GO......... Old_lady_swallowed_a_fly
 GO......... One-dimensional_cellular_automata
 .......D.VU One-time_pad
@@ -867,7 +868,7 @@ GO...R..... Probabilistic_choice
 GO......... Program_name
 G.K........ Program_termination
 .......D.VU Proof
-GO.....D... Proper_divisors
+GO......... Proper_divisors
 GO....F.... Pythagoras_tree
 .........VU Pythagorean_quadruples
 GO......... Pythagorean_triples
@@ -1063,7 +1064,7 @@ GO....F.... Sparkline_in_unicode
 G.K........ Special_characters
 G.K.T...... Special_variables
 ........XV. Speech_synthesis
-GO..T..D..U Spelling_of_ordinal_numbers
+GO..T...... Spelling_of_ordinal_numbers
 .........VU Spinning_rod_animation_Text
 GO......... Spiral_matrix
 GO..T...... Split_a_character_string_based_on_change_of_character
@@ -1117,9 +1118,9 @@ GO..T...... Sum_multiples_of_3_and_5-2
 GO......... Sum_of_a_series
 GO......... Sum_of_squares
 GO......... Sum_to_100
-GO..T.FD..U Sunflower_fractal
+GO..T.FD... Sunflower_fractal
 .........VU Superellipse
-GO.....D... Superpermutation_minimisation
+GO......... Superpermutation_minimisation
 .........VU Sutherland-Hodgman_polygon_clipping
 GO......... Symmetric_difference
 GO......... Synchronous_concurrency
@@ -1184,7 +1185,7 @@ GO......... Truncate_a_file
 GO....F.... Truth_table
 GO......... Twelve_statements
 GO.....D... Two_Sum
-GO..T..D..U Type_detection
+GO..T..D... Type_detection
 GO......... URL_decoding
 GO......... URL_encoding
 GO......... URL_parser
@@ -1219,7 +1220,7 @@ GO......... Variadic_function
 GO.....D... Vector
 GO......... Vector_products
 .........VU Verify_distribution_uniformity_Chi-squared_test
-.........VU Verify_distribution_uniformity_Naive
+GO..TR..... Verify_distribution_uniformity_Naive
 .......D.VU Vibrating_rectangles
 ........XVU Video_display_modes
 GO..T...... Vigen%C3%A8re_cipher
