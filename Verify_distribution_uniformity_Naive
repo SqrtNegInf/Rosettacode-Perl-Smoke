@@ -1,0 +1,86 @@
+#!/usr/local/bin/perl
+#u# http://rosettacode.org/wiki/xx
+#c# 2018-09-01 >RC
+#p# OK
+
+srand 123456;
+
+use feature 'say';
+
+my @res;
+
+sub roll7 { 1+int rand(7) }
+sub roll5 { 1+int rand(5) }
+sub roll7_5 {
+  while(1) {
+    my $d7 = (5*&roll5 + &roll5 - 6) % 8;
+    return $d7 if $d7;
+  }
+}
+
+my $threshold = 5;
+
+$result .= dist( $_, $threshold,  \&roll7   ) for <1001 1000006>;
+$result .= dist( $_, $threshold,  \&roll7_5 ) for <1001 1000006>;
+
+sub dist {
+my($n, $threshold, $producer) = @_;
+    my @dist;
+    my $out;
+    my $expect = $n / 7;
+    $out .= sprintf "%10d expected\n", $expect;
+
+    for (1..$n) { @dist[&$producer]++; }
+
+    for my $i (1..7) {
+        my $v = @dist[$i];
+        my $pct = ($v - $expect)/$expect*100;
+        $out .= sprintf "%d %8d %6.1f%%%s\n", $i, $v, $pct, (abs($pct) > $threshold ? ' - skewed' : '');
+    }
+    return $out . "\n";
+}
+
+say $result;
+
+my $ref = <<'EOD';
+       143 expected
+1      144    0.7%
+2      137   -4.2%
+3      121  -15.4% - skewed
+4      163   14.0% - skewed
+5      150    4.9%
+6      138   -3.5%
+7      148    3.5%
+
+    142858 expected
+1   142332   -0.4%
+2   142648   -0.1%
+3   143615    0.5%
+4   142305   -0.4%
+5   142703   -0.1%
+6   142821   -0.0%
+7   143582    0.5%
+
+       143 expected
+1      149    4.2%
+2      159   11.2% - skewed
+3      154    7.7% - skewed
+4      130   -9.1% - skewed
+5      143    0.0%
+6      138   -3.5%
+7      128  -10.5% - skewed
+
+    142858 expected
+1   142574   -0.2%
+2   143043    0.1%
+3   142446   -0.3%
+4   143325    0.3%
+5   142949    0.1%
+6   142990    0.1%
+7   142679   -0.1%
+
+EOD
+
+use Test::More;
+is ($result, $ref);
+done_testing();
