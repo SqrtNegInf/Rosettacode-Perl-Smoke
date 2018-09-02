@@ -76,5 +76,6 @@ for my $prog (@Programs) {
 $pm->wait_all_children;
 
 # clean up
-system('bin/rc-ts');
-system "date";
+sleep 1;
+system 'bin/rc-ts';
+system 'date';
