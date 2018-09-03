@@ -1,0 +1,38 @@
+#!/usr/local/bin/perl
+#u# http://rosettacode.org/wiki/Show_Ascii_table
+#c# 2018-09-03 >RC
+#p# OK
+#f# RC file: ASCII_wiki.txt
+
+# Alternately, and perhaps more usefully, output as a wiki-table rather than ASCII art. Hover mouse over the glyph to get the name.
+
+sub glyph {
+    my($n) = @_;
+    if    ($n < 33) { chr(0x2400 + $n) } # display symbol names for invisible glyphs
+    elsif ($n==124) { '<nowiki>|</nowiki>' }
+    elsif ($n==127) { 'DEL' }
+    else            { chr($n) }
+}
+
+$result .= qq[{|class="wikitable" style="text-align:center;background-color:hsl(39, 90%, 95%)"\n];
+
+for $i (0..7) {
+    $result .= qq[|-\n];
+    for $j (0..15) {
+        $c = 16*$i + $j;
+        $result .= sprintf (qq[|%d<br>0x%02X<br><big>%s</big>\n], $c, $c, glyph($c));
+    }
+}
+$result .= qq[|}\n];
+
+use open ":encoding(utf8)";
+open F, '>run/ASCII_wiki.txt';
+print F $result;
+
+__END__
+
+=={{header|Perl}}==
+{{trans|Perl 6}}
+<lang perl></lang>
+{{out}}
+<pre></pre>
