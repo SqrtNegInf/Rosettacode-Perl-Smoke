@@ -77,5 +77,5 @@ $pm->wait_all_children;
 
 # clean up
 sleep 1;
-system 'bin/rc-ts';
+system 'bin/rc-ts5';
 system 'date';
