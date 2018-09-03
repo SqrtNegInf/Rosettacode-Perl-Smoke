@@ -18,7 +18,8 @@ sub name {
     else            { return chr($n) }
 }
 
-for $i (0..7) {
+# could do without nested loops, but maybe clearer this way...
+for $c (0..7) {
     $result .= $bar;
     $l1 = $l2 = $l3 = '|';
     for $j (0..15) {
@@ -33,11 +34,3 @@ $result .= $bar;
 
 open F, '>run/ASCII_table.txt';
 print F $result;
-
-__END__
-
-=={{header|Perl}}==
-{{trans|Perl 6}}
-<lang perl></lang>
-{{out}}
-<pre></pre>
