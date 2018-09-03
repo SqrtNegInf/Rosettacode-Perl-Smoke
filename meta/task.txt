@@ -1,17 +1,17 @@
 
 This is perl 5, version 28, subversion 0 (v5.28.0) built for darwin-thread-multi-2level
 updating from RC…
-+------------> Perl: Good/Bad [921/11]
-|+-----------> smOke testing [793]
++------------> Perl: Good/Bad [922/11]
+|+-----------> smOke testing [794]
 ||+----------> sKipping validation [132]
 |||+---------> Interactive [43]
-||||+--------> Touched (modified by me) [61]
+||||+--------> Touched (modified by me) [62]
 |||||+-------> Random seed [67]
-||||||+------> File output [35]
-|||||||+-----> Draft [231]
+||||||+------> File output [36]
+|||||||+-----> Draft [232]
 ||||||||+----> Ignoring [35]
-|||||||||+---> Void (no local copy) [317]
-||||||||||+--> Un-implemented/reliable [297]
+|||||||||+---> Void (no local copy) [316]
+||||||||||+--> Un-implemented/reliable [296]
 |||||||||||
 GO......... 100_doors-1
 GO......... 100_doors-2
@@ -686,7 +686,7 @@ GO......... Metaprogramming
 GO......... Middle_three_digits
 GO......... Miller%E2%80%93Rabin_primality_test-1
 GO......... Miller%E2%80%93Rabin_primality_test-2
-GO..TR.D..U Mind_boggling_card_trick
+GO..TR.D... Mind_boggling_card_trick
 G.KI....... Minesweeper_game
 GO.....D... Modular_arithmetic
 GO......... Modular_exponentiation
@@ -988,7 +988,8 @@ G.K........ Shell_one-liner
 .........VU Shoelace_formula_for_polygonal_area
 GO......... Short-circuit_evaluation
 GO......... Shortest_common_supersequence
-.......D.VU Show_Ascii_table
+.......D..U Show_Ascii_table
+GO..T.FD... Show_Ascii_table-1
 GO......... Show_the_epoch
 GO......... Sierpinski_carpet
 .........VU Sierpinski_pentagon
