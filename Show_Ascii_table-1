@@ -1,0 +1,43 @@
+#!/usr/local/bin/perl
+#u# http://rosettacode.org/wiki/Show_Ascii_table
+#c# 2018-09-0x >RC
+#p# OK
+#f# RC file: ASCII_table.txt
+
+use feature 'say';
+use open ":encoding(utf8)";
+
+$N    = 16;
+$cell =  5;
+$bar = join(('-'x5), split '', '+' x ($N+1)) . "\n";
+
+sub name {
+    my($n) = @_;
+    if    ($n < 33) { return chr(0x2400 + $n) }
+    elsif ($n==127) { return 'DEL' }
+    else            { return chr($n) }
+}
+
+for $i (0..7) {
+    $result .= $bar;
+    $l1 = $l2 = $l3 = '|';
+    for $j (0..15) {
+        $c = 16*$i  + $j;
+        $l1 .= sprintf " %3x |", $c;
+        $l2 .= sprintf " %3d |", $c;
+        $l3 .= sprintf " %3s |", name($c);
+    }
+    $result .= "$l1\n$l2\n$l3\n";
+}
+$result .= $bar;
+
+open F, '>run/ASCII_table.txt';
+print F $result;
+
+__END__
+
+=={{header|Perl}}==
+{{trans|Perl 6}}
+<lang perl></lang>
+{{out}}
+<pre></pre>
