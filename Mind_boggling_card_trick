@@ -1,6 +1,6 @@
 #!/usr/local/bin/perl
 #u# http://rosettacode.org/wiki/Mind_boggling_card_trick
-#c# 2018-09-01 >RC
+#c# 2018-09-02 >RC
 #p# OK
 #n# try a variety of initial decks, trick always works, woo-hoo
 
@@ -9,37 +9,37 @@ srand 123456;
 use feature 'say';
 
 @deck = split '', 'RB' x 26;
-$result .= trick(@deck) . "\n";
-
-@deck = sort { -1 + 2*int(rand 2) } @deck; # poor man's shuffle
-$result .= trick(@deck) . "\n";
-
-@deck = sort @deck;
-$result .= trick(@deck) . "\n";
+$result .= trick(@deck);
 
 @deck = split '', 'RRBB' x 13;
 $result .= trick(@deck);
 
+@deck = sort @deck;
+$result .= trick(@deck);
+
+@deck = sort { -1 + 2*int(rand 2) } @deck; # poor man's shuffle
+$result .= trick(@deck);
+
 sub trick {
-my(@deck) = @_;
-my $result .= sprintf "%-28s @deck\n", 'Starting deck:';
+    my(@deck) = @_;
+    my $result .= sprintf "%-28s @deck\n", 'Starting deck:';
 
-# Deal cards following task description
-my(@discard, @red, @black);
-deal(\@deck, \@discard, \@red, \@black);
+    # Deal cards following task description
+    my(@discard, @red, @black);
+    deal(\@deck, \@discard, \@red, \@black);
 
-$result .= sprintf "%-28s @red\n", 'Red     pile:';
-$result .= sprintf "%-28s @black\n", 'Black   pile:';
+    $result .= sprintf "%-28s @red\n", 'Red     pile:';
+    $result .= sprintf "%-28s @black\n", 'Black   pile:';
 
-# randomly swap an equal number of cards between red and black piles
-my $n = int rand(+@red < +@black ? +@red : +@black);
-swap(\@red, \@black, $n);
+    # randomly swap an equal number of cards between red and black piles
+    my $n = int rand(+@red < +@black ? +@red : +@black);
+    swap(\@red, \@black, $n);
 
-$result .= sprintf "Red pile after   %2d swapped: @red\n", $n;
-$result .= sprintf "Black pile after %2d swapped: @black\n", $n;
+    $result .= sprintf "Red pile   after %2d swapped: @red\n", $n;
+    $result .= sprintf "Black pile after %2d swapped: @black\n", $n;
 
-$result .= sprintf "Red in Red, Black in Black:  %d = %d\n", (scalar grep {/R/} @red), scalar grep {/B/} @black;
-return $result;
+    $result .= sprintf "Red in Red, Black in Black:  %d = %d\n", (scalar grep {/R/} @red), scalar grep {/B/} @black;
+    return "$result\n";
 }
 
 sub deal {
@@ -64,30 +64,31 @@ $ref = <<'END';
 Starting deck:               R B R B R B R B R B R B R B R B R B R B R B R B R B R B R B R B R B R B R B R B R B R B R B R B R B R B
 Red     pile:                B B B B B B B B B B B B B B B B B B B B B B B B B B
 Black   pile:                
-Red pile after    0 swapped: B B B B B B B B B B B B B B B B B B B B B B B B B B
+Red pile   after  0 swapped: B B B B B B B B B B B B B B B B B B B B B B B B B B
 Black pile after  0 swapped: 
 Red in Red, Black in Black:  0 = 0
-
-Starting deck:               B B R B R B B R R R R B B R B R B R B B R R B B B R R R B R R B B R B B R R R B B R B B R B B R R B R R
-Red     pile:                B B R B R R B R B B B R
-Black   pile:                B R R R R B B R R R B R B R
-Red pile after    2 swapped: R B R R B R B B B R B R
-Black pile after  2 swapped: R R R B B R R R B R B R B B
-Red in Red, Black in Black:  6 = 6
-
-Starting deck:               B B B B B B B B B B B B B B B B B B B B B B B B B B R R R R R R R R R R R R R R R R R R R R R R R R R R
-Red     pile:                R R R R R R R R R R R R R
-Black   pile:                B B B B B B B B B B B B B
-Red pile after    3 swapped: R R R R R R R R R R B B B
-Black pile after  3 swapped: B B B B B B B B B B R R R
-Red in Red, Black in Black:  10 = 10
 
 Starting deck:               R R B B R R B B R R B B R R B B R R B B R R B B R R B B R R B B R R B B R R B B R R B B R R B B R R B B
 Red     pile:                R R R R R R R R R R R R R
 Black   pile:                B B B B B B B B B B B B B
-Red pile after    6 swapped: R R R R R R R B B B B B B
-Black pile after  6 swapped: B B B B B B B R R R R R R
+Red pile   after  8 swapped: R R R R R B B B B B B B B
+Black pile after  8 swapped: B B B B B R R R R R R R R
+Red in Red, Black in Black:  5 = 5
+
+Starting deck:               B B B B B B B B B B B B B B B B B B B B B B B B B B R R R R R R R R R R R R R R R R R R R R R R R R R R
+Red     pile:                R R R R R R R R R R R R R
+Black   pile:                B B B B B B B B B B B B B
+Red pile   after  8 swapped: R R R R R B B B B B B B B
+Black pile after  8 swapped: B B B B B R R R R R R R R
+Red in Red, Black in Black:  5 = 5
+
+Starting deck:               B B R R B R B B B R R B R R B B B B R B R R B B B B B B R B R B R R R R B R B B B R B R B R R R R R R R
+Red     pile:                R B R B R B B R R R R R
+Black   pile:                B R B R B B B B B R B R R R
+Red pile   after  6 swapped: B R R R R R B R B R B B
+Black pile after  6 swapped: B B B R B R R R R B R B R B
 Red in Red, Black in Black:  7 = 7
+
 END
 
 use Test::More;
