@@ -1,0 +1,101 @@
+#!/usr/local/bin/perl
+#u# http://rosettacode.org/wiki/Vibrating_rectangles
+#t# interactive
+#c# 2018-09-03 >RC
+#p# OK
+
+use warnings;
+
+use feature 'say';
+my $result;
+# my @res;
+
+use utf8;
+binmode STDOUT, ":utf8";
+#use open ":encoding(utf8)";
+
+# box drawing characters
+my %r = (
+    'tl' => qw<┌>, 
+    'h'  => qw<─>, 
+    'tr' => qw<┐>, 
+    'v'  => qw<│>, 
+    'bl' => <└>, 
+    'br' => <┘>
+);
+
+my @colors = (
+    "\e[1;31m", # red
+    "\e[1;32m", # green
+    "\e[1;33m", # yellow
+    "\e[1;34m", # blue
+    "\e[1;35m", # magenta
+    "\e[1;36m"  # cyan
+);
+
+# color palette
+push @c, $colors[5] for 1..12;
+push @c, $colors[4] for 1..12;
+push @c, $colors[3] for 1..12;
+my @vibe;
+
+rect($_, 31-$_) for 0..15;
+
+print "\e[?25l"; # hide the cursor
+
+$SIG{INT} = sub { print "\e[0H\e[0J\e[?25h"; exit; }; # clean up on exit 
+
+my $rot = 1;
+
+while (1) {
+    display(@vibe);
+#die "\e[0H\e[0J\e[?25h";
+    #@c.=rotate($rot);
+    push @c, $c[0]; shift @c;  # rotate by 1
+    #if ++$ %% 30 {
+    #    @c = |%colors.values.roll(3);
+    #    @c = sort(flat @c xx 12);
+    #    $rot *= -1;
+    #}
+    #rect($_, 31-$_) for 0..15;
+    sleep 1;
+}
+
+#sub rect {
+#my ($b, $e) = @_;
+#    $vibe[$b][$b..$e] = $c[$b % @c].$r{'tl'}, |(($r{'h'}) x ($e - $b - 1)), $r{'tr'}."\e[0m";
+#    $vibe[$e][$b..$e] = $c[$b % @c].$r{'bl'}, |(($r{'h'}) x ($e - $b - 1)), $r{'br'}."\e[0m";
+#    ($b ^..^ $e).map: { $vibe[$_][$b] = $vibe[$_][$e] = $c[$b % @c]~$r{'v'}."\e[0m" }
+#}
+
+sub rect {
+    my ($b, $e) = @_;
+#$DB::single = 1;
+    my $x = $c[$b % @c]. $r{'tl'}. multiples($r{'h'},$e-$b-1). $r{'tr'}. "\e[0m";
+    my $y = $c[$b % @c]. $r{'bl'}. multiples($r{'h'},$e-$b-1). $r{'br'}. "\e[0m";
+    for ($b..$e) {
+        $vibe[$b][$_] = substr $x, 0, $_;
+        $vibe[$e][$_] = substr $y, 0, $_;
+    }
+    for (($b+1) .. ($e-1)) { 
+        $vibe[$_][$b] = $vibe[$_][$e] = $c[$b % @c] . $r{'v'} . "\e[0m" 
+    }
+}
+
+sub multiples {
+    my($value, $reps) = @_;
+    my @a;
+    push @a, $value for 1..$reps;
+$DB::single = 1;
+    return join '', @a;
+}
+
+sub display {
+    my(@rect) = @_;
+    print "\e[0H\e[0J\n\n";
+    for $row (@rect) {
+        print "\t\t\t";
+        print $_ // ' ' for @$row;
+        print "\n";
+    }
+}
