@@ -1,17 +1,17 @@
 
 This is perl 5, version 28, subversion 0 (v5.28.0) built for darwin-thread-multi-2level
 updating from RC…
-+------------> Perl: Good/Bad [922/11]
-|+-----------> smOke testing [794]
-||+----------> sKipping validation [132]
-|||+---------> Interactive [43]
-||||+--------> Touched (modified by me) [62]
++------------> Perl: Good/Bad [924/11]
+|+-----------> smOke testing [795]
+||+----------> sKipping validation [133]
+|||+---------> Interactive [44]
+||||+--------> Touched (modified by me) [64]
 |||||+-------> Random seed [67]
-||||||+------> File output [36]
-|||||||+-----> Draft [232]
+||||||+------> File output [37]
+|||||||+-----> Draft [233]
 ||||||||+----> Ignoring [35]
-|||||||||+---> Void (no local copy) [316]
-||||||||||+--> Un-implemented/reliable [296]
+|||||||||+---> Void (no local copy) [315]
+||||||||||+--> Un-implemented/reliable [295]
 |||||||||||
 GO......... 100_doors-1
 GO......... 100_doors-2
@@ -988,8 +988,9 @@ G.K........ Shell_one-liner
 .........VU Shoelace_formula_for_polygonal_area
 GO......... Short-circuit_evaluation
 GO......... Shortest_common_supersequence
-.......D..U Show_Ascii_table
+.......D... Show_Ascii_table
 GO..T.FD... Show_Ascii_table-1
+GO..T.FD... Show_Ascii_table-2
 GO......... Show_the_epoch
 GO......... Sierpinski_carpet
 .........VU Sierpinski_pentagon
@@ -1222,7 +1223,7 @@ GO.....D... Vector
 GO......... Vector_products
 .........VU Verify_distribution_uniformity_Chi-squared_test
 GO..TR..... Verify_distribution_uniformity_Naive
-.......D.VU Vibrating_rectangles
+G.KIT..D..U Vibrating_rectangles
 ........XVU Video_display_modes
 GO..T...... Vigen%C3%A8re_cipher
 .........VU Vigen%C3%A8re_cipher_Cryptanalysis
