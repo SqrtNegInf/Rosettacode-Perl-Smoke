@@ -9,13 +9,3 @@ system "tput rev";
 print "reversed\n";
 system "tput sgr0";
 print "normal\n";
-
-__END__
-
-=={{header|Perl}}==
-{{trans|Perl 6}}
-<lang perl>print "normal\n";
-system "tput rev";
-print "reversed\n";
-system "tput sgr0";
-print "normal\n";</lang>
