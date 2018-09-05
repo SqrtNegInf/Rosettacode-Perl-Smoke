@@ -19,11 +19,11 @@ sub name {
 }
 
 # could do without nested loops, but maybe clearer this way...
-for $c (0..7) {
+for $i (0..7) {
     $result .= $bar;
     $l1 = $l2 = $l3 = '|';
-    for $j (0..15) {
-        $c = 16*$i  + $j;
+    for $j (0..$N-1) {
+        $c = $N*$i + $j;
         $l1 .= sprintf " %3x |", $c;
         $l2 .= sprintf " %3d |", $c;
         $l3 .= sprintf " %3s |", name($c);
