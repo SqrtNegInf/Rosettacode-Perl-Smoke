@@ -1,5 +1,5 @@
 #!/usr/local/bin/perl
-#u# http://rosettacode.org/wiki/Terminal_control_Display_an_extended_character
+#u# http://rosettacode.org/wiki/Terminal_control/Display_an_extended_character
 #t# interactive
 #c# 2018-09-04 >RC
 #p# OK
@@ -14,17 +14,3 @@ binmode STDOUT, ":utf8";
 say "\N{FULLWIDTH POUND SIGN}";
 say "\x{FFE1}";
 say chr 0xffe1;
-
-__END__
-
-=={{header|Perl}}==
-<lang perl>use feature 'say';
-
-# OK as is
-say '￡';
-
-# these need 'binmode needed to surpress warning about 'wide' char
-binmode STDOUT, ":utf8";
-say "\N{FULLWIDTH POUND SIGN}";
-say "\x{FFE1}";
-say chr 0xffe1;</lang>
