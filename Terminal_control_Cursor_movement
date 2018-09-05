@@ -1,0 +1,40 @@
+#!/usr/local/bin/perl
+#u# http://rosettacode.org/wiki/xx
+#t# interactive
+#c# 2018-09-04 >RC
+#p# OK
+
+system "tput cub1"; sleep 1;                 # one position to the left
+system "tput cuf1"; sleep 1;                 # one position to the right
+system "tput cuu1"; sleep 1;                 # up one line
+system "tput cud1"; sleep 1;                 # down one line
+system "tput cr";   sleep 1;                 # beginning of line
+system "tput home"; sleep 1;                 # top left corner
+
+$_ = qx[stty -a </dev/tty 2>&1];
+my($rows,$cols) = /(\d+) rows; (\d+) col/;
+$rows--;
+$cols--;
+
+system "tput hpa $cols";             # end of line          # not on Mac OS X?
+system "tput cup $rows $cols";       # bottom right corner
+sleep 3;
+
+__END__
+
+=={{header|Perl}}==
+{{trans|Perl 6}}
+<lang perl>system "tput cub1"; sleep 1;  # one position to the left
+system "tput cuf1"; sleep 1;  # one position to the right
+system "tput cuu1"; sleep 1;  # up one line
+system "tput cud1"; sleep 1;  # down one line
+system "tput cr";   sleep 1;                 # beginning of line
+system "tput home"; sleep 1;  # top left corner
+
+$_ = qx[stty -a </dev/tty 2>&1];
+my($rows,$cols) = /(\d+) rows; (\d+) col/;
+$rows--;
+$cols--;
+
+system "tput cup $rows $cols";       # bottom right corner
+sleep 1;</lang>
