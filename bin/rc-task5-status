@@ -173,15 +173,15 @@ return $x;
 
 # these are being ignored, for various reasons
 __DATA__
-Draw_a_pixel
-Draw_a_pixel_2
-Color_of_a_screen_pixel
 Abstract_type
 Active_Directory_Connect
 Arena_storage_pool
 Aspect_Oriented_Programming
 Assertions_in_design_by_contract
+Color_of_a_screen_pixel
 Create_a_file_on_magnetic_tape
+Draw_a_pixel
+Draw_a_pixel_2
 Execute_SNUSP
 Inheritance_Multiple
 Inheritance_Single
@@ -196,9 +196,9 @@ Native_shebang
 OLE_Automation
 Parametrized_SQL_statement
 Record_sound
-Sine_wave
 SOAP
 SQL-based_authentication
+Sine_wave
 Solving_coin_problems
 Speech_synthesis
 Stair-climbing_puzzle
@@ -208,3 +208,4 @@ User_input_Graphical
 Video_display_modes
 Window_creation
 Write_to_Windows_event_log
+Terminal_control_Positional_read
