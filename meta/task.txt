@@ -1,16 +1,17 @@
 
 This is perl 5, version 28, subversion 0 (v5.28.0) built for darwin-thread-multi-2level
-+------------> Perl: Good/Bad [931/11]
-|+-----------> smOke testing [796]
+updating from RC…
++------------> Perl: Good/Bad [932/11]
+|+-----------> smOke testing [797]
 ||+----------> sKipping validation [139]
 |||+---------> Interactive [50]
-||||+--------> Touched (modified by me) [71]
+||||+--------> Touched (modified by me) [72]
 |||||+-------> Random seed [67]
 ||||||+------> File output [37]
 |||||||+-----> Draft [233]
 ||||||||+----> Ignoring [35]
-|||||||||+---> Void (no local copy) [308]
-||||||||||+--> Un-implemented/reliable [293]
+|||||||||+---> Void (no local copy) [307]
+||||||||||+--> Un-implemented/reliable [287]
 |||||||||||
 GO......... 100_doors-1
 GO......... 100_doors-2
@@ -26,7 +27,7 @@ G.KI....... 15_Puzzle_Game-2
 .......D.VU 21_Game
 G.KI....... 24_game
 GO......... 24_game_Solve
-.........VU 4-rings_or_4-squares_puzzle
+GO..T.....U 4-rings_or_4-squares_puzzle
 GO......... 99_Bottles_of_Beer
 GO......... 9_billion_names_of_God_the_integer
 GO......... A%2BB
@@ -531,7 +532,7 @@ GO......... Hostname
 GO......... Huffman_coding
 .........VU Hunt_The_Wumpus
 .......D.VU I%27m_a_software_engineer,_get_me_out_of_here
-GO..T..D..U I.Q._Puzzle
+GO..T..D... I.Q._Puzzle
 GO......... IBAN
 .......D.VU IPC_via_named_pipe
 .......D.VU IRC_gateway
@@ -1135,18 +1136,18 @@ GO......... Taxicab_numbers
 GO......... Temperature_conversion
 G.KI....... Terminal_control_Clear_the_screen
 G.KIT...... Terminal_control_Coloured_text
-G.KIT.....U Terminal_control_Cursor_movement
+G.KIT...... Terminal_control_Cursor_movement
 G.KI....... Terminal_control_Cursor_positioning
 G.KI....... Terminal_control_Dimensions
-G.KIT.....U Terminal_control_Display_an_extended_character
-G.KIT.....U Terminal_control_Hiding_the_cursor
-G.KIT.....U Terminal_control_Inverse_video
+G.KIT...... Terminal_control_Display_an_extended_character
+G.KIT...... Terminal_control_Hiding_the_cursor
+G.KIT...... Terminal_control_Inverse_video
 .........VU Terminal_control_Positional_read
 G.KI....... Terminal_control_Preserve_screen
 .......D.VU Terminal_control_Restricted_width_positional_input_No_wrapping
 .......D.VU Terminal_control_Restricted_width_positional_input_With_wrapping
 G.KI....... Terminal_control_Ringing_the_terminal_bell
-G.KIT.....U Terminal_control_Unicode_output
+G.KIT...... Terminal_control_Unicode_output
 GO......... Ternary_logic
 GO......... Test_a_function
 GO......... Test_integerness
