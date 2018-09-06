@@ -1,11 +1,17 @@
 #!/usr/local/bin/perl 
 #u# http://rosettacode.org/wiki/I_Q__Puzzle
-#c# 2018-09-04 >RC
+#c# 2018-09-05 >RC
 #p# OK
 
 use feature 'say';
 
-@start = qw<0 1 1 1 1 1 1 1 1 1 1 1 1 1 1>;
+@start = qw<
+        0
+       1 1
+      1 1 1
+     1 1 1 1
+    1 1 1 1 1
+>;
 
 @moves = (
     [ 0, 1, 3], [ 0, 2, 5], [ 1, 3, 6],
@@ -17,6 +23,7 @@ use feature 'say';
 );
 
 $format .= (" " x (5-$_)) . ("%d " x $_) . "\n" for 1..5;
+#$format.=  " " x (5-$_)  .  "%d " x $_  . "\n" for 1..5; # same, 'x' binds tightly
 
 sub solve {
     my ($move, $turns, @board) = @_;
@@ -33,14 +40,14 @@ sub solve {
         }
     };
 
+    my $new_result;
     my @new_layout = @board;
     @new_layout[$_] = 1 - @new_layout[$_] for @$move;
-    my $result;
     for $this_move (@moves) {
-        $result = solve(\@$this_move, $turns + 1, @new_layout);
-        last if $result
+        $new_result = solve(\@$this_move, $turns + 1, @new_layout);
+        last if $new_result
     }
-    $result ? "$valid\n" . sprintf($format, @new_layout) . $result : $result
+    $new_result ? "$valid\n" . sprintf($format, @new_layout) . $new_result : $new_result
 }
 
 $result = "Starting with\n\n" . sprintf($format, @start);
@@ -50,9 +57,7 @@ for $this_move (@moves) {
     last if $result
 }
 
-#say $result ? $result : "No solution found";
-
-say $result;
+say $result ? $result : "No solution found";
 
 my $ref = <<'EOD';
 Starting with
@@ -174,11 +179,3 @@ use Test::More;
 chop $ref;
 is ($result, $ref);
 done_testing();
-
-__END__
-
-=={{header|Perl}}==
-{{trans|Perl 6}}
-<lang perl></lang>
-{{out}}
-<pre></pre>
