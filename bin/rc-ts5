@@ -1,6 +1,25 @@
-#!/bin/sh
+#!/usr/local/bin/perl
 ## convert minutes/seconds time format to pure seconds
-#  David H.  2016-08-22
+#  David H.  Wed Sep  5 06:51:37 PDT 2018
 
-d=`date +%Y-%m-%d`
-perl -i -npe 's/(\d+)m(.*)s/{60*$1 + $2}/e' bench/$d/*err
+$d=`date +%Y-%m-%d`;
+chomp $d;
+
+$t = 'bench/tempfile.txt';
+
+for $f (<"bench/${d}/*err">) {
+    open F, "<$f";
+    open O, ">$t";
+    while ($_ = <F>) {
+        s/(\d+)m(.*)s/{60*$1 + $2}/e;
+        print O;
+    }
+    close F;
+    close O;
+    rename $t, $f;
+}
+
+unlink $t;
+
+# 'sh' version was hanging ??
+#perl -i -npe 's/(\d+)m(.*)s/{60*$1 + $2}/e' bench/$d/*err
