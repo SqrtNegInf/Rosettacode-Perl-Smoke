@@ -1,24 +1,29 @@
 #!/usr/local/bin/perl
 #u# http://rosettacode.org/wiki/Sunflower_fractal
-#c# 2018-08-31 >RC
+#c# 2018-08-31 >RC, 2018-09-05 >RC 
 #p# OK
 #f# RC file: sunflower.svg
+#n# much less slapdash...
+
 
 open F, ">run/sunflower.svg";
 
-my $seeds = 3500;
-my $c = 1.25**0.50 + 0.53; # 0.50;
+use utf8;
+use constant π => 3.14159265;
+use constant φ => (1 + sqrt(5)) / 2;
 
-print F qq{<svg xmlns="http://www.w3.org/2000/svg" xmlns:svg="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
-    width="400" height="400" style="stroke:gold">
-    <rect width="100%" height="100%" fill="black" />\n};
+my $scale = 600;
+my $seeds = 5*$scale;
+
+print F qq{<svg xmlns="http://www.w3.org/2000/svg" width="$scale" height="$scale" style="stroke:gold">
+           <rect width="100%" height="100%" fill="black" />\n};
 
 for $i (1..$seeds) {
-    $r = ($i**$c) / $seeds;
-        $t = 2 * 3.14159 * $c * $i;
-        $x = $r * sin($t) + 200;
-        $y = $r * cos($t) + 200;
-        printf F qq{<circle cx="%.2f" cy="%.2f" r="%.2f" />\n}, $x, $y, $i/(5*$seeds);
+    $r = 2 * ($i**φ) / $seeds;
+    $t = 2 * π * φ * $i;
+    $x = $r * sin($t) + $scale/2;
+    $y = $r * cos($t) + $scale/2;
+    printf F qq{<circle cx="%.2f" cy="%.2f" r="%.1f" />\n}, $x, $y, sqrt($i)/13; 
 }
 
 print F "</svg>\n";
