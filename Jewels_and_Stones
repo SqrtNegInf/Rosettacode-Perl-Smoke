@@ -1,0 +1,46 @@
+#!/usr/local/bin/perl
+#u# http://rosettacode.org/wiki/Jewels_and_Stones
+#c# 2018-09-06 >RC
+#p# OK
+
+use feature 'say';
+
+sub count_jewels {
+    my( $j, $s ) = @_;
+    my($c,%S);
+
+    $S{$_}++     for split //, $s;
+    $c += $S{$_} for split //, $j;
+    return "$c for $j in $s\n";
+}
+ 
+$result .= count_jewels 'aA' , 'aAAbbbb';
+$result .= count_jewels 'z'  , 'ZZ';
+
+say $result;
+my $ref = <<'EOD';
+3 for aA in aAAbbbb
+0 for z in ZZ
+EOD
+
+use Test::More;
+is ($result, $ref);
+done_testing();
+
+__END__
+
+=={{header|Perl}}==
+<lang perl>sub count_jewels {
+    my( $j, $s ) = @_;
+    my($c,%S);
+
+    $S{$_}++     for split //, $s;
+    $c += $S{$_} for split //, $j;
+    return "$c for $j in $s\n";
+}
+
+print count_jewels 'aA' , 'aAAbbbb';
+print count_jewels 'z'  , 'ZZ';</lang>
+{{out}}
+<pre>3 for aA in aAAbbbb
+0 for z in ZZ</pre>
