@@ -6,6 +6,8 @@
 
 use feature 'say';
 
+srand 1;
+
 @a = 0..30;
 
 printf "%2d ", $_ for @a; print "\n";
@@ -21,6 +23,7 @@ sub sattolo_cycle {
 }
 
 use Test::More;
-$a[$_] == $_ ? ok (1 == 0) : '' for 0..30;
-ok (1 == 1);
+$ok = 1;
+$a[$_] == $_ ? $ok = 0 : '' for 0..30;
+ok ( $ok );
 done_testing();
