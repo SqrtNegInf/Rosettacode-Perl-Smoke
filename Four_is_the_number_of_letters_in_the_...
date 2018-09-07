@@ -1,0 +1,26 @@
+#!/usr/local/bin/perl
+#u# http://rosettacode.org/wiki/Four_is_the_number_of_letters_in_the_...
+#c# 2018-09-0x >RC
+#p# BROKEN
+
+use feature 'say';
+my $result;
+# my @res;
+
+
+say $result; 
+#say $result = join "\n", @res;
+my $ref = <<'EOD';
+EOD
+
+use Test::More;
+#is ($result, $ref);
+#done_testing();
+
+__END__
+
+=={{header|Perl}}==
+{{trans|Perl 6}}
+<lang perl></lang>
+{{out}}
+<pre></pre>
