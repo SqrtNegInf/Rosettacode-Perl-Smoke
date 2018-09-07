@@ -1,0 +1,70 @@
+#!/usr/local/bin/perl
+#u# http://rosettacode.org/wiki/Four_is_magic
+#c# 2018-09-0x >RC
+#p# BROKEN
+
+use feature 'say';
+my @res;
+
+use Lingua::EN::Numbers::Ordinate qw(ordinate);
+
+sub card {
+    my($n) = @_; 
+    my $temp = ordinate($n); # ??
+    $temp =~ s/,//g; 
+    return $temp;
+}
+
+sub magic {
+    my($int) = @_;
+    my $string;
+    loop {
+       $string .= "{ card($int) } is ";
+       $int = ($int == 4) ? 0 : length card($int);
+       if ($int) {
+           $string .= "{" .  card($int) . " }, "
+       } else {
+           $string .= "magic.\n";
+           last
+       }
+   }
+   return $string; #.tc
+}
+
+push @res, magic($_) for 0, 4; #, 6, 11, 13, 75, 337, -164, 9876543209, 2**256;
+
+say $result = join "\n", @res;
+my $ref = <<'EOD';
+Zero is four, four is magic.
+
+Four is magic.
+
+Six is three, three is five, five is four, four is magic.
+
+Eleven is six, six is three, three is five, five is four, four is magic.
+
+Thirteen is eight, eight is five, five is four, four is magic.
+
+Seventy-five is twelve, twelve is six, six is three, three is five, five is four, four is magic.
+
+Three hundred thirty-seven is twenty-six, twenty-six is ten, ten is three, three is five, five is four, four is magic.
+
+Negative one hundred sixty-four is thirty-one, thirty-one is ten, ten is three, three is five, five is four, four is magic.
+
+Nine billion eight hundred seventy-six million five hundred forty-three thousand two hundred nine is ninety-seven, ninety-seven is twelve, twelve is six, six is three, three is five, five is four, four is magic.
+
+One hundred fifteen quattuorvigintillion seven hundred ninety-two trevigintillion eighty-nine duovigintillion two hundred thirty-seven unvigintillion three hundred sixteen vigintillion one hundred ninety-five novemdecillion four hundred twenty-three octodecillion five hundred seventy septendecillion nine hundred eighty-five sexdecillion eight quindecillion six hundred eighty-seven quattuordecillion nine hundred seven tredecillion eight hundred fifty-three duodecillion two hundred sixty-nine undecillion nine hundred eighty-four decillion six hundred sixty-five nonillion six hundred forty octillion five hundred sixty-four septillion thirty-nine sextillion four hundred fifty-seven quintillion five hundred eighty-four quadrillion seven trillion nine hundred thirteen billion one hundred twenty-nine million six hundred thirty-nine thousand nine hundred thirty-six is eight hundred sixty-nine, eight hundred sixty-nine is twenty-four, twenty-four is eleven, eleven is six, six is three, three is five, five is four, four is magic.
+
+EOD
+
+use Test::More;
+#is ($result, $ref);
+#done_testing();
+
+__END__
+
+=={{header|Perl}}==
+{{trans|Perl 6}}
+<lang perl></lang>
+{{out}}
+<pre></pre>
