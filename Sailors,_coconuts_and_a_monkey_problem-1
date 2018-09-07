@@ -1,0 +1,86 @@
+#!/usr/local/bin/perl
+#u# http://rosettacode.org/wiki/Sailors,_coconuts_and_a_monkey_problem
+#c# 2018-09-06 >RC
+#p# OK
+
+use feature 'say';
+
+sub coconuts {
+my($sailors, $monkeys) = @_;
+$monkeys = 1 unless $monkeys;
+    if (($sailors < 2) || ($monkeys < 1) || ($sailors <= $monkeys)) {
+        return 0
+    }
+    $blue_cocos = $sailors-1;
+    $pow_bc = $blue_cocos**$sailors;
+    $x_cocos = $pow_bc;
+    while (($x_cocos-$blue_cocos)%$sailors || (($x_cocos-$blue_cocos)/$sailors < 1)) {
+        $x_cocos += $pow_bc
+    }
+    return $monkeys*($x_cocos / $pow_bc * $sailors**$sailors - $blue_cocos)
+}
+ 
+for $sailor (2..15) {
+    $result .= "$sailor: " . coconuts($sailor) . "\n";
+}
+
+say $result;
+
+my $ref = <<'EOD';
+2: 11
+3: 25
+4: 765
+5: 3121
+6: 233275
+7: 823537
+8: 117440505
+9: 387420481
+10: 89999999991
+11: 285311670601
+12: 98077104930805
+13: 302875106592241
+14: 144456088732254195
+15: 437893890380859361
+EOD
+
+use Test::More;
+is ($result, $ref);
+done_testing();
+
+__END__
+
+=={{header|Perl}}==
+{{trans|Sidef}}
+<lang perl>sub coconuts {
+my($sailors, $monkeys) = @_;
+$monkeys = 1 unless $monkeys;
+    if (($sailors < 2) || ($monkeys < 1) || ($sailors <= $monkeys)) {
+        return 0
+    }
+    $blue_cocos = $sailors-1;
+    $pow_bc = $blue_cocos**$sailors;
+    $x_cocos = $pow_bc;
+    while (($x_cocos-$blue_cocos)%$sailors || (($x_cocos-$blue_cocos)/$sailors < 1)) {
+        $x_cocos += $pow_bc
+    }
+    return $monkeys*($x_cocos / $pow_bc * $sailors**$sailors - $blue_cocos)
+}
+
+for $sailor (2..9) {
+    $result .= "$sailor: " . coconuts($sailor) . "\n";
+}</lang>
+{{out}}
+<pre>2: 11
+3: 25
+4: 765
+5: 3121
+6: 233275
+7: 823537
+8: 117440505
+9: 387420481
+10: 89999999991
+11: 285311670601
+12: 98077104930805
+13: 302875106592241
+14: 144456088732254195
+15: 437893890380859361</pre>
