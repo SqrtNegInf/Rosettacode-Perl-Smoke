@@ -1,54 +1,62 @@
 #!/usr/local/bin/perl
 #u# http://rosettacode.org/wiki/4-rings_or_4-squares_puzzle
-#c# 2018-09-05 >RC
+#c# 2018-09-06 >RC
 #p# OK
 
 use feature 'say';
-
-use ntheory qw/forperm/;
-
 my $result;
 
-sub four_squares {
-    #my( @list, :$unique=1, :$show=1 ) = @_;
+use Set::CrossProduct;
+use ntheory qw/forperm forcomb/;
+
+sub four_sq_permute {
     my( $list ) = @_;
-    $unique = 1;
-
     my @solutions;
-
     forperm {
        @c = @$list[@_];
-          $a = @c[0] + @c[1];
-          $b = @c[1] + @c[2] + @c[3];
-          $c = @c[3] + @c[4] + @c[5];
-          $d = @c[5] + @c[6];
-       push @solutions, [@c[0..6]]
-          if $a == $b and $a == $c and $a == $d;
-    } scalar @$list;
-
-    #say +@solutions, ($unique ?? ' ' !! ' non-'), "unique solutions found using {join(', ', @list)}.\n";
-    push @res, +@solutions . " unique solutions found using " . join ', ', @$list;
-
-    my $fmt = "%2s " x 7;
-    push @res, sprintf $fmt, ('a'..'g');
-    push @res, sprintf $fmt, @$_ for @solutions;
-    push @res, '';
-
-    #multi combos ( $ where so * ) { @list.combinations(7).map: |*.permutations }
-    #multi combos ( $ where not * ) { [X] @list xx 7 }
+       push @solutions, [@c] if check(@c);
+    } @$list;
+    $result .= +@solutions . " unique solutions found using: " . join(', ', @$list) . "\n";
+    return @solutions;
 }
 
-# TASK
-four_squares( [1..7] );
-four_squares( [3..9] );
-four_squares( [8, 9, 11, 12, 17, 18, 20, 21] );
-#four_squares( [0..9], :unique(0), :show(0) ); # ok, but slow
+sub four_sq_cartesian {
+    my( @list ) = @_;
+    my @solutions;
+    my $iterator = Set::CrossProduct->new( [(@list) x 7] );
+    while( my $c = $iterator->get ) {
+       push @solutions, [@$c] if check(@$c);
+    }
+    $result .= +@solutions . " non-unique solutions found using: " . join(', ', @{@list[0]}) . "\n";
+    return @solutions;
+}
 
-say $result = join "\n", @res;
-#exit;
+sub check {
+    my(@c) = @_;
+    $a = $c[0] + $c[1];
+    $b = $c[1] + $c[2] + $c[3];
+    $c = $c[3] + $c[4] + $c[5];
+    $d = $c[5] + $c[6];
+    $a == $b and $a == $c and $a == $d;
+}
+
+sub display {
+    my(@solutions) = @_;
+    my $fmt = "%2s " x 7 . "\n";
+    $result .= sprintf $fmt, ('a'..'g');
+    $result .= sprintf $fmt, @$_ for @solutions;
+    $result .= "\n";
+}
+
+display four_sq_permute( [1..7] );
+display four_sq_permute( [3..9] );
+display four_sq_permute( [8, 9, 11, 12, 17, 18, 20, 21] );
+#four_sq_cartesian( [0..9] );
+
+say $result;
 
 my $ref = <<'EOD';
-8 unique solutions found using 1, 2, 3, 4, 5, 6, 7
+8 unique solutions found using: 1, 2, 3, 4, 5, 6, 7
  a  b  c  d  e  f  g 
  3  7  2  1  5  4  6 
  4  5  3  1  6  2  7 
@@ -59,14 +67,14 @@ my $ref = <<'EOD';
  7  2  6  1  3  5  4 
  7  3  2  5  1  4  6 
 
-4 unique solutions found using 3, 4, 5, 6, 7, 8, 9
+4 unique solutions found using: 3, 4, 5, 6, 7, 8, 9
  a  b  c  d  e  f  g 
  7  8  3  4  5  6  9 
  8  7  3  5  4  6  9 
  9  6  4  5  3  7  8 
  9  6  5  4  3  8  7 
 
-8 unique solutions found using 8, 9, 11, 12, 17, 18, 20, 21
+8 unique solutions found using: 8, 9, 11, 12, 17, 18, 20, 21
  a  b  c  d  e  f  g 
 17 21  8  9 11 18 20 
 17 21  9  8 12 18 20 
@@ -76,16 +84,10 @@ my $ref = <<'EOD';
 20 18 12  8  9 21 17 
 21 17  9 12  8 18 20 
 21 17 12  9 11 18 20 
+
 EOD
+#2860 non-unique solutions found using: 0, 1, 2, 3, 4, 5, 6, 7, 8, 9
 
 use Test::More;
 is ($result, $ref);
 done_testing();
-
-__END__
-
-=={{header|Perl}}==
-{{trans|Perl 6}}
-<lang perl></lang>
-{{out}}
-<pre></pre>
