@@ -3,30 +3,31 @@
 #c# 2018-09-07 >RC
 #p# OK
 
+use bignum;
 use feature 'say';
 
 use Lingua::EN::Numbers qw(num2en);
 
-sub card {
+sub cardinal {
     my($n) = @_; 
-    (my $en = num2en(1*$n)) =~ s/,//g; 
-    return $en;
+    (my $en = num2en($n)) =~ s/,//g; 
+    $en;
 }
 
 sub magic {
     my($int) = @_;
     my $str;
     while () {
-       $str .= card($int) . " is ";
+       $str .= cardinal($int) . " is ";
        if ($int == 4) {
            $str .= "magic.\n";
            last
        } else {
-           $int = length card($int);
-           $str .= card($int) . ", ";
+           $int = length cardinal($int);
+           $str .= cardinal($int) . ", ";
        }
    }
-   return ucfirst $str;
+   ucfirst $str;
 }
 
 $result .= magic($_), "\n" for 0, 4, 6, 11, 13, 75, 337, -164, 9_876_543_209;
@@ -48,43 +49,3 @@ EOD
 use Test::More;
 is ($result, $ref);
 done_testing();
-
-__END__
-
-=={{header|Perl}}==
-{{trans|Perl 6}}
-<lang perl>use Lingua::EN::Numbers qw(num2en);
-
-sub card {
-    my($n) = @_;
-    (my $en = num2en(1*$n)) =~ s/,//g;
-    return $en;
-}
-
-sub magic {
-    my($int) = @_;
-    my $str;
-    while () {
-       $str .= card($int) . " is ";
-       if ($int == 4) {
-           $str .= "magic.\n";
-           last
-       } else {
-           $int = length card($int);
-           $str .= card($int) . ", ";
-       }
-   }
-   return ucfirst $str;
-}
-
-print magic($_), "\n" for 0, 4, 6, 11, 13, 75, 337, -164, 9_876_543_209;</lang>
-{{out}}
-<pre>Zero is four, four is magic.
-Four is magic.
-Six is three, three is five, five is four, four is magic.
-Eleven is six, six is three, three is five, five is four, four is magic.
-Thirteen is eight, eight is five, five is four, four is magic.
-Seventy-five is twelve, twelve is six, six is three, three is five, five is four, four is magic.
-Three hundred and thirty-seven is thirty, thirty is six, six is three, three is five, five is four, four is magic.
-Negative one hundred and sixty-four is thirty-five, thirty-five is eleven, eleven is six, six is three, three is five, five is four, four is magic.
-Nine billion eight hundred and seventy-six million five hundred and forty-three thousand two hundred and nine is one hundred and nine, one hundred and nine is twenty, twenty is six, six is three, three is five, five is four, four is magic.</pre>
