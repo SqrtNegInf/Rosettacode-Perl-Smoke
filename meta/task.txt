@@ -1,17 +1,17 @@
 
 This is perl 5, version 28, subversion 0 (v5.28.0) built for darwin-thread-multi-2level
 updating from RC…
-+------------> Perl: Good/Bad [936/13]
-|+-----------> smOke testing [801]
-||+----------> sKipping validation [139]
++------------> Perl: Good/Bad [939/13]
+|+-----------> smOke testing [803]
+||+----------> sKipping validation [140]
 |||+---------> Interactive [50]
-||||+--------> Touched (modified by me) [78]
-|||||+-------> Random seed [68]
+||||+--------> Touched (modified by me) [81]
+|||||+-------> Random seed [69]
 ||||||+------> File output [37]
-|||||||+-----> Draft [232]
+|||||||+-----> Draft [230]
 ||||||||+----> Ignoring [36]
-|||||||||+---> Void (no local copy) [302]
-||||||||||+--> Un-implemented/reliable [283]
+|||||||||+---> Void (no local copy) [300]
+||||||||||+--> Un-implemented/reliable [281]
 |||||||||||
 GO......... 100_doors-1
 GO......... 100_doors-2
@@ -442,7 +442,7 @@ GO......... Formal_power_series-2
 GO......... Formatted_numeric_output
 GO..T...... Forward_difference
 GO......... Four_bit_adder
-B...T..D..U Four_is_magic
+GO..T...... Four_is_magic
 B...T.....U Four_is_the_number_of_letters_in_the_...
 GO....F.... Fractal_tree
 GO......... Fractran
@@ -544,10 +544,11 @@ GO......... Identity_matrix
 .........VU Image_convolution
 .........VU Image_noise
 .......D.VU Imaginary_base_numbers
-.......D.VU Implicit_type_conversion
+G.K.T..D..U Implicit_type_conversion
 G.K........ Include_a_file
 GO......... Increment_a_numerical_string
-.......D.VU Index_finite_lists_of_positive_integers
+GO..T...... Index_finite_lists_of_positive_integers-1
+B...TR..... Index_finite_lists_of_positive_integers-2
 GO..T...... Infinity
 ........XV. Inheritance_Multiple
 ........XV. Inheritance_Single
