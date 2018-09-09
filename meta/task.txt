@@ -2,15 +2,15 @@
 This is perl 5, version 28, subversion 0 (v5.28.0) built for darwin-thread-multi-2level
 updating from RC…
 +------------> Perl: Good/Bad [939/13]
-|+-----------> smOke testing [803]
+|+-----------> smOke testing [804]
 ||+----------> sKipping validation [140]
 |||+---------> Interactive [50]
-||||+--------> Touched (modified by me) [81]
+||||+--------> Touched (modified by me) [83]
 |||||+-------> Random seed [69]
 ||||||+------> File output [37]
 |||||||+-----> Draft [230]
-||||||||+----> Ignoring [36]
-|||||||||+---> Void (no local copy) [300]
+||||||||+----> Ignoring [37]
+|||||||||+---> Void (no local copy) [299]
 ||||||||||+--> Un-implemented/reliable [281]
 |||||||||||
 GO......... 100_doors-1
@@ -557,7 +557,7 @@ GO..T...... Infinity
 G.K........ Input_loop
 GO......... Integer_comparison
 GO......... Integer_overflow
-.......D.VU Integer_roots
+!O..T..D..U Integer_roots
 G.KI....... Integer_sequence
 GO......... Interactive_programming
 GO..T...... Introspection
@@ -924,7 +924,7 @@ GO......... Resistor_mesh
 GO......... Respond_to_an_unknown_method_call
 .........VU Retrieve_and_search_chat_history
 GO......... Return_multiple_values
-GO......... Reverse_a_string
+GO..T...... Reverse_a_string
 .......D.VU Reverse_the_gender_of_a_string
 GO......... Reverse_words_in_a_string
 .......D.VU Robots
@@ -964,7 +964,7 @@ GO..T...... Sailors,_coconuts_and_a_monkey_problem-1
 GO..T...... Sailors,_coconuts_and_a_monkey_problem-2
 GO......... Same_Fringe
 GO..TR.D... Sattolo_cycle
-.........VU Scope_Function_names_and_labels
+........XVU Scope_Function_names_and_labels
 GO......... Scope_modifiers
 GO......... Search_a_list
 GO......... Search_a_list_of_records
