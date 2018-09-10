@@ -1,0 +1,65 @@
+#!/usr/local/bin/perl
+#u# http://rosettacode.org/wiki/xx
+#c# 2018-09-09 >RC
+#p# OK
+
+use feature 'say';
+my $result;
+
+use utf8;
+binmode STDOUT, ":utf8";
+
+use constant π => 3.14159265;
+
+sub d2r { $_[0] * π / 180 } # degrees to radians
+sub r2d { $_[0] * 180 / π } # radians to degrees
+
+#print 'Enter latitude       => '; $latitude  = <>;
+#print 'Enter longitude      => '; $longitude = <>;
+#print 'Enter legal meridian => '; $meridian  = <>;
+
+# DH fake the input
+my $latitude  = -4.95;
+my $longitude = -150.5;
+my $meridian  = -150;
+
+$lat_sin = sin( d2r($latitude) );
+$result .= 'Sine of latitude: ' . sprintf "%.4f\n", $lat_sin;
+$offset = $meridian - $longitude;
+$result .= 'Longitude offset: ' . $offset . "\n";
+$result .= '=' x 48 . "\n";
+$result .= " Hour : Sun hour angle°: Dial hour line angle°\n";
+
+my @res;
+for $hour (-6 .. 6) {
+    my $sun_deg  = $hour * 15 + $offset;
+    my $line_deg = r2d atan2( ( sin(d2r($sun_deg)) * $lat_sin ), cos(d2r($sun_deg)) );
+    $result .= sprintf "%2d %s     %8.3f            %8.3f\n",
+    ($hour + 12) % 12 || 12, ($hour < 0 ? 'AM' : 'PM'), $sun_deg, $line_deg;
+}
+
+say $result;
+
+my $ref = <<'EOD';
+Sine of latitude: -0.0863
+Longitude offset: 0.5
+================================================
+ Hour : Sun hour angle°: Dial hour line angle°
+ 6 AM      -89.500              84.225
+ 7 AM      -74.500              17.283
+ 8 AM      -59.500               8.334
+ 9 AM      -44.500               4.847
+10 AM      -29.500               2.795
+11 AM      -14.500               1.278
+12 PM        0.500              -0.043
+ 1 PM       15.500              -1.371
+ 2 PM       30.500              -2.910
+ 3 PM       45.500              -5.018
+ 4 PM       60.500              -8.671
+ 5 PM       75.500             -18.451
+ 6 PM       90.500             -95.775
+EOD
+
+use Test::More;
+is ($result, $ref);
+done_testing();
