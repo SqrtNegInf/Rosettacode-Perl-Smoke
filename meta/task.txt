@@ -1,17 +1,17 @@
 
 This is perl 5, version 28, subversion 0 (v5.28.0) built for darwin-thread-multi-2level
 updating from RC…
-+------------> Perl: Good/Bad [939/13]
-|+-----------> smOke testing [804]
++------------> Perl: Good/Bad [943/13]
+|+-----------> smOke testing [806]
 ||+----------> sKipping validation [140]
 |||+---------> Interactive [50]
-||||+--------> Touched (modified by me) [83]
+||||+--------> Touched (modified by me) [85]
 |||||+-------> Random seed [69]
 ||||||+------> File output [37]
 |||||||+-----> Draft [230]
 ||||||||+----> Ignoring [37]
-|||||||||+---> Void (no local copy) [299]
-||||||||||+--> Un-implemented/reliable [281]
+|||||||||+---> Void (no local copy) [297]
+||||||||||+--> Un-implemented/reliable [278]
 |||||||||||
 GO......... 100_doors-1
 GO......... 100_doors-2
@@ -51,7 +51,7 @@ GO......... Ackermann_function-4
 GO......... Ackermann_function-5
 ........XV. Active_Directory_Connect
 .........VU Active_Directory_Search_for_a_user
-!O......... Active_object
+GO......... Active_object
 GO......... Add_a_variable_to_a_class_instance_at_runtime
 .......D.VU Addition-chain_exponentiation
 .......D.VU Addition_chains
@@ -522,7 +522,7 @@ GO......... Hofstadter_Q_sequence-2
 GO......... Hofstadter_Q_sequence-3
 GO......... Holidays_related_to_Easter
 G.KI.R..... Honeycombs
-.........VU Horizontal_sundial_calculations
+GO..T...... Horizontal_sundial_calculations
 GO......... Horner%27s_rule_for_polynomial_evaluation-1
 GO......... Horner%27s_rule_for_polynomial_evaluation-2
 GO......... Horner%27s_rule_for_polynomial_evaluation-3
@@ -544,7 +544,7 @@ GO......... Identity_matrix
 .........VU Image_convolution
 .........VU Image_noise
 .......D.VU Imaginary_base_numbers
-G.K.T..D..U Implicit_type_conversion
+G.K.T..D... Implicit_type_conversion
 G.K........ Include_a_file
 GO......... Increment_a_numerical_string
 GO..T...... Index_finite_lists_of_positive_integers-1
@@ -557,7 +557,7 @@ GO..T...... Infinity
 G.K........ Input_loop
 GO......... Integer_comparison
 GO......... Integer_overflow
-!O..T..D..U Integer_roots
+GO..T..D..U Integer_roots
 G.KI....... Integer_sequence
 GO......... Interactive_programming
 GO..T...... Introspection
@@ -871,7 +871,7 @@ G.K........ Program_termination
 .......D.VU Proof
 GO......... Proper_divisors
 GO....F.... Pythagoras_tree
-.........VU Pythagorean_quadruples
+GO..T...... Pythagorean_quadruples
 GO......... Pythagorean_triples
 .........VU QR_decomposition
 GO......... Quaternion_type
