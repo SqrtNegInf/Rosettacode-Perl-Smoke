@@ -1,37 +1,24 @@
 #!/usr/local/bin/perl
 #u# http://rosettacode.org/wiki/Implicit_type_conversion
 #t# nocode
-#c# 2018-09-07 >RC
+#c# 2018-09-09 >RC
 #p# OK
 
-# Perl has a different way to deal with the operators because here operator defines how the operands will behave but in other programming languages, operands define how an operator behaves
-
-# Although Perl is a strongly typed language, it does not have static types. The concept of distinct integers, strings or floats is not there in Perl.
-
-# An operator that requires a string coerces its operand into a string.
-# An operator that requires an integer coerces its operand into an integer.
-# An operator that requires a number coerces its operand into an integer or float.
+# Perl is the original DWIM language, implicit type conversion is the default mode of operation. Perl does not have static types; the concept of distinct integers/strings/floats is not present. Instead, operators defines how the operands will behave. An operator that requires a string coerces its operand into a string, an operator that requires an integer coerces its operand into an integer, and so forth.
 
 use feature 'say';
-use warnings;
+#use warnings;
 
 say  1  + '2';    # 3
 say '1' + '2';    # 3
 say  1  .  1;     # 11
 
-say 'a' +  1;     # 1   Argument "a" isn't numeric in addition (+)
 
 $a = 1;
 $b = 2;
 say "$a+$b";      # 1+2
 
-# say :16(([+] 1234.ords).sqrt.floor ~ "beef");
-$x = '2';
+# Even if you intentionally jumble the expected roles of numbers and strings, thing just work out
 say hex int( (2 . 0 x '2') ** substr 98.5, '2', '2' ) . 'beef'; # 1359599
-say hex 14 . 'beef';
 
-# say :16(([+] 1234.ords).sqrt.floor ~ "beef");
-
-# interpret as a hexadecimal number the integer portion of the value of
-# the number 2 concatenated with character '0' (replicated twice) raised to the power of one-half 
-# concatenated with the string 'beef', 
+say 'a' +  1;     # 1   Argument "a" isn't numeric in addition (+)
