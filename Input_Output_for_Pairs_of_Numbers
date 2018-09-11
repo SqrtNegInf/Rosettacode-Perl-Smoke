@@ -1,0 +1,28 @@
+#!/usr/local/bin/perl
+#u# http://rosettacode.org/wiki/Input/Output_for_Pairs_of_Number
+#c# 2018-09-10 >RC
+#p# OK
+#i# RC cli: ref/lines_of_numbers.txt
+
+use feature 'say';
+
+$n = scalar <>; 
+
+for (1..$n) {
+    ($a,$b) = split ' ', <>; 
+    $result .= $a + $b . "\n";
+}
+
+say $result; 
+
+$ref = <<'EOD';
+3
+30
+2
+102
+10
+EOD
+
+use Test::More;
+is($result, $ref);
+done_testing();
