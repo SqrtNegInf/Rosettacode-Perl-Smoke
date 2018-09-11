@@ -1,17 +1,17 @@
 
 This is perl 5, version 28, subversion 0 (v5.28.0) built for darwin-thread-multi-2level
 updating from RC…
-+------------> Perl: Good/Bad [943/13]
-|+-----------> smOke testing [806]
-||+----------> sKipping validation [140]
-|||+---------> Interactive [50]
-||||+--------> Touched (modified by me) [85]
-|||||+-------> Random seed [69]
++------------> Perl: Good/Bad [949/13]
+|+-----------> smOke testing [811]
+||+----------> sKipping validation [142]
+|||+---------> Interactive [51]
+||||+--------> Touched (modified by me) [90]
+|||||+-------> Random seed [70]
 ||||||+------> File output [37]
-|||||||+-----> Draft [230]
+|||||||+-----> Draft [232]
 ||||||||+----> Ignoring [37]
-|||||||||+---> Void (no local copy) [297]
-||||||||||+--> Un-implemented/reliable [278]
+|||||||||+---> Void (no local copy) [292]
+||||||||||+--> Un-implemented/reliable [274]
 |||||||||||
 GO......... 100_doors-1
 GO......... 100_doors-2
@@ -443,7 +443,7 @@ GO......... Formatted_numeric_output
 GO..T...... Forward_difference
 GO......... Four_bit_adder
 GO..T...... Four_is_magic
-B...T.....U Four_is_the_number_of_letters_in_the_...
+GO..T...... Four_is_the_number_of_letters_in_the_...
 GO....F.... Fractal_tree
 GO......... Fractran
 .......D.VU Free_polyominoes_enumeration
@@ -552,12 +552,14 @@ B...TR..... Index_finite_lists_of_positive_integers-2
 GO..T...... Infinity
 ........XV. Inheritance_Multiple
 ........XV. Inheritance_Single
-.......D.VU Input_Output_for_Lines_of_Text
-.......D.VU Input_Output_for_Pairs_of_Numbers
+GO..T..D... Input_Output_for_Lines_of_Text
+GO..T..D... Input_Output_for_Pairs_of_Numbers
 G.K........ Input_loop
 GO......... Integer_comparison
 GO......... Integer_overflow
-GO..T..D..U Integer_roots
+.......D... Integer_roots
+GO..T..D... Integer_roots-1
+GO.....D... Integer_roots-2
 G.KI....... Integer_sequence
 GO......... Interactive_programming
 GO..T...... Introspection
@@ -656,7 +658,7 @@ GO......... MD5
 GO......... MD5_Implementation
 .........VU Machine_code
 G.KI....... Mad_Libs
-.......D.VU Magic_8-Ball
+G.KITR.D..U Magic_8-Ball
 .........VU Magic_squares_of_doubly_even_order
 GO......... Magic_squares_of_odd_order
 .........VU Magic_squares_of_singly_even_order
@@ -1069,7 +1071,7 @@ G.K........ Special_characters
 G.K.T...... Special_variables
 ........XV. Speech_synthesis
 GO..T...... Spelling_of_ordinal_numbers
-.........VU Spinning_rod_animation_Text
+B.K.T.....U Spinning_rod_animation_Text
 GO......... Spiral_matrix
 GO..T...... Split_a_character_string_based_on_change_of_character
 .......D.VU Spoof_game
@@ -1246,7 +1248,7 @@ GO.....D... Welch%27s_t-test-2
 G.KI....... Window_creation_X11
 G.KI....... Window_management
 GO......... Wireworld
-.......D.VU Word_break_problem
+GO..T..D..U Word_break_problem
 GO..T..D... Word_count
 .........VU Word_search
 GO......... Word_wrap
