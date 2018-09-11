@@ -1,55 +1,78 @@
 #!/usr/local/bin/perl
 #u# http://rosettacode.org/wiki/Four_is_the_number_of_letters_in_the_...
-#c# 2018-09-0x >RC
-#p# BROKEN
+#c# 2018-09-10 >RC, 2018-09-10 <RC
+#p# OK
+#n# Thundergnat fixed my bug
 
 use feature 'say';
+use warnings;
+use strict 'vars';
+use feature 'state';
 
-use Lingua::EN::Numbers qw(num2en);
+my $result;
 
-my $index = 1;
+use Lingua::EN::Numbers qw(num2en num2en_ordinal);
+
 my @sentence = split / /, 'Four is the number of letters in the first word of this sentence, ';
-  { @sentence[$index++].&alpha.&cardinal, 'in', 'the', |($index.&ordinal.&no-commas~',').words } ... * ;
 
-sub alpha { length @_[0].subst(/\W/, '', :g).chars }
-sub no-commas ( $str ) { $str.subst(',', '', :g) }
-sub count ( $index ) { @sentence[^$index].join(' ').chars ~ " characters in the sentence, up to and including this word.\n" }
-
-say 'First 201 word lengths in the sequence:';
-put ' ', map { @sentence[$_].&alpha.fmt("%2d") ~ (((1+$_) %% 25) ? "\n" : '') }, 0..201;
-say 201.&count;
-
-__END__
-my @res;
-#for 1e3, 1e4, 1e5, 1e6, 1e7 {
-for 1e3, 1e4, 1e5 {
-    @res.push: "{.&ordinal.tc} word, '{@sentence[$_ - 1]}', has {@sentence[$_ - 1].&alpha} characters. ", .&count
+sub extend {
+    my($last) = @_;
+    state $index = 1;
+    until ($#sentence > $last) {
+        push @sentence, split ' ', num2en(alpha($sentence[$index])) . ' in the ' . no_c(num2en_ordinal(1+$index)) . ',';
+        $index++;
+    } 
 }
-.say for @res;
 
-my $ref = qq:to/END/;
-One thousandth word, 'in', has 2 characters.
+sub alpha { my($s) = @_; $s =~ s/\W//gi; length $s }
+sub no_c  { my($s) = @_; $s =~ s/\ and|,//g;   return $s }
+sub count { length(join ' ', @sentence[0..-1+$_[0]]) . " characters in the sentence, up to and including this word.\n" }
+
+$result .= "First 201 word lengths in the sequence:\n";
+extend(201); 
+for (0..200) {
+    $result .= sprintf "%3d", alpha($sentence[$_]);
+    $result .= "\n" unless ($_+1) % 32;
+}
+$result .= "\n" . count(201) . "\n";
+
+for (1e3, 1e4, 1e5, 1e6, 1e7) {
+    extend($_); 
+    $result .= 
+        ucfirst(num2en_ordinal($_)) .  " word, '$sentence[$_-1]' has " . alpha($sentence[$_-1]) .  " characters. \n" .
+        count($_) . "\n";
+}
+
+say $result;
+
+my $ref = <<'EOD';
+First 201 word lengths in the sequence:
+  4  2  3  6  2  7  2  3  5  4  2  4  8  3  2  3  6  5  2  3  5  3  2  3  6  3  2  3  5  5  2  3
+  5  3  2  3  7  5  2  3  6  4  2  3  5  4  2  3  5  3  2  3  8  4  2  3  7  5  2  3 10  5  2  3
+ 10  3  2  3  9  5  2  3  9  3  2  3 11  4  2  3 10  3  2  3 10  5  2  3  9  4  2  3 11  5  2  3
+ 12  3  2  3 11  5  2  3 12  3  2  3 11  5  2  3 11  3  2  3 13  5  2  3 12  4  2  3 11  4  2  3
+  9  3  2  3 11  5  2  3 12  4  2  3 11  5  2  3 12  3  2  3 11  5  2  3 11  5  2  3 13  4  2  3
+ 12  3  2  3 11  5  2  3  8  3  2  3 10  4  2  3 11  3  2  3 10  5  2  3 11  4  2  3 10  4  2  3
+ 10  3  2  3 12  5  2  3 11
+1203 characters in the sentence, up to and including this word.
+
+One thousandth word, 'in' has 2 characters. 
 6249 characters in the sentence, up to and including this word.
 
-Ten thousandth word, 'in', has 2 characters.
+Ten thousandth word, 'in' has 2 characters. 
 64097 characters in the sentence, up to and including this word.
 
-One hundred thousandth word, 'one', has 3 characters.
+One hundred thousandth word, 'one' has 3 characters. 
 659455 characters in the sentence, up to and including this word.
 
-say $result; 
-#say $result = join "\n", @res;
-my $ref = <<'EOD';
+One millionth word, 'the' has 3 characters. 
+7113560 characters in the sentence, up to and including this word.
+
+Ten millionth word, 'thousand' has 8 characters. 
+70995729 characters in the sentence, up to and including this word.
+
 EOD
 
 use Test::More;
-#is ($result, $ref);
-#done_testing();
-
-__END__
-
-=={{header|Perl}}==
-{{trans|Perl 6}}
-<lang perl></lang>
-{{out}}
-<pre></pre>
+is ($result, $ref);
+done_testing();
