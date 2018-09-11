@@ -1,0 +1,53 @@
+#!/usr/local/bin/perl
+#u# http://rosettacode.org/wiki/Word_break_problem
+#c# 2018-09-10 >RC
+#p# OK
+
+use feature 'say';
+
+# This implementation does not necessarily find every combination, it returns the one with the longest matching tokens.
+
+my @words = <a bc abc cd b>;
+my $regex = '(' . join(')|(', @words) . ')';
+#say $regex ; exit;
+
+push @res, "$_: " . word_break($_) for <abcd abbc abcbcd acdbc abcdd>;
+
+say for @res;exit;
+
+# subregex = join(words, ")|(")
+# regexes = ["\^\(\($subregex\)\)\{$i}\$" for i in 6:-1:1]
+
+
+sub word_break { 
+    my($word) = @_;
+    #($word =~ /^($regex)+$/)[0] // "Not possible"
+    my @matches;
+    @matches = $word =~ /\G$regex/g; 
+    return join ' ', @matches;
+}
+
+my $ref = <<'END';
+abcd: a b cd
+abbc: a b bc
+abcbcd: abc b cd
+acdbc: a cd bc
+abcdd: Not possible
+END
+
+say $result = join "\n", @res;
+
+my $ref = <<'EOD';
+EOD
+
+use Test::More;
+#is ($result, $ref);
+#done_testing();
+
+__END__
+
+=={{header|Perl}}==
+{{trans|Perl 6}}
+<lang perl></lang>
+{{out}}
+<pre></pre>
