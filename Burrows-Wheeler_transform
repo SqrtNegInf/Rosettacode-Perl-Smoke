@@ -1,0 +1,70 @@
+#!/usr/local/bin/perl
+#u# http://rosettacode.org/wiki/Burrows-Wheeler_transform
+#c# 2018-09-11 >RC
+#p# OK
+
+use feature 'say';
+use warnings;
+
+use utf8;
+binmode STDOUT, ":utf8";
+
+# STX can be any character that doesn't appear in the text.
+# Using a visible character here for ease of viewing.
+
+use constant STX => '👍';
+
+sub transform {
+    my($s) = @_;
+    my($t);
+    warn "String can't contain STX character." and exit if $s =~ /STX/;
+    $s = STX . $s;
+    $t .= substr($_,-1,1) for sort map { rotate($s,$_) } 1..length($s);
+    return $t;
+}
+
+sub rotate { my($s,$n) = @_; join '', (split '', $s)[$n..length($s)-1, 0..$n-1] }
+
+sub ɯɹoɟsuɐɹʇ {
+    my($s) = @_;
+    my @s = split '', $s;
+    my @t = sort @s;
+    map { @t = sort map { $s[$_] . $t[$_] } 0..length($s)-1 } 1..length($s)-1;
+    for (@t) {
+        next unless /${\(STX)}$/;  # interpolate constant 
+        #next unless substr($_,-1,1) eq STX;  # also works...
+        chop $_ and return $_
+    }
+}
+
+for my $phrase (qw<BANANA dogwood SIX.MIXED.PIXIES.SIFT.SIXTY.PIXIE.DUST.BOXES>,
+    'TO BE OR NOT TO BE OR WANT TO BE OR NOT?') { #, "Oops{STX}"
+    push @res, 'Original:            '. $phrase;
+    push @res, 'Transformed:         '. transform $phrase;
+    push @res, 'Inverse transformed: '. ɯɹoɟsuɐɹʇ transform $phrase;
+    push @res, '';
+}
+
+say my $result = join "\n", @res;
+
+my $ref = <<'EOD';
+Original:            BANANA
+Transformed:         BNN👍AAA
+Inverse transformed: BANANA
+
+Original:            dogwood
+Transformed:         👍ooodwgd
+Inverse transformed: dogwood
+
+Original:            SIX.MIXED.PIXIES.SIFT.SIXTY.PIXIE.DUST.BOXES
+Transformed:         TEXYDST.E.IXIXIXXSSMPPS.B..E.👍.UESFXDIIOIIITS
+Inverse transformed: SIX.MIXED.PIXIES.SIFT.SIXTY.PIXIE.DUST.BOXES
+
+Original:            TO BE OR NOT TO BE OR WANT TO BE OR NOT?
+Transformed:         OOORREEETTRTW   BBB  ATTT   NNOOONOO👍   ?
+Inverse transformed: TO BE OR NOT TO BE OR WANT TO BE OR NOT?
+EOD
+
+use Test::More;
+is ($result, $ref);
+done_testing();
