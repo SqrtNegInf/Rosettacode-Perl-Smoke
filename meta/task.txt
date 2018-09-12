@@ -1,17 +1,17 @@
 
 This is perl 5, version 28, subversion 0 (v5.28.0) built for darwin-thread-multi-2level
 updating from RC…
-+------------> Perl: Good/Bad [949/13]
-|+-----------> smOke testing [811]
++------------> Perl: Good/Bad [952/13]
+|+-----------> smOke testing [814]
 ||+----------> sKipping validation [142]
 |||+---------> Interactive [51]
-||||+--------> Touched (modified by me) [90]
+||||+--------> Touched (modified by me) [93]
 |||||+-------> Random seed [70]
 ||||||+------> File output [37]
-|||||||+-----> Draft [232]
+|||||||+-----> Draft [234]
 ||||||||+----> Ignoring [37]
-|||||||||+---> Void (no local copy) [292]
-||||||||||+--> Un-implemented/reliable [274]
+|||||||||+---> Void (no local copy) [290]
+||||||||||+--> Un-implemented/reliable [271]
 |||||||||||
 GO......... 100_doors-1
 GO......... 100_doors-2
@@ -39,7 +39,7 @@ GO......... AKS_test_for_primes-3
 .......D.VU ASCII_art_diagram_converter
 .........VU AVL_tree
 .......D.VU Abbreviations,_automatic
-.......D.VU Abbreviations,_easy
+GO..T..D..U Abbreviations,_easy
 .......D.VU Abbreviations,_simple
 ........XV. Abstract_type
 GO......... Abundant,_deficient_and_perfect_number_classifications
@@ -158,7 +158,7 @@ GO......... Break_OO_privacy
 GO..TRF.... Brownian_tree
 G.KI.R..... Bulls_and_cows
 G.KI.R..... Bulls_and_cows_Player
-.......D.VU Burrows%E2%80%93Wheeler_transform
+.......D.V. Burrows%E2%80%93Wheeler_transform
 GO......... CRC-32
 GO..T...... CSV_data_manipulation-1
 G.K........ CSV_data_manipulation-2
@@ -603,7 +603,9 @@ GO......... Kronecker_product
 GO......... LZW_compression
 GO...R..... Langton%27s_ant
 GO......... Largest_int_from_concatenated_ints
-.......D.VU Largest_number_divisible_by_its_digits
+.......D... Largest_number_divisible_by_its_digits
+GO..T..D... Largest_number_divisible_by_its_digits-1
+GO..T..D... Largest_number_divisible_by_its_digits-2
 GO......... Last_Friday_of_each_month
 GO...R..... Last_letter-first_letter
 GO......... Leap_year
@@ -658,7 +660,7 @@ GO......... MD5
 GO......... MD5_Implementation
 .........VU Machine_code
 G.KI....... Mad_Libs
-G.KITR.D..U Magic_8-Ball
+G.KITR.D... Magic_8-Ball
 .........VU Magic_squares_of_doubly_even_order
 GO......... Magic_squares_of_odd_order
 .........VU Magic_squares_of_singly_even_order
