@@ -1,6 +1,6 @@
 #!/usr/local/bin/perl
 #u# http://rosettacode.org/wiki/Abbreviations,_easy
-#c# 2018-09-11 >RC
+#c# 2018-09-12 >RC
 #p# OK
 
 use feature 'say';
@@ -15,7 +15,7 @@ READ  RECover REFRESH RENum Replace REPeat  CReplace  RESet  RESTore  RGTLEFT
 RIght LEft  SAVE  SET SHift SI  SORT  SOS  STAck STATus  TOP TRAnsfer Type Up
 >) =~ /([A-Z]+)([a-z]*)(?:\s+|$)/g;
 
-my %abr = ('' => '');
+my %abr = ('' => '', ' ' => '');
 for ($i = 0; $i < @c; $i += 2) {
     $sl = length($s =    $c[$i]  );
     $ll = length($l = uc $c[$i+1]);
@@ -27,7 +27,7 @@ for ($i = 0; $i < @c; $i += 2) {
 $fmt = "%-10s";
 $inp = sprintf $fmt, 'Input:';
 $out = sprintf $fmt, 'Output:';
-for $str ('', qw<riG rePEAT copies put mo rest types fup. 6 poweRin>) {
+for $str (' ', qw<riG rePEAT copies put mo rest types fup. 6 poweRin>) {
     $inp .= sprintf $fmt, $str;
     $out .= sprintf $fmt, $abr{uc $str} // '*error*';
 }
