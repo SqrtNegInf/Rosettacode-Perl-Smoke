@@ -1,0 +1,56 @@
+#!/usr/local/bin/perl
+#u# http://rosettacode.org/wiki/Largest_number_divisible_by_its_digits
+#c# 2018-09-11 >RC
+#p# OK
+#n# base 16
+
+use feature 'say';
+use bigint;
+use Math::Utils qw(lcm);
+
+my $hex = 'FEDCBA987654321';                          # largest possible hex number
+$step = lcm(1..15);
+$initial = int(hex($hex) / $step) * $step;
+
+for($num = $initial; $num > 0 ; $num -= $step) {      # only generate multiples of the lcm
+
+    my $test = sprintf '%x', $num;
+    next if $test =~ /0/;                             # skip numbers containing 0
+    next if $test =~ /(.).*\1/;                       # skip numbers with non unique digits
+
+    push @res, sprintf "Found $test after %d steps\n", ($initial-$num)/$step;
+    push @res, ' 'x12 . 'In base 16' . ' 'x36 . 'In base 10';
+    for (split '', $test) {
+        push @res, sprintf "%s / %s = %x  |  %d / %2d = %19d",
+          $test, $_, $num / hex($_),
+          $num, hex($_), $num / hex($_);
+    }
+    last
+}
+
+say $result = join "\n", @res; exit;
+
+my $ref = <<'EOD';
+Found fedcb59726a1348
+            In base 16                                    In base 10
+fedcb59726a1348 / f = 10fda5b4be4f038  |  1147797065081426760 / 15 =   76519804338761784
+fedcb59726a1348 / e = 1234561d150b83c  |  1147797065081426760 / 14 =   81985504648673340
+fedcb59726a1348 / d = 139ad2e43e0c668  |  1147797065081426760 / 13 =   88292081929340520
+fedcb59726a1348 / c = 153d0f21ede2c46  |  1147797065081426760 / 12 =   95649755423452230
+fedcb59726a1348 / b = 172b56538f25ed8  |  1147797065081426760 / 11 =  104345187734675160
+fedcb59726a1348 / 5 = 32f8f11e3aed0a8  |  1147797065081426760 /  5 =  229559413016285352
+fedcb59726a1348 / 9 = 1c5169829283b08  |  1147797065081426760 /  9 =  127533007231269640
+fedcb59726a1348 / 7 = 2468ac3a2a17078  |  1147797065081426760 /  7 =  163971009297346680
+fedcb59726a1348 / 2 = 7f6e5acb93509a4  |  1147797065081426760 /  2 =  573898532540713380
+fedcb59726a1348 / 6 = 2a7a1e43dbc588c  |  1147797065081426760 /  6 =  191299510846904460
+fedcb59726a1348 / a = 197c788f1d76854  |  1147797065081426760 / 10 =  114779706508142676
+fedcb59726a1348 / 1 = fedcb59726a1348  |  1147797065081426760 /  1 = 1147797065081426760
+fedcb59726a1348 / 3 = 54f43c87b78b118  |  1147797065081426760 /  3 =  382599021693808920
+fedcb59726a1348 / 4 = 3fb72d65c9a84d2  |  1147797065081426760 /  4 =  286949266270356690
+fedcb59726a1348 / 8 = 1fdb96b2e4d4269  |  1147797065081426760 /  8 =  143474633135178345
+EOD
+
+use Test::More;
+chop $ref;
+is ($result, $ref);
+done_testing();
