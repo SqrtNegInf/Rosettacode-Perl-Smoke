@@ -6,7 +6,8 @@ How hard can it be?  :-)
 
 ## Timeline 
 
-Currently just getting started. Initially, will be testing against the just-released 5.28 version.
+Worked through the backlog of existing tasks, and now adding missing ones, where it makes sense.
+Initially, testing against the recently-released 5.28 version of Perl.
 Once the first pass of all tasks is complete, will then switch to testing against blead.
 
 Will be done by Christmas.  ;-)
@@ -19,4 +20,5 @@ with slight modifications.
 Relying on [Thundergnat's](http://rosettacode.org/wiki/User:Thundergnat) 
 very flexible Rosettacode task
 [Run examples](http://rosettacode.org/wiki/Rosetta_Code/Run_examples#Perl_6) 
-to efficiently handle cases where the task has multiple code sections.
+to efficiently handle cases where the task has multiple code sections, and to verify that 
+what I put up on RC actually works correctly.
