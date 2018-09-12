@@ -1,0 +1,43 @@
+#!/usr/local/bin/perl
+#u# http://rosettacode.org/wiki/Largest_number_divisible_by_its_digits
+#c# 2018-09-11 >RC
+#p# OK
+#n# base 10
+
+use feature 'say';
+
+my $step = 9 * 8 * 7;                               # 504, interval between tests
+
+my $initial = int(9876432 / $step) * $step;         # largest 7 digit multiple of 504 < 9876432
+
+for($test = $initial; $test > 0 ; $test -= $step) { # decrement by 504
+    next if $test =~ /[05]/;                        # skip numbers containing 0 or 5
+    next if $test =~ /(.).*\1/;                     # skip numbers with non unique digits
+
+    for (split '', $test) {                         # skip numbers that don't divide evenly by all digits
+        next unless ($test / $_) % 1;
+    }
+
+    $result .= sprintf "Found $test after %d steps\n", ($initial-$test)/$step;
+    for (split '', $test) {
+       $result .= sprintf "%s / %s = %s\n", $test, $_, $test / $_;
+    }
+    last
+}
+
+say $result;
+
+my $ref = <<'EOD';
+Found 9867312 after 18 steps
+9867312 / 9 = 1096368
+9867312 / 8 = 1233414
+9867312 / 6 = 1644552
+9867312 / 7 = 1409616
+9867312 / 3 = 3289104
+9867312 / 1 = 9867312
+9867312 / 2 = 4933656
+EOD
+
+use Test::More;
+is ($result, $ref);
+done_testing();
