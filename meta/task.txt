@@ -1,17 +1,17 @@
 
 This is perl 5, version 28, subversion 0 (v5.28.0) built for darwin-thread-multi-2level
 updating from RC…
-+------------> Perl: Good/Bad [952/13]
-|+-----------> smOke testing [814]
++------------> Perl: Good/Bad [954/13]
+|+-----------> smOke testing [817]
 ||+----------> sKipping validation [142]
 |||+---------> Interactive [51]
-||||+--------> Touched (modified by me) [93]
+||||+--------> Touched (modified by me) [96]
 |||||+-------> Random seed [70]
 ||||||+------> File output [37]
 |||||||+-----> Draft [234]
 ||||||||+----> Ignoring [37]
-|||||||||+---> Void (no local copy) [290]
-||||||||||+--> Un-implemented/reliable [271]
+|||||||||+---> Void (no local copy) [287]
+||||||||||+--> Un-implemented/reliable [268]
 |||||||||||
 GO......... 100_doors-1
 GO......... 100_doors-2
@@ -38,9 +38,9 @@ GO......... AKS_test_for_primes-2
 GO......... AKS_test_for_primes-3
 .......D.VU ASCII_art_diagram_converter
 .........VU AVL_tree
-.......D.VU Abbreviations,_automatic
-GO..T..D..U Abbreviations,_easy
-.......D.VU Abbreviations,_simple
+GO..T..D... Abbreviations,_automatic
+GO..T..D... Abbreviations,_easy
+GO..T..D... Abbreviations,_simple
 ........XV. Abstract_type
 GO......... Abundant,_deficient_and_perfect_number_classifications
 GO..T...... Accumulator_factory
@@ -51,7 +51,7 @@ GO......... Ackermann_function-4
 GO......... Ackermann_function-5
 ........XV. Active_Directory_Connect
 .........VU Active_Directory_Search_for_a_user
-GO......... Active_object
+!O......... Active_object
 GO......... Add_a_variable_to_a_class_instance_at_runtime
 .......D.VU Addition-chain_exponentiation
 .......D.VU Addition_chains
@@ -158,7 +158,7 @@ GO......... Break_OO_privacy
 GO..TRF.... Brownian_tree
 G.KI.R..... Bulls_and_cows
 G.KI.R..... Bulls_and_cows_Player
-.......D.V. Burrows%E2%80%93Wheeler_transform
+GO..T..D... Burrows-Wheeler_transform
 GO......... CRC-32
 GO..T...... CSV_data_manipulation-1
 G.K........ CSV_data_manipulation-2
@@ -188,7 +188,7 @@ GO......... Catalan_numbers-2
 GO......... Catalan_numbers-3
 GO......... Catalan_numbers_Pascal%27s_triangle
 GO......... Catamorphism
-.........VU Catmull%E2%80%93Clark_subdivision_surface
+.........VU Catmull-Clark_subdivision_surface
 GO..T..D... Chaocipher
 GO...RF.... Chaos_game
 GO......... Character_codes
@@ -689,8 +689,8 @@ GO......... Metaprogramming
 ........XV. Metered_concurrency
 .........VU Metronome
 GO......... Middle_three_digits
-GO......... Miller%E2%80%93Rabin_primality_test-1
-GO......... Miller%E2%80%93Rabin_primality_test-2
+GO......... Miller-Rabin_primality_test-1
+GO......... Miller-Rabin_primality_test-2
 GO..TR.D... Mind_boggling_card_trick
 G.KI....... Minesweeper_game
 GO.....D... Modular_arithmetic
@@ -1182,7 +1182,7 @@ GO......... Topological_sort
 GO......... Topswops
 .........VU Total_circles_area
 GO......... Towers_of_Hanoi
-GO..T...... Trabb_Pardo%E2%80%93Knuth_algorithm
+GO..T...... Trabb_Pardo-Knuth_algorithm
 .......D.VU Transportation_problem
 GO......... Tree_traversal
 GO......... Trigonometric_functions
@@ -1198,7 +1198,7 @@ GO......... URL_decoding
 GO......... URL_encoding
 GO......... URL_parser
 GO......... UTF-8_encode_and_decode
-.......D.VU Ukkonen%E2%80%99s_Suffix_Tree_Construction
+.......D.VU Ukkonens_Suffix_Tree_Construction
 GO....F.... Ulam_spiral_for_primes
 GO...R..... Unbias_a_random_generator
 GO......... Undefined_values
