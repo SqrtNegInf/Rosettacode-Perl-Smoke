@@ -1,11 +1,11 @@
 
 This is perl 5, version 28, subversion 0 (v5.28.0) built for darwin-thread-multi-2level
 updating from RC…
-+------------> Perl: Good/Bad [954/13]
-|+-----------> smOke testing [817]
-||+----------> sKipping validation [142]
++------------> Perl: Good/Bad [954/12]
+|+-----------> smOke testing [818]
+||+----------> sKipping validation [141]
 |||+---------> Interactive [51]
-||||+--------> Touched (modified by me) [96]
+||||+--------> Touched (modified by me) [97]
 |||||+-------> Random seed [70]
 ||||||+------> File output [37]
 |||||||+-----> Draft [234]
@@ -724,7 +724,7 @@ GO....F.... Munching_squares
 GO......... Mutual_recursion
 GO......... N%27th
 .......D.VU N-body_problem
-GO......... N-queens_problem
+GO..T...... N-queens_problem
 .......D.VU NYSIIS
 GO......... Named_parameters
 GO.....D... Names_to_numbers
@@ -1073,7 +1073,7 @@ G.K........ Special_characters
 G.K.T...... Special_variables
 ........XV. Speech_synthesis
 GO..T...... Spelling_of_ordinal_numbers
-B.K.T.....U Spinning_rod_animation_Text
+.........VU Spinning_rod_animation_Text
 GO......... Spiral_matrix
 GO..T...... Split_a_character_string_based_on_change_of_character
 .......D.VU Spoof_game
@@ -1178,7 +1178,7 @@ GO......... Tokenize_a_string_with_escaping
 GO..T...... Top_rank_per_group
 G.K........ Topic_variable
 GO......... Topological_sort
-.......D.VU Topological_sort_Extracted_top_item
+!O..T..D..U Topological_sort_Extracted_top_item
 GO......... Topswops
 .........VU Total_circles_area
 GO......... Towers_of_Hanoi
