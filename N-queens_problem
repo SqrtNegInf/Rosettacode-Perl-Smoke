@@ -1,6 +1,6 @@
 #!/usr/local/bin/perl
 #u# http://rosettacode.org/wiki/N-queens_problem
-#c# 2018-08-19 <RC
+#c# 2018-08-19 <RC, 2018-09-13 >RC
 #p# OK
 
 use feature 'say';
@@ -25,7 +25,8 @@ sub try_column {
         }
 
         for my $row (0 .. $board_size - 1) {
-                next if $occupied[$row] || $diag[$row];
+                next if  $diag[$row]|| $occupied[$row];
+                #next if $occupied[$row] || $diag[$row];
 
                 # @past:     row numbers of previous queens
                 # @occupied: rows already used. This gets inherited by each
@@ -41,12 +42,11 @@ sub try_column {
         }
 }
 
-$board_size = 12;  # takes a minute or so, 14,200 solutions
+$board_size = 12;
 try_column(0);
 
-local $" = "\n";
-#print @solutions;
-say $result = "total ". scalar(@solutions). " solutions";
+#print for @solutions; # un-comment to see all solutions
+$result = "total ". @solutions . " solutions";
 
 use Test::More;
 is ($result, 'total 14200 solutions');
