@@ -3,6 +3,7 @@
 #c# 2018-09-0x >RC
 #p# OK
 
+use Data::Dumper;
 use feature 'say';
 
 use warnings;
@@ -21,7 +22,7 @@ sub top_topos {
         }
     }
  
-$DB::single = 1;
+#$DB::single = 1;
     if (@top) {
 	my @want = @top;
 	my %care;
@@ -44,22 +45,31 @@ $DB::single = 1;
 	}
  
 	for my $before (keys %ba) {
-	    delete $ba{$before} unless $care{$before};
+	    my @foo = delete $ba{$before} unless $care{$before};
+say join ' 1>| ', @foo;
 	}
     }
  
     my @levels;
 #    while %ba.grep( not *.value )».key -> @befores {
     for my $k (keys %ba) {
-    next unless not $ba{$k};
+    my %k = $ba{$k};
+    say ref \%k;
+$DB::single = 1;
+    delete @k{ grep ref($k{$_}) eq 'HASH' && %{$k{$_}} == 0, keys %k };
+    next unless $ba{$k};
     my @befores = $ba{$k};
     push @levels, sort @befores;
-        delete @ba{@befores};
+        my @goo = delete @ba{@befores};
         for my $k (keys %ba) { 
             my %v = $ba{$k}; 
-            delete @v{@befores};
+            my @zoo = delete @v{@befores};
         }
     }
+say '=============';
+say join "|", @levels;
+$DB::single = 1;
+die;
 
     my @out;
     if (@top) {
@@ -82,7 +92,6 @@ my %deps = (
     des1c => ['des1c1', 'extra1']
 );
  
-$DB::single = 1;
 push @res, top_topos(%deps);
 $DB::single = 1;
 push @res, top_topos(%deps, 'top1');
