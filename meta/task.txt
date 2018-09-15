@@ -1,17 +1,17 @@
 
 This is perl 5, version 28, subversion 0 (v5.28.0) built for darwin-thread-multi-2level
 updating from RC…
-+------------> Perl: Good/Bad [954/12]
-|+-----------> smOke testing [818]
++------------> Perl: Good/Bad [955/12]
+|+-----------> smOke testing [819]
 ||+----------> sKipping validation [141]
 |||+---------> Interactive [51]
-||||+--------> Touched (modified by me) [97]
+||||+--------> Touched (modified by me) [98]
 |||||+-------> Random seed [70]
 ||||||+------> File output [37]
-|||||||+-----> Draft [234]
+|||||||+-----> Draft [235]
 ||||||||+----> Ignoring [37]
 |||||||||+---> Void (no local copy) [287]
-||||||||||+--> Un-implemented/reliable [268]
+||||||||||+--> Un-implemented/reliable [269]
 |||||||||||
 GO......... 100_doors-1
 GO......... 100_doors-2
@@ -646,6 +646,7 @@ G.K........ Loops_Infinite
 GO......... Loops_N_plus_one_half
 GO...R..... Loops_Nested
 GO......... Loops_While
+GO..T..D..U Loops_with_multiple_ranges
 GO......... Lucas-Lehmer_test-1
 G.K........ Lucas-Lehmer_test-2
 GO......... Lucas-Lehmer_test-3
