@@ -1,17 +1,17 @@
 
 This is perl 5, version 28, subversion 0 (v5.28.0) built for darwin-thread-multi-2level
 updating from RC…
-+------------> Perl: Good/Bad [955/12]
-|+-----------> smOke testing [819]
++------------> Perl: Good/Bad [958/12]
+|+-----------> smOke testing [822]
 ||+----------> sKipping validation [141]
 |||+---------> Interactive [51]
-||||+--------> Touched (modified by me) [98]
+||||+--------> Touched (modified by me) [101]
 |||||+-------> Random seed [70]
 ||||||+------> File output [37]
 |||||||+-----> Draft [235]
 ||||||||+----> Ignoring [37]
-|||||||||+---> Void (no local copy) [287]
-||||||||||+--> Un-implemented/reliable [269]
+|||||||||+---> Void (no local copy) [284]
+||||||||||+--> Un-implemented/reliable [267]
 |||||||||||
 GO......... 100_doors-1
 GO......... 100_doors-2
@@ -539,8 +539,8 @@ GO......... IBAN
 GO......... I_before_E_except_after_C-1
 GO......... I_before_E_except_after_C-2
 GO......... Identity_matrix
-.......D.VU Idiomatically_determine_all_the_characters_that_can_be_used_for_symbols
-.......D.VU Idiomatically_determine_all_the_lowercase_and_uppercase_letters
+GO..T..D..U Idiomatically_determine_all_the_characters_that_can_be_used_for_symbols
+GO..T..D..U Idiomatically_determine_all_the_lowercase_and_uppercase_letters
 .........VU Image_convolution
 .........VU Image_noise
 .......D.VU Imaginary_base_numbers
@@ -641,12 +641,12 @@ GO......... Loops_Downward_for
 GO......... Loops_For
 GO......... Loops_For_with_a_specified_step
 GO......... Loops_Foreach
-.........VU Loops_Increment_loop_index_within_loop_body
+GO..T...... Loops_Increment_loop_index_within_loop_body
 G.K........ Loops_Infinite
 GO......... Loops_N_plus_one_half
 GO...R..... Loops_Nested
 GO......... Loops_While
-GO..T..D..U Loops_with_multiple_ranges
+GO..T..D... Loops_with_multiple_ranges
 GO......... Lucas-Lehmer_test-1
 G.K........ Lucas-Lehmer_test-2
 GO......... Lucas-Lehmer_test-3
