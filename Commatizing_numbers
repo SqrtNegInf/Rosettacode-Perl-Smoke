@@ -1,6 +1,6 @@
 #!/usr/local/bin/perl
 #u# http://rosettacode.org/wiki/Commatizing_numbers
-#c# 2018-08-29 >RC
+#c# 2018-08-29 >RC, 2018-09-15 >RC
 #p# OK
 
 use feature 'say';
@@ -39,10 +39,9 @@ sub commatize {
 
 sub c_ins {
     my($s,$by,$sep) = @_;
-    $s = reverse $s;
-    $s =~ s/(.{$by})/$1$sep/g;
-    $s =~ s/$sep$//;
-    return reverse $s;
+    (my $c = reverse $s) =~ s/(.{$by})/$1$sep/g;
+    $c =~ s/$sep$//;
+    reverse $c;
 }
 
 say $result; 
