@@ -1,0 +1,35 @@
+#!/usr/local/bin/perl
+#u# http://rosettacode.org/wiki/Idiomatically_determine_all_the_lowercase_and_uppercase_letters
+#c# 2018-09-15 >RC
+#p# OK
+
+use feature 'say';
+
+for $i (0..2**8-1) {
+    $c = chr($i);
+    $lower .= $c if $c =~ /[[:lower:]]/;
+    $upper .= $c if $c =~ /[[:upper:]]/;
+}
+
+say $lower;
+say $upper;
+
+use Test::More;
+is ($lower, 'abcdefghijklmnopqrstuvwxyz');
+is ($upper, 'ABCDEFGHIJKLMNOPQRSTUVWXYZ');
+done_testing();
+
+__END__
+
+=={{header|Perl}}==
+<lang perl>for $i (0..2**8-1) {
+    $c = chr($i);
+    $lower .= $c if $c =~ /[[:lower:]]/;
+    $upper .= $c if $c =~ /[[:upper:]]/;
+}
+
+print "$lower\n";
+print "$upper\n";</lang>
+{{out}}
+<pre>abcdefghijklmnopqrstuvwxyz
+ABCDEFGHIJKLMNOPQRSTUVWXYZ</pre>
