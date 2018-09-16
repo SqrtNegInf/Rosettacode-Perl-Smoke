@@ -1,49 +1,53 @@
 #!/usr/local/bin/perl
-#u# http://rosettacode.org/wiki/xx
-#c# 2018-09-0x >RC
+#u# http://rosettacode.org/wiki/Loops_with_multiple_ranges
+#c# 2018-09-15 >RC
 #p# OK
 
 use feature 'say';
-my $result;
-# my @res;
 
-#my $j = flat
-#        -three  to       3**3  by  three ,
-#        -seven  to      seven  by      x ,
-#           555  to   (550 - y)           ,
-#            22  to        -28  by -three ,
-#          1927  to       1939            ,
-#             x  to          y  by      z ,
-#         11**x  to (11**x+one);
+use constant   one =>  1;
+use constant three =>  3;
+use constant seven =>  7;
+use constant     x =>  5;
+use constant    yy => -5; # 'y' conflicts with use as equivalent to 'tr' operator (a carry-over from 'sed')
+use constant     z => -2;
 
+my $prod = 1;
+
+sub from_to_by {
+    my($begin,$end,$skip) = @_;
+    my $n = 0;
+    grep{ !($n++ % abs $skip) } $begin <= $end ? $begin..$end : reverse $end..$begin;
+}
+
+sub commatize {
+    (my $s = reverse shift) =~ s/(.{3})/$1,/g;
+    $s =~ s/,(-?)$/$1/;
+    $s = reverse $s;
+}
+
+for my $j (
+    from_to_by(-three,3**3,three),
+    from_to_by(-seven,seven,x),
+    555 .. 550 - yy, 
+    from_to_by(22,-28,-three),
+    1927 .. 1939,
+    from_to_by(x,yy,z),
+    11**x .. 11**x+one,
+   ) {
+     $sum  += abs($j);
+     $prod *= $j if $j and abs($prod) < 2**27;
+}
+
+$result .= sprintf "%-8s %12s\n", 'Sum:',     commatize $sum;
+$result .= sprintf "%-8s %12s\n", 'Product:', commatize $prod;
 say $result; 
-#say $result = join "\n", @res;
+
 my $ref = <<'EOD';
-j sequence: -3 0 3 6 9 12 15 18 21 24 27 -7 -2 3 555 22 19 16 13 10 7 4 1 -2 -5 -8 -11 -14 -17 -20 -23 -26 1927 1928 1929 1930 1931 1932 1933 1934 1935 1936 1937 1938 1939 5 3 1 -1 -3 -5 161051 161052
-       Sum: 348,173
-   Product: -793,618,560
+Sum:          348,173
+Product: -793,618,560
 EOD
 
 use Test::More;
-#is ($result, $ref);
-#done_testing();
-sub range_by {
-    my($begin,$end,$skip) = @_;
-}
-
-
-sub c_ins {
-    my($s,$by,$sep) = @_;
-    $s = reverse $s;
-    $s =~ s/(.3)/$1,/g;
-    $s =~ s/,$//;
-    return reverse $s;
-}
-
-__END__
-
-=={{header|Perl}}==
-{{trans|Perl 6}}
-<lang perl></lang>
-{{out}}
-<pre></pre>
+is ($result, $ref);
+done_testing();
