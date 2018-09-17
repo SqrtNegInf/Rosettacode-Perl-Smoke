@@ -1,7 +1,7 @@
 #!/usr/local/bin/perl
 #u# http://rosettacode.org/wiki/Word_break_problem
-#c# 2018-09-10 >RC
-#p# OK
+#c# 2018-xx-xx >RC
+#p# BROKEN
 
 use feature 'say';
 
