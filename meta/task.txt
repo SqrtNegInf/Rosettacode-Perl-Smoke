@@ -1,17 +1,17 @@
 
 This is perl 5, version 28, subversion 0 (v5.28.0) built for darwin-thread-multi-2level
 updating from RC…
-+------------> Perl: Good/Bad [958/12]
++------------> Perl: Good/Bad [959/14]
 |+-----------> smOke testing [822]
 ||+----------> sKipping validation [141]
 |||+---------> Interactive [51]
-||||+--------> Touched (modified by me) [101]
-|||||+-------> Random seed [70]
+||||+--------> Touched (modified by me) [103]
+|||||+-------> Random seed [71]
 ||||||+------> File output [37]
 |||||||+-----> Draft [235]
 ||||||||+----> Ignoring [37]
-|||||||||+---> Void (no local copy) [284]
-||||||||||+--> Un-implemented/reliable [267]
+|||||||||+---> Void (no local copy) [283]
+||||||||||+--> Un-implemented/reliable [265]
 |||||||||||
 GO......... 100_doors-1
 GO......... 100_doors-2
@@ -51,7 +51,7 @@ GO......... Ackermann_function-4
 GO......... Ackermann_function-5
 ........XV. Active_Directory_Connect
 .........VU Active_Directory_Search_for_a_user
-!O......... Active_object
+GO......... Active_object
 GO......... Add_a_variable_to_a_class_instance_at_runtime
 .......D.VU Addition-chain_exponentiation
 .......D.VU Addition_chains
@@ -539,8 +539,8 @@ GO......... IBAN
 GO......... I_before_E_except_after_C-1
 GO......... I_before_E_except_after_C-2
 GO......... Identity_matrix
-GO..T..D..U Idiomatically_determine_all_the_characters_that_can_be_used_for_symbols
-GO..T..D..U Idiomatically_determine_all_the_lowercase_and_uppercase_letters
+GO..T..D... Idiomatically_determine_all_the_characters_that_can_be_used_for_symbols
+GO..T..D... Idiomatically_determine_all_the_lowercase_and_uppercase_letters
 .........VU Image_convolution
 .........VU Image_noise
 .......D.VU Imaginary_base_numbers
@@ -646,6 +646,7 @@ G.K........ Loops_Infinite
 GO......... Loops_N_plus_one_half
 GO...R..... Loops_Nested
 GO......... Loops_While
+B...T.....U Loops_Wrong_ranges
 GO..T..D... Loops_with_multiple_ranges
 GO......... Lucas-Lehmer_test-1
 G.K........ Lucas-Lehmer_test-2
@@ -1090,7 +1091,7 @@ G.K........ Start_from_a_main_routine
 .......D.VU Starting_a_web_browser
 GO......... State_name_puzzle
 GO...R..... Statistics_Basic
-.........VU Statistics_Normal_distribution
+GO..TR..... Statistics_Normal_distribution
 GO..T...... Stem-and-leaf_plot
 GO......... Stern-Brocot_sequence-1
 GO......... Stern-Brocot_sequence-2
@@ -1251,7 +1252,7 @@ GO.....D... Welch%27s_t-test-2
 G.KI....... Window_creation_X11
 G.KI....... Window_management
 GO......... Wireworld
-GO..T..D..U Word_break_problem
+B...T..D..U Word_break_problem
 GO..T..D... Word_count
 .........VU Word_search
 GO......... Word_wrap
