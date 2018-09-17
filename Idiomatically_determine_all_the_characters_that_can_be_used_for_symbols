@@ -1,67 +1,45 @@
 #!/usr/local/bin/perl
 #u# http://rosettacode.org/wiki/Idiomatically_determine_all_the_characters_that_can_be_used_for_symbols
-#n# nocode
-#c# 2018-09-15 >RC
+#c# 2018-09-16 >RC
 #p# OK
-#n# it's child's play really...
+#n# version on RC is cleaner!
 
 use feature 'say';
 
 use warnings;
 use utf8;
-use experimentals;
+binmode STDOUT, "utf8:";
+#use experimentals;
 
-my $id_pattern = qr/
-    (?(DEFINE)
-            (?<variable>
-                    (?&sigil)
-                    (?:
-                                    (?&normal_identifier)
-                            |   \{ \s* (?&normal_identifier) \s* \}
-                    )
-            )
-            (?<normal_identifier>
-                    (?: :: )* '?
-                      (?&basic_identifier)
-                      (?: (?= (?: :: )+ '? | (?: :: )* ' ) (?&normal_identifier) )?
-                    (?: :: )*
-            )
-            (?<basic_identifier>
-                # is use utf8 on?
-                    (?(?{ (caller(0))[8] & $utf8::hint_bits })
-                            (?&Perl_XIDS) (?&Perl_XIDC)*
-                        | (?aa) (?!\d) \w+
-                    )
-            )
-            (?<sigil> [&*\$\@\%])
-            (?<Perl_XIDS> (?[ ( \p{Word} & \p{XID_Start} ) + [_] ]) )
-            (?<Perl_XIDC> (?[ \p{Word} & \p{XID_Continue} ]) )
-    )
-  /x;
+# any word character in the ASCII range, as long as the first character is not a digit.
+my $plain = qr/^(?aa) (?!\d) \w+ $/x;
+for $i (0..0x7f) {
+    $c = chr($i);
+    $allowed .= $c if $c =~ /\w/;
+}
 
-#for $t (qw<foo _foo 1foo _>) {
-#    say "good: $t" if $t =~ /$id_pattern/;
-#}
+say $allowed;
 
-# $::::'foo and $foo::'bar are legal, but $::'::foo and $foo'::bar
-#  $'foo and $foo'bar are legal, but $foo'bar' is not.
-$x = q{$foo'bar'};
-say $x; 
-say 'good 1' if q{$foo'::bar} =~ /$id_pattern/;
-
-#say $result; 
-#say $result = join "\n", @res;
-my $ref = <<'EOD';
-EOD
+#my $candidate = '鲜';
+#say 'OK ' if $candidate =~ / (?[ ( \p{Word} & \p{XID_Start} ) + [_] ]) (?[ ( \p{Word} & \p{XID_Continue} ) ]) * /x;
+#my $鲜 = 42; say "The answer is: $鲜";
 
 use Test::More;
-#is ($result, $ref);
-#done_testing();
+is($allowed,'0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZ_abcdefghijklmnopqrstuvwxyz');
+done_testing();
 
-__END__
+exit;
 
-=={{header|Perl}}==
-{{trans|Perl 6}}
-<lang perl></lang>
-{{out}}
-<pre  style="height:35ex"></pre>
+for (0..0x1ffff) {
+    $c = chr($_);
+    print $c if $c =~ /\p{Word}/;
+}
+
+# super slow
+for (0x20..0x1ffff) {
+    my $hash = charprops_all($_);
+    printf "%4x %s\n", $_, $hash->{'Name'} || $hash->{'Unicode_1_Name'};
+    next unless $hash->{'White_Space'} =~ /Yes/ or $hash->{'Pattern_White_Space'} =~ /Yes/;
+    say "WS!!";
+    printf "%4x %s\n", $_, $hash->{'Name'} || $hash->{'Unicode_1_Name'};
+}
