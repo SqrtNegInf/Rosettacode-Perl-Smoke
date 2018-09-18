@@ -1,11 +1,9 @@
 #!/usr/local/bin/perl
 #u# http://rosettacode.org/wiki/Loops/Wrong_ranges
-#c# 2018-09-17 >RC
-#p# BROKEN
+#c# 2018-09-16 >RC
+#p# OK
 
 use feature 'say';
-my $result;
-# my @res;
 
 for $i (
      [ -2,    2,    1], # Normal
@@ -14,6 +12,7 @@ for $i (
      [ -2,    2,   10], # First increment is beyond stop value
      [  2,   -2,    1], # Start more than stop: positive increment
      [  2,    2,    1], # Start equal stop: positive increment
+     [  2,    2,   -1], # Start equal stop: negative increment
      [  2,    2,    0], # Start equal stop: zero increment
      [  0,    0,    0], # Start equal stop equal zero: zero increment
 ) {
@@ -27,23 +26,10 @@ sub gen_seq {
     my($start,$stop,$increment) = @_;
     $n = 0;
     return sub { 
-        $term = $start;
-        while ($term <= $stop) {
-        $term = $start + $n++ * $increment;
-        return $term;
-        }
-    };
-}
-
-sub gen_seqx {
-    my($start,$stop,$increment) = @_;
-    $n = 0;
-    return sub { 
         $term = $start + $n++ * $increment;
         return $term > $stop ? '' : $term;
     }
 }
-
 
 say $result;
 
@@ -54,6 +40,7 @@ start:  -2  stop:   2  incr:  -1 |   -2  -3  -4  -5  -6  -7  -8  -9 -10 -11
 start:  -2  stop:   2  incr:  10 |   -2                                    
 start:   2  stop:  -2  incr:   1 |                                         
 start:   2  stop:   2  incr:   1 |    2                                    
+start:   2  stop:   2  incr:  -1 |    2   1   0  -1  -2  -3  -4  -5  -6  -7
 start:   2  stop:   2  incr:   0 |    2   2   2   2   2   2   2   2   2   2
 start:   0  stop:   0  incr:   0 |    0   0   0   0   0   0   0   0   0   0
 EOD
@@ -61,11 +48,3 @@ EOD
 use Test::More;
 is ($result, $ref);
 done_testing();
-
-__END__
-
-=={{header|Perl}}==
-{{trans|Perl 6}}
-<lang perl></lang>
-{{out}}
-<pre  style="height:35ex"></pre>
