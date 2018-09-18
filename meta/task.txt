@@ -1,17 +1,17 @@
 
 This is perl 5, version 28, subversion 0 (v5.28.0) built for darwin-thread-multi-2level
 updating from RC…
-+------------> Perl: Good/Bad [959/14]
-|+-----------> smOke testing [822]
++------------> Perl: Good/Bad [962/14]
+|+-----------> smOke testing [825]
 ||+----------> sKipping validation [141]
 |||+---------> Interactive [51]
-||||+--------> Touched (modified by me) [103]
+||||+--------> Touched (modified by me) [106]
 |||||+-------> Random seed [71]
 ||||||+------> File output [37]
 |||||||+-----> Draft [235]
 ||||||||+----> Ignoring [37]
-|||||||||+---> Void (no local copy) [283]
-||||||||||+--> Un-implemented/reliable [265]
+|||||||||+---> Void (no local copy) [280]
+||||||||||+--> Un-implemented/reliable [263]
 |||||||||||
 GO......... 100_doors-1
 GO......... 100_doors-2
@@ -646,13 +646,13 @@ G.K........ Loops_Infinite
 GO......... Loops_N_plus_one_half
 GO...R..... Loops_Nested
 GO......... Loops_While
-B...T.....U Loops_Wrong_ranges
+GO..T...... Loops_Wrong_ranges
 GO..T..D... Loops_with_multiple_ranges
 GO......... Lucas-Lehmer_test-1
 G.K........ Lucas-Lehmer_test-2
 GO......... Lucas-Lehmer_test-3
 GO......... Lucas-Lehmer_test-4
-.........VU Lucky_and_even_lucky_numbers
+GO..T.....U Lucky_and_even_lucky_numbers
 GO......... Ludic_numbers
 GO......... Luhn_test_of_credit_card_numbers
 GO......... Lychrel_numbers
@@ -1229,7 +1229,7 @@ G.K........ Variables
 GO......... Variadic_function
 GO.....D... Vector
 GO......... Vector_products
-.........VU Verify_distribution_uniformity_Chi-squared_test
+GO..T...... Verify_distribution_uniformity_Chi-squared_test
 GO..TR..... Verify_distribution_uniformity_Naive
 G.KIT..D... Vibrating_rectangles
 ........XVU Video_display_modes
@@ -1275,6 +1275,6 @@ GO......... Zebra_puzzle
 .........VU Zeckendorf_arithmetic
 GO......... Zeckendorf_number_representation
 GO......... Zero_to_the_zero_power
-.........VU Zhang-Suen_thinning_algorithm
+B...T.....U Zhang-Suen_thinning_algorithm
 GO......... Zig-zag_matrix-1
 GO......... Zig-zag_matrix-2
