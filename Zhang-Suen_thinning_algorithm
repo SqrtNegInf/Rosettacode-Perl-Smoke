@@ -1,0 +1,87 @@
+#!/usr/local/bin/perl
+#u# http://rosettacode.org/wiki/xx
+#c# 2018-09-xx >RC
+#p# BROKEN
+
+use feature 'say';
+
+use List::Util qw(sum);
+
+#Takes the original image from a file that may be based on any characters whose low bits are 0 or 1 (which conveniently includes . and #).
+
+
+my @lines = ([.ords X+& 1] for slurp("ref/zhang-suen.txt").lines); # The low bits Just Work.
+my $v = +@lines;
+my $h = +@lines[0];
+my @black = flat @lines.map: *.values;   # Flatten to 1-dimensional.  # DH change
+
+my \p8 = [-h-1, -h+0, -h+1,         # Flatland distances to 8 neighbors.
+           0-1,        0+1,
+           h-1,  h+0,  h+1].[1,2,4,7,6,5,3,0];   # (in cycle order)
+
+# Candidates have 8 neighbors and are known black
+my @cand = grep { @black[$_] }, do
+    for 1..$v-2 X 1..$h-2 -> ($y,$x) { $y*$h + $x }  # DH change
+
+repeat while my @goners1 or my @goners2 {
+    sub seewhite ($w1,$w2) {
+        sub cycles (@neighbors) { sum @neighbors Z< @neighbors[].rotate }
+        sub blacks (@neighbors) { sum @neighbors }
+
+        my @prior = @cand; @cand = ();
+
+        gather for @prior -> \p {
+            my \n = @black[p8 X+ p];
+            if cycles(n) == 1 and 2 <= blacks(n) <= 6 and n[w1].any == 0 and n[w2].any == 0    # => => vim fudge
+                 { take p }
+            else { @cand.push: p }
+        }
+    }
+
+    @goners1 = seewhite (0,2,4), (2,4,6);
+    @black[@goners1] = (0) x *; # ?
+#    say "Ping: {[+] @black} remaining after removing ", @goners1;
+
+    @goners2 = seewhite (0,2,6), (0,4,6);
+    @black[@goners2] = (0) x *; # ?
+#    say "Pong: {[+] @black} remaining after removing ", @goners2;
+}
+
+my @res.push: @black.splice(0,h).join.trans('01' => '.#') while @black;
+.say for @res;
+
+say $result; 
+#say $result = join "\n", @res;
+
+my $ref = qq:to/END/;
+............................................................
+............................................................
+.....#.##########.......................#######.............
+......##........#...................####.......#............
+......#..........#.................##.......................
+......#..........#................#.........................
+......#..........#................#.........................
+......#..........#................#.........................
+......############...............#..........................
+......#..........#...............#..........................
+......#..........#................#.........................
+......#..........#................#.........................
+......#..........#................#.........................
+......#............................##.......................
+......#.............................############............
+........................###..........................###....
+............................................................
+............................................................
+END
+
+use Test::More;
+#is ($result, $ref);
+#done_testing();
+
+__END__
+
+=={{header|Perl}}==
+{{trans|Perl 6}}
+<lang perl></lang>
+{{out}}
+<pre  style="height:35ex"></pre>
