@@ -1,17 +1,17 @@
 
 This is perl 5, version 28, subversion 0 (v5.28.0) built for darwin-thread-multi-2level
 updating from RC…
-+------------> Perl: Good/Bad [962/14]
-|+-----------> smOke testing [825]
++------------> Perl: Good/Bad [963/13]
+|+-----------> smOke testing [827]
 ||+----------> sKipping validation [141]
 |||+---------> Interactive [51]
-||||+--------> Touched (modified by me) [106]
+||||+--------> Touched (modified by me) [107]
 |||||+-------> Random seed [71]
 ||||||+------> File output [37]
 |||||||+-----> Draft [235]
 ||||||||+----> Ignoring [37]
-|||||||||+---> Void (no local copy) [280]
-||||||||||+--> Un-implemented/reliable [263]
+|||||||||+---> Void (no local copy) [279]
+||||||||||+--> Un-implemented/reliable [261]
 |||||||||||
 GO......... 100_doors-1
 GO......... 100_doors-2
@@ -51,7 +51,7 @@ GO......... Ackermann_function-4
 GO......... Ackermann_function-5
 ........XV. Active_Directory_Connect
 .........VU Active_Directory_Search_for_a_user
-GO......... Active_object
+!O......... Active_object
 GO......... Add_a_variable_to_a_class_instance_at_runtime
 .......D.VU Addition-chain_exponentiation
 .......D.VU Addition_chains
@@ -975,7 +975,7 @@ GO......... Scope_modifiers
 GO......... Search_a_list
 GO......... Search_a_list_of_records
 G.K........ Secure_temporary_file
-.......D.VU Selective_File_Copy
+GO..T..D... Selective_File_Copy
 GO......... Self-describing_numbers
 .......D.VU Self-hosting_compiler
 GO..T...... Self-referential_sequence
@@ -1275,6 +1275,6 @@ GO......... Zebra_puzzle
 .........VU Zeckendorf_arithmetic
 GO......... Zeckendorf_number_representation
 GO......... Zero_to_the_zero_power
-B...T.....U Zhang-Suen_thinning_algorithm
+GO..T...... Zhang-Suen_thinning_algorithm
 GO......... Zig-zag_matrix-1
 GO......... Zig-zag_matrix-2
