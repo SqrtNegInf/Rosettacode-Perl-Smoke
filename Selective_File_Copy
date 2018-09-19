@@ -1,0 +1,56 @@
+#!/usr/local/bin/perl
+#u# http://rosettacode.org/wiki/Selective_File_Copy
+#c# 2018-09-18 >RC
+#p# OK
+#n# ref/sfc.dat not same as for Perl 6, pseudo-'Bit' in place of 'Int'
+
+use feature 'say';
+
+my %F = ( # arbitrary and made up record format
+    'field a' => { offset => 0,  length => 5, type => 'Str' },
+    'field b' => { offset => 5,  length => 5, type => 'Str' },
+    'field c' => { offset => 10, length => 4, type => 'Bit' },
+    'field d' => { offset => 14, length => 1, type => 'Str' },
+    'field e' => { offset => 15, length => 5, type => 'Str' }
+);
+ 
+$record_length += $F{$_}{'length'} for keys %F;
+ 
+open $fh, '<', 'ref/sfc.dat' || die;
+ 
+say "Input data as read from file:";
+ 
+while ($n=sysread($fh, $record, $record_length)) {
+    last if $n < $record_length;        
+    for $k (sort keys %F) {
+        if    ($F{$k}{type} eq 'Str') {
+            $result .= sprintf "$k : %s ", $v = substr $record, $F{$k}{offset}, $F{$k}{length};
+            $h{$k} = $v;
+        } elsif ($F{$k}{type} eq 'Bit') {
+            $result .= sprintf "$k : %s ", $v = substr $record, $F{$k}{offset}, $F{$k}{length};
+            $h{$k} = pack("B8",'0011'.$v);
+        }
+    } 
+    $result .= "\n";
+    push @res, sprintf( "%-5s%s%d%5s", $h{'field a'}, $h{'field d'}, $h{'field c'}, 'xxxxx' );
+}
+
+say $result .= join "\n", @res;
+
+my $ref = <<'END';
+field a : A     field b : bbbbB field c : 0001 field d : + field e : d2345 
+field a : AA    field b : bbbBB field c : 0010 field d : + field e : 1d345 
+field a : AAA   field b : bbBBB field c : 0011 field d : + field e : 12d45 
+field a : AAAA  field b : bBBBB field c : 0100 field d : - field e : 123d5 
+field a : AAAAA field b : BBBBB field c : 0101 field d : - field e : 1234d 
+A    +1xxxxx
+AA   +2xxxxx
+AAA  +3xxxxx
+AAAA -4xxxxx
+AAAAA-5xxxxx
+END
+
+use Test::More;
+chop $ref;
+is ($result, $ref);
+done_testing();
