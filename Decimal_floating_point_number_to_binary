@@ -1,0 +1,42 @@
+#!/usr/local/bin/perl
+#u# http://rosettacode.org/wiki/Decimal_floating_point_number_to_binary
+#c# 2018-09-19 >RC
+#p# BROKEN
+
+use feature 'say';
+
+#is 23.34375.base(2),    10111.01011;
+#                     11010111.0110000010
+#                         is :2("1011.11101").base(10), 11.90625;
+#ossitive binary: 0000000000000001011.1110010000010
+
+# 1110110000010.11     110010000010.101
+
+
+my @array = (2334375, 1190625);
+#my @array = (0.1, 1, 10);
+
+foreach $_ (@array){
+    print "Value: $_ is possitive\n";
+    my $possitive_b = dec2bin($_,32,"f");
+    print "Possitive binary: ".$possitive_b."\n";
+    my $possitive_d = bin2dec($possitive_b,32,"f");
+    print "Possitive_binary back to decimal: ".$possitive_d."\n";
+}
+
+sub dec2bin {
+    my $bits     = shift;
+    my $size     = shift;
+    my $template = shift;
+    my $str = unpack("b$size", pack($template, $bits));
+    #print "Substring: ".$str."\n";
+    return $str;
+}
+
+sub bin2dec {
+    my $bits     = shift;
+    my $size     = shift;
+    my $template = shift;
+    return unpack($template, pack("b$size", substr("0" x $size . $bits, -$size)));
+}
+
