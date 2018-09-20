@@ -1,7 +1,7 @@
 #!/usr/local/bin/perl
 #u# http://rosettacode.org/wiki/Topological_sort_Extracted_top_item
-#c# 2018-09-0x >RC
-#p# OK
+#c# 2018-09-xx >RC
+#p# BROKEN
 
 use Data::Dumper;
 use feature 'say';
