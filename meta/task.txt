@@ -1,17 +1,17 @@
 
 This is perl 5, version 28, subversion 0 (v5.28.0) built for darwin-thread-multi-2level
 updating from RC…
-+------------> Perl: Good/Bad [965/16]
-|+-----------> smOke testing [827]
-||+----------> sKipping validation [141]
-|||+---------> Interactive [51]
-||||+--------> Touched (modified by me) [110]
++------------> Perl: Good/Bad [967/15]
+|+-----------> smOke testing [829]
+||+----------> sKipping validation [142]
+|||+---------> Interactive [52]
+||||+--------> Touched (modified by me) [112]
 |||||+-------> Random seed [71]
 ||||||+------> File output [37]
 |||||||+-----> Draft [235]
 ||||||||+----> Ignoring [35]
-|||||||||+---> Void (no local copy) [277]
-||||||||||+--> Un-implemented/reliable [260]
+|||||||||+---> Void (no local copy) [275]
+||||||||||+--> Un-implemented/reliable [258]
 |||||||||||
 GO......... 100_doors-1
 GO......... 100_doors-2
@@ -51,7 +51,7 @@ GO......... Ackermann_function-4
 GO......... Ackermann_function-5
 ........XV. Active_Directory_Connect
 .........VU Active_Directory_Search_for_a_user
-GO......... Active_object
+!O......... Active_object
 GO......... Add_a_variable_to_a_class_instance_at_runtime
 .......D.VU Addition-chain_exponentiation
 .......D.VU Addition_chains
@@ -736,7 +736,7 @@ GO.....D... Names_to_numbers
 GO......... Narcissistic_decimal_number
 GO.....D... Native_shebang
 GO......... Natural_sorting
-.........VU Nautical_bell
+G.KIT.....U Nautical_bell
 .........VU Negative_base_numbers
 GO......... Nested_function
 .........VU Nested_templated_data
@@ -871,7 +871,7 @@ B.......... Prime_decomposition-4
 GO......... Primorial_numbers
 GO......... Priority_queue
 GO...R..... Probabilistic_choice
-.........VU Problem_of_Apollonius
+GO..T...... Problem_of_Apollonius
 .......D.VU Process_SMIL_directives_in_XML_data
 GO......... Program_name
 G.K........ Program_termination
@@ -1257,7 +1257,7 @@ B...T..D..U Word_break_problem
 GO..T..D... Word_count
 .........VU Word_search
 GO......... Word_wrap
-B...T.....U World_Cup_group_stage
+GO..T...... World_Cup_group_stage
 GO....F.... Write_entire_file
 GO....F.... Write_float_arrays_to_a_text_file-1
 GO....F.... Write_float_arrays_to_a_text_file-2
