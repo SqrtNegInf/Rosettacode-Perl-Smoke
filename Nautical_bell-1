@@ -3,11 +3,14 @@
 #t# interactive
 #c# 2018-09-20 >RC
 #p# OK
+#n# this version on RC
 
 use feature 'say';
 
 use utf8;
 binmode STDOUT, ":utf8";
+
+$| = 1; # to prevent output buffering
 
 use DateTime;
 
@@ -26,21 +29,19 @@ while () {
     }
     printf "%s%02d:%02d:%02d", "\r", $utc->hour, $utc->minute, $utc->second;
     sleep(1);
-    print "\n";
 }
 
 sub bell {
     my($hour, $minute) = @_;
 
     my $bells = (($hour % 4) * 2 + int $minute/30) || 8;
-
     printf "%s%02d:%02d%9s watch,%6s Bell%s Gone: \t", "\b" x 9, $hour, $minute,
       $watch[(int($hour/4) - (0==($minute + $hour % 4)) + 6) % 6],
       $ordinal[$bells - 1], $bells == 1 ? '' : 's';
-
     chime($bells);
+}
 
-    sub chime { 
+sub chime {
     my($count) = shift;
 	for (1..int($count/2)) {
 		print "\a♫ ";
@@ -54,4 +55,3 @@ sub bell {
         }
         print "\n";
     }
-}
