@@ -1,0 +1,55 @@
+#!/usr/local/bin/perl
+#u# http://rosettacode.org/wiki/Hough_transform
+#c# 2018-09-xx >RC
+#p# BROKEN
+#f# RC file: pentagon.png
+
+use feature 'say';
+
+use Imager;
+ 
+sub hough {
+    my($im)     = shift;
+    my($width)  = shift || 460;
+    my($height) = shift || 360;
+ 
+    $height = 2 * int $height/2;
+ 
+    $xsize = $im.getwidth;
+    $ysize = $im.getheight;
+ 
+    $ht = Imager->new(width = $xsize, height = $ysize);
+    $canvas = height.of { width.of(255) }
+ 
+    $ht.box(filled => true, color => 'white');
+ 
+    $rmax = hypot($xsize, $ysize);
+    $dr   = 2*($rmax / $height);
+    $dth  = (3.141593 / $width);
+ 
+    for y,x in (^ysize ~X ^xsize) {
+        $col = im.getpixel(x => $x, y => $y);
+        ($r,$g,$b) = col.rgba;
+        next if $r==255 && $g==255 && $b==255;
+        for $k (0..$width) {
+            $th = $dth*$k
+            $r = ($x*cos($th) + $y*sin($th))
+            $iry = ($height/2 + int($r/$dr + 0.5))
+            $ht.setpixel(x => $k, y => $iry, color => 3.of(--canvas[$iry][$k]))
+        }
+    }
+ 
+    return $ht;
+}
+ 
+$img = Imager->new(file => 'run/pentagon.png')
+$ht = hough(img)
+$ht.write(file => 'Hough transform.png')
+
+__END__
+
+=={{header|Perl}}==
+{{trans|Perl 6}}
+<lang perl></lang>
+{{out}}
+<pre  style="height:35ex"></pre>
