@@ -1,0 +1,27 @@
+#!/usr/local/bin/perl
+#u# http://rosettacode.org/wiki/RC_REMOTE
+#c# 2018-RC-RC >RC
+#p# OK
+
+use feature 'say';
+my $result;
+# my @res;
+
+# ~/perl6/Rosetta-Code/RC_LOCAL
+
+say $result; 
+#say $result = join "\n", @res;
+my $ref = <<'EOD';
+EOD
+
+use Test::More;
+#is ($result, $ref);
+#done_testing();
+
+__END__
+
+=={{header|Perl}}==
+{{trans|Perl 6}}
+<lang perl></lang>
+{{out}}
+<pre  style="height:35ex"></pre>
