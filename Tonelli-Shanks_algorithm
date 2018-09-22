@@ -1,0 +1,102 @@
+#!/usr/local/bin/perl
+#u# http://rosettacode.org/wiki/Tonelli-Shanks_algorithm
+#c# 2018-09-21 >RC
+#p# OK
+
+use feature 'say';
+
+use bigint;
+use ntheory qw(is_prime powmod kronecker);
+
+#  Legendre operator (n│p) -- this works, but can use 'kronecker' too
+sub Legendre {
+    my($n,$p) = @_;
+    return -1 unless $p != 2 && is_prime($p);
+    my $x = powmod($n, int(($p-1)/2), $p );
+    if    ($x==0) { return  0 }
+    elsif ($x==1) { return  1 }
+    else          { return -1 }
+}
+ 
+sub tonelli_shanks {
+    my($n,$p) = @_;
+    return if kronecker($n,$p) <= 0;
+    #return if Legendre($n,$p) <= 0;
+    my $Q = $p - 1;
+    my $S = 0;
+    $Q >>= 1 and $S++ while 0 == $Q%2;
+    return powmod($n,int(($p+1)/4), $p) if $S == 1;
+
+    my $c;
+    for $n (2..$p) {
+        next if kronecker($n,$p) >= 0;
+        #next if Legendre($n,$p) >= 0;
+        $c = powmod($n, $Q, $p);
+        last;
+    }
+
+    my $R = powmod($n, ($Q+1) >> 1, $p ); # ?
+    my $t = powmod($n, $Q, $p );
+    while (($t-1) % $p) {
+        my $b;
+        my $t2 = $t**2 % $p;
+        for (1 .. $S) {
+            if (0 == ($t2-1)%$p) {
+                $b = powmod($c, 1 << ($S-1-$_), $p); # ?
+                $S = $_;
+                last;
+            }
+            $t2 = $t2**2 % $p;
+        }
+        $R = ($R * $b) % $p;
+        $c = $b**2 % $p;
+        $t = ($t * $c) % $p;
+    }
+    $R;
+}
+ 
+my @tests = (
+    (10, 13),
+    (56, 101),
+    (1030, 10009),
+    (1032, 10009),
+    (44402, 100049),
+    (665820697, 1000000009),
+    (881398088036, 1000000000039),
+);
+#   (41660815127637347468140745042827704103445750172002, 100000000000000000000000000000000000000000000000577) # no go...
+ 
+while (@tests) {
+    $n = shift @tests;
+    $p = shift @tests;
+    my $t = tonelli_shanks($n, $p);
+    if (!$t or ($t**2 - $n) % $p) {
+        $result .= sprintf "No solution for (%d, %d)\n", $n, $p;
+    } else { 
+        $result .= sprintf "Roots of %d are (%d, %d) mod %d\n", $n, $t, $p-$t, $p;
+    }
+}
+say $result;
+
+my $ref = <<'END';
+Roots of 10 are (7, 6) mod 13
+Roots of 56 are (37, 64) mod 101
+Roots of 1030 are (1632, 8377) mod 10009
+No solution for (1032, 10009)
+Roots of 44402 are (30468, 69581) mod 100049
+Roots of 665820697 are (378633312, 621366697) mod 1000000009
+Roots of 881398088036 are (791399408049, 208600591990) mod 1000000000039
+END
+#Roots of 41660815127637347468140745042827704103445750172002 are (32102985369940620849741983987300038903725266634508, 67897014630059379150258016012699961096274733366069) mod 100000000000000000000000000000000000000000000000577
+
+use Test::More;
+is ($result, $ref);
+done_testing();
+
+__END__
+
+=={{header|Perl}}==
+{{trans|Perl 6}}
+<lang perl></lang>
+{{out}}
+<pre></pre>
