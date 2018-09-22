@@ -1,0 +1,100 @@
+#!/usr/local/bin/perl
+#u# http://rosettacode.org/wiki/Cipolla%27s_algorithm
+#c# 2018-09-21 >RC
+#p# OK
+#n# copying Fp class from Perl 6
+
+use feature 'say';
+
+use bigint;
+use ntheory qw(is_prime powmod kronecker);
+
+package Fp;
+
+sub new {
+    my ($class, $args) = @_;
+    my $self = {
+        x => $args->{x},
+        y => $args->{y},
+    };
+    #bless $self, $class;
+}
+
+package main;
+
+#  Legendre operator (n│p) -- this works, but can use 'kronecker' too
+sub Legendre {
+    my($n,$p) = @_;
+    return -1 unless $p != 2 && is_prime($p);
+    my $x = powmod($n, int(($p-1)/2), $p );
+    if    ($x==0) { return  0 }
+    elsif ($x==1) { return  1 }
+    else          { return -1 }
+}
+ 
+sub cipolla {
+    our($n, $p) = @_;
+    return undef if kronecker($n,$p) != 1;
+    our $w2;
+    my $a = 0;
+    while () {
+        $w2 = ($a**2 - $n) % $p;
+        last if kronecker($w2,$p) < 0;
+        $a++;
+    }
+ 
+    # define a local multiply operator for Field coordinates
+    sub Fp_mult {
+        my($a,$b) = @_;
+        Fp->new({ x=>(($a->{x} * $b->{x} + $a->{y} * $b->{y} * $w2) % $p),
+                  y=>(($a->{x} * $b->{y} + $b->{x} * $a->{y})       % $p)})
+    }
+ 
+    my $r = Fp->new({ x=>1,  y=>0});
+    my $s = Fp->new({ x=>$a, y=>1});
+ 
+    my $i = $p+1;
+    while (1 <= ($i >>= 1)) {
+        $r = Fp_mult($r,$s) if $i % 2;
+        $s = Fp_mult($s,$s);
+    }
+    return undef if $r->{y};
+    $r->{x};
+}
+ 
+my @tests = (
+    (10, 13),
+    (56, 101),
+    (8218, 10007),
+    (8219, 10007),
+    (331575, 1000003),
+    (665165880, 1000000007),
+    (881398088036, 1000000000039),
+);
+    #(34035243914635549601583369544560650254325084643201, 100000000000000000000000000000000000000000000000151)
+
+while (@tests) {
+   $n = shift @tests;
+   $p = shift @tests;
+   my $r = cipolla($n, $p);
+   $result .= $r ? sprintf "Roots of %d are (%d, %d) mod %d\n", $n, $r, $p-$r, $p
+                 : "No solution for ($n, $p)\n";
+}
+
+
+my $ref = <<'END';
+Roots of 10 are (6, 7) mod 13
+Roots of 56 are (37, 64) mod 101
+Roots of 8218 are (9872, 135) mod 10007
+No solution for (8219, 10007)
+Roots of 331575 are (855842, 144161) mod 1000003
+Roots of 665165880 are (475131702, 524868305) mod 1000000007
+Roots of 881398088036 are (791399408049, 208600591990) mod 1000000000039
+END
+#Roots of 34035243914635549601583369544560650254325084643201 are (82563118828090362261378993957450213573687113690751, 17436881171909637738621006042549786426312886309400) mod 100000000000000000000000000000000000000000000000151
+
+say $result; 
+
+use Test::More;
+is ($result, $ref);
+done_testing();
