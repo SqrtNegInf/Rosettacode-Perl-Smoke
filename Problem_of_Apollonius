@@ -17,7 +17,7 @@ sub new {
         y => $args->{y},
         r => $args->{r},
     };
-    bless $self, $class;
+    #bless $self, $class;
 }
 
 sub show {
