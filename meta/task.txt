@@ -1,17 +1,17 @@
 
 This is perl 5, version 28, subversion 0 (v5.28.0) built for darwin-thread-multi-2level
 updating from RC…
-+------------> Perl: Good/Bad [967/15]
-|+-----------> smOke testing [829]
++------------> Perl: Good/Bad [974/16]
+|+-----------> smOke testing [834]
 ||+----------> sKipping validation [142]
 |||+---------> Interactive [52]
-||||+--------> Touched (modified by me) [112]
+||||+--------> Touched (modified by me) [118]
 |||||+-------> Random seed [71]
-||||||+------> File output [37]
-|||||||+-----> Draft [235]
+||||||+------> File output [38]
+|||||||+-----> Draft [237]
 ||||||||+----> Ignoring [35]
-|||||||||+---> Void (no local copy) [275]
-||||||||||+--> Un-implemented/reliable [258]
+|||||||||+---> Void (no local copy) [270]
+||||||||||+--> Un-implemented/reliable [256]
 |||||||||||
 GO......... 100_doors-1
 GO......... 100_doors-2
@@ -51,7 +51,7 @@ GO......... Ackermann_function-4
 GO......... Ackermann_function-5
 ........XV. Active_Directory_Connect
 .........VU Active_Directory_Search_for_a_user
-!O......... Active_object
+GO......... Active_object
 GO......... Add_a_variable_to_a_class_instance_at_runtime
 .......D.VU Addition-chain_exponentiation
 .......D.VU Addition_chains
@@ -207,7 +207,9 @@ GO..T...... Chinese_remainder_theorem
 GO......... Chinese_zodiac
 GO......... Cholesky_decomposition
 .........VU Church_Numerals
-.......D.VU Cipolla%27s_algorithm
+.......D..U Cipolla%27s_algorithm
+GO..T..D... Cipolla%27s_algorithm-1
+GO..T..D... Cipolla%27s_algorithm-2
 GO......... Circles_of_given_radius_through_two_points
 G.K........ Classes
 GO..TR..... Closest-pair_problem
@@ -528,7 +530,7 @@ GO......... Horner%27s_rule_for_polynomial_evaluation-2
 GO......... Horner%27s_rule_for_polynomial_evaluation-3
 GO......... Host_introspection
 GO......... Hostname
-.........VU Hough_transform
+B...T.F...U Hough_transform
 GO......... Huffman_coding
 .........VU Hunt_The_Wumpus
 .......D.VU I%27m_a_software_engineer,_get_me_out_of_here
@@ -736,7 +738,8 @@ GO.....D... Names_to_numbers
 GO......... Narcissistic_decimal_number
 GO.....D... Native_shebang
 GO......... Natural_sorting
-G.KIT.....U Nautical_bell
+G.KIT...... Nautical_bell-1
+GO......... Nautical_bell-2
 .........VU Negative_base_numbers
 GO......... Nested_function
 .........VU Nested_templated_data
@@ -984,7 +987,7 @@ GO......... Semiprime
 GO......... Semordnilap
 GO......... Send_an_unknown_method_call
 G.K........ Send_email
-.......D.VU Separate_the_house_number_from_the_street_name
+G...T..D..U Separate_the_house_number_from_the_street_name
 GO......... Sequence_of_non-squares
 GO......... Sequence_of_primes_by_trial_division
 GO......... Sequence_of_primorial_primes
@@ -1047,7 +1050,7 @@ GO..T..D... Sort_numbers_lexicographically
 G.K........ Sort_stability
 GO..T...... Sort_three_variables
 GO......... Sort_using_a_custom_comparator
-.......D.VU Sorting_Algorithms_Circle_Sort
+GO..T..D... Sorting_Algorithms_Circle_Sort
 GO...R..... Sorting_algorithms_Bead_sort
 GO...R..... Sorting_algorithms_Bogosort
 GO...R..... Sorting_algorithms_Bubble_sort
@@ -1177,7 +1180,7 @@ G.KI....... Tic-tac-toe
 G.K........ Time_a_function
 GO......... Tokenize_a_string
 GO......... Tokenize_a_string_with_escaping
-.......D.VU Tonelli-Shanks_algorithm
+GO..T..D..U Tonelli-Shanks_algorithm
 GO..T...... Top_rank_per_group
 G.K........ Topic_variable
 GO......... Topological_sort
