@@ -1,0 +1,63 @@
+#!/usr/local/bin/perl
+#u# http://rosettacode.org/wiki/Ramsey's_theorem
+#c# 2018-09-22 >RC
+#p# OK
+
+use feature 'say';
+
+use ntheory qw(forcomb);
+use Math::Cartesian::Product;
+
+$n = 17;
+push @a, [(0) x $n] for 0..$n-1;
+$a[$_][$_] = '-' for 0..$n-1;
+
+for $x (cartesian {@_} [(0..$n-1)], [(1,2,4,8)]) {
+    $i = @$x[0];
+    $k = @$x[1];
+    $j = ($i + $k) % $n;
+    $a[$i][$j] = $a[$j][$i] = 1;
+}
+
+forcomb {
+    my $l = 0;
+    @i = @_;
+    forcomb { $l += $a[ $i[$_[0]] ][ $i[$_[1]] ]; } (4,2);
+    die "Bogus!" unless 0 < $l and $l < 6;
+} ($n,4);
+
+$result .= join(' ' ,@$_) . "\n" for @a;
+say $result;
+
+my $ref = <<'EOD';
+- 1 1 0 1 0 0 0 1 1 0 0 0 1 0 1 1
+1 - 1 1 0 1 0 0 0 1 1 0 0 0 1 0 1
+1 1 - 1 1 0 1 0 0 0 1 1 0 0 0 1 0
+0 1 1 - 1 1 0 1 0 0 0 1 1 0 0 0 1
+1 0 1 1 - 1 1 0 1 0 0 0 1 1 0 0 0
+0 1 0 1 1 - 1 1 0 1 0 0 0 1 1 0 0
+0 0 1 0 1 1 - 1 1 0 1 0 0 0 1 1 0
+0 0 0 1 0 1 1 - 1 1 0 1 0 0 0 1 1
+1 0 0 0 1 0 1 1 - 1 1 0 1 0 0 0 1
+1 1 0 0 0 1 0 1 1 - 1 1 0 1 0 0 0
+0 1 1 0 0 0 1 0 1 1 - 1 1 0 1 0 0
+0 0 1 1 0 0 0 1 0 1 1 - 1 1 0 1 0
+0 0 0 1 1 0 0 0 1 0 1 1 - 1 1 0 1
+1 0 0 0 1 1 0 0 0 1 0 1 1 - 1 1 0
+0 1 0 0 0 1 1 0 0 0 1 0 1 1 - 1 1
+1 0 1 0 0 0 1 1 0 0 0 1 0 1 1 - 1
+1 1 0 1 0 0 0 1 1 0 0 0 1 0 1 1 -
+EOD
+
+use Test::More;
+is ($result, $ref);
+done_testing();
+
+__END__
+
+=={{header|Perl}}==
+{{trans|Perl 6}}
+<lang perl>
+print join(' ' ,@$_) . "\n" for @a</lang>
+{{out}}
+<pre  style="height:35ex"></pre>
