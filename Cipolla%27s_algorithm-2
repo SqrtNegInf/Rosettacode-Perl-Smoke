@@ -20,10 +20,10 @@ sub Legendre {
 }
 
 sub Cipolla {
-    our($n, $p) = @_;
+    my($n, $p) = @_;
     return undef if Legendre($n,$p) != 1;
 
-    our $w2;
+    my $w2;
     my $a = 0;
     $a++ until Legendre(($w2 = ($a**2 - $n) % $p), $p) < 0;
 
@@ -38,8 +38,7 @@ sub Cipolla {
                y => (($s{x} * $s{y} + $s{x} * $s{y})       % $p)
              )
     }
-    return undef if $r{y};
-    $r{x};
+    $r{y} ?  undef : $r{x};
 }
 
 my @tests = (
