@@ -1,14 +1,33 @@
 #!/usr/local/bin/perl
-#u# http://rosettacode.org/wiki/RC_REMOTE
-#c# 2018-RC-RC >RC
+#u# http://rosettacode.org/wiki/Separate_the_house_number_from_the_street_name
+#c# 2018-09-xx >RC
 #p# OK
 
 use feature 'say';
-my $result;
-# my @res;
 
-# ~/perl6/Rosetta-Code/RC_LOCAL
+{
+m[
+    ( .*? )
+ 
+    [
+        \s+
+        (
+        | \d+ [ \- | \/ ] \d+
+        | <!before 1940 | 1945> \d+ <[ a..z I . / \x20 ]>* \d*
+        )
+    ]?
+ 
+    $
+]; @res.push: [$0, $1] } for slurp("ref/house-numbers.txt").lines;
 
+say @res.gist;
+
+my $ref = <<'END';
+[[｢Plataanstraat｣ ｢5｣] [｢Straat｣ ｢12｣] [｢Straat｣ ｢12 II｣] [｢Dr. J. Straat｣ ｢12｣] [｢Dr. J. Straat｣ ｢12 a｣] [｢Dr. J. Straat｣ ｢12-14｣] [｢Laan 1940 – 1945｣ ｢37｣] [｢Plein 1940｣ ｢2｣] [｢1213-laan｣ ｢11｣] [｢16 april 1944 Pad｣ ｢1｣] [｢1e Kruisweg｣ ｢36｣] [｢Laan 1940-’45｣ ｢66｣] [｢Laan ’40-’45｣ (Any)] [｢Langeloërduinen｣ ｢3 46｣] [｢Marienwaerdt 2e Dreef｣ ｢2｣] [｢Provincialeweg N205｣ ｢1｣] [｢Rivium 2e Straat｣ ｢59.｣] [｢Nieuwe gracht｣ ｢20rd｣] [｢Nieuwe gracht｣ ｢20rd 2｣] [｢Nieuwe gracht｣ ｢20zw /2｣] [｢Nieuwe gracht｣ ｢20zw/3｣] [｢Nieuwe gracht｣ ｢20 zw/4｣] [｢Bahnhofstr.｣ ｢4｣] [｢Wertstr.｣ ｢10｣] [｢Lindenhof｣ ｢1｣] [｢Nordesch｣ ｢20｣] [｢Weilstr.｣ ｢6｣] [｢Harthauer Weg｣ ｢2｣] [｢Mainaustr.｣ ｢49｣] [｢August-Horch-Str.｣ ｢3｣] [｢Marktplatz｣ ｢31｣] [｢Schmidener Weg｣ ｢3｣] [｢Karl-Weysser-Str.｣ ｢6｣]]
+END
+
+use Test;
+is @res.gist, chomp $ref;
 say $result; 
 #say $result = join "\n", @res;
 my $ref = <<'EOD';
