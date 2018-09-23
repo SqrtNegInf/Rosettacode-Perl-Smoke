@@ -1,17 +1,17 @@
 
 This is perl 5, version 28, subversion 0 (v5.28.0) built for darwin-thread-multi-2level
 updating from RC…
-+------------> Perl: Good/Bad [974/16]
-|+-----------> smOke testing [834]
++------------> Perl: Good/Bad [973/16]
+|+-----------> smOke testing [836]
 ||+----------> sKipping validation [142]
 |||+---------> Interactive [52]
-||||+--------> Touched (modified by me) [118]
+||||+--------> Touched (modified by me) [119]
 |||||+-------> Random seed [71]
 ||||||+------> File output [38]
-|||||||+-----> Draft [237]
-||||||||+----> Ignoring [35]
+|||||||+-----> Draft [238]
+||||||||+----> Ignoring [36]
 |||||||||+---> Void (no local copy) [270]
-||||||||||+--> Un-implemented/reliable [256]
+||||||||||+--> Un-implemented/reliable [254]
 |||||||||||
 GO......... 100_doors-1
 GO......... 100_doors-2
@@ -51,7 +51,7 @@ GO......... Ackermann_function-4
 GO......... Ackermann_function-5
 ........XV. Active_Directory_Connect
 .........VU Active_Directory_Search_for_a_user
-GO......... Active_object
+!O......... Active_object
 GO......... Add_a_variable_to_a_class_instance_at_runtime
 .......D.VU Addition-chain_exponentiation
 .......D.VU Addition_chains
@@ -207,7 +207,7 @@ GO..T...... Chinese_remainder_theorem
 GO......... Chinese_zodiac
 GO......... Cholesky_decomposition
 .........VU Church_Numerals
-.......D..U Cipolla%27s_algorithm
+.......D... Cipolla%27s_algorithm
 GO..T..D... Cipolla%27s_algorithm-1
 GO..T..D... Cipolla%27s_algorithm-2
 GO......... Circles_of_given_radius_through_two_points
@@ -610,6 +610,7 @@ GO..T..D... Largest_number_divisible_by_its_digits-1
 GO..T..D... Largest_number_divisible_by_its_digits-2
 GO......... Last_Friday_of_each_month
 GO...R..... Last_letter-first_letter
+.......D.VU Law_of_cosines_-_triples
 GO......... Leap_year
 GO......... Least_common_multiple
 GO......... Left_factorials
@@ -895,7 +896,7 @@ GO......... RIPEMD-160
 .........VU RSA_code
 .......D.VU Railway_circuit
 .........VU Ramer-Douglas-Peucker_line_simplification
-.......D.VU Ramsey%27s_theorem
+GO..T..D... Ramsey%27s_theorem
 G.K........ Random_number_generator_device
 G.K........ Random_number_generator_included
 GO...R..... Random_numbers
@@ -987,7 +988,7 @@ GO......... Semiprime
 GO......... Semordnilap
 GO......... Send_an_unknown_method_call
 G.K........ Send_email
-G...T..D..U Separate_the_house_number_from_the_street_name
+!O..T..D..U Separate_the_house_number_from_the_street_name
 GO......... Sequence_of_non-squares
 GO......... Sequence_of_primes_by_trial_division
 GO......... Sequence_of_primorial_primes
@@ -1072,7 +1073,7 @@ GO......... Sorting_algorithms_Shell_sort
 GO......... Sorting_algorithms_Sleep_sort
 GO......... Sorting_algorithms_Stooge_sort
 GO......... Sorting_algorithms_Strand_sort
-.......D.VU Sorting_algorithms_Tree_sort_on_a_linked_list
+.......DXVU Sorting_algorithms_Tree_sort_on_a_linked_list
 GO......... Soundex
 GO....F.... Sparkline_in_unicode
 G.K........ Special_characters
@@ -1180,7 +1181,7 @@ G.KI....... Tic-tac-toe
 G.K........ Time_a_function
 GO......... Tokenize_a_string
 GO......... Tokenize_a_string_with_escaping
-GO..T..D..U Tonelli-Shanks_algorithm
+GO..T..D... Tonelli-Shanks_algorithm
 GO..T...... Top_rank_per_group
 G.K........ Topic_variable
 GO......... Topological_sort
