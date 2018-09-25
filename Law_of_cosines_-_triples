@@ -1,0 +1,76 @@
+#!/usr/local/bin/perl
+#u# http://rosettacode.org/wiki/Law_of_cosines_-_triples
+#c# 2018-09-24 >RC
+#p# OK
+
+use feature 'say';
+
+use utf8;
+use Set::CrossProduct;
+use Sort::Naturally;
+
+binmode STDOUT, "utf8:";
+
+use strict 'vars';
+
+$| =1;
+
+sub triples {
+    my($n,@angles) = @_;
+    my($r,$b,$ab2,$ab,%sq,%c2,%triples);
+    $sq{$_**2}=1 for 1..$n;
+    my %triples; my %c2;
+    for $a (1..$n) {
+      for $b ($a+1..$n) {
+        $ab2 = $a**2 + $b**2;
+        $ab = $a * $b;
+        $c2{60}  = $ab2 - $ab;
+        $c2{90}  = $ab2;
+        $c2{120} = $ab2 + $ab;
+        for (@angles) {
+            next unless $sq{$c2{$_}};
+            $triples{$_}{join ' ', $a, $b, sqrt($c2{$_}) }++ 
+        }
+      }
+    }
+    %triples;
+}
+
+my $result;
+my $n = 13;
+say "Integer triangular triples for sides 1..$n:";
+my %itt = triples($n, (60, 90, 120));
+for my $angle (sort { $b <=> $a } keys %itt) {
+   $result .= sprintf "Angle %3d° has %2d solutions: %s\n", $angle, scalar keys %{$itt{$angle}},
+        join ', ', nsort keys %{$itt{$angle}};
+}
+
+my %ec = triples(10000,(60));
+my $non_eq;
+for (keys %{$ec{60}}) {
+    my @t = split ' ', $_;
+    $non_eq += 1 unless $t[0] == $t[1] && $t[1] == $t[2];
+}
+$result .= "Non-equilateral n=10000/60°: $non_eq\n";
+
+say $result;
+
+my $ref = <<'EOD';
+Angle 120° has  2 solutions: 3 5 7, 7 8 13
+Angle  90° has  3 solutions: 3 4 5, 6 8 10, 5 12 13
+Angle  60° has 15 solutions: 1 1 1, 2 2 2, 3 3 3, 3 7 8, 4 4 4, 5 5 5, 5 7 8, 6 6 6, 7 7 7, 8 8 8, 9 9 9, 10 10 10, 11 11 11, 12 12 12, 13 13 13
+Non-equilateral n=1000/60°: 18394
+EOD
+
+use Test::More;
+is ($result, $ref);
+done_testing();
+
+__END__
+
+=={{header|Perl}}==
+{{trans|Perl 6}}
+<lang perl></lang>
+{{out}}
+<pre></pre>
+
