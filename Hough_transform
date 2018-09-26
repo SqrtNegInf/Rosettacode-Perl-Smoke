@@ -1,8 +1,8 @@
 #!/usr/local/bin/perl
 #u# http://rosettacode.org/wiki/Hough_transform
-#c# 2018-09-xx >RC
-#p# BROKEN
-#f# RC file: pentagon.png
+#c# 2018-09-25 >RC
+#p# OK
+#f# RC file: hough.png
 
 use feature 'say';
 
@@ -12,44 +12,38 @@ sub hough {
     my($im)     = shift;
     my($width)  = shift || 460;
     my($height) = shift || 360;
+    my(@canvas);
  
     $height = 2 * int $height/2;
  
-    $xsize = $im.getwidth;
-    $ysize = $im.getheight;
+    $xsize = $im->getwidth();
+    $ysize = $im->getheight();
  
-    $ht = Imager->new(width = $xsize, height = $ysize);
-    $canvas = height.of { width.of(255) }
+    $ht = Imager->new(xsize => $width, ysize => $height);
+    for $i (0..$height-1) { for my $j (0..$width-1) { $canvas[$i][$j] = 255 } } 
+
+    $ht->box(filled => 1, color => 'white');
  
-    $ht.box(filled => true, color => 'white');
+    $rmax = sqrt($xsize**2 + $ysize**2);
+    $dr   = 2 * $rmax / $height;
+    $dth  = 3.141593 / $width;
  
-    $rmax = hypot($xsize, $ysize);
-    $dr   = 2*($rmax / $height);
-    $dth  = (3.141593 / $width);
- 
-    for y,x in (^ysize ~X ^xsize) {
-        $col = im.getpixel(x => $x, y => $y);
-        ($r,$g,$b) = col.rgba;
-        next if $r==255 && $g==255 && $b==255;
-        for $k (0..$width) {
-            $th = $dth*$k
-            $r = ($x*cos($th) + $y*sin($th))
-            $iry = ($height/2 + int($r/$dr + 0.5))
-            $ht.setpixel(x => $k, y => $iry, color => 3.of(--canvas[$iry][$k]))
+    for $x (0..$xsize-1) {
+      for $y (0..$ysize-1) {
+        my $col = $im->getpixel(x => $x, y => $y);
+        my($r,$g,$b) = $col->rgba;
+        next if $r==255; # && $g==255 && $b==255;
+        for $k (0..$width-1) {
+            $th = $dth*$k;
+            $r = ($x*cos($th) + $y*sin($th));
+            $iry = ($height/2 + int($r/$dr + 0.5));
+            $ht->setpixel(x => $k, y => $iry, color => [($canvas[$iry][$k]--) x 3]);
         }
+      }
     }
- 
     return $ht;
 }
  
-$img = Imager->new(file => 'run/pentagon.png')
-$ht = hough(img)
-$ht.write(file => 'Hough transform.png')
-
-__END__
-
-=={{header|Perl}}==
-{{trans|Perl 6}}
-<lang perl></lang>
-{{out}}
-<pre  style="height:35ex"></pre>
+$img = Imager->new(file => 'ref/pentagon.png');
+$ht  = hough($img);
+$ht->write(        file => 'run/hough.png');
