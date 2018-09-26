@@ -1,7 +1,7 @@
 #!/usr/local/bin/perl
 #u# http://rosettacode.org/wiki/Separate_the_house_number_from_the_street_name
 #c# 2018-09-xx >RC
-#p# OK
+#p# BROKEN
 
 use feature 'say';
 
