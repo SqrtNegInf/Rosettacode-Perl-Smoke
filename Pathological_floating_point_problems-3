@@ -1,6 +1,6 @@
 #!/usr/local/bin/perl
 #u# http://rosettacode.org/wiki/Pathological_floating_point_problems
-#c# 2016-08-24 
+#c# 2018-08-24 
 #p# OK
 #n# demonstrating that 'bigrat' can be used to solve all three problems
 
