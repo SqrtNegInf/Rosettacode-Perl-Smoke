@@ -1,0 +1,85 @@
+#!/usr/local/bin/perl
+#u# http://rosettacode.org/wiki/Ranking_methods
+#c# 2018-09-26 >RC
+#p# BROKEN
+
+use feature 'say';
+
+use Perl6::GatherTake;
+
+my @scores =
+    Solomon => 44,
+    Jason   => 42,
+    Errol   => 42,
+    Garry   => 41,
+    Bernard => 41,
+    Barry   => 41,
+    Stephen => 39;
+
+sub tiers { 
+    my(@s) = @_;
+#    @s.classify(*.value).pairs.sort.reverse.map: { [.value».key] } 
+}
+
+sub standard {
+    my(@s) = @_;
+    my $rank = 1;
+    gather for tiers @s -> @players {
+	take $rank => @players;
+	$rank += @players;
+    }
+}
+
+sub modified {
+    my(@s) = @_;
+    my $rank = 0;
+    gather for tiers @s -> @players {
+	$rank += @players;
+	take $rank => @players;
+    }
+}
+
+sub dense {
+    my(@s) = @_;
+    tiers(@s).map: { ++$_ => @^players } 
+}
+
+sub ordinal { my @s = @_; @s.map: ++$_ => *.key }
+
+sub fractional {
+    my(@s) = @_;
+    my $rank = 1;
+    gather for tiers @s -> @players {
+	my $beg = $rank;
+	my $end = $rank += @players;
+	take [+]($beg ..^ $end) / @players => @players;
+    }
+}
+
+say   "Standard:";   say for   standard @scores;
+say "\nModified:";   say for   modified @scores;
+say "\nDense:";      say for      dense @scores;
+say "\nOrdinal:";    say for    ordinal @scores;
+say "\nFractional:"; say for fractional @scores;
+
+#is (standard   @scores).Str, "1\tSolomon 2\tJason Errol 3\tGarry Bernard Barry 4\tStephen";
+#is (modified   @scores).Str, "1\tSolomon 2\tJason Errol 3\tGarry Bernard Barry 4\tStephen";
+#is (dense      @scores).Str, "1\tSolomon 2\tJason Errol 3\tGarry Bernard Barry 4\tStephen";
+#is (ordinal    @scores).Str, "1\tSolomon 2\tJason 3\tErrol 4\tGarry 5\tBernard 6\tBarry 7\tStephen";
+#is (fractional @scores).Str, "1\tSolomon 2\tJason Errol 3\tGarry Bernard Barry 4\tStephen";
+say $result; 
+#say $result = join "\n", @res;
+my $ref = <<'EOD';
+EOD
+
+use Test::More;
+#is ($result, $ref);
+#done_testing();
+
+__END__
+
+=={{header|Perl}}==
+{{trans|Perl 6}}
+<lang perl></lang>
+{{out}}
+<pre  style="height:35ex"></pre>
