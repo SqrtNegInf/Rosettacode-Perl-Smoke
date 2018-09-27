@@ -1,0 +1,31 @@
+#!/usr/local/bin/perl
+#u# http://rosettacode.org/wiki/Shoelace_formula_for_polygonal_area
+#c# 2018-09-26 >RC
+#p# OK
+
+use feature 'say';
+
+sub area_by_shoelace {
+    our @p; local *p = shift;
+    $a += $p[$_][0] * $p[($_+1)%@p][1] - $p[$_][1] * $p[($_+1)%@p][0] for 0 .. $#p;
+    return abs $a/2;
+}
+ 
+say my $result = area_by_shoelace( [ [3,4], [5,11], [12,8], [9,5], [5,6] ] );
+
+use Test::More;
+is($result, 30);
+done_testing();
+
+__END__
+
+=={{header|Perl}}==
+<lang perl> sub area_by_shoelace {
+    our @p; local *p = shift;
+    $a += $p[$_][0] * $p[($_+1)%@p][1] - $p[$_][1] * $p[($_+1)%@p][0] for 0 .. $#p;
+    return abs $a/2;
+}
+ 
+print area_by_shoelace( [ [3,4], [5,11], [12,8], [9,5], [5,6] ] )</lang>
+{{out}}
+<pre>30</pre>
