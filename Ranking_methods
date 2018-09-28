@@ -1,80 +1,125 @@
 #!/usr/local/bin/perl
 #u# http://rosettacode.org/wiki/Ranking_methods
-#c# 2018-09-26 >RC
-#p# BROKEN
+#c# 2018-09-27 >RC
+#p# OK
 
 use feature 'say';
 
-use Perl6::GatherTake;
-
-my @scores =
-    Solomon => 44,
-    Jason   => 42,
-    Errol   => 42,
-    Garry   => 41,
-    Bernard => 41,
-    Barry   => 41,
-    Stephen => 39;
+my %scores = (
+    'Solomon' => 44,
+    'Jason'   => 42,
+    'Errol'   => 42,
+    'Garry'   => 41,
+    'Bernard' => 41,
+    'Barry'   => 41,
+    'Stephen' => 39
+);
 
 sub tiers { 
-    my(@s) = @_;
-#    @s.classify(*.value).pairs.sort.reverse.map: { [.value».key] } 
+    my(%s) = @_; my(%h);
+    push @{$h{$s{$_}}}, $_ for keys %s;
+    @{\%h}{reverse sort keys %h};
 }
 
 sub standard {
-    my(@s) = @_;
+    my(%s) = @_;
+    my($result);
     my $rank = 1;
-    gather for tiers @s -> @players {
-	take $rank => @players;
-	$rank += @players;
+    for my $players (tiers %s) {
+        $result .= "$rank " . join(', ', sort @$players) . "\n";
+	    $rank += @$players;
     }
+    return $result;
 }
 
 sub modified {
-    my(@s) = @_;
+    my(%s) = @_;
+    my($result);
     my $rank = 0;
-    gather for tiers @s -> @players {
-	$rank += @players;
-	take $rank => @players;
+    for my $players (tiers %s) {
+	    $rank += @$players;
+	    $result .= "$rank " . join(', ', sort @$players) . "\n";
     }
+    return $result;
 }
 
 sub dense {
-    my(@s) = @_;
-    tiers(@s).map: { ++$_ => @^players } 
+    my(%s) = @_; 
+    my($n,$result);
+    $result .= sprintf "%d %s\n", ++$n, join(', ', sort @$_) for tiers %s;
+    return $result;
 }
 
-sub ordinal { my @s = @_; @s.map: ++$_ => *.key }
+sub ordinal {
+    my(%s) = @_; 
+    my($n,$result);
+    for my $players (tiers %s) {
+        $result .= sprintf "%d %s\n", ++$n, $_ for sort @$players;
+    }
+    return $result;
+}
 
 sub fractional {
-    my(@s) = @_;
+    my(%s) = @_;
+    my($result);
     my $rank = 1;
-    gather for tiers @s -> @players {
-	my $beg = $rank;
-	my $end = $rank += @players;
-	take [+]($beg ..^ $end) / @players => @players;
+    for my $players (tiers %s) {
+	    my $beg = $rank;
+	    my $end = $rank += @$players;
+        my $avg = 0;
+	    $avg += $_/@$players for $beg .. $end-1;
+        $result .= sprintf "%3.1f %s\n", $avg, join ', ', sort @$players;
     }
+    return $result;
 }
 
-say   "Standard:";   say for   standard @scores;
-say "\nModified:";   say for   modified @scores;
-say "\nDense:";      say for      dense @scores;
-say "\nOrdinal:";    say for    ordinal @scores;
-say "\nFractional:"; say for fractional @scores;
+$result .= "Standard:\n"    .   standard(%scores) . "\n";
+$result .= "Modified:\n"    .   modified(%scores) . "\n";
+$result .= "Dense:\n"       .      dense(%scores) . "\n";
+$result .= "Ordinal:\n"     .    ordinal(%scores) . "\n";
+$result .= "Fractional:\n"  . fractional(%scores) . "\n";
 
-#is (standard   @scores).Str, "1\tSolomon 2\tJason Errol 3\tGarry Bernard Barry 4\tStephen";
-#is (modified   @scores).Str, "1\tSolomon 2\tJason Errol 3\tGarry Bernard Barry 4\tStephen";
-#is (dense      @scores).Str, "1\tSolomon 2\tJason Errol 3\tGarry Bernard Barry 4\tStephen";
-#is (ordinal    @scores).Str, "1\tSolomon 2\tJason 3\tErrol 4\tGarry 5\tBernard 6\tBarry 7\tStephen";
-#is (fractional @scores).Str, "1\tSolomon 2\tJason Errol 3\tGarry Bernard Barry 4\tStephen";
-say $result; 
-#say $result = join "\n", @res;
+say $result;
+
 my $ref = <<'EOD';
+Standard:
+1 Solomon
+2 Errol, Jason
+4 Barry, Bernard, Garry
+7 Stephen
+
+Modified:
+1 Solomon
+3 Errol, Jason
+6 Barry, Bernard, Garry
+7 Stephen
+
+Dense:
+1 Solomon
+2 Errol, Jason
+3 Barry, Bernard, Garry
+4 Stephen
+
+Ordinal:
+1 Solomon
+2 Errol
+3 Jason
+4 Barry
+5 Bernard
+6 Garry
+7 Stephen
+
+Fractional:
+1.0 Solomon
+2.5 Errol, Jason
+5.0 Barry, Bernard, Garry
+7.0 Stephen
+
 EOD
 
 use Test::More;
-#is ($result, $ref);
-#done_testing();
+is ($result, $ref);
+done_testing();
 
 __END__
 
@@ -82,4 +127,5 @@ __END__
 {{trans|Perl 6}}
 <lang perl></lang>
 {{out}}
-<pre  style="height:35ex"></pre>
+<pre  style="height:35ex">
+</pre>
