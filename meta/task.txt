@@ -2,16 +2,16 @@
 This is perl 5, version 28, subversion 0 (v5.28.0) built for darwin-thread-multi-2level
 updating from RC…
 +------------> Perl: Good/Bad [977/17]
-|+-----------> smOke testing [838]
+|+-----------> smOke testing [839]
 ||+----------> sKipping validation [142]
 |||+---------> Interactive [52]
-||||+--------> Touched (modified by me) [122]
+||||+--------> Touched (modified by me) [123]
 |||||+-------> Random seed [71]
 ||||||+------> File output [38]
 |||||||+-----> Draft [227]
 ||||||||+----> Ignoring [36]
-|||||||||+---> Void (no local copy) [267]
-||||||||||+--> Un-implemented/reliable [252]
+|||||||||+---> Void (no local copy) [266]
+||||||||||+--> Un-implemented/reliable [250]
 |||||||||||
 GO......... 100_doors-1
 GO......... 100_doors-2
@@ -51,7 +51,7 @@ GO......... Ackermann_function-4
 GO......... Ackermann_function-5
 ........XV. Active_Directory_Connect
 .........VU Active_Directory_Search_for_a_user
-GO......... Active_object
+!O......... Active_object
 GO......... Add_a_variable_to_a_class_instance_at_runtime
 .......D.VU Addition-chain_exponentiation
 .......D.VU Addition_chains
@@ -421,7 +421,7 @@ GO.....D... Find_first_and_last_set_bit_of_a_long_integer
 GO......... Find_largest_left_truncatable_prime_in_a_given_base
 GO......... Find_limit_of_recursion
 GO......... Find_palindromic_numbers_in_both_binary_and_ternary_bases
-.......D.VU Find_the_intersection_of_a_line_with_a_plane
+B...T..D..U Find_the_intersection_of_a_line_with_a_plane
 GO......... Find_the_intersection_of_two_lines
 GO......... Find_the_last_Sunday_of_each_month
 GO......... Find_the_missing_permutation
@@ -901,7 +901,7 @@ G.K........ Random_number_generator_included
 GO...R..... Random_numbers
 GO......... Range_expansion
 GO..T...... Range_extraction
-B...T.....U Ranking_methods
+GO..T...... Ranking_methods
 GO......... Rate_counter
 GO......... Ray-casting_algorithm
 GO......... Read_a_configuration_file
@@ -997,7 +997,7 @@ GO......... Set_of_real_numbers
 GO...R..... Set_puzzle
 GO...R..... Seven-sided_dice_from_five-sided_dice
 G.K........ Shell_one-liner
-GO..T.....U Shoelace_formula_for_polygonal_area
+GO..T...... Shoelace_formula_for_polygonal_area
 GO......... Short-circuit_evaluation
 GO......... Shortest_common_supersequence
 .......D... Show_Ascii_table
