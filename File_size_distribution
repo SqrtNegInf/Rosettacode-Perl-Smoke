@@ -1,0 +1,69 @@
+#!/usr/local/bin/perl
+#u# http://rosettacode.org/wiki/File_size_distribution
+#c# 2018-09-28 >RC
+#p# OK
+
+use feature 'say';
+
+use File::Find;
+use List::Util qw(max);
+
+my %fsize;
+$dir = '/Users/dhoekman/perl6/Rosetta-Code/bench/2018-01-01-m';
+find(\&fsize, $dir);
+
+$max = max($max,$fsize{$_}) for keys %fsize;
+$total += $size while (undef,$size) = each %fsize;
+
+push @res, "File size distribution in bytes for directory: $dir\n";
+for (0 .. max(keys %fsize)) {
+    push @res, sprintf( "# files @ %4sb %8s: ", $_ ? '10e'.($_-1) : 0, ($fsize{$_} // 0)) . 
+       histogram( $max, $fsize{$_} // 0, 80)
+}
+push @res, "$total total files.";
+
+say $result = join "\n", @res;
+
+sub histogram {
+    my($max, $value, $width) = @_;
+    my @blocks = qw<| ▏ ▎ ▍ ▌ ▋ ▊ ▉ █>;
+    my $scaled = int $value * $width / $max;
+    my($end) =     $scaled % 8;
+    my($bar) = int $scaled / 8;
+    my $B = $blocks[8] x ($bar * 8) . ($end ? $blocks[$end] : '');
+}
+
+sub log10 { my($s) = @_; $s ? int log($s)/log(10) : 0 }
+sub fsize { $fsize{ log10( (lstat($_))[7] ) }++ }
+
+my $ref = <<'END';
+File size distribution in bytes for directory: /Users/dhoekman/perl6/Rosetta-Code/bench/2018-01-01-m
+
+# files @    0b        1: 
+# files @ 10e0b      901: ████████████████████████████████████████████████████████████████████████████████
+# files @ 10e1b      476: ████████████████████████████████████████▎
+# files @ 10e2b       53: ▌
+# files @ 10e3b        6: 
+# files @ 10e4b        1: 
+1438 total files.
+END
+
+use Test::More;
+chop $ref;
+is ($result, $ref);
+done_testing();
+
+__END__
+
+=={{header|Perl}}==
+{{trans|Perl 6}}
+<lang perl></lang>
+{{out}}
+<pre># files @    0b        5:
+# files @ 10e0b    46455: ████████████████████████████████████████████████████████████████████████████████
+# files @ 10e1b    26146: ████████████████████████████████████████▋
+# files @ 10e2b     3993: ▊
+# files @ 10e3b     1222: ▎
+# files @ 10e4b       19:
+# files @ 10e5b        3:
+77843 total files.</pre>
