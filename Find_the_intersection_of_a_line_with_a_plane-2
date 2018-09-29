@@ -1,0 +1,63 @@
+#!/usr/local/bin/perl
+#u# http://rosettacode.org/wiki/Find_the_intersection_of_a_line_with_a_plane
+#c# 2018-09-27
+#p# OK
+#n# possible to in-line the final calculation, but ugly
+
+use feature 'say';
+use warnings;
+
+package Line;
+
+sub new {
+    my ($class, $args) = @_;
+    my $self = {
+        P0 => $args->{P0}, # point
+        u => $args->{u},   # ray
+    };
+}
+
+package Plane;
+
+sub new {
+    my ($class, $args) = @_;
+    my $self = {
+        V0 => $args->{V0}, # point
+        n  => $args->{n},  # normal
+    };
+}
+
+package main;
+
+sub dotx {
+    *a = shift; *b = shift; my($s);
+    #our @a ; *a = shift; our @b ; *b = shift; my($s);
+    $s +=  $a[$_]*$b[$_] for 0..$#a;
+    $s;
+} 
+
+sub dot { my $v; $v    += $_[0][$_]*$_[1][$_] for 0..@{$_[0]}-1; $v }
+sub vd  { my @v; $v[$_] = $_[0][$_]-$_[1][$_] for 0..@{$_[0]}-1; @v }
+sub vs  { my @v; $v[$_] = $_[0][$_]+$_[1][$_] for 0..@{$_[0]}-1; \@v }
+sub vp  { my @v; $v[$_] = $_[0][$_]*$_[1][$_] for 0..@{$_[0]}-1; \@v }
+
+sub line_plane_intersection {
+    my($L, $P) = @_;
+
+    my $cos = dot($L->{u}, $P->{n}); # cosine between normal & ray
+    return 'Vectors are orthoganol; no intersection or line within plane' if $cos == 0;
+
+    my @W = vd($L->{P0},$P->{V0});      # difference between P0 and V0
+    my $SI = -dot($P->{n}, \@W) / $cos;  # line segment where it intersets the plane
+
+    vs(\@W,vs($P->{V0},vp($L->{u},[($SI)x3])));
+}
+ 
+my $L =  Line->new({ P0=>[0,0,10], u=>[0,-1,-1]});
+my $P = Plane->new({ V0=>[0,0,5 ], n=>[0, 0, 1]});
+my $p = line_plane_intersection($L, $P);
+say 'Intersection at point: ', join ' ', @$p;
+
+use Test::More;
+is ((join ' ', @$p), '0 -5 5');
+done_testing();
