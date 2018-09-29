@@ -1,14 +1,14 @@
 
 This is perl 5, version 28, subversion 0 (v5.28.0) built for darwin-thread-multi-2level
 updating from RC…
-+------------> Perl: Good/Bad [977/17]
-|+-----------> smOke testing [839]
++------------> Perl: Good/Bad [981/16]
+|+-----------> smOke testing [843]
 ||+----------> sKipping validation [142]
 |||+---------> Interactive [52]
-||||+--------> Touched (modified by me) [123]
+||||+--------> Touched (modified by me) [125]
 |||||+-------> Random seed [71]
 ||||||+------> File output [38]
-|||||||+-----> Draft [227]
+|||||||+-----> Draft [230]
 ||||||||+----> Ignoring [36]
 |||||||||+---> Void (no local copy) [266]
 ||||||||||+--> Un-implemented/reliable [250]
@@ -318,7 +318,7 @@ G.K..R..... Dining_philosophers
 GO......... Discordian_date
 .......D.V. Display_a_linear_combination
 G.K........ Distributed_programming
-.......D.VU Diversity_prediction_theorem
+GO..T..D..U Diversity_prediction_theorem
 G.K........ Documentation
 GO......... Dot_product
 .........VU Doubly-linked_list_Definition
@@ -412,7 +412,7 @@ GO.....D... File_extension_is_in_extensions_list
 GO....F.... File_input_output
 GO......... File_modification_time
 GO......... File_size
-.......D.VU File_size_distribution
+GO..T..D... File_size_distribution
 GO......... Filter
 .......D.VU Find_URI_in_text
 B.......... Find_common_directory_path
@@ -421,7 +421,9 @@ GO.....D... Find_first_and_last_set_bit_of_a_long_integer
 GO......... Find_largest_left_truncatable_prime_in_a_given_base
 GO......... Find_limit_of_recursion
 GO......... Find_palindromic_numbers_in_both_binary_and_ternary_bases
-B...T..D..U Find_the_intersection_of_a_line_with_a_plane
+.......D... Find_the_intersection_of_a_line_with_a_plane
+GO..T..D... Find_the_intersection_of_a_line_with_a_plane-1
+GO.....D... Find_the_intersection_of_a_line_with_a_plane-2
 GO......... Find_the_intersection_of_two_lines
 GO......... Find_the_last_Sunday_of_each_month
 GO......... Find_the_missing_permutation
@@ -609,7 +611,7 @@ GO..T...... Largest_number_divisible_by_its_digits-1
 GO..T...... Largest_number_divisible_by_its_digits-2
 GO......... Last_Friday_of_each_month
 GO...R..... Last_letter-first_letter
-GO..T..D... Law_of_cosines_-_triples
+GO..T...... Law_of_cosines_-_triples
 GO......... Leap_year
 GO......... Least_common_multiple
 GO......... Left_factorials
@@ -755,6 +757,7 @@ GO......... Number_names
 G.KI....... Number_reversal_game
 GO......... Numeric_error_propagation
 .........VU Numerical_integration
+.......D.VU Numerical_integration_Adaptive_Simpson%27s_method
 .........VU Numerical_integration_Gauss-Legendre_Quadrature
 ........XVU OLE_Automation
 GO......... Object_serialization-1
@@ -970,6 +973,7 @@ GO......... SHA-256
 ........XV. SOAP
 ........XV. SQL-based_authentication
 .........VU Safe_addition
+.......D.VU Safe_primes_and_unsafe_primes
 GO..T...... Sailors,_coconuts_and_a_monkey_problem-1
 GO..T...... Sailors,_coconuts_and_a_monkey_problem-2
 GO......... Same_Fringe
