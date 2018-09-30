@@ -6,7 +6,6 @@
 use feature 'say';
 
 #use bigint;
-#use ntheory qw(todigits fromdigits todigitstring);
 
 srand 123456;
 
