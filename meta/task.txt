@@ -1,16 +1,16 @@
 
 This is perl 5, version 28, subversion 0 (v5.28.0) built for darwin-thread-multi-2level
 updating from RC…
-+------------> Perl: Good/Bad [981/16]
-|+-----------> smOke testing [843]
++------------> Perl: Good/Bad [983/17]
+|+-----------> smOke testing [845]
 ||+----------> sKipping validation [142]
 |||+---------> Interactive [52]
-||||+--------> Touched (modified by me) [125]
-|||||+-------> Random seed [71]
+||||+--------> Touched (modified by me) [127]
+|||||+-------> Random seed [72]
 ||||||+------> File output [38]
-|||||||+-----> Draft [230]
+|||||||+-----> Draft [231]
 ||||||||+----> Ignoring [36]
-|||||||||+---> Void (no local copy) [266]
+|||||||||+---> Void (no local copy) [265]
 ||||||||||+--> Un-implemented/reliable [250]
 |||||||||||
 GO......... 100_doors-1
@@ -51,7 +51,7 @@ GO......... Ackermann_function-4
 GO......... Ackermann_function-5
 ........XV. Active_Directory_Connect
 .........VU Active_Directory_Search_for_a_user
-!O......... Active_object
+GO......... Active_object
 GO......... Add_a_variable_to_a_class_instance_at_runtime
 .......D.VU Addition-chain_exponentiation
 .......D.VU Addition_chains
@@ -318,7 +318,7 @@ G.K..R..... Dining_philosophers
 GO......... Discordian_date
 .......D.V. Display_a_linear_combination
 G.K........ Distributed_programming
-GO..T..D..U Diversity_prediction_theorem
+GO..T..D... Diversity_prediction_theorem
 G.K........ Documentation
 GO......... Dot_product
 .........VU Doubly-linked_list_Definition
@@ -868,7 +868,7 @@ GO......... Power_set-9
 G.K........ Pragmatic_directives
 GO...R..... Price_fraction
 GO......... Primality_by_trial_division
-.......D.VU Prime_conspiracy
+GO..T..D..U Prime_conspiracy
 GO......... Prime_decomposition-1
 GO......... Prime_decomposition-2
 GO......... Prime_decomposition-3
@@ -1000,6 +1000,7 @@ GO......... Set_consolidation
 GO......... Set_of_real_numbers
 GO...R..... Set_puzzle
 GO...R..... Seven-sided_dice_from_five-sided_dice
+.......D.VU Sexy_primes
 G.K........ Shell_one-liner
 GO..T...... Shoelace_formula_for_polygonal_area
 GO......... Short-circuit_evaluation
@@ -1035,7 +1036,7 @@ GO......... Singly-linked_list_Traversal
 G.KI....... Sleep
 GO......... Smith_numbers
 G.KI...D... Snake
-.......D.VU Snake_And_Ladder
+BO..TR.D..U Snake_And_Ladder
 GO......... Sockets
 GO......... Sokoban
 GO....F.... Solve_a_Hidato_puzzle
