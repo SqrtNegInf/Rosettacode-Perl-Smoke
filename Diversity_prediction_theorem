@@ -7,14 +7,17 @@ use feature 'say';
 
 sub diversity_calc {
     my($truth, @pred) = @_;
-    my($ae,$ce,$cp,$pd);
-    my @labels = qw<average-error crowd-error diversity>;
+    my($ae,$ce,$cp,$pd,$stats);
 
     $cp += $_/@pred for @pred;      # collective prediction
     $ae = avg_error($truth, @pred); # average individual error
     $ce = ($cp - $truth)**2;        # collective error
     $pd = avg_error($cp, @pred);    # prediction diversity
-    ($labels[0], $ae, $labels[1], $ce, $labels[2], $pd);
+    
+    my $fmt = "%13s: %6.3f\n";
+    $stats  = sprintf $fmt, 'average-error', $ae;
+    $stats .= sprintf $fmt, 'crowd-error',   $ce;
+    $stats .= sprintf $fmt, 'diversity',     $pd;
 }
 
 sub avg_error {
@@ -24,26 +27,15 @@ sub avg_error {
     $avg_err/@v;
 }
 
-sub diversity_format {
-    my(@stats) = @_; my $out;
-    while (@stats) {
-        $l = shift @stats;
-        $s = shift @stats;
-        $out .= sprintf "%13s: %6.3f\n", $l, $s;
-    }
-    return $out;
-}
+$result .= diversity_calc(49, qw<48 47 51>);
+$result .= diversity_calc(49, qw<48 47 51 42>);
 
-push @res, $_ for diversity_format diversity_calc(49, qw<48 47 51>);
-push @res, $_ for diversity_format diversity_calc(49, qw<48 47 51 42>);
-
-say $result = join "\n", @res;
+say $result;
 
 my $ref = <<'END';
 average-error:  3.000
   crowd-error:  0.111
     diversity:  2.889
-
 average-error: 14.500
   crowd-error:  4.000
     diversity: 10.500
@@ -52,16 +44,3 @@ END
 use Test::More;
 is ($result, $ref);
 done_testing();
-
-__END__
-
-=={{header|Perl}}==
-{{trans|Perl 6}}
-<lang perl></lang>
-{{out}}
-<pre>average-error:  3.000
-  crowd-error:  0.111
-    diversity:  2.889
-average-error: 14.500
-  crowd-error:  4.000
-    diversity: 10.500</pre>
