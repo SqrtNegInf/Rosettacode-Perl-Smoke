@@ -1,0 +1,97 @@
+#!/usr/local/bin/perl
+#u# http://rosettacode.org/wiki/Snake_And_Ladder
+#c# 2018-09-30 >RC
+#p# BROKEN
+
+use feature 'say';
+#use warnings;
+#use strict 'vars';
+
+$| = 1;
+
+my $result;
+
+# board layout
+my %snl =( 4, 14,  9, 31, 17,  7, 20, 38, 28, 84, 40, 59, 51, 67, 54, 34,
+          62, 19, 63, 81, 64, 60, 71, 91, 87, 24, 93, 73, 95, 75, 99, 78);
+
+
+#srand 9062; play_game(); exit;
+
+$init = 14110794;
+while () { 
+    $init++;
+    srand $init;
+#    say 'starting with seed: ' . $init;
+    play_game() ;
+#    say '';
+#exit;
+}
+
+sub play_game {
+
+our $cnt = 1;
+ 
+my @players = 1, 1, 1, 1; # three players, starting on square 1
+#our $human = 1;         # player 1 is human. set to 0 for all computer players
+ 
+while () {
+    for my $player (0..$#players) {
+        #turn(\$players[$player], $player + 1);
+        $players[$player] = turn($players[$player], $player + 1);
+        return unless $cnt;
+        #sleep 1;
+        $cnt++;
+    }
+    #say '';
+}
+
+sub turn {
+    my($square, $player) = @_;
+#    if ($player == $human) {
+#        #prompt "You are on square $square. Hit enter to roll the die.";
+#    }
+    my $roll = 1 + int rand 6;
+    my $turn = $square + $roll;
+    #printf "Player $player on square %2d rolls a $roll", $square;
+    if ($turn > 100) {
+        #say " but cannot move. Next players turn.";
+        return $square;
+    }
+    if ($snl{$turn}) {
+        $square = $snl{$turn};
+        if ($turn > $square) {
+            #say ". Oops! Landed on a snake. Slither down to $square."
+        } else {
+            #say ". Yay! Landed on a ladder. Climb up to $square."
+        }
+    } else {
+        $square = $turn;
+        #say " and moves to square $square";
+    }
+    if ($square == 100) { 
+        say "Player $player wins after $cnt turns (with seed = $init)." if $cnt < 7; 
+        $cnt = 0 ; 
+        return 
+    }
+    return $square;
+}
+
+}
+
+#say $result; 
+#say $result = join "\n", @res;
+my $ref = <<'EOD';
+EOD
+
+use Test::More;
+#is($result, $ref);
+#done_testing();
+
+__END__
+
+=={{header|Perl}}==
+{{trans|Perl 6}}
+<lang perl></lang>
+{{out}}
+<pre style="height:35ex"></pre>
