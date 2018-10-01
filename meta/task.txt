@@ -1,16 +1,15 @@
 
 This is perl 5, version 28, subversion 0 (v5.28.0) built for darwin-thread-multi-2level
-updating from RC…
 +------------> Perl: Good/Bad [983/17]
-|+-----------> smOke testing [845]
+|+-----------> smOke testing [846]
 ||+----------> sKipping validation [142]
 |||+---------> Interactive [52]
-||||+--------> Touched (modified by me) [127]
+||||+--------> Touched (modified by me) [129]
 |||||+-------> Random seed [72]
 ||||||+------> File output [38]
 |||||||+-----> Draft [231]
 ||||||||+----> Ignoring [36]
-|||||||||+---> Void (no local copy) [265]
+|||||||||+---> Void (no local copy) [263]
 ||||||||||+--> Un-implemented/reliable [250]
 |||||||||||
 GO......... 100_doors-1
@@ -51,7 +50,7 @@ GO......... Ackermann_function-4
 GO......... Ackermann_function-5
 ........XV. Active_Directory_Connect
 .........VU Active_Directory_Search_for_a_user
-GO......... Active_object
+!O......... Active_object
 GO......... Add_a_variable_to_a_class_instance_at_runtime
 .......D.VU Addition-chain_exponentiation
 .......D.VU Addition_chains
@@ -973,7 +972,7 @@ GO......... SHA-256
 ........XV. SOAP
 ........XV. SQL-based_authentication
 .........VU Safe_addition
-.......D.VU Safe_primes_and_unsafe_primes
+B...T..D..U Safe_primes_and_unsafe_primes
 GO..T...... Sailors,_coconuts_and_a_monkey_problem-1
 GO..T...... Sailors,_coconuts_and_a_monkey_problem-2
 GO......... Same_Fringe
@@ -1000,7 +999,7 @@ GO......... Set_consolidation
 GO......... Set_of_real_numbers
 GO...R..... Set_puzzle
 GO...R..... Seven-sided_dice_from_five-sided_dice
-.......D.VU Sexy_primes
+!O..T..D..U Sexy_primes
 G.K........ Shell_one-liner
 GO..T...... Shoelace_formula_for_polygonal_area
 GO......... Short-circuit_evaluation
@@ -1036,7 +1035,7 @@ GO......... Singly-linked_list_Traversal
 G.KI....... Sleep
 GO......... Smith_numbers
 G.KI...D... Snake
-BO..TR.D..U Snake_And_Ladder
+GO..TR.D..U Snake_And_Ladder
 GO......... Sockets
 GO......... Sokoban
 GO....F.... Solve_a_Hidato_puzzle
