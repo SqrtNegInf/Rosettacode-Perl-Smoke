@@ -1,0 +1,76 @@
+#!/usr/local/bin/perl
+#u# http://rosettacode.org/wiki/Safe_primes_and_unsafe_primes
+#c# 2018-09-30 >RC
+#p# BROKEN
+
+use feature 'say';
+
+$| = 1;
+
+use bignum;
+use Math::Prime::Util qw(next_prime is_prime prime_precalc);
+
+$class{'unsafe'} = [2];
+
+my $upto = 1e6;
+#prime_precalc( 100*$upto );
+my $p = 2;
+my $count = 1;
+while () {
+    $p = next_prime($p);
+    if (is_prime(($p-1)/2)) { push @{$class{'safe'}},   $p } 
+    else                    { push @{$class{'unsafe'}}, $p } 
+    last if ++$count == ($upto+10);
+}
+
+say 'last safe ' . $class{'safe'}->[-1];
+say 'last unsafe ' . $class{'unsafe'}->[-1];
+say 'done with setup';
+
+for (['safe', 35], ['unsafe', 40]) {
+say 'looping...';
+    my $type     = @$_[0];
+    my $quantity = @$_[1];
+    print  "The first $quantity $type primes are:\n";
+    print comma($class{$type}->[$_-1]) . ' ' for 1..$quantity; print "\n";
+    for $q ($upto/10, $upto) {
+        $n = 0;
+        map { $n++ if $_ <= $q } @{$class{$type}};
+        printf "The number of $type primes up to %s: %s\n", comma($q), comma($n);
+    }
+}
+
+
+sub comma {
+    (my $s = reverse shift) =~ s/(.{3})/$1,/g;
+    $s =~ s/,(-?)$/$1/;
+    $s = reverse $s;
+}
+ 
+exit;
+#say for @res;
+#say $result = join "\n", @res;
+
+my $ref = <<'END';
+The first 35 safe primes are:
+5 7 11 23 47 59 83 107 167 179 227 263 347 359 383 467 479 503 563 587 719 839 863 887 983 1,019 1,187 1,283 1,307 1,319 1,367 1,439 1,487 1,523 1,619
+The number of safe primes up to 1,000,000: 4,324
+The number of safe primes up to 10,000,000: 30,657
+
+The first 40 unsafe primes are:
+2 3 13 17 19 29 31 37 41 43 53 61 67 71 73 79 89 97 101 103 109 113 127 131 137 139 149 151 157 163 173 181 191 193 197 199 211 223 229 233
+The number of unsafe primes up to 1,000,000: 74,174
+The number of unsafe primes up to 10,000,000: 633,922
+END
+
+use Test::More;
+is($result, $ref);
+done_testing();
+
+__END__
+
+=={{header|Perl}}==
+{{trans|Perl 6}}
+<lang perl></lang>
+{{out}}
+<pre style="height:35ex"></pre>
