@@ -7,6 +7,8 @@
 
 # Library: Perl/SDL[edit]
 
+__END__
+
 use SDL::App;
 use SDL::Event;
 use SDL::OpenGL;
