@@ -1,16 +1,17 @@
 
 This is perl 5, version 28, subversion 0 (v5.28.0) built for darwin-thread-multi-2level
-+------------> Perl: Good/Bad [983/17]
-|+-----------> smOke testing [846]
-||+----------> sKipping validation [142]
-|||+---------> Interactive [52]
-||||+--------> Touched (modified by me) [129]
-|||||+-------> Random seed [72]
-||||||+------> File output [38]
+updating from RC…
++------------> Perl: Good/Bad [987/20]
+|+-----------> smOke testing [851]
+||+----------> sKipping validation [144]
+|||+---------> Interactive [53]
+||||+--------> Touched (modified by me) [136]
+|||||+-------> Random seed [75]
+||||||+------> File output [39]
 |||||||+-----> Draft [231]
 ||||||||+----> Ignoring [36]
-|||||||||+---> Void (no local copy) [263]
-||||||||||+--> Un-implemented/reliable [250]
+|||||||||+---> Void (no local copy) [255]
+||||||||||+--> Un-implemented/reliable [245]
 |||||||||||
 GO......... 100_doors-1
 GO......... 100_doors-2
@@ -50,7 +51,7 @@ GO......... Ackermann_function-4
 GO......... Ackermann_function-5
 ........XV. Active_Directory_Connect
 .........VU Active_Directory_Search_for_a_user
-!O......... Active_object
+GO......... Active_object
 GO......... Add_a_variable_to_a_class_instance_at_runtime
 .......D.VU Addition-chain_exponentiation
 .......D.VU Addition_chains
@@ -101,7 +102,7 @@ G.K..R..... Atomic_updates
 .......D.VU AudioAlarm
 .......D.VU Audio_Overlap_Loop
 .......D.VU Audio_frequency_generator
-.........VU Average_loop_length
+B.K.TR....U Average_loop_length
 GO..T...... Averages_Arithmetic_mean
 GO......... Averages_Mean_angle
 .........V. Averages_Mean_time_of_day
@@ -468,13 +469,13 @@ GO......... General_FizzBuzz
 .......D.VU Generalised_floating_point_multiplication
 GO...R..... Generate_Chess960_starting_position
 GO......... Generate_lower_case_ASCII_alphabet
-.........VU Generate_random_chess_position
+!O..TR....U Generate_random_chess_position
 G.KI....... Generator_Exponential
 GO......... Generic_swap
 .......D.VU Geometric_algebra
 GO......... Get_system_command_output
 GO......... Globally_replace_text_in_several_files
-.........VU Go_Fish
+B.KITR....U Go_Fish
 GO......... Gray_code
 GO....F.... Grayscale_image
 GO......... Greatest_common_divisor-1
@@ -546,7 +547,7 @@ GO..T..D... Idiomatically_determine_all_the_characters_that_can_be_used_for_symb
 GO..T..D... Idiomatically_determine_all_the_lowercase_and_uppercase_letters
 .........VU Image_convolution
 .........VU Image_noise
-.......D.VU Imaginary_base_numbers
+B...T..D..U Imaginary_base_numbers
 G.K.T..D... Implicit_type_conversion
 G.K........ Include_a_file
 GO......... Increment_a_numerical_string
@@ -598,7 +599,7 @@ GO...R..... Knuth%27s_algorithm_S
 GO......... Knuth%27s_power_tree
 GO...R..... Knuth_shuffle
 .......D.VU Koch_curve
-.........VU Kolakoski_sequence
+!O........U Kolakoski_sequence
 .......D.VU Kosaraju
 GO......... Kronecker_product
 .........VU Kronecker_product_based_fractals
@@ -687,13 +688,13 @@ GO......... Maximum_triangle_path_sum
 GO...R..... Maze_generation
 GO...R..... Maze_solving
 .........VU Median_filter
-.........VU Memory_allocation
+!O..T.....U Memory_allocation
 GO......... Memory_layout_of_a_data_structure
 G.KI....... Menu
 GO.....D... Mersenne_primes
 GO......... Metaprogramming
 ........XV. Metered_concurrency
-.........VU Metronome
+GO..T...... Metronome
 GO......... Middle_three_digits
 GO......... Miller-Rabin_primality_test-1
 GO......... Miller-Rabin_primality_test-2
@@ -867,7 +868,7 @@ GO......... Power_set-9
 G.K........ Pragmatic_directives
 GO...R..... Price_fraction
 GO......... Primality_by_trial_division
-GO..T..D..U Prime_conspiracy
+GO..T..D... Prime_conspiracy
 GO......... Prime_decomposition-1
 GO......... Prime_decomposition-2
 GO......... Prime_decomposition-3
@@ -972,7 +973,7 @@ GO......... SHA-256
 ........XV. SOAP
 ........XV. SQL-based_authentication
 .........VU Safe_addition
-B...T..D..U Safe_primes_and_unsafe_primes
+GO..T..D... Safe_primes_and_unsafe_primes
 GO..T...... Sailors,_coconuts_and_a_monkey_problem-1
 GO..T...... Sailors,_coconuts_and_a_monkey_problem-2
 GO......... Same_Fringe
@@ -999,7 +1000,7 @@ GO......... Set_consolidation
 GO......... Set_of_real_numbers
 GO...R..... Set_puzzle
 GO...R..... Seven-sided_dice_from_five-sided_dice
-!O..T..D..U Sexy_primes
+B...T..D..U Sexy_primes
 G.K........ Shell_one-liner
 GO..T...... Shoelace_formula_for_polygonal_area
 GO......... Short-circuit_evaluation
@@ -1035,7 +1036,7 @@ GO......... Singly-linked_list_Traversal
 G.KI....... Sleep
 GO......... Smith_numbers
 G.KI...D... Snake
-GO..TR.D..U Snake_And_Ladder
+GO..TR.D... Snake_And_Ladder
 GO......... Sockets
 GO......... Sokoban
 GO....F.... Solve_a_Hidato_puzzle
@@ -1083,7 +1084,7 @@ G.K........ Special_characters
 G.K.T...... Special_variables
 ........XV. Speech_synthesis
 GO..T...... Spelling_of_ordinal_numbers
-.........VU Spinning_rod_animation_Text
+GO..T.F.... Spinning_rod_animation_Text
 GO......... Spiral_matrix
 GO..T...... Split_a_character_string_based_on_change_of_character
 .......D.VU Spoof_game
