@@ -1,0 +1,75 @@
+#!/usr/local/bin/perl
+#u# http://rosettacode.org/wiki/Generate_random_chess_position
+#c# 2018-10-01 >RC
+#p# OK
+
+use feature 'say';
+use warnings;
+use strict 'vars';
+
+srand 123456;
+
+sub pick_FEN {
+    # First we chose how many pieces to place
+    my $n = 1 + int rand 31;
+
+    # Then we pick $n squares
+    my @n = pickN($n,(0..63));
+
+    # We try to find suitable king positions on non-adjacent squares.
+    # If we could not find any, we return recursively
+    #return pick_FEN() unless
+    #my @kings[2] = first -> [$a, $b] {
+    #    $a !== $b && abs($a div 8 - $b div 8) | abs($a mod 8 - $b mod 8) > 1
+    #}, (@n X @n);
+
+    # We make a list of pieces we can pick (apart from the kings)
+    my @pieces = qw<p P n N b B r R q Q>;
+
+    # We make a list of two king symbols to pick randomly a black or white king
+    my @k = pick1(qw(K k));
+
+    #return (gather for ^64 -> $sq 
+    for my $sq (0..63) {
+        if ( $sq == @kings.any ) { push @pp, shift @k }
+        elsif ( $sq == @n.any ) {
+            $row = 7 - int $sq / 8;
+            push @pp,  
+            $row == 0 ? pick1(grep { $_ ne 'P' } @pieces ) :
+            $row == 7 ? pick1(grep { $_ ne 'P' } @pieces ) :
+            pick1(@pieces);
+        }
+        else { push @pp, 'ø' }
+    }
+    $DB::single = 1;
+    say join ' ', @pp;
+    # manip @pp
+    #.rotor(8)».join».subst(/ø+/,{ .chars }, :g).join('/') ~ ' w - - 0 1';
+}
+
+say my $result = pick_FEN();
+
+sub pick1 { return @_[ rand @_ ] } 
+#sub pick1 { return @_[-1 + int 1 + rand @_]] } 
+
+# http://en.wikipedia.org/wiki/Fisher-Yates_shuffle#The_modern_algorithm
+sub shuffle {
+ my(@list) = @_;
+  for (my $n = $#list ; $n ; --$n)
+     {my $k = int rand($n + 1);
+      @deck[$k, $n] = @deck[$n, $k] if $k != $n;}
+}
+
+#is $result, '1r6/8/7r/8/1B2k3/4PR1K/1r6/3P1R2 w - - 0 1'
+
+use Test::More;
+#is($result, $ref);
+#done_testing();
+
+__END__
+
+=={{header|Perl}}==
+{{trans|Perl 6}}
+<lang perl></lang>
+{{out}}
+<pre style="height:35ex"></pre>
