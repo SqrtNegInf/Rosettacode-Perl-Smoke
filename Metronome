@@ -1,0 +1,48 @@
+#!/usr/local/bin/perl
+#u# http://rosettacode.org/wiki/Metronome
+#c# 2018-10-01 >RC
+#p# OK
+
+use feature 'say';
+
+use Time::HiRes qw(sleep);
+
+#$| = 1; # not needed?
+
+$beats_per_minute = shift || 60;
+$beats_per_bar    = shift ||  4;
+
+$duration = 60 / ($beats_per_minute * $beats_per_bar);
+
+while () {
+    if (0 == $i++ % $beats_per_bar) {
+        $result .= "\nTICK";
+    } else {
+        $result .=  " tick";
+    }
+    sleep $duration;
+    last if $i == 16;
+}
+
+say $result; 
+
+my $ref = <<'EOD';
+
+TICK tick tick tick
+TICK tick tick tick
+TICK tick tick tick
+TICK tick tick tick
+EOD
+
+use Test::More;
+chop $ref;
+is($result, $ref);
+done_testing();
+
+__END__
+
+=={{header|Perl}}==
+{{trans|Perl 6}}
+<lang perl></lang>
+{{out}}
+<pre style="height:35ex"></pre>
