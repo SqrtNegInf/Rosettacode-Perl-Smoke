@@ -1,30 +1,14 @@
 #!/usr/local/bin/perl
-#u# http://rosettacode.org/wiki/RC_REMOTE
-#c# 2018-RC-RC >RC
+#u# http://rosettacode.org/wiki/Memory_allocation
+#n# nocode
+#c# 2018-10-02 >RC
 #p# OK
 
-use feature 'say';
-use warnings;
-use strict 'vars';
+# In general, memory allocation and de-allocation isn't something you can or should be worrying about much in Perl.
+# Perl manages its own heap quite well, and it is exceedingly rare that anything goes wrong. As long as the OS has memory to give, 
+# a perl process can use as much as it needs.
 
-my $result;
-# my @res;
-
-# ~/perl6/Rosetta-Code/RC_LOCAL
-
-say $result; 
-#say $result = join "\n", @res;
-my $ref = <<'EOD';
-EOD
-
-use Test::More;
-#is($result, $ref);
-#done_testing();
-
-__END__
-
-=={{header|Perl}}==
-{{trans|Perl 6}}
-<lang perl></lang>
-{{out}}
-<pre style="height:35ex"></pre>
+# Memory allocated to lexicals, i.e. <tt>my()</tt>, variables cannot be reclaimed or reused even if they go out of scope 
+# (it is reserved in case the variables come back into scope). You can 'hint' that memory allocated to global variables 
+# can be reused (within your program) by using <tt>undef</tt> and <tt>delete</tt>, but you really have little control over 
+# when/if that happens.
