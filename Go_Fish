@@ -12,13 +12,15 @@ srand 123456;
 
 constant BOOKSIZE = 4;
 constant HANDSIZE = 9;
-constant @pips = <two three four five six seven eight nine ten jack queen king ace>;
+constant @pips = qw<two three four five six seven eight nine ten jack queen king ace>;
   # The elements of @pips are only names. Pips are represented internally
   # as indices of this array.
-constant @piparticles = <a a a a a a an a a a a a an>;
-constant @ppips = <deuces threes fours fives sixes sevens eights nines tens jacks queens kings aces>;
-constant @shortpips = <2 3 4 5 6 7 8 9 T J Q K A>;
-constant $foe_nominative_pronoun = pick 1, <he she it e xe>;
+constant @piparticles = qw<a a a a a a an a a a a a an>;
+constant @ppips = qw<deuces threes fours fives sixes sevens eights nines tens jacks queens kings aces>;
+constant @shortpips = qw<2 3 4 5 6 7 8 9 T J Q K A>;
+constant $foe_nominative_pronoun = pick 1, qw<he she it e xe>;
+
+__END__
  
 sub count ($x, *@a) {
     my $n = 0;
