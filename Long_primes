@@ -19,7 +19,7 @@ my($p) = @_;
 }
 
 $result .= "Long primes ≤ 500:\n";
-$result .= (join ' ', grep {is_long_prime($_) } 1 .. 500). "\n\n";
+$result .= join(' ', grep {is_long_prime($_) } 1 .. 500) . "\n\n";
  
 for $n (500, 1000, 2000, 4000, 8000, 16000, 32000, 64000) {
     $result .= sprintf "Number of long primes ≤ $n: %d\n",  scalar grep {is_long_prime($_) } 1 .. $n;
