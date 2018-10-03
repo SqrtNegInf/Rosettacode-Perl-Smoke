@@ -1,0 +1,44 @@
+#!/usr/local/bin/perl
+#u# http://rosettacode.org/wiki/Nested_templated_data
+#c# 2018-10-02 >RC
+#p# OK
+
+use feature 'say';
+
+sub fulfill {
+    my   @payloads;
+    push @payloads, 'Payload#' . $_ for 0..5;
+    my      @result;
+    push    @result, ref $_ eq 'ARRAY' ? [@payloads[@$_]] : @payloads[$_] for @{@_[0]};
+    return [@result];
+}
+
+sub formatted {
+    my $result;
+    $result .= ref $_ eq 'ARRAY' ? '[ "'. join('", "', @$_) . '" ], ' : qq{"$_"} for @{@_[0]};
+    return '[ ' . $result . " ]\n";
+}
+
+$result .= formatted fulfill([[1,2], [ 3,4,1], 5]);
+$result .= formatted fulfill([[1,2], [10,4,1], 5]);
+
+say $result;
+
+my $ref = <<'END';
+[ [ "Payload#1", "Payload#2" ], [ "Payload#3", "Payload#4", "Payload#1" ], "Payload#5" ]
+[ [ "Payload#1", "Payload#2" ], [ "", "Payload#4", "Payload#1" ], "Payload#5" ]
+END
+
+use Test::More;
+is($result, $ref);
+done_testing();
+
+__END__
+
+# not quite to the spirit of the task
+for $p (@pattern1, @pattern2) {
+    $result = '[ ';
+    $result .= ref $_ eq 'ARRAY' ?  '[ "' . join('", "', @payloads[@$_]). '" ], ' : '"'.$payloads[$_].'"' for @$p;
+    $result .= " ]";
+    eval { push @res, $result };
+}
