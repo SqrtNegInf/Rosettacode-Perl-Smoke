@@ -1,17 +1,17 @@
 
 This is perl 5, version 28, subversion 0 (v5.28.0) built for darwin-thread-multi-2level
 updating from RC…
-+------------> Perl: Good/Bad [987/20]
-|+-----------> smOke testing [851]
++------------> Perl: Good/Bad [992/20]
+|+-----------> smOke testing [853]
 ||+----------> sKipping validation [144]
 |||+---------> Interactive [53]
-||||+--------> Touched (modified by me) [136]
+||||+--------> Touched (modified by me) [137]
 |||||+-------> Random seed [75]
 ||||||+------> File output [39]
 |||||||+-----> Draft [231]
 ||||||||+----> Ignoring [36]
-|||||||||+---> Void (no local copy) [255]
-||||||||||+--> Un-implemented/reliable [245]
+|||||||||+---> Void (no local copy) [253]
+||||||||||+--> Un-implemented/reliable [242]
 |||||||||||
 GO......... 100_doors-1
 GO......... 100_doors-2
@@ -340,7 +340,7 @@ GO......... Dynamic_variable_names
 G.KI....... Echo_server
 .........VU Eertree
 .........VU Egyptian_division
-.........VU Egyptian_fractions
+GO......... Egyptian_fractions
 GO......... Element-wise_operations
 GO......... Elementary_cellular_automaton
 GO..T..D... Elementary_cellular_automaton_Infinite_length
@@ -469,7 +469,7 @@ GO......... General_FizzBuzz
 .......D.VU Generalised_floating_point_multiplication
 GO...R..... Generate_Chess960_starting_position
 GO......... Generate_lower_case_ASCII_alphabet
-!O..TR....U Generate_random_chess_position
+GO..TR....U Generate_random_chess_position
 G.KI....... Generator_Exponential
 GO......... Generic_swap
 .......D.VU Geometric_algebra
@@ -599,7 +599,7 @@ GO...R..... Knuth%27s_algorithm_S
 GO......... Knuth%27s_power_tree
 GO...R..... Knuth_shuffle
 .......D.VU Koch_curve
-!O........U Kolakoski_sequence
+GO........U Kolakoski_sequence
 .......D.VU Kosaraju
 GO......... Kronecker_product
 .........VU Kronecker_product_based_fractals
@@ -688,7 +688,7 @@ GO......... Maximum_triangle_path_sum
 GO...R..... Maze_generation
 GO...R..... Maze_solving
 .........VU Median_filter
-!O..T.....U Memory_allocation
+GO..T...... Memory_allocation
 GO......... Memory_layout_of_a_data_structure
 G.KI....... Menu
 GO.....D... Mersenne_primes
@@ -744,7 +744,7 @@ G.KIT...... Nautical_bell-1
 GO......... Nautical_bell-2
 .........VU Negative_base_numbers
 GO......... Nested_function
-.........VU Nested_templated_data
+GO..T...... Nested_templated_data
 GO......... Non-continuous_subsequences
 GO......... Non-decimal_radices_Convert
 GO......... Non-decimal_radices_Input
