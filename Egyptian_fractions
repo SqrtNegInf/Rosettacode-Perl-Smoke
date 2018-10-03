@@ -1,0 +1,53 @@
+#!/usr/local/bin/perl
+#u# http://rosettacode.org/wiki/Egyptian_fractions
+#c# 2018-10-02 <RC
+#p# OK
+
+use feature 'say';
+
+use bigint;
+sub isEgyption{
+    my $nr = int($_[0]);
+    my $de = int($_[1]);
+    if($nr == 0 or $de == 0){
+	#Invalid input
+	return;
+    }
+    if($de % $nr == 0){
+	# They divide so print
+	$result .= sprintf "1/" . int($de/$nr);
+	return;
+    }
+    if($nr % $de == 0){
+	# Invalid fraction
+	$result .= sprintf $nr/$de;
+	return;
+    }
+    if($nr > $de){
+        $result .= sprintf int($nr/$de) . " + ";
+	isEgyption($nr%$de, $de);
+	return;
+    }
+    # Floor to find ceiling and print as fraction
+    my $tmp = int($de/$nr) + 1;
+    $result .= sprintf "1/" . $tmp . " + ";
+    isEgyption($nr*$tmp-$de, $de*$tmp);
+}
+
+my $nrI = 2014;
+my $deI = 59;
+$result .= sprintf "Egyptian Fraction Representation of " . $nrI . "/" . $deI . " is:\n\n";
+isEgyption($nrI,$deI);
+
+say $result;
+
+my $ref = <<'EOD';
+Egyptian Fraction Representation of 2014/59 is:
+
+34 + 1/8 + 1/95 + 1/14947 + 1/670223480
+EOD
+
+use Test::More;
+chop $ref;
+is ($result, $ref);
+done_testing();
