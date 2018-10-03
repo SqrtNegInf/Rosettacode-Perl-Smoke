@@ -4,55 +4,73 @@
 #p# BROKEN
 
 use feature 'say';
-use warnings;
-use strict 'vars';
 
 my $result;
 my @res;
 
-use bignum;
 use Math::Prime::Util qw(next_prime is_prime);
  
-my $max = 1_000_035;
-my %primes = $sieve.primes($max) X=> 1;
- 
-my $primes = %primes.keys.categorize: { .&sexy }
- 
-@res.push: "Total primes less than {comma $max}: "~ comma +%primes.keys;
- 
-for <pair 2 triplet 3 quadruplet 4 quintuplet 5> -> $sexy, $cnt {
-    @res.push: "Number of sexy prime {$sexy}s less than {comma $max}: "~ comma +$primes{$sexy};
-    @res.push: "   Last 5 sexy prime {$sexy}s less than {comma $max}: "~
-      join ' ', $primes{$sexy}.sort(+*).tail(5).grep(*.defined).map:
-      { "({ $_ «+« (0,6 … 24)[^$cnt] })" }
-    @res.push: '';
-}
- 
-@res.push: "Number of unsexy primes less than {comma $max}: "~ comma +$primes<unsexy>;
-@res.push: "  Last 10 unsexy primes less than {comma $max}: "~ $primes<unsexy>.sort(+*).tail(10);
- 
-sub sexy ($i) {
-    (
-        (so all(%primes{$i «+« (6,12,18,24)})) ?? 'quintuplet' !! Nil,
-        (so all(%primes{$i «+« (6,12,18)   })) ?? 'quadruplet' !! Nil,
-        (so all(%primes{$i «+« (6,12)      })) ?? 'triplet'    !! Nil,
-        (so     %primes{$i  +   6          })  ?? 'pair'       !! Nil,
-        ((($i >= $max - 6)  &&  ($i + 6).is-prime)) ||
-        (so any(%primes{$i «+« (6, -6)     })) ?? 'sexy' !! 'unsexy'
-    ).grep: *.defined
-}
- 
-#sub comma { $^i.flip.comb(3).join(',').flip }
+$max = 1_000_035;
+$cmax = comma($max);
 
+my $p = 2;
+push @{$primes{'unsexy'}}, $p;
+my $count = 1;
+while () {
+    $p = next_prime($p);
+    last if $p > $max;
+    $count++;
+    $s = sexy($p);
+    push @{$primes{$s}}, $p;
+    next unless $s eq 'sexy';
+
+    next unless is_prime($p+ 6);
+    push @{$primes{'pair'}},       $p;
+    next unless is_prime($p+12);
+    push @{$primes{'triplet'}},    $p;
+    next unless is_prime($p+18);
+    push @{$primes{'quadruplet'}}, $p;
+    next unless is_prime($p+24);
+    push @{$primes{'quintuplet'}}, $p;
+
+}
+
+
+sub sexy {
+    my($i) = @_;
+    (($i >= $max - 6) && is_prime($i + 6)) ||
+        is_prime($i+6) || is_prime($i-6) ? 'sexy' : 'unsexy'
+}
+ 
 sub comma {
     (my $s = reverse shift) =~ s/(.{3})/$1,/g;
     $s =~ s/,(-?)$/$1/;
     $s = reverse $s;
 }
 
-.say for @res;
+# Hash[Any,Any] $primes = $(my Any %{Any} = :pair($[5, 7, 11, 13, 17, 23, 31, 37, 41, 47, 53, 61, 67, 73, 83, 97, 101, 103, 107, 131, 151, 157, 167, 173, 191, 193, 223, 227, 233, 251, 257, 263, 271, 277, 307, 311, 331, 347, 353, 367, 373, 383, 433, 443, 457, 461, 503, 541, 557, 563, 571, 587, 593, 601, 607, 613, 641, 647, 653, 677, 727, 733, 751, 821, 823, 853, 857, 877, 881, 941, 947, 971, 977, 991]), :quadruplet($[5, 11, 41, 61, 251, 601, 641]), :quintuplet($[5]), :sexy($[5, 7, 11, 13, 17, 19, 23, 29, 31, 37, 41, 43, 47, 53, 59, 61, 67, 73, 79, 83, 89, 97, 101, 103, 107, 109, 113, 131, 137, 151, 157, 163, 167, 173, 179, 191, 193, 197, 199, 223, 227, 229, 233, 239, 251, 257, 263, 269, 271, 277, 283, 307, 311, 313, 317, 331, 337, 347, 353, 359, 367, 373, 379, 383, 389, 433, 439, 443, 449, 457, 461, 463, 467, 503, 509, 541, 547, 557, 563, 569, 571, 577, 587, 593, 599, 601, 607, 613, 619, 641, 647, 653, 659, 677, 683, 727, 733, 739, 751, 757, 821, 823, 827, 829, 853, 857, 859, 863, 877, 881, 883, 887, 941, 947, 953, 971, 977, 983, 991, 997]), :triplet($[5, 7, 11, 17, 31, 41, 47, 61, 67, 97, 101, 151, 167, 227, 251, 257, 271, 347, 367, 557, 587, 601, 607, 641, 647, 727, 941, 971]), :unsexy($[2, 3, 71, 127, 139, 149, 181, 211, 241, 281, 293, 349, 397, 401, 409, 419, 421, 431, 479, 487, 491, 499, 521, 523, 617, 631, 643, 661, 673, 691, 701, 709, 719, 743, 761, 769, 773, 787, 797, 809, 811, 839, 907, 911, 919, 929, 937, 967]))
 
-my $ref = q:to/END/;
+push @res, "Total primes less than $cmax: ". comma $count;
+
+
+for $tuples (qw<pair 2>, qw<triplet 3>, qw<quadruplet 4>, qw<quintuplet 5>) {
+    $sexy = @$tuples[0];
+    $cnt  = @$tuples[1];
+$DB::single = 1;
+    push @res, "Number of sexy prime ${sexy}s less than $cmax: ". comma scalar @{$primes{$sexy}};
+#    push @res, "   Last 5 sexy prime {$sexy}s less than $cmax: ".
+#      join ' ', $primes{$sexy}.sort(+*).tail(5).grep(*.defined).map:
+#      { "({ $_ «+« (0,6 … 24)[^$cnt] })" }
+#    push @res, '';
+}
+
+push @res, "Number of unsexy primes less than $cmax: ". comma scalar @{$primes{unsexy}};
+push @res, "  Last 10 unsexy primes less than $cmax: ". join ' ', @{$primes{unsexy}}[-11..-2];
+
+say $result = join "\n", @res; 
+exit;
+
+my $ref = <<'EOD';
 Total primes less than 1,000,035: 78,500
 Number of sexy prime pairs less than 1,000,035: 16,386
    Last 5 sexy prime pairs less than 1,000,035: (999371 999377) (999431 999437) (999721 999727) (999763 999769) (999953 999959)
@@ -68,19 +86,12 @@ Number of sexy prime quintuplets less than 1,000,035: 1
 
 Number of unsexy primes less than 1,000,035: 48,627
   Last 10 unsexy primes less than 1,000,035: 999853 999863 999883 999907 999917 999931 999961 999979 999983 1000003
-END
-
-use Test;
-is @res.join("\n"), chomp $ref;
-
-say $result; 
-#say $result = join "\n", @res;
-my $ref = <<'EOD';
 EOD
 
 use Test::More;
 #is($result, $ref);
 #done_testing();
+ 
 
 __END__
 
@@ -88,4 +99,4 @@ __END__
 {{trans|Perl 6}}
 <lang perl></lang>
 {{out}}
-<pre style="height:35ex"></pre>
+<pre></pre>
