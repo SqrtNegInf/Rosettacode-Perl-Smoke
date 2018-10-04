@@ -1,60 +1,19 @@
 #!/usr/local/bin/perl
 #u# http://rosettacode.org/wiki/Sexy_primes
-#c# 2018-09-30 >RC
-#p# BROKEN
+#c# 2018-10-03 >RC
+#p# OK
 
 use feature 'say';
 
-my $result;
-my @res;
-
 use Math::Prime::Util qw(next_prime is_prime);
- 
-$max = 1_000_035;
-$cmax = comma($max);
 
-my $p = 2;
-push @{$primes{'unsexy'}}, $p;
-my $count = 1;
-while () {
-    $p = next_prime($p);
-    last if $p > $max;
-    $count++;
-    $s = sexy($p);
-    push @{$primes{$s}}, $p;
-    next unless $s eq 'sexy';
-
-    next unless is_prime($p+ 6);
-    push @{$primes{'pair'}},       $p;
-    next unless is_prime($p+12);
-    push @{$primes{'triplet'}},    $p;
-    next unless is_prime($p+18);
-    push @{$primes{'quadruplet'}}, $p;
-    next unless is_prime($p+24);
-    push @{$primes{'quintuplet'}}, $p;
-
-}
-
-sub sexy {
-    my($i) = @_;
-    (($i >= $max - 6) && is_prime($i + 6)) ||
-        is_prime($i+6) || is_prime($i-6) ? 'sexy' : 'unsexy'
-}
- 
-sub comma {
-    (my $s = reverse shift) =~ s/(.{3})/$1,/g;
-    $s =~ s/,(-?)$/$1/;
-    $s = reverse $s;
-}
-
-sub tail_tuple { 
+sub tuple_tail {
     my($n,$cnt,@array) = @_;
     my(@tail);
     $n = @array if $n > @array;
-#    $n = 1 if $n == 0;
     for (1..$n) {
+        my $p = $array[-$n+$_-1];
         my @tuple;
-        my $p = $array[(-$n)+($_-1)];
         push @tuple, $p+6*$_ for 0..$cnt-1; 
         ($list = join(' ', @tuple)) =~ s/ $//;
         push @tail, "($list)";
@@ -62,14 +21,33 @@ sub tail_tuple {
     return @tail
 } 
 
-push @res, "Total primes less than $cmax: ". comma $count;
+sub comma {
+    (my $s = reverse shift) =~ s/(.{3})/$1,/g;
+    ($s = reverse $s) =~ s/^,//;
+    return $s;
+}
 
-#for (['pair', 2], ['triplet', 3], ['quadruplet', 4], ['quintuplet', 5]) {
-for (['triplet', 3], ['quadruplet', 4], ['quintuplet', 5]) {
+sub sexy { $p = shift; is_prime($p+6) || is_prime($p-6) ? 'sexy' : 'unsexy' }
+ 
+$cmax = comma $max = 1_000_035;
+
+push @{$primes{sexy($p)}}, $p = 2;
+while ($p = next_prime($p)) {
+    push @{$primes{sexy($p)}}, $p;
+    last if  $p+ 6 > $max;
+    is_prime($p+ 6) ? push @{$primes{'pair'}},       $p : next; 
+    is_prime($p+12) ? push @{$primes{'triplet'}},    $p : next; 
+    is_prime($p+18) ? push @{$primes{'quadruplet'}}, $p : next; 
+    is_prime($p+24) ? push @{$primes{'quintuplet'}}, $p : next; 
+}
+
+push @res, "Total primes less than $cmax: " . comma(@{$primes{'sexy'}} + @{$primes{'unsexy'}}) . "\n";
+
+for (['pair', 2], ['triplet', 3], ['quadruplet', 4], ['quintuplet', 5]) {
     $sexy = @$_[0];
     $cnt  = @$_[1];
     push @res, "Number of sexy prime ${sexy}s less than $cmax: " . comma scalar @{$primes{$sexy}};
-    push @res, "   Last 5 sexy prime ${sexy}s less than $cmax: " . join ' ', tail_tuple(5,$cnt,@{$primes{$sexy}});
+    push @res, "   Last 5 sexy prime ${sexy}s less than $cmax: " . join ' ', tuple_tail(5,$cnt,@{$primes{$sexy}});
     push @res, '';
 }
 
@@ -78,10 +56,12 @@ push @res, "  Last 10 unsexy primes less than $cmax: ". join ' ', @{$primes{unse
 
 say $result = join "\n", @res;
 
-#Number of sexy prime pairs less than 1,000,035: 16,386
-#   Last 5 sexy prime pairs less than 1,000,035: (999371 999377) (999431 999437) (999721 999727) (999763 999769) (999953 999959)
 my $ref = <<'EOD';
 Total primes less than 1,000,035: 78,500
+
+Number of sexy prime pairs less than 1,000,035: 16,386
+   Last 5 sexy prime pairs less than 1,000,035: (999371 999377) (999431 999437) (999721 999727) (999763 999769) (999953 999959)
+
 Number of sexy prime triplets less than 1,000,035: 2,900
    Last 5 sexy prime triplets less than 1,000,035: (997427 997433 997439) (997541 997547 997553) (998071 998077 998083) (998617 998623 998629) (998737 998743 998749)
 
@@ -99,25 +79,3 @@ use Test::More;
 chop $ref;
 is($result, $ref);
 done_testing();
-
-__END__
-Total primes less than 1,000,035: 78,500
-Number of sexy prime triplets less than 1,000,035: 2,900
-   Last 5 sexy prime triplets less than 1,000,035: (997427 997433 997439) (997541 997547 997553) (998071 998077 998083) (998617 998623 998629) (998737 998743 998749)
-
-Number of sexy prime quadruplets less than 1,000,035: 325
-   Last 5 sexy prime quadruplets less than 1,000,035: (977351 977357 977363 977369) (983771 983777 983783 983789) (986131 986137 986143 986149) (990371 990377 990383 990389) (997091 997097 997103 997109)
-
-Number of sexy prime quintuplets less than 1,000,035: 1
-   Last 5 sexy prime quintuplets less than 1,000,035: (5 11 17 23 29)
-
-Number of unsexy primes less than 1,000,035: 48,627
-  Last 10 unsexy primes less than 1,000,035: 999853 999863 999883 999907 999917 999931 999961 999979 999983 1000003
-
-__END__
-
-=={{header|Perl}}==
-{{trans|Perl 6}}
-<lang perl></lang>
-{{out}}
-<pre></pre>
