@@ -1,7 +1,7 @@
 #!/usr/local/bin/perl
 #u# http://rosettacode.org/wiki/Kolakoski_sequence
 #c# 2018-05-23 <RC
-#p# OK
+#p# BROKEN
 #n# sub needs to be a generator?
 
 use feature 'say';
