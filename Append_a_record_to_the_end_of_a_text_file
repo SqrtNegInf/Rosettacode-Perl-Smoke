@@ -3,7 +3,7 @@
 #c# 2018-07-15 <RC
 #p# OK
 #f# RC file: passwd.txt
-#r# RC prep: rm run/passwd.txt
+#r# RC prep: rm -f run/passwd.txt
 
 # The program uses flock(2) (or emulation, if flock is not available) to lock the file.
 
