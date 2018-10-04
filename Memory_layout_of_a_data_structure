@@ -2,7 +2,7 @@
 #u# http://rosettacode.org/wiki/Memory_layout_of_a_data_structure
 #c# 2018-08-18 <RC
 #p# OK
-#n# any point in testing?
+#n# pretty trivial...
 
 use feature 'say';
 my $result;
