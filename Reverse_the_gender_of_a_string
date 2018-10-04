@@ -1,0 +1,33 @@
+#!/usr/local/bin/perl
+#u# http://rosettacode.org/wiki/Reverse_the_gender_of_a_string
+#c# 2018-10-03 >RC
+#p# OK
+
+my %swaps = (
+    'she'  => 'he',
+    'his'  => 'her',
+);
+ 
+$swaps{         $swaps{$_} } =         $_ for keys %swaps; # inverted pairs
+$swaps{ ucfirst $swaps{$_} } = ucfirst $_ for keys %swaps; # title-case version 
+
+sub gender_swap {
+    my($s) = @_;
+    $s =~ s/\b$_\b/_$swaps{$_}/g for keys %swaps; # swap and add guard character
+    $s =~ s/_//g;                                 # remove guard
+    $s;
+}
+
+$original = qq{She was this soul sherpa. She took his heart! They say she's going to put me on a shelf.\n};
+print $swapped  = gender_swap($original);
+print $reverted = gender_swap($swapped);
+
+# adding {'him'  => 'her'}, this approach fails (starting with collision on key 'her')
+$x = "Her history with him, she says, helps his herding.\n";
+print "\n";
+print $xs  = gender_swap($x);
+print        gender_swap($xs);
+
+use Test::More;
+is($original, $reverted);
+done_testing();
