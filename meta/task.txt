@@ -1,17 +1,17 @@
 
 This is perl 5, version 28, subversion 0 (v5.28.0) built for darwin-thread-multi-2level
 updating from RC…
-+------------> Perl: Good/Bad [992/20]
-|+-----------> smOke testing [853]
++------------> Perl: Good/Bad [993/20]
+|+-----------> smOke testing [854]
 ||+----------> sKipping validation [143]
 |||+---------> Interactive [52]
-||||+--------> Touched (modified by me) [137]
-|||||+-------> Random seed [74]
+||||+--------> Touched (modified by me) [138]
+|||||+-------> Random seed [75]
 ||||||+------> File output [39]
 |||||||+-----> Draft [230]
 ||||||||+----> Ignoring [36]
-|||||||||+---> Void (no local copy) [253]
-||||||||||+--> Un-implemented/reliable [240]
+|||||||||+---> Void (no local copy) [252]
+||||||||||+--> Un-implemented/reliable [239]
 |||||||||||
 GO......... 100_doors-1
 GO......... 100_doors-2
@@ -678,7 +678,7 @@ GO......... Man_or_boy_test
 GO......... Mandelbrot_set
 GO......... Map_range
 .......D.VU Markov_chain_text_generator
-.......D.VU Mastermind
+GO..TR.D... Mastermind
 GO......... Matrix-exponentiation_operator
 GO......... Matrix_arithmetic
 .......D.VU Matrix_chain_multiplication
