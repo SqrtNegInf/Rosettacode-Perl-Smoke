@@ -1,0 +1,64 @@
+#!/usr/local/bin/perl
+#u# http://rosettacode.org/wiki/Substitution_Cipher
+#c# 2018-10-05 <RC
+#p# OK
+
+use feature 'say';
+my $result;
+# my @res;
+
+#Translation of: Java
+
+sub encode {
+    my $source = shift;
+    my $key = shift;
+    my $out = q();
+
+    @ka = split //, $key;
+    foreach $ch (split //, $source) {
+        $idx = ord($ch) - 32;
+        $out .= $ka[$idx];
+    }
+
+    return $out;
+}
+
+sub decode {
+    my $source = shift;
+    my $key = shift;
+    my $out = q();
+
+    foreach $ch (split //, $source) {
+        $idx = index $key, $ch;
+        $val = chr($idx + 32);
+        $out .= $val;
+    }
+
+    return $out;
+}
+
+my $key = q(]kYV}(!7P$n5_0i R:?jOWtF/=-pe'AD&@r6%ZXs"v*N[#wSl9zq2^+g;LoB`aGh{3.HIu4fbK)mU8|dMET><,Qc\C1yxJ);
+my $text = "Here we have to do is there will be a input/source "
+         . "file in which we are going to Encrypt the file by replacing every "
+         . "upper/lower case alphabets of the source file with another "
+         . "predetermined upper/lower case alphabets or symbols and save "
+         . "it into another output/encrypted file and then again convert "
+         . "that output/encrypted file into original/decrypted file. This "
+         . "type of Encryption/Decryption scheme is often called a "
+         . "Substitution Cipher.";
+
+my $ct = encode($text, $key);
+$result .= "Encoded: $ct\n";
+
+$result .= 'Decoded: ' . decode($ct, $key) . "\n";
+
+say $result; 
+
+my $ref = <<'EOD';
+Encoded: "uTu]cu]b3Qu]<d]Id]K>]<buTu]cKUU].u]3]K|M,< >d,THu]4KUu]K|]cbKHb]cu]3Tu]fdK|f]<d]Z|HTCM<]<bu]4KUu].C]TuMU3HK|f]uQuTC],MMuT UdcuT]H3>u]3UMb3.u<>]d4]<bu]>d,THu]4KUu]cK<b]3|d<buT]MTuIu<uT8K|uI],MMuT UdcuT]H3>u]3UMb3.u<>]dT]>C8.dU>]3|I]>3Qu]K<]K|<d]3|d<buT]d,<M,< u|HTCM<uI]4KUu]3|I]<bu|]3f3K|]Hd|QuT<]<b3<]d,<M,< u|HTCM<uI]4KUu]K|<d]dTKfK|3U IuHTCM<uI]4KUui]2bK>]<CMu]d4]Z|HTCM<Kd| %uHTCM<Kd|]>Hbu8u]K>]d4<u|]H3UUuI]3]q,.><K<,<Kd|]6KMbuTi
+Decoded: Here we have to do is there will be a input/source file in which we are going to Encrypt the file by replacing every upper/lower case alphabets of the source file with another predetermined upper/lower case alphabets or symbols and save it into another output/encrypted file and then again convert that output/encrypted file into original/decrypted file. This type of Encryption/Decryption scheme is often called a Substitution Cipher.
+EOD
+
+use Test::More;
+is ($result, $ref);
+done_testing();
