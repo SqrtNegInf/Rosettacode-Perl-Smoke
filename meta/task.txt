@@ -1,16 +1,16 @@
 
 This is perl 5, version 28, subversion 0 (v5.28.0) built for darwin-thread-multi-2level
 updating from RC…
-+------------> Perl: Good/Bad [993/20]
-|+-----------> smOke testing [855]
++------------> Perl: Good/Bad [995/20]
+|+-----------> smOke testing [856]
 ||+----------> sKipping validation [143]
 |||+---------> Interactive [52]
-||||+--------> Touched (modified by me) [138]
+||||+--------> Touched (modified by me) [139]
 |||||+-------> Random seed [75]
 ||||||+------> File output [39]
 |||||||+-----> Draft [230]
 ||||||||+----> Ignoring [36]
-|||||||||+---> Void (no local copy) [251]
+|||||||||+---> Void (no local copy) [250]
 ||||||||||+--> Un-implemented/reliable [238]
 |||||||||||
 GO......... 100_doors-1
@@ -195,7 +195,7 @@ GO......... Character_codes
 G.KI....... Chat_server
 GO.....D... Chebyshev_coefficients
 GO......... Check_Machin-like_formulas
-!O.....D... Check_input_device_is_a_terminal
+GO.....D... Check_input_device_is_a_terminal
 G.K....D... Check_output_device_is_a_terminal
 G.K........ Check_that_file_exists
 G.KI....... Checkpoint_synchronization
@@ -756,7 +756,7 @@ GO......... Null_object
 GO......... Number_names
 G.KI....... Number_reversal_game
 GO......... Numeric_error_propagation
-.........VU Numerical_integration
+GO..T.....U Numerical_integration
 .......D.VU Numerical_integration_Adaptive_Simpson%27s_method
 .........VU Numerical_integration_Gauss-Legendre_Quadrature
 ........XVU OLE_Automation
