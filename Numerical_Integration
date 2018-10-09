@@ -1,70 +1,92 @@
 #!/usr/local/bin/perl
 #u# http://rosettacode.org/wiki/Numerical_Integration
-#c# 2018-10-RC >RC
+#c# 2018-10-08 >RC
 #p# OK
+#n#  1326.250u 2.188s 22:12.39 99.7% - all 4 to slow to run daily, just doing first two
 
 use feature 'say';
-use warnings;
-#use strict 'vars';
-
-use List::Util qw(sum);
 
 sub leftrect {
     my($func, $a, $b, $n) = @_;
     my $h = ($b - $a) / $n;
-    $h * sum do func($_) for $a, $a+$h ... $b-$h;
+    my $sum = 0;
+    for ($_ = $a; $_ < $b; $_ += $h) { $sum += $func->($_) }
+    $h * $sum
 }
 
 sub rightrect {
-    my($func, $a, $b, $n) = @_
+    my($func, $a, $b, $n) = @_;
     my $h = ($b - $a) / $n;
-    $h * sum do func($_) for $a+$h, $a+$h+$h ... $b;
+    my $sum = 0;
+    for ($_ = $a+$h; $_ < $b+$h; $_ += $h) { $sum += $func->($_) }
+    $h * $sum
 }
 
 sub midrect {
     my($func, $a, $b, $n) = @_;
     my $h = ($b - $a) / $n;
-    $h * sum do func($_) for $a+$h/2, $a+$h+$h/2 ... $b-$h/2;
+    my $sum = 0;
+    for ($_ = $a+ $h/2; $_ < $b; $_ += $h) { $sum += $func->($_) }
+    $h * $sum
 }
 
 sub trapez {
     my($func, $a, $b, $n) = @_;
     my $h = ($b - $a) / $n;
-    my $f = func($a) + func($b);
-    $f += sum do func($_) * 2 for $a+$h, $a+$h+$h ... $b-$h;
-    $h / 2 * $f;
+    my $sum = $func->($a) + $func->($b);
+    for ($_ = $a+$h; $_ < $b; $_ += $h) { $sum += 2 * $func->($_) }
+    $h/2 * $sum
 }
 
 sub simpsons {
     my($func, $a, $b, $n) = @_;
     my $h = ($b - $a) / $n;
     my $h2 = $h/2;
-    my $sum1 = func($a + $h2);
+    my $sum1 = $func->($a+$h2);
     my $sum2 = 0;
 
-    for $a+$h, *+$h ... $b-$h {
-        $sum1 += func($_ + $h2);
-        $sum2 += func($_);
+    for ($_ = $a+$h; $_ < $b; $_ += $h) {
+        $sum1 += $func->($_+$h2);
+        $sum2 += $func->($_);
     }
-    ($h / 6) * (func($a) + func($b) + 4*$sum1 + 2*$sum2);
+    $h/6 * ($func->($a) + $func->($b) + 4*$sum1 + 2*$sum2)
+}
+
+# show a reasonable number of significant digits
+sub sig {
+    my($value) = @_;
+    my $rounded;
+    if ($value < 10) {
+        $rounded = sprintf '%.6f', $value;
+        $rounded =~ s/(\.\d*[1-9])0+$/$1/;
+        $rounded =~ s/\.0+$//;
+    } else {
+        $rounded = sprintf "%.1f", $value;
+        $rounded =~ s/\.0+$//;
+    }
+    return $rounded;
 }
 
 sub integrate {
-    my($f, $a, $b, $n, $exact) = @_;
-    push @res, "$f\n   in [$a..$b] / $n";
-    eval "my &f = $f;
-    push @res, '              exact result: '. $exact;
-    push @res, '     rectangle method left: '. leftrect  &f, $a, $b, $n;
-    push @res, '    rectangle method right: '. rightrect &f, $a, $b, $n;
-    push @res, '      rectangle method mid: '. midrect   &f, $a, $b, $n;
-    push @res, 'composite trapezoidal rule: '. trapez    &f, $a, $b, $n;
-    push @res, '   quadratic simpsons rule: '. simpsons  &f, $a, $b, $n;"
+    my($func, $a, $b, $n, $exact) = @_;
+
+    my $f = sub { local $_ = shift; eval $func };
+
+    my @res;
+    push @res, "$func\n   in [$a..$b] / $n";
+    push @res, '              exact result: ' . sig($exact);
+    push @res, '     rectangle method left: ' . sig( leftrect($f, $a, $b, $n));
+    push @res, '    rectangle method right: ' . sig(rightrect($f, $a, $b, $n));
+    push @res, '      rectangle method mid: ' . sig(  midrect($f, $a, $b, $n));
+    push @res, 'composite trapezoidal rule: ' . sig(   trapez($f, $a, $b, $n));
+    push @res, '   quadratic simpsons rule: ' . sig( simpsons($f, $a, $b, $n));
+    @res;
 }
 
-# Note that these integrations are done with rationals rather than floats, so should be fairly precise (though of course with so few iterations they are not terribly accurate (except when they are)).  Some of the sums do overflow into Num (floating point)--currently rakudo allows 64-bit denominators--but at least all of the interval arithmetic is exact.
+use Test::More;
 
-my $ref1 = <<'END1';
-{ $_ ** 3 }
+$ref1 = <<'END1';
+$_ ** 3
    in [0..1] / 100
               exact result: 0.25
      rectangle method left: 0.245025
@@ -73,26 +95,32 @@ my $ref1 = <<'END1';
 composite trapezoidal rule: 0.250025
    quadratic simpsons rule: 0.25
 END1
-my @res1 = integrate '{ $_ ** 3 }', 0, 1, 100, 0.25;
+@res1 = integrate('$_ ** 3', 0, 1, 100, 0.25);
 say for @res1; say '';
-is @res1.join("\n"), chomp $ref1;
+$result = join "\n", @res1;
+chomp $ref1;
+is($result, $ref1);
 
-my $ref2 = <<'END2';
-1 / *
+$ref2 = <<'END2';
+1 / $_
    in [1..100] / 1000
-              exact result: 4.605170185988092
-     rectangle method left: 4.654991057514682
-    rectangle method right: 4.556981057514681
-      rectangle method mid: 4.604762548678376
-composite trapezoidal rule: 4.605986057514682
-   quadratic simpsons rule: 4.605170384957145
+              exact result: 4.60517
+     rectangle method left: 4.654991
+    rectangle method right: 4.556981
+      rectangle method mid: 4.604763
+composite trapezoidal rule: 4.605986
+   quadratic simpsons rule: 4.60517
 END2
-my @res2 = integrate '1 / *', 1, 100, 1000, log(100);
+@res2 = integrate('1 / $_', 1, 100, 1000, log(100));
 say for @res2; say '';
-is @res2.join("\n"), chomp $ref2;
+$result = join "\n", @res2;
+chomp $ref2;
+is($result, $ref2);
 
-my $ref3 = <<'END3';
-*.self
+done_testing(); exit;  # calculations below are slow
+
+$ref3 = <<'END3';
+$_
    in [0..5000] / 5000000
               exact result: 12500000
      rectangle method left: 12499997.5
@@ -101,12 +129,14 @@ my $ref3 = <<'END3';
 composite trapezoidal rule: 12500000
    quadratic simpsons rule: 12500000
 END3
-my @res3 = integrate '*.self', 0, 5_000, 5_000_000, 12_500_000;
+@res3 = integrate('$_', 0, 5_000, 5_000_000, 12_500_000);
 say for @res3; say '';
-is @res3.join("\n"), chomp $ref3;
+$result = join "\n", @res3;
+chomp $ref3;
+is($result, $ref3);
 
-my $ref4 = <<'END4';
-*.self
+$ref4 = <<'END4';
+$_
    in [0..6000] / 6000000
               exact result: 18000000
      rectangle method left: 17999997
@@ -115,18 +145,10 @@ my $ref4 = <<'END4';
 composite trapezoidal rule: 18000000
    quadratic simpsons rule: 18000000
 END4
-my @res4 = integrate '*.self', 0, 6_000, 6_000_000, 18_000_000;
+@res4 = integrate('$_', 0, 6_000, 6_000_000, 18_000_000);
 say for @res4; say '';
-is @res4.join("\n"), chomp $ref4;
+$result = join "\n", @res4;
+chomp $ref4;
+is($result, $ref4);
 
-use Test::More;
-#is($result, $ref);
-#done_testing();
-
-__END__
-
-=={{header|Perl}}==
-{{trans|Perl 6}}
-<lang perl></lang>
-{{out}}
-<pre style="height:35ex"></pre>
+done_testing();
