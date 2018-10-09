@@ -1,16 +1,15 @@
 
 This is perl 5, version 28, subversion 0 (v5.28.0) built for darwin-thread-multi-2level
-updating from RC…
-+------------> Perl: Good/Bad [994/20]
-|+-----------> smOke testing [856]
++------------> Perl: Good/Bad [997/20]
+|+-----------> smOke testing [858]
 ||+----------> sKipping validation [143]
 |||+---------> Interactive [52]
-||||+--------> Touched (modified by me) [139]
+||||+--------> Touched (modified by me) [141]
 |||||+-------> Random seed [75]
 ||||||+------> File output [39]
 |||||||+-----> Draft [230]
 ||||||||+----> Ignoring [36]
-|||||||||+---> Void (no local copy) [250]
+|||||||||+---> Void (no local copy) [248]
 ||||||||||+--> Un-implemented/reliable [238]
 |||||||||||
 GO......... 100_doors-1
@@ -708,7 +707,7 @@ GO......... Modular_inverse
 .......D.VU Monads_Maybe_monad
 .......D.VU Monads_Writer_monad
 GO...R..... Monte_Carlo_methods
-.......D.VU Montgomery_reduction
+GO..T..D..U Montgomery_reduction
 GO...R..... Monty_Hall_problem
 .......D.VU Morpion_solitaire
 ........XV. Morse_code
@@ -756,9 +755,9 @@ GO......... Null_object
 GO......... Number_names
 G.KI....... Number_reversal_game
 GO......... Numeric_error_propagation
-!O..T.....U Numerical_integration
+GO..T.....U Numerical_integration
 .......D.VU Numerical_integration_Adaptive_Simpson%27s_method
-.........VU Numerical_integration_Gauss-Legendre_Quadrature
+GO..T.....U Numerical_integration_Gauss-Legendre_Quadrature
 ........XVU OLE_Automation
 GO......... Object_serialization-1
 GO......... Object_serialization-2
