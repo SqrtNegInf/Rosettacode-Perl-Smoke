@@ -1,9 +1,11 @@
 #!/usr/local/bin/perl
-#u# http://rosettacode.org/wiki/Numerical_integration_Gauss-Legendre_Quadrature
+#u# http://rosettacode.org/wiki/Numerical_integration/Gauss-Legendre_Quadrature
 #c# 2018-10-08 >RC
 #p# OK
 
 use feature 'say';
+
+use List::Util qw(sum);
 
 use constant pi => 3.14159265;
 
@@ -64,13 +66,11 @@ sub nodes {
     return %node
 }
 
-use List::Util qw(sum);
-
 sub quadrature {
     our($n, $a, $b) = @_;
-    sub scale { my($x) = @_; ($x * ($b - $a) + $a + $b) / 2 }
-    %nod = nodes($n);
-    ($b - $a) / 2 * sum map { $nod{$_} * exp(scale($_)) } keys %nod;
+    sub scale { ($_[0] * ($b - $a) + $a + $b) / 2 }
+    %nodes = nodes($n);
+    ($b - $a) / 2 * sum map { $nodes{$_} * exp(scale($_)) } keys %nodes;
 }
 
 $result .= sprintf("Gauss-Legendre %2d-point quadrature ∫₋₃⁺³ exp(x) dx ≈ %.13f\n", $_, quadrature($_, -3, +3) )
@@ -91,17 +91,3 @@ END
 use Test::More;
 is($result, $ref);
 done_testing();
-
-__END__
-
-=={{header|Perl}}==
-{{trans|Perl 6}}
-<lang perl></lang>
-{{out}}
-<pre>Gauss-Legendre  5-point quadrature ∫₋₃⁺³ exp(x) dx ≈ 20.0355777183856
-Gauss-Legendre  6-point quadrature ∫₋₃⁺³ exp(x) dx ≈ 20.0357469750923
-Gauss-Legendre  7-point quadrature ∫₋₃⁺³ exp(x) dx ≈ 20.0357498197266
-Gauss-Legendre  8-point quadrature ∫₋₃⁺³ exp(x) dx ≈ 20.0357498544945
-Gauss-Legendre  9-point quadrature ∫₋₃⁺³ exp(x) dx ≈ 20.0357498548174
-Gauss-Legendre 10-point quadrature ∫₋₃⁺³ exp(x) dx ≈ 20.0357498548198
-Gauss-Legendre 20-point quadrature ∫₋₃⁺³ exp(x) dx ≈ 20.0357498548198</pre>
