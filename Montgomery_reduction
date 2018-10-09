@@ -69,18 +69,3 @@ use Test::More;
 chop $ref;
 is($result, $ref);
 done_testing();
-
-__END__
-
-=={{header|Perl}}==
-{{trans|Perl 6}}
-<lang perl></lang>
-{{out}}
-<pre>Original x1:       540019781128412936473322405310
-Recovered from r1: 540019781128412936473322405310
-Original x2:       515692107665463680305819378593
-Recovered from r2: 515692107665463680305819378593
-
-Montgomery  computation x1**x2 mod m: 
-151232511393500655853002423778
-Built-in op computation x1**x2 mod m: 151232511393500655853002423778</pre>
