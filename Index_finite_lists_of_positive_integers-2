@@ -1,6 +1,6 @@
 #!/usr/local/bin/perl
 #u# http://rosettacode.org/wiki/Index_finite_lists_of_positive_integers
-#c# 2018-09-07 >RC
+#c# 2018-10-09 >RC
 #p# BROKEN
 
 use feature 'say';
@@ -15,23 +15,28 @@ multi infix:<rad> ()       { 0 }
 multi infix:<rad> ($a)     { $a }
 multi infix:<rad> ($a, $b) { $a * $*RADIX + $b }
 
-multi expand(Int $n is copy, 1) { $n }
-multi expand(Int $n is copy, Int $*RADIX) {
-    my \RAD = $*RADIX;
+#multi expand(Int $n is copy, 1) { $n }
+#multi expand(Int $n is copy, Int $*RADIX) {
+multi expand {
+    my($n, $RADIX) = @_;
+    return $n if $RADIX == 1;
 
-    my @reversed-digits = gather while $n > 0 {
-        take $n % RAD;
-        $n div= RAD;
+    my @reversed_digits;
+    while ($n > 0) {
+        push @reversed_digits, $n % $RADIX;
+        $n = int $n / $RADIX;
     }
 
-    eager for ^RAD {
-        [rad] reverse @reversed-digits[$_, * + RAD ... *]
+    for (0 .. $RADIX -1) {
+        #[rad] reverse @reversed_digits[$_, * + RAD ... *]
     }
 }
 
-multi compress(@n where @n == 1) { @n[0] }
-multi compress(@n is copy) {
-    my \RAD = my $*RADIX = @n.elems;
+#multi compress(@n where @n == 1) { @n[0] }
+sub compress { 
+    my(@n) = @_;
+    return $n[0] if @n == 1;
+    $RADIX = @n;
 
     [rad] reverse gather while @n.any > 0 {
             (state $i = 0) %= RAD;
@@ -41,7 +46,7 @@ multi compress(@n is copy) {
         }
 }
 
-sub rank{ my(@n) = @_;   compress (compress(@n), @n - 1)}
+sub rank{   my(@n) = @_; compress (compress(@n), @n - 1)}
 sub unrank{ my($n) = @_; my ($a, $b) = expand $n, 2; expand $a, $b + 1 }
 
 # [1 0 7 9 5 5 5 7 3 5 5 3] -> 4916298568465569231750539
