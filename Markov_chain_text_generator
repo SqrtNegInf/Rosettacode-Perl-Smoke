@@ -1,0 +1,48 @@
+#!/usr/local/bin/perl
+#u# http://rosettacode.org/wiki/Markov_chain_text_generator
+#c# 2018-10-09 >RC
+#p# OK
+
+use feature 'say';
+
+srand 123456;
+
+$file = shift || 'ref/alice_oz.txt'; 
+$n    = shift || 2;
+$max  = shift || 200;
+ 
+sub build_dict {
+    my($n, @words) = @_;
+    my %dict;
+    for $i (0 .. @words-$n) {
+        my @prefix;
+        push @prefix, $words[$i+$_] for 0..$n-1;
+        push @{$dict{ join ' ', @prefix }}, $words[$i+$n];
+    }
+    return %dict;
+}
+
+sub pick1 { return @_[ rand @_ ] }
+ 
+open F, "<$file"; my $text = <F>; close F;
+
+my @words = split ' ', $text;
+%dict = build_dict($n, @words);
+
+$result = join ' ', @rotor = @words[0..$n-1];
+for (1..$max) {
+    $result .= ' ' . ($new = pick1( @{$dict{join ' ', @rotor}} ));
+    shift @rotor;
+    push @rotor, $new;
+}
+
+say $result;
+
+my $ref = <<'EOD';
+Alice was thoroughly puzzled. 'Does the boots and shoes,' the Gryphon whispered in a fight with another hedgehog, which seemed to extend to the South Country? To see the Great Oz was ready to sink into the garden, where Alice could see or feel was the end of you, as she chose, she ran after her. 'I've something important to say!' This sounded promising, certainly: Alice turned and walked through the forest very thick on this side, and it seemed to Alice as she chose, she ran out and shone brightly. So they all spoke at once, I'll chop it down, and the Dormouse sulkily remarked, 'If you please, sir-' The Rabbit started violently, dropped the white kid gloves and the four travelers walked up to the Land of Oz in less than no time to think about stopping herself before she made a dreadfully ugly child: but it is a man,' said the Stork, as she spoke. 'I must be a person of authority among them, called out, 'Sit down, all of them expected to come out of breath, and till the Pigeon in a sorrowful tone; 'at least there's no use to me they flew away with me,' thought Alice,
+EOD
+
+use Test::More;
+chop $ref;
+is($result, $ref);
+done_testing();
