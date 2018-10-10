@@ -1,16 +1,17 @@
 
 This is perl 5, version 28, subversion 0 (v5.28.0) built for darwin-thread-multi-2level
-+------------> Perl: Good/Bad [997/20]
-|+-----------> smOke testing [858]
+updating from RC…
++------------> Perl: Good/Bad [998/20]
+|+-----------> smOke testing [860]
 ||+----------> sKipping validation [143]
 |||+---------> Interactive [52]
-||||+--------> Touched (modified by me) [141]
-|||||+-------> Random seed [75]
+||||+--------> Touched (modified by me) [143]
+|||||+-------> Random seed [76]
 ||||||+------> File output [39]
 |||||||+-----> Draft [230]
 ||||||||+----> Ignoring [36]
-|||||||||+---> Void (no local copy) [248]
-||||||||||+--> Un-implemented/reliable [238]
+|||||||||+---> Void (no local copy) [246]
+||||||||||+--> Un-implemented/reliable [234]
 |||||||||||
 GO......... 100_doors-1
 GO......... 100_doors-2
@@ -676,7 +677,7 @@ GO......... Make_directory_path
 GO......... Man_or_boy_test
 GO......... Mandelbrot_set
 GO......... Map_range
-.......D.VU Markov_chain_text_generator
+GO..TR.D... Markov_chain_text_generator
 GO..TR.D... Mastermind
 GO......... Matrix-exponentiation_operator
 GO......... Matrix_arithmetic
@@ -707,7 +708,7 @@ GO......... Modular_inverse
 .......D.VU Monads_Maybe_monad
 .......D.VU Monads_Writer_monad
 GO...R..... Monte_Carlo_methods
-GO..T..D..U Montgomery_reduction
+GO..T..D... Montgomery_reduction
 GO...R..... Monty_Hall_problem
 .......D.VU Morpion_solitaire
 ........XV. Morse_code
@@ -755,9 +756,9 @@ GO......... Null_object
 GO......... Number_names
 G.KI....... Number_reversal_game
 GO......... Numeric_error_propagation
-GO..T.....U Numerical_integration
+GO..T...... Numerical_integration
 .......D.VU Numerical_integration_Adaptive_Simpson%27s_method
-GO..T.....U Numerical_integration_Gauss-Legendre_Quadrature
+GO..T...... Numerical_integration_Gauss-Legendre_Quadrature
 ........XVU OLE_Automation
 GO......... Object_serialization-1
 GO......... Object_serialization-2
@@ -852,7 +853,7 @@ GO......... Polymorphic_copy
 G.K........ Polymorphism
 GO......... Polynomial_long_division
 GO......... Polynomial_regression
-.......D.VU Polynomial_synthetic_division
+!O..T..D..U Polynomial_synthetic_division
 .........VU Polyspiral
 GO......... Population_count
 GO......... Power_set-1
