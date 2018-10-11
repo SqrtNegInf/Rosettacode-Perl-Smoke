@@ -1,17 +1,17 @@
 
 This is perl 5, version 28, subversion 0 (v5.28.0) built for darwin-thread-multi-2level
 updating from RC…
-+------------> Perl: Good/Bad [998/20]
++------------> Perl: Good/Bad [999/20]
 |+-----------> smOke testing [860]
 ||+----------> sKipping validation [143]
 |||+---------> Interactive [52]
 ||||+--------> Touched (modified by me) [143]
 |||||+-------> Random seed [76]
 ||||||+------> File output [39]
-|||||||+-----> Draft [230]
+|||||||+-----> Draft [229]
 ||||||||+----> Ignoring [36]
 |||||||||+---> Void (no local copy) [246]
-||||||||||+--> Un-implemented/reliable [234]
+||||||||||+--> Un-implemented/reliable [233]
 |||||||||||
 GO......... 100_doors-1
 GO......... 100_doors-2
@@ -853,7 +853,7 @@ GO......... Polymorphic_copy
 G.K........ Polymorphism
 GO......... Polynomial_long_division
 GO......... Polynomial_regression
-!O..T..D..U Polynomial_synthetic_division
+GO..T..D... Polynomial_synthetic_division
 .........VU Polyspiral
 GO......... Population_count
 GO......... Power_set-1
@@ -973,7 +973,7 @@ GO......... SHA-256
 ........XV. SOAP
 ........XV. SQL-based_authentication
 .........VU Safe_addition
-GO..T..D... Safe_primes_and_unsafe_primes
+GO..T...... Safe_primes_and_unsafe_primes
 GO..T...... Sailors,_coconuts_and_a_monkey_problem-1
 GO..T...... Sailors,_coconuts_and_a_monkey_problem-2
 GO......... Same_Fringe
