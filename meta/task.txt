@@ -1,12 +1,12 @@
 
 This is perl 5, version 28, subversion 0 (v5.28.0) built for darwin-thread-multi-2level
 updating from RC…
-+------------> Perl: Good/Bad [999/20]
-|+-----------> smOke testing [860]
++------------> Perl: Good/Bad [997/21]
+|+-----------> smOke testing [859]
 ||+----------> sKipping validation [143]
 |||+---------> Interactive [52]
 ||||+--------> Touched (modified by me) [143]
-|||||+-------> Random seed [76]
+|||||+-------> Random seed [77]
 ||||||+------> File output [39]
 |||||||+-----> Draft [229]
 ||||||||+----> Ignoring [36]
@@ -51,7 +51,7 @@ GO......... Ackermann_function-4
 GO......... Ackermann_function-5
 ........XV. Active_Directory_Connect
 .........VU Active_Directory_Search_for_a_user
-GO......... Active_object
+!O......... Active_object
 GO......... Add_a_variable_to_a_class_instance_at_runtime
 .......D.VU Addition-chain_exponentiation
 .......D.VU Addition_chains
@@ -1122,7 +1122,7 @@ GO......... Subleq
 .......D... Subset_sum_problem
 GO.....D... Subset_sum_problem-1
 GO.....D... Subset_sum_problem-2
-GO.....D... Substitution_Cipher
+B....R.D... Substitution_Cipher
 GO......... Substring
 GO......... Substring_Top_and_tail
 GO......... Subtractive_generator
