@@ -1,17 +1,17 @@
 
 This is perl 5, version 28, subversion 0 (v5.28.0) built for darwin-thread-multi-2level
 updating from RC…
-+------------> Perl: Good/Bad [997/21]
-|+-----------> smOke testing [859]
-||+----------> sKipping validation [143]
++------------> Perl: Good/Bad [1002/20]
+|+-----------> smOke testing [862]
+||+----------> sKipping validation [144]
 |||+---------> Interactive [52]
-||||+--------> Touched (modified by me) [143]
-|||||+-------> Random seed [77]
+||||+--------> Touched (modified by me) [146]
+|||||+-------> Random seed [76]
 ||||||+------> File output [39]
 |||||||+-----> Draft [229]
 ||||||||+----> Ignoring [36]
-|||||||||+---> Void (no local copy) [246]
-||||||||||+--> Un-implemented/reliable [233]
+|||||||||+---> Void (no local copy) [243]
+||||||||||+--> Un-implemented/reliable [231]
 |||||||||||
 GO......... 100_doors-1
 GO......... 100_doors-2
@@ -51,7 +51,7 @@ GO......... Ackermann_function-4
 GO......... Ackermann_function-5
 ........XV. Active_Directory_Connect
 .........VU Active_Directory_Search_for_a_user
-!O......... Active_object
+GO......... Active_object
 GO......... Add_a_variable_to_a_class_instance_at_runtime
 .......D.VU Addition-chain_exponentiation
 .......D.VU Addition_chains
@@ -732,10 +732,10 @@ GO......... Mutual_recursion
 GO......... N%27th
 .......D.VU N-body_problem
 GO..T...... N-queens_problem
-.......D.VU NYSIIS
+GO..T..D... NYSIIS
 GO......... Named_parameters
 GO.....D... Names_to_numbers
-.........VU Naming_conventions
+G.K.T.....U Naming_conventions
 ........XV. Narcissist
 GO......... Narcissistic_decimal_number
 GO.....D... Native_shebang
@@ -915,7 +915,7 @@ GO......... Read_entire_file-1
 GO......... Read_entire_file-2
 .......D.VU Readline_interface
 GO......... Real_constants_and_functions
-.........VU Recaman%27s_sequence
+GO..T...... Recaman%27s_sequence
 ........XVU Record_sound
 .......D.VU Recursive_descent_parser_generator
 GO..T...... Reduced_row_echelon_form
@@ -1122,7 +1122,7 @@ GO......... Subleq
 .......D... Subset_sum_problem
 GO.....D... Subset_sum_problem-1
 GO.....D... Subset_sum_problem-2
-B....R.D... Substitution_Cipher
+GO.....D... Substitution_Cipher
 GO......... Substring
 GO......... Substring_Top_and_tail
 GO......... Subtractive_generator
