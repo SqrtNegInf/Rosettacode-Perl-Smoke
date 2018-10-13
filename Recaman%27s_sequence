@@ -1,0 +1,52 @@
+#!/usr/local/bin/perl
+#u# http://rosettacode.org/wiki/Recaman%27s_sequence
+#c# 2018-10-12 >RC
+#p# OK
+
+use feature 'say';
+
+use bignum;
+
+$max  = 1000;
+$remaining += $_ for 1..$max;
+#$remaining = $max*($max/2) + $max/2;
+
+my @recamans = 0;
+my $previous = 0;
+
+while ($remaining > 0) {
+   $term++;
+   my $this = $previous - $term;
+   $this = $previous + $term unless $this > 0 and !$seen{$this};
+   push @recamans, $this;
+   $dup = $term if !$dup and defined $seen{$this};
+   $remaining -= $this if $this <= $max and ! defined $seen{$this};
+   $seen{$this}++;
+   $previous = $this;
+
+}
+
+$result  = "First fifteen terms of Recaman's sequence: " . join(' ', @recamans[0..14]) . "\n";
+$result .= "First duplicate at term: a[$dup]\n";
+$result .= "Range 0..1000 covered by terms up to a[$term]\n";
+
+say $result;
+
+my $ref = <<'EOD';
+First fifteen terms of Recaman's sequence: 0 1 3 6 2 7 13 20 12 21 11 22 10 23 9
+First duplicate at term: a[24]
+Range 0..1000 covered by terms up to a[328002]
+EOD
+
+use Test::More;
+is($result, $ref);
+done_testing();
+
+__END__
+
+=={{header|Perl}}==
+<lang perl></lang>
+{{out}}
+<pre>First fifteen terms of Recaman's sequence: 0 1 3 6 2 7 13 20 12 21 11 22 10 23 9
+First duplicate at term: a[24]
+Range 0..1000 covered by terms up to a[328002]</pre>
