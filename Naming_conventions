@@ -1,0 +1,21 @@
+#!/usr/local/bin/perl
+#u# http://rosettacode.org/wiki/Naming_conventions
+#t# nocode
+#c# 2018-10-13 >RC
+#p# OK
+
+ use underscores to separate words in longer identifier
+
+MAX_ITERATIONS
+
+You may find it helpful to use letter case to indicate the scope or nature of a variable. For example:
+    $ALL_CAPS_HERE   constants only (beware clashes with perl vars!)
+    $Some_Caps_Here  package-wide global/static
+    $no_caps_here    function scope my() or local() variables
+
+Subroutines and variables meant to be treated as private are prefixed with an underscore. 
+Package variables are title cased. Declared constants are all caps. Package names are camel case
+
+Function and method names seem to work best as all lowercase.
+
+%whiffle $wiffle @wiffle
