@@ -1,18 +1,47 @@
 #!/usr/local/bin/perl
 #u# http://rosettacode.org/wiki/Modular_exponentiation
-#c# 2018-08-16 <RC
+#c# 2018-08-16 <RC, 2018-10-13 >RC
 #p# OK
+#n# https://wikivisually.com/wiki/Modular_exponentiation -  Applied Cryptography by Bruce Schneier (this version not on RC)
 
 use feature 'say';
-my $result;
 
 use bigint;
+
+sub expmod {
+    my($a, $b, $n) = @_;
+    my $c = 1;
+    do {
+        ($c *= $a) %= $n if $b % 2;
+        ($a *= $a) %= $n;
+    } while ($b = int $b/2);
+    $c;
+}
+
+sub expmod_via_bruce {
+    my($base, $exponent, $modulus) = @_;
+    my $result;
+    return 0 if $modulus == 1;
+    $result = 1;
+    $base = $base % $modulus;
+    while ($exponent > 0) {
+        $result = ($result * $base) % $modulus if $exponent%2;
+        $exponent >>= 1;
+        $base = ($base * $base) % $modulus;
+    }
+    return $result;
+}
 
 my $a = 2988348162058574136915891421498819466320163312926952423791023078876139;
 my $b = 2351399303373464486466122544523690094744975233415544072992656881240319;
 my $m = 10 ** 40;
-say $result = $a->bmodpow($b, $m);
+say $result1 = expmod($a, $b, $m);
+say $result2 = expmod_via_bruce($a, $b, $m);
+say $result3 = $a->bmodpow($b, $m);
+say "Note that 'bmodpow' modifies the base: \$a = $a";
 
 use Test::More;
-is ($result, 1527229998585248450016808958343740453059);
+is ($result1, 1527229998585248450016808958343740453059);
+is ($result2, 1527229998585248450016808958343740453059);
+is ($result3, 1527229998585248450016808958343740453059);
 done_testing();
