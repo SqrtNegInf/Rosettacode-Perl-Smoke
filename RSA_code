@@ -1,0 +1,78 @@
+#!/usr/local/bin/perl
+#u# http://rosettacode.org/wiki/RSA_code
+#c# 2018-10-12 >RC
+#p# OK
+
+use feature 'say';
+use warnings;
+#use strict 'vars';
+
+use bigint;
+
+#No blocking here. Algorithm doesn't really work if either red or black text begins with 'A'.
+
+use constant n => 9516311845790656153499716760847001433441357;
+use constant e => 65537;
+use constant d => 5617843187844953170308463622230283376298685;
+ 
+my $secret_message = "ROSETTA CODE";
+ 
+package Message {
+    my @alphabet;
+    push @alphabet, $_ for 'A' .. 'Z', ' ';
+    my $rad = +@alphabet;
+    $code{$alphabet[$_]} = $_ for 0..$rad-1;
+#use Data::Dumper; say Dumper %code;
+
+    #subset Text of Str where /^^ @alphabet+ $$/;
+
+    sub encode {
+        my($t) = @_;
+        #[+] %code{$t.flip.comb} Z* (1, $rad, $rad*$rad ... *);
+    }
+
+    sub decode {
+        my($n) = @_;
+        my(@i);
+        while () {
+            push @i, $n % $rad;
+            last if  $n < $rad;
+            $n = int $n / $rad;
+        }
+        reverse join '', @alphabet[@i];
+    }
+}
+ 
+package main;
+
+say "Secret message is $secret_message";
+$numeric_message = Message::encode $secret_message;
+say "Secret message in integer form is $numeric_message";
+
+$numeric_cipher = $numeric_message->bmodpow($e, $n);
+say "After exponentiation with public exponent we get: $numeric_cipher";
+
+$text_cipher = Message::decode $numeric_cipher;
+say "This turns into the string $text_cipher";
+
+$numeric_cipher2 = Message::encode $text_cipher;
+say "If we re-encode it in integer form we get $numeric_cipher2";
+
+$numeric_message2 = $numeric_cipher2->bmodpow($d, $n);
+say "After exponentiation with SECRET exponent we get: $numeric_message2";
+
+$secret_message2 = Message::decode $numeric_message2;
+say "This turns into the string $secret_message2";
+ 
+
+use Test::More;
+is($secret_message, $secret_message2);
+done_testing();
+
+__END__
+
+=={{header|Perl}}==
+{{trans|Perl 6}}
+<lang perl></lang>
+{{out}}
+<pre style="height:35ex"></pre>
