@@ -1,17 +1,17 @@
 
 This is perl 5, version 28, subversion 0 (v5.28.0) built for darwin-thread-multi-2level
 updating from RC…
-+------------> Perl: Good/Bad [1002/20]
-|+-----------> smOke testing [862]
++------------> Perl: Good/Bad [1001/20]
+|+-----------> smOke testing [863]
 ||+----------> sKipping validation [144]
 |||+---------> Interactive [52]
-||||+--------> Touched (modified by me) [146]
+||||+--------> Touched (modified by me) [148]
 |||||+-------> Random seed [76]
 ||||||+------> File output [39]
-|||||||+-----> Draft [229]
+|||||||+-----> Draft [230]
 ||||||||+----> Ignoring [36]
 |||||||||+---> Void (no local copy) [243]
-||||||||||+--> Un-implemented/reliable [231]
+||||||||||+--> Un-implemented/reliable [232]
 |||||||||||
 GO......... 100_doors-1
 GO......... 100_doors-2
@@ -51,7 +51,7 @@ GO......... Ackermann_function-4
 GO......... Ackermann_function-5
 ........XV. Active_Directory_Connect
 .........VU Active_Directory_Search_for_a_user
-GO......... Active_object
+!O......... Active_object
 GO......... Add_a_variable_to_a_class_instance_at_runtime
 .......D.VU Addition-chain_exponentiation
 .......D.VU Addition_chains
@@ -433,6 +433,7 @@ GO......... First-class_functions_Use_numbers_analogously
 GO......... First_class_environments
 GO......... Five_weekends
 GO..T..D... Fivenum
+.......D.VU Fixed_length_records
 GO......... FizzBuzz
 GO......... Flatten_a_list
 GO...R..... Flipping_bits_game
@@ -701,7 +702,7 @@ GO......... Miller-Rabin_primality_test-2
 GO..TR..... Mind_boggling_card_trick
 G.KI....... Minesweeper_game
 GO.....D... Modular_arithmetic
-GO......... Modular_exponentiation
+GO..T...... Modular_exponentiation
 GO......... Modular_inverse
 .......DXV. Modulinos
 .......D.VU Monads_List_monad
@@ -895,7 +896,7 @@ G.K........ Quine
 G.K........ RCRPG
 GO......... RIPEMD-160
 .........VU RPG_Attributes_Generator
-.........VU RSA_code
+!O..T.....U RSA_code
 .......D.VU Railway_circuit
 .........VU Ramer-Douglas-Peucker_line_simplification
 GO..T..D... Ramsey%27s_theorem
