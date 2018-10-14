@@ -1,21 +1,29 @@
 #!/usr/local/bin/perl
 #u# http://rosettacode.org/wiki/Naming_conventions
 #t# nocode
-#c# 2018-10-13 >RC
+#c# 2018-10-14 >RC
 #p# OK
 
- use underscores to separate words in longer identifier
+__END__
 
-MAX_ITERATIONS
+This being Perl, you are of course give wide lattitude in the names you can use for your program elements.
+But it can be helpful to other programmers, and possibly your future self, to use letter case and underscores 
+to indicate the scope or nature of a variable, so their roles can be understood at a glance.
+Some generally accepted conventions:
 
-You may find it helpful to use letter case to indicate the scope or nature of a variable. For example:
-    $ALL_CAPS_HERE   constants only (beware clashes with perl vars!)
+    $ALL_CAPS_HERE   constants 
     $Some_Caps_Here  package-wide global/static
-    $no_caps_here    function scope my() or local() variables
+    $no_caps_here    function scope my/our/local variables
 
+Note the use of underscores for readability.
 Subroutines and variables meant to be treated as private are prefixed with an underscore. 
-Package variables are title cased. Declared constants are all caps. Package names are camel case
+With all-caps constants, be careful for conflicts with Perl special variables.
+Function and method names should be all lowercase.
 
-Function and method names seem to work best as all lowercase.
+Any reasonably modern version of Perl can use Unicode characters in names, so employ them where it makes sense. It 
+may be necessary to invoke the <code>use utf8</code> pragma such cases.
 
-%whiffle $wiffle @wiffle
+<b>A caution about variables names and sigils</b>:
+Perl won't stop you from giving three variables in the same scope the names
+<code>%foo</code>, <code>@foo</code> and <code>$foo</code>, but that doesn't 
+mean it's a good idea.
