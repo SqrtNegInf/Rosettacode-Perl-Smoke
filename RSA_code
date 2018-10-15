@@ -1,34 +1,30 @@
 #!/usr/local/bin/perl
 #u# http://rosettacode.org/wiki/RSA_code
-#c# 2018-10-12 >RC
+#c# 2018-10-14 >RC
 #p# OK
-
-use feature 'say';
-use warnings;
-#use strict 'vars';
 
 use bigint;
 
 #No blocking here. Algorithm doesn't really work if either red or black text begins with 'A'.
 
-use constant n => 9516311845790656153499716760847001433441357;
-use constant e => 65537;
-use constant d => 5617843187844953170308463622230283376298685;
- 
-my $secret_message = "ROSETTA CODE";
+$n = 9516311845790656153499716760847001433441357;
+$e = 65537;
+$d = 5617843187844953170308463622230283376298685;
  
 package Message {
     my @alphabet;
     push @alphabet, $_ for 'A' .. 'Z', ' ';
     my $rad = +@alphabet;
     $code{$alphabet[$_]} = $_ for 0..$rad-1;
-#use Data::Dumper; say Dumper %code;
-
-    #subset Text of Str where /^^ @alphabet+ $$/;
 
     sub encode {
         my($t) = @_;
-        #[+] %code{$t.flip.comb} Z* (1, $rad, $rad*$rad ... *);
+        my $cnt = my $sum = 0;
+        for (split '', reverse $t) {
+            $sum += $code{$_} * $rad**$cnt;
+            $cnt++;
+        }
+        $sum;
     }
 
     sub decode {
@@ -41,38 +37,38 @@ package Message {
         }
         reverse join '', @alphabet[@i];
     }
+
+    sub expmod {
+    my($a, $b, $n) = @_;
+    my $c = 1;
+    do {
+        ($c *= $a) %= $n if $b % 2;
+        ($a *= $a) %= $n;
+    } while ($b = int $b/2);
+    $c;
 }
- 
-package main;
 
-say "Secret message is $secret_message";
-$numeric_message = Message::encode $secret_message;
-say "Secret message in integer form is $numeric_message";
+}
 
-$numeric_cipher = $numeric_message->bmodpow($e, $n);
-say "After exponentiation with public exponent we get: $numeric_cipher";
+my $secret_message = "ROSETTA CODE";
 
-$text_cipher = Message::decode $numeric_cipher;
-say "This turns into the string $text_cipher";
+$numeric_message  = Message::encode $secret_message;
+$numeric_cipher   = Message::expmod $numeric_message, $e, $n;
+$text_cipher      = Message::decode $numeric_cipher;
+$numeric_cipher2  = Message::encode $text_cipher;
+$numeric_message2 = Message::expmod $numeric_cipher2, $d, $n;
+$secret_message2  = Message::decode $numeric_message2;
 
-$numeric_cipher2 = Message::encode $text_cipher;
-say "If we re-encode it in integer form we get $numeric_cipher2";
-
-$numeric_message2 = $numeric_cipher2->bmodpow($d, $n);
-say "After exponentiation with SECRET exponent we get: $numeric_message2";
-
-$secret_message2 = Message::decode $numeric_message2;
-say "This turns into the string $secret_message2";
- 
+print <<"EOT";
+Secret message is $secret_message
+Secret message in integer form is $numeric_message
+After exponentiation with public exponent we get: $numeric_cipher
+This turns into the string $text_cipher
+If we re-encode it in integer form we get $numeric_cipher2
+After exponentiation with SECRET exponent we get: $numeric_message2
+This turns into the string $secret_message2
+EOT
 
 use Test::More;
 is($secret_message, $secret_message2);
 done_testing();
-
-__END__
-
-=={{header|Perl}}==
-{{trans|Perl 6}}
-<lang perl></lang>
-{{out}}
-<pre style="height:35ex"></pre>
