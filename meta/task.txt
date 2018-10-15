@@ -1,17 +1,17 @@
 
 This is perl 5, version 28, subversion 0 (v5.28.0) built for darwin-thread-multi-2level
 updating from RC…
-+------------> Perl: Good/Bad [1001/20]
++------------> Perl: Good/Bad [1002/20]
 |+-----------> smOke testing [863]
 ||+----------> sKipping validation [144]
 |||+---------> Interactive [52]
 ||||+--------> Touched (modified by me) [148]
 |||||+-------> Random seed [76]
 ||||||+------> File output [39]
-|||||||+-----> Draft [230]
+|||||||+-----> Draft [229]
 ||||||||+----> Ignoring [36]
 |||||||||+---> Void (no local copy) [243]
-||||||||||+--> Un-implemented/reliable [232]
+||||||||||+--> Un-implemented/reliable [231]
 |||||||||||
 GO......... 100_doors-1
 GO......... 100_doors-2
@@ -433,7 +433,7 @@ GO......... First-class_functions_Use_numbers_analogously
 GO......... First_class_environments
 GO......... Five_weekends
 GO..T..D... Fivenum
-.......D.VU Fixed_length_records
+.........VU Fixed_length_records
 GO......... FizzBuzz
 GO......... Flatten_a_list
 GO...R..... Flipping_bits_game
@@ -896,7 +896,7 @@ G.K........ Quine
 G.K........ RCRPG
 GO......... RIPEMD-160
 .........VU RPG_Attributes_Generator
-!O..T.....U RSA_code
+GO..T...... RSA_code
 .......D.VU Railway_circuit
 .........VU Ramer-Douglas-Peucker_line_simplification
 GO..T..D... Ramsey%27s_theorem
