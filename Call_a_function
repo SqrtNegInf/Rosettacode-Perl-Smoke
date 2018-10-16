@@ -3,19 +3,21 @@
 #t# skiptest
 #c# 2018-07-21 <RC
 #p# OK
-# 
-# The most common syntax; simply calls the function foo on the argument(s) provided.
-# 
-# foo();              # Call foo on the null list
-# &foo();             # Ditto
-# foo($arg1, $arg2);  # Call foo on $arg1 and $arg2
-# &foo($arg1, $arg2); # Ditto; ignores prototypes
-# Call foo() as a bareword. Only works after the function has been declared, which
-# can be done normally or with the use subs pragma.
-# 
-# foo;
-# Call foo() with the current values of @_&foo;
-# Call foo() with the current values of @_, discarding the previous stack frame. Not your grandfather's (harmful) goto, although the keyword can do both.goto &foo;
-# For subroutines stored in references (anonymous subroutines).&$fooref('foo', 'bar');
-# &{$fooref}('foo', 'bar');
-# $fooref->('foo', 'bar');
+
+__END__
+
+The most common syntax; simply calls the function foo on the argument(s) provided.
+
+foo();              # Call foo on the null list
+&foo();             # Ditto
+foo($arg1, $arg2);  # Call foo on $arg1 and $arg2
+&foo($arg1, $arg2); # Ditto; ignores prototypes
+Call foo() as a bareword. Only works after the function has been declared, which
+can be done normally or with the use subs pragma.
+
+foo;
+Call foo() with the current values of @_&foo;
+Call foo() with the current values of @_, discarding the previous stack frame. Not your grandfather's (harmful) goto, although the keyword can do both.goto &foo;
+For subroutines stored in references (anonymous subroutines).&$fooref('foo', 'bar');
+&{$fooref}('foo', 'bar');
+$fooref->('foo', 'bar');
