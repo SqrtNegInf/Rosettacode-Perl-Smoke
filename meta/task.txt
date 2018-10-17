@@ -2,15 +2,15 @@
 This is perl 5, version 28, subversion 0 (v5.28.0) built for darwin-thread-multi-2level
 updating from RC…
 +------------> Perl: Good/Bad [1003/20]
-|+-----------> smOke testing [863]
+|+-----------> smOke testing [864]
 ||+----------> sKipping validation [144]
 |||+---------> Interactive [52]
-||||+--------> Touched (modified by me) [148]
+||||+--------> Touched (modified by me) [149]
 |||||+-------> Random seed [76]
 ||||||+------> File output [39]
 |||||||+-----> Draft [229]
 ||||||||+----> Ignoring [36]
-|||||||||+---> Void (no local copy) [243]
+|||||||||+---> Void (no local copy) [242]
 ||||||||||+--> Un-implemented/reliable [231]
 |||||||||||
 GO......... 100_doors-1
@@ -855,7 +855,7 @@ G.K........ Polymorphism
 GO......... Polynomial_long_division
 GO......... Polynomial_regression
 GO..T..D... Polynomial_synthetic_division
-.........VU Polyspiral
+!O..T.....U Polyspiral
 GO......... Population_count
 GO......... Power_set-1
 GO......... Power_set-2
