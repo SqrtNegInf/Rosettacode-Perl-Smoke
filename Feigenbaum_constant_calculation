@@ -1,6 +1,6 @@
 #!/usr/local/bin/perl
 #u# http://rosettacode.org/wiki/Feigenbaum_constant_calculation
-#c# 2018-08-30 >RC
+#c# 2018-10-17 >RC
 #p# OK
 #n# fails with native squaring, works with Math-GSL 
 #n# except on Mac OS: https://github.com/leto/math--gsl/issues/151
@@ -9,9 +9,9 @@ use feature 'say';
 
 #use Math::GSL::PowInt qw /gsl_pow_2 gsl_pow_4 gsl_pow_int/;
 
-my $a1    = 1.0;
-my $a2    = 0.0;
-my $d1    = 3.2;
+my $a1 = 1.0;
+my $a2 = 0.0;
+my $d1 = 3.2;
 
 print " i         d\n";
 
@@ -29,8 +29,7 @@ for my $i (2..13) {
      }
 
      $d1 = ($a1 - $a2)/($a - $a1);
-     $a2 = $a1;
-     $a1 = $a;
+     ($a2, $a1) = ($a1, $a);
      $result .= sprintf "%2d %17.14f\n", $i, $d1;
 }
 
