@@ -18,6 +18,11 @@ use warnings;
 
 use Parallel::ForkManager;
 
+# some program to test run solo
+%Solo = (
+'Active_object' => 1,
+);
+
 chdir "$ENV{HOME}/perl5/Rosetta-Code" || die;
 
 $dir = `date '+%Y-%m-%d'`; chomp $dir;
@@ -52,10 +57,19 @@ for my $prog (@ARGV) {
     $difftest =~ s/^.*RC.file:\s+//; 
     $difftest =~ s/\s+$//;
 
-    push @Programs, $prog;
+    if (defined $Solo{$prog}) { push @P_one_at_a_time, $prog } else { push @Programs, $prog }
     $Ppre{$prog} =  $precmd if $precmd ne '';
     $Prun{$prog} =  $clargs if $clargs ne '';
     $Pfile{$prog} = $difftest if $difftest ne '';
+}
+
+for my $prog (@P_one_at_a_time) {
+    my $run = $prog;
+    $run .= " $Prun{$prog}" if defined $Prun{$prog};
+
+    system "$Ppre{$prog}" if defined $Ppre{$prog};
+    system "bin/rc-runone '$exe $run' > bench/$dir/$prog.out 2> bench/$dir/$prog.err";
+    system "diff -s -wb -q ref/$Pfile{$prog} run/$Pfile{$prog} >> bench/$dir/$prog.out" if defined $Pfile{$prog};
 }
 
 # run in parallel 
