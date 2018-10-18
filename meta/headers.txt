@@ -1967,7 +1967,7 @@ File: Faulhaber%27s_triangle
 File: Feigenbaum_constant_calculation
 #!/usr/local/bin/perl
 #u# http://rosettacode.org/wiki/Feigenbaum_constant_calculation
-#c# 2018-08-30 >RC
+#c# 2018-10-17 >RC
 #p# OK
 #n# fails with native squaring, works with Math-GSL 
 #n# except on Mac OS: https://github.com/leto/math--gsl/issues/151
@@ -2717,7 +2717,7 @@ File: Huffman_coding
 #p# OK
 
 File: I.Q._Puzzle
-#!/usr/local/bin/perl 
+#!/usr/local/bin/perl
 #u# http://rosettacode.org/wiki/I_Q__Puzzle
 #c# 2018-09-05 >RC
 #p# OK
