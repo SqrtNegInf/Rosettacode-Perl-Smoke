@@ -1,17 +1,17 @@
 
 This is perl 5, version 28, subversion 0 (v5.28.0) built for darwin-thread-multi-2level
 updating from RC…
-+------------> Perl: Good/Bad [1003/20]
-|+-----------> smOke testing [864]
++------------> Perl: Good/Bad [1004/20]
+|+-----------> smOke testing [863]
 ||+----------> sKipping validation [144]
 |||+---------> Interactive [52]
 ||||+--------> Touched (modified by me) [149]
 |||||+-------> Random seed [76]
 ||||||+------> File output [39]
-|||||||+-----> Draft [229]
+|||||||+-----> Draft [230]
 ||||||||+----> Ignoring [36]
-|||||||||+---> Void (no local copy) [242]
-||||||||||+--> Un-implemented/reliable [231]
+|||||||||+---> Void (no local copy) [243]
+||||||||||+--> Un-implemented/reliable [230]
 |||||||||||
 GO......... 100_doors-1
 GO......... 100_doors-2
@@ -345,6 +345,7 @@ GO......... Element-wise_operations
 GO......... Elementary_cellular_automaton
 GO..T..D... Elementary_cellular_automaton_Infinite_length
 GO.....D... Elementary_cellular_automaton_Random_Number_Generator
+.......D.VU Elliptic_Curve_Digital_Signature_Algorithm
 GO.....D... Elliptic_curve_arithmetic
 GO......... Emirp_primes
 GO......... Empty_directory
@@ -400,7 +401,7 @@ G.K........ Farey_sequence-2
 GO......... Fast_Fourier_transform
 GO.....D... Faulhaber%27s_formula
 GO.....D... Faulhaber%27s_triangle
-GO..T..D..U Feigenbaum_constant_calculation
+GO..T..D... Feigenbaum_constant_calculation
 .......D.VU Fibonacci_heap
 GO......... Fibonacci_n-step_number_sequences
 GO......... Fibonacci_sequence-1
@@ -736,7 +737,7 @@ GO..T...... N-queens_problem
 GO..T..D... NYSIIS
 GO......... Named_parameters
 GO.....D... Names_to_numbers
-G.K.T.....U Naming_conventions
+G.K.T...... Naming_conventions
 ........XV. Narcissist
 GO......... Narcissistic_decimal_number
 GO.....D... Native_shebang
@@ -855,7 +856,7 @@ G.K........ Polymorphism
 GO......... Polynomial_long_division
 GO......... Polynomial_regression
 GO..T..D... Polynomial_synthetic_division
-!O..T.....U Polyspiral
+G...T.....U Polyspiral
 GO......... Population_count
 GO......... Power_set-1
 GO......... Power_set-2
