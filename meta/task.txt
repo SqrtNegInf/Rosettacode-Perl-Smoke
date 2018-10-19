@@ -1,8 +1,8 @@
 
 This is perl 5, version 28, subversion 0 (v5.28.0) built for darwin-thread-multi-2level
 updating from RC…
-+------------> Perl: Good/Bad [1004/20]
-|+-----------> smOke testing [863]
++------------> Perl: Good/Bad [1003/20]
+|+-----------> smOke testing [864]
 ||+----------> sKipping validation [144]
 |||+---------> Interactive [52]
 ||||+--------> Touched (modified by me) [149]
@@ -856,7 +856,7 @@ G.K........ Polymorphism
 GO......... Polynomial_long_division
 GO......... Polynomial_regression
 GO..T..D... Polynomial_synthetic_division
-G...T.....U Polyspiral
+!O..T.....U Polyspiral
 GO......... Population_count
 GO......... Power_set-1
 GO......... Power_set-2
