@@ -18,7 +18,7 @@ use warnings;
 
 use Parallel::ForkManager;
 
-# some program to test run solo
+# some programs to test run solo
 %Solo = (
 'Active_object' => 1,
 );
@@ -26,7 +26,7 @@ use Parallel::ForkManager;
 chdir "$ENV{HOME}/perl5/Rosetta-Code" || die;
 
 $dir = `date '+%Y-%m-%d'`; chomp $dir;
-mkdir "bench/$dir"   if ! -e "bench/$dir";
+mkdir "bench/$dir"  if ! -e "bench/$dir";
 unlink "bench/last" if   -e "bench/last";
 system qq{cd bench; symlink $dir last};
 
