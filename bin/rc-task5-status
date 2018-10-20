@@ -45,7 +45,7 @@ while ($_ = <DATA>) { chomp; mark($_,'X') }
 my @cols = (
 "Perl: Good/Bad [${\tally('P','G')}/${\tally('P','B')}]",       # P
 #"JVM: Good/Bad [${\tally('J','G')}/${\tally('J','B')}]",        # J
-"smOke testing [${\tally('O')}]",                               # O
+"Smoke testing [${\tally('O')}]",                               # S
 "sKipping validation [${\tally('K')}]",                         # K
 "Interactive [${\tally('I')}]",                                 # I
 "Touched (modified by me) [${\tally('T')}]",                    # T
@@ -67,7 +67,7 @@ print '|' x $max . "\n";
 
 # display full task status table
 for my $p (sort keys %P) {
-    (print $P{$p}{$_} // '.') for qw(P O K I T R F D X V U);
+    (print $P{$p}{$_} // '.') for qw(P S K I T R F D X V U);
     print " $p\n";
 }
 
@@ -116,7 +116,7 @@ my($task,$header,$compiles,$pout,$perr,$skip,$srand);
     $P{$p}{'P'} = $header =~ /\bOK\b/ ? 'G' : 'B';
     $compiles = `perl -c $task 2>&1 1>/dev/null`;
     $pout = "../bench/last/$p.out";
-    $P{$p}{'O'} = -e $pout ? 'O' : '.';
+    $P{$p}{'S'} = -e $pout ? 'S' : '.';
     $perr = (-e $pout) ? `grep STDERR $pout` : undef;
     $P{$p}{'P'} = '!' if $compiles =~ /SORRY/ || ($P{$p}{'P'} eq 'G' && $perr);
 
