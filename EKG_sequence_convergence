@@ -1,0 +1,64 @@
+#!/usr/local/bin/perl
+#u# http://rosettacode.org/wiki/EKG_sequence_convergence
+#c# 2018-10-20 >RC
+#p# BROKEN
+
+use feature 'say';
+use warnings;
+use strict 'vars';
+
+my $result;
+# my @res;
+
+sub gcd {
+  my ($u, $v) = @_;
+  while ($v) {
+    ($u, $v) = ($v, $u % $v);
+  }
+  return abs($u);
+}
+
+sub shares_divisors_with { gcd( $_[0], $_[1]) > 1 }
+ 
+sub next_EKG {
+    my( @s ) = @_;
+    return first {
+        @s ∌ $_  and  @s.tail shares_divisors_with $_
+    }, 2..*;
+}
+ 
+sub EKG {
+    my($start ) = @_;
+    1, $start, &next_EKG … *  
+}
+ 
+push @res, "EKG($_): ". EKG($_).head(30) for 2, 5, 7, 9, 10;
+
+.say for @res;
+
+use Test;
+is @res.join("\n"), chomp $ref;
+
+say $result; 
+#say $result = join "\n", @res;
+my $ref = <<'EOD';
+EKG(2): (1 2 4 6 3 9 12 8 10 5)
+EKG(5): (1 5 10 2 4 6 3 9 12 8)
+EKG(7): (1 7 14 2 4 6 3 9 12 8)
+EKG(9): (1 9 3 6 2 4 8 10 5 15)
+EKG(10): (1 10 2 4 6 3 9 12 8 14)
+EKGs of (5 7) converge at term 21
+EKGs of (2 5 7 9 10) converge at term 45
+EOD
+
+use Test::More;
+#is($result, $ref);
+#done_testing();
+
+__END__
+
+=={{header|Perl}}==
+{{trans|Perl 6}}
+<lang perl></lang>
+{{out}}
+<pre style="height:35ex"></pre>
