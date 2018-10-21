@@ -6,17 +6,25 @@
 use feature 'say';
 my $result;
 
-sub gcd($$) {
+sub gcd1($$) {
   my ($u, $v) = @_;
   if ($v) {
-    return gcd($v, $u % $v);
+    return gcd1($v, $u % $v);
   } else {
     return abs($u);
   }
 }
 
-say $result = gcd(49865, 69811);
+# same idea, more succinct
+sub gcd2 {
+    my ($u, $v) = @_;
+    $v ? gcd2($v, $u % $v) : abs($u);
+}
+
+say $result1 = gcd1(49865, 69811);
+say $result2 = gcd2(49865, 69811);
 
 use Test::More;
-is ($result, 9973);
+is ($result1, 9973);
+is ($result2, 9973);
 done_testing();
