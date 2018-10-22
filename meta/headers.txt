@@ -2064,6 +2064,12 @@ File: Find_common_directory_path
 #c# 2018-08-04 <RC
 #p# BROKEN
 
+File: Find_duplicate_files
+#!/usr/local/bin/perl
+#u# http://rosettacode.org/wiki/Find_duplicate_files
+#c# 2018-10-21 >RC
+#p# OK
+
 File: Find_first_and_last_set_bit_of_a_long_integer
 #!/usr/local/bin/perl
 #u# http://rosettacode.org/wiki/Find_first_and_last_set_bit_of_a_long_integer
@@ -3043,6 +3049,12 @@ File: Kronecker_product
 #!/usr/local/bin/perl
 #u# http://rosettacode.org/wiki/Kronecker_product
 #c# 2018-08-14 <RC
+#p# OK
+
+File: LU_decomposition
+#!/usr/local/bin/perl
+#u# http://rosettacode.org/wiki/LU_decomposition
+#c# 2018-10-21 >RC
 #p# OK
 
 File: LZW_compression
