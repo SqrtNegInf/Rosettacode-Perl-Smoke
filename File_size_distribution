@@ -12,7 +12,7 @@ my %fsize;
 $dir = '/Users/dhoekman/perl6/Rosetta-Code/bench/2018-01-01-m';
 find(\&fsize, $dir);
 
-$max = max($max,$fsize{$_}) for keys %fsize;
+$max = max($max,$_) for values %fsize;
 $total += $size while (undef,$size) = each %fsize;
 
 push @res, "File size distribution in bytes for directory: $dir\n";
