@@ -6,7 +6,6 @@
 use feature 'say';
 my $result;
 
-
 sub identity_matrix {
     my $n = shift;
     map {
@@ -15,10 +14,17 @@ sub identity_matrix {
     } 1 .. $n;
 }
 
+# alternative 
+sub matrix_ident { 
+    my($n) = @_; 
+    map { [ (0) x $_, 1, (0) x ($n-1 - $_) ] } 0..$n-1
+}
+
 @ARGV = (4, 5, 6) unless @ARGV;
 
 for (@ARGV) {
-  my @id = identity_matrix $_;
+  my @id = matrix_ident $_;
+  #my @id = identity_matrix $_;
   $result .= "$_:\n";
   for (my $i=0; $i<@id; ++$i) {
     $result .= join(' ', @{$id[$i]}). "\n";
@@ -26,7 +32,7 @@ for (@ARGV) {
   $result .= "\n";
 }
 
-say $result; 
+say $result;
 
 my $ref = <<'EOD';
 4:
