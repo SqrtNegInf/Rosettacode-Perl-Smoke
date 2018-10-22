@@ -5,13 +5,13 @@ updating from RC…
 |+-----------> Smoke testing []
 ||+----------> sKipping validation [144]
 |||+---------> Interactive [52]
-||||+--------> Touched (modified by me) [151]
+||||+--------> Touched (modified by me) [153]
 |||||+-------> Random seed [77]
 ||||||+------> File output [39]
 |||||||+-----> Draft [230]
 ||||||||+----> Ignoring [36]
-|||||||||+---> Void (no local copy) [241]
-||||||||||+--> Un-implemented/reliable [229]
+|||||||||+---> Void (no local copy) [239]
+||||||||||+--> Un-implemented/reliable [228]
 |||||||||||
 GS......... 100_doors-1
 GS......... 100_doors-2
@@ -51,7 +51,7 @@ GS......... Ackermann_function-4
 GS......... Ackermann_function-5
 ........XV. Active_Directory_Connect
 .........VU Active_Directory_Search_for_a_user
-GS......... Active_object
+!S......... Active_object
 GS......... Add_a_variable_to_a_class_instance_at_runtime
 .......D.VU Addition-chain_exponentiation
 .......D.VU Addition_chains
@@ -417,7 +417,7 @@ GS..T..D... File_size_distribution
 GS......... Filter
 .......D.VU Find_URI_in_text
 B.......... Find_common_directory_path
-.......D.VU Find_duplicate_files
+!S..T..D... Find_duplicate_files
 GS.....D... Find_first_and_last_set_bit_of_a_long_integer
 GS......... Find_largest_left_truncatable_prime_in_a_given_base
 GS......... Find_limit_of_recursion
@@ -605,7 +605,7 @@ B.........U Kolakoski_sequence
 .......D.VU Kosaraju
 GS......... Kronecker_product
 .........VU Kronecker_product_based_fractals
-.........VU LU_decomposition
+GS..T.....U LU_decomposition
 GS......... LZW_compression
 GS...R..... Langton%27s_ant
 GS......... Largest_int_from_concatenated_ints
