@@ -938,6 +938,12 @@ File: Checkpoint_synchronization
 #c# 2018-07-22 <RC
 #p# OK
 
+File: Cheryl%27s_Birthday
+#!/usr/local/bin/perl
+#u# http://rosettacode.org/wiki/RC_REMOTE
+#c# 2018-10-RC >RC
+#p# OK
+
 File: Chinese_remainder_theorem
 #!/usr/local/bin/perl
 #u# http://rosettacode.org/wiki/Chinese_remainder_theorem
@@ -3656,6 +3662,13 @@ File: Move-to-front_algorithm
 #c# 2018-08-19 <RC
 #p# OK
 
+File: Multi-dimensional_array
+#!/usr/local/bin/perl
+#u# http://rosettacode.org/wiki/Multi-dimensional_array
+#t# nocode
+#c# 2018-10-RC >RC
+#p# OK
+
 File: Multifactorial-1
 #!/usr/local/bin/perl
 #u# http://rosettacode.org/wiki/Multifactorial
@@ -5762,6 +5775,12 @@ File: Suffix_tree
 #u# http://rosettacode.org/wiki/Suffix_tree
 #c# 2018-08-12 <RC
 #p# OK
+
+File: Sum_and_Product_Puzzle
+#!/usr/local/bin/perl
+#u# http://rosettacode.org/wiki/Sum_and_Product_Puzzle
+#c# 2018-10-RC >RC
+#p# BROKEN
 
 File: Sum_and_product_of_an_array
 #!/usr/local/bin/perl
