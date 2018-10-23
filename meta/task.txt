@@ -1,16 +1,16 @@
 
 This is perl 5, version 28, subversion 0 (v5.28.0) built for darwin-thread-multi-2level
 updating from RC…
-+------------> Perl: Good/Bad [1004/22]
++------------> Perl: Good/Bad [1006/23]
 |+-----------> Smoke testing []
-||+----------> sKipping validation [144]
+||+----------> sKipping validation [145]
 |||+---------> Interactive [52]
-||||+--------> Touched (modified by me) [153]
+||||+--------> Touched (modified by me) [156]
 |||||+-------> Random seed [77]
 ||||||+------> File output [39]
-|||||||+-----> Draft [230]
+|||||||+-----> Draft [228]
 ||||||||+----> Ignoring [36]
-|||||||||+---> Void (no local copy) [239]
+|||||||||+---> Void (no local copy) [237]
 ||||||||||+--> Un-implemented/reliable [228]
 |||||||||||
 GS......... 100_doors-1
@@ -199,6 +199,7 @@ GS.....D... Check_input_device_is_a_terminal
 G.K....D... Check_output_device_is_a_terminal
 G.K........ Check_that_file_exists
 G.KI....... Checkpoint_synchronization
+!S..T..D..U Cheryl%27s_Birthday
 .......D.VU Chess_player
 .......D.VU Chess_player_Move_generation
 .......D.VU Chess_player_Program_options_and_user_interface
@@ -417,7 +418,7 @@ GS..T..D... File_size_distribution
 GS......... Filter
 .......D.VU Find_URI_in_text
 B.......... Find_common_directory_path
-!S..T..D... Find_duplicate_files
+GS..T..D... Find_duplicate_files
 GS.....D... Find_first_and_last_set_bit_of_a_long_integer
 GS......... Find_largest_left_truncatable_prime_in_a_given_base
 GS......... Find_limit_of_recursion
@@ -545,8 +546,8 @@ GS......... IBAN
 GS......... I_before_E_except_after_C-1
 GS......... I_before_E_except_after_C-2
 GS......... Identity_matrix
-GS..T..D... Idiomatically_determine_all_the_characters_that_can_be_used_for_symbols
-GS..T..D... Idiomatically_determine_all_the_lowercase_and_uppercase_letters
+GS..T...... Idiomatically_determine_all_the_characters_that_can_be_used_for_symbols
+GS..T...... Idiomatically_determine_all_the_lowercase_and_uppercase_letters
 .........VU Image_convolution
 .........VU Image_noise
 B...T..D..U Imaginary_base_numbers
@@ -605,7 +606,7 @@ B.........U Kolakoski_sequence
 .......D.VU Kosaraju
 GS......... Kronecker_product
 .........VU Kronecker_product_based_fractals
-GS..T.....U LU_decomposition
+GS..T...... LU_decomposition
 GS......... LZW_compression
 GS...R..... Langton%27s_ant
 GS......... Largest_int_from_concatenated_ints
@@ -653,7 +654,7 @@ GS......... Loops_N_plus_one_half
 GS...R..... Loops_Nested
 GS......... Loops_While
 GS..T...... Loops_Wrong_ranges
-GS..T..D... Loops_with_multiple_ranges
+GS..T...... Loops_with_multiple_ranges
 GS......... Lucas-Lehmer_test-1
 G.K........ Lucas-Lehmer_test-2
 GS......... Lucas-Lehmer_test-3
@@ -717,7 +718,7 @@ GS...R..... Monty_Hall_problem
 GS.....D... Most_frequent_k_chars_distance
 G.KI....... Mouse_position
 GS......... Move-to-front_algorithm
-.......D.VU Multi-dimensional_array
+G.K.T..D..U Multi-dimensional_array
 .......D.VU Multidimensional_Newton-Raphson_method
 GS......... Multifactorial-1
 GS......... Multifactorial-2
@@ -1130,7 +1131,7 @@ GS......... Substring_Top_and_tail
 GS......... Subtractive_generator
 GS......... Sudoku
 GS.....D... Suffix_tree
-.........VU Sum_and_Product_Puzzle
+B...T.....U Sum_and_Product_Puzzle
 GS......... Sum_and_product_of_an_array
 GS......... Sum_digits_of_an_integer
 GS......... Sum_multiples_of_3_and_5-1
