@@ -1,30 +1,28 @@
 #!/usr/local/bin/perl
-#u# http://rosettacode.org/wiki/RC_REMOTE
+#u# http://rosettacode.org/wiki/Multi-dimensional_array
+#t# nocode
 #c# 2018-10-RC >RC
 #p# OK
 
-use feature 'say';
-use warnings;
-use strict 'vars';
-
-my $result;
-# my @res;
-
-# ~/perl6/Rosetta-Code/RC_LOCAL
-
-say $result; 
-#say $result = join "\n", @res;
-my $ref = <<'EOD';
-EOD
-
-use Test::More;
-#is($result, $ref);
-#done_testing();
+# yada, yada, yada
 
 __END__
 
 =={{header|Perl}}==
-{{trans|Perl 6}}
-<lang perl></lang>
-{{out}}
-<pre style="height:35ex"></pre>
+<lang perl>
+
+The most important thing to understand about all data structures in Perl--including multidimensional arrays--is that even though they might appear otherwise, Perl @ARRAY s and %HASH es are all internally one-dimensional. They can hold only scalar values (meaning a string, number, or a reference). They cannot directly contain other arrays or hashes, but instead contain references to other arrays or hashes.
+You can't use a reference to an array or hash in quite the same way that you would a real array or hash. 
+
+
+This means that when you have something which looks to you like an access to a two-or-more-dimensional array and/or hash, what's really going on is that the base type is merely a one-dimensional entity that contains references to the next level. It's just that you can use it as though it were a two-dimensional one. 
+
+
+In short, Perl does not implement true multi-dimensional arrays, but does a decent job of simulating them.
+
+Multi-dimensional_arrays (they do not need to be declared
+
+Note that the dimensions do not _need_ to be predeclared / allocated. Perl will auto-vivify the necessary storage slots on first access.
+ 
+
+</lang>
