@@ -1,59 +1,52 @@
 #!/usr/local/bin/perl
 #u# http://rosettacode.org/wiki/Safe_primes_and_unsafe_primes
-#c# 2018-09-30 >RC
+#c# 2018-09-30 >RC, 2018-10-24 <RC
 #p# OK
+#n# Danaj makes it much, much faster
 
 use feature 'say';
 
-use Math::Prime::Util qw(next_prime is_prime prime_precalc);
+# The module ntheory does fast prime generation and testing.
 
-$class{'unsafe'} = [2];
+use ntheory qw(forprimes is_prime);
 
 my $upto = 1e7;
-prime_precalc( 18*$upto );
-my $p = 2;
-my $count = 1;
-while () {
-    $p = next_prime($p);
-    if (is_prime(($p-1)/2)) { push @{$class{'safe'}},   $p } 
-    else                    { push @{$class{'unsafe'}}, $p } 
-    last if ++$count == ($upto);
-}
+my %class = ( safe => [], unsafe => [2] );
+
+forprimes {
+    push @{$class{ is_prime(($_-1)>>1) ? 'safe' : 'unsafe' }}, $_;
+} 3, $upto;
 
 for (['safe', 35], ['unsafe', 40]) {
-    my $type     = @$_[0];
-    my $quantity = @$_[1];
-    push @res, "The first $quantity $type primes are:";
-    push @res, '';
-    $res[-1] .= comma($class{$type}->[$_-1]) . ' ' for 1..$quantity;
-    for $q ($upto/10, $upto) {
-        $n = 0;
-        map { $n++ if $_ <= $q } @{$class{$type}};
+    my($type, $quantity) = @$_;
+    push @res,  "The first $quantity $type primes are:";
+    push @res, join(" ", map { comma($class{$type}->[$_-1]) } 1..$quantity);
+    for my $q ($upto/10, $upto) {
+        my $n = scalar(grep { $_ <= $q } @{$class{$type}});
         push @res, sprintf "The number of $type primes up to %s: %s", comma($q), comma($n);
     }
 }
-
 
 sub comma {
     (my $s = reverse shift) =~ s/(.{3})/$1,/g;
     $s =~ s/,(-?)$/$1/;
     $s = reverse $s;
 }
- 
-say $result = join "\n", @res;
 
-my $ref = <<'END';
+my $ref = <<'EOD';
 The first 35 safe primes are:
-5 7 11 23 47 59 83 107 167 179 227 263 347 359 383 467 479 503 563 587 719 839 863 887 983 1,019 1,187 1,283 1,307 1,319 1,367 1,439 1,487 1,523 1,619 
+5 7 11 23 47 59 83 107 167 179 227 263 347 359 383 467 479 503 563 587 719 839 863 887 983 1,019 1,187 1,283 1,307 1,319 1,367 1,439 1,487 1,523 1,619
 The number of safe primes up to 1,000,000: 4,324
 The number of safe primes up to 10,000,000: 30,657
 The first 40 unsafe primes are:
-2 3 13 17 19 29 31 37 41 43 53 61 67 71 73 79 89 97 101 103 109 113 127 131 137 139 149 151 157 163 173 181 191 193 197 199 211 223 229 233 
+2 3 13 17 19 29 31 37 41 43 53 61 67 71 73 79 89 97 101 103 109 113 127 131 137 139 149 151 157 163 173 181 191 193 197 199 211 223 229 233
 The number of unsafe primes up to 1,000,000: 74,174
 The number of unsafe primes up to 10,000,000: 633,922
-END
+EOD
+
+say $result = join "\n", @res;
 
 use Test::More;
 chop $ref;
-is($result, $ref);
+is ($result, $ref);
 done_testing();
