@@ -1616,8 +1616,8 @@ File: Dynamic_variable_names
 File: EKG_sequence_convergence
 #!/usr/local/bin/perl
 #u# http://rosettacode.org/wiki/EKG_sequence_convergence
-#c# 2018-10-20 >RC
-#p# BROKEN
+#c# 2018-10-24 >RC
+#p# OK
 
 File: Echo_server
 #!/usr/local/bin/perl
@@ -4894,6 +4894,13 @@ File: SHA-256
 File: Safe_primes_and_unsafe_primes
 #!/usr/local/bin/perl
 #u# http://rosettacode.org/wiki/Safe_primes_and_unsafe_primes
+#c# 2018-09-30 >RC, 2018-10-24 <RC
+#p# OK
+#n# Danaj makes it much, much faster
+
+File: Safe_primes_and_unsafe_primes.1
+#!/usr/local/bin/perl
+#u# http://rosettacode.org/wiki/Safe_primes_and_unsafe_primes
 #c# 2018-09-30 >RC
 #p# OK
 
@@ -5050,7 +5057,7 @@ File: Seven-sided_dice_from_five-sided_dice
 File: Sexy_primes
 #!/usr/local/bin/perl
 #u# http://rosettacode.org/wiki/Sexy_primes
-#c# 2018-10-03 >RC
+#c# 2018-10-03 >RC, 2018-10-24 >RC
 #p# OK
 
 File: Shell_one-liner
