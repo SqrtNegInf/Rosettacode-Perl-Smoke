@@ -1,64 +1,55 @@
 #!/usr/local/bin/perl
 #u# http://rosettacode.org/wiki/EKG_sequence_convergence
-#c# 2018-10-20 >RC
-#p# BROKEN
+#c# 2018-10-24 >RC
+#p# OK
 
 use feature 'say';
-use warnings;
-use strict 'vars';
 
-my $result;
-# my @res;
+use List::Util qw(none);
 
-sub gcd {
-  my ($u, $v) = @_;
-  while ($v) {
-    ($u, $v) = ($v, $u % $v);
-  }
-  return abs($u);
-}
-
+sub gcd { my ($u,$v) = @_; $v ? gcd($v, $u%$v) : abs($u) } 
 sub shares_divisors_with { gcd( $_[0], $_[1]) > 1 }
  
-sub next_EKG {
-    my( @s ) = @_;
-    return first {
-        @s ∌ $_  and  @s.tail shares_divisors_with $_
-    }, 2..*;
-}
- 
 sub EKG {
-    my($start ) = @_;
-    1, $start, &next_EKG … *  
+    my($n,$limit) = @_;
+    my @ekg = (1, $n);
+    while (@ekg < $limit) {
+        for my $i (2..1e18) {
+            next unless none { $_ == $i } @ekg and shares_divisors_with($ekg[-1], $i);
+            push(@ekg, $i) and last;
+        }
+    }
+    @ekg;
 }
  
-push @res, "EKG($_): ". EKG($_).head(30) for 2, 5, 7, 9, 10;
+push @res, "EKG($_): ". join ' ', EKG($_,10) for 2, 5, 7, 9, 10;
 
-.say for @res;
+#sub converge_at ( @ints ) {
+#    my @ekgs = @ints.map: &EKG;
+#
+#    return (2 .. *).first: -> $i {
+#        [==]  @ekgs.map(     *.[$i]     ) and
+#        [===] @ekgs.map( *.head($i).Set )
+#    }
+#}
+# 
+#for [5, 7], [2, 5, 7, 9, 10] -> @ints {
+#    @res.push: "EKGs of (@ints[]) converge at term {$_+1}" with converge_at(@ints);
+#}
 
-use Test;
-is @res.join("\n"), chomp $ref;
+say my $result = join "\n", @res;
 
-say $result; 
-#say $result = join "\n", @res;
 my $ref = <<'EOD';
-EKG(2): (1 2 4 6 3 9 12 8 10 5)
-EKG(5): (1 5 10 2 4 6 3 9 12 8)
-EKG(7): (1 7 14 2 4 6 3 9 12 8)
-EKG(9): (1 9 3 6 2 4 8 10 5 15)
-EKG(10): (1 10 2 4 6 3 9 12 8 14)
-EKGs of (5 7) converge at term 21
-EKGs of (2 5 7 9 10) converge at term 45
+EKG(2): 1 2 4 6 3 9 12 8 10 5
+EKG(5): 1 5 10 2 4 6 3 9 12 8
+EKG(7): 1 7 14 2 4 6 3 9 12 8
+EKG(9): 1 9 3 6 2 4 8 10 5 15
+EKG(10): 1 10 2 4 6 3 9 12 8 14
 EOD
+#EKGs of (5 7) converge at term 21
+#EKGs of (2 5 7 9 10) converge at term 45
 
 use Test::More;
-#is($result, $ref);
-#done_testing();
-
-__END__
-
-=={{header|Perl}}==
-{{trans|Perl 6}}
-<lang perl></lang>
-{{out}}
-<pre style="height:35ex"></pre>
+chop $ref;
+is($result, $ref);
+done_testing();
