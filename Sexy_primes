@@ -1,6 +1,6 @@
 #!/usr/local/bin/perl
 #u# http://rosettacode.org/wiki/Sexy_primes
-#c# 2018-10-03 >RC
+#c# 2018-10-03 >RC, 2018-10-24 >RC
 #p# OK
 
 use feature 'say';
@@ -44,8 +44,7 @@ while ($p = next_prime($p)) {
 push @res, "Total primes less than $cmax: " . comma(@{$primes{'sexy'}} + @{$primes{'unsexy'}}) . "\n";
 
 for (['pair', 2], ['triplet', 3], ['quadruplet', 4], ['quintuplet', 5]) {
-    $sexy = @$_[0];
-    $cnt  = @$_[1];
+    ($sexy, $cnt) = @$_;
     push @res, "Number of sexy prime ${sexy}s less than $cmax: " . comma scalar @{$primes{$sexy}};
     push @res, "   Last 5 sexy prime ${sexy}s less than $cmax: " . join ' ', tuple_tail(5,$cnt,@{$primes{$sexy}});
     push @res, '';
