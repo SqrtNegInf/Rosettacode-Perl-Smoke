@@ -1,49 +1,55 @@
 #!/usr/local/bin/perl
 #u# http://rosettacode.org/wiki/Prime_conspiracy
-#c# 2018-09-30 >RC
+#c# 2018-10-25 <RC
 #p# OK
 
 use feature 'say';
+my $result;
+# my @res;
 
-use bignum;
-use Math::Prime::Util "next_prime";
+#Library: ntheory
+use ntheory qw/forprimes nth_prime/;
 
-my $upto = 1_000_000;
- 
-my $b = $p = 2;
-my $count = 0;
-while () {
-    $p = next_prime($p);
-    my $a = $p % 10; 
-    $conspiracy{"$b → $a count:"}++; 
-    $b = $a;
-    last if ++$count == $upto;
-}
+my $upto = 100_000_000;
+my %freq;
+my($this_digit,$last_digit)=(2,0);
 
-push @res, sprintf "$_\t%5d\tfrequency: %4.2f %%", $conspiracy{$_}, ($conspiracy{$_}/$upto*100) for sort keys %conspiracy;
+forprimes {
+  ($last_digit,$this_digit) = ($this_digit, $_ % 10);
+  $freq{$last_digit . $this_digit}++;
+} 3,nth_prime($upto);
 
-say $result = join "\n", @res;
+print "$upto first primes.  Transitions prime % 10 → next-prime % 10.\n";
+push @res, sprintf "%s → %s count:\t%7d\tfrequency: %4.2f %%",
+  substr($_,0,1), substr($_,1,1), $freq{$_}, 100*$freq{$_}/$upto
+    for sort keys %freq;
+
+say my $result = join "\n", @res;
+
+# The extra credit is done in less than 25 seconds on a Macbook. Less than 2 seconds is spent generating primes. We can get identical output in 10 seconds by using an array rather than a hash to store transitions.
+# 
+# 100000000 first primes.  Transitions prime % 10 → next-prime % 10.
 
 my $ref = <<'EOD';
-1 → 1 count:	42853	frequency: 4.29 %
-1 → 3 count:	77475	frequency: 7.75 %
-1 → 7 count:	79453	frequency: 7.95 %
-1 → 9 count:	50153	frequency: 5.02 %
-2 → 3 count:	    1	frequency: 0.00 %
-3 → 1 count:	58255	frequency: 5.83 %
-3 → 3 count:	39668	frequency: 3.97 %
-3 → 5 count:	    1	frequency: 0.00 %
-3 → 7 count:	72828	frequency: 7.28 %
-3 → 9 count:	79358	frequency: 7.94 %
-5 → 7 count:	    1	frequency: 0.00 %
-7 → 1 count:	64230	frequency: 6.42 %
-7 → 3 count:	68595	frequency: 6.86 %
-7 → 7 count:	39603	frequency: 3.96 %
-7 → 9 count:	77586	frequency: 7.76 %
-9 → 1 count:	84596	frequency: 8.46 %
-9 → 3 count:	64371	frequency: 6.44 %
-9 → 7 count:	58130	frequency: 5.81 %
-9 → 9 count:	42843	frequency: 4.28 %
+1 → 1 count:	4623041	frequency: 4.62 %
+1 → 3 count:	7429438	frequency: 7.43 %
+1 → 7 count:	7504612	frequency: 7.50 %
+1 → 9 count:	5442344	frequency: 5.44 %
+2 → 3 count:	      1	frequency: 0.00 %
+3 → 1 count:	6010981	frequency: 6.01 %
+3 → 3 count:	4442561	frequency: 4.44 %
+3 → 5 count:	      1	frequency: 0.00 %
+3 → 7 count:	7043695	frequency: 7.04 %
+3 → 9 count:	7502896	frequency: 7.50 %
+5 → 7 count:	      1	frequency: 0.00 %
+7 → 1 count:	6373982	frequency: 6.37 %
+7 → 3 count:	6755195	frequency: 6.76 %
+7 → 7 count:	4439355	frequency: 4.44 %
+7 → 9 count:	7431870	frequency: 7.43 %
+9 → 1 count:	7991431	frequency: 7.99 %
+9 → 3 count:	6372940	frequency: 6.37 %
+9 → 7 count:	6012739	frequency: 6.01 %
+9 → 9 count:	4622916	frequency: 4.62 %
 EOD
 
 use Test::More;
@@ -57,3 +63,11 @@ __END__
 <lang perl></lang>
 {{out}}
 <pre></pre>
+say $result; 
+#say $result = join "\n", @res;
+my $ref = <<'EOD';
+EOD
+
+use Test::More;
+#is ($result, $ref);
+#done_testing();
