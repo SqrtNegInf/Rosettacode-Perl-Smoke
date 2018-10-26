@@ -4412,6 +4412,12 @@ File: Primality_by_trial_division
 File: Prime_conspiracy
 #!/usr/local/bin/perl
 #u# http://rosettacode.org/wiki/Prime_conspiracy
+#c# 2018-10-25 <RC
+#p# OK
+
+File: Prime_conspiracy.1
+#!/usr/local/bin/perl
+#u# http://rosettacode.org/wiki/Prime_conspiracy
 #c# 2018-09-30 >RC
 #p# OK
 
@@ -5058,6 +5064,12 @@ File: Sexy_primes
 #!/usr/local/bin/perl
 #u# http://rosettacode.org/wiki/Sexy_primes
 #c# 2018-10-03 >RC, 2018-10-24 >RC
+#p# OK
+
+File: Sexy_primes.0
+#!/usr/local/bin/perl
+#u# http://rosettacode.org/wiki/Sexy_primes
+#c# 2018-10-03 >RC, 2018-10-25 <RC
 #p# OK
 
 File: Shell_one-liner
@@ -6420,8 +6432,9 @@ File: Wireworld
 File: Word_break_problem
 #!/usr/local/bin/perl
 #u# http://rosettacode.org/wiki/Word_break_problem
-#c# 2018-xx-xx >RC
-#p# BROKEN
+#c# 2018-10-25 >RC
+#p# OK
+#n# doesn't show all combinations, finds 'a do' but not 'ad o'
 
 File: Word_count
 #!/usr/bin/env perl
