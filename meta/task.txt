@@ -1,16 +1,16 @@
 
 This is perl 5, version 28, subversion 0 (v5.28.0) built for darwin-thread-multi-2level
 updating from RC…
-+------------> Perl: Good/Bad [1009/22]
++------------> Perl: Good/Bad [1010/21]
 |+-----------> Smoke testing []
 ||+----------> sKipping validation [145]
 |||+---------> Interactive [52]
-||||+--------> Touched (modified by me) [156]
+||||+--------> Touched (modified by me) [155]
 |||||+-------> Random seed [77]
 ||||||+------> File output [39]
 |||||||+-----> Draft [228]
 ||||||||+----> Ignoring [36]
-|||||||||+---> Void (no local copy) [237]
+|||||||||+---> Void (no local copy) [238]
 ||||||||||+--> Un-implemented/reliable [225]
 |||||||||||
 GS......... 100_doors-1
@@ -690,6 +690,7 @@ GS......... Matrix_transposition
 GS......... Maximum_triangle_path_sum
 GS...R..... Maze_generation
 GS...R..... Maze_solving
+.........VU McNuggets_Problem
 .........VU Median_filter
 GS..T...... Memory_allocation
 GS......... Memory_layout_of_a_data_structure
@@ -871,7 +872,7 @@ GS......... Power_set-9
 G.K........ Pragmatic_directives
 GS...R..... Price_fraction
 GS......... Primality_by_trial_division
-GS..T..D... Prime_conspiracy
+GS.....D... Prime_conspiracy
 GS......... Prime_decomposition-1
 GS......... Prime_decomposition-2
 GS......... Prime_decomposition-3
@@ -1263,7 +1264,7 @@ GS.....D... Welch%27s_t-test-2
 G.KI....... Window_creation_X11
 G.KI....... Window_management
 GS......... Wireworld
-B...T..D..U Word_break_problem
+GS..T..D... Word_break_problem
 GS..T..D... Word_count
 .........VU Word_search
 GS......... Word_wrap
