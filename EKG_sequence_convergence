@@ -5,7 +5,7 @@
 
 use feature 'say';
 
-use List::Util qw(none);
+use List::Util qw(none sum);
 
 sub gcd { my ($u,$v) = @_; $v ? gcd($v, $u%$v) : abs($u) } 
 sub shares_divisors_with { gcd( $_[0], $_[1]) > 1 }
@@ -21,21 +21,18 @@ sub EKG {
     }
     @ekg;
 }
+
+sub converge_at {
+    my($n1,$n2) = @_;
+    my $max = 100;
+    my @ekg1 = EKG($n1,$max);
+    my @ekg2 = EKG($n2,$max);
+    do { return $_+1 if $ekg1[$_] == $ekg2[$_] && sum(@ekg1[0..$_]) == sum(@ekg2[0..$_])} for 2..$max;
+    return "(no convergence in $max terms)";
+}
  
 push @res, "EKG($_): ". join ' ', EKG($_,10) for 2, 5, 7, 9, 10;
-
-#sub converge_at ( @ints ) {
-#    my @ekgs = @ints.map: &EKG;
-#
-#    return (2 .. *).first: -> $i {
-#        [==]  @ekgs.map(     *.[$i]     ) and
-#        [===] @ekgs.map( *.head($i).Set )
-#    }
-#}
-# 
-#for [5, 7], [2, 5, 7, 9, 10] -> @ints {
-#    @res.push: "EKGs of (@ints[]) converge at term {$_+1}" with converge_at(@ints);
-#}
+push @res, "EKGs of 5 & 7 converge at term ". converge_at(5, 7);
 
 say my $result = join "\n", @res;
 
@@ -45,8 +42,8 @@ EKG(5): 1 5 10 2 4 6 3 9 12 8
 EKG(7): 1 7 14 2 4 6 3 9 12 8
 EKG(9): 1 9 3 6 2 4 8 10 5 15
 EKG(10): 1 10 2 4 6 3 9 12 8 14
+EKGs of 5 & 7 converge at term 21
 EOD
-#EKGs of (5 7) converge at term 21
 #EKGs of (2 5 7 9 10) converge at term 45
 
 use Test::More;
