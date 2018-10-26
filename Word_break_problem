@@ -1,53 +1,40 @@
 #!/usr/local/bin/perl
 #u# http://rosettacode.org/wiki/Word_break_problem
-#c# 2018-xx-xx >RC
-#p# BROKEN
+#c# 2018-10-25 >RC
+#p# OK
+#n# doesn't show all combinations, finds 'a do' but not 'ad o'
 
 use feature 'say';
 
-# This implementation does not necessarily find every combination, it returns the one with the longest matching tokens.
+my @words = <a o ad do is in pi ion par per sip miss able>;
 
-my @words = <a bc abc cd b>;
-my $regex = '(' . join(')|(', @words) . ')';
-#say $regex ; exit;
-
-push @res, "$_: " . word_break($_) for <abcd abbc abcbcd acdbc abcdd>;
-
-say for @res;exit;
-
-# subregex = join(words, ")|(")
-# regexes = ["\^\(\($subregex\)\)\{$i}\$" for i in 6:-1:1]
-
+push @res, "$_: " . word_break($_,@words) for <a ado amiss admission parable opera operable inoperable permission permissible mississippi>;
 
 sub word_break { 
-    my($word) = @_;
-    #($word =~ /^($regex)+$/)[0] // "Not possible"
+    my($word,@dictionary) = @_;
     my @matches;
-    @matches = $word =~ /\G$regex/g; 
-    return join ' ', @matches;
+    my $one_of = join '|', @dictionary;
+    @matches = $word =~ /^ ($one_of)(?!\1) (?:($one_of)(?!\2))? (?:($one_of)(?!\3))? (?:($one_of)(?!\4))? $/x;
+    return join(' ', @matches) || "(not possible)";
 }
-
-my $ref = <<'END';
-abcd: a b cd
-abbc: a b bc
-abcbcd: abc b cd
-acdbc: a cd bc
-abcdd: Not possible
-END
 
 say $result = join "\n", @res;
 
-my $ref = <<'EOD';
-EOD
+my $ref = <<'END';
+a: a   
+ado: a do  
+amiss: a miss  
+admission: ad miss ion 
+parable: par able  
+opera: o per a 
+operable: o per able 
+inoperable: in o per able
+permission: per miss ion 
+permissible: (not possible)
+mississippi: miss is sip pi
+END
 
 use Test::More;
-#is ($result, $ref);
-#done_testing();
-
-__END__
-
-=={{header|Perl}}==
-{{trans|Perl 6}}
-<lang perl></lang>
-{{out}}
-<pre></pre>
+chomp $ref;
+is ($result, $ref);
+done_testing();
