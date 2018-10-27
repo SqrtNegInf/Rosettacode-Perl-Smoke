@@ -1,13 +1,10 @@
 #!/usr/local/bin/perl
 #u# http://rosettacode.org/wiki/Prime_conspiracy
-#c# 2018-10-25 <RC
+#c# 2018-09-30 >RC, 2018-10-25 <RC
 #p# OK
 
 use feature 'say';
-my $result;
-# my @res;
 
-#Library: ntheory
 use ntheory qw/forprimes nth_prime/;
 
 my $upto = 100_000_000;
@@ -56,18 +53,3 @@ use Test::More;
 chop $ref;
 is($result, $ref);
 done_testing();
-
-__END__
-
-=={{header|Perl}}==
-<lang perl></lang>
-{{out}}
-<pre></pre>
-say $result; 
-#say $result = join "\n", @res;
-my $ref = <<'EOD';
-EOD
-
-use Test::More;
-#is ($result, $ref);
-#done_testing();
