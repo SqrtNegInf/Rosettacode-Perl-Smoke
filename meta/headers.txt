@@ -4412,7 +4412,7 @@ File: Primality_by_trial_division
 File: Prime_conspiracy
 #!/usr/local/bin/perl
 #u# http://rosettacode.org/wiki/Prime_conspiracy
-#c# 2018-10-25 <RC
+#c# 2018-09-30 >RC, 2018-10-25 <RC
 #p# OK
 
 File: Prime_conspiracy.1
@@ -5060,7 +5060,13 @@ File: Seven-sided_dice_from_five-sided_dice
 #c# 2018-08-17 <RC
 #p# OK
 
-File: Sexy_primes
+File: Sexy_primes-1
+#!/usr/local/bin/perl
+#u# http://rosettacode.org/wiki/Sexy_primes
+#c# 2018-10-03 >RC, 2018-10-24 >RC
+#p# OK
+
+File: Sexy_primes-2
 #!/usr/local/bin/perl
 #u# http://rosettacode.org/wiki/Sexy_primes
 #c# 2018-10-03 >RC, 2018-10-24 >RC
