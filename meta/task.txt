@@ -5,13 +5,13 @@ updating from RC…
 |+-----------> Smoke testing []
 ||+----------> sKipping validation [145]
 |||+---------> Interactive [52]
-||||+--------> Touched (modified by me) [155]
+||||+--------> Touched (modified by me) [157]
 |||||+-------> Random seed [77]
 ||||||+------> File output [39]
-|||||||+-----> Draft [228]
+|||||||+-----> Draft [231]
 ||||||||+----> Ignoring [36]
-|||||||||+---> Void (no local copy) [238]
-||||||||||+--> Un-implemented/reliable [225]
+|||||||||+---> Void (no local copy) [239]
+||||||||||+--> Un-implemented/reliable [226]
 |||||||||||
 GS......... 100_doors-1
 GS......... 100_doors-2
@@ -51,7 +51,7 @@ GS......... Ackermann_function-4
 GS......... Ackermann_function-5
 ........XV. Active_Directory_Connect
 .........VU Active_Directory_Search_for_a_user
-GS......... Active_object
+!S......... Active_object
 GS......... Add_a_variable_to_a_class_instance_at_runtime
 .......D.VU Addition-chain_exponentiation
 .......D.VU Addition_chains
@@ -760,6 +760,7 @@ GS......... Null_object
 GS......... Number_names
 G.KI....... Number_reversal_game
 GS......... Numeric_error_propagation
+.......D.VU Numerical_and_alphabetical_suffixes
 GS..T...... Numerical_integration
 .......D.VU Numerical_integration_Adaptive_Simpson%27s_method
 GS..T...... Numerical_integration_Gauss-Legendre_Quadrature
@@ -872,7 +873,7 @@ GS......... Power_set-9
 G.K........ Pragmatic_directives
 GS...R..... Price_fraction
 GS......... Primality_by_trial_division
-GS.....D... Prime_conspiracy
+GS..T..D... Prime_conspiracy
 GS......... Prime_decomposition-1
 GS......... Prime_decomposition-2
 GS......... Prime_decomposition-3
@@ -1004,7 +1005,9 @@ GS......... Set_consolidation
 GS......... Set_of_real_numbers
 GS...R..... Set_puzzle
 GS...R..... Seven-sided_dice_from_five-sided_dice
-GS..T..D... Sexy_primes
+.......D... Sexy_primes
+GS..T..D... Sexy_primes-1
+GS..T..D... Sexy_primes-2
 G.K........ Shell_one-liner
 GS..T...... Shoelace_formula_for_polygonal_area
 GS......... Short-circuit_evaluation
