@@ -1,14 +1,14 @@
 
 This is perl 5, version 28, subversion 0 (v5.28.0) built for darwin-thread-multi-2level
 updating from RC…
-+------------> Perl: Good/Bad [1010/21]
++------------> Perl: Good/Bad [1011/21]
 |+-----------> Smoke testing []
 ||+----------> sKipping validation [145]
 |||+---------> Interactive [52]
-||||+--------> Touched (modified by me) [157]
+||||+--------> Touched (modified by me) [158]
 |||||+-------> Random seed [77]
 ||||||+------> File output [39]
-|||||||+-----> Draft [231]
+|||||||+-----> Draft [232]
 ||||||||+----> Ignoring [36]
 |||||||||+---> Void (no local copy) [239]
 ||||||||||+--> Un-implemented/reliable [226]
@@ -1008,6 +1008,7 @@ GS...R..... Seven-sided_dice_from_five-sided_dice
 .......D... Sexy_primes
 GS..T..D... Sexy_primes-1
 GS..T..D... Sexy_primes-2
+GS..T..D... Sexy_primes-3
 G.K........ Shell_one-liner
 GS..T...... Shoelace_formula_for_polygonal_area
 GS......... Short-circuit_evaluation
