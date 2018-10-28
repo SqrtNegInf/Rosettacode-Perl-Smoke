@@ -3091,9 +3091,10 @@ File: Largest_number_divisible_by_its_digits-1
 File: Largest_number_divisible_by_its_digits-2
 #!/usr/local/bin/perl
 #u# http://rosettacode.org/wiki/Largest_number_divisible_by_its_digits
-#c# 2018-09-11 >RC
+#c# 2018-09-11 >RC, 2018-10-27 <RC
 #p# OK
-#n# base 16
+#n# this for base 16, see -1 for base 10
+#n# Danaj does speed-up, 'user' numbers go down: 42/68
 
 File: Last_Friday_of_each_month
 #!/usr/local/bin/perl
@@ -5072,7 +5073,7 @@ File: Sexy_primes-2
 #c# 2018-10-03 >RC, 2018-10-24 >RC
 #p# OK
 
-File: Sexy_primes.0
+File: Sexy_primes-3
 #!/usr/local/bin/perl
 #u# http://rosettacode.org/wiki/Sexy_primes
 #c# 2018-10-03 >RC, 2018-10-25 <RC
