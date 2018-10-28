@@ -1,0 +1,85 @@
+#!/usr/local/bin/perl
+#u# http://rosettacode.org/wiki/Sexy_primes
+#c# 2018-10-03 >RC, 2018-10-25 <RC
+#p# OK
+
+use feature 'say';
+
+# Using cluster sieve[edit]
+# The ntheory module includes a function to do very efficient sieving for prime clusters. Even though we are doing repeated work for this task, it is still faster than the previous code. The helper subroutines and output code remain identical, as does the generated output.
+# The cluster sieve becomes more efficient as the number of terms increases. See for example OEIS Prime 11-tuplets.  
+
+use ntheory qw/sieve_prime_cluster forprimes is_prime/; 
+
+sub tuple_tail {
+    my($n,$cnt,@array) = @_;
+    $n = @array if $n > @array;
+    my @tail;
+    for (1..$n) {
+        my $p = $array[-$n+$_-1];
+        push @tail, "(" . join(" ", map { $p+6*$_ } 0..$cnt-1) . ")";
+    }
+    return @tail;
+}
+
+sub comma {
+    (my $s = reverse shift) =~ s/(.{3})/$1,/g;
+    ($s = reverse $s) =~ s/^,//;
+    return $s;
+}
+
+sub sexy_string { my $p = shift; is_prime($p+6) || is_prime($p-6) ? 'sexy' : 'unsexy' }
+
+my $max = 1_000_035;
+my $cmax = comma $max;
+
+my %primes = (
+    sexy       => [],
+    unsexy     => [],
+    pair       => [ sieve_prime_cluster(1, $max-1- 6,  6) ],
+    triplet    => [ sieve_prime_cluster(1, $max-1-12,  6, 12) ],
+    quadruplet => [ sieve_prime_cluster(1, $max-1-18,  6, 12, 18) ],
+    quintuplet => [ sieve_prime_cluster(1, $max-1-24,  6, 12, 18, 24) ],
+);
+
+forprimes {
+  push @{$primes{sexy_string($_)}}, $_;
+} $max-1;
+
+push @res, "Total primes less than $cmax: " . comma(@{$primes{'sexy'}} + @{$primes{'unsexy'}}) . "\n";
+
+for (['pair', 2], ['triplet', 3], ['quadruplet', 4], ['quintuplet', 5]) {
+    ($sexy, $cnt) = @$_;
+    push @res, "Number of sexy prime ${sexy}s less than $cmax: " . comma scalar @{$primes{$sexy}};
+    push @res, "   Last 5 sexy prime ${sexy}s less than $cmax: " . join ' ', tuple_tail(5,$cnt,@{$primes{$sexy}});
+    push @res, '';
+}
+
+push @res, "Number of unsexy primes less than $cmax: ". comma scalar @{$primes{unsexy}};
+push @res, "  Last 10 unsexy primes less than $cmax: ". join ' ', @{$primes{unsexy}}[-10..-1];
+
+say $result = join "\n", @res;
+
+my $ref = <<'EOD';
+Total primes less than 1,000,035: 78,500
+
+Number of sexy prime pairs less than 1,000,035: 16,386
+   Last 5 sexy prime pairs less than 1,000,035: (999371 999377) (999431 999437) (999721 999727) (999763 999769) (999953 999959)
+
+Number of sexy prime triplets less than 1,000,035: 2,900
+   Last 5 sexy prime triplets less than 1,000,035: (997427 997433 997439) (997541 997547 997553) (998071 998077 998083) (998617 998623 998629) (998737 998743 998749)
+
+Number of sexy prime quadruplets less than 1,000,035: 325
+   Last 5 sexy prime quadruplets less than 1,000,035: (977351 977357 977363 977369) (983771 983777 983783 983789) (986131 986137 986143 986149) (990371 990377 990383 990389) (997091 997097 997103 997109)
+
+Number of sexy prime quintuplets less than 1,000,035: 1
+   Last 5 sexy prime quintuplets less than 1,000,035: (5 11 17 23 29)
+
+Number of unsexy primes less than 1,000,035: 48,627
+  Last 10 unsexy primes less than 1,000,035: 999853 999863 999883 999907 999917 999931 999961 999979 999983 1000003
+EOD
+
+use Test::More;
+chop $ref;
+is($result, $ref);
+done_testing();
