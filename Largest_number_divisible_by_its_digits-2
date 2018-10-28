@@ -1,15 +1,17 @@
 #!/usr/local/bin/perl
 #u# http://rosettacode.org/wiki/Largest_number_divisible_by_its_digits
-#c# 2018-09-11 >RC
+#c# 2018-09-11 >RC, 2018-10-27 <RC
 #p# OK
-#n# base 16
+#n# this for base 16, see -1 for base 10
+#n# Danaj does speed-up, 'user' numbers go down: 42/68
 
 use feature 'say';
-use bigint;
-use Math::Utils qw(lcm);
+use bigint;   # Very slow, but consistent results even with 32-bit Perl
+#use Math::Utils qw(lcm);
 
 my $hex = 'FEDCBA987654321';                          # largest possible hex number
-$step = lcm(1..15);
+$step = Math::BigInt::blcm(1..15);
+#$step = lcm(1..15);
 $initial = int(hex($hex) / $step) * $step;
 
 for($num = $initial; $num > 0 ; $num -= $step) {      # only generate multiples of the lcm
