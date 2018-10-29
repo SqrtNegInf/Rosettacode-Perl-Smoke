@@ -7,6 +7,8 @@ use feature 'say';
 use warnings;
 use strict 'vars';
 
+__END__
+
 # Sort of an ersatz animation. Write updates to a svg file, most modern viewers will update as the content changes.
 
 use SVG;
@@ -25,8 +27,8 @@ for $a (3..33) {
  
     for (1..144) {
         my $length = 3 * $_;
-        my ($x2, $y2) = ($x1, $y1) «+« |cis($angle * $_).reals».round(.01) »*» $length ;
-        @lines.push: 'line' => [:x1($x1.clone), :y1($y1.clone), :x2($x2.clone), :y2($y2.clone),
+        my ($x2, $y2) = ($x1, $y1) x+x |cis($angle * $_).realsx.round(.01) x*x $length ;
+        push @lines: 'line' => [:x1($x1.clone), :y1($y1.clone), :x2($x2.clone), :y2($y2.clone),
                                 :style("stroke:rgb({hsv2rgb(($_*5 % 360)/360,1,1).join: ','})")];
         ($x1, $y1) = $x2, $y2;
     }
