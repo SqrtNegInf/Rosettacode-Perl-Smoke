@@ -21,7 +21,8 @@ say "===  =========  ============  =========";
 __END__
 my @res;
 for my $N (1 .. MAX_N) {
-    my $empiric = 1/ (TRIALS / (sum find_loop(random_mapping($N)).elems xx TRIALS );
+    $temp = sum find_loop(random_mapping($N)).elems xx TRIALS;
+    my $empiric = $temp / TRIALS;
     my $theoric = [+] map -> $k { $N ** ($k + 1) R/ [*] flat $k**2, $N - $k + 1 .. $N }, 1 .. $N;
  
     push @res, sprintf "%3d  %9.4f  %12.4f    (%4.2f%%)",
@@ -40,7 +41,7 @@ sub random_mapping_orig { hash .list Z=> .roll(^$^size) given (^$^size) }
 
 sub find_loop { 0, | %^mapping{*} ...^ { (%){$_}++ } }
 
-for (@res) { say $_ }
+say for @res;
 
 my $ref = <<'END';
   1     1.0000        1.0000    (0.00%)
@@ -66,4 +67,5 @@ my $ref = <<'END';
 END
 
 use Test::More;
-#is @res.join("\n"), chomp $ref;
+chop $ref;
+#is($result,$ref);
