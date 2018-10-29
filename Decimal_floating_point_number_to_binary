@@ -1,6 +1,6 @@
 #!/usr/local/bin/perl
 #u# http://rosettacode.org/wiki/Decimal_floating_point_number_to_binary
-#c# 2018-09-19 >RC
+#c# 2018-xx-xx >RC
 #p# BROKEN
 
 use feature 'say';
