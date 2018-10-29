@@ -23,6 +23,16 @@ In short, Perl does not implement true multi-dimensional arrays, but does a dece
 Multi-dimensional_arrays (they do not need to be declared
 
 Note that the dimensions do not _need_ to be predeclared / allocated. Perl will auto-vivify the necessary storage slots on first access.
+
+@a = (
+   [1, 2],
+   [3, 4]
+);
+
+print $a[0][0] # '1'
+print $a[0][1] # '2'
+print $a[1][0] # '3'
+print $a[1][1] # '4'
  
 
 </lang>
