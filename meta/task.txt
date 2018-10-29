@@ -1,17 +1,17 @@
 
 This is perl 5, version 28, subversion 0 (v5.28.0) built for darwin-thread-multi-2level
 updating from RC…
-+------------> Perl: Good/Bad [1011/21]
++------------> Perl: Good/Bad [1013/21]
 |+-----------> Smoke testing []
 ||+----------> sKipping validation [145]
 |||+---------> Interactive [52]
-||||+--------> Touched (modified by me) [158]
+||||+--------> Touched (modified by me) [159]
 |||||+-------> Random seed [77]
 ||||||+------> File output [39]
 |||||||+-----> Draft [232]
 ||||||||+----> Ignoring [36]
-|||||||||+---> Void (no local copy) [239]
-||||||||||+--> Un-implemented/reliable [226]
+|||||||||+---> Void (no local copy) [238]
+||||||||||+--> Un-implemented/reliable [225]
 |||||||||||
 GS......... 100_doors-1
 GS......... 100_doors-2
@@ -51,7 +51,7 @@ GS......... Ackermann_function-4
 GS......... Ackermann_function-5
 ........XV. Active_Directory_Connect
 .........VU Active_Directory_Search_for_a_user
-!S......... Active_object
+GS......... Active_object
 GS......... Add_a_variable_to_a_class_instance_at_runtime
 .......D.VU Addition-chain_exponentiation
 .......D.VU Addition_chains
@@ -849,7 +849,7 @@ G.KI....... Pig_the_dice_game
 .........VU Pinstripe_Printer
 .........VU Plasma_effect
 .........VU Play_recorded_sounds
-.......D.VU Playfair_cipher
+GS..T..D... Playfair_cipher
 GS...R..... Playing_cards
 GS......... Plot_coordinate_pairs
 GS......... Pointers_and_references
