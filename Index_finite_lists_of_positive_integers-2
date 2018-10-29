@@ -9,11 +9,9 @@ use feature 'say';
 
 srand 123456;
 
-# Here is a bijective solution that does not use string operations.
+__END__
 
-multi infix:<rad> ()       { 0 }
-multi infix:<rad> ($a)     { $a }
-multi infix:<rad> ($a, $b) { $a * $*RADIX + $b }
+# Here is a bijective solution that does not use string operations.
 
 #multi expand(Int $n is copy, 1) { $n }
 #multi expand(Int $n is copy, Int $*RADIX) {
@@ -27,23 +25,36 @@ multi expand {
         $n = int $n / $RADIX;
     }
 
-    for (0 .. $RADIX -1) {
-        #[rad] reverse @reversed_digits[$_, * + RAD ... *]
+    for (0 .. $RADIX - 1) {
+        rad( reverse @reversed_digits[$_, * + $RADIX ... *] );
     }
 }
 
+#multi infix:<rad> ()       { 0 }
+#multi infix:<rad> ($a)     { $a }
+#multi infix:<rad> ($a, $b) { $a * $*RADIX + $b }
+sub rad {
+    my(@list) = @_;
+    return unless @list;
+    return $list[0] if @list == 1;
+    
+    $a * $RADIX + $b
+}
+
 #multi compress(@n where @n == 1) { @n[0] }
-sub compress { 
+sub compress {
     my(@n) = @_;
     return $n[0] if @n == 1;
     $RADIX = @n;
 
-    [rad] reverse gather while @n.any > 0 {
-            (state $i = 0) %= RAD;
-            take @n[$i] % RAD;
-            @n[$i] div= RAD;
-            $i++;
+    my @temp;
+    while( @n.any > 0) {
+        #(state $i = 0) %= $RADIX;
+        push @temp, @n[$i] % $RADIX;
+        $n[$i] = ind $n[$i] / $RADIX;
+        $i++;
         }
+    #[rad] reverse @temp;
 }
 
 sub rank{   my(@n) = @_; compress (compress(@n), @n - 1)}
