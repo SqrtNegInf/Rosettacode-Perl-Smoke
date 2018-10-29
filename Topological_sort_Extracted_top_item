@@ -1,6 +1,6 @@
 #!/usr/local/bin/perl
 #u# http://rosettacode.org/wiki/Topological_sort_Extracted_top_item
-#c# 2018-09-xx >RC
+#c# 2018-09-25 >RC
 #p# BROKEN
 
 use Data::Dumper;
