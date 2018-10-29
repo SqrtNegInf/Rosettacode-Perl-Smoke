@@ -1422,7 +1422,7 @@ File: Death_Star
 File: Decimal_floating_point_number_to_binary
 #!/usr/local/bin/perl
 #u# http://rosettacode.org/wiki/Decimal_floating_point_number_to_binary
-#c# 2018-09-19 >RC
+#c# 2018-xx-xx >RC
 #p# BROKEN
 
 File: Deepcopy
@@ -4269,6 +4269,12 @@ File: Pig_the_dice_game
 #c# 2018-08-20 <RC
 #p# OK
 
+File: Playfair_cipher
+#!/usr/local/bin/perl
+#u# http://rosettacode.org/wiki/Playfair_cipher
+#c# 2018-10-28 >RC
+#p# OK
+
 File: Playing_cards
 #!/usr/local/bin/perl
 #u# http://rosettacode.org/wiki/Playing_cards
@@ -6100,7 +6106,7 @@ File: Topological_sort
 File: Topological_sort_Extracted_top_item
 #!/usr/local/bin/perl
 #u# http://rosettacode.org/wiki/Topological_sort_Extracted_top_item
-#c# 2018-09-xx >RC
+#c# 2018-09-25 >RC
 #p# BROKEN
 
 File: Topswops
