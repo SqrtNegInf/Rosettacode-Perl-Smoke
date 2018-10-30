@@ -8,14 +8,13 @@ cd $HOME/perl5/Rosetta-Code
 perl -v | head -2
 
 rm -f run/*
-rm -f bench/2018-10-07/*
-bin/rc-p5 [0-Z]*
+bin/rc-p5 [0A-Z]/*
 
 bin/rc-stats5 2
 
 # keep tabs on status
 cd meta
-cp -p task.txt task.txt~
+mv task.txt task.txt~
 #/usr/local/pbin/rotate_log -d logs -b -r -f task.txt
 ../bin/rc-task5-status > task.txt
 diff task.txt~ task.txt
@@ -26,7 +25,7 @@ bin/rc-timings bench/last | sort -r -n > meta/timings.txt
 head -10 meta/timings.txt
 
 # combine task headers for easy grep
-/usr/local/pbin/grep-paragraph -H '#u# http' [1-Z]* | /usr/local/pbin/grep-paragraph -v ReadMe.md - > meta/headers.txt
+/usr/local/pbin/grep-paragraph -H '#u# http' [0-Z]/* | /usr/local/pbin/grep-paragraph -v ReadMe.md - > meta/headers.txt
 
 # push changes to github
 bin/Task5-git
