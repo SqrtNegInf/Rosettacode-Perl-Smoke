@@ -10,7 +10,7 @@ my $result;
 # We leverage the PPI::Tokenizer module.
 
 use PPI::Tokenizer;
-my $Tokenizer = PPI::Tokenizer->new( './Almost_prime-2' );
+my $Tokenizer = PPI::Tokenizer->new( 'A/Almost_prime-2' );
 my %counts;
 while (my $token = $Tokenizer->get_token) {
     # We consider all Perl identifiers. The following regex is close enough.
