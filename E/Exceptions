@@ -19,7 +19,7 @@ eval {
 };
 print $@ if $@;
 
-is ($@, "this could go wrong mightily at Exceptions line 18.\n");
+is ($@, "this could go wrong mightily at E/Exceptions line 18.\n");
 done_testing()
  
 # rethrow
