@@ -22,8 +22,8 @@ for (@addresses) {
         (
            \d* (\-|\/)? \d*
          | \d{1,3} [a-zI./ ]* \d{0,3} 
-        ) $
-     ]x;
+        )
+      $]x;
     $result .= sprintf "%-26s\t%s\n", $number ? ($street, $number) : ($_, "\t(no match)");
 } 
 
