@@ -5619,6 +5619,14 @@ File: S/Start_from_a_main_routine
 #t# nocode
 #p# OK
 
+File: S/Starting_a_web_browser
+#!/usr/local/bin/perl
+#u# http://rosettacode.org/wiki/Starting_a_web_browser
+#c# 2018-10-30 >RC
+#p# OK
+#f# RC file: streets_and_numbers.html
+#n# daily testing of HTML generation, the 'open browser' part works fine too
+
 File: S/State_name_puzzle
 #!/usr/local/bin/perl
 #u# http://rosettacode.org/wiki/State_name_puzzle
