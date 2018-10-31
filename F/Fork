@@ -24,7 +24,7 @@ if ($pid = fork()) {
 
     # child code
     print "Childish thing: $pid\n";
-    ok $0 eq 'Fork';
+    ok $0 eq 'F/Fork';
 
     exit; # important to exit
 } elsif($! =~ /emporar/){
