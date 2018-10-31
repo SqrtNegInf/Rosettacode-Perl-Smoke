@@ -29,8 +29,8 @@ print STDERR $@ if $@;
 
 my $ref = <<'EOD';
 Function foo caught exception U0
-U1 at Exceptions_Catch_an_exception_thrown_in_a_nested_call line 23.
-	...propagated at Exceptions_Catch_an_exception_thrown_in_a_nested_call line 13.
+U1 at E/Exceptions_Catch_an_exception_thrown_in_a_nested_call line 23.
+	...propagated at E/Exceptions_Catch_an_exception_thrown_in_a_nested_call line 13.
 EOD
 
 use Test::More;
