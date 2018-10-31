@@ -10,7 +10,7 @@ my $result;
 use strict;
 use warnings;
 
-use lib '.';
+use lib 'lib';
 require Hailstone;
  
 my %seqs;
