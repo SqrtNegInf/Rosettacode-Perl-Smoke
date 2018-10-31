@@ -5,7 +5,7 @@
 
 use feature 'say';
 
-use lib '.';
+use lib 'lib';
 
 # You can textually transform code with a source filter, a module that when used modifies the following lines of source. Filter::Util::Call provides a general means of writing source filters. Filter::Simple is an interface to Filter::Util::Call that lets you elide a lot of boilerplate code. More important, Filter::Simple can hide the contents of quoting constructs from your filter, obviating the biggest dangers of textual metaprogramming. For example, given the following module:
 
