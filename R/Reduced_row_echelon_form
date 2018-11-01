@@ -10,8 +10,8 @@ my $result;
 # Translation of: Python
 # Note that the function defined here takes an array reference, not an array.
 
-sub rref
- {our @m; local *m = shift;
+sub rref {
+  our @m; local *m = shift;
   @m or return;
   my ($lead, $rows, $cols) = (0, scalar(@m), scalar(@{$m[0]}));
 
@@ -34,7 +34,8 @@ sub rref
           ($lv, my $n) = ($m[$i][$lead], -1);
           $_ -= $lv * $mr[++$n] foreach @{ $m[$i] };}
 
-      ++$lead;}}
+      ++$lead;}
+}
 
 sub display { join("\n" => map join(" " => map(sprintf("%4d", $_), @$_)), @{+shift})."\n" }
 
