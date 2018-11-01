@@ -1,16 +1,16 @@
 
 This is perl 5, version 28, subversion 0 (v5.28.0) built for darwin-thread-multi-2level
 updating from RC…
-+------------> Perl: Good/Bad [1014/20]
++------------> Perl: Good/Bad [1014/21]
 |+-----------> Smoke testing []
 ||+----------> sKipping validation [145]
 |||+---------> Interactive [52]
-||||+--------> Touched (modified by me) [160]
+||||+--------> Touched (modified by me) [161]
 |||||+-------> Random seed [77]
 ||||||+------> File output [40]
 |||||||+-----> Draft [215]
 ||||||||+----> Ignoring [36]
-|||||||||+---> Void (no local copy) [237]
+|||||||||+---> Void (no local copy) [236]
 ||||||||||+--> Un-implemented/reliable [223]
 |||||||||||
 GS......... 100_doors-1
@@ -51,7 +51,7 @@ GS......... Ackermann_function-4
 GS......... Ackermann_function-5
 ........XV. Active_Directory_Connect
 .........VU Active_Directory_Search_for_a_user
-GS......... Active_object
+!S......... Active_object
 GS......... Add_a_variable_to_a_class_instance_at_runtime
 .......D.VU Addition-chain_exponentiation
 .......D.VU Addition_chains
@@ -465,7 +465,7 @@ G.KI....... GUI_Maximum_window_dimensions
 .........VU GUI_enabling_disabling_of_controls
 .........VU Galton_box_animation
 GS......... Gamma_function
-.......D.VU Gauss-Jordan_matrix_inversion
+B...T..D..U Gauss-Jordan_matrix_inversion
 GS......... Gaussian_elimination
 GS......... General_FizzBuzz
 .......D.VU Generalised_floating_point_addition
@@ -476,7 +476,7 @@ B...TR....U Generate_random_chess_position
 G.KI....... Generator_Exponential
 GS......... Generic_swap
 .......D.VU Geometric_algebra
-!S......... Get_system_command_output
+GS......... Get_system_command_output
 GS......... Globally_replace_text_in_several_files
 .........VU Go_Fish
 GS......... Gray_code
