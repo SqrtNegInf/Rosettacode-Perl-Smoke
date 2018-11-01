@@ -21,7 +21,6 @@ use Parallel::ForkManager;
 # some programs to test run solo
 %Solo = (
 'A/Active_object' => 1,
-'0/100_doors-1' => 1,
 );
 
 chdir "$ENV{HOME}/perl5/Rosetta-Code" || die;
@@ -40,7 +39,7 @@ my $skip = 'interactive|toodamnslow|skiptest|nocode|forever|broken';
 # find Perl5 programs
 for my $prog (@ARGV) {
     next if $prog =~ /\.(pl|[0-9])$/;
-    next if $prog =~ /^Temp-/;
+    next if $prog =~ /^(lib|Temp-)/;
     @status = `head -12 $prog`;
     next unless $status[0] =~ m#(env |bin/)perl\b#;
     next if grep { /^#t#.*($skip)/ } @status;
