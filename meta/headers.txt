@@ -2328,6 +2328,12 @@ File: G/Gamma_function
 #c# 2018-08-08 <RC
 #p# OK
 
+File: G/Gauss-Jordan_matrix_inversion
+#!/usr/local/bin/perl
+#u# http://rosettacode.org/wiki/Gauss-Jordan_matrix_inversion
+#c# 2018-10-RC >RC
+#p# BROKEN
+
 File: G/Gaussian_elimination
 #!/usr/local/bin/perl
 #u# http://rosettacode.org/wiki/Gaussian_elimination
