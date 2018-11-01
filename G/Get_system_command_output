@@ -27,15 +27,42 @@ $result .= shift @output_and_errors;
 
 use autodie;
 my $enc = ':encoding(UTF-8)';
-my $child_pid = open(my $pipe, "-|$enc", 'ls');
+my $child_pid = open(my $pipe, "-|$enc", 'ls A');
 while (<$pipe>) {
   # Print all files whose names are all lowercase
     $result .= $_ if m/^Array/;
 }
 
-say $result; 
+say $result;
 
 my $ref = << 'END';
+0
+A
+B
+C
+D
+E
+F
+G
+H
+I
+J
+K
+L
+M
+N
+O
+P
+Q
+R
+S
+T
+U
+V
+W
+X
+Y
+Z
 _Inline
 bench
 bin
