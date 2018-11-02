@@ -1,23 +1,14 @@
 #!/usr/local/bin/perl
 #u# http://rosettacode.org/wiki/Bitmap/Write_a_PPM_file
-#c# 2018-07-18 <RC
-#p# BROKEN
+#c# 2018-07-18 <RC, 2018-11-02 >RC
+#p# OK
 #f# RC file: bitmap_write.ppm
-#n# format not right somehow?
 
-# Library: Imlib2
-# Imlib2 can handle several formats, among these JPG, PNG, PNM/PPM... (but it depends on how the Imlib2 was built on the system, since the ability to load or save in these formats depends on other external libraries, like libpng e.g.)
-
-use strict;
-use Image::Imlib2;
+use Imager;
  
-my $img = Image::Imlib2->new(100,100);
-$img->set_color(100,200,0, 255);
-$img->fill_rectangle(0,0,100,100);
- 
-$img->save("run/bitmap_write.ppm");
-#$img->save("out0.jpg");
-#$img->save("out0.png");
- 
-# Normally Image::Imlib2 understands which output format to use from the extension; to override its guess, you can use:
-#$# img->image_set_format("jpeg"); # or png, tiff, ppm ...
+$image = Imager->new(xsize => 200, ysize => 200);
+$image->box(filled => 1, color => red);
+$image->box(filled => 1, color => black, 
+            xmin =>  50, ymin =>  50,
+            xmax => 150, ymax => 150);
+$image->write(file => 'run/bitmap_write.ppm') or die $image->errstr;
