@@ -1,29 +1,56 @@
 #!/usr/local/bin/perl
 #u# http://rosettacode.org/wiki/Permutations
-#c# 2018-08-21 <RC
+#c# 2018-08-21 <RC, 2018-11-01 >RC
 #p# OK
 
 use feature 'say';
-my $result;
+my $result1;
 
-# There are many modules that can do permutations, or it can be fairly easily done by hand with an example below. In performance order for simple permutation of 10 scalars, a sampling of some solutions:
+sub permutation {
+	my ($perm,@set) = @_;
+	$result1 .= "$perm\n" || return unless (@set);
+	permutation($perm.$set[$_],@set[0..$_-1],@set[$_+1..$#set]) foreach (0..$#set);
+}
+my @input = (qw/a b c d/);
+permutation('',@input);
 
-# - 1.7s Algorithm::FastPermute permute iterator
-# - 1.7s Algorithm::Permute permute iterator
-# - 2.0s ntheory  forperm iterator
-# - 6.3s Algorithm::Combinatorics permutations iterator
-# - 9.1s the recursive sub below
-# - 21.1s Math::Combinatorics permutations iterator
+say $result1; 
+my $ref1 = <<'EOD';
+abcd
+abdc
+acbd
+acdb
+adbc
+adcb
+bacd
+badc
+bcad
+bcda
+bdac
+bdca
+cabd
+cadb
+cbad
+cbda
+cdab
+cdba
+dabc
+dacb
+dbac
+dbca
+dcab
+dcba
+EOD
 
-
-#Library: ntheory
 use ntheory qw/forperm/;
 my @tasks = (qw/party sleep study/);
 forperm {
-  $result1 .= "@tasks[@_]\n";
-} scalar(@tasks);
+    $result2 .= "@tasks[@_]\n";
+} @tasks;
 
-my $ref1 = <<'EOD';
+say $result2;
+
+my $ref2 = <<'EOD';
 party sleep study
 party study sleep
 sleep party study
@@ -32,44 +59,7 @@ study party sleep
 study sleep party
 EOD
 
-# A simple recursive routine:
-sub permutation {
-	my ($perm,@set) = @_;
-	$result .= "$perm\n" || return unless (@set);
-	permutation($perm.$set[$_],@set[0..$_-1],@set[$_+1..$#set]) foreach (0..$#set);
-}
-my @input = (qw/a 2 c 4/);
-permutation('',@input);
-
-say $result; 
-my $ref = <<'EOD';
-a2c4
-a24c
-ac24
-ac42
-a42c
-a4c2
-2ac4
-2a4c
-2ca4
-2c4a
-24ac
-24ca
-ca24
-ca42
-c2a4
-c24a
-c4a2
-c42a
-4a2c
-4ac2
-42ac
-42ca
-4ca2
-4c2a
-EOD
-
 use Test::More;
-is ($result, $ref);
 is ($result1, $ref1);
+is ($result2, $ref2);
 done_testing();
