@@ -1,14 +1,9 @@
 #!/usr/local/bin/perl
 #u# http://rosettacode.org/wiki/Gauss-Jordan_matrix_inversion
-#c# 2018-10-RC >RC
-#p# BROKEN
+#c# 2018-11-01 >RC
+#p# OK
 
 use feature 'say';
-use warnings;
-use strict 'vars';
-
-my $result;
-# my @res;
 
 sub rref {
   our @m; local *m = shift;
@@ -37,112 +32,71 @@ sub rref {
       ++$lead;}
 }
 
-sub display { join("\n" => map join(" " => map(sprintf("%4d", $_), @$_)), @{+shift})."\n" }
+sub display { join("\n" => map join(" " => map(sprintf("%6.2f", $_), @$_)), @{+shift})."\n" }
 
-my @m = (
-      [  1,  2,  -1,  -4 ],
-      [  2,  3,  -1, -11 ],
-      [ -2,  0,  -3,  22 ]);
-
-rref(\@m);
-say $result = display(\@m);
-
-# func gauss_jordan_invert (M) {
-#     var I = M.len.of {|i|
-#         M.len.of {|j|
-#             i == j ? 1 : 0
-#         }
-#     }
-#  
-#     var A = gather {
-#         ^M -> each {|i| take(M[i] + I[i]) }
-#     }
-#  
-#     rref(A).map { .last(M.len) }
-# }
-
-sub gauss_jordan_invert { #(@m where *.&is-square) {
+sub gauss_jordan_invert {
     my(@m) = @_;
-    #^@m .map: { @m[$_].append: identity(+@m)[$_] };
-    #@m.&rref[*]»[+@m .. *];
+    my $rows = @m;
+    my @i = identity(scalar @m);
+    push @{$m[$_]}, @{$i[$_]} for 0..$rows-1;
+    rref(\@m);
+    map { splice @$_, 0, $rows } @m;
+    @m;
 }
 
-#sub is-square (@m) { so @m == all @m[*] }
-
-#sub identity ($n) { [ 1, |(0 xx $n-1) ], *.rotate(-1) ... *.tail }
-
-sub matrix_ident {
+sub identity {
     my($n) = @_;
     map { [ (0) x $_, 1, (0) x ($n-1 - $_) ] } 0..$n-1
 }
 
 my @tests = (
-#    [
-#      [ 1, 2, 3 ],
-#      [ 4, 1, 6 ],
-#      [ 7, 8, 9 ]
-#    ],
     [
       [ 2, -1,  0 ],
       [-1,  2, -1 ],
       [ 0, -1,  2 ]
     ],
-#    [
-#      [ -1, -2, 3, 2 ],
-#      [ -4, -1, 6, 2 ],
-#      [  7, -8, 9, 1 ],
-#      [  1, -2, 1, 3 ]
-#    ],
+    [
+      [ -1, -2, 3, 2 ],
+      [ -4, -1, 6, 2 ],
+      [  7, -8, 9, 1 ],
+      [  1, -2, 1, 3 ]
+    ],
 );
 
-
 for my $matrix (@tests) {
-    say 'Original Matrix:'; display(\@$matrix);
+    $result .= "Original Matrix:\n" . display(\@$matrix) . "\n";
     my @gj = gauss_jordan_invert( @$matrix );
-    say 'Gauss-Jordan Inverted Matrix:', display(\@gj);
-    say "\n";
+    $result .= "Gauss-Jordan Inverted Matrix:\n" . display(\@gj) . "\n";
 }
 
-#use Test::More;
-#is ($result, $ref);
-#done_testing();
+my $ref = <<'END';
+Original Matrix:
+  2.00  -1.00   0.00
+ -1.00   2.00  -1.00
+  0.00  -1.00   2.00
 
-__END__
+Gauss-Jordan Inverted Matrix:
+  0.75   0.50   0.25
+  0.50   1.00   0.50
+  0.25   0.50   0.75
+
+Original Matrix:
+ -1.00  -2.00   3.00   2.00
+ -4.00  -1.00   6.00   2.00
+  7.00  -8.00   9.00   1.00
+  1.00  -2.00   1.00   3.00
+
+Gauss-Jordan Inverted Matrix:
+ -0.91   0.25   0.09   0.41
+ -1.65   0.65   0.04   0.65
+ -0.70   0.36   0.08   0.20
+ -0.57   0.23  -0.03   0.57
+
+END
 
 say $result; 
 #say $result = join "\n", @res;
 
-Original Matrix:
-      2      -1       0
-     -1       2      -1
-      0      -1       2
-
-Gauss-Jordan Inverted Matrix:
-    3/4     1/2     1/4
-    1/2       1     1/2
-    1/4     1/2     3/4
-
-Original Matrix:
-     -1      -2       3       2
-     -4      -1       6       2
-      7      -8       9       1
-      1      -2       1       3
-
-Gauss-Jordan Inverted Matrix:
- -21/23   17/69  13/138   19/46
- -38/23   15/23    1/23   15/23
- -16/23   25/69  11/138    9/46
- -13/23   16/69   -2/69   13/23
-EOD
-
 use Test::More;
-#is($result, $ref);
-#done_testing();
-
-__END__
-
-=={{header|Perl}}==
-{{trans|Perl 6}}
-<lang perl></lang>
-{{out}}
-<pre style="height:35ex"></pre>
+is ($result, $ref);
+done_testing();
