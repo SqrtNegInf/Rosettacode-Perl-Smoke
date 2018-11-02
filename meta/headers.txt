@@ -2331,8 +2331,8 @@ File: G/Gamma_function
 File: G/Gauss-Jordan_matrix_inversion
 #!/usr/local/bin/perl
 #u# http://rosettacode.org/wiki/Gauss-Jordan_matrix_inversion
-#c# 2018-10-RC >RC
-#p# BROKEN
+#c# 2018-11-01 >RC
+#p# OK
 
 File: G/Gaussian_elimination
 #!/usr/local/bin/perl
@@ -3541,6 +3541,12 @@ File: M/Maze_solving
 #c# 2018-08-18 <RC
 #p# OK
 
+File: M/McNuggets_Problem
+#!/usr/local/bin/perl
+#u# http://rosettacode.org/wiki/McNuggets_Problem
+#c# 2018-11-01 >RC
+#p# OK
+
 File: M/Memory_allocation
 #!/usr/local/bin/perl
 #u# http://rosettacode.org/wiki/Memory_allocation
@@ -4185,7 +4191,7 @@ File: P/Permutation_test
 File: P/Permutations
 #!/usr/local/bin/perl
 #u# http://rosettacode.org/wiki/Permutations
-#c# 2018-08-21 <RC
+#c# 2018-08-21 <RC, 2018-11-01 >RC
 #p# OK
 
 File: P/Permutations_Derangements-1
