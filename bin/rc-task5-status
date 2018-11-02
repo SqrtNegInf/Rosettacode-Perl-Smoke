@@ -111,7 +111,6 @@ my($p) = @_;
 my($task,$header,$compiles,$pout,$perr,$skip,$srand);
 
     $task = '../' . path($p) . $p;
-$DB::single = 1;
     return 0 if ! -e $task;
     return 0 if defined $P{$p}{'P'};
 
