@@ -1,17 +1,17 @@
 
 This is perl 5, version 28, subversion 0 (v5.28.0) built for darwin-thread-multi-2level
 updating from RC…
-+------------> Perl: Good/Bad [1014/21]
++------------> Perl: Good/Bad [1017/20]
 |+-----------> Smoke testing []
 ||+----------> sKipping validation [145]
 |||+---------> Interactive [52]
-||||+--------> Touched (modified by me) [161]
+||||+--------> Touched (modified by me) [163]
 |||||+-------> Random seed [77]
 ||||||+------> File output [40]
 |||||||+-----> Draft [215]
 ||||||||+----> Ignoring [36]
-|||||||||+---> Void (no local copy) [236]
-||||||||||+--> Un-implemented/reliable [223]
+|||||||||+---> Void (no local copy) [235]
+||||||||||+--> Un-implemented/reliable [222]
 |||||||||||
 GS......... 100_doors-1
 GS......... 100_doors-2
@@ -51,7 +51,7 @@ GS......... Ackermann_function-4
 GS......... Ackermann_function-5
 ........XV. Active_Directory_Connect
 .........VU Active_Directory_Search_for_a_user
-!S......... Active_object
+GS......... Active_object
 GS......... Add_a_variable_to_a_class_instance_at_runtime
 .......D.VU Addition-chain_exponentiation
 .......D.VU Addition_chains
@@ -465,7 +465,7 @@ G.KI....... GUI_Maximum_window_dimensions
 .........VU GUI_enabling_disabling_of_controls
 .........VU Galton_box_animation
 GS......... Gamma_function
-B...T..D..U Gauss-Jordan_matrix_inversion
+GS..T..D... Gauss-Jordan_matrix_inversion
 GS......... Gaussian_elimination
 GS......... General_FizzBuzz
 .......D.VU Generalised_floating_point_addition
@@ -690,7 +690,7 @@ GS......... Matrix_transposition
 GS......... Maximum_triangle_path_sum
 GS...R..... Maze_generation
 GS...R..... Maze_solving
-.........VU McNuggets_Problem
+GS..T.....U McNuggets_Problem
 .........VU Median_filter
 GS..T...... Memory_allocation
 GS......... Memory_layout_of_a_data_structure
@@ -829,7 +829,7 @@ GS......... Perfect_numbers
 GS......... Perfect_shuffle
 GS.....D... Perlin_noise
 GS......... Permutation_test
-GS......... Permutations
+GS..T...... Permutations
 GS......... Permutations_Derangements-1
 GS......... Permutations_Derangements-2
 G.K..R..... Permutations_Rank_of_a_permutation
