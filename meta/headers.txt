@@ -629,10 +629,9 @@ File: B/Bitmap_Read_a_PPM_file
 File: B/Bitmap_Write_a_PPM_file
 #!/usr/local/bin/perl
 #u# http://rosettacode.org/wiki/Bitmap/Write_a_PPM_file
-#c# 2018-07-18 <RC
-#p# BROKEN
+#c# 2018-07-18 <RC, 2018-11-02 >RC
+#p# OK
 #f# RC file: bitmap_write.ppm
-#n# format not right somehow?
 
 File: B/Bitwise_IO
 #!/usr/local/bin/perl
@@ -3062,6 +3061,17 @@ File: K/Kronecker_product
 #u# http://rosettacode.org/wiki/Kronecker_product
 #c# 2018-08-14 <RC
 #p# OK
+
+File: K/Kronecker_product_based_fractals
+#!/usr/local/bin/perl
+#u# http://rosettacode.org/wiki/Kronecker_product_based_fractals
+#t# graphical
+#c# 2018-11-02 >RC
+#p# OK
+#f# RC file: kronecker-vicsek-perl6.png
+#n# xx file: kronecker-carpet-perl6.png
+#n# xx file: kronecker-six-perl6.png
+#n# minor bug: an off-by-one error lurking, one extra row/column in each image
 
 File: L/LU_decomposition
 #!/usr/local/bin/perl
