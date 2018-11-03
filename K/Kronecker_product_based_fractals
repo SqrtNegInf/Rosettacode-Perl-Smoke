@@ -49,10 +49,3 @@ for (['vicsek', \@vicsek, 4],
     } [0..@{$img[0]}-1], [0..$#img];
     $png->write(file => "run/kronecker-$name-perl6.png");
 }
-
-__END__
-
-=={{header|Perl}}==
-{{trans|Perl 6}}
-<lang perl></lang>
-{{out}}
