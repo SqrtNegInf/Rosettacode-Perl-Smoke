@@ -1,11 +1,11 @@
 
 This is perl 5, version 28, subversion 0 (v5.28.0) built for darwin-thread-multi-2level
 updating from RC…
-+------------> Perl: Good/Bad [1018/19]
++------------> Perl: Good/Bad [1019/19]
 |+-----------> Smoke testing []
-||+----------> sKipping validation [145]
-|||+---------> Interactive [52]
-||||+--------> Touched (modified by me) [165]
+||+----------> sKipping validation [146]
+|||+---------> Interactive [53]
+||||+--------> Touched (modified by me) [166]
 |||||+-------> Random seed [77]
 ||||||+------> File output [41]
 |||||||+-----> Draft [216]
@@ -331,7 +331,7 @@ GS....F.... Dragon_curve
 G.KI....... Draw_a_clock
 GS......... Draw_a_cuboid-1
 GS...R..... Draw_a_cuboid-2
-........XVU Draw_a_pixel
+G.KIT...X.. Draw_a_pixel
 ........X.. Draw_a_pixel_2
 .........VU Draw_a_rotating_cube
 GS...RF.... Draw_a_sphere
@@ -685,7 +685,7 @@ GS..TR.D... Markov_chain_text_generator
 GS..TR.D... Mastermind
 GS......... Matrix-exponentiation_operator
 GS......... Matrix_arithmetic
-.......D.VU Matrix_chain_multiplication
+.........VU Matrix_chain_multiplication
 GS..T...... Matrix_multiplication
 GS......... Matrix_transposition
 GS......... Maximum_triangle_path_sum
@@ -1137,6 +1137,7 @@ GS......... Substring_Top_and_tail
 GS......... Subtractive_generator
 GS......... Sudoku
 GS.....D... Suffix_tree
+.......D.VU Suffixation_of_decimal_numbers
 B...T...... Sum_and_Product_Puzzle
 GS......... Sum_and_product_of_an_array
 GS......... Sum_digits_of_an_integer
