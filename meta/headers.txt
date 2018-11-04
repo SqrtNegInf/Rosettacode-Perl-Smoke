@@ -1592,6 +1592,13 @@ File: D/Draw_a_cuboid-2
 #c# 2018-07-30 <RC
 #p# OK
 
+File: D/Draw_a_pixel
+#!/usr/local/bin/perl
+#u# http://rosettacode.org/wiki/Draw_a_pixel
+#t# interactive
+#c# 2018-11-03 >RC
+#p# OK
+
 File: D/Draw_a_sphere
 #!/usr/local/bin/perl
 #u# http://rosettacode.org/wiki/Draw_a_sphere
@@ -2330,7 +2337,7 @@ File: G/Gamma_function
 File: G/Gauss-Jordan_matrix_inversion
 #!/usr/local/bin/perl
 #u# http://rosettacode.org/wiki/Gauss-Jordan_matrix_inversion
-#c# 2018-11-01 >RC
+#c# 2018-11-01 >RC, 2018-11-03 >RC
 #p# OK
 
 File: G/Gaussian_elimination
