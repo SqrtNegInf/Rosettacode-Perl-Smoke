@@ -1,6 +1,6 @@
 #!/usr/local/bin/perl
 #u# http://rosettacode.org/wiki/Polyspiral
-#c# 2018-10-RC >RC
+#c# 2018-11-RC >RC
 #p# BROKEN
 
 use feature 'say';
@@ -45,6 +45,7 @@ for $a (3..33) {
     sleep .15;
 }
  
+# good Perl!
 sub hsv2rgb {
     my( $h, $s, $v ) = @_; # inputs normalized 0-1
     my $c = $v * $s;
