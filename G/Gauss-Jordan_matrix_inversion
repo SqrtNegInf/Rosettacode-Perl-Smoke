@@ -1,6 +1,6 @@
 #!/usr/local/bin/perl
 #u# http://rosettacode.org/wiki/Gauss-Jordan_matrix_inversion
-#c# 2018-11-01 >RC, 2018-11-03 >RC
+#c# 2018-11-01 >RC, 2018-11-04 >RC
 #p# OK
 
 use feature 'say';
