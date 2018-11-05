@@ -1,6 +1,6 @@
 #!/usr/local/bin/perl
 #u# http://rosettacode.org/wiki/Sailors,_coconuts_and_a_monkey_problem
-#c# 2018-09-06 >RC
+#c# 2018-09-06 >RC, 2018-11-04 <RC
 #p# OK
 #n# this version on RC
 #n# 'bigint' required or silently fails at sailors > 13
@@ -10,7 +10,7 @@ use bigint;
 
 my @res;
 
-for $sailors (1..15) { check( $sailors, coconuts( $sailors ) ) }
+for $sailors (1..15) { check( $sailors, coconuts( 0+$sailors ) ) }
 
 sub is_valid {
     my($sailors, $nuts) = @_;
