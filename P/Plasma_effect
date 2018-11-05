@@ -1,0 +1,38 @@
+#!/usr/local/bin/perl
+#u# http://rosettacode.org/wiki/Plasma_effect
+#c# 2018-11-05 >RC
+#p# OK
+
+use Imager;
+use POSIX qw(fmod);
+ 
+my($width, $height) = (400, 400);
+my $img = Imager->new(xsize => $width, ysize => $height);
+plasma($width,$height);
+$img->write(file => 'run/plasma.png');
+ 
+sub plasma {
+    my($w,$h) = @_;
+    for my $x (0..$w){
+        for my $y (0..$h) {
+            my $hue = 4 + sin($x / 19) + sin($y / 9) + sin(($x + $y) / 25) + sin(sqrt($x**2 + $y**2) / 8);
+            $img->setpixel( x => $x, y => $y, color => hsv2rgb($hue/8, 1, 1));
+        }
+    }
+}
+ 
+sub hsv2rgb {
+    my($h,$s,$v) = @_;
+    my $c = $v * $s;
+    my $x = $c * (1 - ( abs( (fmod(($h*6),2)) - 1 ) ) );
+    our $m = $v - $c;
+    my @rgb;
+       if ( $h < 1/6 ){ @rgb = scale($c, $x, 0) }
+    elsif ( $h < 2/6 ){ @rgb = scale($x, $c, 0) }
+    elsif ( $h < 3/6 ){ @rgb = scale(0, $c, $x) }
+    elsif ( $h < 4/6 ){ @rgb = scale(0, $x, $c) }
+    elsif ( $h < 5/6 ){ @rgb = scale($x, 0, $c) }
+    else              { @rgb = scale($c, 0, $x) }
+    sub scale { int(255*($_[0]+$m)), int(255*($_[1]+$m)), int(255*($_[2]+$m)) }
+    return \@rgb;
+}
