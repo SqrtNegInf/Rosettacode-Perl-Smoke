@@ -1,0 +1,96 @@
+#!/usr/local/bin/perl
+#u# http://rosettacode.org/wiki/Suffixation_of_decimal_numbers
+#c# 2018-11-RC >RC
+#p# BROKEN
+
+use feature 'say';
+use warnings;
+#use strict 'vars';
+
+my $result;
+
+sub sufficate {
+    my($val, $type, $round) = @_;
+say "v: $val t: $type r: $round"; #exit;
+   if ($type =~ /^\d$/) { $round = $type; $type = 'M' }
+return;
+   my $s = '';
+   if (substr($val,0,1) eq '-') { $s = '-'; $val = substr $val, 1 }
+   $val =~ s/,/''/g;
+   if ($val =~ m/e/i) {
+       my ($m,$e) = split /[eE]/, $val;
+       $val = ($e < 0)
+           ? $m * 10**-$e 
+           : $m * 10**$e;
+   }
+#   my %s =
+#          if ($type eq 'M') { <K M G T P E Z Y X W V U> Z=> (1000, * * 1000  *) }
+#       elsif ($type eq 'B') { <Ki Mi Gi Ti Pi Ei Zi Yi Xi Wi Vi Ui> Z=> (1024, * * 1024 … *) }
+#       elsif ($type eq 'G') { google => 10**100 }
+#       else { return 'What we have here is a failure to communicate...' }
+
+#   my $k = 
+#          if (abs($val) < (my $m = min %s.values) { %s.first( *.value == $m ).key }
+#       elsif (abs($val) > (my $x = max %s.values) { %s.first( *.value == $x ).key }
+#       else    { %s.sort(*.value).first({$val.abs/%s{$_.key} < min %s.values}).key}
+
+   $round.defined
+       ? $s . comma((abs($val)/$s{$k}).round(10**-$round)) . $k
+       : $s . comma(abs($val)/$s{$k}) . $k
+}
+
+sub comma {
+    my($i) = @_;
+    my ($whole, $frac) = split '.', $i;
+    (my $s = reverse $whole) =~ s/(.{3})/$1,/g;
+    ($s = reverse $s) =~ s/^,//;
+    $frac = $frac.defined ? ".$frac" : '';
+    return "$s.$frac";
+}
+
+my @tests = (
+   '87,654,321',
+   '-998,877,665,544,332,211,000 3',
+   '+112,233 0',
+   '16,777,216 1',
+   '456,789,100,000,000',
+   '456,789,100,000,000 M 2',
+   '456,789,100,000,000 B 5',
+   '456,789,100,000.000e+00 M 0',
+   '+16777216 B',
+   '1.2e101 G',
+   #"{run('df', '/', :out).out.slurp.words[10] * 1024} B 2", # Linux df returns Kilobytes by default
+   '347,344 M -2', # round to -2 past the decimal
+   '1122334455 Q', # bad unit type example
+);
+
+$result .= sprintf "%33s : %s", $_, sufficate(split ' ', $_) for @tests; 
+
+say $result; exit;
+
+my $ref = <<'END';
+                       87,654,321 : 87.654321M
+   -998,877,665,544,332,211,000 3 : -998.878E
+                       +112,233 0 : 112K
+                     16,777,216 1 : 16.8M
+              456,789,100,000,000 : 456.7891T
+          456,789,100,000,000 M 2 : 456.79T
+          456,789,100,000,000 B 5 : 415.44727Ti
+      456,789,100,000.000e+00 M 0 : 457G
+                      +16777216 B : 16Mi
+                        1.2e101 G : 12google
+                     347,344 M -2 : 300K
+                     1122334455 Q : What we have here is a failure to communicate...
+END
+
+use Test::More;
+#is($result, $ref);
+#done_testing();
+
+__END__
+
+=={{header|Perl}}==
+{{trans|Perl 6}}
+<lang perl></lang>
+{{out}}
+<pre></pre>
