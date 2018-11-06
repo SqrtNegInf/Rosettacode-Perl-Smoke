@@ -4298,6 +4298,19 @@ File: P/Pig_the_dice_game
 #c# 2018-08-20 <RC
 #p# OK
 
+File: P/Plasma_effect
+#!/usr/local/bin/perl
+#u# http://rosettacode.org/wiki/Plasma_effect
+#c# 2018-11-05 <>RC
+#p# OK
+#f# RC file: plasma.png
+
+File: P/Plasma_effect.1
+#!/usr/local/bin/perl
+#u# http://rosettacode.org/wiki/Plasma_effect
+#c# 2018-11-05 >RC
+#p# OK
+
 File: P/Playfair_cipher
 #!/usr/local/bin/perl
 #u# http://rosettacode.org/wiki/Playfair_cipher
@@ -4363,7 +4376,7 @@ File: P/Polynomial_synthetic_division
 File: P/Polyspiral
 #!/usr/local/bin/perl
 #u# http://rosettacode.org/wiki/Polyspiral
-#c# 2018-10-RC >RC
+#c# 2018-11-RC >RC
 #p# BROKEN
 
 File: P/Population_count
@@ -5844,6 +5857,12 @@ File: S/Suffix_tree
 #u# http://rosettacode.org/wiki/Suffix_tree
 #c# 2018-08-12 <RC
 #p# OK
+
+File: S/Suffixation_of_decimal_numbers
+#!/usr/local/bin/perl
+#u# http://rosettacode.org/wiki/Suffixation_of_decimal_numbers
+#c# 2018-11-RC >RC
+#p# BROKEN
 
 File: S/Sum_and_Product_Puzzle
 #!/usr/local/bin/perl
