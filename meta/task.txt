@@ -1,17 +1,17 @@
 
 This is perl 5, version 28, subversion 0 (v5.28.0) built for darwin-thread-multi-2level
 updating from RC…
-+------------> Perl: Good/Bad [1020/19]
++------------> Perl: Good/Bad [1021/20]
 |+-----------> Smoke testing []
 ||+----------> sKipping validation [146]
 |||+---------> Interactive [53]
-||||+--------> Touched (modified by me) [166]
+||||+--------> Touched (modified by me) [168]
 |||||+-------> Random seed [77]
-||||||+------> File output [41]
+||||||+------> File output [42]
 |||||||+-----> Draft [216]
 ||||||||+----> Ignoring [36]
-|||||||||+---> Void (no local copy) [235]
-||||||||||+--> Un-implemented/reliable [221]
+|||||||||+---> Void (no local copy) [233]
+||||||||||+--> Un-implemented/reliable [220]
 |||||||||||
 GS......... 100_doors-1
 GS......... 100_doors-2
@@ -848,7 +848,7 @@ G.KI....... Pig_the_dice_game
 .........VU Pig_the_dice_game_Player
 .........VU Pinstripe_Display
 .........VU Pinstripe_Printer
-.........VU Plasma_effect
+GS..T.F.... Plasma_effect
 .........VU Play_recorded_sounds
 GS..T..D... Playfair_cipher
 GS...R..... Playing_cards
@@ -1137,7 +1137,7 @@ GS......... Substring_Top_and_tail
 GS......... Subtractive_generator
 GS......... Sudoku
 GS.....D... Suffix_tree
-.......D.VU Suffixation_of_decimal_numbers
+B...T..D..U Suffixation_of_decimal_numbers
 B...T...... Sum_and_Product_Puzzle
 GS......... Sum_and_product_of_an_array
 GS......... Sum_digits_of_an_integer
