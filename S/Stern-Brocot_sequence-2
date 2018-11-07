@@ -1,13 +1,12 @@
 #!/usr/local/bin/perl
 #u# http://rosettacode.org/wiki/Stern-Brocot_sequence
-#c# 2018-08-13 <RC
+#c# 2018-08-13 <RC, 2018-11-06 <RC
 #p# OK
 
 use feature 'say';
 my $result;
 
-use List::Util qw/first/;
-use ntheory qw/gcd vecsum/;
+use ntheory qw/gcd vecsum vecfirst/;
 
 sub stern_diatomic {
   my ($p,$q,$i) = (0,1,shift);
@@ -20,9 +19,9 @@ sub stern_diatomic {
 
 my @s = map { stern_diatomic($_) } 1..15;
 $result .= "First fifteen: [@s]\n";
-@s = map { my $n=$_; first { stern_diatomic($_) == $n } 1..10000 } 1..10;
+@s = map { my $n=$_; vecfirst { stern_diatomic($_) == $n } 1..10000 } 1..10;
 $result .= "Index of 1-10 first occurrence: [@s]\n";
-$result .= "Index of 100 first occurrence: ". (first { stern_diatomic($_) == 100 } 1..10000). "\n";
+$result .= "Index of 100 first occurrence: ". (vecfirst { stern_diatomic($_) == 100 } 1..10000). "\n";
 $result .= "The first 999 consecutive pairs are ";
 $result .= (vecsum( map { gcd(stern_diatomic($_).stern_diatomic($_+1)) } 1..999 ) == 999) ? "all coprime.\n" : "NOT all coprime!\n";
 
