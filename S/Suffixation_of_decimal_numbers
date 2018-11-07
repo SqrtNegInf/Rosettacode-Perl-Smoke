@@ -34,9 +34,10 @@ return;
 #       elsif (abs($val) > (my $x = max %s.values) { %s.first( *.value == $x ).key }
 #       else    { %s.sort(*.value).first({$val.abs/%s{$_.key} < min %s.values}).key}
 
-   $round.defined
-       ? $s . comma((abs($val)/$s{$k}).round(10**-$round)) . $k
-       : $s . comma(abs($val)/$s{$k}) . $k
+   #$round.defined
+   #    ? $s . comma((abs($val)/$s{$k}).round(10**-$round)) . $k
+   #    : $s . comma(abs($val)/$s{$k}) . $k
+         $s . comma(abs($val)/$s{$k}) . $k
 }
 
 sub comma {
