@@ -5709,7 +5709,7 @@ File: S/Stern-Brocot_sequence-1
 File: S/Stern-Brocot_sequence-2
 #!/usr/local/bin/perl
 #u# http://rosettacode.org/wiki/Stern-Brocot_sequence
-#c# 2018-08-13 <RC
+#c# 2018-08-13 <RC, 2018-11-06 <RC
 #p# OK
 
 File: S/Stream_Merge
