@@ -1,6 +1,6 @@
 #!/usr/local/bin/perl
 #u# http://rosettacode.org/wiki/Long_primes
-#c# 2018-08-16 >RC
+#c# 2018-08-16 >RC, 2018-11-07 <RC
 #p# OK
 
 # {{trans|Sidef}}
@@ -8,7 +8,7 @@
 use feature 'say';
 my $result;
 
-use ntheory qw/divisors powmod/;
+use ntheory qw/divisors powmod forprimes znorder/;
 
 sub is_long_prime {
 my($p) = @_;
@@ -25,6 +25,13 @@ for $n (500, 1000, 2000, 4000, 8000, 16000, 32000, 64000) {
     $result .= sprintf "Number of long primes ≤ $n: %d\n",  scalar grep {is_long_prime($_) } 1 .. $n;
 }
 
+my($t,$z)=(0,0);
+forprimes {
+  $z = znorder(10, $_);
+  $t++ if defined $z && $z+1 == $_;
+} 8192000;
+$result .= "$t\n";
+
 say $result; 
 my $ref = <<'EOD';
 Long primes ≤ 500:
@@ -38,6 +45,7 @@ Number of long primes ≤ 8000: 390
 Number of long primes ≤ 16000: 716
 Number of long primes ≤ 32000: 1300
 Number of long primes ≤ 64000: 2430
+206594
 EOD
 
 use Test::More;
