@@ -1593,7 +1593,7 @@ File: D/Draw_a_cuboid-2
 #p# OK
 
 File: D/Draw_a_pixel
-#!/usr/local/bin/perl
+#!/usr/local/bin/perl do-not-check
 #u# http://rosettacode.org/wiki/Draw_a_pixel
 #t# interactive
 #c# 2018-11-03 >RC
@@ -3235,7 +3235,7 @@ File: L/Long_multiplication
 File: L/Long_primes
 #!/usr/local/bin/perl
 #u# http://rosettacode.org/wiki/Long_primes
-#c# 2018-08-16 >RC
+#c# 2018-08-16 >RC, 2018-11-07 <RC
 #p# OK
 
 File: L/Longest_Common_Substring
