@@ -39,7 +39,7 @@ my $skip = 'interactive|toodamnslow|skiptest|nocode|forever|broken';
 # find Perl5 programs
 for my $prog (@ARGV) {
     next if $prog =~ /\.(pl|[0-9])$/;
-    next if $prog =~ /^(lib|Temp-)/;
+    next if $prog =~ m#/lib# || /^Temp-/;
     @status = `head -12 $prog`;
     next unless $status[0] =~ m#(env |bin/)perl\b#;
     next if grep { /^#t#.*($skip)/ } @status;
