@@ -1,17 +1,17 @@
 
 This is perl 5, version 28, subversion 0 (v5.28.0) built for darwin-thread-multi-2level
 updating from RC…
-+------------> Perl: Good/Bad [1020/20]
++------------> Perl: Good/Bad [1021/20]
 |+-----------> Smoke testing []
 ||+----------> sKipping validation [146]
 |||+---------> Interactive [53]
-||||+--------> Touched (modified by me) [168]
+||||+--------> Touched (modified by me) [169]
 |||||+-------> Random seed [77]
 ||||||+------> File output [42]
 |||||||+-----> Draft [216]
 ||||||||+----> Ignoring [36]
-|||||||||+---> Void (no local copy) [233]
-||||||||||+--> Un-implemented/reliable [220]
+|||||||||+---> Void (no local copy) [232]
+||||||||||+--> Un-implemented/reliable [219]
 |||||||||||
 GS......... 100_doors-1
 GS......... 100_doors-2
@@ -51,7 +51,7 @@ GS......... Ackermann_function-4
 GS......... Ackermann_function-5
 ........XV. Active_Directory_Connect
 .........VU Active_Directory_Search_for_a_user
-!S......... Active_object
+GS......... Active_object
 GS......... Add_a_variable_to_a_class_instance_at_runtime
 .......D.VU Addition-chain_exponentiation
 .......D.VU Addition_chains
@@ -903,7 +903,7 @@ GS......... RIPEMD-160
 .........VU RPG_Attributes_Generator
 GS..T...... RSA_code
 .......D.VU Railway_circuit
-.........VU Ramer-Douglas-Peucker_line_simplification
+B...T.....U Ramer-Douglas-Peucker_line_simplification
 GS..T..D... Ramsey%27s_theorem
 G.K........ Random_number_generator_device
 G.K........ Random_number_generator_included
@@ -1137,7 +1137,7 @@ GS......... Substring_Top_and_tail
 GS......... Subtractive_generator
 GS......... Sudoku
 GS.....D... Suffix_tree
-B...T..D..U Suffixation_of_decimal_numbers
+GS..T..D... Suffixation_of_decimal_numbers
 B...T...... Sum_and_Product_Puzzle
 GS......... Sum_and_product_of_an_array
 GS......... Sum_digits_of_an_integer
@@ -1175,7 +1175,7 @@ G.KI....... Terminal_control_Preserve_screen
 G.KI....... Terminal_control_Ringing_the_terminal_bell
 G.KIT...... Terminal_control_Unicode_output
 GS......... Ternary_logic
-GS......... Test_a_function
+!S......... Test_a_function
 GS......... Test_integerness
 .......D.VU Tetris
 GS..T..D... Text_between
