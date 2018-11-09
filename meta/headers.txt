@@ -3592,7 +3592,7 @@ File: M/Mersenne_primes
 #p# OK
 
 File: M/Metaprogramming
-#!/usr/local/bin/perl
+#!/usr/local/bin/perl do-not-check
 #u# http://rosettacode.org/wiki/Metaprogramming
 #c# 2018-08-18 <RC
 #p# OK
@@ -4607,6 +4607,12 @@ File: R/RSA_code
 #u# http://rosettacode.org/wiki/RSA_code
 #c# 2018-10-14 >RC
 #p# OK
+
+File: R/Ramer-Douglas-Peucker_line_simplification
+#!/usr/local/bin/perl
+#u# http://rosettacode.org/wiki/Ramer_Douglas_Peucker_line_simplification
+#c# 2018-11-RC >RC
+#p# BROKEN
 
 File: R/Ramsey%27s_theorem
 #!/usr/local/bin/perl
@@ -5861,8 +5867,8 @@ File: S/Suffix_tree
 File: S/Suffixation_of_decimal_numbers
 #!/usr/local/bin/perl
 #u# http://rosettacode.org/wiki/Suffixation_of_decimal_numbers
-#c# 2018-11-RC >RC
-#p# BROKEN
+#c# 2018-11-08 >RC
+#p# OK
 
 File: S/Sum_and_Product_Puzzle
 #!/usr/local/bin/perl
@@ -6047,7 +6053,7 @@ File: T/Ternary_logic
 #p# OK
 
 File: T/Test_a_function
-#!/usr/local/bin/perl -Ilib
+#!/usr/local/bin/perl -Ilib do-not-check
 #u# http://rosettacode.org/wiki/Test_a_function
 #c# 2018-08-11 <RC
 #p# OK
