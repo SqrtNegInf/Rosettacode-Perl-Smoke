@@ -45,6 +45,7 @@ for my $prog (@ARGV) {
     next if grep { /^#t#.*($skip)/ } @status;
     next if grep { /^#p#.*BROKEN/i } @status;
 
+    next unless -e $prog;
     $clargs = `grep 'RC.cli' $prog`; chomp $clargs; 
     $clargs =~ s/^.*RC.cli:\s+//; 
     $clargs =~ s/"/\\"/g; 
