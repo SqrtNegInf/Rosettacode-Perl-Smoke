@@ -1,4 +1,4 @@
-#!/usr/local/bin/perl -Ilib
+#!/usr/local/bin/perl -Ilib do-not-check
 #u# http://rosettacode.org/wiki/Test_a_function
 #c# 2018-08-11 <RC
 #p# OK
