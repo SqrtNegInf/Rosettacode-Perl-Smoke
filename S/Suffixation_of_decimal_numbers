@@ -1,52 +1,72 @@
 #!/usr/local/bin/perl
 #u# http://rosettacode.org/wiki/Suffixation_of_decimal_numbers
-#c# 2018-11-RC >RC
-#p# BROKEN
+#c# 2018-11-08 >RC
+#p# OK
 
 use feature 'say';
-use warnings;
-#use strict 'vars';
+
+use List::Util qw(min max first);
 
 my $result;
 
 sub sufficate {
     my($val, $type, $round) = @_;
-say "v: $val t: $type r: $round"; #exit;
+    $type //= 'M';
    if ($type =~ /^\d$/) { $round = $type; $type = 'M' }
-return;
-   my $s = '';
-   if (substr($val,0,1) eq '-') { $s = '-'; $val = substr $val, 1 }
-   $val =~ s/,/''/g;
-   if ($val =~ m/e/i) {
-       my ($m,$e) = split /[eE]/, $val;
-       $val = ($e < 0)
-           ? $m * 10**-$e 
-           : $m * 10**$e;
-   }
-#   my %s =
-#          if ($type eq 'M') { <K M G T P E Z Y X W V U> Z=> (1000, * * 1000  *) }
-#       elsif ($type eq 'B') { <Ki Mi Gi Ti Pi Ei Zi Yi Xi Wi Vi Ui> Z=> (1024, * * 1024 … *) }
-#       elsif ($type eq 'G') { google => 10**100 }
-#       else { return 'What we have here is a failure to communicate...' }
 
-#   my $k = 
-#          if (abs($val) < (my $m = min %s.values) { %s.first( *.value == $m ).key }
-#       elsif (abs($val) > (my $x = max %s.values) { %s.first( *.value == $x ).key }
-#       else    { %s.sort(*.value).first({$val.abs/%s{$_.key} < min %s.values}).key}
+    my $s = '';
+    if (substr($val,0,1) eq '-') { $s = '-'; $val = substr $val, 1 }
+    $val =~ s/,//g;
+    if ($val =~ m/e/i) {
+        my ($m,$e) = split /[eE]/, $val;
+        $val = ($e < 0) ? $m * 10**-$e : $m * 10**$e;
+    }
 
-   #$round.defined
-   #    ? $s . comma((abs($val)/$s{$k}).round(10**-$round)) . $k
-   #    : $s . comma(abs($val)/$s{$k}) . $k
-         $s . comma(abs($val)/$s{$k}) . $k
+    my %s;
+    if ($type eq 'M') { 
+        my @x = qw<K M G T P E Z Y X W V U>;
+        $s{$x[$_]} = 1000 * 10 ** ($_*3) for 0..$#x
+    } elsif ($type eq 'B') { 
+        my @x = qw<Ki Mi Gi Ti Pi Ei Zi Yi Xi Wi Vi Ui>;
+        $s{$x[$_]} = 2 ** (10*($_+1)) for 0..$#x
+    } elsif ($type eq 'G') { 
+        $s{'google'} = 10**100
+    } else { 
+        return 'What we have here is a failure to communicate...' 
+    }
+
+    my $k; 
+    if (abs($val) < (my $m = min values %s)) { 
+        $k = first { $s{$_} == $m } keys %s;
+    } elsif (abs($val) > (my $x = max values %s)) { 
+        $k = first { $s{$_} == $x } keys %s;
+    } else { 
+        for my $key (sort { $s{$a} <=> $s{$b} } keys %s) {
+            next unless abs($val)/$s{$key} < min values %s;
+            $k = $key;
+            last;
+        }
+    }
+
+    my $final = abs($val)/$s{$k};
+    $final = round($final,$round) if defined $round;
+    $s . $final . $k
+}
+
+sub round {
+    my($num,$dig) = @_;
+    if    ($dig == 0) { int 0.5 + $num }
+    elsif ($dig  < 0) { 10**-$dig * int(0.5 + $num/10**-$dig) }
+    else              { my $fmt = '%.' . $dig . 'f'; sprintf $fmt, $num }
 }
 
 sub comma {
     my($i) = @_;
-    my ($whole, $frac) = split '.', $i;
+    my ($whole, $frac) = split /\./, $i;
     (my $s = reverse $whole) =~ s/(.{3})/$1,/g;
     ($s = reverse $s) =~ s/^,//;
     $frac = $frac.defined ? ".$frac" : '';
-    return "$s.$frac";
+    return "$s$frac";
 }
 
 my @tests = (
@@ -60,14 +80,13 @@ my @tests = (
    '456,789,100,000.000e+00 M 0',
    '+16777216 B',
    '1.2e101 G',
-   #"{run('df', '/', :out).out.slurp.words[10] * 1024} B 2", # Linux df returns Kilobytes by default
    '347,344 M -2', # round to -2 past the decimal
    '1122334455 Q', # bad unit type example
 );
 
-$result .= sprintf "%33s : %s", $_, sufficate(split ' ', $_) for @tests; 
+$result .= sprintf "%33s : %s\n", $_, sufficate(split ' ', $_) for @tests; 
 
-say $result; exit;
+say $result;
 
 my $ref = <<'END';
                        87,654,321 : 87.654321M
@@ -85,13 +104,5 @@ my $ref = <<'END';
 END
 
 use Test::More;
-#is($result, $ref);
-#done_testing();
-
-__END__
-
-=={{header|Perl}}==
-{{trans|Perl 6}}
-<lang perl></lang>
-{{out}}
-<pre></pre>
+is($result, $ref);
+done_testing();
