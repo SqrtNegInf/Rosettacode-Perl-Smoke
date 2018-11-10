@@ -1,14 +1,11 @@
 #!/usr/local/bin/perl
 #u# http://rosettacode.org/wiki/Ramer_Douglas_Peucker_line_simplification
-#c# 2018-11-RC >RC
-#p# BROKEN
+#c# 2018-11-08 >RC
+#p# OK
 
 use feature 'say';
-use warnings;
-use strict 'vars';
 
-use List::Util qw(first max any);
-use Data::Dumper;
+use List::MoreUtils qw(firstidx minmax);
 
 my $epsilon = 1;
 
@@ -20,9 +17,7 @@ sub norm {
 }
 
 sub perpendicular_distance {
-    our(@start); local *start =  shift @_;
-    our(@end);   local *end   = shift @_;
-    our(@point); local *point  = shift @_;
+    local *start = shift @_; local *end = shift @_; local *point = shift @_;
     return 0 if $start[0]==$point[0] && $start[1]==$point[1]
              or   $end[0]==$point[0] &&   $end[1]==$point[1];
     my ( $dx,  $dy)  = (  $end[0]-$start[0],  $end[1]-$start[1]);
@@ -36,38 +31,23 @@ sub perpendicular_distance {
 sub Ramer_Douglas_Peucker {
     my(@points) = @_;
     return @points if @points == 2;
-    
     my(@d);
     push @d, perpendicular_distance(@points[0, -1, $_]) for 0..@points-1;
-say 'd ', join ',', @d; exit;
-    my ($index, $dmax);
-    #my ($index, $dmax) = @d.first: @d.max, :kv;
-    return 
-      Ramer_Douglas_Peucker( @points[0..$index]), # ?? [^(*-1)],
-      Ramer_Douglas_Peucker( @points[$index..-1])
-      if $dmax > $epsilon;
+    my(undef,$dmax) = minmax @d;
+    my($index) = firstidx { $_ == $dmax } @d;
+    if ($dmax > $epsilon) {
+        my @lo = Ramer_Douglas_Peucker( @points[0..$index]);
+        my @hi = Ramer_Douglas_Peucker( @points[$index..$#points]);
+        return  @lo[0..@lo-2], @hi;
+    }
     @points[0, -1];
 }
 
-$DB::single =1;
-# TESTING
-say my $result = Ramer_Douglas_Peucker( [0,0],[1,0.1],[2,-0.1],[3,5],[4,6],[5,7],[6,8.1],[7,9],[8,9],[9,9]);
-
-#is $result.gist, '((0 0) (2 -0.1) (3 5) (7 9) (9 9))';
-#say $result = join "\n", @res;
-
-my $ref = <<'EOD';
-EOD
+my $result;
+$result .= '(' . join(' ', @$_) . ') ' 
+    for Ramer_Douglas_Peucker( [0,0],[1,0.1],[2,-0.1],[3,5],[4,6],[5,7],[6,8.1],[7,9],[8,9],[9,9]);
+say $result;
 
 use Test::More;
-#is($result, $ref);
-#done_testing();
-
-__END__
-
-=={{header|Perl}}==
-{{trans|Perl 6}}
-<lang perl></lang>
-{{out}}
-<pre style="height:35ex"></pre>
-[https://github.com/SqrtNegInf/Rosettacode-Perl5-Smoke/blob/master/ref/XXX XXX]
+is($result, '(0 0) (2 -0.1) (3 5) (7 9) (9 9) ');
+done_testing();
