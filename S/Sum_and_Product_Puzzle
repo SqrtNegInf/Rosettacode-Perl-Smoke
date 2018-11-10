@@ -1,7 +1,7 @@
 #!/usr/local/bin/perl
 #u# http://rosettacode.org/wiki/Sum_and_Product_Puzzle
-#c# 2018-10-RC >RC
-#p# BROKEN
+#c# 2018-10-23 >RC
+#p# OK
 
 use feature 'say';
 
