@@ -441,9 +441,8 @@ File: A/Atomic_updates
 File: A/Average_loop_length
 #!/usr/bin/env perl
 #u# http://rosettacode.org/wiki/Average_loop_length
-#t# skiptest
-#c# 2018-08-01 >RC
-#p# BROKEN
+#c# 2018-11-09 >RC
+#p# OK
 
 File: A/Averages_Arithmetic_mean
 #!/usr/local/bin/perl
@@ -493,6 +492,12 @@ File: B/Babbage_problem
 #u# http://rosettacode.org/wiki/Babbage_problem
 #c# 2018-07-15 <RC
 #p# OK
+
+File: B/Bacon_cipher
+#!/usr/local/bin/perl #u# http://rosettacode.org/wiki/Bacon_cipher
+#c# 2018-11-10 >RC
+#p# OK
+#f# RC file: bacon_cipher.txt;
 
 File: B/Balanced_brackets-1
 #!/usr/local/bin/perl
@@ -1593,7 +1598,7 @@ File: D/Draw_a_cuboid-2
 #p# OK
 
 File: D/Draw_a_pixel
-#!/usr/local/bin/perl do-not-check
+#!/usr/local/bin/perl # do-not-check
 #u# http://rosettacode.org/wiki/Draw_a_pixel
 #t# interactive
 #c# 2018-11-03 >RC
@@ -1606,6 +1611,13 @@ File: D/Draw_a_sphere
 #p# OK
 #f# RC file: draw_a_sphere.pgm
 #n# macOS quick-view messes it up
+
+File: D/Draw_pixel_2
+#!/usr/local/bin/perl # do-not-check
+#u# http://rosettacode.org/wiki/Draw_pixel_2
+#t# interactive
+#c# 2018-11-10 >RC
+#p# OK
 
 File: D/Dutch_national_flag_problem
 #!/usr/local/bin/perl
@@ -4611,8 +4623,8 @@ File: R/RSA_code
 File: R/Ramer-Douglas-Peucker_line_simplification
 #!/usr/local/bin/perl
 #u# http://rosettacode.org/wiki/Ramer_Douglas_Peucker_line_simplification
-#c# 2018-11-RC >RC
-#p# BROKEN
+#c# 2018-11-08 >RC
+#p# OK
 
 File: R/Ramsey%27s_theorem
 #!/usr/local/bin/perl
@@ -5873,8 +5885,8 @@ File: S/Suffixation_of_decimal_numbers
 File: S/Sum_and_Product_Puzzle
 #!/usr/local/bin/perl
 #u# http://rosettacode.org/wiki/Sum_and_Product_Puzzle
-#c# 2018-10-RC >RC
-#p# BROKEN
+#c# 2018-10-23 >RC
+#p# OK
 
 File: S/Sum_and_product_of_an_array
 #!/usr/local/bin/perl
