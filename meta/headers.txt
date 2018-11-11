@@ -279,10 +279,9 @@ File: A/Animate_a_pendulum
 File: A/Animation
 #!/usr/local/bin/perl
 #u# http://rosettacode.org/wiki/Animation
-#t# skiptest
-#c# 2018-07-13 <RC
-#p# BROKEN
-#n# Firefox/graphical
+#t# interactive
+#c# 2018-07-13 <RC, 2018-10-30 >RC
+#p# OK
 
 File: A/Anonymous_recursion-1
 #!/usr/local/bin/perl
@@ -498,6 +497,7 @@ File: B/Bacon_cipher
 #c# 2018-11-10 >RC
 #p# OK
 #f# RC file: bacon_cipher.txt;
+#n# incomplete: no decrypt 
 
 File: B/Balanced_brackets-1
 #!/usr/local/bin/perl
