@@ -1,0 +1,7 @@
+#!/usr/local/bin/perl
+#u# http://rosettacode.org/wiki/Copy_stdin_to_stdout
+#t# nocode
+#c# 2018-11-11 <RC
+#p# OK
+
+# perl -pe ''
