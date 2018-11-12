@@ -17,7 +17,8 @@ $msg_ref  = 'update of reference data';
 for $new (`$git status | grep -v modified: | grep '^\t'`) {
     chomp $new;
     $new =~ s/^\t//;
-    next unless -X $new && `file $new` =~ /perl (-Ilib )?script text executable/;
+    next unless -X $new && `file $new` =~ /perl.*script text executable/;
+    #next unless -X $new && `file $new` =~ /perl (-Ilib )?script text executable/;
     system qq[$git add $new; $git commit -m "$msg_new $new"];
 }
 
