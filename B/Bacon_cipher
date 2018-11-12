@@ -1,0 +1,103 @@
+#!/usr/local/bin/perl 
+#u# http://rosettacode.org/wiki/Bacon_cipher
+#c# 2018-11-10 >RC
+#p# OK
+#f# RC file: bacon_cipher.txt
+#n# incomplete: no decrypt 
+
+use feature 'say';
+use warnings;
+use strict 'vars';
+
+my $secret = <<'END';
+This task is to implement a program for encryption and decryption
+of plaintext using the simple alphabet of the Baconian cipher or
+some other kind of representation of this alphabet (make anything
+signify anything). This example will work with anything in the
+ASCII range... even code! $r%_-^&*(){}+~ #=`/\';*1234567890"'
+END
+ 
+my $text = <<'END';
+Bah. It isn't really practical to use typeface changes to encode
+information, it is too easy to tell that there is something going
+on and will attract attention. Font changes with enough regularity
+to encode mesages relatively efficiently would need to happen so
+often it would be obvious that there was some kind of manipulation
+going on. Steganographic encryption where it is obvious that there
+has been some tampering with the carrier is not going to be very
+effective. Not that any of these implementations would hold up to
+serious scrutiny anyway. Anyway, here's a semi-bogus implementation
+that hides information in white space. The message is hidden in this
+paragraph of text. Yes, really. It requires a fairly modern file
+viewer to display (not display?) the hidden message, but that isn't
+too unlikely any more. It may be stretching things to call this a
+Bacon cipher, but I think it falls within the spirit of the task,
+if not the exact definition.
+END
+
+my @enc = ("﻿", "​");
+my %dec;
+$dec{$enc[0]} = 0;
+$dec{$enc[1]} = 1;
+
+sub encode { my($c) = @_; join '', @enc[split '', sprintf "%07b", ord($c)] }
+
+sub hide {
+    my($text, @msg) = @_;
+    my $head = substr($text, 0, @msg);
+    my $tail = substr($text, @msg);
+    my @head = split '', $head;
+    my $merge;
+    while (@msg) { $merge .= shift(@head) . shift(@msg) }
+    $merge . $tail;
+}
+ 
+#  join '', map { :2(%dec{$_.comb}.join('')).chr },
+#   $steg.subst( /\w | <punct> | " " | "\n" /, '', :g).comb(/. ** 7/);
+
+use Time::HiRes qw(sleep);
+sub reveal {
+    my($steg) = @_;
+    (my $clean = $steg) =~ s/\w|[,?:.!\-&*()*"']| |\n//g;
+    my @x = grep { $_ } split /(.{7})/, $clean;
+#say 'x: '. scalar @x; exit;
+    for my $i (@x) {
+    my(@bit);
+    my($typea) = $i =~ /^(.)/;
+say 'l0 ' . length($enc[0]);
+say 'l1 ' . length($enc[1]);
+    say 'e0 ' . unpack 'H6', pack 'B24', $enc[0];
+    say 'e1 ' . unpack 'H6', pack 'B24', $enc[1];
+exit;
+    for (split '', $i) {
+$DB::single = 1;
+        push @bit, $typea eq $_ ? 0 : 1;
+    }
+say join ':', @bit; 
+    my $chr = unpack 'H2', pack 'B8', '0' . join '', @bit;
+    #}
+say hex($chr);  sleep .25;
+    }
+print "\n";
+exit;
+
+# This task is to implement a program for encryption and decryption
+# of plaintext using the simple alphabet of the Baconian cipher or
+# some other kind of representation of this alphabet (make anything
+# signify anything). This example will work with anything in the
+# ASCII range... even code! $r%_-^&*(){}+~ #=`/\';*1234567890"'
+}
+ 
+my @hidden = map  { encode($_) } split '', $secret;
+ 
+my $steganography = hide($text, @hidden);
+
+open my $fh, '>', 'run/bacon_cipher.txt';
+ 
+print $fh "Steganograpic message hidden in text:\n";
+print $fh $steganography;
+ 
+#say '';
+print "Hidden message revealed:\n";
+$DB::single = 1;
+print reveal($steganography);
