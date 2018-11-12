@@ -1,5 +1,6 @@
 
 This is perl 5, version 28, subversion 0 (v5.28.0) built for darwin-thread-multi-2level
+updating from RC…
 +------------> Perl: Good/Bad [1028/16]
 |+-----------> Smoke testing []
 ||+----------> sKipping validation [146]
@@ -7,10 +8,10 @@ This is perl 5, version 28, subversion 0 (v5.28.0) built for darwin-thread-multi
 ||||+--------> Touched (modified by me) [172]
 |||||+-------> Random seed [77]
 ||||||+------> File output [43]
-|||||||+-----> Draft [216]
+|||||||+-----> Draft [217]
 ||||||||+----> Ignoring [36]
-|||||||||+---> Void (no local copy) [230]
-||||||||||+--> Un-implemented/reliable [217]
+|||||||||+---> Void (no local copy) [231]
+||||||||||+--> Un-implemented/reliable [216]
 |||||||||||
 GS......... 100_doors-1
 GS......... 100_doors-2
@@ -260,6 +261,7 @@ GS......... Convert_seconds_to_compound_duration
 G.K........ Conway%27s_Game_of_Life-1
 G.KI....... Conway%27s_Game_of_Life-2
 GS......... Copy_a_string
+.......D.V. Copy_stdin_to_stdout
 GS......... Count_in_factors-1
 B.......... Count_in_factors-2
 GS......... Count_in_factors-3
@@ -334,7 +336,7 @@ G.KIT...X.. Draw_a_pixel
 ........X.. Draw_a_pixel_2
 .........VU Draw_a_rotating_cube
 GS...RF.... Draw_a_sphere
-G.KIT..D..U Draw_pixel_2
+G.KIT..D... Draw_pixel_2
 GS...R..... Dutch_national_flag_problem
 GS......... Dynamic_variable_names
 GS..T...... EKG_sequence_convergence
