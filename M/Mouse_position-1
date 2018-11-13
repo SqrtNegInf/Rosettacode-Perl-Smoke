@@ -1,0 +1,12 @@
+#!/usr/local/bin/perl
+#u# http://rosettacode.org/wiki/Mouse_position
+#t# interactive
+#c# 2018-11-12 <RC
+#p# OK
+#n# same every time?
+
+use Gtk3 ('-init');
+
+my (undef, $x, $y) = 'Gtk3::Window'->new->get_screen->get_display->get_pointer;
+
+print "x=$x y=$y\n";
