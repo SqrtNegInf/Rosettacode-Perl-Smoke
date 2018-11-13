@@ -1,16 +1,16 @@
 
 This is perl 5, version 28, subversion 0 (v5.28.0) built for darwin-thread-multi-2level
 updating from RC…
-+------------> Perl: Good/Bad [1028/16]
++------------> Perl: Good/Bad [1030/16]
 |+-----------> Smoke testing []
-||+----------> sKipping validation [146]
-|||+---------> Interactive [55]
-||||+--------> Touched (modified by me) [172]
+||+----------> sKipping validation [148]
+|||+---------> Interactive [56]
+||||+--------> Touched (modified by me) [173]
 |||||+-------> Random seed [77]
-||||||+------> File output [43]
-|||||||+-----> Draft [217]
+||||||+------> File output [44]
+|||||||+-----> Draft [216]
 ||||||||+----> Ignoring [36]
-|||||||||+---> Void (no local copy) [231]
+|||||||||+---> Void (no local copy) [230]
 ||||||||||+--> Un-implemented/reliable [216]
 |||||||||||
 GS......... 100_doors-1
@@ -211,7 +211,7 @@ GS......... Cholesky_decomposition
 .......D... Cipolla%27s_algorithm
 GS..T...... Cipolla%27s_algorithm-1
 GS..T...... Cipolla%27s_algorithm-2
-GS......... Circles_of_given_radius_through_two_points
+GS..T...... Circles_of_given_radius_through_two_points
 G.K........ Classes
 GS..TR..... Closest-pair_problem
 GS......... Closures_Value_capture
@@ -261,7 +261,7 @@ GS......... Convert_seconds_to_compound_duration
 G.K........ Conway%27s_Game_of_Life-1
 G.KI....... Conway%27s_Game_of_Life-2
 GS......... Copy_a_string
-.......D.V. Copy_stdin_to_stdout
+G.K....D... Copy_stdin_to_stdout
 GS......... Count_in_factors-1
 B.......... Count_in_factors-2
 GS......... Count_in_factors-3
@@ -719,7 +719,8 @@ GS...R..... Monty_Hall_problem
 .......D.VU Morpion_solitaire
 ........XV. Morse_code
 GS.....D... Most_frequent_k_chars_distance
-G.KI....... Mouse_position
+G.KI....... Mouse_position-1
+G.KI....... Mouse_position-2
 GS......... Move-to-front_algorithm
 G.K.T..D..U Multi-dimensional_array
 .......D.VU Multidimensional_Newton-Raphson_method
@@ -1022,7 +1023,7 @@ GS......... Show_the_epoch
 GS......... Sierpinski_carpet
 .........VU Sierpinski_pentagon
 GS......... Sierpinski_triangle
-G.K........ Sierpinski_triangle_Graphical
+G.K...F.... Sierpinski_triangle_Graphical
 GS......... Sieve_of_Eratosthenes-1
 GS......... Sieve_of_Eratosthenes-2
 GS......... Sieve_of_Eratosthenes-3
@@ -1138,7 +1139,7 @@ GS......... Substring_Top_and_tail
 GS......... Subtractive_generator
 GS......... Sudoku
 GS.....D... Suffix_tree
-GS..T..D... Suffixation_of_decimal_numbers
+GS..T...... Suffixation_of_decimal_numbers
 GS..T...... Sum_and_Product_Puzzle
 GS......... Sum_and_product_of_an_array
 GS......... Sum_digits_of_an_integer
