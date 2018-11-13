@@ -493,10 +493,11 @@ File: B/Babbage_problem
 #p# OK
 
 File: B/Bacon_cipher
-#!/usr/local/bin/perl #u# http://rosettacode.org/wiki/Bacon_cipher
+#!/usr/local/bin/perl 
+#u# http://rosettacode.org/wiki/Bacon_cipher
 #c# 2018-11-10 >RC
 #p# OK
-#f# RC file: bacon_cipher.txt;
+#f# RC file: bacon_cipher.txt
 #n# incomplete: no decrypt 
 
 File: B/Balanced_brackets-1
@@ -986,9 +987,8 @@ File: C/Cipolla%27s_algorithm-2
 File: C/Circles_of_given_radius_through_two_points
 #!/usr/local/bin/perl
 #u# http://rosettacode.org/wiki/Circles_of_given_radius_through_two_points
-#c# 2018-07-23 <RC
+#c# 2018-07-23 <RC, 2018-11-12 >RC
 #p# OK
-#n# test all outcomes (re-write?)
 
 File: C/Classes
 #!/usr/local/bin/perl
@@ -1240,6 +1240,13 @@ File: C/Copy_a_string
 #!/usr/local/bin/perl
 #u# http://rosettacode.org/wiki/Copy_a_string
 #c# 2018-07-25 <RC
+#p# OK
+
+File: C/Copy_stdin_to_stdout
+#!/usr/local/bin/perl
+#u# http://rosettacode.org/wiki/Copy_stdin_to_stdout
+#t# nocode
+#c# 2018-11-11 <RC
 #p# OK
 
 File: C/Count_in_factors-1
@@ -3690,13 +3697,21 @@ File: M/Most_frequent_k_chars_distance
 #c# 2018-08-18 <RC
 #p# OK
 
-File: M/Mouse_position
+File: M/Mouse_position-1
 #!/usr/local/bin/perl
 #u# http://rosettacode.org/wiki/Mouse_position
 #t# interactive
-#c# 2018-08-20 <RC
+#c# 2018-11-12 <RC
 #p# OK
-#n# hangs if mouse near 'Apple'
+#n# same every time?
+
+File: M/Mouse_position-2
+#!/usr/local/bin/perl
+#u# http://rosettacode.org/wiki/Mouse_position
+#t# interactive
+#c# 2018-11-12 <RC
+#p# OK
+#n# sort-of works, hangs sometimes (best to keep mouse inside terminal window?)
 
 File: M/Move-to-front_algorithm
 #!/usr/local/bin/perl
@@ -5207,9 +5222,10 @@ File: S/Sierpinski_triangle_Graphical
 #!/usr/local/bin/perl
 #u# http://rosettacode.org/wiki/Sierpinski_triangle/Graphical
 #t# skiptest
-#c# 2018-08-17 <RC
+#c# 2018-08-17 <RC, 2018-11-12
 #p# OK
-#n# sort-of works
+#f# RC file: sierpinski_triangle.svg
+#n# completely replaced old version with Perl 6 translation
 
 File: S/Sieve_of_Eratosthenes-1
 #!/usr/local/bin/perl
