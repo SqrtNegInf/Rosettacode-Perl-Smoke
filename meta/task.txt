@@ -5,7 +5,7 @@ updating from RC…
 |+-----------> Smoke testing []
 ||+----------> sKipping validation [148]
 |||+---------> Interactive [56]
-||||+--------> Touched (modified by me) [173]
+||||+--------> Touched (modified by me) [175]
 |||||+-------> Random seed [77]
 ||||||+------> File output [44]
 |||||||+-----> Draft [216]
@@ -299,7 +299,7 @@ GS...R..... Deal_cards_for_FreeCell
 GS......... Death_Star
 B...T..D..U Decimal_floating_point_number_to_binary
 .......D.VU Decision_tables
-.........VU Deconvolution_1D
+GS..T.....U Deconvolution_1D
 .........VU Deconvolution_2D%2B
 GS......... Deepcopy
 GS......... Define_a_primitive_data_type
@@ -308,6 +308,7 @@ GS......... Delete_a_file
 .......D.VU Deming%27s_Funnel
 GS......... Department_Numbers
 GS......... Detect_division_by_zero
+.........V. Determinant_and_permanent
 GS......... Determine_if_a_string_is_numeric
 G.K........ Determine_if_only_one_instance_is_running
 .......D.VU Determine_if_two_triangles_overlap
@@ -685,7 +686,6 @@ GS......... Map_range
 GS..TR.D... Markov_chain_text_generator
 GS..TR.D... Mastermind
 GS......... Matrix-exponentiation_operator
-GS......... Matrix_arithmetic
 .........VU Matrix_chain_multiplication
 GS..T...... Matrix_multiplication
 GS......... Matrix_transposition
@@ -1023,7 +1023,7 @@ GS......... Show_the_epoch
 GS......... Sierpinski_carpet
 .........VU Sierpinski_pentagon
 GS......... Sierpinski_triangle
-G.K...F.... Sierpinski_triangle_Graphical
+G.K.T.F.... Sierpinski_triangle_Graphical
 GS......... Sieve_of_Eratosthenes-1
 GS......... Sieve_of_Eratosthenes-2
 GS......... Sieve_of_Eratosthenes-3
