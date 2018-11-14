@@ -1436,6 +1436,12 @@ File: D/Decimal_floating_point_number_to_binary
 #c# 2018-xx-xx >RC
 #p# BROKEN
 
+File: D/Deconvolution_1D
+#!/usr/local/bin/perl
+#u# http://rosettacode.org/wiki/Deconvolution/1D
+#c# 2018-11-13 >RC
+#p# OK
+
 File: D/Deepcopy
 #!/usr/local/bin/perl
 #u# http://rosettacode.org/wiki/Deepcopy
@@ -3698,7 +3704,7 @@ File: M/Most_frequent_k_chars_distance
 #p# OK
 
 File: M/Mouse_position-1
-#!/usr/local/bin/perl
+#!/usr/local/bin/perl # do-not-check
 #u# http://rosettacode.org/wiki/Mouse_position
 #t# interactive
 #c# 2018-11-12 <RC
@@ -3706,7 +3712,7 @@ File: M/Mouse_position-1
 #n# same every time?
 
 File: M/Mouse_position-2
-#!/usr/local/bin/perl
+#!/usr/local/bin/perl # do-not-check
 #u# http://rosettacode.org/wiki/Mouse_position
 #t# interactive
 #c# 2018-11-12 <RC
@@ -5222,7 +5228,7 @@ File: S/Sierpinski_triangle_Graphical
 #!/usr/local/bin/perl
 #u# http://rosettacode.org/wiki/Sierpinski_triangle/Graphical
 #t# skiptest
-#c# 2018-08-17 <RC, 2018-11-12
+#c# 2018-08-17 <RC, 2018-11-12 >RC
 #p# OK
 #f# RC file: sierpinski_triangle.svg
 #n# completely replaced old version with Perl 6 translation
