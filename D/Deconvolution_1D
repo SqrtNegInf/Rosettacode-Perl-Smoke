@@ -73,18 +73,17 @@ sub rref {
 
 my @h = qw<-8 -9 -3 -1 -6 7>;
 my @f = qw<-3 -6 -1 8 -6 3 -1 -9 -9 3 -2 5 2 -2 -7 -1>;
-my @g = qw<24 75 71 -34 3 22 -45 23 245 25 52 25 -67 -96 96 31 55 36 29 -43 -7>;
 
-push @res, join ' ',   convolve(\@f, \@h);
-push @res, join ' ', deconvolve(\@g, \@f);
-push @res, join ' ', deconvolve(\@g, \@h);
+push @res, '  conv(f,h) = g = ' . join ' ', my @g = convolve(\@f, \@h);
+push @res, 'deconv(g,f) = h = ' . join ' ', deconvolve(\@g, \@f);
+push @res, 'deconv(g,h) = f = ' . join ' ', deconvolve(\@g, \@h);
 
 say my $result = join "\n", @res;
 
 my $ref = <<'END';
-24 75 71 -34 3 22 -45 23 245 25 52 25 -67 -96 96 31 55 36 29 -43 -7
--8 -9 -3 -1 -6 7
--3 -6 -1 8 -6 3 -1 -9 -9 3 -2 5 2 -2 -7 -1
+  conv(f,h) = g = 24 75 71 -34 3 22 -45 23 245 25 52 25 -67 -96 96 31 55 36 29 -43 -7
+deconv(g,f) = h = -8 -9 -3 -1 -6 7
+deconv(g,h) = f = -3 -6 -1 8 -6 3 -1 -9 -9 3 -2 5 2 -2 -7 -1
 END
 
 use Test::More;
