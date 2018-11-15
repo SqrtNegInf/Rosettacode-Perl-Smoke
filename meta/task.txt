@@ -1,17 +1,17 @@
 
 This is perl 5, version 28, subversion 0 (v5.28.0) built for darwin-thread-multi-2level
 updating from RC…
-+------------> Perl: Good/Bad [1030/16]
++------------> Perl: Good/Bad [1032/16]
 |+-----------> Smoke testing []
 ||+----------> sKipping validation [148]
 |||+---------> Interactive [56]
-||||+--------> Touched (modified by me) [175]
+||||+--------> Touched (modified by me) [177]
 |||||+-------> Random seed [77]
-||||||+------> File output [44]
+||||||+------> File output [45]
 |||||||+-----> Draft [216]
 ||||||||+----> Ignoring [36]
-|||||||||+---> Void (no local copy) [230]
-||||||||||+--> Un-implemented/reliable [216]
+|||||||||+---> Void (no local copy) [227]
+||||||||||+--> Un-implemented/reliable [214]
 |||||||||||
 GS......... 100_doors-1
 GS......... 100_doors-2
@@ -51,7 +51,7 @@ GS......... Ackermann_function-4
 GS......... Ackermann_function-5
 ........XV. Active_Directory_Connect
 .........VU Active_Directory_Search_for_a_user
-GS......... Active_object
+!S......... Active_object
 GS......... Add_a_variable_to_a_class_instance_at_runtime
 .......D.VU Addition-chain_exponentiation
 .......D.VU Addition_chains
@@ -299,8 +299,8 @@ GS...R..... Deal_cards_for_FreeCell
 GS......... Death_Star
 B...T..D..U Decimal_floating_point_number_to_binary
 .......D.VU Decision_tables
-GS..T.....U Deconvolution_1D
-.........VU Deconvolution_2D%2B
+GS..T...... Deconvolution_1D
+GS..T.....U Deconvolution_2D%2B
 GS......... Deepcopy
 GS......... Define_a_primitive_data_type
 G.K........ Delegates
@@ -308,7 +308,7 @@ GS......... Delete_a_file
 .......D.VU Deming%27s_Funnel
 GS......... Department_Numbers
 GS......... Detect_division_by_zero
-.........V. Determinant_and_permanent
+GS......... Determinant_and_permanent
 GS......... Determine_if_a_string_is_numeric
 G.K........ Determine_if_only_one_instance_is_running
 .......D.VU Determine_if_two_triangles_overlap
@@ -493,7 +493,7 @@ GS......... Greatest_element_of_a_list
 GS...R..... Greatest_subsequential_sum-1
 GS......... Greatest_subsequential_sum-2
 .......D.VU Greed
-.........VU Greyscale_bars_Display
+GS..T.F.... Greyscale_bars_Display
 G.KI....... Guess_the_number
 G.KI....... Guess_the_number_With_feedback
 G.KI....... Guess_the_number_With_feedback_player
