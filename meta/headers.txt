@@ -1442,6 +1442,12 @@ File: D/Deconvolution_1D
 #c# 2018-11-13 >RC
 #p# OK
 
+File: D/Deconvolution_2D%2B
+#!/usr/local/bin/perl
+#u# http://rosettacode.org/wiki/Deconvolution/1D
+#c# 2018-11-13 >RC
+#p# OK
+
 File: D/Deepcopy
 #!/usr/local/bin/perl
 #u# http://rosettacode.org/wiki/Deepcopy
@@ -1479,6 +1485,12 @@ File: D/Detect_division_by_zero
 #!/usr/local/bin/perl
 #u# http://rosettacode.org/wiki/Detect_division_by_zero
 #c# 2018-07-28 <RC
+#p# OK
+
+File: D/Determinant_and_permanent
+#!/usr/local/bin/perl
+#u# http://rosettacode.org/wiki/Determinant_and_permanent
+#c# 2018-08-18 <RC
 #p# OK
 
 File: D/Determine_if_a_string_is_numeric
@@ -2483,6 +2495,14 @@ File: G/Greatest_subsequential_sum-2
 #u# http://rosettacode.org/wiki/Greatest_subsequential_sum
 #c# 2018-08-11 <RC
 #p# OK
+
+File: G/Greyscale_bars_Display
+#!/usr/local/bin/perl
+#u# http://rosettacode.org/wiki/Greyscale_bars/Display
+#t# graphical
+#c# 2018-11-14 >RC
+#p# OK
+#f# RC file: Greyscale-bars-perl5.pgm
 
 File: G/Guess_the_number
 #!/usr/local/bin/perl
@@ -3543,12 +3563,6 @@ File: M/Mastermind
 File: M/Matrix-exponentiation_operator
 #!/usr/local/bin/perl
 #u# http://rosettacode.org/wiki/Matrix-exponentiation_operator
-#c# 2018-08-18 <RC
-#p# OK
-
-File: M/Matrix_arithmetic
-#!/usr/local/bin/perl
-#u# http://rosettacode.org/wiki/Matrix_arithmetic
 #c# 2018-08-18 <RC
 #p# OK
 
