@@ -1,17 +1,17 @@
 
 This is perl 5, version 28, subversion 0 (v5.28.0) built for darwin-thread-multi-2level
 updating from RC…
-+------------> Perl: Good/Bad [1032/16]
++------------> Perl: Good/Bad [1034/16]
 |+-----------> Smoke testing []
 ||+----------> sKipping validation [148]
 |||+---------> Interactive [56]
-||||+--------> Touched (modified by me) [177]
+||||+--------> Touched (modified by me) [179]
 |||||+-------> Random seed [77]
-||||||+------> File output [45]
+||||||+------> File output [46]
 |||||||+-----> Draft [216]
 ||||||||+----> Ignoring [36]
-|||||||||+---> Void (no local copy) [227]
-||||||||||+--> Un-implemented/reliable [214]
+|||||||||+---> Void (no local copy) [225]
+||||||||||+--> Un-implemented/reliable [213]
 |||||||||||
 GS......... 100_doors-1
 GS......... 100_doors-2
@@ -181,6 +181,7 @@ GS..TR.D... Card_shuffles
 GS......... Carmichael_3_strong_pseudoprimes
 GS..T...... Cartesian_product_of_two_or_more_lists-1
 GS..T...... Cartesian_product_of_two_or_more_lists-2
+GS......... Cartesian_product_of_two_or_more_lists-3
 GS......... Case-sensitivity_of_identifiers
 GS......... Casting_out_nines
 GS......... Catalan_numbers-1
@@ -820,7 +821,7 @@ GS...R..... Pattern_matching
 .......D.VU Peano_curve
 G.KI.R..... Penney%27s_game
 .......D.VU Penrose_tiling
-.........VU Pentagram
+!S..T.....U Pentagram
 .......D.VU Pentomino_tiling
 .........VU Percentage_difference_between_images
 .......D.VU Perceptron
@@ -848,7 +849,7 @@ GS......... Pi-4
 GS...R..... Pick_random_element
 G.KI....... Pig_the_dice_game
 .........VU Pig_the_dice_game_Player
-.........VU Pinstripe_Display
+GS..T.F.... Pinstripe_Display
 .........VU Pinstripe_Printer
 GS..T.F.... Plasma_effect
 .........VU Play_recorded_sounds
