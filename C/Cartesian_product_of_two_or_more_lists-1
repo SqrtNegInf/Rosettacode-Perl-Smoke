@@ -51,10 +51,3 @@ END
 use Test::More;
 is ($result, $ref);
 done_testing();
-
-__END__
-
-=={{header|Perl}}==
-<lang perl></lang>
-{{out}}
-<pre></pre>
