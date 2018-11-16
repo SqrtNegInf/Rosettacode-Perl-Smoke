@@ -834,6 +834,12 @@ File: C/Cartesian_product_of_two_or_more_lists-2
 #c# 2018-08-28 >RC
 #p# OK
 
+File: C/Cartesian_product_of_two_or_more_lists-3
+#!/usr/local/bin/perl
+#u# http://rosettacode.org/wiki/Cartesian_product_of_two_or_more_lists
+#c# 2018-11-15 <RC
+#p# OK
+
 File: C/Case-sensitivity_of_identifiers
 #!/usr/local/bin/perl
 #u# http://rosettacode.org/wiki/Case-sensitivity_of_identifiers
@@ -3600,6 +3606,12 @@ File: M/Maze_solving
 File: M/McNuggets_Problem
 #!/usr/local/bin/perl
 #u# http://rosettacode.org/wiki/McNuggets_Problem
+#c# 2018-11-01 >RC, 2018-11-15 <RC
+#p# OK
+
+File: M/McNuggets_Problem.1
+#!/usr/local/bin/perl
+#u# http://rosettacode.org/wiki/McNuggets_Problem
 #c# 2018-11-01 >RC
 #p# OK
 
@@ -4222,6 +4234,12 @@ File: P/Penney%27s_game
 #c# 2018-08-21 <RC
 #p# OK
 
+File: P/Pentagram
+#!/usr/local/bin/perl
+#u# http://rosettacode.org/wiki/RC_REMOTE
+#c# 2018-11-RC >RC
+#p# OK
+
 File: P/Percolation_Mean_run_density
 #!/usr/local/bin/perl
 #u# http://rosettacode.org/wiki/Percolation/Mean_run_density
@@ -4344,6 +4362,13 @@ File: P/Pig_the_dice_game
 #t# interactive
 #c# 2018-08-20 <RC
 #p# OK
+
+File: P/Pinstripe_Display
+#!/usr/local/bin/perl
+#u# http://rosettacode.org/wiki/Pinstripe/Display
+#c# 2018-11-15 >RC
+#p# OK
+#f# RC file: pinstripes-bw.png
 
 File: P/Plasma_effect
 #!/usr/local/bin/perl
