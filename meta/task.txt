@@ -1,7 +1,7 @@
 
 This is perl 5, version 28, subversion 0 (v5.28.0) built for darwin-thread-multi-2level
 updating from RC…
-+------------> Perl: Good/Bad [1034/16]
++------------> Perl: Good/Bad [1034/17]
 |+-----------> Smoke testing []
 ||+----------> sKipping validation [148]
 |||+---------> Interactive [56]
@@ -821,7 +821,7 @@ GS...R..... Pattern_matching
 .......D.VU Peano_curve
 G.KI.R..... Penney%27s_game
 .......D.VU Penrose_tiling
-!S..T.....U Pentagram
+B...T.....U Pentagram
 .......D.VU Pentomino_tiling
 .........VU Percentage_difference_between_images
 .......D.VU Perceptron
