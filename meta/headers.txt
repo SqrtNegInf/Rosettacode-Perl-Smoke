@@ -4238,7 +4238,7 @@ File: P/Pentagram
 #!/usr/local/bin/perl
 #u# http://rosettacode.org/wiki/RC_REMOTE
 #c# 2018-11-RC >RC
-#p# OK
+#p# BROKEN
 
 File: P/Percolation_Mean_run_density
 #!/usr/local/bin/perl
