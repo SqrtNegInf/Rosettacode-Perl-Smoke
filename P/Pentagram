@@ -1,7 +1,7 @@
 #!/usr/local/bin/perl
 #u# http://rosettacode.org/wiki/RC_REMOTE
 #c# 2018-11-RC >RC
-#p# OK
+#p# BROKEN
 
 use feature 'say';
 use warnings;
