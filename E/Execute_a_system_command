@@ -1,25 +1,21 @@
 #!/usr/local/bin/perl
 #u# http://rosettacode.org/wiki/Execute_a_system_command
-#c# 2018-08-01 <RC
+#c# 2018-08-01 <RC , 2018-11-16 >RC
 #p# OK
 
 use feature 'say';
 my $result;
 
-my @results = qx(uname);
-# runs command and returns its STDOUT as a string
-push @results, `uname`;
-# ditto, alternative syntax
+my @results = qx(uname);  # run command and return STDOUT as a string
  
-push @results, system "uname";
-# runs command and returns its exit status; its STDOUT gets output to our STDOUT
+push @results, `uname`;    # same, alternative syntax
  
-push @results, `uname`;
-#The same, but with back quotes
+push @results, system "uname";           # run command and return exit status; STDOUT of command goes program STDOUT
  
-#exec "ls";
-# replace current process with another
-#Also see:
+push @results, `uname`;            # same, but with back quotes
+ 
+#exec "uname";             # replace current process with another
+
 #http://perldoc.perl.org/perlipc.html#Using-open()-for-IPC
 #http://perldoc.perl.org/IPC/Open3.html
 
