@@ -9,24 +9,23 @@ my $b = 200;
 my $n = 2.5;
 
 # y in terms of x
-sub yy { 
+sub y_from_x { 
     my($x) = @_;
     int $b * abs(1 - ($x / $a) ** $n ) ** (1/$n)
 }
 
 # find point pairs for one quadrant
-push @q, $_, yy($_) for 0..200;
+push @q, $_, y_from_x($_) for 0..200;
 
 # Generate an SVG image
 open  $fh, '>', 'run/superellipse.svg';
 print $fh
-  qq|<svg height="@[{2*$b}]" width="@[{2*$a}]" xmlns="http://www.w3.org/2000/svg">\n|,
+  qq|<svg height="@{[2*$b]}" width="@{[2*$a]}" xmlns="http://www.w3.org/2000/svg">\n|,
   pline( 1, 1, @q ),
   pline( 1,-1, @q ), # flip and mirror
   pline(-1,-1, @q ), # for the other
   pline(-1, 1, @q ), # three quadrants
-  '</svg>'
-;
+  '</svg>';
 
 sub pline {
   my($sx,$sy,@q) = @_;
@@ -34,15 +33,7 @@ sub pline {
     $q[  2*$_] *= $sx;
     $q[1+2*$_] *= $sy;
   }
-  $points = join ' ', @q;
-  qq|<polyline points="$points"
+  qq|<polyline points="@{[join ' ',@q]}"
   style="fill:none;stroke:black;stroke-width:3"
   transform="translate($a, $b)" />\n|
 }
-
-__END__
-
-=={{header|Perl}}==
-{{trans|Perl 6}}
-<lang perl></lang>
-[https://github.com/SqrtNegInf/Rosettacode-Perl5-Smoke/blob/master/ref/Superellipse.svg Superellipse] (offsite image)
