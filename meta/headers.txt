@@ -1870,7 +1870,7 @@ File: E/Execute_a_Markov_algorithm
 File: E/Execute_a_system_command
 #!/usr/local/bin/perl
 #u# http://rosettacode.org/wiki/Execute_a_system_command
-#c# 2018-08-01 <RC
+#c# 2018-08-01 <RC , 2018-11-16 >RC
 #p# OK
 
 File: E/Exponentiation_operator-1
@@ -4236,9 +4236,10 @@ File: P/Penney%27s_game
 
 File: P/Pentagram
 #!/usr/local/bin/perl
-#u# http://rosettacode.org/wiki/RC_REMOTE
-#c# 2018-11-RC >RC
-#p# BROKEN
+#u# http://rosettacode.org/wiki/Pentagram
+#c# 2018-11-17 >RC
+#p# OK
+#f# RC file: pentagram.svg
 
 File: P/Percolation_Mean_run_density
 #!/usr/local/bin/perl
@@ -5257,6 +5258,13 @@ File: S/Sierpinski_carpet
 #c# 2018-08-17 <RC
 #p# OK
 
+File: S/Sierpinski_pentagon
+#!/usr/local/bin/perl
+#u# http://rosettacode.org/wiki/RC_REMOTE
+#c# 2018-11-RC >RC
+#p# OK
+#f# RC file: pentagon.svg
+
 File: S/Sierpinski_triangle
 #!/usr/local/bin/perl
 #u# http://rosettacode.org/wiki/Sierpinski_triangle
@@ -5998,6 +6006,13 @@ File: S/Sunflower_fractal
 #p# OK
 #f# RC file: sunflower.svg
 #n# much less slapdash...
+
+File: S/Superellipse
+#!/usr/local/bin/perl
+#u# http://rosettacode.org/wiki/Superellipse
+#c# 2018-11-17 >RC
+#p# OK
+#f# RC file: superellipse.svg
 
 File: S/Superpermutation_minimisation
 #!/usr/local/bin/perl
