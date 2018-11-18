@@ -44,9 +44,3 @@ $svg->polyline (
 open  $fh, '>', 'run/pentagram.svg';
 print $fh  $svg->xmlify(-namespace=>'svg');
 close $fh;
-
-__END__
-
-=={{header|Perl}}==
-<lang perl></lang>
-[https://github.com/SqrtNegInf/Rosettacode-Perl5-Smoke/blob/master/ref/pentagram.svg Pentagram] (offsite image)
