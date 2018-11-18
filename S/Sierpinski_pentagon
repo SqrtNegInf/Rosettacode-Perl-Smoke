@@ -1,0 +1,58 @@
+#!/usr/local/bin/perl
+#u# http://rosettacode.org/wiki/RC_REMOTE
+#c# 2018-11-RC >RC
+#p# OK
+#f# RC file: pentagon.svg
+
+use feature 'say';
+use warnings;
+
+use Math::Complex;
+
+my $order = 5;
+my $dim   = 250;
+my $sides = 5;
+my $scaling_factor = ( 3 - 5**.5 ) / 2;
+
+push @orders, ((1 - $scaling_factor) * $dim) * $scaling_factor ** $_ for 0..$order-1;
+
+open $fh, '>', 'run/sierpinski_pentagon.svg';
+
+print $fh qq|<svg height="@{[$dim*2]}" width="@{[$dim*2]}" style="fill:blue" version="1.1" xmlns="http://www.w3.org/2000/svg">|;
+
+sub cis { cplxe(cos($_[0]), sin($_[0])) }
+#sub cis { Math::Complex->make(cos($_[0]), sin($_[0])) }
+
+my $tau   = 2 * 4*atan2(1, 1);
+push @vertices, cis( $_ * $tau / $sides ) for 0..$sides-1;
+
+say join ' ', @vertices; exit;
+
+#my @vertices = map { cis( $_ * τ / $sides ) }, ^$sides;
+#for $v (0..4) {
+#    push @vx, cos($tau * $v / $sides);
+#    push @vy, sin($tau * $v / $sides);
+#}
+#say join ' ', @vx;
+#say join ' ', @vy; exit;
+
+for $i (0 .. ($sides**$order)-1)  {
+   #my $vector = [+] @vertices[$i.base($sides).fmt("%{order}d").comb] «*» @orders;
+# 247.967345
+
+   #print $fh pgon ((@orders[-1] * (1 - $scaling_factor)) «*» @vertices «+» $vector); #».reals».fmt("%0.3f");
+
+   print pgon([1,2,3,4]);
+};
+
+sub pgon { my(@q)=@_; qq|<polygon points="@q" transform="translate($dim,$dim) rotate(-18)"/>| }
+
+print $fh '</svg>';
+close $fh;
+
+__END__
+
+=={{header|Perl}}==
+{{trans|Perl 6}}
+<lang perl></lang>
+[https://github.com/SqrtNegInf/Rosettacode-Perl5-Smoke/blob/master/ref/sierpinski_pentagon.svg Sierpinski pentagon] (offsite image)
