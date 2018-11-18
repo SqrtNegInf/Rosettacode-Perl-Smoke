@@ -1,17 +1,17 @@
 
 This is perl 5, version 28, subversion 0 (v5.28.0) built for darwin-thread-multi-2level
 updating from RC…
-+------------> Perl: Good/Bad [1034/17]
++------------> Perl: Good/Bad [1036/16]
 |+-----------> Smoke testing []
 ||+----------> sKipping validation [148]
 |||+---------> Interactive [56]
-||||+--------> Touched (modified by me) [179]
+||||+--------> Touched (modified by me) [182]
 |||||+-------> Random seed [77]
-||||||+------> File output [46]
+||||||+------> File output [49]
 |||||||+-----> Draft [216]
 ||||||||+----> Ignoring [36]
-|||||||||+---> Void (no local copy) [225]
-||||||||||+--> Un-implemented/reliable [213]
+|||||||||+---> Void (no local copy) [223]
+||||||||||+--> Un-implemented/reliable [211]
 |||||||||||
 GS......... 100_doors-1
 GS......... 100_doors-2
@@ -378,7 +378,7 @@ B.......... Execute_Brainfuck
 GS......... Execute_HQ9%2B
 ........XV. Execute_SNUSP
 GS......... Execute_a_Markov_algorithm
-GS......... Execute_a_system_command
+GS..T...... Execute_a_system_command
 GS......... Exponentiation_operator-1
 GS......... Exponentiation_operator-2
 GS......... Exponentiation_order
@@ -821,7 +821,7 @@ GS...R..... Pattern_matching
 .......D.VU Peano_curve
 G.KI.R..... Penney%27s_game
 .......D.VU Penrose_tiling
-B...T.....U Pentagram
+GS..T.F.... Pentagram
 .......D.VU Pentomino_tiling
 .........VU Percentage_difference_between_images
 .......D.VU Perceptron
@@ -1022,7 +1022,7 @@ GS..T.F.... Show_Ascii_table-1
 GS..T.F.... Show_Ascii_table-2
 GS......... Show_the_epoch
 GS......... Sierpinski_carpet
-.........VU Sierpinski_pentagon
+!S..T.F...U Sierpinski_pentagon
 GS......... Sierpinski_triangle
 G.K.T.F.... Sierpinski_triangle_Graphical
 GS......... Sieve_of_Eratosthenes-1
@@ -1150,7 +1150,7 @@ GS......... Sum_of_a_series
 GS......... Sum_of_squares
 GS......... Sum_to_100
 GS..T.FD... Sunflower_fractal
-.........VU Superellipse
+GS..T.F.... Superellipse
 GS......... Superpermutation_minimisation
 .........VU Sutherland-Hodgman_polygon_clipping
 GS......... Symmetric_difference
