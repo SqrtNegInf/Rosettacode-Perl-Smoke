@@ -1675,6 +1675,12 @@ File: E/Echo_server
 #c# 2018-07-30 <RC
 #p# OK
 
+File: E/Egyptian_division
+#!/usr/local/bin/perl
+#u# http://rosettacode.org/wiki/Egyptian_division
+#c# 2018-11-18 >RC
+#p# OK
+
 File: E/Egyptian_fractions
 #!/usr/local/bin/perl
 #u# http://rosettacode.org/wiki/Egyptian_fractions
@@ -5262,8 +5268,8 @@ File: S/Sierpinski_pentagon
 #!/usr/local/bin/perl
 #u# http://rosettacode.org/wiki/RC_REMOTE
 #c# 2018-11-RC >RC
-#p# OK
-#f# RC file: pentagon.svg
+#p# BROKEN
+#f# RC file: sierpinski_pentagon.svg
 
 File: S/Sierpinski_triangle
 #!/usr/local/bin/perl
