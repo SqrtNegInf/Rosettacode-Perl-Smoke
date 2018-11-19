@@ -1,17 +1,17 @@
 
 This is perl 5, version 28, subversion 0 (v5.28.0) built for darwin-thread-multi-2level
 updating from RC…
-+------------> Perl: Good/Bad [1036/16]
++------------> Perl: Good/Bad [1037/17]
 |+-----------> Smoke testing []
 ||+----------> sKipping validation [148]
 |||+---------> Interactive [56]
-||||+--------> Touched (modified by me) [182]
+||||+--------> Touched (modified by me) [183]
 |||||+-------> Random seed [77]
 ||||||+------> File output [49]
 |||||||+-----> Draft [216]
 ||||||||+----> Ignoring [36]
-|||||||||+---> Void (no local copy) [223]
-||||||||||+--> Un-implemented/reliable [211]
+|||||||||+---> Void (no local copy) [222]
+||||||||||+--> Un-implemented/reliable [210]
 |||||||||||
 GS......... 100_doors-1
 GS......... 100_doors-2
@@ -344,7 +344,7 @@ GS......... Dynamic_variable_names
 GS..T...... EKG_sequence_convergence
 G.KI....... Echo_server
 .........VU Eertree
-.........VU Egyptian_division
+GS..T.....U Egyptian_division
 GS......... Egyptian_fractions
 GS......... Element-wise_operations
 GS......... Elementary_cellular_automaton
@@ -1022,7 +1022,7 @@ GS..T.F.... Show_Ascii_table-1
 GS..T.F.... Show_Ascii_table-2
 GS......... Show_the_epoch
 GS......... Sierpinski_carpet
-!S..T.F...U Sierpinski_pentagon
+B...T.F.... Sierpinski_pentagon
 GS......... Sierpinski_triangle
 G.K.T.F.... Sierpinski_triangle_Graphical
 GS......... Sieve_of_Eratosthenes-1
