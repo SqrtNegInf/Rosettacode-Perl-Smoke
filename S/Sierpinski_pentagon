@@ -11,7 +11,6 @@ $sides = 5;
 $order = 5;
 $dim   = 250;
 $scale = ( 3 - 5**.5 ) / 2;
-
 push @orders, ((1 - $scale) * $dim) * $scale ** $_ for 0..$order-1;
 
 open $fh, '>', 'run/sierpinski_pentagon.svg';
@@ -29,8 +28,8 @@ for $i (0 .. -1+$sides**$order)  {
 
     my @points;
     for (@vertices) {
-        $x = $vector + $orders[-1] * (1 - $scale) * $_;
-        push @points, sprintf '%.3f %.3f',$x->Re,$x->Im;
+        $v = $vector + $orders[-1] * (1 - $scale) * $_;
+        push @points, sprintf '%.3f %.3f', $v->Re, $v->Im;
     }
     print $fh pgon(@points);
 }
@@ -40,10 +39,3 @@ sub pgon { my(@q)=@_; qq|<polygon points="@q" transform="translate($dim,$dim) ro
 
 print $fh '</svg>';
 close $fh;
-
-__END__
-
-=={{header|Perl}}==
-{{trans|Perl 6}}
-<lang perl></lang>
-[https://github.com/SqrtNegInf/Rosettacode-Perl5-Smoke/blob/master/ref/sierpinski_pentagon.svg Sierpinski pentagon] (offsite image)
