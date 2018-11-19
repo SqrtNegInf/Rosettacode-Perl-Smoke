@@ -1,51 +1,42 @@
 #!/usr/local/bin/perl
 #u# http://rosettacode.org/wiki/RC_REMOTE
 #c# 2018-11-RC >RC
-#p# OK
-#f# RC file: pentagon.svg
+#p# BROKEN
+#f# RC file: sierpinski_pentagon.svg
 
-use feature 'say';
-use warnings;
-
+use ntheory qw(todigits);
 use Math::Complex;
 
-my $order = 5;
-my $dim   = 250;
-my $sides = 5;
-my $scaling_factor = ( 3 - 5**.5 ) / 2;
+$sides = 5;
+$order = 5;
+$dim   = 250;
+$scale = ( 3 - 5**.5 ) / 2;
 
-push @orders, ((1 - $scaling_factor) * $dim) * $scaling_factor ** $_ for 0..$order-1;
+push @orders, ((1 - $scale) * $dim) * $scale ** $_ for 0..$order-1;
 
 open $fh, '>', 'run/sierpinski_pentagon.svg';
+print $fh qq|<svg height="@{[$dim*2]}" width="@{[$dim*2]}" style="fill:blue" version="1.1" xmlns="http://www.w3.org/2000/svg">\n|;
 
-print $fh qq|<svg height="@{[$dim*2]}" width="@{[$dim*2]}" style="fill:blue" version="1.1" xmlns="http://www.w3.org/2000/svg">|;
-
-sub cis { cplxe(cos($_[0]), sin($_[0])) }
-#sub cis { Math::Complex->make(cos($_[0]), sin($_[0])) }
-
-my $tau   = 2 * 4*atan2(1, 1);
+$tau   = 2 * 4*atan2(1, 1);
 push @vertices, cis( $_ * $tau / $sides ) for 0..$sides-1;
 
-say join ' ', @vertices; exit;
+for $i (0 .. -1+$sides**$order)  {
+    @base5 = todigits($i,5);
+    @i = ( ((0)x(-1+$sides-$#base5) ), @base5);
+    @v = @vertices[@i];
+    $vector = 0;
+    $vector += $v[$_] * $orders[$_] for 0..$#orders;
 
-#my @vertices = map { cis( $_ * τ / $sides ) }, ^$sides;
-#for $v (0..4) {
-#    push @vx, cos($tau * $v / $sides);
-#    push @vy, sin($tau * $v / $sides);
-#}
-#say join ' ', @vx;
-#say join ' ', @vy; exit;
+    my @points;
+    for (@vertices) {
+        $x = $vector + $orders[-1] * (1 - $scale) * $_;
+        push @points, sprintf '%.3f %.3f',$x->Re,$x->Im;
+    }
+    print $fh pgon(@points);
+}
 
-for $i (0 .. ($sides**$order)-1)  {
-   #my $vector = [+] @vertices[$i.base($sides).fmt("%{order}d").comb] «*» @orders;
-# 247.967345
-
-   #print $fh pgon ((@orders[-1] * (1 - $scaling_factor)) «*» @vertices «+» $vector); #».reals».fmt("%0.3f");
-
-   print pgon([1,2,3,4]);
-};
-
-sub pgon { my(@q)=@_; qq|<polygon points="@q" transform="translate($dim,$dim) rotate(-18)"/>| }
+sub cis  { Math::Complex->make(cos($_[0]), sin($_[0])) }
+sub pgon { my(@q)=@_; qq|<polygon points="@q" transform="translate($dim,$dim) rotate(-18)"/>\n| }
 
 print $fh '</svg>';
 close $fh;
