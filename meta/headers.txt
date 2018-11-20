@@ -1678,7 +1678,7 @@ File: E/Echo_server
 File: E/Egyptian_division
 #!/usr/local/bin/perl
 #u# http://rosettacode.org/wiki/Egyptian_division
-#c# 2018-11-18 >RC
+#c# 2018-11-19 >RC
 #p# OK
 
 File: E/Egyptian_fractions
@@ -6049,6 +6049,12 @@ File: T/Take_notes_on_the_command_line
 #u# http://rosettacode.org/wiki/Take_notes_on_the_command_line
 #t# interactive
 #c# 2018-08-12 <RC
+#p# OK
+
+File: T/Tarjan
+#!/usr/local/bin/perl
+#u# http://rosettacode.org/wiki/Tarjan
+#c# 2018-11-19 >RC
 #p# OK
 
 File: T/Taxicab_numbers
