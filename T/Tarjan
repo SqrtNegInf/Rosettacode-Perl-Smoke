@@ -57,13 +57,13 @@ my %test1 = (
 );
  
 my %test2 = (
-  'Andy' => [qw<Bart>],
-  'Bart' => [qw<Carl>],
-  'Carl' => [qw<Andy>],
+  'Andy' => ['Bart'],
+  'Bart' => ['Carl'],
+  'Carl' => ['Andy'],
   'Dave' => [qw<Bart Carl Earl>],
   'Earl' => [qw<Dave Fred>],
   'Fred' => [qw<Carl Gary>],
-  'Gary' => [qw<Fred>],
+  'Gary' => ['Fred'],
   'Hank' => [qw<Earl Gary Hank>]
 );
 
@@ -89,26 +89,3 @@ use Test::More;
 chop $ref;
 is($result, $ref);
 done_testing();
-
-__END__
-
-=={{header|Perl}}==
-{{trans|Perl 6}}
-<lang perl>
-print "Strongly connected components:\n";
-print join(', ', sort @$_) . "\n" for tarjan(%test1);
-print "\nStrongly connected components:\n";
-print join(', ', sort @$_) . "\n" for tarjan(%test2);
-</lang>
-{{out}}
-<pre>Strongly connected components:
-0, 1, 2
-5, 6
-3, 4
-7
-
-Strongly connected components:
-Andy, Bart, Carl
-Fred, Gary
-Dave, Earl
-Hank</pre>
