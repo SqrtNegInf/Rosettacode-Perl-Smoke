@@ -1,0 +1,114 @@
+#!/usr/local/bin/perl
+#u# http://rosettacode.org/wiki/Tarjan
+#c# 2018-11-19 >RC
+#p# OK
+
+use feature 'say';
+my @res;
+
+use feature 'state';
+use List::Util qw(min);
+
+sub tarjan {
+    our(%k) = @_;
+    our(%onstack, %index, %lowlink, @stack);
+    our @connected = ();
+
+    sub strong_connect {
+        my($vertex) = @_;
+         state $index = 0;
+         $index{$vertex}   = $index;
+         $lowlink{$vertex} = $index++;
+         push @stack, $vertex;
+         $onstack{$vertex} = 1;
+         for my $connection (@{$k{$vertex}}) {
+             if (not $index{$connection}) {
+                 strong_connect($connection);
+                 $lowlink{$vertex} = min($lowlink{$connection},$lowlink{$vertex});
+             } elsif ($onstack{$connection}) {
+                 $lowlink{$vertex} = min($lowlink{$connection},$lowlink{$vertex});
+             }
+        }
+        if ($lowlink{$vertex} eq $index{$vertex}) {
+            my @node;
+            do {
+                push @node, pop @stack;
+                $onstack{$node[-1]} = 0;
+            } while $node[-1] ne $vertex;
+            push @connected, [@node];
+        }
+    }
+ 
+    for (sort keys %k) { 
+        strong_connect($_) unless $index{$_} 
+    }
+    @connected
+}
+
+my %test1 = (
+  0 => [1], 
+  1 => [2], 
+  2 => [0], 
+  3 => [1, 2, 4], 
+  4 => [3, 5], 
+  5 => [2, 6], 
+  6 => [5], 
+  7 => [4, 6, 7]
+);
+ 
+my %test2 = (
+  'Andy' => [qw<Bart>],
+  'Bart' => [qw<Carl>],
+  'Carl' => [qw<Andy>],
+  'Dave' => [qw<Bart Carl Earl>],
+  'Earl' => [qw<Dave Fred>],
+  'Fred' => [qw<Carl Gary>],
+  'Gary' => [qw<Fred>],
+  'Hank' => [qw<Earl Gary Hank>]
+);
+
+#push @res, "Strongly connected components:";
+push @res, join ', ', sort @$_ for tarjan(%test1);
+#push @res, "Strongly connected components:";
+push @res, join ', ', sort @$_ for tarjan(%test2);
+
+say my $result = join "\n", @res;
+
+my $ref = <<'EOD';
+0, 1, 2
+5, 6
+3, 4
+7
+Andy, Bart, Carl
+Fred, Gary
+Dave, Earl
+Hank
+EOD
+
+use Test::More;
+chop $ref;
+is($result, $ref);
+done_testing();
+
+__END__
+
+=={{header|Perl}}==
+{{trans|Perl 6}}
+<lang perl>
+print "Strongly connected components:\n";
+print join(', ', sort @$_) . "\n" for tarjan(%test1);
+print "\nStrongly connected components:\n";
+print join(', ', sort @$_) . "\n" for tarjan(%test2);
+</lang>
+{{out}}
+<pre>Strongly connected components:
+0, 1, 2
+5, 6
+3, 4
+7
+
+Strongly connected components:
+Andy, Bart, Carl
+Fred, Gary
+Dave, Earl
+Hank</pre>
