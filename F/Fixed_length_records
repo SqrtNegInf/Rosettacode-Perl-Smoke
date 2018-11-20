@@ -1,0 +1,34 @@
+#!/usr/local/bin/perl
+#u# http://rosettacode.org/wiki/Fixed_length_records
+#c# 2018-11-20 >RC
+#p# OK
+#f# RC file: flr-outfile.dat
+
+use feature 'say';
+
+open $in,  '<', 'ref/flr-infile.dat';
+open $out, '>', 'run/flr-outfile.dat';
+
+while ($n=sysread($in, $record, 80)) {  # read in fixed sized binary chunks
+     syswrite $out, reverse $record;    # write reversed records
+     $result .= reverse($record)."\n"   # display reversed records, line-by-line
+}
+close $out;
+
+say $result;
+
+my $ref = <<'END';
+8.........7.........6.........5.........4.........3.........2.........1...1 eniL
+                                                                          2 eniL
+                                                                          3 eniL
+                                                                          4 eniL
+                                                                                
+                                                                          6 eniL
+                                                                          7 eniL
+............................................................8 enil detnednI     
+NIGRAM TR                                                                 9 eniL
+END
+
+use Test::More;
+is($result, $ref);
+done_testing();
