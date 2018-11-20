@@ -1,34 +1,38 @@
 #!/usr/local/bin/perl
 #u# http://rosettacode.org/wiki/Egyptian_division
-#c# 2018-11-18 >RC
+#c# 2018-11-19 >RC
 #p# OK
 
 use feature 'say';
-use warnings;
-#use strict 'vars';
 
 my @res;
 
-sub  egyptian_divmod {
+sub egyptian_divmod {
     my($dividend, $divisor) = @_;
-    my(%multiples,@table,$accumulator);
+    my(%multiples,%table);
 
-    $multiples{2**$_} = 2**$_ * $divisor for 0..10;
-use Data::Dumper; say Dumper %multiples; exit;
+    $multiples{2**$_} = 2**$_ * $divisor for 0..1+$divisor/2;
 
-    #my @table = @multiples[ ^@multiples.first: *.value > $dividend, :k ].reverse;
-    #my $accumulator = 0;
-    #@table = map {$dividend -= .value, $accumulator += .key if $dividend >= .value}
-    #$accumulator, $dividend;
+    for my $k (sort {$a <=> $b} keys %multiples) {
+        last if $multiples{$k} > $dividend;
+        $table{$k} = $multiples{$k};
+    } 
+    
+    my $accumulator = 0;
+    for my $k (sort {$b <=> $a} keys %table) {
+        next unless $dividend >= $table{$k};
+        $accumulator += $k;
+        $dividend    -= $table{$k}; 
+    }
+    $accumulator, $dividend;
 }
 
-#for ([580,34], [578,34], [7532795332300578,235117]) {
-for ([580,34], [578,34]) {
+for ([580,34], [578,34], [7532795332300578,235117]) {
     my($n,$d) = @$_;
     push @res, sprintf "Egyption divmod %s %% %s = %s remainder %s", $n, $d, egyptian_divmod( $n, $d )
 }
 
-say for @res;
+say my $result = join "\n", @res;
 
 my $ref = <<'EOD';
 Egyption divmod 580 % 34 = 17 remainder 2
@@ -36,18 +40,7 @@ Egyption divmod 578 % 34 = 17 remainder 0
 Egyption divmod 7532795332300578 % 235117 = 32038497141 remainder 81
 EOD
 
-say $result = join "\n", @res;
-exit;
-
 use Test::More;
+chop $ref;
 is($result, $ref);
 done_testing();
-
-__END__
-
-=={{header|Perl}}==
-{{trans|Perl 6}}
-<lang perl></lang>
-{{out}}
-<pre style="height:35ex"></pre>
-[https://github.com/SqrtNegInf/Rosettacode-Perl5-Smoke/blob/master/ref/XXX XXX]
