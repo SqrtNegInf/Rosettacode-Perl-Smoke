@@ -1,17 +1,17 @@
 
 This is perl 5, version 28, subversion 0 (v5.28.0) built for darwin-thread-multi-2level
 updating from RC…
-+------------> Perl: Good/Bad [1037/17]
++------------> Perl: Good/Bad [1038/17]
 |+-----------> Smoke testing []
 ||+----------> sKipping validation [148]
 |||+---------> Interactive [56]
-||||+--------> Touched (modified by me) [183]
+||||+--------> Touched (modified by me) [184]
 |||||+-------> Random seed [77]
 ||||||+------> File output [49]
 |||||||+-----> Draft [216]
 ||||||||+----> Ignoring [36]
-|||||||||+---> Void (no local copy) [222]
-||||||||||+--> Un-implemented/reliable [210]
+|||||||||+---> Void (no local copy) [221]
+||||||||||+--> Un-implemented/reliable [209]
 |||||||||||
 GS......... 100_doors-1
 GS......... 100_doors-2
@@ -344,7 +344,7 @@ GS......... Dynamic_variable_names
 GS..T...... EKG_sequence_convergence
 G.KI....... Echo_server
 .........VU Eertree
-GS..T.....U Egyptian_division
+GS..T...... Egyptian_division
 GS......... Egyptian_fractions
 GS......... Element-wise_operations
 GS......... Elementary_cellular_automaton
@@ -1160,7 +1160,7 @@ GS......... System_time
 ........XV. Table_creation_Postal_addresses
 G.KI....... Take_notes_on_the_command_line
 .......D.VU Tamagotchi_emulator
-.......D.VU Tarjan
+GS..T..D..U Tarjan
 GS......... Taxicab_numbers
 GS......... Temperature_conversion
 G.KI....... Terminal_control_Clear_the_screen
