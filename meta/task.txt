@@ -1,17 +1,17 @@
 
 This is perl 5, version 28, subversion 0 (v5.28.0) built for darwin-thread-multi-2level
 updating from RC…
-+------------> Perl: Good/Bad [1038/17]
++------------> Perl: Good/Bad [1040/17]
 |+-----------> Smoke testing []
 ||+----------> sKipping validation [148]
 |||+---------> Interactive [56]
-||||+--------> Touched (modified by me) [184]
+||||+--------> Touched (modified by me) [186]
 |||||+-------> Random seed [77]
-||||||+------> File output [49]
-|||||||+-----> Draft [216]
+||||||+------> File output [50]
+|||||||+-----> Draft [215]
 ||||||||+----> Ignoring [36]
-|||||||||+---> Void (no local copy) [221]
-||||||||||+--> Un-implemented/reliable [209]
+|||||||||+---> Void (no local copy) [219]
+||||||||||+--> Un-implemented/reliable [207]
 |||||||||||
 GS......... 100_doors-1
 GS......... 100_doors-2
@@ -119,7 +119,7 @@ GS...R..... Balanced_brackets-3
 GS......... Balanced_ternary
 .......D.VU Banker%27s_algorithm
 GS...RF.... Barnsley_fern
-.......D.VU Base58Check_encoding
+GS..T..D... Base58Check_encoding
 GS.....D... Base64_encode_data
 GS......... Benford%27s_law
 GS......... Bernoulli_numbers-1
@@ -439,7 +439,7 @@ GS......... First-class_functions_Use_numbers_analogously
 GS......... First_class_environments
 GS......... Five_weekends
 GS..T..D... Fivenum
-.........VU Fixed_length_records
+GS..T.F...U Fixed_length_records
 GS......... FizzBuzz
 GS......... Flatten_a_list
 GS...R..... Flipping_bits_game
@@ -723,7 +723,7 @@ GS.....D... Most_frequent_k_chars_distance
 G.KI....... Mouse_position-1
 G.KI....... Mouse_position-2
 GS......... Move-to-front_algorithm
-G.K.T..D..U Multi-dimensional_array
+G.K.T.....U Multi-dimensional_array
 .......D.VU Multidimensional_Newton-Raphson_method
 GS......... Multifactorial-1
 GS......... Multifactorial-2
@@ -1160,7 +1160,7 @@ GS......... System_time
 ........XV. Table_creation_Postal_addresses
 G.KI....... Take_notes_on_the_command_line
 .......D.VU Tamagotchi_emulator
-GS..T..D..U Tarjan
+GS..T..D... Tarjan
 GS......... Taxicab_numbers
 GS......... Temperature_conversion
 G.KI....... Terminal_control_Clear_the_screen
