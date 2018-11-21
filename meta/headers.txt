@@ -531,6 +531,12 @@ File: B/Barnsley_fern
 #p# OK
 #f# RC file: barnsleyFern.png
 
+File: B/Base58Check_encoding
+#!/usr/local/bin/perl
+#u# http://rosettacode.org/wiki/Base58Check_encoding
+#c# 2018-11-20 >RC
+#p# OK
+
 File: B/Base64_encode_data
 #!/usr/local/bin/perl
 #u# http://rosettacode.org/wiki/Base64_encode_data
@@ -1678,6 +1684,12 @@ File: E/Echo_server
 File: E/Egyptian_division
 #!/usr/local/bin/perl
 #u# http://rosettacode.org/wiki/Egyptian_division
+#c# 2018-11-18 >RC, 2018-11-19 <RC,
+#p# OK
+
+File: E/Egyptian_division.1
+#!/usr/local/bin/perl
+#u# http://rosettacode.org/wiki/Egyptian_division
 #c# 2018-11-19 >RC
 #p# OK
 
@@ -2218,6 +2230,13 @@ File: F/Fivenum
 #u# http://rosettacode.org/wiki/Fivenum
 #c# 2018-08-06 <>RC
 #p# OK
+
+File: F/Fixed_length_records
+#!/usr/local/bin/perl
+#u# http://rosettacode.org/wiki/Fixed_length_records
+#c# 2018-11-20 >RC
+#p# OK
+#f# RC file: flr-outfile.dat
 
 File: F/FizzBuzz
 #!/usr/local/bin/perl
