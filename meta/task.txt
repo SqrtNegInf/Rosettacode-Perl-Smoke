@@ -1,17 +1,17 @@
 
 This is perl 5, version 28, subversion 0 (v5.28.0) built for darwin-thread-multi-2level
 updating from RC…
-+------------> Perl: Good/Bad [1040/17]
++------------> Perl: Good/Bad [1040/18]
 |+-----------> Smoke testing []
 ||+----------> sKipping validation [148]
 |||+---------> Interactive [56]
-||||+--------> Touched (modified by me) [186]
+||||+--------> Touched (modified by me) [187]
 |||||+-------> Random seed [77]
 ||||||+------> File output [50]
 |||||||+-----> Draft [215]
 ||||||||+----> Ignoring [36]
-|||||||||+---> Void (no local copy) [219]
-||||||||||+--> Un-implemented/reliable [207]
+|||||||||+---> Void (no local copy) [218]
+||||||||||+--> Un-implemented/reliable [206]
 |||||||||||
 GS......... 100_doors-1
 GS......... 100_doors-2
@@ -306,7 +306,7 @@ GS......... Deepcopy
 GS......... Define_a_primitive_data_type
 G.K........ Delegates
 GS......... Delete_a_file
-.......D.VU Deming%27s_Funnel
+B...T..D..U Deming%27s_Funnel
 GS......... Department_Numbers
 GS......... Detect_division_by_zero
 GS......... Determinant_and_permanent
@@ -439,7 +439,7 @@ GS......... First-class_functions_Use_numbers_analogously
 GS......... First_class_environments
 GS......... Five_weekends
 GS..T..D... Fivenum
-GS..T.F...U Fixed_length_records
+GS..T.F.... Fixed_length_records
 GS......... FizzBuzz
 GS......... Flatten_a_list
 GS...R..... Flipping_bits_game
