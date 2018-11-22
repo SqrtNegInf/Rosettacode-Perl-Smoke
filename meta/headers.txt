@@ -1487,6 +1487,12 @@ File: D/Delete_a_file
 #c# 2018-07-28 <RC
 #p# OK
 
+File: D/Deming%27s_Funnel
+#!/usr/local/bin/perl
+#u# http://rosettacode.org/wiki/Deming%27s_Funnel
+#c# 2018-11-22 >RC
+#p# BROKEN
+
 File: D/Department_Numbers
 #!/usr/local/bin/perl
 #u# http://rosettacode.org/wiki/Department_Numbers
