@@ -1,218 +1,198 @@
-436.7	409.9	Iterated_digits_squaring
-344.0	313.6	Arithmetic_Rational
-171.3	147.9	Integer_roots-1
-123.7	121.2	Rate_counter
- 86.6	 79.8	Four_is_the_number_of_letters_in_the_...
- 65.3	  0.6	MAC_Vendor_Lookup
- 52.6	 36.5	Narcissistic_decimal_number
- 46.6	 42.2	Largest_number_divisible_by_its_digits-2
- 45.2	 43.7	Arbitrary-precision_integers_included-2
- 44.3	 42.8	Arbitrary-precision_integers_included-1
- 41.1	 37.0	Kronecker_product_based_fractals
- 39.5	 38.0	Recaman%27s_sequence
- 38.1	 22.5	Paraffins
- 37.3	 33.9	Julia_set
- 36.6	 34.8	Prime_conspiracy
- 31.2	 28.9	Fibonacci_word
- 27.9	 25.2	Law_of_cosines_-_triples
- 26.6	 25.2	Perfect_numbers
- 24.5	 22.7	Fractran
- 23.7	 22.8	Pythagorean_triples
- 21.3	113.2	Parallel_Brute_Force
- 21.1	 19.9	Lychrel_numbers
- 20.9	 19.4	Lucky_and_even_lucky_numbers-1
- 19.8	 18.5	Lucas-Lehmer_test-3
- 18.9	 17.7	Find_largest_left_truncatable_prime_in_a_given_base
- 17.7	 16.2	Lucas-Lehmer_test-1
- 15.6	 15.1	Color_wheel
- 15.6	 15.1	Brownian_tree
- 15.2	 13.9	Lucas-Lehmer_test-4
- 14.4	 13.6	Primorial_numbers
- 14.2	 13.5	Primality_by_trial_division
- 13.9	 12.9	Hamming_numbers
- 13.4	  3.9	Partition_an_integer_X_into_N_primes
- 11.8	 11.5	Sokoban
- 11.8	 11.4	Closest-pair_problem
- 11.6	 11.2	Hough_transform
- 11.0	  9.8	9_billion_names_of_God_the_integer
- 10.5	  9.3	Last_letter-first_letter
- 10.4	 10.1	Topswops
- 10.1	  9.6	Sequence_of_primorial_primes
- 10.1	  0.0	Make_directory_path
-  9.5	  8.5	Left_factorials
+430.7	407.1	Iterated_digits_squaring
+339.0	312.1	Arithmetic_Rational
+165.3	144.2	Integer_roots-1
+103.1	101.0	Rate_counter
+ 85.2	  0.6	MAC_Vendor_Lookup
+ 83.6	 78.1	Four_is_the_number_of_letters_in_the_...
+ 51.3	 36.2	Narcissistic_decimal_number
+ 46.2	 44.9	Arbitrary-precision_integers_included-1
+ 45.7	 42.1	Largest_number_divisible_by_its_digits-2
+ 44.5	 43.3	Arbitrary-precision_integers_included-2
+ 39.7	 36.3	Kronecker_product_based_fractals
+ 38.4	 37.3	Recaman%27s_sequence
+ 37.6	 22.7	Paraffins
+ 37.5	 34.6	Julia_set
+ 36.0	 34.7	Prime_conspiracy
+ 29.8	 28.5	Fibonacci_word
+ 27.1	 24.5	Law_of_cosines_-_triples
+ 26.2	 25.6	Perfect_numbers
+ 24.6	 23.5	Pythagorean_triples
+ 23.5	 22.2	Fractran
+ 20.9	112.7	Parallel_Brute_Force
+ 20.3	 19.2	Lychrel_numbers
+ 19.8	 18.4	Lucas-Lehmer_test-3
+ 18.9	 17.6	Lucky_and_even_lucky_numbers-1
+ 18.5	 17.8	Find_largest_left_truncatable_prime_in_a_given_base
+ 17.5	 16.2	Lucas-Lehmer_test-1
+ 15.1	 14.6	Color_wheel
+ 14.7	 13.5	Lucas-Lehmer_test-4
+ 14.5	 14.1	Brownian_tree
+ 14.2	 13.6	Primorial_numbers
+ 13.9	 13.2	Primality_by_trial_division
+ 13.7	 12.7	Hamming_numbers
+ 12.5	 12.1	Closest-pair_problem
+ 12.3	  3.9	Partition_an_integer_X_into_N_primes
+ 11.9	 11.3	Hough_transform
+ 11.4	 11.1	Sokoban
+ 10.4	 10.2	Topswops
+ 10.4	  9.2	Last_letter-first_letter
+ 10.0	  0.0	Make_directory_path
+  9.9	  9.7	9_billion_names_of_God_the_integer
+  9.9	  9.6	Sequence_of_primorial_primes
+  9.0	  8.3	Left_factorials
   7.5	  7.3	Superpermutation_minimisation
-  6.6	  6.5	N-queens_problem
-  6.3	  6.1	Pinstripe_Display
+  6.0	  6.0	N-queens_problem
+  6.0	  5.9	Pinstripe_Display
+  5.7	  5.4	Count_in_factors-3
   5.7	  0.1	Events
-  5.6	  5.4	Plasma_effect
-  5.6	  5.4	Count_in_factors-3
-  5.5	  5.3	Factors_of_a_Mersenne_number-1
-  5.2	  4.7	Heronian_triangles
+  5.4	  5.3	Plasma_effect
+  5.3	  4.9	Heronian_triangles
+  5.0	  4.9	Factors_of_a_Mersenne_number-1
   5.0	  4.9	Euler%27s_sum_of_powers_conjecture-1
-  4.8	  4.4	Hailstone_sequence-1
-  4.2	  3.9	Hailstone_sequence-2
+  4.9	  4.5	Hailstone_sequence-1
+  4.4	  4.0	Hailstone_sequence-2
   4.2	  0.1	Metronome
-  3.9	  3.8	Cut_a_rectangle
-  3.9	  3.8	Count_the_coins
-  3.1	  2.9	Permutation_test
+  3.8	  3.7	Cut_a_rectangle
+  3.8	  3.7	Count_the_coins
   3.1	  0.0	Spinning_rod_animation_Text
+  3.0	  2.9	Permutation_test
+  3.0	  2.9	Index_finite_lists_of_positive_integers-1
+  3.0	  2.7	Pythagorean_quadruples
   2.9	  0.3	Active_object
-  2.8	  2.7	Index_finite_lists_of_positive_integers-1
-  2.8	  2.6	Pi-2
-  2.7	  2.6	Pythagorean_quadruples
-  2.7	  2.5	Pythagoras_tree
-  2.7	  2.5	Farey_sequence-1
+  2.8	  2.5	Pythagoras_tree
+  2.5	  2.5	Farey_sequence-1
+  2.5	  2.4	Pi-2
   2.5	  2.4	Mandelbrot_set
   2.5	  2.4	Long_primes
   2.3	  2.3	Vampire_number-1
   2.2	  2.1	Roman_numerals_Encode-2
-  2.2	  0.3	HTTP
   2.1	  2.1	One_of_n_lines_in_a_file
   2.0	  2.0	Montgomery_reduction
-  1.9	  1.9	Factorial-4
+  2.0	  2.0	Factorial-4
+  2.0	  0.3	HTTP
   1.9	  1.8	Word_count
-  1.9	  1.8	Self-referential_sequence
-  1.7	  1.5	Seven-sided_dice_from_five-sided_dice
-  1.6	  1.6	Kaprekar_numbers-1
-  1.6	  1.5	Longest_common_subsequence
-  1.6	  1.4	Find_limit_of_recursion
+  1.8	  1.8	Self-referential_sequence
+  1.8	  0.5	Parallel_calculations
+  1.7	  1.7	Prime_decomposition-3
+  1.7	  1.6	Kaprekar_numbers-1
   1.5	  1.5	Verify_distribution_uniformity_Naive
-  1.5	  1.5	Multiplicative_order
-  1.5	  1.5	Barnsley_fern
-  1.5	  1.4	Knuth%27s_algorithm_S
-  1.5	  1.4	Bernoulli_numbers-1
-  1.4	  1.2	Object_serialization-2
-  1.3	  1.2	Taxicab_numbers
-  1.3	  1.2	Prime_decomposition-3
-  1.3	  1.1	Hofstadter-Conway__10,000_sequence
-  1.2	  1.2	Evolutionary_algorithm
-  1.2	  1.1	Permutations_Derangements-1
+  1.5	  1.5	Seven-sided_dice_from_five-sided_dice
+  1.5	  1.4	Longest_common_subsequence
+  1.5	  1.4	Find_limit_of_recursion
+  1.5	  1.4	Barnsley_fern
+  1.4	  1.4	Bernoulli_numbers-1
+  1.4	  1.3	Knuth%27s_algorithm_S
+  1.3	  1.3	Multiplicative_order
+  1.3	  1.2	Hofstadter-Conway__10,000_sequence
+  1.3	  1.1	Object_serialization-2
+  1.2	  1.2	Taxicab_numbers
   1.2	  1.1	Fibonacci_sequence-2
-  1.2	  0.5	Web_scraping
+  1.2	  1.1	Evolutionary_algorithm
   1.2	  0.4	Solve_a_Holy_Knight%27s_tour
-  1.2	  0.3	FTP
+  1.1	  1.1	Permutations_Derangements-1
   1.1	  1.1	Pathological_floating_point_problems-1
-  1.1	  1.0	Perfect_shuffle
   1.1	  1.0	Euler%27s_sum_of_powers_conjecture-2
-  1.1	  0.5	Parallel_calculations
-  1.0	  1.0	Random_numbers
+  1.0	  1.0	Perfect_shuffle
+  1.0	  0.9	Random_numbers
+  1.0	  0.5	Web_scraping
   0.9	  0.9	Chaos_game
-  0.9	  0.6	Safe_primes_and_unsafe_primes
-  0.9	  0.2	Concurrent_computing-2
-  0.9	  0.1	DNS_query
-  0.9	  0.1	Balanced_brackets-1
-  0.9	  0.1	Babbage_problem
-  0.9	  0.1	Averages_Simple_moving_average
-  0.9	  0.0	Bacon_cipher
-  0.8	  0.8	Truncatable_primes-3
+  0.9	  0.8	Letter_frequency
   0.8	  0.8	Subset_sum_problem-2
   0.8	  0.8	Self-describing_numbers
-  0.8	  0.8	Letter_frequency
   0.8	  0.8	Draw_a_sphere
-  0.8	  0.4	HTTPS
-  0.7	  0.7	Vampire_number-2
+  0.8	  0.7	Non-continuous_subsequences
+  0.8	  0.7	Hofstadter_Q_sequence-3
+  0.8	  0.3	FTP
+  0.8	  0.2	Concurrent_computing-2
+  0.7	  0.7	Truncatable_primes-3
   0.7	  0.7	Sequence_of_non-squares
-  0.7	  0.7	Non-continuous_subsequences
-  0.7	  0.7	Hofstadter_Q_sequence-3
-  0.7	  0.7	Factors_of_a_Mersenne_number-2
   0.7	  0.7	Executable_library
   0.7	  0.7	Ackermann_function-5
-  0.7	  0.6	Pi-3
+  0.7	  0.6	Factors_of_a_Mersenne_number-2
   0.7	  0.6	Calculating_the_value_of_e-3
-  0.7	  0.5	French_Republican_calendar
-  0.7	  0.2	Cipolla%27s_algorithm-2
+  0.6	  0.6	Vampire_number-2
   0.6	  0.6	Ulam_spiral_for_primes
   0.6	  0.6	Text_processing_2
+  0.6	  0.6	Pi-3
   0.6	  0.6	Monte_Carlo_methods
   0.6	  0.6	Miller-Rabin_primality_test-1
   0.6	  0.6	Integer_roots-2
-  0.6	  0.6	Check_Machin-like_formulas
   0.6	  0.6	Amb-1
-  0.6	  0.5	Five_weekends
-  0.6	  0.5	Find_palindromic_numbers_in_both_binary_and_ternary_bases
+  0.6	  0.5	Safe_primes_and_unsafe_primes
   0.6	  0.5	Date_manipulation
+  0.6	  0.5	Check_Machin-like_formulas
   0.6	  0.5	Anagrams-1
-  0.6	  0.2	Sailors,_coconuts_and_a_monkey_problem-2
+  0.6	  0.4	HTTPS
+  0.6	  0.1	DNS_query
   0.5	  0.5	Welch%27s_t-test-2
   0.5	  0.5	Resistor_mesh
+  0.5	  0.5	French_Republican_calendar
+  0.5	  0.5	Five_weekends
   0.5	  0.5	Find_the_last_Sunday_of_each_month
+  0.5	  0.5	Find_palindromic_numbers_in_both_binary_and_ternary_bases
   0.5	  0.5	Death_Star
-  0.5	  0.5	Catalan_numbers-2
-  0.5	  0.4	UTF-8_encode_and_decode
-  0.5	  0.4	System_time
-  0.5	  0.4	Sorting_algorithms_Permutation_sort
   0.5	  0.4	Last_Friday_of_each_month
   0.5	  0.4	I.Q._Puzzle
-  0.5	  0.4	Fibonacci_sequence-3
   0.5	  0.4	Determinant_and_permanent
   0.5	  0.4	Day_of_the_week-4
   0.5	  0.4	Day_of_the_week-3
   0.5	  0.4	Day_of_the_week-2
-  0.5	  0.1	Sailors,_coconuts_and_a_monkey_problem-1
-  0.4	  0.5	Ordered_Partitions
+  0.5	  0.4	Catalan_numbers-2
   0.4	  0.4	Vector
+  0.4	  0.4	UTF-8_encode_and_decode
+  0.4	  0.4	System_time
   0.4	  0.4	Subset_sum_problem-1
   0.4	  0.4	Sexy_primes-2
   0.4	  0.4	Sexy_primes-1
   0.4	  0.4	Percolation_Mean_run_density
   0.4	  0.4	Pathological_floating_point_problems-3
+  0.4	  0.4	Ordered_Partitions
   0.4	  0.4	Nautical_bell-2
   0.4	  0.4	Markov_chain_text_generator
-  0.4	  0.4	Kronecker_product
   0.4	  0.4	Formal_power_series-2
   0.4	  0.4	File_size_distribution
+  0.4	  0.4	Fibonacci_sequence-3
   0.4	  0.4	Digital_root
   0.4	  0.4	Catalan_numbers_Pascal%27s_triangle
   0.4	  0.4	Catalan_numbers-3
   0.4	  0.3	Text_processing_1
-  0.4	  0.3	Pi-1
-  0.4	  0.3	Grayscale_image
-  0.4	  0.3	Four_is_magic
-  0.4	  0.3	Faulhaber%27s_triangle
+  0.4	  0.3	Sum_to_100
+  0.4	  0.3	Kronecker_product
   0.4	  0.3	Faulhaber%27s_formula
   0.4	  0.3	AKS_test_for_primes-3
-  0.4	  0.3	24_game_Solve
-  0.4	  0.1	Parse_command-line_arguments
   0.3	  0.3	XML_DOM_serialization
   0.3	  0.3	Synchronous_concurrency
-  0.3	  0.3	Sum_to_100
   0.3	  0.3	Sum_and_Product_Puzzle
   0.3	  0.3	Statistics_Normal_distribution
+  0.3	  0.3	Sorting_algorithms_Permutation_sort
   0.3	  0.3	Pi-4
+  0.3	  0.3	Pi-1
   0.3	  0.3	Permutations_Derangements-2
   0.3	  0.3	Numerical_Integration
   0.3	  0.3	Modular_exponentiation
   0.3	  0.3	Introspection
   0.3	  0.3	Formal_power_series-1
-  0.3	  0.3	Extensible_prime_generator-4
-  0.3	  0.3	Extensible_prime_generator-3
+  0.3	  0.3	Faulhaber%27s_triangle
   0.3	  0.3	Evaluate_binomial_coefficients
+  0.3	  0.3	Cipolla%27s_algorithm-2
   0.3	  0.3	Calculating_the_value_of_e-2
   0.3	  0.3	Calculating_the_value_of_e-1
   0.3	  0.3	Anagrams_Deranged_anagrams
   0.3	  0.3	Anagrams-2
   0.3	  0.3	Ackermann_function-1
   0.3	  0.3	AKS_test_for_primes-1
-  0.3	  0.2	User_defined_pipe_and_redirection_operators
-  0.3	  0.2	Sexy_primes-3
-  0.3	  0.2	Set_of_real_numbers
-  0.3	  0.2	RSA_code
-  0.3	  0.2	Proper_divisors
-  0.3	  0.2	Get_system_command_output
+  0.3	  0.3	24_game_Solve
+  0.3	  0.2	XML_Input
+  0.3	  0.2	Hickerson_series_of_almost_integers
   0.3	  0.2	Function_frequency
   0.3	  0.2	Fibonacci_word_fractal
+  0.3	  0.2	Extensible_prime_generator-4
+  0.3	  0.2	Extensible_prime_generator-3
   0.3	  0.2	Cipolla%27s_algorithm-1
-  0.3	  0.2	Arithmetic-geometric_mean_Calculate_Pi-2
-  0.3	  0.2	Arithmetic-geometric_mean_Calculate_Pi-1
-  0.3	  0.2	Archimedean_spiral
   0.3	  0.2	4-rings_or_4-squares_puzzle
-  0.3	  0.1	Set_puzzle
-  0.3	  0.1	Parsing_Shunting-yard_algorithm
-  0.3	  0.1	Parsing_RPN_to_infix_conversion
-  0.3	  0.1	Parsing_RPN_calculator_algorithm
-  0.3	  0.1	Parse_an_IP_Address
+  0.3	  0.1	Parse_command-line_arguments
   0.2	  0.2	XML_Output
-  0.2	  0.2	XML_Input
+  0.2	  0.2	User_defined_pipe_and_redirection_operators
   0.2	  0.2	Unbias_a_random_generator
   0.2	  0.2	Twelve_statements
   0.2	  0.2	Truncatable_primes-1
@@ -222,8 +202,12 @@
   0.2	  0.2	Stern-Brocot_sequence-2
   0.2	  0.2	Statistics_Basic
   0.2	  0.2	Smith_numbers
+  0.2	  0.2	Sexy_primes-3
+  0.2	  0.2	Set_of_real_numbers
   0.2	  0.2	Semordnilap
-  0.2	  0.2	Ramsey%27s_theorem
+  0.2	  0.2	Sailors,_coconuts_and_a_monkey_problem-2
+  0.2	  0.2	RSA_code
+  0.2	  0.2	Proper_divisors
   0.2	  0.2	Polynomial_regression
   0.2	  0.2	Pathological_floating_point_problems-2
   0.2	  0.2	Password_generator
@@ -240,12 +224,10 @@
   0.2	  0.2	Hofstadter_Q_sequence-2
   0.2	  0.2	Hofstadter_Q_sequence-1
   0.2	  0.2	Hofstadter_Figure-Figure_sequences
-  0.2	  0.2	Hickerson_series_of_almost_integers
   0.2	  0.2	Greatest_common_divisor-4
-  0.2	  0.2	Gray_code
-  0.2	  0.2	Fractal_tree
-  0.2	  0.2	Forest_fire
-  0.2	  0.2	First_class_environments
+  0.2	  0.2	Grayscale_image
+  0.2	  0.2	Get_system_command_output
+  0.2	  0.2	Four_is_magic
   0.2	  0.2	Find_duplicate_files
   0.2	  0.2	Fibonacci_sequence-1
   0.2	  0.2	Feigenbaum_constant_calculation
@@ -258,124 +240,81 @@
   0.2	  0.2	Count_in_octal
   0.2	  0.2	Count_in_factors-4
   0.2	  0.2	Conjugate_transpose
+  0.2	  0.2	Chinese_remainder_theorem
   0.2	  0.2	Call_a_foreign-language_function
-  0.2	  0.2	Bitcoin_public_point_to_address
   0.2	  0.2	Bernoulli_numbers-2
-  0.2	  0.2	Benford%27s_law
   0.2	  0.2	Base58Check_encoding
   0.2	  0.2	Average_loop_length
   0.2	  0.2	Arithmetic_coding_As_a_generalized_change_of_radix
-  0.2	  0.2	Amicable_pairs
+  0.2	  0.2	Arithmetic-geometric_mean_Calculate_Pi-2
+  0.2	  0.2	Arithmetic-geometric_mean_Calculate_Pi-1
+  0.2	  0.2	Archimedean_spiral
   0.2	  0.2	Ackermann_function-4
   0.2	  0.2	Abbreviations,_automatic
   0.2	  0.1	Zhang-Suen_thinning_algorithm
-  0.2	  0.1	Zero_to_the_zero_power
   0.2	  0.1	Walk_a_directory_Recursively
-  0.2	  0.1	Universal_Turing_machine
   0.2	  0.1	URL_parser
-  0.2	  0.1	Truncatable_primes-2
-  0.2	  0.1	Text_processing_Max_licenses_in_use
-  0.2	  0.1	Subtractive_generator
-  0.2	  0.1	Substring_Top_and_tail
-  0.2	  0.1	Substring
   0.2	  0.1	String_length
-  0.2	  0.1	Stream_Merge
   0.2	  0.1	State_name_puzzle
-  0.2	  0.1	Square-free_integers
-  0.2	  0.1	Sorting_algorithms_Bogosort
-  0.2	  0.1	Sorting_algorithms_Bead_sort
-  0.2	  0.1	Sorting_Algorithms_Circle_Sort
   0.2	  0.1	Solve_a_Numbrix_puzzle
-  0.2	  0.1	Solve_a_Hidato_puzzle
-  0.2	  0.1	Sieve_of_Eratosthenes-7
-  0.2	  0.1	Sieve_of_Eratosthenes-6
-  0.2	  0.1	Sieve_of_Eratosthenes-5
+  0.2	  0.1	Set_puzzle
+  0.2	  0.1	Set_consolidation
   0.2	  0.1	Semiprime
-  0.2	  0.1	Run-length_encoding
-  0.2	  0.1	Roman_numerals_Encode-1
-  0.2	  0.1	Real_constants_and_functions
-  0.2	  0.1	Read_entire_file-1
+  0.2	  0.1	Search_a_list_of_records
   0.2	  0.1	Read_a_file_character_by_character_UTF8
-  0.2	  0.1	P-value_correction
+  0.2	  0.1	Ramsey%27s_theorem
+  0.2	  0.1	Power_set-2
+  0.2	  0.1	Partial_function_application
+  0.2	  0.1	Parsing_RPN_to_infix_conversion
+  0.2	  0.1	Parsing_RPN_calculator_algorithm
+  0.2	  0.1	Parse_an_IP_Address
+  0.2	  0.1	Object_serialization-1
   0.2	  0.1	Natural_sorting
-  0.2	  0.1	Names_to_numbers
-  0.2	  0.1	Munching_squares
   0.2	  0.1	Metaprogramming
-  0.2	  0.1	Loops_Increment_loop_index_within_loop_body
-  0.2	  0.1	Literals_Integer
-  0.2	  0.1	List_comprehensions
-  0.2	  0.1	Linear_congruential_generator
+  0.2	  0.1	Loops_For_with_a_specified_step
+  0.2	  0.1	Loops_For
   0.2	  0.1	JSON
-  0.2	  0.1	Inverted_index
+  0.2	  0.1	Idiomatically_determine_all_the_lowercase_and_uppercase_letters
+  0.2	  0.1	Identity_matrix
   0.2	  0.1	I_before_E_except_after_C-2
+  0.2	  0.1	I_before_E_except_after_C-1
+  0.2	  0.1	Horner%27s_rule_for_polynomial_evaluation-3
+  0.2	  0.1	History_variables
+  0.2	  0.1	Here_document
   0.2	  0.1	Haversine_formula
-  0.2	  0.1	Hash_join
-  0.2	  0.1	Hash_from_two_arrays
-  0.2	  0.1	Harshad_or_Niven_series
-  0.2	  0.1	Happy_numbers-2
-  0.2	  0.1	Greatest_common_divisor-3
-  0.2	  0.1	Generic_swap
-  0.2	  0.1	Generate_lower_case_ASCII_alphabet
   0.2	  0.1	Gamma_function
-  0.2	  0.1	Function_composition
-  0.2	  0.1	Fork
-  0.2	  0.1	Floyd-Warshall_algorithm
-  0.2	  0.1	Floyd%27s_triangle
-  0.2	  0.1	Flipping_bits_game
-  0.2	  0.1	Flatten_a_list
-  0.2	  0.1	FizzBuzz
-  0.2	  0.1	Fivenum
-  0.2	  0.1	First-class_functions
-  0.2	  0.1	Find_the_intersection_of_two_lines
-  0.2	  0.1	Find_the_intersection_of_a_line_with_a_plane-2
-  0.2	  0.1	Find_the_intersection_of_a_line_with_a_plane-1
-  0.2	  0.1	Find_first_and_last_set_bit_of_a_long_integer
+  0.2	  0.1	Fractal_tree
+  0.2	  0.1	Forest_fire
+  0.2	  0.1	First_class_environments
   0.2	  0.1	File_modification_time
-  0.2	  0.1	File_extension_is_in_extensions_list
-  0.2	  0.1	Fast_Fourier_transform
   0.2	  0.1	Factors_of_an_integer-3
   0.2	  0.1	Extensible_prime_generator-2
   0.2	  0.1	Extensible_prime_generator-1
   0.2	  0.1	Execute_a_system_command
   0.2	  0.1	Euler%27s_identity
-  0.2	  0.1	Entropy
   0.2	  0.1	Enforced_immutability
-  0.2	  0.1	Elliptic_curve_arithmetic
   0.2	  0.1	Elementary_cellular_automaton_Random_Number_Generator
+  0.2	  0.1	Elementary_cellular_automaton
+  0.2	  0.1	Discordian_date
+  0.2	  0.1	Digital_root_Multiplicative_digital_root
+  0.2	  0.1	Define_a_primitive_data_type
   0.2	  0.1	Deal_cards_for_FreeCell
-  0.2	  0.1	Date_format
-  0.2	  0.1	Chinese_remainder_theorem
-  0.2	  0.1	Cartesian_product_of_two_or_more_lists-3
-  0.2	  0.1	Carmichael_3_strong_pseudoprimes
-  0.2	  0.1	Calendar
-  0.2	  0.1	Bitmap_Write_a_PPM_file
-  0.2	  0.1	Bitcoin_address_validation
-  0.2	  0.1	Binary_search-1
-  0.2	  0.1	Binary_digits
-  0.2	  0.1	Best_shuffle-1
-  0.2	  0.1	Bernoulli_numbers-3
-  0.2	  0.1	Averages_Mode
-  0.2	  0.1	Averages_Mean_angle
-  0.2	  0.1	Averages_Arithmetic_mean
-  0.2	  0.1	Associative_array_Iteration
-  0.2	  0.1	Arrays
-  0.2	  0.1	Array_length
-  0.2	  0.1	Array_concatenation
-  0.2	  0.1	Arithmetic_evaluation
+  0.2	  0.1	Day_of_the_week-1
+  0.2	  0.1	Count_in_factors-1
+  0.2	  0.1	Combinations_with_repetitions-2
+  0.2	  0.1	Combinations-1
+  0.2	  0.1	Bitcoin_public_point_to_address
+  0.2	  0.1	Benford%27s_law
   0.2	  0.1	Arithmetic_Complex
-  0.2	  0.1	Arithmetic-geometric_mean
-  0.2	  0.1	Apply_a_callback_to_an_array
-  0.2	  0.1	Append_a_record_to_the_end_of_a_text_file
-  0.2	  0.1	Amb-3
+  0.2	  0.1	Amicable_pairs
   0.2	  0.1	Amb-2
   0.2	  0.1	Almost_prime-1
   0.2	  0.1	Aliquot_sequence_classifications
   0.2	  0.1	Abundant,_deficient_and_perfect_number_classifications
   0.2	  0.1	AKS_test_for_primes-2
-  0.2	  0.1	100_doors-3
-  0.2	  0.1	100_doors-1
   0.1	  0.1	Zig-zag_matrix-2
   0.1	  0.1	Zig-zag_matrix-1
+  0.1	  0.1	Zero_to_the_zero_power
   0.1	  0.1	Zeckendorf_number_representation
   0.1	  0.1	Zebra_puzzle
   0.1	  0.1	Y_combinator
@@ -402,6 +341,7 @@
   0.1	  0.1	Validate_International_Securities_Identification_Number
   0.1	  0.1	Update_a_configuration_file
   0.1	  0.1	Unix_ls
+  0.1	  0.1	Universal_Turing_machine
   0.1	  0.1	Unicode_variable_names
   0.1	  0.1	Undefined_values
   0.1	  0.1	URL_encoding
@@ -409,6 +349,7 @@
   0.1	  0.1	Type_detection
   0.1	  0.1	Two_Sum
   0.1	  0.1	Truncate_a_file
+  0.1	  0.1	Truncatable_primes-2
   0.1	  0.1	Trigonometric_functions
   0.1	  0.1	Tree_traversal
   0.1	  0.1	Trabb_Pardo-Knuth_algorithm
@@ -420,6 +361,7 @@
   0.1	  0.1	Thue-Morse
   0.1	  0.1	The_Twelve_Days_of_Christmas
   0.1	  0.1	The_ISAAC_Cipher
+  0.1	  0.1	Text_processing_Max_licenses_in_use
   0.1	  0.1	Text_between
   0.1	  0.1	Test_integerness
   0.1	  0.1	Ternary_logic
@@ -434,6 +376,9 @@
   0.1	  0.1	Suffixation_of_decimal_numbers
   0.1	  0.1	Suffix_tree
   0.1	  0.1	Sudoku
+  0.1	  0.1	Subtractive_generator
+  0.1	  0.1	Substring_Top_and_tail
+  0.1	  0.1	Substring
   0.1	  0.1	Substitution_Cipher
   0.1	  0.1	Subleq
   0.1	  0.1	Strip_whitespace_from_a_string_Top_and_tail
@@ -447,6 +392,7 @@
   0.1	  0.1	String_comparison
   0.1	  0.1	String_case
   0.1	  0.1	String_append
+  0.1	  0.1	Stream_Merge
   0.1	  0.1	Stern-Brocot_sequence-1
   0.1	  0.1	Stem-and-leaf_plot
   0.1	  0.1	Starting_a_web_browser
@@ -454,10 +400,10 @@
   0.1	  0.1	Stable_marriage_problem
   0.1	  0.1	Square_but_not_cube-2
   0.1	  0.1	Square_but_not_cube-1
+  0.1	  0.1	Square-free_integers
   0.1	  0.1	Split_a_character_string_based_on_change_of_character
   0.1	  0.1	Spiral_matrix
   0.1	  0.1	Spelling_of_ordinal_numbers
-  0.1	  0.1	Sparkline_in_unicode
   0.1	  0.1	Soundex
   0.1	  0.1	Sorting_algorithms_Strand_sort
   0.1	  0.1	Sorting_algorithms_Stooge_sort
@@ -477,6 +423,9 @@
   0.1	  0.1	Sorting_algorithms_Comb_sort
   0.1	  0.1	Sorting_algorithms_Cocktail_sort
   0.1	  0.1	Sorting_algorithms_Bubble_sort
+  0.1	  0.1	Sorting_algorithms_Bogosort
+  0.1	  0.1	Sorting_algorithms_Bead_sort
+  0.1	  0.1	Sorting_Algorithms_Circle_Sort
   0.1	  0.1	Sort_using_a_custom_comparator
   0.1	  0.1	Sort_three_variables
   0.1	  0.1	Sort_numbers_lexicographically
@@ -485,11 +434,15 @@
   0.1	  0.1	Sort_an_array_of_composite_structures
   0.1	  0.1	Sort_a_list_of_object_identifiers-2
   0.1	  0.1	Sort_a_list_of_object_identifiers-1
+  0.1	  0.1	Solve_a_Hidato_puzzle
   0.1	  0.1	Snake_And_Ladder
   0.1	  0.1	Singly-linked_list_Traversal
   0.1	  0.1	Simple_database
   0.1	  0.1	Sieve_of_Eratosthenes-9
   0.1	  0.1	Sieve_of_Eratosthenes-8
+  0.1	  0.1	Sieve_of_Eratosthenes-7
+  0.1	  0.1	Sieve_of_Eratosthenes-6
+  0.1	  0.1	Sieve_of_Eratosthenes-5
   0.1	  0.1	Sieve_of_Eratosthenes-4
   0.1	  0.1	Sieve_of_Eratosthenes-3
   0.1	  0.1	Sieve_of_Eratosthenes-2
@@ -504,17 +457,16 @@
   0.1	  0.1	Shortest_common_supersequence
   0.1	  0.1	Short-circuit_evaluation
   0.1	  0.1	Shoelace_formula_for_polygonal_area
-  0.1	  0.1	Set_consolidation
   0.1	  0.1	Set
   0.1	  0.1	Sequence_of_primes_by_trial_division
   0.1	  0.1	Separate_the_house_number_from_the_street_name
   0.1	  0.1	Send_an_unknown_method_call
   0.1	  0.1	Selective_File_Copy
-  0.1	  0.1	Search_a_list_of_records
   0.1	  0.1	Search_a_list
   0.1	  0.1	Scope_modifiers
   0.1	  0.1	Sattolo_cycle
   0.1	  0.1	Same_Fringe
+  0.1	  0.1	Sailors,_coconuts_and_a_monkey_problem-1
   0.1	  0.1	SHA-256
   0.1	  0.1	SHA-1
   0.1	  0.1	SEDOLs
@@ -522,11 +474,13 @@
   0.1	  0.1	Runtime_evaluation_In_an_environment
   0.1	  0.1	Runtime_evaluation
   0.1	  0.1	Runge-Kutta_method
+  0.1	  0.1	Run-length_encoding
   0.1	  0.1	Rot-13
   0.1	  0.1	Rosetta_Code_Find_bare_lang_tags
   0.1	  0.1	Roots_of_unity
   0.1	  0.1	Roots_of_a_quadratic_function
   0.1	  0.1	Roots_of_a_function
+  0.1	  0.1	Roman_numerals_Encode-1
   0.1	  0.1	Roman_numerals_Decode
   0.1	  0.1	Reverse_words_in_a_string
   0.1	  0.1	Reverse_the_gender_of_a_string
@@ -540,7 +494,9 @@
   0.1	  0.1	Remove_duplicate_elements
   0.1	  0.1	Regular_expressions
   0.1	  0.1	Reduced_row_echelon_form
+  0.1	  0.1	Real_constants_and_functions
   0.1	  0.1	Read_entire_file-2
+  0.1	  0.1	Read_entire_file-1
   0.1	  0.1	Read_a_specific_line_from_a_file
   0.1	  0.1	Read_a_file_line_by_line
   0.1	  0.1	Read_a_configuration_file
@@ -568,7 +524,6 @@
   0.1	  0.1	Power_set-5
   0.1	  0.1	Power_set-4
   0.1	  0.1	Power_set-3
-  0.1	  0.1	Power_set-2
   0.1	  0.1	Power_set-1
   0.1	  0.1	Population_count
   0.1	  0.1	Polynomial_synthetic_division
@@ -592,9 +547,10 @@
   0.1	  0.1	Pascal%27s_triangle_Puzzle
   0.1	  0.1	Pascal%27s_triangle-3
   0.1	  0.1	Pascal%27s_triangle-1
-  0.1	  0.1	Partial_function_application
+  0.1	  0.1	Parsing_Shunting-yard_algorithm
   0.1	  0.1	Pangram_checker
   0.1	  0.1	Palindrome_detection
+  0.1	  0.1	P-value_correction
   0.1	  0.1	Ordered_Partitions-2
   0.1	  0.1	Order_two_numerical_lists
   0.1	  0.1	Order_disjoint_list_items
@@ -605,7 +561,6 @@
   0.1	  0.1	Old_Russian_measure_of_length
   0.1	  0.1	Odd_word_problem-2
   0.1	  0.1	Odd_word_problem
-  0.1	  0.1	Object_serialization-1
   0.1	  0.1	Numerical_integration_Gauss-Legendre_Quadrature
   0.1	  0.1	Numeric_error_propagation
   0.1	  0.1	Number_names
@@ -616,10 +571,12 @@
   0.1	  0.1	Non-decimal_radices_Convert
   0.1	  0.1	Nested_templated_data
   0.1	  0.1	Nested_function
+  0.1	  0.1	Names_to_numbers
   0.1	  0.1	Named_parameters
   0.1	  0.1	NYSIIS
   0.1	  0.1	N%27th
   0.1	  0.1	Mutual_recursion
+  0.1	  0.1	Munching_squares
   0.1	  0.1	Munchausen_numbers
   0.1	  0.1	Multisplit
   0.1	  0.1	Multiplication_tables
@@ -654,9 +611,8 @@
   0.1	  0.1	Loops_While
   0.1	  0.1	Loops_Nested
   0.1	  0.1	Loops_N_plus_one_half
+  0.1	  0.1	Loops_Increment_loop_index_within_loop_body
   0.1	  0.1	Loops_Foreach
-  0.1	  0.1	Loops_For_with_a_specified_step
-  0.1	  0.1	Loops_For
   0.1	  0.1	Loops_Downward_for
   0.1	  0.1	Loops_Do-while
   0.1	  0.1	Loops_Continue
@@ -670,6 +626,9 @@
   0.1	  0.1	Longest_Common_Substring
   0.1	  0.1	Long_multiplication
   0.1	  0.1	Logical_operations
+  0.1	  0.1	Literals_Integer
+  0.1	  0.1	List_comprehensions
+  0.1	  0.1	Linear_congruential_generator
   0.1	  0.1	Levenshtein_distance_Alignment
   0.1	  0.1	Levenshtein_distance-2
   0.1	  0.1	Levenshtein_distance-1
@@ -693,45 +652,63 @@
   0.1	  0.1	Jewels_and_Stones
   0.1	  0.1	Jensen%27s_Device
   0.1	  0.1	Jaro_distance
+  0.1	  0.1	Inverted_index
   0.1	  0.1	Integer_overflow
   0.1	  0.1	Integer_comparison
   0.1	  0.1	Input_Output_for_Pairs_of_Numbers
   0.1	  0.1	Input_Output_for_Lines_of_Text
   0.1	  0.1	Increment_a_numerical_string
-  0.1	  0.1	Idiomatically_determine_all_the_lowercase_and_uppercase_letters
   0.1	  0.1	Idiomatically_determine_all_the_characters_that_can_be_used_for_symbols
-  0.1	  0.1	Identity_matrix
-  0.1	  0.1	I_before_E_except_after_C-1
   0.1	  0.1	Huffman_coding
   0.1	  0.1	Hostname
   0.1	  0.1	Host_introspection
-  0.1	  0.1	Horner%27s_rule_for_polynomial_evaluation-3
   0.1	  0.1	Horner%27s_rule_for_polynomial_evaluation-2
   0.1	  0.1	Horner%27s_rule_for_polynomial_evaluation-1
   0.1	  0.1	Horizontal_sundial_calculations
-  0.1	  0.1	History_variables
   0.1	  0.1	Higher-order_functions
-  0.1	  0.1	Here_document
+  0.1	  0.1	Hash_join
+  0.1	  0.1	Hash_from_two_arrays
+  0.1	  0.1	Harshad_or_Niven_series
+  0.1	  0.1	Happy_numbers-2
   0.1	  0.1	Happy_numbers-1
   0.1	  0.1	Guess_the_number_With_feedback_%28player%29
   0.1	  0.1	Greyscale_bars_Display
   0.1	  0.1	Greatest_subsequential_sum-2
   0.1	  0.1	Greatest_subsequential_sum-1
   0.1	  0.1	Greatest_element_of_a_list
+  0.1	  0.1	Greatest_common_divisor-3
   0.1	  0.1	Greatest_common_divisor-2
   0.1	  0.1	Greatest_common_divisor-1
+  0.1	  0.1	Gray_code
+  0.1	  0.1	Generic_swap
+  0.1	  0.1	Generate_lower_case_ASCII_alphabet
   0.1	  0.1	Generate_Chess960_starting_position
   0.1	  0.1	General_FizzBuzz
   0.1	  0.1	Gauss-Jordan_matrix_inversion
+  0.1	  0.1	Function_composition
   0.1	  0.1	Four_bit_adder
   0.1	  0.1	Forward_difference
   0.1	  0.1	Formatted_numeric_output
+  0.1	  0.1	Fork
+  0.1	  0.1	Floyd-Warshall_algorithm
+  0.1	  0.1	Floyd%27s_triangle
+  0.1	  0.1	Flipping_bits_game
+  0.1	  0.1	Flatten_a_list
+  0.1	  0.1	FizzBuzz
   0.1	  0.1	Fixed_length_records
+  0.1	  0.1	Fivenum
   0.1	  0.1	First-class_functions_Use_numbers_analogously
+  0.1	  0.1	First-class_functions
   0.1	  0.1	Find_the_missing_permutation
+  0.1	  0.1	Find_the_intersection_of_two_lines
+  0.1	  0.1	Find_the_intersection_of_a_line_with_a_plane-2
+  0.1	  0.1	Find_the_intersection_of_a_line_with_a_plane-1
+  0.1	  0.1	Find_first_and_last_set_bit_of_a_long_integer
   0.1	  0.1	Filter
   0.1	  0.1	File_size
+  0.1	  0.1	File_extension_is_in_extensions_list
   0.1	  0.1	Fibonacci_n-step_number_sequences
+  0.1	  0.1	Fast_Fourier_transform
   0.1	  0.1	Factors_of_an_integer-2
   0.1	  0.1	Factors_of_an_integer-1
   0.1	  0.1	Factorial-3
@@ -753,9 +730,10 @@
   0.1	  0.1	Environment_variables
   0.1	  0.1	Enumerations
   0.1	  0.1	Entropy_Narcissist
+  0.1	  0.1	Entropy
   0.1	  0.1	Empty_string
+  0.1	  0.1	Elliptic_curve_arithmetic
   0.1	  0.1	Elementary_cellular_automaton_Infinite_length
-  0.1	  0.1	Elementary_cellular_automaton
   0.1	  0.1	Element-wise_operations
   0.1	  0.1	Egyptian_division
   0.1	  0.1	Dynamic_variable_names
@@ -764,20 +742,17 @@
   0.1	  0.1	Draw_a_cuboid-1
   0.1	  0.1	Dot_product
   0.1	  0.1	Diversity_prediction_theorem
-  0.1	  0.1	Discordian_date
   0.1	  0.1	Dinesman%27s_multiple-dwelling_problem-2
   0.1	  0.1	Dinesman%27s_multiple-dwelling_problem-1
   0.1	  0.1	Dijkstra%27s_algorithm
-  0.1	  0.1	Digital_root_Multiplicative_digital_root
   0.1	  0.1	Dice_game_probabilities
   0.1	  0.1	Determine_if_a_string_is_numeric
   0.1	  0.1	Detect_division_by_zero
   0.1	  0.1	Department_Numbers
-  0.1	  0.1	Define_a_primitive_data_type
   0.1	  0.1	Deepcopy
   0.1	  0.1	Deconvolution_2D%2B
   0.1	  0.1	Deconvolution_1D
-  0.1	  0.1	Day_of_the_week-1
+  0.1	  0.1	Date_format
   0.1	  0.1	Damm_algorithm-2
   0.1	  0.1	Damm_algorithm-1
   0.1	  0.1	Currying
@@ -790,7 +765,6 @@
   0.1	  0.1	Cramer%27s_rule
   0.1	  0.1	Count_occurrences_of_a_substring
   0.1	  0.1	Count_in_factors-5
-  0.1	  0.1	Count_in_factors-1
   0.1	  0.1	Copy_a_string
   0.1	  0.1	Convert_seconds_to_compound_duration
   0.1	  0.1	Convert_decimal_number_to_rational
@@ -803,12 +777,10 @@
   0.1	  0.1	Commatizing_numbers
   0.1	  0.1	Comma_quibbling-2
   0.1	  0.1	Comma_quibbling-1
-  0.1	  0.1	Combinations_with_repetitions-2
   0.1	  0.1	Combinations_with_repetitions-1
   0.1	  0.1	Combinations_and_permutations
   0.1	  0.1	Combinations-3
   0.1	  0.1	Combinations-2
-  0.1	  0.1	Combinations-1
   0.1	  0.1	Colour_pinstripe_Display
   0.1	  0.1	Colour_bars_Display
   0.1	  0.1	Collections
@@ -825,10 +797,13 @@
   0.1	  0.1	Catalan_numbers-1
   0.1	  0.1	Casting_out_nines
   0.1	  0.1	Case-sensitivity_of_identifiers
+  0.1	  0.1	Cartesian_product_of_two_or_more_lists-3
   0.1	  0.1	Cartesian_product_of_two_or_more_lists-2
   0.1	  0.1	Cartesian_product_of_two_or_more_lists-1
+  0.1	  0.1	Carmichael_3_strong_pseudoprimes
   0.1	  0.1	Card_shuffles
   0.1	  0.1	Cantor_set
+  0.1	  0.1	Calendar
   0.1	  0.1	Caesar_cipher
   0.1	  0.1	CUSIP
   0.1	  0.1	CSV_to_HTML_translation
@@ -840,22 +815,42 @@
   0.1	  0.1	Box_the_compass
   0.1	  0.1	Boolean_values
   0.1	  0.1	Bitwise_operations
-  0.1	  0.1	Bitmap
+  0.1	  0.1	Bitmap_Write_a_PPM_file
+  0.1	  0.1	Bitcoin_address_validation
   0.1	  0.1	Binary_search-2
+  0.1	  0.1	Binary_search-1
+  0.1	  0.1	Binary_digits
   0.1	  0.1	Best_shuffle-2
+  0.1	  0.1	Best_shuffle-1
+  0.1	  0.1	Bernoulli_numbers-3
   0.1	  0.1	Base64_encode_data
   0.1	  0.1	Balanced_ternary
   0.1	  0.1	Balanced_brackets-3
   0.1	  0.1	Balanced_brackets-2
+  0.1	  0.1	Balanced_brackets-1
+  0.1	  0.1	Babbage_problem
+  0.1	  0.1	Averages_Simple_moving_average
   0.1	  0.1	Averages_Root_mean_square
   0.1	  0.1	Averages_Pythagorean_means
+  0.1	  0.1	Averages_Mode
   0.1	  0.1	Averages_Median
+  0.1	  0.1	Averages_Mean_angle
+  0.1	  0.1	Averages_Arithmetic_mean
+  0.1	  0.1	Associative_array_Iteration
   0.1	  0.1	Assertions
+  0.1	  0.1	Arrays
+  0.1	  0.1	Array_length
+  0.1	  0.1	Array_concatenation
+  0.1	  0.1	Arithmetic_evaluation
   0.1	  0.1	Arithmetic_Integer
+  0.1	  0.1	Arithmetic-geometric_mean
+  0.1	  0.1	Apply_a_callback_to_an_array
+  0.1	  0.1	Append_a_record_to_the_end_of_a_text_file
   0.1	  0.1	Anonymous_recursion-3
   0.1	  0.1	Anonymous_recursion-2
   0.1	  0.1	Anonymous_recursion-1
   0.1	  0.1	Angle_difference_between_two_bearings
+  0.1	  0.1	Amb-3
   0.1	  0.1	Almost_prime-2
   0.1	  0.1	Align_columns-2
   0.1	  0.1	Align_columns-1
@@ -872,12 +867,12 @@
   0.1	  0.1	21_Game
   0.1	  0.1	100_doors-5
   0.1	  0.1	100_doors-4
+  0.1	  0.1	100_doors-3
   0.1	  0.1	100_doors-2
-  0.1	  0.0	Pentagram
-  0.1	  0.0	Globally_replace_text_in_several_files
-  0.1	  0.0	Function_definition
-  0.1	  0.0	Bitmap_Read_a_PPM_file
-  0.1	  0.0	Bitmap_Flood_fill
+  0.1	  0.1	100_doors-1
+  0.1	  0.0	Sparkline_in_unicode
+  0.1	  0.0	Bitmap_Bresenham%27s_line_algorithm
+  0.1	  0.0	Bitmap
   0.0	  0.0	Yin_and_yang
   0.0	  0.0	Truth_table
   0.0	  0.0	Test_a_function
@@ -885,15 +880,20 @@
   0.0	  0.0	Sunflower_fractal
   0.0	  0.0	Sockets
   0.0	  0.0	Rename_a_file
+  0.0	  0.0	Pentagram
   0.0	  0.0	Native_shebang
   0.0	  0.0	Multiline_shebang
   0.0	  0.0	Memory_allocation
   0.0	  0.0	Lucky_and_even_lucky_numbers-2
   0.0	  0.0	Interactive_programming
+  0.0	  0.0	Globally_replace_text_in_several_files
   0.0	  0.0	Gaussian_elimination
   0.0	  0.0	Function_prototype
+  0.0	  0.0	Function_definition
   0.0	  0.0	File_input_output
   0.0	  0.0	Dragon_curve
   0.0	  0.0	Delete_a_file
   0.0	  0.0	Constrained_random_points_on_a_circle
-  0.0	  0.0	Bitmap_Bresenham%27s_line_algorithm
+  0.0	  0.0	Bitmap_Read_a_PPM_file
+  0.0	  0.0	Bitmap_Flood_fill
+  0.0	  0.0	Bacon_cipher
