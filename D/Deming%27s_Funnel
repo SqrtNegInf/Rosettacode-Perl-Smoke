@@ -10,12 +10,10 @@ use strict 'vars';
 use Math::Complex;
 use List::Util qw(sum);
 
-my $result;
-# my @res;
+my @res;
 
 sub mean   { sum(@_) / @_ }
 sub stddev { sqrt( mean(map { $_**2 } @_) - mean(@_)**2) }
-
  
 my @re = qw<
     -0.533  0.270  0.859 -0.043 -0.205 -0.127 -0.071  0.275
@@ -45,7 +43,7 @@ my @im = qw<
     -0.729  0.650 -1.103  0.154 -1.720  0.051 -0.385  0.477
      1.537 -0.901  0.939 -0.411  0.341 -0.411  0.106  0.224
     -0.947 -1.424 -0.542 -1.032>;
- 
+
 __END__
 
 my @rule = 
