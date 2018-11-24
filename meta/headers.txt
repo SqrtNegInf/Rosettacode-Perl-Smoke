@@ -1617,6 +1617,13 @@ File: D/Doubly-linked_list_Element_insertion
 File: D/Dragon_curve
 #!/usr/local/bin/perl
 #u# http://rosettacode.org/wiki/Dragon_curve
+#c# 2018-07-30 <RC, 2018-11-24 >RC
+#p# OK
+#f# RC file: dragon_curve.svg
+
+File: D/Dragon_curve.1
+#!/usr/local/bin/perl
+#u# http://rosettacode.org/wiki/Dragon_curve
 #c# 2018-07-30 <RC
 #p# OK
 #f# RC file: dragon_curve.svg
@@ -2736,6 +2743,22 @@ File: H/Higher-order_functions
 #c# 2018-08-12 <RC
 #p# OK
 
+File: H/Hilbert_curve-1
+#!/usr/local/bin/perl
+#u# http://rosettacode.org/wiki/Hilbert_curve
+#c# 2018-11-24 >RC
+#t# graphical
+#p# OK
+#f# RC file: hilbert_curve.svg
+
+File: H/Hilbert_curve-2
+#!/usr/local/bin/perl
+#u# http://rosettacode.org/wiki/Hilbert_curve
+#c# 2018-11-24 >RC
+#t# graphical
+#p# OK
+#f# RC file: hilbert_curve.svg
+
 File: H/History_variables
 #!/usr/local/bin/perl
 #u# http://rosettacode.org/wiki/History_variables
@@ -3137,6 +3160,14 @@ File: K/Knuth_shuffle
 #u# http://rosettacode.org/wiki/Knuth_shuffle
 #c# 2018-08-14 <RC
 #p# OK
+
+File: K/Koch_curve
+#!/usr/local/bin/perl
+#u# http://rosettacode.org/wiki/Koch_curve
+#c# 2018-11-24 >RC
+#t# graphical
+#p# BROKEN
+#f# RC file: koch_curve.svg
 
 File: K/Kolakoski_sequence
 #!/usr/local/bin/perl
@@ -4257,6 +4288,13 @@ File: P/Pattern_matching
 #u# http://rosettacode.org/wiki/Pattern_matching
 #c# 2018-07-08 <RC
 #p# OK
+
+File: P/Peano_curve
+#!/usr/local/bin/perl
+#u# http://rosettacode.org/wiki/Peano_curve
+#c# 2018-11-24 >RC
+#p# BROKEN
+#f# RC file: peano_curve.svg
 
 File: P/Penney%27s_game
 #!/usr/local/bin/perl
