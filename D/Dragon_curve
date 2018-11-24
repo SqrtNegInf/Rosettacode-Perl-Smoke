@@ -1,44 +1,37 @@
 #!/usr/local/bin/perl
 #u# http://rosettacode.org/wiki/Dragon_curve
-#c# 2018-07-30 <RC
+#c# 2018-07-30 <RC, 2018-11-24 >RC
 #p# OK
 #f# RC file: dragon_curve.svg
 
-use strict;
-use warnings;
-
-open F, ">run/dragon_curve.svg";
-
 use constant halfpi => atan2(1, 0);
-
-# Computing the dragon with a L-System
+    
+# Compute the curve with a Lindemayer-system
+my %rules = (
+    'X' => 'X+YF+',
+    'Y' => '-FX-Y'
+);
 my $dragon = 'FX';
-for (1 .. 10) {
-    $dragon =~ s/X/x+yF+/g;
-    $dragon =~ s/Y/-Fx-y/g;
-    $dragon =~ tr/xy/XY/;
-}
+$dragon =~ s/([XY])/$rules{$1}/eg for 1..10;
 
-# Drawing the dragon in SVG
-my ($x, $y) = (100, 100);
+# Draw the curve in SVG
+my($x, $y) = (100, 100);
 my $theta = 0;
-my $r = 2;
-
-print F "<?xml version='1.0' encoding='utf-8' standalone='no'?>
-<!DOCTYPE svg PUBLIC '-//W3C//DTD SVG 1.1//EN' 
-'http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd'>
-<svg width='100%' height='100%' version='1.1'
-xmlns='http://www.w3.org/2000/svg'>\n";
+my $r = 9;
+my $svg;
 
 for (split //, $dragon) {
     if (/F/) {
-	printf F "<line x1='%.0f' y1='%.0f' ", $x, $y;
-	printf F "x2='%.0f' ", $x += $r * cos($theta);
-	printf F "y2='%.0f' ", $y += $r * sin($theta);
-	print F "style='stroke:rgb(0,0,0);stroke-width:1'/>\n";
+	    $svg .= sprintf "<line x1='%.0f' y1='%.0f' ", $x, $y;
+	    $svg .= sprintf "x2='%.0f' ", $x += $r * cos($theta);
+	    $svg .= sprintf "y2='%.0f' ", $y += $r * sin($theta);
+	    $svg .= "style='stroke:rgb(0,0,0)'/>\n";
+	    #$svg .= "style='stroke:rgb(0,0,0);stroke-width:1'/>\n";
     }
     elsif (/\+/) { $theta += halfpi; }
     elsif (/\-/) { $theta -= halfpi; }
 }
 
-print F "</svg>";
+open  $fh, '>', 'run/dragon_curve.svg';
+print $fh  qq{<svg height="100%" width="100%" xmlns="http://www.w3.org/2000/svg">\n$svg</svg>};
+close $fh;
