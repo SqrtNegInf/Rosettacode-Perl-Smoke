@@ -1,0 +1,38 @@
+#!/usr/local/bin/perl
+#u# http://rosettacode.org/wiki/Hilbert_curve
+#c# 2018-11-24 >RC
+#t# graphical
+#p# OK
+#f# RC file: hilbert_curve.svg
+
+use constant pi => 2 * atan2(1, 0);
+
+# Compute the curve with a Lindemayer-system
+%rules = (
+    'A' => '-BF+AFA+FB-',
+    'B' => '+AF-BFB-FA+'
+);    
+my $hilbert = 'A';
+$hilbert =~ s/([AB])/$rules{$1}/eg for 1..6;
+
+# Draw the curve in SVG
+my($x, $y) = (100, 100);
+my $theta = pi/2;
+my $r = 6;
+my $svg;
+
+for (split //, $hilbert) {
+    if (/F/) {
+            $svg .= sprintf "<line x1='%.0f' y1='%.0f' ", $x, $y;
+            $svg .= sprintf "x2='%.0f' ", $x += $r * cos($theta);
+            $svg .= sprintf "y2='%.0f' ", $y += $r * sin($theta);
+            $svg .= "style='stroke:rgb(0,0,0)'/>\n";
+            #$svg .= "style='stroke:rgb(0,0,0);stroke-width:1'/>\n";
+    }
+    elsif (/\+/) { $theta += pi/2; }
+    elsif (/\-/) { $theta -= pi/2; }
+}
+
+open  $fh, '>', 'run/hilbert_curve.svg';
+print $fh  qq{<svg height="100%" width="100%" xmlns="http://www.w3.org/2000/svg">\n$svg</svg>};
+close $fh;
