@@ -1,16 +1,16 @@
 
 This is perl 5, version 28, subversion 0 (v5.28.0) built for darwin-thread-multi-2level
 updating from RC…
-+------------> Perl: Good/Bad [1040/18]
++------------> Perl: Good/Bad [1042/20]
 |+-----------> Smoke testing []
 ||+----------> sKipping validation [148]
 |||+---------> Interactive [56]
-||||+--------> Touched (modified by me) [187]
+||||+--------> Touched (modified by me) [192]
 |||||+-------> Random seed [77]
-||||||+------> File output [50]
+||||||+------> File output [54]
 |||||||+-----> Draft [215]
 ||||||||+----> Ignoring [36]
-|||||||||+---> Void (no local copy) [218]
+|||||||||+---> Void (no local copy) [215]
 ||||||||||+--> Un-implemented/reliable [206]
 |||||||||||
 GS......... 100_doors-1
@@ -330,7 +330,7 @@ GS......... Dot_product
 G.K........ Doubly-linked_list_Element_definition
 G.K........ Doubly-linked_list_Element_insertion
 .........VU Doubly-linked_list_Traversal
-GS....F.... Dragon_curve
+GS..T.F.... Dragon_curve
 G.KI....... Draw_a_clock
 GS......... Draw_a_cuboid-1
 GS...R..... Draw_a_cuboid-2
@@ -524,7 +524,9 @@ GS......... Heronian_triangles
 .......D.VU Hexapawn
 GS......... Hickerson_series_of_almost_integers
 GS......... Higher-order_functions
-.......D.VU Hilbert_curve
+.......D..U Hilbert_curve
+GS..T.F.... Hilbert_curve-1
+GS..T.F.... Hilbert_curve-2
 GS......... History_variables
 GS......... Hofstadter-Conway__10,000_sequence
 GS......... Hofstadter_Figure-Figure_sequences
@@ -605,7 +607,7 @@ GS...R..... Knight%27s_tour
 GS...R..... Knuth%27s_algorithm_S
 GS......... Knuth%27s_power_tree
 GS...R..... Knuth_shuffle
-.......D.VU Koch_curve
+B...T.FD..U Koch_curve
 B.........U Kolakoski_sequence
 .......D.VU Kosaraju
 GS......... Kronecker_product
@@ -818,7 +820,7 @@ GS..T...... Pathological_floating_point_problems-1
 GS..T...... Pathological_floating_point_problems-2
 GS......... Pathological_floating_point_problems-3
 GS...R..... Pattern_matching
-.......D.VU Peano_curve
+B...T.FD..U Peano_curve
 G.KI.R..... Penney%27s_game
 .......D.VU Penrose_tiling
 GS..T.F.... Pentagram
