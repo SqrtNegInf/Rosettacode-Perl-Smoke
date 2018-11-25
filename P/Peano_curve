@@ -1,37 +1,46 @@
 #!/usr/local/bin/perl
 #u# http://rosettacode.org/wiki/Peano_curve
 #c# 2018-11-24 >RC
-#p# BROKEN
+#p# OK
 #f# RC file: peano_curve.svg
+
+use SVG;
+use List::Util qw(max min);
 
 use constant pi => 2 * atan2(1, 0);
 
 # Compute the curve with a Lindemayer-system
 my %rules = (
-    'L' => 'LFRFL-F-RFLFR+F+LFRFL', 
-    'R' => 'RFLFR+F+LFRFL-F-RFLFR'
+    L => 'LFRFL-F-RFLFR+F+LFRFL', 
+    R => 'RFLFR+F+LFRFL-F-RFLFR'
 );
 my $peano = 'L';
 $peano =~ s/([LR])/$rules{$1}/eg for 1..4;
 
 # Draw the curve in SVG
-my($x, $y) = (100, 100);
-my $theta = pi/2;
-my $r = 6;
-my $svg;
+($x, $y) = (0, 0);
+$theta   = pi/2;
+$r       = 4;
 
 for (split //, $peano) {
     if (/F/) {
-            $svg .= sprintf "<line x1='%.0f' y1='%.0f' ", $x, $y;
-            $svg .= sprintf "x2='%.0f' ", $x += $r * cos($theta);
-            $svg .= sprintf "y2='%.0f' ", $y += $r * sin($theta);
-            $svg .= "style='stroke:rgb(0,0,0)'/>\n";
-            #$svg .= "style='stroke:rgb(0,0,0);stroke-width:1'/>\n";
+        push @X, sprintf "%.0f", $x; 
+        push @Y, sprintf "%.0f", $y; 
+        $x += $r * cos($theta);
+        $y += $r * sin($theta);
     }
     elsif (/\+/) { $theta += pi/2; }
     elsif (/\-/) { $theta -= pi/2; }
 }
 
+$max =  max(@X,@Y);
+$xt  = -min(@X)+10;
+$yt  = -min(@Y)+10;
+$svg = SVG->new(width=>$max+20, height=>$max+20);
+$points = $svg->get_path(x=>\@X, y=>\@Y, -type=>'polyline');
+$svg->rect(width=>"100%", height=>"100%", style=>{'fill'=>'black'});
+$svg->polyline(%$points, style=>{'stroke'=>'orange', 'stroke-width'=>1}, transform=>"translate($xt,$yt)");
+
 open  $fh, '>', 'run/peano_curve.svg';
-print $fh  qq{<svg height="100%" width="100%" xmlns="http://www.w3.org/2000/svg">\n$svg</svg>};
+print $fh  $svg->xmlify(-namespace=>'svg');
 close $fh;
