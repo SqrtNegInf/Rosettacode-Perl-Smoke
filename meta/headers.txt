@@ -2751,7 +2751,23 @@ File: H/Hilbert_curve-1
 #p# OK
 #f# RC file: hilbert_curve.svg
 
+File: H/Hilbert_curve-1.1
+#!/usr/local/bin/perl
+#u# http://rosettacode.org/wiki/Hilbert_curve
+#c# 2018-11-24 >RC
+#t# graphical
+#p# OK
+#f# RC file: hilbert_curve.svg
+
 File: H/Hilbert_curve-2
+#!/usr/local/bin/perl
+#u# http://rosettacode.org/wiki/Hilbert_curve
+#c# 2018-11-24 >RC
+#t# graphical
+#p# OK
+#f# RC file: hilbert_curve.svg
+
+File: H/Hilbert_curve-2.1
 #!/usr/local/bin/perl
 #u# http://rosettacode.org/wiki/Hilbert_curve
 #c# 2018-11-24 >RC
@@ -3166,7 +3182,7 @@ File: K/Koch_curve
 #u# http://rosettacode.org/wiki/Koch_curve
 #c# 2018-11-24 >RC
 #t# graphical
-#p# BROKEN
+#p# OK
 #f# RC file: koch_curve.svg
 
 File: K/Kolakoski_sequence
@@ -4293,7 +4309,7 @@ File: P/Peano_curve
 #!/usr/local/bin/perl
 #u# http://rosettacode.org/wiki/Peano_curve
 #c# 2018-11-24 >RC
-#p# BROKEN
+#p# OK
 #f# RC file: peano_curve.svg
 
 File: P/Penney%27s_game
@@ -4302,6 +4318,14 @@ File: P/Penney%27s_game
 #t# interactive
 #c# 2018-08-21 <RC
 #p# OK
+
+File: P/Penrose_tiling
+#!/usr/local/bin/perl
+#u# http://rosettacode.org/wiki/Pwwrose_tiling
+#c# 2018-11-24 >RC
+#t# graphical
+#p# OK
+#f# RC file: penrose_tiling.svg
 
 File: P/Pentagram
 #!/usr/local/bin/perl
