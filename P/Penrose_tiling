@@ -5,9 +5,6 @@
 #p# OK
 #f# RC file: penrose_tiling.svg
 
-use SVG;
-use List::Util qw(max min);
-
 use constant pi => 2 * atan2(1, 0);
 
 # Generated with a P3 tile set using a Lindenmayer system.
@@ -33,15 +30,10 @@ for (split //, $penrose) {
         $line .= sprintf "y2='%.1f' ", $y += $r * sin($theta);
         $line .= "style='stroke:rgb(255,165,0)'/>\n";
         $SVG{$line} = 1;
-    } elsif (/\+/) { 
-        $theta += pi/5; 
-    } elsif (/\-/) { 
-        $theta -= pi/5; 
-    } elsif (/\[/) { 
-        push @stack, [$x, $y, $theta];
-    } elsif (/\]/) { 
-        ($x, $y, $theta) = @{pop @stack};
-    }
+    } elsif (/\+/) { $theta += pi/5
+    } elsif (/\-/) { $theta -= pi/5 
+    } elsif (/\[/) { push @stack, [$x, $y, $theta]
+    } elsif (/\]/) { ($x, $y, $theta) = @{pop @stack} }
 }
 $svg .= $_ for keys %SVG;
 
