@@ -1,77 +1,63 @@
 #!/usr/local/bin/perl
-#u# http://rosettacode.org/wiki/RC_REMOTE
-#c# 2018-11-RC >RC
-#p# BROKEN
-#f# RC file: voronoi-Euclidean-perl6.png
+#u# http://rosettacode.org/wiki/Voronoi_diagram
+#c# 2018-11-27 >RC
+#p# OK
+#f# RC file: voronoi-Euclidean.png
 
 use feature 'say';
-#use warnings;
-#use strict 'vars';
 
 srand 123456;
 
-use List::Util qw(min);
 use Imager;
 
-my %type = ( # Voronoi diagram type distance calculation
+# distance calculations for each Voronoi diagram type 
+my %type = ( 
 #    Taxicab   => sub { my($px, $py, $x, $y) = @_; abs($px - $x)    + abs($py - $y)    },
-    Euclidean => sub { my($px, $py, $x, $y) = @_;    ($px - $x)**2 +    ($py - $y)**2 },
+     Euclidean => sub { my($px, $py, $x, $y) = @_;    ($px - $x)**2 +    ($py - $y)**2 },
 #    Minkowski => sub { my($px, $py, $x, $y) = @_; abs($px - $x)**3 + abs($py - $y)**3 },
 );
 
-
 my($xmax, $ymax) = (400, 400);
 
-for (1..3) {
+for (1..30) {
     push @domains, {
-     'x' => int 5 + rand($xmax-10),
-     'y' => int 5 + rand($ymax-10),
-     'rgb' => [int 64+rand(255-64), int 64+rand(255-64), int 64+rand(255-64)]
+     x   => int 5 + rand $xmax-10,
+     y   => int 5 + rand $ymax-10,
+     rgb => [int rand 255, int rand 255, int rand 255]
     }
 }
 
-use Data::Dumper; 
-#say Dumper @domains;
-
-voronoi($_, $xmax, $ymax, @domains) for keys %type;
+for my $type (keys %type) {
+    our $img = Imager->new(xsize => $xmax, ysize => $ymax, channels => 3);
+    voronoi($type, $xmax, $ymax, @domains);
+    dot(1,@domains);
+    $img->write(file => "run/voronoi-$type.png");
+}
 
 sub voronoi {
-    my($type, $xmax, $ymax, @domains) = @_;
-    my $img = Imager->new(xsize => $xmax, ysize => $ymax, channels => 3);
-    for $x (1..$xmax) {
-      for $y (1..$ymax) {
-        my $m = 0;
-        min map { 
-$DB::single = 1;
-    say ${$_}{'x'}; 
-    say ${$_}{'y'}; 
-    say join ',', @{${$_}{'rgb'}}; 
-    sleep 1;  
-    } @domains;
-#        my ($m, $i) = min map { $type{$type}($_)<x>, %($_)<y>, $x, $y), $++ } @domains;
-        #$png.set: $x, $y, |
-        my $color = join ',', $domains[$i]{rgb};
-say "color $color"; sleep 1;
-        #$img->setpixel(x => $x, y => $y, color => $color);
+    my($type, $xmax, $ymax, @d) = @_;
+    for $x (0..$xmax) {
+      for $y (0..$ymax) {
+        my $i = 0;
+        my $d = 10e6;
+        for (0..$#d) {
+            my $dd = &{$type{$type}}($d[$_]{'x'}, $d[$_]{'y'}, $x, $y);
+            if ($dd < $d) { $d = $dd; $i = $_ }
+        }
+        $img->setpixel(x => $x, y => $y, color => $d[$i]{rgb} );
       }
     }
-    #@domains.map: *.&dot($img);
-    $img->write(file => "run/voroni-$type.png");
 }
 
-__END__
-
-sub dot (%h, $png, $radius = 3) {
-    for (%h<x> X+ -$radius .. $radius) X (%h<y> X+ -$radius .. $radius) -> ($x, $y) {
-            $png.set($x, $y, 0, 0, 0) if ( %h<x> - $x + (%h<y> - $y) * i ).abs <= $radius;
+sub dot {
+    ($radius, @d) = @_;
+    for (0..$#d) {
+        $dx = $d[$_]{'x'};
+        $dy = $d[$_]{'y'};
+        for $x ($dx-$radius .. $dx+$radius) { 
+            for $y ($dy-$radius .. $dy+$radius) { 
+                $img->setpixel(x => $x, y => $y, color => [0,0,0]);
+            }
+        }
     }
 }
-
-__END__
-
-=={{header|Perl}}==
-{{trans|Perl 6}}
-<lang perl></lang>
-{{out}}
-<pre style="height:35ex"></pre>
-[https://github.com/SqrtNegInf/Rosettacode-Perl5-Smoke/blob/master/ref/voroni.png XXX]
