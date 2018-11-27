@@ -1,16 +1,17 @@
 
 This is perl 5, version 28, subversion 0 (v5.28.0) built for darwin-thread-multi-2level
-+------------> Perl: Good/Bad [1045/18]
+updating from RC…
++------------> Perl: Good/Bad [1047/18]
 |+-----------> Smoke testing []
 ||+----------> sKipping validation [148]
 |||+---------> Interactive [56]
-||||+--------> Touched (modified by me) [193]
-|||||+-------> Random seed [77]
-||||||+------> File output [55]
+||||+--------> Touched (modified by me) [195]
+|||||+-------> Random seed [78]
+||||||+------> File output [56]
 |||||||+-----> Draft [215]
 ||||||||+----> Ignoring [36]
-|||||||||+---> Void (no local copy) [214]
-||||||||||+--> Un-implemented/reliable [206]
+|||||||||+---> Void (no local copy) [212]
+||||||||||+--> Un-implemented/reliable [200]
 |||||||||||
 GS......... 100_doors-1
 GS......... 100_doors-2
@@ -283,7 +284,7 @@ GS..T...... Currency
 GS......... Currying
 .......D.VU Curve_that_touches_three_points
 GS......... Cut_a_rectangle
-.......D.VU Cycle_detection
+GS..T..D... Cycle_detection
 GS......... DNS_query
 .......D... Damm_algorithm
 GS..T...... Damm_algorithm-1
@@ -305,7 +306,7 @@ GS......... Deepcopy
 GS......... Define_a_primitive_data_type
 G.K........ Delegates
 GS......... Delete_a_file
-B...T..D..U Deming%27s_Funnel
+GS..T..D... Deming%27s_Funnel
 GS......... Department_Numbers
 GS......... Detect_division_by_zero
 GS......... Determinant_and_permanent
@@ -523,7 +524,7 @@ GS......... Heronian_triangles
 .......D.VU Hexapawn
 GS......... Hickerson_series_of_almost_integers
 GS......... Higher-order_functions
-.......D..U Hilbert_curve
+.......D... Hilbert_curve
 GS..T.F.... Hilbert_curve-1
 GS..T.F.... Hilbert_curve-2
 GS......... History_variables
@@ -606,7 +607,7 @@ GS...R..... Knight%27s_tour
 GS...R..... Knuth%27s_algorithm_S
 GS......... Knuth%27s_power_tree
 GS...R..... Knuth_shuffle
-GS..T.FD..U Koch_curve
+GS..T.FD... Koch_curve
 B.........U Kolakoski_sequence
 .......D.VU Kosaraju
 GS......... Kronecker_product
@@ -819,9 +820,9 @@ GS..T...... Pathological_floating_point_problems-1
 GS..T...... Pathological_floating_point_problems-2
 GS......... Pathological_floating_point_problems-3
 GS...R..... Pattern_matching
-GS..T.FD..U Peano_curve
+GS..T.FD... Peano_curve
 G.KI.R..... Penney%27s_game
-GS..T.FD..U Penrose_tiling
+GS..T.FD... Penrose_tiling
 GS..T.F.... Pentagram
 .......D.VU Pentomino_tiling
 .........VU Percentage_difference_between_images
@@ -1259,7 +1260,7 @@ GS..T...... Vigen%C3%A8re_cipher
 .........VU Vigen%C3%A8re_cipher_Cryptanalysis
 GS......... Visualize_a_tree
 .........VU Vogel%27s_approximation_method
-.........VU Voronoi_diagram
+B...TRF...U Voronoi_diagram
 GS..T...... Walk_a_directory_Non-recursively
 GS..T...... Walk_a_directory_Recursively
 GS......... Water_collected_between_towers
