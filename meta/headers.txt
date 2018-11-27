@@ -1375,6 +1375,12 @@ File: C/Cut_a_rectangle
 #c# 2018-07-26 <RC
 #p# OK
 
+File: C/Cycle_detection
+#!/usr/local/bin/perl
+#u# http://rosettacode.org/wiki/Cycle_detection
+#c# 2018-11-26 >RC
+#p# OK
+
 File: D/DNS_query
 #!/usr/local/bin/perl
 #u# http://rosettacode.org/wiki/DNS_query
@@ -1490,8 +1496,8 @@ File: D/Delete_a_file
 File: D/Deming%27s_Funnel
 #!/usr/local/bin/perl
 #u# http://rosettacode.org/wiki/Deming%27s_Funnel
-#c# 2018-11-22 >RC
-#p# BROKEN
+#c# 2018-11-26 >RC
+#p# OK
 
 File: D/Department_Numbers
 #!/usr/local/bin/perl
@@ -6631,6 +6637,13 @@ File: V/Visualize_a_tree
 #u# http://rosettacode.org/wiki/Visualize_a_tree
 #c# 2018-08-06 <RC
 #p# OK
+
+File: V/Voronoi_diagram
+#!/usr/local/bin/perl
+#u# http://rosettacode.org/wiki/RC_REMOTE
+#c# 2018-11-RC >RC
+#p# BROKEN
+#f# RC file: voronoi-Euclidean-perl6.png
 
 File: W/Walk_a_directory_Non-recursively
 #!/usr/local/bin/perl
