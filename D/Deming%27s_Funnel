@@ -1,21 +1,11 @@
 #!/usr/local/bin/perl
 #u# http://rosettacode.org/wiki/Deming%27s_Funnel
-#c# 2018-11-22 >RC
-#p# BROKEN
+#c# 2018-11-26 >RC
+#p# OK
 
 use feature 'say';
-use warnings;
-use strict 'vars';
-
-use Math::Complex;
-use List::Util qw(sum);
-
-my @res;
-
-sub mean   { sum(@_) / @_ }
-sub stddev { sqrt( mean(map { $_**2 } @_) - mean(@_)**2) }
  
-my @re = qw<
+@dx = qw<
     -0.533  0.270  0.859 -0.043 -0.205 -0.127 -0.071  0.275
      1.251 -0.231 -0.401  0.269  0.491  0.951  1.150  0.001
     -0.382  0.161  0.915  2.080 -2.337  0.034 -0.126  0.014
@@ -29,7 +19,8 @@ my @re = qw<
      0.024 -0.386  0.962  0.765 -0.125 -0.289  0.521  0.017
      0.281 -0.749 -0.149 -2.436 -0.909  0.394 -0.113 -0.598
      0.443 -0.521 -0.799  0.087>;
-my @im = qw<
+
+@dy = qw<
      0.136  0.717  0.459 -0.225  1.392  0.385  0.121 -0.395
      0.490 -0.682 -0.065  0.242 -0.288  0.658  0.459  0.000
      0.426  0.205 -0.765 -2.188 -0.742 -0.010  0.089  0.208
@@ -44,64 +35,46 @@ my @im = qw<
      1.537 -0.901  0.939 -0.411  0.341 -0.411  0.106  0.224
     -0.947 -1.424 -0.542 -1.032>;
 
-__END__
+sub mean   { my $s; $s += $_ for @_; $s / @_ }
+sub stddev { sqrt( mean(map { $_**2 } @_) - mean(@_)**2) }
 
-my @rule = 
--> \z, \dz { 0 },
--> \z, \dz { -dz },
--> \z, \dz { -z - dz },
--> \z, \dz {  z + dz },
-;
+@rule = (
+sub { 0 },
+sub { -$_[1] },
+sub { -$_[0] - $_[1] },
+sub {  $_[0] + $_[1] }
+);
  
-my @res;
+for (@rule) {
+    push @res, "Rule " . ++$cnt;
 
-for @rule {
-    my $r = "Rule {++state $ }:";
-    my $target = 0i;
-    my @z;
-    for my $dzz (@dz) {
-        push @z, $target + $dz;
-        $target = .($target, $dz)
-    }
-    push @res, sprintf "Mean    x, y   : %7.4f %7.4f",   mean(get_re(@z)),   mean(get_im(@z));
-    push @res, sprintf "Std dev x, y   : %7.4f %7.4f", stddev(get_re(@z)), stddev(get_im(@z));
+    my @ddx; my $tx = 0;
+    for my $x (@dx) { push @ddx, $tx + $x; $tx = &$_($tx, $x) }
+    my @ddy; my $ty = 0;
+    for my $y (@dy) { push @ddy, $ty + $y; $ty = &$_($ty, $y) }
 
-}
-
-sub get_re {
-    my(@z) = @_;
-    my @zr = map { $_->Re } @z;
-    @zr;
-}
-
-sub get_im {
-    my(@z) = @_;
-    my @zi = map { $_->Im } @z;
-    @zr;
+    push @res, sprintf "Mean    x, y   : %7.4f %7.4f",   mean(@ddx),   mean(@ddy);
+    push @res, sprintf "Std dev x, y   : %7.4f %7.4f", stddev(@ddx), stddev(@ddy);
 }
 
 say $result = join "\n", @res;
 
 my $ref = <<'EOD';
-Mean    x, y   : 0.0004 0.0702
-Std dev x, y   : 0.7153 0.6462
-Mean    x, y   : 0.0009 -0.0103
-Std dev x, y   : 1.0371 0.8999
-Mean    x, y   : 0.0439 -0.0063
-Std dev x, y   : 7.9871 4.7784
-Mean    x, y   : 3.1341 5.4210
-Std dev x, y   : 1.5874 3.9304
+Rule 1
+Mean    x, y   :  0.0004  0.0702
+Std dev x, y   :  0.7153  0.6462
+Rule 2
+Mean    x, y   :  0.0009 -0.0103
+Std dev x, y   :  1.0371  0.8999
+Rule 3
+Mean    x, y   :  0.0439 -0.0063
+Std dev x, y   :  7.9871  4.7784
+Rule 4
+Mean    x, y   :  3.1341  5.4210
+Std dev x, y   :  1.5874  3.9304
 EOD
 
 use Test::More;
-#is($result, $ref);
-#done_testing();
-
-__END__
-
-=={{header|Perl}}==
-{{trans|Perl 6}}
-<lang perl></lang>
-{{out}}
-<pre style="height:35ex"></pre>
-[https://github.com/SqrtNegInf/Rosettacode-Perl5-Smoke/blob/master/ref/XXX XXX]
+chop $ref;
+is($result, $ref);
+done_testing();
