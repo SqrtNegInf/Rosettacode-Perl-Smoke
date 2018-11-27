@@ -35,7 +35,7 @@ for (split //, $penrose) {
     } elsif (/\[/) { push @stack, [$x, $y, $theta]
     } elsif (/\]/) { ($x, $y, $theta) = @{pop @stack} }
 }
-$svg .= $_ for keys %SVG;
+$svg .= $_ for sort keys %SVG;
 
 open  $fh, '>', 'run/penrose_tiling.svg';
 print $fh  qq{<svg xmlns="http://www.w3.org/2000/svg" height="350" width="350"> <rect height="100%" width="100%" style="fill:black" />\n$svg</svg>};
