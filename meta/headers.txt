@@ -6640,10 +6640,10 @@ File: V/Visualize_a_tree
 
 File: V/Voronoi_diagram
 #!/usr/local/bin/perl
-#u# http://rosettacode.org/wiki/RC_REMOTE
-#c# 2018-11-RC >RC
-#p# BROKEN
-#f# RC file: voronoi-Euclidean-perl6.png
+#u# http://rosettacode.org/wiki/Voronoi_diagram
+#c# 2018-11-27 >RC
+#p# OK
+#f# RC file: voronoi-Euclidean.png
 
 File: W/Walk_a_directory_Non-recursively
 #!/usr/local/bin/perl
