@@ -1462,8 +1462,8 @@ File: D/Deconvolution_1D
 
 File: D/Deconvolution_2D%2B
 #!/usr/local/bin/perl
-#u# http://rosettacode.org/wiki/Deconvolution/1D
-#c# 2018-11-13 >RC
+#u# http://rosettacode.org/wiki/Deconvolution/2D%2B
+#c# 2018-11-28 >RC
 #p# OK
 
 File: D/Deepcopy
@@ -2920,6 +2920,13 @@ File: I/Idiomatically_determine_all_the_lowercase_and_uppercase_letters
 #!/usr/local/bin/perl
 #u# http://rosettacode.org/wiki/Idiomatically_determine_all_the_lowercase_and_uppercase_letters
 #c# 2018-09-15 >RC
+#p# OK
+
+File: I/Image_noise
+#!/usr/local/bin/perl # do-not-check
+#u# http://rosettacode.org/wiki/Image_noise
+#t# interactive
+#c# 2018-11-28 >RC
 #p# OK
 
 File: I/Imaginary_base_numbers
@@ -4666,6 +4673,12 @@ File: P/Prime_decomposition-4
 #c# 2018-08-20 <RC
 #p# BROKEN
 #n# Math::Pari 'factorint' produces unreliable results? cf 'Count_in_factors-2'
+
+File: P/Primes_-_allocate_descendants_to_their_ancestors
+#!/usr/local/bin/perl
+#u# http://rosettacode.org/wiki/Primes_-_allocate_descendants_to_their_ancestors
+#c# 2018-11-29 >RC
+#p# BROKEN
 
 File: P/Primorial_numbers
 #!/usr/local/bin/perl
