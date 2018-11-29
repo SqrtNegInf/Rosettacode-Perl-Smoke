@@ -1,17 +1,17 @@
 
 This is perl 5, version 28, subversion 0 (v5.28.0) built for darwin-thread-multi-2level
 updating from RC…
-+------------> Perl: Good/Bad [1049/17]
++------------> Perl: Good/Bad [1050/18]
 |+-----------> Smoke testing []
-||+----------> sKipping validation [148]
-|||+---------> Interactive [56]
-||||+--------> Touched (modified by me) [195]
+||+----------> sKipping validation [149]
+|||+---------> Interactive [57]
+||||+--------> Touched (modified by me) [197]
 |||||+-------> Random seed [78]
 ||||||+------> File output [56]
 |||||||+-----> Draft [215]
 ||||||||+----> Ignoring [36]
-|||||||||+---> Void (no local copy) [212]
-||||||||||+--> Un-implemented/reliable [199]
+|||||||||+---> Void (no local copy) [210]
+||||||||||+--> Un-implemented/reliable [198]
 |||||||||||
 GS......... 100_doors-1
 GS......... 100_doors-2
@@ -555,7 +555,7 @@ GS......... Identity_matrix
 GS..T...... Idiomatically_determine_all_the_characters_that_can_be_used_for_symbols
 GS..T...... Idiomatically_determine_all_the_lowercase_and_uppercase_letters
 .........VU Image_convolution
-.........VU Image_noise
+G.KIT...... Image_noise
 B...T..D..U Imaginary_base_numbers
 G.K.T..D... Implicit_type_conversion
 G.K........ Include_a_file
@@ -884,7 +884,7 @@ GS......... Prime_decomposition-1
 GS......... Prime_decomposition-2
 GS......... Prime_decomposition-3
 B.......... Prime_decomposition-4
-.........VU Primes_-_allocate_descendants_to_their_ancestors
+B...T.....U Primes_-_allocate_descendants_to_their_ancestors
 GS......... Primorial_numbers
 GS......... Priority_queue
 GS...R..... Probabilistic_choice
