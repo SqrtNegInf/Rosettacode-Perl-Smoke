@@ -4678,7 +4678,7 @@ File: P/Primes_-_allocate_descendants_to_their_ancestors
 #!/usr/local/bin/perl
 #u# http://rosettacode.org/wiki/Primes_-_allocate_descendants_to_their_ancestors
 #c# 2018-11-29 >RC
-#p# BROKEN
+#p# OK
 
 File: P/Primorial_numbers
 #!/usr/local/bin/perl
