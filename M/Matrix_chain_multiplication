@@ -1,0 +1,65 @@
+#!/usr/local/bin/perl
+#u# http://rosettacode.org/wiki/Matrix_chain_multiplication
+#c# 2018-11-30 >RC
+#p# OK
+
+use feature 'say';
+
+my @res;
+
+sub matrix_mult_chaining {
+    my(@dimensions) = @_;
+    my(@cp,@path);
+
+    # a matrix never needs to be multiplied with itself, so it has cost 0
+    $cp[$_][$_] = 0 for keys @dimensions;
+ 
+    my $n = $#dimensions;
+    for my $chain_length (1..$n) {
+        for my $start (0 .. $n - $chain_length - 1) {
+            my $end = $start + $chain_length;
+            $cp[$end][$start] = 10e10;
+            for my $step ($start .. $end - 1) {
+                my $new_cost = $cp[$step][$start]
+                                + $cp[$end][$step + 1]
+                                + $dimensions[$start] * $dimensions[$step+1] * $dimensions[$end+1];
+                if ($new_cost < $cp[$end][$start]) {
+                    $cp[$end][$start] = $new_cost; # cost
+                    $cp[$start][$end] = $step;     # path
+                }
+            }
+       }
+    }
+
+    find_path(0, $n-1, @cp);
+}
+
+sub find_path { 
+    my($start,$end,@cp) = @_;
+    my $result;
+
+    if ($start == $end) {
+        $result .= 'A' . ($start + 1);
+    } else {
+        $result .= '(' .
+                   find_path($start, $cp[$start][$end], @cp) .
+                   find_path($cp[$start][$end] + 1, $end, @cp) .
+                   ')';
+    }
+    return $result;
+}
+
+push @res, matrix_mult_chaining(<1 5 25 30 100 70 2 1 100 250 1 1000 2>);
+push @res, matrix_mult_chaining(<1000 1 500 12 1 700 2500 3 2 5 14 10>);
+
+say my $result = join "\n", @res;
+
+my $ref = <<'EOD';
+((((((((A1A2)A3)A4)A5)A6)A7)(A8(A9A10)))(A11A12))
+(A1((((((A2A3)A4)(((A5A6)A7)A8))A9)A10)A11))
+EOD
+
+use Test::More;
+chop $ref;
+is($result, $ref);
+done_testing();
