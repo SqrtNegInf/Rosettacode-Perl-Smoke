@@ -1,6 +1,6 @@
 #!/usr/local/bin/perl
 #u# http://rosettacode.org/wiki/FizzBuzz
-#c# 2018-08-06 <RC
+#c# 2018-08-06 <RC, 2018-11-30 <RC
 #p# OK
 
 use feature 'say';
@@ -40,6 +40,13 @@ sub fizz_buzz {
 }
 $result2 = fizz_buzz;
 
+# by transforming a list:
+@FB1 = (1..100);
+@FB2 = map{!($_%3 or $_%5)?'FizzBuzz': $_}@FB1;
+@FB3 = map{(/\d/ and !($_%3))?'Fizz': $_}@FB2;
+@FB4 = map{(/\d/ and !($_%5))?'Buzz': $_}@FB3;
+$result6 = join "\n", @FB4;
+$result6 .= "\n";
 
 say $result; 
 
@@ -155,4 +162,5 @@ is ($result2, $ref);
 is ($result3, $ref);
 is ($result4, $ref);
 is ($result5, $ref);
+is ($result6, $ref);
 done_testing();
