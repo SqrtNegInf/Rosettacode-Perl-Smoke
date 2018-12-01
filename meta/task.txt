@@ -1,16 +1,17 @@
 
 This is perl 5, version 28, subversion 0 (v5.28.0) built for darwin-thread-multi-2level
-+------------> Perl: Good/Bad [1050/17]
+updating from RC…
++------------> Perl: Good/Bad [1050/18]
 |+-----------> Smoke testing []
 ||+----------> sKipping validation [149]
 |||+---------> Interactive [57]
-||||+--------> Touched (modified by me) [197]
+||||+--------> Touched (modified by me) [199]
 |||||+-------> Random seed [78]
 ||||||+------> File output [56]
-|||||||+-----> Draft [215]
+|||||||+-----> Draft [212]
 ||||||||+----> Ignoring [36]
-|||||||||+---> Void (no local copy) [210]
-||||||||||+--> Un-implemented/reliable [198]
+|||||||||+---> Void (no local copy) [209]
+||||||||||+--> Un-implemented/reliable [196]
 |||||||||||
 GS......... 100_doors-1
 GS......... 100_doors-2
@@ -50,7 +51,7 @@ GS......... Ackermann_function-4
 GS......... Ackermann_function-5
 ........XV. Active_Directory_Connect
 .........VU Active_Directory_Search_for_a_user
-GS......... Active_object
+!S......... Active_object
 GS......... Add_a_variable_to_a_class_instance_at_runtime
 .......D.VU Addition-chain_exponentiation
 .......D.VU Addition_chains
@@ -300,7 +301,7 @@ GS......... Death_Star
 B...T..D..U Decimal_floating_point_number_to_binary
 .......D.VU Decision_tables
 GS..T...... Deconvolution_1D
-GS..T.....U Deconvolution_2D%2B
+B...T.....U Deconvolution_2D%2B
 GS......... Deepcopy
 GS......... Define_a_primitive_data_type
 G.K........ Delegates
@@ -390,7 +391,7 @@ GS......... Extensible_prime_generator-4
 GS.....D... Extract_file_extension
 GS......... Extreme_floating_point_values
 GS......... FASTA_format
-GS......... FTP
+GS..T...... FTP
 GS......... Factorial-1
 GS......... Factorial-2
 GS......... Factorial-3
@@ -523,7 +524,6 @@ GS......... Heronian_triangles
 .......D.VU Hexapawn
 GS......... Hickerson_series_of_almost_integers
 GS......... Higher-order_functions
-.......D... Hilbert_curve
 GS..T.F.... Hilbert_curve-1
 GS..T.F.... Hilbert_curve-2
 GS......... History_variables
@@ -555,7 +555,7 @@ GS..T...... Idiomatically_determine_all_the_characters_that_can_be_used_for_symb
 GS..T...... Idiomatically_determine_all_the_lowercase_and_uppercase_letters
 .........VU Image_convolution
 G.KIT...... Image_noise
-B...T..D..U Imaginary_base_numbers
+B...T.....U Imaginary_base_numbers
 G.K.T..D... Implicit_type_conversion
 G.K........ Include_a_file
 GS......... Increment_a_numerical_string
@@ -688,7 +688,7 @@ GS......... Map_range
 GS..TR.D... Markov_chain_text_generator
 GS..TR.D... Mastermind
 GS......... Matrix-exponentiation_operator
-.........VU Matrix_chain_multiplication
+GS..T...... Matrix_chain_multiplication
 GS..T...... Matrix_multiplication
 GS......... Matrix_transposition
 GS......... Maximum_triangle_path_sum
@@ -819,7 +819,7 @@ GS..T...... Pathological_floating_point_problems-1
 GS..T...... Pathological_floating_point_problems-2
 GS......... Pathological_floating_point_problems-3
 GS...R..... Pattern_matching
-GS..T.FD... Peano_curve
+GS..T.F.... Peano_curve
 G.KI.R..... Penney%27s_game
 GS..T.FD... Penrose_tiling
 GS..T.F.... Pentagram
@@ -883,7 +883,7 @@ GS......... Prime_decomposition-1
 GS......... Prime_decomposition-2
 GS......... Prime_decomposition-3
 B.......... Prime_decomposition-4
-!S..T.....U Primes_-_allocate_descendants_to_their_ancestors
+GS..T...... Primes_-_allocate_descendants_to_their_ancestors
 GS......... Primorial_numbers
 GS......... Priority_queue
 GS...R..... Probabilistic_choice
