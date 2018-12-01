@@ -1463,8 +1463,8 @@ File: D/Deconvolution_1D
 File: D/Deconvolution_2D%2B
 #!/usr/local/bin/perl
 #u# http://rosettacode.org/wiki/Deconvolution/2D%2B
-#c# 2018-11-28 >RC
-#p# OK
+#c# 2018-12-01 >RC
+#p# BROKEN
 
 File: D/Deepcopy
 #!/usr/local/bin/perl
@@ -1980,6 +1980,13 @@ File: F/FASTA_format
 File: F/FTP
 #!/usr/local/bin/perl
 #u# http://rosettacode.org/wiki/FTP
+#c# 2018-07-31 <RC, 2018-11-30 >RC
+#p# OK
+#n# differs from what's on RC (this version easier to test)
+
+File: F/FTP.1
+#!/usr/local/bin/perl
+#u# http://rosettacode.org/wiki/FTP
 #c# 2018-07-31 <RC
 #p# OK
 
@@ -2260,7 +2267,7 @@ File: F/Fixed_length_records
 File: F/FizzBuzz
 #!/usr/local/bin/perl
 #u# http://rosettacode.org/wiki/FizzBuzz
-#c# 2018-08-06 <RC
+#c# 2018-08-06 <RC, 2018-11-30 <RC
 #p# OK
 
 File: F/Flatten_a_list
@@ -3661,6 +3668,12 @@ File: M/Matrix-exponentiation_operator
 #!/usr/local/bin/perl
 #u# http://rosettacode.org/wiki/Matrix-exponentiation_operator
 #c# 2018-08-18 <RC
+#p# OK
+
+File: M/Matrix_chain_multiplication
+#!/usr/local/bin/perl
+#u# http://rosettacode.org/wiki/Matrix_chain_multiplication
+#c# 2018-11-30 >RC
 #p# OK
 
 File: M/Matrix_multiplication
