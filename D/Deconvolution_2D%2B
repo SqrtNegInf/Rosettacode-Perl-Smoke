@@ -17,10 +17,10 @@ sub deconvolve_N {
     my @dg = shape(@g);
     my @hsize;
     push @hsize, ($dg[$_] - $df[$_]) + 1 for 0..$#df;
-    say 'h ' . join ', ', @hsize; # = [2,3,4];
-exit;
 
-    my @toSolve = map { [row(@g, @f, $_, @hsize)] } coords(@g);
+    my @toSolve = map { [row(\@g, \@f, \[$_], \@hsize)] } coords(@g);
+use Data::Dumper ; say Dumper @toSolve;
+exit;
     my @solved = rref( @toSolve );
 
     my @h;
@@ -31,29 +31,37 @@ exit;
     return @h;
 }
 
-# Constructs an AoA of coordinates to all elements of N dimensional array
-sub coords { 
-    my(@x,@c);
-    my @dim = shape(@_);
-    push @x, [0..$_-1] for @dim;
-    forsetproduct { push @c, "@_" } @x;
-    @c;
+# Construct a row for each value in @g to be sent to the simultaneous equation solver
+sub row {
+    our @g;      local *g      = shift;
+    our @f;      local *f      = shift;
+    our @gcoord; local *gcoord = shift;
+    our @hsize;  local *hsize  = shift;
+    my @row;
+    my @fdim = shape(@f);
+    @gcoord = @gcoord[0..$#fdim]; # clip extraneous values
+    for my $hc (coords(@hsize)) {
+        my @fcoord;
+        for my $i (0..-1+@$hc) {
+            my $window = $gcoord[$i] - $hc[$i];
+            push @fcoord, $window and next if 0 <= $window < $fdim[$i];
+#say 'f'; say @row.perl;
+            last; 
+        }
+        push @row, @fcoord == @hc ? @f.AT-POS(|@fcoord) : 0;
+    }
+    push @row, @g.AT-POS(|@gcoord);
+#say 'g';  say @row.perl;
+    return @row;
 }
 
-
-# Pretty printer for N dimensional arrays
-# Assumes if first element in level is an array, then all are
-sub pretty_print {
-    my($i, @a) = @_;
-    if ('ARRAY' eq ref $a[0]) {
-        say ' 'x$i, '[';
-        pretty_print($i+2, @{$_}) for @a;
-        say ' 'x$i, ']', $i ? ',' : '';
-    } else {
-        say ' 'x$i, '[', say_it(@a), ']', $i ? ',' : '';
-    }
-
-    sub say_it { my $fmt = '%5s'x@_; sprintf $fmt, @_ }
+# Constructs an AoA of coordinates to all elements of N dimensional array
+sub coords { 
+    my @dimensions = shape(@_);
+    my(@ranges,@coords);
+    push @ranges, [0..$_-1] for @dimensions;
+    forsetproduct { push @coords, "@_" } @ranges;
+    @coords;
 }
 
 # transforms matrix to reduced row echelon form (takes an array reference)
@@ -84,12 +92,24 @@ sub rref {
       ++$lead;}
 }
 
-
 sub shape {
     my(@dim);
     push @dim, scalar @_;
     push @dim, shape(@{$_[0]}) if 'ARRAY' eq ref $_[0];
     @dim;
+}
+
+# Pretty printer for N dimensional arrays
+# Assumes if first element in level is an array, then all are
+sub pretty_print {
+    my($i, @a) = @_;
+    if ('ARRAY' eq ref $a[0]) {
+        say ' 'x$i, '[';
+        pretty_print($i+2, @$_) for @a;
+        say ' 'x$i, ']', $i ? ',' : '';
+    } else {
+        say ' 'x$i, '[', sprintf("@{['%5s'x@a]}",@a), ']', $i ? ',' : '';
+    }
 }
 
 my @f = (
@@ -157,24 +177,3 @@ use Test::More;
 #chop $ref;
 #is ($result, $ref);
 #done_testing();
-
-__END__
-
-# Construct a row for each value in @g to be sent to the simultaneous equation solver
-sub row ( @g, @f, @gcoord, $hsize ) {
-    my @row;
-    @gcoord = @gcoord[(^@f.shape)]; # clip extraneous values
-    for coords( $hsize ) -> @hc {
-        my @fcoord;
-        for ^@hc -> $i {
-            my $window = @gcoord[$i] - @hc[$i];
-            @fcoord.push($window) and next if 0 <= $window < @f.shape[$i];                   # > > vim kludge
-#say 'f'; say @row.perl;
-            last; 
-        }
-        @row.push: @fcoord == @hc ?? @f.AT-POS(|@fcoord) !! 0;
-    }
-    @row.push: @g.AT-POS(|@gcoord);
-#say 'g';  say @row.perl;
-    return @row;
-}
