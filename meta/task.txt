@@ -1,17 +1,17 @@
 
 This is perl 5, version 28, subversion 0 (v5.28.0) built for darwin-thread-multi-2level
 updating from RC…
-+------------> Perl: Good/Bad [1050/18]
++------------> Perl: Good/Bad [1051/17]
 |+-----------> Smoke testing []
 ||+----------> sKipping validation [149]
 |||+---------> Interactive [57]
-||||+--------> Touched (modified by me) [199]
+||||+--------> Touched (modified by me) [200]
 |||||+-------> Random seed [78]
 ||||||+------> File output [56]
 |||||||+-----> Draft [212]
 ||||||||+----> Ignoring [36]
 |||||||||+---> Void (no local copy) [209]
-||||||||||+--> Un-implemented/reliable [196]
+||||||||||+--> Un-implemented/reliable [195]
 |||||||||||
 GS......... 100_doors-1
 GS......... 100_doors-2
@@ -607,7 +607,7 @@ GS...R..... Knuth%27s_algorithm_S
 GS......... Knuth%27s_power_tree
 GS...R..... Knuth_shuffle
 GS..T.FD... Koch_curve
-B.........U Kolakoski_sequence
+GS..T...... Kolakoski_sequence
 .......D.VU Kosaraju
 GS......... Kronecker_product
 GS..T.F.... Kronecker_product_based_fractals
