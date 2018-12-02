@@ -3208,9 +3208,8 @@ File: K/Koch_curve
 File: K/Kolakoski_sequence
 #!/usr/local/bin/perl
 #u# http://rosettacode.org/wiki/Kolakoski_sequence
-#c# 2018-05-23 <RC
-#p# BROKEN
-#n# sub needs to be a generator?
+#c# 2018-12-01 >RC
+#p# OK
 
 File: K/Kronecker_product
 #!/usr/local/bin/perl
