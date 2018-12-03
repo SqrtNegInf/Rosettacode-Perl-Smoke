@@ -5,9 +5,9 @@ updating from RC…
 |+-----------> Smoke testing []
 ||+----------> sKipping validation [149]
 |||+---------> Interactive [57]
-||||+--------> Touched (modified by me) [200]
+||||+--------> Touched (modified by me) [201]
 |||||+-------> Random seed [78]
-||||||+------> File output [56]
+||||||+------> File output [55]
 |||||||+-----> Draft [212]
 ||||||||+----> Ignoring [36]
 |||||||||+---> Void (no local copy) [209]
@@ -251,7 +251,7 @@ GS......... Concurrent_computing-2
 G.K........ Conditional_structures
 GS......... Conjugate_transpose
 .........VU Constrained_genericity
-GS...RF.... Constrained_random_points_on_a_circle
+GS..TR..... Constrained_random_points_on_a_circle
 GS......... Continued_fraction
 GS......... Continued_fraction_Arithmetic_Construct_from_rational_number
 .......D.VU Continued_fraction_Arithmetic_Gmatrix_NG,_Contined_Fraction_N
