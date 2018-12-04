@@ -1206,7 +1206,7 @@ File: C/Conjugate_transpose
 File: C/Constrained_random_points_on_a_circle
 #!/usr/local/bin/perl
 #u# http://rosettacode.org/wiki/Constrained_random_points_on_a_circle
-#c# 2018-12-02 >RC
+#c# 2018-12-03 >RC
 #p# OK
 
 File: C/Continued_fraction
