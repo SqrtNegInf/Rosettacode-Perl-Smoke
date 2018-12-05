@@ -1,17 +1,17 @@
 
 This is perl 5, version 28, subversion 0 (v5.28.0) built for darwin-thread-multi-2level
 updating from RC…
-+------------> Perl: Good/Bad [1052/17]
++------------> Perl: Good/Bad [1053/17]
 |+-----------> Smoke testing []
 ||+----------> sKipping validation [149]
 |||+---------> Interactive [57]
-||||+--------> Touched (modified by me) [201]
+||||+--------> Touched (modified by me) [202]
 |||||+-------> Random seed [78]
-||||||+------> File output [55]
+||||||+------> File output [56]
 |||||||+-----> Draft [213]
 ||||||||+----> Ignoring [36]
-|||||||||+---> Void (no local copy) [210]
-||||||||||+--> Un-implemented/reliable [196]
+|||||||||+---> Void (no local copy) [209]
+||||||||||+--> Un-implemented/reliable [195]
 |||||||||||
 GS......... 100_doors-1
 GS......... 100_doors-2
@@ -282,7 +282,7 @@ GS......... Cumulative_standard_deviation-1
 GS......... Cumulative_standard_deviation-2
 GS..T...... Currency
 GS......... Currying
-.......D.VU Curve_that_touches_three_points
+GS..T.FD..U Curve_that_touches_three_points
 GS......... Cut_a_rectangle
 GS..T..D... Cycle_detection
 GS......... DNS_query
@@ -1131,7 +1131,7 @@ GS......... Strip_block_comments
 GS......... Strip_comments_from_a_string
 GS...R..... Strip_control_codes_and_extended_characters_from_a_string
 GS......... Strip_whitespace_from_a_string_Top_and_tail
-.......D.VU Strong_and_weak_primes
+.......D.V. Strong_and_weak_primes
 GS......... Subleq
 .......D... Subset_sum_problem
 GS......... Subset_sum_problem-1
