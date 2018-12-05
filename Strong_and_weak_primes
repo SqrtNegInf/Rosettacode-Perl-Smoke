@@ -1,6 +1,6 @@
 #!/usr/local/bin/perl
 #u# http://rosettacode.org/wiki/Strong_and_weak_primes
-#c# 2018-12-04 >RC
+#c# 2018-12-05 >RC
 #p# OK
 
 use feature 'say';
@@ -13,6 +13,8 @@ sub comma {
     $s =~ s/,(-?)$/$1/;
     $s = reverse $s;
 }
+
+sub below { my($m,@a) = @_; $c = 0; while () { return $c if $a[++$c] > $m } }
  
 my @primes = @{ primes(10_000_019) };
 
@@ -23,16 +25,14 @@ for $p (1 .. $#primes - 1) {
     else                     { push @balanced, $primes[$p] }
 }
 
-for ([\@strong,   'strong',   36, 1e6, 1e7], 
-     [\@weak,     'weak',     37, 1e6, 1e7],
-     [\@balanced, 'balanced', 28, 1e6, 1e7]) {
-    my($pr, $type, $d, $c1, $c2) = @$_;
+for ([\@strong,   'strong',   36], 
+     [\@weak,     'weak',     37],
+     [\@balanced, 'balanced', 28]) {
+    my($pr, $type, $d) = @$_;
     push @res, "\nFirst $d $type primes:", join ' ', map { comma $_ } @$pr[0..$d-1];
-    push @res, "Count of $type primes <=  @{[comma $c1]}:  " . comma below(1e6,@$pr); 
-    push @res, "Count of $type primes <= @{[comma $c2]}: "   . comma scalar @$pr;
+    push @res, "Count of $type primes <=  @{[comma 1e6]}:  " . comma below(1e6,@$pr); 
+    push @res, "Count of $type primes <= @{[comma 1e7]}: "   . comma scalar @$pr;
 }
-
-sub below { my($m,@a) = @_; $c = 0; while () { return $c if $a[++$c] > $m } }
 
 say $result = join "\n", @res;
 
@@ -58,48 +58,3 @@ use Test::More;
 chop $ref;
 is($result, $ref);
 done_testing();
-
-__END__
-
-=={{header|Perl}}==
-{{trans|Perl 6}}
-<lang perl>use ntheory qw(primes);
-
-sub comma {
-    (my $s = reverse shift) =~ s/(.{3})/$1,/g;
-    $s =~ s/,(-?)$/$1/;
-    $s = reverse $s;
-}
-
-my @primes = @{ primes(10_000_019) };
-
-for $p (1 .. $#primes - 1) {
-    $x = ($primes[$p - 1] + $primes[$p + 1]) / 2;
-    if    ($x > $primes[$p]) { push @weak,     $primes[$p] }
-    elsif ($x < $primes[$p]) { push @strong,   $primes[$p] }
-    else                     { push @balanced, $primes[$p] }
-}
-
-for ([\@strong,   'strong',   36, 1e6, 1e7],
-     [\@weak,     'weak',     37, 1e6, 1e7],
-     [\@balanced, 'balanced', 28, 1e6, 1e7]) {
-    my($pr, $type, $d, $c1, $c2) = @$_;
-    say "\nFirst $d $type primes:\n", join ' ', map { comma $_ } @$pr[0..$d-1];
-    say "Count of $type primes <=  @{[comma $c1]}:  " . comma below(1e6,@$pr);
-    say "Count of $type primes <= @{[comma $c2]}: "   . comma scalar @$pr;
-}
-
-sub below { my($m,@a) = @_; $c = 0; while () { return $c if $a[++$c] > $m } }</lang>
-{{out}}
-<pre>First 36 strong primes:
-11 17 29 37 41 59 67 71 79 97 101 107 127 137 149 163 179 191 197 223 227 239 251 269 277 281 307 311 331 347 367 379 397 419 431 439
-Count of strong primes <=  1,000,000:  37,723
-Count of strong primes <= 10,000,000: 320,991
-
-First 37 weak primes:
-3 7 13 19 23 31 43 47 61 73 83 89 103 109 113 131 139 151 167 181 193 199 229 233 241 271 283 293 313 317 337 349 353 359 383 389 401
-Count of weak primes <=  1,000,000:  37,780
-Count of weak primes <= 10,000,000: 321,750
-
-First 28 balanced primes:
-5 53 157 173 211 257 263 373 563 593 607 653 733 947 977 1,103 1,123 1,187 1,223 1,367 1,511 1,747 1,753 1,907 2,287 2,417 2,677 2,903</pre>
