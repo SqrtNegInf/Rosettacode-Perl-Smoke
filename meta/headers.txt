@@ -1368,6 +1368,15 @@ File: C/Currying
 #c# 2018-07-26 <RC
 #p# OK
 
+File: C/Curve_that_touches_three_points
+#!/usr/local/bin/perl
+#u# http://rosettacode.org/wiki/Curve_that_touches_three_points
+#c# 2018-12-04 >RC
+#t# graphical
+#p# OK
+#f# RC file: curve-3-points.svg
+#n# taking the piss...
+
 File: C/Cut_a_rectangle
 #!/usr/local/bin/perl
 #u# http://rosettacode.org/wiki/Cut_a_rectangle
