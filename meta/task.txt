@@ -1,17 +1,17 @@
 
 This is perl 5, version 28, subversion 0 (v5.28.0) built for darwin-thread-multi-2level
 updating from RC…
-+------------> Perl: Good/Bad [1053/17]
++------------> Perl: Good/Bad [1054/19]
 |+-----------> Smoke testing []
 ||+----------> sKipping validation [149]
 |||+---------> Interactive [57]
-||||+--------> Touched (modified by me) [202]
+||||+--------> Touched (modified by me) [205]
 |||||+-------> Random seed [78]
 ||||||+------> File output [56]
-|||||||+-----> Draft [213]
+|||||||+-----> Draft [215]
 ||||||||+----> Ignoring [36]
-|||||||||+---> Void (no local copy) [209]
-||||||||||+--> Un-implemented/reliable [195]
+|||||||||+---> Void (no local copy) [208]
+||||||||||+--> Un-implemented/reliable [196]
 |||||||||||
 GS......... 100_doors-1
 GS......... 100_doors-2
@@ -282,7 +282,7 @@ GS......... Cumulative_standard_deviation-1
 GS......... Cumulative_standard_deviation-2
 GS..T...... Currency
 GS......... Currying
-GS..T.FD..U Curve_that_touches_three_points
+GS..T.FD... Curve_that_touches_three_points
 GS......... Cut_a_rectangle
 GS..T..D... Cycle_detection
 GS......... DNS_query
@@ -832,6 +832,7 @@ GS...R..... Percolation_Mean_run_density
 .........VU Percolation_Site_percolation
 GS......... Perfect_numbers
 GS......... Perfect_shuffle
+B...T..D..U Perfect_totient_numbers
 GS.....D... Perlin_noise
 GS......... Permutation_test
 GS..T...... Permutations
@@ -1131,7 +1132,7 @@ GS......... Strip_block_comments
 GS......... Strip_comments_from_a_string
 GS...R..... Strip_control_codes_and_extended_characters_from_a_string
 GS......... Strip_whitespace_from_a_string_Top_and_tail
-.......D.V. Strong_and_weak_primes
+GS..T..D... Strong_and_weak_primes
 GS......... Subleq
 .......D... Subset_sum_problem
 GS......... Subset_sum_problem-1
@@ -1206,6 +1207,7 @@ GS......... Topological_sort
 B...T..D..U Topological_sort_Extracted_top_item
 GS......... Topswops
 .........VU Total_circles_area
+B...T..D..U Totient_function
 GS......... Towers_of_Hanoi
 GS..T...... Trabb_Pardo-Knuth_algorithm
 .......D.VU Transportation_problem
