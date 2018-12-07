@@ -1,33 +1,49 @@
 #!/usr/local/bin/perl
 #u# http://rosettacode.org/wiki/Perfect_totient_numbers
 #c# 2018-12-06 >RC
-#p# BROKEN
+#p# OK
 
 use feature 'say';
-use warnings;
-use strict 'vars';
 
-my @res;
+use utf8;
+use ntheory qw(euler_phi);
 
-# Works with: Rakudo version 2018.11
-#my \phi  = Nil, |(1..*).map: -> $t { +(^$t).grep: * gcd $t == 1 };
-#my \phiphi= Nil, |(2..*).grep: -> $p { $p == sum phi[$p], { phi[$_] } … 1 };
- 
-put "The first twenty Perfect totient numbers:\n",  my $result = phiphi[1..20];
+push @𝜑, 0;
+push @𝜑, euler_phi($_) for 1..10e3;
 
-my $ref = '3 9 15 27 39 81 111 183 243 255 327 363 471 729 2187 2199 3063 4359 4375 5571';
+sub phi_iter { my($p) = @_; return $𝜑[$p] + ($p == 2 ? 0 : phi_iter($𝜑[$p])) }
 
-#say $result; 
+for $p (3..10e3) {
+    push @perfect, $p if $p == phi_iter($p);
+    last if 20 == @perfect;
+} 
+
+printf "The first twenty perfect totient numbers:\n%s\n", my $result = join ' ', @perfect;
+
 my $ref = '3 9 15 27 39 81 111 183 243 255 327 363 471 729 2187 2199 3063 4359 4375 5571';
 
 use Test::More;
-#is($result, $ref);
-#done_testing();
+is($result, $ref);
+done_testing();
 
 __END__
 
 =={{header|Perl}}==
-<lang perl></lang>
+{{libheader|ntheory}}
+<lang perl>use utf8;
+use ntheory qw(euler_phi);
+
+push @𝜑, 0;
+push @𝜑, euler_phi($_) for 1..10e3;
+
+sub phi_iter { my($p) = @_; return $𝜑[$p] + ($p == 2 ? 0 : phi_iter($𝜑[$p])) }
+
+for $p (3..10e3) {
+    push @perfect, $p if $p == phi_iter($p);
+    last if 20 == @perfect;
+} 
+
+printf "The first twenty perfect totient numbers:\n%s\n", my $result = join ' ', @perfect;</lang>
 {{out}}
 <pre>The first twenty Perfect totient numbers:
 3 9 15 27 39 81 111 183 243 255 327 363 471 729 2187 2199 3063 4359 4375 5571</pre>
