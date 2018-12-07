@@ -1,17 +1,17 @@
 
 This is perl 5, version 28, subversion 0 (v5.28.0) built for darwin-thread-multi-2level
 updating from RC…
-+------------> Perl: Good/Bad [1054/19]
++------------> Perl: Good/Bad [1056/18]
 |+-----------> Smoke testing []
 ||+----------> sKipping validation [149]
 |||+---------> Interactive [57]
-||||+--------> Touched (modified by me) [205]
+||||+--------> Touched (modified by me) [206]
 |||||+-------> Random seed [78]
 ||||||+------> File output [56]
 |||||||+-----> Draft [215]
 ||||||||+----> Ignoring [36]
-|||||||||+---> Void (no local copy) [208]
-||||||||||+--> Un-implemented/reliable [196]
+|||||||||+---> Void (no local copy) [209]
+||||||||||+--> Un-implemented/reliable [197]
 |||||||||||
 GS......... 100_doors-1
 GS......... 100_doors-2
@@ -75,6 +75,7 @@ GS......... Anonymous_recursion-1
 GS......... Anonymous_recursion-2
 GS......... Anonymous_recursion-3
 B.......... Anonymous_recursion-4
+.......D.VU Anti-primes
 GS....F.... Append_a_record_to_the_end_of_a_text_file
 GS......... Apply_a_callback_to_an_array
 .........VU Apply_a_digital_filter_direct_form_II_transposed
@@ -779,7 +780,7 @@ GS......... Old_lady_swallowed_a_fly
 GS......... One-dimensional_cellular_automata
 .......D.VU One-time_pad
 GS...R..... One_of_n_lines_in_a_file
-G.KI....... OpenGL-1
+B.KI....... OpenGL-1
 B.KI....... OpenGL-2
 .......D.VU OpenGL_Pixel_Shader
 .......D.VU OpenGL_Utah_Teapot
@@ -832,7 +833,7 @@ GS...R..... Percolation_Mean_run_density
 .........VU Percolation_Site_percolation
 GS......... Perfect_numbers
 GS......... Perfect_shuffle
-B...T..D..U Perfect_totient_numbers
+GS..T..D..U Perfect_totient_numbers
 GS.....D... Perlin_noise
 GS......... Permutation_test
 GS..T...... Permutations
@@ -1207,7 +1208,9 @@ GS......... Topological_sort
 B...T..D..U Topological_sort_Extracted_top_item
 GS......... Topswops
 .........VU Total_circles_area
-B...T..D..U Totient_function
+..........U Totient_function
+GS..T...... Totient_function-1
+GS..T...... Totient_function-2
 GS......... Towers_of_Hanoi
 GS..T...... Trabb_Pardo-Knuth_algorithm
 .......D.VU Transportation_problem
