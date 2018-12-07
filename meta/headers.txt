@@ -4140,11 +4140,12 @@ File: O/One_of_n_lines_in_a_file
 #p# OK
 
 File: O/OpenGL-1
-#!/usr/local/bin/perl
+#!/usr/local/bin/perl do-not-check
 #u# http://rosettacode.org/wiki/OpenGL
 #t# interactive
 #c# 2018-08-20 <RC
-#p# OK
+#p# BROKEN
+#n# proper libraries no longer present?  MacPorts issue?
 
 File: O/OpenGL-2
 #!/usr/local/bin/perl
@@ -4396,7 +4397,7 @@ File: P/Perfect_totient_numbers
 #!/usr/local/bin/perl
 #u# http://rosettacode.org/wiki/Perfect_totient_numbers
 #c# 2018-12-06 >RC
-#p# BROKEN
+#p# OK
 
 File: P/Perlin_noise
 #!/usr/local/bin/perl
@@ -6422,11 +6423,18 @@ File: T/Topswops
 #c# 2018-08-09 <RC
 #p# OK
 
-File: T/Totient_function
+File: T/Totient_function-1
 #!/usr/local/bin/perl
 #u# http://rosettacode.org/wiki/Totient_function
 #c# 2018-12-06 >RC
-#p# BROKEN
+#p# OK
+#n# but see -2 variant for ntheory/speed
+
+File: T/Totient_function-2
+#!/usr/local/bin/perl
+#u# http://rosettacode.org/wiki/Totient_function
+#c# 2018-12-06 >RC
+#p# OK
 
 File: T/Towers_of_Hanoi
 #!/usr/local/bin/perl
