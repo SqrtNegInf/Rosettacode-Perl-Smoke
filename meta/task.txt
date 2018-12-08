@@ -5,10 +5,10 @@ updating from RC…
 |+-----------> Smoke testing []
 ||+----------> sKipping validation [149]
 |||+---------> Interactive [57]
-||||+--------> Touched (modified by me) [206]
+||||+--------> Touched (modified by me) [207]
 |||||+-------> Random seed [78]
 ||||||+------> File output [56]
-|||||||+-----> Draft [215]
+|||||||+-----> Draft [216]
 ||||||||+----> Ignoring [36]
 |||||||||+---> Void (no local copy) [209]
 ||||||||||+--> Un-implemented/reliable [197]
@@ -51,7 +51,7 @@ GS......... Ackermann_function-4
 GS......... Ackermann_function-5
 ........XV. Active_Directory_Connect
 .........VU Active_Directory_Search_for_a_user
-GS......... Active_object
+!S......... Active_object
 GS......... Add_a_variable_to_a_class_instance_at_runtime
 .......D.VU Addition-chain_exponentiation
 .......D.VU Addition_chains
@@ -397,6 +397,7 @@ GS......... Factorial-1
 GS......... Factorial-2
 GS......... Factorial-3
 GS......... Factorial-4
+.......D.VU Factorial_base_numbers_indexing_permutations_of_a_collection
 GS......... Factors_of_a_Mersenne_number-1
 GS......... Factors_of_a_Mersenne_number-2
 GS......... Factors_of_an_integer-1
@@ -825,7 +826,7 @@ G.KI.R..... Penney%27s_game
 GS..T.FD... Penrose_tiling
 GS..T.F.... Pentagram
 .......D.VU Pentomino_tiling
-.........VU Percentage_difference_between_images
+GS..T...... Percentage_difference_between_images
 .......D.VU Perceptron
 .........VU Percolation_Bond_percolation
 .........VU Percolation_Mean_cluster_density
