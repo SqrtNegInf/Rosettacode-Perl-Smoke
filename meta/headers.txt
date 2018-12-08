@@ -4375,6 +4375,12 @@ File: P/Pentagram
 #p# OK
 #f# RC file: pentagram.svg
 
+File: P/Percentage_difference_between_images
+#!/usr/local/bin/perl
+#u# http://rosettacode.org/wiki/Percentage_difference_between_images
+#c# 2018-12-RC >RC
+#p# OK
+
 File: P/Percolation_Mean_run_density
 #!/usr/local/bin/perl
 #u# http://rosettacode.org/wiki/Percolation/Mean_run_density
