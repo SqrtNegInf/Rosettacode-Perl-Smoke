@@ -4375,10 +4375,16 @@ File: P/Pentagram
 #p# OK
 #f# RC file: pentagram.svg
 
-File: P/Percentage_difference_between_images
+File: P/Percentage_difference_between_images-1
 #!/usr/local/bin/perl
 #u# http://rosettacode.org/wiki/Percentage_difference_between_images
-#c# 2018-12-RC >RC
+#c# 2018-12-07 >RC
+#p# OK
+
+File: P/Percentage_difference_between_images-2
+#!/usr/local/bin/perl
+#u# http://rosettacode.org/wiki/Percentage_difference_between_images
+#c# 2018-12-08 <RC
 #p# OK
 
 File: P/Percolation_Mean_run_density
@@ -4402,8 +4408,9 @@ File: P/Perfect_shuffle
 File: P/Perfect_totient_numbers
 #!/usr/local/bin/perl
 #u# http://rosettacode.org/wiki/Perfect_totient_numbers
-#c# 2018-12-06 >RC
+#c# 2018-12-07 >RC
 #p# OK
+#n# RC version tweaked by Trizen, but essentially the same
 
 File: P/Perlin_noise
 #!/usr/local/bin/perl
