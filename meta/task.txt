@@ -1,17 +1,17 @@
 
 This is perl 5, version 28, subversion 0 (v5.28.0) built for darwin-thread-multi-2level
 updating from RC…
-+------------> Perl: Good/Bad [1058/18]
++------------> Perl: Good/Bad [1057/18]
 |+-----------> Smoke testing []
 ||+----------> sKipping validation [149]
 |||+---------> Interactive [57]
 ||||+--------> Touched (modified by me) [207]
 |||||+-------> Random seed [78]
 ||||||+------> File output [56]
-|||||||+-----> Draft [213]
+|||||||+-----> Draft [214]
 ||||||||+----> Ignoring [36]
-|||||||||+---> Void (no local copy) [209]
-||||||||||+--> Un-implemented/reliable [196]
+|||||||||+---> Void (no local copy) [210]
+||||||||||+--> Un-implemented/reliable [197]
 |||||||||||
 GS......... 100_doors-1
 GS......... 100_doors-2
@@ -51,7 +51,7 @@ GS......... Ackermann_function-4
 GS......... Ackermann_function-5
 ........XV. Active_Directory_Connect
 .........VU Active_Directory_Search_for_a_user
-GS......... Active_object
+!S......... Active_object
 GS......... Add_a_variable_to_a_class_instance_at_runtime
 .......D.VU Addition-chain_exponentiation
 .......D.VU Addition_chains
@@ -121,6 +121,7 @@ GS......... Balanced_ternary
 .......D.VU Banker%27s_algorithm
 GS...RF.... Barnsley_fern
 GS..T..D... Base58Check_encoding
+.......D.VU Base64_decode_data
 GS.....D... Base64_encode_data
 GS......... Benford%27s_law
 GS......... Bernoulli_numbers-1
