@@ -42,14 +42,14 @@ sub totient {
 } 
 
 push @𝜑, 0;
-for $t (1..100) {
-    push @x, totient($t);
+for $t (1..10000) {
+    #push @x, totient($t);
     push @𝜑, scalar grep { 1 == gcd($_,$t) } 1..$t;
 }
 
 say join ' ', @𝜑[0..20];
-say join ' ', @x[0..20];
-exit;
+#say join ' ', @x[0..20];
+#exit;
 
 push @res, sprintf "𝜑(%2d) = %3d%s", $_, $𝜑[$_], $_ - $𝜑[$_] - 1 ? '' : ' Prime' for 1 .. 25;
  
@@ -58,7 +58,7 @@ for $limit (100, 1000, 10000) {
 }
 
 say $result = join "\n", @res;
-exit;
+#exit;
 
 my $ref = <<'EOD';
 𝜑( 1) =   1
