@@ -1,0 +1,27 @@
+#!/usr/local/bin/perl
+#u# http://rosettacode.org/wiki/Anti-primes
+#c# 2018-12-10 <RC
+#p# OK
+
+use feature 'say';
+
+use ntheory qw(divisors);
+
+my @anti_primes;
+
+for (my ($k, $m) = (1, 0) ; @anti_primes < 20 ; ++$k) {
+    my $sigma0 = divisors($k);
+
+    if ($sigma0 > $m) {
+        $m = $sigma0;
+        push @anti_primes, $k;
+    }
+}
+
+say $result = sprintf("%s", join(' ', @anti_primes));
+
+my $ref = '1 2 4 6 12 24 36 48 60 120 180 240 360 720 840 1260 1680 2520 5040 7560';
+
+use Test::More;
+is ($result, $ref);
+done_testing();
