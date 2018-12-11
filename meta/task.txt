@@ -1,17 +1,17 @@
 
 This is perl 5, version 28, subversion 0 (v5.28.0) built for darwin-thread-multi-2level
 updating from RC…
-+------------> Perl: Good/Bad [1057/18]
++------------> Perl: Good/Bad [1058/18]
 |+-----------> Smoke testing []
 ||+----------> sKipping validation [149]
 |||+---------> Interactive [57]
 ||||+--------> Touched (modified by me) [207]
 |||||+-------> Random seed [78]
 ||||||+------> File output [56]
-|||||||+-----> Draft [214]
+|||||||+-----> Draft [213]
 ||||||||+----> Ignoring [36]
 |||||||||+---> Void (no local copy) [210]
-||||||||||+--> Un-implemented/reliable [197]
+||||||||||+--> Un-implemented/reliable [196]
 |||||||||||
 GS......... 100_doors-1
 GS......... 100_doors-2
@@ -51,7 +51,7 @@ GS......... Ackermann_function-4
 GS......... Ackermann_function-5
 ........XV. Active_Directory_Connect
 .........VU Active_Directory_Search_for_a_user
-!S......... Active_object
+GS......... Active_object
 GS......... Add_a_variable_to_a_class_instance_at_runtime
 .......D.VU Addition-chain_exponentiation
 .......D.VU Addition_chains
@@ -75,7 +75,7 @@ GS......... Anonymous_recursion-1
 GS......... Anonymous_recursion-2
 GS......... Anonymous_recursion-3
 B.......... Anonymous_recursion-4
-.........VU Anti-primes
+.........V. Anti-primes
 GS....F.... Append_a_record_to_the_end_of_a_text_file
 GS......... Apply_a_callback_to_an_array
 .........VU Apply_a_digital_filter_direct_form_II_transposed
@@ -398,7 +398,7 @@ GS......... Factorial-1
 GS......... Factorial-2
 GS......... Factorial-3
 GS......... Factorial-4
-.......D.VU Factorial_base_numbers_indexing_permutations_of_a_collection
+.........VU Factorial_base_numbers_indexing_permutations_of_a_collection
 GS......... Factors_of_a_Mersenne_number-1
 GS......... Factors_of_a_Mersenne_number-2
 GS......... Factors_of_an_integer-1
