@@ -8,10 +8,10 @@ updating from RC…
 ||||+--------> Touched (modified by me) [207]
 |||||+-------> Random seed [78]
 ||||||+------> File output [56]
-|||||||+-----> Draft [213]
+|||||||+-----> Draft [214]
 ||||||||+----> Ignoring [36]
-|||||||||+---> Void (no local copy) [210]
-||||||||||+--> Un-implemented/reliable [196]
+|||||||||+---> Void (no local copy) [211]
+||||||||||+--> Un-implemented/reliable [197]
 |||||||||||
 GS......... 100_doors-1
 GS......... 100_doors-2
@@ -691,6 +691,7 @@ GS......... Map_range
 GS..TR.D... Markov_chain_text_generator
 GS..TR.D... Mastermind
 GS......... Matrix-exponentiation_operator
+.......D.VU Matrix_Digital_Rain
 GS..T...... Matrix_chain_multiplication
 GS..T...... Matrix_multiplication
 GS......... Matrix_transposition
