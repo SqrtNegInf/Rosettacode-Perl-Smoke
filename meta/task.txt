@@ -1,17 +1,17 @@
 
 This is perl 5, version 28, subversion 0 (v5.28.0) built for darwin-thread-multi-2level
 updating from RC…
-+------------> Perl: Good/Bad [1057/18]
++------------> Perl: Good/Bad [1059/18]
 |+-----------> Smoke testing []
-||+----------> sKipping validation [149]
-|||+---------> Interactive [57]
+||+----------> sKipping validation [150]
+|||+---------> Interactive [58]
 ||||+--------> Touched (modified by me) [207]
 |||||+-------> Random seed [78]
 ||||||+------> File output [56]
 |||||||+-----> Draft [214]
 ||||||||+----> Ignoring [36]
-|||||||||+---> Void (no local copy) [211]
-||||||||||+--> Un-implemented/reliable [197]
+|||||||||+---> Void (no local copy) [210]
+||||||||||+--> Un-implemented/reliable [196]
 |||||||||||
 GS......... 100_doors-1
 GS......... 100_doors-2
@@ -51,7 +51,7 @@ GS......... Ackermann_function-4
 GS......... Ackermann_function-5
 ........XV. Active_Directory_Connect
 .........VU Active_Directory_Search_for_a_user
-!S......... Active_object
+GS......... Active_object
 GS......... Add_a_variable_to_a_class_instance_at_runtime
 .......D.VU Addition-chain_exponentiation
 .......D.VU Addition_chains
@@ -691,7 +691,7 @@ GS......... Map_range
 GS..TR.D... Markov_chain_text_generator
 GS..TR.D... Mastermind
 GS......... Matrix-exponentiation_operator
-.......D.VU Matrix_Digital_Rain
+G.KI...D... Matrix_Digital_Rain
 GS..T...... Matrix_chain_multiplication
 GS..T...... Matrix_multiplication
 GS......... Matrix_transposition
