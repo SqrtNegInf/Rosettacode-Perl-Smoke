@@ -3684,6 +3684,13 @@ File: M/Matrix-exponentiation_operator
 #c# 2018-08-18 <RC
 #p# OK
 
+File: M/Matrix_Digital_Rain
+#!/usr/local/bin/perl
+#u# http://rosettacode.org/wiki/Matrix_Digital_Rain
+#t# interactive
+#c# 2018-12-20 <RC
+#p# OK
+
 File: M/Matrix_chain_multiplication
 #!/usr/local/bin/perl
 #u# http://rosettacode.org/wiki/Matrix_chain_multiplication
@@ -4206,6 +4213,12 @@ File: O/Ordered_words
 #p# OK
 
 File: P/P-value_correction
+#!/usr/local/bin/perl
+#u# http://rosettacode.org/wiki/P-value_correction
+#c# 2018-08-20 <RC, 2018-12-20 <RC,
+#p# OK
+
+File: P/P-value_correction.1
 #!/usr/local/bin/perl
 #u# http://rosettacode.org/wiki/P-value_correction
 #c# 2018-08-20 <RC
