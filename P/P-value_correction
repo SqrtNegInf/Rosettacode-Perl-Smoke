@@ -1,6 +1,6 @@
 #!/usr/local/bin/perl
 #u# http://rosettacode.org/wiki/P-value_correction
-#c# 2018-08-20 <RC
+#c# 2018-08-20 <RC, 2018-12-20 <RC,
 #p# OK
 
 use feature 'say';
@@ -9,24 +9,6 @@ my $result;
 # Translation of: C
 # This work is based on R source code covered by the GPL license. It is thus a modified version, also covered by the GPL. See the FAQ about GNU licenses.
 
-use strict; use warnings;
-use Cwd 'getcwd';
-my $TOP_DIRECTORY = getcwd();
-
-sub log_error_and_die {
-    my $error = shift;
-#https://codereview.stackexchange.com/questions/182010/parallel-processing-in-different-directories-in-perl?noredirect=1#comment345753_182010
-    my $fail_filename = "$TOP_DIRECTORY/$0.FAIL";
-    open my $fh, '>', $fail_filename or die "Can't write $fail_filename: $!";
-    print $fh $error;
-
-    die $error;
-}
-
-local $SIG{__WARN__} = sub {
-    my $message = shift;
-    log_error_and_die( sprintf( '%s @ %s', $message, getcwd() ) );
-};
 sub pmin {
 	my $array_ref = shift;
 	my $x = 1;
