@@ -1,7 +1,7 @@
 
 This is perl 5, version 28, subversion 0 (v5.28.0) built for darwin-thread-multi-2level
 updating from RC…
-+------------> Perl: Good/Bad [1058/18]
++------------> Perl: Good/Bad [1057/18]
 |+-----------> Smoke testing []
 ||+----------> sKipping validation [150]
 |||+---------> Interactive [58]
@@ -921,7 +921,7 @@ GS...R..... Random_numbers
 GS......... Range_expansion
 GS..T...... Range_extraction
 GS..T...... Ranking_methods
-GS......... Rate_counter
+!S......... Rate_counter
 GS......... Ray-casting_algorithm
 GS......... Read_a_configuration_file
 GS.....D... Read_a_file_character_by_character_UTF8
