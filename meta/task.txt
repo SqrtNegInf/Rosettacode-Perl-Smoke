@@ -921,7 +921,7 @@ GS...R..... Random_numbers
 GS......... Range_expansion
 GS..T...... Range_extraction
 GS..T...... Ranking_methods
-G.......... Rate_counter
+GS......... Rate_counter
 GS......... Ray-casting_algorithm
 GS......... Read_a_configuration_file
 GS.....D... Read_a_file_character_by_character_UTF8
