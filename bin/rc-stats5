@@ -21,7 +21,7 @@ for my $d (reverse sort @dir) {
 exit unless defined $ARGV[1];
 
 print "\n==== BROKEN ====\n\n";
-print `grep 'BROKEN' [1-Z]* | $pcre -v '\\.\\d' | perl -npe 's/:.*//'`;
+print `grep 'BROKEN' [0-Z]/* | $pcre -v '\\.\\d' | perl -npe 's/:.*//'`;
 
 #####
 sub tally {
