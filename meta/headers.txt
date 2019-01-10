@@ -309,6 +309,12 @@ File: A/Anonymous_recursion-4
 #c# 2018-07-13 <RC
 #p# BROKEN
 
+File: A/Anti-primes
+#!/usr/local/bin/perl
+#u# http://rosettacode.org/wiki/Anti-primes
+#c# 2018-12-10 <RC
+#p# OK
+
 File: A/Append_a_record_to_the_end_of_a_text_file
 #!/usr/local/bin/perl
 #u# http://rosettacode.org/wiki/Append_a_record_to_the_end_of_a_text_file
