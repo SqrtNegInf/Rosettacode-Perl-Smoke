@@ -2,8 +2,6 @@
 ## automate routine git archive updates, and push changes to remote
 #  David H.  2018-06-01
 
-use feature 'say';
-
 chdir "$ENV{HOME}/perl5/Rosetta-Code";
 
 $git      = '/usr/bin/git';
