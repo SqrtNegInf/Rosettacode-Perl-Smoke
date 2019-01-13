@@ -21,7 +21,7 @@ diff task.txt~ task.txt
 cd ..
 
 # see how slow the usual suspects are
-bin/rc-timings bench/last | sort -r -n > meta/timings.txt
+bin/rc-timings5 bench/last | sort -r -n > meta/timings.txt
 head -10 meta/timings.txt
 
 # combine task headers for easy grep
