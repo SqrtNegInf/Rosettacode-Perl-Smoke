@@ -1,6 +1,5 @@
 #!/usr/local/bin/perl
 #u# http://rosettacode.org/wiki/Time_a_function
-#t# skiptest
 #c# 2018-08-10 <RC
 #p# OK
 
@@ -26,6 +25,9 @@ my $result = timethese(100000, {
     'fac1' => sub { fac1(50) },
     'fac2' => sub { fac2(50) },
 });
+$f1 = $$result{'fac1'}[0];
+$f2 = $$result{'fac2'}[0];
+
 Benchmark::cmpthese($result);
 
 # Benchmark: timing 100000 iterations of fac1, fac2...
@@ -50,8 +52,7 @@ sub time_it {
   $finishTime - $startTime
 }
 
-printf "Identity(4) takes %f seconds.\n", time_it(sub {@_}, 4);
-# outputs "Identity(4) takes 0.000000 seconds."
+printf "Identity(4) takes %f seconds.\n", my $t1 = time_it(sub {@_}, 4);
 
 sub sum {
   my $x = shift;
@@ -61,13 +62,14 @@ sub sum {
   $x
 }
 
-printf "Sum(4) takes %f seconds.\n", time_it(\&sum, 4);
-# outputs "Sum(4) takes 0.280000 seconds."
+printf "Sum(4) takes %f seconds.\n", my $t2 = time_it(\&sum, 4);
 
-#say $result; 
 my $ref = <<'EOD';
 EOD
 
 use Test::More;
-#is ($result, $ref);
-#done_testing();
+ok 2 <= $f1 && $f1 <= 9;
+ok 0 <= $f2 && $f2 <= 3;
+ok 0.0  <= $t1 && $t1 < 0.02;
+ok 0.01 <  $t2 && $t2 < 0.1;
+done_testing();
