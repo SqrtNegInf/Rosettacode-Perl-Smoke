@@ -3,7 +3,7 @@
 #c# 2018-11-24 >RC
 #t# graphical
 #p# OK
-#f# RC file: hilbert_curve.svg
+#f# RC file: moore_curve.svg
 
 use warnings;
 
