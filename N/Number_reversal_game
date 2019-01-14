@@ -1,8 +1,9 @@
 #!/usr/local/bin/perl
 #u# http://rosettacode.org/wiki/Number_reversal_game
-#t# interactive
 #c# 2018-08-20 <RC
 #p# OK
+
+srand 123456;
 
 use feature 'say';
 my $result;
@@ -16,11 +17,15 @@ while ( join('', @jumble) eq '123456789' ) {
     @jumble = shuffle 1..9;
 }
 
+@steps = qw<6 4 2 8 6 4 2 4>; # DH change
+
 until ( join('', @jumble) eq '123456789' ) {
     $turn++;
     printf "%2d: @jumble - Flip how many digits ? ", $turn;
 
-    my $d = <>;
+    #my $d = <>;
+    my $d = shift @steps; # DH change
+    
 
     @jumble[0..$d-1] = reverse @jumble[0..$d-1];
 }
