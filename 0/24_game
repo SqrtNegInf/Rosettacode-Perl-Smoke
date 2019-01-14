@@ -1,11 +1,10 @@
 #!/usr/local/bin/perl
 #u# http://rosettacode.org/wiki/24_game
-#t# interactive
 #c# 2018-07-04 <RC
 #p# OK
 
-use warnings;
-use strict;
+srand 123456;
+
 use feature 'say';
  
 print <<'EOF';
@@ -29,7 +28,7 @@ while (1) {
   say "\nYour four digits: ", join(" ", @digits);
   print "Expression (try ", $try++, "): ";
  
-  my $entry = <>;
+  my $entry = '9+7+6+2'; # <>;
   if (!defined $entry || $entry eq 'q') 
     { say "Goodbye.  Sorry you couldn't win."; last; }
   $entry =~ s/\s+//g;  # remove all white space
@@ -49,3 +48,5 @@ while (1) {
   elsif ($n == 24)    { say "You win!"; last; }
   else                { say "Sorry, your expression is $n, not 24"; }
 }
+
+say 'ok 1';
