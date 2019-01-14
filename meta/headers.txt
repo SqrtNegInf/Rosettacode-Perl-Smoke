@@ -52,7 +52,6 @@ File: 0/21_Game
 File: 0/24_game
 #!/usr/local/bin/perl
 #u# http://rosettacode.org/wiki/24_game
-#t# interactive
 #c# 2018-07-04 <RC
 #p# OK
 
@@ -2860,7 +2859,7 @@ File: H/Honeycombs
 
 File: H/Horizontal_sundial_calculations
 #!/usr/local/bin/perl
-#u# http://rosettacode.org/wiki/xx
+#u# http://rosettacode.org/wiki/Horizontal_sundial_calculations
 #c# 2018-09-09 >RC
 #p# OK
 
@@ -4081,7 +4080,6 @@ File: N/Number_names
 File: N/Number_reversal_game
 #!/usr/local/bin/perl
 #u# http://rosettacode.org/wiki/Number_reversal_game
-#t# interactive
 #c# 2018-08-20 <RC
 #p# OK
 
@@ -6401,7 +6399,6 @@ File: T/Tic-tac-toe
 File: T/Time_a_function
 #!/usr/local/bin/perl
 #u# http://rosettacode.org/wiki/Time_a_function
-#t# skiptest
 #c# 2018-08-10 <RC
 #p# OK
 
@@ -6713,7 +6710,7 @@ File: V/Verify_distribution_uniformity_Chi-squared_test
 
 File: V/Verify_distribution_uniformity_Naive
 #!/usr/local/bin/perl
-#u# http://rosettacode.org/wiki/xx
+#u# http://rosettacode.org/wiki/Verify_distribution_uniformity_Naive
 #c# 2018-09-01 >RC
 #p# OK
 
