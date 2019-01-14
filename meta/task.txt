@@ -3,10 +3,10 @@ This is perl 5, version 28, subversion 0 (v5.28.0) built for darwin-thread-multi
 updating from RC…
 +------------> Perl: Good/Bad [1059/18]
 |+-----------> Smoke testing []
-||+----------> sKipping validation [150]
-|||+---------> Interactive [58]
+||+----------> sKipping validation [147]
+|||+---------> Interactive [56]
 ||||+--------> Touched (modified by me) [207]
-|||||+-------> Random seed [78]
+|||||+-------> Random seed [80]
 ||||||+------> File output [56]
 |||||||+-----> Draft [214]
 ||||||||+----> Ignoring [36]
@@ -25,7 +25,7 @@ G.KI....... 15_Puzzle_Game-2
 .......D.VU 16_Puzzle_Game
 .........VU 2048
 GS..TR.D... 21_Game
-G.KI....... 24_game
+GS...R..... 24_game
 GS......... 24_game_Solve
 GS..T...... 4-rings_or_4-squares_puzzle
 GS......... 99_Bottles_of_Beer
@@ -767,7 +767,7 @@ GS......... Non-decimal_radices_Output
 GS......... Nth_root
 GS......... Null_object
 GS......... Number_names
-G.KI....... Number_reversal_game
+GS...R..... Number_reversal_game
 GS......... Numeric_error_propagation
 .......D.VU Numerical_and_alphabetical_suffixes
 GS..T...... Numerical_integration
@@ -1202,7 +1202,7 @@ GS......... The_Twelve_Days_of_Christmas
 GS......... Thue-Morse
 G.KI....... Tic-tac-toe
 .......D.VU Time-based_One-time_Password_Algorithm
-G.K........ Time_a_function
+GS......... Time_a_function
 GS......... Tokenize_a_string
 GS......... Tokenize_a_string_with_escaping
 GS..T..D... Tonelli-Shanks_algorithm
