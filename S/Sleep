@@ -1,8 +1,8 @@
 #!/usr/local/bin/perl
 #u# http://rosettacode.org/wiki/Sleep
-#t# interactive
 #c# 2018-08-14 <RC
 #p# OK
+#=# RC pipe: 4\n4000000\n4000000000\n
 
 use feature 'say';
 
@@ -31,3 +31,9 @@ print "Awake!\n";
 say "Sleeping...";
 select undef, undef, undef, 0.5;
 say "Awake!";
+
+$elapsed = (time() - $^T);
+
+use Test::More;
+ok $elapsed >= 12;
+done_testing();
