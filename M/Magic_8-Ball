@@ -1,12 +1,12 @@
 #!/usr/local/bin/perl
 #u# http://rosettacode.org/wiki/Magic_8-Ball
-#t# interactive
 #c# 2018-09-10 >RC
 #p# OK
+#=# RC pipe: who\nwhat\nwhen\nwhere\n\n
 
 use feature 'say';
 
-#srand 123456;
+srand 123456;
 
 @a = ('It is certain', 'It is decidedly so', 'Without a doubt', 'Yes, definitely',
  'You may rely on it', 'As I see it, yes', 'Most likely', 'Outlook good',
@@ -18,5 +18,19 @@ use feature 'say';
 while () {
     print 'Enter your question:';
     last unless <> =~ /\w/;
-    print @a[int rand @a], "\n";
+    push @res, @a[int rand @a];
 }
+
+say $result = join "\n", @res;
+
+my $ref = <<'EOD';
+Outlook not so good
+Cannot predict now
+Better not tell you now
+You may rely on it
+EOD
+
+use Test::More;
+chomp $ref;
+is ($result, $ref);
+done_testing();
