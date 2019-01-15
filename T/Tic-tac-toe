@@ -1,8 +1,10 @@
 #!/usr/local/bin/perl
 #u# http://rosettacode.org/wiki/Tic-tac-toe
-#t# interactive
 #c# 2018-08-10 <RC
 #p# OK
+#=# RC pipe: e\ni\nc\nd
+
+srand 123456;
 
 # A basic negamax search (with caching) is done to find the best move.
 # If there are several equally good moves, one of them is selected randomly.
@@ -99,10 +101,12 @@ while( 1 ) {
 		my $s = score($b, $color) or next;
 		print_board($b);
 		print "$p->{name} ", $s > 0 ? "won!\n" : "lost!\n";
+        print "not ok 1\n";
 	} else {
 		print "$p->{name} cannot move.\n";
+        print "ok 1\n";
 	}
-	print "Game over.\nNew Game...\n";
+	print "Game over.\n"; exit; #New Game...\n";
 	($b, $color, $whose_turn) = ($initial, "X", int rand 2);
 	redo;
 } continue {
