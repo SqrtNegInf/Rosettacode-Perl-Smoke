@@ -11,12 +11,16 @@ use List::Util qw(max min);
 use constant pi => 2 * atan2(1, 0);
 
 # Compute the curve with a Lindemayer-system
-my $koch = 'F';
-$koch =~ s/F/F+F-F-F+F/g for 1..5;
+#my $flake = 'F--F--F' but Lindenmayer( { F => 'F+F--F+F' } );
+
+my $koch = 'F--F--F';
+$koch =~ s/F/F+F--F+F/g for 1..5;
+#my $koch = 'F';
+#$koch =~ s/F/F+F-F-F+F/g for 1..4;
 
 # Draw the curve in SVG
 ($x, $y) = (0, 0);
-$theta   = pi/2;
+$theta   = pi/3;
 $r       = 2;
 
 for (split //, $koch) {
@@ -26,8 +30,8 @@ for (split //, $koch) {
         $x += $r * cos($theta);
         $y += $r * sin($theta);
     }
-    elsif (/\+/) { $theta += pi/2; }
-    elsif (/\-/) { $theta -= pi/2; }
+    elsif (/\+/) { $theta += pi/3; }
+    elsif (/\-/) { $theta -= pi/3; }
 }
 
 $xrng =  max(@X) - min(@X);
