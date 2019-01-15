@@ -1,20 +1,21 @@
 #!/usr/local/bin/perl
 #u# http://rosettacode.org/wiki/Pig_the_dice_game
-#t# interactive
 #c# 2018-08-20 <RC
 #p# OK
+#=# RC pipe: R\nR\nR\nH\nR
+#n# limiting to one player for automated testing
+
+srand 123456;
 
 use feature 'say';
 my $result;
-# my @res;
-
 
 # You can have as many players as you want, simply provide their names on the command line.
 
-use strict;
-use warnings;
-my @players = @ARGV;
-@players = qw(Joe Mike);
+use Test::More;
+
+#my @players = @ARGV;
+my @players = qw(David);
 my @scores = (0) x @players;
 while( 1 ) {
 	PLAYER: for my $i ( 0 .. $#players ) {
@@ -24,7 +25,7 @@ while( 1 ) {
 		print "$name, your score so far is $score.\n";
 		print "You rolled a $roundscore.\n";
 		next PLAYER if $roundscore == 1;
-		while($score + $roundscore < 100) {
+		while($score + $roundscore < 20) {
 			print "Roll again, or hold [r/h]: ";
 			my $answer = <>;
 			$answer = 'h' unless defined $answer;
@@ -33,7 +34,7 @@ while( 1 ) {
 				$scores[$i] = $score;
 				print "Your score is now $score.\n";
 				next PLAYER;
-			} elsif( $answer =~ /^r/ ) {
+			} elsif( $answer =~ /^r/i ) {
 				my $die = 1 + int rand 6;
 				print "$name, you rolled a $die.\n";
 				next PLAYER if $die == 1;
@@ -46,18 +47,9 @@ while( 1 ) {
 		$score += $roundscore;
 		print "With that, your score became $score.\n";
 		print "You won!\n";
-		exit;
+        ok $score == 21;
+        done_testing();
+        exit;
 	}
 }
-__END__
 
-
-
-say $result; 
-#say $result = join "\n", @res;
-my $ref = <<'EOD';
-EOD
-
-use Test::More;
-#is ($result, $ref);
-#done_testing();
