@@ -1,18 +1,19 @@
 #!/usr/local/bin/perl
 #u# http://rosettacode.org/wiki/Guess_the_number/With_feedback_(player)
-#t# interactive
 #c# 2018-08-11 <RC
 #p# OK
+#=# RC pipe: L\nL\nH\nH\nE\n
+#n# 42 is the target number
+
+srand 123456;
 
 my $min = 1;
 my $max = 99; 
 my $guess = int(rand $max) + $min;
 my $tries = 0;
  
-print "=>> Think of a number between $min and $max and I'll guess it!\n
-Press <ENTER> when are you ready... ";
- 
-<STDIN>;
+print "Think of a number between $min and $max and I'll guess it!\n";
+#Press <ENTER> when are you ready... "; <STDIN>;
  
 { 
     do {
@@ -38,3 +39,9 @@ Press <ENTER> when are you ready... ";
  
     } while(1);
 }
+
+print "G: $guess\n";
+use Test::More;
+is $guess, 42;
+done_testing();
+
