@@ -1,8 +1,8 @@
 #!/usr/local/bin/perl
 #u# http://rosettacode.org/wiki/Menu
-#t# interactive
 #c# 2018-08-18 <RC
 #p# OK
+#=# RC pipe: 1
 
 sub menu
 {
@@ -22,3 +22,7 @@ $prompt = 'Which is from the three pigs: ';
 $a = &menu($prompt,@a);
 
 print "You chose: $a\n";
+
+use Test::More;
+is $a, 'huff and puff';
+done_testing();
