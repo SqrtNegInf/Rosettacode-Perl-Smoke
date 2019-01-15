@@ -1,13 +1,8 @@
 #!/usr/local/bin/perl
-#t# interactiveGG
+#t# interactive
 #u# http://rosettacode.org/wiki/Draw_a_clock
 #c# 2018-07-29 <RC
 #p# OK
-
-use feature 'say';
-my $result;
-
-#Translation of: Perl 6
 
 use utf8;                # interpret source code as UTF8
 binmode STDOUT, ':utf8'; # allow printing wide chars without warning
@@ -38,15 +33,3 @@ while (1) {
  
 sub clear { print "\e[H\e[J" }
 sub position { printf "\e[%d;%dH", shift, shift }
-
-#say $result; 
-
-my $ref = <<'EOD';
-     ╷ ┌─╴     ╶─┐ ┌─┐     ┌─┐ ┌─╴   
-     │ ├─┐  :  ┌─┘ │ │  :  │ │ └─┐   
-     ╵ └─┘     └─╴ └─┘     └─┘ ╶─┘   
-EOD
-
-use Test::More;
-#is ($result, $ref);
-#done_testing();
