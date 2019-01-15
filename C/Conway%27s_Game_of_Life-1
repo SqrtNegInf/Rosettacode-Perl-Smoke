@@ -1,8 +1,10 @@
 #!/usr/local/bin/perl
 #u# http://rosettacode.org/wiki/Conway%27s_Game_of_Life
-#t# skiptest
 #c# 2018-07-25 <RC
 #p# OK
+#i# RC cli: 5 10 15
+
+srand 1234567;
 
 use feature 'say';
 my $result;
@@ -12,8 +14,7 @@ my $result;
 # life.pl 5 10 15 
 # would do 15 iterations over 5 rows and 10 columns.
 
-my ($width, $height, $generations) = qw(5 10 15);
-#my ($width, $height, $generations) = @ARGV;
+my ($width, $height, $generations) = @ARGV;
  
 my $printed;
  
@@ -63,12 +64,19 @@ sub printlife {
 }
  
 my @life = generate;
-print "Start\n";
-printlife @life;
+#print "Start\n";
+#printlife @life;
 foreach my $stage ( 1 .. $generations ) {
    #sleep 1;
-   print "Generation $stage\n\e[1A";
+   #print "Generation $stage\n\e[1A";
    @life = nexgen @life;
-   printlife @life;
+   #printlife @life;
 }
-print "\n";
+#print "\n";
+
+for $r ( 0 .. 4 ) { for $c ( 0 .. 9 ) { $line .= $life[$r][$c]; } }
+say $line;
+
+use Test::More;
+is ($line, '110110000');
+done_testing();
