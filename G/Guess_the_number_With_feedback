@@ -1,8 +1,10 @@
 #!/usr/local/bin/perl
 #u# http://rosettacode.org/wiki/Guess_the_number/With_feedback
-#t# interactive
 #c# 2018-08-11 <RC
 #p# OK
+#=# RC pipe: 10\n5\n8\n10
+
+srand 123456;
 
 use feature 'say';
 my $result;
@@ -26,3 +28,7 @@ $tries++, print "You guessed too ", ($_ == -1 ? "high" : "low"), ".\n"
 	while ($_ = $tgt <=> prompt "Your guess");
 
 print "Correct! You guessed it after $tries tries.\n";
+
+use Test::More;
+ok $tgt == 10 and $tries == 3;
+done_testing();
