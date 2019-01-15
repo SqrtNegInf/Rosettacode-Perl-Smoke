@@ -1,9 +1,15 @@
 #!/usr/local/bin/perl
 #u# http://rosettacode.org/wiki/Guess_the_number
-#t# interactive
 #c# 2018-08-11 <RC
 #p# OK
+#=# RC pipe: 8\n9\n10
+
+srand 123456;
 
 my $number = 1 + int rand 10;
 do { print "Guess a number between 1 and 10: " } until <> == $number;
 print "You got it!\n";
+
+use Test::More;
+is $number, 10;
+done_testing();
