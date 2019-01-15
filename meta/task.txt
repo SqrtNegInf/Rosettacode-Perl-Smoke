@@ -1,16 +1,17 @@
 
 This is perl 5, version 28, subversion 0 (v5.28.0) built for darwin-thread-multi-2level
+updating from RC…
 +------------> Perl: Good/Bad [1060/18]
-|+-----------> Smoke testing [916]
-||+----------> sKipping validation [147]
-|||+---------> Interactive [56]
+|+-----------> Smoke testing [928]
+||+----------> sKipping validation [135]
+|||+---------> Interactive [45]
 ||||+--------> Touched (modified by me) [207]
-|||||+-------> Random seed [80]
+|||||+-------> Random seed [86]
 ||||||+------> File output [56]
-|||||||+-----> Draft [214]
+|||||||+-----> Draft [215]
 ||||||||+----> Ignoring [36]
-|||||||||+---> Void (no local copy) [209]
-||||||||||+--> Un-implemented/reliable [196]
+|||||||||+---> Void (no local copy) [210]
+||||||||||+--> Un-implemented/reliable [197]
 |||||||||||
 GS......... 100_doors-1
 GS......... 100_doors-2
@@ -260,7 +261,7 @@ GS......... Continued_fraction_Arithmetic_Construct_from_rational_number
 GS......... Convert_decimal_number_to_rational
 GS......... Convert_seconds_to_compound_duration
 .......D.VU Convex_hull
-G.K........ Conway%27s_Game_of_Life-1
+GS...R..... Conway%27s_Game_of_Life-1
 G.KI....... Conway%27s_Game_of_Life-2
 GS......... Copy_a_string
 G.K....D... Copy_stdin_to_stdout
@@ -479,7 +480,7 @@ GS......... General_FizzBuzz
 GS...R..... Generate_Chess960_starting_position
 GS......... Generate_lower_case_ASCII_alphabet
 B...TR....U Generate_random_chess_position
-G.KI....... Generator_Exponential
+GS......... Generator_Exponential
 GS......... Generic_swap
 .......D.VU Geometric_algebra
 GS......... Get_system_command_output
@@ -497,9 +498,9 @@ GS...R..... Greatest_subsequential_sum-1
 GS......... Greatest_subsequential_sum-2
 .......D.VU Greed
 GS..T.F.... Greyscale_bars_Display
-G.KI....... Guess_the_number
-G.KI....... Guess_the_number_With_feedback
-G.KI....... Guess_the_number_With_feedback_player
+GS...R..... Guess_the_number
+GS...R..... Guess_the_number_With_feedback
+GS...R..... Guess_the_number_With_feedback_player
 GS......... HTTP
 GS......... HTTPS
 G.K........ HTTPS_Authenticated
@@ -676,8 +677,8 @@ GS......... MD4
 GS......... MD5
 GS......... MD5_Implementation
 .........VU Machine_code
-G.KI....... Mad_Libs
-G.KITR.D... Magic_8-Ball
+GS......... Mad_Libs
+GS..TR.D... Magic_8-Ball
 .........VU Magic_squares_of_doubly_even_order
 GS......... Magic_squares_of_odd_order
 .........VU Magic_squares_of_singly_even_order
@@ -695,13 +696,14 @@ GS..T...... Matrix_chain_multiplication
 GS..T...... Matrix_multiplication
 GS......... Matrix_transposition
 GS......... Maximum_triangle_path_sum
+.......D.VU Mayan_numerals
 GS...R..... Maze_generation
 GS...R..... Maze_solving
 GS..T...... McNuggets_Problem
 .........VU Median_filter
 GS..T...... Memory_allocation
 GS......... Memory_layout_of_a_data_structure
-G.KI....... Menu
+GS......... Menu
 GS.....D... Mersenne_primes
 GS......... Metaprogramming
 ........XV. Metered_concurrency
@@ -823,7 +825,7 @@ GS..T...... Pathological_floating_point_problems-2
 GS......... Pathological_floating_point_problems-3
 GS...R..... Pattern_matching
 GS..T.F.... Peano_curve
-G.KI.R..... Penney%27s_game
+GS...R..... Penney%27s_game
 GS..T.FD... Penrose_tiling
 GS..T.F.... Pentagram
 .......D.VU Pentomino_tiling
@@ -853,7 +855,7 @@ GS......... Pi-2
 GS......... Pi-3
 GS......... Pi-4
 GS...R..... Pick_random_element
-G.KI....... Pig_the_dice_game
+GS...R..... Pig_the_dice_game
 .........VU Pig_the_dice_game_Player
 GS..T.F.... Pinstripe_Display
 .........VU Pinstripe_Printer
@@ -1051,7 +1053,7 @@ G.K........ Singly-linked_list_Element_definition
 G.K........ Singly-linked_list_Element_insertion
 .......D.VU Singly-linked_list_Element_removal
 GS......... Singly-linked_list_Traversal
-G.KI....... Sleep
+GS......... Sleep
 GS......... Smith_numbers
 G.KI...D... Snake
 GS..TR.D... Snake_And_Ladder
@@ -1199,7 +1201,7 @@ GS......... The_ISAAC_Cipher
 GS......... The_Twelve_Days_of_Christmas
 .........VU Thiele%27s_interpolation_formula
 GS......... Thue-Morse
-G.KI....... Tic-tac-toe
+GS...R..... Tic-tac-toe
 .......D.VU Time-based_One-time_Password_Algorithm
 GS......... Time_a_function
 GS......... Tokenize_a_string
