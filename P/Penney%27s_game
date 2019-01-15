@@ -1,8 +1,8 @@
 #!/usr/local/bin/perl
 #u# http://rosettacode.org/wiki/Penney%27s_game
-#t# interactive
 #c# 2018-08-21 <RC
 #p# OK
+#=# RC pipe: THH
 
 srand 123456;
 
@@ -12,8 +12,6 @@ use feature 'say';
 my $result;
 
 use 5.020;
-#use strict;
-#use warnings;
 
 #Choose who goes first
 binaryRand() == 0 ? flipCoin(userFirst()) : flipCoin(compFirst());
@@ -41,8 +39,7 @@ sub convert
 sub uSeq
 {
     $result .=("Please enter a sequence of 3 of \"H\" and \"T\". EG: HHT\n>");
-    #my $uString = <STDIN>;
-    my $uString = 'THH';
+    my $uString = <STDIN>;
 
     while(1)
     {
