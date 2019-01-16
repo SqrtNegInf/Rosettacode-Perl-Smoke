@@ -2,6 +2,7 @@
 #u# http://rosettacode.org/wiki/24_game
 #c# 2018-07-04 <RC
 #p# OK
+#=# RC pipe: 9+7+6+2
 
 srand 123456;
 
@@ -28,7 +29,7 @@ while (1) {
   say "\nYour four digits: ", join(" ", @digits);
   print "Expression (try ", $try++, "): ";
  
-  my $entry = '9+7+6+2'; # <>;
+  my $entry = <>;
   if (!defined $entry || $entry eq 'q') 
     { say "Goodbye.  Sorry you couldn't win."; last; }
   $entry =~ s/\s+//g;  # remove all white space
