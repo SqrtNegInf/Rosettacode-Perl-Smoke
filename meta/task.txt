@@ -2,12 +2,12 @@
 This is perl 5, version 28, subversion 0 (v5.28.0) built for darwin-thread-multi-2level
 updating from RC…
 +------------> Perl: Good/Bad [1060/18]
-|+-----------> Smoke testing [928]
-||+----------> sKipping validation [135]
-|||+---------> Interactive [45]
+|+-----------> Smoke testing [929]
+||+----------> sKipping validation [134]
+|||+---------> Interactive [44]
 ||||+--------> Touched (modified by me) [207]
 |||||+-------> Random seed [86]
-||||||+------> File output [56]
+||||||+------> File output [57]
 |||||||+-----> Draft [215]
 ||||||||+----> Ignoring [36]
 |||||||||+---> Void (no local copy) [210]
@@ -1167,7 +1167,7 @@ GS......... Synchronous_concurrency
 GS......... System_time
 .......DXVU Table_creation
 ........XV. Table_creation_Postal_addresses
-G.KI....... Take_notes_on_the_command_line
+GS....F.... Take_notes_on_the_command_line
 .......D.VU Tamagotchi_emulator
 GS..T..D... Tarjan
 GS......... Taxicab_numbers
