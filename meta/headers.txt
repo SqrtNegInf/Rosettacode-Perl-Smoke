@@ -54,6 +54,7 @@ File: 0/24_game
 #u# http://rosettacode.org/wiki/24_game
 #c# 2018-07-04 <RC
 #p# OK
+#=# RC pipe: 9+7+6+2
 
 File: 0/24_game_Solve
 #!/usr/local/bin/perl
@@ -6218,9 +6219,11 @@ File: S/System_time
 File: T/Take_notes_on_the_command_line
 #!/usr/local/bin/perl
 #u# http://rosettacode.org/wiki/Take_notes_on_the_command_line
-#t# interactive
 #c# 2018-08-12 <RC
 #p# OK
+#p# RC prep: cp ref/take-notes.base run/take-notes.txt
+#i# RC cli: "new note 1"
+#f# RC file: take-notes.txt
 
 File: T/Tarjan
 #!/usr/local/bin/perl
