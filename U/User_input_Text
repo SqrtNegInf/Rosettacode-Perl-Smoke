@@ -1,9 +1,19 @@
 #!/usr/local/bin/perl
 #u# http://rosettacode.org/wiki/User_input/Text
-#t# interactive
 #c# 2018-08-07 <RC
 #p# OK
+#=# RC pipe: ad astra, per asperagus\n1024
 
+print "Enter a string: ";
 my $string = <>; # equivalent to readline(*STDIN)
+print "Enter an integer: ";
 my $integer = <>;
-print "S:${string}I:$integer\n";
+
+print "\n";
+print "S:$string";
+print "I:$integer\n";
+
+use Test::More;
+is($string,"ad astra, per asperagus\n");
+is($integer,1024);
+done_testing();
