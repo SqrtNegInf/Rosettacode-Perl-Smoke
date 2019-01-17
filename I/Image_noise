@@ -1,6 +1,6 @@
 #!/usr/local/bin/perl # do-not-check
 #u# http://rosettacode.org/wiki/Image_noise
-#t# interactive
+#t# gui
 #c# 2018-11-28 >RC
 #p# OK
 
