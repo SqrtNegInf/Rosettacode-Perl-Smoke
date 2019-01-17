@@ -2,6 +2,7 @@
 #u# http://rosettacode.org/wiki/Mastermind
 #c# 2018-10-04 >RC
 #p# OK
+#=# RC pipe: BCAE\nBDAC
 
 use feature 'say';
 
@@ -30,7 +31,6 @@ while () {
     @guess = get_guess();
     next unless is_valid(@guess);
     $score = score(\@puzzle, \@guess);
-    is $score, '● ● ● ●'; done_testing(); exit; # for testing
     win() if $score eq join ' ', ($black) x $length;
     push @guesses, join(' ', @guess) . ' :: ' . $score;
 }
@@ -54,8 +54,8 @@ sub header {
     printf "Repeats are not allowed. You have $num guess%s remaining\n", $num > 1 ? 'es' : '';
 }
  
-sub get_guess { <B D A C> } # for testing
-#sub get_guess { print 'Your guess?: '; $g = <>; return split /\s*/, uc $g }
+#sub get_guess { <B D A C> } # for testing
+sub get_guess { print 'Your guess?: '; $g = <>; return split /\s*/, uc $g }
  
 sub is_valid { $length == @_ }
  
