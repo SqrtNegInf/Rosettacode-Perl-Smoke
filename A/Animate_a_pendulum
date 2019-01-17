@@ -1,6 +1,6 @@
 #!/usr/local/bin/perl
 #u# http://rosettacode.org/wiki/Animate_a_pendulum
-#t# skiptest
+#t# gui
 #c# 2018-07-13 <RC
 #p# OK
 #n# Tk graphics
