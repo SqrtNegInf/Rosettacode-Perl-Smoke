@@ -1,20 +1,14 @@
 #!/usr/local/bin/perl
 #u# http://rosettacode.org/wiki/Checkpoint_synchronization
-#t# interactive
 #c# 2018-07-22 <RC
 #p# OK
 
-use feature 'say';
-my $result;
+my @res;
 
+use feature 'say';
 
 # The perlipc man page details several approaches to interprocess communication. Here's one of my favourites: socketpair and fork. I've omitted some error-checking for brevity.
 
-#!/usr/bin/perl
-use warnings;
-use strict;
-use v5.10;
- 
 use Socket;
  
 my $nr_items = 3;
@@ -72,7 +66,7 @@ for (1 .. $nr_items) {
     syswrite $_, 'x'   for $alpha_sock, $digit_sock;
     sysread $alpha_sock, my $alpha, 1;
     sysread $digit_sock, my $digit, 1;
-    say $alpha, $digit;
+    push @res, $alpha . $digit;
 }
  
 # If the main thread were planning to run for a long time after the
@@ -80,21 +74,13 @@ for (1 .. $nr_items) {
  
 wait; wait;
 
-
-# A sample run:
-
-# ~/perl$ ./checkpoint 
-# A1
-# B2
-# C3
-# ~/perl$ 
-
-
-
-say $result; 
 my $ref = <<'EOD';
+A1
+B2
+C3
 EOD
 
 use Test::More;
-#is ($result, $ref);
-#done_testing();
+chomp $ref;
+is (join("\n", @res), $ref);
+done_testing();
