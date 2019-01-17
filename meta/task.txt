@@ -1,10 +1,10 @@
 
 This is perl 5, version 28, subversion 0 (v5.28.0) built for darwin-thread-multi-2level
 updating from RC…
-+------------> Perl: Good/Bad [1060/18]
-|+-----------> Smoke testing [929]
-||+----------> sKipping validation [134]
-|||+---------> Interactive [44]
++------------> Perl: Good/Bad [1059/18]
+|+-----------> Smoke testing [931]
+||+----------> sKipping validation [132]
+|||+---------> Interactive [45]
 ||||+--------> Touched (modified by me) [207]
 |||||+-------> Random seed [86]
 ||||||+------> File output [57]
@@ -18,7 +18,7 @@ GS......... 100_doors-2
 GS......... 100_doors-3
 GS......... 100_doors-4
 GS......... 100_doors-5
-G.K........ 15_Puzzle_Game-1
+G.KI....... 15_Puzzle_Game-1
 G.KI....... 15_Puzzle_Game-2
 .......D.VU 15_Puzzle_Game_in_3D
 .........VU 15_puzzle_solver
@@ -51,7 +51,7 @@ GS......... Ackermann_function-4
 GS......... Ackermann_function-5
 ........XV. Active_Directory_Connect
 .........VU Active_Directory_Search_for_a_user
-GS......... Active_object
+!S......... Active_object
 GS......... Add_a_variable_to_a_class_instance_at_runtime
 .......D.VU Addition-chain_exponentiation
 .......D.VU Addition_chains
@@ -69,7 +69,7 @@ GS......... Anagrams-1
 GS......... Anagrams-2
 GS......... Anagrams_Deranged_anagrams
 GS..T...... Angle_difference_between_two_bearings
-G.K........ Animate_a_pendulum
+G.KI....... Animate_a_pendulum
 G.KIT...... Animation
 GS......... Anonymous_recursion-1
 GS......... Anonymous_recursion-2
@@ -201,7 +201,7 @@ GS......... Check_Machin-like_formulas
 GS.....D... Check_input_device_is_a_terminal
 G.K....D... Check_output_device_is_a_terminal
 G.K........ Check_that_file_exists
-G.KI....... Checkpoint_synchronization
+GS......... Checkpoint_synchronization
 GS..T..D... Cheryl%27s_Birthday
 .......D.VU Chess_player
 .......D.VU Chess_player_Move_generation
@@ -1044,7 +1044,7 @@ GS......... Sieve_of_Eratosthenes-8
 GS......... Sieve_of_Eratosthenes-9
 GS....F.... Simple_database
 G.KI....... Simple_windowed_application
-G.K........ Simulate_input_Keyboard
+G.KI....... Simulate_input_Keyboard
 .........VU Simulate_input_Mouse
 .......D.VU Simulated_annealing
 .......DXVU Sine_wave
@@ -1247,7 +1247,7 @@ GS......... Update_a_configuration_file
 .........VU Use_another_language_to_call_a_function
 GS.....D... User_defined_pipe_and_redirection_operators
 ........XV. User_input_Graphical
-G.KI....... User_input_Text
+GS......... User_input_Text
 .......D.VU Using_a_Speech_engine_to_highlight_words
 .......D.VU Using_the_Meetup.com_API
 .......D.VU VList
