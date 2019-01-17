@@ -1,6 +1,6 @@
 #!/usr/local/bin/perl
 #u# http://rosettacode.org/wiki/Window_creation/X11
-#t# interactive
+#t# gui
 #c# 2018-08-03 <RC
 #p# OK
 
