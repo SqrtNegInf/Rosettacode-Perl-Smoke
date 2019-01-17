@@ -128,11 +128,11 @@ my($task,$header,$compiles,$pout,$perr,$skip,$srand);
 #    $jerr = (-e $jout) ? `grep STDERR $jout` : undef;
 #    $P{$p}{'J'} = '!' if $P{$p}{'J'} eq 'G' && $jerr;
 
-    $skip = 'interactive|toodamnslow|skiptest|nocode|forever|broken';  # cf. def in 'rc-p5'
+    $skip = 'interactive|gui|toodamnslow|skiptest|nocode|forever|broken';  # cf. def in 'rc-p5'
     $P{$p}{'K'} = $header =~ /$skip/             ? 'K' : '.';
     $P{$p}{'T'} = $header =~ />RC/               ? 'T' : '.';
     $P{$p}{'F'} = $header =~ /#f#.*RC file/i     ? 'F' : '.';
-    $P{$p}{'I'} = $header =~ /#t#.*interactive/i ? 'I' : '.';
+    $P{$p}{'I'} = $header =~ /#t#.*(inter|gui)/i ? 'I' : '.';
 
     $srand = `grep srand $task`;
     $P{$p}{'R'} = $srand =~ /\bsrand \d/         ? 'R' : '.';
