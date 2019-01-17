@@ -1,10 +1,8 @@
 #!/usr/local/bin/perl
 #u# http://rosettacode.org/wiki/GUI/Maximum_window_dimensions
-#t# interactive
+#t# gui
 #c# 2018-08-08 <RC
 #p# OK
-
-# Library: Perl/Tk[edit]
 
 use Tk;
 
