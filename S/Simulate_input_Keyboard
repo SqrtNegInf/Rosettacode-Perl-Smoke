@@ -1,6 +1,6 @@
 #!/usr/local/bin/perl
 #u# http://rosettacode.org/wiki/Simulate_input/Keyboard
-#t# skiptest
+#t# gui
 #c# 2018-08-16 <RC
 #p# OK
 
