@@ -1,6 +1,6 @@
 #!/usr/local/bin/perl
 #u# http://rosettacode.org/wiki/Window_management
-#t# interactive
+#t# gui
 #c# 2018-08-03 <RC
 #p# OK
 #n# 'maximize' did not work
