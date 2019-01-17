@@ -31,7 +31,7 @@ File: 0/100_doors-5
 File: 0/15_Puzzle_Game-1
 #!/usr/local/bin/perl
 #u# http://rosettacode.org/wiki/15_Puzzle_Game
-#t# skiptest
+#t# gui
 #c# 2018-07-01 <RC
 #p# OK
 #n# requires Tk
@@ -271,7 +271,7 @@ File: A/Angle_difference_between_two_bearings
 File: A/Animate_a_pendulum
 #!/usr/local/bin/perl
 #u# http://rosettacode.org/wiki/Animate_a_pendulum
-#t# skiptest
+#t# gui
 #c# 2018-07-13 <RC
 #p# OK
 #n# Tk graphics
@@ -279,7 +279,7 @@ File: A/Animate_a_pendulum
 File: A/Animation
 #!/usr/local/bin/perl
 #u# http://rosettacode.org/wiki/Animation
-#t# interactive
+#t# gui
 #c# 2018-07-13 <RC, 2018-10-30 >RC
 #p# OK
 
@@ -957,7 +957,6 @@ File: C/Check_that_file_exists
 File: C/Checkpoint_synchronization
 #!/usr/local/bin/perl
 #u# http://rosettacode.org/wiki/Checkpoint_synchronization
-#t# interactive
 #c# 2018-07-22 <RC
 #p# OK
 
@@ -2439,7 +2438,7 @@ File: F/Function_prototype
 File: G/GUI_Maximum_window_dimensions
 #!/usr/local/bin/perl
 #u# http://rosettacode.org/wiki/GUI/Maximum_window_dimensions
-#t# interactive
+#t# gui
 #c# 2018-08-08 <RC
 #p# OK
 
@@ -2701,7 +2700,7 @@ File: H/Haversine_formula
 File: H/Hello_world_Graphical
 #!/usr/local/bin/perl
 #u# http://rosettacode.org/wiki/Hello_world/Graphical
-#t# interactive
+#t# gui
 #c# 2018-08-12 <RC
 #p# OK
 
@@ -2947,7 +2946,7 @@ File: I/Idiomatically_determine_all_the_lowercase_and_uppercase_letters
 File: I/Image_noise
 #!/usr/local/bin/perl # do-not-check
 #u# http://rosettacode.org/wiki/Image_noise
-#t# interactive
+#t# gui
 #c# 2018-11-28 >RC
 #p# OK
 
@@ -3677,6 +3676,7 @@ File: M/Mastermind
 #u# http://rosettacode.org/wiki/Mastermind
 #c# 2018-10-04 >RC
 #p# OK
+#=# RC pipe: BCAE\nBDAC
 
 File: M/Matrix-exponentiation_operator
 #!/usr/local/bin/perl
@@ -3687,7 +3687,7 @@ File: M/Matrix-exponentiation_operator
 File: M/Matrix_Digital_Rain
 #!/usr/local/bin/perl
 #u# http://rosettacode.org/wiki/Matrix_Digital_Rain
-#t# interactive
+#t# gui
 #c# 2018-12-20 <RC
 #p# OK
 
@@ -5529,14 +5529,14 @@ File: S/Simple_database
 File: S/Simple_windowed_application
 #!/usr/local/bin/perl
 #u# http://rosettacode.org/wiki/Simple_windowed_application
-#t# interactive
+#t# gui
 #c# 2018-08-16 <RC
 #p# OK
 
 File: S/Simulate_input_Keyboard
 #!/usr/local/bin/perl
 #u# http://rosettacode.org/wiki/Simulate_input/Keyboard
-#t# skiptest
+#t# gui
 #c# 2018-08-16 <RC
 #p# OK
 
@@ -6221,7 +6221,7 @@ File: T/Take_notes_on_the_command_line
 #u# http://rosettacode.org/wiki/Take_notes_on_the_command_line
 #c# 2018-08-12 <RC
 #p# OK
-#p# RC prep: cp ref/take-notes.base run/take-notes.txt
+#r# RC prep: cp ref/take-notes.base run/take-notes.txt
 #i# RC cli: "new note 1"
 #f# RC file: take-notes.txt
 
@@ -6628,9 +6628,9 @@ File: U/User_defined_pipe_and_redirection_operators
 File: U/User_input_Text
 #!/usr/local/bin/perl
 #u# http://rosettacode.org/wiki/User_input/Text
-#t# interactive
 #c# 2018-08-07 <RC
 #p# OK
+#=# RC pipe: ad astra, per asperagus\n1024
 
 File: V/Validate_International_Securities_Identification_Number
 #!/usr/local/bin/perl
@@ -6779,14 +6779,14 @@ File: W/Welch%27s_t-test-2
 File: W/Window_creation_X11
 #!/usr/local/bin/perl
 #u# http://rosettacode.org/wiki/Window_creation/X11
-#t# interactive
+#t# gui
 #c# 2018-08-03 <RC
 #p# OK
 
 File: W/Window_management
 #!/usr/local/bin/perl
 #u# http://rosettacode.org/wiki/Window_management
-#t# interactive
+#t# gui
 #c# 2018-08-03 <RC
 #p# OK
 #n# 'maximize' did not work
