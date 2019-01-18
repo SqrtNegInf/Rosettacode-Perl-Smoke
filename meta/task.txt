@@ -1,17 +1,17 @@
 
 This is perl 5, version 28, subversion 0 (v5.28.0) built for darwin-thread-multi-2level
 updating from RC…
-+------------> Perl: Good/Bad [1059/18]
-|+-----------> Smoke testing [931]
-||+----------> sKipping validation [132]
-|||+---------> Interactive [45]
-||||+--------> Touched (modified by me) [207]
++------------> Perl: Good/Bad [1061/17]
+|+-----------> Smoke testing [934]
+||+----------> sKipping validation [130]
+|||+---------> Interactive [43]
+||||+--------> Touched (modified by me) [206]
 |||||+-------> Random seed [86]
 ||||||+------> File output [57]
 |||||||+-----> Draft [215]
 ||||||||+----> Ignoring [36]
 |||||||||+---> Void (no local copy) [210]
-||||||||||+--> Un-implemented/reliable [197]
+||||||||||+--> Un-implemented/reliable [196]
 |||||||||||
 GS......... 100_doors-1
 GS......... 100_doors-2
@@ -51,7 +51,7 @@ GS......... Ackermann_function-4
 GS......... Ackermann_function-5
 ........XV. Active_Directory_Connect
 .........VU Active_Directory_Search_for_a_user
-!S......... Active_object
+GS......... Active_object
 GS......... Add_a_variable_to_a_class_instance_at_runtime
 .......D.VU Addition-chain_exponentiation
 .......D.VU Addition_chains
@@ -158,8 +158,8 @@ GS......... Box_the_compass
 GS......... Brace_expansion
 GS......... Break_OO_privacy
 GS..TRF.... Brownian_tree
-G.KI.R..... Bulls_and_cows
-G.KI.R..... Bulls_and_cows_Player
+GS...R..... Bulls_and_cows
+GS...R..... Bulls_and_cows_Player
 GS..T..D... Burrows-Wheeler_transform
 GS......... CRC-32
 GS..T...... CSV_data_manipulation-1
@@ -1210,7 +1210,7 @@ GS..T..D... Tonelli-Shanks_algorithm
 GS..T...... Top_rank_per_group
 G.K........ Topic_variable
 GS......... Topological_sort
-B...T..D..U Topological_sort_Extracted_top_item
+GS.....D... Topological_sort_Extracted_top_item
 GS......... Topswops
 .........VU Total_circles_area
 ..........U Totient_function
