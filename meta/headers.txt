@@ -699,16 +699,16 @@ File: B/Brownian_tree
 File: B/Bulls_and_cows
 #!/usr/local/bin/perl
 #u# http://rosettacode.org/wiki/Bulls_and_cows
-#t# interactive
 #c# 2018-07-19 <RC
 #p# OK
+#=# RC pipe: 6789\n6795\n6792
 
 File: B/Bulls_and_cows_Player
 #!/usr/local/bin/perl
 #u# http://rosettacode.org/wiki/Bulls_and_cows/Player
-#t# interactive
 #c# 2018-07-19 <RC
 #p# OK
+#=# RC pipe: 2 2\n1 3\n1 3\n0 4
 
 File: B/Burrows-Wheeler_transform
 #!/usr/local/bin/perl
@@ -4148,7 +4148,7 @@ File: O/One_of_n_lines_in_a_file
 File: O/OpenGL-1
 #!/usr/local/bin/perl do-not-check
 #u# http://rosettacode.org/wiki/OpenGL
-#t# interactive
+#t# gui
 #c# 2018-08-20 <RC
 #p# BROKEN
 #n# proper libraries no longer present?  MacPorts issue?
@@ -4156,7 +4156,7 @@ File: O/OpenGL-1
 File: O/OpenGL-2
 #!/usr/local/bin/perl
 #u# http://rosettacode.org/wiki/OpenGL
-#t# interactive
+#t# gui
 #c# 2018-08-20 <RC
 #p# BROKEN
 #n# cannot get modules
@@ -6440,9 +6440,9 @@ File: T/Topological_sort
 
 File: T/Topological_sort_Extracted_top_item
 #!/usr/local/bin/perl
-#u# http://rosettacode.org/wiki/Topological_sort_Extracted_top_item
-#c# 2018-09-25 >RC
-#p# BROKEN
+#u# http://rosettacode.org/wiki/Topological_sort/Extracted_top_item
+#c# 2019-01-17 <RC
+#p# OK
 
 File: T/Topswops
 #!/usr/local/bin/perl
