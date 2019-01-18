@@ -1,6 +1,6 @@
 #!/usr/local/bin/perl
 #u# http://rosettacode.org/wiki/OpenGL
-#t# interactive
+#t# gui
 #c# 2018-08-20 <RC
 #p# BROKEN
 #n# cannot get modules
