@@ -1,6 +1,6 @@
 #!/usr/local/bin/perl do-not-check
 #u# http://rosettacode.org/wiki/OpenGL
-#t# interactive
+#t# gui
 #c# 2018-08-20 <RC
 #p# BROKEN
 #n# proper libraries no longer present?  MacPorts issue?
