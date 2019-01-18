@@ -1,140 +1,49 @@
 #!/usr/local/bin/perl
-#u# http://rosettacode.org/wiki/Topological_sort_Extracted_top_item
-#c# 2018-09-25 >RC
-#p# BROKEN
+#u# http://rosettacode.org/wiki/Topological_sort/Extracted_top_item
+#c# 2019-01-17 <RC
+#p# OK
 
-use Data::Dumper;
 use feature 'say';
-
-use warnings;
-use strict 'vars';
 
 my @res;
 
-sub top_topos {
-    my(%deps, @top ) = @_;
-    my %ba;
-    for my $after (keys %deps) {
-        my $befores = $deps{$after};
-        for my $before (@$befores) {
-            $ba{$after}{$before} = 0 if $before ne $after;
-            $ba{$before} = {} unless $ba{$before};
-        }
-    }
- 
-#$DB::single = 1;
-    if (@top) {
-	my @want = @top;
-	my %care;
-	$care{@want} = (1) x @want;
-	#repeat while @want {
-	while (@want) {
-	    my @newwant;
-	    for my $before (@want) {
-		if ($ba{$before}) {
-		    for my $after (keys %{$ba{$before}}) {
-			if (not $ba{$before}{$after}) {
-			    $ba{$before}{$after}++;
-			    push @newwant, $after;
-			}
-		    }
-		}
-	    }
-	    @want = @newwant;
-	    $care{@want} = (1) x @want;
-	}
- 
-	for my $before (keys %ba) {
-	    my @foo = delete $ba{$before} unless $care{$before};
-say join ' 1>| ', @foo;
-	}
-    }
- 
-    my @levels;
-#    while %ba.grep( not *.value )».key -> @befores {
-    for my $k (keys %ba) {
-    my %k = $ba{$k};
-    say ref \%k;
-$DB::single = 1;
-    delete @k{ grep ref($k{$_}) eq 'HASH' && %{$k{$_}} == 0, keys %k };
-    next unless $ba{$k};
-    my @befores = $ba{$k};
-    push @levels, sort @befores;
-        my @goo = delete @ba{@befores};
-        for my $k (keys %ba) { 
-            my %v = $ba{$k}; 
-            my @zoo = delete @v{@befores};
-        }
-    }
-say '=============';
-say join "|", @levels;
-$DB::single = 1;
-die;
+use List::Util qw( uniq );
 
-    my @out;
-    if (@top) {
-        push @out, "For top-level-modules: " . join(' ',@top) . "\n";
-        push @out, "  $_\n" for @levels;
-    } else {
-        push @out, "Top levels are: $levels[-1]\n";
-    }
-    push @out, "Cycle found! {%ba.keys.sort}" if %ba;
-    push @out, ''; 
-}
- 
-my %deps = (
-    top1  => ['des1', 'ip1', 'ip2'],
-    top2  => ['des1', 'ip2', 'ip3'],
-    ip1   => ['extra1', 'ip1a', 'ipcommon'],
-    ip2   => ['ip2a', 'ip2b', 'ip2c', 'ipcommon'],
-    des1  => ['des1a', 'des1b', 'des1c'],
-    des1a => ['des1a1', 'des1a2'],
-    des1c => ['des1c1', 'extra1']
-);
- 
-push @res, top_topos(%deps);
-$DB::single = 1;
-push @res, top_topos(%deps, 'top1');
-push @res, top_topos(%deps, 'top2');
-push @res, top_topos(%deps, 'ip1');
-push @res, top_topos(%deps, 'top1', 'top2');
-
-say my $result = join "\n", @res;
-
-my $ref = <<'END';
-Top levels are: top1 top2 
- 
-For top-level-modules:  top1 
-   des1a1 des1a2 des1b des1c1 extra1 ip1a ip2a ip2b ip2c ipcommon
-   des1a des1c ip1 ip2
-   des1
-   top1
- 
-For top-level-modules:  top2 
-   des1a1 des1a2 des1b des1c1 extra1 ip2a ip2b ip2c ip3 ipcommon
-   des1a des1c ip2
-   des1
-   top2
- 
-For top-level-modules:  ip1 
-   extra1 ip1a ipcommon
-   ip1
- 
-For top-level-modules:  top1 top2 
-   des1a1 des1a2 des1b des1c1 extra1 ip1a ip2a ip2b ip2c ip3 ipcommon
-   des1a des1c ip1 ip2
-   des1
-   top1 top2
+my $deps = <<END;
+top1    des1 ip1 ip2
+top2    des1 ip2 ip3
+ip1     extra1 ip1a ipcommon
+ip2     ip2a ip2b ip2c ipcommon
+des1    des1a des1b des1c
+des1a   des1a1 des1a2
+des1c   des1c1 extra1
 END
 
+sub before
+  {
+  map { $deps =~ /^$_\b(.+)/m ? before( split ' ', $1 ) : (), $_ } @_
+  }
+
+1 while $deps =~ s/^(\w+)\b.*?\K\h+\1\b//gm; # remove self dependencies
+push @res, "TOP LEVELS: @{[grep $deps !~ /\h$_\b/, $deps =~ /^\w+/gm]}";
+push @res, "TARGET $_ ORDER: @{[ uniq before split ]}"
+  for $deps =~ /^\w+/gm, 'top1 top2';
+
+say $result = join "\n", @res;
+
+my $ref = <<'EOD';
+TOP LEVELS: top1 top2
+TARGET top1 ORDER: des1a1 des1a2 des1a des1b des1c1 extra1 des1c des1 ip1a ipcommon ip1 ip2a ip2b ip2c ip2 top1
+TARGET top2 ORDER: des1a1 des1a2 des1a des1b des1c1 extra1 des1c des1 ip2a ip2b ip2c ipcommon ip2 ip3 top2
+TARGET ip1 ORDER: extra1 ip1a ipcommon ip1
+TARGET ip2 ORDER: ip2a ip2b ip2c ipcommon ip2
+TARGET des1 ORDER: des1a1 des1a2 des1a des1b des1c1 extra1 des1c des1
+TARGET des1a ORDER: des1a1 des1a2 des1a
+TARGET des1c ORDER: des1c1 extra1 des1c
+TARGET top1 top2 ORDER: des1a1 des1a2 des1a des1b des1c1 extra1 des1c des1 ip1a ipcommon ip1 ip2a ip2b ip2c ip2 top1 ip3 top2
+EOD
+
 use Test::More;
-#is ($result, $ref);
-#done_testing();
-
-__END__
-
-=={{header|Perl}}==
-{{trans|Perl 6}}
-<lang perl></lang>
-{{out}}
-<pre></pre>
+chomp $ref;
+is ($result, $ref);
+done_testing();
