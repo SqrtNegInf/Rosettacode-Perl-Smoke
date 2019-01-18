@@ -1,14 +1,11 @@
 #!/usr/local/bin/perl
 #u# http://rosettacode.org/wiki/Bulls_and_cows/Player
-#t# interactive
 #c# 2018-07-19 <RC
 #p# OK
+#=# RC pipe: 2 2\n1 3\n1 3\n0 4
 
 srand 123456;
 
-# Works with: Perl 5.10.0 and above
-use warnings;
-use strict;
 use v5.10;
  
 # Build a list of all possible solutions.  The regular expression weeds
@@ -59,3 +56,9 @@ do {
 say(@candidates?
     "Your secret number is @candidates":
     "I think you made a mistake with your scoring");
+
+$result = join '', @candidates;
+
+use Test::More;
+is($result,'9741');
+done_testing();
