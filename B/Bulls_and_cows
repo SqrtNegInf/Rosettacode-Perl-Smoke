@@ -1,13 +1,14 @@
 #!/usr/local/bin/perl
 #u# http://rosettacode.org/wiki/Bulls_and_cows
-#t# interactive
 #c# 2018-07-19 <RC
 #p# OK
+#=# RC pipe: 6789\n6795\n6792
 
 srand 123456;
 
 use Data::Random qw(rand_set);
 use List::MoreUtils qw(uniq);
+use Test::More;
  
 my $size = 4;
 my $chosen = join "", rand_set set => ["1".."9"], size => $size;
@@ -26,6 +27,7 @@ for ( my $guesses = 1; ; $guesses++ ) {
     }
     if ( $guess eq $chosen ) {
         print "You did it in $guesses attempts!\n";
+        is($guess,$chosen);
         last;
     }
     my $bulls = 0;
@@ -39,6 +41,8 @@ for ( my $guesses = 1; ; $guesses++ ) {
     }
     print "$cows cows, $bulls bulls\n";
 }
+
+done_testing();
  
 sub checkguess
 {
