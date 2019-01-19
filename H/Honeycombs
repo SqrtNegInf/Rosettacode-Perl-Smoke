@@ -1,25 +1,17 @@
 #!/usr/local/bin/perl
 #u# http://rosettacode.org/wiki/Honeycombs
-#t# interactive
+#t# gui
 #c# 2018-08-13 <RC
 #p# OK
 
 srand 123456;
 
-#The programme uses the Tk GUI toolkit.
-
-#!/usr/bin/perl
-use warnings;
-use strict;
-
 use Tk;
 use List::Util qw(shuffle);
-
  
 sub altitude {
     sqrt(3/4) * shift;
 }
-
  
 sub polygon_coordinates {
     my ($x, $y, $size) = @_;
@@ -32,7 +24,6 @@ sub polygon_coordinates {
             $x - ($size / 2), $y + $alt,
            );
 }
-
  
 {   my %changed;
     sub change {
@@ -51,7 +42,6 @@ sub polygon_coordinates {
         }
     }
 }
-
  
 {   my @letters = (shuffle('A' .. 'Z'))[1 .. 20];
     sub comb {
@@ -79,7 +69,6 @@ sub polygon_coordinates {
         }
     }
 }
-
  
 my $size = 36;
 
