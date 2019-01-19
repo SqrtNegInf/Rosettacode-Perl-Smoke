@@ -1,6 +1,6 @@
 #!/usr/local/bin/perl # do-not-check
 #u# http://rosettacode.org/wiki/Draw_a_pixel
-#t# interactive
+#t# gui
 #c# 2018-11-03 >RC
 #p# OK
 
