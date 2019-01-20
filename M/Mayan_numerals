@@ -1,0 +1,112 @@
+#!/usr/local/bin/perl
+#u# http://rosettacode.org/wiki/Mayan_numerals
+#c# 2010-01-19 >RC
+#p# OK
+#n# output rendered on RC, read last value as Morse code S-O-S
+#n# got my 'interesting' number via Perl 6: [+] <1 1 1 5 5 5 1 1 1> >>*<< (20 X**(^9).reverse)
+
+use feature 'say';
+
+use ntheory qw/fromdigits todigitstring/;
+
+my $t_style = '"border-collapse: separate; text-align: center; border-spacing: 3px 0px;"';
+my $c_style = '"border: solid black 2px;background-color: #fffff0;border-bottom: double 6px;'.
+  'border-radius: 1em;-moz-border-radius: 1em;-webkit-border-radius: 1em;'.
+  'vertical-align: bottom;width: 3.25em;"';
+
+sub cartouches {
+    my($num, @digits) = @_;
+    my $render; 
+    for my $d (@digits) {
+        $render .= "| style=$c_style | $_\n" for glyphs(@$d); 
+    }
+    chomp $render;
+    join "\n", "\{| style=$t_style", "|+ $num", '|-', $render, '|}'
+}
+
+sub glyphs {
+    return 'Θ' unless $_[0] || $_[1];
+    join '<br>', '●' x $_[0], ('───') x $_[1];
+}
+
+# multiple iterations on a single modulus
+sub mmod {
+    my($n,$b) = @_;
+    my @nb;
+    return 0 unless $n; 
+    push @nb, fromdigits($_, $b) for split '', todigitstring($n, $b);
+    return @nb;
+}
+
+for $n (qw<4005 8017 326205 886205 26960840421>) {
+    push @output, cartouches($n, map { [reverse mmod($_,5)] } mmod($n,20) );
+}
+
+$result = join "\n<br>\n", @output;
+
+$ref = <<'END';
+{| style="border-collapse: separate; text-align: center; border-spacing: 3px 0px;"
+|+ 4005
+|-
+| style="border: solid black 2px;background-color: #fffff0;border-bottom: double 6px;border-radius: 1em;-moz-border-radius: 1em;-webkit-border-radius: 1em;vertical-align: bottom;width: 3.25em;" | <br>───<br>───
+| style="border: solid black 2px;background-color: #fffff0;border-bottom: double 6px;border-radius: 1em;-moz-border-radius: 1em;-webkit-border-radius: 1em;vertical-align: bottom;width: 3.25em;" | Θ
+| style="border: solid black 2px;background-color: #fffff0;border-bottom: double 6px;border-radius: 1em;-moz-border-radius: 1em;-webkit-border-radius: 1em;vertical-align: bottom;width: 3.25em;" | <br>───
+|}
+<br>
+{| style="border-collapse: separate; text-align: center; border-spacing: 3px 0px;"
+|+ 8017
+|-
+| style="border: solid black 2px;background-color: #fffff0;border-bottom: double 6px;border-radius: 1em;-moz-border-radius: 1em;-webkit-border-radius: 1em;vertical-align: bottom;width: 3.25em;" | ●
+| style="border: solid black 2px;background-color: #fffff0;border-bottom: double 6px;border-radius: 1em;-moz-border-radius: 1em;-webkit-border-radius: 1em;vertical-align: bottom;width: 3.25em;" | Θ
+| style="border: solid black 2px;background-color: #fffff0;border-bottom: double 6px;border-radius: 1em;-moz-border-radius: 1em;-webkit-border-radius: 1em;vertical-align: bottom;width: 3.25em;" | Θ
+| style="border: solid black 2px;background-color: #fffff0;border-bottom: double 6px;border-radius: 1em;-moz-border-radius: 1em;-webkit-border-radius: 1em;vertical-align: bottom;width: 3.25em;" | ●●<br>───<br>───<br>───
+|}
+<br>
+{| style="border-collapse: separate; text-align: center; border-spacing: 3px 0px;"
+|+ 326205
+|-
+| style="border: solid black 2px;background-color: #fffff0;border-bottom: double 6px;border-radius: 1em;-moz-border-radius: 1em;-webkit-border-radius: 1em;vertical-align: bottom;width: 3.25em;" | ●●
+| style="border: solid black 2px;background-color: #fffff0;border-bottom: double 6px;border-radius: 1em;-moz-border-radius: 1em;-webkit-border-radius: 1em;vertical-align: bottom;width: 3.25em;" | Θ
+| style="border: solid black 2px;background-color: #fffff0;border-bottom: double 6px;border-radius: 1em;-moz-border-radius: 1em;-webkit-border-radius: 1em;vertical-align: bottom;width: 3.25em;" | <br>───<br>───<br>───
+| style="border: solid black 2px;background-color: #fffff0;border-bottom: double 6px;border-radius: 1em;-moz-border-radius: 1em;-webkit-border-radius: 1em;vertical-align: bottom;width: 3.25em;" | <br>───<br>───
+| style="border: solid black 2px;background-color: #fffff0;border-bottom: double 6px;border-radius: 1em;-moz-border-radius: 1em;-webkit-border-radius: 1em;vertical-align: bottom;width: 3.25em;" | <br>───
+|}
+<br>
+{| style="border-collapse: separate; text-align: center; border-spacing: 3px 0px;"
+|+ 886205
+|-
+| style="border: solid black 2px;background-color: #fffff0;border-bottom: double 6px;border-radius: 1em;-moz-border-radius: 1em;-webkit-border-radius: 1em;vertical-align: bottom;width: 3.25em;" | <br>───
+| style="border: solid black 2px;background-color: #fffff0;border-bottom: double 6px;border-radius: 1em;-moz-border-radius: 1em;-webkit-border-radius: 1em;vertical-align: bottom;width: 3.25em;" | <br>───<br>───
+| style="border: solid black 2px;background-color: #fffff0;border-bottom: double 6px;border-radius: 1em;-moz-border-radius: 1em;-webkit-border-radius: 1em;vertical-align: bottom;width: 3.25em;" | <br>───<br>───<br>───
+| style="border: solid black 2px;background-color: #fffff0;border-bottom: double 6px;border-radius: 1em;-moz-border-radius: 1em;-webkit-border-radius: 1em;vertical-align: bottom;width: 3.25em;" | <br>───<br>───
+| style="border: solid black 2px;background-color: #fffff0;border-bottom: double 6px;border-radius: 1em;-moz-border-radius: 1em;-webkit-border-radius: 1em;vertical-align: bottom;width: 3.25em;" | <br>───
+|}
+<br>
+{| style="border-collapse: separate; text-align: center; border-spacing: 3px 0px;"
+|+ 26960840421
+|-
+| style="border: solid black 2px;background-color: #fffff0;border-bottom: double 6px;border-radius: 1em;-moz-border-radius: 1em;-webkit-border-radius: 1em;vertical-align: bottom;width: 3.25em;" | ●
+| style="border: solid black 2px;background-color: #fffff0;border-bottom: double 6px;border-radius: 1em;-moz-border-radius: 1em;-webkit-border-radius: 1em;vertical-align: bottom;width: 3.25em;" | ●
+| style="border: solid black 2px;background-color: #fffff0;border-bottom: double 6px;border-radius: 1em;-moz-border-radius: 1em;-webkit-border-radius: 1em;vertical-align: bottom;width: 3.25em;" | ●
+| style="border: solid black 2px;background-color: #fffff0;border-bottom: double 6px;border-radius: 1em;-moz-border-radius: 1em;-webkit-border-radius: 1em;vertical-align: bottom;width: 3.25em;" | <br>───
+| style="border: solid black 2px;background-color: #fffff0;border-bottom: double 6px;border-radius: 1em;-moz-border-radius: 1em;-webkit-border-radius: 1em;vertical-align: bottom;width: 3.25em;" | <br>───
+| style="border: solid black 2px;background-color: #fffff0;border-bottom: double 6px;border-radius: 1em;-moz-border-radius: 1em;-webkit-border-radius: 1em;vertical-align: bottom;width: 3.25em;" | <br>───
+| style="border: solid black 2px;background-color: #fffff0;border-bottom: double 6px;border-radius: 1em;-moz-border-radius: 1em;-webkit-border-radius: 1em;vertical-align: bottom;width: 3.25em;" | ●
+| style="border: solid black 2px;background-color: #fffff0;border-bottom: double 6px;border-radius: 1em;-moz-border-radius: 1em;-webkit-border-radius: 1em;vertical-align: bottom;width: 3.25em;" | ●
+| style="border: solid black 2px;background-color: #fffff0;border-bottom: double 6px;border-radius: 1em;-moz-border-radius: 1em;-webkit-border-radius: 1em;vertical-align: bottom;width: 3.25em;" | ●
+|}
+END
+
+use Test::More;
+chomp $ref;
+is($result, $ref);
+done_testing();
+
+__END__
+
+=={{header|Perl}}==
+{{trans|Perl 6}}
+<lang perl></lang>
+{{out}}
+<pre style="height:35ex"></pre>
+[https://github.com/SqrtNegInf/Rosettacode-Perl5-Smoke/blob/master/ref/XXX XXX]
