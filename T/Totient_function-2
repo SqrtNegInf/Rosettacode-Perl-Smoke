@@ -12,8 +12,7 @@ use ntheory qw(euler_phi);
 
 my @res;
 
-push @𝜑, 0;
-push @𝜑, euler_phi($_) for 1..10000;
+my @𝜑 = euler_phi(0,10000);  # Returns list of all values in range
  
 push @res, sprintf "𝜑(%2d) = %3d%s", $_, $𝜑[$_], $_ - $𝜑[$_] - 1 ? '' : ' Prime' for 1 .. 25;
 
