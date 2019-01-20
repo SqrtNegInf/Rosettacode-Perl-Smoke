@@ -1,6 +1,6 @@
 #!/usr/local/bin/perl
 #u# http://rosettacode.org/wiki/Totient_function
-#c# 2018-12-06 >RC
+#c# 2019-01-19 >RC
 #p# OK
 #n# but see -2 variant for ntheory/speed
 
@@ -20,36 +20,12 @@ sub gcd {
   return abs($u);
 }
 
-# Sidef
-#for $t (1..10000) {
-#    push @𝜑, ?? #($𝜑[0]-1) * p[0]**(p[1]-1)
-#}
-
-sub totient {
-    my($n) = @_;
-    $tot = $n;
-    for ($i= 2; $i*$i <= $n; $i += 2) {
-        if ($n%$i == 0) {
-            for ($n%$i == 0) {
-                $n /= $i;
-            }
-            $tot -= $tot / $i;
-        }
-        $i = 1 if $i == 2;
-    }
-    $tot -= $tot / $n if $n > 1;
-    $tot
-} 
-
 push @𝜑, 0;
 for $t (1..10000) {
-    #push @x, totient($t);
     push @𝜑, scalar grep { 1 == gcd($_,$t) } 1..$t;
 }
 
 say join ' ', @𝜑[0..20];
-#say join ' ', @x[0..20];
-#exit;
 
 push @res, sprintf "𝜑(%2d) = %3d%s", $_, $𝜑[$_], $_ - $𝜑[$_] - 1 ? '' : ' Prime' for 1 .. 25;
  
@@ -58,7 +34,6 @@ for $limit (100, 1000, 10000) {
 }
 
 say $result = join "\n", @res;
-#exit;
 
 my $ref = <<'EOD';
 𝜑( 1) =   1
@@ -98,11 +73,3 @@ use Test::More;
 chop $ref;
 is($result, $ref);
 done_testing();
-
-__END__
-
-=={{header|Perl}}==
-{{trans|Perl 6}}
-<lang perl></lang>
-{{out}}
-<pre style="height:35ex"></pre>
