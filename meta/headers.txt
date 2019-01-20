@@ -1720,6 +1720,12 @@ File: E/Echo_server
 #c# 2018-07-30 <RC
 #p# OK
 
+File: E/Eertree
+#!/usr/local/bin/perl
+#u# http://rosettacode.org/wiki/Eertree
+#c# 2019-01-19 >RC
+#p# OK
+
 File: E/Egyptian_division
 #!/usr/local/bin/perl
 #u# http://rosettacode.org/wiki/Egyptian_division
@@ -3715,6 +3721,14 @@ File: M/Maximum_triangle_path_sum
 #u# http://rosettacode.org/wiki/Maximum_triangle_path_sum
 #c# 2018-08-18 <RC
 #p# OK
+
+File: M/Mayan_numerals
+#!/usr/local/bin/perl
+#u# http://rosettacode.org/wiki/Mayan_numerals
+#c# 2010-01-19 >RC
+#p# OK
+#n# output rendered on RC, read last value as Morse code S-O-S
+#n# got my 'interesting' number via Perl 6: [+] <1 1 1 5 5 5 1 1 1> >>*<< (20 X**(^9).reverse)
 
 File: M/Maze_generation
 #!/usr/local/bin/perl
@@ -6453,7 +6467,7 @@ File: T/Topswops
 File: T/Totient_function-1
 #!/usr/local/bin/perl
 #u# http://rosettacode.org/wiki/Totient_function
-#c# 2018-12-06 >RC
+#c# 2019-01-19 >RC
 #p# OK
 #n# but see -2 variant for ntheory/speed
 
