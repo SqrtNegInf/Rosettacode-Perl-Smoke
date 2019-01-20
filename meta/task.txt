@@ -1,17 +1,17 @@
 
 This is perl 5, version 28, subversion 0 (v5.28.0) built for darwin-thread-multi-2level
 updating from RC…
-+------------> Perl: Good/Bad [1060/17]
-|+-----------> Smoke testing [934]
++------------> Perl: Good/Bad [1062/17]
+|+-----------> Smoke testing [936]
 ||+----------> sKipping validation [130]
 |||+---------> Interactive [43]
-||||+--------> Touched (modified by me) [206]
+||||+--------> Touched (modified by me) [208]
 |||||+-------> Random seed [86]
 ||||||+------> File output [57]
-|||||||+-----> Draft [215]
+|||||||+-----> Draft [216]
 ||||||||+----> Ignoring [36]
-|||||||||+---> Void (no local copy) [210]
-||||||||||+--> Un-implemented/reliable [196]
+|||||||||+---> Void (no local copy) [209]
+||||||||||+--> Un-implemented/reliable [195]
 |||||||||||
 GS......... 100_doors-1
 GS......... 100_doors-2
@@ -345,7 +345,7 @@ GS...R..... Dutch_national_flag_problem
 GS......... Dynamic_variable_names
 GS..T...... EKG_sequence_convergence
 G.KI....... Echo_server
-.........VU Eertree
+GS..T...... Eertree
 GS..T...... Egyptian_division
 GS......... Egyptian_fractions
 GS......... Element-wise_operations
@@ -696,7 +696,8 @@ GS..T...... Matrix_chain_multiplication
 GS..T...... Matrix_multiplication
 GS......... Matrix_transposition
 GS......... Maximum_triangle_path_sum
-.......D.VU Mayan_numerals
+.......D.VU Mayan_calendar
+GS..T..D..U Mayan_numerals
 GS...R..... Maze_generation
 GS...R..... Maze_solving
 GS..T...... McNuggets_Problem
@@ -1213,7 +1214,6 @@ GS......... Topological_sort
 GS.....D... Topological_sort_Extracted_top_item
 GS......... Topswops
 .........VU Total_circles_area
-..........U Totient_function
 GS..T...... Totient_function-1
 GS..T...... Totient_function-2
 GS......... Towers_of_Hanoi
