@@ -1,6 +1,6 @@
 #!/usr/local/bin/perl
 #u# http://rosettacode.org/wiki/Mayan_numerals
-#c# 2010-01-19 >RC
+#c# 2019-01-19 >RC
 #p# OK
 #n# output rendered on RC, read last value as Morse code S-O-S
 #n# got my 'interesting' number via Perl 6: [+] <1 1 1 5 5 5 1 1 1> >>*<< (20 X**(^9).reverse)
@@ -101,12 +101,3 @@ use Test::More;
 chomp $ref;
 is($result, $ref);
 done_testing();
-
-__END__
-
-=={{header|Perl}}==
-{{trans|Perl 6}}
-<lang perl></lang>
-{{out}}
-<pre style="height:35ex"></pre>
-[https://github.com/SqrtNegInf/Rosettacode-Perl5-Smoke/blob/master/ref/XXX XXX]
