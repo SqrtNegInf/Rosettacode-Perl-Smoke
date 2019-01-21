@@ -543,6 +543,12 @@ File: B/Base58Check_encoding
 #c# 2018-11-20 >RC
 #p# OK
 
+File: B/Base64_decode_data
+#!/usr/local/bin/perl
+#u# http://rosettacode.org/wiki/Base64_decode_data
+#c# 2019-01-20 >RC
+#p# OK
+
 File: B/Base64_encode_data
 #!/usr/local/bin/perl
 #u# http://rosettacode.org/wiki/Base64_encode_data
@@ -1483,7 +1489,7 @@ File: D/Deconvolution_1D
 File: D/Deconvolution_2D%2B
 #!/usr/local/bin/perl
 #u# http://rosettacode.org/wiki/Deconvolution/2D%2B
-#c# 2018-12-01 >RC
+#c# 2019-01-21 >RC
 #p# BROKEN
 
 File: D/Deepcopy
@@ -2447,6 +2453,14 @@ File: G/GUI_Maximum_window_dimensions
 #t# gui
 #c# 2018-08-08 <RC
 #p# OK
+
+File: G/Galton_box_animation
+#!/usr/local/bin/perl
+#u# http://rosettacode.org/wiki/RC_REMOTE
+#c# 2019-01-RC >RC
+#p# OK
+#i# RC cli: 10 4
+#f# RC file: galton_box.dat
 
 File: G/Gamma_function
 #!/usr/local/bin/perl
@@ -3725,7 +3739,7 @@ File: M/Maximum_triangle_path_sum
 File: M/Mayan_numerals
 #!/usr/local/bin/perl
 #u# http://rosettacode.org/wiki/Mayan_numerals
-#c# 2010-01-19 >RC
+#c# 2019-01-19 >RC
 #p# OK
 #n# output rendered on RC, read last value as Morse code S-O-S
 #n# got my 'interesting' number via Perl 6: [+] <1 1 1 5 5 5 1 1 1> >>*<< (20 X**(^9).reverse)
@@ -5125,6 +5139,13 @@ File: R/Roots_of_unity
 #p# OK
 
 File: R/Rosetta_Code_Count_examples
+#!/usr/local/bin/perl
+#u# http://rosettacode.org/wiki/Rosetta_Code/Count_examples
+#t# skiptest
+#c# 2018-08-21 <RC
+#p# BROKEN
+
+File: R/Rosetta_Code_Count_examples-2
 #!/usr/local/bin/perl
 #u# http://rosettacode.org/wiki/Rosetta_Code/Count_examples
 #t# skiptest
