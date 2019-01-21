@@ -1,17 +1,17 @@
 
 This is perl 5, version 28, subversion 0 (v5.28.0) built for darwin-thread-multi-2level
 updating from RC…
-+------------> Perl: Good/Bad [1062/17]
-|+-----------> Smoke testing [936]
-||+----------> sKipping validation [130]
++------------> Perl: Good/Bad [1063/18]
+|+-----------> Smoke testing [938]
+||+----------> sKipping validation [131]
 |||+---------> Interactive [43]
-||||+--------> Touched (modified by me) [208]
-|||||+-------> Random seed [86]
-||||||+------> File output [57]
+||||+--------> Touched (modified by me) [210]
+|||||+-------> Random seed [87]
+||||||+------> File output [58]
 |||||||+-----> Draft [216]
 ||||||||+----> Ignoring [36]
-|||||||||+---> Void (no local copy) [209]
-||||||||||+--> Un-implemented/reliable [195]
+|||||||||+---> Void (no local copy) [207]
+||||||||||+--> Un-implemented/reliable [193]
 |||||||||||
 GS......... 100_doors-1
 GS......... 100_doors-2
@@ -121,7 +121,7 @@ GS......... Balanced_ternary
 .......D.VU Banker%27s_algorithm
 GS...RF.... Barnsley_fern
 GS..T..D... Base58Check_encoding
-.......D.VU Base64_decode_data
+GS..T..D... Base64_decode_data
 GS.....D... Base64_encode_data
 GS......... Benford%27s_law
 GS......... Bernoulli_numbers-1
@@ -470,7 +470,7 @@ GS......... Function_prototype
 G.KI....... GUI_Maximum_window_dimensions
 .........VU GUI_component_interaction
 .........VU GUI_enabling_disabling_of_controls
-.........VU Galton_box_animation
+!S..TRF...U Galton_box_animation
 GS......... Gamma_function
 GS..T..D... Gauss-Jordan_matrix_inversion
 GS......... Gaussian_elimination
@@ -697,7 +697,7 @@ GS..T...... Matrix_multiplication
 GS......... Matrix_transposition
 GS......... Maximum_triangle_path_sum
 .......D.VU Mayan_calendar
-GS..T..D..U Mayan_numerals
+GS..T..D... Mayan_numerals
 GS...R..... Maze_generation
 GS...R..... Maze_solving
 GS..T...... McNuggets_Problem
@@ -969,6 +969,7 @@ GS......... Roots_of_a_function
 GS......... Roots_of_a_quadratic_function
 GS......... Roots_of_unity
 B.K........ Rosetta_Code_Count_examples
+B.K........ Rosetta_Code_Count_examples-2
 GS..T...... Rosetta_Code_Find_bare_lang_tags
 B.......... Rosetta_Code_Find_unimplemented_tasks
 G.K........ Rosetta_Code_Fix_code_tags
