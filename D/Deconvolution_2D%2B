@@ -1,6 +1,6 @@
 #!/usr/local/bin/perl
 #u# http://rosettacode.org/wiki/Deconvolution/2D%2B
-#c# 2018-12-01 >RC
+#c# 2019-01-21 >RC
 #p# BROKEN
 
 use warnings;
