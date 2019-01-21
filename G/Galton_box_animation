@@ -1,0 +1,194 @@
+#!/usr/local/bin/perl
+#u# http://rosettacode.org/wiki/RC_REMOTE
+#c# 2019-01-RC >RC
+#p# OK
+#i# RC cli: 10 4
+#f# RC file: galton_box.dat
+
+__END__
+
+use feature 'state';
+use warnings;
+use strict 'vars';
+
+srand 123456;
+
+use Time::HiRes qw(sleep);
+
+my $result;
+# my @res;
+my $fh;
+    
+my @board_tmpl;
+
+# UPPER HALF BLOCK and LOWER HALF BLOCK alternate to give a somewhat smooth animation.
+
+open $fh, ">run/galton_box.dat";
+
+my $row_count = 6;
+
+my $peg = "*";
+my @coin_icons = "\c[UPPER HALF BLOCK]", "\c[LOWER HALF BLOCK]";
+
+sub display_board {
+    my(@positions, @stats, $halfstep) = @_;
+    my $coin = @coin_icons[$halfstep.Int];
+
+        # precompute a board
+    sub abc {
+        my @tmpl;
+        sub buf {
+            my(@stuff) = @_;
+            push @tmpl, $[@stuff.join>>.ords.flat];
+        }
+        # three lines of space above
+        for (1..3) {
+            buf "  ", " " x (2 * $row_count);
+        }
+        # $row_count lines of pegs
+        for flat ($row_count...1) Z (1...$row_count) -> $spaces, $pegs {
+            buf "  ", " " x $spaces, join(' ',($peg) x $pegs), " " x $spaces;
+        }
+        # four lines of space below
+        for (1..4) {
+            buf "  ", " " x (2 * $row_count);
+        }
+        return @tmpl; 
+    }
+    @board_tmpl = abc();
+
+    my $midpos = $row_count + 2;
+
+    my @output;
+    {
+        # collect all the output and output it all at once at the end
+        sub say { my ($foo) @_;
+            push @output, $foo . "\n";
+        }
+        sub printl { my($foo) = @_;
+            push @output, $foo;
+        }
+
+        # make some space above the picture
+        say("") for 0..9;
+
+        my @output_lines = map { [map *.clone, @$_].item }, @board_tmpl;
+        # place the coins
+        for my $line (keys @positions) {
+            my $pos = $positions{$line};
+            next unless defined $pos;
+            $output_lines[$line][$pos + $midpos] = ord($coin);
+        }
+        # output the board with its coins
+        for my $line (@output_lines) {
+            say @$line>>.chr.join("");
+        }
+
+        # show the statistics
+        my $padding = 0;
+        while any(@stats) > 0 {
+            $padding++;
+            printl "  ";
+            @stats = do for @stats -> $stat {
+                given $stat {
+                    when 1 {
+                        printl "\c[UPPER HALF BLOCK]";
+                        $stat - 1;
+                    }
+                    when * <= 0 {
+                        printl " ";
+                        0
+                    }
+                    default {
+                        printl "\c[FULL BLOCK]";
+                        $stat - 2;
+                    }
+                }
+            }
+            say("");
+        }
+        say("") for $padding...^10;
+    }
+    print $fh, join '', @output . "\n";
+
+}
+
+sub simulate { my($coins) = @_;
+    my $alive = 1;
+
+    sub hits_peg { my($x, $y) = @_;
+        if 3 <= $y < 3 + $row_count and -($y - 2) <= $x <= $y - 2 {
+            return not 0 == ($x - $y) % 2;
+        }
+        return 0;
+    }
+
+    my @coins = (0) x (3 + $row_count + 4);
+    my @stats = (0) x ($row_count * 2);
+    # this line will dispense coins until turned off.
+    $coins[0] = 0;
+    while $alive {
+        $alive = 0;
+        # if a coin falls through the bottom, count it
+        $stats[$_ + $row_count]++ if defined $coins[*-1];
+
+        # move every coin down one row
+        for $line ( ( 3 + $row_count + 3 )...1) {
+            my $coinpos = $coins[$line - 1];
+
+            $coins[$line] = do if ! defined $coinpos;
+                undef
+            } elsif hits_peg($coinpos, $line) {
+                # when a coin from above hits a peg, it will bounce to either side.
+                $alive = 1;
+                ($coinpos - 1, $coinpos + 1).pick;
+            } else {
+                # if there was a coin above, it will fall to this position.
+                $alive = 1;
+                $coinpos;
+            }
+        }
+        # let the coin dispenser blink and turn it off if we run out of coins
+        if (defined $coins[0]){
+            $coins[0] = undef;
+        } elsif --$coins > 0 {
+            $coins[0] = 0 
+        }
+
+        # smooth out the two halfsteps of the animation
+        my $start-time;
+        ENTER { $start-time = now }
+        my $wait-time = now - $start-time;
+
+        sleep 0.01 - $wait-time if $wait-time < 0.01;
+        for (keys @coin_icons) {
+            sleep $wait-time max 0.1;
+            display_board(\@coins, \@stats, $_);
+        }
+    }
+}
+
+#sub MAIN
+    my $coins =250; 
+    my $peg_lines = 13;
+    $row_count = $peg_lines;
+    simulate($coins);
+#}
+
+say $result; 
+#say $result = join "\n", @res;
+my $ref = <<'EOD';
+EOD
+
+use Test::More;
+#is($result, $ref);
+#done_testing();
+
+__END__
+
+=={{header|Perl}}==
+{{trans|Perl 6}}
+<lang perl></lang>
+{{out}}
+<pre style="height:35ex"></pre>
+[https://github.com/SqrtNegInf/Rosettacode-Perl5-Smoke/blob/master/ref/XXX XXX]
