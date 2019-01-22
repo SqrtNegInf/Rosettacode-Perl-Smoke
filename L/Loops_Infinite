@@ -4,7 +4,7 @@
 #c# 2018-08-17 <RC
 #p# OK
 
-while(1){
+while () {
     print "SPAM\n";
 }
 
