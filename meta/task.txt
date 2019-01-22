@@ -1,17 +1,17 @@
 
 This is perl 5, version 28, subversion 0 (v5.28.0) built for darwin-thread-multi-2level
 updating from RC…
-+------------> Perl: Good/Bad [1063/18]
-|+-----------> Smoke testing [938]
-||+----------> sKipping validation [131]
-|||+---------> Interactive [43]
-||||+--------> Touched (modified by me) [210]
++------------> Perl: Good/Bad [1071/17]
+|+-----------> Smoke testing [939]
+||+----------> sKipping validation [136]
+|||+---------> Interactive [46]
+||||+--------> Touched (modified by me) [214]
 |||||+-------> Random seed [87]
 ||||||+------> File output [58]
 |||||||+-----> Draft [216]
-||||||||+----> Ignoring [36]
-|||||||||+---> Void (no local copy) [207]
-||||||||||+--> Un-implemented/reliable [193]
+||||||||+----> Ignoring [32]
+|||||||||+---> Void (no local copy) [201]
+||||||||||+--> Un-implemented/reliable [191]
 |||||||||||
 GS......... 100_doors-1
 GS......... 100_doors-2
@@ -51,7 +51,7 @@ GS......... Ackermann_function-4
 GS......... Ackermann_function-5
 ........XV. Active_Directory_Connect
 .........VU Active_Directory_Search_for_a_user
-!S......... Active_object
+GS......... Active_object
 GS......... Add_a_variable_to_a_class_instance_at_runtime
 .......D.VU Addition-chain_exponentiation
 .......D.VU Addition_chains
@@ -218,7 +218,7 @@ GS..T...... Circles_of_given_radius_through_two_points
 G.K........ Classes
 GS..TR..... Closest-pair_problem
 GS......... Closures_Value_capture
-.......D.VU Code_segment_unload
+.......DXVU Code_segment_unload
 GS......... Collections
 ........XVU Color_of_a_screen_pixel
 .........VU Color_quantization
@@ -252,7 +252,7 @@ G.K..R..... Concurrent_computing-1
 GS......... Concurrent_computing-2
 G.K........ Conditional_structures
 GS......... Conjugate_transpose
-.........VU Constrained_genericity
+........XVU Constrained_genericity
 GS..TR..... Constrained_random_points_on_a_circle
 GS......... Continued_fraction
 GS......... Continued_fraction_Arithmetic_Construct_from_rational_number
@@ -279,7 +279,7 @@ G.K........ Create_a_file
 GS......... Create_a_two-dimensional_array_at_runtime
 GS...R..... Create_an_HTML_table
 GS.....D... Create_an_object_Native_demonstration
-.........VU Create_an_object_at_a_given_address
+........XVU Create_an_object_at_a_given_address
 GS......... Cumulative_standard_deviation-1
 GS......... Cumulative_standard_deviation-2
 GS..T...... Currency
@@ -336,8 +336,7 @@ GS..T.F.... Dragon_curve
 G.KI....... Draw_a_clock
 GS......... Draw_a_cuboid-1
 GS...R..... Draw_a_cuboid-2
-G.KIT...X.. Draw_a_pixel
-........X.. Draw_a_pixel_2
+G.KIT...... Draw_a_pixel
 .........VU Draw_a_rotating_cube
 GS...RF.... Draw_a_sphere
 G.KIT..D... Draw_pixel_2
@@ -470,7 +469,7 @@ GS......... Function_prototype
 G.KI....... GUI_Maximum_window_dimensions
 .........VU GUI_component_interaction
 .........VU GUI_enabling_disabling_of_controls
-!S..TRF...U Galton_box_animation
+G.K.TRF...U Galton_box_animation
 GS......... Gamma_function
 GS..T..D... Gauss-Jordan_matrix_inversion
 GS......... Gaussian_elimination
@@ -632,7 +631,7 @@ GS......... Levenshtein_distance-1
 GS......... Levenshtein_distance-2
 GS.....D... Levenshtein_distance_Alignment
 GS......... Linear_congruential_generator
-.......DXVU Linux_CPU_utilization
+G.K.T..D... Linux_CPU_utilization
 GS......... List_comprehensions
 .......D.VU List_rooted_trees
 G.K........ Literals_Floating_point
@@ -725,7 +724,7 @@ GS...R..... Monte_Carlo_methods
 GS..T..D... Montgomery_reduction
 GS...R..... Monty_Hall_problem
 .......D.VU Morpion_solitaire
-........XV. Morse_code
+!S..T...... Morse_code
 GS.....D... Most_frequent_k_chars_distance
 G.KI....... Mouse_position-1
 G.KI....... Mouse_position-2
@@ -804,7 +803,7 @@ GS......... Pangram_checker
 GS......... Paraffins
 GS......... Parallel_Brute_Force
 GS......... Parallel_calculations
-.........VU Parametric_polymorphism
+........XVU Parametric_polymorphism
 ........XV. Parametrized_SQL_statement
 .......D.VU Parse_EBNF
 GS......... Parse_an_IP_Address
@@ -968,7 +967,7 @@ G.K........ Roman_numerals_Encode-4
 GS......... Roots_of_a_function
 GS......... Roots_of_a_quadratic_function
 GS......... Roots_of_unity
-B.K........ Rosetta_Code_Count_examples
+G.K........ Rosetta_Code_Count_examples
 B.K........ Rosetta_Code_Count_examples-2
 GS..T...... Rosetta_Code_Find_bare_lang_tags
 B.......... Rosetta_Code_Find_unimplemented_tasks
@@ -997,7 +996,7 @@ GS..T...... Sailors,_coconuts_and_a_monkey_problem-1
 GS..T...... Sailors,_coconuts_and_a_monkey_problem-2
 GS......... Same_Fringe
 GS..TR.D... Sattolo_cycle
-........XVU Scope_Function_names_and_labels
+GS..T.....U Scope_Function_names_and_labels
 GS......... Scope_modifiers
 GS......... Search_a_list
 GS......... Search_a_list_of_records
@@ -1247,7 +1246,7 @@ G.K....D... Untrusted_environment
 GS......... Update_a_configuration_file
 .........VU Use_another_language_to_call_a_function
 GS.....D... User_defined_pipe_and_redirection_operators
-........XV. User_input_Graphical
+G.KI....... User_input_Graphical
 GS......... User_input_Text
 .......D.VU Using_a_Speech_engine_to_highlight_words
 .......D.VU Using_the_Meetup.com_API
@@ -1266,7 +1265,7 @@ GS......... Vector_products
 GS..T...... Verify_distribution_uniformity_Chi-squared_test
 GS..TR..... Verify_distribution_uniformity_Naive
 G.KIT..D... Vibrating_rectangles
-........XVU Video_display_modes
+G.KIT...... Video_display_modes
 GS..T...... Vigen%C3%A8re_cipher
 .........VU Vigen%C3%A8re_cipher_Cryptanalysis
 GS......... Visualize_a_tree
@@ -1282,7 +1281,7 @@ GS......... Web_scraping
 .......D... Welch%27s_t-test
 GS......... Welch%27s_t-test-1
 GS......... Welch%27s_t-test-2
-........XV. Window_creation
+G.KI....... Window_creation
 G.KI....... Window_creation_X11
 G.KI....... Window_management
 GS......... Wireworld
