@@ -2458,6 +2458,7 @@ File: G/Galton_box_animation
 #!/usr/local/bin/perl
 #u# http://rosettacode.org/wiki/RC_REMOTE
 #c# 2019-01-RC >RC
+#t# skiptest
 #p# OK
 #i# RC cli: 10 4
 #f# RC file: galton_box.dat
@@ -3374,6 +3375,14 @@ File: L/Linear_congruential_generator
 #c# 2018-08-15 <RC
 #p# OK
 
+File: L/Linux_CPU_utilization
+#!/usr/local/bin/perl
+#u# http://rosettacode.org/wiki/Linux_CPU_utilization
+#t# skiptest
+#c# 2019-01-21 >RC
+#p# OK
+#n# tested on Ubuntu 18
+
 File: L/List_comprehensions
 #!/usr/local/bin/perl
 #u# http://rosettacode.org/wiki/List_comprehensions
@@ -3874,6 +3883,12 @@ File: M/Monty_Hall_problem
 #!/usr/local/bin/perl
 #u# http://rosettacode.org/wiki/Monty_Hall_problem
 #c# 2018-08-18 <RC
+#p# OK
+
+File: M/Morse_code
+#!/usr/local/bin/perl
+#u# http://rosettacode.org/wiki/RC_REMOTE
+#c# 2019-01-RC >RC
 #p# OK
 
 File: M/Most_frequent_k_chars_distance
@@ -5143,7 +5158,8 @@ File: R/Rosetta_Code_Count_examples
 #u# http://rosettacode.org/wiki/Rosetta_Code/Count_examples
 #t# skiptest
 #c# 2018-08-21 <RC
-#p# BROKEN
+#p# OK
+#n# LWP version not working
 
 File: R/Rosetta_Code_Count_examples-2
 #!/usr/local/bin/perl
@@ -5271,6 +5287,12 @@ File: S/Sattolo_cycle
 #c# 2018-09-05 >RC
 #p# OK
 #n# let it be random to see if it ever fails
+
+File: S/Scope_Function_names_and_labels
+#!/usr/local/bin/perl 
+#u# http://rosettacode.org/wiki/Scope/Function_names_and_labels
+#c# 2019-01-21 >RC
+#p# OK
 
 File: S/Scope_modifiers
 #!/usr/local/bin/perl
@@ -6660,6 +6682,13 @@ File: U/User_defined_pipe_and_redirection_operators
 #p# OK
 #n# tested 'Tee' by hand
 
+File: U/User_input_Graphical
+#!/usr/local/bin/perl
+#u# http://rosettacode.org/wiki/User_input/Graphical
+#t# gui
+#c# 2019-01-21 <RC
+#p# OK
+
 File: U/User_input_Text
 #!/usr/local/bin/perl
 #u# http://rosettacode.org/wiki/User_input/Text
@@ -6754,6 +6783,14 @@ File: V/Vibrating_rectangles
 #c# 2018-09-04 >RC
 #p# OK
 
+File: V/Video_display_modes
+#!/usr/local/bin/perl
+#u# http://rosettacode.org/wiki/Video_display_modes
+#t# gui
+#c# 2019-01-RC >RC
+#p# OK
+#n# tested on Ubuntu 18
+
 File: V/Vigen%C3%A8re_cipher
 #!/usr/local/bin/perl
 #u# http://rosettacode.org/wiki/Vigen%C3%A8re_cipher
@@ -6810,6 +6847,14 @@ File: W/Welch%27s_t-test-2
 #u# http://rosettacode.org/wiki/Welch%27s_t-test
 #c# 2018-08-03 <RC
 #p# OK
+
+File: W/Window_creation
+#!/usr/local/bin/perl
+#u# http://rosettacode.org/wiki/Window_creation
+#t# gui
+#c# 2019-01-21 <RC
+#p# OK
+#n# consolidated to Gtk3, Tk works too; the rest untested
 
 File: W/Window_creation_X11
 #!/usr/local/bin/perl
