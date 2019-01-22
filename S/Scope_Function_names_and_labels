@@ -1,0 +1,55 @@
+#!/usr/local/bin/perl 
+#u# http://rosettacode.org/wiki/Scope/Function_names_and_labels
+#c# 2019-01-21 >RC
+#p# OK
+
+use feature 'say';
+
+push @res, logger();
+sub logger { "I have something to say" }; 
+sub down_one_level {
+    push @res, logger();
+    sub logger { "I am a man, not a fish." };
+    sub down_two_levels {
+        sub logger { "There can be only one!" };
+    }
+}
+down_one_level();
+push @res, logger();
+
+say $result = join "\n", @res;
+
+my $ref = <<'END';
+There can be only one!
+There can be only one!
+There can be only one!
+END
+
+use Test::More;
+chomp $ref;
+is($result,$ref);
+done_testing();
+
+__END__
+
+=={{header|Perl}}==
+<lang perl>use feature 'say';
+
+say '1 ' . logger();
+sub logger { "I have something to say" }; 
+sub down_one_level {
+    say '2 ' . logger();
+    sub logger { "I am a man, not a fish." };
+    sub down_two_levels {
+        sub logger { "There can be only one!" };
+    }
+}
+down_one_level();
+say '3 ' . logger();
+</lang>
+{{out}}
+<pre>
+There can be only one!
+There can be only one!
+There can be only one!
+</pre>
