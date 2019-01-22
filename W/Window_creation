@@ -1,0 +1,40 @@
+#!/usr/local/bin/perl
+#u# http://rosettacode.org/wiki/Window_creation
+#t# gui
+#c# 2019-01-21 <RC
+#p# OK
+#n# consolidated to Gtk3, Tk works too; the rest untested
+
+use Gtk3 '-init';
+
+$window = Gtk3::Window->new;
+$window->signal_connect(
+    destroy => sub { Gtk3->main_quit; }
+);
+$window->show_all;
+Gtk3->main;
+
+__END__
+
+Library: Perl/Tk[edit]
+  use Tk;
+
+  MainWindow->new();
+  MainLoop;
+Library: Perl/SDL[edit]
+  use SDL::App;
+  use SDL::Event;
+
+  $app = SDL::App->new;
+  $app->loop({
+    SDL_QUIT() => sub { exit 0; },
+  });
+Library: Perl/Qt[edit]
+use strict;
+use warnings;
+use QtGui4;
+
+my $app = Qt::Application(\@ARGV);
+my $window = Qt::MainWindow;
+$window->show;
+exit $app->exec;
