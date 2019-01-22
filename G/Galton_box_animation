@@ -1,6 +1,7 @@
 #!/usr/local/bin/perl
 #u# http://rosettacode.org/wiki/RC_REMOTE
 #c# 2019-01-RC >RC
+#t# skiptest
 #p# OK
 #i# RC cli: 10 4
 #f# RC file: galton_box.dat
