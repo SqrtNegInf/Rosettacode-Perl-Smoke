@@ -35,17 +35,17 @@ __END__
 =={{header|Perl}}==
 <lang perl>use feature 'say';
 
-say '1 ' . logger();
+say logger();
 sub logger { "I have something to say" }; 
 sub down_one_level {
-    say '2 ' . logger();
+    say logger();
     sub logger { "I am a man, not a fish." };
     sub down_two_levels {
         sub logger { "There can be only one!" };
     }
 }
 down_one_level();
-say '3 ' . logger();
+say logger();
 </lang>
 {{out}}
 <pre>
