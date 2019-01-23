@@ -3887,9 +3887,10 @@ File: M/Monty_Hall_problem
 
 File: M/Morse_code
 #!/usr/local/bin/perl
-#u# http://rosettacode.org/wiki/RC_REMOTE
-#c# 2019-01-RC >RC
+#u# http://rosettacode.org/wiki/Morse_code
+#c# 2019-01-22 >RC
 #p# OK
+#n# not on RC, no sound...
 
 File: M/Most_frequent_k_chars_distance
 #!/usr/local/bin/perl
@@ -6849,7 +6850,7 @@ File: W/Welch%27s_t-test-2
 #p# OK
 
 File: W/Window_creation
-#!/usr/local/bin/perl
+#!/usr/local/bin/perl # do-not-check
 #u# http://rosettacode.org/wiki/Window_creation
 #t# gui
 #c# 2019-01-21 <RC
