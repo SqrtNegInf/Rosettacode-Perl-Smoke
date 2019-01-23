@@ -1,4 +1,4 @@
-#!/usr/local/bin/perl
+#!/usr/local/bin/perl # do-not-check
 #u# http://rosettacode.org/wiki/Window_creation
 #t# gui
 #c# 2019-01-21 <RC
