@@ -1,7 +1,7 @@
 
 This is perl 5, version 28, subversion 0 (v5.28.0) built for darwin-thread-multi-2level
 updating from RC…
-+------------> Perl: Good/Bad [1071/17]
++------------> Perl: Good/Bad [1072/17]
 |+-----------> Smoke testing [939]
 ||+----------> sKipping validation [136]
 |||+---------> Interactive [46]
@@ -724,7 +724,7 @@ GS...R..... Monte_Carlo_methods
 GS..T..D... Montgomery_reduction
 GS...R..... Monty_Hall_problem
 .......D.VU Morpion_solitaire
-!S..T...... Morse_code
+GS..T...... Morse_code
 GS.....D... Most_frequent_k_chars_distance
 G.KI....... Mouse_position-1
 G.KI....... Mouse_position-2
