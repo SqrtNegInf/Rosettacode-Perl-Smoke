@@ -1,31 +1,82 @@
 #!/usr/local/bin/perl
-#u# http://rosettacode.org/wiki/RC_REMOTE
-#c# 2019-01-RC >RC
+#u# http://rosettacode.org/wiki/Morse_code
+#c# 2019-01-22 >RC
 #p# OK
+#n# not on RC, no sound...
 
-use feature 'say';
-use warnings;
-use strict 'vars';
+my %m =(' ', '_ ',
+qw<
+    !	---.
+    "	.-..-.
+    $	...-..-
+    '	.----.
+    (	-.--.
+    )	-.--.-
+    +	.-.-.
+    ,	--..--
+    -	-....-
+    .	.-.-.-
+    /	-..-.
+    :	---...
+    ;	-.-.-.
+    =	-...-
+    ?	..--..
+    @	.--.-.
+    [	-.--.
+    ]	-.--.-
+    _	..--.-
+    0	-----
+    1	.----
+    2	..---
+    3	...--
+    4	....-
+    5	.....
+    6	-....
+    7	--...
+    8	---..
+    9	----.
+    A	.-
+    B	-...
+    C	-.-.
+    D	-..
+    E	.
+    F	..-.
+    G	--.
+    H	....
+    I	..
+    J	.---
+    K	-.-
+    L	.-..
+    M	--
+    N	-.
+    O	---
+    P	.--.
+    Q	--.-
+    R	.-.
+    S	...
+    T	-
+    U	..-
+    V	...-
+    W	.--
+    X	-..-
+    Y	-.--
+    Z	--..
+>);
 
-my $result;
-# my @res;
+for (keys %m) {
+    $m{$_} =~ s/-/dash /g;
+    $m{$_} =~ s/\./dot /g;
+    $m{$_} .= '_ ';
+}
 
-# ~/perl6/Rosetta-Code/X/RC_LOCAL
+$result .= $m{$_} for split '', uc 'Is this thing on?';
+print "$result\n";
 
-say $result; 
-#say $result = join "\n", @res;
 my $ref = <<'EOD';
+dot dot _ dot dot dot _ _ _ dash _ dot dot dot dot _ dot dot _ dot dot dot _ _ _ dash _ dot dot dot dot _ dot dot _ dash dot _ dash dash dot _ _ _ dash dash dash _ dash dot _ dot dot dash dash dot dot _ 
 EOD
 
 use Test::More;
-#is($result, $ref);
-#done_testing();
-
-__END__
-
-=={{header|Perl}}==
-{{trans|Perl 6}}
-<lang perl></lang>
-{{out}}
-<pre style="height:35ex"></pre>
-[https://github.com/SqrtNegInf/Rosettacode-Perl5-Smoke/blob/master/ref/XXX XXX]
+chomp $ref;
+is($result, $ref);
+done_testing();
