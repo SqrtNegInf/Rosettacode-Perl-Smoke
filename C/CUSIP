@@ -1,20 +1,26 @@
 #!/usr/local/bin/perl
 #u# http://rosettacode.org/wiki/CUSIP
-#c# 2018-07-20 <>RC
+#c# 2018-07-20 <>RC, 2019-01-24 >RC
 #p# OK
 
-use feature 'say';
-my $result;
+$cv{$_} = $i++ for '0'..'9', 'A'..'Z', '*', '@', '#';
 
-use warnings;
-#use Readonly; # DH change
- 
-my $ALGORITHM_LETTER_START_VALUE = 9;
-my $ALGORITHM_TEN                = 10;
-my $CUSIP_CHECK_DIGIT_INDEX      = 8;
-my $CUSIP_DATA_LAST_INDEX        = 7;
- 
-my %values = (
+sub cusip_check_digit {
+    my @cusip = split m{}xms, shift;
+    my $sum = 0;
+
+    for $i (0..7) {
+        return 'Invalid character found' unless $cusip[$i] =~ m{\A [[:digit:][:upper:]*@#] \z}xms;
+        $v  = $cv{ $cusip[$i] };
+        $v *= 2 if $i % 2;
+        $sum += int( $v/10 ) + $v%10;
+    }
+
+    my $check_digit = (10 - ($sum%10)) % 10;
+    $check_digit == $cusip[8] ? '' : ' (incorrect)';
+}
+
+my %test_data = (
     '037833100' => 'Apple Incorporated',
     '17275R102' => 'Cisco Systems',
     '38259P508' => 'Google Incorporated',
@@ -22,60 +28,9 @@ my %values = (
     '68389X106' => 'Oracle Corporation',
     '68389X105' => 'Oracle Corporation',
 );
- 
-# Character-value look-up table
-my %cv = (
-    q[*] => 36,
-    q[@] => 37,
-    q[#] => 38,
-);
-my $inc = 0;
-for ( '0' .. '9' ) {
-    $cv{$_} = $inc++;
-}
-$inc = $ALGORITHM_LETTER_START_VALUE;
-for ( 'A' .. 'Z' ) {
-    $cv{$_} = ++$inc;
-}
- 
-for ( keys %values ) {
-    $result .= "$_ $values{$_}" . cusip_check_digit($_) . "\n";
-}
- 
-sub cusip_check_digit {
-    my @cusip = split m{}xms, shift;    # 9-digit CUSIP string to char array
-    my $sum = 0;
- 
-    for my $i ( 0 .. $CUSIP_DATA_LAST_INDEX ) {
-        my $v = 0;
- 
-        if ( $cusip[$i] =~ m{\A [[:digit:][:upper:]*@#] \z}xms ) {
-            $v = $cv{ $cusip[$i] };
-        }
-        else {
-            return 'Invalid character found';    # Return value on failure
-        }
- 
-        if ( $i % 2 ) {
-            $v *= 2;
-        }
- 
-        $sum += int( $v / $ALGORITHM_TEN ) + $v % $ALGORITHM_TEN;
-    }
- 
-    my $check_digit =
-      ( $ALGORITHM_TEN - ( $sum % $ALGORITHM_TEN ) ) % $ALGORITHM_TEN;
- 
-    if ( $check_digit == $cusip[$CUSIP_CHECK_DIGIT_INDEX] ) {
-        return q[];    # Return empty string on success
-    }
-    else {
-        return ' (incorrect)';    # Return value on failure
-    }
-}
 
-$result = join "\n", sort split /\n/, $result;
-say $result; 
+$result .= "$_ $test_data{$_}" . cusip_check_digit($_) . "\n" for sort keys %test_data;
+print $result;
 
 my $ref = <<'EOD';
 037833100 Apple Incorporated
@@ -87,6 +42,5 @@ my $ref = <<'EOD';
 EOD
 
 use Test::More;
-chop $ref;
 is ($result, $ref);
 done_testing();
