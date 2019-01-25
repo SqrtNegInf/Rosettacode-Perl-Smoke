@@ -5,7 +5,7 @@ updating from RC…
 |+-----------> Smoke testing [939]
 ||+----------> sKipping validation [136]
 |||+---------> Interactive [46]
-||||+--------> Touched (modified by me) [214]
+||||+--------> Touched (modified by me) [215]
 |||||+-------> Random seed [87]
 ||||||+------> File output [58]
 |||||||+-----> Draft [216]
@@ -600,7 +600,7 @@ G.KI....... Keyboard_input_Flush_the_keyboard_buffer
 G.KI....... Keyboard_input_Keypress_check
 G.KI....... Keyboard_input_Obtain_a_Y_or_N_response
 .........VU Keyboard_macros
-GS......... Knapsack_problem_0-1
+GS..T...... Knapsack_problem_0-1
 GS......... Knapsack_problem_Bounded
 GS......... Knapsack_problem_Continuous
 GS......... Knapsack_problem_Unbounded
