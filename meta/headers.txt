@@ -751,7 +751,7 @@ File: C/CSV_to_HTML_translation
 File: C/CUSIP
 #!/usr/local/bin/perl
 #u# http://rosettacode.org/wiki/CUSIP
-#c# 2018-07-20 <>RC
+#c# 2018-07-20 <>RC, 2019-01-24 >RC
 #p# OK
 
 File: C/Caesar_cipher
@@ -3187,7 +3187,7 @@ File: K/Keyboard_input_Obtain_a_Y_or_N_response
 File: K/Knapsack_problem_0-1
 #!/usr/local/bin/perl
 #u# http://rosettacode.org/wiki/Knapsack_problem/0-1
-#c# 2018-08-15 <RC
+#c# 2018-08-15 <RC, 2019-01-24 >RC
 #p# OK
 
 File: K/Knapsack_problem_Bounded
@@ -3195,6 +3195,7 @@ File: K/Knapsack_problem_Bounded
 #u# http://rosettacode.org/wiki/Knapsack_problem/Bounded
 #c# 2018-08-15 <RC
 #p# OK
+#n# minor changes, not on RC
 
 File: K/Knapsack_problem_Continuous
 #!/usr/local/bin/perl
