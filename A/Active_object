@@ -88,5 +88,5 @@ sin after .5 seconds: 0.0154508497187478
 EOD
 
 use Test::More;
-ok $result eq $ref1 or $result eq $ref2;
+ok($result eq $ref1 || $result eq $ref2);
 done_testing();
