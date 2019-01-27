@@ -1,11 +1,11 @@
 
 This is perl 5, version 28, subversion 0 (v5.28.0) built for darwin-thread-multi-2level
 updating from RC…
-+------------> Perl: Good/Bad [1071/17]
++------------> Perl: Good/Bad [1072/17]
 |+-----------> Smoke testing [939]
 ||+----------> sKipping validation [136]
 |||+---------> Interactive [46]
-||||+--------> Touched (modified by me) [215]
+||||+--------> Touched (modified by me) [216]
 |||||+-------> Random seed [87]
 ||||||+------> File output [58]
 |||||||+-----> Draft [216]
@@ -51,7 +51,7 @@ GS......... Ackermann_function-4
 GS......... Ackermann_function-5
 ........XV. Active_Directory_Connect
 .........VU Active_Directory_Search_for_a_user
-!S......... Active_object
+GS......... Active_object
 GS......... Add_a_variable_to_a_class_instance_at_runtime
 .......D.VU Addition-chain_exponentiation
 .......D.VU Addition_chains
@@ -672,7 +672,7 @@ GS......... Ludic_numbers
 GS......... Luhn_test_of_credit_card_numbers
 GS......... Lychrel_numbers
 GS......... MAC_Vendor_Lookup
-GS......... MD4
+GS..T...... MD4
 GS......... MD5
 GS......... MD5_Implementation
 .........VU Machine_code
