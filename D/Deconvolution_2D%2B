@@ -42,15 +42,15 @@ sub row {
     @gcoord = @gcoord[0..$#fdim]; # clip extraneous values
     for my $hc (coords(@hsize)) {
         my @fcoord;
-        for my $i (0..-1+@$hc) {
-            my $window = $gcoord[$i] - $hc[$i];
-            push @fcoord, $window and next if 0 <= $window < $fdim[$i];
+        for my $i (0..-1+@{$hc}) {
+            my $window = $gcoord[$i] - @$hc[$i];
+            push @fcoord, $window, next if 0 <= $window && $window < $fdim[$i];
 #say 'f'; say @row.perl;
             last; 
         }
-        push @row, @fcoord == @hc ? @f.AT-POS(|@fcoord) : 0;
+        #push @row, @fcoord == @$hc ? @f.AT-POS(|@fcoord) : 0;
     }
-    push @row, @g.AT-POS(|@gcoord);
+    #push @row, @g.AT-POS(|@gcoord);
 #say 'g';  say @row.perl;
     return @row;
 }
