@@ -3636,8 +3636,9 @@ File: M/MAC_Vendor_Lookup
 File: M/MD4
 #!/usr/local/bin/perl
 #u# http://rosettacode.org/wiki/MD4
-#c# 2018-08-17 <RC
+#c# 2018-08-17 <RC, 2019-01-26 >RC
 #p# OK
+#n# in-lining the code from Digest::MD4, lightly edited for clarity
 
 File: M/MD5
 #!/usr/local/bin/perl
