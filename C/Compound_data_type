@@ -1,6 +1,5 @@
 #!/usr/local/bin/perl
 #u# http://rosettacode.org/wiki/Compound_data_type
-#t# nocode
 #c# 2018-07-24 <RC
 #p# OK
 #n# re-write with more up-to-date Perl OO, or Moose?
@@ -9,10 +8,10 @@ use feature 'say';
 my $result;
 
 # Array[edit]
-my @point = (3, 8);
+my @point1 = (3, 8);
 
 # Hash[edit]
-my %point = (
+my %point2 = (
    x => 3,
    y => 8
 );
@@ -21,7 +20,6 @@ my %point = (
 
 package Point;
  
-use strict;
 use Class::Struct;
 struct(
     x => '$',
@@ -29,3 +27,9 @@ struct(
 );
  
 my $point = Point->new(x => 3, y => 8);
+
+use Test::More;
+ok $point1[0] == 3 and $point1[1] == 8;
+ok $point2{'x'} == 3 and $point2{'x'} == 8;
+ok $point->x == 3 and $point->y == 8;
+done_testing();
