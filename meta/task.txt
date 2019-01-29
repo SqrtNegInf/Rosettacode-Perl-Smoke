@@ -1,15 +1,16 @@
 
 This is perl 5, version 28, subversion 0 (v5.28.0) built for darwin-thread-multi-2level
-+------------> Perl: Good/Bad [1072/17]
-|+-----------> Smoke testing [939]
-||+----------> sKipping validation [136]
+updating from RC…
++------------> Perl: Good/Bad [1070/17]
+|+-----------> Smoke testing [942]
+||+----------> sKipping validation [133]
 |||+---------> Interactive [46]
-||||+--------> Touched (modified by me) [216]
-|||||+-------> Random seed [87]
+||||+--------> Touched (modified by me) [217]
+|||||+-------> Random seed [88]
 ||||||+------> File output [58]
 |||||||+-----> Draft [216]
 ||||||||+----> Ignoring [32]
-|||||||||+---> Void (no local copy) [201]
+|||||||||+---> Void (no local copy) [200]
 ||||||||||+--> Un-implemented/reliable [191]
 |||||||||||
 GS......... 100_doors-1
@@ -246,7 +247,7 @@ GS......... Compiler_lexical_analyzer-1
 GS......... Compiler_lexical_analyzer-2
 G.K........ Compiler_syntax_analyzer
 G.K........ Compiler_virtual_machine_interpreter
-G.K........ Compound_data_type
+GS......... Compound_data_type
 G.K..R..... Concurrent_computing-1
 GS......... Concurrent_computing-2
 G.K........ Conditional_structures
@@ -855,7 +856,7 @@ GS......... Pi-3
 GS......... Pi-4
 GS...R..... Pick_random_element
 GS...R..... Pig_the_dice_game
-.........VU Pig_the_dice_game_Player
+!S..TR....U Pig_the_dice_game_Player
 GS..T.F.... Pinstripe_Display
 .........VU Pinstripe_Printer
 GS..T.F.... Plasma_effect
@@ -866,7 +867,7 @@ GS......... Plot_coordinate_pairs
 GS......... Pointers_and_references
 GS......... Poker_hand_analyser
 GS......... Polymorphic_copy
-G.K........ Polymorphism
+GS......... Polymorphism
 GS......... Polynomial_long_division
 GS......... Polynomial_regression
 GS..T..D... Polynomial_synthetic_division
@@ -962,7 +963,6 @@ GS......... Roman_numerals_Decode
 GS......... Roman_numerals_Encode-1
 GS......... Roman_numerals_Encode-2
 G.K........ Roman_numerals_Encode-3
-G.K........ Roman_numerals_Encode-4
 GS......... Roots_of_a_function
 GS......... Roots_of_a_quadratic_function
 GS......... Roots_of_unity
@@ -1203,7 +1203,7 @@ GS......... The_Twelve_Days_of_Christmas
 GS......... Thue-Morse
 GS...R..... Tic-tac-toe
 .......D.VU Time-based_One-time_Password_Algorithm
-GS......... Time_a_function
+!S......... Time_a_function
 GS......... Tokenize_a_string
 GS......... Tokenize_a_string_with_escaping
 GS..T..D... Tonelli-Shanks_algorithm
