@@ -1183,7 +1183,6 @@ File: C/Compiler_virtual_machine_interpreter
 File: C/Compound_data_type
 #!/usr/local/bin/perl
 #u# http://rosettacode.org/wiki/Compound_data_type
-#t# nocode
 #c# 2018-07-24 <RC
 #p# OK
 #n# re-write with more up-to-date Perl OO, or Moose?
@@ -4576,6 +4575,12 @@ File: P/Pig_the_dice_game
 #=# RC pipe: R\nR\nR\nH\nR
 #n# limiting to one player for automated testing
 
+File: P/Pig_the_dice_game_Player
+#!/usr/local/bin/perl
+#u# http://rosettacode.org/wiki/Pig_the_dice_game/Player
+#c# 2019-01-28 >RC
+#p# OK
+
 File: P/Pinstripe_Display
 #!/usr/local/bin/perl
 #u# http://rosettacode.org/wiki/Pinstripe/Display
@@ -4636,7 +4641,6 @@ File: P/Polymorphic_copy
 File: P/Polymorphism
 #!/usr/local/bin/perl
 #u# http://rosettacode.org/wiki/Polymorphism
-#t# skiptest
 #c# 2018-08-20 <RC
 #p# OK
 
@@ -5129,8 +5133,9 @@ File: R/Roman_numerals_Encode-3
 #t# nocode
 #c# 2018-08-18 <RC
 #p# OK
+#n# cannot get this working
 
-File: R/Roman_numerals_Encode-4
+File: R/Roman_numerals_Encode-4.1
 #!/usr/local/bin/perl
 #u# http://rosettacode.org/wiki/Roman_numerals/Encode
 #t# nocode
