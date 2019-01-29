@@ -3,6 +3,9 @@
 #t# nocode
 #c# 2018-08-18 <RC
 #p# OK
+#n# cannot get this working
+
+# use Lingua::Romana::Perligata;
 
 # per quisque in I tum C conscribementum sic
 #         hoc tum duos multiplicamentum comementum egresso scribe.
