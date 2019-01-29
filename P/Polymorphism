@@ -1,6 +1,5 @@
 #!/usr/local/bin/perl
 #u# http://rosettacode.org/wiki/Polymorphism
-#t# skiptest
 #c# 2018-08-20 <RC
 #p# OK
 
@@ -16,12 +15,8 @@ my $result;
 
      sub _print {
           my %self = %{shift()};
-$DB::single = 1;
           $result .= 'x: ' . $self{'x'} . ' ';
           $result .= 'y: ' . $self{'y'} . ' ';
-          #while ($k = sort keys %self) {
-          #    $result .= "$k: $self{$k}\n";
-          #}
      }
 
      sub members {
@@ -85,7 +80,6 @@ $DB::single = 1;
            "different objects\n" unless \$p1 eq \$p2;
 
       $_->_print, $result .= "\n" for (
-      #$_->_print for (
          Circle->new,
          Circle->new(x => 1),
          Circle->new(y => 2),
