@@ -4,8 +4,6 @@
 #p# OK
 
 use feature 'say';
-my $result;
-
 
 # Works with: Perl version 5.x
 package Empty;
@@ -22,9 +20,6 @@ my $o = Empty->new;
 $o->{'foo'} = 42;
 
 say $o->{'foo'};
-
-my $ref = <<EOD;
-EOD
 
 use Test::More;
 is($o->{'foo'},42);
