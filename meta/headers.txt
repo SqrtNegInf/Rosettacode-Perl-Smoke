@@ -4444,6 +4444,12 @@ File: P/Percentage_difference_between_images-2
 #c# 2018-12-08 <RC
 #p# OK
 
+File: P/Percolation_Mean_cluster_density
+#!/usr/local/bin/perl
+#u# http://rosettacode.org/wiki/P/Percolation/Mean_cluster_density
+#c# 2019-01-RC >RC
+#p# OK
+
 File: P/Percolation_Mean_run_density
 #!/usr/local/bin/perl
 #u# http://rosettacode.org/wiki/Percolation/Mean_run_density
@@ -4578,7 +4584,7 @@ File: P/Pig_the_dice_game
 File: P/Pig_the_dice_game_Player
 #!/usr/local/bin/perl
 #u# http://rosettacode.org/wiki/Pig_the_dice_game/Player
-#c# 2019-01-28 >RC
+#c# 2019-01-29 >RC
 #p# OK
 
 File: P/Pinstripe_Display
@@ -5134,6 +5140,13 @@ File: R/Roman_numerals_Encode-3
 #c# 2018-08-18 <RC
 #p# OK
 #n# cannot get this working
+
+File: R/Roman_numerals_Encode-4
+#!/usr/local/bin/perl
+#u# http://rosettacode.org/wiki/Roman_numerals/Encode
+#c# 2018-08-18 <RC, 2019-01-28 >RC
+#p# OK
+#n# smartmatch deprecated (was only used to enable 'multi')
 
 File: R/Roman_numerals_Encode-4.1
 #!/usr/local/bin/perl
@@ -6445,6 +6458,14 @@ File: T/The_Twelve_Days_of_Christmas
 #u# http://rosettacode.org/wiki/The_Twelve_Days_of_Christmas
 #c# 2018-08-10 <RC
 #p# OK
+
+File: T/Thiele%27s_interpolation_formula
+#!/usr/local/bin/perl
+#u# http://rosettacode.org/wiki/Thiele\'s_interpolation_formula
+#t# skiptest
+#c# 2019-01-xx >RC
+#p# OK
+#n#  made default table size 12, 'invcos' converges slowly
 
 File: T/Thue-Morse
 #!/usr/local/bin/perl
