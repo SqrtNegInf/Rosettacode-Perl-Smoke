@@ -1,91 +1,84 @@
 #!/usr/local/bin/perl
 #u# http://rosettacode.org/wiki/Pig_the_dice_game/Player
-#c# 2019-01-28 >RC
+#c# 2019-01-29 >RC
 #p# OK
 
 srand 123456;
 
 use feature 'say';
-use warnings;
-use strict 'vars';
-
-my $result;
-
-#my $out = open("run/pig_dice_player.$ext", :w);
-
-my $games = $ARGV[0] || 100;
  
-use constant DIE  => 1 .. 6;
-use constant GOAL => 100;
+my $GOAL = 100;
 
-say $games; 
-
-{
 package Player;
 
-    my $score = 0;
-    my $ante;
-    my $rolls;
-    my $strategy  = sub { False }; # default, always roll again
- 
-    sub turn {
-        my $done_turn = 0;
-        $rolls = 0;
-        $ante  = 0;
-        repeat {
-            my $v = rand DIE;
-            $rolls++;
-            if ($v == 1) {
-                $ante = 0;
-                $done_turn = 1;
-            } else {
-                $ante += $_;
-            }
-            $done_turn = 1 if $score + $ante >= GOAL or &$strategy();
-        } until $done_turn;
-        $score += $ante;
-    }
+sub new {
+    my ($class,$strategy) = @_;
+    my $self = {
+        score    => 0,
+        rolls    => 0,
+        ante     => 0,
+        strategy => $strategy || sub { 0 } # as fallback, always roll again
+    };
+    return bless($self, $class);
 }
  
+sub turn {
+    my ($P) = @_;
+    $P->{rolls} = 0;
+    $P->{ante}  = 0;
+    my $done    = 0;
+    do {
+        my $v = 1 + int rand 6;
+        $P->{rolls}++;
+        if ($v == 1) {
+            $P->{ante} = 0;
+            $done = 1;
+        } else {
+            $P->{ante} += $v;
+        }
+        $done = 1 if $P->{score} + $P->{ante} >= $GOAL or $P->{strategy}();
+    } until $done;
+    $P->{score} += $P->{ante};
+}
+
 package Main;
 
-my @players;
- 
 # default, go-for-broke, always roll again
 $players[0] = Player->new;
 
-__END__
- 
 # try to roll 5 times but no more per turn
-@players[1] = player.new( strategy => sub { @players[1].rolls >= 5 } );
+$players[1] = Player->new( sub { $players[1]->{rolls} >= 5 } );
  
 # try to accumulate at least 20 points per turn
-@players[2] = player.new( strategy => sub { @players[2].ante > 20 } );
+@players[2] = Player->new( sub { $players[2]->{ante} > 20 } );
  
 # random but 90% chance of rolling again
-@players[3] = player.new( strategy => sub { 1.rand < .1 } );
+$players[3] = Player->new( sub { rand() < 0.1 } );
  
 # random but more conservative as approaches goal
-@players[4] = player.new( strategy => sub { 1.rand < ( GOAL - @players[4].score ) * .6 / GOAL } );
- 
-my @wins = 0 xx @players;
- 
-for ^ $games {
+$players[4] = Player->new( sub { rand() < ( $GOAL - $players[4]->{score} ) * .6 / $GOAL } );
+
+for (1 .. shift || 100) {
     my $player = -1;
-    repeat {
+    do {
         $player++;
-        @players[$player % @players].turn;
-    } until @players[$player % @players].score >= GOAL;
+        @players[$player % @players]->turn;
+    } until $players[$player % @players]->{score} >= $GOAL;
  
-    @wins[$player % @players]++;
+    $wins[$player % @players]++;
  
-    $out.say: join "\t", @players>>.score;
-    @players[$_].score = 0 for ^@players; # reset scores for next game
+    #printf "%5d", $players[$_]->{score} for 0..$#players; print "\n";  # uncomment to see game scores
+    $players[$_]->{score} = 0 for 0..$#players; # reset scores for next game
 }
- 
-$out.say: "\nSCORES: for $games games";
-$out.say: join "\t", @wins;
-$out.close;
+
+#print ' ----' x @players, "\n";
+#printf "%5d", $_ for @wins; print "\n";
+
+say $result = join ' ', @wins;
+
+use Test::More;
+is($result, '5 36 41 15 3');
+done_testing();
 
 __END__
 
@@ -93,4 +86,4 @@ __END__
 {{trans|Perl 6}}
 <lang perl></lang>
 {{out}}
-<pre style="height:35ex"></pre>
+<pre>929 3518 3462 1715  376</pre>
