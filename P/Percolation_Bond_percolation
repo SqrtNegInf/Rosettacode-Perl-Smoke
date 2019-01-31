@@ -1,0 +1,174 @@
+#!/usr/local/bin/perl
+#u# http://rosettacode.org/wiki/Percolation/Bond_percolation
+#c# 2019-01-xx >RC
+#p# OK
+
+use feature 'say';
+use warnings;
+use strict 'vars';
+use Data::Printer;
+
+my $result;
+# my @res;
+
+# Starts "filling" from the top left. Fluid flow favours directions in Down, Left, Right, Up order. I interpreted p to be porosity, so small p mean low permeability, large p means high permeability.
+
+my @bond;
+my $grid = 10;
+my $geom = $grid - 1;
+my $water = '▒';
+
+my %D; my $i; # cut later
+$D{$_} = $i++ for qw<DeadEnd Up Right Down Left>;
+ 
+say 'Sample percolation at .6';
+percolate(.6);
+my @drip;
+push @drip, join '', $_ for @bond;
+say for @drip;
+
+say join '', $_ for @bond;
+say "\n";
+
+my $tests = 100;
+say "Doing $tests trials at each porosity:";
+my @res;
+for my $p (1 .. 10) {
+    $p = $p/10;
+    my $total = 0;
+    $total += percolate($p) for 1..$tests;
+    push @res, sprintf "p = %0.1f: %0.2f", $p, $total / $tests
+}
+say for @res;
+ 
+
+sub percolate {
+    my $prob  = shift || 0.6;
+    generate($prob);
+    my @stack;
+    my @current = [1,0];
+    fill(1,0);
+ 
+    while () {
+        if (my $dir = direction(@current)) {
+            push @stack, @current;
+            @current = move($dir, @current)
+        }
+        else {
+            return 0 unless @stack;
+            @current = pop @stack
+        }
+        return 1 if $current[1] == $#bond;
+    }
+}
+ 
+sub direction {
+    my($x, $y) = @_;
+    return $D{Down}  if $bond[$y+1][$x  ] =~ / /;
+    return $D{Left}  if $bond[$y  ][$x-1] =~ / /;
+    return $D{Right} if $bond[$y  ][$x+1] =~ / /;
+    return $D{Up}    if defined $bond[$y-1][$x  ] && $bond[$y-1][$x] =~ / /;
+    return $D{DeadEnd}
+}
+ 
+sub move {
+    my($dir,@cur) = @_;
+    my($x,$y) = @cur;
+    fill(  $x,--$y), fill(  $x,--$y) if $dir == $D{Up};
+    fill(  $x,++$y), fill(  $x,++$y) if $dir == $D{Down};
+    fill(--$x,  $y), fill(--$x,  $y) if $dir == $D{Left};
+    fill(++$x,  $y), fill(++$x,  $y) if $dir == $D{Right};
+    [$x, $y]
+}
+ 
+sub fill {
+    my($x, $y) = @_;
+    $bond[$y][$x] =~ s/ /$water/g
+}
+
+sub generate {
+    our($prob) = shift || 0.5;
+    @bond = ();
+    our $sp = '   ';
+    push    @bond, ['│', ($sp, ' ')x$geom, $sp, '│'];
+    push    @bond, ['├', (h(), '┬')x$geom, h(), '┤'];
+#p @bond; exit;
+
+    push    @bond, ['│', ($sp, v())x$geom, $sp, '│'];
+    push    @bond, ['├', (h(), '┼') x $geom, h(), '┤'] for 1..$geom;
+
+    push    @bond, ['│', ($sp, v()) x $geom, $sp, '│'],
+                   ['├', (h(), '┴') x $geom, h(), '┤'],
+                   ['│', ($sp, ' ') x $geom, $sp, '│'];
+ 
+my $line;
+for my $row (@bond) {
+    $line = '';
+    $line .= join '', $_ for @$row; 
+    say $line;
+}
+print "\n";
+exit;
+
+    sub hx { my($c)=@_; my @l; push @l, (h(), $c) for 1..$geom; return @l; }
+    sub vx { my($c)=@_; my @l; push @l, (h(), $c) for 1..$geom; return @l; }
+    sub h { rand() < .5    ? $sp : '───' }
+    sub v { rand() < .5    ? ' ' : '│'   }
+}
+
+
+my $graph = <<'END';
+│▒▒▒▒▒▒▒                                │
+├───┬▒▒▒┬───┬───┬   ┬   ┬───┬───┬   ┬───┤
+│▒▒▒│▒▒▒        │   │                   │
+├▒▒▒┼▒▒▒┼───┼───┼   ┼───┼───┼   ┼───┼   ┤
+│▒▒▒│▒▒▒                        │       │
+├▒▒▒┼▒▒▒┼   ┼───┼   ┼   ┼   ┼───┼───┼───┤
+│▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒    │   │   │   │       │
+├▒▒▒┼───┼───┼▒▒▒┼   ┼───┼───┼   ┼   ┼───┤
+│▒▒▒▒▒▒▒│▒▒▒│▒▒▒        │               │
+├───┼───┼▒▒▒┼▒▒▒┼───┼   ┼───┼───┼   ┼   ┤
+│       │▒▒▒▒▒▒▒▒▒▒▒    │   │   │   │   │
+├   ┼   ┼───┼───┼▒▒▒┼───┼   ┼   ┼───┼   ┤
+│   │    ▒▒▒▒▒▒▒▒▒▒▒│           │       │
+├───┼   ┼▒▒▒┼───┼───┼───┼───┼───┼   ┼   ┤
+│   │    ▒▒▒│           │   │       │   │
+├   ┼   ┼▒▒▒┼   ┼───┼───┼───┼   ┼───┼   ┤
+│   │    ▒▒▒    │           │   │       │
+├   ┼───┼▒▒▒┼───┼   ┼   ┼   ┼───┼   ┼   ┤
+│        ▒▒▒            │       │       │
+├───┼   ┼▒▒▒┼   ┼   ┼───┼   ┼   ┼   ┼───┤
+│       │▒▒▒                    │       │
+├───┴───┴▒▒▒┴   ┴───┴   ┴───┴───┴───┴───┤
+│        ▒▒▒                            │
+END
+
+my $ref = <<'END';
+p = 0.1: 0.00
+p = 0.2: 0.00
+p = 0.3: 0.00
+p = 0.4: 0.06
+p = 0.5: 0.49
+p = 0.6: 0.90
+p = 0.7: 1.00
+p = 0.8: 1.00
+p = 0.9: 1.00
+p = 1.0: 1.00
+END
+
+#is @drip.join("\n"), chomp $graph-moar;
+#is @res.join("\n"), chomp $ref-moar;
+#say $result = join "\n", @res;
+
+#use Test::More;
+#is($result, $ref);
+#done_testing();
+
+__END__
+
+=={{header|Perl}}==
+{{trans|Perl 6}}
+<lang perl></lang>
+{{out}}
+<pre style="height:35ex"></pre>
+[https://github.com/SqrtNegInf/Rosettacode-Perl5-Smoke/blob/master/ref/XXX XXX]
