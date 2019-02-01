@@ -1,17 +1,17 @@
 
 This is perl 5, version 28, subversion 0 (v5.28.0) built for darwin-thread-multi-2level
 updating from RC…
-+------------> Perl: Good/Bad [1076/17]
++------------> Perl: Good/Bad [1077/17]
 |+-----------> Smoke testing [945]
-||+----------> sKipping validation [134]
+||+----------> sKipping validation [135]
 |||+---------> Interactive [46]
-||||+--------> Touched (modified by me) [221]
-|||||+-------> Random seed [89]
+||||+--------> Touched (modified by me) [222]
+|||||+-------> Random seed [91]
 ||||||+------> File output [58]
 |||||||+-----> Draft [215]
 ||||||||+----> Ignoring [32]
-|||||||||+---> Void (no local copy) [197]
-||||||||||+--> Un-implemented/reliable [189]
+|||||||||+---> Void (no local copy) [196]
+||||||||||+--> Un-implemented/reliable [188]
 |||||||||||
 GS......... 100_doors-1
 GS......... 100_doors-2
@@ -832,10 +832,10 @@ GS..T.F.... Pentagram
 GS..T...... Percentage_difference_between_images-1
 GS......... Percentage_difference_between_images-2
 .......D.VU Perceptron
-GS..T.....U Percolation_Bond_percolation
+GS..TR..... Percolation_Bond_percolation
 GS..TR..... Percolation_Mean_cluster_density
 GS...R..... Percolation_Mean_run_density
-.........VU Percolation_Site_percolation
+G.K.TR....U Percolation_Site_percolation
 GS......... Perfect_numbers
 GS......... Perfect_shuffle
 GS..T...... Perfect_totient_numbers
