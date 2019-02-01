@@ -63,7 +63,7 @@ sub move {
     $perc[++$y][   $x] = $block if $dir == $D{Down};  
     $perc[  $y][ --$x] = $block if $dir == $D{Left};  
     $perc[  $y][ ++$x] = $block if $dir == $D{Right}; 
-    ($x, $y)
+    $x, $y
 }
  
 my $K = perctest(15);
