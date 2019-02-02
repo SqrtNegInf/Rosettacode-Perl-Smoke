@@ -4465,8 +4465,7 @@ File: P/Percolation_Mean_run_density
 File: P/Percolation_Site_percolation
 #!/usr/local/bin/perl
 #u# http://rosettacode.org/wiki/Percolation/Site_percolation
-#t# skiptest
-#c# 2019-01-RC >RC
+#c# 2019-02-01 >RC
 #p# OK
 
 File: P/Perfect_numbers
