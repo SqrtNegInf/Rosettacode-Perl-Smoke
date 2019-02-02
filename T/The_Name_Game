@@ -1,0 +1,82 @@
+#!/usr/local/bin/perl
+#u# http://rosettacode.org/wiki/The_Name_Game
+#c# 2019-02-01 <RC
+#p# OK
+
+use feature 'say';
+
+#Translation of: Lua
+
+sub printVerse {
+    $name = shift;
+    $sb = lc($name);
+    $x = ucfirst $sb;
+    $x0 = substr $x, 0, 1;
+
+    if ($x0 eq 'A' or $x0 eq 'E' or $x0 eq 'I' or $x0 eq 'O' or $x0 eq 'U') {
+        $y = lc($x);
+    } else {
+        $y = substr $x, 1;
+    }
+
+    $b = 'b' . $y;
+    $f = 'f' . $y;
+    $m = 'm' . $y;
+
+    if ($x0 eq 'B') {
+        $b = $y;
+    } elsif ($x0 eq 'F') {
+        $f = $y;
+    } elsif ($x0 eq 'M') {
+        $m = $y;
+    }
+
+    push @res, "$x, $x, bo-$b";
+    push @res, "Banana-fana fo-$f";
+    push @res, "Fee-fi-mo-$m";
+    push @res, "$x!\n";
+}
+
+@nameList = ( "Gary", "Earl", "Billy", "Felix", "Mary", "Steve" );
+
+foreach $name (@nameList) {
+    printVerse($name);
+}
+
+say $result = join "\n", @res;
+
+my $ref = <<'EOD';
+Gary, Gary, bo-bary
+Banana-fana fo-fary
+Fee-fi-mo-mary
+Gary!
+
+Earl, Earl, bo-bearl
+Banana-fana fo-fearl
+Fee-fi-mo-mearl
+Earl!
+
+Billy, Billy, bo-illy
+Banana-fana fo-filly
+Fee-fi-mo-milly
+Billy!
+
+Felix, Felix, bo-belix
+Banana-fana fo-elix
+Fee-fi-mo-melix
+Felix!
+
+Mary, Mary, bo-bary
+Banana-fana fo-fary
+Fee-fi-mo-ary
+Mary!
+
+Steve, Steve, bo-bteve
+Banana-fana fo-fteve
+Fee-fi-mo-mteve
+Steve!
+EOD
+
+use Test::More;
+is ($result, $ref);
+done_testing();
