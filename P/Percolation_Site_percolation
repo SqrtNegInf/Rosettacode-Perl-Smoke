@@ -1,15 +1,9 @@
 #!/usr/local/bin/perl
 #u# http://rosettacode.org/wiki/Percolation/Site_percolation
-#t# skiptest
-#c# 2019-01-RC >RC
+#c# 2019-02-01 >RC
 #p# OK
 
 srand 123456;
-
-use feature 'say';
-
-use warnings;
-use strict 'vars';
 
 my $block = '▒';
 my $water = '+';
@@ -17,42 +11,19 @@ my $pore  = ' ';
 my $grid  = 15;
 my @site;
 
-my(%D, $i);
 $D{$_} = $i++ for qw<DeadEnd Up Right Down Left>;
-
-my $prob = .65;
-percolate($prob);
-
-print "Sample percolation at $prob";
-#my @drip.push: .join for @site;
-#.say for @drip;
-
-#say 'Sample percolation at .6';
-#percolate(.6);
-#.join.say for @site;
-#print "\n";
-
-my $tests = 100;
-print "Doing $tests trials at each porosity:\n";
-my @table;
-for my $p (1 .. 10) {
-    $p = $p/10;
-    my $total = 0;
-    $total += percolate($p) for 1..$tests;
-    push @table, sprintf "p = %0.1f: %0.2f", $p, $total / $tests
-}
-
-print "$_\n" for @table;
 
 sub deq { defined $_[0] && $_[0] eq $_[1] }
 
 sub percolate {
-   # generate(shift || 0.6);
+    my($prob) = shift || 0.6;
     $site[0] = [($pore) x $grid];
+    for my $y (1..$grid) {
+        for my $x (0..$grid-1) {
+            $site[$y][$x] = rand() < $prob ? $pore : $block;
+        }
+    }
     $site[$grid + 1] = [($pore) x $grid];
-#    for ^$grid X 1..$grid -> ($x, $y) {
-#        @site[$y;$x] = rand < $prob ?? $pore !! $block
-#    }
     $site[0][0] = $water;
 
     my $x = 0;
@@ -74,84 +45,77 @@ sub percolate {
 sub direction {
     my($x, $y) = @_;
     return $D{Down}  if deq($site[$y+1][$x  ], $pore);
-    return $D{Left}  if deq($site[$y  ][$x-1], $pore);
     return $D{Right} if deq($site[$y  ][$x+1], $pore);
+    return $D{Left}  if deq($site[$y  ][$x-1], $pore);
     return $D{Up}    if deq($site[$y-1][$x  ], $pore);
     return $D{DeadEnd};
 }
 
 sub move {
-    my($dir,$x,$y,$block) = @_;
-    $site[--$y][   $x] = $block if $dir == $D{Up};
-    $site[++$y][   $x] = $block if $dir == $D{Down};
-    $site[  $y][ --$x] = $block if $dir == $D{Left};
-    $site[  $y][ ++$x] = $block if $dir == $D{Right};
+    my($dir,$x,$y) = @_;
+    $site[--$y][   $x] = $water if $dir == $D{Up};
+    $site[++$y][   $x] = $water if $dir == $D{Down};
+    $site[  $y][ --$x] = $water if $dir == $D{Left};
+    $site[  $y][ ++$x] = $water if $dir == $D{Right};
     $x, $y
 }
 
+my $prob = 0.65;
+percolate($prob);
 
-##    sub direction( [$x, $y] ) {
-#        (Down  if @site[$y + 1][$x] deq $pore) ||
-#        (Left  if @site[$y][$x - 1] deq $pore) ||
-#        (Right if @site[$y][$x + 1] deq $pore) ||
-#        (Up    if @site[$y - 1][$x] deq $pore) ||
-#        DeadEnd
-#    }
+print "Sample percolation at $prob\n";
+print join '', @$_, "\n" for @site;
+$result1 .= join('', @$_) . "\n" for @site;
 
-#    sub move ( $dir, @cur ) {
-#        my ( $x, $y ) = @cur;
-#        given $dir {
-#            when Up    { @site[--$y][$x] = $water }
-#            when Down  { @site[++$y][$x] = $water }
-#            when Left  { @site[$y][--$x] = $water }
-#            when Right { @site[$y][++$x] = $water }
-#        }
-#        [$x, $y]
-#    }
+my $tests = 100;
+print "Doing $tests trials at each porosity:\n";
+my @table;
+for my $p (1 .. 10) {
+    $p = $p/10;
+    my $total = 0;
+    $total += percolate($p) for 1..$tests;
+    push @table, sprintf "p = %0.1f: %0.2f", $p, $total / $tests
+}
 
+print "$_\n" for @table;
+
+$result2 = join "\n", @table;
 
 my $ref_graph = <<'END';
-++++++++++     
-▒+++++++▒+▒ ▒  
-+++▒+▒▒+▒++++▒▒
-+++▒▒▒▒++▒+▒+▒▒
-++++▒ ▒++▒▒ +▒ 
-+++++ ▒▒▒▒ ▒+▒ 
-+++++▒    ▒ +▒ 
-▒▒++▒   ▒  ▒+▒ 
-+▒+▒ ▒▒▒    +▒▒
-+++▒▒▒▒  ▒  +  
-▒▒+▒▒   ▒ ▒++  
-▒▒+▒  ▒ ▒ ++▒▒▒
-  ▒      ▒+▒▒ ▒
- ▒  ▒▒ ▒▒ +   ▒
-▒     ▒▒  +    
-▒▒ ▒     ▒+    
-          +    
++++            
+▒▒+    ▒ ▒     
+ ▒+▒▒▒ ▒▒ ▒▒  ▒
+  +   ▒▒▒▒▒▒   
+▒▒++▒ ▒▒    ▒  
+▒ ▒++  ▒      ▒
+ ▒▒▒+++▒  ▒ ▒  
+▒   ▒▒+▒ ▒   ▒ 
+▒    ▒+       ▒
+  ▒  ▒++▒▒     
+   ▒  ▒+  ▒ ▒  
+ ▒▒ ▒  ++   ▒  
+▒  ▒▒▒▒▒++ ▒   
+▒  ▒ ▒ ▒▒+ ▒   
+ ▒  ▒▒▒  +   ▒▒
+▒    ▒   +  ▒▒ 
+         +     
 END
 
 my $ref_table = <<'END';
-p = 0.1: 0.000
-p = 0.2: 0.000
-p = 0.3: 0.000
-p = 0.4: 0.000
-p = 0.5: 0.130
-p = 0.6: 0.520
-p = 0.7: 0.970
-p = 0.8: 1.000
-p = 0.9: 1.000
-p = 1.0: 1.000
+p = 0.1: 0.00
+p = 0.2: 0.00
+p = 0.3: 0.00
+p = 0.4: 0.01
+p = 0.5: 0.10
+p = 0.6: 0.51
+p = 0.7: 0.89
+p = 0.8: 1.00
+p = 0.9: 1.00
+p = 1.0: 1.00
 END
 
 use Test::More;
-#is($result, $ref);
+chomp $ref_table;
+is($result1, $ref_graph);
+is($result2, $ref_table);
 done_testing();
-
-__END__
-
-=={{header|Perl}}==
-{{trans|Perl 6}}
-<lang perl></lang>
-{{out}}
-<pre style="height:35ex"></pre>
-[https://github.com/SqrtNegInf/Rosettacode-Perl5-Smoke/blob/master/ref/XXX XXX]
