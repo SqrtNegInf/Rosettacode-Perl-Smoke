@@ -1,13 +1,15 @@
 #!/usr/local/bin/perl
 #u# http://rosettacode.org/wiki/Deconvolution/2D%2B
-#c# 2019-01-21 >RC
-#p# BROKEN
+#c# 2019-02-03 >RC
+#p# OK
 
 use warnings;
 use strict;
 
-use Data::Printer;
 use feature 'say';
+
+my @res;
+
 use ntheory qw/forsetproduct/;
 
 # Deconvolution of N dimensional matrices
@@ -18,21 +20,22 @@ sub deconvolve_N {
     my @dg = shape(@g);
     my @hsize;
     push @hsize, ($dg[$_] - $df[$_]) + 1 for 0..$#df;
-
-#my @foo = coords(@g); 
-#$DB::single = 1;
-    my @toSolve = map { [row(\@g, \@f, \@hsize, $_)] } coords(@g);
-    #my @toSolve = map { [row(\@g, \@f, $_, \@hsize)] } coords(@g);
-use Data::Dumper ; say Dumper @toSolve;
-exit;
-    my @solved = rref( @toSolve );
+    my @toSolve = map { [row(\@g, \@f, \@hsize, $_)] } coords(shape(@g));
+    rref( \@toSolve );
 
     my @h;
-    #for (coords(@hsize) Z @solved[*;*-1]) {
-    #    my($i,$v) = @$_;
-    #    $h[...$i] = $v; 
-    #}
-    return @h;
+    my $mag = $hsize[0]*$hsize[1]*$hsize[2];
+    for (0.. $mag-1) {
+        push @h, $toSolve[$_][$mag];
+    }
+    my @soln;
+    my $n = 0;
+    for (coords(@hsize)) {
+        my($i,$j,$k) = split ' ', $_;
+        $soln[$k ] [$j ] [$i ] = $h[$n];
+        $n++;
+    }
+    @soln;
 }
 
 # Construct a row for each value in @g to be sent to the simultaneous equation solver
@@ -40,36 +43,22 @@ sub row {
     our @g;      local *g      = shift;
     our @f;      local *f      = shift;
     our @hsize;  local *hsize  = shift;
-    my  $gcoord = shift;
+    my @gc = reverse split ' ', shift;
 
-   my @gcoord = split ' ', $gcoord;
-$DB::single = 1;
-p @gcoord ; exit;
     my @row;
     my @fdim = shape(@f);
-    @gcoord = @gcoord[0..$#fdim]; # clip extraneous values
-    for my $hc (coords(@hsize)) {
-        my @fcoord;
-        for my $i (0..-1+@{$hc}) {
-            my $window = $gcoord[$i] - @$hc[$i];
-            push @fcoord, $window, next if 0 <= $window && $window < $fdim[$i];
-#say 'f'; say @row.perl;
-            last; 
+    @gc = @gc[0..$#fdim]; # clip extraneous values
+    for (coords(@hsize)) {
+        my @hc = reverse split ' ', $_;
+        my @fc;
+        for my $i (0..$#hc) {
+            my $window = $gc[$i] - $hc[$i];
+            push(@fc, $window), next if 0 <= $window && $window < $fdim[$i];
         }
-        #push @row, @fcoord == @$hc ? @f.AT-POS(|@fcoord) : 0;
+        push @row, $#fc == $#hc ? $f [$fc[0]] [$fc[1]] [$fc[2]] : 0;
     }
-    #push @row, @g.AT-POS(|@gcoord);
-#say 'g';  say @row.perl;
+    push @row, $g [$gc[0]] [$gc[1]] [$gc[2]];
     return @row;
-}
-
-# Constructs an AoA of coordinates to all elements of N dimensional array
-sub coords {
-    my @dimensions = shape(@_);
-    my(@ranges,@coords);
-    push @ranges, [0..$_-1] for @dimensions;
-    forsetproduct { push @coords, "@_" } @ranges;
-    @coords;
 }
 
 # transforms matrix to reduced row echelon form (takes an array reference)
@@ -100,6 +89,15 @@ sub rref {
       ++$lead;}
 }
 
+# Constructs an AoA of coordinates to all elements of N dimensional array
+sub coords {
+    my(@dimensions) = reverse @_;
+    my(@ranges,@coords);
+    push @ranges, [0..$_-1] for @dimensions;
+    forsetproduct { push @coords, "@_" } @ranges;
+    @coords;
+}
+
 sub shape {
     my(@dim);
     push @dim, scalar @_;
@@ -117,6 +115,18 @@ sub pretty_print {
         say ' 'x$i, ']', $i ? ',' : '';
     } else {
         say ' 'x$i, '[', sprintf("@{['%5s'x@a]}",@a), ']', $i ? ',' : '';
+    }
+}
+
+# not for RC
+sub pretty_sprint {
+    my($i, @a) = @_;
+    if ('ARRAY' eq ref $a[0]) {
+        push @res, ' 'x$i. '[';
+        pretty_sprint($i+2, @$_) for @a;
+        push @res, ' 'x$i. ']'. ($i ? ',' : '');
+    } else {
+        push @res, ' 'x$i. '['. sprintf("@{['%5s'x@a]}",@a). ']'.( $i ? ',' : '');
     }
 }
 
@@ -162,26 +172,49 @@ my @g = (
   ]
 );
 
-#say 'Dimensions: ' . join ', ', shape(@f); pretty_print(0, @f); exit;
-
-my @c = coords(@f);
-#use Data::Dumper; say Dumper @c;
-
 my $d = scalar shape(@g);
 say "${d}D array:";
 say "h =";
 
-my @res = deconvolve_N( \@g, \@f );
-exit;
-#pretty_print( my @res = deconvolve_N( \@g, \@f ) );  # remove '@res' for RC
+pretty_print(0, my @soln = deconvolve_N( \@g, \@f ) );  # remove '@soln' for RC
 
-say my $result = join "\n", @res;
+pretty_sprint(0, @soln); 
+my $result = join "\n", @res;
 
 my $ref = <<'END';
-[[[-6 -8 -5 9] [-7 9 -6 -8] [2 -7 9 8]] [[7 4 4 -6] [9 9 4 -4] [-3 7 -2 -3]]]
+[
+  [
+    [   -6   -8   -5    9],
+    [   -7    9   -6   -8],
+    [    2   -7    9    8],
+  ],
+  [
+    [    7    4    4   -6],
+    [    9    9    4   -4],
+    [   -3    7   -2   -3],
+  ],
+]
 END
 
 use Test::More;
-#chop $ref;
-#is ($result, $ref);
-#done_testing();
+chop $ref;
+is ($result, $ref);
+done_testing();
+
+__END__
+=={{header|Perl}}==
+{{trans|Perl 6}}
+<lang perl></lang>
+{{out}}
+<pre>[
+  [
+    [   -6   -8   -5    9],
+    [   -7    9   -6   -8],
+    [    2   -7    9    8],
+  ],
+  [
+    [    7    4    4   -6],
+    [    9    9    4   -4],
+    [   -3    7   -2   -3],
+  ],
+]</pre>
