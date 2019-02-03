@@ -1,6 +1,6 @@
 #!/usr/local/bin/perl
 #u# http://rosettacode.org/wiki/Cuban_primes
-#c# 2019-02-01 <RC
+#c# 2019-02-02 <RC
 #p# OK
 
 use feature 'say';
@@ -22,7 +22,7 @@ sub cuban_primes {
 }
 
 sub commify {
-    join ',', reverse map { scalar reverse } unpack "(A3)*", reverse shift;
+    scalar reverse join ',', unpack '(A3)*', reverse shift;
 }
 
 my @c = cuban_primes(200);
