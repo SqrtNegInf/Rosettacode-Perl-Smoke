@@ -1361,6 +1361,12 @@ File: C/Create_an_object_Native_demonstration
 #c# 2018-07-26 <RC
 #p# OK
 
+File: C/Cuban_primes
+#!/usr/local/bin/perl
+#u# http://rosettacode.org/wiki/Cuban_primes
+#c# 2019-02-02 <RC
+#p# OK
+
 File: C/Cumulative_standard_deviation-1
 #!/usr/local/bin/perl
 #u# http://rosettacode.org/wiki/Cumulative_standard_deviation
@@ -1488,8 +1494,8 @@ File: D/Deconvolution_1D
 File: D/Deconvolution_2D%2B
 #!/usr/local/bin/perl
 #u# http://rosettacode.org/wiki/Deconvolution/2D%2B
-#c# 2019-01-21 >RC
-#p# BROKEN
+#c# 2019-02-03 >RC
+#p# OK
 
 File: D/Deepcopy
 #!/usr/local/bin/perl
@@ -6463,6 +6469,12 @@ File: T/The_ISAAC_Cipher
 #!/usr/local/bin/perl
 #u# http://rosettacode.org/wiki/The_ISAAC_Cipher
 #c# 2018-08-02 <RC
+#p# OK
+
+File: T/The_Name_Game
+#!/usr/local/bin/perl
+#u# http://rosettacode.org/wiki/The_Name_Game
+#c# 2019-02-01 <RC
 #p# OK
 
 File: T/The_Twelve_Days_of_Christmas
