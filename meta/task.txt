@@ -1,17 +1,17 @@
 
 This is perl 5, version 28, subversion 0 (v5.28.0) built for darwin-thread-multi-2level
 updating from RC…
-+------------> Perl: Good/Bad [1077/17]
-|+-----------> Smoke testing [946]
++------------> Perl: Good/Bad [1080/16]
+|+-----------> Smoke testing [949]
 ||+----------> sKipping validation [134]
 |||+---------> Interactive [46]
 ||||+--------> Touched (modified by me) [222]
 |||||+-------> Random seed [91]
 ||||||+------> File output [58]
-|||||||+-----> Draft [215]
+|||||||+-----> Draft [217]
 ||||||||+----> Ignoring [32]
 |||||||||+---> Void (no local copy) [197]
-||||||||||+--> Un-implemented/reliable [186]
+||||||||||+--> Un-implemented/reliable [187]
 |||||||||||
 GS......... 100_doors-1
 GS......... 100_doors-2
@@ -280,7 +280,7 @@ GS......... Create_a_two-dimensional_array_at_runtime
 GS...R..... Create_an_HTML_table
 GS.....D... Create_an_object_Native_demonstration
 ........XVU Create_an_object_at_a_given_address
-.......D.V. Cuban_primes
+GS.....D... Cuban_primes
 GS......... Cumulative_standard_deviation-1
 GS......... Cumulative_standard_deviation-2
 GS..T...... Currency
@@ -304,7 +304,7 @@ GS......... Death_Star
 B...T..D..U Decimal_floating_point_number_to_binary
 .......D.VU Decision_tables
 GS..T...... Deconvolution_1D
-B...T.....U Deconvolution_2D%2B
+GS..T.....U Deconvolution_2D%2B
 GS......... Deepcopy
 GS......... Define_a_primitive_data_type
 G.K........ Delegates
@@ -826,6 +826,7 @@ GS..T...... Pathological_floating_point_problems-2
 GS......... Pathological_floating_point_problems-3
 GS...R..... Pattern_matching
 GS..T.F.... Peano_curve
+.......D.V. Pell%27s_equation
 GS...R..... Penney%27s_game
 GS..T.FD... Penrose_tiling
 GS..T.F.... Pentagram
@@ -920,6 +921,7 @@ GS..T..D... Ramsey%27s_theorem
 G.K........ Random_number_generator_device
 G.K........ Random_number_generator_included
 GS...R..... Random_numbers
+.......D.VU Range_consolidation
 GS......... Range_expansion
 GS..T...... Range_extraction
 GS..T...... Ranking_methods
@@ -1198,7 +1200,7 @@ GS......... Text_processing_Max_licenses_in_use
 .......D.VU Text_to_HTML
 GS..T...... Textonyms
 GS......... The_ISAAC_Cipher
-.........V. The_Name_Game
+GS......... The_Name_Game
 GS......... The_Twelve_Days_of_Christmas
 G.K.T.....U Thiele%27s_interpolation_formula
 GS......... Thue-Morse
