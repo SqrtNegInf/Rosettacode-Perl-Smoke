@@ -2,14 +2,11 @@
 #u# http://rosettacode.org/wiki/Deconvolution/2D%2B
 #c# 2019-02-03 >RC
 #p# OK
-
-use warnings;
-use strict;
-
-use feature 'say';
+#n# not fully general: hard-coded for 3D arrays
 
 my @res;
 
+use feature 'say';
 use ntheory qw/forsetproduct/;
 
 # Deconvolution of N dimensional matrices
@@ -19,23 +16,17 @@ sub deconvolve_N {
     my @df = shape(@f);
     my @dg = shape(@g);
     my @hsize;
-    push @hsize, ($dg[$_] - $df[$_]) + 1 for 0..$#df;
+    push @hsize, $dg[$_] - $df[$_] + 1 for 0..$#df;
     my @toSolve = map { [row(\@g, \@f, \@hsize, $_)] } coords(shape(@g));
     rref( \@toSolve );
 
     my @h;
-    my $mag = $hsize[0]*$hsize[1]*$hsize[2];
-    for (0.. $mag-1) {
-        push @h, $toSolve[$_][$mag];
-    }
-    my @soln;
     my $n = 0;
     for (coords(@hsize)) {
-        my($i,$j,$k) = split ' ', $_;
-        $soln[$k ] [$j ] [$i ] = $h[$n];
-        $n++;
+        my($k,$j,$i) = split ' ', $_;
+        $h[$i][$j][$k] = $toSolve[$n++][-1];
     }
-    @soln;
+    @h;
 }
 
 # Construct a row for each value in @g to be sent to the simultaneous equation solver
@@ -47,7 +38,7 @@ sub row {
 
     my @row;
     my @fdim = shape(@f);
-    @gc = @gc[0..$#fdim]; # clip extraneous values
+#    @gc = @gc[0..$#fdim]; # clip extraneous values  ### does not seem to be needed??
     for (coords(@hsize)) {
         my @hc = reverse split ' ', $_;
         my @fc;
@@ -107,6 +98,7 @@ sub shape {
 
 # Pretty printer for N dimensional arrays
 # Assumes if first element in level is an array, then all are
+# this on RC
 sub pretty_print {
     my($i, @a) = @_;
     if ('ARRAY' eq ref $a[0]) {
@@ -172,14 +164,22 @@ my @g = (
   ]
 );
 
+
+my @h  = deconvolve_N( \@g, \@f );
+my @ff = deconvolve_N( \@g, \@h );
+
+# for display
 my $d = scalar shape(@g);
 say "${d}D array:";
 say "h =";
+pretty_print(0, @h);
+say "\nff =";
+pretty_print(0, @ff);
 
-pretty_print(0, my @soln = deconvolve_N( \@g, \@f ) );  # remove '@soln' for RC
-
-pretty_sprint(0, @soln); 
-my $result = join "\n", @res;
+# fill @res for testing
+pretty_sprint(0, @h); 
+pretty_sprint(0, @ff); 
+say my $result = join "\n", @res;
 
 my $ref = <<'END';
 [
@@ -194,27 +194,23 @@ my $ref = <<'END';
     [   -3    7   -2   -3],
   ],
 ]
+[
+  [
+    [   -9    5   -8],
+    [    3    5    1],
+  ],
+  [
+    [   -1   -7    2],
+    [   -5   -6    6],
+  ],
+  [
+    [    8    5    8],
+    [   -2   -6   -4],
+  ],
+]
 END
 
 use Test::More;
 chop $ref;
 is ($result, $ref);
 done_testing();
-
-__END__
-=={{header|Perl}}==
-{{trans|Perl 6}}
-<lang perl></lang>
-{{out}}
-<pre>[
-  [
-    [   -6   -8   -5    9],
-    [   -7    9   -6   -8],
-    [    2   -7    9    8],
-  ],
-  [
-    [    7    4    4   -6],
-    [    9    9    4   -4],
-    [   -3    7   -2   -3],
-  ],
-]</pre>
