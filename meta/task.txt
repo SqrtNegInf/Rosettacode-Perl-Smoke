@@ -2,7 +2,7 @@
 This is perl 5, version 28, subversion 0 (v5.28.0) built for darwin-thread-multi-2level
 updating from RC…
 +------------> Perl: Good/Bad [1080/16]
-|+-----------> Smoke testing [949]
+|+-----------> Smoke testing [950]
 ||+----------> sKipping validation [134]
 |||+---------> Interactive [46]
 ||||+--------> Touched (modified by me) [222]
@@ -10,8 +10,8 @@ updating from RC…
 ||||||+------> File output [58]
 |||||||+-----> Draft [217]
 ||||||||+----> Ignoring [32]
-|||||||||+---> Void (no local copy) [197]
-||||||||||+--> Un-implemented/reliable [187]
+|||||||||+---> Void (no local copy) [196]
+||||||||||+--> Un-implemented/reliable [186]
 |||||||||||
 GS......... 100_doors-1
 GS......... 100_doors-2
@@ -304,7 +304,7 @@ GS......... Death_Star
 B...T..D..U Decimal_floating_point_number_to_binary
 .......D.VU Decision_tables
 GS..T...... Deconvolution_1D
-GS..T.....U Deconvolution_2D%2B
+GS..T...... Deconvolution_2D%2B
 GS......... Deepcopy
 GS......... Define_a_primitive_data_type
 G.K........ Delegates
@@ -826,7 +826,7 @@ GS..T...... Pathological_floating_point_problems-2
 GS......... Pathological_floating_point_problems-3
 GS...R..... Pattern_matching
 GS..T.F.... Peano_curve
-.......D.V. Pell%27s_equation
+GS.....D... Pell%27s_equation
 GS...R..... Penney%27s_game
 GS..T.FD... Penrose_tiling
 GS..T.F.... Pentagram
@@ -1206,7 +1206,7 @@ G.K.T.....U Thiele%27s_interpolation_formula
 GS......... Thue-Morse
 GS...R..... Tic-tac-toe
 .......D.VU Time-based_One-time_Password_Algorithm
-GS......... Time_a_function
+!S......... Time_a_function
 GS......... Tokenize_a_string
 GS......... Tokenize_a_string_with_escaping
 GS..T..D... Tonelli-Shanks_algorithm
