@@ -1496,6 +1496,7 @@ File: D/Deconvolution_2D%2B
 #u# http://rosettacode.org/wiki/Deconvolution/2D%2B
 #c# 2019-02-03 >RC
 #p# OK
+#n# not fully general: hard-coded for 3D arrays
 
 File: D/Deepcopy
 #!/usr/local/bin/perl
@@ -4415,6 +4416,12 @@ File: P/Peano_curve
 #c# 2018-11-24 >RC
 #p# OK
 #f# RC file: peano_curve.svg
+
+File: P/Pell%27s_equation
+#!/usr/local/bin/perl
+#u# http://rosettacode.org/wiki/Pell%27s_equation
+#c# 2019-02-03 <RC
+#p# OK
 
 File: P/Penney%27s_game
 #!/usr/local/bin/perl
