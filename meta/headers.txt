@@ -2460,6 +2460,13 @@ File: G/GUI_Maximum_window_dimensions
 #c# 2018-08-08 <RC
 #p# OK
 
+File: G/GUI_component_interaction
+#!/usr/local/bin/perl # do-not-check
+#u# http://rosettacode.org/wiki/GUI_component_interaction
+#t# gui
+#c# 2019-02-04 >RC
+#p# OK
+
 File: G/Galton_box_animation
 #!/usr/local/bin/perl
 #u# http://rosettacode.org/wiki/RC_REMOTE
@@ -2509,7 +2516,7 @@ File: G/Generate_lower_case_ASCII_alphabet
 File: G/Generate_random_chess_position
 #!/usr/local/bin/perl
 #u# http://rosettacode.org/wiki/Generate_random_chess_position
-#c# 2018-10-09 >RC
+#c# 2019-02-05 >RC
 #p# BROKEN
 
 File: G/Generator_Exponential
