@@ -1,0 +1,193 @@
+#!/usr/local/bin/perl
+#u# http://rosettacode.org/wiki/RC_REMOTE
+#t# skiptest
+#c# 2019-02-05 >RC
+#p# OK
+
+use feature 'say';
+
+use warnings;
+use strict 'vars';
+
+my @res;
+
+my @Example = ();
+ 
+sub checkSeq {
+    my($pos, $n, $minLen, @seq) = @_;
+   if ($pos > $minLen || $seq[0] > $n) {
+      return $minLen, 0;
+   } elsif ($seq[0] == $n) {
+      @Example = @seq;
+      return $pos, 1;
+   } elsif ($pos < $minLen) {
+      return tryPerm(0, $pos, $n, $minLen, @seq);
+   } else {
+      return $minLen, 0;
+   }
+}
+
+sub tryPerm {
+    my($i, $pos, $n, $minLen, @seq) = @_;
+   return $minLen, 0 if $i > $pos;
+   my @res1 = checkSeq($pos+1, $n, $minLen, ($seq[0]+$seq[$i],@seq));
+   my @res2 = tryPerm($i+1, $pos, $n, $res1[0], @seq);
+   if ($res2[0] < $res1[0]) {
+      return $res2[0], $res2[1];
+   } elsif ($res2[0] == $res1[0]) {
+      return $res2[0], $res1[1]+$res2[1];
+   } else {
+      say "Error in tryPerm";
+      return 0, 0;
+   }
+}
+
+sub initTryPerm {
+    my($x, $minLen) = @_;
+   return tryPerm(0, 0, $x, $minLen, [1]);
+}
+
+sub findBrauer {
+    my($num, $minLen, $nbLimit) = @_;
+   my ($actualMin, $brauer) = initTryPerm($num, $minLen);
+   push @res, "\nN = ". $num;
+   push @res, "Minimum length of chains : L($num) = $actualMin";
+   push @res, "Number of minimum length Brauer chains : ". $brauer;
+   push @res, "Brauer example : ". reverse @Example if $brauer > 0;
+   @Example = ();
+   if ($num <= $nbLimit) {
+      my $nonBrauer = findNonBrauer($num, $actualMin+1, $brauer);
+      push @res, "Number of minimum length non-Brauer chains : ". $nonBrauer;
+      push @res, "Non-Brauer example : ". @Example if $nonBrauer > 0;
+      @Example = ();
+   } else {
+      push @res, "Non-Brauer analysis suppressed";
+   }
+}
+
+sub isAdditionChain {
+    my(@a) = @_;
+   for my $i (2 .. $#a) {
+      return 0 if $a[$i] > $a[$i-1]*2;
+      my $ok = 0;
+      JLOOP: for my $j (reverse 0 .. $i-1) {
+         for my $k (reverse 0 .. $j) {
+            if ($a[$j]+$a[$k] == $a[$i]) {
+               $ok = 1;
+               last JLOOP;
+            }
+         }
+      }
+      return 0 unless $ok;
+   }
+ 
+   if (!isBrauer(@a) and !@Example) {
+      @Example = @a;
+   }
+   return 1;
+}
+
+sub isBrauer {
+    my(@a) = @_;
+   for my $i (2 .. $#a) {
+      my $ok = 0;
+      ILOOP: for my $j (reverse 0 .. $i-1) {
+         if ($a[$i-1]+$a[$j] == $a[$i]) {
+            $ok = 1;
+            last ILOOP;
+         }
+      }
+      return 0 unless $ok;
+   }
+   return 1;
+}
+
+sub findNonBrauer {
+    my($num, $len, $brauer) = @_;
+   my @seq = (1 .. $len-1), $num;
+   my $count = isAdditionChain(@seq) ? 1 : 0;
+ 
+   sub nextChains {
+      my($index) = @_;
+      loop {
+         nextChains($index+1) if $index < $len-1;
+         return if ($seq[$index]+$len-1-$index >= $seq[$len-1]);
+         $seq[$index]++;
+         for ($index^..^$len-1) { $seq[$_] = $seq[$_-1] + 1;}
+         $count++ if isAdditionChain(@seq);
+      }
+   }
+ 
+   nextChains(2);
+   return $count - $brauer;
+}
+ 
+my @nums = (7, 14, 21, 29, 32, 42, 64);  # unlock below for extra credits,
+                                         # 47, 79, 191, 382, 379, 379, 12509);
+say "Searching for Brauer chains up to a minimum length of 12:";
+for @nums { findBrauer $_, 12, 79 }
+ 
+#.say for @res; 
+
+#Searching for Brauer chains up to a minimum length of 12:
+my $ref = <<'EOD';
+
+N = 7
+Minimum length of chains : L(7) = 4
+Number of minimum length Brauer chains : 5
+Brauer example : 1 2 3 4 7
+Number of minimum length non-Brauer chains : 0
+
+N = 14
+Minimum length of chains : L(14) = 5
+Number of minimum length Brauer chains : 14
+Brauer example : 1 2 3 4 7 14
+Number of minimum length non-Brauer chains : 0
+
+N = 21
+Minimum length of chains : L(21) = 6
+Number of minimum length Brauer chains : 26
+Brauer example : 1 2 3 4 7 14 21
+Number of minimum length non-Brauer chains : 3
+Non-Brauer example : 1 2 4 5 8 13 21
+
+N = 29
+Minimum length of chains : L(29) = 7
+Number of minimum length Brauer chains : 114
+Brauer example : 1 2 3 4 7 11 18 29
+Number of minimum length non-Brauer chains : 18
+Non-Brauer example : 1 2 3 6 9 11 18 29
+
+N = 32
+Minimum length of chains : L(32) = 5
+Number of minimum length Brauer chains : 1
+Brauer example : 1 2 4 8 16 32
+Number of minimum length non-Brauer chains : 0
+
+N = 42
+Minimum length of chains : L(42) = 7
+Number of minimum length Brauer chains : 78
+Brauer example : 1 2 3 4 7 14 21 42
+Number of minimum length non-Brauer chains : 6
+Non-Brauer example : 1 2 4 5 8 13 21 42
+
+N = 64
+Minimum length of chains : L(64) = 6
+Number of minimum length Brauer chains : 1
+Brauer example : 1 2 4 8 16 32 64
+Number of minimum length non-Brauer chains : 0
+EOD
+
+say my $result = join "\n", @res;
+
+use Test::More;
+#is($result, $ref);
+#done_testing();
+
+__END__
+
+=={{header|Perl}}==
+{{trans|Perl 6}}
+<lang perl></lang>
+{{out}}
+<pre style="height:35ex"></pre>
