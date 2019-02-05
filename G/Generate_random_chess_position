@@ -1,10 +1,11 @@
 #!/usr/local/bin/perl
 #u# http://rosettacode.org/wiki/Generate_random_chess_position
-#c# 2018-10-09 >RC
+#c# 2019-02-05 >RC
 #p# BROKEN
 
 use feature 'say';
 use warnings;
+use Data::Printer;
 #use strict 'vars';
 
 srand 12345;
@@ -16,23 +17,28 @@ sub pick_FEN {
     # Then we pick $n squares
     my @n = (shuffle(0..63))[1..$n];
 
-say "n: $n :: ", join ' ', @n; exit;
+say "n: $n :: ", join ' ', @n; #exit;
 
-    # We try to find suitable king positions on non-adjacent squares.
-    # If we could not find any, we return recursively
-    #return pick_FEN() unless
-
-    #my @kings[2] = first -> [$a, $b] {
-    #    $a !== $b && abs($a div 8 - $b div 8) | abs($a mod 8 - $b mod 8) > 1
-    #}, (@n X @n);
-
-exit;
+    KINGS: {
+    for my $a (@n) {
+        for my $b (@n) {
+            next unless $a != $b && abs(int($a/8) - int($b/8)) > 1 || abs($a%8 - $b%8) > 1;
+            @kings = ($a, $b);  
+            last KINGS;
+        }
+        die 'No good place for kings!';
+    }
+    }
+    say join ', ', @kings;
+$DB::single = 1;
 
     # We make a list of pieces we can pick (apart from the kings)
     my @pieces = qw<p P n N b B r R q Q>;
 
     # We make a list of two king symbols to pick randomly a black or white king
     my @k = pick1(qw(K k));
+
+p @k ; exit;
 
     #return (gather for ^64 -> $sq 
     for my $sq (0..63) {
