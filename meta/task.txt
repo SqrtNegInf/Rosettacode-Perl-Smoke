@@ -1,16 +1,16 @@
 
 This is perl 5, version 28, subversion 0 (v5.28.0) built for darwin-thread-multi-2level
 updating from RC…
-+------------> Perl: Good/Bad [1080/16]
++------------> Perl: Good/Bad [1082/16]
 |+-----------> Smoke testing [950]
-||+----------> sKipping validation [134]
-|||+---------> Interactive [46]
-||||+--------> Touched (modified by me) [222]
+||+----------> sKipping validation [135]
+|||+---------> Interactive [47]
+||||+--------> Touched (modified by me) [223]
 |||||+-------> Random seed [91]
 ||||||+------> File output [58]
 |||||||+-----> Draft [217]
 ||||||||+----> Ignoring [32]
-|||||||||+---> Void (no local copy) [196]
+|||||||||+---> Void (no local copy) [195]
 ||||||||||+--> Un-implemented/reliable [186]
 |||||||||||
 GS......... 100_doors-1
@@ -468,7 +468,7 @@ GS......... Function_frequency
 GS......... Function_prototype
 .......D.VU Functional_coverage_tree
 G.KI....... GUI_Maximum_window_dimensions
-.........VU GUI_component_interaction
+G.KIT.....U GUI_component_interaction
 .........VU GUI_enabling_disabling_of_controls
 G.K.TRF...U Galton_box_animation
 GS......... Gamma_function
@@ -1206,7 +1206,7 @@ G.K.T.....U Thiele%27s_interpolation_formula
 GS......... Thue-Morse
 GS...R..... Tic-tac-toe
 .......D.VU Time-based_One-time_Password_Algorithm
-!S......... Time_a_function
+GS......... Time_a_function
 GS......... Tokenize_a_string
 GS......... Tokenize_a_string_with_escaping
 GS..T..D... Tonelli-Shanks_algorithm
