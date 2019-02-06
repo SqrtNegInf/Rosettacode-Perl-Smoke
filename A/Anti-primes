@@ -3,6 +3,8 @@
 #c# 2018-12-10 <RC
 #p# OK
 
+use warnings;
+use strict;
 use feature 'say';
 
 use ntheory qw(divisors);
@@ -18,7 +20,7 @@ for (my ($k, $m) = (1, 0) ; @anti_primes < 20 ; ++$k) {
     }
 }
 
-say $result = sprintf("%s", join(' ', @anti_primes));
+say my $result = sprintf("%s", join(' ', @anti_primes));
 
 my $ref = '1 2 4 6 12 24 36 48 60 120 180 240 360 720 840 1260 1680 2520 5040 7560';
 
