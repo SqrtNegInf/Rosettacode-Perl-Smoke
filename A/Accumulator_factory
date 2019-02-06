@@ -3,6 +3,9 @@
 #c# 2018-07-07 <>RC
 #p# OK
 
+use warnings;
+use strict;
+
 my $result;
 
 #There's a little deviation: the syntax $x->(5) differs from the usual x(5).
