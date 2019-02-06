@@ -5,8 +5,8 @@
 #n# removed example with non-existent module Data::Average
 
 use feature 'say';
-my $result;
-
+use warnings;
+use strict;
 
 sub avg {
   @_ or return 0;
@@ -15,7 +15,7 @@ sub avg {
   return $sum/@_;
 }
  
-$result .= avg(qw(3 1 4 1 5 9)). "\n";
+my $result .= avg(qw(3 1 4 1 5 9)). "\n";
 
 say $result; 
 
