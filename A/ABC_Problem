@@ -29,7 +29,7 @@ sub _can_make_word {
     }
     return
 }
-Testing:
+
 use Test::More tests => 8;
  
 my @blocks1 = qw(BO XK DQ CP NA GT RE TG QD FS JW HU VI AN OB ER FS LY PC ZM);
@@ -43,9 +43,3 @@ is(can_make_word("CONFUSE", @blocks1), 1);
  
 my @blocks2 = qw(US TZ AO QA);
 is(can_make_word('auto', @blocks2), 1);
- 
-
-
-use Test::More;
-#is ($result, $ref);
-#done_testing();
