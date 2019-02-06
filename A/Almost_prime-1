@@ -3,8 +3,9 @@
 #c# 2018-07-11 <RC
 #p# OK
 
+use warnings;
+use strict;
 use feature 'say';
-my $result;
 
 use ntheory qw/factor/;
 
@@ -13,8 +14,9 @@ sub almost {
   my $i = 1;
   map { $i++ while scalar factor($i) != $k; $i++ } 1..$n;
 }
-$result .= "$_ : " . join(" ", almost($_,10)) . "\n" for 1..5;
 
+my $result;
+$result .= "$_ : " . join(" ", almost($_,10)) . "\n" for 1..5;
 say $result;
 
 my $ref = <<END;
