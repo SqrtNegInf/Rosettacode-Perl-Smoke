@@ -1,17 +1,17 @@
 
 This is perl 5, version 28, subversion 0 (v5.28.0) built for darwin-thread-multi-2level
 updating from RC…
-+------------> Perl: Good/Bad [1082/16]
-|+-----------> Smoke testing [950]
-||+----------> sKipping validation [135]
++------------> Perl: Good/Bad [1085/15]
+|+-----------> Smoke testing [951]
+||+----------> sKipping validation [137]
 |||+---------> Interactive [47]
-||||+--------> Touched (modified by me) [223]
+||||+--------> Touched (modified by me) [224]
 |||||+-------> Random seed [91]
 ||||||+------> File output [58]
 |||||||+-----> Draft [217]
 ||||||||+----> Ignoring [32]
-|||||||||+---> Void (no local copy) [195]
-||||||||||+--> Un-implemented/reliable [186]
+|||||||||+---> Void (no local copy) [193]
+||||||||||+--> Un-implemented/reliable [184]
 |||||||||||
 GS......... 100_doors-1
 GS......... 100_doors-2
@@ -54,7 +54,7 @@ GS......... Ackermann_function-5
 GS......... Active_object
 GS......... Add_a_variable_to_a_class_instance_at_runtime
 .......D.VU Addition-chain_exponentiation
-.......D.VU Addition_chains
+G.K.T..D..U Addition_chains
 GS......... Address_of_a_variable
 GS......... Align_columns-1
 GS......... Align_columns-2
@@ -315,7 +315,7 @@ GS......... Detect_division_by_zero
 GS......... Determinant_and_permanent
 GS......... Determine_if_a_string_is_numeric
 G.K........ Determine_if_only_one_instance_is_running
-.......D.VU Determine_if_two_triangles_overlap
+.......D.V. Determine_if_two_triangles_overlap
 GS.....D... Dice_game_probabilities
 GS......... Digital_root
 GS......... Digital_root_Multiplicative_digital_root
@@ -479,7 +479,7 @@ GS......... General_FizzBuzz
 .......D.VU Generalised_floating_point_multiplication
 GS...R..... Generate_Chess960_starting_position
 GS......... Generate_lower_case_ASCII_alphabet
-B...TR....U Generate_random_chess_position
+GS..TR..... Generate_random_chess_position
 GS......... Generator_Exponential
 GS......... Generic_swap
 .......D.VU Geometric_algebra
@@ -921,7 +921,7 @@ GS..T..D... Ramsey%27s_theorem
 G.K........ Random_number_generator_device
 G.K........ Random_number_generator_included
 GS...R..... Random_numbers
-.......D.VU Range_consolidation
+G.K....D..U Range_consolidation
 GS......... Range_expansion
 GS..T...... Range_extraction
 GS..T...... Ranking_methods
