@@ -184,6 +184,13 @@ File: A/Add_a_variable_to_a_class_instance_at_runtime
 #c# 2018-07-11 <RC
 #p# OK
 
+File: A/Addition_chains
+#!/usr/local/bin/perl
+#u# http://rosettacode.org/wiki/RC_REMOTE
+#t# skiptest
+#c# 2019-02-05 >RC
+#p# OK
+
 File: A/Address_of_a_variable
 #!/usr/local/bin/perl
 #u# http://rosettacode.org/wiki/Address_of_a_variable
@@ -2517,7 +2524,7 @@ File: G/Generate_random_chess_position
 #!/usr/local/bin/perl
 #u# http://rosettacode.org/wiki/Generate_random_chess_position
 #c# 2019-02-05 >RC
-#p# BROKEN
+#p# OK
 
 File: G/Generator_Exponential
 #!/usr/local/bin/perl
@@ -4973,6 +4980,13 @@ File: R/Random_numbers
 #c# 2018-08-19 <RC
 #p# OK
 #n# no fixed seed, testing that average value is within 1% of unity
+
+File: R/Range_consolidation
+#!/usr/local/bin/perl
+#u# http://rosettacode.org/wiki/Range_consolidation
+#t# skiptest
+#c# 2018-08-17 <RC
+#p# OK
 
 File: R/Range_expansion
 #!/usr/local/bin/perl
