@@ -3,27 +3,21 @@
 #c# 2019-02-05 >RC
 #p# OK
 
+use warnings;
+use strict;
 use feature 'say';
 
 srand 123456;
 
 use utf8;
-use List::MoreUtils qw(any natatime);
+use List::AllUtils qw(any natatime shuffle);
 
 sub pick1 { return @_[ rand @_ ] } 
-
-sub shuffle { # Fisher-Yates
-    my(@list) = @_;
-    for (my $n = $#list ; $n ; --$n) {
-        my $k = int rand($n + 1);
-        @list[$k, $n] = @list[$n, $k] if $k != $n;
-    }
-    return @list;
-}
 
 sub gen_FEN {
     my $n = 1 + int rand 31;
     my @n = (shuffle(0..63))[1..$n];
+    my(@kings,@pp,@qq,$row);
 
     KINGS: {
     for my $a (@n) {
