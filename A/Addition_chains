@@ -4,10 +4,11 @@
 #c# 2019-02-05 >RC
 #p# OK
 
-use feature 'say';
-
+use Data::Printer;
 use warnings;
-use strict 'vars';
+use strict;
+
+use feature 'say';
 
 my @res;
 
@@ -15,6 +16,8 @@ my @Example = ();
  
 sub checkSeq {
     my($pos, $n, $minLen, @seq) = @_;
+warn 'XXXX checkSeq: '; p @seq;
+$DB::single =1;
    if ($pos > $minLen || $seq[0] > $n) {
       return $minLen, 0;
    } elsif ($seq[0] == $n) {
@@ -29,8 +32,12 @@ sub checkSeq {
 
 sub tryPerm {
     my($i, $pos, $n, $minLen, @seq) = @_;
+warn 'XXXX tryPerm: '; p @seq;
    return $minLen, 0 if $i > $pos;
-   my @res1 = checkSeq($pos+1, $n, $minLen, ($seq[0]+$seq[$i],@seq));
+$DB::single =1;
+   unshift @seq, $seq[0]+$seq[$i];
+   my @res1 = checkSeq($pos+1, $n, $minLen, @seq);
+   #my @res1 = checkSeq($pos+1, $n, $minLen, [$seq[0]+$seq[$i],@seq]);
    my @res2 = tryPerm($i+1, $pos, $n, $res1[0], @seq);
    if ($res2[0] < $res1[0]) {
       return $res2[0], $res2[1];
@@ -44,7 +51,7 @@ sub tryPerm {
 
 sub initTryPerm {
     my($x, $minLen) = @_;
-   return tryPerm(0, 0, $x, $minLen, [1]);
+   return tryPerm(0, 0, $x, $minLen, (1));
 }
 
 sub findBrauer {
@@ -53,12 +60,13 @@ sub findBrauer {
    push @res, "\nN = ". $num;
    push @res, "Minimum length of chains : L($num) = $actualMin";
    push @res, "Number of minimum length Brauer chains : ". $brauer;
-   push @res, "Brauer example : ". reverse @Example if $brauer > 0;
+   push @res, "Brauer example : ". join ' ', reverse @Example if $brauer > 0;
    @Example = ();
-   if ($num <= $nbLimit) {
+   if (0 == 1) {
+   #if ($num <= $nbLimit) {
       my $nonBrauer = findNonBrauer($num, $actualMin+1, $brauer);
       push @res, "Number of minimum length non-Brauer chains : ". $nonBrauer;
-      push @res, "Non-Brauer example : ". @Example if $nonBrauer > 0;
+      push @res, "Non-Brauer example : ". join ' ', @Example if $nonBrauer > 0;
       @Example = ();
    } else {
       push @res, "Non-Brauer analysis suppressed";
@@ -103,17 +111,19 @@ sub isBrauer {
 }
 
 sub findNonBrauer {
-    my($num, $len, $brauer) = @_;
-   my @seq = (1 .. $len-1), $num;
-   my $count = isAdditionChain(@seq) ? 1 : 0;
+   our($num, $len, $brauer) = @_;
+   our @seq = 1 .. $len-1; push @seq, $num;
+warn 'XXXX findnonB: '; p @seq; exit;
+$DB::single = 1;
+   our $count = isAdditionChain(@seq) ? 1 : 0;
  
    sub nextChains {
       my($index) = @_;
-      loop {
+      while () {
          nextChains($index+1) if $index < $len-1;
          return if ($seq[$index]+$len-1-$index >= $seq[$len-1]);
          $seq[$index]++;
-         for ($index^..^$len-1) { $seq[$_] = $seq[$_-1] + 1;}
+         for ($index+1 .. $len-2) { $seq[$_] = $seq[$_-1] + 1;}
          $count++ if isAdditionChain(@seq);
       }
    }
@@ -125,7 +135,7 @@ sub findNonBrauer {
 my @nums = (7, 14, 21, 29, 32, 42, 64);  # unlock below for extra credits,
                                          # 47, 79, 191, 382, 379, 379, 12509);
 say "Searching for Brauer chains up to a minimum length of 12:";
-for @nums { findBrauer $_, 12, 79 }
+for (@nums) { findBrauer $_, 12, 79 }
  
 #.say for @res; 
 
