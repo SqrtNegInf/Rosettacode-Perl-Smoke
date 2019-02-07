@@ -3,21 +3,25 @@
 #c# 2018-07-05 <RC
 #p# OK
 
+use warnings;
+use strict;
 use feature 'say';
 
-my $result;
+use List::Util qw(sum);
+
+my $result1;
+my $result2;
 
 open F, "<ref/a+b.txt";
 
 #for (<STDIN>) {
 for (<F>) {
-my ($a,$b) = split(' ', scalar($_));
-$result .= "$a $b " . ($a + $b) . "\n";
+    my ($a,$b) = split(' ', scalar($_));
+    $result1 .= "$a $b " . ($a + $b) . "\n";
+    $result2 .= "$a $b "  . (sum split /\s+/, $_) . "\n";
 }
-say $result;
 
-#using the List::Util module[edit]
-#say sum split /\s+/,  scalar <STDIN>;
+say $result2;
 
 my $ref = <<EOD;
 1 2 3
@@ -26,5 +30,6 @@ my $ref = <<EOD;
 EOD
 
 use Test::More;
-is ($result, $ref);
+is ($result1, $ref);
+is ($result2, $ref);
 done_testing();
