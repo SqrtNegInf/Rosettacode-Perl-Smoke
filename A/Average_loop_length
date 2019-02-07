@@ -5,6 +5,8 @@
 
 srand 123456;
 
+#use warnings;
+use strict;
 use feature 'say';
 
 my @res;
@@ -15,6 +17,7 @@ sub find_loop {
     my($n) = @_;
     my($r,@seen);
     while () { $seen[$r] = $seen[($r = int(1+rand $n))] ? return sum @seen : 1 }
+    #while () { $seen[$r] = $seen[($r = int(1+rand $n))] ? return sum grep { defined $_ } @seen : 1 } # to avoid warnings
     #($seen[$r] = $seen[($r = int(1+rand $n))] ? return sum @seen : 1) for 0..$n; # even more obsfuscated!
 }
 
