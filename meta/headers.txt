@@ -1569,6 +1569,12 @@ File: D/Determine_if_only_one_instance_is_running
 #c# 2018-07-28 <RC
 #p# OK
 
+File: D/Determine_if_two_triangles_overlap
+#!/usr/local/bin/perl
+#u# http://rosettacode.org/wiki/Determine_if_two_triangles_overlap
+#c# 2019-02-05 <RC
+#p# OK
+
 File: D/Dice_game_probabilities
 #!/usr/local/bin/perl
 #u# http://rosettacode.org/wiki/Dice_game_probabilities
