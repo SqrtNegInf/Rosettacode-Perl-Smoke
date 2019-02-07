@@ -5,14 +5,17 @@
 
 # {{trans|Sidef}}
 
+use warnings;
+use strict;
 use feature 'say';
+
 my $result;
 
 use ntheory qw/divisors powmod forprimes znorder/;
 
 sub is_long_prime {
 my($p) = @_;
-    for $d (divisors($p-1)) {
+    for my $d (divisors($p-1)) {
         return $d+1 == $p if powmod(10, $d, $p)== 1;
     }
     0;
@@ -21,7 +24,7 @@ my($p) = @_;
 $result .= "Long primes ≤ 500:\n";
 $result .= join(' ', grep {is_long_prime($_) } 1 .. 500) . "\n\n";
  
-for $n (500, 1000, 2000, 4000, 8000, 16000, 32000, 64000) {
+for my $n (500, 1000, 2000, 4000, 8000, 16000, 32000, 64000) {
     $result .= sprintf "Number of long primes ≤ $n: %d\n",  scalar grep {is_long_prime($_) } 1 .. $n;
 }
 
