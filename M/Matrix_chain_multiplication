@@ -1,8 +1,10 @@
 #!/usr/local/bin/perl
 #u# http://rosettacode.org/wiki/Matrix_chain_multiplication
-#c# 2018-11-30 >RC
+#c# 2018-11-30 >RC, 2019-02-06 >RC
 #p# OK
 
+use warnings;
+use strict;
 use feature 'say';
 
 my @res;
@@ -30,8 +32,7 @@ sub matrix_mult_chaining {
             }
        }
     }
-
-    find_path(0, $n-1, @cp);
+    return $cp[$n-1][0] . ' ' . find_path(0, $n-1, @cp);
 }
 
 sub find_path { 
@@ -55,8 +56,8 @@ push @res, matrix_mult_chaining(<1000 1 500 12 1 700 2500 3 2 5 14 10>);
 say my $result = join "\n", @res;
 
 my $ref = <<'EOD';
-((((((((A1A2)A3)A4)A5)A6)A7)(A8(A9A10)))(A11A12))
-(A1((((((A2A3)A4)(((A5A6)A7)A8))A9)A10)A11))
+38120 ((((((((A1A2)A3)A4)A5)A6)A7)(A8(A9A10)))(A11A12))
+1773740 (A1((((((A2A3)A4)(((A5A6)A7)A8))A9)A10)A11))
 EOD
 
 use Test::More;
