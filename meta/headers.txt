@@ -3751,7 +3751,7 @@ File: M/Matrix_Digital_Rain
 File: M/Matrix_chain_multiplication
 #!/usr/local/bin/perl
 #u# http://rosettacode.org/wiki/Matrix_chain_multiplication
-#c# 2018-11-30 >RC
+#c# 2018-11-30 >RC, 2019-02-06 >RC
 #p# OK
 
 File: M/Matrix_multiplication
@@ -4089,6 +4089,12 @@ File: N/Nautical_bell-2
 #c# 2018-09-20
 #p# OK
 #n# zip through the minutes of a day (testable version, not for RC!)
+
+File: N/Negative_base_numbers
+#!/usr/local/bin/perl
+#u# http://rosettacode.org/wiki/Negative_base_numbers
+#c# 2019-02-RC >RC
+#p# OK
 
 File: N/Nested_function
 #!/usr/local/bin/perl
