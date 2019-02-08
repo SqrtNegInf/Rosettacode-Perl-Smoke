@@ -1,0 +1,90 @@
+#!/usr/local/bin/perl
+#u# http://rosettacode.org/wiki/Negative_base_numbers
+#c# 2019-02-RC >RC
+#p# OK
+
+use Data::Printer;
+
+use feature 'say';
+use warnings;
+use strict; # 'vars';
+
+use ntheory qw/fromdigits todigits todigitstring/; # divmod/;
+
+my $result;
+# my @res;
+
+#sub divmod  {
+#    my($n, $d) = @_;
+#    int($n/$d), $n%$d 
+#}
+
+sub EncodeNegBase {
+    my($n, $b) = @_;
+    my @out;
+    my $r = 0;
+
+    while ($n) {
+        $r = $n % $b;
+        $n = int $n/$b;
+        #($n, $r) = divmod($n, $b);
+        say "n: $n  r: $r";
+        if ($r < 0) {
+            $n += 1;
+            $r -= $b;
+        }
+#$DB::single = 1;
+        push @out, todigits($r, -$b) || 0;
+    }
+    join '', reverse @out; 
+}
+
+# The ntheory module includes functions that will perform base conversion, and is fast. It supports bases up to 36 and bigints.
+#my $n   = 65261;
+#my $n16 = todigitstring($n, 16) || 0;
+#my $n10 = fromdigits($n16, 16);
+#$result .= "$n $n16 $n10\n";  # $result .=s "65261 feed 65261"
+ 
+sub DecodeNegBase {
+    my($s, $b) = @_;
+    my $total = 0;
+#    for i,c in ($s.flip.chars.kv) {
+#        $total += (Num($c, -$b) * $b**$i)
+#    }
+    return $total
+}
+ 
+say (" 10 in base  -2: ", EncodeNegBase(10, -2));
+#say (" 15 in base -10: ", EncodeNegBase(15, -10));
+#say ("146 in base  -3: ", EncodeNegBase(146, -3));
+exit;
+ 
+say '-'*25;
+ 
+say ("11110 from base  -2: ", DecodeNegBase("11110", -2));
+say ("21102 from base  -3: ", DecodeNegBase("21102", -3));
+say ("  195 from base -10: ", DecodeNegBase("195",  -10));
+ 
+say '-'*25;
+ 
+# Extra
+say ("25334424 in base -31: ", EncodeNegBase(25334424, -31));
+say ("sidef  from base -31: ", DecodeNegBase("sidef", -31));
+
+say $result; 
+#say $result = join "\n", @res;
+my $ref = <<'EOD';
+EOD
+
+use Test::More;
+#is($result, $ref);
+#done_testing();
+
+__END__
+
+=={{header|Perl}}==
+{{trans|Perl 6}}
+<lang perl></lang>
+{{out}}
+<pre style="height:35ex"></pre>
+[https://github.com/SqrtNegInf/Rosettacode-Perl5-Smoke/blob/master/ref/XXX XXX]
