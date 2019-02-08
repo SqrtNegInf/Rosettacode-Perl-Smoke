@@ -1,16 +1,16 @@
 
 This is perl 5, version 28, subversion 0 (v5.28.0) built for darwin-thread-multi-2level
 updating from RC…
-+------------> Perl: Good/Bad [1086/15]
-|+-----------> Smoke testing [952]
++------------> Perl: Good/Bad [1087/15]
+|+-----------> Smoke testing [953]
 ||+----------> sKipping validation [137]
 |||+---------> Interactive [47]
-||||+--------> Touched (modified by me) [224]
+||||+--------> Touched (modified by me) [225]
 |||||+-------> Random seed [91]
 ||||||+------> File output [58]
 |||||||+-----> Draft [217]
 ||||||||+----> Ignoring [32]
-|||||||||+---> Void (no local copy) [192]
+|||||||||+---> Void (no local copy) [191]
 ||||||||||+--> Un-implemented/reliable [184]
 |||||||||||
 GS......... 100_doors-1
@@ -757,7 +757,7 @@ GS.....D... Native_shebang
 GS......... Natural_sorting
 G.KIT...... Nautical_bell-1
 GS......... Nautical_bell-2
-.........VU Negative_base_numbers
+GS..T.....U Negative_base_numbers
 GS......... Nested_function
 GS..T...... Nested_templated_data
 GS......... Non-continuous_subsequences
