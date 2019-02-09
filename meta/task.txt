@@ -10,8 +10,8 @@ updating from RC…
 ||||||+------> File output [58]
 |||||||+-----> Draft [217]
 ||||||||+----> Ignoring [32]
-|||||||||+---> Void (no local copy) [191]
-||||||||||+--> Un-implemented/reliable [184]
+|||||||||+---> Void (no local copy) [192]
+||||||||||+--> Un-implemented/reliable [185]
 |||||||||||
 GS......... 100_doors-1
 GS......... 100_doors-2
@@ -280,7 +280,7 @@ GS......... Create_a_two-dimensional_array_at_runtime
 GS...R..... Create_an_HTML_table
 GS.....D... Create_an_object_Native_demonstration
 ........XVU Create_an_object_at_a_given_address
-GS.....D... Cuban_primes
+GS......... Cuban_primes
 GS......... Cumulative_standard_deviation-1
 GS......... Cumulative_standard_deviation-2
 GS..T...... Currency
@@ -576,6 +576,7 @@ GS......... Integer_overflow
 GS..T...... Integer_roots-1
 GS......... Integer_roots-2
 G.KI....... Integer_sequence
+.......D.VU Interactive_Help
 GS......... Interactive_programming
 GS..T...... Introspection
 GS......... Inverted_index
