@@ -19,6 +19,26 @@ my $result;
 #    int($n/$d), $n%$d 
 #}
 
+#multi sub base ( Int $value is copy, Int $radix where -37 < * < -1) {
+#    my $result;
+#    while $value {
+#        my $r = $value mod $radix;
+#        $value div= $radix;
+#        if $r < 0 {
+#            $value++;
+#            $r -= $radix
+#        }
+#        $result ~= $r.base(-$radix);
+#    }
+#    flip $result || ~0;
+#}
+
+sub div { 
+    use integer;
+    $_[0]/$_[1];
+    #int(int($_[0])/int($_[1]));
+}
+
 sub EncodeNegBase {
     my($n, $b) = @_;
     my @out;
@@ -26,18 +46,28 @@ sub EncodeNegBase {
 
     while ($n) {
         $r = $n % $b;
-        $n = int $n/$b;
+        print "0 n: $n  r: $r res: "; say join '', @out;
+#        printf "div %.3f\n", $n/$b;
+        $n = div($n,$b);
         #($n, $r) = divmod($n, $b);
-        say "n: $n  r: $r";
+        print "1 n: $n  r: $r res: "; say join '', @out;
         if ($r < 0) {
             $n += 1;
             $r -= $b;
         }
 #$DB::single = 1;
+#print 'todig: '; say todigits($r, -$b);
         push @out, todigits($r, -$b) || 0;
     }
     join '', reverse @out; 
 }
+
+# 0  v: -2  r; -5  res:
+# 1  v: -1  r;  5  res: 5
+# 0  v:  0  r; -1  res: 5
+# 1  v:  1  r;  9  res: 59
+# 0  v: -1  r; -9  res: 59
+# 1  v:  0  r;  1  res: 591
 
 # The ntheory module includes functions that will perform base conversion, and is fast. It supports bases up to 36 and bigints.
 #my $n   = 65261;
@@ -54,8 +84,8 @@ sub DecodeNegBase {
     return $total
 }
  
-say (" 10 in base  -2: ", EncodeNegBase(10, -2));
-#say (" 15 in base -10: ", EncodeNegBase(15, -10));
+#say (" 10 in base  -2: ", EncodeNegBase(10, -2));
+say (" 15 in base -10: ", EncodeNegBase(15, -10));
 #say ("146 in base  -3: ", EncodeNegBase(146, -3));
 exit;
  
