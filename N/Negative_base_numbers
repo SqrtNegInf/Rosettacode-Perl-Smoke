@@ -3,118 +3,58 @@
 #c# 2019-02-RC >RC
 #p# OK
 
-use Data::Printer;
+my @res;
 
+use strict;
 use feature 'say';
-use warnings;
-use strict; # 'vars';
+use POSIX qw(floor);
+use ntheory qw/fromdigits todigits/;
 
-use ntheory qw/fromdigits todigits todigitstring/; # divmod/;
-
-my $result;
-# my @res;
-
-#sub divmod  {
-#    my($n, $d) = @_;
-#    int($n/$d), $n%$d 
-#}
-
-#multi sub base ( Int $value is copy, Int $radix where -37 < * < -1) {
-#    my $result;
-#    while $value {
-#        my $r = $value mod $radix;
-#        $value div= $radix;
-#        if $r < 0 {
-#            $value++;
-#            $r -= $radix
-#        }
-#        $result ~= $r.base(-$radix);
-#    }
-#    flip $result || ~0;
-#}
-
-sub div { 
-    use integer;
-    $_[0]/$_[1];
-    #int(int($_[0])/int($_[1]));
-}
-
-sub EncodeNegBase {
+sub encode {
     my($n, $b) = @_;
     my @out;
     my $r = 0;
 
     while ($n) {
         $r = $n % $b;
-        print "0 n: $n  r: $r res: "; say join '', @out;
-#        printf "div %.3f\n", $n/$b;
-        $n = div($n,$b);
-        #($n, $r) = divmod($n, $b);
-        print "1 n: $n  r: $r res: "; say join '', @out;
-        if ($r < 0) {
-            $n += 1;
-            $r -= $b;
-        }
-#$DB::single = 1;
-#print 'todig: '; say todigits($r, -$b);
+        $n = floor $n/$b;
+        $n += 1, $r -= $b if $r < 0;
         push @out, todigits($r, -$b) || 0;
     }
     join '', reverse @out; 
 }
 
-# 0  v: -2  r; -5  res:
-# 1  v: -1  r;  5  res: 5
-# 0  v:  0  r; -1  res: 5
-# 1  v:  1  r;  9  res: 59
-# 0  v: -1  r; -9  res: 59
-# 1  v:  0  r;  1  res: 591
-
-# The ntheory module includes functions that will perform base conversion, and is fast. It supports bases up to 36 and bigints.
-#my $n   = 65261;
-#my $n16 = todigitstring($n, 16) || 0;
-#my $n10 = fromdigits($n16, 16);
-#$result .= "$n $n16 $n10\n";  # $result .=s "65261 feed 65261"
- 
-sub DecodeNegBase {
+sub decode {
     my($s, $b) = @_;
     my $total = 0;
-#    for i,c in ($s.flip.chars.kv) {
-#        $total += (Num($c, -$b) * $b**$i)
-#    }
-    return $total
+    my $i = 0;
+    for my $c (reverse split '', $s) {
+        $total += (fromdigits($c, -$b) * $b**$i);
+        $i++;
+    }
+    $total
 }
- 
-#say (" 10 in base  -2: ", EncodeNegBase(10, -2));
-say (" 15 in base -10: ", EncodeNegBase(15, -10));
-#say ("146 in base  -3: ", EncodeNegBase(146, -3));
-exit;
- 
-say '-'*25;
- 
-say ("11110 from base  -2: ", DecodeNegBase("11110", -2));
-say ("21102 from base  -3: ", DecodeNegBase("21102", -3));
-say ("  195 from base -10: ", DecodeNegBase("195",  -10));
- 
-say '-'*25;
- 
-# Extra
-say ("25334424 in base -31: ", EncodeNegBase(25334424, -31));
-say ("sidef  from base -31: ", DecodeNegBase("sidef", -31));
 
-say $result; 
-#say $result = join "\n", @res;
+push @res, " 10 in base  -2: ". encode(10, -2);
+push @res, " 15 in base -10: ". encode(15, -10);
+push @res, "146 in base  -3: ". encode(146, -3);
+ 
+push @res,  "11110 from base  -2: ". decode("11110", -2);
+push @res,  "21102 from base  -3: ". decode("21102", -3);
+push @res,  "  195 from base -10: ". decode("195",  -10);
+
+say my $result = join "\n", @res;
+
 my $ref = <<'EOD';
+ 10 in base  -2: 11110
+ 15 in base -10: 195
+146 in base  -3: 21102
+11110 from base  -2: 10
+21102 from base  -3: 146
+  195 from base -10: 15
 EOD
 
 use Test::More;
-#is($result, $ref);
-#done_testing();
-
-__END__
-
-=={{header|Perl}}==
-{{trans|Perl 6}}
-<lang perl></lang>
-{{out}}
-<pre style="height:35ex"></pre>
-[https://github.com/SqrtNegInf/Rosettacode-Perl5-Smoke/blob/master/ref/XXX XXX]
+chomp $ref;
+is($result, $ref);
+done_testing();
