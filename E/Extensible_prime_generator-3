@@ -6,7 +6,8 @@
 use feature 'say';
 my $result;
 
-use Math::Prime::Util qw/forprimes/;
+#use Math::Prime::Util qw/forprimes/;
+use ntheory qw/forprimes/;
 use Math::Prime::Util::PrimeArray;
 tie my @primes, 'Math::Prime::Util::PrimeArray';
 
