@@ -1,12 +1,11 @@
 #!/usr/local/bin/perl
 #u# http://rosettacode.org/wiki/Emirp_primes
-#c# 2018-07-31 <RC
+#c# 2018-07-31 <RC, 2019-02-09 >RC
 #p# OK
 
-my $result;
-
-use Math::Prime::Util qw/:all/;
-use v5.16;  # To get say
+use strict;
+use feature 'say';
+use ntheory qw(forprimes is_prime);
  
 # Return the first $count emirps using expanding segments.
 # Can efficiently generate millions of emirps.
@@ -23,9 +22,9 @@ sub emirp_list {
   @n;
 }
  
-$result .= "First 20: " . (join " ", emirp_list(20)) . "\n";
+my $result = "First 20: " . (join " ", emirp_list(20)) . "\n";
 $result .= "Between 7700 and 8000:";
-forprimes { $result .= " $_" if is_prime(reverse $_) && $_ ne reverse($_) } 7700,8000;
+forprimes { $result .= " $_" if is_prime(reverse $_) && $_ ne reverse($_) } 7700, 8000;
 $result .= "\n";
 $result .= "The 10_000'th emirp: ". (emirp_list(10000))[-1] . "\n";
 
