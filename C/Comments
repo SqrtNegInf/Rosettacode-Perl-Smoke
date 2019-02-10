@@ -14,10 +14,10 @@ my $var = 1; # this is the comment part
 # Multi-line comments for inline documentation (Plain Old Documentation, or POD in Perl parlance) follow the format:
 
 =pod
- 
+
 Here are my comments
 this is multi-line
- 
+
 =cut
 # Note that technically, both of the lines beginning with the equals sign must be surrounded on either side for compatibility with all "POD" parsers.
 # Note also that any string beginning with an equals sign, and that appears in the initial column of a line, begins a multi-line comment. It does not have to be a POD "command:" the following are all valid:
