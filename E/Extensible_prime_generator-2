@@ -6,7 +6,8 @@
 use feature 'say';
 my $result;
 
-use Math::Prime::Util "prime_iterator_object";
+#use Math::Prime::Util "prime_iterator_object";
+use ntheory "prime_iterator_object";
 
 my $it = prime_iterator_object;
 $result .= "First 20: ". join(" ", map { $it->iterate() } 1..20) . "\n";
