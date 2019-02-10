@@ -6,7 +6,9 @@
 use feature 'say';
 my $result;
 
-use Math::Prime::Util qw(nth_prime prime_count primes);
+#use Math::Prime::Util qw(nth_prime prime_count primes);
+use ntheory qw(nth_prime prime_count primes);
+
 # Direct solutions.
 # primes([start],end) returns an array reference with all primes in the range
 # prime_count([start],end) uses sieving or LMO to return fast prime counts
