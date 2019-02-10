@@ -7,7 +7,8 @@ use feature 'say';
 my $result;
 
 use bigint;
-use Math::Prime::Util qw/forprimes prime_get_config/;
+#use Math::Prime::Util qw/forprimes prime_get_config/;
+use ntheory qw/forprimes prime_get_config/;
 warn "No GMP, expect slow results\n" unless prime_get_config->{gmp};
 my $n = 10**200;
 forprimes { $result .= ($_-$n) . "\n" } $n,$n+1000;
