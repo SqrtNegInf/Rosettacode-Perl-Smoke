@@ -5,13 +5,13 @@ updating from RC…
 |+-----------> Smoke testing [953]
 ||+----------> sKipping validation [137]
 |||+---------> Interactive [47]
-||||+--------> Touched (modified by me) [225]
+||||+--------> Touched (modified by me) [227]
 |||||+-------> Random seed [91]
 ||||||+------> File output [58]
-|||||||+-----> Draft [217]
+|||||||+-----> Draft [216]
 ||||||||+----> Ignoring [32]
 |||||||||+---> Void (no local copy) [192]
-||||||||||+--> Un-implemented/reliable [185]
+||||||||||+--> Un-implemented/reliable [184]
 |||||||||||
 GS......... 100_doors-1
 GS......... 100_doors-2
@@ -354,7 +354,7 @@ GS..T..D... Elementary_cellular_automaton_Infinite_length
 GS.....D... Elementary_cellular_automaton_Random_Number_Generator
 .......D.VU Elliptic_Curve_Digital_Signature_Algorithm
 GS.....D... Elliptic_curve_arithmetic
-GS......... Emirp_primes
+GS..T...... Emirp_primes
 GS......... Empty_directory
 G.K........ Empty_program
 GS......... Empty_string
@@ -758,7 +758,7 @@ GS.....D... Native_shebang
 GS......... Natural_sorting
 G.KIT...... Nautical_bell-1
 GS......... Nautical_bell-2
-GS..T.....U Negative_base_numbers
+GS..T...... Negative_base_numbers
 GS......... Nested_function
 GS..T...... Nested_templated_data
 GS......... Non-continuous_subsequences
@@ -872,7 +872,7 @@ GS......... Poker_hand_analyser
 GS......... Polymorphic_copy
 GS......... Polymorphism
 GS......... Polynomial_long_division
-GS......... Polynomial_regression
+GS..T...... Polynomial_regression
 GS..T..D... Polynomial_synthetic_division
 B...T.....U Polyspiral
 GS......... Population_count
@@ -922,7 +922,7 @@ GS..T..D... Ramsey%27s_theorem
 G.K........ Random_number_generator_device
 G.K........ Random_number_generator_included
 GS...R..... Random_numbers
-G.K....D..U Range_consolidation
+G.K.......U Range_consolidation
 GS......... Range_expansion
 GS..T...... Range_extraction
 GS..T...... Ranking_methods
