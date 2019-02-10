@@ -1,6 +1,6 @@
 #!/usr/local/bin/perl
 #u# http://rosettacode.org/wiki/Totient_function
-#c# 2018-12-06 >RC
+#c# 2018-12-06 >RC, 2019-01-19 <RC
 #p# OK
 
 use feature 'say';
