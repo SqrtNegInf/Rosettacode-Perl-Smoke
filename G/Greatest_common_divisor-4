@@ -8,22 +8,28 @@ my $result;
 
 # In CORE.  Slowest, takes multiple inputs, result is a Math::BigInt unless converted
 use Math::BigInt;
-$result .= Math::BigInt::bgcd(49865, 69811)->numify;
-$result .= "\n";
+$result  = Math::BigInt::bgcd(49865, 69811)->numify . "\n";
+$result .= Math::BigInt::bgcd("68095260063025322303723429387", "51306142182612010300800963053") . "\n";
 
 # Fastest, takes multiple inputs
-use Math::Prime::Util "gcd";
-$result .= gcd(49865, 69811);
-$result .= "\n";
+#use Math::Prime::Util "gcd";
+use ntheory "gcd";
+$result .= gcd(49865, 69811) . "\n";
+$result .= gcd("68095260063025322303723429387", "51306142182612010300800963053") . "\n";
 
 # Result is a Math::Pari object unless converted
-# use Math::Pari "gcd";
-# $gcd = gcd(49865, 69811)->pari2iv
+use Math::Pari;
+$result .= Math::Pari::gcd(49865, 69811)->pari2iv . "\n";
+$result .= Math::Pari::gcd("68095260063025322303723429387", "51306142182612010300800963053") . "\n";
 
 say $result;
 my $ref = <<'END';
 9973
+3709694381
 9973
+3709694381
+9973
+3709694381
 END
 
 use Test::More;
