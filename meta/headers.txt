@@ -1803,7 +1803,7 @@ File: E/Elliptic_curve_arithmetic
 File: E/Emirp_primes
 #!/usr/local/bin/perl
 #u# http://rosettacode.org/wiki/Emirp_primes
-#c# 2018-07-31 <RC
+#c# 2018-07-31 <RC, 2019-02-09 >RC
 #p# OK
 
 File: E/Empty_directory
@@ -4710,7 +4710,7 @@ File: P/Polynomial_long_division
 File: P/Polynomial_regression
 #!/usr/local/bin/perl
 #u# http://rosettacode.org/wiki/Polynomial_regression
-#c# 2018-08-20 <RC
+#c# 2018-08-20 <RC, 2019-02-09 >RC
 #p# OK
 
 File: P/Polynomial_synthetic_division
@@ -5501,6 +5501,13 @@ File: S/Sexy_primes-1
 #u# http://rosettacode.org/wiki/Sexy_primes
 #c# 2018-10-03 >RC, 2018-10-24 >RC
 #p# OK
+
+File: S/Sexy_primes-1.1
+#!/usr/local/bin/perl
+#u# http://rosettacode.org/wiki/Sexy_primes
+#c# 2018-10-03 >RC, 2018-10-24 >RC
+#p# OK
+#n# 'strict' changes not on RC
 
 File: S/Sexy_primes-2
 #!/usr/local/bin/perl
@@ -6610,7 +6617,7 @@ File: T/Totient_function-1
 File: T/Totient_function-2
 #!/usr/local/bin/perl
 #u# http://rosettacode.org/wiki/Totient_function
-#c# 2018-12-06 >RC
+#c# 2018-12-06 >RC, 2019-01-19 <RC
 #p# OK
 
 File: T/Towers_of_Hanoi
