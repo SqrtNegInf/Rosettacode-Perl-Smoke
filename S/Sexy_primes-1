@@ -3,9 +3,11 @@
 #c# 2018-10-03 >RC, 2018-10-24 >RC
 #p# OK
 
-use feature 'say';
+my @res;
 
-use Math::Prime::Util qw(next_prime is_prime);
+use strict;
+use feature 'say';
+use ntheory qw(prime_iterator is_prime);
 
 sub tuple_tail {
     my($n,$cnt,@array) = @_;
@@ -15,7 +17,7 @@ sub tuple_tail {
         my $p = $array[-$n+$_-1];
         my @tuple;
         push @tuple, $p+6*$_ for 0..$cnt-1; 
-        ($list = join(' ', @tuple)) =~ s/ $//;
+        (my $list = join(' ', @tuple)) =~ s/ $//;
         push @tail, "($list)";
     }
     return @tail
@@ -27,24 +29,27 @@ sub comma {
     return $s;
 }
 
-sub sexy { $p = shift; is_prime($p+6) || is_prime($p-6) ? 'sexy' : 'unsexy' }
+sub sexy_string { my $p = shift; defined $p && (is_prime($p+6) || is_prime($p-6)) ? 'sexy' : 'unsexy' }
  
-$cmax = comma $max = 1_000_035;
-
-push @{$primes{sexy($p)}}, $p = 2;
-while ($p = next_prime($p)) {
-    push @{$primes{sexy($p)}}, $p;
-    last if  $p+ 6 > $max;
-    is_prime($p+ 6) ? push @{$primes{'pair'}},       $p : next; 
-    is_prime($p+12) ? push @{$primes{'triplet'}},    $p : next; 
-    is_prime($p+18) ? push @{$primes{'quadruplet'}}, $p : next; 
-    is_prime($p+24) ? push @{$primes{'quintuplet'}}, $p : next; 
+my $max = 1_000_035;
+my $cmax = comma $max;
+ 
+my $iter = prime_iterator;
+my $p = $iter->();
+my %primes;
+push @{$primes{sexy_string($p)}}, $p;
+while ( ($p = $iter->()) < $max) {
+    push @{$primes{sexy_string($p)}}, $p;
+    $p+ 6 < $max && is_prime($p+ 6) ? push @{$primes{'pair'}},       $p : next;
+    $p+12 < $max && is_prime($p+12) ? push @{$primes{'triplet'}},    $p : next;
+    $p+18 < $max && is_prime($p+18) ? push @{$primes{'quadruplet'}}, $p : next;
+    $p+24 < $max && is_prime($p+24) ? push @{$primes{'quintuplet'}}, $p : next;
 }
-
+ 
 push @res, "Total primes less than $cmax: " . comma(@{$primes{'sexy'}} + @{$primes{'unsexy'}}) . "\n";
 
 for (['pair', 2], ['triplet', 3], ['quadruplet', 4], ['quintuplet', 5]) {
-    ($sexy, $cnt) = @$_;
+    my($sexy, $cnt) = @$_;
     push @res, "Number of sexy prime ${sexy}s less than $cmax: " . comma scalar @{$primes{$sexy}};
     push @res, "   Last 5 sexy prime ${sexy}s less than $cmax: " . join ' ', tuple_tail(5,$cnt,@{$primes{$sexy}});
     push @res, '';
@@ -53,7 +58,7 @@ for (['pair', 2], ['triplet', 3], ['quadruplet', 4], ['quintuplet', 5]) {
 push @res, "Number of unsexy primes less than $cmax: ". comma scalar @{$primes{unsexy}};
 push @res, "  Last 10 unsexy primes less than $cmax: ". join ' ', @{$primes{unsexy}}[-10..-1];
 
-say $result = join "\n", @res;
+say my $result = join "\n", @res;
 
 my $ref = <<'EOD';
 Total primes less than 1,000,035: 78,500
