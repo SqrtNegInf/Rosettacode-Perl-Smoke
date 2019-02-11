@@ -1,16 +1,16 @@
 
 This is perl 5, version 28, subversion 0 (v5.28.0) built for darwin-thread-multi-2level
 updating from RC…
-+------------> Perl: Good/Bad [1087/15]
-|+-----------> Smoke testing [953]
++------------> Perl: Good/Bad [1088/15]
+|+-----------> Smoke testing [954]
 ||+----------> sKipping validation [137]
 |||+---------> Interactive [47]
-||||+--------> Touched (modified by me) [227]
+||||+--------> Touched (modified by me) [228]
 |||||+-------> Random seed [91]
 ||||||+------> File output [58]
 |||||||+-----> Draft [216]
 ||||||||+----> Ignoring [32]
-|||||||||+---> Void (no local copy) [192]
+|||||||||+---> Void (no local copy) [191]
 ||||||||||+--> Un-implemented/reliable [184]
 |||||||||||
 GS......... 100_doors-1
@@ -906,7 +906,7 @@ GS......... Proper_divisors
 GS....F.... Pythagoras_tree
 GS..T...... Pythagorean_quadruples
 GS......... Pythagorean_triples
-.........VU QR_decomposition
+GS..T.....U QR_decomposition
 GS......... Quaternion_type
 GS......... Queue_Definition
 GS......... Queue_Usage
