@@ -186,9 +186,9 @@ File: A/Add_a_variable_to_a_class_instance_at_runtime
 
 File: A/Addition_chains
 #!/usr/local/bin/perl
-#u# http://rosettacode.org/wiki/RC_REMOTE
+#u# http://rosettacode.org/wiki/Addition_chains
 #t# skiptest
-#c# 2019-02-05 >RC
+#c# 2019-02-11 >RC
 #p# OK
 
 File: A/Address_of_a_variable
@@ -4908,6 +4908,12 @@ File: P/Pythagorean_triples
 #!/usr/local/bin/perl
 #u# http://rosettacode.org/wiki/Pythagorean_triples
 #c# 2018-08-20 <RC
+#p# OK
+
+File: Q/QR_decomposition
+#!/usr/local/bin/perl
+#u# http://rosettacode.org/wiki/QR_decomposition
+#c# 2019-02-10 >RC
 #p# OK
 
 File: Q/Quaternion_type
