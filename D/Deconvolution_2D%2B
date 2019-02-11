@@ -6,6 +6,7 @@
 
 my @res;
 
+use strict;
 use feature 'say';
 use ntheory qw/forsetproduct/;
 
