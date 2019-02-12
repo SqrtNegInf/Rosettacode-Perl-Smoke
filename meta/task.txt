@@ -2,8 +2,8 @@
 This is perl 5, version 28, subversion 0 (v5.28.0) built for darwin-thread-multi-2level
 updating from RC…
 +------------> Perl: Good/Bad [1088/15]
-|+-----------> Smoke testing [954]
-||+----------> sKipping validation [137]
+|+-----------> Smoke testing [955]
+||+----------> sKipping validation [136]
 |||+---------> Interactive [47]
 ||||+--------> Touched (modified by me) [228]
 |||||+-------> Random seed [91]
@@ -11,7 +11,7 @@ updating from RC…
 |||||||+-----> Draft [216]
 ||||||||+----> Ignoring [32]
 |||||||||+---> Void (no local copy) [191]
-||||||||||+--> Un-implemented/reliable [184]
+||||||||||+--> Un-implemented/reliable [183]
 |||||||||||
 GS......... 100_doors-1
 GS......... 100_doors-2
@@ -54,7 +54,7 @@ GS......... Ackermann_function-5
 GS......... Active_object
 GS......... Add_a_variable_to_a_class_instance_at_runtime
 .......D.VU Addition-chain_exponentiation
-G.K.T..D..U Addition_chains
+GS..T..D... Addition_chains
 GS......... Address_of_a_variable
 GS......... Align_columns-1
 GS......... Align_columns-2
