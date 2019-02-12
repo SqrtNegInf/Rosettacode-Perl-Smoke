@@ -187,9 +187,9 @@ File: A/Add_a_variable_to_a_class_instance_at_runtime
 File: A/Addition_chains
 #!/usr/local/bin/perl
 #u# http://rosettacode.org/wiki/Addition_chains
-#t# skiptest
 #c# 2019-02-11 >RC
 #p# OK
+#n# extra credit is very slow
 
 File: A/Address_of_a_variable
 #!/usr/local/bin/perl
