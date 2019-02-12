@@ -1,13 +1,10 @@
 #!/usr/local/bin/perl
 #u# http://rosettacode.org/wiki/Addition_chains
-#t# skiptest
 #c# 2019-02-11 >RC
 #p# OK
+#n# extra credit is very slow
 
-use Data::Printer;
-use warnings;
 use strict;
-
 use feature 'say';
 
 my @res;
@@ -15,9 +12,7 @@ my @res;
 my @Example = ();
  
 sub checkSeq {
-    my($pos, $n, $minLen, @seq) = @_;
-warn 'XXXX checkSeq: '; p @seq;
-$DB::single =1;
+   my($pos, $n, $minLen, @seq) = @_;
    if ($pos > $minLen || $seq[0] > $n) {
       return $minLen, 0;
    } elsif ($seq[0] == $n) {
@@ -31,13 +26,9 @@ $DB::single =1;
 }
 
 sub tryPerm {
-    my($i, $pos, $n, $minLen, @seq) = @_;
-warn 'XXXX tryPerm: '; p @seq;
+   my($i, $pos, $n, $minLen, @seq) = @_;
    return $minLen, 0 if $i > $pos;
-$DB::single =1;
-   unshift @seq, $seq[0]+$seq[$i];
-   my @res1 = checkSeq($pos+1, $n, $minLen, @seq);
-   #my @res1 = checkSeq($pos+1, $n, $minLen, [$seq[0]+$seq[$i],@seq]);
+   my @res1 = checkSeq($pos+1, $n, $minLen, ($seq[0]+$seq[$i],@seq));
    my @res2 = tryPerm($i+1, $pos, $n, $res1[0], @seq);
    if ($res2[0] < $res1[0]) {
       return $res2[0], $res2[1];
@@ -50,20 +41,19 @@ $DB::single =1;
 }
 
 sub initTryPerm {
-    my($x, $minLen) = @_;
+   my($x, $minLen) = @_;
    return tryPerm(0, 0, $x, $minLen, (1));
 }
 
 sub findBrauer {
-    my($num, $minLen, $nbLimit) = @_;
+   my($num, $minLen, $nbLimit) = @_;
    my ($actualMin, $brauer) = initTryPerm($num, $minLen);
    push @res, "\nN = ". $num;
    push @res, "Minimum length of chains : L($num) = $actualMin";
    push @res, "Number of minimum length Brauer chains : ". $brauer;
    push @res, "Brauer example : ". join ' ', reverse @Example if $brauer > 0;
    @Example = ();
-   if (0 == 1) {
-   #if ($num <= $nbLimit) {
+   if ($num <= $nbLimit) {
       my $nonBrauer = findNonBrauer($num, $actualMin+1, $brauer);
       push @res, "Number of minimum length non-Brauer chains : ". $nonBrauer;
       push @res, "Non-Brauer example : ". join ' ', @Example if $nonBrauer > 0;
@@ -74,36 +64,27 @@ sub findBrauer {
 }
 
 sub isAdditionChain {
-    my(@a) = @_;
+   my(@a) = @_;
    for my $i (2 .. $#a) {
       return 0 if $a[$i] > $a[$i-1]*2;
       my $ok = 0;
-      JLOOP: for my $j (reverse 0 .. $i-1) {
+      for my $j (reverse 0 .. $i-1) {
          for my $k (reverse 0 .. $j) {
-            if ($a[$j]+$a[$k] == $a[$i]) {
-               $ok = 1;
-               last JLOOP;
-            }
+            $ok = 1, last if $a[$j]+$a[$k] == $a[$i];
          }
       }
       return 0 unless $ok;
    }
- 
-   if (!isBrauer(@a) and !@Example) {
-      @Example = @a;
-   }
+   @Example = @a if !isBrauer(@a) and !@Example;
    return 1;
 }
 
 sub isBrauer {
-    my(@a) = @_;
+   my(@a) = @_;
    for my $i (2 .. $#a) {
       my $ok = 0;
-      ILOOP: for my $j (reverse 0 .. $i-1) {
-         if ($a[$i-1]+$a[$j] == $a[$i]) {
-            $ok = 1;
-            last ILOOP;
-         }
+      for my $j (reverse 0 .. $i-1) {
+         $ok = 1, last if $a[$i-1]+$a[$j] == $a[$i];
       }
       return 0 unless $ok;
    }
@@ -113,8 +94,6 @@ sub isBrauer {
 sub findNonBrauer {
    our($num, $len, $brauer) = @_;
    our @seq = 1 .. $len-1; push @seq, $num;
-warn 'XXXX findnonB: '; p @seq; exit;
-$DB::single = 1;
    our $count = isAdditionChain(@seq) ? 1 : 0;
  
    sub nextChains {
@@ -137,7 +116,7 @@ my @nums = (7, 14, 21, 29, 32, 42, 64);  # unlock below for extra credits,
 say "Searching for Brauer chains up to a minimum length of 12:";
 for (@nums) { findBrauer $_, 12, 79 }
  
-#.say for @res; 
+say for @res; 
 
 #Searching for Brauer chains up to a minimum length of 12:
 my $ref = <<'EOD';
@@ -191,13 +170,6 @@ EOD
 say my $result = join "\n", @res;
 
 use Test::More;
-#is($result, $ref);
-#done_testing();
-
-__END__
-
-=={{header|Perl}}==
-{{trans|Perl 6}}
-<lang perl></lang>
-{{out}}
-<pre style="height:35ex"></pre>
+chop $ref;
+is($result, $ref);
+done_testing();
