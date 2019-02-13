@@ -1,0 +1,70 @@
+#!/usr/local/bin/perl
+#u# http://rosettacode.org/wiki/Find_URI_in_text
+#t# skiptest
+#c# 2019-02-11 >RC
+#p# OK
+
+use Data::Printer;
+
+use feature 'say';
+use warnings;
+use strict;
+
+my @res;
+
+my $text = <<'EOT';
+http://en.wikipedia.org/wiki/Erich_Kästner_(camera_designer). (which is handled by http://mediawiki.org/).
+this URI contains an illegal character, parentheses and a misplaced full stop:
+and another one just to confuse the parser: http://en.wikipedia.org/wiki/-)
+")" is handled the wrong way by the mediawiki parser.
+ftp://domain.name/path(balanced_brackets)/foo.html aaa
+ftp://domain.name/path(balanced_brackets)/ending.in.dot. bbb
+ftp://domain.name/path(unbalanced_brackets/ending.in.dot. ccc
+leading junk ftp://domain.name/path/embedded?punct/uation. ddd
+leading junk ftp://domain.name/dangling_close_paren) eee
+EOT
+
+use URI::Find;
+my $finder = URI::Find->new(sub {
+    my($uri, $orig_uri) = @_;
+    print "The text '$orig_uri' represents '$uri'\n";
+    return $orig_uri;
+});
+$finder->find(\$text);
+
+#my($scheme, $authority, $path, $query, $fragment) =
+#$xx =~ m|(?:([^:/?#]+):)?(?://([^/?#]*))?([^?#]*)(?:\?([^#]*))?(?:#(.*))?|;
+#say join ' : ', $scheme , $authority , $path , $query , $fragment;
+
+#@res.push: $/[*-1].gist;
+#@res.push: "We matched $/[*-1], which is a $/[*-1].^name() at position $/[*-1].from() to $/[*-1].to()";
+
+#say for @res;
+ 
+my $ref =<<'END';
+stop:
+http://en.wikipedia.org/wiki/Erich_K
+http://mediawiki.org/).
+parser:
+http://en.wikipedia.org/wiki/-)
+ftp://domain.name/path(balanced_brackets)/foo.html
+ftp://domain.name/path(balanced_brackets)/ending.in.dot.
+ftp://domain.name/path(unbalanced_brackets/ending.in.dot.
+ftp://domain.name/path/embedded
+ftp://domain.name/dangling_close_paren)
+END
+
+say my $result = join "\n", @res;
+
+use Test::More;
+#is($result, $ref);
+#done_testing();
+
+__END__
+
+=={{header|Perl}}==
+{{trans|Perl 6}}
+<lang perl></lang>
+{{out}}
+<pre style="height:35ex"></pre>
+[https://github.com/SqrtNegInf/Rosettacode-Perl5-Smoke/blob/master/ref/XXX XXX]
