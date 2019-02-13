@@ -2065,6 +2065,13 @@ File: F/Factorial-4
 #c# 2018-08-03 <RC
 #p# OK
 
+File: F/Factorial_base_numbers_indexing_permutations_of_a_collection
+#!/usr/local/bin/perl
+#u# http://rosettacode.org/wiki/Factorial_base_numbers_indexing_permutations_of_a_collection
+#t# skiptest
+#c# 2019-02-RC >RC
+#p# OK
+
 File: F/Factors_of_a_Mersenne_number-1
 #!/usr/local/bin/perl
 #u# http://rosettacode.org/wiki/Factors_of_a_Mersenne_number
@@ -2206,6 +2213,13 @@ File: F/Filter
 #!/usr/local/bin/perl
 #u# http://rosettacode.org/wiki/Filter
 #c# 2018-08-04 <RC
+#p# OK
+
+File: F/Find_URI_in_text
+#!/usr/local/bin/perl
+#u# http://rosettacode.org/wiki/Find_URI_in_text
+#t# skiptest
+#c# 2019-02-11 >RC
 #p# OK
 
 File: F/Find_common_directory_path
