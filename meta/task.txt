@@ -1,16 +1,16 @@
 
 This is perl 5, version 28, subversion 0 (v5.28.0) built for darwin-thread-multi-2level
 updating from RC…
-+------------> Perl: Good/Bad [1088/15]
++------------> Perl: Good/Bad [1090/15]
 |+-----------> Smoke testing [955]
-||+----------> sKipping validation [136]
+||+----------> sKipping validation [138]
 |||+---------> Interactive [47]
-||||+--------> Touched (modified by me) [228]
-|||||+-------> Random seed [91]
+||||+--------> Touched (modified by me) [230]
+|||||+-------> Random seed [92]
 ||||||+------> File output [58]
 |||||||+-----> Draft [216]
 ||||||||+----> Ignoring [32]
-|||||||||+---> Void (no local copy) [191]
+|||||||||+---> Void (no local copy) [189]
 ||||||||||+--> Un-implemented/reliable [183]
 |||||||||||
 GS......... 100_doors-1
@@ -398,7 +398,7 @@ GS......... Factorial-1
 GS......... Factorial-2
 GS......... Factorial-3
 GS......... Factorial-4
-.........VU Factorial_base_numbers_indexing_permutations_of_a_collection
+G.K.TR....U Factorial_base_numbers_indexing_permutations_of_a_collection
 GS......... Factors_of_a_Mersenne_number-1
 GS......... Factors_of_a_Mersenne_number-2
 GS......... Factors_of_an_integer-1
@@ -423,7 +423,7 @@ GS......... File_modification_time
 GS......... File_size
 GS..T..D... File_size_distribution
 GS......... Filter
-.......D.VU Find_URI_in_text
+G.K.T..D..U Find_URI_in_text
 B.......... Find_common_directory_path
 GS..T..D... Find_duplicate_files
 GS.....D... Find_first_and_last_set_bit_of_a_long_integer
