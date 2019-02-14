@@ -9,54 +9,77 @@ use feature 'say';
 use warnings;
 use strict 'vars';
 
+use Math::Trig;
+
 use constant pi => 2 * atan2(1, 0);
 
 # Implemented to parallel the (generalized) formula. (i.e. clearer, but naive and very slow.)
  
 # reciprocal difference:
-multi sub r($f, @x where * < 1) { 0 } # Identity
-multi sub r($f, @x where * == 1) { &f(@x[0]) }
-multi sub r($f, @x where * > 1) {
-    ( $x[0] - $x[-1] )       # ( x - x[n] )
-    / (r(&$f, @x[^(@x - 1)])     # / ( r[n-1](x[0], ..., x[n-1])
-    - r(&$f, $x[1..^@x]) )       # - r[n-1](x[1], ..., x[n]) )
-    + r(&$f, $x[1..^(@x - 1)]);  # + r[n-2](x[1], ..., x[n-1])
+#multi sub r($f, @x where * < 1) { 0 } # Identity
+#multi sub r($f, @x where * == 1) { &f(@x[0]) }
+#multi sub r($f, @x where * > 1) {
+
+sub r {
+    my($f, @x) = @_;
+
+    if ($#x < 1) {
+        return 0;
+    } elsif ($#x == 1) {
+        return &$f($x[0]);
+        #return eval "$f($x[0])";
+    } else {
+           ($x[0] - $x[-1])        
+        / (r(&$f, @x[0..$#x]  )     
+        -  r(&$f, @x[1..$#x]  ) 
+          )   
+        +  r(&$f, @x[1..$#x-2]); 
+    }
+
 }
  
 # Thiele:
-multi sub thiele($x, %f, $ord where { $ord == +%f }) { 1 } # Identity
-multi sub thiele($x, %f, $ord) {
-  my &f = {%f{$^a}};                # f(x) as a table lookup
+#multi sub thiele($x, $f, $ord where { $ord == +%f }) { 1 } # Identity
+sub thiele {
+    my($x, $f, $ord) = @_;
+    return 1 if $ord == scalar keys %$f;
+
+    my $ff = {%$f{$_[0]}};                # f(x) as a table lookup
+    #my $ff = {%$f{$^a}};                # f(x) as a table lookup
+
+    my $a = r($ff, (sort keys %$f)[0 .. $ord+1]);
+    my $b = r($ff, (sort keys %$f)[0 .. $ord-1]);
  
-  my $a = r(&f, %f.keys.sort[^($ord +1)]);
-  my $b = r(&f, %f.keys.sort[^($ord -1)]);
+say "x: $x";
+say "ord: $ord";
+say "abc: "  . join ' :: ', (sort keys %$f)[$ord];
+    my $num = $x - (sort keys %$f)[$ord];
+    my $cont = thiele($x, %$f, $ord +1);
  
-  my $num = $x - %f.keys.sort[$ord];
-  my $cont = thiele($x, %f, $ord +1);
- 
-  # Thiele always takes this form:
-  return $a - $b + ( $num / $cont );
+    # Thiele always takes this form:
+    return $a - $b + ( $num / $cont );
 }
  
-sub mk-inv {
-    my (&fn, $d, $lim) = @_
+sub mk_inv {
+    my ($fn, $d, $lim) = @_;
     my %h;
-    for 0..$lim { %h{ &fn($_ * $d) } = $_ * $d }
+    for (0..$lim) { $h{ eval "$fn($_ * $d)" } = $_ * $d }
     return %h;
 }
  
-$tblsz = 12;
+my $tblsz = 12;
  
 #my ($sin_pi, $cos_pi, $tan_pi);
-my %invsin = mk-inv(&sin, 0.05, $tblsz); $sin_pi = 6 * thiele(0.5, %invsin, 0);
-my %invcos = mk-inv(&cos, 0.05, $tblsz); $cos_pi = 3 * thiele(0.5, %invcos, 0);
-my %invtan = mk-inv(&tan, 0.05, $tblsz); $tan_pi = 4 * thiele(1.0, %invtan, 0);
+my %invsin = mk_inv('sin', 0.05, $tblsz); 
+my $sin_pi = 6 * thiele(0.5, %invsin, 0);
+my %invcos = mk_inv('cos', 0.05, $tblsz); #$cos_pi = 3 * thiele(0.5, %invcos, 0);
+my %invtan = mk_inv('tan', 0.05, $tblsz); #$tan_pi = 4 * thiele(1.0, %invtan, 0);
  
-say "pi = {pi}";
+say 'pi = ' . pi;
   say "estimations using a table of $tblsz elements:";
-  say "sin interpolation: $sin_pi";
-  say "cos interpolation: $cos_pi";
-  say "tan interpolation: $tan_pi";
+  #say "sin interpolation: $sin_pi";
+  #say "cos interpolation: $cos_pi";
+  #say "tan interpolation: $tan_pi";
 
 use Test::More;
 #is ($sin_pi), '3.1415926535896332'
