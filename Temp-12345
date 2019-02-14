@@ -1,0 +1,14 @@
+#!/usr/local/bin/perl
+## xxx
+#  David H.  2019-02-12
+
+use feature 'say';
+use strict;
+
+my %a = (
+'a' => 1,
+'b' => 2,
+'c' => 3,
+);
+
+say scalar keys %a;
