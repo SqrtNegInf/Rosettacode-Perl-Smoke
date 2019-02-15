@@ -16,10 +16,6 @@ use constant pi => 2 * atan2(1, 0);
 # Implemented to parallel the (generalized) formula. (i.e. clearer, but naive and very slow.)
  
 # reciprocal difference:
-#multi sub r($f, @x where * < 1) { 0 } # Identity
-#multi sub r($f, @x where * == 1) { &f(@x[0]) }
-#multi sub r($f, @x where * > 1) {
-
 sub r {
     my($f, @x) = @_;
 
@@ -29,7 +25,7 @@ sub r {
         return &$f($x[0]);
         #return eval "$f($x[0])";
     } else {
-           ($x[0] - $x[-1])        
+          ($x[0] - $x[-1])        
         / (r(&$f, @x[0..$#x]  )     
         -  r(&$f, @x[1..$#x]  ) 
           )   
@@ -39,11 +35,11 @@ sub r {
 }
  
 # Thiele:
-#multi sub thiele($x, $f, $ord where { $ord == +%f }) { 1 } # Identity
 sub thiele {
     my($x, $f, $ord) = @_;
     return 1 if $ord == scalar keys %$f;
 
+$DB::single = 1 ;
     my $ff = {%$f{$_[0]}};                # f(x) as a table lookup
     #my $ff = {%$f{$^a}};                # f(x) as a table lookup
 
@@ -54,7 +50,7 @@ say "x: $x";
 say "ord: $ord";
 say "abc: "  . join ' :: ', (sort keys %$f)[$ord];
     my $num = $x - (sort keys %$f)[$ord];
-    my $cont = thiele($x, %$f, $ord +1);
+    my $cont = thiele($x, \%$f, $ord+1);
  
     # Thiele always takes this form:
     return $a - $b + ( $num / $cont );
