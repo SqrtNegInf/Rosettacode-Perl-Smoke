@@ -5,9 +5,10 @@
 
 srand 123456;
 
+use strict;
 use feature 'say';
 
-my @res;
+my $result;
 
 sub roll7 { 1+int rand(7) }
 sub roll5 { 1+int rand(5) }
@@ -30,7 +31,7 @@ my($n, $threshold, $producer) = @_;
     my $expect = $n / 7;
     $out .= sprintf "%10d expected\n", $expect;
 
-    for (1..$n) { @dist[&$producer]++; }
+    @dist[&$producer]++ for 1..$n;
 
     for my $i (1..7) {
         my $v = @dist[$i];
