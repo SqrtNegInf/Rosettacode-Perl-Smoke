@@ -5,10 +5,11 @@
 use feature 'say';
 use strict;
 
-my %a = (
-'a' => 1,
-'b' => 2,
-'c' => 3,
-);
+my @a = 1 .. 5;
+my @b = 1 .. 5;
+my @c = 1 .. 5;
 
-say scalar keys %a;
+push @b, @a[2];
+push @c, $a[2];
+say join ' ', @b;
+say join ' ', @c;
