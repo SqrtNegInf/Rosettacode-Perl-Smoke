@@ -8,10 +8,10 @@ updating from RC…
 ||||+--------> Touched (modified by me) [230]
 |||||+-------> Random seed [92]
 ||||||+------> File output [58]
-|||||||+-----> Draft [217]
+|||||||+-----> Draft [219]
 ||||||||+----> Ignoring [32]
-|||||||||+---> Void (no local copy) [190]
-||||||||||+--> Un-implemented/reliable [184]
+|||||||||+---> Void (no local copy) [192]
+||||||||||+--> Un-implemented/reliable [186]
 |||||||||||
 GS......... 100_doors-1
 GS......... 100_doors-2
@@ -344,6 +344,7 @@ G.KIT..D... Draw_pixel_2
 GS...R..... Dutch_national_flag_problem
 GS......... Dynamic_variable_names
 GS..T...... EKG_sequence_convergence
+.......D.VU Eban_numbers
 G.KI....... Echo_server
 GS..T...... Eertree
 GS..T...... Egyptian_division
@@ -995,6 +996,7 @@ GS......... SHA-256
 ........XV. SOAP
 ........XV. SQL-based_authentication
 .........VU Safe_addition
+.......D.VU Safe_mode
 GS..T...... Safe_primes_and_unsafe_primes
 GS..T...... Sailors,_coconuts_and_a_monkey_problem-1
 GS..T...... Sailors,_coconuts_and_a_monkey_problem-2
