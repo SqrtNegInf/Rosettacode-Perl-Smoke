@@ -1,17 +1,17 @@
 
 This is perl 5, version 28, subversion 0 (v5.28.0) built for darwin-thread-multi-2level
 updating from RC…
-+------------> Perl: Good/Bad [1090/15]
++------------> Perl: Good/Bad [1088/15]
 |+-----------> Smoke testing [955]
 ||+----------> sKipping validation [138]
 |||+---------> Interactive [47]
 ||||+--------> Touched (modified by me) [230]
 |||||+-------> Random seed [92]
 ||||||+------> File output [58]
-|||||||+-----> Draft [219]
+|||||||+-----> Draft [220]
 ||||||||+----> Ignoring [32]
-|||||||||+---> Void (no local copy) [192]
-||||||||||+--> Un-implemented/reliable [186]
+|||||||||+---> Void (no local copy) [193]
+||||||||||+--> Un-implemented/reliable [187]
 |||||||||||
 GS......... 100_doors-1
 GS......... 100_doors-2
@@ -51,7 +51,7 @@ GS......... Ackermann_function-4
 GS......... Ackermann_function-5
 ........XV. Active_Directory_Connect
 .........VU Active_Directory_Search_for_a_user
-GS......... Active_object
+!S......... Active_object
 GS......... Add_a_variable_to_a_class_instance_at_runtime
 .......D.VU Addition-chain_exponentiation
 GS..T..D... Addition_chains
@@ -468,6 +468,7 @@ GS......... Function_definition
 GS......... Function_frequency
 GS......... Function_prototype
 .......D.VU Functional_coverage_tree
+.......D.VU Fusc_sequence
 G.KI....... GUI_Maximum_window_dimensions
 G.KIT.....U GUI_component_interaction
 .........VU GUI_enabling_disabling_of_controls
@@ -1209,7 +1210,7 @@ G.K.T.....U Thiele%27s_interpolation_formula
 GS......... Thue-Morse
 GS...R..... Tic-tac-toe
 .......D.VU Time-based_One-time_Password_Algorithm
-GS......... Time_a_function
+!S......... Time_a_function
 GS......... Tokenize_a_string
 GS......... Tokenize_a_string_with_escaping
 GS..T..D... Tonelli-Shanks_algorithm
