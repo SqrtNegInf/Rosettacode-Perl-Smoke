@@ -6,7 +6,6 @@
 
 srand 123456;
 
-
 use warnings;
 use strict;
 use feature 'say';
@@ -19,6 +18,8 @@ use List::Util qw(reduce);
 # if cached value available, return it; else compute, cache and return
 my @fact = (1);
 sub factorial { $fact[ $_[0] ] //= $_[0] * factorial($_[0] - 1) }
+
+__END__
 
 sub base {
     my($n, 'F', $length) = @_;
