@@ -31,13 +31,17 @@ binmode STDOUT, ':encoding(utf-8)';
 #    }
 #}
  
-for my $intervals ([[1.1, 2.2],],
+for my $intervals (
+    [[1.1, 2.2],],
     [[6.1, 7.2], [7.2, 8.3]],
     [[4, 3], [2, 1]],
     [[4, 3], [2, 1], [-1, -2], [3.9, 10]],
     [[1, 3], [-6, -1], [-4, -5], [8, 2], [-6, -6]]) {
-    push @res, sprintf "%46s => ", join ', ', @$intervals;
-    #@res[*-1] ~= (reverse consolidate |@intervals».sort.sort({ [.[0], .[1]] }).map: { Range.new(.[0], .[1]) }).gist
+        my @temp;
+        push @temp, '[' . join(', ', @$_) for @$intervals;
+#        chop $temp; chop $temp;
+        push @res, sprintf "%46s => ", '[' . join('], ', @temp) . ']';
+        #@res[*-1] ~= (reverse consolidate |@intervals».sort.sort({ [.[0], .[1]] }).map: { Range.new(.[0], .[1]) }).gist
 }
 
 say for @res; exit;
