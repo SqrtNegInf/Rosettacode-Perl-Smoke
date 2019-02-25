@@ -8,7 +8,7 @@ updating from RC…
 ||||+--------> Touched (modified by me) [230]
 |||||+-------> Random seed [92]
 ||||||+------> File output [58]
-|||||||+-----> Draft [220]
+|||||||+-----> Draft [219]
 ||||||||+----> Ignoring [33]
 |||||||||+---> Void (no local copy) [193]
 ||||||||||+--> Un-implemented/reliable [187]
@@ -344,7 +344,7 @@ G.KIT..D... Draw_pixel_2
 GS...R..... Dutch_national_flag_problem
 GS......... Dynamic_variable_names
 GS..T...... EKG_sequence_convergence
-.......D.VU Eban_numbers
+.........VU Eban_numbers
 G.KI....... Echo_server
 GS..T...... Eertree
 GS..T...... Egyptian_division
