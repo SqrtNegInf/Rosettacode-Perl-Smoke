@@ -1,30 +1,37 @@
 #!/usr/local/bin/perl
 #u# http://rosettacode.org/wiki/Sparkline_in_unicode
-#c# 2018-08-14 <RC
+#c# 2018-08-14 <RC, 2019-02-24 <RC
 #p# OK
 #f# RC file: sparkline.txt
 
-use open ':std', ':encoding(utf8)';
+use warnings;
+use strict;
 
+my $result;
+
+use open ':std', ':encoding(utf8)';
 binmode(STDOUT, ":utf8");
 
-sub sparkline {
-  my $s = shift;
-  my @n = split(/[\s,]+/,$s);
-  return unless @n;
-  my($min,$max) = ($n[0],$n[0]);
-  for my $v (@n) { $min = $v if $v < $min; $max = $v if $v > $max; }
-  $result .= sprintf "min: %5f; max %5f\n", $min, $max;
-  my @bars = map { chr($_) } 0x2581 .. 0x2588;
-  my $div = ($max - $min) / $#bars;
-  $result .= join("", map { $bars[$div ? ($_-$min) / $div : @bars/2] } @n), "\n";
-  $result .= "\n";
-}
+our @sparks=map { chr } 0x2581..0x2588;
 
-#while (1) {
-#  print "Numbers separated by spaces/commas: ";
-#  exit unless sparkline(scalar(<>));
-#}
+sub sparkline(_) {
+    my @n=map {0+$_} grep {length} split /[\s,]+/,shift or return "";
+    my($min,$max)=($n[0])x2;
+    if (@n>1) {
+        for (@n[1..$#n]) {
+            if    ($_<$min) { $min=$_ }
+            elsif ($_>$max) { $max=$_ }
+        }
+    }
+    my $sparkline="";
+    for(@n) {
+        my $height=int( $max==$min ? @sparks/2 : @sparks * ($_-$min)/($max-$min) );
+        $height=$#sparks if $height>$#sparks;
+        $sparkline.=$sparks[$height];
+    }
+    $result .= sprintf "%d values; range %s..%s\n", scalar(@n), $min, $max;
+    $result .= $sparkline."\n";
+}
 
 sparkline('1 2 3 4 5 6 7 8 7 6 5 4 3 2 1');
 sparkline('1.5, 0.5 3.5, 2.5 5.5, 4.5 7.5, 6.5');
@@ -35,12 +42,12 @@ open F, '>', 'run/sparkline.txt';
 print F $result; 
 
 my $ref = <<'EOD';
-min: 1.000000; max 8.000000
+15 values; range 1..8
 ▁▂▃▄▅▆▇█▇▆▅▄▃▂▁
-min: 0.500000; max 7.500000
+8 values; range 0.5..7.5
 ▂▁▄▃▆▅█▇
-min: -4.000000; max 3.000000
+15 values; range -4..3
 █▇▆▅▄▃▂▁▂▃▄▅▆▇█
-min: 12.000000; max 12.000000
+4 values; range 12..12
 ▅▅▅▅
 EOD
