@@ -5993,6 +5993,13 @@ File: S/Soundex
 File: S/Sparkline_in_unicode
 #!/usr/local/bin/perl
 #u# http://rosettacode.org/wiki/Sparkline_in_unicode
+#c# 2018-08-14 <RC, 2019-02-24 <RC
+#p# OK
+#f# RC file: sparkline.txt
+
+File: S/Sparkline_in_unicode.1
+#!/usr/local/bin/perl
+#u# http://rosettacode.org/wiki/Sparkline_in_unicode
 #c# 2018-08-14 <RC
 #p# OK
 #f# RC file: sparkline.txt
