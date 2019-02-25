@@ -39,8 +39,7 @@ for my $intervals (
     [[1, 3], [-6, -1], [-4, -5], [8, 2], [-6, -6]]) {
         my @temp;
         push @temp, '[' . join(', ', @$_) for @$intervals;
-#        chop $temp; chop $temp;
-        push @res, sprintf "%46s => ", '[' . join('], ', @temp) . ']';
+        push @res, sprintf "%46s => %s", '[' . join('], ', @temp) . ']', 'xxx';
         #@res[*-1] ~= (reverse consolidate |@intervals».sort.sort({ [.[0], .[1]] }).map: { Range.new(.[0], .[1]) }).gist
 }
 
