@@ -3,6 +3,7 @@
 #c# 2018-08-14 <RC, 2019-02-24 <RC
 #p# OK
 #f# RC file: sparkline.txt
+#n# not incorporated from RC: extreme ranges and multiple output styles
 
 use warnings;
 use strict;
@@ -10,7 +11,7 @@ use strict;
 my $result;
 
 use open ':std', ':encoding(utf8)';
-binmode(STDOUT, ":utf8");
+#binmode(STDOUT, ":utf8");
 
 our @sparks=map { chr } 0x2581..0x2588;
 
@@ -37,6 +38,8 @@ sparkline('1 2 3 4 5 6 7 8 7 6 5 4 3 2 1');
 sparkline('1.5, 0.5 3.5, 2.5 5.5, 4.5 7.5, 6.5');
 sparkline('3 2 1 0 -1 -2 -3 -4 -3 -2 -1 0 1 2 3');
 sparkline('12 12 12 12');
+
+print "$result\n"; 
 
 open F, '>', 'run/sparkline.txt';
 print F $result; 
