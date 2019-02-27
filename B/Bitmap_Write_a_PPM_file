@@ -4,11 +4,14 @@
 #p# OK
 #f# RC file: bitmap_write.ppm
 
+use strict;
+use warnings;
+
 use Imager;
  
-$image = Imager->new(xsize => 200, ysize => 200);
-$image->box(filled => 1, color => red);
-$image->box(filled => 1, color => black, 
+my $image = Imager->new(xsize => 200, ysize => 200);
+$image->box(filled => 1, color => 'red');
+$image->box(filled => 1, color => 'black', 
             xmin =>  50, ymin =>  50,
             xmax => 150, ymax => 150);
 $image->write(file => 'run/bitmap_write.ppm') or die $image->errstr;
