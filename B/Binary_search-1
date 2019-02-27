@@ -2,7 +2,10 @@
 #u# http://rosettacode.org/wiki/Binary_search
 #c# 2018-07-16 <RC
 #p# OK
+#n# was producing bogus answer, changed tests to be for strings (eg, lt)
 
+use strict;
+use warnings;
 use feature 'say';
 my $result;
 
@@ -10,10 +13,10 @@ sub binary_search {
     my ($array_ref, $value, $left, $right) = @_;
     while ($left <= $right) {
         my $middle = int(($right + $left) >> 1);
-        if ($value == $array_ref->[$middle]) {
+        if ($value eq $array_ref->[$middle]) {
             return $middle;
         }
-        elsif ($value < $array_ref->[$middle]) {
+        elsif ($value lt $array_ref->[$middle]) {
             $right = $middle - 1;
         }
         else {
@@ -27,5 +30,5 @@ my @data = ('aa'..'zz');
 say $result = binary_search(\@data, 'qq', 0, -1 + scalar @data);
 
 use Test::More;
-is ($result, 337);
+is ($result, 432);
 done_testing();
