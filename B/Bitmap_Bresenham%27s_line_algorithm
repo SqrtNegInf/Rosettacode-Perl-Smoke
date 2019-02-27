@@ -4,12 +4,11 @@
 #p# OK
 #f# RC file: bresenham.png
 
+use strict;
+use warnings;
 use feature 'say';
 my $result;
 
-#Library: Imlib2
-
-use strict;
 use Image::Imlib2;
  
 sub my_draw_line
