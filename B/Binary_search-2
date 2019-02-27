@@ -2,7 +2,10 @@
 #u# http://rosettacode.org/wiki/Binary_search
 #c# 2018-07-16 <RC
 #p# OK
+#n# was producing bogus answer, changed to numeric input
 
+use strict;
+use warnings;
 use feature 'say';
 my $result;
 
@@ -21,9 +24,9 @@ sub binary_search {
     }
 }
 
-my @data = ('aa'..'zz');
-say $result = binary_search(\@data, 'qq', 0, -1 + scalar @data);
+my @data = (1..100);
+say $result = binary_search(\@data, 42, 0, -1 + scalar @data);
 
 use Test::More;
-is ($result, 337);
+is ($result, 41);
 done_testing();
