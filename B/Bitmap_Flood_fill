@@ -4,12 +4,9 @@
 #p# OK
 #f# RC file: filledcircle2.jpg
 
-#Library: Imlib2
-#The fill of the Perl package Image::Imlib2 is a flood fill (so the documentatin of Image::Imlib2 says). The target colour is the one of the starting point pixel; the color set with set_color is the fill colour.
-
-#! /usr/bin/perl
- 
 use strict;
+use warnings;
+
 use Image::Imlib2;
  
 my $img = Image::Imlib2->load("ref/unfilledcircle.jpg");
@@ -59,9 +56,9 @@ sub floodfill
 }
  
 # usage example
-my $img = Image::Imlib2->load("ref/unfilledcircle.jpg");
-$img->set_color(0,255,0,255);
-floodfill($img, 100,100, 0, 0, 0);
-$img->save("run/filledcircle2.jpg");
+my $img2 = Image::Imlib2->load("ref/unfilledcircle.jpg");
+$img2->set_color(0,255,0,255);
+floodfill($img2, 100,100, 0, 0, 0);
+$img2->save("run/filledcircle2.jpg");
 exit 0;
 # This fills better than the Image::Imlib2 fill function the inner circle, since because of JPG compression and thanks to the $distparameter, it "sees" as black also pixel that are no more exactly black.
