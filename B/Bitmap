@@ -4,8 +4,8 @@
 #p# OK
 #f# RC file: bitmap.png
 
-#Library: Imlib2
 use strict;
+use warnings;
  
 use Image::Imlib2;
  
