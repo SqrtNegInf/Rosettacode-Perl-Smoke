@@ -5,11 +5,11 @@
 
 srand 123456;
 
+use strict;
+use warnings;
 use feature 'say';
 my $result;
 
-use strict;
-use warnings;
 use List::Util qw(shuffle);
 
 best_shuffle($_) for qw(abracadabra seesaw elk grrrrrr up a);
