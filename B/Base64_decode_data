@@ -4,6 +4,7 @@
 #p# OK
 
 use strict;
+use warnings;
 use feature 'say';
 
 sub decode_base64 { 
