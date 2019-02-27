@@ -5,9 +5,9 @@
 #f# RC file: bacon_cipher.txt
 #n# incomplete: no decrypt 
 
-use feature 'say';
+use strict;
 use warnings;
-use strict 'vars';
+use feature 'say';
 
 my $secret = <<'END';
 This task is to implement a program for encryption and decryption
