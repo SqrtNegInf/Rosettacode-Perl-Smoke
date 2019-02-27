@@ -3,10 +3,9 @@
 #c# 2018-07-18 <RC
 #p# OK
 #f# RC file: bitmap_read.png
-
-#Library: Imlib2
  
 use strict;
+use warnings;
 use Image::Imlib2;
  
 my $img = Image::Imlib2->load("ref/bitmap.ppm");
