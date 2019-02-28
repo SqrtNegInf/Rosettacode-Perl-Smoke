@@ -3,7 +3,10 @@
 #c# 2018-07-07 <RC
 #p# OK
 
+use strict;
+use warnings;
 use feature 'say';
+
 use ntheory;
 
 #We can use the <=> operator to return a comparison of -1, 0, or 1, which classifies the results. Let's look at the values from 1 to 30:
