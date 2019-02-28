@@ -4,6 +4,8 @@
 #p# OK
 #n# but fib(0) incorrect, not that it matters...
 
+use strict;
+use warnings;
 use feature 'say';
 my $result;
 
