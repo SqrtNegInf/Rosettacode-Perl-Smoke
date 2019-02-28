@@ -3,19 +3,21 @@
 #c# 2018-07-13 <RC
 #p# OK
 
+use strict;
+use warnings;
 use feature 'say';
 my $result;
 
-#use LWP::Simple;
+my(%anagram,@temp);
+my $max = 0;
 
-#for (split ' ' => get 'http://www.puzzlers.org/pub/wordlists/unixdict.txt')
 for (split("\n", `cat ref/unixdict.txt`))
     {push @{$anagram{ join '' => sort split // }}, $_}
 
 $max > @$_  or  $max = @$_    for values %anagram;
 @$_ >= $max and push @temp, "@$_\n" for values %anagram;
 
-for $grams (sort @temp) { $result .= $grams }
+for my $grams (sort @temp) { $result .= $grams }
 say $result;
 
 my $ref = <<END;
