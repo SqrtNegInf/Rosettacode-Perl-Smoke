@@ -3,9 +3,11 @@
 #c# 2018-09-12 >RC
 #p# OK
 
+use strict;
+use warnings;
 use feature 'say';
 
-@c = (join ' ', qw<
+my @c = (join ' ', qw<
 Add ALTer  BAckup Bottom  CAppend Change SCHANGE  CInsert CLAst COMPress COpy
 COUnt COVerlay CURsor DELete CDelete Down DUPlicate Xedit EXPand EXTract Find
 NFind NFINDUp NFUp CFind FINdup FUp FOrward GET Help HEXType Input POWerinput
@@ -16,25 +18,25 @@ RIght LEft  SAVE  SET SHift SI  SORT  SOS  STAck STATus  TOP TRAnsfer Type Up
 >) =~ /([A-Z]+)([a-z]*)(?:\s+|$)/g;
 
 my %abr = ('' => '', ' ' => '');
-for ($i = 0; $i < @c; $i += 2) {
-    $sl = length($s =    $c[$i]  );
-    $ll = length($l = uc $c[$i+1]);
-    $abr{$s} = $w = $s.$l;
+for (my $i = 0; $i < @c; $i += 2) {
+    my $sl = length(my $s =    $c[$i]  );
+    my $ll = length(my $l = uc $c[$i+1]);
+    $abr{$s} = my $w = $s.$l;
     map { $abr{substr($w, 0, $_)} = $w } $sl .. $ll;
     $abr{$w} = $w; # full command should always work
 }
 
-$fmt = "%-10s";
-$inp = sprintf $fmt, 'Input:';
-$out = sprintf $fmt, 'Output:';
-for $str (' ', qw<riG rePEAT copies put mo rest types fup. 6 poweRin>) {
+my $fmt = "%-10s";
+my $inp = sprintf $fmt, 'Input:';
+my $out = sprintf $fmt, 'Output:';
+for my $str (' ', qw<riG rePEAT copies put mo rest types fup. 6 poweRin>) {
     $inp .= sprintf $fmt, $str;
     $out .= sprintf $fmt, $abr{uc $str} // '*error*';
 }
 
 print "$inp\n$out\n";
 
-$ref = 'Output:             RIGHT     REPEAT    *error*   PUT       MOVE      RESTORE   *error*   *error*   *error*   POWERINPUT';
+my $ref = 'Output:             RIGHT     REPEAT    *error*   PUT       MOVE      RESTORE   *error*   *error*   *error*   POWERINPUT';
 
 use Test::More;
 is($out,$ref);
