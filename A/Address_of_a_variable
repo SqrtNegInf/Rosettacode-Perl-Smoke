@@ -3,10 +3,9 @@
 #c# 2018-07-11 <RC
 #p# OK
 
-use warnings;
 use strict;
+use warnings;
 use feature 'say';
-
 my $result;
 
 #To get the address, get the reference to a variable, and either stringify it, or use Scalar::Util's refaddr() to get just the address. Also see Devel::Peek.
