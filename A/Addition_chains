@@ -5,8 +5,8 @@
 #n# extra credit is very slow
 
 use strict;
+use warnings;
 use feature 'say';
-
 my @res;
 
 my @Example = ();
