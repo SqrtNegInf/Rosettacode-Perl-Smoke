@@ -3,11 +3,10 @@
 #c# 2018-07-11 <RC
 #p# OK
 
-use feature 'say';
-my $result;
-
 use strict;
 use warnings;
+use feature 'say';
+my $result;
 
 #die "Call : perl columnaligner.pl <inputfile> <printorientation>!\n" unless
 #   @ARGV == 2 ; #$ARGV[ 0 ] contains example file , $ARGV[1] any of 'left' , 'right' or 'center'
