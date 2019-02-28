@@ -5,15 +5,14 @@
 #p# OK
 #n# Tk graphics
 
+use strict;
+use warnings;
 use feature 'say';
 my $result;
-
 
 # Translation of: Tcl
 # This does not have the window resizing handling that Tcl does.
  
-use strict;
-use warnings;
 use Tk; 
 use Math::Trig qw/:pi/;
  
