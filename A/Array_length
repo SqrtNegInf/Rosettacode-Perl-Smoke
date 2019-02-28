@@ -2,18 +2,20 @@
 #u# http://rosettacode.org/wiki/Array_length
 #c# 2018-07-14 <RC
 #p# OK
+#n# not using 'warnings' as code desmonstrates errors that can occur
 
+use strict;
+#use warnings;
 use feature 'say';
 my $result;
 
-
 # The way to get the number of elements of an array in Perl is to put the array in scalar context.
 
-my @array = qw "apple orange banana", 4, 42;
+my @array = qw<"apple orange banana" 4 42>;
  
-scalar @array;      #  5
-0 + @arrray;        #  5
-'' . @array;        # "5"
+say scalar @array;      #  5
+say 0 +  @array;        #  5
+say '' . @array;        # "5"
 my $elems = @array; # $elems = 5
  
 scalar @{  [1,2,3]  }; # [1,2,3] is a reference which is already a scalar
@@ -26,14 +28,14 @@ scalar @$array_ref;
 # and not usually what you think they are
 sub takes_a_scalar ($) { my ($a) = @_; return $a }
  
-takes_a_scalar @array;
+takes_a_scalar(@array);
  
 # the built-ins can also act like they have prototypes
 # A common mistake is to use length which works on strings not arrays.
 # So using it on an array, as a side-effect, actually gives you a number which represents the order of magnitude.
 
-length '' . @array; # 1
-length      @array; # 1
+say length '' . @array; # 1
+say length      @array; # 1
  
 $result .= '0.'. (scalar @array) . 'e' . length(@array) . "\n"; # 0.5e1
  
@@ -47,7 +49,7 @@ $result .= " elements long\n";
 say $result; 
 
 my $ref = <<'EOD';
-0.3e1
+0.5e1
 0.123e3
 the length of @array is on the order of 100 elements long
 EOD
