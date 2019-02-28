@@ -113,9 +113,8 @@ File: A/AKS_test_for_primes-3
 File: A/Abbreviations,_automatic
 #!/usr/local/bin/perl
 #u# http://rosettacode.org/wiki/Abbreviations,_automatic
-#c# 2018-09-12 >RC
+#c# 2018-09-12 >RC, 2019-02-26 >RC
 #p# OK 
-#n# $max-1 vs $max/Perl 6 : sing_kei_yath super of sing_kei_yat 
 
 File: A/Abbreviations,_easy
 #!/usr/local/bin/perl
@@ -417,6 +416,7 @@ File: A/Array_length
 #u# http://rosettacode.org/wiki/Array_length
 #c# 2018-07-14 <RC
 #p# OK
+#n# not using 'warnings' as code desmonstrates errors that can occur
 
 File: A/Arrays
 #!/usr/local/bin/perl
@@ -610,12 +610,14 @@ File: B/Binary_search-1
 #u# http://rosettacode.org/wiki/Binary_search
 #c# 2018-07-16 <RC
 #p# OK
+#n# was producing bogus answer, changed tests to be for strings (eg, lt)
 
 File: B/Binary_search-2
 #!/usr/local/bin/perl
 #u# http://rosettacode.org/wiki/Binary_search
 #c# 2018-07-16 <RC
 #p# OK
+#n# was producing bogus answer, changed to numeric input
 
 File: B/Bitcoin_address_validation
 #!/usr/local/bin/perl
@@ -656,7 +658,18 @@ File: B/Bitmap_Read_a_PPM_file
 #c# 2018-07-18 <RC
 #p# OK
 #f# RC file: bitmap_read.png
-
+ 
+use strict;
+use warnings;
+use Image::Imlib2;
+ 
+my $img = Image::Imlib2->load("ref/bitmap.ppm");
+ 
+# let's do something with it now
+$img->set_color(255, 255, 255, 255);
+$img->draw_line(0,0, $img->width,$img->height);
+$img->image_set_format("png");
+$img->save("run/bitmap_read.png");
 File: B/Bitmap_Write_a_PPM_file
 #!/usr/local/bin/perl
 #u# http://rosettacode.org/wiki/Bitmap/Write_a_PPM_file
