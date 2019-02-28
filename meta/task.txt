@@ -1,14 +1,14 @@
 
 This is perl 5, version 28, subversion 0 (v5.28.0) built for darwin-thread-multi-2level
 updating from RC…
-+------------> Perl: Good/Bad [1090/15]
++------------> Perl: Good/Bad [1089/15]
 |+-----------> Smoke testing [955]
 ||+----------> sKipping validation [138]
 |||+---------> Interactive [47]
 ||||+--------> Touched (modified by me) [230]
 |||||+-------> Random seed [92]
 ||||||+------> File output [58]
-|||||||+-----> Draft [219]
+|||||||+-----> Draft [218]
 ||||||||+----> Ignoring [33]
 |||||||||+---> Void (no local copy) [193]
 ||||||||||+--> Un-implemented/reliable [187]
@@ -93,7 +93,7 @@ GS.....D... Arithmetic_coding_As_a_generalized_change_of_radix
 GS......... Arithmetic_evaluation
 GS......... Array_concatenation
 GS......... Array_length
-GS......... Arrays
+!S......... Arrays
 .......DXVU Aspect_Oriented_Programming
 GS......... Assertions
 .......DXVU Assertions_in_design_by_contract
@@ -468,7 +468,7 @@ GS......... Function_definition
 GS......... Function_frequency
 GS......... Function_prototype
 .......D.VU Functional_coverage_tree
-.......D.VU Fusc_sequence
+.........VU Fusc_sequence
 G.KI....... GUI_Maximum_window_dimensions
 G.KIT.....U GUI_component_interaction
 .........VU GUI_enabling_disabling_of_controls
