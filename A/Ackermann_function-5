@@ -3,11 +3,11 @@
 #c# 2018-07-10 <RC
 #p# OK
 
+use strict;
+use warnings;
 use feature 'say';
 my $result;
 
-use strict;
-use warnings;
 use Math::BigInt;
 
 use constant two => Math::BigInt->new(2);
