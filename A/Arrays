@@ -39,12 +39,11 @@ $result .= sprintf "%s\n", $arr[0];
  );
  
 for my$x (@multi_dimensional) {
-    $result .= sprintf "$_ " for @$x;
+    $result .= "$_ " for @$x;
     $result .= "\n";
 }
 
 say $result;
-#exit;
 
 my $ref = <<'EOD';
 And
