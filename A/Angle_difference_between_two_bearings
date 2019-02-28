@@ -3,7 +3,11 @@
 #c# 2018-08-26 >RC
 #p# OK
 
+use strict;
+use warnings;
 use feature 'say';
+my $result;
+
 use POSIX 'fmod';
 
 # Perl's built-in modulo is integer-only
@@ -16,7 +20,7 @@ my($b1,$b2) = @_;
    return $b;
 }
  
-@input = ( 
+my @input = ( 
     20,  45,
    -45,  45,
    -85,  90,
