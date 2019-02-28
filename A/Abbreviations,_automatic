@@ -1,10 +1,13 @@
 #!/usr/local/bin/perl
 #u# http://rosettacode.org/wiki/Abbreviations,_automatic
-#c# 2018-09-12 >RC
+#c# 2018-09-12 >RC, 2019-02-26 >RC
 #p# OK 
-#n# $max-1 vs $max/Perl 6 : sing_kei_yath super of sing_kei_yat 
 
+use strict;
+use warnings;
 use feature 'say';
+
+my @res;
 
 use utf8;
 binmode STDOUT, ":utf8";
@@ -12,21 +15,22 @@ binmode STDOUT, ":utf8";
 sub auto_abbreviate {
     my($string) = @_;
     my @words = split ' ', $string;
+    my $max = 0;
     return '' unless @words;
     map { $max = length($_) if length($_) > $max } @words;
-    for $i (1..$max-1) {
+    for my $i (1..$max) {
         my %seen;
         return $i if @words == grep {!$seen{substr($_,0,$i)}++} @words;
     }
     return '∞';
 }
 
-open $fh, '<:encoding(UTF-8)', 'ref/DoWAKA.txt';
+open my $fh, '<:encoding(UTF-8)', 'ref/DoWAKA.txt';
 while ($_ = <$fh>) {
     push @res, auto_abbreviate($_) . '  ' . $_;
 }
 
-say $result = join "", @res;
+say my $result = join "", @res;
 
 my $ref = <<'END';
 2  Sunday Monday Tuesday Wednesday Thursday Friday Saturday
