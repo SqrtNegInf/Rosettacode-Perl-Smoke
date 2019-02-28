@@ -3,9 +3,11 @@
 #c# 2018-09-12 >RC
 #p# OK
 
+use strict;
+use warnings;
 use feature 'say';
 
-@c = (uc join ' ', qw<
+my @c = (uc join ' ', qw<
 add 1  alter 3  backup 2  bottom 1  Cappend 2  change 1  Schange  Cinsert 2  Clast 3
 compress 4 copy 2 count 3 Coverlay 3 cursor 3  delete 3 Cdelete 2  down 1  duplicate
 3 xEdit 1 expand 3 extract 3  find 1 Nfind 2 Nfindup 6 NfUP 3 Cfind 2 findUP 3 fUP 2
@@ -18,24 +20,24 @@ refresh renum 3 repeat 3 replace 1 Creplace 2 reset 3 restore 4 rgtLEFT right 2 
 
 my %abr = ('' => '', ' ' => '');
 for (@c) {
-    ($w,$sl) = split ' ', $_;
-    $ll = length($w);
+    my($w,$sl) = split ' ', $_;
+    my $ll = length($w);
     $sl = $ll unless $sl;
     $abr{substr($w,0,$sl)} = $w;
     map { $abr{substr($w, 0, $_)} = $w } $sl .. $ll;
 }
 
-$fmt = "%-10s";
-$inp = sprintf $fmt, 'Input:';
-$out = sprintf $fmt, 'Output:';
-for $str ('', qw<riG rePEAT copies put mo rest types fup. 6 poweRin>) {
+my $fmt = "%-10s";
+my $inp = sprintf $fmt, 'Input:';
+my $out = sprintf $fmt, 'Output:';
+for my $str ('', qw<riG rePEAT copies put mo rest types fup. 6 poweRin>) {
     $inp .= sprintf $fmt, $str;
     $out .= sprintf $fmt, $abr{uc $str} // '*error*';
 }
 
 print "$inp\n$out\n";
 
-$ref = 'Output:             RIGHT     REPEAT    *error*   PUT       MOVE      RESTORE   *error*   *error*   *error*   POWERINPUT';
+my $ref = 'Output:             RIGHT     REPEAT    *error*   PUT       MOVE      RESTORE   *error*   *error*   *error*   POWERINPUT';
 
 use Test::More;
 is($out,$ref);
