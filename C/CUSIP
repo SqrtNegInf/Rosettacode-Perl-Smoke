@@ -3,6 +3,11 @@
 #c# 2018-07-20 <>RC, 2019-01-24 >RC
 #p# OK
 
+use strict;
+use warnings;
+my $result;
+my($i,%cv);
+
 $cv{$_} = $i++ for '0'..'9', 'A'..'Z', '*', '@', '#';
 
 sub cusip_check_digit {
@@ -11,7 +16,7 @@ sub cusip_check_digit {
 
     for $i (0..7) {
         return 'Invalid character found' unless $cusip[$i] =~ m{\A [[:digit:][:upper:]*@#] \z}xms;
-        $v  = $cv{ $cusip[$i] };
+        my $v  = $cv{ $cusip[$i] };
         $v *= 2 if $i % 2;
         $sum += int( $v/10 ) + $v%10;
     }
