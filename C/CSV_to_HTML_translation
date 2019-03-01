@@ -3,6 +3,8 @@
 #c# 2018-07-20 <RC
 #p# OK
 
+use strict;
+use warnings;
 use feature 'say';
 my $result;
 
@@ -11,7 +13,6 @@ my $result;
 use HTML::Entities;
  
 sub row {
-$DB::single = 1;
     my $elem = shift;
     my $cells = join '', map {"<$elem>$_</$elem>"} split ',', shift;
     $result .= sprintf '<tr>' . $cells . "</tr>\n";
