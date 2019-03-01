@@ -3,6 +3,8 @@
 #c# 2018-07-21 <RC
 #p# OK
 
+use strict;
+use warnings;
 use feature 'say';
 my $result;
 
@@ -30,7 +32,7 @@ sub co9filter {
 $result .= sprintf "Part 1: Create a simple filter and demonstrate using simple example.\n";
 showadd(6395, 1259);
  
-$result .= sprintf "\nPart 2: Use this to filter a range with ".co9(k). " == ". co9(k^2)."\n";
+$result .= sprintf "\n" . 'Part 2: Use this to filter a range with co9(k) == co9(k^2)' . "\n";
 $result .= sprintf join(" ", grep { co9($_) == co9($_*$_) } 1..99). "\n";
  
 $result .= sprintf "\nPart 3: Use efficient method on range.\n";
@@ -46,7 +48,7 @@ my $ref = <<'EOD';
 Part 1: Create a simple filter and demonstrate using simple example.
 1259 [4]
 
-Part 2: Use this to filter a range with k == 2
+Part 2: Use this to filter a range with co9(k) == co9(k^2)
 1 9 10 18 19 27 28 36 37 45 46 54 55 63 64 72 73 81 82 90 91 99
 
 Part 3: Use efficient method on range.
