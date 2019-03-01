@@ -4,9 +4,10 @@
 #p# OK
 #n# Unicode problems in output, but logic is right
 
+use strict;
+use warnings;
 use feature 'say';
 my $result;
-
 
 sub zodiac {
   my $year = shift;
