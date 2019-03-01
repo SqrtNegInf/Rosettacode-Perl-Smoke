@@ -5,11 +5,15 @@
 #p# OK
 #n# works, testing is the problem
 
+use strict;
+use warnings;
 use feature 'say';
 my $result;
 
 # Since we can't use eval or print (or any other keywords)
 # at the top level, we need to abuse backticks in order to print anything, as in the infamous JAPH with no letters or numbers. Consequently, the calendar is printed to standard error instead of standard output.
+
+my($PROGRAM,$E,$C,$H,$O,$T,$R,$A,$Z,$P,$L);
 
 $PROGRAM = '\'
  
@@ -57,8 +61,6 @@ $L = ',' | '@';
 `${E}${C}${H}${O} $PROGRAM | ${T}${R} A-Z ${A}-${Z} | ${P}${E}${R}${L}`;
 
 # Although, if we are abusing the backticks and other innocent programs, why not just: $_=$ARGV[0]//1969;`\143\141\154 $_ >&2`
-
-say $result; 
 
 my $ref = <<'EOD';
                                                        [INSERT SNOOPY HERE]
