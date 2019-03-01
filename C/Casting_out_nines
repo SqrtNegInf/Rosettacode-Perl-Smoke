@@ -17,8 +17,9 @@ sub co9 {  # Follows the simple procedure asked for in Part 1
  
 sub showadd {
   my($n,$m) = @_;
-  $result .= sprintf "( $n [".co9($n)."] + $m [".co9($m)."] ) [".co9(co9($n)+co9($m))."]". 
-        "   =   ". $n+$m." [".co9($n+$m)."]\n";
+  sprintf "( $n [%d] + $m [%d] ) [%d]  =  %d  [%d]\n", co9($n), co9($m), co9(co9($n)+co9($m)), $n+$m, co9($n+$m);
+  #$result .= sprintf "( $n [".co9($n)."] + $m [".co9($m)."] ) [".co9(co9($n)+co9($m))."]". 
+  #      "   =   ". $n+$m." [".co9($n+$m)."]\n";
 }
  
 sub co9filter {
@@ -29,8 +30,8 @@ sub co9filter {
   ($end, scalar(@list), @list);
 }
  
-$result .= sprintf "Part 1: Create a simple filter and demonstrate using simple example.\n";
-showadd(6395, 1259);
+$result  = sprintf "Part 1: Create a simple filter and demonstrate using simple example.\n";
+$result .= showadd(6395, 1259);
  
 $result .= sprintf "\n" . 'Part 2: Use this to filter a range with co9(k) == co9(k^2)' . "\n";
 $result .= sprintf join(" ", grep { co9($_) == co9($_*$_) } 1..99). "\n";
@@ -42,11 +43,11 @@ for my $base (10, 17) {
          $base, $n, $N, 100-($n/$N)*100;
 }
 
-say $result; 
+say $result;
 
 my $ref = <<'EOD';
 Part 1: Create a simple filter and demonstrate using simple example.
-1259 [4]
+( 6395 [5] + 1259 [8] ) [4]  =  7654  [4]
 
 Part 2: Use this to filter a range with co9(k) == co9(k^2)
 1 9 10 18 19 27 28 36 37 45 46 54 55 63 64 72 73 81 82 90 91 99
