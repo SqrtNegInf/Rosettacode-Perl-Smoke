@@ -4,24 +4,25 @@
 #p# OK
 #n# subroutines must be nested
 
-# {{trans|Perl 6}}
-
+use strict;
+use warnings;
 use feature 'say';
+my @res;
 
 sub cantor {
-    my($height) = @_;
+    our($height) = @_;
     my $width = 3 ** ($height - 1);
  
-    my @lines = ('#' x $width) x $height;
+    our @lines = ('#' x $width) x $height;
  
     sub trim_middle_third {
         my($len, $start, $index) = @_;
         my $seg = int $len / 3
             or return;
  
-        for $i ( $index .. $height - 1 ) {
-          for $j ( 0 .. $seg - 1 ) {
-            substr @lines[$i], $start + $seg + $j, 1, ' ';
+        for my $i ( $index .. $height - 1 ) {
+          for my $j ( 0 .. $seg - 1 ) {
+            substr $lines[$i], $start + $seg + $j, 1, ' ';
           }
         }
  
