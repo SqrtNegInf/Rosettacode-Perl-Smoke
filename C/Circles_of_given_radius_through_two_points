@@ -1,11 +1,11 @@
 #!/usr/local/bin/perl
 #u# http://rosettacode.org/wiki/Circles_of_given_radius_through_two_points
-#c# 2018-07-23 <RC, 2018-11-12 >RC
+#c# 2018-07-23 <RC, 2018-11-12 >RC, 2019-02-28 >RC
 #p# OK
 
+use strict;
+use warnings;
 use feature 'say';
-#use warnings;
-
 my $result;
 
 sub circles {
@@ -25,9 +25,9 @@ sub circles {
     my $d = sqrt($r**2-($q/2)**2);
     
     # pair of solutions
-    sprintf '(%.4f, %.4f) and (%.4f, %.4f)', 
-        $x3 - $d*$dy/$q, $y3 + $d*$dx/$q, $r,
-        $x3 + $d*$dy/$q, $y3 - $d*$dx/$q, $r;
+    sprintf '(%.4f, %.4f) and (%.4f, %.4f)',
+        $x3 - $d*$dy/$q, $y3 + $d*$dx/$q,
+        $x3 + $d*$dy/$q, $y3 - $d*$dx/$q,
 }
  
 my @arr = (
@@ -38,16 +38,16 @@ my @arr = (
 	[0.1234, 0.9876, 0.1234, 0.9876, 0.0]
 );
 
-$result .= sprintf "(%.4f, %.4f) and (%.4f, %.4f): %s\n", @$_[0..3], circles @$_ for @arr;
+$result .= sprintf "(%.4f, %.4f) and (%.4f, %.4f) with radius %.1f: %s\n", @$_[0..4], circles @$_ for @arr;
  
 say $result;
 
 my $ref = <<'EOD';
-(0.1234, 0.9876) and (0.8765, 0.2345): (1.8631, 1.9742) and (2.0000, -0.8632)
-(0.0000, 2.0000) and (0.0000, 0.0000): (0.0000, 1.0000) and (1.0000, 0.0000)
-(0.1234, 0.9876) and (0.1234, 0.9876): Coincident points gives infinite number of circles
-(0.1234, 0.9876) and (0.8765, 0.2345): Separation of points greater than diameter
-(0.1234, 0.9876) and (0.1234, 0.9876): Radius is zero
+(0.1234, 0.9876) and (0.8765, 0.2345) with radius 2.0: (1.8631, 1.9742) and (-0.8632, -0.7521)
+(0.0000, 2.0000) and (0.0000, 0.0000) with radius 1.0: (0.0000, 1.0000) and (0.0000, 1.0000)
+(0.1234, 0.9876) and (0.1234, 0.9876) with radius 2.0: Coincident points gives infinite number of circles
+(0.1234, 0.9876) and (0.8765, 0.2345) with radius 0.5: Separation of points greater than diameter
+(0.1234, 0.9876) and (0.1234, 0.9876) with radius 0.0: Radius is zero
 EOD
 
 use Test::More;
