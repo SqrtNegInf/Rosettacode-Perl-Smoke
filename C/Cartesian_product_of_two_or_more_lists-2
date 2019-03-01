@@ -3,11 +3,14 @@
 #c# 2018-08-28 >RC
 #p# OK
 
+use strict;
+use warnings;
 use feature 'say';
+my $result;
 
-$tuples = [ map { [split /:/] } glob '{1,2,3}:{30}:{500,100}' ];
+my $tuples = [ map { [split /:/] } glob '{1,2,3}:{30}:{500,100}' ];
 
-for $a (@$tuples) { $result .= sprintf "(%1d %2d %3d) ", @$a; }
+for my $a (@$tuples) { $result .= sprintf "(%1d %2d %3d) ", @$a; }
 
 say $result;
 use Test::More;
