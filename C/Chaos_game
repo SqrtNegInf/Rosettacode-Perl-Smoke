@@ -4,6 +4,9 @@
 #p# OK
 #f# RC file: chaos_game_triangle.png
 
+use strict;
+use warnings;
+
 srand 123456;
 
 use Imager;
