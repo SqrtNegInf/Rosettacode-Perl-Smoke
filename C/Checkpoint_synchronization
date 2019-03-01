@@ -3,9 +3,10 @@
 #c# 2018-07-22 <RC
 #p# OK
 
-my @res;
-
+use strict;
+use warnings;
 use feature 'say';
+my @res;
 
 # The perlipc man page details several approaches to interprocess communication. Here's one of my favourites: socketpair and fork. I've omitted some error-checking for brevity.
 
