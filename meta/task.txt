@@ -93,7 +93,7 @@ GS.....D... Arithmetic_coding_As_a_generalized_change_of_radix
 GS......... Arithmetic_evaluation
 GS......... Array_concatenation
 GS......... Array_length
-!S......... Arrays
+GS......... Arrays
 .......DXVU Aspect_Oriented_Programming
 GS......... Assertions
 .......DXVU Assertions_in_design_by_contract
@@ -185,7 +185,7 @@ GS..T...... Cartesian_product_of_two_or_more_lists-1
 GS..T...... Cartesian_product_of_two_or_more_lists-2
 GS......... Cartesian_product_of_two_or_more_lists-3
 GS......... Case-sensitivity_of_identifiers
-GS......... Casting_out_nines
+!S......... Casting_out_nines
 GS......... Catalan_numbers-1
 GS......... Catalan_numbers-2
 GS......... Catalan_numbers-3
