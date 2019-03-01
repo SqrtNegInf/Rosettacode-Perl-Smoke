@@ -3,13 +3,16 @@
 #c# 2018-08-23 >RC
 #p# OK
 
+use strict;
+use warnings;
+use feature 'say';
+
 use bignum qw(bexp e);
 
-use feature 'say';
- 
 # same as built-in, with 'bignum' in force
-$e = 2;
-$f = 1;
+my $e = 2;
+my $f = 1;
+my($n,$e0);
 do { 
     $e0 = $e;
     $n++;
@@ -20,7 +23,7 @@ do {
 say e;
 
 # module, high precision
-$result2 = bexp(1,1131);
+my $result = bexp(1,1131);
  
 print "Computed e = " . substr($e, 0, 41),  "\n";
 print "Built-in e = " . e,  "\n";
@@ -34,5 +37,5 @@ END
 use Test::More;
 is(substr($e,0,41), '2.718281828459045235360287471352662497757');
 chop $ref;
-is($result2, $ref);
+is($result, $ref);
 done_testing();
