@@ -4,9 +4,10 @@
 #p# OK
 #n# output munged
 
+use strict;
+use warnings;
 use feature 'say';
-my $result;
-
+my @result;
 
 sub cholesky { 
   my $matrix = shift; 
@@ -34,7 +35,7 @@ my $example2 = [ [ 18, 22,  54,  42],
 push @result, "\nExample 2:"; 
 (map { push @result, sprintf "%7.4f", $_ } @$_) for @{ cholesky $example2 };
  
-say $result = join "\n", @result; 
+say my $result = join "\n", @result; 
 
 my $ref = <<'EOD';
 Example 1:
