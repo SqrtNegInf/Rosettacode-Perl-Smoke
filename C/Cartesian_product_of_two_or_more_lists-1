@@ -3,7 +3,10 @@
 #c# 2018-08-28 >RC
 #p# OK
 
+use strict;
+use warnings;
 use feature 'say';
+my $result;
 
 sub cartesian {
     my $sets = shift @_;
@@ -24,7 +27,7 @@ sub cartesian {
 
 sub product {
     my($s,$fmt) = @_; 
-    my $tuples;
+    my $tuples = '';
     for $a ( @{ cartesian( \@$s ) } ) { $tuples .= sprintf "($fmt) ", @$a; }
     $tuples . "\n";
 }
