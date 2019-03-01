@@ -3,10 +3,11 @@
 #c# 2018-07-21 <RC
 #p# OK
 
+use strict;
+use warnings;
 use feature 'say';
 my $result;
 
-#Library: ntheory
 use ntheory qw/forprimes is_prime vecprod/;
  
 forprimes { my $p = $_;
