@@ -3,9 +3,10 @@
 #c# 2018-07-22 <>RC
 #p# OK
 
+use strict;
+use warnings;
 use feature 'say';
 my $result;
-
 
 # There are at least three CPAN modules for this: ntheory (Math::Prime::Util), Math::ModInt, and Math::Pari. All three handle bigints.
 
