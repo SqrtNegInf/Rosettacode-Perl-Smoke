@@ -3,14 +3,17 @@
 #c# 2018-08-23
 #p# OK
 
+use strict;
+use warnings;
 use feature 'say';
+my $sum;
 
 use bignum;
 
 sub factorial { my $r = 1; $r *= $_ for 1..shift; $r }
 
 for my $n (0..35) { $sum += 1/factorial($n); } 
-$str = substr $sum, 0, 42;
+my $str = substr $sum, 0, 42;
 
 say '2.71828182845904523536028747135266249775724709 ... (real e)';
 print "$sum (unfiltered)\n";
