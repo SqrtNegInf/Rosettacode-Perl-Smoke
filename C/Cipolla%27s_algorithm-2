@@ -5,7 +5,10 @@
 #n# dispensing with class, just a very thin wrapper on a hash
 #n# this version on RC
 
+use strict;
+use warnings;
 use feature 'say';
+my $result;
 
 use bigint;
 use ntheory qw(is_prime);
@@ -53,8 +56,8 @@ my @tests = (
     #(34035243914635549601583369544560650254325084643201, 100000000000000000000000000000000000000000000000151)
 
 while (@tests) {
-   $n = shift @tests;
-   $p = shift @tests;
+   my $n = shift @tests;
+   my $p = shift @tests;
    my $r = Cipolla($n, $p);
    $result .= $r ? sprintf "Roots of %d are (%d, %d) mod %d\n", $n, $r, $p-$r, $p
                  : "No solution for ($n, $p)\n";
