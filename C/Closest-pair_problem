@@ -3,12 +3,12 @@
 #c# 2018-07-23 <>RC
 #p# OK
 
-srand 123456;
-
+use strict;
+use warnings;
 use feature 'say';
 my $result;
 
-use strict;
+srand 123456;
 use POSIX qw(ceil);
 
 # The divide & conquer technique is about 100x faster than the brute-force algorithm
