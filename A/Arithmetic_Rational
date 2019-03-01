@@ -4,6 +4,8 @@
 #p# OK
 #n# as with Perl 6, limit brought down to 2**15 (NB: 6 is faster)
 
+use strict;
+use warnings;
 use feature 'say';
 my $result;
 
