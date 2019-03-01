@@ -4,6 +4,8 @@
 #p# OK
 #n# doesn't handle as many expressions types as the Perl 6 version
 
+use strict;
+use warnings;
 use feature 'say';
 my $result;
 
