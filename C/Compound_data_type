@@ -4,6 +4,8 @@
 #p# OK
 #n# re-write with more up-to-date Perl OO, or Moose?
 
+use strict;
+use warnings;
 use feature 'say';
 my $result;
 
@@ -29,7 +31,7 @@ struct(
 my $point = Point->new(x => 3, y => 8);
 
 use Test::More;
-ok $point1[0] == 3 and $point1[1] == 8;
-ok $point2{'x'} == 3 and $point2{'x'} == 8;
-ok $point->x == 3 and $point->y == 8;
+ok $point1[0] == 3 && $point1[1] == 8;
+ok ($point2{'x'} == 3) && ($point2{'x'} == 8);
+ok $point->x == 3 && $point->y == 8;
 done_testing();
