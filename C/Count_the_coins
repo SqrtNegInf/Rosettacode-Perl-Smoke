@@ -4,6 +4,8 @@
 #p# OK
 #n# memoize is vital to finite run time...
 
+use strict;
+#use warnings;  # deep recursion to be expected
 use feature 'say';
 my $result;
 
