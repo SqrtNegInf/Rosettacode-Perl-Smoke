@@ -4,6 +4,8 @@
 #p# OK
 #f# RC file: color_wheel.png
 
+use strict;
+use warnings;
 use feature 'say';
 my $result;
 
