@@ -3,9 +3,10 @@
 #c# 2018-07-25 <RC
 #p# OK
 
+use strict;
+#use warnings; # deep recursion is to be expected
 use feature 'say';
 my $result;
-
 
 # We'll use closures to implement the infinite lists of coeffficients.
 
