@@ -1,11 +1,13 @@
-#!/usr/local/bin/perl
-#u# http://rosettacode.org/wiki/Commatizing_numbers
+#!/usr/local/bin/perl #u# http://rosettacode.org/wiki/Commatizing_numbers
 #c# 2018-08-29 >RC, 2018-09-15 >RC
 #p# OK
 
+use strict;
+use warnings;
 use feature 'say';
+my $result;
 
-@input = (
+my @input = (
     ['pi=3.14159265358979323846264338327950288419716939937510582097494459231', ' ', 5],
     ['The author has two Z$100000000000000 Zimbabwe notes (100 trillion).', '.'],
     ['-in Aus$+1411.8millions'],
@@ -19,9 +21,9 @@ use feature 'say';
     ['5/9/1946 was a good year for some.']
 );
 
-for $i (@input) {
-    $old = @$i[0];
-    $new = commatize(@$i);
+for my $i (@input) {
+    my $old = @$i[0];
+    my $new = commatize(@$i);
     $result .= sprintf("%s\n%s\n\n", $old, $new) if $old ne $new;
 }
 
