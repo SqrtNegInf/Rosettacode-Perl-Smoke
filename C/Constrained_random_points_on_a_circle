@@ -5,14 +5,17 @@
 
 srand 123456;
 
+use strict;
+use warnings;
 use feature 'say';
 my $result;
+my(@points,@sample,@matrix);
 
-@range = -15..16;
+my @range = -15..16;
 
-for $x (@range) {
-    for $y (@range) {
-        $radius = sqrt $x**2 + $y**2;
+for my $x (@range) {
+    for my $y (@range) {
+        my $radius = sqrt $x**2 + $y**2;
         push @points, [$x,$y] if 10 <= $radius and $radius <= 15
     }
 }
