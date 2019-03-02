@@ -3,6 +3,8 @@
 #c# 2018-07-26 <RC
 #p# OK
 
+use strict;
+use warnings;
 use feature 'say';
 my $result;
 
@@ -10,7 +12,7 @@ my $result;
 
 # <(x - <x>)²> = <x²> - <x>²
 {
-    my $num, $sum, $sum2;
+    my($num, $sum, $sum2);
     sub stddev {
 	my $x = shift;
 	$num++;
