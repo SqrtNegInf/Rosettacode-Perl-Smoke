@@ -3,6 +3,8 @@
 #c# 2018-07-26 <RC
 #p# OK
 
+use strict;
+use warnings;
 srand 123456;
 
 use feature 'say';
@@ -10,13 +12,13 @@ my $result;
 
 my @heading = qw(X Y Z);
 my $rows = 5;
-$result .=    '<table><thead><td>',
-        (map { "<th>$_</th>" } @heading), 
+$result .=    '<table><thead><td>' .
+        join('', (map { "<th>$_</th>" } @heading)) .
         "</thead><tbody>";
  
 for (1 .. $rows) {
-        $result .=    "<tr><th>$_</th>", 
-                (map { "<td>".int(rand(10000))."</td>" } @heading),
+        $result .=    "<tr><th>$_</th>" . 
+                join( '', (map { "<td>".int(rand(10000))."</td>" } @heading)) .
                 "</tr>";
 }
  
@@ -25,9 +27,9 @@ $result .=    "</tbody></table>";
 # Note that this is a rather inane way (because of the inane task specification) of generating structured document. For serious work, one should use a module such as XML or HTML for well-formedness instead of this ad hoc method.
 
 
-say $result; 
+say $result;
 my $ref = <<'EOD';
-<table><thead><td><tr><th>1</th><tr><th>2</th><tr><th>3</th><tr><th>4</th><tr><th>5</th></tbody></table>
+<table><thead><td><th>X</th><th>Y</th><th>Z</th></thead><tbody><tr><th>1</th><td>9406</td><td>6702</td><td>6317</td></tr><tr><th>2</th><td>2067</td><td>553</td><td>2884</td></tr><tr><th>3</th><td>2221</td><td>9899</td><td>5462</td></tr><tr><th>4</th><td>9628</td><td>2726</td><td>3779</td></tr><tr><th>5</th><td>4038</td><td>292</td><td>605</td></tr></tbody></table>
 EOD
 
 use Test::More;
