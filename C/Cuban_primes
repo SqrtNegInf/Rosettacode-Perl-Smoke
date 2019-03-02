@@ -3,7 +3,11 @@
 #c# 2019-02-02 <RC
 #p# OK
 
+use strict;
+use warnings;
 use feature 'say';
+my @res;
+
 use ntheory 'is_prime';
 
 sub cuban_primes {
@@ -36,7 +40,7 @@ for my $n (1 .. 6) {
     push @res, "10^$n-th cuban prime is: " . commify((cuban_primes(10**$n))[-1]);
 }
 
-say $result = join "\n", @res;
+say my $result = join "\n", @res;
 
 my $ref = <<'EOD';
         7        19        37        61       127       271       331       397       547       631
