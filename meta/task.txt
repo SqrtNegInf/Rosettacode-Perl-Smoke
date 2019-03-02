@@ -1,7 +1,7 @@
 
 This is perl 5, version 28, subversion 0 (v5.28.0) built for darwin-thread-multi-2level
 updating from RC…
-+------------> Perl: Good/Bad [1089/15]
++------------> Perl: Good/Bad [1090/15]
 |+-----------> Smoke testing [955]
 ||+----------> sKipping validation [138]
 |||+---------> Interactive [47]
@@ -185,7 +185,7 @@ GS..T...... Cartesian_product_of_two_or_more_lists-1
 GS..T...... Cartesian_product_of_two_or_more_lists-2
 GS......... Cartesian_product_of_two_or_more_lists-3
 GS......... Case-sensitivity_of_identifiers
-!S......... Casting_out_nines
+GS......... Casting_out_nines
 GS......... Catalan_numbers-1
 GS......... Catalan_numbers-2
 GS......... Catalan_numbers-3
