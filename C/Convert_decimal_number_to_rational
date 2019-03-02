@@ -3,6 +3,8 @@
 #c# 2018-07-25 <RC
 #p# OK
 
+use strict;
+use warnings;
 use feature 'say';
 my $result;
 
@@ -44,14 +46,14 @@ sub get_denom {
  
 sub best_approx {
         my ($n, $limit) = @_;
-        my ($denom, $neg);
+        my ($num, $denom, $neg, @coef);
         if ($n < 0) {
                 $neg = 1;
                 $n = -$n;
         }
  
         my $int = int($n);
-        my ($num, $denom, @coef) = (1, $n - $int);
+        ($num, $denom, @coef) = (1, $n - $int);
  
         # continued fraction, sort of
         while (1) {
