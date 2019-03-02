@@ -6,6 +6,8 @@
 
 srand 1234567;
 
+use strict;
+use warnings;
 use feature 'say';
 my $result;
 
@@ -74,7 +76,8 @@ foreach my $stage ( 1 .. $generations ) {
 }
 #print "\n";
 
-for $r ( 0 .. 4 ) { for $c ( 0 .. 9 ) { $line .= $life[$r][$c]; } }
+my $line;
+for my $r ( 0 .. 4 ) { for my $c ( 0 .. 9 ) { $line .= $life[$r][$c]; } }
 say $line;
 
 use Test::More;
