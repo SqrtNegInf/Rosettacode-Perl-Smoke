@@ -6,6 +6,8 @@
 #n# 2018-08-22 specifically 1000000000000000000 always fails, sometimes other do to, e.g.
 #   1000000000000000008 = 2 x 2 x 2 x 3 x 3 x 97 x 26209 x 32779 x a000000000000000
 
+use strict;
+use warnings;
 use feature 'say';
 my $result;
 
@@ -23,11 +25,11 @@ sub factor {
 $result .= "$_ = ". join(" x ", factor($_)). "\n" for 1000000000000000001 .. 1000000000000000010;
 if (0) { 
 my $x = 100000; $result .= "$x = " . join('*', factor($x)) . "\n";
-my $x = 100001; $result .= "$x = " . join('*', factor($x)) . "\n";
-my $x = 100002; $result .= "$x = " . join('*', factor($x)) . "\n";
-my $x = 100003; $result .= "$x = " . join('*', factor($x)) . "\n";
-my $x = 100004; $result .= "$x = " . join('*', factor($x)) . "\n";
-my $x = 100005; $result .= "$x = " . join('*', factor($x)) . "\n";
+   $x = 100001; $result .= "$x = " . join('*', factor($x)) . "\n";
+   $x = 100002; $result .= "$x = " . join('*', factor($x)) . "\n";
+   $x = 100003; $result .= "$x = " . join('*', factor($x)) . "\n";
+   $x = 100004; $result .= "$x = " . join('*', factor($x)) . "\n";
+   $x = 100005; $result .= "$x = " . join('*', factor($x)) . "\n";
 }
 
 say $result;
