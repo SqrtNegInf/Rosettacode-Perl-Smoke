@@ -2,10 +2,10 @@
 #u# http://rosettacode.org/wiki/Create_an_object/Native_demonstration
 #c# 2018-07-26 <RC
 #p# OK
+#n# "Tie::Hash" not allowed while "strict subs" in use
 
 use feature 'say';
 my $result;
-
 
 package LockedHash;
 use parent Tie::Hash;
