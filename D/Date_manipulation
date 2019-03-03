@@ -3,9 +3,10 @@
 #c# 2018-07-28 <RC
 #p# OK
 
+use strict;
+use warnings;
 use feature 'say';
 my $result;
-
 
 # We use Mountain Daylight Time for output.
 
