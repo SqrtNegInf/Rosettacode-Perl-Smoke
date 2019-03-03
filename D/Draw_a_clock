@@ -4,6 +4,9 @@
 #c# 2018-07-29 <RC
 #p# OK
 
+use strict;
+use warnings;
+
 use utf8;                # interpret source code as UTF8
 binmode STDOUT, ':utf8'; # allow printing wide chars without warning
 $|++;                    # disable output buffering
