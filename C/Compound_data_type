@@ -32,6 +32,8 @@ my $point = Point->new(x => 3, y => 8);
 
 use Test::More;
 ok $point1[0] == 3 && $point1[1] == 8;
-ok ($point2{'x'} == 3) && ($point2{'x'} == 8);
 ok $point->x == 3 && $point->y == 8;
+#ok ($point2{'x'} == 3) && ($point2{'y'} == 8); # ?? Useless use of numeric eq (==) in void context
+ok $point2{'y'} == 8;
+ok $point2{'x'} == 3;
 done_testing();
