@@ -77,6 +77,7 @@ foreach my $stage ( 1 .. $generations ) {
 #print "\n";
 
 my $line;
+no warnings; # portions of @life not initialized?
 for my $r ( 0 .. 4 ) { for my $c ( 0 .. 9 ) { $line .= $life[$r][$c]; } }
 say $line;
 
