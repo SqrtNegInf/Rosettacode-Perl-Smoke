@@ -3,6 +3,8 @@
 #c# 2018-08-27 >RC
 #p# OK
 
+use strict;
+use warnings;
 use feature 'say';
 
 sub damm {
