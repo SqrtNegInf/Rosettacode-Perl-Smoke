@@ -3,9 +3,10 @@
 #c# 2018-07-28 <RC
 #p# OK
 
+use strict;
+use warnings;
 use feature 'say';
-my $result1;
-my $result2;
+my($result1,$result2);
 
 my @even_numbers;
  
