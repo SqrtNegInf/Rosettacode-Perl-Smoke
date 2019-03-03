@@ -3,7 +3,10 @@
 #c# 2018-09-28 >RC
 #p# OK
 
+use strict;
+use warnings;
 use feature 'say';
+my $result;
 
 sub diversity_calc {
     my($truth, @pred) = @_;
