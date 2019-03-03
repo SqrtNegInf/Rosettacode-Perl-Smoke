@@ -3,17 +3,13 @@
 #c# 2018-07-30 <RC
 #p# OK
 
+use strict;
+use warnings;
 srand 123456;
 
 use feature 'say';
 my $result;
 
-# Translation of: Go
-
-use 5.010;
- 
-# usage: script X Y Z [S]
- 
 sub cuboid {
  
     # Constant dimnesions of the cuboid
