@@ -3,6 +3,9 @@
 #c# 2018-07-28 <RC
 #p# OK
 
+use strict;
+use warnings;
+no warnings qw(uninitialized);
 use feature 'say';
 my $result;
 
@@ -12,7 +15,9 @@ use List::Util qw(sum0 max);
 sub comb {
     my ($s, $n) = @_;
     $n || return (1);
-    my @r = (0) x ($n - max(@$s) + 1);
+    #my @r = (0) x ($n - max(@$s) + 1); # warning on 'negative repeat count'
+    my $repeat = ($n - max(@$s) + 1);
+    my @r = $repeat > 0 ? (0) x ($n - max(@$s) + 1) : ();
     my @c = comb($s, $n - 1);
     foreach my $i (0 .. $#c) {
         $c[$i] || next;
