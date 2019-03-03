@@ -4,7 +4,10 @@
 #p# OK
 #n# more like Perl 6
 
+use strict;
+use warnings;
 use feature 'say';
+my $result;
 
 sub damm {
 my(@digits) = @_;
