@@ -3,6 +3,8 @@
 #c# 2018-xx-xx >RC
 #p# BROKEN
 
+use strict;
+use warnings;
 use feature 'say';
 
 #is 23.34375.base(2),    10111.01011;
