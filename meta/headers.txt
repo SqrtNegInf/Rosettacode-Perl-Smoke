@@ -1367,6 +1367,7 @@ File: C/Create_a_two-dimensional_array_at_runtime
 #u# http://rosettacode.org/wiki/Create_a_two-dimensional_array_at_runtime
 #c# 2018-07-26 <RC
 #p# OK
+#n# not using strict to demonstrate array auto-vivification
 
 File: C/Create_an_HTML_table
 #!/usr/local/bin/perl
@@ -1379,6 +1380,7 @@ File: C/Create_an_object_Native_demonstration
 #u# http://rosettacode.org/wiki/Create_an_object/Native_demonstration
 #c# 2018-07-26 <RC
 #p# OK
+#n# "Tie::Hash" not allowed while "strict subs" in use
 
 File: C/Cuban_primes
 #!/usr/local/bin/perl
