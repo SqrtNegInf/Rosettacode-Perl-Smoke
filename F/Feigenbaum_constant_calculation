@@ -5,7 +5,10 @@
 #n# fails with native squaring, works with Math-GSL 
 #n# except on Mac OS: https://github.com/leto/math--gsl/issues/151
 
+use strict;
+use warnings;
 use feature 'say';
+my $result;
 
 #use Math::GSL::PowInt qw /gsl_pow_2 gsl_pow_4 gsl_pow_int/;
 
