@@ -3,14 +3,19 @@
 #c# 2018-07-31 <RC
 #p# OK
 
+use strict;
+use warnings;
 use feature 'say';
-my $result;
+my($result,$s);
 
+{
+no warnings  qw(uninitialized);
 if ($s eq "") {    # Test for empty string
   $result .= "The string is empty\n";
 }
 if ($s ne "") {    # Test for non empty string
   $result .= "The string is not empty\n";
+}
 }
 
 #In Perl, an empty string is often used to represent a false value.
