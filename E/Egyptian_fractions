@@ -3,7 +3,10 @@
 #c# 2018-10-02 <RC
 #p# OK
 
+use strict;
+use warnings;
 use feature 'say';
+my $result;
 
 use bigint;
 sub isEgyption{
