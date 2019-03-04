@@ -3,14 +3,16 @@
 #c# 2018-07-31 <RC
 #p# OK
 
+use strict;
+use warnings;
 use feature 'say';
 my $result;
 
 # Translation of: C
 
 package EC;
-our ($a, $b) = (0, 7);
 {
+    our ($A, $B) = (0, 7);
     package EC::Point;
     sub new { my $class = shift; bless [ @_ ], $class }
     sub zero { bless [], shift }
@@ -42,12 +44,12 @@ our ($a, $b) = (0, 7);
 }
  
 package Test;
-my $a = +EC::Point->new(-($EC::b - 1)**(1/3), 1);
-my $b = +EC::Point->new(-($EC::b - 4)**(1/3), 2);
-my $c = $a + $b, "\n";
-$result .= "$_\n" for $a, $b, $c;
+my $p = +EC::Point->new(-($EC::B - 1)**(1/3), 1);
+my $q = +EC::Point->new(-($EC::B - 4)**(1/3), 2);
+my $s = $p + $q; #, "\n";
+$result .= "$_\n" for $p, $q, $s;
 $result .= "check alignment... ";
-$result .= abs(($b->x - $a->x)*(-$c->y - $a->y) - ($b->y - $a->y)*($c->x - $a->x)) < 0.001
+$result .= abs(($q->x - $p->x)*(-$s->y - $p->y) - ($q->y - $p->y)*($s->x - $p->x)) < 0.001
     ? "ok" : "wrong";
  
 say $result; 
