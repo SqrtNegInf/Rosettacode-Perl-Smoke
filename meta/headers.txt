@@ -3978,9 +3978,8 @@ File: M/Move-to-front_algorithm
 
 File: M/Multi-dimensional_array
 #!/usr/local/bin/perl
-#u# http://rosettacode.org/wiki/Multi-dimensional_array
-#t# nocode
-#c# 2018-10-RC >RC
+#u# http://rosettacode.org/wiki/RC_REMOTE
+#c# 2019-02-RC >RC
 #p# OK
 
 File: M/Multifactorial-1
