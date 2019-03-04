@@ -1,9 +1,9 @@
 
 This is perl 5, version 28, subversion 0 (v5.28.0) built for darwin-thread-multi-2level
 updating from RC…
-+------------> Perl: Good/Bad [1087/15]
-|+-----------> Smoke testing [955]
-||+----------> sKipping validation [138]
++------------> Perl: Good/Bad [1089/15]
+|+-----------> Smoke testing [956]
+||+----------> sKipping validation [137]
 |||+---------> Interactive [47]
 ||||+--------> Touched (modified by me) [230]
 |||||+-------> Random seed [92]
@@ -247,7 +247,7 @@ GS......... Compiler_lexical_analyzer-1
 GS......... Compiler_lexical_analyzer-2
 G.K........ Compiler_syntax_analyzer
 G.K........ Compiler_virtual_machine_interpreter
-!S......... Compound_data_type
+GS......... Compound_data_type
 G.K..R..... Concurrent_computing-1
 GS......... Concurrent_computing-2
 G.K........ Conditional_structures
@@ -261,7 +261,7 @@ GS......... Continued_fraction_Arithmetic_Construct_from_rational_number
 GS......... Convert_decimal_number_to_rational
 GS......... Convert_seconds_to_compound_duration
 .......D.VU Convex_hull
-!S...R..... Conway%27s_Game_of_Life-1
+GS...R..... Conway%27s_Game_of_Life-1
 G.KI....... Conway%27s_Game_of_Life-2
 GS......... Copy_a_string
 G.K....D... Copy_stdin_to_stdout
@@ -290,7 +290,7 @@ GS......... Cut_a_rectangle
 GS..T..D... Cycle_detection
 GS......... DNS_query
 .......D... Damm_algorithm
-!S..T...... Damm_algorithm-1
+GS..T...... Damm_algorithm-1
 GS......... Damm_algorithm-2
 .......D.VU Data_Encryption_Standard
 GS......... Date_format
@@ -733,7 +733,7 @@ GS.....D... Most_frequent_k_chars_distance
 G.KI....... Mouse_position-1
 G.KI....... Mouse_position-2
 GS......... Move-to-front_algorithm
-G.K.T.....U Multi-dimensional_array
+!S..T.....U Multi-dimensional_array
 .......D.VU Multidimensional_Newton-Raphson_method
 GS......... Multifactorial-1
 GS......... Multifactorial-2
