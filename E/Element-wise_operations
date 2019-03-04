@@ -4,6 +4,8 @@
 #p# OK
 #n# not using two files...
 
+use strict;
+use warnings;
 use feature 'say';
 my $result;
 
