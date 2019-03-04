@@ -3,11 +3,11 @@
 #c# 2018-08-03 <RC
 #p# OK
 
+use strict;
+use warnings;
 use feature 'say';
 my $result;
 
-
-use 5.010;
 use List::Util qw(sum);
 use Math::BigRat try => 'GMP';
 use ntheory qw(binomial bernfrac);
