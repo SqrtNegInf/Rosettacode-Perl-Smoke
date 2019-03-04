@@ -3,14 +3,14 @@
 #c# 2018-07-31 <RC
 #p# OK
 
-# Simple version[edit]
+use strict;
+use warnings;
+
 sub dir_is_empty_simple {!<$_[0]/*>}
 
 # This version however doesn't catch 'hidden' files that start with a dot.
 # May be good for quick one-liners or in some special cases when you are sure that there are no 'hidden' files or they doesn't play any role.
 # Unfortunalety, BSD glob() doesn't handle inverted character class. If it did, this pattern could be used: {.[^.],}* (this works well in bash). But it doesn't, so there's a
-
-# Thorough version[edit]
 
 use IO::Dir;
 sub dir_is_empty { !grep !/^\.{1,2}\z/, IO::Dir->new(@_)->read }
