@@ -3,6 +3,9 @@
 #c# 2018-07-31 <RC
 #p# OK
 
+use strict;
+use warnings;
+
 # The constant pragma allows you to create subroutines that always return the same value and that cannot be modified:
 
 use constant PI => 3.14159;
