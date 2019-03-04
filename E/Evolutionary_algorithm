@@ -5,9 +5,10 @@
 
 srand 123456;
 
+use strict;
+use warnings;
 use feature 'say';
 my $result;
-
 
 # This implementation usually converges in less than 70 iterations.
 
