@@ -3,7 +3,10 @@
 #c# 2018-10-24 >RC
 #p# OK
 
+use strict;
+use warnings;
 use feature 'say';
+my @res;
 
 use List::Util qw(none sum);
 
