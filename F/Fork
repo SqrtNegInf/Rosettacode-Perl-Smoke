@@ -3,12 +3,15 @@
 #c# 2018-08-07 <RC
 #p# OK
 
+use strict;
+use warnings;
+
 # Works with: Perl version 5.x
 # In the child code, you may have to re-open database handles and such.
     use Test::More; 
 
 FORK:
-if ($pid = fork()) {
+if (my $pid = fork()) {
     # parent code
     print "Parental unit: $pid\n";
 } elsif (defined($pid)) {
