@@ -3,6 +3,8 @@
 #c# 2018-09-27 >RC
 #p# OK
 
+use strict;
+use warnings;
 use feature 'say';
 
 package  Line; sub new { my ($c, $a) = @_; my $s = { P0 => $a->{P0}, u => $a->{u} } } # point / ray
