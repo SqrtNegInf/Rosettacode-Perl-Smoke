@@ -3,6 +3,8 @@
 #c# 2018-08-07 <>RC
 #p# OK
 
+use strict;
+use warnings;
 use feature 'say';
 my $result;
 
