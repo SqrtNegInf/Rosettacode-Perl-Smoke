@@ -3,9 +3,10 @@
 #c# 2018-08-06 <RC
 #p# OK
 
+use strict;
+use warnings;
 use feature 'say';
 my $result;
-
 
 # The Safe module (which is part of perl's standard distribution) is everything that one might want in a First Class Environment, and a bit more. The module's primary purpose is to provide a safe execution environment for untrustworthy code, and by doing so, it lends itself very well to this task's goal.
 # My use of the module is relatively straightforward.
