@@ -3,7 +3,10 @@
 #c# 2018-08-07 <RC
 #p# OK
 
+use strict;
+use warnings;
 use feature 'state';
+
 use DateTime;
 
 my @month_names = qw{
