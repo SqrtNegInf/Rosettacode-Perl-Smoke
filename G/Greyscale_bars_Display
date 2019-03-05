@@ -5,6 +5,9 @@
 #p# OK
 #f# RC file: Greyscale-bars-perl5.pgm
 
+use strict;
+use warnings;
+
 sub partition {
     my($all, $div) = @_; 
     my @marks = 0;
