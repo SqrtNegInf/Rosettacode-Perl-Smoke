@@ -3,6 +3,9 @@
 #c# 2018-10-21 >RC
 #p# OK
 
+use strict;
+use warnings;
+
 use File::Find qw(find);
 use File::Compare qw(compare);
 use Sort::Naturally;
@@ -42,7 +45,7 @@ sub find_dups {
     reverse nsort @results;
 }
 
-print $result = join '', find_dups('ref/dups');
+print my $result = join '', find_dups('ref/dups');
 #print $result = join '', find_dups(@ARGV);
 
 my $ref = <<'EOD';
