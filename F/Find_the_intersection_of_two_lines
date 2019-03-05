@@ -3,13 +3,14 @@
 #c# 2018-08-06 <RC
 #p# OK
 
+use strict;
+use warnings;
+no warnings qw(uninitialized);
 use feature 'say';
 my $result;
 
-
 # Translation of: C#
 # If warning are enabled the second print will issue a warning since we are trying to print out an undef
-
 
 sub intersect {
   my ($x1, $y1, $x2, $y2, $x3, $y3, $x4, $y4) = @_;
@@ -29,7 +30,7 @@ sub intersect {
 
 my ($ix, $iy) = intersect(4, 0, 6, 10, 0, 3, 10, 7);
 $result .= "$ix $iy\n";
-my ($ix, $iy) = intersect(4, 0, 6, 10, 0, 3, 10, 7.1);
+   ($ix, $iy) = intersect(4, 0, 6, 10, 0, 3, 10, 7.1);
 $result .= "$ix $iy\n";
 ($ix, $iy) = intersect(0, 0, 1, 1, 1, 2, 4, 5); # parallel, one blank for output
 $result .= "$ix $iy\n";
