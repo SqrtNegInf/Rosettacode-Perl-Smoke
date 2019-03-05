@@ -4,6 +4,8 @@
 #p# OK
 #n# just testing 'msb' and 'lsb'
 
+use strict;
+use warnings;
 use feature 'say';
 my $result;
 
@@ -45,15 +47,15 @@ sub table {
 my($base,$power) = @_;
     #my $digits = length sprintf("%d", $base ** $power); # '%.*d' didn't work?
     $result .= sprintf "%30s lsb msb\n", 'number';
-    for $p (0..$power) {
+    for my $p (0..$power) {
         my $x = $base ** $p;
         $result .= sprintf "%30d  %2d  %2d\n", $x, lsb($x), msb($x);
     }
 }
 
-table 42, 11;
+table(42, 11);
 $result .= "\n";
-table 1302, 6;
+table(1302, 6);
 say $result; 
 
 my $ref = <<'EOD';
