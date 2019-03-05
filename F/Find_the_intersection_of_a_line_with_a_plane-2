@@ -4,8 +4,9 @@
 #p# OK
 #n# possible to in-line the final calculation, but ugly
 
-use feature 'say';
+use strict;
 use warnings;
+use feature 'say';
 
 package Line;
 
@@ -30,8 +31,7 @@ sub new {
 package main;
 
 sub dotx {
-    *a = shift; *b = shift; my($s);
-    #our @a ; *a = shift; our @b ; *b = shift; my($s);
+    our @a ; *a = shift; our @b ; *b = shift; my($s);
     $s +=  $a[$_]*$b[$_] for 0..$#a;
     $s;
 } 
