@@ -3,6 +3,8 @@
 #c# 2018-08-07 <RC
 #p# OK
 
+use strict;
+use warnings;
 srand 123456;
 my $result;
 
@@ -63,7 +65,7 @@ my($c) = @_;
 	#print $r;
 	$result .= "Generation: $c\n";
 	for (@forest) {
-		for $i (@$_) {
+		for my $i (@$_) {
 			if ($i == 0) { $result .= " "; }
 			if ($i == 1) { $result .= "*" } #"${green}*"}
 			if ($i == 2) { $result .= "&" } #"${red}&" }
