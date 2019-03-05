@@ -6,7 +6,7 @@
 #n# strict and prototype don't get along (and prototype wasn't really doing much for us anyhow)
 
 use strict;
-use warnings;
+#use warnings;
 use feature 'say';
 
 #Maximum recursion depth is memory dependent.
