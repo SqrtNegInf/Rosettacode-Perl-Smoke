@@ -4,6 +4,8 @@
 #p# OK
 #n# any changes to 'Almost_prime-2' might affect this task
 
+use strict;
+use warnings;
 use feature 'say';
 my $result;
 
