@@ -2267,6 +2267,7 @@ File: F/Find_limit_of_recursion
 #c# 2018-08-06 <RC
 #p# OK
 #n# stop at 1E6, but could easily go on
+#n# strict and prototype don't get along (and prototype wasn't really doing much for us anyhow)
 
 File: F/Find_palindromic_numbers_in_both_binary_and_ternary_bases
 #!/usr/local/bin/perl
