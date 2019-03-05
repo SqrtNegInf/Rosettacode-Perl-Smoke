@@ -3,16 +3,20 @@
 #c# 2018-09-28 >RC
 #p# OK
 
+use strict;
+use warnings;
 use feature 'say';
+my @res;
 
 use File::Find;
 use List::Util qw(max);
 
 my %fsize;
-$dir = '/Users/dhoekman/perl6/Rosetta-Code/bench/2018-01-01-m';
+my $dir = '/Users/dhoekman/perl6/Rosetta-Code/bench/2018-01-01-m';
 find(\&fsize, $dir);
 
-$max = max($max,$_) for values %fsize;
+my($max,$size,$total) = (0,0,0);
+$max    = max($max,$_) for values %fsize;
 $total += $size while (undef,$size) = each %fsize;
 
 push @res, "File size distribution in bytes for directory: $dir\n";
@@ -22,7 +26,7 @@ for (0 .. max(keys %fsize)) {
 }
 push @res, "$total total files.";
 
-say $result = join "\n", @res;
+say my $result = join "\n", @res;
 
 sub histogram {
     my($max, $value, $width) = @_;
