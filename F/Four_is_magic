@@ -4,8 +4,12 @@
 #p# OK
 #n# Thundergnat fixed my bug
 
-use bignum;
+use strict;
+use warnings;
 use feature 'say';
+my $result;
+
+use bignum;
 
 use Lingua::EN::Numbers qw(num2en);
 
