@@ -6,6 +6,8 @@
 
 srand 123456;
 
+use strict;
+use warnings;
 use feature 'say';
 my $result;
 
@@ -30,5 +32,5 @@ $tries++, print "You guessed too ", ($_ == -1 ? "high" : "low"), ".\n"
 print "Correct! You guessed it after $tries tries.\n";
 
 use Test::More;
-ok $tgt == 10 and $tries == 3;
+ok $tgt == 10 && $tries == 3;
 done_testing();
