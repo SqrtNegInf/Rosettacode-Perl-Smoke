@@ -3,10 +3,10 @@
 #c# 2018-08-14 <RC
 #p# OK
 
+use strict;
+use warnings;
 use feature 'say';
 my $result;
-
-# Translation of: Perl6
 
 my @prisoner = 0 .. 40;
 my $k = 3;
