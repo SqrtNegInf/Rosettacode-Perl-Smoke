@@ -3,15 +3,14 @@
 #c# 2018-08-13 <RC
 #p# OK
 
+use strict;
+use warnings;
 use feature 'say';
 my $result;
 
 # Using Perl 5.18 on 64-bit Linux with use integer:
 
-use strict;
-use warnings;
 use integer;
-use feature 'say';
 
 $result .= "Testing 64-bit signed overflow:" . "\n";
 $result .= -(-9223372036854775807-1) . "\n";
