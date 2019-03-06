@@ -4,6 +4,8 @@
 #p# OK
 #f# RC file: julia_set.png
 
+use strict;
+use warnings;
 use feature 'say';
 my $result;
 
