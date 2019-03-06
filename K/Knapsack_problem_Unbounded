@@ -3,9 +3,10 @@
 #c# 2018-08-15 <RC
 #p# OK
 
+use strict;
+use warnings;
 use feature 'say';
 my $result;
-
 
 # Dynamic programming solution. Before you ask, no, it's actually slower for the given data set. See the alternate data set.
 
