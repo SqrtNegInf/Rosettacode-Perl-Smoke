@@ -3,7 +3,10 @@
 #c# 2018-08-14 <RC
 #p# OK
 
+use strict;
+use warnings;
 use feature 'say';
+my($result1,$result2);
 
 my $i;
 sub sum1 {
@@ -19,7 +22,6 @@ say $result1 = sum1(\$i, 1, 100, sub { 1 / $i });
 
 
 # Or you can take advantage of the fact that elements of the @_ are aliases of the original:
-my $i;
 sub sum2 {
     my (undef, $lo, $hi, $term) = @_; 
     my $temp = 0;
