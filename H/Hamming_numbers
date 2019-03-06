@@ -1,8 +1,10 @@
 #!/usr/local/bin/perl
 #u# http://rosettacode.org/wiki/Hamming_numbers
-#c# 2018-08-12 <RC
+#c# 2018-08-12 <RC, 2019-03-05 >RC
 #p# OK
 
+use strict;
+use warnings;
 use feature 'say';
 my $result;
 
@@ -28,7 +30,8 @@ sub ham_gen {
 	}
 }
 
-my ($h, $i) = ham_gen;
+my $h = ham_gen;
+my $i = 0;
 
 ++$i, $result .= $h->(). " " until $i > 20;
 $result .= "...\n";
