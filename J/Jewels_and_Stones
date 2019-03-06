@@ -3,11 +3,15 @@
 #c# 2018-09-06 >RC
 #p# OK
 
+use strict;
+#use warnings; # $S{$_} is sometimes undefined
 use feature 'say';
+my $result;
 
 sub count_jewels {
     my( $j, $s ) = @_;
-    my($c,%S);
+    my(%S);
+    my $c = 0;
 
     $S{$_}++     for split //, $s;
     $c += $S{$_} for split //, $j;
