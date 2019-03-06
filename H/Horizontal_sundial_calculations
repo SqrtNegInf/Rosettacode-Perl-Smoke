@@ -3,6 +3,8 @@
 #c# 2018-09-09 >RC
 #p# OK
 
+use strict;
+use warnings;
 use feature 'say';
 my $result;
 
@@ -23,15 +25,14 @@ my $latitude  = -4.95;
 my $longitude = -150.5;
 my $meridian  = -150;
 
-$lat_sin = sin( d2r($latitude) );
+my $lat_sin = sin( d2r($latitude) );
 $result .= 'Sine of latitude: ' . sprintf "%.4f\n", $lat_sin;
-$offset = $meridian - $longitude;
+my $offset = $meridian - $longitude;
 $result .= 'Longitude offset: ' . $offset . "\n";
 $result .= '=' x 48 . "\n";
 $result .= " Hour : Sun hour angle°: Dial hour line angle°\n";
 
-my @res;
-for $hour (-6 .. 6) {
+for my $hour (-6 .. 6) {
     my $sun_deg  = $hour * 15 + $offset;
     my $line_deg = r2d atan2( ( sin(d2r($sun_deg)) * $lat_sin ), cos(d2r($sun_deg)) );
     $result .= sprintf "%2d %s     %8.3f            %8.3f\n",
