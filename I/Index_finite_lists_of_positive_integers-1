@@ -3,7 +3,10 @@
 #c# 2018-09-07 >RC
 #p# OK
 
+use strict;
+use warnings;
 use feature 'say';
+my @res;
 
 #Here is a cheap solution using a base-11 encoding and string operations:
 
@@ -11,13 +14,13 @@ use bigint;
 use ntheory qw(todigits fromdigits todigitstring);
 
 sub rank   { join   '', fromdigits(join('a',@_), 11) }
-sub unrank { split 'a', todigitstring(@_[0],     11) }
+sub unrank { split 'a', todigitstring($_[0],     11) }
 
-push @res, join ' ', @n = qw<12 11 0 7 9 15 15 5 7 13 5 5>;
-push @res, $n = rank(@n);
+push @res, join ' ', my @n = qw<12 11 0 7 9 15 15 5 7 13 5 5>;
+push @res, my $n = rank(@n);
 push @res, join ' ', unrank $n;
 
-say $result = join "\n", @res;
+say my $result = join "\n", @res;
 
 my $ref = <<'EOD';
 12 11 0 7 9 15 15 5 7 13 5 5
