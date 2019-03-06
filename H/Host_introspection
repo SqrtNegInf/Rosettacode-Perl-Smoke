@@ -3,9 +3,10 @@
 #c# 2018-08-13 <RC
 #p# OK
 
+use strict;
+use warnings;
 use feature 'say';
 my $result;
-
 
 # Most basic example:
 
@@ -20,8 +21,8 @@ say $result .= "UV size: $Config{uvsize}, byte order: $Config{byteorder}";
 #    when (join '', reverse sort split '') { $end = 'big' }
 #    default { $end = 'mixed' }
 #}
-$end = (join '', sort split '') ? 'big' : 'little';
-say "UV size: $size, byte order: $order ($end-endian)";
+#$end = (join '', sort split '') ? 'big' : 'little';
+#say "UV size: $size, byte order: $order ($end-endian)";
 
 #UV size: 4, byte order: 1234 (little-endian)
 #UV size: 4, byte order: 3412 (mixed-endian)
