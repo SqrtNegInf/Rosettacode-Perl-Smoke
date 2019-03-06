@@ -3,13 +3,15 @@
 #c# 2018-08-13 <>RC
 #p# OK
 
+use strict;
+#use warnings;
 use feature 'say';
 my $result;
 
 # Works with: Perl version 5.x
 require v5.6.1;    # run time version check
-require 5.6.1;     # ditto
-require 5.006_001; # ditto; preferred for backwards compatibility
+#require 5.6.1;     # ditto
+#require 5.006_001; # ditto; preferred for backwards compatibility
 #To check if a variable exists, do a name lookup of it in the package symbol table:
 
 #$bloop = -123;   # uncomment this line to see the difference
@@ -80,9 +82,9 @@ $result .= "$num integers, sum = $sum\n";
 use 5.010;
 use Regexp::Common;
 use List::Util qw(sum);
-my @ints = grep { /^$RE{num}{int}$/ } map { $$_ // '' } values %::;
-my $num = @ints;
-my $sum = sum @ints;
+@ints = grep { /^$RE{num}{int}$/ } map { $$_ // '' } values %::;
+$num = @ints;
+$sum = sum @ints;
 say "$num integers, sum = $sum";
 # varies, no testing...
 
