@@ -429,7 +429,7 @@ B.......... Find_common_directory_path
 GS..T..D... Find_duplicate_files
 GS.....D... Find_first_and_last_set_bit_of_a_long_integer
 GS......... Find_largest_left_truncatable_prime_in_a_given_base
-!S......... Find_limit_of_recursion
+GS......... Find_limit_of_recursion
 GS......... Find_palindromic_numbers_in_both_binary_and_ternary_bases
 .......D... Find_the_intersection_of_a_line_with_a_plane
 GS..T...... Find_the_intersection_of_a_line_with_a_plane-1
@@ -457,7 +457,7 @@ GS......... Formal_power_series-2
 GS......... Formatted_numeric_output
 GS..T...... Forward_difference
 GS......... Four_bit_adder
-GS..T...... Four_is_magic
+!S..T...... Four_is_magic
 GS..T...... Four_is_the_number_of_letters_in_the_...
 GS....F.... Fractal_tree
 GS......... Fractran
