@@ -4,7 +4,10 @@
 #p# OK
 #n# the native/slow way, see -2 variant
 
+use strict;
+use warnings;
 use feature 'say';
+my @res;
 
 use bigint;
 
