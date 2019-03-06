@@ -8,6 +8,8 @@
 #n# xx file: kronecker-six-perl6.png
 #n# minor bug: an off-by-one error lurking, one extra row/column in each image
 
+use strict;
+use warnings;
 use feature 'say';
 
 use Imager;
@@ -34,16 +36,16 @@ sub kronecker_fractal {
     @kronecker
 }
 
-@vicsek = ( [0, 1, 0], [1, 1, 1], [0, 1, 0] );
-@carpet = ( [1, 1, 1], [1, 0, 1], [1, 1, 1] );
-@six    = ( [0,1,1,1,0], [1,0,0,0,1], [1,0,0,0,0], [1,1,1,1,0], [1,0,0,0,1], [1,0,0,0,1], [0,1,1,1,0] );
+my @vicsek = ( [0, 1, 0], [1, 1, 1], [0, 1, 0] );
+my @carpet = ( [1, 1, 1], [1, 0, 1], [1, 1, 1] );
+my @six    = ( [0,1,1,1,0], [1,0,0,0,1], [1,0,0,0,0], [1,1,1,1,0], [1,0,0,0,1], [1,0,0,0,1], [0,1,1,1,0] );
 
 for (['vicsek', \@vicsek, 4],
      ['carpet', \@carpet, 4],
      ['six',    \@six,    3]) {
-    ($name, $shape, $order) = @$_;
-    @img = kronecker_fractal( $order, @$shape );
-    $png = Imager->new(xsize => 1+@{$img[0]}, ysize => 1+@img);
+    my ($name, $shape, $order) = @$_;
+    my @img = kronecker_fractal( $order, @$shape );
+    my $png = Imager->new(xsize => 1+@{$img[0]}, ysize => 1+@img);
     cartesian {
         $png->setpixel(x => $_[0], y => $_[1], color => $img[$_[1]][$_[0]] ? [255, 255, 32] : [16, 16, 16]);
     } [0..@{$img[0]}-1], [0..$#img];
