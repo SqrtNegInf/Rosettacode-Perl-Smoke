@@ -3,6 +3,8 @@
 #c# 2018-08-12 <RC
 #p# OK
 
+use strict;
+use warnings;
 use feature 'say';
 my $result;
 
@@ -21,12 +23,12 @@ sub hashJoin {
     } @$table2;
 }
 
-@table1 = ([27, "Jonah"],
+my @table1 = ([27, "Jonah"],
            [18, "Alan"],
            [28, "Glory"],
            [18, "Popeye"],
            [28, "Alan"]);
-@table2 = (["Jonah", "Whales"],
+my @table2 = (["Jonah", "Whales"],
            ["Jonah", "Spiders"],
            ["Alan", "Ghosts"],
            ["Alan", "Zombies"],
