@@ -4,6 +4,8 @@
 #p# OK
 #n# returns files that contain *all* words
 
+use strict;
+use warnings;
 use feature 'say';
 my $result;
 
