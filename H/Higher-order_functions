@@ -3,8 +3,10 @@
 #c# 2018-08-12 <RC
 #p# OK
 
+use strict;
+use warnings;
 use feature 'say';
-my $result;
+my @res;
 
 sub another {
     # take a function and a value
@@ -46,11 +48,10 @@ sub first {shift->()}
 sub second {'second'}
 
 push @res, first \&second;
-
 push @res, first sub{'sub'};
 
+say my $result = join "\n", @res; 
 
-say $result = join "\n", @res; 
 my $ref = <<'EOD';
 atad
 atad
