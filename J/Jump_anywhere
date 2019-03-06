@@ -3,9 +3,10 @@
 #c# 2018-08-14 <RC
 #p# OK
 
+use strict;
+use warnings;
 use feature 'say';
 my $result;
-
 
 # Perl's goto LABEL and goto EXPR are a little too powerful to be safe. Use only under extreme duress (actually, not even then). goto &SUB is esoteric but much more innocuous and can occasionally be handy.
 
