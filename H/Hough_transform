@@ -4,6 +4,8 @@
 #p# OK
 #f# RC file: hough.png
 
+use strict;
+use warnings;
 use feature 'say';
 
 use Imager;
@@ -18,27 +20,27 @@ sub hough {
  
     $height = 2 * int $height/2;
  
-    $xsize = $im->getwidth();
-    $ysize = $im->getheight();
+    my $xsize = $im->getwidth();
+    my $ysize = $im->getheight();
  
-    $ht = Imager->new(xsize => $width, ysize => $height);
-    for $i (0..$height-1) { for my $j (0..$width-1) { $canvas[$i][$j] = 255 } } 
+    my $ht = Imager->new(xsize => $width, ysize => $height);
+    for my $i (0..$height-1) { for my $j (0..$width-1) { $canvas[$i][$j] = 255 } } 
 
     $ht->box(filled => 1, color => 'white');
  
-    $rmax = sqrt($xsize**2 + $ysize**2);
-    $dr   = 2 * $rmax / $height;
-    $dth  = pi / $width;
+    my $rmax = sqrt($xsize**2 + $ysize**2);
+    my $dr   = 2 * $rmax / $height;
+    my $dth  = pi / $width;
  
-    for $x (0..$xsize-1) {
-      for $y (0..$ysize-1) {
+    for my $x (0..$xsize-1) {
+      for my $y (0..$ysize-1) {
         my $col = $im->getpixel(x => $x, y => $y);
         my($r,$g,$b) = $col->rgba;
         next if $r>120; # && $g==255 && $b==255;
-        for $k (0..$width-1) {
-            $th = $dth*$k;
-            $r = ($x*cos($th) + $y*sin($th));
-            $iry = ($height/2 + int($r/$dr + 0.5));
+        for my $k (0..$width-1) {
+            my $th = $dth*$k;
+            my $r = ($x*cos($th) + $y*sin($th));
+            my $iry = ($height/2 + int($r/$dr + 0.5));
             $ht->setpixel(x => $k, y => $iry, color => [($canvas[$iry][$k]--) x 3]);
         }
       }
@@ -46,6 +48,6 @@ sub hough {
     return $ht;
 }
  
-$img = Imager->new(file => 'ref/pentagon.png');
-$ht  = hough($img);
+my $img = Imager->new(file => 'ref/pentagon.png');
+my $ht  = hough($img);
 $ht->write(        file => 'run/hough.png');
