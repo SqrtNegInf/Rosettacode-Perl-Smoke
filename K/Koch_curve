@@ -5,8 +5,12 @@
 #p# OK
 #f# RC file: koch_curve.svg
 
+use strict;
+use warnings;
+
 use SVG;
 use List::Util qw(max min);
+my(@X,@Y);
 
 use constant pi => 2 * atan2(1, 0);
 
@@ -15,9 +19,9 @@ my $koch = 'F--F--F';
 $koch =~ s/F/F+F--F+F/g for 1..5;
 
 # Draw the curve in SVG
-($x, $y) = (0, 0);
-$theta   = pi/3;
-$r       = 2;
+my($x, $y) = (0, 0);
+my$theta   = pi/3;
+my$r       = 2;
 
 for (split //, $koch) {
     if (/F/) {
@@ -30,15 +34,15 @@ for (split //, $koch) {
     elsif (/\-/) { $theta -= pi/3; }
 }
 
-$xrng =  max(@X) - min(@X);
-$yrng =  max(@Y) - min(@Y);
-$xt   = -min(@X)+10;
-$yt   = -min(@Y)+10;
-$svg = SVG->new(width=>$xrng+20, height=>$yrng+20);
-$points = $svg->get_path(x=>\@X, y=>\@Y, -type=>'polyline');
+my $xrng =  max(@X) - min(@X);
+my $yrng =  max(@Y) - min(@Y);
+my $xt   = -min(@X)+10;
+my $yt   = -min(@Y)+10;
+my $svg = SVG->new(width=>$xrng+20, height=>$yrng+20);
+my $points = $svg->get_path(x=>\@X, y=>\@Y, -type=>'polyline');
 $svg->rect(width=>"100%", height=>"100%", style=>{'fill'=>'black'});
 $svg->polyline(%$points, style=>{'stroke'=>'orange', 'stroke-width'=>1}, transform=>"translate($xt,$yt)");
 
-open  $fh, '>', 'run/koch_curve.svg';
+open my $fh, '>', 'run/koch_curve.svg';
 print $fh  $svg->xmlify(-namespace=>'svg');
 close $fh;
