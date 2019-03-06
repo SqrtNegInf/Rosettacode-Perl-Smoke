@@ -3,13 +3,10 @@
 #c# 2018-08-13 <RC
 #p# OK
 
-use feature 'say';
-my $result;
-
-
-use 5.10.0;
 use strict;
 use warnings;
+use feature 'say';
+my $result;
 
 sub horner(\@$){
 	my ($coef, $x) = @_;
