@@ -4,17 +4,19 @@
 #p# OK
 #n# version on RC is cleaner!
 
+use strict;
+use warnings;
 use feature 'say';
 
-use warnings;
 use utf8;
 binmode STDOUT, "utf8:";
 #use experimentals;
 
 # any word character in the ASCII range, as long as the first character is not a digit.
+my $allowed;
 my $plain = qr/^(?aa) (?!\d) \w+ $/x;
-for $i (0..0x7f) {
-    $c = chr($i);
+for my $i (0..0x7f) {
+    my $c = chr($i);
     $allowed .= $c if $c =~ /\w/;
 }
 
@@ -31,7 +33,7 @@ done_testing();
 exit;
 
 for (0..0x1ffff) {
-    $c = chr($_);
+    my $c = chr($_);
     print $c if $c =~ /\p{Word}/;
 }
 
