@@ -4,13 +4,12 @@
 #p# OK
 #n# minor changes, not on RC
 
+use strict;
+use warnings;
 use feature 'say';
 my $result;
 
-
 # Recursive solution with caching.
-
-use strict;
 
 my $raw = <<'TABLE';
 map     	9       150     1
