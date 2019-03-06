@@ -50,7 +50,6 @@ my $ref = <<'EOD';
 1691-th: 2125764000
 1000000-th: 519312780448388736089589843750000000000000000000000000000000000000000000000000000000
 EOD
-# The core module bigint (Math::BigInt) is very slow, even with the GMP backend. There are some common alternatives. Math::GMP is handy and takes about 15 seconds. Math::GMPz takes slightly more work but finishes in about 5 seconds.
 
 use Test::More;
 is ($result, $ref);
