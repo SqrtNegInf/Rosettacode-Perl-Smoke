@@ -25,7 +25,7 @@ sub magic {
     while () {
        $str .= cardinal($int) . " is ";
        if ($int == 4) {
-           $str .= "magic.\n";
+           $str .= "magic.";
            last
        } else {
            $int = length cardinal($int);
@@ -35,7 +35,7 @@ sub magic {
    ucfirst $str;
 }
 
-$result .= magic($_), "\n" for 0, 4, 6, 11, 13, 75, 337, -164, 9_876_543_209;
+$result .= magic($_) . "\n" for 0, 4, 6, 11, 13, 75, 337, -164, 9_876_543_209;
 
 say $result;
 
