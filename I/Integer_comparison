@@ -3,6 +3,8 @@
 #c# 2018-08-13 <RC
 #p# OK
 
+use strict;
+use warnings;
 use feature 'say';
 my $result;
 
@@ -32,7 +34,7 @@ sub test_num2 {
 # Get input, test and display
 #print "Enter two integers: ";
 
-%pairs = (
+my %pairs = (
  0 => 2,
  2 => 1,
  1 => 1,
