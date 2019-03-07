@@ -3,9 +3,12 @@
 #c# 2018-08-07 <RC
 #p# OK
 
-use Test::More;
+use strict;
+use warnings;
 use feature 'say';
 my $result;
+
+use Test::More;
 
 sub luhn_test
 {
