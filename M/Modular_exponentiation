@@ -4,6 +4,8 @@
 #p# OK
 #n# https://wikivisually.com/wiki/Modular_exponentiation -  Applied Cryptography by Bruce Schneier (this version not on RC)
 
+use strict;
+use warnings;
 use feature 'say';
 
 use bigint;
@@ -35,9 +37,9 @@ sub expmod_via_bruce {
 my $a = 2988348162058574136915891421498819466320163312926952423791023078876139;
 my $b = 2351399303373464486466122544523690094744975233415544072992656881240319;
 my $m = 10 ** 40;
-say $result1 = expmod($a, $b, $m);
-say $result2 = expmod_via_bruce($a, $b, $m);
-say $result3 = $a->bmodpow($b, $m);
+say my $result1 = expmod($a, $b, $m);
+say my $result2 = expmod_via_bruce($a, $b, $m);
+say my $result3 = $a->bmodpow($b, $m);
 say "Note that 'bmodpow' modifies the base: \$a = $a";
 
 use Test::More;
