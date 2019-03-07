@@ -3,18 +3,21 @@
 #c# 2018-10-09 >RC
 #p# OK
 
+use strict;
+use warnings;
 use feature 'say';
+my $result;
 
 srand 123456;
 
-$file = shift || 'ref/alice_oz.txt'; 
-$n    = shift || 2;
-$max  = shift || 200;
+my $file = shift || 'ref/alice_oz.txt'; 
+my $n    = shift || 2;
+my $max  = shift || 200;
  
 sub build_dict {
     my($n, @words) = @_;
     my %dict;
-    for $i (0 .. @words-$n) {
+    for my $i (0 .. @words-$n) {
         my @prefix;
         push @prefix, $words[$i+$_] for 0..$n-1;
         push @{$dict{ join ' ', @prefix }}, $words[$i+$n];
@@ -27,11 +30,11 @@ sub pick1 { return @_[ rand @_ ] }
 open F, "<$file"; my $text = <F>; close F;
 
 my @words = split ' ', $text;
-%dict = build_dict($n, @words);
+my %dict = build_dict($n, @words);
 
-$result = join ' ', @rotor = @words[0..$n-1];
+$result = join ' ', my @rotor = @words[0..$n-1];
 for (1..$max) {
-    $result .= ' ' . ($new = pick1( @{$dict{join ' ', @rotor}} ));
+    $result .= ' ' . (my $new = pick1( @{$dict{join ' ', @rotor}} ));
     shift @rotor;
     push @rotor, $new;
 }
