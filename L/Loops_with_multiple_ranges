@@ -3,7 +3,10 @@
 #c# 2018-09-15 >RC
 #p# OK
 
+use strict;
+use warnings;
 use feature 'say';
+my $result;
 
 use constant   one =>  1;
 use constant three =>  3;
@@ -26,6 +29,7 @@ sub commatize {
     $s = reverse $s;
 }
 
+my $sum = 0;
 for my $j (
     from_to_by(-three,3**3,three),
     from_to_by(-seven,seven,x),
