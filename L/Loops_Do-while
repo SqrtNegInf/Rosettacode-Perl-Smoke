@@ -3,8 +3,10 @@
 #c# 2018-08-17 <RC
 #p# OK
 
+use strict;
+use warnings;
 use feature 'say';
-my $result;
+my($result,$result2);
 
 my $val = 0;
 do {
@@ -13,7 +15,7 @@ do {
 } while ($val % 6);
 
 # do ... until (condition) is equivalent to do ... while (not condition).
-my $val = 0;
+$val = 0;
 do {
    $val++;
    $result2 .= "$val\n";
