@@ -1,9 +1,12 @@
 #!/usr/local/bin/perl
 #u# http://rosettacode.org/wiki/Last_letter-first_letter
-#c# 2018-08-14 <RC
+#c# 2018-08-14 <RC, 2019-03-06 >RC
 #p# OK
 
 srand 123456;
+
+use strict;
+use warnings;
 
 # This is rather 'one liner' code, not to be used in production.
 # The idea is to try all possible variants recursively.
@@ -12,6 +15,8 @@ srand 123456;
 # During the cycle it uses @w as stack;
 # @m keeps the longest sequence which is copied from @w;
 # to prevent the words from appearing twice, they are (temporarily) deleted from the structure keeping the value in a stack variable.
+
+my(%f,@m);
 
 /^(.).*(.)$/,$f{$1}{$_}=$2 for qw(
 audino bagon baltoy banette bidoof braviary bronzor carracosta charmeleon
@@ -26,26 +31,26 @@ tyrogue vigoroth vulpix wailord wartortle whismur wingull yamask
 
 sub poke
 {
+    our @w;
 	my $h = $f{$_[0]};
-	for my $w (keys %$h) {
-		my $v = $h->{$w};
-		delete $h->{$w};
-		push @w, $w;
+	for my $word (keys %$h) {
+		my $v = $h->{$word};
+		delete $h->{$word};
+		push @w, $word;
 		@m = @w if @w > @m;
 		poke($v);
 		pop @w;
-		$h->{$w} = $v;
+		$h->{$word} = $v;
 	}
 }
 
 poke($_) for keys %f;
 print @m.": @m\n";
 
-$ref = <<END;
+my $ref = <<END;
 23: machamp petilil landorus simisear rufflet trapinch haxorus scrafty yamask kricketune exeggcute emboar relicanth heatmor registeel loudred darmanitan nosepass seaking girafarig gabite emolga audino
 END
 
 use Test::More;
 is (scalar @m, 23);
-#is ($result, $ref);
 done_testing();
