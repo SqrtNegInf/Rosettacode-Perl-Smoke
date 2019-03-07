@@ -5,6 +5,8 @@
 #p# OK
 #n# command-line version
 
+use strict;
+use warnings;
 use feature 'say';
 
 use Perl6::GatherTake;
@@ -20,7 +22,7 @@ gather {
 	push @taken, take $a;
  
 	while () {
-	    for ($j = 0; $j < @rotor; $j++) {
+	    for (my $j = 0; $j < @rotor; $j++) {
 		    --$rotor[$j] or last;
 	    }
 	    if ($j < @rotor) {
@@ -38,9 +40,9 @@ gather {
 }
 
 # fiddle with user input
-$j = shift || usage();
-$k = shift || ',';
-$l = shift || 'lucky';
+my $j = shift || usage();
+my $k = shift || ',';
+my $l = shift || 'lucky';
 usage() unless $k =~ /,|-?\d+/;
 usage() unless $l =~ /^(even)?lucky$/i;
 sub usage { print "Args must be:  j [,|k|-k] [lucky|evenlucky]\n" and exit }
@@ -54,6 +56,7 @@ if ($k eq ',') {
 } elsif ($k > $j) { 
     print $lucky->[$_] . ' ' for $j..$k
 } elsif ($k < 0) {
+    my $i;
     while() { last if abs($k) < $lucky->[$i++] } # extend the array as needed
     print join ' ', grep { $_ >= $j and $_ <= abs($k) } @$lucky
 }
