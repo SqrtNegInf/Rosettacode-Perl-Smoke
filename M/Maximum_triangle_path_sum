@@ -3,13 +3,14 @@
 #c# 2018-08-18 <RC
 #p# OK
 
+use strict;
+use warnings;
 use feature 'say';
 my $result;
 
-use 5.10.0;
 use List::Util 'max';
 
-my @sum;
+my @sum = 0;
 while ($_ = <DATA>) {
 	my @x = split;
 	@sum = ($x[0] + $sum[0],
