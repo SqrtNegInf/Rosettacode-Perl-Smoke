@@ -3,6 +3,8 @@
 #c# 2018-08-16 <RC
 #p# OK
 
+use strict;
+use warnings;
 use feature 'say';
 my $output;
 
@@ -13,7 +15,8 @@ sub lis {
     # sort into piles
     foreach my $x (@_) {
 	# binary search
-	my $low = 0, $high = $#pileTops;
+	my $low = 0;
+    my $high = $#pileTops;
 	while ($low <= $high) {
 	    my $mid = int(($low + $high) / 2);
 	    if ($pileTops[$mid]{val} >= $x) {
