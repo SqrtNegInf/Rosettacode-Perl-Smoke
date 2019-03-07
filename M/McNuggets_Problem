@@ -3,7 +3,10 @@
 #c# 2018-11-01 >RC, 2018-11-15 <RC
 #p# OK
 
+use strict;
+use warnings;
 use feature 'say';
+my @res;
 
 use ntheory qw/forperm vecall vecmin/;
 
@@ -49,9 +52,9 @@ for my $counts ([6,9,20], [6,7,20], [1,3,20], [10,5,18], [5,17,44], [2,4,6]) {
     push @res, 'Maximum non-Mcnugget number using ' . join(', ', @$counts) . ' is: ' . Mcnugget_number($counts)
 }
 
-say $result = join "\n", @res;
+say my $result = join "\n", @res;
 
-$ref = <<'EOD';
+my $ref = <<'EOD';
 Maximum non-Mcnugget number using 6, 9, 20 is: 43
 Maximum non-Mcnugget number using 6, 7, 20 is: 29
 Maximum non-Mcnugget number using 1, 3, 20 is: 0
