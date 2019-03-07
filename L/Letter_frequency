@@ -3,6 +3,8 @@
 #c# 2018-08-15 <RC
 #p# OK
 
+use strict;
+use warnings;
 use feature 'say';
 my $result;
 
@@ -10,6 +12,7 @@ my $result;
 
 open F, '<', 'ref/word-count.txt';
 
+my %cnt;
 while ($_ = <F>) { $cnt{lc chop}++ while length }
 $result .= "$_: " . ($cnt{$_}//0) . "\n" for 'a' .. 'z';
 
