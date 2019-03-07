@@ -3,9 +3,12 @@
 #c# 2018-09-16 >RC
 #p# OK
 
+use strict;
+use warnings;
 use feature 'say';
+my $result;
 
-for $i (
+for my $i (
      [ -2,    2,    1], # Normal
      [ -2,    2,    0], # Zero increment
      [ -2,    2,   -1], # Increments away from stop value
@@ -16,7 +19,7 @@ for $i (
      [  2,    2,    0], # Start equal stop: zero increment
      [  0,    0,    0], # Start equal stop equal zero: zero increment
 ) {
-    $iter = gen_seq(@$i);
+    my $iter = gen_seq(@$i);
     $result .= sprintf "start: %3d  stop: %3d  incr: %3d | ", @$i;
     $result .= sprintf "%4s", &$iter for 1..10;
     $result .=  "\n";
@@ -24,9 +27,9 @@ for $i (
 
 sub gen_seq {
     my($start,$stop,$increment) = @_;
-    $n = 0;
+    my $n = 0;
     return sub { 
-        $term = $start + $n++ * $increment;
+        my $term = $start + $n++ * $increment;
         return $term > $stop ? '' : $term;
     }
 }
