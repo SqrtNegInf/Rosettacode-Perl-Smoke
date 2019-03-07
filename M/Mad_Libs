@@ -4,6 +4,10 @@
 #p# OK
 #=# RC pipe: he\nOscar\ngiraffe\n
 
+use strict;
+use warnings;
+my $result;
+
 #my $template = shift;
 #open my $IN, '<', $template or die $!;
 #my $story = do { local $/ ; <$IN> };
