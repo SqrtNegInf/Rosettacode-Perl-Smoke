@@ -3,6 +3,8 @@
 #c# 2018-08-15 <RC
 #p# OK
 
+use strict;
+use warnings;
 use feature 'say';
 my $result;
 
@@ -19,7 +21,7 @@ sub isleap1 {
 #Or more concisely:
 sub isleap2 { !($_[0] % 100) ? !($_[0] % 400) : !($_[0] % 4) }
 
-for $y (qw<2000 2004 2015 2016>) {
+for my $y (qw<2000 2004 2015 2016>) {
 $result .= isleap1($y) ? 'Y' : 'N';
 $result .= isleap2($y) ? 'Y' : 'N';
 }
