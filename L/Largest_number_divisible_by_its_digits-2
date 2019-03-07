@@ -5,16 +5,19 @@
 #n# this for base 16, see -1 for base 10
 #n# Danaj does speed-up, 'user' numbers go down: 42/68
 
+use strict;
+use warnings;
 use feature 'say';
+my @res;
+
 use bigint;   # Very slow, but consistent results even with 32-bit Perl
 #use Math::Utils qw(lcm);
 
 my $hex = 'FEDCBA987654321';                          # largest possible hex number
-$step = Math::BigInt::blcm(1..15);
-#$step = lcm(1..15);
-$initial = int(hex($hex) / $step) * $step;
+my $step = Math::BigInt::blcm(1..15);
+my $initial = int(hex($hex) / $step) * $step;
 
-for($num = $initial; $num > 0 ; $num -= $step) {      # only generate multiples of the lcm
+for(my $num = $initial; $num > 0 ; $num -= $step) {      # only generate multiples of the lcm
 
     my $test = sprintf '%x', $num;
     next if $test =~ /0/;                             # skip numbers containing 0
@@ -30,7 +33,7 @@ for($num = $initial; $num > 0 ; $num -= $step) {      # only generate multiples 
     last
 }
 
-say $result = join "\n", @res; exit;
+say my $result = join "\n", @res; exit;
 
 my $ref = <<'EOD';
 Found fedcb59726a1348
