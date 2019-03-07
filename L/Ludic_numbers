@@ -3,8 +3,10 @@
 #c# 2018-08-17 <RC
 #p# OK
 
+use strict;
+use warnings;
 use feature 'say';
-my $result;
+my @res;
 
 # The "ludic" subroutine caches the longest generated sequence so far. It also generates the candidates only if no candidates remain.
 
@@ -66,7 +68,7 @@ push @res, 'triplets < 250: ', join ' ',
                         map { '(' . join(' ',$_, $_ + 2, $_ + 6) . ')' }
                         sort { $a <=> $b } @triplet;
 
-say $result = join "\n", @res; 
+say my $result = join "\n", @res; 
 my $ref = <<'EOD';
 First 25:       1 2 3 5 7 11 13 17 23 25 29 37 41 43 47 53 61 67 71 77 83 89 91 97 107
 Count < 1000:   142
