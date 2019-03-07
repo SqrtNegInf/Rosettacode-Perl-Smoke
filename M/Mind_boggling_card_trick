@@ -6,9 +6,12 @@
 
 srand 123456;
 
+use strict;
+use warnings;
 use feature 'say';
+my $result;
 
-@deck = split '', 'RB' x 26;
+my @deck = split '', 'RB' x 26;
 $result .= trick(@deck);
 
 @deck = split '', 'RRBB' x 13;
@@ -60,7 +63,7 @@ sub swap {
 
 say $result;
 
-$ref = <<'END';
+my $ref = <<'END';
 Starting deck:               R B R B R B R B R B R B R B R B R B R B R B R B R B R B R B R B R B R B R B R B R B R B R B R B R B R B
 Red     pile:                B B B B B B B B B B B B B B B B B B B B B B B B B B
 Black   pile:                
