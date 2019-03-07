@@ -5,6 +5,8 @@
 #n# output rendered on RC, read last value as Morse code S-O-S
 #n# got my 'interesting' number via Perl 6: [+] <1 1 1 5 5 5 1 1 1> >>*<< (20 X**(^9).reverse)
 
+use strict;
+use warnings;
 use feature 'say';
 
 use ntheory qw/fromdigits todigitstring/;
@@ -25,6 +27,7 @@ sub cartouches {
 }
 
 sub glyphs {
+    no warnings qw(uninitialized);
     return 'Θ' unless $_[0] || $_[1];
     join '<br>', '●' x $_[0], ('───') x $_[1];
 }
@@ -38,13 +41,14 @@ sub mmod {
     return @nb;
 }
 
-for $n (qw<4005 8017 326205 886205 26960840421>) {
+my @output;
+for my $n (qw<4005 8017 326205 886205 26960840421>) {
     push @output, cartouches($n, map { [reverse mmod($_,5)] } mmod($n,20) );
 }
 
-$result = join "\n<br>\n", @output;
+my $result = join "\n<br>\n", @output;
 
-$ref = <<'END';
+my $ref = <<'END';
 {| style="border-collapse: separate; text-align: center; border-spacing: 3px 0px;"
 |+ 4005
 |-
