@@ -4,13 +4,16 @@
 #p# OK
 #n# base 10
 
+use strict;
+use warnings;
 use feature 'say';
+my $result;
 
 my $step = 9 * 8 * 7;                               # 504, interval between tests
 
 my $initial = int(9876432 / $step) * $step;         # largest 7 digit multiple of 504 < 9876432
 
-for($test = $initial; $test > 0 ; $test -= $step) { # decrement by 504
+for(my $test = $initial; $test > 0 ; $test -= $step) { # decrement by 504
     next if $test =~ /[05]/;                        # skip numbers containing 0 or 5
     next if $test =~ /(.).*\1/;                     # skip numbers with non unique digits
 
