@@ -3,7 +3,10 @@
 #c# 2018-09-25 >RC
 #p# OK
 
+use strict;
+use warnings;
 use feature 'say';
+my $result;
 
 use utf8;
 binmode STDOUT, "utf8:";
@@ -29,9 +32,9 @@ sub triples {
     @triples;
 }
 
-$n = 13;
+my $n = 13;
 say "Integer triangular triples for sides 1..$n:";
-for $angle (120, 90, 60) {
+for my $angle (120, 90, 60) {
    my @itt = triples($n,$angle);
    if ($angle == 60) { push @itt, "$_ $_ $_" for 1..$n }
    $result .= sprintf "Angle %3d° has %2d solutions: %s\n", $angle, scalar @itt, join ', ', nsort @itt;
@@ -49,12 +52,3 @@ EOD
 use Test::More;
 is ($result, $ref);
 done_testing();
-
-__END__
-
-=={{header|Perl}}==
-{{trans|Perl 6}}
-<lang perl></lang>
-{{out}}
-<pre></pre>
-
