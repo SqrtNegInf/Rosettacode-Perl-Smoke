@@ -3,9 +3,10 @@
 #c# 2018-08-17 <RC
 #p# OK
 
+use strict;
+use warnings;
 use feature 'say';
 my $result;
-
 
 # Using Math::GMP:
 use Math::GMP qw/:constant/;
