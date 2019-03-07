@@ -1,14 +1,14 @@
 #!/usr/local/bin/perl
 #u# http://rosettacode.org/wiki/Longest_increasing_subsequence
-#c# 2018-08-16 <RC
+#c# 2018-08-16 <RC, 2019-03-06 >RC
 #p# OK
 
+use strict;
+use warnings;
 use feature 'say';
 my $result;
 
-
 # Dynamic programming
-# Translation of: Perl 6
 
 sub lis {
     my @l = map [], 1 .. @_;
@@ -21,7 +21,7 @@ sub lis {
         }
         push @{$l[$i]}, $_[$i];
     }
-    my ($max, $l) = 0, [];
+    my ($max, $l) = (0, []);
     for (@l) {
         ($max, $l) = (scalar(@$_), $_) if @$_ > $max;
     }
