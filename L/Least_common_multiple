@@ -3,9 +3,10 @@
 #c# 2018-08-15 <RC
 #p# OK
 
+use strict;
+use warnings;
 use feature 'say';
 my $result;
-
 
 # Using GCD:
 sub gcd {
