@@ -3,12 +3,10 @@
 #c# 2018-08-18 <RC
 #p# OK
 
+use strict;
+use warnings;
 use feature 'say';
 my $result;
-
-
-# Modules
-# Library: ntheory
 
 #While normally one would use is_prob_prime, is_prime, or is_provable_prime, which will do a BPSW test and possibly more, we can use just the Miller-Rabin test if desired. For large values we can use an object (e.g. bigint, Math::GMP, Math::Pari, etc.) or just a numeric string.
 
