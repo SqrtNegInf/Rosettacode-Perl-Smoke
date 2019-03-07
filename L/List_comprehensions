@@ -4,6 +4,8 @@
 #p# OK
 #n# triples not unique
 
+use strict;
+use warnings;
 use feature 'say';
 my $result;
 
