@@ -4,6 +4,8 @@
 #p# OK
 #n# not using Perl 6 data, floating point...
 
+use strict;
+use warnings;
 use feature 'say';
 my $result;
 
@@ -30,17 +32,17 @@ sub mmult
 
 # This function takes two references to arrays of arrays and returns the product as a reference to a new anonymous array of arrays.
 
-@a = (
+my @a = (
    [1, 2],
    [3, 4]
 );
 
-@b = (
+my @b = (
    [-3, -8, 3],
    [-2,  1, 4]
 );
 
-$c = mmult(\@a,\@b);
+my $c = mmult(\@a,\@b);
 
 say $result = display($c);
 
