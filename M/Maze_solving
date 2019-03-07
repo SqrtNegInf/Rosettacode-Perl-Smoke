@@ -3,9 +3,12 @@
 #c# 2018-08-18 <RC
 #p# OK
 
-srand 123456;
-
+use strict;
+use warnings;
 use feature 'say';
+my $result;
+
+srand 123456;
 
 # This example includes maze generation code.
 
