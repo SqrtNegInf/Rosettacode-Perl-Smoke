@@ -3,11 +3,14 @@
 #c# 2018-10-21 >RC
 #p# OK
 
+use strict;
+use warnings;
 use feature 'say';
+my $result;
 
 use List::Util qw(sum);
 
-for $test (
+for my $test (
     [[1, 3, 5],
      [2, 4, 7],
      [1, 1, 0]],
@@ -33,8 +36,8 @@ sub lu {
     my $AP = mmult(\@P, \@a);
     my @L  = matrix_ident($n);
     my @U  = matrix_zero($n);
-    for $i (0..$n-1) {
-        for $j (0..$n-1) {
+    for my $i (0..$n-1) {
+        for my $j (0..$n-1) {
             if ($j >= $i) {
                 $U[$i][$j] =  $$AP[$i][$j] - sum map { $U[$_][$j] * $L[$i][$_] } 0..$i-1;
             } else {
@@ -49,10 +52,10 @@ sub pivotize {
     my(@m) = @_;
     my $size = +@m;
     my @id = matrix_ident($size);
-    for $i (0..$size-1) {
+    for my $i (0..$size-1) {
         my $max = $m[$i][$i];
         my $row = $i;
-        for $j ($i .. $size-2) {
+        for my $j ($i .. $size-2) {
             if ($m[$j][$i] > $max) {
                 $max = $m[$j][$i];
                 $row = $j;
@@ -67,8 +70,8 @@ sub matrix_zero  { my($n) = @_; map { [ (0) x $n ] } 0..$n-1 }
 sub matrix_ident { my($n) = @_; map { [ (0) x $_, 1, (0) x ($n-1 - $_) ] } 0..$n-1 }
 
 sub mmult {
-  local *a = shift;
-  local *b = shift;
+  our @a; local *a = shift;
+  our @b; local *b = shift;
   my @p = [];
   my $rows = @a;
   my $cols = @{ $b[0] };
@@ -84,7 +87,7 @@ sub mmult {
 sub say_it {
     my($message, @array) = @_;
     $result .= "$message\n";
-    $line = sprintf join("\n" => map join(" " => map(sprintf("%8.5f", $_), @$_)), @{+\@array})."\n";
+    my $line = sprintf join("\n" => map join(" " => map(sprintf("%8.5f", $_), @$_)), @{+\@array})."\n";
     $line =~ s/\.00000/      /g;
     $line =~ s/0000\b/    /g;
     $result .= "$line\n";
