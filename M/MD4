@@ -4,7 +4,10 @@
 #p# OK
 #n# in-lining the code from Digest::MD4, lightly edited for clarity
 
+use strict;
+use warnings;
 use feature 'say';
+my $result;
 
 sub md4(@) {
     my @input = grep { defined && length > 0 } split /(.{64})/s, join '', @_;
