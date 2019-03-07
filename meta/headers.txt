@@ -2727,7 +2727,7 @@ File: H/Hailstone_sequence-3.0
 File: H/Hamming_numbers
 #!/usr/local/bin/perl
 #u# http://rosettacode.org/wiki/Hamming_numbers
-#c# 2018-08-12 <RC
+#c# 2018-08-12 <RC, 2019-03-05 >RC
 #p# OK
 
 File: H/Handle_a_signal
@@ -3368,7 +3368,7 @@ File: L/Last_Friday_of_each_month
 File: L/Last_letter-first_letter
 #!/usr/local/bin/perl
 #u# http://rosettacode.org/wiki/Last_letter-first_letter
-#c# 2018-08-14 <RC
+#c# 2018-08-14 <RC, 2019-03-06 >RC
 #p# OK
 
 File: L/Law_of_cosines_-_triples
@@ -3506,7 +3506,7 @@ File: L/Longest_common_subsequence
 File: L/Longest_increasing_subsequence-1
 #!/usr/local/bin/perl
 #u# http://rosettacode.org/wiki/Longest_increasing_subsequence
-#c# 2018-08-16 <RC
+#c# 2018-08-16 <RC, 2019-03-06 >RC
 #p# OK
 
 File: L/Longest_increasing_subsequence-2
@@ -3945,7 +3945,7 @@ File: M/Monty_Hall_problem
 File: M/Morse_code
 #!/usr/local/bin/perl
 #u# http://rosettacode.org/wiki/Morse_code
-#c# 2019-01-22 >RC
+#c# 2019-01-22
 #p# OK
 #n# not on RC, no sound...
 
@@ -3980,6 +3980,7 @@ File: M/Move-to-front_algorithm
 File: M/Multi-dimensional_array
 #!/usr/local/bin/perl
 #u# http://rosettacode.org/wiki/RC_REMOTE
+#t# skiptest
 #c# 2019-02-RC >RC
 #p# OK
 
