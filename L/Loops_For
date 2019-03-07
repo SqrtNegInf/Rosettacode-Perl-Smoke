@@ -3,8 +3,10 @@
 #c# 2018-08-17 <RC
 #p# OK
 
+use strict;
+use warnings;
 use feature 'say';
-my $result;
+my($result1,$result2,$result3,$result4);
 
 for(my $x = 1; $x <= 5; $x++) {
   for(my $y = 1; $y <= $x; $y++) {
