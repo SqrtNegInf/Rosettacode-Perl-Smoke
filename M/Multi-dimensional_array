@@ -1,5 +1,6 @@
 #!/usr/local/bin/perl
 #u# http://rosettacode.org/wiki/RC_REMOTE
+#t# skiptest
 #c# 2019-02-RC >RC
 #p# OK
 
