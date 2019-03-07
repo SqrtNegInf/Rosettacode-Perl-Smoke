@@ -2,16 +2,16 @@
 This is perl 5, version 28, subversion 0 (v5.28.0) built for darwin-thread-multi-2level
 updating from RC…
 +------------> Perl: Good/Bad [1088/15]
-|+-----------> Smoke testing [956]
-||+----------> sKipping validation [137]
+|+-----------> Smoke testing [955]
+||+----------> sKipping validation [138]
 |||+---------> Interactive [47]
-||||+--------> Touched (modified by me) [230]
+||||+--------> Touched (modified by me) [232]
 |||||+-------> Random seed [92]
 ||||||+------> File output [58]
 |||||||+-----> Draft [218]
 ||||||||+----> Ignoring [33]
 |||||||||+---> Void (no local copy) [193]
-||||||||||+--> Un-implemented/reliable [187]
+||||||||||+--> Un-implemented/reliable [186]
 |||||||||||
 GS......... 100_doors-1
 GS......... 100_doors-2
@@ -457,7 +457,7 @@ GS......... Formal_power_series-2
 GS......... Formatted_numeric_output
 GS..T...... Forward_difference
 GS......... Four_bit_adder
-!S..T...... Four_is_magic
+GS..T...... Four_is_magic
 GS..T...... Four_is_the_number_of_letters_in_the_...
 GS....F.... Fractal_tree
 GS......... Fractran
@@ -509,7 +509,7 @@ G.K........ HTTPS_Authenticated
 G.K........ HTTPS_Client-authenticated
 GS......... Hailstone_sequence-1
 GS......... Hailstone_sequence-2
-GS......... Hamming_numbers
+GS..T...... Hamming_numbers
 G.KI....... Handle_a_signal
 GS......... Happy_numbers-1
 GS......... Happy_numbers-2
@@ -617,14 +617,14 @@ GS..T...... Kolakoski_sequence
 .......D.VU Kosaraju
 GS......... Kronecker_product
 GS..T.F.... Kronecker_product_based_fractals
-GS..T...... LU_decomposition
+!S..T...... LU_decomposition
 GS......... LZW_compression
 GS...R..... Langton%27s_ant
 GS......... Largest_int_from_concatenated_ints
 GS..T...... Largest_number_divisible_by_its_digits-1
 GS..T...... Largest_number_divisible_by_its_digits-2
 GS......... Last_Friday_of_each_month
-GS...R..... Last_letter-first_letter
+GS..TR..... Last_letter-first_letter
 GS..T...... Law_of_cosines_-_triples
 GS......... Leap_year
 GS......... Least_common_multiple
@@ -647,7 +647,7 @@ GS..T...... Long_primes
 GS.....D... Longest_Common_Substring
 GS.....D... Longest_common_prefix
 GS......... Longest_common_subsequence
-GS......... Longest_increasing_subsequence-1
+GS..T...... Longest_increasing_subsequence-1
 GS......... Longest_increasing_subsequence-2
 GS......... Longest_string_challenge
 GS..T...... Look-and-say_sequence
@@ -659,7 +659,7 @@ GS......... Loops_Downward_for
 GS......... Loops_For
 GS......... Loops_For_with_a_specified_step
 GS......... Loops_Foreach
-GS..T...... Loops_Increment_loop_index_within_loop_body
+!S..T...... Loops_Increment_loop_index_within_loop_body
 G.K........ Loops_Infinite
 GS......... Loops_N_plus_one_half
 GS...R..... Loops_Nested
@@ -728,12 +728,12 @@ GS...R..... Monte_Carlo_methods
 GS..T..D... Montgomery_reduction
 GS...R..... Monty_Hall_problem
 .......D.VU Morpion_solitaire
-GS..T...... Morse_code
+GS......... Morse_code
 GS.....D... Most_frequent_k_chars_distance
 G.KI....... Mouse_position-1
 G.KI....... Mouse_position-2
 GS......... Move-to-front_algorithm
-!S..T.....U Multi-dimensional_array
+G.K.T.....U Multi-dimensional_array
 .......D.VU Multidimensional_Newton-Raphson_method
 GS......... Multifactorial-1
 GS......... Multifactorial-2
@@ -997,7 +997,7 @@ GS......... SHA-256
 ........XV. SOAP
 ........XV. SQL-based_authentication
 .........VU Safe_addition
-.......D.VU Safe_mode
+.......D.V. Safe_mode
 GS..T...... Safe_primes_and_unsafe_primes
 GS..T...... Sailors,_coconuts_and_a_monkey_problem-1
 GS..T...... Sailors,_coconuts_and_a_monkey_problem-2
