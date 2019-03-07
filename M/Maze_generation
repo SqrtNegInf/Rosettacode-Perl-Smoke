@@ -3,6 +3,8 @@
 #c# 2018-08-18 <RC
 #p# OK
 
+use strict;
+#use warnings; # deep recursion is to be expected
 srand 123456;
 
 use feature 'say';
