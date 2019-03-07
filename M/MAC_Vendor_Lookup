@@ -3,11 +3,12 @@
 #c# 2018-08-17 <RC
 #p# OK
 
+use strict;
+use warnings;
 use feature 'say';
 my $result;
 
-use 5.018_002;
-use warnings;
+#use 5.018_002;
 use LWP;
 
 our $VERSION = 1.000_000;
