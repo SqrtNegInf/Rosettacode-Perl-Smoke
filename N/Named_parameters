@@ -4,9 +4,10 @@
 #p# OK
 #n# only testing 1st/simple example
 
+use strict;
+use warnings;
 use feature 'say';
 my $result;
-# my @res;
 
 # Perl has no non-experimental formal parameters. Instead, Perl subroutines access all of their arguments through the special array @_. You can easily implement named arguments by making your function interpret @_ (or part of it) as a hash.
 
