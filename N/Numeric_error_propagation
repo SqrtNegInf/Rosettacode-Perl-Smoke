@@ -3,10 +3,10 @@
 #c# 2018-08-20 <RC
 #p# OK
 
+use strict;
+#use warnings;
 use feature 'say';
 my $result;
-# my @res;
-
 
 # Following code keeps track of covariance between variables. Each variable with error contains its mean value and components of error source from a set of indepentent variables. It's more than what the task requires.
 
@@ -14,7 +14,6 @@ use utf8;
 binmode STDOUT, ":utf8";
 
 package ErrVar;
-use strict;
 
 # helper function, apply f to pairs (a, b) from listX and listY
 sub zip(&$$) {
@@ -116,7 +115,7 @@ sub _sub {
 	if ($swap) { ($x, $y) = ($y, $x) }
 	my ($x0, $y0) = (mean($x), mean($y));
 	my ($xv, $yv) = (vlist($x), vlist($y));
-	bless [$x0 - $y0, zip {$a - $b} $xv, $yv];
+	bless [$x0 - $y0, zip {$a - $b} $xv, $yv]; # warnings here
 }
 
 sub _mul {
@@ -127,7 +126,7 @@ sub _mul {
 	$xv = [ map($y0 * $_, @$xv) ];
 	$yv = [ map($x0 * $_, @$yv) ];
 
-	bless [$x0 * $y0, zip {$a + $b} $xv, $yv];
+	bless [$x0 * $y0, zip {$a + $b} $xv, $yv]; # warnings here
 }
 
 sub _div {
@@ -178,7 +177,7 @@ sub _log {
 	bless [ log($x0), [ map($_ / $x0, @$xv) ] ]
 }
 
-"If this package were to be in its own file, you need some truth value to end it like this.";
+#"If this package were to be in its own file, you need some truth value to end it like this.";
 
 package main;
 
