@@ -3,14 +3,12 @@
 #c# 2018-08-20 <RC
 #p# OK
 
+use strict;
+use warnings;
 use feature 'say';
 my $result;
-# my @res;
-
 
 # All versions process text until EOF, not dot.
-
-Output:
 
 #what,si,the;gninaem,of:efil.
 #Closure version[edit]
@@ -20,11 +18,12 @@ sub r
 	return sub { $result .= $c; $f->(); };
 }
 
-$r = sub {};
+my $r = sub {};
 
 #while (read STDIN, $_, 1) {
+my($n,$l);
 while (read DATA, $_, 1) {
-	$w = /^[a-zA-Z]$/;
+	my $w = /^[a-zA-Z]$/;
 	$n++ if ($w && !$l);
 	$l = $w;
 	if ($n & 1 || !$w) {
