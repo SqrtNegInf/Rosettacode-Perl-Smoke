@@ -3,6 +3,11 @@
 #c# 2018-10-03 >RC
 #p# OK
 
+use strict;
+use warnings;
+use feature 'say';
+my $result;
+
 my %swaps = (
     'she'  => 'he',
     'his'  => 'her',
@@ -18,15 +23,15 @@ sub gender_swap {
     $s;
 }
 
-$original = qq{She was this soul sherpa. She took his heart! They say she's going to put me on a shelf.\n};
-print $swapped  = gender_swap($original);
-print $reverted = gender_swap($swapped);
+my $original = qq{She was this soul sherpa. She took his heart! They say she's going to put me on a shelf.\n};
+print my $swapped  = gender_swap($original);
+print my $reverted = gender_swap($swapped);
 
 # adding {'him'  => 'her'}, this approach fails (starting with collision on key 'her')
-$x = "Her history with him, she says, helps his herding.\n";
+my $x = "Her history with him, she says, helps his herding.\n";
 print "\n";
-print $xs  = gender_swap($x);
-print        gender_swap($xs);
+print my $xs  = gender_swap($x);
+print           gender_swap($xs);
 
 use Test::More;
 is($original, $reverted);
