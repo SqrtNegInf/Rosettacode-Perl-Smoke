@@ -8,7 +8,9 @@
 # print unless $. >= $from && $. <= $to;
 # If you want a backup file (maybe because deleting lines from a file in place is a pretty silly idea), change the -i in the first line to -i.bak, for example.
 
-use strict ;
+use strict;
+use warnings;
+
 use Tie::File ;
 
 sub deletelines {
