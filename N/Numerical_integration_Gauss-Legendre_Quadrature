@@ -3,7 +3,10 @@
 #c# 2018-10-08 >RC
 #p# OK
 
+use strict;
+use warnings;
 use feature 'say';
+my $result;
 
 use List::Util qw(sum);
 
@@ -69,7 +72,7 @@ sub nodes {
 sub quadrature {
     our($n, $a, $b) = @_;
     sub scale { ($_[0] * ($b - $a) + $a + $b) / 2 }
-    %nodes = nodes($n);
+    my %nodes = nodes($n);
     ($b - $a) / 2 * sum map { $nodes{$_} * exp(scale($_)) } keys %nodes;
 }
 
