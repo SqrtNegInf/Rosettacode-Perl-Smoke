@@ -3,6 +3,8 @@
 #c# 2018-08-18 <RC
 #p# OK
 
+use strict;
+use warnings;
 use feature 'say';
 
 # Functions may return lists of values:
@@ -12,9 +14,9 @@ sub foo {
     return $a + $b, $a * $b;
 }
 
-@res = foo(2,3);
+my @res = foo(2,3);
 
-say $result = join "\n", @res;
+say my $result = join "\n", @res;
 my $ref = <<'EOD';
 5
 6
