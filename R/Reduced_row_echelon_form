@@ -3,9 +3,10 @@
 #c# 2018-08-19 <>RC
 #p# OK
 
+use strict;
+use warnings;
 use feature 'say';
 my $result;
-# my @res;
 
 # Translation of: Python
 # Note that the function defined here takes an array reference, not an array.
