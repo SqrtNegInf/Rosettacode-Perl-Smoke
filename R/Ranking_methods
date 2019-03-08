@@ -3,7 +3,10 @@
 #c# 2018-09-27 >RC
 #p# OK
 
+use strict;
+use warnings;
 use feature 'say';
+my $result;
 
 my %scores = (
     'Solomon' => 44,
