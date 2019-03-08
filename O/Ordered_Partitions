@@ -3,10 +3,10 @@
 #c# 2018-08-20 <RC
 #p# OK
 
+use strict;
+use warnings;
 use feature 'say';
 my $result;
-# my @res;
-
 
 # Code 1: threaded generator method. This code demonstrates how to make something like Python's
 # generators or Go's channels by using Thread::Queue. Granted, this is horribly inefficient, with constantly creating and killing threads and whatnot (every time a partition is created, a thread is made to produce the next partition, so thousands if not millions of threads live and die, depending on the problem size). But algorithms are often more naturally expressed in a coroutine manner -- for this example, "making a new partition" and "picking elements for a partition" can be done in separate recursions cleanly if so desired. It's about 20 times slower than the next code example, so there.
@@ -19,7 +19,8 @@ sub make_slices {
 
         my ($q, @part, $gen);
         $gen = sub {
-                my $pos = shift;        # where to start in the list
+                my $pos = shift || 0;        # where to start in the list
+
                 if (@part == $n) {
                         # we accumulated enough for a partition, emit them and
                         # wait for main thread to pick them up, then back up
