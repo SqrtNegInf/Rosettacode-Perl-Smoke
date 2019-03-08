@@ -37,6 +37,7 @@ sub lu {
     my @L  = matrix_ident($n);
     my @U  = matrix_zero($n);
     for my $i (0..$n-1) {
+        no warnings qw(uninitialized);
         for my $j (0..$n-1) {
             if ($j >= $i) {
                 $U[$i][$j] =  $$AP[$i][$j] - sum map { $U[$_][$j] * $L[$i][$_] } 0..$i-1;
