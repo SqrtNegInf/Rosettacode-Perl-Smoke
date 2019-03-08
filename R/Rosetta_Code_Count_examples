@@ -5,10 +5,11 @@
 #p# OK
 #n# LWP version not working
 
+use strict;
+use warnings;
 use feature 'say';
-#my $result;
+my $result;
 
-#Library: Mojolicious
 use v5.10;
 use Mojo::UserAgent;
 
