@@ -3,19 +3,23 @@
 #c# 2018-10-02 >RC
 #p# OK
 
+use strict;
+use warnings;
 use feature 'say';
+my $result;
 
 sub fulfill {
     my   @payloads;
     push @payloads, 'Payload#' . $_ for 0..5;
     my      @result;
-    push    @result, ref $_ eq 'ARRAY' ? [@payloads[@$_]] : @payloads[$_] for @{@_[0]};
+    push    @result, ref $_ eq 'ARRAY' ? [@payloads[@$_]] : $payloads[$_] for @{$_[0]};
     return [@result];
 }
 
 sub formatted {
     my $result;
-    $result .= ref $_ eq 'ARRAY' ? '[ "'. join('", "', @$_) . '" ], ' : qq{"$_"} for @{@_[0]};
+    no warnings qw(uninitialized);
+    $result .= ref $_ eq 'ARRAY' ? '[ "'. join('", "', @$_) . '" ], ' : qq{"$_"} for @{$_[0]};
     return '[ ' . $result . " ]\n";
 }
 
