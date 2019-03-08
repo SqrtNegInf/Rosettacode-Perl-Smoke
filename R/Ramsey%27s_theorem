@@ -3,25 +3,29 @@
 #c# 2018-09-22 >RC
 #p# OK
 
+use strict;
+use warnings;
 use feature 'say';
+my $result;
 
 use ntheory qw(forcomb);
 use Math::Cartesian::Product;
 
-$n = 17;
+my @a;
+my $n = 17;
 push @a, [(0) x $n] for 0..$n-1;
 $a[$_][$_] = '-' for 0..$n-1;
 
-for $x (cartesian {@_} [(0..$n-1)], [(1,2,4,8)]) {
-    $i = @$x[0];
-    $k = @$x[1];
-    $j = ($i + $k) % $n;
+for my $x (cartesian {@_} [(0..$n-1)], [(1,2,4,8)]) {
+    my $i = @$x[0];
+    my $k = @$x[1];
+    my $j = ($i + $k) % $n;
     $a[$i][$j] = $a[$j][$i] = 1;
 }
 
 forcomb {
     my $l = 0;
-    @i = @_;
+    my @i = @_;
     forcomb { $l += $a[ $i[$_[0]] ][ $i[$_[1]] ]; } (4,2);
     die "Bogus!" unless 0 < $l and $l < 6;
 } ($n,4);
