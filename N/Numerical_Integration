@@ -4,7 +4,10 @@
 #p# OK
 #n#  1326.250u 2.188s 22:12.39 99.7% - all 4 to slow to run daily, just doing first two
 
+use strict;
+use warnings;
 use feature 'say';
+my $result;
 
 sub leftrect {
     my($func, $a, $b, $n) = @_;
@@ -85,7 +88,7 @@ sub integrate {
 
 use Test::More;
 
-$ref1 = <<'END1';
+my $ref1 = <<'END1';
 $_ ** 3
    in [0..1] / 100
               exact result: 0.25
@@ -95,13 +98,13 @@ $_ ** 3
 composite trapezoidal rule: 0.250025
    quadratic simpsons rule: 0.25
 END1
-@res1 = integrate('$_ ** 3', 0, 1, 100, 0.25);
+my @res1 = integrate('$_ ** 3', 0, 1, 100, 0.25);
 say for @res1; say '';
 $result = join "\n", @res1;
 chomp $ref1;
 is($result, $ref1);
 
-$ref2 = <<'END2';
+my $ref2 = <<'END2';
 1 / $_
    in [1..100] / 1000
               exact result: 4.60517
@@ -111,7 +114,7 @@ $ref2 = <<'END2';
 composite trapezoidal rule: 4.605986
    quadratic simpsons rule: 4.60517
 END2
-@res2 = integrate('1 / $_', 1, 100, 1000, log(100));
+my @res2 = integrate('1 / $_', 1, 100, 1000, log(100));
 say for @res2; say '';
 $result = join "\n", @res2;
 chomp $ref2;
@@ -119,7 +122,7 @@ is($result, $ref2);
 
 done_testing(); exit;  # calculations below are slow
 
-$ref3 = <<'END3';
+my $ref3 = <<'END3';
 $_
    in [0..5000] / 5000000
               exact result: 12500000
@@ -129,13 +132,13 @@ $_
 composite trapezoidal rule: 12500000
    quadratic simpsons rule: 12500000
 END3
-@res3 = integrate('$_', 0, 5_000, 5_000_000, 12_500_000);
+my @res3 = integrate('$_', 0, 5_000, 5_000_000, 12_500_000);
 say for @res3; say '';
 $result = join "\n", @res3;
 chomp $ref3;
 is($result, $ref3);
 
-$ref4 = <<'END4';
+my $ref4 = <<'END4';
 $_
    in [0..6000] / 6000000
               exact result: 18000000
@@ -145,7 +148,7 @@ $_
 composite trapezoidal rule: 18000000
    quadratic simpsons rule: 18000000
 END4
-@res4 = integrate('$_', 0, 6_000, 6_000_000, 18_000_000);
+my @res4 = integrate('$_', 0, 6_000, 6_000_000, 18_000_000);
 say for @res4; say '';
 $result = join "\n", @res4;
 chomp $ref4;
