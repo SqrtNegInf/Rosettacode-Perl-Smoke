@@ -3,13 +3,16 @@
 #c# 2018-08-18 <RC
 #p# OK
 
+use strict;
+use warnings;
 use feature 'say';
+my $result;
 
 # When using Math::Complex perl automatically convert numbers when necessary.
 
 use Math::Complex;
 
-($x1,$x2) = solveQuad(1,2,3);
+my($x1,$x2) = solveQuad(1,2,3);
 
 say $result .= "x1 = $x1, x2 = $x2";
 
