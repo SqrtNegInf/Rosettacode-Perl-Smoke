@@ -3,9 +3,10 @@
 #c# 2018-08-18 <RC
 #p# OK
 
+use strict;
+use warnings;
 use feature 'say';
 my $result;
-# my @res;
 
 # Works with: Perl version 5.6.0
 #Library: Math::ComplexComplex
