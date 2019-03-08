@@ -5,7 +5,10 @@
 #p# OK
 #n# this version on RC
 
+use strict;
+use warnings;
 use feature 'say';
+my $result;
 
 use utf8;
 binmode STDOUT, ":utf8";
