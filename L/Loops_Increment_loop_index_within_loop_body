@@ -10,7 +10,7 @@ my $result;
 
 use ntheory qw(is_prime);
 
-my($n);
+my $n = 0;
 my $i = 42;
 while ($n < 42) {
     if (is_prime($i)) {
