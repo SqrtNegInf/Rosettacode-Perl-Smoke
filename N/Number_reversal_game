@@ -5,6 +5,8 @@
 
 srand 123456;
 
+use strict;
+use warnings;
 use feature 'say';
 my $result;
 
@@ -17,7 +19,7 @@ while ( join('', @jumble) eq '123456789' ) {
     @jumble = shuffle 1..9;
 }
 
-@steps = qw<6 4 2 8 6 4 2 4>; # DH change
+my @steps = qw<6 4 2 8 6 4 2 4>; # DH change
 
 until ( join('', @jumble) eq '123456789' ) {
     $turn++;
