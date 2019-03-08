@@ -3,6 +3,8 @@
 #c# 2018-08-19 <RC
 #p# OK
 
+use strict;
+#use warnings; # for 3 of 8 cases: Redundant argument in sprintf at N/Natural_sorting line 61
 use feature 'say';
 my $result;
 
