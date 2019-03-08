@@ -1,16 +1,14 @@
 #!/usr/local/bin/perl
 #u# http://rosettacode.org/wiki/Rock-paper-scissors
-#t# skiptest
 #c# 2018-08-18 <RC
 #p# OK
-#n# works, but can't spot randomness...
 
 srand 123456;
 
+use strict;
+use warnings;
 use feature 'say';
 my $output;
-# my @res;
-
 
 # The program supports "--quiet" option, which makes it suppress all in-game output (useful for batch testing). At the end of a game it displays detailed statistics.
 
@@ -43,7 +41,8 @@ package Game {
     }
 
     sub get_comp_choice {
-        my @keys = shuffle keys %human_choice;
+        my @keys = sort keys %human_choice;  # for testing
+        #my @keys = shuffle keys %human_choice;
         my $ch;
         my ( $prob, $rand ) = ( 0, rand );
         $ch = ( first { $rand <= ( $prob += ( $human_choice{ $_ } / $turns ) ) } @keys )
@@ -113,9 +112,9 @@ sub greet {
       . "Enter empty line or 'quit' to quit\n";
 }
 
-    sub print_next_line {
-        $output .= 'Your choice: ';
-    }
+sub print_next_line {
+    $output .= 'Your choice: ';
+}
 
     sub get_input {
         my $input = <DATA>;
@@ -129,17 +128,17 @@ sub greet {
         :                               'error';
     }
 
-    sub describe_turn_result {
-        my ( $human_ch, $comp_ch, $result ) = @_;
-        $output .= "You chose \u$human_ch, I chose \u$comp_ch. $result\n";
-    }
+sub describe_turn_result {
+    my ( $human_ch, $comp_ch, $result ) = @_;
+    $output .= "You chose \u$human_ch, I chose \u$comp_ch. $result\n";
+}
 
-    main();
+main();
 
-    #Example input can be generated as follows:
-    # perl -e '@c=qw(r p s); for(1..10000){ print $c[ rand() < 0.75 ? 0 : int rand(2) + 1 ], "\n" }' | perl rps.pl --quiet
+#Example input can be generated as follows:
+# perl -e '@c=qw(r p s); for(1..10000){ print $c[ rand() < 0.75 ? 0 : int rand(2) + 1 ], "\n" }' | perl rps.pl --quiet
 
-    say $output; 
+say $output;
 
 my $ref = <<'EOD';
 Welcome to the Rock-Paper-Scissors game!
@@ -151,9 +150,9 @@ Your choice: You chose Rock, I chose Paper. I win!
 Your choice: You chose Rock, I chose Paper. I win!
 Your choice: You chose Scissors, I chose Paper. You win!
 Your choice: You chose Rock, I chose Paper. I win!
+Your choice: You chose Rock, I chose Paper. I win!
 Your choice: You chose Rock, I chose Rock. Draw!
-Your choice: You chose Rock, I chose Rock. Draw!
-Your choice: You chose Rock, I chose Rock. Draw!
+Your choice: You chose Rock, I chose Paper. I win!
 Your choice: You chose Rock, I chose Rock. Draw!
 Your choice: You chose Rock, I chose Paper. I win!
 Your choice: You chose Rock, I chose Paper. I win!
@@ -163,24 +162,24 @@ Your choice: You chose Rock, I chose Paper. I win!
 Your choice: You chose Rock, I chose Paper. I win!
 Your choice: You chose Paper, I chose Paper. Draw!
 Your choice: You chose Scissors, I chose Paper. You win!
-Your choice: You chose Rock, I chose Rock. Draw!
 Your choice: You chose Rock, I chose Paper. I win!
+Your choice: You chose Rock, I chose Rock. Draw!
 Your choice: 
 You chose:
   rock     = 17 times,
   paper    = 1 times,
   scissors = 2 times,
 I chose:
-  rock     = 5 times,
-  paper    = 14 times,
+  rock     = 3 times,
+  paper    = 16 times,
   scissors = 1 times,
 Turns: 20
-I won: 11, you won: 3, draws: 6
+I won: 13, you won: 3, draws: 4
 EOD
 
 use Test::More;
-#is ($output, $ref);
-#done_testing();
+is ($output, $ref);
+done_testing();
 
 __END__
 r
