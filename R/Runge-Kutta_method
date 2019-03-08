@@ -3,9 +3,10 @@
 #c# 2018-08-18 <RC
 #p# OK
 
+use strict;
+use warnings;
 use feature 'say';
 my $result;
-
 
 # There are many ways of doing this. Here we define the runge_kutta function
 # as a function of 
