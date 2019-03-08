@@ -3,7 +3,10 @@
 #c# 2018-08-31 >RC
 #p# OK
 
+use strict;
+use warnings;
 use feature 'say';
+my $result;
 
 sub convert {
     my($magnitude, $unit) = @_;
@@ -43,7 +46,7 @@ sub sigdig {
     $sig++ if $match =~ /\./;
     my $digits = substr $match, 0, $sig;
     my $nextd  = substr $match, $sig, 1;
-    $digits =~ s/(.)$/{1+$1}/e if $nextd > 5;
+    $digits =~ s/(.)$/{1+$1}/e if $nextd && $nextd > 5;
     return $prefix . $digits;
 }
 
