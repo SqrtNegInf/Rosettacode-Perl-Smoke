@@ -4239,6 +4239,7 @@ File: O/Old_lady_swallowed_a_fly
 #u# http://rosettacode.org/wiki/Old_lady_swallowed_a_fly
 #c# 2018-08-20 <RC
 #p# OK
+#n# some minor tweaks to deal with undefined $c
 
 File: O/One-dimensional_cellular_automata
 #!/usr/local/bin/perl
@@ -4293,6 +4294,7 @@ File: O/Order_disjoint_list_items
 #u# http://rosettacode.org/wiki/Order_disjoint_list_items
 #c# 2018-08-20 <RC
 #p# OK
+#n# $h{$_}-- > 0 has problem with uninit values, not sure why
 
 File: O/Order_two_numerical_lists
 #!/usr/local/bin/perl
@@ -5203,10 +5205,8 @@ File: R/Reverse_words_in_a_string
 File: R/Rock-paper-scissors
 #!/usr/local/bin/perl
 #u# http://rosettacode.org/wiki/Rock-paper-scissors
-#t# skiptest
 #c# 2018-08-18 <RC
 #p# OK
-#n# works, but can't spot randomness...
 
 File: R/Roman_numerals_Decode
 #!/usr/local/bin/perl
