@@ -3,17 +3,22 @@
 #c# 2018-10-12 >RC
 #p# OK
 
+use strict;
+use warnings;
 use feature 'say';
+my $result;
 
 use bignum;
 
-$max  = 1000;
+my $remaining;
+my $max  = 1000;
 $remaining += $_ for 1..$max;
 #$remaining = $max*($max/2) + $max/2;
 
 my @recamans = 0;
 my $previous = 0;
 
+my(%seen,$term,$dup);
 while ($remaining > 0) {
    $term++;
    my $this = $previous - $term;
