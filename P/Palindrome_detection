@@ -3,9 +3,10 @@
 #c# 2018-08-11 <RC
 #p# OK
 
+use strict;
+use warnings;
 use feature 'say';
 my $result;
-
 
 # There is more than one way to do this.
 # 
@@ -21,9 +22,6 @@ my $result;
 
 # Palindrome.pm
 #package Palindrome;
-
-use strict;
-use warnings;
 
 #use Exporter 'import';
 #our @EXPORT = qw(palindrome palindrome_c palindrome_r palindrome_e);
