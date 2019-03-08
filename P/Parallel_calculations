@@ -3,6 +3,9 @@
 #c# 2018-07-06 <RC
 #p# OK
 
+use strict;
+use warnings;
+use feature 'say';
 my $result;
 
 use ntheory qw/factor vecmax/;
