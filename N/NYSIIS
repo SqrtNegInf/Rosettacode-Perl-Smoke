@@ -3,7 +3,10 @@
 #c# 2018-10-12 >RC
 #p# OK
 
+use strict;
+use warnings;
 use feature 'say';
+my @res;
 
 # This implementation removes common name suffixes similar to the reference implementation, even though it is not specified in the task description or on the linked NYSIIS page. This algorithm isn't too friendly to certain French kings. :)
 
@@ -59,7 +62,7 @@ for (
     push @res, sprintf "%10s,  %s", $_, $nysiis;
 }
 
-say $result = join "\n", @res;
+say my $result = join "\n", @res;
 
 my $ref = <<'END';
     knight,  NAGT
