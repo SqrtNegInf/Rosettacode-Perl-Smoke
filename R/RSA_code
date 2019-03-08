@@ -3,15 +3,21 @@
 #c# 2018-10-14 >RC
 #p# OK
 
+use strict;
+use warnings;
+use feature 'say';
+my $result;
+
 use bigint;
 
 #No blocking here. Algorithm doesn't really work if either red or black text begins with 'A'.
 
-$n = 9516311845790656153499716760847001433441357;
-$e = 65537;
-$d = 5617843187844953170308463622230283376298685;
+my $n = 9516311845790656153499716760847001433441357;
+my $e = 65537;
+my $d = 5617843187844953170308463622230283376298685;
  
 package Message {
+    my %code;
     my @alphabet;
     push @alphabet, $_ for 'A' .. 'Z', ' ';
     my $rad = +@alphabet;
@@ -52,12 +58,12 @@ package Message {
 
 my $secret_message = "ROSETTA CODE";
 
-$numeric_message  = Message::encode $secret_message;
-$numeric_cipher   = Message::expmod $numeric_message, $e, $n;
-$text_cipher      = Message::decode $numeric_cipher;
-$numeric_cipher2  = Message::encode $text_cipher;
-$numeric_message2 = Message::expmod $numeric_cipher2, $d, $n;
-$secret_message2  = Message::decode $numeric_message2;
+my $numeric_message  = Message::encode $secret_message;
+my $numeric_cipher   = Message::expmod $numeric_message, $e, $n;
+my $text_cipher      = Message::decode $numeric_cipher;
+my $numeric_cipher2  = Message::encode $text_cipher;
+my $numeric_message2 = Message::expmod $numeric_cipher2, $d, $n;
+my $secret_message2  = Message::decode $numeric_message2;
 
 print <<"EOT";
 Secret message is $secret_message
