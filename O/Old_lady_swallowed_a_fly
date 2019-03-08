@@ -2,7 +2,10 @@
 #u# http://rosettacode.org/wiki/Old_lady_swallowed_a_fly
 #c# 2018-08-20 <RC
 #p# OK
+#n# some minor tweaks to deal with undefined $c
 
+use strict;
+use warnings;
 use feature 'say';
 my $result;
 
@@ -25,10 +28,12 @@ my $e = $s."ed";
 my $t = "There was an old lady who $e a ";
 local $_ = $t."But I don't know why she $e the fly;\nPerhaps she'll die!\n\n";
 
-my ($a, $b, $c, $d);
+my ($a, $b, $d);
+my $c = '';
 while (my $x = shift @animals) {
 	s/$c//;
 	($a, $b, $c) = split('/', $x);
+    $c = '' unless $c;
 	$d = " the $a";
 
 	$c =~ s/;/ she $e$d;\n/;
