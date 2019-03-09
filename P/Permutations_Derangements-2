@@ -3,7 +3,10 @@
 #c# 2018-08-21 <RC
 #p# OK
 
+use strict;
+use warnings;
 use feature 'say';
+my $result;
 
 # Using a module[edit]
 use ntheory ":all";
