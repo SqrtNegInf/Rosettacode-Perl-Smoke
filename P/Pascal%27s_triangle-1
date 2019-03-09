@@ -4,7 +4,11 @@
 #p# OK
 #n# put Tartaglia code into -2 task?
 
+use strict;
+use warnings;
 use feature 'say';
+my($result1,$result2);
+
 
 # These functions perform as requested in the task: they print out the first n lines. If n <= 0, they print nothing. The output is simple (no fancy formatting).
 
