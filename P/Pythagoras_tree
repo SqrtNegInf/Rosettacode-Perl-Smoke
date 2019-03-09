@@ -4,6 +4,8 @@
 #p# OK
 #f# RC file: pythagoras_tree.png
 
+use strict;
+use warnings;
 use feature 'say';
 my $result;
 
