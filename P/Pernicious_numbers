@@ -3,7 +3,10 @@
 #c# 2018-08-21 <RC
 #p# OK
 
+use strict;
+use warnings;
 use feature 'say';
+my($result,$result1);
 
 # Translation of: C
 
@@ -33,7 +36,7 @@ $result .= join(' ', @p) . "\n";
 # Alternately, generating the same output using a method similar to Pari/GP:
 # Library: ntheory
 use ntheory qw/is_prime hammingweight/;
-my $i = 1;
+$i = 1;
 my @pern = map { $i++ while !is_prime(hammingweight($i)); $i++; } 1..25;
 $result1 .= "@pern\n";
 $result1 .= join(" ", grep { is_prime(hammingweight($_)) } 888888877 .. 888888888). "\n";
