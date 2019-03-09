@@ -64,12 +64,9 @@ sub uSeq
 #Returns an array with two elements: [0] user's seq, [1] random computer seq.
 sub compFirst
 {
-    my $cSeq;
+    my $cSeq = '';
     #Randomly draw a sequence of 3
-    for(my $i = 0; $i < 3; $i++)
-    {
-        $cSeq = $cSeq . convert();
-    }
+    for(my $i = 0; $i < 3; $i++) { $cSeq .= convert() }
 
     $result .=("The computer guesses first:\ncomp- $cSeq\n");
     my $uSeq = uSeq();
@@ -98,10 +95,10 @@ sub userFirst
 sub flipCoin
 {
     my ($uSeq, $cSeq) = @_;
-    my $coin;
+    my $coin = '';
     while(1)
     {
-        $coin = $coin . convert();
+        $coin .= convert();
         if($coin =~ m/$uSeq/)
         {
             $result .=("The sequence of tosses was: $coin\n");
