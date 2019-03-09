@@ -3,11 +3,15 @@
 #c# 2018-08-16 <RC
 #p# OK
 
+use strict;
+use warnings;
 use feature 'say';
 my $result;
 
 sub string_sieve {
-  my ($n, $i, $s, $d, @primes) = (shift, 7);
+  my($n) = shift;
+  my $i  = 7;
+  my ($s, $d, @primes);
 
   local $_ = '110010101110101110101110111110' .
              '101111101110101110101110111110' x ($n/30);
