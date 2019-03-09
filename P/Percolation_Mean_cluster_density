@@ -3,11 +3,15 @@
 #c# 2019-01-RC >RC
 #p# OK
 
+use strict;
+use warnings;
 use feature 'say';
+my @res;
 
 srand 123456;
 
-$fill = 'x';
+my(%D,@perc,$i);
+my $fill = 'x';
 $D{$_} = $i++ for qw<DeadEnd Up Right Down Left>;
 
 sub deq { defined $_[0] && $_[0] eq $_[1] }
@@ -74,8 +78,8 @@ for my $row (@perc) {
 
 push @res, sprintf  "𝘱 = 0.5, 𝘕 = 15, 𝘒 = %.4f", $K;
  
-$trials = 5;
-for $N (10, 30, 100, 300, 1000) {
+my $trials = 5;
+for my $N (10, 30, 100, 300, 1000) {
     my $total = 0;
     $total += perctest($N) for 1..$trials;
     push @res, sprintf "𝘱 = 0.5, trials = $trials, 𝘕 = %4d, 𝘒 = %.4f", $N, $total / $trials;
