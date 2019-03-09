@@ -3,10 +3,10 @@
 #c# 2018-08-12 <RC
 #p# OK
 
-# Works with: Perl version 5.10
-
+use strict;
 use warnings;
-use feature qw{ say };
+use feature 'say';
+my @res;
 
 my $string = '123456789';
 my $length = length $string;
@@ -66,7 +66,7 @@ push @res, $n;
 push @res, 'Show the ten highest numbers that can be expressed';
 push @res, $_ for (sort { $b <=> $a } keys %count)[0 .. 9];
 
-say $result = join "\n", @res; 
+say my $result = join "\n", @res; 
 
 my $ref = <<'EOD';
 Show all solutions that sum to 100
