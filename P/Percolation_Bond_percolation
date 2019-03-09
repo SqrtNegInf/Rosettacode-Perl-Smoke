@@ -5,13 +5,17 @@
 
 srand 123456;
 
+use strict;
+use warnings;
 use feature 'say';
+my $result;
 
 # Starts "filling" from the top left. Fluid flow favours directions in Down, Left, Right, Up order. I interpreted p to be porosity, so small p mean low permeability, large p means high permeability.
 
 my @bond;
 my $grid = 10;
 my $water = '▒';
+my(%D,$i);
 $D{$_} = $i++ for qw<DeadEnd Up Right Down Left>;
 
 sub percolate {
