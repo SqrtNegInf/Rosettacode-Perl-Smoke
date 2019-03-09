@@ -3,7 +3,10 @@
 #c# 2018-08-21 <RC
 #p# OK
 
+use strict;
+use warnings;
 use feature 'say';
+my $result;
 
 # Functions[edit]
 sub perf1 {
@@ -25,9 +28,9 @@ sub perf2 {
     $n == sum(0, grep {$n % $_ == 0} 1..$n-1);
 }
 
-for $i (1..1000) { $result .= "$i " if '' ne perf1($i) }
+for my $i (1..1000) { $result .= "$i " if '' ne perf1($i) }
 $result .= "\n";
-for $i (1..1000) { $result .= "$i " if '' ne perf2($i) }
+for my $i (1..1000) { $result .= "$i " if '' ne perf2($i) }
 $result .= "\n";
 
 # Modules[edit]
