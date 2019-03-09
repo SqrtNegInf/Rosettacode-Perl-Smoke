@@ -5,12 +5,17 @@
 
 srand 123456;
 
+use strict;
+use warnings;
+use feature 'say';
+my($result1,$result2);
+
 my $block = '▒';
 my $water = '+';
 my $pore  = ' ';
 my $grid  = 15;
 my @site;
-
+my(%D,$i);
 $D{$_} = $i++ for qw<DeadEnd Up Right Down Left>;
 
 sub deq { defined $_[0] && $_[0] eq $_[1] }
