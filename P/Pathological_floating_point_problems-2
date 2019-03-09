@@ -3,24 +3,27 @@
 #c# 2018-08-25 >RC
 #p# OK
 
+use strict;
+use warnings;
 use feature 'say';
+
 use bignum qw(bexp e);
 
 # cf [[Calculating_the_value_of_e#Perl|Calculating the value of e]]
 
-$e       = bexp(1,43);
-$years   = 25;
-$balance = $e - 1;
+my $e       = bexp(1,43);
+my $years   = 25;
+my $balance = $e - 1;
 
 say "Starting balance, \$(e-1): \$$balance";
-for $i (1..$years) { $balance = $i * $balance - 1 }
-say $result2 = sprintf "After year %d, you will have \$%1.15g in your account.", $years, $balance;
+for my $i (1..$years) { $balance = $i * $balance - 1 }
+say my $result1 = sprintf "After year %d, you will have \$%1.15g in your account.", $years, $balance;
 
 $a = 77617;
 $b = 33096;
-say $result3 = sprintf "%0.16g", 333.75*$b**6 + $a**2 * ( 11*$a**2 * $b**2 - $b**6 - 121*$b**4 - 2) + 5.5*$b**8 + $a/(2*$b);
+say my $result2 = sprintf "%0.16g", 333.75*$b**6 + $a**2 * ( 11*$a**2 * $b**2 - $b**6 - 121*$b**4 - 2) + 5.5*$b**8 + $a/(2*$b);
 
 use Test::More;
-is($result2,'After year 25, you will have $0.0399387296732302 in your account.');
-is($result3,-0.8273960599468214);
+is($result1,'After year 25, you will have $0.0399387296732302 in your account.');
+is($result2,-0.8273960599468214);
 done_testing();
