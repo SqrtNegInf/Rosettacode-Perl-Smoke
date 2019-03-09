@@ -3,7 +3,10 @@
 #c# 2018-08-21 <RC
 #p# OK
 
+use strict;
+use warnings;
 use feature 'say';
+my $result;
 
 # Alternative Iterative version[edit]
 # This is based on the perl6 recursive version, but without recursion.
