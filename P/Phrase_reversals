@@ -3,8 +3,10 @@
 #c# 2018-08-20 <RC
 #p# OK
 
+use strict;
+use warnings;
 use feature 'say';
-my $result;
+my @res;
 
 use feature 'say';
 my $s = "rosetta code phrase reversal";
@@ -17,7 +19,7 @@ push @res, "3. Word-order reversed : ". join " ", reverse split / /,$s;
 # Or, using a regex:
 push @res, "2. Each word reversed  : ". $s =~ s/[^ ]+/reverse $&/gre;
 
-say $result = join "\n", @res;
+say my $result = join "\n", @res;
 
 my $ref = <<'EOD';
 0. Input               : rosetta code phrase reversal
