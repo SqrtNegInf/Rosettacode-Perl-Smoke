@@ -3,10 +3,11 @@
 #c# 2018-10-03 >RC, 2018-10-24 >RC
 #p# OK
 
+use strict;
+use warnings;
+use feature 'say';
 my @res;
 
-use strict;
-use feature 'say';
 use ntheory qw(prime_iterator is_prime);
 
 sub tuple_tail {
