@@ -3,6 +3,10 @@
 #c# 2018-12-08 <RC
 #p# OK
 
+use strict;
+use warnings;
+my $result;
+
 use Imager;
 use List::AllUtils qw(sum pairwise);
  
