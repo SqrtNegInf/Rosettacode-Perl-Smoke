@@ -3,10 +3,10 @@
 #c# 2018-08-20 <RC
 #p# OK
 
+use strict;
+use warnings;
 use feature 'say';
 my $result;
-# my @res;
-
 
 # It is tempting to use the partition iterator which takes a "isprime" flag, but this task calls for unique values. Hence the combination iterator over an array of primes makes more sense.
 # Library: ntheory
