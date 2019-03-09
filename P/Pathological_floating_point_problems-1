@@ -3,18 +3,22 @@
 #c# 2018-08-25 >RC
 #p# OK
 
+use strict;
+use warnings;
 use feature 'say';
+my $result;
+
 use bigrat;
 
-my @s = qw(2, -4);
+my @s = (2, -4);
 
 for my $n (2..99) {
     $s[$n]= 111.0 - 1130.0/$s[-1] + 3000.0/($s[-1]*$s[-2]);
     #$s[$n]= 111. - 1130./$s[-1] + 3000./($s[-1]*$s[-2]); # this suffices to trigger 'rat', but looks odd
 }
 
-for $n (3..8, 20, 30, 35, 50, 100) {
-    ($nu,$de) = $s[$n-1] =~ m#^(\d+)/(\d+)#;;
+for my $n (3..8, 20, 30, 35, 50, 100) {
+    my($nu,$de) = $s[$n-1] =~ m#^(\d+)/(\d+)#;;
     $result .= sprintf "n = %3d %18.15f\n", $n, $nu/$de;
 }
 
