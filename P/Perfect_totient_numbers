@@ -4,11 +4,17 @@
 #p# OK
 #n# RC version tweaked by Trizen, but essentially the same
 
+use strict;
+use warnings;
+use feature 'say';
+my $result;
+
 use ntheory qw(euler_phi);
 
 sub phi_iter { my($p) = @_; return euler_phi($p) + ($p == 2 ? 0 : phi_iter(euler_phi($p))) }
 
-$p = 1;
+my @perfect;
+my $p = 1;
 do {
     $p++;
     push @perfect, $p if $p == phi_iter($p);
@@ -19,7 +25,7 @@ do {
 #    push @perfect, $p if $p == phi_iter($p);
 #}
 
-printf "The first twenty perfect totient numbers:\n%s\n", my $result = join ' ', @perfect;
+printf "The first twenty perfect totient numbers:\n%s\n", $result = join ' ', @perfect;
 
 my $ref = '3 9 15 27 39 81 111 183 243 255 327 363 471 729 2187 2199 3063 4359 4375 5571';
 
