@@ -3,7 +3,10 @@
 #c# 2018-09-30 >RC, 2018-10-25 <RC
 #p# OK
 
+use strict;
+use warnings;
 use feature 'say';
+my @res;
 
 use ntheory qw/forprimes nth_prime/;
 
