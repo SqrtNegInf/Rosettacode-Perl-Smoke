@@ -3,7 +3,10 @@
 #c# 2018-10-03 >RC, 2018-10-25 <RC
 #p# OK
 
+use strict;
+use warnings;
 use feature 'say';
+my @res;
 
 # Using cluster sieve[edit]
 # The ntheory module includes a function to do very efficient sieving for prime clusters. Even though we are doing repeated work for this task, it is still faster than the previous code. The helper subroutines and output code remain identical, as does the generated output.
@@ -49,7 +52,7 @@ forprimes {
 push @res, "Total primes less than $cmax: " . comma(@{$primes{'sexy'}} + @{$primes{'unsexy'}}) . "\n";
 
 for (['pair', 2], ['triplet', 3], ['quadruplet', 4], ['quintuplet', 5]) {
-    ($sexy, $cnt) = @$_;
+    my($sexy, $cnt) = @$_;
     push @res, "Number of sexy prime ${sexy}s less than $cmax: " . comma scalar @{$primes{$sexy}};
     push @res, "   Last 5 sexy prime ${sexy}s less than $cmax: " . join ' ', tuple_tail(5,$cnt,@{$primes{$sexy}});
     push @res, '';
@@ -58,7 +61,7 @@ for (['pair', 2], ['triplet', 3], ['quadruplet', 4], ['quintuplet', 5]) {
 push @res, "Number of unsexy primes less than $cmax: ". comma scalar @{$primes{unsexy}};
 push @res, "  Last 10 unsexy primes less than $cmax: ". join ' ', @{$primes{unsexy}}[-10..-1];
 
-say $result = join "\n", @res;
+say my $result = join "\n", @res;
 
 my $ref = <<'EOD';
 Total primes less than 1,000,035: 78,500
