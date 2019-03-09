@@ -19,7 +19,7 @@ sub glyph {
 
 $result .= qq[{|class="wikitable" style="text-align:center;background-color:hsl(39, 90%, 95%)"\n];
 
-for $_ (0..127) {
+for (0..127) {
     $result .= qq[|-\n] unless $_ % 16;
     $result .= sprintf qq[|%d<br>0x%02X<br><big><big title="%s">%s</big></big>\n], $_, $_, charnames::viacode($_), glyph($_);
 }
