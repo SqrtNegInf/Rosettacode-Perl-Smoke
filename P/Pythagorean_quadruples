@@ -3,8 +3,12 @@
 #c# 2018-09-09 >RC
 #p# OK
 
+use strict;
+use warnings;
 use feature 'say';
+my $result;
 
+my @sq;
 my $N = 2200;
 push @sq, $_**2 for 0 .. $N;
 my @not = (0) x $N;
