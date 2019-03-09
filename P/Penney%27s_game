@@ -6,12 +6,10 @@
 
 srand 123456;
 
-$| = 1;
-
+use strict;
+use warnings;
 use feature 'say';
 my $result;
-
-use 5.020;
 
 #Choose who goes first
 binaryRand() == 0 ? flipCoin(userFirst()) : flipCoin(compFirst());
