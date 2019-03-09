@@ -2,9 +2,12 @@
 #u# http://rosettacode.org/wiki/Pi
 #c# 2018-08-20 <RC
 #p# OK
+#n# explicit check for negative repeat count 
 
+use strict;
+use warnings;
 use feature 'say';
-my $out;
+my $result;
 
 # Machin's Formula[edit]
 # Here is an original Perl 5 code, using Machin's formula. Not the fastest program in the world. As with the previous code, using either Math::GMP or Math::BigInt::GMP instead of the default bigint Calc backend will make it run thousands of times faster.
@@ -53,10 +56,11 @@ for (my $x = 5; ; $x += 4) {
 		my $out = $ns / $ds;
 		$ns %= $ds;
 
-		$out = ("0" x (length($ppow) - length($out) - 1)) . $out;
+		my $reps = length($ppow) - length($out) - 1;
+		$out = ("0" x $reps) . $out if $reps > 0;
+		#$out = ("0" x (length($ppow) - length($out) - 1)) . $out;
         goto done if length($result) > 1000;
         $result .= $out;
-		#print $out;
 	}
 
 	if ( $p2 % 20 == 1) {
