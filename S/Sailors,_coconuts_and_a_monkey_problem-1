@@ -3,7 +3,10 @@
 #c# 2018-09-06 >RC
 #p# OK
 
+use strict;
+use warnings;
 use feature 'say';
+my $result;
 
 sub coconuts {
 my($sailors, $monkeys) = @_;
@@ -11,16 +14,16 @@ $monkeys = 1 unless $monkeys;
     if (($sailors < 2) || ($monkeys < 1) || ($sailors <= $monkeys)) {
         return 0
     }
-    $blue_cocos = $sailors-1;
-    $pow_bc = $blue_cocos**$sailors;
-    $x_cocos = $pow_bc;
+    my $blue_cocos = $sailors-1;
+    my $pow_bc = $blue_cocos**$sailors;
+    my $x_cocos = $pow_bc;
     while (($x_cocos-$blue_cocos)%$sailors || (($x_cocos-$blue_cocos)/$sailors < 1)) {
         $x_cocos += $pow_bc
     }
     return $monkeys*($x_cocos / $pow_bc * $sailors**$sailors - $blue_cocos)
 }
  
-for $sailor (2..15) {
+for my $sailor (2..15) {
     $result .= "$sailor: " . coconuts($sailor) . "\n";
 }
 
