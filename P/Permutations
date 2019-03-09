@@ -3,8 +3,10 @@
 #c# 2018-08-21 <RC, 2018-11-01 >RC
 #p# OK
 
+use strict;
+use warnings;
 use feature 'say';
-my $result1;
+my($result1,$result2);
 
 sub permutation {
 	my ($perm,@set) = @_;
