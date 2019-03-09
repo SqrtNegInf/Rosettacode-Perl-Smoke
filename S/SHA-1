@@ -4,6 +4,7 @@
 #p# OK
 
 use feature 'say';
+my $result;
 
 #Library: Digest::SHA
 use Digest::SHA qw(sha1_hex);
