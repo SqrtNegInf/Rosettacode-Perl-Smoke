@@ -4,6 +4,8 @@
 #p# OK
 #n# part 2 on RC
 
+use strict;
+use warnings;
 use feature 'say';
 my $result;
 
