@@ -5,7 +5,10 @@
 
 srand 123456;
 
+use strict;
+use warnings;
 use feature 'say';
+my $result;
  
 my $GOAL = 100;
 
@@ -43,6 +46,8 @@ sub turn {
 
 package Main;
 
+my(@players,@wins);
+
 # default, go-for-broke, always roll again
 $players[0] = Player->new;
 
@@ -79,11 +84,3 @@ say $result = join ' ', @wins;
 use Test::More;
 is($result, '5 36 41 15 3');
 done_testing();
-
-__END__
-
-=={{header|Perl}}==
-{{trans|Perl 6}}
-<lang perl></lang>
-{{out}}
-<pre>929 3518 3462 1715  376</pre>
