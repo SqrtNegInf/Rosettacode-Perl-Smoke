@@ -3,13 +3,14 @@
 #c# 2018-08-20 <RC
 #p# OK
 
+use strict;
+use warnings;
 use feature 'say';
 my $result;
 
 # This solution keeps the highest power coefficient first, like OCaml solution and Octave solution.
 # Translation of: Octave
 
-use strict;
 use List::Util qw(min);
 
 sub poly_long_div
