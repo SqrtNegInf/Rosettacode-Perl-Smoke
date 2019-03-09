@@ -3,7 +3,10 @@
 #c# 2019-02-03 <RC
 #p# OK
 
+use strict;
+use warnings;
 use feature 'say';
+my @res;
 
 sub solve_pell {
     my ($n) = @_;
@@ -41,7 +44,7 @@ foreach my $n (61, 109, 181, 277) {
     push @res, sprintf("x^2 - %3d*y^2 = 1 for x = %-21s and y = %s", $n, $x, $y);
 }
 
-say $result = join "\n", @res;
+say my $result = join "\n", @res;
 
 my $ref = <<'EOD';
 x^2 -  61*y^2 = 1 for x = 1766319049            and y = 226153980
