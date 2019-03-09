@@ -5,12 +5,14 @@
 #n# this version on RC
 #n# 'bigint' required or silently fails at sailors > 13
 
+use strict;
+use warnings;
 use feature 'say';
-use bigint;
-
 my @res;
 
-for $sailors (1..15) { check( $sailors, coconuts( 0+$sailors ) ) }
+use bigint;
+
+for my $sailors (1..15) { check( $sailors, coconuts( 0+$sailors ) ) }
 
 sub is_valid {
     my($sailors, $nuts) = @_;
@@ -46,7 +48,7 @@ sub coconuts {
     else                    {  $sailors ** $sailors      -  $sailors + 1  }
 }
 
-say $result = join "\n", @res;
+say my $result = join "\n", @res;
 
 my $ref = <<'EOD';
 
