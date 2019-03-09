@@ -3,7 +3,10 @@
 #c# 2018-09-20 >RC
 #p# OK
 
+use strict;
+use warnings;
 use feature 'say';
+my $result;
 
 use utf8;
 use Math::Cartesian::Product;
@@ -71,9 +74,9 @@ sub solve_Apollonius {
     circle($xs, $ys, $rs);
 }
 
-$c1 = circle(0, 0, 1);
-$c2 = circle(4, 0, 1);
-$c3 = circle(2, 4, 2);
+my $c1 = circle(0, 0, 1);
+my $c2 = circle(4, 0, 1);
+my $c3 = circle(2, 4, 2);
 
 # another way of looking at cross-product
 # use Algorithm::Combinatorics qw/tuples_with_repetition/;
