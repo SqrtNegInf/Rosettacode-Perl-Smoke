@@ -3,7 +3,11 @@
 #c# 2018-08-20 <RC
 #p# OK
 
+use strict;
+use warnings;
 use feature 'say';
+my $result;
+my @powerset;
 
 use List::Util qw(reduce);
 
