@@ -4,12 +4,16 @@
 #p# OK
 #f# RC file: ASCII_table.txt
 
+use strict;
+use warnings;
 use feature 'say';
+my $result;
+
 use open ":encoding(utf8)";
 
-$N    = 16;
-$cell =  5;
-$bar = join(('-'x5), split '', '+' x ($N+1)) . "\n";
+my $N    = 16;
+my $cell =  5;
+my $bar = join(('-'x5), split '', '+' x ($N+1)) . "\n";
 
 sub name {
     my($n) = @_;
@@ -19,11 +23,11 @@ sub name {
 }
 
 # could do without nested loops, but maybe clearer this way...
-for $i (0..7) {
+for my $i (0..7) {
     $result .= $bar;
-    $l1 = $l2 = $l3 = '|';
-    for $j (0..$N-1) {
-        $c = $N*$i + $j;
+    my $l1 = my $l2 = my $l3 = '|';
+    for my $j (0..$N-1) {
+        my $c = $N*$i + $j;
         $l1 .= sprintf " %3x |", $c;
         $l2 .= sprintf " %3d |", $c;
         $l3 .= sprintf " %3s |", name($c);
