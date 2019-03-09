@@ -4,6 +4,9 @@
 #p# OK
 #f# RC file: plasma.png
 
+use strict;
+use warnings;
+
 use Imager;
 
 sub plasma {
