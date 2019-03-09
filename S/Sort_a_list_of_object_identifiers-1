@@ -2,6 +2,7 @@
 #u# http://rosettacode.org/wiki/Sort_a_list_of_object_identifiers
 #c# 2018-08-15 <RC
 #p# OK
+#n# example of Schwartzian transform
 
 use feature 'say';
 my $result;
