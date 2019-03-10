@@ -3,9 +3,10 @@
 #c# 2018-08-17 <RC
 #p# OK
 
+use strict;
+#use warnings;
 use feature 'say';
 my $result;
-
 
 # Perl uses short-circuit boolean evaluation.
 
@@ -16,6 +17,7 @@ sub b { $result .= 'B'; return $_[0] }
 sub test {
     for my $op ('&&','||') {
         for (qw(1,1 1,0 0,1 0,0)) {
+        # for (('1,1', '1,0', '0,1', '0,0')) {  # no warnings this way
            my ($x,$y) = /(.),(.)/;
            $result .= my $str = "a($x) $op b($y)"; #, ': ';
            eval $str; $result .= "\n"; } }
