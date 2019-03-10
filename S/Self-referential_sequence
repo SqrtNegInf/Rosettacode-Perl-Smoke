@@ -3,6 +3,8 @@
 #c# 2018-08-18 <>RC
 #p# OK
 
+use strict;
+#use warnings; # code as written relies heavily on default actions with uninitialized values
 use feature 'say';
 my $result;
 
