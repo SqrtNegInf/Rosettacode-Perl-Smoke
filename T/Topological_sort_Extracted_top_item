@@ -3,8 +3,9 @@
 #c# 2019-01-17 <RC
 #p# OK
 
+use strict;
+use warnings;
 use feature 'say';
-
 my @res;
 
 use List::Util qw( uniq );
@@ -29,7 +30,7 @@ push @res, "TOP LEVELS: @{[grep $deps !~ /\h$_\b/, $deps =~ /^\w+/gm]}";
 push @res, "TARGET $_ ORDER: @{[ uniq before split ]}"
   for $deps =~ /^\w+/gm, 'top1 top2';
 
-say $result = join "\n", @res;
+say my $result = join "\n", @res;
 
 my $ref = <<'EOD';
 TOP LEVELS: top1 top2
