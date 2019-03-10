@@ -3,7 +3,10 @@
 #c# 2018-08-10 <RC
 #p# OK
 
+use strict;
+use warnings;
 use feature 'say';
+my($result1,$result2);
 
 # The built-in split function can be used with a regex that matches the delimiter (although advanced backtracking control verbs are needed to skip escaped delimiters):
 
@@ -16,7 +19,7 @@ sub tokenize1 {
 
 # A more traditional approach is to parse the input string step by step (using a repeatedly-matching regex of the form /\G.../g), and throw away the separators (which can be done implicitly using \K):
 
-$string = 'one^|uno||three^^^^|four^^^|^cuatro|';
+my $string = 'one^|uno||three^^^^|four^^^|^cuatro|';
 
 
 sub tokenize2 {
@@ -30,7 +33,6 @@ sub tokenize2 {
 
 $result1 .= "'$_'\n" for tokenize1($string, '|', '^');
 $result2 .= "'$_'\n" for tokenize2($string, '|', '^');
-print $result;
 
 my $ref = <<'EOD';
 'one|uno'
