@@ -3,11 +3,11 @@
 #c# 2018-08-15 <RC
 #p# OK
 
-use feature 'say';
-my $result;
+srand 12345; # fragile!
 
-#use strict;
-#use warnings;
+use strict;
+use warnings;
+use feature 'say';
 
 my @B=qw(t h e q u i c k b r o w n f o x j u m p s o v e r t h e l a z y d o g);
 
@@ -54,10 +54,10 @@ return (@A);
 #end sub
 }
 
-srand 12345; # fragile!
+my @nums;
 push @nums, int(rand 100) for 1..10;
-say $result = join ' ', @sorted = cocktailSort(@nums);
-    $ref    = join ' ', sort { $a <=> $b } @nums;
+say my $result = join ' ', cocktailSort(@nums);
+    my $ref    = join ' ', sort { $a <=> $b } @nums;
 
 use Test::More;
 is ($result, $ref);
