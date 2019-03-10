@@ -5,6 +5,10 @@
 #f# RC file: streets_and_numbers.html
 #n# daily testing of HTML generation, the 'open browser' part works fine too
 
+use strict;
+use warnings;
+use feature 'say';
+
 use File::Temp qw(tempfile);
 
 my @addresses = (
