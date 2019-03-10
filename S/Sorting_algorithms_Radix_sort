@@ -3,8 +3,9 @@
 #c# 2018-08-15 <RC
 #p# OK
 
+use strict;
+use warnings;
 use feature 'say';
-my $result;
 
 # Radix sort in base 10.
 
@@ -30,7 +31,7 @@ sub radix {
 
     my @return;
     my $negative = shift @tab;                            # Negative bucket must be reversed.
-    push @return, reverse @$negative;
+    push @return, reverse @$negative if $negative;
     for my $bucket (@tab) {
         push @return, @{ $bucket // [] };
     }
@@ -39,6 +40,6 @@ sub radix {
 }
 
 use Test::More;
-say 'input: ' . join ' ', @a = map+(int rand 100), 0 .. 50;
+say 'input: ' . join ' ', my @a = map+(int rand 100), 0 .. 50;
 is_deeply([radix(@a)], [sort { $a <=> $b } @a]);
 done_testing();
