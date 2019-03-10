@@ -1,34 +1,38 @@
 #!/usr/local/bin/perl
-#u# http://rosettacode.org/wiki/RC_REMOTE
-#c# 2018-11-RC >RC
-#p# BROKEN
+#u# http://rosettacode.org/wiki/Sierpinski_pentagon
+#c# 2018-11-18 >RC
+#p# OK
 #f# RC file: sierpinski_pentagon.svg
+
+use strict;
+use warnings;
 
 use ntheory qw(todigits);
 use Math::Complex;
 
-$sides = 5;
-$order = 5;
-$dim   = 250;
-$scale = ( 3 - 5**.5 ) / 2;
+my(@orders,@vertices);
+my $sides = 5;
+my $order = 5;
+my $dim   = 250;
+my $scale = ( 3 - 5**.5 ) / 2;
 push @orders, ((1 - $scale) * $dim) * $scale ** $_ for 0..$order-1;
 
-open $fh, '>', 'run/sierpinski_pentagon.svg';
+open my $fh, '>', 'run/sierpinski_pentagon.svg';
 print $fh qq|<svg height="@{[$dim*2]}" width="@{[$dim*2]}" style="fill:blue" version="1.1" xmlns="http://www.w3.org/2000/svg">\n|;
 
-$tau   = 2 * 4*atan2(1, 1);
+my $tau   = 2 * 4*atan2(1, 1);
 push @vertices, cis( $_ * $tau / $sides ) for 0..$sides-1;
 
-for $i (0 .. -1+$sides**$order)  {
-    @base5 = todigits($i,5);
-    @i = ( ((0)x(-1+$sides-$#base5) ), @base5);
-    @v = @vertices[@i];
-    $vector = 0;
+for my $i (0 .. -1+$sides**$order)  {
+    my @base5 = todigits($i,5);
+    my @i = ( ((0)x(-1+$sides-$#base5) ), @base5);
+    my @v = @vertices[@i];
+    my $vector = 0;
     $vector += $v[$_] * $orders[$_] for 0..$#orders;
 
     my @points;
     for (@vertices) {
-        $v = $vector + $orders[-1] * (1 - $scale) * $_;
+        my $v = $vector + $orders[-1] * (1 - $scale) * $_;
         push @points, sprintf '%.3f %.3f', $v->Re, $v->Im;
     }
     print $fh pgon(@points);
