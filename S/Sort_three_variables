@@ -3,10 +3,10 @@
 #c# 2018-08-15 <>RC
 #p# OK
 
+use strict;
+use warnings;
 use feature 'say';
-my $result;
-
-use 5.010_000;
+my @res;
 
 # Sort strings
 
@@ -37,7 +37,7 @@ push @res, "  x = $x";
 push @res, "  y = $y";
 push @res, "  z = $z";
 
-say $result = join "\n", @res; 
+say my $result = join "\n", @res; 
 
 my $ref = <<'EOD';
 Case 1:
