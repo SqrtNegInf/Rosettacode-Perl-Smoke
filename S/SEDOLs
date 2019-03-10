@@ -3,8 +3,10 @@
 #c# 2018-08-18 <RC
 #p# OK
 
+use strict;
+use warnings;
 use feature 'say';
-my $result;
+my @res;
 
 use List::Util qw(sum);
 use POSIX qw(strtol);
@@ -30,7 +32,7 @@ sub sedol($) {
 
 push @res, sedol($_) for <710889 B0YBKJ 406566 B0YBLH 228276 B0YBKL 557910 B0YBKR 585284 B0YBKT B00030>;
 
-say $result = join "\n", @res;
+say my $result = join "\n", @res;
 my $ref = <<'END';
 7108899
 B0YBKJ7
