@@ -1,12 +1,12 @@
 
 This is perl 5, version 28, subversion 0 (v5.28.0) built for darwin-thread-multi-2level
 updating from RC…
-+------------> Perl: Good/Bad [1089/15]
-|+-----------> Smoke testing [956]
++------------> Perl: Good/Bad [1091/14]
+|+-----------> Smoke testing [957]
 ||+----------> sKipping validation [137]
 |||+---------> Interactive [47]
 ||||+--------> Touched (modified by me) [232]
-|||||+-------> Random seed [92]
+|||||+-------> Random seed [88]
 ||||||+------> File output [58]
 |||||||+-----> Draft [218]
 ||||||||+----> Ignoring [33]
@@ -830,7 +830,7 @@ GS......... Pathological_floating_point_problems-3
 GS...R..... Pattern_matching
 GS..T.F.... Peano_curve
 GS.....D... Pell%27s_equation
-!S...R..... Penney%27s_game
+GS...R..... Penney%27s_game
 GS..T.FD... Penrose_tiling
 GS..T.F.... Pentagram
 .......D.VU Pentomino_tiling
@@ -1037,7 +1037,7 @@ GS..T.F.... Show_Ascii_table-1
 GS..T.F.... Show_Ascii_table-2
 GS......... Show_the_epoch
 GS......... Sierpinski_carpet
-B...T.F.... Sierpinski_pentagon
+GS..T.F.... Sierpinski_pentagon
 GS......... Sierpinski_triangle
 G.K.T.F.... Sierpinski_triangle_Graphical
 GS......... Sieve_of_Eratosthenes-1
@@ -1084,7 +1084,7 @@ GS..T...... Sort_three_variables
 GS......... Sort_using_a_custom_comparator
 GS..T..D... Sorting_Algorithms_Circle_Sort
 GS...R..... Sorting_algorithms_Bead_sort
-GS...R..... Sorting_algorithms_Bogosort
+GS......... Sorting_algorithms_Bogosort
 GS...R..... Sorting_algorithms_Bubble_sort
 GS...R..... Sorting_algorithms_Cocktail_sort
 GS...R..... Sorting_algorithms_Comb_sort
@@ -1093,9 +1093,9 @@ GS...R.D... Sorting_algorithms_Cycle_sort
 GS......... Sorting_algorithms_Gnome_sort
 GS...R..... Sorting_algorithms_Heapsort
 GS......... Sorting_algorithms_Insertion_sort
-GS...R..... Sorting_algorithms_Merge_sort
-GS...R..... Sorting_algorithms_Pancake_sort
-GS...R.D... Sorting_algorithms_Patience_sort
+GS......... Sorting_algorithms_Merge_sort
+GS......... Sorting_algorithms_Pancake_sort
+GS.....D... Sorting_algorithms_Patience_sort
 GS...R..... Sorting_algorithms_Permutation_sort
 GS......... Sorting_algorithms_Quicksort
 GS......... Sorting_algorithms_Radix_sort
