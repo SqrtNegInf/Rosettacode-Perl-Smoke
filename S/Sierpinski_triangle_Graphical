@@ -6,6 +6,10 @@
 #f# RC file: sierpinski_triangle.svg
 #n# completely replaced old version with Perl 6 translation
 
+use strict;
+use warnings;
+use feature 'say';
+
 my $levels = 6;
 my $side   = 512;
 my $height = get_height($side);
