@@ -3,6 +3,8 @@
 #c# 2018-08-10 <RC
 #p# OK
 
+use strict;
+use warnings;
 use feature 'say';
 my $result;
 
@@ -21,12 +23,12 @@ sub fac2 {
 }
 memoize('fac2');
 
-my $result = timethese(100000, {
+$result = timethese(100000, {
     'fac1' => sub { fac1(50) },
     'fac2' => sub { fac2(50) },
 });
-$f1 = $$result{'fac1'}[0];
-$f2 = $$result{'fac2'}[0];
+my $f1 = $$result{'fac1'}[0];
+my $f2 = $$result{'fac2'}[0];
 
 Benchmark::cmpthese($result);
 
