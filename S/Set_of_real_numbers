@@ -3,6 +3,8 @@
 #c# 2018-08-17 <RC
 #p# OK
 
+use strict;
+use warnings;
 use feature 'say';
 my $result;
 
@@ -33,7 +35,6 @@ sub flip {
 	bless \@a
 }
 
-my $brackets = qw/ [ ( ) ] /;
 sub _str {
 	my $v = sprintf "%.2f", $_[0][0];
 	$_[0][2]
