@@ -4,7 +4,11 @@
 #p# OK
 
 srand 123456;
+
+use strict;
+use warnings;
 use feature 'say';
+my(@res1,@res2);
 
 use constant pi => 3.14159265;
 use List::Util qw(sum reduce min max);
@@ -16,10 +20,13 @@ sub normdist {
     $r * cos($theta) * $sigma + $m;
 }
 
-$size = 100000; $mean = 50; $stddev = 4;
+my $size = 100000; 
+my $mean = 50; 
+my $stddev = 4;
+
+my(@dataset,%hash);
 
 push @dataset, normdist($mean,$stddev) for 1..$size;
-
 my $m = sum(@dataset) / $size;
 push @res1, 'm = ' . $m;
 
@@ -29,7 +36,7 @@ push @res1, 'sigma = ' . $sigma;
     $hash{int $_}++ for @dataset;
     my $scale = 180 * $stddev / $size;
     my @subbar = < ⎸ ▏ ▎ ▍ ▌ ▋ ▊ ▉ █ >;
-    for $i (min(@dataset)..max(@dataset)) {
+    for my $i (min(@dataset)..max(@dataset)) {
         my $x = ($hash{$i} // 0) * $scale;
         my $full = int $x;
         my $part = 8 * ($x - $full);
@@ -39,7 +46,7 @@ push @res1, 'sigma = ' . $sigma;
     }
 
 say for @res1;
-say $result = join "\n", @res2;
+say my $result = join "\n", @res2;
 
 my $ref = <<'END';
 32	⎸
