@@ -4,7 +4,11 @@
 #p# OK
 #n# ref/sfc.dat not same as for Perl 6, pseudo-'Bit' in place of 'Int'
 
+use strict;
+use warnings;
 use feature 'say';
+my @res;
+my $result;
 
 my %F = ( # arbitrary and made up record format
     'field a' => { offset => 0,  length => 5, type => 'Str' },
@@ -14,15 +18,17 @@ my %F = ( # arbitrary and made up record format
     'field e' => { offset => 15, length => 5, type => 'Str' }
 );
  
+my($record_length,$record,%h,$v);
+
 $record_length += $F{$_}{'length'} for keys %F;
  
-open $fh, '<', 'ref/sfc.dat' || die;
+open my $fh, '<', 'ref/sfc.dat' || die;
  
 say "Input data as read from file:";
  
-while ($n=sysread($fh, $record, $record_length)) {
+while (my $n=sysread($fh, $record, $record_length)) {
     last if $n < $record_length;        
-    for $k (sort keys %F) {
+    for my $k (sort keys %F) {
         if    ($F{$k}{type} eq 'Str') {
             $result .= sprintf "$k : %s ", $v = substr $record, $F{$k}{offset}, $F{$k}{length};
             $h{$k} = $v;
