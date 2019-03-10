@@ -3,10 +3,10 @@
 #c# 2018-08-13 <RC
 #p# OK
 
+use strict;
+use warnings;
 use feature 'say';
 my $result;
-
-# Library: ntheory
 
 use ntheory qw/is_square_free moebius/;
 
@@ -20,10 +20,10 @@ sub square_free_count {
 }
 
 $result .= "Square─free numbers between 1 and 145:\n";
-$result .= join(' ', grep { is_square_free($_) } 1 .. 145), "\n";
+$result .= join(' ', grep { is_square_free($_) } 1 .. 145);
 
 $result .= "\nSquare-free numbers between 10^12 and 10^12 + 145:\n";
-$result .= join(' ', grep { is_square_free($_) } 1e12 .. 1e12 + 145), "\n";
+$result .= join(' ', grep { is_square_free($_) } 1e12 .. 1e12 + 145);
 $result .= "\n";
 
 foreach my $n (2 .. 6) {
