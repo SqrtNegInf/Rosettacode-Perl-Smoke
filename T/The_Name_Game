@@ -3,15 +3,19 @@
 #c# 2019-02-01 <RC
 #p# OK
 
+use strict;
+use warnings;
 use feature 'say';
+my @res;
 
 #Translation of: Lua
 
 sub printVerse {
-    $name = shift;
-    $sb = lc($name);
-    $x = ucfirst $sb;
-    $x0 = substr $x, 0, 1;
+    my($y);
+    my $name = shift;
+    my $sb = lc($name);
+    my $x = ucfirst $sb;
+    my $x0 = substr $x, 0, 1;
 
     if ($x0 eq 'A' or $x0 eq 'E' or $x0 eq 'I' or $x0 eq 'O' or $x0 eq 'U') {
         $y = lc($x);
@@ -19,9 +23,9 @@ sub printVerse {
         $y = substr $x, 1;
     }
 
-    $b = 'b' . $y;
-    $f = 'f' . $y;
-    $m = 'm' . $y;
+    my $b = 'b' . $y;
+    my $f = 'f' . $y;
+    my $m = 'm' . $y;
 
     if ($x0 eq 'B') {
         $b = $y;
@@ -37,13 +41,13 @@ sub printVerse {
     push @res, "$x!\n";
 }
 
-@nameList = ( "Gary", "Earl", "Billy", "Felix", "Mary", "Steve" );
+my @nameList = ( "Gary", "Earl", "Billy", "Felix", "Mary", "Steve" );
 
-foreach $name (@nameList) {
+foreach my $name (@nameList) {
     printVerse($name);
 }
 
-say $result = join "\n", @res;
+say my $result = join "\n", @res;
 
 my $ref = <<'EOD';
 Gary, Gary, bo-bary
