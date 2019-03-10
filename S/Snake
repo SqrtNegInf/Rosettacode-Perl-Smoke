@@ -4,8 +4,9 @@
 #c# 2018-08-14 <RC
 #p# OK
 
+use strict;
+use warnings;
 use feature 'say';
-my $result;
 
 use utf8;
 use Time::HiRes qw(sleep);
