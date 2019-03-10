@@ -5,6 +5,8 @@
 #f# RC file: simple-db
 #n# lame testing
 
+use strict;
+use warnings;
 use feature 'say';
 my $result;
 
@@ -123,9 +125,9 @@ while ($_ = <DATA>) {
 my $operation = shift;
 chomp $ARGV[2];
 say 'op:' . $operation . ':';
-say "0: @ARGV[0]";
-say "1: @ARGV[1]";
-say "2: @ARGV[2]";
+say "0: $ARGV[0]";
+say "1: $ARGV[1]";
+say "2: $ARGV[2]";
 
 if ($dispatch{$operation}) {
     $dispatch{$operation}->(@ARGV);
@@ -134,8 +136,6 @@ if ($dispatch{$operation}) {
     die "Invalid option. Use one of n, l, L, a.\n"
 }
 }
-
-say $result; 
 
 my $ref = <<'EOD';
  ~ $ db.pl n 'Donald Trump' Republican 2017-01-20
