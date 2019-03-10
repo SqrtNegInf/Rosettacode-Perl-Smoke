@@ -2,9 +2,11 @@
 #u# http://rosettacode.org/wiki/Sorting_algorithms/Permutation_sort
 #c# 2018-08-15 <RC
 #p# OK
+#n# slows dramatically for n > 10
 
+use strict;
+use warnings;
 use feature 'say';
-my $result;
 
 # Pass a list in by reference, and sort in situ.
 
@@ -24,9 +26,8 @@ sub psort {
 }
 
 use Test::More;
-#srand 123456; # fragile!
-# super slow for n > 10??
-say 'input: ' . join ' ', @a = @b = map+(int rand 100), 0 .. 10;
+srand 123;
+say 'input: ' . join ' ', my @a = my @b = map+(int rand 100), 0 .. 10;
 psort(\@b);
 is_deeply(\@b, [sort { $a <=> $b } @b]);
 done_testing();
