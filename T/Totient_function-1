@@ -4,13 +4,13 @@
 #p# OK
 #n# but see -2 variant for ntheory/speed
 
-use feature 'say';
+use strict;
 use warnings;
+use feature 'say';
+my @res;
 
 use utf8;
 binmode STDOUT, ":utf8";
-
-my @res;
 
 sub gcd {
   my ($u, $v) = @_;
@@ -20,8 +20,9 @@ sub gcd {
   return abs($u);
 }
 
-push @𝜑, 0;
-for $t (1..10000) {
+push my @𝜑, 0;
+
+for my $t (1..10000) {
     push @𝜑, scalar grep { 1 == gcd($_,$t) } 1..$t;
 }
 
@@ -29,11 +30,11 @@ say join ' ', @𝜑[0..20];
 
 push @res, sprintf "𝜑(%2d) = %3d%s", $_, $𝜑[$_], $_ - $𝜑[$_] - 1 ? '' : ' Prime' for 1 .. 25;
  
-for $limit (100, 1000, 10000) {
+for my $limit (100, 1000, 10000) {
     push @res, "\nCount of primes <= $limit: " . grep {$_ == $𝜑[$_] + 1} 0..$limit;
 }
 
-say $result = join "\n", @res;
+say my $result = join "\n", @res;
 
 my $ref = <<'EOD';
 𝜑( 1) =   1
