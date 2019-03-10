@@ -2,9 +2,11 @@
 #u# http://rosettacode.org/wiki/Sorting_algorithms/Bogosort
 #c# 2018-08-15 <RC
 #p# OK
+#n# super slow as list size increases
 
+use strict;
+use warnings;
 use feature 'say';
-my $result;
 
 use List::Util qw(shuffle);
 
@@ -21,8 +23,6 @@ sub in_order
   return 1;}
 
 use Test::More;
-#srand 123456;
-# super slow...
-say 'input: ' . join ' ', @a = map+(int rand 100), 0 .. 5;
+say 'input: ' . join ' ', my @a = map+(int rand 100), 0 .. 5;
 is_deeply([bogosort(@a)], [sort { $a <=> $b } @a]);
 done_testing();
