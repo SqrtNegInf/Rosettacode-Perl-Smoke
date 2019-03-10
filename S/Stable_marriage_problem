@@ -3,7 +3,11 @@
 #c# 2018-08-13 <RC
 #p# OK
 
-use feature qw/say/;
+use strict;
+use warnings;
+use feature 'say';
+my @res;
+
 use List::Util qw(first);
 
 my %Likes = (
@@ -119,7 +123,7 @@ sub perturb {
 sub men   { sort keys %{ $Likes{M} } }
 sub women { sort keys %{ $Likes{W} } }
 
-say $result = join "\n", @res;
+say my $result = join "\n", @res;
 
 my $ref = <<'EOD';
 Matchmaking:
