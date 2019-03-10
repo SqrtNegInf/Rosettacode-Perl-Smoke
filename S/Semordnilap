@@ -8,7 +8,7 @@ my $result;
 
 open F, '<', 'ref/unixdict.txt';
 
-while ($_ = <F>) {
+while (<F>) {
 	chomp;
 	my $r = reverse;
 	$seen{$r}++ and $c++ < 10 and $result .= "$_ $r\n" or $seen{$_}++;
