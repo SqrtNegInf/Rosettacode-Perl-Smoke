@@ -3,24 +3,25 @@
 #c# 2018-12-06 >RC, 2019-01-19 <RC
 #p# OK
 
+use strict;
+use warnings;
 use feature 'say';
+my @res;
 
 use utf8;
 binmode STDOUT, ":utf8";
 
 use ntheory qw(euler_phi);
 
-my @res;
-
 my @𝜑 = euler_phi(0,10000);  # Returns list of all values in range
  
 push @res, sprintf "𝜑(%2d) = %3d%s", $_, $𝜑[$_], $_ - $𝜑[$_] - 1 ? '' : ' Prime' for 1 .. 25;
 
-for $limit (100, 1000, 10000) {
+for my $limit (100, 1000, 10000) {
     push @res, "\nCount of primes <= $limit: " . grep {$_ == $𝜑[$_] + 1} 0..$limit;
 }
 
-say $result = join "\n", @res;
+say my $result = join "\n", @res;
 
 my $ref = <<'EOD';
 𝜑( 1) =   1
