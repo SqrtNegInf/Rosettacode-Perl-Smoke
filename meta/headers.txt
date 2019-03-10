@@ -5611,9 +5611,9 @@ File: S/Sierpinski_carpet
 
 File: S/Sierpinski_pentagon
 #!/usr/local/bin/perl
-#u# http://rosettacode.org/wiki/RC_REMOTE
-#c# 2018-11-RC >RC
-#p# BROKEN
+#u# http://rosettacode.org/wiki/Sierpinski_pentagon
+#c# 2018-11-18 >RC
+#p# OK
 #f# RC file: sierpinski_pentagon.svg
 
 File: S/Sierpinski_triangle
@@ -5886,6 +5886,7 @@ File: S/Sorting_algorithms_Bogosort
 #u# http://rosettacode.org/wiki/Sorting_algorithms/Bogosort
 #c# 2018-08-15 <RC
 #p# OK
+#n# super slow as list size increases
 
 File: S/Sorting_algorithms_Bubble_sort
 #!/usr/local/bin/perl
@@ -5958,6 +5959,7 @@ File: S/Sorting_algorithms_Permutation_sort
 #u# http://rosettacode.org/wiki/Sorting_algorithms/Permutation_sort
 #c# 2018-08-15 <RC
 #p# OK
+#n# slows dramatically for n > 10
 
 File: S/Sorting_algorithms_Quicksort
 #!/usr/local/bin/perl
@@ -6127,6 +6129,7 @@ File: S/Statistics_Basic
 #u# http://rosettacode.org/wiki/Statistics/Basic
 #c# 2018-08-13 <RC
 #p# OK
+#n# oops, was not displaying Mean/Stddev
 
 File: S/Statistics_Normal_distribution
 #!/usr/local/bin/perl
