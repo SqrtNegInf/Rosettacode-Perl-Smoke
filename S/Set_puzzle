@@ -5,6 +5,8 @@
 
 srand 123456;
 
+use strict;
+use warnings;
 use feature 'say';
 my $result;
 
@@ -12,12 +14,9 @@ my $result;
 
 # It's actually slightly simplified, since generating Enum classes
 # and objects would be overkill for this particular task.
-
-use strict;
-use warnings;
-
+#
 # This code was adapted from the perl6 solution for this task.
-
+#
 # Each element of the deck is an integer, which, when written
 # in octal, has four digits, which are all either 1, 2, or 4.
 
