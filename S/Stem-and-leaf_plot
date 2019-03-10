@@ -4,6 +4,8 @@
 #p# OK
 #n# on RC this is 1st, the LaTeX version 2nd
 
+use strict;
+use warnings;
 use feature 'say';
 my $result;
 
