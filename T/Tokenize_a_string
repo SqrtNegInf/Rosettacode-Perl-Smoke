@@ -3,12 +3,12 @@
 #c# 2018-08-10 <RC
 #p# OK
 
+use strict;
+use warnings;
 use feature 'say';
 my $result;
 
-
-$result .= join('.', split /,/, 'Hello,How,Are,You,Today'), "\n";
-$result .= "\n";
+$result .= join('.', split /,/, 'Hello,How,Are,You,Today') . "\n";
 
 #CLI one-liner form:
 
