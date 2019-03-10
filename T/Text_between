@@ -3,6 +3,8 @@
 #c# 2018-08-28 >RC
 #p# OK
 
+use strict;
+use warnings;
 use feature 'say';
 my @res;
 
@@ -44,10 +46,10 @@ push @res,  '9> '. text_between('FooBarBazFooBuxQuux', 'Foo', 'Foo' );
 push @res,  '10> '. text_between( $text, 'e', 'o' );
 
 # Ignore start and end delimiter string embedded in longer words
-my $text = 'Soothe a guilty conscience today, string wrangling is not the best tool to use for this job.';
+$text = 'Soothe a guilty conscience today, string wrangling is not the best tool to use for this job.';
 push @res,  '11> '.  text_between($text, qr/\bthe /, qr/ to\b/);
 
-say $result = join "\n", @res;
+say my $result = join "\n", @res;
 
 my $ref = <<'EOD';
 1> Rosetta Code
