@@ -3,7 +3,10 @@
 #c# 2018-09-21 >RC
 #p# OK
 
+use strict;
+use warnings;
 use feature 'say';
+my $result;
 
 use bigint;
 use ntheory qw(is_prime powmod kronecker);
@@ -67,8 +70,8 @@ my @tests = (
 #   (41660815127637347468140745042827704103445750172002, 100000000000000000000000000000000000000000000000577) # no go...
  
 while (@tests) {
-    $n = shift @tests;
-    $p = shift @tests;
+    my $n = shift @tests;
+    my $p = shift @tests;
     my $t = tonelli_shanks($n, $p);
     if (!$t or ($t**2 - $n) % $p) {
         $result .= sprintf "No solution for (%d, %d)\n", $n, $p;
