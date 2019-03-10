@@ -3,8 +3,10 @@
 #c# 2018-08-11 <RC
 #p# OK
 
+use strict;
+use warnings;
 use feature 'say';
-my $result;
+my @res;
 
 use List::MoreUtils 'natatime';
 use constant FIELDS => 49;
@@ -34,7 +36,7 @@ push @res, "Good records: $good_records\n".
    "Repeated timestamps:\n";
 push @res, map {"  $_\n"} grep {$dates{$_} > 1} sort keys %dates;
 
-say $result = join '', @res; 
+say my $result = join '', @res; 
 
 my $ref = <<'EOD';
 Good records: 5017
