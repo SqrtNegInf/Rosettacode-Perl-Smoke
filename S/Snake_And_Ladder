@@ -3,20 +3,23 @@
 #c# 2018-09-30 >RC
 #p# OK
 
+use strict;
+#use warnings;
 use feature 'say';
 
 srand 9282184;
 
 # board layout
-%snl =( 4, 14,  9, 31, 17,  7, 20, 38, 28, 84, 40, 59, 51, 67, 54, 34,
+my %snl =( 4, 14,  9, 31, 17,  7, 20, 38, 28, 84, 40, 59, 51, 67, 54, 34,
        62, 19, 63, 81, 64, 60, 71, 91, 87, 24, 93, 73, 95, 75, 99, 78);
  
-@players = (1, 1, 1, 1); # 4 players, starting on square 1 (last player is human)
+my @players = (1, 1, 1, 1); # 4 players, starting on square 1 (last player is human)
+my $turn_count;
 
 GAME: {
 
 while () {
-    for $player (0..$#players) {
+    for my $player (0..$#players) {
         $turn_count++;
         turn(\$players[$player], $player + 1, $turn_count);
     }
@@ -49,11 +52,6 @@ sub turn {
 
 }
 
-say $result;  exit;
-
-my $ref = <<'EOD';
-EOD
-
 use Test::More;
-is($result, $ref);
+is($turn_count, 706);
 done_testing();
