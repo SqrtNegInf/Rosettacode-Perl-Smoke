@@ -3,8 +3,11 @@
 #c# 2018-08-15 <RC
 #p# OK
 
+srand 1; # fragile!
+
+use strict;
+use warnings;
 use feature 'say';
-my $result;
 
 sub heap_sort {
     my ($a) = @_;
@@ -42,8 +45,7 @@ sub max {
 
 
 use Test::More;
-srand 1; # very fragile!
-say 'input: ' . join ' ', @a = @b = map+(int rand 100), 0 .. 4;
+say 'input: ' . join ' ', my @a = my @b = map+(int rand 100), 0 .. 4;
 heap_sort(\@b);
 is_deeply(\@b, [sort { $a <=> $b } @b]);
 done_testing();
