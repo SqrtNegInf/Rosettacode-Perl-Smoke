@@ -3,7 +3,10 @@
 #c# 2018-08-09 <RC
 #p# OK
 
+use strict;
+use warnings;
 use feature 'say';
+my @res;
 my $result;
 
 # In July 2002, Topological Sort was the monthly Perl Golf course. The post-mortem contains many solutions. This code was adapted from the solution that scored 144.39.
