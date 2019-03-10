@@ -4,16 +4,20 @@
 #p# OK
 #n# add some examples, someday
 
+use strict;
+use warnings;
 use feature 'say';
+my $result;
 
 my $src = 'ref/unixdict.txt';
+my(%h,@dials);
  
-open $fh, "<", $src;
-@words = grep { /^[a-zA-Z]+$/ } <$fh>;
+open my $fh, "<", $src;
+my @words = grep { /^[a-zA-Z]+$/ } <$fh>;
 map { tr/A-Z/a-z/ } @words;
 map { tr/abcdefghijklmnopqrstuvwxyz/22233344455566677778889999/ } @dials = @words;
 @dials = grep {!$h{$_}++} @dials;
-@textonyms = grep { $h{$_} > 1 } @dials;
+my @textonyms = grep { $h{$_} > 1 } @dials;
 
 #for (keys %t) { push @textonyms, $_ if $t{$_} > 1 } # not as nice
 
@@ -21,7 +25,7 @@ say $result = qq{There are @{[scalar @words]} words in $src which can be represe
 They require @{[scalar @dials]} digit combinations to represent them.
 @{[scalar @textonyms]} digit combinations represent Textonyms.};
 
-$ref = <<'EOD';
+my $ref = <<'EOD';
 There are 24978 words in ref/unixdict.txt which can be represented by the digit key mapping.
 They require 22903 digit combinations to represent them.
 1473 digit combinations represent Textonyms.
