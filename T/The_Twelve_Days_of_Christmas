@@ -3,11 +3,10 @@
 #c# 2018-08-10 <RC
 #p# OK
 
+use strict;
+use warnings;
 use feature 'say';
 my $result;
-
-
-use v5.10; 
 
 my @days = qw{ first second third fourth fifth sixth seventh eighth ninth tenth eleventh twelfth };
 
