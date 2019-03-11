@@ -4,11 +4,11 @@
 #p# OK
 #f# RC file: sqrt-1.dat
 
+use strict;
+use warnings;
 use feature 'say';
 my $result;
 
-use autodie;
- 
 sub writedat {
     my ($filename, $x, $y, $xprecision, $yprecision) = @_;
  
@@ -25,10 +25,3 @@ my @x = (1, 2, 3, 1e11);
 my @y = map sqrt, @x;
  
 writedat("run/sqrt-1.dat", \@x, \@y);
-
-#File contents
-# 1	1
-# 2	1.4142
-# 3	1.7321
-# 1e+11	3.1623e+05
-
