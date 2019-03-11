@@ -3,6 +3,8 @@
 #c# 2018-08-03 <RC
 #p# OK
 
+use strict;
+use warnings;
 use feature 'say';
 my $result;
 
@@ -27,6 +29,7 @@ for (1 .. 10) {
 		my $r = $f[$y];
 		my $rr = [''];
 		for my $x (1 .. $#$r-1) {
+            no warnings qw(uninitialized);
 			my $c = $r->[$x];
 			push @$rr,
 				$c eq 'H' ? 't' :
