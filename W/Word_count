@@ -3,17 +3,18 @@
 #c# 2018-08-07 >RC
 #p# OK
 
-# {{trans|Perl 6}}
-
+use strict;
+use warnings;
 use feature 'say';
+my @res;
 
-$filename = 'ref/word-count.txt';
-$top = 10;
+my $filename = 'ref/word-count.txt';
+my $top = 10;
 
-open $fh, "<", $filename;
-($text = join '', <$fh>) =~ tr/A-Z/a-z/;
+open my $fh, "<", $filename;
+(my $text = join '', <$fh>) =~ tr/A-Z/a-z/;
 
-@matcher = (
+my @matcher = (
     qr/[a-z]+/,                         # simple 7-bit ASCII
     qr/\w+/,                            # word characters with underscore
     qr/[a-z0-9]+/,                      # word characters without underscore
@@ -22,20 +23,20 @@ open $fh, "<", $filename;
 #   rx/ <[\w]-[_]>+[["'"|'-'|"'-"]<[\w]-[_]>+]* / 
 
 
-@res;
-for $reg (@matcher) {
+#@res;
+for my $reg (@matcher) {
     push @res, "\nTop $top using regex: " . $reg;
-    @matches = $text =~ /$reg/g;
+    my @matches = $text =~ /$reg/g;
     my %words;
-    for $w (@matches) { $words{$w}++ };
-    $c = 0;
-    for $w ( sort { $words{$b} <=> $words{$a} } keys %words ) {
+    for my $w (@matches) { $words{$w}++ };
+    my $c = 0;
+    for my $w ( sort { $words{$b} <=> $words{$a} } keys %words ) {
         push @res, sprintf "%-7s %6d", $w, $words{$w};
         last if ++$c >= $top;
     }
 }
 
-say $result = join "\n", @res;
+say my $result = join "\n", @res;
 
 my $ref = <<'END';
 
