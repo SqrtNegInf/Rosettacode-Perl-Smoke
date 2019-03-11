@@ -4,6 +4,12 @@
 #p# OK
 #f# RC file: superellipse.svg
 
+use strict;
+use warnings;
+use feature 'say';
+my $result;
+
+my (@q);
 my $a = 200;
 my $b = 200;
 my $n = 2.5;
@@ -18,7 +24,7 @@ sub y_from_x {
 push @q, $_, y_from_x($_) for 0..200;
 
 # Generate an SVG image
-open  $fh, '>', 'run/superellipse.svg';
+open  my $fh, '>', 'run/superellipse.svg';
 print $fh
   qq|<svg height="@{[2*$b]}" width="@{[2*$a]}" xmlns="http://www.w3.org/2000/svg">\n|,
   pline( 1, 1, @q ),
