@@ -3,11 +3,12 @@
 #c# 2018-07-30 <RC
 #p# OK
 
+use strict;
+use warnings;
 use feature 'say';
 my $result;
 
 #Library: XML::MiniMini
-use strict;
 use XML::Mini::Document;
  
 my @students = ( [ "April", "Bubbly: I'm > Tam and <= Emily" ], 
