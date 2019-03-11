@@ -4,6 +4,7 @@
 #p# OK
 
 my $result;
+use feature 'state';
 
 # Requires Perl 5.8.1 at the minimum. See http://perldoc.perl.org/utf8.html
 
@@ -27,9 +28,7 @@ BEGIN {
 Δ++;
 $result .= Δ. "\n";
 
-#or with Perl 5.10 and state modifier:
 use utf8;
-use v5.10;
 
 sub Δ () : lvalue {
     state $val;
