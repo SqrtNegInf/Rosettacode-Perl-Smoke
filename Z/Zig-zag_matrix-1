@@ -3,10 +3,10 @@
 #c# 2018-07-11 <RC
 #p# OK
 
+use strict;
+use warnings;
 use feature 'say';
 my $result;
-
-use 5.010;
 
 sub zig_zag {
     my $n          = shift;
