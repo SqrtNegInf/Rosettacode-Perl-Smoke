@@ -3,11 +3,12 @@
 #c# 2018-08-13 <RC
 #p# OK
 
+use strict;
+use warnings;
 use feature 'say';
 my $result;
 
 use integer;
-use strict;
 
 my @A = qw(
     5 3 0  0 2 4  7 0 0 
