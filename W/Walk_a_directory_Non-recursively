@@ -3,6 +3,8 @@
 #c# 2018-08-03 <>RC
 #p# OK
 
+use strict;
+use warnings;
 use feature 'say';
 my $result;
 
@@ -16,7 +18,7 @@ $result .= "$_\n" while <ref/sqrt*>;
 
 #Or the same with the builtin glob() function,
 
-$result .= join "\n", @filenames = glob('ref/sqrt*');
+$result .= join "\n", my @filenames = glob('ref/sqrt*');
 
 #The glob() function takes any expression for its pattern, whereas <> is only for a literal.
 #my $pattern = '*.c';
