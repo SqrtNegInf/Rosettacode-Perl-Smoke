@@ -3,9 +3,10 @@
 #c# 2018-08-06 <RC
 #p# OK
 
+use strict;
+use warnings;
 use feature 'say';
 my $result;
-
 
 # Typically we would use a module, such as Math::Vector::Real or Math::Complex. Here is a very basic Moose class.
 
