@@ -4,6 +4,11 @@
 #p# OK
 #f# RC file: ulam.png
 
+use strict;
+use warnings;
+use feature 'say';
+my $result;
+
 use ntheory qw/is_prime/;
 use Imager;
  
