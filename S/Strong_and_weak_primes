@@ -3,6 +3,8 @@
 #c# 2018-12-05 >RC
 #p# OK
 
+use strict;
+use warnings;
 use feature 'say';
 my @res;
 
@@ -14,12 +16,13 @@ sub comma {
     $s = reverse $s;
 }
 
-sub below { my($m,@a) = @_; $c = 0; while () { return $c if $a[++$c] > $m } }
+sub below { my($m,@a) = @_; my $c = 0; while () { return $c if $a[++$c] > $m } }
  
+my(@weak,@strong,@balanced);
 my @primes = @{ primes(10_000_019) };
 
-for $p (1 .. $#primes - 1) {
-    $x = ($primes[$p - 1] + $primes[$p + 1]) / 2;
+for my $p (1 .. $#primes - 1) {
+    my $x = ($primes[$p - 1] + $primes[$p + 1]) / 2;
     if    ($x > $primes[$p]) { push @weak,     $primes[$p] }
     elsif ($x < $primes[$p]) { push @strong,   $primes[$p] }
     else                     { push @balanced, $primes[$p] }
@@ -34,7 +37,7 @@ for ([\@strong,   'strong',   36],
     push @res, "Count of $type primes <= @{[comma 1e7]}: "   . comma scalar @$pr;
 }
 
-say $result = join "\n", @res;
+say my $result = join "\n", @res;
 
 my $ref = <<'EOD';
 
