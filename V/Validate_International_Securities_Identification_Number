@@ -6,6 +6,8 @@
 # We reuse the luhn_test() function from Luhn test of credit card numbers#Perl.
 
 use strict;
+use warnings;
+
 use English;
 use POSIX;
 use Test::Simple tests => 7;
