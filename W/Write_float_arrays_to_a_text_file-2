@@ -6,7 +6,6 @@
 
 # Alternatively, with the CPAN List::MoreUtils package:
 
-use autodie;
 use List::MoreUtils qw(each_array);
  
 sub writedat {
