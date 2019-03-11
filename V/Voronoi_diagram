@@ -4,9 +4,10 @@
 #p# OK
 #f# RC file: voronoi-Euclidean.png
 
-use feature 'say';
-
 srand 123456;
+
+use strict;
+use warnings;
 
 use Imager;
 
@@ -18,6 +19,7 @@ my %type = (
 );
 
 my($xmax, $ymax) = (400, 400);
+my @domains;
 
 for (1..30) {
     push @domains, {
@@ -32,31 +34,31 @@ for my $type (keys %type) {
     voronoi($type, $xmax, $ymax, @domains);
     dot(1,@domains);
     $img->write(file => "run/voronoi-$type.png");
-}
 
-sub voronoi {
-    my($type, $xmax, $ymax, @d) = @_;
-    for $x (0..$xmax) {
-      for $y (0..$ymax) {
-        my $i = 0;
-        my $d = 10e6;
-        for (0..$#d) {
-            my $dd = &{$type{$type}}($d[$_]{'x'}, $d[$_]{'y'}, $x, $y);
-            if ($dd < $d) { $d = $dd; $i = $_ }
+    sub voronoi {
+        my($type, $xmax, $ymax, @d) = @_;
+        for my $x (0..$xmax) {
+            for my $y (0..$ymax) {
+                my $i = 0;
+                my $d = 10e6;
+                for (0..$#d) {
+                    my $dd = &{$type{$type}}($d[$_]{'x'}, $d[$_]{'y'}, $x, $y);
+                    if ($dd < $d) { $d = $dd; $i = $_ }
+                }
+                $img->setpixel(x => $x, y => $y, color => $d[$i]{rgb} );
+            }
         }
-        $img->setpixel(x => $x, y => $y, color => $d[$i]{rgb} );
-      }
     }
-}
 
-sub dot {
-    ($radius, @d) = @_;
-    for (0..$#d) {
-        $dx = $d[$_]{'x'};
-        $dy = $d[$_]{'y'};
-        for $x ($dx-$radius .. $dx+$radius) { 
-            for $y ($dy-$radius .. $dy+$radius) { 
-                $img->setpixel(x => $x, y => $y, color => [0,0,0]);
+    sub dot {
+        my($radius, @d) = @_;
+        for (0..$#d) {
+            my $dx = $d[$_]{'x'};
+            my $dy = $d[$_]{'y'};
+            for my $x ($dx-$radius .. $dx+$radius) { 
+                for my $y ($dy-$radius .. $dy+$radius) { 
+                    $img->setpixel(x => $x, y => $y, color => [0,0,0]);
+                }
             }
         }
     }
