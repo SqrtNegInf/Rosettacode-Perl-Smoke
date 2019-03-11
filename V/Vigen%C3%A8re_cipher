@@ -3,8 +3,9 @@
 #c# 2018-08-06 <>RC
 #p# OK
 
-use feature 'say';
 use strict;
+use warnings;
+use feature 'say';
 my $result;
 
 #if( @ARGV != 3 ){
