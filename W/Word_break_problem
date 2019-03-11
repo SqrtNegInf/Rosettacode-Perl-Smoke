@@ -4,7 +4,10 @@
 #p# OK
 #n# doesn't show all combinations, finds 'a do' but not 'ad o'
 
+use strict;
+use warnings;
 use feature 'say';
+my @res;
 
 my @words = <a o ad do is in pi ion par per sip miss able>;
 
@@ -15,21 +18,21 @@ sub word_break {
     my @matches;
     my $one_of = join '|', @dictionary;
     @matches = $word =~ /^ ($one_of)(?!\1) (?:($one_of)(?!\2))? (?:($one_of)(?!\3))? (?:($one_of)(?!\4))? $/x;
-    return join(' ', @matches) || "(not possible)";
+    return join(' ', grep {$_} @matches) || "(not possible)";
 }
 
-say $result = join "\n", @res;
+say my $result = join "\n", @res;
 
 my $ref = <<'END';
-a: a   
-ado: a do  
-amiss: a miss  
-admission: ad miss ion 
-parable: par able  
-opera: o per a 
-operable: o per able 
+a: a
+ado: a do
+amiss: a miss
+admission: ad miss ion
+parable: par able
+opera: o per a
+operable: o per able
 inoperable: in o per able
-permission: per miss ion 
+permission: per miss ion
 permissible: (not possible)
 mississippi: miss is sip pi
 END
