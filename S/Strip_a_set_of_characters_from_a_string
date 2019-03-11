@@ -3,9 +3,10 @@
 #c# 2018-08-13 <RC
 #p# OK
 
+use strict;
+use warnings;
 use feature 'say';
 my $result;
-
 
 # Note: this example uses a regular expression character class. Certain characters, like hyphens and brackets, may need to be escaped.
 
@@ -15,9 +16,9 @@ sub stripchars1 {
     return $s;
 }
 
-$str = 'She was a soul stripper. She took my heart!';
-$result1 .= stripchars1($str, "aei");
-$result2 .= stripchars2($str, "aei");
+my $str = 'She was a soul stripper. She took my heart!';
+my $result1 = stripchars1($str, "aei");
+my $result2 = stripchars2($str, "aei");
 
 # Another good option for stripping characters is to use the tr/// operator. This option is very efficient when the set of characters to strip is fixed at compile time, because tr/// is specifically designed for transforming and deleting characters. Note that hyphens also have special meaning in this case.
 
@@ -31,7 +32,8 @@ sub stripchars2 {
     return $s;
 }
 
-say $result;
+say $result1;
+say $result2;
 
 use Test::More;
 is ($result1, 'Sh ws  soul strppr. Sh took my hrt!');
