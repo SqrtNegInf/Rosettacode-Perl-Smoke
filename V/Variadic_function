@@ -3,9 +3,10 @@
 #c# 2018-08-06 <RC
 #p# OK
 
+use strict;
+use warnings;
 use feature 'say';
 my $result;
-
 
 # Functions in Perl 5 don't have argument lists. All arguments are stored in the array @_ anyway, so there is variable arguments by default.
 
@@ -22,7 +23,7 @@ print_all("Rosetta", "Code", "Is", "Awesome!");
 
 # Since lists are flattened when placed in a list context, you can just pass an array in as an argument and all its elements will become separate arguments:
 
-@args = ("Rosetta", "Code", "Is", "Awesome!");
+my @args = ("Rosetta", "Code", "Is", "Awesome!");
 print_all(@args);
 
 # Introduced experimentally in 5.20.0, subroutines can have signatures when the feature is turned on:
