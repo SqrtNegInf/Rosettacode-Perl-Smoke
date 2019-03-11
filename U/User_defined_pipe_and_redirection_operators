@@ -4,13 +4,12 @@
 #p# OK
 #n# tested 'Tee' by hand
 
+use strict;
+use warnings;
 use feature 'say';
 my $result;
 
 # Implementing only stream chaining, cat, grep and tee. Oddly enough, I don't feel the urge to implement all of the more-or-less-the-same features asked for by the task.
-
-use strict;
-use 5.10.0;
 
 package IO::File;
 sub readline { CORE::readline(shift) } # icing, not essential
