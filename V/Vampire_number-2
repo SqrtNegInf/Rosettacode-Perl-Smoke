@@ -3,6 +3,8 @@
 #c# 2018-08-06 <RC
 #p# OK
 
+use strict;
+use warnings;
 use feature 'say';
 my $result;
 
@@ -48,8 +50,7 @@ $result .= "\nIndividual tests:\n";
 
 foreach my $n (16758243290880, 24959017348650, 14593825548650) {
     my @fangs = is_vampire($n);
-    $result .= sprintf("$n: ", (@fangs ? join(' ', map { "[@$_]" } @fangs)
-                          : "is not a vampire number"), "\n");
+    $result .= "$n: " . (@fangs ? join(' ', map { "[@$_]" } @fangs) : "is not a vampire number") . "\n";
 }
 
 say $result;
@@ -82,7 +83,10 @@ First 25 Vampire Numbers:
 25. 125500 : [251 500]
 
 Individual tests:
-16758243290880: 24959017348650: 14593825548650: 
+16758243290880: [1982736 8452080] [2123856 7890480] [2751840 6089832] [2817360 5948208]
+24959017348650: [2947050 8469153] [2949705 8461530] [4125870 6049395] [4129587 6043950] [4230765 5899410]
+14593825548650: is not a vampire number
+
 END
 
 use Test::More;
