@@ -3,11 +3,12 @@
 #c# 2018-11-08 >RC
 #p# OK
 
+use strict;
+use warnings;
 use feature 'say';
+my $result;
 
 use List::Util qw(min max first);
-
-my $result;
 
 sub sufficate {
     my($val, $type, $round) = @_;
