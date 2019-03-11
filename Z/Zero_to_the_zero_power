@@ -4,12 +4,10 @@
 #p# OK
 
 use feature 'say';
-my $result;
-
-$result .= 0 ** 0 . "\n";
  
 use Math::Complex;
  
+my $result = 0 ** 0 . "\n";
 $result .= cplx(0,0) ** cplx(0,0) . "\n";
 
 say $result;
