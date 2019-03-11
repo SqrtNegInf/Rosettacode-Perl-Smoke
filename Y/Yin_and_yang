@@ -4,6 +4,8 @@
 #p# OK
 #f# RC file: yin_and_yang.svg
 
+use strict;
+use warnings;
 use feature 'say';
 my $result;
 
