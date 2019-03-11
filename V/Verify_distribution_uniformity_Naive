@@ -6,8 +6,8 @@
 srand 123456;
 
 use strict;
+use warnings;
 use feature 'say';
-
 my $result;
 
 sub roll7 { 1+int rand(7) }
@@ -34,7 +34,7 @@ my($n, $threshold, $producer) = @_;
     @dist[&$producer]++ for 1..$n;
 
     for my $i (1..7) {
-        my $v = @dist[$i];
+        my $v = $dist[$i];
         my $pct = ($v - $expect)/$expect*100;
         $out .= sprintf "%d %8d %6.1f%%%s\n", $i, $v, $pct, (abs($pct) > $threshold ? ' - skewed' : '');
     }
