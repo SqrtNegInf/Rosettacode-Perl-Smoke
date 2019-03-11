@@ -5,9 +5,10 @@
 
 srand 123456;
 
+use strict;
+use warnings;
 use feature 'say';
 my $result;
-
 
 sub randn {
         my $n = shift;
