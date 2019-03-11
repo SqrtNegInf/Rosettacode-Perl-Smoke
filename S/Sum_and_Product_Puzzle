@@ -3,7 +3,10 @@
 #c# 2018-10-23 >RC
 #p# OK
 
+use strict;
+use warnings;
 use feature 'say';
+my $result;
 
 use List::Util qw(none);
 
@@ -27,21 +30,23 @@ sub sums {
 sub sum     { $_[0] + $_[1] }
 sub product { $_[0] * $_[1] }
 
-for $i (2..97) {
+my(@all_pairs,@s_pairs);
+
+for my $i (2..97) {
     push @all_pairs, map { [$i, $_] } $i + 1..98
 }
 
 # Fact 1:
-%p_unique = map { $_ => 1 } grep_unique(\&product, @all_pairs);
+my %p_unique = map { $_ => 1 } grep_unique(\&product, @all_pairs);
 for my $p (@all_pairs) {
     push @s_pairs, [@$p] if none { $p_unique{join ' ', @$_} } sums sum @$p;
 }
  
 # Fact 2:
-@p_pairs = map { [split ' ', $_] } grep_unique(\&product, @s_pairs);
+my @p_pairs = map { [split ' ', $_] } grep_unique(\&product, @s_pairs);
  
 # Fact 3:
-@final_pair = grep_unique(\&sum, @p_pairs);
+my @final_pair = grep_unique(\&sum, @p_pairs);
 
 say $result = sprintf "X = %d, Y = %d\n", split ' ', $final_pair[0];
 
