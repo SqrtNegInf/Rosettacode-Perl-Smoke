@@ -7151,7 +7151,7 @@ File: Z/Zebra_puzzle
 #u# http://rosettacode.org/wiki/Zebra_puzzle
 #c# 2018-07-11 <RC
 #p# OK
-#n# minor change not on RC
+#n# minor changes not on RC
 
 File: Z/Zeckendorf_number_representation
 #!/usr/local/bin/perl
