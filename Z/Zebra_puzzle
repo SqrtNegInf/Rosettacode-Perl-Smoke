@@ -2,14 +2,15 @@
 #u# http://rosettacode.org/wiki/Zebra_puzzle
 #c# 2018-07-11 <RC
 #p# OK
-#n# minor change not on RC
+#n# minor changes not on RC
 
+use strict;
+use warnings;
 use feature 'say';
 my $result;
 
 # Basically the same idea as C, though of course it's much easier to have Perl generate Perl code.
- 
-use strict;
+
 #use utf8;
 #binmode STDOUT, ":utf8";
  
@@ -52,8 +53,8 @@ sub pair {
 	$solve = sub {		# <--- sorta like how TeX \let...\def macro
 		my ($x, $y);
  
-		($x) = grep { $_->{$p1} eq $a } @tgt;
-		($y) = grep { $_->{$p2} eq $b } @tgt;
+		($x) = grep { $_->{$p1} && $_->{$p1} eq $a } @tgt;
+		($y) = grep { $_->{$p2} && $_->{$p2} eq $b } @tgt;
  
 		$x and $y and
 			return $allowed{ $x->{idx} - $y->{idx} } && $e->();
