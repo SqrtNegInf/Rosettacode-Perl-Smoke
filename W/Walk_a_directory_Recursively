@@ -4,6 +4,8 @@
 #p# OK
 #n# testing just File::Find
 
+use strict;
+use warnings;
 use feature 'say';
 my $result;
 
