@@ -3,8 +3,10 @@
 #c# 2018-08-13 <RC
 #p# OK
 
+use strict;
+use warnings;
 use feature 'say';
-my $result;
+my @res;
 
 use 5.10.0;
 use strict;
@@ -31,10 +33,9 @@ use strict;
 }
 
 bentley_clever(292929);
-my @res;
 push @res, subrand() for (1 .. 10);
 
-say $result = join "\n", @res; 
+say my $result = join "\n", @res; 
 my $ref = <<'EOD';
 467478574
 512932792
