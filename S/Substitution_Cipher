@@ -3,20 +3,19 @@
 #c# 2018-10-05 <RC
 #p# OK
 
+use strict;
+use warnings;
 use feature 'say';
 my $result;
-# my @res;
-
-#Translation of: Java
 
 sub encode {
     my $source = shift;
     my $key = shift;
     my $out = q();
 
-    @ka = split //, $key;
-    foreach $ch (split //, $source) {
-        $idx = ord($ch) - 32;
+    my @ka = split //, $key;
+    for my $ch (split //, $source) {
+        my $idx = ord($ch) - 32;
         $out .= $ka[$idx];
     }
 
@@ -28,9 +27,9 @@ sub decode {
     my $key = shift;
     my $out = q();
 
-    foreach $ch (split //, $source) {
-        $idx = index $key, $ch;
-        $val = chr($idx + 32);
+    for my $ch (split //, $source) {
+        my $idx = index $key, $ch;
+        my $val = chr($idx + 32);
         $out .= $val;
     }
 
