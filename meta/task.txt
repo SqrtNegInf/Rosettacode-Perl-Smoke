@@ -8,10 +8,10 @@ updating from RC…
 ||||+--------> Touched (modified by me) [232]
 |||||+-------> Random seed [88]
 ||||||+------> File output [58]
-|||||||+-----> Draft [218]
+|||||||+-----> Draft [219]
 ||||||||+----> Ignoring [33]
-|||||||||+---> Void (no local copy) [193]
-||||||||||+--> Un-implemented/reliable [186]
+|||||||||+---> Void (no local copy) [194]
+||||||||||+--> Un-implemented/reliable [187]
 |||||||||||
 GS......... 100_doors-1
 GS......... 100_doors-2
@@ -210,6 +210,7 @@ GS..T..D... Cheryl%27s_Birthday
 GS..T...... Chinese_remainder_theorem
 GS......... Chinese_zodiac
 GS......... Cholesky_decomposition
+.......D.VU Chowla_numbers
 .........VU Church_Numerals
 .......D... Cipolla%27s_algorithm
 GS..T...... Cipolla%27s_algorithm-1
