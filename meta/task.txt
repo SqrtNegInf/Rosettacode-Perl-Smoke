@@ -8,10 +8,10 @@ updating from RC…
 ||||+--------> Touched (modified by me) [232]
 |||||+-------> Random seed [88]
 ||||||+------> File output [58]
-|||||||+-----> Draft [219]
+|||||||+-----> Draft [220]
 ||||||||+----> Ignoring [33]
-|||||||||+---> Void (no local copy) [194]
-||||||||||+--> Un-implemented/reliable [187]
+|||||||||+---> Void (no local copy) [195]
+||||||||||+--> Un-implemented/reliable [188]
 |||||||||||
 GS......... 100_doors-1
 GS......... 100_doors-2
@@ -713,6 +713,7 @@ GS.....D... Mersenne_primes
 GS......... Metaprogramming
 ........XV. Metered_concurrency
 GS..T...... Metronome
+.......D.VU Mian-Chowla_sequence
 GS......... Middle_three_digits
 GS......... Miller-Rabin_primality_test-1
 GS......... Miller-Rabin_primality_test-2
