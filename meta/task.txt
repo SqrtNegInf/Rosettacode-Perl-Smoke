@@ -1,17 +1,17 @@
 
 This is perl 5, version 28, subversion 0 (v5.28.0) built for darwin-thread-multi-2level
 updating from RC…
-+------------> Perl: Good/Bad [1091/14]
-|+-----------> Smoke testing [957]
++------------> Perl: Good/Bad [1093/14]
+|+-----------> Smoke testing [959]
 ||+----------> sKipping validation [137]
 |||+---------> Interactive [47]
-||||+--------> Touched (modified by me) [232]
+||||+--------> Touched (modified by me) [234]
 |||||+-------> Random seed [88]
 ||||||+------> File output [58]
 |||||||+-----> Draft [220]
 ||||||||+----> Ignoring [33]
-|||||||||+---> Void (no local copy) [195]
-||||||||||+--> Un-implemented/reliable [188]
+|||||||||+---> Void (no local copy) [193]
+||||||||||+--> Un-implemented/reliable [186]
 |||||||||||
 GS......... 100_doors-1
 GS......... 100_doors-2
@@ -469,7 +469,7 @@ GS......... Function_definition
 GS......... Function_frequency
 GS......... Function_prototype
 .......D.VU Functional_coverage_tree
-.........VU Fusc_sequence
+GS..T...... Fusc_sequence
 G.KI....... GUI_Maximum_window_dimensions
 G.KIT.....U GUI_component_interaction
 .........VU GUI_enabling_disabling_of_controls
@@ -713,7 +713,7 @@ GS.....D... Mersenne_primes
 GS......... Metaprogramming
 ........XV. Metered_concurrency
 GS..T...... Metronome
-.......D.VU Mian-Chowla_sequence
+GS..T..D... Mian-Chowla_sequence
 GS......... Middle_three_digits
 GS......... Miller-Rabin_primality_test-1
 GS......... Miller-Rabin_primality_test-2
