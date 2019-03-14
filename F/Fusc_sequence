@@ -1,0 +1,50 @@
+#!/usr/local/bin/perl
+#u# http://rosettacode.org/wiki/Fusc_sequence
+#c# 2019-03-13 >RC
+#p# OK
+#n# golfing the comma routine: 'r' option to subst. operator, no negative value input
+
+use strict;
+use warnings;
+use feature 'say';
+my $result;
+
+sub comma { reverse ((reverse shift) =~ s/(.{3})/$1,/gr) =~ s/^,//r }
+
+sub stern_diatomic {
+  my ($p,$q,$i) = (0,1,shift);
+  while ($i) {
+    if ($i & 1) { $p += $q; } else { $q += $p; }
+    $i >>= 1;
+  }
+  $p;
+}
+
+$result  = "First 61 terms of the Stern-Brocot sequence:\n" . join ' ', map { stern_diatomic($_) } 0..60;
+$result .= "\n\nIndex and value for first term longer than any previous:\n";
+
+my $i =  0;
+my $l = -1;
+while ($l < 5) {
+    my $v = stern_diatomic($i);
+    $result .= sprintf("%15s : %s\n", comma($i), comma($v)) and $l = length $v if length $v > $l;
+    $i++;
+}
+
+say $result;
+
+my $ref = <<'EOD';
+First 61 terms of the Stern-Brocot sequence:
+0 1 1 2 1 3 2 3 1 4 3 5 2 5 3 4 1 5 4 7 3 8 5 7 2 7 5 8 3 7 4 5 1 6 5 9 4 11 7 10 3 11 8 13 5 12 7 9 2 9 7 12 5 13 8 11 3 10 7 11 4
+
+Index and value for first term longer than any previous:
+              0 : 0
+             37 : 11
+          1,173 : 108
+         35,499 : 1,076
+        699,051 : 10,946
+EOD
+
+use Test::More;
+is($result, $ref);
+done_testing();
