@@ -2495,6 +2495,13 @@ File: F/Function_prototype
 #c# 2018-08-08 <RC
 #p# OK
 
+File: F/Fusc_sequence
+#!/usr/local/bin/perl
+#u# http://rosettacode.org/wiki/Fusc_sequence
+#c# 2019-03-13 >RC
+#p# OK
+#n# golfing the comma routine: 'r' option to subst. operator, no negative value input
+
 File: G/GUI_Maximum_window_dimensions
 #!/usr/local/bin/perl
 #u# http://rosettacode.org/wiki/GUI/Maximum_window_dimensions
@@ -3871,6 +3878,12 @@ File: M/Metronome
 #!/usr/local/bin/perl
 #u# http://rosettacode.org/wiki/Metronome
 #c# 2018-10-01 >RC
+#p# OK
+
+File: M/Mian-Chowla_sequence
+#!/usr/local/bin/perl
+#u# http://rosettacode.org/wiki/Mian-Chowla_sequence
+#c# 2019-03-13 >RC
 #p# OK
 
 File: M/Middle_three_digits
