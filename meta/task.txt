@@ -8,10 +8,10 @@ updating from RC…
 ||||+--------> Touched (modified by me) [234]
 |||||+-------> Random seed [88]
 ||||||+------> File output [58]
-|||||||+-----> Draft [220]
+|||||||+-----> Draft [221]
 ||||||||+----> Ignoring [33]
-|||||||||+---> Void (no local copy) [193]
-||||||||||+--> Un-implemented/reliable [186]
+|||||||||+---> Void (no local copy) [194]
+||||||||||+--> Un-implemented/reliable [187]
 |||||||||||
 GS......... 100_doors-1
 GS......... 100_doors-2
@@ -808,6 +808,7 @@ GS......... Palindrome_detection
 GS......... Pangram_checker
 GS......... Paraffins
 GS......... Parallel_Brute_Force
+.......D.VU Parallel_Resistor_Calculator
 GS......... Parallel_calculations
 ........XVU Parametric_polymorphism
 ........XV. Parametrized_SQL_statement
