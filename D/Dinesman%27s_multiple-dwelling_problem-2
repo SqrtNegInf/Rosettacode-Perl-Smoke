@@ -5,12 +5,13 @@
 #n# logic from 'Zebra_puzzle'
 
 use feature 'say';
+use strict;
+use warnings;
 my $result;
 
 # Basically the same idea as C, though of course it's much easier to have Perl generate Perl code.
  
 use utf8;
-use strict;
 binmode STDOUT, ":utf8";
  
 my (@tgt, %names);
@@ -27,7 +28,6 @@ sub setprops {
  
 my $solve = sub {
 	for my $i (@tgt) {
-$DB::single = 1;
 		$result .= sprintf("%12s", ucfirst($i->{$_} // "¿Qué?"))
 				for reverse sort keys %$i;
 		$result .= "\n";
@@ -52,8 +52,9 @@ sub pair {
 	$solve = sub {		# <--- sorta like how TeX \let...\def macro
 		my ($x, $y);
  
-		($x) = grep { $_->{$p1} eq $a } @tgt;
-		($y) = grep { $_->{$p2} eq $b } @tgt;
+        # DH - supress warnings with 'blah &&'
+		($x) = grep { $_->{$p1} && $_->{$p1} eq $a } @tgt; 
+		($y) = grep { $_->{$p2} && $_->{$p2} eq $b } @tgt;
  
 		$x and $y and
 			return $allowed{ $x->{idx} - $y->{idx} } && $e->();
