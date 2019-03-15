@@ -4,8 +4,10 @@
 #c# 2018-08-17 <RC
 #p# OK
 
+use Data::Printer;
+
 use warnings;
-use strict;
+#use strict;
 use feature 'say';
 my $result;
 my @res;
@@ -13,14 +15,7 @@ my @res;
 use utf8;
 binmode STDOUT, ':encoding(utf-8)';
 
-# Union
-#sub infix:<∪> (Range $a, Range $b) { Range.new( min($a.min,$b.min), max($a.max,$b.max) ) }
- 
-# Intersection
-#sub infix:<∩> (Range $a, Range $b) { so $a.max >= $b.min }
- 
 #multi consolidate() { () }
- 
 #multi consolidate($this is copy, **@those) {
 #    gather {
 #        for consolidate |@those -> $that {
@@ -30,16 +25,33 @@ binmode STDOUT, ':encoding(utf-8)';
 #        take $this;
 #    }
 #}
+
+#sub new { shift; bless [@_] }
+
+sub consolidate {
+    our @arr; local *arr = shift;
+    my @merge = sort { $a <=> $b } shift @arr;
+    for my $i (@arr) {
+        my @n = sort { $a <=> $b } @$i;
+        say "norm: " . join ', ', @n;
+        if ($merge[0]) {
+        } 
+    }
+$DB::single = 1;
+    return @merge; 
+}
+
+sub norm { sort { $a <=> $b } @_ } 
  
 for my $intervals (
     [[1.1, 2.2],],
-    [[6.1, 7.2], [7.2, 8.3]],
-    [[4, 3], [2, 1]],
-    [[4, 3], [2, 1], [-1, -2], [3.9, 10]],
-    [[1, 3], [-6, -1], [-4, -5], [8, 2], [-6, -6]]) {
+    [[6.1, 7.2], [7.2, 8.3]]) {
+#    [[4, 3], [2, 1]],
+#    [[4, 3], [2, 1], [-1, -2], [3.9, 10]],
+#    [[1, 3], [-6, -1], [-4, -5], [8, 2], [-6, -6]]) {
         my @temp;
         push @temp, '[' . join(', ', @$_) for @$intervals;
-        push @res, sprintf "%46s => %s", '[' . join('], ', @temp) . ']', 'xxx';
+        push @res, sprintf "%46s => %s", '[' . join('], ', @temp) . ']', consolidate($intervals);
         #@res[*-1] ~= (reverse consolidate |@intervals».sort.sort({ [.[0], .[1]] }).map: { Range.new(.[0], .[1]) }).gist
 }
 
