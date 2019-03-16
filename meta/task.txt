@@ -1,17 +1,17 @@
 
 This is perl 5, version 28, subversion 0 (v5.28.0) built for darwin-thread-multi-2level
 updating from RC…
-+------------> Perl: Good/Bad [1093/14]
-|+-----------> Smoke testing [959]
++------------> Perl: Good/Bad [1095/14]
+|+-----------> Smoke testing [961]
 ||+----------> sKipping validation [137]
 |||+---------> Interactive [47]
-||||+--------> Touched (modified by me) [234]
+||||+--------> Touched (modified by me) [237]
 |||||+-------> Random seed [88]
 ||||||+------> File output [58]
 |||||||+-----> Draft [221]
 ||||||||+----> Ignoring [33]
-|||||||||+---> Void (no local copy) [194]
-||||||||||+--> Un-implemented/reliable [187]
+|||||||||+---> Void (no local copy) [192]
+||||||||||+--> Un-implemented/reliable [185]
 |||||||||||
 GS......... 100_doors-1
 GS......... 100_doors-2
@@ -210,7 +210,7 @@ GS..T..D... Cheryl%27s_Birthday
 GS..T...... Chinese_remainder_theorem
 GS......... Chinese_zodiac
 GS......... Cholesky_decomposition
-.......D.VU Chowla_numbers
+G.K.T..D..U Chowla_numbers
 .........VU Church_Numerals
 .......D... Cipolla%27s_algorithm
 GS..T...... Cipolla%27s_algorithm-1
@@ -345,7 +345,7 @@ G.KIT..D... Draw_pixel_2
 GS...R..... Dutch_national_flag_problem
 GS......... Dynamic_variable_names
 GS..T...... EKG_sequence_convergence
-.........VU Eban_numbers
+GS..T...... Eban_numbers
 G.KI....... Echo_server
 GS..T...... Eertree
 GS..T...... Egyptian_division
@@ -808,7 +808,6 @@ GS......... Palindrome_detection
 GS......... Pangram_checker
 GS......... Paraffins
 GS......... Parallel_Brute_Force
-.......D.VU Parallel_Resistor_Calculator
 GS......... Parallel_calculations
 ........XVU Parametric_polymorphism
 ........XV. Parametrized_SQL_statement
@@ -927,7 +926,7 @@ GS..T..D... Ramsey%27s_theorem
 G.K........ Random_number_generator_device
 G.K........ Random_number_generator_included
 GS...R..... Random_numbers
-G.K.......U Range_consolidation
+GS..T...... Range_consolidation
 GS......... Range_expansion
 GS..T...... Range_extraction
 GS..T...... Ranking_methods
@@ -959,6 +958,7 @@ GS......... Rename_a_file
 GS......... Rep-string
 GS.....D... Repeat
 GS......... Repeat_a_string
+.......D.VU Resistance_Calculator
 GS......... Resistor_mesh
 GS......... Respond_to_an_unknown_method_call
 .........VU Retrieve_and_search_chat_history
