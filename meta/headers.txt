@@ -1012,6 +1012,13 @@ File: C/Cholesky_decomposition
 #p# OK
 #n# output munged
 
+File: C/Chowla_numbers
+#!/usr/local/bin/perl
+#u# http://rosettacode.org/wiki/Chowla_numbers
+#t# skiptest
+#c# 2019-03-16 >RC
+#p# OK
+
 File: C/Cipolla%27s_algorithm-1
 #!/usr/local/bin/perl
 #u# http://rosettacode.org/wiki/Cipolla%27s_algorithm
@@ -1750,6 +1757,12 @@ File: E/EKG_sequence_convergence
 #!/usr/local/bin/perl
 #u# http://rosettacode.org/wiki/EKG_sequence_convergence
 #c# 2018-10-24 >RC
+#p# OK
+
+File: E/Eban_numbers
+#!/usr/local/bin/perl
+#u# http://rosettacode.org/wiki/Eban_numbers
+#c# 2019-03-15 >RC
 #p# OK
 
 File: E/Echo_server
@@ -5047,8 +5060,7 @@ File: R/Random_numbers
 File: R/Range_consolidation
 #!/usr/local/bin/perl
 #u# http://rosettacode.org/wiki/Range_consolidation
-#t# skiptest
-#c# 2018-08-17 <RC
+#c# 2019-03-15 >RC
 #p# OK
 
 File: R/Range_expansion
@@ -5178,6 +5190,13 @@ File: R/Repeat_a_string
 #!/usr/local/bin/perl
 #u# http://rosettacode.org/wiki/Repeat_a_string
 #c# 2018-08-18 <RC
+#p# OK
+
+File: R/Resistor_calculator
+#!/usr/local/bin/perl
+#u# http://rosettacode.org/wiki/RC_REMOTE
+#t# skiptest
+#c# 2019-03-14 >RC
 #p# OK
 
 File: R/Resistor_mesh
