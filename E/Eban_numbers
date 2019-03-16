@@ -1,0 +1,61 @@
+#!/usr/local/bin/perl
+#u# http://rosettacode.org/wiki/Eban_numbers
+#c# 2019-03-15 >RC
+#p# OK
+
+use strict;
+use warnings;
+use feature 'say';
+my @res;
+
+use Lingua::EN::Numbers qw(num2en);
+
+sub comma { reverse ((reverse shift) =~ s/(.{3})/$1,/gr) =~ s/^,//r }
+
+sub e_ban {
+    my($power) = @_;
+    my @n;
+    for (1..10**$power) {
+        next unless 0 == $_%2;
+        next if $_ =~ /[789]/ or /[12].$/ or /[135]..$/ or /[135]...$/ or /[135].....$/;
+        push @n, $_ unless num2en($_) =~ /e/;
+    }
+    @n;
+}
+
+my @OK = e_ban(my $max = 7);
+
+my @a = grep { $_ <= 1000 } @OK;
+push @res, "Number of eban numbers up to and including 1000: @{[1+$#a]}";
+push @res, join(', ',@a);
+push @res, '';
+
+my @b = grep { $_ >= 1000 && $_ <= 4000 } @OK;
+push @res, "Number of eban numbers between 1000 and 4000 (inclusive): @{[1+$#b]}";
+push @res, join(', ',@b);
+push @res, '';
+
+for my $exp (4..$max) {
+    my $n = + grep { $_ <= 10**$exp } @OK;
+    push @res, sprintf "Number of eban numbers up to %10s: %d", comma(10**$exp), $n;
+}
+
+say my $result = join "\n", @res;
+
+my $ref = <<'EOD';
+Number of eban numbers up to and including 1000: 19
+2, 4, 6, 30, 32, 34, 36, 40, 42, 44, 46, 50, 52, 54, 56, 60, 62, 64, 66
+
+Number of eban numbers between 1000 and 4000 (inclusive): 21
+2000, 2002, 2004, 2006, 2030, 2032, 2034, 2036, 2040, 2042, 2044, 2046, 2050, 2052, 2054, 2056, 2060, 2062, 2064, 2066, 4000
+
+Number of eban numbers up to     10,000: 79
+Number of eban numbers up to    100,000: 399
+Number of eban numbers up to  1,000,000: 399
+Number of eban numbers up to 10,000,000: 1599
+EOD
+
+use Test::More;
+chomp $ref;
+is($result, $ref);
+done_testing();
