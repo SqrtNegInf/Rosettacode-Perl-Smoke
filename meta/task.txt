@@ -1,17 +1,17 @@
 
 This is perl 5, version 28, subversion 0 (v5.28.0) built for darwin-thread-multi-2level
 updating from RC…
-+------------> Perl: Good/Bad [1095/14]
++------------> Perl: Good/Bad [1094/15]
 |+-----------> Smoke testing [961]
-||+----------> sKipping validation [137]
+||+----------> sKipping validation [138]
 |||+---------> Interactive [47]
-||||+--------> Touched (modified by me) [237]
+||||+--------> Touched (modified by me) [239]
 |||||+-------> Random seed [88]
 ||||||+------> File output [58]
-|||||||+-----> Draft [221]
+|||||||+-----> Draft [222]
 ||||||||+----> Ignoring [33]
 |||||||||+---> Void (no local copy) [192]
-||||||||||+--> Un-implemented/reliable [185]
+||||||||||+--> Un-implemented/reliable [186]
 |||||||||||
 GS......... 100_doors-1
 GS......... 100_doors-2
@@ -303,7 +303,7 @@ GS......... Day_of_the_week-4
 GS...R..... Deal_cards_for_FreeCell
 GS......... Death_Star
 B...T..D..U Decimal_floating_point_number_to_binary
-.......D.VU Decision_tables
+G.K.T..D..U Decision_tables
 GS..T...... Deconvolution_1D
 GS..T...... Deconvolution_2D%2B
 GS......... Deepcopy
@@ -400,7 +400,7 @@ GS......... Factorial-1
 GS......... Factorial-2
 GS......... Factorial-3
 GS......... Factorial-4
-G.K.TR....U Factorial_base_numbers_indexing_permutations_of_a_collection
+B.K.TR....U Factorial_base_numbers_indexing_permutations_of_a_collection
 GS......... Factors_of_a_Mersenne_number-1
 GS......... Factors_of_a_Mersenne_number-2
 GS......... Factors_of_an_integer-1
@@ -862,7 +862,7 @@ GS......... Pi-2
 GS......... Pi-3
 GS......... Pi-4
 GS...R..... Pick_random_element
-GS...R..... Pig_the_dice_game
+!S...R..... Pig_the_dice_game
 GS..TR..... Pig_the_dice_game_Player
 GS..T.F.... Pinstripe_Display
 .........VU Pinstripe_Printer
@@ -1236,7 +1236,7 @@ GS......... Truncatable_primes-3
 GS......... Truncate_a_file
 GS....F.... Truth_table
 GS......... Twelve_statements
-GS.....D... Two_Sum
+GS..T..D... Two_Sum
 GS..T..D... Type_detection
 GS......... URL_decoding
 GS......... URL_encoding
@@ -1288,6 +1288,7 @@ GS......... Water_collected_between_towers
 .......D.VU Waveform_analysis_Top_and_tail
 .......D.VU Weather_Routing
 GS......... Web_scraping
+.......D.VU Weird_numbers
 .......D... Welch%27s_t-test
 GS......... Welch%27s_t-test-1
 GS......... Welch%27s_t-test-2
