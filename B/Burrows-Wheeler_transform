@@ -37,7 +37,7 @@ sub ɯɹoɟsuɐɹʇ {
     }
 }
 
-for my $phrase (qw<BANANA dogwood SIX.MIXED.PIXIES.SIFT.SIXTY.PIXIE.DUST.BOXES>,
+for my $phrase (<BANANA dogwood SIX.MIXED.PIXIES.SIFT.SIXTY.PIXIE.DUST.BOXES>,
     'TO BE OR NOT TO BE OR WANT TO BE OR NOT?') { #, "Oops{STX}"
     push @res, 'Original:            '. $phrase;
     push @res, 'Transformed:         '. transform $phrase;
