@@ -13,19 +13,19 @@ my $result;
 my (@names, @val, @weight, @vol, $max_vol, $max_weight, $vsc, $wsc);
 
 if (1) { # change 1 to 0 for different data set
-        @names  = qw(panacea    icor    gold);
-        @val    = qw(3000       1800    2500);
-        @weight = qw(3          2       20  );
-        @vol    = qw(25         15      2   );
+        @names  = <panacea    icor    gold>;
+        @val    = <3000       1800    2500>;
+        @weight = <3          2       20  >;
+        @vol    = <25         15      2   >;
         $max_weight = 250;
         $max_vol = 250;
         $vsc = 1000;
         $wsc = 10;
 } else { # with these numbers cache would have been useful
-        @names  = qw(panacea    icor    gold    banana  monkey  );
-        @val    = qw(17         11      5       3       34      );
-        @weight = qw(14         3       2       2       10      );
-        @vol    = qw(3          4       2       1       12      );
+        @names  = <panacea    icor    gold    banana  monkey  >;
+        @val    = <17         11      5       3       34      >;
+        @weight = <14         3       2       2       10      >;
+        @vol    = <3          4       2       1       12      >;
         $max_weight = 150;
         $max_vol = 100;
         $vsc = $wsc = 1;
