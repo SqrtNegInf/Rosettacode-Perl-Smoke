@@ -11,14 +11,14 @@ my $result;
 
 # Library: Time::HiResHiRes
 use threads;
-use Time::HiRes qw(sleep);
+use Time::HiRes 'sleep';
  
 $_->join for map {
     threads->create(sub {
         sleep rand; 
         print shift, "\n";
     }, $_)
-} qw(Enjoy Rosetta Code);
+} <Enjoy Rosetta Code>;
 
 exit;
 
