@@ -9,7 +9,7 @@ use strict;
 use warnings;
 use feature 'say';
 
-my @B=qw(t h e q u i c k b r o w n f o x j u m p s o v e r t h e l a z y d o g);
+my @B=<t h e q u i c k b r o w n f o x j u m p s o v e r t h e l a z y d o g>;
 
 #print "@B\n";
 #my @C=cocktailSort(@B);
