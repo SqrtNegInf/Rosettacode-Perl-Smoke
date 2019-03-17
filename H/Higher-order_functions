@@ -34,14 +34,14 @@ my %dispatch = (
     rev    => \&reverser,
 );
 
-push @res, another $dispatch{$_}, 123 for qw(square cube rev);
+push @res, another $dispatch{$_}, 123 for <square cube rev>;
 sub apply (&@) {            # use & as the first item in a prototype to take bare blocks like map and grep
     my ($sub, @ret) = @_;   # this function applies a function that is expected to modify $_ to a list
     $sub->() for @ret;      # it allows for simple inline application of the s/// and tr/// constructs
     @ret
 }
 
-push @res, join ", " => apply {tr/aeiou/AEIOU/} qw/one two three four/;
+push @res, join ", " => apply {tr/aeiou/AEIOU/} <one two three four>;
 # OnE, twO, thrEE, fOUr
 sub first {shift->()}
 
