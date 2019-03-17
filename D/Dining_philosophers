@@ -17,7 +17,7 @@ my $result;
  
 use threads;
 use threads::shared;
-my @names = qw(Aristotle Kant Spinoza Marx Russell);
+my @names = <Aristotle Kant Spinoza Marx Russell>;
  
 my @forks = ('On Table') x @names;
 share $forks[$_] for 0 .. $#forks;
@@ -78,7 +78,7 @@ use AnyEvent;
 use Coro::AnyEvent;
 use EV;
  
-my @philosophers = qw(Aristotle Kant Spinoza Marx Russell);
+my @philosophers = <Aristotle Kant Spinoza Marx Russell>;
 my @forks = (1..@philosophers);
 my @fork_sem;
  
