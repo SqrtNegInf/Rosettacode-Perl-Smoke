@@ -15,10 +15,10 @@ sub md4(@) {
 
     my @A = (0x67452301, 0xefcdab89, 0x98badcfe, 0x10325476); # initial regs
     my @T = (0, 0x5A827999, 0x6ED9EBA1);
-    my @L = qw(3 7 11 19 3 5 9 13 3 9 11 15);   # left rotate counts
-    my @O = (1, 4, 4,                           # x stride for input index
-             4, 1, 1,                           # y stride for input index
-             0, 0, 1);                          # bitwise reverse both indexes
+    my @L = <3 7 11 19 3 5 9 13 3 9 11 15>; # left rotate counts
+    my @O = (1, 4, 4,                       # x stride for input index
+             4, 1, 1,                       # y stride for input index
+             0, 0, 1);                      # bitwise reverse both indexes
     my @I = map {
                     my $z   = int $_/16;
                     my $x   = $_%4; 
