@@ -130,7 +130,7 @@ BEGIN {
 
     sub _push_bad_range_if_necessary {
         my ($parser) = @_;
-        my ($count, $max) = @$parser{qw(BAD_COUNT BAD_MAX)};
+        my ($count, $max) = @$parser{<BAD_COUNT BAD_MAX>};
 
         return if $count < $max;
 
@@ -139,7 +139,7 @@ BEGIN {
             $parser->{BAD_MAX} = $count;
         }
 
-        push @{$parser->{BAD_RANGES}}, [ @$parser{qw(BAD_DATE CURRENT_DATE)} ];
+        push @{$parser->{BAD_RANGES}}, [ @$parser{<BAD_DATE CURRENT_DATE>} ];
     }
 
     sub _check {
@@ -192,7 +192,7 @@ BEGIN {
 
     sub result {
         my ($parser) = @_;
-        return ('total-average', _average(@$parser{qw(SUM COUNT)}));
+        return ('total-average', _average(@$parser{<SUM COUNT>}));
     }
 
     sub finish {
