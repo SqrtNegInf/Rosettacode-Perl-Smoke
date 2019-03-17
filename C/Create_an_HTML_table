@@ -10,7 +10,7 @@ srand 123456;
 use feature 'say';
 my $result;
 
-my @heading = qw(X Y Z);
+my @heading = <X Y Z>;
 my $rows = 5;
 $result .=    '<table><thead><td>' .
         join('', (map { "<th>$_</th>" } @heading)) .
