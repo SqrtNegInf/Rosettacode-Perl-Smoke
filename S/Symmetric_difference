@@ -20,8 +20,8 @@ sub symm_diff {
         return \@a, \@b, [ @a, @b ]
 }
 
-my @a = qw(John Serena Bob  Mary Serena);
-my @b = qw(Jim  Mary   John Jim  Bob   );
+my @a = <John Serena Bob  Mary Serena>;
+my @b = <Jim  Mary   John Jim  Bob   >;
 
 my ($a, $b, $s) = symm_diff(\@a, \@b);
 say $result = "A\\B: @$a\nB\\A: @$b\nSymm: @$s\n";
