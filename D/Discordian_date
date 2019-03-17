@@ -13,13 +13,13 @@ use strict;
 use warnings;
 use Time::Piece ();
  
-my @seasons = (qw< Chaos Discord Confusion Bureaucracy >, 'The Aftermath');
-my @week_days = (qw< Sweetmorn Boomtime Pungenday Prickle-Prickle >, 'Setting Orange');
+my @seasons = (< Chaos Discord Confusion Bureaucracy >, 'The Aftermath');
+my @week_days = (< Sweetmorn Boomtime Pungenday Prickle-Prickle >, 'Setting Orange');
  
 sub ordinal {
 	my ($n) = @_;
 	return $n . "th" if int($n/10) == 1;
-	return $n . ((qw< th st nd rd th th th th th th>)[$n % 10]);
+	return $n . ((< th st nd rd th th th th th th>)[$n % 10]);
 }
  
 sub ddate {
@@ -40,7 +40,7 @@ sub ddate {
 	return "$weekday, the $season_day day of $season $yold";
 }
  
-$result .= "$_ is " . ddate($_) . "\n" for qw< 2010-07-22 2012-02-28 2012-02-29 2012-03-01 >;
+$result .= "$_ is " . ddate($_) . "\n" for < 2010-07-22 2012-02-28 2012-02-29 2012-03-01 >;
  
 say $result; 
 
