@@ -29,10 +29,10 @@ sub amb {
    }
 }
 
-my @w1 = qw(the that a);
-my @w2 = qw(frog elephant thing);
-my @w3 = qw(walked treaded grows);
-my @w4 = qw(slowly quickly);
+my @w1 = <the that a>;
+my @w2 = <frog elephant thing>;
+my @w3 = <walked treaded grows>;
+my @w4 = <slowly quickly>;
 
 sub joined {
    my ($join_a, $join_b) = @_;
