@@ -12,7 +12,7 @@ srand 123456;
 
 my(%D,@perc,$i);
 my $fill = 'x';
-$D{$_} = $i++ for qw<DeadEnd Up Right Down Left>;
+$D{$_} = $i++ for <DeadEnd Up Right Down Left>;
 
 sub deq { defined $_[0] && $_[0] eq $_[1] }
 
