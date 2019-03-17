@@ -7,16 +7,15 @@ use feature 'say';
 my $result;
 my @res;
 
-use feature qw( say );
 use Coro;
-use Coro::Timer qw( sleep );
+use Coro::Timer 'sleep';
  
 $_->join for map {
     async {
         sleep rand; 
         push @res, @_;
     } $_
-} qw( Enjoy Rosetta Code );
+} <Enjoy Rosetta Code>;
  
 say $result  = join ":", @res; 
 
