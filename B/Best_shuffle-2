@@ -10,9 +10,9 @@ use warnings;
 use feature 'say';
 my $result;
 
-use List::Util qw(shuffle);
+use List::Util 'shuffle';
 
-best_shuffle($_) for qw(abracadabra seesaw elk grrrrrr up a);
+best_shuffle($_) for <abracadabra seesaw elk grrrrrr up a>;
 
 sub best_shuffle {
 	my ($original_word) = @_;
