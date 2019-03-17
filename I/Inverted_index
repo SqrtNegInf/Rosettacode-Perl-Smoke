@@ -9,7 +9,7 @@ use warnings;
 use feature 'say';
 my $result;
 
-use Set::Object qw(set);
+use Set::Object 'set';
 
 # given an array of files, returns the index
 sub createindex {
@@ -54,8 +54,8 @@ sub search_words {
 # USAGE: invidx.pl the,list,of,words file1 file2 .. fileN
 #my @searchwords = split /,/, shift;
 # first arg is a comma-separated list of words to search for
-my @files = qw(ref/sample.txt ref/sample1.txt ref/sample2.txt);
-my @searchwords = qw(glorp zizzer);
+my @files = <ref/sample.txt ref/sample1.txt ref/sample2.txt>;
+my @searchwords = <glorp zizzer>;
 
 say $result = "$_"
     foreach search_words({createindex(@files)}, @searchwords);
