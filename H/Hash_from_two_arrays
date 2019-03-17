@@ -8,15 +8,15 @@ use warnings;
 use feature 'say';
 my $result;
 
-my @keys = qw(a b c);
-my @vals = (1, 2, 3);
+my @keys = <a b c>;
+my @vals = <1 2 3>;
 my %hash;
 @hash{@keys} = @vals;
 $result .= "$_ : $hash{$_}\n" for sort keys %hash;
 
 #Alternatively, using Library: List::MoreUtilsMoreUtils:
 
-use List::MoreUtils qw(zip);
+use List::MoreUtils 'zip';
 my %hash2 = zip @keys, @vals;
 $result .= "$_ : $hash2{$_}\n" for sort keys %hash;
 
