@@ -6,7 +6,7 @@
 
 # Alternatively, with the CPAN List::MoreUtils package:
 
-use List::MoreUtils qw(each_array);
+use List::MoreUtils 'each_array';
  
 sub writedat {
     my ($filename, $x, $y, $xprecision, $yprecision) = @_;
