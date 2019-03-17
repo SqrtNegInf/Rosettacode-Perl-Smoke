@@ -2,12 +2,14 @@
 #u# http://rosettacode.org/wiki/Even_or_odd
 #c# 2018-08-01 <RC
 #p# OK
+#n# either quoting will do
 
 use feature 'say';
 my $result;
 
 for(0..10){
-    $result .= "$_ is ". qw(even odd)[$_ % 2]."\n";
+    #$result .= "$_ is ". qw(even odd)[$_ % 2]."\n";
+    $result .= "$_ is ". (<even odd>)[$_ % 2]."\n";
 }
 
 #or
