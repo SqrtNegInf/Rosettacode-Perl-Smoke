@@ -20,7 +20,7 @@ sub dif {
 #  @s
 #}
 
-my @a = qw<90 47 58 29 22 32 55 5 55 73>;
+my @a = <90 47 58 29 22 32 55 5 55 73>;
 while (@a) {$result .= sprintf '%6d', $_ for @a = dif @a; $result .= "\n"}
 #while (@a) { printf('%6d', $_) for @a = dif @a; print "\n" } # this version on RC
 
