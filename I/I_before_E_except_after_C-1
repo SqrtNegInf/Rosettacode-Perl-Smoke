@@ -17,7 +17,7 @@ sub result {
     return $result;
 }
 
-my @keys  = qw(ei cei ie cie);
+my @keys  = <ei cei ie cie>;
 my %count;
 
 open F, '<', 'ref/unixdict.txt';
