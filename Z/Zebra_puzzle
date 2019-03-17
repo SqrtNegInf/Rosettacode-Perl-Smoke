@@ -88,29 +88,29 @@ sub pair {
 setprops (
 	# Svensk n. a Swede, not a swede (kålrot).
 	# AEnglisk (from middle Viking "Æŋløsåksen") n. a Brit.
-	'Who'	=> [ qw(Deutsch Svensk Norske Danske AEnglisk) ],
-	'Pet'	=> [ qw(birds dog horse zebra cats) ],
-	'Drink'	=> [ qw(water tea milk beer coffee) ],
-	'Smoke'	=> [ qw(dunhill blue_master prince blend pall_mall) ],
-	'Color'	=> [ qw(red green yellow white blue) ]
+	'Who'	=> [ <Deutsch Svensk Norske Danske AEnglisk> ],
+	'Pet'	=> [ <birds dog horse zebra cats> ],
+	'Drink'	=> [ <water tea milk beer coffee> ],
+	'Smoke'	=> [ <dunhill blue_master prince blend pall_mall> ],
+	'Color'	=> [ <red green yellow white blue> ]
 );
  
 # constraints
-pair qw( AEnglisk red );
-pair qw( Svensk dog );
-pair qw( Danske tea );
-pair qw( green white 1 );	# "to the left of" can mean either 1 or -1: ambiguous
-pair qw( coffee green );
-pair qw( pall_mall birds );
-pair qw( yellow dunhill );
-pair qw( 2 milk );
-pair qw( 0 Norske );
-pair qw( blend cats -1 1 );
-pair qw( horse dunhill -1 1 );
-pair qw( blue_master beer );	# Nicht das Deutsche Bier trinken? Huh.
-pair qw( Deutsch prince );
-pair qw( Norske blue -1 1 );
-pair qw( water blend -1 1 );
+pair <AEnglisk red >;
+pair <Svensk dog >;
+pair <Danske tea >;
+pair <green white 1 >;	# "to the left of" can mean either 1 or -1: ambiguous
+pair <coffee green >;
+pair <pall_mall birds >;
+pair <yellow dunhill >;
+pair <2 milk >;
+pair <0 Norske >;
+pair <blend cats -1 1 >;
+pair <horse dunhill -1 1 >;
+pair <blue_master beer >;	# Nicht das Deutsche Bier trinken? Huh.
+pair <Deutsch prince >;
+pair <Norske blue -1 1 >;
+pair <water blend -1 1 >;
  
 $solve->();
 say $result;
