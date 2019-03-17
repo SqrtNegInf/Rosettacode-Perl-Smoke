@@ -5,15 +5,15 @@
 
 use strict;
 #use warnings; # some format-string defs in %predicates need only one arg
-use feature qw(state say);
+use feature <state say>;
 my $result;
 
 # A solution that parses a structured version of the problem text, translates it into a Perl expression, and uses it for a brute-force search:
 
 #Setup
 
-use List::Util 1.33 qw(pairmap);
-use Algorithm::Permute qw(permute);
+use List::Util 1.33 'pairmap';
+use Algorithm::Permute 'permute';
  
 our %predicates = (
 #                       | object    | sprintf format for Perl expression |
