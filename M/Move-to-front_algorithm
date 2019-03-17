@@ -25,7 +25,7 @@ sub decode {
 	} @_;
 }
 
-for my $test ( qw(broood bananaaa hiphophiphop) ) {
+for my $test ( <broood bananaaa hiphophiphop> ) {
 	my @encoded = encode($test);
 	$result .= "$test: @encoded\n";
 	my $decoded = decode(@encoded);
