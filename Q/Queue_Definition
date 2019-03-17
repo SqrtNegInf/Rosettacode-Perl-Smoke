@@ -13,7 +13,7 @@ sub mypush (\@@) {my($list,@things)=@_; push @$list, @things}
 sub mypop  (\@)  {my($list)=@_; @$list or croak "Empty"; shift @$list }
 sub empty  (@)   {not @_}
 
-my @fifo=qw(1 2 3 a b c);
+my @fifo=<1 2 3 a b c>;
 
 mypush @fifo, 44, 55, 66;
 mypop @fifo for 1 .. 8;
