@@ -8,7 +8,7 @@ use warnings;
 use feature 'say';
 my $result;
 
-my @list = qw(9 8 7 6 5 0 1 2 3 4);
+my @list = <9 8 7 6 5 0 1 2 3 4>;
 say $result = join ' ', map { qselect(\@list, $_) } 1 .. 10 and print "\n";
 
 sub qselect
