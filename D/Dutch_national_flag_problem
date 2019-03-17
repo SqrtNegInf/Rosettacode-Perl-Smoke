@@ -15,9 +15,9 @@ use warnings;
 use strict;
 use 5.010; # //
  
-use List::Util qw( shuffle );
+use List::Util 'shuffle';
  
-my @colours = qw( blue white red );
+my @colours = <blue white red>;
  
 sub are_ordered {
     my $balls = shift;
@@ -43,7 +43,7 @@ sub debug {
     for my $i (0 .. $#$balls) {
         my ($prefix, $suffix) = (q()) x 2;
  
-        ($prefix, $suffix) = qw/( )/ if $i == $pos;
+        ($prefix, $suffix) = <( )> if $i == $pos;
         $prefix           .= '>'     if $i == $top;
         $suffix           .= '<'     if $i == $bottom;
  
@@ -56,7 +56,7 @@ sub debug {
 my $count = shift // 10;
 die "$count: Not enough balls\n" if $count < 3;
  
-my $balls = [qw( 2 1 0 )];
+my $balls = [<2 1 0>];
 push @$balls, int rand 3 until @$balls == $count;
 do { @$balls = shuffle @$balls } while are_ordered($balls);
  
