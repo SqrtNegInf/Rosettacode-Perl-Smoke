@@ -10,11 +10,11 @@
 use strict;
 use warnings;
  
-use Fcntl qw( :flock SEEK_END );
+use Fcntl <:flock SEEK_END>;
  
 use constant {
-    RECORD_FIELDS => [qw( account password UID GID GECOS directory shell )],
-    GECOS_FIELDS  => [qw( fullname office extension homephone email )],
+    RECORD_FIELDS => [<account password UID GID GECOS directory shell>],
+    GECOS_FIELDS  => [<fullname office extension homephone email>],
     RECORD_SEP    => ':',
     GECOS_SEP     => ',',
     PASSWD_FILE   => 'run/passwd.txt',
