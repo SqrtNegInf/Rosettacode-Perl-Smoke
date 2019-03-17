@@ -18,7 +18,7 @@ use feature 'say';
 
 use Coro;
 my $ret = Coro::Channel->new;
-my @nums = qw(1 32 2 59 2 39 43 15 8 9 12 9 11);
+my @nums = <1 32 2 59 2 39 43 15 8 9 12 9 11>;
 
 for my $n (@nums){
 	async {
