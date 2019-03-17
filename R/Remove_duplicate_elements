@@ -11,23 +11,23 @@ my $result;
 # Library: List::MoreUtils
 #(this version even preserves the order of first appearance of each element)
 
-use List::MoreUtils qw(uniq);
+use List::MoreUtils 'uniq';
 
-my @uniq1 = uniq qw(1 2 3 a b c 2 3 4 b c d);
+my @uniq1 = uniq <1 2 3 a b c 2 3 4 b c d>;
 
 # It is implemented like this:
 my %seen;
-my @uniq2 = grep {!$seen{$_}++} qw(1 2 3 a b c 2 3 4 b c d);
+my @uniq2 = grep {!$seen{$_}++} <1 2 3 a b c 2 3 4 b c d>;
 
 # Note: the following two solutions convert elements to strings in the result, so if you give it references they will lose the ability to be dereferenced.
 
 # Alternately:
-my %hash = map { $_ => 1 } qw(1 2 3 a b c 2 3 4 b c d);
+my %hash = map { $_ => 1 } <1 2 3 a b c 2 3 4 b c d>;
 my @uniq3 = sort keys %hash;
 
 # Alternately:
 %seen = ();
-@seen{qw(1 2 3 a b c 2 3 4 b c d)} = ();
+@seen{<1 2 3 a b c 2 3 4 b c d>} = ();
 my @uniq4 = sort keys %seen;
 
 say $result = join "\n", (join ' ', @uniq1), (join ' ', @uniq2), (join ' ', @uniq3), (join ' ', @uniq4); 
