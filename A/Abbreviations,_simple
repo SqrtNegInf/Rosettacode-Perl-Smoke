@@ -30,7 +30,7 @@ for (@c) {
 my $fmt = "%-10s";
 my $inp = sprintf $fmt, 'Input:';
 my $out = sprintf $fmt, 'Output:';
-for my $str ('', qw<riG rePEAT copies put mo rest types fup. 6 poweRin>) {
+for my $str ('', <riG rePEAT copies put mo rest types fup. 6 poweRin>) {
     $inp .= sprintf $fmt, $str;
     $out .= sprintf $fmt, $abr{uc $str} // '*error*';
 }
