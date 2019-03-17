@@ -9,7 +9,7 @@ use feature 'say';
 my @res;
 
 use File::Find;
-use List::Util qw(max);
+use List::Util 'max';
 
 my %fsize;
 my $dir = '/Users/dhoekman/perl6/Rosetta-Code/bench/2018-01-01-m';
@@ -30,7 +30,7 @@ say my $result = join "\n", @res;
 
 sub histogram {
     my($max, $value, $width) = @_;
-    my @blocks = qw<| ▏ ▎ ▍ ▌ ▋ ▊ ▉ █>;
+    my @blocks = <| ▏ ▎ ▍ ▌ ▋ ▊ ▉ █>;
     my $scaled = int $value * $width / $max;
     my($end) =     $scaled % 8;
     my($bar) = int $scaled / 8;
