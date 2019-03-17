@@ -20,7 +20,7 @@ my $result;
 # would still be a valid solution. I could fix it, but at the cost of speed and memory.
 
 use strict;
-use warnings qw(FATAL all);
+use warnings <FATAL all>;
 my @initial = split /\n/, <<'';
 #############
 #  #        #
@@ -83,8 +83,8 @@ sub printable_board {
 
 my $packed = packed_initial();
 
-my @udlr = qw(u d l r);
-my @UDLR = qw(U D L R);
+my @udlr = <u d l r>;
+my @UDLR = <U D L R>;
 my @deltas = (-$cols, +$cols, -1, +1);
 
 my %fseen;
