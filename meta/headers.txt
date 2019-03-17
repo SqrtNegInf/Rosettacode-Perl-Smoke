@@ -1513,6 +1513,14 @@ File: D/Decimal_floating_point_number_to_binary
 #c# 2018-xx-xx >RC
 #p# BROKEN
 
+File: D/Decision_tables
+#!/usr/local/bin/perl
+#u# http://rosettacode.org/wiki/Decision_tables
+#t# skiptest
+#c# 2019-03-16 >RC
+#p# OK
+#=# RC pipe: y\nn\nn\n
+
 File: D/Deconvolution_1D
 #!/usr/local/bin/perl
 #u# http://rosettacode.org/wiki/Deconvolution/1D
@@ -1929,6 +1937,7 @@ File: E/Even_or_odd
 #u# http://rosettacode.org/wiki/Even_or_odd
 #c# 2018-08-01 <RC
 #p# OK
+#n# either quoting will do
 
 File: E/Events
 #!/usr/local/bin/perl
@@ -2097,7 +2106,7 @@ File: F/Factorial_base_numbers_indexing_permutations_of_a_collection
 #u# http://rosettacode.org/wiki/Factorial_base_numbers_indexing_permutations_of_a_collection
 #t# skiptest
 #c# 2019-02-RC >RC
-#p# OK
+#p# BROKEN
 
 File: F/Factors_of_a_Mersenne_number-1
 #!/usr/local/bin/perl
@@ -6765,7 +6774,7 @@ File: T/Twelve_statements
 File: T/Two_Sum
 #!/usr/local/bin/perl
 #u# http://rosettacode.org/wiki/Two_Sum
-#c# 2018-08-09 <RC
+#c# 2018-08-09 <RC, 2019-03-16 >RC
 #p# OK
 
 File: T/Type_detection
@@ -6962,6 +6971,7 @@ File: V/Vibrating_rectangles
 #t# interactive
 #c# 2018-09-04 >RC
 #p# OK
+#n# cannot remove the 'qw' on the drawing characters
 
 File: V/Video_display_modes
 #!/usr/local/bin/perl
@@ -7027,6 +7037,7 @@ File: W/Welch%27s_t-test-2
 #u# http://rosettacode.org/wiki/Welch%27s_t-test
 #c# 2018-08-03 <RC
 #p# OK
+#n# interesting, different modules require different quoting constructions (when not using 'qw')
 
 File: W/Window_creation
 #!/usr/local/bin/perl # do-not-check
