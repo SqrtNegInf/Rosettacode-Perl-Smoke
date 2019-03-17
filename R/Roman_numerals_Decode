@@ -30,7 +30,7 @@ use 5.10.0;
   }
 }
 
-$result .= "$_: ". from_roman($_) . "\n" for qw(MCMXC MDCLXVI MMVIII);
+$result .= "$_: ". from_roman($_) . "\n" for <MCMXC MDCLXVI MMVIII>;
 
 say $result; 
 my $ref = <<'EOD';
