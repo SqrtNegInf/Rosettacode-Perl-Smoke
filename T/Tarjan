@@ -9,7 +9,7 @@ use feature 'say';
 my @res;
 
 use feature 'state';
-use List::Util qw(min);
+use List::Util 'min';
 
 sub tarjan {
     our(%k) = @_;
@@ -62,11 +62,11 @@ my %test2 = (
   'Andy' => ['Bart'],
   'Bart' => ['Carl'],
   'Carl' => ['Andy'],
-  'Dave' => [qw<Bart Carl Earl>],
-  'Earl' => [qw<Dave Fred>],
-  'Fred' => [qw<Carl Gary>],
+  'Dave' => [<Bart Carl Earl>],
+  'Earl' => [<Dave Fred>],
+  'Fred' => [<Carl Gary>],
   'Gary' => ['Fred'],
-  'Hank' => [qw<Earl Gary Hank>]
+  'Hank' => [<Earl Gary Hank>]
 );
 
 #push @res, "Strongly connected components:";
