@@ -13,7 +13,7 @@ sub comma_quibbling(@) {
 }
 
 $result .= comma_quibbling(@$_). "\n" for
-    [], [qw(ABC)], [qw(ABC DEF)], [qw(ABC DEF G H)];
+    [], [qw<ABC>], [<ABC DEF>], [<ABC DEF G H>]; # DH note the 'qw' cannot be elided
 
 say $result;
 
