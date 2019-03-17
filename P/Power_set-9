@@ -9,7 +9,7 @@ use feature 'say';
 my $result;
 my @powerset;
 
-use List::Util qw(reduce);
+use List::Util 'reduce';
 
 sub powerset {
     @{( reduce { [@$a, map([@$_, $b], @$a)] } [[]], @_ )}
@@ -19,7 +19,7 @@ sub set_to_string {
     "{" . join(", ", map { ref $_ ? set_to_string(@$_) : $_ } @_) . "}"
 }
  
-@powerset = powerset(qw<1 2 3>);
+@powerset = powerset(<1 2 3>);
 say $result = set_to_string(@powerset); #, "\n";
 
 use Test::More;
