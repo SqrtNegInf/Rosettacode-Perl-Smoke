@@ -30,8 +30,8 @@ sub avg_error {
     $avg_err/@v;
 }
 
-$result .= diversity_calc(49, qw<48 47 51>);
-$result .= diversity_calc(49, qw<48 47 51 42>);
+$result .= diversity_calc(49, <48 47 51>);
+$result .= diversity_calc(49, <48 47 51 42>);
 
 say $result;
 
