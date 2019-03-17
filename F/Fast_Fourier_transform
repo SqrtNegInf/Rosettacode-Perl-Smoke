@@ -23,7 +23,7 @@ sub fft {
     (map { $evn[$_] - $odd[$_] } 0 .. $#evn );
 }
 
-$result .= "$_\n" for fft qw(1 1 1 1 0 0 0 0);
+$result .= "$_\n" for fft <1 1 1 1 0 0 0 0>;
 
 say $result; 
 my $ref = <<'EOD';
