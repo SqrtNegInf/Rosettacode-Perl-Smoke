@@ -6,21 +6,21 @@
 
 use feature 'say';
 
-use List::Util 1.33 qw(all);
+use List::Util 1.33 'all';
  
-@strings = qw(abc);
+@strings = <abc>;
 $t1 = all { $strings[0] eq $strings[$_] } 1..$#strings;  # All equal
 $t2 = all { $strings[$_-1] lt $strings[$_] } 1..$#strings;  # Strictly ascending
 $t3 = join("\0", @strings) =~ /^ ( [^\0]*+ ) (?: \0 \1 )* $/x;  # All equal
 $result .= "t1:$t1 t2:$t2 t3:$t3 : ";
 
-@strings = qw(abc def ghi);
+@strings = <abc def ghi>;
 $t1 = all { $strings[0] eq $strings[$_] } 1..$#strings;  # All equal
 $t2 = all { $strings[$_-1] lt $strings[$_] } 1..$#strings;  # Strictly ascending
 $t3 = join("\0", @strings) =~ /^ ( [^\0]*+ ) (?: \0 \1 )* $/x;  # All equal
 $result .= "t1:$t1 t2:$t2 t3:$t3 : ";
 
-@strings = qw(abc abc abc);
+@strings = <abc abc abc>;
 $t1 = all { $strings[0] eq $strings[$_] } 1..$#strings;  # All equal
 $t2 = all { $strings[$_-1] lt $strings[$_] } 1..$#strings;  # Strictly ascending
 $t3 = join("\0", @strings) =~ /^ ( [^\0]*+ ) (?: \0 \1 )* $/x;  # All equal # buggy?
