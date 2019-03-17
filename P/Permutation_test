@@ -9,7 +9,7 @@ my $result;
 use warnings;
 use strict;
 
-use List::Util qw{ sum };
+use List::Util 'sum';
  
 sub means {
     my @groups = @_;
@@ -63,7 +63,7 @@ my $all    = sum(@cmp);
 my $length = length $all;
 for (0, -1, 1) {
     $result .= sprintf "%-7s %${length}d %6.3f%%\n",
-        (qw(equal greater less))[$_], $cmp[$_], 100 * $cmp[$_] / $all;
+        (<equal greater less>)[$_], $cmp[$_], 100 * $cmp[$_] / $all;
 }
 
 
