@@ -3,13 +3,14 @@
 #c# 2019-02-05 >RC
 #p# OK
 
-use strict;
-use feature 'say';
-
 srand 123456;
 
+use strict;
+use warnings;
+use feature 'say';
+
 use utf8;
-use List::AllUtils qw(any natatime shuffle);
+use List::AllUtils <any natatime shuffle>;
 
 sub pick1 { return @_[ rand @_ ] }
 
@@ -29,8 +30,8 @@ sub gen_FEN {
     }
     }
 
-    my @pieces = qw<p P n N b B r R q Q>;
-    my @k = rand() < .5 ? qw(K k) : qw(k K);
+    my @pieces = <p P n N b B r R q Q>;
+    my @k = rand() < .5 ? <K k> : <k K>;
 
     for my $sq (0..63) {
         if ( any { $_ == $sq } @kings ) {
