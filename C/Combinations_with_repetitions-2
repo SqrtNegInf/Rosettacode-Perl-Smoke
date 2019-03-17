@@ -6,8 +6,8 @@
 use feature 'say';
 my $result;
 
-use Algorithm::Combinatorics qw/combinations_with_repetition/;
-my $iter = combinations_with_repetition([qw/iced jam plain/], 2);
+use Algorithm::Combinatorics qw<combinations_with_repetition>;
+my $iter = combinations_with_repetition([<iced jam plain>], 2);
 while (my $p = $iter->next) {
   $result .= "@$p\n";
 }
