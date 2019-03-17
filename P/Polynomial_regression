@@ -30,8 +30,8 @@ sub getPairs() {
 #my @x = getPairs();
 #say("Please enter the values for the y coordinates, each delimited by a space. \(Ex: 0 1 2 3\)");
 #my @y = getPairs();
-my @x = qw<0 1 2 3 4 5 6 7 8 9 10>;
-my @y = qw<1 6 17 34 57 86 121 162 209 262 321>;
+my @x = <0 1 2 3 4 5 6 7 8 9 10>;
+my @y = <1 6 17 34 57 86 121 162 209 262 321>;
 #This whole thing depends on the number of x's being the same as the number of y's
 my $pairs = scalar(@x);
 
