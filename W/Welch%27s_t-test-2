@@ -2,6 +2,7 @@
 #u# http://rosettacode.org/wiki/Welch%27s_t-test
 #c# 2018-08-03 <RC
 #p# OK
+#n# interesting, different modules require different quoting constructions (when not using 'qw')
 
 use strict;
 use warnings;
@@ -14,8 +15,8 @@ my $result;
 # Translation of: Sidef
 
 use utf8;
-use List::Util qw(sum);
-use Math::AnyNum qw(gamma pi);
+use List::Util 'sum';
+use Math::AnyNum <gamma pi>;
 
 sub p_value ($$) {
     my ($A, $B) = @_;
