@@ -30,18 +30,19 @@ sub joined {
    substr($join_a, -1) eq substr($join_b, 0, 1);
 }
 
-my $w1 = amb(qw(the that a));
-my $w2 = amb(qw(frog elephant thing));
-my $w3 = amb(qw(walked treaded grows));
-my $w4 = amb(qw(slowly quickly));
+my $w1 = amb(<the that a>);
+my $w2 = amb(<frog elephant thing>);
+my $w3 = amb(<walked treaded grows>);
+my $w4 = amb(<slowly quickly>);
 
 amb() unless joined $w1, $w2;
 amb() unless joined $w2, $w3;
 amb() unless joined $w3, $w4;
 
 say $result = "$w1 $w2 $w3 $w4\n";
-exit(EXIT_SUCCESS);
+#exit(EXIT_SUCCESS);
 
 use Test::More;
+chomp $result;
 is ($result, 'that thing grows slowly');
 done_testing();
