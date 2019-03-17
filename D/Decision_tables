@@ -1,0 +1,61 @@
+#!/usr/local/bin/perl
+#u# http://rosettacode.org/wiki/Decision_tables
+#t# skiptest
+#c# 2019-03-16 >RC
+#p# OK
+#=# RC pipe: y\nn\nn\n
+
+use Data::Printer;
+
+use strict; # 'vars';
+use warnings;
+use feature 'say';
+#my $result;
+#my @res;
+
+sub decide { 
+    our(%q,%s);
+    local *q = shift;
+    local *s = shift;
+
+    p %q;
+    p %s;
+$DB::single = 1;
+    say 'hey';
+#    my $bit = 2 ** [+] (1,2,4...*) Z* reverse @q.map: {
+#	so prompt(.value ~ "? ") ~~ /:i ^y/;
+#    }
+#    say my $result = "  $_" for @s.grep(*.key +& $bit)».value || "No clue!";
+#    { say 'ok 1 -'; exit } if $result eq '  Check for paper jam';
+#    { say 'not ok 1 -'; exit } if $result eq 'No clue!';
+}
+ 
+    my %queries = (
+	  'Y Y Y Y N N N N' => 'Printer does not print',              
+	  'Y Y N N Y Y N N' => 'A red light is flashing',             
+	  'Y N Y N Y N Y N' => 'Printer is unrecognised',             
+    ); 
+    my %answers = (
+	0b0_0_1_0_0_0_0_0 => 'Check the power cable',                
+	0b1_0_1_0_0_0_0_0 => 'Check the printer-computer cable',     
+	0b1_0_1_0_1_0_1_0 => 'Ensure printer software is installed', 
+	0b1_1_0_0_1_1_0_0 => 'Check/replace ink',                    
+	0b0_1_0_1_0_0_0_0 => 'Check for paper jam',                  
+    );
+    
+    decide(\%queries,\%answers);
+    say '';
+
+use Test::More;
+#chomp $ref;
+#is($result, $ref);
+#done_testing();
+
+__END__
+
+=={{header|Perl}}==
+{{trans|Perl 6}}
+<lang perl></lang>
+{{out}}
+<pre style="height:35ex"></pre>
+[https://github.com/SqrtNegInf/Rosettacode-Perl5-Smoke/blob/master/ref/XXX XXX]
