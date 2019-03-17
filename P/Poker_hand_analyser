@@ -13,7 +13,7 @@ use strict;
 use warnings;
 use utf8;
 use feature 'say';
-use open qw<:encoding(utf-8) :std>;
+use open <:encoding(utf-8) :std>;
 
 package Hand {
     sub describe {
