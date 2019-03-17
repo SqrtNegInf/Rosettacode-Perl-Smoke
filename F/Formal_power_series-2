@@ -63,7 +63,7 @@ sub _fixargs {
    $swap ? ($y, $x) : ($x, $y);
 }
 
-for my $onearg (qw(invert differentiate integrate)) {
+for my $onearg (<invert differentiate integrate>) {
    my $uc = ucfirst $onearg;
    my $pack = 'FPS::'.$uc;
    no strict 'refs';
@@ -73,7 +73,7 @@ for my $onearg (qw(invert differentiate integrate)) {
    @{$pack.'::ISA'} = 'FPS';
 }
 
-for my $twoarg (qw(sum difference product)) {
+for my $twoarg (<sum difference product>) {
    my $uc = ucfirst $twoarg;
    my $pack = 'FPS::'.$uc;
    no strict 'refs';
@@ -148,9 +148,7 @@ sub stringify {
    $str;
 };
 
-use overload qw(
-   + sum - difference * product / quotient
-   "" stringify);
+use overload qw< + sum - difference * product / quotient "" stringify>;
 
 my $sin = FPS->new;
 my $cos = 1 - $sin->integrate;
