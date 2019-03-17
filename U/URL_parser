@@ -3,14 +3,12 @@
 #c# 2018-08-07 <RC
 #p# OK
 
+use strict;
+use warnings;
 use feature 'say';
 my $result;
 
-
 # You can use the URI module from CPAN to parse URIs. Note that the output is a bit different: for example, you don't get the host from the foo:// scheme, as host is only valid for schemes that define it.
-
-use warnings;
-use strict;
 
 use URI;
 
@@ -29,7 +27,7 @@ for my $uri (do { no warnings 'qw';
                    )}) {
     my $u = 'URI'->new($uri);
     $result .= "$uri\n";
-    for my $part (qw( scheme path fragment authority host port query )) {
+    for my $part (<scheme path fragment authority host port query>) {
         eval { my $parsed = $u->$part;
                $result .= "\t". $part. "\t". $parsed. "\n" if defined $parsed;
         };
