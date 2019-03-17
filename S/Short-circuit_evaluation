@@ -16,7 +16,7 @@ sub b { $result .= 'B'; return $_[0] }
 # Test-driver
 sub test {
     for my $op ('&&','||') {
-        for (qw(1,1 1,0 0,1 0,0)) {
+        for (<1,1 1,0 0,1 0,0>) {
         # for (('1,1', '1,0', '0,1', '0,0')) {  # no warnings this way
            my ($x,$y) = /(.),(.)/;
            $result .= my $str = "a($x) $op b($y)"; #, ': ';
