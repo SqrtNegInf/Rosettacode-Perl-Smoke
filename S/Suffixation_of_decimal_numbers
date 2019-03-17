@@ -8,7 +8,7 @@ use warnings;
 use feature 'say';
 my $result;
 
-use List::Util qw(min max first);
+use List::Util <min max first>;
 
 sub sufficate {
     my($val, $type, $round) = @_;
@@ -25,10 +25,10 @@ sub sufficate {
 
     my %s;
     if ($type eq 'M') { 
-        my @x = qw<K M G T P E Z Y X W V U>;
+        my @x = <K M G T P E Z Y X W V U>;
         $s{$x[$_]} = 1000 * 10 ** ($_*3) for 0..$#x
     } elsif ($type eq 'B') { 
-        my @x = qw<Ki Mi Gi Ti Pi Ei Zi Yi Xi Wi Vi Ui>;
+        my @x = <Ki Mi Gi Ti Pi Ei Zi Yi Xi Wi Vi Ui>;
         $s{$x[$_]} = 2 ** (10*($_+1)) for 0..$#x
     } elsif ($type eq 'G') { 
         $s{'google'} = 10**100
