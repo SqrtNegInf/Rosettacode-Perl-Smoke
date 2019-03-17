@@ -53,7 +53,7 @@ __END__
 {
     my ($params_ref, $name) = @_;
     my %params = %$params_ref;
-    my @known_params = qw(attendees event food time);
+    my @known_params = <(attendees event food time>;
 
     $result2 .= sprintf "%s called event() with the following named parameters:\n". 
         $name // 'Anonymous';
