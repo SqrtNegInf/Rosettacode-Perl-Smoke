@@ -9,9 +9,9 @@ my $result;
 # Library: Date::CalcCalc
 
 use strict; use warnings;
-use Date::Calc qw(:all);
+use Date::Calc ':all';
 
-my @abbr = qw( Not Jan Feb Mar Apr May Jun Jul Aug Sep Oct Nov Dec );
+my @abbr = <Not Jan Feb Mar Apr May Jun Jul Aug Sep Oct Nov Dec>;
 
 my %c_hols = (
  	Easter=>     0,
