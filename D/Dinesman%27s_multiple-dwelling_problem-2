@@ -89,22 +89,22 @@ sub pair {
 
 # property names and values
 setprops
-	'Who'	=> [ qw(baker cooper fletcher miller smith) ],
-    'Level'	=> [ qw(one two three four five) ];
+	'Who'	=> [ <baker cooper fletcher miller smith> ],
+    'Level'	=> [ <one two three four five> ];
  
 # constraints
-pair qw(0 one);
-pair qw(1 two);
-pair qw(2 three);
-pair qw(3 four);
-pair qw(4 five);
-pair qw(baker five -4 -3 -2 -1 1 2 3 4);
-pair qw(cooper one -4 -3 -2 -1 1 2 3 4);
-pair qw(fletcher one -4 -3 -2 -1 1 2 3 4);
-pair qw(fletcher five -4 -3 -2 -1 1 2 3 4);
-pair qw(miller cooper -1 -2 -3 -4);
-pair qw(smith fletcher 4 3 2 -2 -3 -4);
-pair qw(cooper fletcher 4 3 2 -2 -3 -4);
+pair <0 one>;
+pair <1 two>;
+pair <2 three>;
+pair <3 four>;
+pair <4 five>;
+pair <baker five -4 -3 -2 -1 1 2 3 4>;
+pair <cooper one -4 -3 -2 -1 1 2 3 4>;
+pair <fletcher one -4 -3 -2 -1 1 2 3 4>;
+pair <fletcher five -4 -3 -2 -1 1 2 3 4>;
+pair <miller cooper -1 -2 -3 -4>;
+pair <smith fletcher 4 3 2 -2 -3 -4>;
+pair <cooper fletcher 4 3 2 -2 -3 -4>;
 
 $solve->();
 say $result; 
