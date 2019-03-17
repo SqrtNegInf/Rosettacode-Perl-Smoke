@@ -25,7 +25,7 @@ my $search_prefs = 'v=1&n=10&sm=' .
     apply {s/([^a-zA-Z0-9])/sprintf '%%%02X', ord $1/ge}
     join '|',
     map {'!' . $_}
-    qw(hsb Zq0 XbM sss dDO VFM RQh uZ0 Fxe yCl GP4 FZK yNC mEG niH);
+    <hsb Zq0 XbM sss dDO VFM RQh uZ0 Fxe yCl GP4 FZK yNC mEG niH>;
 my $cookies = HTTP::Cookies->new;
 $cookies->set_cookie(0, 'sB', $search_prefs, '/', 'search.yahoo.com');
  
@@ -45,7 +45,7 @@ sub read_page
           <div \s class="abstr">
           (.+?) </div>}xg)
      {push @results, {url => $1, title => $2, content => $3};
-      foreach ( @{$results[-1]}{qw(title content)} )
+      foreach ( @{$results[-1]}{<title content>} )
          {s/<.+?>//g;
           $_ = encode 'utf8', $_;}}
   return $next, \@results;}
