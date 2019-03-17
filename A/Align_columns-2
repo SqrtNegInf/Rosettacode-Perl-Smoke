@@ -8,11 +8,11 @@ use strict;
 use feature 'say';
 my $result;
 
-use List::Util qw(max);
+use List::Util 'max';
 
 sub columns {
     my @lines = map [split /\$/] => split /\n/ => shift;
-    my $pos = {qw/left 0 center 1 right 2/}->{+shift};
+    my $pos = {<left 0 center 1 right 2>}->{+shift};
     for my $col (0 .. max map {$#$_} @lines) {
         my $max = max my @widths = map {length $_->[$col]} @lines;
         for my $row (0 .. $#lines) {
@@ -24,7 +24,7 @@ sub columns {
     join '' => map {"@$_\n"} @lines
 }
 
-$result .= columns <<'END', $_ for qw(left right center);
+$result .= columns <<'END', $_ for <left right center>;
 Given$a$text$file$of$many$lines,$where$fields$within$a$line$
 are$delineated$by$a$single$'dollar'$character,$write$a$program
 that$aligns$each$column$of$fields$by$ensuring$that$words$in$each$
