@@ -16,7 +16,7 @@ my @bond;
 my $grid = 10;
 my $water = '▒';
 my(%D,$i);
-$D{$_} = $i++ for qw<DeadEnd Up Right Down Left>;
+$D{$_} = $i++ for <DeadEnd Up Right Down Left>;
 
 sub percolate {
     generate(shift || 0.6);
