@@ -9,7 +9,7 @@ use strict;
 use warnings;
 use feature 'say';
 
-use ntheory qw/fromdigits todigitstring/;
+use ntheory <fromdigits todigitstring>;
 
 my $t_style = '"border-collapse: separate; text-align: center; border-spacing: 3px 0px;"';
 my $c_style = '"border: solid black 2px;background-color: #fffff0;border-bottom: double 6px;'.
@@ -27,7 +27,7 @@ sub cartouches {
 }
 
 sub glyphs {
-    no warnings qw(uninitialized);
+    no warnings 'uninitialized';
     return 'Θ' unless $_[0] || $_[1];
     join '<br>', '●' x $_[0], ('───') x $_[1];
 }
@@ -42,7 +42,7 @@ sub mmod {
 }
 
 my @output;
-for my $n (qw<4005 8017 326205 886205 26960840421>) {
+for my $n (<4005 8017 326205 886205 26960840421>) {
     push @output, cartouches($n, map { [reverse mmod($_,5)] } mmod($n,20) );
 }
 
