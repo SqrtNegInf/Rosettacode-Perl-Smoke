@@ -18,7 +18,7 @@ sub common_prefix1 {
 }
 #A more conventional solution, which tallies up all potential prefixes from the given paths and then looks for the longest one that occurred the same number of times as there are paths:
 
-use List::Util qw(first);
+use List::Util 'first';
 
 sub common_prefix2 {
     my ($sep, @paths) = @_;
