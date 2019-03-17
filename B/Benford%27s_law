@@ -6,28 +6,28 @@
 use feature 'say';
 my $result;
 
-use strict ;
-use warnings ;
-use POSIX qw( log10 ) ;
+use strict;
+use warnings;
+use POSIX 'log10';
  
-my @fibonacci = ( 0 , 1  ) ;
+my @fibonacci = ( 0 , 1  );
 while ( @fibonacci != 1000 ) {
-   push @fibonacci , $fibonacci[ -1 ] + $fibonacci[ -2 ] ;
+   push @fibonacci , $fibonacci[ -1 ] + $fibonacci[ -2 ];
 }
-my @actuals ;
-my @expected ;
+my @actuals;
+my @expected;
 for my $i( 1..9 ) {
-   my $sum = 0 ;
-   map { $sum++ if $_ =~ /\A$i/ } @fibonacci ;
-   push @actuals , $sum / 1000  ;
-   push @expected , log10( 1 + 1/$i ) ;
+   my $sum = 0;
+   map { $sum++ if $_ =~ /\A$i/ } @fibonacci;
+   push @actuals , $sum / 1000;
+   push @expected , log10( 1 + 1/$i );
 }
-print "         Observed         Expected\n" ;
+print "         Observed         Expected\n";
 for my $i( 1..9 ) {
-   $result .= sprintf "$i : " ;
-   my $r= sprintf ( "%.2f" , 100 * $actuals[ $i - 1 ] ) ;
-   $result .= sprintf "%11s %%" , $r ;
-   $r = sprintf ( "%.2f" , 100 * $expected[ $i - 1 ] ) ;
+   $result .= sprintf "$i : ";
+   my $r= sprintf ( "%.2f" , 100 * $actuals[ $i - 1 ] );
+   $result .= sprintf "%11s %%" , $r;
+   $r = sprintf ( "%.2f" , 100 * $expected[ $i - 1 ] );
    $result .= sprintf "%15s %%\n" , $r;
 }
 
