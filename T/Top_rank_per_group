@@ -20,7 +20,7 @@ sub uniq {
 }
 
 my @data =
-    map {{ zip [qw(name id salary dept)], [split ','] }}
+    map {{ zip [<name id salary dept>], [split ','] }}
     split "\n",
     <<'EOF';
 Tyler Bennett,E10297,32000,D101
@@ -50,7 +50,7 @@ foreach my $d (uniq sort map {$_->{dept}} @data) {  # DH switched uniq/sort
     foreach (1 .. $N) {
         @es or last;
         my $e = shift @es;
-        $result .= sprintf "%-15s | %-6s | %5d\n", @{$e}{qw(name id salary)};
+        $result .= sprintf "%-15s | %-6s | %5d\n", @{$e}{<name id salary>};
     }
     $result .= "\n";
 }
