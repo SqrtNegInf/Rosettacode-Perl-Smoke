@@ -10,8 +10,6 @@ my @res;
 
 # The "ludic" subroutine caches the longest generated sequence so far. It also generates the candidates only if no candidates remain.
 
-use feature qw{ say };
-
 {   my @ludic = (1);
     my $max = 3;
     my @candidates;
@@ -26,7 +24,7 @@ use feature qw{ say };
     sub ludic {
         my ($type, $n) = @_;
         die "Arg0 Type must be 'count' or 'max'\n"
-             unless grep $_ eq $type, qw( count max );
+             unless grep $_ eq $type, <count max>;
         die "Arg1 Number must be > 0\n" if 0 >= $n;
 
         return (@ludic[ 0 .. $n - 1 ]) if 'count' eq $type and @ludic >= $n;
