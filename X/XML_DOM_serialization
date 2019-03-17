@@ -14,7 +14,7 @@ $result = XMLout( { root => { element => "Some text here" } }, NoAttr => 1, Root
 
 
 #Library: XML::DOM::BagOfTricksBagOfTricks
-use XML::DOM::BagOfTricks qw(createDocument createTextElement);
+use XML::DOM::BagOfTricks <createDocument createTextElement>;
  
 my ($doc, $root) = createDocument('root');
 $root->appendChild(
