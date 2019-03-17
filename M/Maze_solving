@@ -21,8 +21,8 @@ my $h_barrier = "+" . ("--+" x $width) . "\n";
 my $v_barrier = "|" . ("  |" x $width) . "\n";
 my @output = ($h_barrier, $v_barrier) x $height;
 push @output, $h_barrier;
-my @dx = qw(-1 1 0 0);
-my @dy = qw(0 0 -1 1);
+my @dx = <-1 1 0 0>;
+my @dy = <0 0 -1 1>;
 
 sub visit {
    my ($x, $y) = @_;
