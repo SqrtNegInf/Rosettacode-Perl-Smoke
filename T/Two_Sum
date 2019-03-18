@@ -25,11 +25,11 @@ sub two_sum{
 
 my @numbers = <0 2 11 19 90>;
 my @indices = two_sum(21, @numbers);
-say join ', ', @indices;
+say join(', ', @indices) || 'No match';
 $result .= join ' ', @indices;
 
 @indices = two_sum(25, @numbers);
-say join ', ', @indices || 'No match';
+say join(', ', @indices) || 'No match';
 $result .= join ' ', @indices;
 
 my $ref = <<'EOD';
