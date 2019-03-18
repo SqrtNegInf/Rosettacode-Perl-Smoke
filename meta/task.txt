@@ -1,16 +1,15 @@
 
 This is perl 5, version 28, subversion 0 (v5.28.0) built for darwin-thread-multi-2level
-updating from RC…
-+------------> Perl: Good/Bad [1094/15]
-|+-----------> Smoke testing [961]
++------------> Perl: Good/Bad [1096/15]
+|+-----------> Smoke testing [962]
 ||+----------> sKipping validation [138]
 |||+---------> Interactive [47]
-||||+--------> Touched (modified by me) [239]
+||||+--------> Touched (modified by me) [240]
 |||||+-------> Random seed [88]
 ||||||+------> File output [58]
 |||||||+-----> Draft [222]
 ||||||||+----> Ignoring [33]
-|||||||||+---> Void (no local copy) [192]
+|||||||||+---> Void (no local copy) [191]
 ||||||||||+--> Un-implemented/reliable [186]
 |||||||||||
 GS......... 100_doors-1
@@ -862,7 +861,7 @@ GS......... Pi-2
 GS......... Pi-3
 GS......... Pi-4
 GS...R..... Pick_random_element
-!S...R..... Pig_the_dice_game
+GS...R..... Pig_the_dice_game
 GS..TR..... Pig_the_dice_game_Player
 GS..T.F.... Pinstripe_Display
 .........VU Pinstripe_Printer
@@ -1288,7 +1287,7 @@ GS......... Water_collected_between_towers
 .......D.VU Waveform_analysis_Top_and_tail
 .......D.VU Weather_Routing
 GS......... Web_scraping
-.......D.VU Weird_numbers
+GS..T..D..U Weird_numbers
 .......D... Welch%27s_t-test
 GS......... Welch%27s_t-test-1
 GS......... Welch%27s_t-test-2
