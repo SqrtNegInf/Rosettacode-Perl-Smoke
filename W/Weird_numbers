@@ -1,0 +1,52 @@
+#!/usr/local/bin/perl
+#u# http://rosettacode.org/wiki/Weird_numbers
+#c# 2019-03-17 >RC
+#p# OK
+
+#use warnings;
+use strict;
+use feature 'say';
+
+use List::Util 'sum';
+use POSIX 'floor';
+use Algorithm::Combinatorics 'subsets';
+use ntheory <is_prime divisors>;
+
+sub abundant {
+    my($x) = @_;
+    my $s = sum( my @l = is_prime($x) ? 1 : grep { $x != $_ } divisors($x) );
+    $s > $x ? ($s, sort { $b <=> $a } @l) : ();
+}
+
+my(@weird,$n);
+while () {
+    $n++;
+    my ($sum, @div) = abundant($n);
+    next unless $sum;        # Weird number must be abundant, skip it if it isn't.
+    next if $sum / $n > 1.1; # There aren't any weird numbers with a sum:number ratio greater than 1.08 or so.
+
+    # All numbers of the form 70 * (a prime 149 or larger) are weird; remainder must be tested
+    unless ($n >= 10430 and (! int $n%70) and is_prime(int $n/70)) {
+        my $next;
+        my $l = shift @div;
+        my $iter = subsets(\@div);
+        while (my $s = $iter->next) {
+            ++$next and last if sum(@$s) == $n - $l;
+        }
+        next if $next;
+    }
+    push @weird, $n;
+    last if @weird == 25;
+}
+
+say my $result = "The first 25 weird numbers:\n" . join ' ', @weird;
+
+my $ref = <<'EOD';
+The first 25 weird numbers:
+70 836 4030 5830 7192 7912 9272 10430 10570 10792 10990 11410 11690 12110 12530 12670 13370 13510 13790 13930 14770 15610 15890 16030 16310
+EOD
+
+use Test::More;
+chomp $ref;
+is($result, $ref);
+done_testing();
