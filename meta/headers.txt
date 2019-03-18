@@ -7025,6 +7025,12 @@ File: W/Web_scraping
 #c# 2018-07-31 <RC
 #p# OK
 
+File: W/Weird_numbers
+#!/usr/local/bin/perl
+#u# http://rosettacode.org/wiki/Weird_numbers
+#c# 2019-03-17 >RC
+#p# OK
+
 File: W/Welch%27s_t-test-1
 #!/usr/local/bin/perl
 #u# http://rosettacode.org/wiki/Welch%27s_t-test
