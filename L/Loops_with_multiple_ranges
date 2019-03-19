@@ -23,11 +23,7 @@ sub from_to_by {
     grep{ !($n++ % abs $skip) } $begin <= $end ? $begin..$end : reverse $end..$begin;
 }
 
-sub commatize {
-    (my $s = reverse shift) =~ s/(.{3})/$1,/g;
-    $s =~ s/,(-?)$/$1/;
-    $s = reverse $s;
-}
+sub comma { reverse ((reverse shift) =~ s/(.{3})/$1,/gr) =~ s/^(-?),/$1/r }
 
 my $sum = 0;
 for my $j (
@@ -43,8 +39,8 @@ for my $j (
      $prod *= $j if $j and abs($prod) < 2**27;
 }
 
-$result .= sprintf "%-8s %12s\n", 'Sum:',     commatize $sum;
-$result .= sprintf "%-8s %12s\n", 'Product:', commatize $prod;
+$result .= sprintf "%-8s %12s\n", 'Sum:',     comma $sum;
+$result .= sprintf "%-8s %12s\n", 'Product:', comma $prod;
 say $result; 
 
 my $ref = <<'EOD';
