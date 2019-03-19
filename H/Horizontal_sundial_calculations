@@ -11,7 +11,7 @@ my $result;
 use utf8;
 binmode STDOUT, ":utf8";
 
-use constant π => 3.14159265;
+use constant π => 2 * atan2(1, 0);
 
 sub d2r { $_[0] * π / 180 } # degrees to radians
 sub r2d { $_[0] * 180 / π } # radians to degrees
