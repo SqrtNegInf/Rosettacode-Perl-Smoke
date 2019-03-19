@@ -8,8 +8,7 @@ use warnings;
 use feature 'say';
 my $result;
 
-# Translation of: C
-use constant PI => 3.141592653589793;
+use constant PI => 2 * atan2(1, 0);
  
 sub chebft {
   my($func, $a, $b, $n) = @_;
