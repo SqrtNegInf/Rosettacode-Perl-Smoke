@@ -10,7 +10,7 @@ use feature 'say';
 
 use Imager;
 
-use constant pi => 3.14159265;
+use constant pi => 2 * atan2(1, 0);
  
 sub hough {
     my($im)     = shift;
