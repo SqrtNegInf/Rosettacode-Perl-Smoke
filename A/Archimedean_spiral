@@ -10,7 +10,7 @@ use strict;
 
 use Imager;
 
-use constant PI => 3.14159265;
+use constant PI => 2 * atan2(1, 0);
  
 my ($w, $h) = (400, 400);
 my $img = Imager->new(xsize => $w, ysize => $h);
