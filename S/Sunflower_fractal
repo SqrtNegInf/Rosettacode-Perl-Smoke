@@ -1,5 +1,6 @@
 #!/usr/local/bin/perl
 #u# http://rosettacode.org/wiki/Sunflower_fractal
+#t# graphical
 #c# 2018-08-31 >RC, 2018-09-05 >RC 
 #p# OK
 #f# RC file: sunflower.svg
@@ -13,7 +14,7 @@ my $result;
 open F, ">run/sunflower.svg";
 
 use utf8;
-use constant π => 3.14159265;
+use constant π => 2 * atan2(1, 0);
 use constant φ => (1 + sqrt(5)) / 2;
 
 my $scale = 600;
