@@ -10,7 +10,7 @@ use warnings;
 use feature 'say';
 my(@res1,@res2);
 
-use constant pi => 3.14159265;
+use constant pi => 2 * atan2(1, 0);
 use List::Util qw(sum reduce min max);
 
 sub normdist {
@@ -87,8 +87,8 @@ my $ref = <<'END';
 END
 
 use Test::More;
-is($res1[0], 'm = 49.9945685041227');
-is($res1[1], 'sigma = 4.00144438180032');
+is($res1[0], 'm = 49.994568509795');
+is($res1[1], 'sigma = 4.00144438401351');
 chop $ref;
 is($result, $ref);
 done_testing();
