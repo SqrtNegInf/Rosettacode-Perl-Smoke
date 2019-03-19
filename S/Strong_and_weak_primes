@@ -10,11 +10,7 @@ my @res;
 
 use ntheory qw(primes);
 
-sub comma {
-    (my $s = reverse shift) =~ s/(.{3})/$1,/g;
-    $s =~ s/,(-?)$/$1/;
-    $s = reverse $s;
-}
+sub comma { reverse ((reverse shift) =~ s/(.{3})/$1,/gr) =~ s/^(-?),/$1/r }
 
 sub below { my($m,@a) = @_; my $c = 0; while () { return $c if $a[++$c] > $m } }
  
