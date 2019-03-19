@@ -1,16 +1,17 @@
 
 This is perl 5, version 28, subversion 0 (v5.28.0) built for darwin-thread-multi-2level
-+------------> Perl: Good/Bad [1096/15]
-|+-----------> Smoke testing [962]
-||+----------> sKipping validation [138]
+updating from RC…
++------------> Perl: Good/Bad [1097/15]
+|+-----------> Smoke testing [964]
+||+----------> sKipping validation [137]
 |||+---------> Interactive [47]
-||||+--------> Touched (modified by me) [240]
+||||+--------> Touched (modified by me) [241]
 |||||+-------> Random seed [88]
 ||||||+------> File output [58]
 |||||||+-----> Draft [222]
 ||||||||+----> Ignoring [33]
 |||||||||+---> Void (no local copy) [191]
-||||||||||+--> Un-implemented/reliable [186]
+||||||||||+--> Un-implemented/reliable [185]
 |||||||||||
 GS......... 100_doors-1
 GS......... 100_doors-2
@@ -201,6 +202,7 @@ GS.....D... Check_input_device_is_a_terminal
 G.K....D... Check_output_device_is_a_terminal
 G.K........ Check_that_file_exists
 GS......... Checkpoint_synchronization
+.......D.VU Chemical_Calculator
 GS..T..D... Cheryl%27s_Birthday
 .......D.VU Chess_player
 .......D.VU Chess_player_Move_generation
@@ -302,7 +304,7 @@ GS......... Day_of_the_week-4
 GS...R..... Deal_cards_for_FreeCell
 GS......... Death_Star
 B...T..D..U Decimal_floating_point_number_to_binary
-G.K.T..D..U Decision_tables
+GS..T..D..U Decision_tables
 GS..T...... Deconvolution_1D
 GS..T...... Deconvolution_2D%2B
 GS......... Deepcopy
@@ -712,7 +714,7 @@ GS.....D... Mersenne_primes
 GS......... Metaprogramming
 ........XV. Metered_concurrency
 GS..T...... Metronome
-GS..T..D... Mian-Chowla_sequence
+GS..T...... Mian-Chowla_sequence
 GS......... Middle_three_digits
 GS......... Miller-Rabin_primality_test-1
 GS......... Miller-Rabin_primality_test-2
@@ -998,7 +1000,7 @@ GS......... SHA-1
 GS......... SHA-256
 ........XV. SOAP
 ........XV. SQL-based_authentication
-.........VU Safe_addition
+GS..T...... Safe_addition
 .......D.V. Safe_mode
 GS..T...... Safe_primes_and_unsafe_primes
 GS..T...... Sailors,_coconuts_and_a_monkey_problem-1
@@ -1287,7 +1289,7 @@ GS......... Water_collected_between_towers
 .......D.VU Waveform_analysis_Top_and_tail
 .......D.VU Weather_Routing
 GS......... Web_scraping
-GS..T..D..U Weird_numbers
+GS..T..D... Weird_numbers
 .......D... Welch%27s_t-test
 GS......... Welch%27s_t-test-1
 GS......... Welch%27s_t-test-2
