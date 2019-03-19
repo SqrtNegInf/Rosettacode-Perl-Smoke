@@ -1,0 +1,24 @@
+#!/usr/local/bin/perl
+#u# http://rosettacode.org/wiki/Safe_addition
+#c# 2019-03-18 >RC
+#p# OK
+
+use strict;
+use warnings;
+use feature 'say';
+
+use Data::IEEE754::Tools <nextUp nextDown>;
+
+sub safe_add {
+    my($a,$b) = @_;
+    my $c = $a + $b;    
+    my $c_lb = nextDown($c);
+    my $c_ub = nextUp($c);
+    return $c, $c_lb, $c_ub;
+}
+
+say my $result = sprintf "%.17f (%.17f, %.17f)", safe_add (1/9,1/7);
+
+use Test::More;
+is($result, '0.25396825396825395 (0.25396825396825390, 0.25396825396825401)');
+done_testing();
