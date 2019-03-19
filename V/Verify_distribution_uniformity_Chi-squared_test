@@ -13,7 +13,7 @@ my @res;
 #in closed form, as we only need its value at integers and half integers.
 
 use List::Util qw(sum reduce);
-use constant pi => 3.14159265;
+use constant pi => 2 * atan2(1, 0);
 
 sub incomplete_G_series {
     my($s, $z) = @_;
