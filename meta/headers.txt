@@ -1394,6 +1394,7 @@ File: C/Cuban_primes
 #u# http://rosettacode.org/wiki/Cuban_primes
 #c# 2019-02-02 <RC
 #p# OK
+#n# note alternative method for adding commas to numbers (limited to natural numbers)
 
 File: C/Cumulative_standard_deviation-1
 #!/usr/local/bin/perl
@@ -1516,8 +1517,7 @@ File: D/Decimal_floating_point_number_to_binary
 File: D/Decision_tables
 #!/usr/local/bin/perl
 #u# http://rosettacode.org/wiki/Decision_tables
-#t# skiptest
-#c# 2019-03-16 >RC
+#c# 2019-03-18 >RC
 #p# OK
 #=# RC pipe: y\nn\nn\n
 
@@ -5404,6 +5404,12 @@ File: S/SHA-256
 #c# 2018-08-18 <RC
 #p# OK
 
+File: S/Safe_addition
+#!/usr/local/bin/perl
+#u# http://rosettacode.org/wiki/Safe_addition
+#c# 2019-03-18 >RC
+#p# OK
+
 File: S/Safe_primes_and_unsafe_primes
 #!/usr/local/bin/perl
 #u# http://rosettacode.org/wiki/Safe_primes_and_unsafe_primes
@@ -6412,6 +6418,7 @@ File: S/Sum_to_100
 File: S/Sunflower_fractal
 #!/usr/local/bin/perl
 #u# http://rosettacode.org/wiki/Sunflower_fractal
+#t# graphical
 #c# 2018-08-31 >RC, 2018-09-05 >RC 
 #p# OK
 #f# RC file: sunflower.svg
@@ -6623,7 +6630,7 @@ File: T/Thiele%27s_interpolation_formula
 #!/usr/local/bin/perl
 #u# http://rosettacode.org/wiki/Thiele\'s_interpolation_formula
 #t# skiptest
-#c# 2019-01-xx >RC
+#c# 2019-03-xx >RC
 #p# OK
 #n#  made default table size 12, 'invcos' converges slowly
 
