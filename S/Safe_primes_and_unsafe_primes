@@ -30,11 +30,7 @@ for (['safe', 35], ['unsafe', 40]) {
     }
 }
 
-sub comma {
-    (my $s = reverse shift) =~ s/(.{3})/$1,/g;
-    $s =~ s/,(-?)$/$1/;
-    $s = reverse $s;
-}
+sub comma { reverse ((reverse shift) =~ s/(.{3})/$1,/gr) =~ s/^(-?),/$1/r }
 
 my $ref = <<'EOD';
 The first 35 safe primes are:
