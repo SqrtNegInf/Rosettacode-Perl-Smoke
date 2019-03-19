@@ -11,16 +11,16 @@ use warnings;
 use feature 'say';
 my @res;
 
-use ntheory qw(is_prime);
-use List::Util qw(sum);
+use ntheory 'is_prime';
+use List::Util 'sum';
 
 # s/schnitzel/zizzer/
 # s/gazpacho/zazzer/
 # s/panini/zuzz/
 
-# %s/Radda/zizzer/
-# %s/radDA/zazzer/
-# %s/RADDA/zuzz/
+# %s/Radda/yabba/g
+# %s/radDA/dabba/g
+# %s/RADDA/doo/g
 
 sub comma { reverse ((reverse shift) =~ s/(.{3})/$1,/gr) =~ s/^,//r }
 
