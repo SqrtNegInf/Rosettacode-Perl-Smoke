@@ -14,7 +14,7 @@ __END__
 use SVG;
 use Time::HiRes;
 
-use constant tau => 2 * 3.14159265;
+use constant tau => 2 * 2 * atan2(1, 0);
 
 my $w = 600;
 my $h = 600;
