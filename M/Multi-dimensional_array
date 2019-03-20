@@ -4,19 +4,76 @@
 #c# 2019-02-RC >RC
 #p# OK
 
+# 1. State the number and extent of each index to the array.
+# 2. Provide specific, ordered, integer indices for all dimensions of the array together with a new value to update the indexed value.
+# 3. Provide specific, ordered, numeric indices for all dimensions of the array to obtain the arrays value at that indexed position.
+
+# The task is to
+# A. State if the language supports multi-dimensional arrays in its syntax and usual implementation.
+# B. State whether the language uses row-major or column major order for multi-dimensional array storage, or any other relevant kind of storage.
+# C. Show how to create a four dimensional array in your language and set, access, set to another value; and access the new value of an integer-indexed item of the array.
+
+# D. The array should allow a range of five, four, three and two (or two three four five if convenient), in each of the indices, in order. (For example, if indexing starts at zero for the first index then a range of 0..4 inclusive would suffice).
+# E. State if memory allocation is optimised for the array - especially if contiguous memory is likely to be allocated.
+# ? If the language has exceptional native multi-dimensional array support such as optional bounds checking, reshaping, or being able to state both the lower and upper bounds of index ranges, then this is the task to mention them.
+
 use Data::Printer;
-
 use feature 'say';
-use warnings;
-use strict; # 'vars';
 
-my @a2 = [[1, 2], [3, 4]];
-p @a2;
+# Perl arrays are internally always one-dimensional, but multi-dimension arrays are supported via references.  So a two-dimensional array is an arrays-of-arrays, (with 'rows' that are references to arrays), while a three-dimensional array is an array of arrays-of-arrays, and so on. There are no arbitrary limits on the sizes or number of dimensions (i.e. the 'depth' of nesting references).  
 
-# Note that the dimensions do not _need_ to be predeclared / allocated. Perl 6 will auto-vivify the necessary storage slots on first access.
-my @a3;
-$a3[1][2][3] = 42;
-p @a3;
+# To generate a zero-initialized 2x3x4x5 array
+for $i (0..1) {
+  for $j (0..2) {
+    for $k (0..3) {
+    #for $l (0..4) {
+        #$a[$i][$j][$k][$l] = "$i,$j,$k,$l"; # each 'cell' contains it's own address
+        $a[$i][$j][$k][$l] = [(0)x5];
+    #}
+    }
+  }
+}
+#p @a; exit;
+
+# There is no requirement that the overall shape of array be regular, or that contents of the array elements
+# be of the the same type.
+# Arrays can contain 
+@b = (
+     [1, 2, 4, 8, 16, 32],                                                      # numbers
+     [<Mon Tue Wed Thu Fri Sat Sun>],                                           # strings
+     [sub{$_[0]+$_[1]}, sub{$_[0]-$_[1]}, sub{$_[0]*$_[1]}, sub{$_[0]/$_[1]}]   # coderefs
+);
+say $b[0][5];           # prints '32'
+say $b[1][2];           # prints 'Wed'
+say $b[2][0]->(40,2);   # prints '42', sum of 40 and 2
+
+#say ...;
+#exit;
+
+#push @powers, 2**$_ for 1..10;
+#say join ', ', @powers[2..4];
+
+#my @a2 = [[1], [2, 3, 4], [5, 6]];
+#p @a2;
+# [
+#  [1],
+#  [2, 3, 4],
+#  [5, 6],
+# ]
+
+# Dimensions do not _need_ to be predeclared or pre-allocated. Perl will auto-vivify the necessary storage slots on first access.
+$a3[2][2] = 47;
+
+#    [undef]
+#    [undef]
+#    [undef, undef, 47]
+
+# Negative indicies to count backwards from the end 
+
+say $a3[-1][-1]; # prints '47'
+
+# But pre-allocation is possible, can result in a more efficient memory layout (in general though Perl allows minimal control over memory)
+$#$big = 1_000_000;
 
 __END__
 
