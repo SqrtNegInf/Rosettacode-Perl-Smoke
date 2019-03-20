@@ -11,7 +11,7 @@ updating from RC…
 |||||||+-----> Draft [222]
 ||||||||+----> Ignoring [33]
 |||||||||+---> Void (no local copy) [191]
-||||||||||+--> Un-implemented/reliable [185]
+||||||||||+--> Un-implemented/reliable [184]
 |||||||||||
 GS......... 100_doors-1
 GS......... 100_doors-2
@@ -304,7 +304,7 @@ GS......... Day_of_the_week-4
 GS...R..... Deal_cards_for_FreeCell
 GS......... Death_Star
 B...T..D..U Decimal_floating_point_number_to_binary
-GS..T..D..U Decision_tables
+GS..T..D... Decision_tables
 GS..T...... Deconvolution_1D
 GS..T...... Deconvolution_2D%2B
 GS......... Deepcopy
