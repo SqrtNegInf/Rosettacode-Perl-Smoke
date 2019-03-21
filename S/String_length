@@ -30,7 +30,6 @@ my $length = length "Hello, world!";
 # Perl understands that "\x{1112}\x{1161}\x{11ab}\x{1100}\x{1173}\x{11af}" (한글) contains 2 graphemes, just like "\x{d55c}\x{ae00}" (한글). The longer string uses Korean combining jamo characters.
 
 # Works with: Perl version 5.12
-use v5.12;
 my $string = "\x{1112}\x{1161}\x{11ab}\x{1100}\x{1173}\x{11af}";  # 한글
 my $len;
 $len++ while ($string =~ /\X/g);
