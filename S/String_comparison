@@ -5,13 +5,11 @@
 
 use strict;
 use warnings;
-use feature 'say';
+use feature <say fc>; # proper Unicode casefolding
 my $result;
 
 # Scalar variables are weakly typed in Perl, and there are two sets of comparison operators that can be used on them: One set for (coercive) numeric comparison, and one set for (coercive) lexical string comparison. The second set is demonstrated in the following:
 
-use v5.16;  # ...for fc(), which does proper Unicode casefolding.
-            # With older Perl versions you can use lc() as a poor-man's substitute.
 
 sub compare {
     my ($a, $b) = @_;
