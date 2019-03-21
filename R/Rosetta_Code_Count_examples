@@ -10,7 +10,6 @@ use warnings;
 use feature 'say';
 my $result;
 
-use v5.10;
 use Mojo::UserAgent;
 
 my $site = "http://rosettacode.org";
