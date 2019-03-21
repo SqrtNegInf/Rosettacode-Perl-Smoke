@@ -313,7 +313,7 @@ File: A/Anonymous_recursion-4
 #!/usr/local/bin/perl
 #u# http://rosettacode.org/wiki/Anonymous_recursion
 #c# 2018-07-13 <RC
-#p# BROKEN
+#p# OK
 
 File: A/Anti-primes
 #!/usr/local/bin/perl
@@ -984,6 +984,18 @@ File: C/Checkpoint_synchronization
 #!/usr/local/bin/perl
 #u# http://rosettacode.org/wiki/Checkpoint_synchronization
 #c# 2018-07-22 <RC
+#p# OK
+
+File: C/Chemical_Calculator-1
+#!/usr/local/bin/perl
+#u# http://rosettacode.org/wiki/Chemical_Calculator
+#c# 2019-03-RC >RC
+#p# OK
+
+File: C/Chemical_Calculator-2
+#!/usr/local/bin/perl
+#u# http://rosettacode.org/wiki/Chemical_Calculator
+#c# 2019-03-20 >RC
 #p# OK
 
 File: C/Cheryl%27s_Birthday
@@ -2261,8 +2273,8 @@ File: F/Find_URI_in_text
 File: F/Find_common_directory_path
 #!/usr/local/bin/perl
 #u# http://rosettacode.org/wiki/Find_common_directory_path
-#c# 2018-08-04 <RC
-#p# BROKEN
+#c# 2018-08-04 <RC, 2019-03-20 >RC
+#p# OK
 
 File: F/Find_duplicate_files
 #!/usr/local/bin/perl
@@ -3092,6 +3104,7 @@ File: I/Index_finite_lists_of_positive_integers-2
 #u# http://rosettacode.org/wiki/Index_finite_lists_of_positive_integers
 #c# 2018-10-09 >RC
 #p# BROKEN
+#n# will someday try a Perl 6 translation
 
 File: I/Infinity
 #!/usr/local/bin/perl
