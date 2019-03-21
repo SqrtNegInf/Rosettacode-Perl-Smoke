@@ -28,7 +28,6 @@ done_testing();
 
 __END__
 Library: Mojolicious
-use v5.10;
 use Mojo::UserAgent;
 
 my $site = "http://rosettacode.org";
