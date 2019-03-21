@@ -8,8 +8,6 @@ use warnings;
 use feature 'say';
 my $result;
 
-
-use v5.10.0;
 sub rms
 {
         my $r = 0;
