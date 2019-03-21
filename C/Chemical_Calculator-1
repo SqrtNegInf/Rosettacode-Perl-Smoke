@@ -1,0 +1,55 @@
+#!/usr/local/bin/perl
+#u# http://rosettacode.org/wiki/Chemical_Calculator
+#c# 2019-03-RC >RC
+#p# OK
+
+use strict;
+use warnings;
+use feature 'say';
+my @res;
+
+my %atomic_weight = < H 1.008 C 12.011 O 15.999 Na 22.99 S 32.06 >;
+
+sub molar_mass { 
+    my($mf) = @_;
+    my(%count,$mass);
+    my $mf_orig = $mf;
+    my $mf_std;
+
+    $mf =~ s/(.*)\((.*?)\)(\d*)/$1 . $2 x ($3 ? $3 : 1) /e while $mf =~ m/\(/;
+    $mf =~  s/([A-Z][a-z]{0,2})(\d*)/ $count{$1} += $2 ? $2 : 1 ;''/eg;
+    $mass += $count{$_}*$atomic_weight{"$_"} for sort keys %count;
+    $mf_std .= 'C' . $count{C} if $count{C};
+    $mf_std .= 'H' . $count{H} if $count{H};
+    $mf_std .= $_  . $count{$_} for grep { $_ ne 'C' and $_ ne 'H' } sort keys %count;
+    $mf     .= $count{$_} * $atomic_weight{$_} for sort keys %count;
+
+    push @res, sprintf "%7.3f %-10s %s", $mass, $mf_std, $mf_orig;
+    #push @res, sprintf "%7.3f %s", $mass, $mf_orig;
+}
+
+molar_mass($_) for <H H2 H2O Na2SO4 C6H12 COOH(C(CH3)2)3CH3>;
+
+say my $result = join "\n", @res;
+
+my $ref = <<'EOD';
+  1.008 H1         H
+  2.016 H2         H2
+ 18.015 H2O1       H2O
+142.036 Na2O4S1    Na2SO4
+ 84.162 C6H12      C6H12
+186.295 C11H22O2   COOH(C(CH3)2)3CH3
+EOD
+my $refx = <<'EOD';
+  1.008 H
+  2.016 H2
+ 18.015 H2O
+142.036 Na2SO4
+ 84.162 C6H12
+186.295 COOH(C(CH3)2)3CH3
+EOD
+
+use Test::More;
+chomp $ref;
+is($result, $ref);
+done_testing();
