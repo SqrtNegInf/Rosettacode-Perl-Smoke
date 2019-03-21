@@ -4,14 +4,12 @@
 #p# OK
 #n# removed given/when
 
+use strict;
+use warnings;
 use feature 'say';
 my $result;
 
 # Closures enable user-defined control structures, but the syntax is not always identical to that of built-in control structures. This example is a start, but needs improving.
-
-use warnings;
-use strict;
-use v5.10;
 
 # All the new `keywords' are in fact functions.  Most of them return lists
 # of four closures, one of which is then executed by if2.  Here are indexes into
