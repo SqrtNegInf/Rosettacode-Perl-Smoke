@@ -6,8 +6,10 @@
 
 srand 123456;
 
-use v5.10;
- 
+use strict;
+use warnings;
+use feature 'say';
+
 # Build a list of all possible solutions.  The regular expression weeds
 # out numbers containing zeroes or repeated digits.  See how Perl
 # automatically converts numbers to strings for us, just because we
@@ -57,7 +59,7 @@ say(@candidates?
     "Your secret number is @candidates":
     "I think you made a mistake with your scoring");
 
-$result = join '', @candidates;
+my $result = join '', @candidates;
 
 use Test::More;
 is($result,'9741');
