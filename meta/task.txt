@@ -1,17 +1,17 @@
 
 This is perl 5, version 28, subversion 0 (v5.28.0) built for darwin-thread-multi-2level
 updating from RC…
-+------------> Perl: Good/Bad [1097/15]
-|+-----------> Smoke testing [964]
++------------> Perl: Good/Bad [1101/13]
+|+-----------> Smoke testing [968]
 ||+----------> sKipping validation [137]
 |||+---------> Interactive [47]
-||||+--------> Touched (modified by me) [241]
+||||+--------> Touched (modified by me) [244]
 |||||+-------> Random seed [88]
 ||||||+------> File output [58]
 |||||||+-----> Draft [222]
 ||||||||+----> Ignoring [33]
-|||||||||+---> Void (no local copy) [191]
-||||||||||+--> Un-implemented/reliable [184]
+|||||||||+---> Void (no local copy) [190]
+||||||||||+--> Un-implemented/reliable [183]
 |||||||||||
 GS......... 100_doors-1
 GS......... 100_doors-2
@@ -74,7 +74,7 @@ G.KIT...... Animation
 GS......... Anonymous_recursion-1
 GS......... Anonymous_recursion-2
 GS......... Anonymous_recursion-3
-B.......... Anonymous_recursion-4
+GS......... Anonymous_recursion-4
 GS......... Anti-primes
 GS....F.... Append_a_record_to_the_end_of_a_text_file
 GS......... Apply_a_callback_to_an_array
@@ -202,7 +202,9 @@ GS.....D... Check_input_device_is_a_terminal
 G.K....D... Check_output_device_is_a_terminal
 G.K........ Check_that_file_exists
 GS......... Checkpoint_synchronization
-.......D.VU Chemical_Calculator
+.......D... Chemical_Calculator
+GS..T...... Chemical_Calculator-1
+GS..T...... Chemical_Calculator-2
 GS..T..D... Cheryl%27s_Birthday
 .......D.VU Chess_player
 .......D.VU Chess_player_Move_generation
@@ -427,7 +429,7 @@ GS......... File_size
 GS..T..D... File_size_distribution
 GS......... Filter
 G.K.T..D..U Find_URI_in_text
-B.......... Find_common_directory_path
+GS..T...... Find_common_directory_path
 GS..T..D... Find_duplicate_files
 GS.....D... Find_first_and_last_set_bit_of_a_long_integer
 GS......... Find_largest_left_truncatable_prime_in_a_given_base
