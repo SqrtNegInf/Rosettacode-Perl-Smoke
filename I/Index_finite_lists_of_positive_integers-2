@@ -2,6 +2,7 @@
 #u# http://rosettacode.org/wiki/Index_finite_lists_of_positive_integers
 #c# 2018-10-09 >RC
 #p# BROKEN
+#n# will someday try a Perl 6 translation
 
 use feature 'say';
 
