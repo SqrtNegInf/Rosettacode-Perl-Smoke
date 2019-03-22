@@ -424,6 +424,13 @@ File: A/Arrays
 #c# 2018-07-14 <RC
 #p# OK
 
+File: A/Aspect_Oriented_Programming
+#!/usr/local/bin/perl
+#u# http://rosettacode.org/wiki/RC_REMOTE
+#t# nocode
+#c# 2019-03-21 >RC
+#p# OK
+
 File: A/Assertions
 #!/usr/local/bin/perl
 #u# http://rosettacode.org/wiki/Assertions
@@ -989,7 +996,7 @@ File: C/Checkpoint_synchronization
 File: C/Chemical_Calculator-1
 #!/usr/local/bin/perl
 #u# http://rosettacode.org/wiki/Chemical_Calculator
-#c# 2019-03-RC >RC
+#c# 2019-03-21 >RC
 #p# OK
 
 File: C/Chemical_Calculator-2
@@ -1531,7 +1538,7 @@ File: D/Decision_tables
 #u# http://rosettacode.org/wiki/Decision_tables
 #c# 2019-03-18 >RC
 #p# OK
-#=# RC pipe: y\nn\nn\n
+#=# RC pipe: n\nn\ny\n
 
 File: D/Deconvolution_1D
 #!/usr/local/bin/perl
@@ -2119,6 +2126,7 @@ File: F/Factorial_base_numbers_indexing_permutations_of_a_collection
 #t# skiptest
 #c# 2019-02-RC >RC
 #p# BROKEN
+#n# working on a Perl 6 translation...
 
 File: F/Factors_of_a_Mersenne_number-1
 #!/usr/local/bin/perl
@@ -3066,12 +3074,6 @@ File: I/Image_noise
 #t# gui
 #c# 2018-11-28 >RC
 #p# OK
-
-File: I/Imaginary_base_numbers
-#!/usr/local/bin/perl
-#u# http://rosettacode.org/wiki/Imaginary_base_numbers
-#c# 2018-09-xx >RC
-#p# BROKEN
 
 File: I/Implicit_type_conversion
 #!/usr/local/bin/perl
@@ -4028,8 +4030,7 @@ File: M/Move-to-front_algorithm
 File: M/Multi-dimensional_array
 #!/usr/local/bin/perl
 #u# http://rosettacode.org/wiki/RC_REMOTE
-#t# skiptest
-#c# 2019-02-RC >RC
+#c# 2019-03-21 >RC
 #p# OK
 
 File: M/Multifactorial-1
@@ -6630,7 +6631,14 @@ File: T/The_ISAAC_Cipher
 File: T/The_Name_Game
 #!/usr/local/bin/perl
 #u# http://rosettacode.org/wiki/The_Name_Game
-#c# 2019-02-01 <RC
+#c# 2019-03-21 <RC, 2019-03-21 >RC
+#p# OK
+#n# didn't change the logic, just made it more idiomatic Perl
+
+File: T/The_Name_Game.1
+#!/usr/local/bin/perl
+#u# http://rosettacode.org/wiki/The_Name_Game
+#c# 2019-03-21 <RC
 #p# OK
 
 File: T/The_Twelve_Days_of_Christmas
