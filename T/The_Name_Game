@@ -1,53 +1,26 @@
 #!/usr/local/bin/perl
 #u# http://rosettacode.org/wiki/The_Name_Game
-#c# 2019-02-01 <RC
+#c# 2019-03-21 <RC, 2019-03-21 >RC
 #p# OK
+#n# didn't change the logic, just made it more idiomatic Perl
 
 use strict;
 use warnings;
 use feature 'say';
-my @res;
-
-#Translation of: Lua
+my $result;
 
 sub printVerse {
-    my($y);
-    my $name = shift;
-    my $sb = lc($name);
-    my $x = ucfirst $sb;
+    my $x  = ucfirst lc shift;
     my $x0 = substr $x, 0, 1;
-
-    if ($x0 eq 'A' or $x0 eq 'E' or $x0 eq 'I' or $x0 eq 'O' or $x0 eq 'U') {
-        $y = lc($x);
-    } else {
-        $y = substr $x, 1;
-    }
-
-    my $b = 'b' . $y;
-    my $f = 'f' . $y;
-    my $m = 'm' . $y;
-
-    if ($x0 eq 'B') {
-        $b = $y;
-    } elsif ($x0 eq 'F') {
-        $f = $y;
-    } elsif ($x0 eq 'M') {
-        $m = $y;
-    }
-
-    push @res, "$x, $x, bo-$b";
-    push @res, "Banana-fana fo-$f";
-    push @res, "Fee-fi-mo-$m";
-    push @res, "$x!\n";
+    my $y  = $x0 =~ /[AEIOU]/ ? lc $x : substr $x, 1;
+    my $b  = $x0 eq 'B' ? $y : 'b' . $y;
+    my $f  = $x0 eq 'F' ? $y : 'f' . $y;
+    my $m  = $x0 eq 'M' ? $y : 'm' . $y;
+    $result .= "$x, $x, bo-$b\n" . "Banana-fana fo-$f\n" . "Fee-fi-mo-$m\n" . "$x!\n\n";
 }
 
-my @nameList = ( "Gary", "Earl", "Billy", "Felix", "Mary", "Steve" );
-
-foreach my $name (@nameList) {
-    printVerse($name);
-}
-
-say my $result = join "\n", @res;
+printVerse($_) for <Gary Earl Billy Felix Mary Steve>;
+say $result; 
 
 my $ref = <<'EOD';
 Gary, Gary, bo-bary
@@ -79,6 +52,7 @@ Steve, Steve, bo-bteve
 Banana-fana fo-fteve
 Fee-fi-mo-mteve
 Steve!
+
 EOD
 
 use Test::More;
