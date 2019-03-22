@@ -2,7 +2,7 @@
 #u# http://rosettacode.org/wiki/Decision_tables
 #c# 2019-03-18 >RC
 #p# OK
-#=# RC pipe: y\nn\nn\n
+#=# RC pipe: n\nn\ny\n
 
 use strict;
 use warnings;
