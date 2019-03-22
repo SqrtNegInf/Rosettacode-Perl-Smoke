@@ -3,6 +3,7 @@
 #t# skiptest
 #c# 2019-02-RC >RC
 #p# BROKEN
+#n# working on a Perl 6 translation...
 
 srand 123456;
 
