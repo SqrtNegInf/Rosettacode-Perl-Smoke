@@ -1,17 +1,17 @@
 
 This is perl 5, version 28, subversion 0 (v5.28.0) built for darwin-thread-multi-2level
 updating from RC…
-+------------> Perl: Good/Bad [1101/13]
-|+-----------> Smoke testing [968]
++------------> Perl: Good/Bad [1101/12]
+|+-----------> Smoke testing [969]
 ||+----------> sKipping validation [137]
 |||+---------> Interactive [47]
-||||+--------> Touched (modified by me) [244]
+||||+--------> Touched (modified by me) [245]
 |||||+-------> Random seed [88]
 ||||||+------> File output [58]
 |||||||+-----> Draft [222]
 ||||||||+----> Ignoring [33]
 |||||||||+---> Void (no local copy) [190]
-||||||||||+--> Un-implemented/reliable [183]
+||||||||||+--> Un-implemented/reliable [181]
 |||||||||||
 GS......... 100_doors-1
 GS......... 100_doors-2
@@ -94,7 +94,7 @@ GS......... Arithmetic_evaluation
 GS......... Array_concatenation
 GS......... Array_length
 GS......... Arrays
-.......DXVU Aspect_Oriented_Programming
+G.K.T..DX.. Aspect_Oriented_Programming
 GS......... Assertions
 .......DXVU Assertions_in_design_by_contract
 G.K.T...... Associative_array_Creation
@@ -564,7 +564,7 @@ GS..T...... Idiomatically_determine_all_the_characters_that_can_be_used_for_symb
 GS..T...... Idiomatically_determine_all_the_lowercase_and_uppercase_letters
 .........VU Image_convolution
 G.KIT...... Image_noise
-B...T.....U Imaginary_base_numbers
+.........VU Imaginary_base_numbers
 G.K.T..D... Implicit_type_conversion
 G.K........ Include_a_file
 GS......... Increment_a_numerical_string
@@ -679,7 +679,7 @@ GS..T...... Lucky_and_even_lucky_numbers-2
 GS......... Ludic_numbers
 GS......... Luhn_test_of_credit_card_numbers
 GS......... Lychrel_numbers
-GS......... MAC_Vendor_Lookup
+!S......... MAC_Vendor_Lookup
 GS..T...... MD4
 GS......... MD5
 GS......... MD5_Implementation
@@ -738,7 +738,7 @@ GS.....D... Most_frequent_k_chars_distance
 G.KI....... Mouse_position-1
 G.KI....... Mouse_position-2
 GS......... Move-to-front_algorithm
-G.K.T.....U Multi-dimensional_array
+GS..T...... Multi-dimensional_array
 .......D.VU Multidimensional_Newton-Raphson_method
 GS......... Multifactorial-1
 GS......... Multifactorial-2
@@ -1210,7 +1210,7 @@ GS......... Text_processing_Max_licenses_in_use
 .......D.VU Text_to_HTML
 GS..T...... Textonyms
 GS......... The_ISAAC_Cipher
-GS......... The_Name_Game
+GS..T...... The_Name_Game
 GS......... The_Twelve_Days_of_Christmas
 G.K.T.....U Thiele%27s_interpolation_formula
 GS......... Thue-Morse
