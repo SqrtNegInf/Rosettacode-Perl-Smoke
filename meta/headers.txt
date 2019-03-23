@@ -335,6 +335,13 @@ File: A/Apply_a_callback_to_an_array
 #c# 2018-07-15 <RC
 #p# OK
 
+File: A/Apply_a_digital_filter_direct_form_II_transposed
+#!/usr/local/bin/perl
+#u# http://rosettacode.org/wiki/RC_REMOTE
+#t# skiptest
+#c# 2019-03-23 >RC
+#p# OK
+
 File: A/Arbitrary-precision_integers_included-1
 #!/usr/local/bin/perl
 #u# http://rosettacode.org/wiki/Arbitrary-precision_integers_(included)
@@ -6722,6 +6729,12 @@ File: T/Topswops
 #!/usr/local/bin/perl
 #u# http://rosettacode.org/wiki/Topswops
 #c# 2018-08-09 <RC
+#p# OK
+
+File: T/Total_circles_area
+#!/usr/local/bin/perl
+#u# http://rosettacode.org/wiki/Total_circles_area
+#c# 2019-03-22 >RC
 #p# OK
 
 File: T/Totient_function-1
