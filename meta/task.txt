@@ -1,16 +1,16 @@
 
 This is perl 5, version 28, subversion 0 (v5.28.0) built for darwin-thread-multi-2level
 updating from RC…
-+------------> Perl: Good/Bad [1101/12]
-|+-----------> Smoke testing [969]
-||+----------> sKipping validation [137]
++------------> Perl: Good/Bad [1104/12]
+|+-----------> Smoke testing [971]
+||+----------> sKipping validation [138]
 |||+---------> Interactive [47]
-||||+--------> Touched (modified by me) [245]
+||||+--------> Touched (modified by me) [247]
 |||||+-------> Random seed [88]
 ||||||+------> File output [58]
-|||||||+-----> Draft [222]
-||||||||+----> Ignoring [33]
-|||||||||+---> Void (no local copy) [190]
+|||||||+-----> Draft [223]
+||||||||+----> Ignoring [32]
+|||||||||+---> Void (no local copy) [189]
 ||||||||||+--> Un-implemented/reliable [181]
 |||||||||||
 GS......... 100_doors-1
@@ -78,7 +78,7 @@ GS......... Anonymous_recursion-4
 GS......... Anti-primes
 GS....F.... Append_a_record_to_the_end_of_a_text_file
 GS......... Apply_a_callback_to_an_array
-.........VU Apply_a_digital_filter_direct_form_II_transposed
+GSK.T.....U Apply_a_digital_filter_direct_form_II_transposed
 GS......... Arbitrary-precision_integers_included-1
 GS......... Arbitrary-precision_integers_included-2
 GS..T.F.... Archimedean_spiral
@@ -94,7 +94,7 @@ GS......... Arithmetic_evaluation
 GS......... Array_concatenation
 GS......... Array_length
 GS......... Arrays
-G.K.T..DX.. Aspect_Oriented_Programming
+G.K.T..D... Aspect_Oriented_Programming
 GS......... Assertions
 .......DXVU Assertions_in_design_by_contract
 G.K.T...... Associative_array_Creation
@@ -679,7 +679,7 @@ GS..T...... Lucky_and_even_lucky_numbers-2
 GS......... Ludic_numbers
 GS......... Luhn_test_of_credit_card_numbers
 GS......... Lychrel_numbers
-!S......... MAC_Vendor_Lookup
+GS......... MAC_Vendor_Lookup
 GS..T...... MD4
 GS......... MD5
 GS......... MD5_Implementation
@@ -962,6 +962,7 @@ GS......... Rep-string
 GS.....D... Repeat
 GS......... Repeat_a_string
 .......D.VU Resistance_Calculator
+.......D.VU Resistance_Network_Calculator
 GS......... Resistor_mesh
 GS......... Respond_to_an_unknown_method_call
 .........VU Retrieve_and_search_chat_history
@@ -1225,7 +1226,7 @@ G.K........ Topic_variable
 GS......... Topological_sort
 GS.....D... Topological_sort_Extracted_top_item
 GS......... Topswops
-.........VU Total_circles_area
+GS..T...... Total_circles_area
 GS..T...... Totient_function-1
 GS..T...... Totient_function-2
 GS......... Towers_of_Hanoi
