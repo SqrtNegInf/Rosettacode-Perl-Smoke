@@ -2,16 +2,16 @@
 This is perl 5, version 28, subversion 0 (v5.28.0) built for darwin-thread-multi-2level
 updating from RC…
 +------------> Perl: Good/Bad [1104/12]
-|+-----------> Smoke testing [971]
-||+----------> sKipping validation [138]
-|||+---------> Interactive [47]
+|+-----------> Smoke testing [973]
+||+----------> sKipping validation [135]
+|||+---------> Interactive [46]
 ||||+--------> Touched (modified by me) [247]
-|||||+-------> Random seed [88]
-||||||+------> File output [58]
-|||||||+-----> Draft [223]
+|||||+-------> Random seed [89]
+||||||+------> File output [59]
+|||||||+-----> Draft [224]
 ||||||||+----> Ignoring [32]
-|||||||||+---> Void (no local copy) [189]
-||||||||||+--> Un-implemented/reliable [181]
+|||||||||+---> Void (no local copy) [190]
+||||||||||+--> Un-implemented/reliable [180]
 |||||||||||
 GS......... 100_doors-1
 GS......... 100_doors-2
@@ -19,7 +19,7 @@ GS......... 100_doors-3
 GS......... 100_doors-4
 GS......... 100_doors-5
 G.KI....... 15_Puzzle_Game-1
-G.KI....... 15_Puzzle_Game-2
+GS...RF.... 15_Puzzle_Game-2
 .......D.VU 15_Puzzle_Game_in_3D
 .........VU 15_puzzle_solver
 .......D.VU 16_Puzzle_Game
@@ -78,7 +78,7 @@ GS......... Anonymous_recursion-4
 GS......... Anti-primes
 GS....F.... Append_a_record_to_the_end_of_a_text_file
 GS......... Apply_a_callback_to_an_array
-GSK.T.....U Apply_a_digital_filter_direct_form_II_transposed
+GS..T...... Apply_a_digital_filter_direct_form_II_transposed
 GS......... Arbitrary-precision_integers_included-1
 GS......... Arbitrary-precision_integers_included-2
 GS..T.F.... Archimedean_spiral
@@ -213,7 +213,7 @@ GS..T..D... Cheryl%27s_Birthday
 GS..T...... Chinese_remainder_theorem
 GS......... Chinese_zodiac
 GS......... Cholesky_decomposition
-G.K.T..D..U Chowla_numbers
+GS..T..D... Chowla_numbers
 .........VU Church_Numerals
 .......D... Cipolla%27s_algorithm
 GS..T...... Cipolla%27s_algorithm-1
@@ -833,6 +833,7 @@ GS..T...... Pathological_floating_point_problems-1
 GS..T...... Pathological_floating_point_problems-2
 GS......... Pathological_floating_point_problems-3
 GS...R..... Pattern_matching
+.......D.VU Peaceful_chess_queen_armies
 GS..T.F.... Peano_curve
 GS.....D... Pell%27s_equation
 GS...R..... Penney%27s_game
