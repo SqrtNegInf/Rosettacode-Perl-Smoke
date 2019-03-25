@@ -1,6 +1,6 @@
 #!/usr/local/bin/perl
 #u# http://rosettacode.org/wiki/Resistor_mesh
-#c# 2018-08-10 <RC, 2019-03-24 >RC
+#c# 2018-08-10 <RC, 2019-03-25 >RC
 #p# OK
 
 use strict;
@@ -70,5 +70,4 @@ say $result = sprintf "R = %.6f", 2 / iter();
 
 use Test::More;
 is ($result, 'R = 1.608991');
-#is ($result, 'R = 1.60899124172989');
 done_testing();
