@@ -5222,6 +5222,12 @@ File: R/Repeat_a_string
 #c# 2018-08-18 <RC
 #p# OK
 
+File: R/Resistance_Network_Calculator
+#!/usr/local/bin/perl
+#u# http://rosettacode.org/wiki/RC_REMOTE
+#c# 2019-03-RC >RC
+#p# OK
+
 File: R/Resistor_calculator
 #!/usr/local/bin/perl
 #u# http://rosettacode.org/wiki/RC_REMOTE
@@ -5232,7 +5238,7 @@ File: R/Resistor_calculator
 File: R/Resistor_mesh
 #!/usr/local/bin/perl
 #u# http://rosettacode.org/wiki/Resistor_mesh
-#c# 2018-08-10 <RC
+#c# 2018-08-10 <RC, 2019-03-24 >RC
 #p# OK
 
 File: R/Respond_to_an_unknown_method_call
