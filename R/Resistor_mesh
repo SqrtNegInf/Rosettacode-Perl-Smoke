@@ -1,6 +1,6 @@
 #!/usr/local/bin/perl
 #u# http://rosettacode.org/wiki/Resistor_mesh
-#c# 2018-08-10 <RC
+#c# 2018-08-10 <RC, 2019-03-24 >RC
 #p# OK
 
 use strict;
@@ -45,31 +45,30 @@ sub calc_diff {
 
 sub iter {
 	my $diff = 1;
-	while ($diff > 1e-24) { # 1e-24 is overkill (12 digits of precision)
+	while ($diff > 1e-15) { # avoid quantum foam...
 		set_boundary();
 		$diff = calc_diff();
-		#print "error^2: $diff\r";
+		#print "error^2: $diff\n";
 		for my $i (0 .. $h) {
 			for my $j (0 .. $w) {
 				$v[$i][$j] -= $d[$i][$j];
 			}
 		}
 	}
-	#print "\n";
 
 	my @current = (0) x 3;
 	for my $i (0 .. $h) {
 		for my $j (0 .. $w) {
-			$current[ $f[$i][$j] ] +=
-				$d[$i][$j] * scalar(@{$n[$i][$j]});
+			$current[ $f[$i][$j] ] += $d[$i][$j] * scalar(@{$n[$i][$j]});
 		}
 	}
 	return ($current[1] - $current[-1]) / 2;
 }
 
 
-say $result = "R = @{[2 / iter()]}";
+say $result = sprintf "R = %.6f", 2 / iter();
 
 use Test::More;
-is ($result, 'R = 1.60899124172989');
+is ($result, 'R = 1.608991');
+#is ($result, 'R = 1.60899124172989');
 done_testing();
