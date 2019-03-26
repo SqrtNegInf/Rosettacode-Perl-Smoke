@@ -339,7 +339,7 @@ File: A/Apply_a_callback_to_an_array
 
 File: A/Apply_a_digital_filter_direct_form_II_transposed
 #!/usr/local/bin/perl
-#u# http://rosettacode.org/wiki/RC_REMOTE
+#u# http://rosettacode.org/wiki/Apply_a_digital_filter_direct_form_II_transposed
 #c# 2019-03-23 >RC
 #p# OK
 
@@ -434,7 +434,7 @@ File: A/Arrays
 
 File: A/Aspect_Oriented_Programming
 #!/usr/local/bin/perl
-#u# http://rosettacode.org/wiki/RC_REMOTE
+#u# http://rosettacode.org/wiki/Aspect_Oriented_Programming
 #t# nocode
 #c# 2019-03-21 >RC
 #p# OK
@@ -1146,6 +1146,12 @@ File: C/Combinations_with_repetitions-2
 #!/usr/local/bin/perl
 #u# http://rosettacode.org/wiki/Combinations_with_repetitions
 #c# 2018-07-23 <RC
+#p# OK
+
+File: C/Combinations_with_repetitions_Square_Digit_Chain
+#!/usr/local/bin/perl
+#u# http://rosettacode.org/wiki/Combinations_with_repetitions_Square_Digit_Chain
+#c# 2019-03-25 >RC
 #p# OK
 
 File: C/Comma_quibbling-1
@@ -4036,7 +4042,7 @@ File: M/Move-to-front_algorithm
 
 File: M/Multi-dimensional_array
 #!/usr/local/bin/perl
-#u# http://rosettacode.org/wiki/RC_REMOTE
+#u# http://rosettacode.org/wiki/Multi-dimensional_array
 #c# 2019-03-21 >RC
 #p# OK
 
@@ -5224,13 +5230,13 @@ File: R/Repeat_a_string
 
 File: R/Resistance_Network_Calculator
 #!/usr/local/bin/perl
-#u# http://rosettacode.org/wiki/RC_REMOTE
-#c# 2019-03-RC >RC
+#u# http://rosettacode.org/wiki/Resistance_Network_Calculator
+#c# 2019-03-25 >RC
 #p# OK
 
 File: R/Resistor_calculator
 #!/usr/local/bin/perl
-#u# http://rosettacode.org/wiki/RC_REMOTE
+#u# http://rosettacode.org/wiki/Resistor_calculator
 #t# skiptest
 #c# 2019-03-14 >RC
 #p# OK
@@ -5238,7 +5244,7 @@ File: R/Resistor_calculator
 File: R/Resistor_mesh
 #!/usr/local/bin/perl
 #u# http://rosettacode.org/wiki/Resistor_mesh
-#c# 2018-08-10 <RC, 2019-03-24 >RC
+#c# 2018-08-10 <RC, 2019-03-25 >RC
 #p# OK
 
 File: R/Respond_to_an_unknown_method_call
