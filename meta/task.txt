@@ -1,17 +1,17 @@
 
 This is perl 5, version 28, subversion 0 (v5.28.0) built for darwin-thread-multi-2level
 updating from RC…
-+------------> Perl: Good/Bad [1105/12]
-|+-----------> Smoke testing [974]
++------------> Perl: Good/Bad [1106/12]
+|+-----------> Smoke testing [975]
 ||+----------> sKipping validation [135]
 |||+---------> Interactive [46]
-||||+--------> Touched (modified by me) [249]
+||||+--------> Touched (modified by me) [250]
 |||||+-------> Random seed [89]
 ||||||+------> File output [59]
 |||||||+-----> Draft [224]
 ||||||||+----> Ignoring [32]
-|||||||||+---> Void (no local copy) [189]
-||||||||||+--> Un-implemented/reliable [180]
+|||||||||+---> Void (no local copy) [188]
+||||||||||+--> Un-implemented/reliable [178]
 |||||||||||
 GS......... 100_doors-1
 GS......... 100_doors-2
@@ -236,7 +236,7 @@ GS......... Combinations-3
 GS......... Combinations_and_permutations
 GS......... Combinations_with_repetitions-1
 GS......... Combinations_with_repetitions-2
-.......D.VU Combinations_with_repetitions_Square_Digit_Chain
+GS..T..D... Combinations_with_repetitions_Square_Digit_Chain
 GS......... Comma_quibbling-1
 GS......... Comma_quibbling-2
 G.K........ Command-line_arguments
@@ -963,7 +963,7 @@ GS......... Rep-string
 GS.....D... Repeat
 GS......... Repeat_a_string
 .......D.VU Resistance_Calculator
-GS..T..D..U Resistance_Network_Calculator
+GS..T..D... Resistance_Network_Calculator
 GS..T...... Resistor_mesh
 GS......... Respond_to_an_unknown_method_call
 .........VU Retrieve_and_search_chat_history
