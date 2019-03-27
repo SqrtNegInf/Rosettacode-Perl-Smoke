@@ -1,0 +1,51 @@
+#!/usr/local/bin/perl
+#u# http://rosettacode.org/wiki/Weird_numbers
+#c# 2019-03-26 <RC
+#p# OK
+
+use strict;
+use warnings;
+use feature 'say';
+
+use ntheory qw(vecsum divisors divisor_sum);
+ 
+sub is_pseudoperfect {
+    my ($n, $d, $s, $m) = @_;
+ 
+    $d //= do { my @d = divisors($n); pop(@d); \@d };
+    $s //= vecsum(@$d);
+    $m //= $#$d;
+ 
+    return 0 if $m < 0;
+ 
+    while ($d->[$m] > $n) {
+        $s -= $d->[$m--];
+    }
+ 
+    return 1 if ($n == $s or $d->[$m] == $n);
+ 
+    is_pseudoperfect($n-$d->[$m], $d, $s-$d->[$m], $m - 1) ||
+    is_pseudoperfect($n,          $d, $s-$d->[$m], $m - 1);
+}
+ 
+sub is_weird {
+    my ($n) = @_;
+    divisor_sum($n) > 2*$n and not is_pseudoperfect($n);
+}
+ 
+my @weird;
+for (my $k = 1 ; @weird < 25 ; ++$k) {
+    push(@weird, $k) if is_weird($k);
+}
+ 
+say my $result = "The first 25 weird numbers:\n@weird";
+
+my $ref = <<'EOD';
+The first 25 weird numbers:
+70 836 4030 5830 7192 7912 9272 10430 10570 10792 10990 11410 11690 12110 12530 12670 13370 13510 13790 13930 14770 15610 15890 16030 16310
+EOD
+
+use Test::More;
+chomp $ref;
+is($result,$ref);
+done_testing();
