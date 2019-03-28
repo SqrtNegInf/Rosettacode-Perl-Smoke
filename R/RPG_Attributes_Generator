@@ -1,0 +1,47 @@
+#!/usr/local/bin/perl
+#u# http://rosettacode.org/wiki/RPG_Attributes_Generator
+#c# 2019-03-28 >RC
+#p# OK
+
+use strict;
+use warnings;
+my $result;
+
+srand 123456;
+
+use List::Util 'sum';
+
+my ($min_sum, $hero_attr_min, $hero_count_min) = <75 15 3>;
+my @attr_names = <Str Int Wis Dex Con Cha>;
+ 
+sub heroic { scalar grep { $_ >= $hero_attr_min } @_ }
+ 
+sub roll_skip_lowest {
+    my($dice, $sides) = @_;
+    sum( (sort map { 1 + int rand($sides) } 1..$dice)[1..$dice-1] );
+    #my @roll = sort map { 1 + int rand($sides) } 1..$dice;
+    #sum @roll[1..$dice-1];
+}
+
+my @attr;
+do { @attr = map { roll_skip_lowest(6,4) } @attr_names
+} until sum(@attr) >= $min_sum and heroic(@attr) >= $hero_count_min;
+ 
+$result .= sprintf "%s = %2d\n", $attr_names[$_], $attr[$_] for 0..$#attr;
+$result .= sprintf "Sum = %d, with %d attributes >= $hero_attr_min\n", sum(@attr), heroic(@attr);
+
+print $result; 
+
+my $ref = <<'EOD';
+Str = 13
+Int = 15
+Wis =  9
+Dex = 19
+Con = 17
+Cha = 10
+Sum = 83, with 3 attributes >= 15
+EOD
+
+use Test::More;
+is($result, $ref);
+done_testing();
