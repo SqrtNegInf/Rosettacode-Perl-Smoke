@@ -2,6 +2,7 @@
 #u# http://rosettacode.org/wiki/Eban_numbers
 #c# 2019-03-27 <RC
 #p# OK
+#n# thundergnat++ writes P5 too!
 
 use strict;
 use warnings;
