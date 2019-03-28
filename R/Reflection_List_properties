@@ -1,0 +1,48 @@
+#!/usr/local/bin/perl
+#u# http://rosettacode.org/wiki/Reflection_List_properties
+#n# nocode
+#c# 2019-03-28 >RC
+#p# OK
+
+no strict 'refs';
+use feature 'say';
+
+package BNum;
+
+use overload (
+	'""'	=> \&_str,
+	'<=>'	=> \&_cmp,
+);
+
+sub new {
+	my $self = shift;
+	bless [@_], ref $self || $self
+}
+
+sub flip {
+	my @a = @{+shift};
+	$a[2] = !$a[2];
+	bless \@a
+}
+
+sub _str {
+	my $v = sprintf "%.2f", $_[0][0];
+	$_[0][2] ? $v . ($_[0][1] == 1 ? "]" : ")") : ($_[0][1] == 1 ? "(" : "[" ) . $v;
+}
+
+sub _ncmp {
+	my ($a, $b) = @_;
+	$a->[0] <=> $b || $a->[1] <=> 0
+}
+
+package main;
+
+use Data::Dumper;
+
+my $a = BNum->new(1, 0, 0);
+say Dumper( \%{ref ($a)."::" });
+
+use Class::MOP;
+
+my $meta = Class::MOP::Class->initialize( ref $a );
+say Dumper $meta->get_all_method_names();
