@@ -1802,6 +1802,12 @@ File: E/EKG_sequence_convergence
 File: E/Eban_numbers
 #!/usr/local/bin/perl
 #u# http://rosettacode.org/wiki/Eban_numbers
+#c# 2019-03-27 <RC
+#p# OK
+
+File: E/Eban_numbers.1
+#!/usr/local/bin/perl
+#u# http://rosettacode.org/wiki/Eban_numbers
 #c# 2019-03-15 >RC
 #p# OK
 
