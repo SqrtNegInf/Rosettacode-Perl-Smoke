@@ -1,0 +1,101 @@
+#!/usr/local/bin/perl
+#u# http://rosettacode.org/wiki/Multidimensional_Newton-Raphson_method
+#c# 2019-03-RC >RC
+#p# OK
+
+use Data::Printer;
+
+use strict;
+use warnings;
+use feature 'say';
+my @res;
+
+use utf8;
+binmode STDOUT, ":utf8";
+ 
+sub solve_funcs {
+    my($funcs, $iterations, $ε, @guesses) = @_;
+    #my($funcs, @guesses, $iterations, $ε) = @_;
+#    our @guesses; local *guesses;
+    my ($error_value, @values, @delta, @jacobian);
+    for (1 .. $iterations) {
+        for (0..@funcs) { @values[$^i] = $funcs[$^i](|@guesses); }
+        $error_value = 0;
+        for (^+$funcs) { $error_value += @values[$^i].abs }
+        return @guesses if $error_value ≤ $ε;
+        for (^+$funcs) { @delta[$^i] = -@values[$^i] }
+        @jacobian = jacobian($funcs, $ε, @guesses; 
+        @delta = solve_matrix(\@jacobian, \@delta);
+        for (my $j = 0, $error_value = 0; $j < +$funcs; $j++) {
+            $error_value += abs $delta[$j];
+            $guesses[$j] += $delta[$j];
+        }
+        return @guesses if $error_value ≤ $ε;
+    }
+    return @guesses;
+}
+ 
+sub jacobian {
+    my($funcs, $ε, @points) = @_
+    my ($Δ, @P, @M, @plusΔ, @minusΔ);
+    my @jacobian;
+    for my $i (^+@points) {
+        @plusΔ = @minusΔ = @points;
+        $Δ = ($ε * abs($points[$i]) ) || $ε;
+        $plusΔ[$i] = $points[$i] + $Δ;
+        $minusΔ[$i] = $points[$i] - $Δ;
+        for (0..@funcs) { $P[$_] = $funcs[$_](@plusΔ); }
+        for (0..@funcs) { $M[$_] = $funcs[$_](@minusΔ); }
+        for my $j (0..@funcs) {
+            $jacobian[$j][$i] = ($P[$j] - $M[$j]) / (2 * $Δ);
+        }
+    }
+    return @jacobian;
+}
+ 
+sub solve_matrix {
+    my(@matrix_array, @delta) = @_;
+    { use Math::Matrix;
+      #my $matrix = Math::Matrix.new(@matrix_array);
+      #my $vector = Math::Matrix.new(@delta.map({.list}));
+      #die "Matrix is not invertible" unless $matrix.is-invertible;
+      #my @result = ( $matrix.inverted dot $vector ).transposed;
+      #return @result.split(" ");
+   }
+}
+ 
+my @funcs = (
+   "9*$x**2 + 36*$y**2 + 4*$z**2 - 36",
+   "$x**2 - 2*$y**2 - 20*$z",
+   "$x**2 - $y**2 + $z**2"
+);
+ 
+my @guesses = (1,1,0);
+ 
+my @solution = solve_funcs(@funcs, 20, 1e-8, @guesses);
+ 
+say my $result = "Solution: " . join ' ', @solution;
+
+my $ref = 'Solution: 0.8936282344764825 0.8945270103905782 -0.04008928615915281';
+
+use Test;
+is $result, $ref;
+
+# say $result; 
+#say my $result = join "\n", @res;
+my $ref = <<'EOD';
+EOD
+
+use Test::More;
+#chomp $ref;
+#is($result, $ref);
+#done_testing();
+
+__END__
+
+=={{header|Perl}}==
+{{trans|Perl 6}}
+<lang perl></lang>
+{{out}}
+<pre style="height:35ex"></pre>
+[https://github.com/SqrtNegInf/Rosettacode-Perl5-Smoke/blob/master/ref/XXX XXX]
