@@ -5,13 +5,13 @@ updating from RC…
 |+-----------> Smoke testing [976]
 ||+----------> sKipping validation [135]
 |||+---------> Interactive [46]
-||||+--------> Touched (modified by me) [250]
+||||+--------> Touched (modified by me) [249]
 |||||+-------> Random seed [89]
 ||||||+------> File output [59]
 |||||||+-----> Draft [224]
 ||||||||+----> Ignoring [32]
 |||||||||+---> Void (no local copy) [188]
-||||||||||+--> Un-implemented/reliable [177]
+||||||||||+--> Un-implemented/reliable [176]
 |||||||||||
 GS......... 100_doors-1
 GS......... 100_doors-2
@@ -348,7 +348,7 @@ G.KIT..D... Draw_pixel_2
 GS...R..... Dutch_national_flag_problem
 GS......... Dynamic_variable_names
 GS..T...... EKG_sequence_convergence
-GS..T...... Eban_numbers
+GS......... Eban_numbers
 G.KI....... Echo_server
 GS..T...... Eertree
 GS..T...... Egyptian_division
@@ -772,7 +772,7 @@ GS......... Non-continuous_subsequences
 GS......... Non-decimal_radices_Convert
 GS......... Non-decimal_radices_Input
 GS......... Non-decimal_radices_Output
-.........VU Nonoblock
+.........V. Nonoblock
 .........VU Nonogram_solver
 GS......... Nth_root
 GS......... Null_object
