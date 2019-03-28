@@ -1,61 +1,183 @@
 #!/usr/local/bin/perl
 #u# http://rosettacode.org/wiki/Eban_numbers
-#c# 2019-03-15 >RC
+#c# 2019-03-27 <RC
 #p# OK
 
 use strict;
 use warnings;
+use bigint;
 use feature 'say';
-my @res;
+use Lingua::EN::Nums2Words 'num2word';
+use List::AllUtils 'sum';
 
-use Lingua::EN::Numbers qw(num2en);
+my @res;
 
 sub comma { reverse ((reverse shift) =~ s/(.{3})/$1,/gr) =~ s/^,//r }
 
-sub e_ban {
-    my($power) = @_;
-    my @n;
-    for (1..10**$power) {
-        next unless 0 == $_%2;
-        next if $_ =~ /[789]/ or /[12].$/ or /[135]..$/ or /[135]...$/ or /[135].....$/;
-        push @n, $_ unless num2en($_) =~ /e/;
+sub nban {
+    my ($n, @numbers) = @_;
+    grep { lc(num2word($_)) !~ /[$n]/i } @numbers;
+}
+
+sub enumerate {
+    my ($n, $upto) = @_;
+    my @ban = nban($n, 1 .. 99);
+    my @orders;
+    for my $o (2 .. $upto) {
+        push @orders, [nban($n, map { $_ * 10**$o } 1 .. 9)];
     }
-    @n;
+    for my $oom (@orders) {
+        next unless +@$oom;
+        my @these;
+        for my $num (@$oom) {
+            push @these, $num, map { $_ + $num } @ban;
+        }
+       push @ban, @these;
+    }
+    unshift @ban, 0 if nban($n, 0);
+    @ban
 }
 
-my @OK = e_ban(my $max = 7);
-
-my @a = grep { $_ <= 1000 } @OK;
-push @res, "Number of eban numbers up to and including 1000: @{[1+$#a]}";
-push @res, join(', ',@a);
-push @res, '';
-
-my @b = grep { $_ >= 1000 && $_ <= 4000 } @OK;
-push @res, "Number of eban numbers between 1000 and 4000 (inclusive): @{[1+$#b]}";
-push @res, join(', ',@b);
-push @res, '';
-
-for my $exp (4..$max) {
-    my $n = + grep { $_ <= 10**$exp } @OK;
-    push @res, sprintf "Number of eban numbers up to %10s: %d", comma(10**$exp), $n;
+sub count {
+    my ($n, $upto) = @_;
+    my @orders;
+    for my $o (2 .. $upto) {
+        push @orders, [nban($n, map { $_ * 10**$o } 1 .. 9)];
+    }
+    my @count = scalar nban($n, 1 .. 99);
+    for my $o ( 0 .. $#orders - 1 ) {
+        push @count, sum(@count) * (scalar @{$orders[$o]}) + (scalar @{$orders[$o]});
+    }
+    ++$count[0] if nban($n, 0);
+    for my $m ( 0 .. $#count - 1 ) {
+        next unless scalar $orders[$m];
+        if (nban($n, 10**($m+2))) { $count[$m]++; $count[$m + 1]-- }
+    }
+    map { sum( @count[0..$_] ) } 0..$#count;
 }
 
-say my $result = join "\n", @res;
+for my $t ('e', 't', 'subur') {
+    my @bans  = enumerate($t, 4);
+    my @count = count($t, my $max = 21);
+
+    my @j = grep { $_ <= 10 } @bans;
+    unshift @count, @{[1+$#j]};
+
+    push @res, "\n============= $t-ban: =============";
+    my @a = grep { $_ <= 1000 } @bans;
+    push @res, "$t-ban numbers up to 1000: @{[1+$#a]}";
+    push @res, '['. join(' ',@a). ']';
+    push @res, '';
+
+    my @b = grep { $_ >= 1000 && $_ <= 4000 } @bans;
+    push @res, "$t-ban numbers between 1,000 & 4,000 (inclusive): @{[1+$#b]}";
+    push @res, '['. join(' ',@b). ']';
+    push @res, '';
+
+    push @res, "Counts of $t-ban numbers up to ". lc(num2word(10**$max));
+
+    for my $exp (1..$max) {
+        my $nu = $count[$exp-1];
+        push @res, sprintf "Up to and including %23s: %s", lc(num2word(10**$exp)), comma($nu);
+    }
+}
+
+say my $result = join "\n", @res; 
 
 my $ref = <<'EOD';
-Number of eban numbers up to and including 1000: 19
-2, 4, 6, 30, 32, 34, 36, 40, 42, 44, 46, 50, 52, 54, 56, 60, 62, 64, 66
 
-Number of eban numbers between 1000 and 4000 (inclusive): 21
-2000, 2002, 2004, 2006, 2030, 2032, 2034, 2036, 2040, 2042, 2044, 2046, 2050, 2052, 2054, 2056, 2060, 2062, 2064, 2066, 4000
+============= e-ban: =============
+e-ban numbers up to 1000: 19
+[2 4 6 30 32 34 36 40 42 44 46 50 52 54 56 60 62 64 66]
 
-Number of eban numbers up to     10,000: 79
-Number of eban numbers up to    100,000: 399
-Number of eban numbers up to  1,000,000: 399
-Number of eban numbers up to 10,000,000: 1599
+e-ban numbers between 1,000 & 4,000 (inclusive): 21
+[2000 2002 2004 2006 2030 2032 2034 2036 2040 2042 2044 2046 2050 2052 2054 2056 2060 2062 2064 2066 4000]
+
+Counts of e-ban numbers up to one sextillion
+Up to and including                     ten: 3
+Up to and including             one hundred: 19
+Up to and including            one thousand: 19
+Up to and including            ten thousand: 79
+Up to and including    one hundred thousand: 399
+Up to and including             one million: 399
+Up to and including             ten million: 1,599
+Up to and including     one hundred million: 7,999
+Up to and including             one billion: 7,999
+Up to and including             ten billion: 31,999
+Up to and including     one hundred billion: 159,999
+Up to and including            one trillion: 159,999
+Up to and including            ten trillion: 639,999
+Up to and including    one hundred trillion: 3,199,999
+Up to and including         one quadrillion: 3,199,999
+Up to and including         ten quadrillion: 12,799,999
+Up to and including one hundred quadrillion: 63,999,999
+Up to and including         one quintillion: 63,999,999
+Up to and including         ten quintillion: 255,999,999
+Up to and including one hundred quintillion: 1,279,999,999
+Up to and including          one sextillion: 1,279,999,999
+
+============= t-ban: =============
+t-ban numbers up to 1000: 56
+[0 1 4 5 6 7 9 11 100 101 104 105 106 107 109 111 400 401 404 405 406 407 409 411 500 501 504 505 506 507 509 511 600 601 604 605 606 607 609 611 700 701 704 705 706 707 709 711 900 901 904 905 906 907 909 911]
+
+t-ban numbers between 1,000 & 4,000 (inclusive): 0
+[]
+
+Counts of t-ban numbers up to one sextillion
+Up to and including                     ten: 7
+Up to and including             one hundred: 9
+Up to and including            one thousand: 56
+Up to and including            ten thousand: 56
+Up to and including    one hundred thousand: 56
+Up to and including             one million: 57
+Up to and including             ten million: 392
+Up to and including     one hundred million: 393
+Up to and including             one billion: 2,745
+Up to and including             ten billion: 19,208
+Up to and including     one hundred billion: 19,209
+Up to and including            one trillion: 134,456
+Up to and including            ten trillion: 134,456
+Up to and including    one hundred trillion: 134,456
+Up to and including         one quadrillion: 134,457
+Up to and including         ten quadrillion: 941,192
+Up to and including one hundred quadrillion: 941,193
+Up to and including         one quintillion: 6,588,344
+Up to and including         ten quintillion: 6,588,344
+Up to and including one hundred quintillion: 6,588,344
+Up to and including          one sextillion: 6,588,344
+
+============= subur-ban: =============
+subur-ban numbers up to 1000: 35
+[1 2 5 8 9 10 11 12 15 18 19 20 21 22 25 28 29 50 51 52 55 58 59 80 81 82 85 88 89 90 91 92 95 98 99]
+
+subur-ban numbers between 1,000 & 4,000 (inclusive): 0
+[]
+
+Counts of subur-ban numbers up to one sextillion
+Up to and including                     ten: 6
+Up to and including             one hundred: 35
+Up to and including            one thousand: 35
+Up to and including            ten thousand: 35
+Up to and including    one hundred thousand: 35
+Up to and including             one million: 36
+Up to and including             ten million: 216
+Up to and including     one hundred million: 1,295
+Up to and including             one billion: 1,295
+Up to and including             ten billion: 1,295
+Up to and including     one hundred billion: 1,295
+Up to and including            one trillion: 1,295
+Up to and including            ten trillion: 1,295
+Up to and including    one hundred trillion: 1,295
+Up to and including         one quadrillion: 1,295
+Up to and including         ten quadrillion: 1,295
+Up to and including one hundred quadrillion: 1,295
+Up to and including         one quintillion: 1,295
+Up to and including         ten quintillion: 1,295
+Up to and including one hundred quintillion: 1,295
+Up to and including          one sextillion: 1,295
 EOD
 
 use Test::More;
 chomp $ref;
-is($result, $ref);
+is ($result, $ref);
 done_testing();
