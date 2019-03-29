@@ -1799,17 +1799,18 @@ File: E/EKG_sequence_convergence
 #c# 2018-10-24 >RC
 #p# OK
 
-File: E/Eban_numbers
-#!/usr/local/bin/perl
-#u# http://rosettacode.org/wiki/Eban_numbers
-#c# 2019-03-27 <RC
-#p# OK
-
-File: E/Eban_numbers.1
+File: E/Eban_numbers-1
 #!/usr/local/bin/perl
 #u# http://rosettacode.org/wiki/Eban_numbers
 #c# 2019-03-15 >RC
 #p# OK
+
+File: E/Eban_numbers-2
+#!/usr/local/bin/perl
+#u# http://rosettacode.org/wiki/Eban_numbers
+#c# 2019-03-27 <RC
+#p# OK
+#n# thundergnat++ writes P5 too!
 
 File: E/Echo_server
 #!/usr/local/bin/perl
@@ -5060,6 +5061,12 @@ File: R/RIPEMD-160
 #c# 2018-08-19 <RC
 #p# OK
 
+File: R/RPG_Attributes_Generator
+#!/usr/local/bin/perl
+#u# http://rosettacode.org/wiki/RPG_Attributes_Generator
+#c# 2019-03-28 >RC
+#p# OK
+
 File: R/RSA_code
 #!/usr/local/bin/perl
 #u# http://rosettacode.org/wiki/RSA_code
@@ -5189,6 +5196,20 @@ File: R/Reduced_row_echelon_form
 #!/usr/local/bin/perl
 #u# http://rosettacode.org/wiki/Reduced_row_echelon_form
 #c# 2018-08-19 <>RC
+#p# OK
+
+File: R/Reflection_List_methods
+#!/usr/local/bin/perl
+#u# http://rosettacode.org/wiki/Reflection_List_methods
+#n# nocode
+#c# 2019-03-28 >RC
+#p# OK
+
+File: R/Reflection_List_properties
+#!/usr/local/bin/perl
+#u# http://rosettacode.org/wiki/Reflection_List_properties
+#n# nocode
+#c# 2019-03-28 >RC
 #p# OK
 
 File: R/Regular_expressions
