@@ -1,17 +1,17 @@
 
 This is perl 5, version 28, subversion 0 (v5.28.0) built for darwin-thread-multi-2level
 updating from RC…
-+------------> Perl: Good/Bad [1107/12]
-|+-----------> Smoke testing [976]
++------------> Perl: Good/Bad [1111/12]
+|+-----------> Smoke testing [979]
 ||+----------> sKipping validation [135]
 |||+---------> Interactive [46]
-||||+--------> Touched (modified by me) [249]
-|||||+-------> Random seed [89]
+||||+--------> Touched (modified by me) [253]
+|||||+-------> Random seed [90]
 ||||||+------> File output [59]
 |||||||+-----> Draft [224]
 ||||||||+----> Ignoring [32]
-|||||||||+---> Void (no local copy) [188]
-||||||||||+--> Un-implemented/reliable [176]
+|||||||||+---> Void (no local copy) [186]
+||||||||||+--> Un-implemented/reliable [175]
 |||||||||||
 GS......... 100_doors-1
 GS......... 100_doors-2
@@ -348,7 +348,8 @@ G.KIT..D... Draw_pixel_2
 GS...R..... Dutch_national_flag_problem
 GS......... Dynamic_variable_names
 GS..T...... EKG_sequence_convergence
-GS......... Eban_numbers
+GS..T...... Eban_numbers-1
+GS......... Eban_numbers-2
 G.KI....... Echo_server
 GS..T...... Eertree
 GS..T...... Egyptian_division
@@ -922,7 +923,7 @@ GS......... Quickselect_algorithm
 G.K........ Quine
 G.K........ RCRPG
 GS......... RIPEMD-160
-.........VU RPG_Attributes_Generator
+GS..TR..... RPG_Attributes_Generator
 GS..T...... RSA_code
 .......D.VU Railway_circuit
 GS..T...... Ramer-Douglas-Peucker_line_simplification
@@ -934,7 +935,7 @@ GS..T...... Range_consolidation
 GS......... Range_expansion
 GS..T...... Range_extraction
 GS..T...... Ranking_methods
-GS......... Rate_counter
+G.......... Rate_counter
 GS......... Ray-casting_algorithm
 GS......... Read_a_configuration_file
 GS.....D... Read_a_file_character_by_character_UTF8
@@ -949,8 +950,8 @@ GS..T...... Recaman%27s_sequence
 .......D.VU Recursive_descent_parser_generator
 GS..T...... Reduced_row_echelon_form
 .........VU Reflection_Get_source
-.......D.VU Reflection_List_methods
-.........VU Reflection_List_properties
+GS..T..D.VU Reflection_List_methods
+GS..T.....U Reflection_List_properties
 GS......... Regular_expressions
 .......D.VU Remote_agent_Agent_interface
 .......D.VU Remote_agent_Agent_logic
