@@ -7,42 +7,31 @@
 no strict 'refs';
 use feature 'say';
 
-package BNum;
+{
+     package Point;
+     use Class::Spiffy -base;
 
-use overload (
-	'""'	=> \&_str,
-	'<=>'	=> \&_cmp,
-);
-
-sub new {
-	my $self = shift;
-	bless [@_], ref $self || $self
+     field 'x';
+     field 'y';
 }
 
-sub flip {
-	my @a = @{+shift};
-	$a[2] = !$a[2];
-	bless \@a
-}
-
-sub _str {
-	my $v = sprintf "%.2f", $_[0][0];
-	$_[0][2] ? $v . ($_[0][1] == 1 ? "]" : ")") : ($_[0][1] == 1 ? "(" : "[" ) . $v;
-}
-
-sub _ncmp {
-	my ($a, $b) = @_;
-	$a->[0] <=> $b || $a->[1] <=> 0
+{
+     package Circle;
+     use base qw(Point);
+     field 'r';
 }
 
 package main;
 
 use Data::Dumper;
 
-my $a = BNum->new(1, 0, 0);
-say Dumper( \%{ref ($a)."::" });
+my $p1 = Point->new(x => 8, y => -5);
 
-use Class::MOP;
+my $c1 = Circle->new(r => 4);
+my $c2 = Circle->new(x => 1, y => 2, r => 3);
 
-my $meta = Class::MOP::Class->initialize( ref $a );
-say Dumper $meta->get_all_method_names();
+use Scalar::Util qw(blessed);
+say blessed( $p1 );
+
+say Dumper $c1;
+say Dumper $c2;
