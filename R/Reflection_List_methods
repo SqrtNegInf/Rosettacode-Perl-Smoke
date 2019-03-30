@@ -1,48 +1,57 @@
 #!/usr/local/bin/perl
 #u# http://rosettacode.org/wiki/Reflection_List_methods
-#n# nocode
 #c# 2019-03-28 >RC
 #p# OK
+#n# lame, but better than nothing?
 
 no strict 'refs';
 use feature 'say';
 
-package BNum;
+package Nums;
 
 use overload (
-	'""'	=> \&_str,
-	'<=>'	=> \&_cmp,
+	'<=>'	=> \&compare,
 );
 
-sub new {
-	my $self = shift;
-	bless [@_], ref $self || $self
-}
-
-sub flip {
-	my @a = @{+shift};
-	$a[2] = !$a[2];
-	bless \@a
-}
-
-sub _str {
-	my $v = sprintf "%.2f", $_[0][0];
-	$_[0][2] ? $v . ($_[0][1] == 1 ? "]" : ")") : ($_[0][1] == 1 ? "(" : "[" ) . $v;
-}
-
-sub _cmp {
-	my ($a, $b) = @_;
-	$a->[0] <=> $b || $a->[1] <=> 0
-}
+sub new     { my $self = shift; bless [@_] }
+sub flip    { my @a = @_; 1/$a }
+sub double  { my @a = @_; 2*$a }
+sub compare { my ($a, $b) = @_; abs($a) <=> abs($b) }
 
 package main;
 
-use Data::Dumper;
+# Introspect the symbol table hash 
 
-my $a = BNum->new(1, 0, 0);
-say Dumper( \%{ref ($a)."::" });
+my $a = Nums->new(1);
+$result .= "$_\n" for sort keys %{ref ($a)."::" };
 
 use Class::MOP;
-
 my $meta = Class::MOP::Class->initialize( ref $a );
-say Dumper $meta->get_all_method_names();
+$result .= join "\n", sort $meta->get_all_method_names();
+
+say $result;
+
+my $ref = <<'EOD';
+((
+(<=>
+BEGIN
+a
+compare
+double
+flip
+new
+(<=>
+DOES
+VERSION
+can
+compare
+double
+flip
+isa
+new
+EOD
+
+use Test::More;
+chomp $ref;
+is($result,$ref);
+done_testing();
