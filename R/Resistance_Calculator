@@ -4,74 +4,155 @@
 #c# 2019-03-14 >RC
 #p# OK
 
-use Data::Printer;
+use Data::Dumper;
 
-use feature 'say';
+use strict;
+no strict 'refs';
 use warnings;
-use strict; # 'vars';
-
-my $result;
-# my @res;
-
+use feature 'say';
 my @res;
 
-__END__
+package Resistor;
 
-class Resistor {
-    has Str        $.symbol;
-    has Numeric  ( $.voltage, $.resistance );
-    has Resistor ( $.a, $.b );
- 
-    sub res ( ) {
-        given $!symbol {
-            when '+' { return $!a.res + $!b.res }
-            when '*' { return 1 / (1 / $!a.res  +  1 / $!b.res) }
-            default  { return $!resistance }
-        }
-    }
- 
-    sub set_voltage ( Numeric $voltage ) {
-        given $!symbol {
-            when '+' {
-                my $ra = $!a.res;
-                my $rb = $!b.res;
-                $!a.set_voltage( $ra / ($ra+$rb) * $voltage );
-                $!b.set_voltage( $rb / ($ra+$rb) * $voltage );
-            }
-            when '*' {
-                $!a.set_voltage( $voltage );
-                $!b.set_voltage( $voltage );
-            }
-        }
-        $!voltage = $voltage;
-    }
-    sub current ( ) { return $.voltage / self.res     }
-    sub effect  ( ) { return $.voltage * self.current }
- 
-    sub report ( Int $level = 1 ) {
-        my $pad = '| ' x $level;
-        my $f = ( self.res, $!voltage, self.current, self.effect ).fmt('%8.3f');
-        @res.push: "$f $pad$!symbol";
-        $!a.report( $level+1 ) if $!a;
-        $!b.report( $level+1 ) if $!b;
-    }
+use Data::Printer;
+#package Resistor;
+#has Str        $.symbol;
+#has Numeric  ( $.voltage, $.resistance );
+#has Resistor ( $.a, $.b );
+
+sub new {
+    my ($class, $args) = @_;
+#say '-----'; p $args;sleep 4;
+#say ref $args->{a};
+#say '====='; sleep 2;
+#die 'is a ref ' if ref $args->{a};
+    my $self = {
+        symbol     => $args->{symbol},
+        voltage    => $args->{voltage},
+        resistance => $args->{resistance},
+        a          => $args->{a},
+        b          => $args->{b},
+    };
+#    p $self;
+    return bless $self, $class;
 }
 
+#-------------------
+#sub res ( ) {
+#    given $!symbol {
+#        when '+' { return $!a.res + $!b.res }
+#        when '*' { return 1 / (1 / $!a.res  +  1 / $!b.res) }
+#        default  { return $!resistance }
+#    }
+#}
+
+sub res {
+    my $self = shift;
+    if    ($self->{symbol} eq '+') { return res($self->{a}) + res($self->{b}) }
+    elsif ($self->{symbol} eq '*') { return 1 / (1/res($self->{a}) + 1/res($self->{b})) }
+    else  { return $self->{resistance} }
+}
+
+#-------------------
+#sub set_voltage ( Numeric $voltage ) {
+#    given $!symbol {
+#        when '+' {
+#            my $ra = $!a.res;
+#            my $rb = $!b.res;
+#            $!a.set_voltage( $ra / ($ra+$rb) * $voltage );
+#            $!b.set_voltage( $rb / ($ra+$rb) * $voltage );
+#        }
+#        when '*' {
+#            $!a.set_voltage( $voltage );
+#            $!b.set_voltage( $voltage );
+#        }
+#    }
+#    $!voltage = $voltage;
+#}
+
+sub set_voltage {
+    my($self)    = shift;
+    my($voltage) = shift;
+    if ($self->{symbol} eq '+') { 
+        my $ra = res($self->{a});
+        my $rb = res($self->{b});
+        set_voltage($self->{a}, $ra / ($ra+$rb) * $voltage );
+        set_voltage($self->{b}, $rb / ($ra+$rb) * $voltage );
+    } elsif ($self->{symbol} eq '*') { 
+        set_voltage($self->{a}, $voltage );
+        set_voltage($self->{b}, $voltage );
+    }
+    $self->{voltage} = $voltage;
+}
+
+#-------------------
+#sub current ( ) { return $.voltage / self.res     }
+#sub effect  ( ) { return $.voltage * self.current }
+
+sub current { my $self = shift; return $self->{voltage} / res($self)     }
+sub effect  { my $self = shift; return $self->{voltage} * current($self) }
+
+#-------------------
+#sub report ( Int $level = 1 ) {
+#    my $pad = '| ' x $level;
+#    my $f = ( self.res, $!voltage, self.current, self.effect ).fmt('%8.3f');
+#    @res.push: "$f $pad$!symbol";
+#    $!a.report( $level+1 ) if $!a;
+#    $!b.report( $level+1 ) if $!b;
+#}
+
+sub report {
+    my $self = shift;
+    my $level = shift || 1;
+    my $pad = ('| ') x $level;
+    my $fmt = '%8.3f' x 4;
+    my $f = sprintf "$fmt", res($self), $self->{voltage}, current($self), effect($self);
+    say "$f $pad " . $self->{symbol};
+    report($self->{a}, $level+1 ) if defined $self->{a};
+    report($self->{b}, $level+1 ) if defined $self->{b};
+}
+
+#  10.000   18.000    1.800   32.400 | +
+#   4.000    7.200    1.800   12.960 | | *
+
+package main;
+
+#-------------------
 #multi sub infix:<+> (Resistor $a, Resistor $b) { $a.new( symbol => '+', :$a, :$b ) }
 #multi sub infix:<*> (Resistor $a, Resistor $b) { $a.new( symbol => '*', :$a, :$b ) }
- 
-my Resistor ($R1, $R2, $R3, $R4, $R5, $R6, $R7, $R8, $R9, $R10) =
-    map { Resistor.new: symbol => 'r', resistance => $_ },
-    6, 8, 4, 8, 4, 6, 8, 10, 6, 2;
- 
-my $node = (((($R8 + $R10) * $R9 + $R7) * $R6 + $R5)
-                           * $R4 + $R3) * $R2 + $R1;
-$node.set_voltage(18);
- 
-push @res, '     Ohm     Volt   Ampere     Watt  Network tree';
-$node.report;
 
-say $result = join "\n", @res;
+sub js { my($a,$b) = @_; Resistor->new( {symbol => '+', a => $a, b => $b} ) }
+sub jp { my($a,$b) = @_; Resistor->new( {symbol => '*', a => $a, b => $b} ) }
+
+#my ($R1, $R2) = map { Resistor->new( {symbol => 'r', resistance => $_} ) } <10 2>;
+my ($R1, $R2, $R3, $R4, $R5, $R6, $R7, $R8, $R9, $R10) =
+    map { Resistor->new( {symbol => 'r', resistance => $_} ) } <6 8 4 8 4 6 8 10 6 2>;
+
+#-------------------
+#my $node = (((($R8 + $R10) * $R9 + $R7) * $R6 + $R5)
+#                           * $R4 + $R3) * $R2 + $R1;
+#$node.set_voltage(18);
+
+#my $node = join_s($R8,$R10);
+#Resistor::set_voltage($node,18);
+#p $node; exit;
+
+#say Resistor::res($R10);
+#say Resistor::res($R8);
+
+
+my $nodex = js(jp((
+            js(jp((
+             js(jp(( 
+              js(jp(js($R8,$R10),$R9),$R7)
+             ),
+                $R6),$R5)
+            ) , $R4),$R3)
+           ), $R2) , $R1);
+Resistor::set_voltage($nodex,18);
+
+push @res, '     Ohm     Volt   Ampere     Watt  Network tree';
+Resistor::report($nodex);
 
 my $ref = <<'EOD';
      Ohm     Volt   Ampere     Watt  Network tree
@@ -99,6 +180,10 @@ EOD
 use Test::More;
 #is($result, $ref);
 #done_testing();
+
+__END__
+
+say $result = join "\n", @res;
 
 __END__
 
