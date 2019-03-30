@@ -1,17 +1,17 @@
 
 This is perl 5, version 28, subversion 0 (v5.28.0) built for darwin-thread-multi-2level
 updating from RC…
-+------------> Perl: Good/Bad [1111/12]
-|+-----------> Smoke testing [979]
-||+----------> sKipping validation [135]
++------------> Perl: Good/Bad [1113/12]
+|+-----------> Smoke testing [980]
+||+----------> sKipping validation [138]
 |||+---------> Interactive [46]
-||||+--------> Touched (modified by me) [253]
+||||+--------> Touched (modified by me) [256]
 |||||+-------> Random seed [90]
 ||||||+------> File output [59]
 |||||||+-----> Draft [224]
 ||||||||+----> Ignoring [32]
-|||||||||+---> Void (no local copy) [186]
-||||||||||+--> Un-implemented/reliable [175]
+|||||||||+---> Void (no local copy) [183]
+||||||||||+--> Un-implemented/reliable [173]
 |||||||||||
 GS......... 100_doors-1
 GS......... 100_doors-2
@@ -490,7 +490,7 @@ GS..TR..... Generate_random_chess_position
 GS......... Generator_Exponential
 GS......... Generic_swap
 .......D.VU Geometric_algebra
-GS......... Get_system_command_output
+!S......... Get_system_command_output
 GS......... Globally_replace_text_in_several_files
 .........VU Go_Fish
 GS......... Gray_code
@@ -740,7 +740,7 @@ G.KI....... Mouse_position-1
 G.KI....... Mouse_position-2
 GS......... Move-to-front_algorithm
 GS..T...... Multi-dimensional_array
-.......D.VU Multidimensional_Newton-Raphson_method
+G.K.T..D..U Multidimensional_Newton-Raphson_method
 GS......... Multifactorial-1
 GS......... Multifactorial-2
 GS.....D... Multiline_shebang
@@ -782,7 +782,7 @@ GS...R..... Number_reversal_game
 GS......... Numeric_error_propagation
 .......D.VU Numerical_and_alphabetical_suffixes
 GS..T...... Numerical_integration
-.......D.V. Numerical_integration_Adaptive_Simpson%27s_method
+GS..T..D... Numerical_integration_Adaptive_Simpson%27s_method
 GS..T...... Numerical_integration_Gauss-Legendre_Quadrature
 ........XVU OLE_Automation
 GS......... Object_serialization-1
@@ -935,7 +935,7 @@ GS..T...... Range_consolidation
 GS......... Range_expansion
 GS..T...... Range_extraction
 GS..T...... Ranking_methods
-G.......... Rate_counter
+GS......... Rate_counter
 GS......... Ray-casting_algorithm
 GS......... Read_a_configuration_file
 GS.....D... Read_a_file_character_by_character_UTF8
@@ -950,8 +950,8 @@ GS..T...... Recaman%27s_sequence
 .......D.VU Recursive_descent_parser_generator
 GS..T...... Reduced_row_echelon_form
 .........VU Reflection_Get_source
-GS..T..D.VU Reflection_List_methods
-GS..T.....U Reflection_List_properties
+GS..T..D.V. Reflection_List_methods
+G.K.T...... Reflection_List_properties
 GS......... Regular_expressions
 .......D.VU Remote_agent_Agent_interface
 .......D.VU Remote_agent_Agent_logic
@@ -963,7 +963,7 @@ GS......... Rename_a_file
 GS......... Rep-string
 GS.....D... Repeat
 GS......... Repeat_a_string
-.......D.VU Resistance_Calculator
+G.K.T..D..U Resistance_Calculator
 GS..T..D... Resistance_Network_Calculator
 GS..T...... Resistor_mesh
 GS......... Respond_to_an_unknown_method_call
