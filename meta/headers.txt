@@ -4053,6 +4053,13 @@ File: M/Multi-dimensional_array
 #c# 2019-03-21 >RC
 #p# OK
 
+File: M/Multidimensional_Newton-Raphson_method
+#!/usr/local/bin/perl
+#u# http://rosettacode.org/wiki/Multidimensional_Newton-Raphson_method
+#t# skiptest
+#c# 2019-03-RC >RC
+#p# OK
+
 File: M/Multifactorial-1
 #!/usr/local/bin/perl
 #u# http://rosettacode.org/wiki/Multifactorial
@@ -4266,6 +4273,12 @@ File: N/Numerical_Integration
 #c# 2018-10-08 >RC
 #p# OK
 #n#  1326.250u 2.188s 22:12.39 99.7% - all 4 to slow to run daily, just doing first two
+
+File: N/Numerical_integration_Adaptive_Simpson%27s_method
+#!/usr/local/bin/perl
+#u# http://rosettacode.org/wiki/Numerical_integration/Adaptive_Simpson%27s_method
+#c# 2019-03-26 >RC
+#p# OK
 
 File: N/Numerical_integration_Gauss-Legendre_Quadrature
 #!/usr/local/bin/perl
@@ -5201,16 +5214,17 @@ File: R/Reduced_row_echelon_form
 File: R/Reflection_List_methods
 #!/usr/local/bin/perl
 #u# http://rosettacode.org/wiki/Reflection_List_methods
-#n# nocode
 #c# 2019-03-28 >RC
 #p# OK
+#n# lame, but better than nothing?
 
 File: R/Reflection_List_properties
 #!/usr/local/bin/perl
 #u# http://rosettacode.org/wiki/Reflection_List_properties
-#n# nocode
+#t# skiptest
 #c# 2019-03-28 >RC
 #p# OK
+#n# half-baked at best (and variable hash-order from Dumper prevents any testing)
 
 File: R/Regular_expressions
 #!/usr/local/bin/perl
@@ -5255,17 +5269,17 @@ File: R/Repeat_a_string
 #c# 2018-08-18 <RC
 #p# OK
 
-File: R/Resistance_Network_Calculator
-#!/usr/local/bin/perl
-#u# http://rosettacode.org/wiki/Resistance_Network_Calculator
-#c# 2019-03-25 >RC
-#p# OK
-
-File: R/Resistor_calculator
+File: R/Resistance_Calculator
 #!/usr/local/bin/perl
 #u# http://rosettacode.org/wiki/Resistor_calculator
 #t# skiptest
 #c# 2019-03-14 >RC
+#p# OK
+
+File: R/Resistance_Network_Calculator
+#!/usr/local/bin/perl
+#u# http://rosettacode.org/wiki/Resistance_Network_Calculator
+#c# 2019-03-25 >RC
 #p# OK
 
 File: R/Resistor_mesh
