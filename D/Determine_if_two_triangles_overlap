@@ -2,80 +2,46 @@
 #u# http://rosettacode.org/wiki/Determine_if_two_triangles_overlap
 #c# 2019-02-05 <RC
 #p# OK
+#n# NOT on RC
+#n# replace the from-Lua version?  re-work with Point/Triangle objects?
 
 use strict;
 use warnings;
-
+use feature 'say';
 my $result;
 
-# Translation of: Lua
-
 sub det2D {
-    my $p1 = shift or die "4 Missing first point\n";
-    my $p2 = shift or die "Missing second point\n";
-    my $p3 = shift or die "Missing third point\n";
-
-    return $p1->{x} * ($p2->{y} - $p3->{y})
-         + $p2->{x} * ($p3->{y} - $p1->{y})
-         + $p3->{x} * ($p1->{y} - $p2->{y});
+    my($p1,$p2,$p3) = @_;
+    return $p1->[0] * ($p2->[1] - $p3->[1])
+         + $p2->[0] * ($p3->[1] - $p1->[1])
+         + $p3->[0] * ($p1->[1] - $p2->[1]);
 }
 
+# triangles must be expressed anti-clockwise
 sub checkTriWinding {
-    my $p1 = shift or die "14 Missing first point\n";
-    my $p2 = shift or die "Missing second point\n";
-    my $p3 = shift or die "Missing third point\n";
-    my $allowReversed = shift;
-
+    my($p1,$p2,$p3,$allowReversed) = @_;
     my $detTri = det2D($p1, $$p2, $$p3);
     if ($detTri < 0.0) {
-        if ($allowReversed) {
-            my $t = $$p3;
-            $$p3 = $$p2;
-            $$p2 = $t;
-        } else {
-            die "triangle has wrong winding direction";
-        }
+        if ($allowReversed) { ($$p3,$$p2) = ($$p2,$$p3) }
+        else                { die "triangle has wrong winding direction" }
     }
     return undef;
 }
 
 sub boundaryCollideChk {
-    my $p1 = shift or die "33 Missing first point\n";
-    my $p2 = shift or die "Missing second point\n";
-    my $p3 = shift or die "Missing third point\n";
-    my $eps = shift;
-
+    my($p1,$p2,$p3,$eps) = @_;
     return det2D($p1, $p2, $p3) < $eps;
 }
 
 sub boundaryDoesntCollideChk {
-    my $p1 = shift or die "42 Missing first point\n";
-    my $p2 = shift or die "Missing second point\n";
-    my $p3 = shift or die "Missing third point\n";
-    my $eps = shift;
-
+    my($p1,$p2,$p3,$eps) = @_;
     return det2D($p1, $p2, $p3) <= $eps;
 }
 
-sub triTri2D {
-    my $t1 = shift or die "Missing first triangle to calculate with\n";
-    my $t2 = shift or die "Missing second triangle to calculate with\n";
-    my $eps = shift;
-    my $allowReversed = shift;
-    my $onBoundary = shift;
-
-    # triangles must be expressed anti-clockwise
-    checkTriWinding($t1->[0], \$t1->[1], \$t1->[2], $allowReversed);
-    checkTriWinding($t2->[0], \$t2->[1], \$t2->[2], $allowReversed);
-
-    my $chkEdge;
-    if ($onBoundary) {
-        # points on the boundary are considered as colliding
-        $chkEdge = \&boundaryCollideChk;
-    } else {
-        # points on the boundary are NOT considered as colliding
-        $chkEdge = \&boundaryDoesntCollideChk;
-    }
+sub check_edge {
+    my($t1,$t2,$eps,$onBoundary) = @_;
+    # points on the boundary may be considered as colliding, or not 
+    my $chkEdge = $onBoundary ?  \&boundaryCollideChk : \&boundaryDoesntCollideChk;
 
     # for edge E of triangle 1
     foreach my $i (0, 1, 2) {
@@ -83,128 +49,69 @@ sub triTri2D {
 
         # check all points of triangle 2 lay on the external side of edge E
         # if they do, the triangles do not collide
-        if ($chkEdge->($t1->[$i], $t1->[$j], $t2->[0], $eps)
-        and $chkEdge->($t1->[$i], $t1->[$j], $t2->[1], $eps)
-        and $chkEdge->($t1->[$i], $t1->[$j], $t2->[2], $eps)) {
+        if ($chkEdge->($$t1->[$i], $$t1->[$j], $$t2->[0], $eps)
+        and $chkEdge->($$t1->[$i], $$t1->[$j], $$t2->[1], $eps)
+        and $chkEdge->($$t1->[$i], $$t1->[$j], $$t2->[2], $eps)) {
             return 0; # false
         }
     }
+    return 1;
+}
 
-    # for edge E of triangle 2
-    foreach my $i (0, 1, 2) {
-        my $j = ($i + 1) % 3;
-
-        # check all points of triangle 1 lay on the external side of edge E
-        # if they do, the triangles do not collide
-        if ($chkEdge->($t2->[$i], $t2->[$j], $t1->[0], $eps)
-        and $chkEdge->($t2->[$i], $t2->[$j], $t1->[1], $eps)
-        and $chkEdge->($t2->[$i], $t2->[$j], $t1->[2], $eps)) {
-            return 0; # false
-        }
-    }
-
-    return 1; # true
+sub triTri2D {
+    my($t1,$t2,$eps,$allowReversed,$onBoundary) = @_;
+    checkTriWinding($$t1->[0], \$$t1->[1], \$$t1->[2], $allowReversed);
+    checkTriWinding($$t2->[0], \$$t2->[1], \$$t2->[2], $allowReversed);
+    return check_edge($t1,$t2,$eps,$onBoundary) && check_edge($t2,$t1,$eps,$onBoundary);
 }
 
 sub formatTri {
-    my $t = shift or die "Missing triangle to format\n";
-    my $p1 = $t->[0];
-    my $p2 = $t->[1];
-    my $p3 = $t->[2];
-    return "Triangle: ($p1->{x}, $p1->{y}), ($p2->{x}, $p2->{y}), ($p3->{x}, $p3->{y})";
+    my $t = shift;
+    my @pairs;
+    push @pairs, '(' . $$_[0] . ',' . $$_[1] . ')' for @$$t;
+    join ', ', @pairs;
 }
 
 sub overlap {
-    my $t1 = shift or die "Missing first triangle to calculate with\n";
-    my $t2 = shift or die "Missing second triangle to calculate with\n";
-    my $eps = shift;
-    my $allowReversed = shift or 0; # false
-    my $onBoundary = shift or 1; # true
+    my $t1            = shift or die "Missing first triangle to calculate with\n";
+    my $t2            = shift or die "Missing second triangle to calculate with\n";
+    my $eps           = shift || 0;
+    my $allowReversed = shift || 1;
+    my $onBoundary    = shift || 1;
 
-    unless ($eps) {
-        $eps = 0.0;
-    }
+    my $triangles = formatTri($t1) . ' and ' . formatTri($t2) . "\n";
 
     if (triTri2D($t1, $t2, $eps, $allowReversed, $onBoundary)) {
-        return "overlap\n";
+        return "       overlap:" . $triangles;
     } else {
-        return "do not overlap\n";
+        return "do not overlap:" . $triangles;
     }
 }
 
-###################################################
-# Main
-###################################################
+my @tests = (
+   [ [[0,0],[5,0],  [0,5]],  [  [0,0],   [5,0], [0,6]] ],
+   [ [[0,0],[0,5],  [5,0]],  [  [0,0],   [0,5], [5,0]] ],
+   [ [[0,0],[5,0],  [0,5]],  [[-10,0],  [-5,0],[-1,6]] ],
+   [ [[0,0],[5,0],[2.5,5]],  [  [0,4],[2.5,-1], [5,4]] ],
+   [ [[0,0],[1,1],  [0,2]],  [  [2,1],   [3,0], [3,2]] ],
+   [ [[0,0],[1,1],  [0,2]],  [  [2,1],  [3,-2], [3,4]] ],
+   [ [[0,0],[1,0],  [0,1]],  [  [1,0],   [2,0], [1,1]], 0.0, 0, 0 ]
+);
 
-my @t1 = ({x=>0, y=>0}, {x=>5, y=>0}, {x=>0, y=>5});
-my @t2 = ({x=>0, y=>0}, {x=>5, y=>0}, {x=>0, y=>6});
-$result .= formatTri(\@t1). " and\n". formatTri(\@t2). "\n". overlap(\@t1, \@t2). "\n";
-
-@t1 = ({x=>0, y=>0}, {x=>0, y=>5}, {x=>5, y=>0});
-@t2 = ({x=>0, y=>0}, {x=>0, y=>5}, {x=>5, y=>0});
-$result .= formatTri(\@t1). " and\n". formatTri(\@t2). "\n". overlap(\@t1, \@t2, 0.0, 1). "\n";
-
-@t1 = ({x=>0, y=>0}, {x=>5, y=>0}, {x=>0, y=>5});
-@t2 = ({x=>-10, y=>0}, {x=>-5, y=>0}, {x=>-1, y=>6});
-$result .= formatTri(\@t1). " and\n". formatTri(\@t2). "\n". overlap(\@t1, \@t2). "\n";
-
-@t1 = ({x=>0, y=>0}, {x=>5, y=>0}, {x=>2.5, y=>5});
-@t2 = ({x=>0, y=>4}, {x=>2.5, y=>-1}, {x=>5, y=>4});
-$result .= formatTri(\@t1). " and\n". formatTri(\@t2). "\n". overlap(\@t1, \@t2). "\n";
-
-@t1 = ({x=>0, y=>0}, {x=>1, y=>1}, {x=>0, y=>2});
-@t2 = ({x=>2, y=>1}, {x=>3, y=>0}, {x=>3, y=>2});
-$result .= formatTri(\@t1). " and\n". formatTri(\@t2). "\n". overlap(\@t1, \@t2). "\n";
-
-@t1 = ({x=>0, y=>0}, {x=>1, y=>1}, {x=>0, y=>2});
-@t2 = ({x=>2, y=>1}, {x=>3, y=>-2}, {x=>3, y=>4});
-$result .= formatTri(\@t1). " and\n". formatTri(\@t2). "\n". overlap(\@t1, \@t2). "\n";
-
-# Barely touching
-@t1 = ({x=>0, y=>0}, {x=>1, y=>0}, {x=>0, y=>1});
-@t2 = ({x=>1, y=>0}, {x=>2, y=>0}, {x=>1, y=>1});
-$result .= formatTri(\@t1). " and\n". formatTri(\@t2). "\n". overlap(\@t1, \@t2, 0.0, 0, 1). "\n";
-
-# Barely touching
-@t1 = ({x=>0, y=>0}, {x=>1, y=>0}, {x=>0, y=>1});
-@t2 = ({x=>1, y=>0}, {x=>2, y=>0}, {x=>1, y=>1});
-$result .= formatTri(\@t1). " and\n". formatTri(\@t2). "\n". overlap(\@t1, \@t2, 0.0, 0, 0). "\n";
+for my $t (@tests) {
+   $result .= overlap(\$t->[0], \$t->[1], $t->[2], $t->[3], $t->[4])
+}
 
 print $result; 
 
 my $ref = <<'EOD';
-Triangle: (0, 0), (5, 0), (0, 5) and
-Triangle: (0, 0), (5, 0), (0, 6)
-overlap
-
-Triangle: (0, 0), (0, 5), (5, 0) and
-Triangle: (0, 0), (0, 5), (5, 0)
-overlap
-
-Triangle: (0, 0), (5, 0), (0, 5) and
-Triangle: (-10, 0), (-5, 0), (-1, 6)
-do not overlap
-
-Triangle: (0, 0), (5, 0), (2.5, 5) and
-Triangle: (0, 4), (2.5, -1), (5, 4)
-overlap
-
-Triangle: (0, 0), (1, 1), (0, 2) and
-Triangle: (2, 1), (3, 0), (3, 2)
-do not overlap
-
-Triangle: (0, 0), (1, 1), (0, 2) and
-Triangle: (2, 1), (3, -2), (3, 4)
-do not overlap
-
-Triangle: (0, 0), (1, 0), (0, 1) and
-Triangle: (1, 0), (2, 0), (1, 1)
-overlap
-
-Triangle: (0, 0), (1, 0), (0, 1) and
-Triangle: (1, 0), (2, 0), (1, 1)
-do not overlap
-
+       overlap:(0,0), (5,0), (0,5) and (0,0), (5,0), (0,6)
+       overlap:(0,0), (0,5), (5,0) and (0,0), (0,5), (5,0)
+do not overlap:(0,0), (5,0), (0,5) and (-10,0), (-5,0), (-1,6)
+       overlap:(0,0), (5,0), (2.5,5) and (0,4), (2.5,-1), (5,4)
+do not overlap:(0,0), (1,1), (0,2) and (2,1), (3,0), (3,2)
+do not overlap:(0,0), (1,1), (0,2) and (2,1), (3,-2), (3,4)
+       overlap:(0,0), (1,0), (0,1) and (1,0), (2,0), (1,1)
 EOD
 
 use Test::More;
