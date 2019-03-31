@@ -1,6 +1,6 @@
 #!/usr/local/bin/perl
 #u# http://rosettacode.org/wiki/Parsing/RPN_calculator_algorithm
-#c# 2018-08-20 <RC
+#c# 2018-08-20 <RC, 2019-03-30 >RC
 #p# OK
 
 use strict;
@@ -8,29 +8,32 @@ use warnings;
 use feature 'say';
 my $result;
 
-# RPN calculator
-# Nigel Galloway April 2nd., 2012
+my $number   = '[+-]?(?:\.\d+|\d+(?:\.\d*)?)';
+my $operator = '[-+*/^]';
 
-my $WSb = '(?:^|\s+)';
-my $WSa = '(?:\s+|$)';
-my $num = '([+-/]?(?:\.\d+|\d+(?:\.\d*)?))';
-my $op = '([-+*/^])';
+#my @tests = ('5 4 + 3 2 + ^ 1 0 + ^', '3 4 2 * 1 5 - 2 3 ^ ^ / +');
+my @tests = ('3 4 2 * 1 5 - 2 3 ^ ^ / +');
 
-sub myE {
-  my $a = '('.$1.')'.$3.'('.$2.')';
-  $a =~ s/\^/**/;
-  return eval($a);
+for (@tests) {
+    while ( 
+        s/ \s* ((?<left>$number))     # 1st operand
+           \s+ ((?<right>$number))    # 2nd operand
+           \s+ ((?<op>$operator))     # operator
+           (?:\s+|$)                  # more to parse, or done?
+         /
+           ' '.evaluate().' '         # substitute results of evaluation
+         /ex
+    ) {}
+    say;
+    $result = $_;
 }
-while ($_ = <DATA>)  {
-  while (s/$WSb$num\s+$num\s+$op$WSa/' '.myE().' '/e)  {}
-  $result .= ($_);
-}
 
-say $result; 
+sub evaluate {
+  (my $a = "($+{left})$+{op}($+{right})") =~ s/\^/**/;
+  say $a;
+  eval $a;
+}
 
 use Test::More;
 is ($result, ' 3.0001220703125 ');
 done_testing();
-
-__END__
-3 4 2 * 1 5 - 2 3 ^ ^ / +
