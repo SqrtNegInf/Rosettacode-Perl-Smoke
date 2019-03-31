@@ -1,8 +1,7 @@
 #!/usr/local/bin/perl
 #u# http://rosettacode.org/wiki/Eban_numbers
-#c# 2019-03-27 <RC
+#c# 2019-03-27 <RC, 2019-03-30 <RC
 #p# OK
-#n# thundergnat++ writes P5 too!
 
 use strict;
 use warnings;
@@ -11,7 +10,7 @@ use feature 'say';
 use Lingua::EN::Nums2Words 'num2word';
 use List::AllUtils 'sum';
 
-my @res;
+ my @res;
 
 sub comma { reverse ((reverse shift) =~ s/(.{3})/$1,/gr) =~ s/^,//r }
 
@@ -57,7 +56,7 @@ sub count {
     map { sum( @count[0..$_] ) } 0..$#count;
 }
 
-for my $t ('e', 't', 'subur') {
+for my $t ('e') {
     my @bans  = enumerate($t, 4);
     my @count = count($t, my $max = 21);
 
@@ -83,7 +82,7 @@ for my $t ('e', 't', 'subur') {
     }
 }
 
-say my $result = join "\n", @res; 
+say my $result = join "\n", @res;
 
 my $ref = <<'EOD';
 
@@ -116,66 +115,6 @@ Up to and including         one quintillion: 63,999,999
 Up to and including         ten quintillion: 255,999,999
 Up to and including one hundred quintillion: 1,279,999,999
 Up to and including          one sextillion: 1,279,999,999
-
-============= t-ban: =============
-t-ban numbers up to 1000: 56
-[0 1 4 5 6 7 9 11 100 101 104 105 106 107 109 111 400 401 404 405 406 407 409 411 500 501 504 505 506 507 509 511 600 601 604 605 606 607 609 611 700 701 704 705 706 707 709 711 900 901 904 905 906 907 909 911]
-
-t-ban numbers between 1,000 & 4,000 (inclusive): 0
-[]
-
-Counts of t-ban numbers up to one sextillion
-Up to and including                     ten: 7
-Up to and including             one hundred: 9
-Up to and including            one thousand: 56
-Up to and including            ten thousand: 56
-Up to and including    one hundred thousand: 56
-Up to and including             one million: 57
-Up to and including             ten million: 392
-Up to and including     one hundred million: 393
-Up to and including             one billion: 2,745
-Up to and including             ten billion: 19,208
-Up to and including     one hundred billion: 19,209
-Up to and including            one trillion: 134,456
-Up to and including            ten trillion: 134,456
-Up to and including    one hundred trillion: 134,456
-Up to and including         one quadrillion: 134,457
-Up to and including         ten quadrillion: 941,192
-Up to and including one hundred quadrillion: 941,193
-Up to and including         one quintillion: 6,588,344
-Up to and including         ten quintillion: 6,588,344
-Up to and including one hundred quintillion: 6,588,344
-Up to and including          one sextillion: 6,588,344
-
-============= subur-ban: =============
-subur-ban numbers up to 1000: 35
-[1 2 5 8 9 10 11 12 15 18 19 20 21 22 25 28 29 50 51 52 55 58 59 80 81 82 85 88 89 90 91 92 95 98 99]
-
-subur-ban numbers between 1,000 & 4,000 (inclusive): 0
-[]
-
-Counts of subur-ban numbers up to one sextillion
-Up to and including                     ten: 6
-Up to and including             one hundred: 35
-Up to and including            one thousand: 35
-Up to and including            ten thousand: 35
-Up to and including    one hundred thousand: 35
-Up to and including             one million: 36
-Up to and including             ten million: 216
-Up to and including     one hundred million: 1,295
-Up to and including             one billion: 1,295
-Up to and including             ten billion: 1,295
-Up to and including     one hundred billion: 1,295
-Up to and including            one trillion: 1,295
-Up to and including            ten trillion: 1,295
-Up to and including    one hundred trillion: 1,295
-Up to and including         one quadrillion: 1,295
-Up to and including         ten quadrillion: 1,295
-Up to and including one hundred quadrillion: 1,295
-Up to and including         one quintillion: 1,295
-Up to and including         ten quintillion: 1,295
-Up to and including one hundred quintillion: 1,295
-Up to and including          one sextillion: 1,295
 EOD
 
 use Test::More;
