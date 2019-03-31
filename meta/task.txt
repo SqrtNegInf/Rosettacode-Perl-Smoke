@@ -1,17 +1,17 @@
 
 This is perl 5, version 28, subversion 0 (v5.28.0) built for darwin-thread-multi-2level
 updating from RC…
-+------------> Perl: Good/Bad [1113/12]
-|+-----------> Smoke testing [980]
-||+----------> sKipping validation [138]
++------------> Perl: Good/Bad [1112/13]
+|+-----------> Smoke testing [981]
+||+----------> sKipping validation [137]
 |||+---------> Interactive [46]
-||||+--------> Touched (modified by me) [256]
+||||+--------> Touched (modified by me) [257]
 |||||+-------> Random seed [90]
 ||||||+------> File output [59]
 |||||||+-----> Draft [224]
 ||||||||+----> Ignoring [32]
 |||||||||+---> Void (no local copy) [183]
-||||||||||+--> Un-implemented/reliable [173]
+||||||||||+--> Un-implemented/reliable [172]
 |||||||||||
 GS......... 100_doors-1
 GS......... 100_doors-2
@@ -429,7 +429,7 @@ GS......... File_modification_time
 GS......... File_size
 GS..T..D... File_size_distribution
 GS......... Filter
-G.K.T..D..U Find_URI_in_text
+B.K.T..D..U Find_URI_in_text
 GS..T...... Find_common_directory_path
 GS..T..D... Find_duplicate_files
 GS.....D... Find_first_and_last_set_bit_of_a_long_integer
@@ -818,7 +818,7 @@ GS......... Parallel_calculations
 .......D.VU Parse_EBNF
 GS......... Parse_an_IP_Address
 GS.....D... Parse_command-line_arguments
-GS......... Parsing_RPN_calculator_algorithm
+GS..T...... Parsing_RPN_calculator_algorithm
 GS......... Parsing_RPN_to_infix_conversion
 GS......... Parsing_Shunting-yard_algorithm
 GS......... Partial_function_application
@@ -963,7 +963,7 @@ GS......... Rename_a_file
 GS......... Rep-string
 GS.....D... Repeat
 GS......... Repeat_a_string
-G.K.T..D..U Resistance_Calculator
+GS..T..D... Resistance_Calculator
 GS..T..D... Resistance_Network_Calculator
 GS..T...... Resistor_mesh
 GS......... Respond_to_an_unknown_method_call
