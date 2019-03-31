@@ -1,31 +1,23 @@
 #!/usr/local/bin/perl
-#u# http://rosettacode.org/wiki/Resistor_calculator
-#t# skiptest
-#c# 2019-03-14 >RC
+#u# http://rosettacode.org/wiki/Resistance_Calculator
+#c# 2019-03-30 >RC
 #p# OK
 
-use Data::Dumper;
-
 use strict;
-no strict 'refs';
 use warnings;
 use feature 'say';
 my @res;
 
-package Resistor;
-
-use Data::Printer;
+#-------------------
 #package Resistor;
 #has Str        $.symbol;
 #has Numeric  ( $.voltage, $.resistance );
 #has Resistor ( $.a, $.b );
 
+package Resistor;
+
 sub new {
     my ($class, $args) = @_;
-#say '-----'; p $args;sleep 4;
-#say ref $args->{a};
-#say '====='; sleep 2;
-#die 'is a ref ' if ref $args->{a};
     my $self = {
         symbol     => $args->{symbol},
         voltage    => $args->{voltage},
@@ -33,7 +25,6 @@ sub new {
         a          => $args->{a},
         b          => $args->{b},
     };
-#    p $self;
     return bless $self, $class;
 }
 
@@ -71,8 +62,7 @@ sub res {
 #}
 
 sub set_voltage {
-    my($self)    = shift;
-    my($voltage) = shift;
+    my($self,$voltage) = @_;
     if ($self->{symbol} eq '+') { 
         my $ra = res($self->{a});
         my $rb = res($self->{b});
@@ -102,20 +92,17 @@ sub effect  { my $self = shift; return $self->{voltage} * current($self) }
 #}
 
 sub report {
-    my $self = shift;
+    my $self  = shift;
     my $level = shift || 1;
     my $pad = ('| ') x $level;
-    my $fmt = '%8.3f' x 4;
+    my $fmt = '%9.3f' x 4;
     my $f = sprintf "$fmt", res($self), $self->{voltage}, current($self), effect($self);
-    say "$f $pad " . $self->{symbol};
+    push @res, "$f $pad" . $self->{symbol};
     report($self->{a}, $level+1 ) if defined $self->{a};
     report($self->{b}, $level+1 ) if defined $self->{b};
 }
 
-#  10.000   18.000    1.800   32.400 | +
-#   4.000    7.200    1.800   12.960 | | *
-
-package main;
+#package main;
 
 #-------------------
 #multi sub infix:<+> (Resistor $a, Resistor $b) { $a.new( symbol => '+', :$a, :$b ) }
@@ -124,7 +111,11 @@ package main;
 sub js { my($a,$b) = @_; Resistor->new( {symbol => '+', a => $a, b => $b} ) }
 sub jp { my($a,$b) = @_; Resistor->new( {symbol => '*', a => $a, b => $b} ) }
 
-#my ($R1, $R2) = map { Resistor->new( {symbol => 'r', resistance => $_} ) } <10 2>;
+#-------------------
+#my Resistor ($R1, $R2, $R3, $R4, $R5, $R6, $R7, $R8, $R9, $R10) =
+#    map { Resistor.new: symbol => 'r', resistance => $_ },
+#    6, 8, 4, 8, 4, 6, 8, 10, 6, 2;
+
 my ($R1, $R2, $R3, $R4, $R5, $R6, $R7, $R8, $R9, $R10) =
     map { Resistor->new( {symbol => 'r', resistance => $_} ) } <6 8 4 8 4 6 8 10 6 2>;
 
@@ -133,62 +124,47 @@ my ($R1, $R2, $R3, $R4, $R5, $R6, $R7, $R8, $R9, $R10) =
 #                           * $R4 + $R3) * $R2 + $R1;
 #$node.set_voltage(18);
 
-#my $node = join_s($R8,$R10);
-#Resistor::set_voltage($node,18);
-#p $node; exit;
+##my $nodex = js(jp((
+#            js(jp((
+#             js(jp(( 
+#              js(jp(js($R8,$R10),$R9),$R7)
+#             ),
+#                $R6),$R5)
+#            ) , $R4),$R3)
+#           ), $R2) , $R1);
 
-#say Resistor::res($R10);
-#say Resistor::res($R8);
+my $node = js(jp((js(jp((js(jp((js(jp(js($R8,$R10),$R9),$R7)),$R6),$R5)),$R4),$R3)),$R2),$R1); 
+set_voltage($node,18);
 
+@res = '      Ohm     Volt   Ampere     Watt   Network tree';
+report($node);
 
-my $nodex = js(jp((
-            js(jp((
-             js(jp(( 
-              js(jp(js($R8,$R10),$R9),$R7)
-             ),
-                $R6),$R5)
-            ) , $R4),$R3)
-           ), $R2) , $R1);
-Resistor::set_voltage($nodex,18);
-
-push @res, '     Ohm     Volt   Ampere     Watt  Network tree';
-Resistor::report($nodex);
+say my $result = join "\n", @res;
 
 my $ref = <<'EOD';
-     Ohm     Volt   Ampere     Watt  Network tree
-  10.000   18.000    1.800   32.400 | +
-   4.000    7.200    1.800   12.960 | | *
-   8.000    7.200    0.900    6.480 | | | +
-   4.000    3.600    0.900    3.240 | | | | *
-   8.000    3.600    0.450    1.620 | | | | | +
-   4.000    1.800    0.450    0.810 | | | | | | *
-  12.000    1.800    0.150    0.270 | | | | | | | +
-   4.000    0.600    0.150    0.090 | | | | | | | | *
-  12.000    0.600    0.050    0.030 | | | | | | | | | +
-  10.000    0.500    0.050    0.025 | | | | | | | | | | r
-   2.000    0.100    0.050    0.005 | | | | | | | | | | r
-   6.000    0.600    0.100    0.060 | | | | | | | | | r
-   8.000    1.200    0.150    0.180 | | | | | | | | r
-   6.000    1.800    0.300    0.540 | | | | | | | r
-   4.000    1.800    0.450    0.810 | | | | | | r
-   8.000    3.600    0.450    1.620 | | | | | r
-   4.000    3.600    0.900    3.240 | | | | r
-   8.000    7.200    0.900    6.480 | | | r
-   6.000   10.800    1.800   19.440 | | r
+      Ohm     Volt   Ampere     Watt   Network tree
+   10.000   18.000    1.800   32.400 | +
+    4.000    7.200    1.800   12.960 | | *
+    8.000    7.200    0.900    6.480 | | | +
+    4.000    3.600    0.900    3.240 | | | | *
+    8.000    3.600    0.450    1.620 | | | | | +
+    4.000    1.800    0.450    0.810 | | | | | | *
+   12.000    1.800    0.150    0.270 | | | | | | | +
+    4.000    0.600    0.150    0.090 | | | | | | | | *
+   12.000    0.600    0.050    0.030 | | | | | | | | | +
+   10.000    0.500    0.050    0.025 | | | | | | | | | | r
+    2.000    0.100    0.050    0.005 | | | | | | | | | | r
+    6.000    0.600    0.100    0.060 | | | | | | | | | r
+    8.000    1.200    0.150    0.180 | | | | | | | | r
+    6.000    1.800    0.300    0.540 | | | | | | | r
+    4.000    1.800    0.450    0.810 | | | | | | r
+    8.000    3.600    0.450    1.620 | | | | | r
+    4.000    3.600    0.900    3.240 | | | | r
+    8.000    7.200    0.900    6.480 | | | r
+    6.000   10.800    1.800   19.440 | | r
 EOD
 
 use Test::More;
-#is($result, $ref);
-#done_testing();
-
-__END__
-
-say $result = join "\n", @res;
-
-__END__
-
-=={{header|Perl}}==
-{{trans|Perl 6}}
-<lang perl></lang>
-{{out}}
-<pre></pre>
+chomp $ref;
+is($result, $ref);
+done_testing();
