@@ -1808,9 +1808,8 @@ File: E/Eban_numbers-1
 File: E/Eban_numbers-2
 #!/usr/local/bin/perl
 #u# http://rosettacode.org/wiki/Eban_numbers
-#c# 2019-03-27 <RC
+#c# 2019-03-27 <RC, 2019-03-30 <RC
 #p# OK
-#n# thundergnat++ writes P5 too!
 
 File: E/Echo_server
 #!/usr/local/bin/perl
@@ -2296,7 +2295,7 @@ File: F/Find_URI_in_text
 #u# http://rosettacode.org/wiki/Find_URI_in_text
 #t# skiptest
 #c# 2019-02-11 >RC
-#p# OK
+#p# BROKEN
 
 File: F/Find_common_directory_path
 #!/usr/local/bin/perl
@@ -4459,7 +4458,7 @@ File: P/Parse_command-line_arguments
 File: P/Parsing_RPN_calculator_algorithm
 #!/usr/local/bin/perl
 #u# http://rosettacode.org/wiki/Parsing/RPN_calculator_algorithm
-#c# 2018-08-20 <RC
+#c# 2018-08-20 <RC, 2019-03-30 >RC
 #p# OK
 
 File: P/Parsing_RPN_to_infix_conversion
@@ -5271,9 +5270,8 @@ File: R/Repeat_a_string
 
 File: R/Resistance_Calculator
 #!/usr/local/bin/perl
-#u# http://rosettacode.org/wiki/Resistor_calculator
-#t# skiptest
-#c# 2019-03-14 >RC
+#u# http://rosettacode.org/wiki/Resistance_Calculator
+#c# 2019-03-30 >RC
 #p# OK
 
 File: R/Resistance_Network_Calculator
