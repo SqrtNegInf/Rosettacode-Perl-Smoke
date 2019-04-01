@@ -5,13 +5,13 @@ updating from RC…
 |+-----------> Smoke testing [981]
 ||+----------> sKipping validation [137]
 |||+---------> Interactive [46]
-||||+--------> Touched (modified by me) [257]
+||||+--------> Touched (modified by me) [258]
 |||||+-------> Random seed [90]
 ||||||+------> File output [59]
 |||||||+-----> Draft [224]
 ||||||||+----> Ignoring [32]
 |||||||||+---> Void (no local copy) [183]
-||||||||||+--> Un-implemented/reliable [172]
+||||||||||+--> Un-implemented/reliable [171]
 |||||||||||
 GS......... 100_doors-1
 GS......... 100_doors-2
@@ -342,7 +342,7 @@ G.KI....... Draw_a_clock
 GS......... Draw_a_cuboid-1
 GS...R..... Draw_a_cuboid-2
 G.KIT...... Draw_a_pixel
-.........VU Draw_a_rotating_cube
+.........V. Draw_a_rotating_cube
 GS...RF.... Draw_a_sphere
 G.KIT..D... Draw_pixel_2
 GS...R..... Dutch_national_flag_problem
@@ -819,7 +819,7 @@ GS......... Parallel_calculations
 GS......... Parse_an_IP_Address
 GS.....D... Parse_command-line_arguments
 GS..T...... Parsing_RPN_calculator_algorithm
-GS......... Parsing_RPN_to_infix_conversion
+GS..T...... Parsing_RPN_to_infix_conversion
 GS......... Parsing_Shunting-yard_algorithm
 GS......... Partial_function_application
 .......D.VU Particle_Swarm_Optimization
