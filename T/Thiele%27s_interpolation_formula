@@ -1,7 +1,7 @@
 #!/usr/local/bin/perl
 #u# http://rosettacode.org/wiki/Thiele\'s_interpolation_formula
 #t# skiptest
-#c# 2019-03-xx >RC
+#c# 2019-03-31 >RC
 #p# OK
 #n#  made default table size 12, 'invcos' converges slowly
 
