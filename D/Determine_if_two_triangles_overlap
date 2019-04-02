@@ -1,14 +1,13 @@
 #!/usr/local/bin/perl
 #u# http://rosettacode.org/wiki/Determine_if_two_triangles_overlap
-#c# 2019-02-05 <RC
+#c# 2019-02-05 <RC, 2019-04-01 >RC
 #p# OK
-#n# NOT on RC
-#n# replace the from-Lua version?  re-work with Point/Triangle objects?
+#n# re-work with Point/Triangle objects?
 
 use strict;
 use warnings;
 use feature 'say';
-my $result;
+my @res;
 
 sub det2D {
     my($p1,$p2,$p3) = @_;
@@ -73,7 +72,6 @@ sub overlap {
     my $onBoundary    = shift || 1;
 
     my $triangles = formatTri($t1) . ' and ' . formatTri($t2);
-
     if (triTri2D($t1, $t2, $eps, $allowReversed, $onBoundary)) {
         return "       overlap:" . $triangles;
     } else {
@@ -91,10 +89,9 @@ my @tests = (
    [ [[0,0], [1,0],   [0,1]], [   [1,0],    [2,0],  [1,1]], 0.0, 0, 0 ]
 );
 
-   say overlap(\$_->[0], \$_->[1], $_->[2], $_->[3], $_->[4]) for @tests;
-exit;
+   push @res, overlap(\$_->[0], \$_->[1], $_->[2], $_->[3], $_->[4]) for @tests;
 
-print $result;
+say  my $result = join "\n", @res;
 
 my $ref = <<'EOD';
        overlap:   (0,0),    (5,0),    (0,5) and    (0,0),    (5,0),    (0,6)
@@ -107,5 +104,6 @@ do not overlap:   (0,0),    (1,1),    (0,2) and    (2,1),   (3,-2),    (3,4)
 EOD
 
 use Test::More;
+chomp $ref;
 is ($result, $ref);
 done_testing();
