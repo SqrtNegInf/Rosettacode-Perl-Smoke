@@ -1,16 +1,15 @@
 
 This is perl 5, version 28, subversion 0 (v5.28.0) built for darwin-thread-multi-2level
-updating from RC…
-+------------> Perl: Good/Bad [1112/13]
++------------> Perl: Good/Bad [1114/13]
 |+-----------> Smoke testing [981]
-||+----------> sKipping validation [137]
-|||+---------> Interactive [46]
+||+----------> sKipping validation [138]
+|||+---------> Interactive [47]
 ||||+--------> Touched (modified by me) [258]
 |||||+-------> Random seed [90]
 ||||||+------> File output [59]
 |||||||+-----> Draft [224]
 ||||||||+----> Ignoring [32]
-|||||||||+---> Void (no local copy) [183]
+|||||||||+---> Void (no local copy) [182]
 ||||||||||+--> Un-implemented/reliable [171]
 |||||||||||
 GS......... 100_doors-1
@@ -342,7 +341,7 @@ G.KI....... Draw_a_clock
 GS......... Draw_a_cuboid-1
 GS...R..... Draw_a_cuboid-2
 G.KIT...... Draw_a_pixel
-.........V. Draw_a_rotating_cube
+G.KI....... Draw_a_rotating_cube
 GS...RF.... Draw_a_sphere
 G.KIT..D... Draw_pixel_2
 GS...R..... Dutch_national_flag_problem
@@ -490,7 +489,7 @@ GS..TR..... Generate_random_chess_position
 GS......... Generator_Exponential
 GS......... Generic_swap
 .......D.VU Geometric_algebra
-!S......... Get_system_command_output
+GS......... Get_system_command_output
 GS......... Globally_replace_text_in_several_files
 .........VU Go_Fish
 GS......... Gray_code
