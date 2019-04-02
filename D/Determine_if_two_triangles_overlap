@@ -28,20 +28,13 @@ sub checkTriWinding {
     return undef;
 }
 
-sub boundaryCollideChk {
-    my($p1,$p2,$p3,$eps) = @_;
-    return det2D($p1, $p2, $p3) < $eps;
-}
-
-sub boundaryDoesntCollideChk {
-    my($p1,$p2,$p3,$eps) = @_;
-    return det2D($p1, $p2, $p3) <= $eps;
-}
-
 sub check_edge {
-    my($t1,$t2,$eps,$onBoundary) = @_;
+    our($t1,$t2,$eps,$onBoundary) = @_;
+
     # points on the boundary may be considered as colliding, or not 
     my $chkEdge = $onBoundary ?  \&boundaryCollideChk : \&boundaryDoesntCollideChk;
+    sub boundaryCollideChk       { return det2D($_[0], $_[1], $_[2]) <  $eps }
+    sub boundaryDoesntCollideChk { return det2D($_[0], $_[1], $_[2]) <= $eps }
 
     # for edge E of triangle 1
     foreach my $i (0, 1, 2) {
@@ -68,7 +61,7 @@ sub triTri2D {
 sub formatTri {
     my $t = shift;
     my @pairs;
-    push @pairs, '(' . $$_[0] . ',' . $$_[1] . ')' for @$$t;
+    push @pairs, sprintf "%8s", '(' . $$_[0] . ',' . $$_[1] . ')' for @$$t;
     join ', ', @pairs;
 }
 
@@ -79,7 +72,7 @@ sub overlap {
     my $allowReversed = shift || 1;
     my $onBoundary    = shift || 1;
 
-    my $triangles = formatTri($t1) . ' and ' . formatTri($t2) . "\n";
+    my $triangles = formatTri($t1) . ' and ' . formatTri($t2);
 
     if (triTri2D($t1, $t2, $eps, $allowReversed, $onBoundary)) {
         return "       overlap:" . $triangles;
@@ -89,29 +82,28 @@ sub overlap {
 }
 
 my @tests = (
-   [ [[0,0],[5,0],  [0,5]],  [  [0,0],   [5,0], [0,6]] ],
-   [ [[0,0],[0,5],  [5,0]],  [  [0,0],   [0,5], [5,0]] ],
-   [ [[0,0],[5,0],  [0,5]],  [[-10,0],  [-5,0],[-1,6]] ],
-   [ [[0,0],[5,0],[2.5,5]],  [  [0,4],[2.5,-1], [5,4]] ],
-   [ [[0,0],[1,1],  [0,2]],  [  [2,1],   [3,0], [3,2]] ],
-   [ [[0,0],[1,1],  [0,2]],  [  [2,1],  [3,-2], [3,4]] ],
-   [ [[0,0],[1,0],  [0,1]],  [  [1,0],   [2,0], [1,1]], 0.0, 0, 0 ]
+   [ [[0,0], [5,0],   [0,5]], [   [0,0],    [5,0],  [0,6]] ],
+   [ [[0,0], [0,5],   [5,0]], [   [0,0],    [0,5],  [5,0]] ],
+   [ [[0,0], [5,0],   [0,5]], [ [-10,0],   [-5,0], [-1,6]] ],
+   [ [[0,0], [5,0], [2.5,5]], [   [0,4], [2.5,-1],  [5,4]] ],
+   [ [[0,0], [1,1],   [0,2]], [   [2,1],    [3,0],  [3,2]] ],
+   [ [[0,0], [1,1],   [0,2]], [   [2,1],   [3,-2],  [3,4]] ],
+   [ [[0,0], [1,0],   [0,1]], [   [1,0],    [2,0],  [1,1]], 0.0, 0, 0 ]
 );
 
-for my $t (@tests) {
-   $result .= overlap(\$t->[0], \$t->[1], $t->[2], $t->[3], $t->[4])
-}
+   say overlap(\$_->[0], \$_->[1], $_->[2], $_->[3], $_->[4]) for @tests;
+exit;
 
-print $result; 
+print $result;
 
 my $ref = <<'EOD';
-       overlap:(0,0), (5,0), (0,5) and (0,0), (5,0), (0,6)
-       overlap:(0,0), (0,5), (5,0) and (0,0), (0,5), (5,0)
-do not overlap:(0,0), (5,0), (0,5) and (-10,0), (-5,0), (-1,6)
-       overlap:(0,0), (5,0), (2.5,5) and (0,4), (2.5,-1), (5,4)
-do not overlap:(0,0), (1,1), (0,2) and (2,1), (3,0), (3,2)
-do not overlap:(0,0), (1,1), (0,2) and (2,1), (3,-2), (3,4)
-       overlap:(0,0), (1,0), (0,1) and (1,0), (2,0), (1,1)
+       overlap:   (0,0),    (5,0),    (0,5) and    (0,0),    (5,0),    (0,6)
+       overlap:   (0,0),    (0,5),    (5,0) and    (0,0),    (0,5),    (5,0)
+do not overlap:   (0,0),    (5,0),    (0,5) and  (-10,0),   (-5,0),   (-1,6)
+       overlap:   (0,0),    (5,0),  (2.5,5) and    (0,4), (2.5,-1),    (5,4)
+do not overlap:   (0,0),    (1,1),    (0,2) and    (2,1),    (3,0),    (3,2)
+do not overlap:   (0,0),    (1,1),    (0,2) and    (2,1),   (3,-2),    (3,4)
+       overlap:   (0,0),    (1,0),    (0,1) and    (1,0),    (2,0),    (1,1)
 EOD
 
 use Test::More;
