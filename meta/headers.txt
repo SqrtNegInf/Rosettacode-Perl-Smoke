@@ -1633,10 +1633,9 @@ File: D/Determine_if_only_one_instance_is_running
 File: D/Determine_if_two_triangles_overlap
 #!/usr/local/bin/perl
 #u# http://rosettacode.org/wiki/Determine_if_two_triangles_overlap
-#c# 2019-02-05 <RC
+#c# 2019-02-05 <RC, 2019-04-01 >RC
 #p# OK
-#n# NOT on RC
-#n# replace the from-Lua version?  re-work with Point/Triangle objects?
+#n# re-work with Point/Triangle objects?
 
 File: D/Determine_if_two_triangles_overlap.1
 #!/usr/local/bin/perl
@@ -3878,6 +3877,12 @@ File: M/Maximum_triangle_path_sum
 #!/usr/local/bin/perl
 #u# http://rosettacode.org/wiki/Maximum_triangle_path_sum
 #c# 2018-08-18 <RC
+#p# OK
+
+File: M/Mayan_calendar
+#!/usr/local/bin/perl
+#u# http://rosettacode.org/wiki/Mayan_calendar
+#c# 2019-04-03 >RC
 #p# OK
 
 File: M/Mayan_numerals
@@ -6724,7 +6729,7 @@ File: T/Thiele%27s_interpolation_formula
 #!/usr/local/bin/perl
 #u# http://rosettacode.org/wiki/Thiele\'s_interpolation_formula
 #t# skiptest
-#c# 2019-03-xx >RC
+#c# 2019-03-31 >RC
 #p# OK
 #n#  made default table size 12, 'invcos' converges slowly
 
