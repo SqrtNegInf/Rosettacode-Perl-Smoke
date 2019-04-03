@@ -1,16 +1,17 @@
 
 This is perl 5, version 28, subversion 0 (v5.28.0) built for darwin-thread-multi-2level
-+------------> Perl: Good/Bad [1114/13]
-|+-----------> Smoke testing [981]
+updating from RC…
++------------> Perl: Good/Bad [1113/13]
+|+-----------> Smoke testing [982]
 ||+----------> sKipping validation [138]
 |||+---------> Interactive [47]
-||||+--------> Touched (modified by me) [258]
+||||+--------> Touched (modified by me) [260]
 |||||+-------> Random seed [90]
 ||||||+------> File output [59]
 |||||||+-----> Draft [224]
 ||||||||+----> Ignoring [32]
-|||||||||+---> Void (no local copy) [182]
-||||||||||+--> Un-implemented/reliable [171]
+|||||||||+---> Void (no local copy) [181]
+||||||||||+--> Un-implemented/reliable [170]
 |||||||||||
 GS......... 100_doors-1
 GS......... 100_doors-2
@@ -318,7 +319,7 @@ GS......... Detect_division_by_zero
 GS......... Determinant_and_permanent
 GS......... Determine_if_a_string_is_numeric
 G.K........ Determine_if_only_one_instance_is_running
-GS.....D... Determine_if_two_triangles_overlap
+GS..T..D... Determine_if_two_triangles_overlap
 GS.....D... Dice_game_probabilities
 GS......... Digital_root
 GS......... Digital_root_Multiplicative_digital_root
@@ -703,7 +704,7 @@ GS..T...... Matrix_chain_multiplication
 GS..T...... Matrix_multiplication
 GS......... Matrix_transposition
 GS......... Maximum_triangle_path_sum
-.......D.VU Mayan_calendar
+!S..T..D..U Mayan_calendar
 GS..T...... Mayan_numerals
 GS...R..... Maze_generation
 GS...R..... Maze_solving
@@ -726,7 +727,7 @@ GS.....D... Modular_arithmetic
 GS..T...... Modular_exponentiation
 GS......... Modular_inverse
 .......DXV. Modulinos
-.......D.VU Monads_List_monad
+.......D.V. Monads_List_monad
 .......D.VU Monads_Maybe_monad
 .......D.VU Monads_Writer_monad
 GS...R..... Monte_Carlo_methods
@@ -914,7 +915,7 @@ GS......... Proper_divisors
 GS....F.... Pythagoras_tree
 GS..T...... Pythagorean_quadruples
 GS......... Pythagorean_triples
-GS..T.....U QR_decomposition
+!S..T.....U QR_decomposition
 GS......... Quaternion_type
 GS......... Queue_Definition
 GS......... Queue_Usage
