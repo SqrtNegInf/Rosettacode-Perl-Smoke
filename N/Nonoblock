@@ -1,0 +1,73 @@
+#!/usr/local/bin/perl
+#u# http://rosettacode.org/wiki/Nonoblock
+#c# 2019-04-03 <RC
+#p# OK
+
+use strict;
+use warnings;
+use feature 'say';
+my @res;
+
+while( <DATA> ) {
+  push @res, "\n$_", tr/\n/=/cr;
+  my ($cells, @blocks) = split;
+  my $letter = 'A';
+  $_ = join '.', map $letter++ x $_, @blocks;
+  $cells < length and push(@res, "no solution\n"), next;
+  $_ .= '.' x ($cells - length) . "\n";
+  1 while push(@res, $_), s/^(\.*)\b(.*?)\b(\w+)\.\B/$2$1.$3/;
+}
+
+say my $result = join '', @res; 
+
+my $ref = <<'EOD';
+
+5 2 1
+=====
+AA.B.
+AA..B
+.AA.B
+
+5
+=
+.....
+
+10 8
+====
+AAAAAAAA..
+.AAAAAAAA.
+..AAAAAAAA
+
+15 2 3 2 3
+==========
+AA.BBB.CC.DDD..
+AA.BBB.CC..DDD.
+AA.BBB..CC.DDD.
+AA..BBB.CC.DDD.
+.AA.BBB.CC.DDD.
+AA.BBB.CC...DDD
+AA.BBB..CC..DDD
+AA..BBB.CC..DDD
+.AA.BBB.CC..DDD
+AA.BBB...CC.DDD
+AA..BBB..CC.DDD
+.AA.BBB..CC.DDD
+AA...BBB.CC.DDD
+.AA..BBB.CC.DDD
+..AA.BBB.CC.DDD
+
+5 2 3
+=====
+no solution
+EOD
+
+use Test::More;
+is ($result, $ref);
+done_testing();
+
+__DATA__
+5 2 1
+5
+10 8
+15 2 3 2 3
+5 2 3
