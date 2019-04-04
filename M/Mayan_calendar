@@ -1,17 +1,19 @@
 #!/usr/local/bin/perl
 #u# http://rosettacode.org/wiki/Mayan_calendar
-#c# 2019-04-03 >RC
+#c# 2019-04-02 >RC
 #p# OK
-
-use Data::Printer;
+#n# Happy Mayan New Year! (what's "auld lang syne" in Mayan?)
 
 use strict;
 use warnings;
 use feature 'say';
 my @res;
 
-#use DateTime;
-use Date::Calc qw( Delta_Days );
+use utf8;
+binmode STDOUT, ":utf8";
+
+use Math::BaseArith;
+use Date::Calc 'Delta_Days';
 
 my @sacred = qw<Imix’ Ik’ Ak’bal K’an Chikchan Kimi Manik’ Lamat Muluk Ok
               Chuwen Eb Ben Hix Men K’ib’ Kaban Etz’nab’ Kawak Ajaw>;
@@ -19,29 +21,25 @@ my @sacred = qw<Imix’ Ik’ Ak’bal K’an Chikchan Kimi Manik’ Lamat Muluk
 my @civil = qw<Pop Wo’ Sip Sotz’ Sek Xul Yaxk’in Mol Ch’en Yax Sak’ Keh
              Mak K’ank’in Muwan’ Pax K’ayab Kumk’u Wayeb’>;
  
-my %correlation;
-$correlation{'GMT'}{'gregorian'} = DateTime->new( year => 2012, month => 21, day => 21 );
-$correlation{'GMT'}{'round'}     = [3,19,263,8];
-$correlation{'GMT'}{'long'}      = 1872000;
- 
+my %correlation = (
+'gregorian' => '2012-12-21',
+'round'     => [3,19,263,8],
+'long'      => 1872000,
+);
+
 sub mayan_calendar_round {
     my $date = shift;
-    tzolkin($date); 
-    haab($date);
+    tzolkin($date), haab($date);
 }
  
 sub offset {
-    my $date   = shift;
-    my $factor = shift || 'GMT'; 
-    #Date.new($date) - $correlation{$factor}<gregorian> 
-    # Delta_Days($year1,$month1,$day1, $year2,$month2,$day2);"
-
+    my $date = shift;
+    Delta_Days( split('-', $correlation{'gregorian'}), split('-', $date) ); 
 }
 
 sub haab {
-    my $date   = shift;
-    my $factor = shift || 'GMT'; 
-    my $index = ($correlation{$factor}{'round'}[2] + offset $date) % 365;
+    my $date  = shift;
+    my $index = ($correlation{'round'}[2] + offset $date) % 365;
     my ($day, $month);
     if ($index > 360) {
         $day = $index - 360;
@@ -63,35 +61,31 @@ sub haab {
  
 sub tzolkin {
     my $date   = shift;
-    my $factor = shift || 'GMT'; 
     my $offset = offset $date;
-    1 + ($offset + $correlation{$factor}{'round'}[0]) % 13,
-    $sacred[($offset + $correlation{$factor}{'round'}[1]) % 20]
+    1 + ($offset + $correlation{'round'}[0]) % 13,
+    $sacred[($offset + $correlation{'round'}[1]) % 20]
 }
  
 sub lord {
-    my $date   = shift;
-    my $factor = shift || 'GMT'; 
-    'G' . 1 + ($correlation{$factor}{'round'}[3] + offset $date) % 9
+    my $date = shift;
+    1 + ($correlation{'round'}[3] + offset $date) % 9
 }
  
 sub mayan_long_count {
-    my $date   = shift;
-    my $factor = shift || 'GMT'; 
-    my $days = $correlation{$factor}{'long'} + offset $date;
-    #reverse $days.polymod(20,18,20,20);
+    my $date = shift;
+    my $days = $correlation{'long'} + offset $date;
+    encode($days, [20,20,20,18,20]);
 }
  
-# HEADER
-push @res, ' Gregorian   Tzolk’in         Haab’             Long           Lord of ';
-push @res, '   Date       # Name       Day Month            Count         the Night';
-push @res, '-----------------------------------------------------------------------';
+push @res, <<'EOH';
+ Gregorian   Tzolk’in         Haab’             Long           Lord of 
+   Date       # Name       Day Month            Count         the Night
+-----------------------------------------------------------------------
+EOH
  
-# DATES
-
-for my $date (<1963-11-21 2004-06-19 2012-12-18 2012-12-21 2019-01-19 2019-03-27 2020-02-29 2020-03-01 2071-05-16>) {
-    push @res, sprintf "%10s   %2s %-9s %4s %-10s     %-14s %6s", $date, #Date.new($date),
-      mayan_calendar_round($date), join('.',mayan_long_count($date)), lord($date);
+for my $date (<1961-10-06 2004-06-19 2012-12-18 2012-12-21 2019-01-19 2019-03-27 2020-02-29 2020-03-01 2071-05-16>) {
+    push @res, sprintf "%10s   %2s %-9s %4s %-10s     %-14s     G%d",
+      $date, mayan_calendar_round($date), join('.',mayan_long_count($date)), lord($date);
 }
 
 say my $result = join "\n", @res;
@@ -100,7 +94,8 @@ my $ref = <<'EOD';
  Gregorian   Tzolk’in         Haab’             Long           Lord of 
    Date       # Name       Day Month            Count         the Night
 -----------------------------------------------------------------------
-1963-11-21    3 Eb        Chum Keh            12.17.10.3.12      G9
+
+1961-10-06    7 K’ib’       14 Ch’en          12.17.8.0.16       G7
 2004-06-19    4 Ben         16 Sotz’          12.19.11.6.13      G7
 2012-12-18    1 Kaban     Chum K’ank’in       12.19.19.17.17     G6
 2012-12-21    4 Ajaw         3 K’ank’in       13.0.0.0.0         G9
@@ -112,14 +107,6 @@ my $ref = <<'EOD';
 EOD
 
 use Test::More;
-#chomp $ref;
-#is($result, $ref);
-#done_testing();
-
-__END__
-
-=={{header|Perl}}==
-{{trans|Perl 6}}
-<lang perl></lang>
-{{out}}
-<pre></pre>
+chomp $ref;
+is($result, $ref);
+done_testing();
