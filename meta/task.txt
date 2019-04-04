@@ -1,17 +1,17 @@
 
 This is perl 5, version 28, subversion 0 (v5.28.0) built for darwin-thread-multi-2level
 updating from RC…
-+------------> Perl: Good/Bad [1113/13]
-|+-----------> Smoke testing [982]
-||+----------> sKipping validation [138]
++------------> Perl: Good/Bad [1116/15]
+|+-----------> Smoke testing [984]
+||+----------> sKipping validation [139]
 |||+---------> Interactive [47]
 ||||+--------> Touched (modified by me) [260]
 |||||+-------> Random seed [90]
 ||||||+------> File output [59]
 |||||||+-----> Draft [224]
-||||||||+----> Ignoring [32]
-|||||||||+---> Void (no local copy) [181]
-||||||||||+--> Un-implemented/reliable [170]
+||||||||+----> Ignoring [33]
+|||||||||+---> Void (no local copy) [178]
+||||||||||+--> Un-implemented/reliable [167]
 |||||||||||
 GS......... 100_doors-1
 GS......... 100_doors-2
@@ -477,7 +477,7 @@ GS..T...... Fusc_sequence
 G.KI....... GUI_Maximum_window_dimensions
 G.KIT.....U GUI_component_interaction
 .........VU GUI_enabling_disabling_of_controls
-G.K.TRF...U Galton_box_animation
+B.K.TRF...U Galton_box_animation
 GS......... Gamma_function
 GS..T..D... Gauss-Jordan_matrix_inversion
 GS......... Gaussian_elimination
@@ -704,7 +704,7 @@ GS..T...... Matrix_chain_multiplication
 GS..T...... Matrix_multiplication
 GS......... Matrix_transposition
 GS......... Maximum_triangle_path_sum
-!S..T..D..U Mayan_calendar
+GS..T..D... Mayan_calendar
 GS..T...... Mayan_numerals
 GS...R..... Maze_generation
 GS...R..... Maze_solving
@@ -773,8 +773,8 @@ GS......... Non-continuous_subsequences
 GS......... Non-decimal_radices_Convert
 GS......... Non-decimal_radices_Input
 GS......... Non-decimal_radices_Output
-.........V. Nonoblock
-.........VU Nonogram_solver
+GS......... Nonoblock
+GS......... Nonogram_solver
 GS......... Nth_root
 GS......... Null_object
 GS......... Number_names
@@ -834,7 +834,7 @@ GS..T...... Pathological_floating_point_problems-1
 GS..T...... Pathological_floating_point_problems-2
 GS......... Pathological_floating_point_problems-3
 GS...R..... Pattern_matching
-.......D.VU Peaceful_chess_queen_armies
+GS.....D... Peaceful_chess_queen_armies
 GS..T.F.... Peano_curve
 GS.....D... Pell%27s_equation
 GS...R..... Penney%27s_game
@@ -915,7 +915,7 @@ GS......... Proper_divisors
 GS....F.... Pythagoras_tree
 GS..T...... Pythagorean_quadruples
 GS......... Pythagorean_triples
-!S..T.....U QR_decomposition
+B.K.T.....U QR_decomposition
 GS......... Quaternion_type
 GS......... Queue_Definition
 GS......... Queue_Usage
@@ -1293,6 +1293,7 @@ GS......... Water_collected_between_towers
 .......D.VU Waveform_analysis_Doh_ray_me
 .......D.VU Waveform_analysis_Top_and_tail
 .......D.VU Weather_Routing
+........X.. Weather_routing
 GS......... Web_scraping
 .......D... Weird_numbers
 GS..T...... Weird_numbers-1
