@@ -1,19 +1,19 @@
 #!/usr/local/bin/perl
-#u# http://rosettacode.org/wiki/RC_REMOTE
+#u# http://rosettacode.org/wiki/Galton_box_animation
 #c# 2019-01-RC >RC
 #t# skiptest
-#p# OK
+#p# BROKEN
 #i# RC cli: 10 4
 #f# RC file: galton_box.dat
 
-__END__
 
-use feature 'state';
+use strict; # 'vars';
 use warnings;
-use strict 'vars';
+use feature 'state';
 
 srand 123456;
 
+use List::Util 'any';
 use Time::HiRes qw(sleep);
 
 my $result;
@@ -24,7 +24,7 @@ my @board_tmpl;
 
 # UPPER HALF BLOCK and LOWER HALF BLOCK alternate to give a somewhat smooth animation.
 
-open $fh, ">run/galton_box.dat";
+#open $fh, ">run/galton_box.dat";  # DH for final
 
 my $row_count = 6;
 
@@ -33,47 +33,46 @@ my @coin_icons = "\c[UPPER HALF BLOCK]", "\c[LOWER HALF BLOCK]";
 
 sub display_board {
     my(@positions, @stats, $halfstep) = @_;
-    my $coin = @coin_icons[$halfstep.Int];
+    my $coin = $coin_icons[int $halfstep]; # ? .Int
 
-        # precompute a board
     sub abc {
+        # precompute a board
         my @tmpl;
-        sub buf {
+        sub out {
             my(@stuff) = @_;
-            push @tmpl, $[@stuff.join>>.ords.flat];
+            #push @tmpl, $[@stuff.join>>.ords.flat]; # DH
         }
         # three lines of space above
-        for (1..3) {
-            buf "  ", " " x (2 * $row_count);
-        }
+        out "  ", " " x (2 * $row_count) for 1..3;
         # $row_count lines of pegs
-        for flat ($row_count...1) Z (1...$row_count) -> $spaces, $pegs {
-            buf "  ", " " x $spaces, join(' ',($peg) x $pegs), " " x $spaces;
-        }
+# DH
+        #for flat ($row_count...1) Z (1...$row_count) -> $spaces, $pegs {
+        #    buf "  ", " " x $spaces, join(' ',($peg) x $pegs), " " x $spaces;
+        #}
         # four lines of space below
-        for (1..4) {
-            buf "  ", " " x (2 * $row_count);
-        }
+        out "  ", " " x (2 * $row_count) for 1..4;
         return @tmpl; 
     }
-    @board_tmpl = abc();
+    state @board_tmpl = abc();
 
     my $midpos = $row_count + 2;
 
-    my @output;
+    our @output;
     {
         # collect all the output and output it all at once at the end
-        sub say { my ($foo) @_;
+        sub say { 
+            my ($foo) = @_;
             push @output, $foo . "\n";
         }
-        sub printl { my($foo) = @_;
+        sub printl { 
+            my($foo) = @_;
             push @output, $foo;
         }
 
         # make some space above the picture
         say("") for 0..9;
 
-        my @output_lines = map { [map *.clone, @$_].item }, @board_tmpl;
+        my @output_lines = '' ; #map { [map *.clone, @$_].item }, @board_tmpl;  # DH
         # place the coins
         for my $line (keys @positions) {
             my $pos = $positions{$line};
@@ -82,35 +81,33 @@ sub display_board {
         }
         # output the board with its coins
         for my $line (@output_lines) {
-            say @$line>>.chr.join("");
+            #say @$line>>.chr.join(""); # DH
         }
 
         # show the statistics
         my $padding = 0;
-        while any(@stats) > 0 {
+        while (any { $_ > 0 } @stats) {
             $padding++;
             printl "  ";
-            @stats = do for @stats -> $stat {
-                given $stat {
-                    when 1 {
+            @stats = do 
+            for my $stat (@stats) {
+                if ($stat == 1) {
                         printl "\c[UPPER HALF BLOCK]";
                         $stat - 1;
-                    }
-                    when * <= 0 {
+                } elsif ($stat <= 0) {
                         printl " ";
                         0
-                    }
-                    default {
+                } else {
                         printl "\c[FULL BLOCK]";
                         $stat - 2;
-                    }
                 }
             }
             say("");
         }
         say("") for $padding...^10;
     }
-    print $fh, join '', @output . "\n";
+    print join '', @output . "\n";
+    #print $fh, join '', @output . "\n";  # DH for final
 
 }
 
