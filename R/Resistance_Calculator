@@ -2,6 +2,7 @@
 #u# http://rosettacode.org/wiki/Resistance_Calculator
 #c# 2019-03-30 >RC
 #p# OK
+#n# import/export not on RC
 
 use strict;
 use warnings;
@@ -10,6 +11,9 @@ use feature <say state>;
 {
 
 package Resistor;
+require Exporter;
+our @ISA = qw(Exporter);
+our @EXPORT = qw(set_voltage report);
 
 sub new {
     my ($class, $args) = @_;
@@ -68,6 +72,7 @@ sub report {
 }
 
 package main;
+Resistor->import;
 
 my ($R1, $R2, $R3, $R4, $R5, $R6, $R7, $R8, $R9, $R10) =
     map { Resistor->new( {symbol => 'r', resistance => $_} ) } <6 8 4 8 4 6 8 10 6 2>;
@@ -75,9 +80,9 @@ my ($R1, $R2, $R3, $R4, $R5, $R6, $R7, $R8, $R9, $R10) =
 my $node = (((($R8 + $R10) * $R9 + $R7) * $R6 + $R5)
                            * $R4 + $R3) * $R2 + $R1;
 
-Resistor::set_voltage($node,18);
+set_voltage($node,18);
 
-say my $result = Resistor::report($node);
+say my $result = report($node);
 
 my $ref = <<'EOD';
       Ohm     Volt   Ampere     Watt   Network tree
