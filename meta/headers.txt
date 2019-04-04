@@ -2593,10 +2593,10 @@ File: G/GUI_component_interaction
 
 File: G/Galton_box_animation
 #!/usr/local/bin/perl
-#u# http://rosettacode.org/wiki/RC_REMOTE
+#u# http://rosettacode.org/wiki/Galton_box_animation
 #c# 2019-01-RC >RC
 #t# skiptest
-#p# OK
+#p# BROKEN
 #i# RC cli: 10 4
 #f# RC file: galton_box.dat
 
@@ -3882,8 +3882,9 @@ File: M/Maximum_triangle_path_sum
 File: M/Mayan_calendar
 #!/usr/local/bin/perl
 #u# http://rosettacode.org/wiki/Mayan_calendar
-#c# 2019-04-03 >RC
+#c# 2019-04-02 >RC
 #p# OK
+#n# Happy Mayan New Year! (what's "auld lang syne" in Mayan?)
 
 File: M/Mayan_numerals
 #!/usr/local/bin/perl
@@ -4256,6 +4257,18 @@ File: N/Non-decimal_radices_Output
 #c# 2018-08-20 <RC
 #p# OK
 
+File: N/Nonoblock
+#!/usr/local/bin/perl
+#u# http://rosettacode.org/wiki/Nonoblock
+#c# 2019-04-03 <RC
+#p# OK
+
+File: N/Nonogram_solver
+#!/usr/local/bin/perl
+#u# http://rosettacode.org/wiki/Nonogram_solver
+#c# 2019-04-02 <RC
+#p# OK
+
 File: N/Nth_root
 #!/usr/local/bin/perl
 #u# http://rosettacode.org/wiki/Nth_root
@@ -4566,6 +4579,12 @@ File: P/Pattern_matching
 #!/usr/local/bin/perl
 #u# http://rosettacode.org/wiki/Pattern_matching
 #c# 2018-07-08 <RC
+#p# OK
+
+File: P/Peaceful_chess_queen_armies
+#!/usr/local/bin/perl
+#u# http://rosettacode.org/wiki/Peaceful_chess_queen_armies
+#c# 2019-04-02 <RC
 #p# OK
 
 File: P/Peano_curve
@@ -5046,8 +5065,9 @@ File: P/Pythagorean_triples
 File: Q/QR_decomposition
 #!/usr/local/bin/perl
 #u# http://rosettacode.org/wiki/QR_decomposition
+#t# skiptest
 #c# 2019-02-10 >RC
-#p# OK
+#p# BROKEN
 
 File: Q/Quaternion_type
 #!/usr/local/bin/perl
@@ -5289,6 +5309,13 @@ File: R/Repeat_a_string
 #p# OK
 
 File: R/Resistance_Calculator
+#!/usr/local/bin/perl
+#u# http://rosettacode.org/wiki/Resistance_Calculator
+#c# 2019-03-30 >RC
+#p# OK
+#n# import/export not on RC
+
+File: R/Resistance_Calculator.1
 #!/usr/local/bin/perl
 #u# http://rosettacode.org/wiki/Resistance_Calculator
 #c# 2019-03-30 >RC
