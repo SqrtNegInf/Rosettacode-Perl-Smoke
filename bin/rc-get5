@@ -32,7 +32,7 @@ $perl5 =~ s/^Perl\s*\[edit\]//;
 $perl5 =~ s/Works with/# Works with/ms;
 $perl5 =~ s/\xA0//g;
 $perl5 =~ s/PerlÂ/Perl /g;
-$perl5 =~ s/\n[ ]+\n/\n\n/g;
+$perl5 =~ s/\n\s+\n/\n\n/g;
 
 my $ymd = `date +%Y-%m-%d`; chomp $ymd;
 my $ym  = `date +%Y.%m`; chomp $ym;
