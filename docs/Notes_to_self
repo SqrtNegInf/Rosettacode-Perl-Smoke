@@ -1,0 +1,3 @@
+2019-04-05
+Installed blead Perl and did a syntax check on all tasks.  Modulo failed package installs (Gtk3 because of Cairo issues, which
+in theory I know how to fix but am too lazy...), no errors.  TODO: actually run the code.
