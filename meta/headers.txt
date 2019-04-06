@@ -2594,7 +2594,7 @@ File: G/GUI_component_interaction
 File: G/Galton_box_animation
 #!/usr/local/bin/perl
 #u# http://rosettacode.org/wiki/Galton_box_animation
-#c# 2019-01-RC >RC
+#c# 2019-04-RC >RC
 #t# skiptest
 #p# BROKEN
 #i# RC cli: 10 4
