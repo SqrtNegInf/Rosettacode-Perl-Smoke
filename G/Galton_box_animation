@@ -1,11 +1,10 @@
 #!/usr/local/bin/perl
 #u# http://rosettacode.org/wiki/Galton_box_animation
-#c# 2019-01-RC >RC
+#c# 2019-04-RC >RC
 #t# skiptest
 #p# BROKEN
 #i# RC cli: 10 4
 #f# RC file: galton_box.dat
-
 
 use strict; # 'vars';
 use warnings;
@@ -75,7 +74,7 @@ sub display_board {
         my @output_lines = '' ; #map { [map *.clone, @$_].item }, @board_tmpl;  # DH
         # place the coins
         for my $line (keys @positions) {
-            my $pos = $positions{$line};
+            my $pos = $positions[$line];
             next unless defined $pos;
             $output_lines[$line][$pos + $midpos] = ord($coin);
         }
@@ -89,7 +88,7 @@ sub display_board {
         while (any { $_ > 0 } @stats) {
             $padding++;
             printl "  ";
-            @stats = do 
+            #@stats = do 
             for my $stat (@stats) {
                 if ($stat == 1) {
                         printl "\c[UPPER HALF BLOCK]";
@@ -104,18 +103,19 @@ sub display_board {
             }
             say("");
         }
-        say("") for $padding...^10;
+        say("") for $padding..(10-1);
     }
     print join '', @output . "\n";
     #print $fh, join '', @output . "\n";  # DH for final
 
 }
 
-sub simulate { my($coins) = @_;
-    my $alive = 1;
+sub simulate { 
+    my($coins) = @_;
 
-    sub hits_peg { my($x, $y) = @_;
-        if 3 <= $y < 3 + $row_count and -($y - 2) <= $x <= $y - 2 {
+    sub hits_peg {
+        my($x, $y) = @_;
+        if (3 <= $y && $y < (3 + $row_count) and -($y - 2) <= $x && $x <= $y - 2) { # DH split tests
             return not 0 == ($x - $y) % 2;
         }
         return 0;
@@ -125,21 +125,24 @@ sub simulate { my($coins) = @_;
     my @stats = (0) x ($row_count * 2);
     # this line will dispense coins until turned off.
     $coins[0] = 0;
-    while $alive {
+    my $alive = 1;
+    while ($alive == 1) {
         $alive = 0;
         # if a coin falls through the bottom, count it
-        $stats[$_ + $row_count]++ if defined $coins[*-1];
+        $stats[$_ + $row_count]++ if defined $coins[-1];
 
         # move every coin down one row
-        for $line ( ( 3 + $row_count + 3 )...1) {
+        #for my $line ( ( 3 + $row_count + 3 )...1) { # DH fix!
+        for my $line (reverse 1..(3+$row_count+3) ) {
             my $coinpos = $coins[$line - 1];
 
-            $coins[$line] = do if ! defined $coinpos;
+            $coins[$line] = do if (! defined $coinpos) {
                 undef
-            } elsif hits_peg($coinpos, $line) {
+            } elsif (hits_peg($coinpos, $line)) {
                 # when a coin from above hits a peg, it will bounce to either side.
                 $alive = 1;
-                ($coinpos - 1, $coinpos + 1).pick;
+                $coinpos += rand() < .5 ? -1 : 1;
+                #($coinpos - 1, $coinpos + 1).pick; # DH 
             } else {
                 # if there was a coin above, it will fall to this position.
                 $alive = 1;
@@ -147,9 +150,9 @@ sub simulate { my($coins) = @_;
             }
         }
         # let the coin dispenser blink and turn it off if we run out of coins
-        if (defined $coins[0]){
+        if (defined $coins[0]) {
             $coins[0] = undef;
-        } elsif --$coins > 0 {
+        } elsif (--$coins > 0) {
             $coins[0] = 0 
         }
 
