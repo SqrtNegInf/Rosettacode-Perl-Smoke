@@ -10,7 +10,7 @@ Worked through the backlog of existing tasks, and now adding missing ones, where
 Initially, testing against the recently-released 5.28 version of Perl.
 Once the first pass of all tasks is complete, will then switch to testing against blead.
 
-Will be done by Christmas.  ;-)
+Will be done by Christmas.
 
 ## Tools
 
