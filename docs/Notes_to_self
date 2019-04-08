@@ -1,10 +1,10 @@
 2019-04-06
-A few stumbles later... Everything seems to work OK.  A 15-th place rounding difference, stuff like that.  Imager library
-didn't work, but not likely a ongoing problem. The May release should be a breeze (famous last words).
+A few stumbles later... Everything seems to work OK.  A 15-th place rounding difference, stuff like that.  Imager 
+library didn't work, but not likely a ongoing problem. The May release should be a breeze (famous last words).
 
 2019-04-05
-Installed blead Perl and did a syntax check on all tasks.  Modulo failed package installs (Gtk3 because of Cairo issues, which
-in theory I know how to fix but am too lazy...), no errors.  TODO: actually run the code.
+Installed blead Perl and did a syntax check on all tasks.  Modulo failed package installs (Gtk3 because of Cairo 
+issues, which in theory I know how to fix but am too lazy...), no errors.  TODO: actually run the code.
 
 2019-04-03
 Was missing contributions from 'Tybalt89', because the summary lines never managed to mention Perl.
@@ -20,8 +20,8 @@ Complete rewrite of 'The_Name_Game' ("same logic, more idiomatic"), hope author 
 
 2019-03-16
 Chided for my sloppiness--oh the ignominy--by Trizen (?), added 'use strict' and 'use warnings' to all 
-non-trivial tasks. Made solemn vow to use in all future RC updates. A few instances of 'no warnings' needed 
-when the code relied heavily on lazy programmer Perl magic (hey, I resemble that remark).
+non-trivial tasks. Made solemn vow to use them in all future RC updates. A few instances of 'no warnings'
+needed when the code relied heavily on lazy programmer Perl magic (hey, I resemble that remark).
 
 2019-02-26
 Added a Fortran example (hope no one notices, my secret shame).  Wraps up Feigenbaum, not doing more with it.
@@ -41,6 +41,9 @@ Woo-hoo, Perl now in top 10. Not that's it's a pissing contest, no not that at a
 
 2018-08-25
 Wrapping up initial pass of adding existing tasks to smoke testing.
+
+2018-07-05
+Automated smoke-testing of blead perl -- ensure .30 release well-tested on an older MacOS
 
 2018-06-30
 First commit. This should go quickly, done by Christmas?  :-)
