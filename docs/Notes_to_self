@@ -9,6 +9,9 @@ issues, which in theory I know how to fix but am too lazy...), no errors.  TODO:
 2019-04-03
 Was missing contributions from 'Tybalt89', because the summary lines never managed to mention Perl.
 
+2019-04-02
+Ran code coverage tests, nearly 100%. Got pretty much what you'd expect given how narrowly tasks are written.
+
 2019-04-01
 Another rewrite, but this time left old version, for comparison (Determine_if_two_triangles_overlap).
 
