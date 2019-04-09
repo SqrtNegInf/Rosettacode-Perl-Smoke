@@ -6328,6 +6328,13 @@ File: S/Stern-Brocot_sequence-2
 #c# 2018-08-13 <RC, 2018-11-06 <RC
 #p# OK
 
+File: S/Straddling_checkerboard
+#!/usr/local/bin/perl
+#t# skiptest
+#u# http://rosettacode.org/wiki/Straddling_checkerboard
+#c# 2019-04-xx >RC
+#p# OK
+
 File: S/Stream_Merge
 #!/usr/local/bin/perl
 #u# http://rosettacode.org/wiki/Stream_Merge
