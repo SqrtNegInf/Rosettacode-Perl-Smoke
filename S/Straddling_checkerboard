@@ -1,0 +1,113 @@
+#!/usr/local/bin/perl
+#t# skiptest
+#u# http://rosettacode.org/wiki/Straddling_checkerboard
+#c# 2019-04-xx >RC
+#p# OK
+
+use Data::Printer;
+
+use strict;
+use warnings;
+use feature 'say';
+my @res;
+
+my @flat_board; # 10x3 stored as 30x1
+my @plain2code; # full translation table, invertable
+my @table;      # Printable layout, like Wikipedia entry
+my %p2c;
+my %c2p;
+
+my $numeric_escape = '/';
+#my $exclude = /[A..Z0..9.]/; # Omit the escape character
+
+#    sub decode ( Str $s --> Str ) {
+#        $s.trans($!plain2code.antipairs);
+#    }
+
+#    sub encode ( Str $s, :$collapse? --> Str ) {
+#        my $replace = $collapse ?? '' !! '.';
+#        $s.uc.subst( $exclude, $replace, :g ).trans($!plain2code);
+#    }
+
+use List::Util <min max>;
+
+sub build {
+    my($u,$v,$alphabet) = @_;
+    die if $u == $v;
+
+    @flat_board = split '', uc $alphabet;
+    splice @flat_board, min($u,$v), 0, undef;
+    splice @flat_board, max($u,$v), 0, undef;
+
+    push @table, [' ', 0..9];
+    push @table, [' ', map { defined $_ ? $_ : ' '} @flat_board[ 0 ..  9] ];
+    push @table, [$u,  @flat_board[10 .. 19]];
+    push @table, [$v,  @flat_board[20 .. 29]];
+
+    my @nums = my @order = 0..9;
+    push @nums, (map { +"$u$_" } @order), map { +"$v$_" } @order;
+
+    @c2p{@nums} = @flat_board;
+    for (keys %c2p) { delete $c2p{$_} unless defined $c2p{$_} }
+    @p2c{values %c2p} = keys %c2p;
+    $p2c{$_} = $p2c{$numeric_escape} . $_ for 0..9;
+    while ( my ($k, $v) = each %p2c) {
+        $plain2code[0] .= $k;
+        $plain2code[1] .= $v;
+    }
+p @plain2code; exit;
+
+}
+
+my $sc = build(3, 7, 'HOLMESRTABCDFGIJKNPQUVWXYZ./');
+say join  ' ', @$_ for @table;
+exit;
+
+#for my $collapse (0..1) {
+    my $original = 'One night-it was on the twentieth of March, 1888-I was returning';
+    (my $en = $original) = tr/$plain2code[0]/$plain2code[1]/;
+    say $en;
+    #my $en = encode($sc,$original,0); #$collapse);
+    #my $de = decode($sc,$en);
+    #push @res, "Original: $original";
+    #push @res, "Encoded:  $en";
+    #push @res, "Decoded:  $de";
+#}
+
+say my $result = join "\n", @res;
+
+my $ref = <<'EOD';
+  0 1 2 3 4 5 6 7 8 9
+  H O L   M E S   R T
+3 A B C D F G I J K N
+7 P Q U V W X Y Z . /
+Original: One night-it was on the twentieth of March, 1888-I was returning
+Encoded:  13957839363509783697874306781397890578974539936590781347843083207878791798798798783678743067885972839363935
+Decoded:  ONE.NIGHT.IT.WAS.ON.THE.TWENTIETH.OF.MARCH..1888.I.WAS.RETURNING
+Original: One night-it was on the twentieth of March, 1888-I was returning
+Encoded:  139539363509369743061399059745399365901344308320791798798798367430685972839363935
+Decoded:  ONENIGHTITWASONTHETWENTIETHOFMARCH1888IWASRETURNING
+EOD
+
+use Test::More;
+#chomp $ref;
+#is($result, $ref);
+#done_testing();
+
+__END__
+
+=={{header|Perl}}==
+{{trans|Perl 6}}
+<lang perl></lang>
+{{out}}
+<pre>  0 1 2 3 4 5 6 7 8 9
+  H O L   M E S   R T
+3 A B C D F G I J K N
+7 P Q U V W X Y Z . /
+Original: One night-it was on the twentieth of March, 1888-I was returning
+Encoded:  13957839363509783697874306781397890578974539936590781347843083207878791798798798783678743067885972839363935
+Decoded:  ONE.NIGHT.IT.WAS.ON.THE.TWENTIETH.OF.MARCH..1888.I.WAS.RETURNING
+Original: One night-it was on the twentieth of March, 1888-I was returning
+Encoded:  139539363509369743061399059745399365901344308320791798798798367430685972839363935
+Decoded:  ONENIGHTITWASONTHETWENTIETHOFMARCH1888IWASRETURNING
+EOD</pre>
