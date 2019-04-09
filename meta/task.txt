@@ -2,15 +2,15 @@
 This is perl 5, version 28, subversion 0 (v5.28.0) built for darwin-thread-multi-2level
 updating from RC…
 +------------> Perl: Good/Bad [1116/15]
-|+-----------> Smoke testing [984]
-||+----------> sKipping validation [139]
+|+-----------> Smoke testing [983]
+||+----------> sKipping validation [140]
 |||+---------> Interactive [47]
-||||+--------> Touched (modified by me) [260]
+||||+--------> Touched (modified by me) [261]
 |||||+-------> Random seed [90]
 ||||||+------> File output [59]
 |||||||+-----> Draft [224]
 ||||||||+----> Ignoring [33]
-|||||||||+---> Void (no local copy) [178]
+|||||||||+---> Void (no local copy) [177]
 ||||||||||+--> Un-implemented/reliable [167]
 |||||||||||
 GS......... 100_doors-1
@@ -75,7 +75,6 @@ GS......... Anonymous_recursion-1
 GS......... Anonymous_recursion-2
 GS......... Anonymous_recursion-3
 GS......... Anonymous_recursion-4
-GS......... Anti-primes
 GS....F.... Append_a_record_to_the_end_of_a_text_file
 GS......... Apply_a_callback_to_an_array
 GS..T...... Apply_a_digital_filter_direct_form_II_transposed
@@ -1139,7 +1138,7 @@ GS..TR..... Statistics_Normal_distribution
 GS..T...... Stem-and-leaf_plot
 GS......... Stern-Brocot_sequence-1
 GS......... Stern-Brocot_sequence-2
-.........VU Straddling_checkerboard
+G.K.T.....U Straddling_checkerboard
 GS......... Stream_Merge
 GS......... String_append
 GS......... String_case
