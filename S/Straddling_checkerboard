@@ -12,7 +12,7 @@ use feature 'say';
 my @res;
 
 my @flat_board; # 10x3 stored as 30x1
-my @plain2code; # full translation table, invertable
+my %trans; # full translation table, invertable
 my @table;      # Printable layout, like Wikipedia entry
 my %p2c;
 my %c2p;
@@ -52,10 +52,10 @@ sub build {
     @p2c{values %c2p} = keys %c2p;
     $p2c{$_} = $p2c{$numeric_escape} . $_ for 0..9;
     while ( my ($k, $v) = each %p2c) {
-        $plain2code[0] .= $k;
-        $plain2code[1] .= $v;
+        $trans{'encode'}{$k} .= $v;
+        $trans{'decode'}{$v} .= $k;
     }
-p @plain2code; exit;
+p %trans; exit;
 
 }
 
@@ -65,8 +65,8 @@ exit;
 
 #for my $collapse (0..1) {
     my $original = 'One night-it was on the twentieth of March, 1888-I was returning';
-    (my $en = $original) = tr/$plain2code[0]/$plain2code[1]/;
-    say $en;
+#    (my $en = $original) = tr/$plain2code[0]/$plain2code[1]/;
+#    say $en;
     #my $en = encode($sc,$original,0); #$collapse);
     #my $de = decode($sc,$en);
     #push @res, "Original: $original";
