@@ -1,17 +1,17 @@
 
 This is perl 5, version 28, subversion 0 (v5.28.0) built for darwin-thread-multi-2level
 updating from RC…
-+------------> Perl: Good/Bad [1116/15]
-|+-----------> Smoke testing [983]
++------------> Perl: Good/Bad [1119/15]
+|+-----------> Smoke testing [986]
 ||+----------> sKipping validation [140]
 |||+---------> Interactive [47]
-||||+--------> Touched (modified by me) [261]
+||||+--------> Touched (modified by me) [265]
 |||||+-------> Random seed [90]
 ||||||+------> File output [59]
-|||||||+-----> Draft [224]
+|||||||+-----> Draft [226]
 ||||||||+----> Ignoring [33]
 |||||||||+---> Void (no local copy) [177]
-||||||||||+--> Un-implemented/reliable [167]
+||||||||||+--> Un-implemented/reliable [169]
 |||||||||||
 GS......... 100_doors-1
 GS......... 100_doors-2
@@ -65,8 +65,8 @@ GS......... Amb-1
 GS......... Amb-2
 GS......... Amb-3
 GS......... Amicable_pairs
-GS......... Anagrams-1
-GS......... Anagrams-2
+GS..T...... Anagrams-1
+GS..T...... Anagrams-2
 GS......... Anagrams_Deranged_anagrams
 GS..T...... Angle_difference_between_two_bearings
 G.KI....... Animate_a_pendulum
@@ -75,6 +75,8 @@ GS......... Anonymous_recursion-1
 GS......... Anonymous_recursion-2
 GS......... Anonymous_recursion-3
 GS......... Anonymous_recursion-4
+GS......... Anti-primes
+GS..T..D..U Anti-primes_Plus
 GS....F.... Append_a_record_to_the_end_of_a_text_file
 GS......... Apply_a_callback_to_an_array
 GS..T...... Apply_a_digital_filter_direct_form_II_transposed
@@ -99,6 +101,7 @@ GS......... Assertions
 G.K.T...... Associative_array_Creation
 GS......... Associative_array_Iteration
 G.K..R..... Atomic_updates
+GS..T..D..U Attractive_numbers
 .......D.VU AudioAlarm
 .......D.VU Audio_Overlap_Loop
 .......D.VU Audio_frequency_generator
