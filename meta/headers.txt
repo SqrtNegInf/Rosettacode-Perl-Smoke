@@ -255,13 +255,13 @@ File: A/Amicable_pairs
 File: A/Anagrams-1
 #!/usr/local/bin/perl
 #u# http://rosettacode.org/wiki/Anagrams
-#c# 2018-07-13 <RC
+#c# 2018-07-13 <RC, 2019-04-09 >RC
 #p# OK
 
 File: A/Anagrams-2
 #!/usr/local/bin/perl
 #u# http://rosettacode.org/wiki/Anagrams
-#c# 2018-07-13 <RC
+#c# 2018-07-13 <RC, 2019-04-09 >RC
 #p# OK
 
 File: A/Anagrams_Deranged_anagrams
@@ -321,6 +321,12 @@ File: A/Anti-primes
 #!/usr/local/bin/perl
 #u# http://rosettacode.org/wiki/Anti-primes
 #c# 2018-12-10 <RC
+#p# OK
+
+File: A/Anti-primes_Plus
+#!/usr/local/bin/perl
+#u# http://rosettacode.org/wiki/Anti-primes_Plus
+#c# 2019-04-09 >RC
 #p# OK
 
 File: A/Append_a_record_to_the_end_of_a_text_file
@@ -463,6 +469,12 @@ File: A/Atomic_updates
 #u# http://rosettacode.org/wiki/Atomic_updates
 #t# skiptest
 #c# 2018-07-15 <RC
+#p# OK
+
+File: A/Attractive_numbers
+#!/usr/local/bin/perl
+#u# http://rosettacode.org/wiki/Attractive_numbers
+#c# 2019-04-09 >RC
 #p# OK
 
 File: A/Average_loop_length
