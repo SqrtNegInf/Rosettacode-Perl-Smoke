@@ -55,7 +55,7 @@ sub build {
         $trans{'encode'}{$k} .= $v;
         $trans{'decode'}{$v} .= $k;
     }
-p %trans; exit;
+#p %trans; exit;
 
 }
 
