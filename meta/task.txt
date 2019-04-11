@@ -1,17 +1,17 @@
 
 This is perl 5, version 28, subversion 0 (v5.28.0) built for darwin-thread-multi-2level
 updating from RC…
-+------------> Perl: Good/Bad [1119/15]
++------------> Perl: Good/Bad [1120/15]
 |+-----------> Smoke testing [986]
-||+----------> sKipping validation [140]
-|||+---------> Interactive [47]
-||||+--------> Touched (modified by me) [265]
+||+----------> sKipping validation [141]
+|||+---------> Interactive [48]
+||||+--------> Touched (modified by me) [266]
 |||||+-------> Random seed [90]
 ||||||+------> File output [59]
-|||||||+-----> Draft [226]
+|||||||+-----> Draft [227]
 ||||||||+----> Ignoring [33]
 |||||||||+---> Void (no local copy) [177]
-||||||||||+--> Un-implemented/reliable [169]
+||||||||||+--> Un-implemented/reliable [167]
 |||||||||||
 GS......... 100_doors-1
 GS......... 100_doors-2
@@ -76,7 +76,7 @@ GS......... Anonymous_recursion-2
 GS......... Anonymous_recursion-3
 GS......... Anonymous_recursion-4
 GS......... Anti-primes
-GS..T..D..U Anti-primes_Plus
+GS..T..D... Anti-primes_Plus
 GS....F.... Append_a_record_to_the_end_of_a_text_file
 GS......... Apply_a_callback_to_an_array
 GS..T...... Apply_a_digital_filter_direct_form_II_transposed
@@ -101,7 +101,7 @@ GS......... Assertions
 G.K.T...... Associative_array_Creation
 GS......... Associative_array_Iteration
 G.K..R..... Atomic_updates
-GS..T..D..U Attractive_numbers
+GS..T..D... Attractive_numbers
 .......D.VU AudioAlarm
 .......D.VU Audio_Overlap_Loop
 .......D.VU Audio_frequency_generator
@@ -771,6 +771,7 @@ GS......... Nautical_bell-2
 GS..T...... Negative_base_numbers
 GS......... Nested_function
 GS..T...... Nested_templated_data
+.......D.VU Nim_Game
 GS......... Non-continuous_subsequences
 GS......... Non-decimal_radices_Convert
 GS......... Non-decimal_radices_Input
@@ -945,7 +946,7 @@ GS......... Read_a_file_line_by_line
 GS......... Read_a_specific_line_from_a_file
 GS......... Read_entire_file-1
 GS......... Read_entire_file-2
-.......D.VU Readline_interface
+G.KIT..D... Readline_interface
 GS......... Real_constants_and_functions
 GS..T...... Recaman%27s_sequence
 ........XVU Record_sound
