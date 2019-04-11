@@ -38,18 +38,3 @@ use Test::More;
 is($result1, $ref1);
 is($result2, $ref2);
 done_testing();
-
-__END__
-
-Sidef
-func n_divisors(n) {
-    1..Inf -> first_by { .sigma0 == n }
-}
- 
-say 15.of { n_divisors(_+1) }
-
-=={{header|Perl}}==
-{{trans|Perl 6}}
-<lang perl></lang>
-{{out}}
-<pre></pre>
