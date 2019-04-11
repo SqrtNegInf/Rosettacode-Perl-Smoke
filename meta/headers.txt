@@ -5244,6 +5244,13 @@ File: R/Read_entire_file-2
 #c# 2018-08-19 <RC
 #p# OK
 
+File: R/Readline_interface
+#!/usr/local/bin/perl
+#t# interactive
+#u# http://rosettacode.org/wiki/Readline_interface
+#c# 2019-04-10 >RC
+#p# OK
+
 File: R/Real_constants_and_functions
 #!/usr/local/bin/perl
 #u# http://rosettacode.org/wiki/Real_constants_and_functions
