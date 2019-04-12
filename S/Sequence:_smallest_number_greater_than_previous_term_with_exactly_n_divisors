@@ -1,0 +1,29 @@
+#!/usr/local/bin/perl
+#u# http://rosettacode.org/wiki/Sequence:_smallest_number_greater_than_previous_term_with_exactly_n_divisors
+#c# 2019-04-09 >RC
+#p# OK
+#n# was part of 'Anti-primes_Plus'
+
+use strict;
+use warnings;
+use feature 'say';
+my @res;
+
+use ntheory 'divisors';
+
+say 'First 15 terms of OEIS: A069654';
+my $m = 0;
+for my $n (1..15) {
+    my $l = $m;
+    while (++$l) {
+        push(@res, $l), $m = $l, last if $n == divisors($l);
+        #push @res, $l and $m = $l and last if $n == divisors($l);
+    }
+}
+say my $result = join ' ', @res; 
+
+my $ref = '1 2 4 6 16 18 64 66 100 112 1024 1035 4096 4288 4624';
+
+use Test::More;
+is($result, $ref);
+done_testing();
