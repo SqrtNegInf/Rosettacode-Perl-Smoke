@@ -1,0 +1,27 @@
+#!/usr/local/bin/perl
+#u# http://rosettacode.org/wiki/Sequence:_smallest_number_with_exactly_n_divisors
+#c# 2019-04-09 >RC
+#p# OK
+#n# was part of 'Anti-primes_Plus'
+
+use strict;
+use warnings;
+use feature 'say';
+my @res;
+
+use ntheory 'divisors';
+
+say 'First 15 terms of OEIS: A005179';
+for my $n (1..15) { 
+    my $l = 0;
+    while (++$l) {
+        push @res, $l and last if $n == divisors($l);
+    }
+}
+say my $result = join ' ', @res; 
+
+my $ref = '1 2 4 6 16 12 64 24 36 48 1024 60 4096 192 144';
+
+use Test::More;
+is($result, $ref);
+done_testing();
