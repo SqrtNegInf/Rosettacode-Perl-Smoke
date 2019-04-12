@@ -323,12 +323,6 @@ File: A/Anti-primes
 #c# 2018-12-10 <RC
 #p# OK
 
-File: A/Anti-primes_Plus
-#!/usr/local/bin/perl
-#u# http://rosettacode.org/wiki/Anti-primes_Plus
-#c# 2019-04-09 >RC
-#p# OK
-
 File: A/Append_a_record_to_the_end_of_a_text_file
 #!/usr/local/bin/perl
 #u# http://rosettacode.org/wiki/Append_a_record_to_the_end_of_a_text_file
@@ -5668,6 +5662,20 @@ File: S/Separate_the_house_number_from_the_street_name
 #u# http://rosettacode.org/wiki/Separate_the_house_number_from_the_street_name
 #c# 2018-09-29 >RC
 #p# OK
+
+File: S/Sequence:_smallest_number_greater_than_previous_term_with_exactly_n_divisors
+#!/usr/local/bin/perl
+#u# http://rosettacode.org/wiki/Sequence:_smallest_number_greater_than_previous_term_with_exactly_n_divisors
+#c# 2019-04-09 >RC
+#p# OK
+#n# was part of 'Anti-primes_Plus'
+
+File: S/Sequence:_smallest_number_with_exactly_n_divisors
+#!/usr/local/bin/perl
+#u# http://rosettacode.org/wiki/Sequence:_smallest_number_with_exactly_n_divisors
+#c# 2019-04-09 >RC
+#p# OK
+#n# was part of 'Anti-primes_Plus'
 
 File: S/Sequence_of_non-squares
 #!/usr/local/bin/perl
