@@ -11,25 +11,16 @@ use warnings;
 use feature 'say';
 my @res;
 
-my @flat_board; # 10x3 stored as 30x1
-my %trans; # full translation table, invertable
-my @table;      # Printable layout, like Wikipedia entry
+use List::Util <min max>;
+
+my @flat_board;
+my %trans;
+my @table;
 my %p2c;
 my %c2p;
 
 my $numeric_escape = '/';
 #my $exclude = /[A..Z0..9.]/; # Omit the escape character
-
-#    sub decode ( Str $s --> Str ) {
-#        $s.trans($!plain2code.antipairs);
-#    }
-
-#    sub encode ( Str $s, :$collapse? --> Str ) {
-#        my $replace = $collapse ?? '' !! '.';
-#        $s.uc.subst( $exclude, $replace, :g ).trans($!plain2code);
-#    }
-
-use List::Util <min max>;
 
 sub build {
     my($u,$v,$alphabet) = @_;
@@ -59,15 +50,22 @@ sub build {
 
 }
 
+#    sub decode ( Str $s --> Str ) {
+#        $s.trans($!plain2code.antipairs);
+#    }
+
+sub encode {
+    my($s) = uc shift;
+    say $s; exit;
+#        $s.uc.subst( $exclude, $replace, :g ).trans($!plain2code);
+}
+
 my $sc = build(3, 7, 'HOLMESRTABCDFGIJKNPQUVWXYZ./');
 say join  ' ', @$_ for @table;
-exit;
 
-#for my $collapse (0..1) {
-    my $original = 'One night-it was on the twentieth of March, 1888-I was returning';
-#    (my $en = $original) = tr/$plain2code[0]/$plain2code[1]/;
-#    say $en;
-    #my $en = encode($sc,$original,0); #$collapse);
+my $original = 'One night-it was on the twentieth of March, 1888-I was returning';
+say my $en = encode($original);
+
     #my $de = decode($sc,$en);
     #push @res, "Original: $original";
     #push @res, "Encoded:  $en";
