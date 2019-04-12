@@ -1,17 +1,17 @@
 
 This is perl 5, version 28, subversion 0 (v5.28.0) built for darwin-thread-multi-2level
 updating from RC…
-+------------> Perl: Good/Bad [1120/15]
-|+-----------> Smoke testing [986]
++------------> Perl: Good/Bad [1121/15]
+|+-----------> Smoke testing [987]
 ||+----------> sKipping validation [141]
 |||+---------> Interactive [48]
-||||+--------> Touched (modified by me) [266]
+||||+--------> Touched (modified by me) [267]
 |||||+-------> Random seed [90]
 ||||||+------> File output [59]
-|||||||+-----> Draft [227]
+|||||||+-----> Draft [229]
 ||||||||+----> Ignoring [33]
-|||||||||+---> Void (no local copy) [177]
-||||||||||+--> Un-implemented/reliable [167]
+|||||||||+---> Void (no local copy) [178]
+||||||||||+--> Un-implemented/reliable [168]
 |||||||||||
 GS......... 100_doors-1
 GS......... 100_doors-2
@@ -76,7 +76,6 @@ GS......... Anonymous_recursion-2
 GS......... Anonymous_recursion-3
 GS......... Anonymous_recursion-4
 GS......... Anti-primes
-GS..T..D... Anti-primes_Plus
 GS....F.... Append_a_record_to_the_end_of_a_text_file
 GS......... Apply_a_callback_to_an_array
 GS..T...... Apply_a_digital_filter_direct_form_II_transposed
@@ -1029,6 +1028,9 @@ GS......... Semordnilap
 GS......... Send_an_unknown_method_call
 G.K........ Send_email
 GS..T..D... Separate_the_house_number_from_the_street_name
+.......D.VU Sequence:_nth_number_with_exactly_n_divisors
+GS..T..D... Sequence:_smallest_number_greater_than_previous_term_with_exactly_n_divisors
+GS..T..D... Sequence:_smallest_number_with_exactly_n_divisors
 GS......... Sequence_of_non-squares
 GS......... Sequence_of_primes_by_trial_division
 GS......... Sequence_of_primorial_primes
