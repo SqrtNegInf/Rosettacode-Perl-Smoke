@@ -1,45 +1,54 @@
 #!/usr/local/bin/perl
 #u# http://rosettacode.org/wiki/Rosetta_Code/Count_examples
-#t# skiptest
-#c# 2018-08-21 <RC
+#c# 2018-08-21 <RC, 2019-04-12 >RC
 #p# OK
-#n# LWP version not working
+#n# replaced non-working LWP::Simple version with HTTP::Tiny
+#n# Mojo version: 'return' doesn't quit the anon. sub, so 'last' instead (thus 'no warnings')
+#n# should start using 'mediawiki-query' like P6...
 
 use strict;
 use warnings;
 use feature 'say';
-my $result;
+my (@res1,@res2);
+
+my $site = "http://rosettacode.org";
+my $list_url = "/mw/api.php?action=query&list=categorymembers&cmtitle=Category:Programming_Tasks&cmlimit=500&format=xml";
+
+use HTTP::Tiny;
+my $response = HTTP::Tiny->new->get("$site$list_url");
+
+for ($response->{content} =~ /cm.*?title="(.*?)"/g) {
+    (my $slug = $_) =~ tr/ /_/;
+    my $response = HTTP::Tiny->new->get("$site/wiki/$slug");
+    my $count = () = $response->{content} =~ /toclevel-1/g;
+    push @res1, "$_: $count examples";
+    last if $_ eq '2048';
+}
+
+my $result1 = join "\n", @res1;
 
 use Mojo::UserAgent;
 
-my $site = "http://rosettacode.org";
-my $list_url = "/mw/api.php?action=query&list=categorymembers&cmtitle=Category:Programming_Tasks&cmlimit=500&format=xml";
-
 my $ua = Mojo::UserAgent->new;
 $ua->get("$site$list_url")->res->dom->find('cm')->each(sub {
+    no warnings;
     (my $slug = $_->{title}) =~ tr/ /_/;
     my $count = $ua->get("$site/wiki/$slug")->res->dom->find("#toc .toclevel-1")->size;
-    say "$_->{title}: $count examples";
+    push @res2, "$_->{title}: $count examples";
+    last if $_->{title} =~ /2048/;
 });
 
+my $result2 = join "\n", @res2;
 
-__END__
-use LWP::Simple;
-
-my $site = "http://rosettacode.org";
-my $list_url = "/mw/api.php?action=query&list=categorymembers&cmtitle=Category:Programming_Tasks&cmlimit=500&format=xml";
-
-for (get("$site$list_url") =~ /cm.*?title="(.*?)"/g) {
-    (my $slug = $_) =~ tr/ /_/;
-    my $count = () = get("$site/wiki/$slug") =~ /toclevel-1/g;
-    $result .= "$_: $count examples\n";
-}
-
-say $result;  exit;
-
-my $ref = <<'EOD';
-EOD
+my $ref = <<'END';
+100 doors: 278 examples
+15 Puzzle Game: 50 examples
+15 puzzle solver: 10 examples
+2048: 41 examples
+END
 
 use Test::More;
-is ($result, $ref);
+chomp $ref;
+is($result1,$ref);
+is($result2,$ref);
 done_testing();
