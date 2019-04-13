@@ -1051,6 +1051,12 @@ File: C/Chowla_numbers
 #c# 2019-03-23 >RC
 #p# OK
 
+File: C/Church_Numerals
+#!/usr/local/bin/perl
+#u# http://rosettacode.org/wiki/Church_Numerals
+#c# 2019-04-11 <RC
+#p# OK
+
 File: C/Cipolla%27s_algorithm-1
 #!/usr/local/bin/perl
 #u# http://rosettacode.org/wiki/Cipolla%27s_algorithm
@@ -4239,6 +4245,13 @@ File: N/Nested_templated_data
 #c# 2018-10-02 >RC
 #p# OK
 
+File: N/Nim_Game
+#!/usr/local/bin/perl
+#u# http://rosettacode.org/wiki/Nim_Game
+#c# 2019-04-11 >RC
+#=# RC pipe: 3\n-1\n2\n1
+#p# OK
+
 File: N/Non-continuous_subsequences
 #!/usr/local/bin/perl
 #u# http://rosettacode.org/wiki/Non-continuous_subsequences
@@ -5444,17 +5457,11 @@ File: R/Roots_of_unity
 File: R/Rosetta_Code_Count_examples
 #!/usr/local/bin/perl
 #u# http://rosettacode.org/wiki/Rosetta_Code/Count_examples
-#t# skiptest
-#c# 2018-08-21 <RC
+#c# 2018-08-21 <RC, 2019-04-12 >RC
 #p# OK
-#n# LWP version not working
-
-File: R/Rosetta_Code_Count_examples-2
-#!/usr/local/bin/perl
-#u# http://rosettacode.org/wiki/Rosetta_Code/Count_examples
-#t# skiptest
-#c# 2018-08-21 <RC
-#p# BROKEN
+#n# replaced non-working LWP::Simple version with HTTP::Tiny
+#n# Mojo version: 'return' doesn't quit the anon. sub, so 'last' instead (thus 'no warnings')
+#n# should start using 'mediawiki-query' like P6...
 
 File: R/Rosetta_Code_Find_bare_lang_tags
 #!/usr/local/bin/perl
@@ -5661,6 +5668,12 @@ File: S/Separate_the_house_number_from_the_street_name
 #!/usr/local/bin/perl
 #u# http://rosettacode.org/wiki/Separate_the_house_number_from_the_street_name
 #c# 2018-09-29 >RC
+#p# OK
+
+File: S/Sequence:_nth_number_with_exactly_n_divisors
+#!/usr/local/bin/perl
+#u# http://rosettacode.org/wiki/Sequence:_nth_number_with_exactly_n_divisors
+#c# 2019-04-12 >RC
 #p# OK
 
 File: S/Sequence:_smallest_number_greater_than_previous_term_with_exactly_n_divisors
