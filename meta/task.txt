@@ -1,17 +1,17 @@
 
 This is perl 5, version 28, subversion 0 (v5.28.0) built for darwin-thread-multi-2level
 updating from RC…
-+------------> Perl: Good/Bad [1121/15]
-|+-----------> Smoke testing [987]
-||+----------> sKipping validation [141]
++------------> Perl: Good/Bad [1124/14]
+|+-----------> Smoke testing [991]
+||+----------> sKipping validation [139]
 |||+---------> Interactive [48]
-||||+--------> Touched (modified by me) [267]
+||||+--------> Touched (modified by me) [270]
 |||||+-------> Random seed [90]
 ||||||+------> File output [59]
 |||||||+-----> Draft [229]
 ||||||||+----> Ignoring [33]
-|||||||||+---> Void (no local copy) [178]
-||||||||||+--> Un-implemented/reliable [168]
+|||||||||+---> Void (no local copy) [175]
+||||||||||+--> Un-implemented/reliable [165]
 |||||||||||
 GS......... 100_doors-1
 GS......... 100_doors-2
@@ -215,7 +215,7 @@ GS..T...... Chinese_remainder_theorem
 GS......... Chinese_zodiac
 GS......... Cholesky_decomposition
 GS..T..D... Chowla_numbers
-.........VU Church_Numerals
+GS......... Church_Numerals
 .......D... Cipolla%27s_algorithm
 GS..T...... Cipolla%27s_algorithm-1
 GS..T...... Cipolla%27s_algorithm-2
@@ -770,7 +770,7 @@ GS......... Nautical_bell-2
 GS..T...... Negative_base_numbers
 GS......... Nested_function
 GS..T...... Nested_templated_data
-.......D.VU Nim_Game
+GS..T..D... Nim_Game
 GS......... Non-continuous_subsequences
 GS......... Non-decimal_radices_Convert
 GS......... Non-decimal_radices_Input
@@ -984,8 +984,7 @@ GS..T...... Roman_numerals_Encode-4
 GS......... Roots_of_a_function
 GS......... Roots_of_a_quadratic_function
 GS......... Roots_of_unity
-G.K........ Rosetta_Code_Count_examples
-B.K........ Rosetta_Code_Count_examples-2
+GS..T...... Rosetta_Code_Count_examples
 GS..T...... Rosetta_Code_Find_bare_lang_tags
 B.......... Rosetta_Code_Find_unimplemented_tasks
 G.K........ Rosetta_Code_Fix_code_tags
@@ -1028,7 +1027,7 @@ GS......... Semordnilap
 GS......... Send_an_unknown_method_call
 G.K........ Send_email
 GS..T..D... Separate_the_house_number_from_the_street_name
-.......D.VU Sequence:_nth_number_with_exactly_n_divisors
+GS..T..D... Sequence:_nth_number_with_exactly_n_divisors
 GS..T..D... Sequence:_smallest_number_greater_than_previous_term_with_exactly_n_divisors
 GS..T..D... Sequence:_smallest_number_with_exactly_n_divisors
 GS......... Sequence_of_non-squares
