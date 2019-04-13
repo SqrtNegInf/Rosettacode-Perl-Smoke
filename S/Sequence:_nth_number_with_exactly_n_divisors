@@ -1,0 +1,37 @@
+#!/usr/local/bin/perl
+#u# http://rosettacode.org/wiki/Sequence:_nth_number_with_exactly_n_divisors
+#c# 2019-04-12 >RC
+#p# OK
+
+use strict;
+use warnings;
+use feature 'say';
+my $result;
+
+use bigint;
+use ntheory <nth_prime is_prime divisors>;
+
+my $limit = 20;
+ 
+say "First $limit terms of OEIS:A073916";
+
+for my $n (1..$limit) {
+    if ($n > 4 and is_prime($n)) {
+        $result .= nth_prime($n)**($n-1) . ' ';
+    } else {
+        my $i = my $x = 0;
+        while (1) {
+            my $nn = $n%2 ? ++$x**2 : ++$x;
+            next unless $n == divisors($nn) and ++$i == $n;
+            $result .= "$nn ", last;
+      }
+    }
+}
+
+say $result;
+
+my $ref = '1 3 25 14 14641 44 24137569 70 1089 405 819628286980801 160 22563490300366186081 2752 9801 462 21559177407076402401757871041 1044 740195513856780056217081017732809 1520 ';
+
+use Test::More;
+is($result, $ref);
+done_testing();
