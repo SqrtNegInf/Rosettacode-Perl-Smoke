@@ -1,0 +1,48 @@
+#!/usr/local/bin/perl
+#u# http://rosettacode.org/wiki/Nim_Game
+#c# 2019-04-11 >RC
+#=# RC pipe: 3\n-1\n2\n1
+#p# OK
+
+use strict;
+use warnings;
+use feature 'say';
+my @res;
+
+my $tokens = 12;
+push @res, "$tokens tokens remaining.\n";
+ 
+while (1) {
+    #print "How many tokens do you want to remove; 1, 2 or 3? : ";
+    (my $player = <>) =~ s/\s//g; 
+    push @res, "Nice try. $tokens tokens remaining.\n" and
+        next unless $player =~ /^[123]$/;
+    $tokens -= 4;
+    push @res, "Computer takes @{[4 - $player]}.\n$tokens tokens remaining.\n";
+    push @res, "Computer wins." and 
+        last if $tokens <= 0;
+}
+
+say my $result = join "\n", @res;
+
+my $ref = <<'EOD';
+12 tokens remaining.
+
+Computer takes 1.
+8 tokens remaining.
+
+Nice try. 8 tokens remaining.
+
+Computer takes 2.
+4 tokens remaining.
+
+Computer takes 3.
+0 tokens remaining.
+
+Computer wins.
+EOD
+
+use Test::More;
+chomp $ref;
+is($result, $ref);
+done_testing();
