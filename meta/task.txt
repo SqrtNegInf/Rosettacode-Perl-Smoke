@@ -8,7 +8,7 @@ updating from RC…
 ||||+--------> Touched (modified by me) [270]
 |||||+-------> Random seed [90]
 ||||||+------> File output [59]
-|||||||+-----> Draft [229]
+|||||||+-----> Draft [228]
 ||||||||+----> Ignoring [33]
 |||||||||+---> Void (no local copy) [175]
 ||||||||||+--> Un-implemented/reliable [165]
@@ -770,7 +770,7 @@ GS......... Nautical_bell-2
 GS..T...... Negative_base_numbers
 GS......... Nested_function
 GS..T...... Nested_templated_data
-GS..T..D... Nim_Game
+GS..T...... Nim_Game
 GS......... Non-continuous_subsequences
 GS......... Non-decimal_radices_Convert
 GS......... Non-decimal_radices_Input
