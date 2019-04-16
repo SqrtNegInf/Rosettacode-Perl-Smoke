@@ -7269,8 +7269,9 @@ File: W/Wireworld
 File: W/Word_break_problem
 #!/usr/local/bin/perl
 #u# http://rosettacode.org/wiki/Word_break_problem
-#c# 2018-10-25 >RC
+#c# 2018-10-25 >RC, 2019-04-15 >RC
 #p# OK
+#n# wart: have to keep adding terms to regex for larger # of sub-words
 #n# doesn't show all combinations, finds 'a do' but not 'ad o'
 
 File: W/Word_count
