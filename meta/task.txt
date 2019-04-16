@@ -1,5 +1,6 @@
 
 This is perl 5, version 28, subversion 0 (v5.28.0) built for darwin-thread-multi-2level
+updating from RC…
 +------------> Perl: Good/Bad [1124/14]
 |+-----------> Smoke testing [991]
 ||+----------> sKipping validation [139]
@@ -7,7 +8,7 @@ This is perl 5, version 28, subversion 0 (v5.28.0) built for darwin-thread-multi
 ||||+--------> Touched (modified by me) [270]
 |||||+-------> Random seed [90]
 ||||||+------> File output [59]
-|||||||+-----> Draft [228]
+|||||||+-----> Draft [227]
 ||||||||+----> Ignoring [33]
 |||||||||+---> Void (no local copy) [175]
 ||||||||||+--> Un-implemented/reliable [165]
@@ -781,7 +782,7 @@ GS......... Null_object
 GS......... Number_names
 GS...R..... Number_reversal_game
 GS......... Numeric_error_propagation
-.......D.VU Numerical_and_alphabetical_suffixes
+.........VU Numerical_and_alphabetical_suffixes
 GS..T...... Numerical_integration
 GS..T..D... Numerical_integration_Adaptive_Simpson%27s_method
 GS..T...... Numerical_integration_Gauss-Legendre_Quadrature
