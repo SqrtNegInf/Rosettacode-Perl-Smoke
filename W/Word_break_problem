@@ -1,7 +1,8 @@
 #!/usr/local/bin/perl
 #u# http://rosettacode.org/wiki/Word_break_problem
-#c# 2018-10-25 >RC
+#c# 2018-10-25 >RC, 2019-04-15 >RC
 #p# OK
+#n# wart: have to keep adding terms to regex for larger # of sub-words
 #n# doesn't show all combinations, finds 'a do' but not 'ad o'
 
 use strict;
@@ -9,15 +10,19 @@ use warnings;
 use feature 'say';
 my @res;
 
-my @words = <a o ad do is in pi ion par per sip miss able>;
+my @words = reverse <a o ad do is in pi ion par per sip miss able>;
 
-push @res, "$_: " . word_break($_,@words) for <a ado amiss admission parable opera operable inoperable permission permissible mississippi>;
+push @res, "$_: " . word_break($_,@words) for <a aa ado amiss admission parable opera operable inoperable permission permissible mississippi>;
 
 sub word_break { 
     my($word,@dictionary) = @_;
     my @matches;
     my $one_of = join '|', @dictionary;
-    @matches = $word =~ /^ ($one_of)(?!\1) (?:($one_of)(?!\2))? (?:($one_of)(?!\3))? (?:($one_of)(?!\4))? $/x;
+    #@matches = $word =~ /^ ($one_of)(?!\1) (?:($one_of)(?!\2))? (?:($one_of)(?!\3))? (?:($one_of)(?!\4))? $/x; # orig
+    @matches = $word =~ /^ ($one_of) ($one_of)? ($one_of)? ($one_of)? $/x; # simpler
+
+    #$word =~ /^ (?:($one_of)(?!\1))(?{ push @matches, $1 })(*FAIL) $/x;  # over-lapping matches, not kosher here
+
     return join(' ', grep {$_} @matches) || "(not possible)";
 }
 
@@ -25,7 +30,8 @@ say my $result = join "\n", @res;
 
 my $ref = <<'END';
 a: a
-ado: a do
+aa: a a
+ado: ad o
 amiss: a miss
 admission: ad miss ion
 parable: par able
