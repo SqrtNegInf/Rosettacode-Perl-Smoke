@@ -1,17 +1,17 @@
 
 This is perl 5, version 28, subversion 0 (v5.28.0) built for darwin-thread-multi-2level
 updating from RC…
-+------------> Perl: Good/Bad [1123/14]
-|+-----------> Smoke testing [991]
++------------> Perl: Good/Bad [1125/14]
+|+-----------> Smoke testing [992]
 ||+----------> sKipping validation [139]
 |||+---------> Interactive [48]
-||||+--------> Touched (modified by me) [270]
+||||+--------> Touched (modified by me) [271]
 |||||+-------> Random seed [90]
 ||||||+------> File output [59]
 |||||||+-----> Draft [227]
 ||||||||+----> Ignoring [33]
-|||||||||+---> Void (no local copy) [175]
-||||||||||+--> Un-implemented/reliable [165]
+|||||||||+---> Void (no local copy) [174]
+||||||||||+--> Un-implemented/reliable [164]
 |||||||||||
 GS......... 100_doors-1
 GS......... 100_doors-2
@@ -467,7 +467,7 @@ GS..T...... Four_is_magic
 GS..T...... Four_is_the_number_of_letters_in_the_...
 GS....F.... Fractal_tree
 GS......... Fractran
-.......D.VU Free_polyominoes_enumeration
+G.K.T..D..U Free_polyominoes_enumeration
 GS.....D... French_Republican_calendar
 GS......... Function_composition
 GS......... Function_definition
@@ -984,7 +984,7 @@ GS..T...... Roman_numerals_Encode-4
 GS......... Roots_of_a_function
 GS......... Roots_of_a_quadratic_function
 GS......... Roots_of_unity
-!S..T...... Rosetta_Code_Count_examples
+GS..T...... Rosetta_Code_Count_examples
 GS..T...... Rosetta_Code_Find_bare_lang_tags
 B.......... Rosetta_Code_Find_unimplemented_tasks
 G.K........ Rosetta_Code_Fix_code_tags
@@ -1143,7 +1143,7 @@ GS..TR..... Statistics_Normal_distribution
 GS..T...... Stem-and-leaf_plot
 GS......... Stern-Brocot_sequence-1
 GS......... Stern-Brocot_sequence-2
-G.K.T.....U Straddling_checkerboard
+GS..T...... Straddling_checkerboard
 GS......... Stream_Merge
 GS......... String_append
 GS......... String_case
