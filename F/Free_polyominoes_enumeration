@@ -12,6 +12,107 @@ use feature 'say';
 #my $result;
 #my @res;
 
+sub translate2origin {
+    my(@poly) = @_;
+    # Finds the min x and y coordiate of a Polyomino.
+#    my $minx = min map { head } $poly;
+#    my $miny = min map { tail } $poly;
+#    poly.map {|p| [p.head-minx, p.tail-miny] }.sort
+}
+
+sub rotate90 { my($x,$y) = @_; [$y, -$x] } 
+sub reflect  { my($x,$y) = @_; [-$x, $y] }
+
+# All the plane symmetries of a rectangular region.
+sub rotations_and_reflections {
+    my(@poly) = @_;
+    my @rr;
+    push @rr, @poly;
+    push @rr, rotate90($rr[-1]);
+    push @rr, rotate90($rr[-1]);
+    push @rr, rotate90($rr[-1]);
+    push @rr,  reflect($rr[-1]);
+    push @rr, rotate90($rr[-1]);
+    push @rr, rotate90($rr[-1]);
+    push @rr, rotate90($rr[-1]);
+    @rr;
+}
+
+sub canonical {
+    my(@poly) = @_;
+    map { translate2origin(@$_) } rotations_and_reflections(@poly)
+}
+
+# All four points in Von Neumann neighborhood.
+sub contiguous {
+    my($x,$y) = @_;
+    [[$x-1,$y], [$x+1, $y], [$x, $y-1], [$x, $y+1]]
+}
+
+# Finds all distinct points that can be added to a Polyomino.
+sub new_points {
+    my(@poly) = @_;
+    # var points = Set()
+    #poly.each { points << contiguous(_...)... }
+    #points - poly
+}
+
+sub new_polys {
+    my($polys) = @_;
+    my @can_poly;
+    #var pattern = Set()
+    for my $poly (@$polys) {
+        for my $point (new_points(@$poly)) {
+            my $pl = translate2origin(@$poly, [$point]);
+            next if defined $pl; #pattern.has(pl)
+            push @can_poly, canonical($pl); #.each{ pattern << _ }.min
+        }
+    }
+#    gather {
+#      new_points(poly).each { |point|
+#        var pl = translate2origin(poly + [point])
+#        next if pattern.has(pl)
+#        take canonical(pl).each{ pattern << _ }.min
+#      }
+#    }...
+}
+
+# Generates polyominoes of rank n recursively.
+sub rank {
+    my($n) = @_;
+    if    ($n == 0) { [[]] }
+    elsif ($n == 1) { [[[0,0]]] }
+    else            { new_polys(rank($n-1)) }
+}
+
+#say 8.of { rank(_).len }
+
+my $n = 4; #5
+say "\nAll free polyominoes of rank $n:";
+say my $result = join "\n\n", text_representation($_) for sort rank($n);
+
+my $ref = <<'EOD';
+1, 1, 1, 2, 5, 12, 35, 108
+####
+
+###
+#
+
+###
+ #
+
+##
+##
+
+##
+ ##
+EOD
+
+use Test::More;
+#chomp $ref;
+#is($result, $ref);
+#done_testing();
+
 __END__
 
 sub translate2origin {
@@ -21,10 +122,10 @@ sub translate2origin {
 #    my $miny = min map { tail } $poly;
 #    poly.map {|p| [p.head-minx, p.tail-miny] }.sort
 }
- 
+
 sub rotate90 { my($x,$y) = @_; [$y, -$x] } 
 sub reflect  { my($x,$y) = @_; [-$x, $y] }
- 
+
 # All the plane symmetries of a rectangular region.
 sub rotations_and_reflections {
     my($poly) = @_;
@@ -39,25 +140,25 @@ sub rotations_and_reflections {
         take(poly.map!{ rotate90(_...) })
     }
 }
- 
+
 sub canonical {
-    my($poly) = @_;
-    map { translate2origin($_) } rotations_and_reflections($poly)
+    my(@poly) = @_;
+    map { translate2origin(@$_) } rotations_and_reflections(@poly)
 }
- 
+
 # All four points in Von Neumann neighborhood.
 sub contiguous {
     my($x,$y) = @_;
     [[$x-1,$y], [$x+1, $y], [$x, $y-1], [$x, $y+1]]
 }
- 
+
 # Finds all distinct points that can be added to a Polyomino.
 func new_points(poly) {
   var points = Set()
   poly.each { points << contiguous(_...)... }
   points - poly
 }
- 
+
 func new_polys(polys) {
   var pattern = Set()
   polys.map { |poly|
@@ -70,7 +171,7 @@ func new_polys(polys) {
     }...
   }
 }
- 
+
 # Generates polyominoes of rank n recursively.
 sub rank {
     my($n) = @_;
@@ -78,7 +179,7 @@ sub rank {
     elsif ($n == 1) { [[[0,0]]] }
     else            { new_polys(rank($n-1)) }
 }
- 
+
 # Generates a textual representation of a Polyomino.
 sub text_representation {
     my($poly) = @_;
@@ -88,26 +189,15 @@ sub text_representation {
     $maxy = max @poly[y array slice];
   (0..maxx).map{|x| (0..maxy).map{|y| table{[x,y]} \\ ' ' }.join }
 }
- 
+
 #say 8.of { rank(_).len }
- 
+
 #var n = (ARGV[0] ? ARGV[0].to_i : 5)
-say "\nAll free polyominoes of rank %d:";
-say my $result = join "\n\n", text_representation($_) for sort rank(5);
-
-my $ref = <<'EOD';
-EOD
-
-use Test::More;
-#chomp $ref;
-#is($result, $ref);
-#done_testing();
 
 __END__
 
 =={{header|Perl}}==
-{{trans|Perl 6}}
+{{trans|Sidef}}
 <lang perl></lang>
 {{out}}
-<pre style="height:20ex"></pre>
-[https://github.com/SqrtNegInf/Rosettacode-Perl5-Smoke/blob/master/ref/XXX XXX]
+<pre></pre>
