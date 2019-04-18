@@ -2549,6 +2549,13 @@ File: F/Fractran
 #c# 2018-08-08 <RC
 #p# OK
 
+File: F/Free_polyominoes_enumeration
+#!/usr/local/bin/perl
+#u# http://rosettacode.org/wiki/Free_polyominoes_enumeration
+#t# skiptest
+#c# 2019-04-xx >RC
+#p# OK
+
 File: F/French_Republican_calendar
 #!/usr/local/bin/perl
 #u# http://rosettacode.org/wiki/French_Republican_calendar
@@ -6370,9 +6377,8 @@ File: S/Stern-Brocot_sequence-2
 
 File: S/Straddling_checkerboard
 #!/usr/local/bin/perl
-#t# skiptest
 #u# http://rosettacode.org/wiki/Straddling_checkerboard
-#c# 2019-04-xx >RC
+#c# 2019-04-17 >RC
 #p# OK
 
 File: S/Stream_Merge
