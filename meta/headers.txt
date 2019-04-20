@@ -6381,6 +6381,12 @@ File: S/Straddling_checkerboard
 #c# 2019-04-17 >RC
 #p# OK
 
+File: S/Straddling_checkerboard.1
+#!/usr/local/bin/perl
+#u# http://rosettacode.org/wiki/Straddling_checkerboard
+#c# 2019-04-17 >RC
+#p# OK
+
 File: S/Stream_Merge
 #!/usr/local/bin/perl
 #u# http://rosettacode.org/wiki/Stream_Merge
