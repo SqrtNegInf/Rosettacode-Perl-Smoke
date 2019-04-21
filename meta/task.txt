@@ -1,14 +1,14 @@
 
 This is perl 5, version 28, subversion 0 (v5.28.0) built for darwin-thread-multi-2level
 updating from RC…
-+------------> Perl: Good/Bad [1124/14]
++------------> Perl: Good/Bad [1125/14]
 |+-----------> Smoke testing [992]
 ||+----------> sKipping validation [139]
 |||+---------> Interactive [48]
 ||||+--------> Touched (modified by me) [271]
 |||||+-------> Random seed [90]
 ||||||+------> File output [59]
-|||||||+-----> Draft [228]
+|||||||+-----> Draft [227]
 ||||||||+----> Ignoring [33]
 |||||||||+---> Void (no local copy) [175]
 ||||||||||+--> Un-implemented/reliable [165]
@@ -51,7 +51,7 @@ GS......... Ackermann_function-4
 GS......... Ackermann_function-5
 ........XV. Active_Directory_Connect
 .........VU Active_Directory_Search_for_a_user
-!S......... Active_object
+GS......... Active_object
 GS......... Add_a_variable_to_a_class_instance_at_runtime
 .......D.VU Addition-chain_exponentiation
 GS..T..D... Addition_chains
@@ -837,7 +837,7 @@ GS..T...... Pathological_floating_point_problems-1
 GS..T...... Pathological_floating_point_problems-2
 GS......... Pathological_floating_point_problems-3
 GS...R..... Pattern_matching
-GS.....D... Peaceful_chess_queen_armies
+GS......... Peaceful_chess_queen_armies
 GS..T.F.... Peano_curve
 GS.....D... Pell%27s_equation
 GS...R..... Penney%27s_game
