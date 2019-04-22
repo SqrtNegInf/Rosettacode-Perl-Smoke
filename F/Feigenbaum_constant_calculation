@@ -2,15 +2,16 @@
 #u# http://rosettacode.org/wiki/Feigenbaum_constant_calculation
 #c# 2018-10-17 >RC
 #p# OK
-#n# fails with native squaring, works with Math-GSL 
+#n# fails with native squaring, works with Math-GS, and even better with Math::AnyNum
 #n# except on Mac OS: https://github.com/leto/math--gsl/issues/151
+#n# cf: https://github.com/SqrtNegInf/Feigenbaum
 
 use strict;
 use warnings;
 use feature 'say';
 my $result;
 
-#use Math::GSL::PowInt qw /gsl_pow_2 gsl_pow_4 gsl_pow_int/;
+use Math::AnyNum 'sqr';
 
 my $a1 = 1.0;
 my $a2 = 0.0;
@@ -24,8 +25,9 @@ for my $i (2..13) {
         my $x = 0; my $y = 0;
         for (1 .. 2**$i) {
             $y = 1 - 2 * $y * $x;
-            $x = $a - $x*$x;            # right
+            #$x = $a - $x*$x;            # right
             #$x = $a - gsl_pow_2($x);   # right
+            $x = $a - sqr($x);          # converges better
             #$x = $a - $x**2;           # potentially wrong
         }
         $a -= $x/$y;
@@ -43,17 +45,17 @@ say $result;
 my $ref = <<'END';
  2  3.21851142203809
  3  4.38567759856834
- 4  4.60094927653806
- 5  4.65513049539196
- 6  4.66611194782285
- 7  4.66854858145148
- 8  4.66906066077106
- 9  4.66917155451498
-10  4.66919515403928
-11  4.66920025650364
-12  4.66920097509784
-13  4.66920537204032
-δ = 4.66920537204032
+ 4  4.60094927653808
+ 5  4.65513049539198
+ 6  4.66611194782857
+ 7  4.66854858144684
+ 8  4.66906066064827
+ 9  4.66917155537951
+10  4.66919515603002
+11  4.66920022908686
+12  4.66920131329420
+13  4.66920154578091
+δ = 4.66920154578090670750605810993042973643156433045
 END
 
 # using $x**2: δ = 4.66920315860471
