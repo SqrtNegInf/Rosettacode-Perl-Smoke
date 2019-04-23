@@ -46,16 +46,3 @@ EOD
 use Test::More;
 is ($result, $ref);
 done_testing();
-
-__END__
-
-sub riffle  {
-    my(@pile) = @_;
-    my @pile2 = splice @pile, 0, int +@pile / 2 ;
-say Dumper@pile; say Dumper@pile2; exit;
-
-    #roundrobin(
-    #    @pile.rotor(  (1 .. 3).roll(7), :partial ),
-    #    @pile2.rotor( (1 .. 3).roll(9), :partial ),
-    #).flat
-}
