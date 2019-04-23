@@ -15,27 +15,27 @@ sub luck {
 my($a,$b) = @_;
 
 gather {
-	my $i = $b;
+    my $i = $b;
     my(@taken,@rotor,$j);
 
     take 0; # 0th index is a placeholder
     take $a;
-	push @taken, $a;
+    push @taken, $a;
  
-	while () {
-	    for ($j = 0; $j < @rotor; $j++) {
-		    --$rotor[$j] or last;
-	    }
-	    if ($j < @rotor) {
-		    $rotor[$j] = $taken[$j+1];
-	    }
-	    else {
-		    take $i;
-		    push @taken, $i;
-		    push @rotor, $i - @taken;
-	    }
-	    $i += 2;
-	}
+    while () {
+        for ($j = 0; $j < @rotor; $j++) {
+            --$rotor[$j] or last;
+        }
+        if ($j < @rotor) {
+            $rotor[$j] = $taken[$j+1];
+        }
+        else {
+            take $i;
+            push @taken, $i;
+            push @rotor, $i - @taken;
+        }
+        $i += 2;
+    }
 }
 
 }
