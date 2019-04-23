@@ -2239,8 +2239,9 @@ File: F/Feigenbaum_constant_calculation
 #u# http://rosettacode.org/wiki/Feigenbaum_constant_calculation
 #c# 2018-10-17 >RC
 #p# OK
-#n# fails with native squaring, works with Math-GSL 
+#n# fails with native squaring, works with Math-GS, and even better with Math::AnyNum
 #n# except on Mac OS: https://github.com/leto/math--gsl/issues/151
+#n# cf: https://github.com/SqrtNegInf/Feigenbaum
 
 File: F/Fibonacci_n-step_number_sequences
 #!/usr/local/bin/perl
