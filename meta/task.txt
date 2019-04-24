@@ -1,17 +1,17 @@
 
 This is perl 5, version 28, subversion 2 (v5.28.2) built for darwin-thread-multi-2level
 updating from RC…
-+------------> Perl: Good/Bad [1125/14]
-|+-----------> Smoke testing [992]
++------------> Perl: Good/Bad [1126/14]
+|+-----------> Smoke testing [993]
 ||+----------> sKipping validation [139]
 |||+---------> Interactive [48]
-||||+--------> Touched (modified by me) [271]
+||||+--------> Touched (modified by me) [272]
 |||||+-------> Random seed [90]
 ||||||+------> File output [59]
 |||||||+-----> Draft [227]
 ||||||||+----> Ignoring [33]
-|||||||||+---> Void (no local copy) [175]
-||||||||||+--> Un-implemented/reliable [165]
+|||||||||+---> Void (no local copy) [174]
+||||||||||+--> Un-implemented/reliable [164]
 |||||||||||
 GS......... 100_doors-1
 GS......... 100_doors-2
@@ -203,7 +203,7 @@ GS.....D... Check_input_device_is_a_terminal
 G.K....D... Check_output_device_is_a_terminal
 G.K........ Check_that_file_exists
 GS......... Checkpoint_synchronization
-.......D.VU Checksumcolor
+GS..T..D... Checksumcolor
 .......D... Chemical_Calculator
 GS..T...... Chemical_Calculator-1
 GS..T...... Chemical_Calculator-2
