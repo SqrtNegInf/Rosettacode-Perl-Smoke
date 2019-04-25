@@ -1,7 +1,8 @@
 #!/usr/local/bin/perl
 #u# http://rosettacode.org/wiki/Markov_chain_text_generator
-#c# 2018-10-09 >RC
+#c# 2018-10-09 >RC, 2019-04-24 <RC
 #p# OK
+#n# trizen++ makes some updates: some dup my local 'strict' changes, one new one incorporated
 
 use strict;
 use warnings;
@@ -17,9 +18,10 @@ my $max  = shift || 200;
 sub build_dict {
     my($n, @words) = @_;
     my %dict;
-    for my $i (0 .. @words-$n) {
-        my @prefix;
-        push @prefix, $words[$i+$_] for 0..$n-1;
+    for my $i (0 .. $#words-$n) {
+        #my @prefix;
+        #push @prefix, $words[$i+$_] for 0..$n-1;
+        my @prefix = @words[$i .. $i+$n-1]; # trizen++
         push @{$dict{ join ' ', @prefix }}, $words[$i+$n];
     }
     return %dict;
@@ -38,6 +40,20 @@ for (1..$max) {
     shift @rotor;
     push @rotor, $new;
 }
+
+# trizen's version is clearer... (and does give same output after off-by-one fixed)
+#my @words = split ' ', $text;
+#push @words, @words[0..$n-1];
+#my %dict  = build_dict($n, @words);
+#my @rotor = @words[0 .. $n - 1];
+#my @chain = @rotor;
+#for (1 .. $max) {
+#    my $new = pick1(@{$dict{join ' ', @rotor}});
+#    shift @rotor;
+#    push @rotor, $new;
+#    push @chain, $new;
+#}
+#print join(' ', @chain) . "\n";
 
 say $result;
 
