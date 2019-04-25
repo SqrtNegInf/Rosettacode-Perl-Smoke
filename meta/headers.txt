@@ -3866,8 +3866,9 @@ File: M/Map_range
 File: M/Markov_chain_text_generator
 #!/usr/local/bin/perl
 #u# http://rosettacode.org/wiki/Markov_chain_text_generator
-#c# 2018-10-09 >RC
+#c# 2018-10-09 >RC, 2019-04-24 <RC
 #p# OK
+#n# trizen++ makes some updates: some dup my local 'strict' changes, one new one incorporated
 
 File: M/Mastermind
 #!/usr/local/bin/perl
