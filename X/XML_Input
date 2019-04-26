@@ -4,13 +4,15 @@
 #p# OK
 #n# ASCII-fied 'Emily'
 
+use strict;
+use warnings;
 use feature 'say';
 my $result;
 
-#Library: XML::SimpleSimple
+use utf8;
 use XML::Simple;
  
-my $ref = XMLin('<Students>
+my $data = XMLin('<Students>
   <Student Name="April" Gender="F" DateOfBirth="1989-01-02" />
   <Student Name="Bob" Gender="M"  DateOfBirth="1990-03-04" />
   <Student Name="Chad" Gender="M"  DateOfBirth="1991-05-06" />
@@ -20,15 +22,14 @@ my $ref = XMLin('<Students>
   <Student DateOfBirth="1993-09-10" Gender="F" Name="&#x00C9;mily" />
 </Students>');
  
-say $result = join( "\n", map { $_->{'Name'} } @{$ref->{'Student'}});
-exit;
+$result = join( "\n", map { $_->{'Name'} } @{$data->{'Student'}});
 
 my $ref = <<'EOD';
 April
 Bob
 Chad
 Dave
-Emily
+Émily
 EOD
 
 use Test::More;
