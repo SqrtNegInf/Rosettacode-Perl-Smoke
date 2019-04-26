@@ -1,17 +1,17 @@
 
 This is perl 5, version 28, subversion 2 (v5.28.2) built for darwin-thread-multi-2level
 updating from RC…
-+------------> Perl: Good/Bad [1125/14]
-|+-----------> Smoke testing [993]
++------------> Perl: Good/Bad [1129/14]
+|+-----------> Smoke testing [996]
 ||+----------> sKipping validation [139]
 |||+---------> Interactive [48]
 ||||+--------> Touched (modified by me) [272]
 |||||+-------> Random seed [90]
-||||||+------> File output [59]
-|||||||+-----> Draft [227]
+||||||+------> File output [60]
+|||||||+-----> Draft [228]
 ||||||||+----> Ignoring [33]
-|||||||||+---> Void (no local copy) [174]
-||||||||||+--> Un-implemented/reliable [164]
+|||||||||+---> Void (no local copy) [172]
+||||||||||+--> Un-implemented/reliable [162]
 |||||||||||
 GS......... 100_doors-1
 GS......... 100_doors-2
@@ -818,7 +818,7 @@ GS......... Parallel_Brute_Force
 GS......... Parallel_calculations
 ........XVU Parametric_polymorphism
 ........XV. Parametrized_SQL_statement
-.......D.VU Parse_EBNF
+GS....FD... Parse_EBNF
 GS......... Parse_an_IP_Address
 GS.....D... Parse_command-line_arguments
 GS..T...... Parsing_RPN_calculator_algorithm
@@ -929,6 +929,7 @@ GS......... RIPEMD-160
 GS..TR..... RPG_Attributes_Generator
 GS..T...... RSA_code
 .......D.VU Railway_circuit
+GS.....D... Ramanujan%27s_constant
 GS..T...... Ramer-Douglas-Peucker_line_simplification
 GS..T..D... Ramsey%27s_theorem
 G.K........ Random_number_generator_device
@@ -1082,7 +1083,7 @@ GS......... Sockets
 GS......... Sokoban
 GS....F.... Solve_a_Hidato_puzzle
 GS....F.... Solve_a_Holy_Knight%27s_tour
-.........VU Solve_a_Hopido_puzzle
+GS......... Solve_a_Hopido_puzzle
 GS......... Solve_a_Numbrix_puzzle
 .......D.VU Solve_a_Rubik%27s_Cube
 .........VU Solve_the_no_connection_puzzle
@@ -1224,7 +1225,7 @@ G.K.T.....U Thiele%27s_interpolation_formula
 GS......... Thue-Morse
 GS...R..... Tic-tac-toe
 .......D.VU Time-based_One-time_Password_Algorithm
-!S......... Time_a_function
+GS......... Time_a_function
 GS......... Tokenize_a_string
 GS......... Tokenize_a_string_with_escaping
 GS..T..D... Tonelli-Shanks_algorithm
