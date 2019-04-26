@@ -1,0 +1,183 @@
+#!/usr/local/bin/perl
+#u# http://rosettacode.org/wiki/Parse_EBNF
+#c# 2019-04-25 <RC
+#p# OK
+#f# RC file: ebnf.dat
+
+use strict;
+use warnings;
+use feature 'say';
+
+$SIG{__WARN__} = sub { print "\nWARN: @_\n"; exit };
+
+open STDOUT, '>run/ebnf.dat';
+
+my $h = qr/\G\s*/;
+my $identifier = qr/$h([a-z]\w*)\b/i;
+my $literal = qr/$h(['"])(.+?)\1/s;
+my ($title, $comment, %productions, %called, $startsymbol, $show, $errpos);
+
+sub node { bless [ @_[1..$#_] ], $_[0] }
+sub err { die "ERROR: ", s/\G\s*\K/<**ERROR @_**>/r, "\n" }
+sub want { /$h\Q$_[1]\E/gc ? shift : err "missing '$_[1]' " }
+sub addin { node $_[0] => ref $_[1] eq $_[0] ? @{$_[1]} : $_[1], pop }
+
+for my $case ( split /^-{50}.*\n/m, do { local $/; @ARGV ? <> : <DATA> } )
+  {
+  $show = $case =~ s/^#show.*//m;
+  my ($ebnf, $tests) = map s/^#.*\n//gmr, split /^#test.*\n/m, $case, 2;
+  parse( $ebnf, ($tests // "") =~ /.*\n/g );
+  }
+
+sub parse
+  {
+  eval
+    {
+    (%productions, %called, $startsymbol) = ();
+    local $_ = shift // 'empty ebnf source string';
+    print '-' x 75, "\n", s/\s*\z/\n\n/r;
+    syntax(); ################################################## parse the EBNF
+    print "       title: $title\n     comment: $comment\n";
+    $startsymbol or err "no productions";
+    print "start symbol: $startsymbol\n";
+    for my $key ( sort keys %productions )
+      {
+      $show and print "\n$key =\n", $productions{$key}->show =~ s/^/   /gmr;
+      }
+    delete @called{keys %productions};
+    %called and die "\nERROR: undefined production(s) <@{[ keys %called]}>\n";
+
+    for ( @_ ) ###################################################### run tests
+      {
+      $errpos = undef;
+      print "\ntry: $_";
+      print eval
+        {
+        $productions{$startsymbol}->run or pos($_) = $errpos, err; ### run tree
+        /$h\n/gc or err 'incomplete parse';
+        } ? "valid\n" : $@;
+      }
+    1;
+    } or print "$@\n";
+  }
+
+sub syntax ############################################## subs for parsing EBNF
+  {
+  $title = /$literal/gc ? $2 : 'none';
+  /$h\{/gc or err 'missing open brace';
+  while( /$identifier\s*=/gc )              # is this the start of a production
+    {
+    my $name = $1;
+    $startsymbol //= $name;
+    my $tree = expr(0);
+    $productions{$name} =
+      $productions{$name} ? addin ALT => $productions{$name}, $tree : $tree;
+    /$h[.;]/gc or err 'missing production terminator';
+    }
+  /$h\}/gc or err 'missing close brace';
+  $comment = /$literal/gc ? $2 : 'none';
+  /$h\z/gc or err 'extra characters after parse';
+  }
+
+sub expr
+  {
+  my $tree =
+    /$identifier/gc ? do { $called{$1}++; node PROD => $1 } :
+    /$literal/gc    ? node LIT => $2 :
+    /$h\[/gc        ? node OPTION => want expr(0), ']' :
+    /$h\{/gc        ? node REPEAT => want expr(0), '}' :
+    /$h\(/gc        ?                want expr(0), ')' :
+    err 'Invalid expression';
+  $tree =
+    /\G\s+/gc                           ? $tree :
+    $_[0] <= 1 && /\G(?=[[{('"a-z])/gci ? addin SEQ => $tree, expr(2) :
+    $_[0] <= 0 && /\G\|/gc              ? addin ALT => $tree, expr(1) :
+    return $tree while 1;
+  }
+
+################################################### run parse tree
+sub LIT::run { /$h\Q$_[0][0]\E/gc }
+sub SEQ::run
+  {
+  my $pos = pos($_) // 0;
+  for my $node ( @{ $_[0] } )
+    {
+    $node->run or $errpos = pos($_), pos($_) = $pos, return 0;
+    }
+  return 1;
+  }
+sub OPTION::run
+  {
+  my $pos = pos($_) // 0;
+  $_[0][0]->run or pos($_) = $pos, return 1;
+  }
+sub PROD::run
+  {
+  $productions{ $_[0][0] }->run;
+  }
+sub REPEAT::run
+  {
+  my $pos = pos($_) // 0;
+  $pos = pos($_) while $_[0][0]->run;
+  pos($_) = $pos;
+  return 1;
+  }
+sub ALT::run
+  {
+  my $pos = pos($_) // 0;
+  for my $node ( @{ $_[0] } )
+    {
+    eval{ $node->run } and return 1;
+    pos($_) = $pos;
+    }
+  return 0;
+  }
+
+sub LIT::show { "LIT $_[0][0]\n" } ###################### for nested tree print
+sub PROD::show { "PROD $_[0][0]\n" }
+sub UNIVERSAL::show
+  {
+  join '', ref $_[0], "\n", map $_->show =~ s/^/   /gmr, @{ $_[0] };
+  }
+
+__DATA__
+"a" {
+    a = "a1" ( "a2" | "a3" ) { "a4" } [ "a5" ] "a6" ;
+} "z"
+#show
+#tests
+    a1a3a4a4a5a6
+    a1 a2a6
+    a1 a3 a4 a6 
+    a1 a4 a5 a6
+    a1 a2 a4 a5 a5 a6
+    a1 a2 a4 a5 a6 a7
+    your ad here
+----------------------------------------------------------------------
+"Arithmetic expressions" {
+    expr = term { plus term } .
+    term = factor { times factor } .
+    factor = number | '(' expr ')' .
+
+    plus = "+" | "-" .
+    times = "*" | "/" .
+
+    number = digit { digit } .
+    digit = "0" | "1" | "2" | "3" | "4" | "5" | "6" | "7" | "8" | "9" .
+} 'http://www.rosettacode.org/wiki/Parse_EBNF'
+#tests
+    2
+    2*3 + 4/23 - 7
+    (3 + 4) * 6-2+(4*(4)) 
+    -2
+    3 +
+    (4 + 3
+----------------------------------------------------------------------
+'some invalid EBNF' { a = "1" ;
+----------------------------------------------------------------------
+a = "1";
+----------------------------------------------------------------------
+{ hello world = "1"; }
+----------------------------------------------------------------------
+{ foo = bar . } "undefined production check"
+----------------------------------------------------------------------
