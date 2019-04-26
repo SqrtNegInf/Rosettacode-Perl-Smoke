@@ -4519,6 +4519,13 @@ File: P/Parallel_calculations
 #c# 2018-07-06 <RC
 #p# OK
 
+File: P/Parse_EBNF
+#!/usr/local/bin/perl
+#u# http://rosettacode.org/wiki/Parse_EBNF
+#c# 2019-04-25 <RC
+#p# OK
+#f# RC file: ebnf.dat
+
 File: P/Parse_an_IP_Address
 #!/usr/local/bin/perl
 #u# http://rosettacode.org/wiki/Parse_an_IP_Address
@@ -5166,6 +5173,12 @@ File: R/RSA_code
 #!/usr/local/bin/perl
 #u# http://rosettacode.org/wiki/RSA_code
 #c# 2018-10-14 >RC
+#p# OK
+
+File: R/Ramanujan%27s_constant
+#!/usr/local/bin/perl
+#u# http://rosettacode.org/wiki/Ramanujan%27s_constant
+#c# 2019-04-25 <RC
 #p# OK
 
 File: R/Ramer-Douglas-Peucker_line_simplification
@@ -6034,6 +6047,12 @@ File: S/Solve_a_Holy_Knight%27s_tour
 #c# 2018-08-14 <RC
 #p# OK
 #f# RC file: holy_knight_tour.txt
+
+File: S/Solve_a_Hopido_puzzle
+#!/usr/local/bin/perl
+#u# http://rosettacode.org/wiki/Solve_a_Hopido_puzzle
+#c# 2019-04-25 <RC
+#p# OK
 
 File: S/Solve_a_Numbrix_puzzle
 #!/usr/local/bin/perl
