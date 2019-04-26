@@ -1,12 +1,12 @@
 #!/usr/local/bin/perl
 #u# http://rosettacode.org/wiki/Roman_numerals/Decode
-#c# 2018-08-18 <RC
+#c# 2018-08-18 <RC, 2019-04-25 <RC
 #p# OK
 
+use strict;
+use warnings;
 use feature 'say';
-my $result;
-
-use 5.10.0;
+my($result1,$result2,$result3);
 
 {
  my @trans = (
@@ -30,15 +30,42 @@ use 5.10.0;
   }
 }
 
-$result .= "$_: ". from_roman($_) . "\n" for <MCMXC MDCLXVI MMVIII>;
+$result1 .= "$_: ". from_roman($_) . "\n" for <MCMXC MMVIII MDCLXVI>;
 
-say $result; 
+sub roman2decimal_1 {
+  (local $_, my $sum, my $zeros) = (shift, 0, '');
+  $zeros .= 0 while
+    $sum -= s/I(?=[VX])// - s/V// * 5 - s/I//g . $zeros,
+    tr/MDCLX/CLXVI/;
+  return $sum;
+}
+
+$result2 .= s/$/ ": " . roman2decimal_1($_) /er . "\n" while <MCMXC MMVIII MDCLXVI>;
+
+sub roman2decimal_2 {
+  my $sum = 0;
+  $sum += $^R while $_[0] =~
+    / M  (?{1000})
+    | D  (?{ 500})
+    | C  (?{ 100}) (?= [MD] (?{-100}) )?
+    | L  (?{  50})
+    | X  (?{  10}) (?= [CL] (?{ -10}) )?
+    | V  (?{   5})
+    | I  (?{   1}) (?= [XV] (?{  -1}) )?
+    /gx;
+  return $sum;
+}
+
+$result3 .= s/$/ ": " . roman2decimal_2($_) /er . "\n" while <MCMXC MMVIII MDCLXVI>;
+
 my $ref = <<'EOD';
 MCMXC: 1990
-MDCLXVI: 1666
 MMVIII: 2008
+MDCLXVI: 1666
 EOD
 
 use Test::More;
-is ($result, $ref);
+is ($result1, $ref);
+is ($result2, $ref);
+is ($result3, $ref);
 done_testing();
