@@ -8,10 +8,10 @@ updating from RC…
 ||||+--------> Touched (modified by me) [272]
 |||||+-------> Random seed [90]
 ||||||+------> File output [60]
-|||||||+-----> Draft [228]
+|||||||+-----> Draft [229]
 ||||||||+----> Ignoring [33]
-|||||||||+---> Void (no local copy) [172]
-||||||||||+--> Un-implemented/reliable [162]
+|||||||||+---> Void (no local copy) [173]
+||||||||||+--> Un-implemented/reliable [163]
 |||||||||||
 GS......... 100_doors-1
 GS......... 100_doors-2
@@ -1169,6 +1169,7 @@ GS.....D... Substitution_Cipher
 GS......... Substring
 GS......... Substring_Top_and_tail
 GS......... Subtractive_generator
+.......D.VU Successive_prime_differences
 GS......... Sudoku
 GS.....D... Suffix_tree
 GS..T...... Suffixation_of_decimal_numbers
