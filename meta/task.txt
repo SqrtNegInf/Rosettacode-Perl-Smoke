@@ -1,11 +1,11 @@
 
 This is perl 5, version 28, subversion 2 (v5.28.2) built for darwin-thread-multi-2level
 updating from RC…
-+------------> Perl: Good/Bad [1129/14]
++------------> Perl: Good/Bad [1130/14]
 |+-----------> Smoke testing [996]
-||+----------> sKipping validation [139]
+||+----------> sKipping validation [140]
 |||+---------> Interactive [48]
-||||+--------> Touched (modified by me) [272]
+||||+--------> Touched (modified by me) [273]
 |||||+-------> Random seed [90]
 ||||||+------> File output [60]
 |||||||+-----> Draft [229]
@@ -930,6 +930,7 @@ GS..TR..... RPG_Attributes_Generator
 GS..T...... RSA_code
 .......D.VU Railway_circuit
 GS.....D... Ramanujan%27s_constant
+G.K.T...... Ramanujan%27s_constant-2
 GS..T...... Ramer-Douglas-Peucker_line_simplification
 GS..T..D... Ramsey%27s_theorem
 G.K........ Random_number_generator_device
