@@ -1,0 +1,35 @@
+#!/usr/local/bin/perl
+#t# skiptest
+#u# http://rosettacode.org/wiki/Ramanujan%27s_constant
+#c# 2019-04-27 >RC
+#p# OK
+
+use strict;
+#use warnings;
+use feature 'say';
+my $result;
+
+#use Math::AnyNum;
+
+sub continued_fraction {
+    my ($a, $b, $n) = (@_[0,1], $_[2] // 100);
+
+    $a->() + ($n && $b->() / continued_fraction($a, $b, $n-1));
+}
+
+printf "π   ≈ %.9f\n", continued_fraction do { my $n; sub { $n++ ? 6 : 3 } }, do { my $n; sub { (2*$n++ + 1)**2 } }, 1_000;
+
+# my $r163 =           continued-fraction( 50, :a(12,|((2*12) xx *)),      :b(19 xx *));
+# my $pi   =         4*continued-fraction(140, :a( 0,|(1, 3 ... *)),       :b(4, 1, |((1, 2, 3 ... *) X** 2)));
+# my $R    = 1 + ($_ / continued-fraction(170, :a( 1,|(2+$_, 3+$_ ... *)), :b(Nil,  |(-1*$_, -2*$_ ... *)  ))) given $r163*$pi;
+#say my $result = $R.precise(32);
+exit;
+
+my $ref = <<'EOD';
+Ramanujan's constant to 100 decimals:
+262537412640768743.9999999999992500725971981856888793538563373369908627075374103782106479101186073129511813461860645042
+EOD
+
+use Test::More;
+is ($result, $ref);
+done_testing();
