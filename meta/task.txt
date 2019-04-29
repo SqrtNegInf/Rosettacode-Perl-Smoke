@@ -8,7 +8,7 @@ updating from RC…
 ||||+--------> Touched (modified by me) [273]
 |||||+-------> Random seed [90]
 ||||||+------> File output [60]
-|||||||+-----> Draft [229]
+|||||||+-----> Draft [228]
 ||||||||+----> Ignoring [33]
 |||||||||+---> Void (no local copy) [173]
 ||||||||||+--> Un-implemented/reliable [163]
@@ -1170,7 +1170,7 @@ GS.....D... Substitution_Cipher
 GS......... Substring
 GS......... Substring_Top_and_tail
 GS......... Subtractive_generator
-.......D.VU Successive_prime_differences
+.........VU Successive_prime_differences
 GS......... Sudoku
 GS.....D... Suffix_tree
 GS..T...... Suffixation_of_decimal_numbers
