@@ -6570,6 +6570,12 @@ File: S/Subtractive_generator
 #c# 2018-08-13 <RC
 #p# OK
 
+File: S/Successive_prime_differences
+#!/usr/local/bin/perl
+#u# http://rosettacode.org/wiki/Successive_prime_differences
+#c# 2019-04-29 >RC
+#p# OK
+
 File: S/Sudoku
 #!/usr/local/bin/perl
 #u# http://rosettacode.org/wiki/Sudoku
