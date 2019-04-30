@@ -2,15 +2,15 @@
 This is perl 5, version 28, subversion 2 (v5.28.2) built for darwin-thread-multi-2level
 updating from RC…
 +------------> Perl: Good/Bad [1130/14]
-|+-----------> Smoke testing [996]
+|+-----------> Smoke testing [997]
 ||+----------> sKipping validation [140]
 |||+---------> Interactive [48]
-||||+--------> Touched (modified by me) [273]
+||||+--------> Touched (modified by me) [274]
 |||||+-------> Random seed [90]
 ||||||+------> File output [60]
 |||||||+-----> Draft [228]
 ||||||||+----> Ignoring [33]
-|||||||||+---> Void (no local copy) [173]
+|||||||||+---> Void (no local copy) [172]
 ||||||||||+--> Un-implemented/reliable [163]
 |||||||||||
 GS......... 100_doors-1
@@ -1170,7 +1170,7 @@ GS.....D... Substitution_Cipher
 GS......... Substring
 GS......... Substring_Top_and_tail
 GS......... Subtractive_generator
-.........VU Successive_prime_differences
+GS..T.....U Successive_prime_differences
 GS......... Sudoku
 GS.....D... Suffix_tree
 GS..T...... Suffixation_of_decimal_numbers
@@ -1227,7 +1227,7 @@ G.K.T.....U Thiele%27s_interpolation_formula
 GS......... Thue-Morse
 GS...R..... Tic-tac-toe
 .......D.VU Time-based_One-time_Password_Algorithm
-GS......... Time_a_function
+!S......... Time_a_function
 GS......... Tokenize_a_string
 GS......... Tokenize_a_string_with_escaping
 GS..T..D... Tonelli-Shanks_algorithm
