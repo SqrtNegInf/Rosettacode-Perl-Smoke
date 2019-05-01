@@ -6575,6 +6575,8 @@ File: S/Successive_prime_differences
 #u# http://rosettacode.org/wiki/Successive_prime_differences
 #c# 2019-04-29 >RC
 #p# OK
+#n# to avoid smartmatch, could use Array::Compare;
+#n# merges approach from Sidef (each_cons) and Perl 6/2nd soln (precomputed diffs)
 
 File: S/Sudoku
 #!/usr/local/bin/perl
