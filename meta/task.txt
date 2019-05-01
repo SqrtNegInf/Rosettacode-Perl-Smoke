@@ -11,7 +11,7 @@ updating from RC…
 |||||||+-----> Draft [228]
 ||||||||+----> Ignoring [33]
 |||||||||+---> Void (no local copy) [172]
-||||||||||+--> Un-implemented/reliable [163]
+||||||||||+--> Un-implemented/reliable [162]
 |||||||||||
 GS......... 100_doors-1
 GS......... 100_doors-2
@@ -987,7 +987,7 @@ GS..T...... Roman_numerals_Encode-4
 GS......... Roots_of_a_function
 GS......... Roots_of_a_quadratic_function
 GS......... Roots_of_unity
-GS..T...... Rosetta_Code_Count_examples
+!S..T...... Rosetta_Code_Count_examples
 GS..T...... Rosetta_Code_Find_bare_lang_tags
 B.......... Rosetta_Code_Find_unimplemented_tasks
 G.K........ Rosetta_Code_Fix_code_tags
@@ -1170,7 +1170,7 @@ GS.....D... Substitution_Cipher
 GS......... Substring
 GS......... Substring_Top_and_tail
 GS......... Subtractive_generator
-GS..T.....U Successive_prime_differences
+GS..T...... Successive_prime_differences
 GS......... Sudoku
 GS.....D... Suffix_tree
 GS..T...... Suffixation_of_decimal_numbers
@@ -1227,7 +1227,7 @@ G.K.T.....U Thiele%27s_interpolation_formula
 GS......... Thue-Morse
 GS...R..... Tic-tac-toe
 .......D.VU Time-based_One-time_Password_Algorithm
-!S......... Time_a_function
+GS......... Time_a_function
 GS......... Tokenize_a_string
 GS......... Tokenize_a_string_with_escaping
 GS..T..D... Tonelli-Shanks_algorithm
