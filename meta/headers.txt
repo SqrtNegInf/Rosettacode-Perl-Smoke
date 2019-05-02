@@ -5526,6 +5526,12 @@ File: R/Rosetta_Code_Fix_code_tags
 #c# 2018-08-21 <RC
 #p# OK
 
+File: R/Rosetta_Code_Rank_languages_by_number_of_users
+#!/usr/local/bin/perl
+#u# http://rosettacode.org/wiki/Rosetta_Code_Rank_languages_by_number_of_users
+#c# 2019-05-01 >RC
+#p# OK
+
 File: R/Rosetta_Code_Rank_languages_by_popularity
 #!/usr/local/bin/perl
 #u# http://rosettacode.org/wiki/Rosetta_Code/Rank_languages_by_popularity
