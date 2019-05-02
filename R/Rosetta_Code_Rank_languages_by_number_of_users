@@ -1,0 +1,98 @@
+#!/usr/local/bin/perl
+#u# http://rosettacode.org/wiki/Rosetta_Code_Rank_languages_by_number_of_users
+#c# 2019-05-01 >RC
+#p# OK
+
+use strict;
+use warnings;
+use feature 'say';
+my $result;
+
+use LWP::UserAgent;
+use URI::Escape;
+use JSON;
+
+my $client = LWP::UserAgent->new;
+$client->agent("Rosettacode Perl task solver");
+my $url = 'http://rosettacode.org/mw';
+
+my $minimum = 100;
+
+sub uri_query_string {
+    my(%fields) = @_;
+        'action=query&format=json&formatversion=2&' . 
+    join '&', map { $_ . '=' . uri_escape($fields{$_}) } keys %fields
+}
+
+sub mediawiki_query {
+    my($site, $type, %query) = @_;
+    my $url = "$site/api.php?" . uri_query_string(%query);
+    my %languages = ();
+
+    my $req = HTTP::Request->new( GET => $url);
+    my $response = $client->request($req);
+    $response->is_success or die "Failed to GET '$url': ", $response->status_line;
+    my $data = decode_json($response->content);
+    for my $row ( @{${$data}{query}{pages}} ) { 
+        next unless defined $$row{categoryinfo} && $$row{title} =~ /User/;
+        my($title) = $$row{title} =~ /Category:(.*?) User/;
+        my($count) = $$row{categoryinfo}{pages};
+        $languages{$title} = $count;
+    }
+    %languages;
+}
+
+my %table = mediawiki_query(
+    $url, 'pages',
+    ( generator => 'categorymembers',
+    gcmtitle => 'Category:Language users',
+    gcmlimit => '999',
+    rawcontinue => '',
+    prop => 'categoryinfo')
+);
+
+for my $k (sort { $table{$b} <=> $table{$a} } keys %table) {
+    $result .= sprintf "%4d %s\n", $table{$k}, $k if $table{$k} > $minimum;
+}
+
+say $result;
+
+my $ref = <<'EOD';
+ 397 C
+ 278 Java
+ 278 C++
+ 266 Python
+ 240 JavaScript
+ 171 Perl
+ 168 PHP
+ 139 SQL
+ 131 UNIX Shell
+ 121 C sharp
+ 120 BASIC
+ 118 Pascal
+ 102 Haskell
+EOD
+
+use Test::More;
+ok $result =~ /17\d Perl/;
+done_testing();
+
+__END__
+
+=={{header|Perl}}==
+<lang perl>
+</lang>
+{{out}}
+<pre> 397 C
+ 278 Java
+ 278 C++
+ 266 Python
+ 240 JavaScript
+ 171 Perl
+ 168 PHP
+ 139 SQL
+ 131 UNIX Shell
+ 121 C sharp
+ 120 BASIC
+ 118 Pascal
+ 102 Haskell</pre>
