@@ -1,16 +1,16 @@
 
 This is perl 5, version 28, subversion 2 (v5.28.2) built for darwin-thread-multi-2level
 updating from RC…
-+------------> Perl: Good/Bad [1130/14]
-|+-----------> Smoke testing [997]
++------------> Perl: Good/Bad [1132/14]
+|+-----------> Smoke testing [998]
 ||+----------> sKipping validation [140]
 |||+---------> Interactive [48]
-||||+--------> Touched (modified by me) [274]
+||||+--------> Touched (modified by me) [275]
 |||||+-------> Random seed [90]
 ||||||+------> File output [60]
 |||||||+-----> Draft [228]
 ||||||||+----> Ignoring [33]
-|||||||||+---> Void (no local copy) [172]
+|||||||||+---> Void (no local copy) [171]
 ||||||||||+--> Un-implemented/reliable [162]
 |||||||||||
 GS......... 100_doors-1
@@ -987,12 +987,12 @@ GS..T...... Roman_numerals_Encode-4
 GS......... Roots_of_a_function
 GS......... Roots_of_a_quadratic_function
 GS......... Roots_of_unity
-!S..T...... Rosetta_Code_Count_examples
+GS..T...... Rosetta_Code_Count_examples
 GS..T...... Rosetta_Code_Find_bare_lang_tags
 B.......... Rosetta_Code_Find_unimplemented_tasks
 G.K........ Rosetta_Code_Fix_code_tags
 .......D.VU Rosetta_Code_List_authors_of_task_descriptions
-.......D.VU Rosetta_Code_Rank_languages_by_number_of_users
+GS..T..D..U Rosetta_Code_Rank_languages_by_number_of_users
 G.K........ Rosetta_Code_Rank_languages_by_popularity
 .......D.VU Rosetta_Code_Run_examples
 .......D.VU Rosetta_Code_Tasks_sorted_by_average_lines_of_code
