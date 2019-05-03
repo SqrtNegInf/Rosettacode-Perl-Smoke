@@ -7,10 +7,11 @@
 # Works with: Perl version 5.8.8
 print "Hello world!\n";
 
-# Works with: Perl version 5.10.x
-# Backported from Perl 6:
+# borrowed a good idea from Perl 6 (note that it's lexically-scoped)
+{
 use feature 'say';
 say 'Hello world!';
+}
 
 # or:
 use 5.010;
