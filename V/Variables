@@ -1,17 +1,20 @@
 #!/usr/local/bin/perl
 #u# http://rosettacode.org/wiki/Variables
-#t# skiptest
 #c# 2018-08-06 <RC
 #p# OK
+#n# 'fruit' testing, but not variable assignments
+
+my $result;
 
 # In perl, variables are global by default and can be manipulated from anywhere in the program. Variables can be used without first being declared, providing that the strict pragmatic directive is not in effect:
 
-sub dofruit {
-  $fruit='apple';
+sub dofruit1 {
+  $fruit='persimmon';
 }
 
-dofruit; 
-print "The fruit is $fruit";
+dofruit1; 
+$result = "The fruit is $fruit\n";
+
 # Variables can be declared prior to use and may be prefixed with scope modifiers our, my, or local see scope modifiers for the differences. Variables which haven't been assigned to have the undefined value by default. The undefined value acts just like 0 (if used as a number) or the empty string (if used as a string), except it can be distinguished from either of these with the defined function. If warnings are enabled, perl will print a message like "Use of uninitialized value $foo in addition (+)" whenever you use the undefined value as a number or string.
 # Initialization and assignment are the same thing in Perl: just use the = operator. Note that the rvalue's context (scalar or list) is determined based on the lvalue.
 
@@ -31,6 +34,7 @@ my ($x, $y, @b, @c, $z) = @a; # Same thing, and also @c becomes empty
 # The strict pragmatic directive[edit]
 # If the strict pragmatic directive is in effect, then variables need explicit scope declaration, so should be prefixed with a my or our keyword depending on the required level of scope:
 
+{
 use strict;
 our $fruit;             # declare a variable as global
 our $veg = "carrot";    # declare a global variable and define its value
@@ -39,11 +43,24 @@ our $veg = "carrot";    # declare a global variable and define its value
 
 $fruit="apple";    # this will be global by default
 
-sub dofruit {
-  print "My global fruit was $fruit,";    # use the global variable
+sub dofruit2 {
+  $result .= "My global fruit was $fruit,";    # use the global variable
   my $fruit="banana";                      # declare a new local variable
-  print "and the local fruit is $fruit.\n";
+  $result .= "and the local fruit is $fruit.\n";
 }
 
-dofruit;
-print "The global fruit is still $fruit";
+dofruit2;
+}
+$result .= "The global fruit is still $fruit\n";
+
+print $result; 
+
+my $ref = <<'END';
+The fruit is persimmon
+My global fruit was apple,and the local fruit is banana.
+The global fruit is still apple
+END
+
+use Test::More;
+is($result,$ref);
+done_testing();
