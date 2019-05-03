@@ -1,17 +1,17 @@
 
 This is perl 5, version 28, subversion 2 (v5.28.2) built for darwin-thread-multi-2level
 updating from RC…
-+------------> Perl: Good/Bad [1132/14]
-|+-----------> Smoke testing [998]
-||+----------> sKipping validation [140]
++------------> Perl: Good/Bad [1134/13]
+|+-----------> Smoke testing [1002]
+||+----------> sKipping validation [138]
 |||+---------> Interactive [48]
-||||+--------> Touched (modified by me) [275]
+||||+--------> Touched (modified by me) [277]
 |||||+-------> Random seed [90]
 ||||||+------> File output [60]
-|||||||+-----> Draft [228]
+|||||||+-----> Draft [227]
 ||||||||+----> Ignoring [33]
-|||||||||+---> Void (no local copy) [171]
-||||||||||+--> Un-implemented/reliable [162]
+|||||||||+---> Void (no local copy) [170]
+||||||||||+--> Un-implemented/reliable [160]
 |||||||||||
 GS......... 100_doors-1
 GS......... 100_doors-2
@@ -839,7 +839,7 @@ GS......... Pathological_floating_point_problems-3
 GS...R..... Pattern_matching
 GS......... Peaceful_chess_queen_armies
 GS..T.F.... Peano_curve
-GS.....D... Pell%27s_equation
+GS......... Pell%27s_equation
 GS...R..... Penney%27s_game
 GS..T.FD... Penrose_tiling
 GS..T.F.... Pentagram
@@ -989,14 +989,14 @@ GS......... Roots_of_a_quadratic_function
 GS......... Roots_of_unity
 GS..T...... Rosetta_Code_Count_examples
 GS..T...... Rosetta_Code_Find_bare_lang_tags
-B.......... Rosetta_Code_Find_unimplemented_tasks
-G.K........ Rosetta_Code_Fix_code_tags
+GS..T...... Rosetta_Code_Find_unimplemented_tasks
+GS......... Rosetta_Code_Fix_code_tags
 .......D.VU Rosetta_Code_List_authors_of_task_descriptions
-GS..T..D..U Rosetta_Code_Rank_languages_by_number_of_users
-G.K........ Rosetta_Code_Rank_languages_by_popularity
+GS..T..D... Rosetta_Code_Rank_languages_by_number_of_users
+GS......... Rosetta_Code_Rank_languages_by_popularity
 .......D.VU Rosetta_Code_Run_examples
 .......D.VU Rosetta_Code_Tasks_sorted_by_average_lines_of_code
-.......D.VU Rosetta_Code_Tasks_without_examples
+GS..T..D... Rosetta_Code_Tasks_without_examples
 GS......... Rot-13
 GS......... Run-length_encoding
 .......D.VU Run_as_a_daemon_or_service
