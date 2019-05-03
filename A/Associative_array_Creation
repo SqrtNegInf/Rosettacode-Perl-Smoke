@@ -1,6 +1,5 @@
 #!/usr/local/bin/perl
 #u# http://rosettacode.org/wiki/Associative_array/Creation
-#t# skiptest
 #c# 2018-07-15 <>RC
 #p# OK
 
@@ -60,10 +59,6 @@ say $result;
 #Key Types[edit]
 #Keys are strings. Anything else is stringized in Perl's usual ways, which generally means integers work too, but for floating point care might be needed against round-off.
 #Various tie modules implement keys of other types, usually by constructing underlying string keys of suitable nature. For example Tie::RefHash allows objects (blessed or unblessed) as keys.
-
-
-
-# say $result; 
 
 my $ref = <<EOD;
 val1
