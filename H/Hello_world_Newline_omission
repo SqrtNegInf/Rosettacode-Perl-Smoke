@@ -4,4 +4,12 @@
 #c# 2018-08-12 <RC
 #p# OK
 
-print "Goodbye, World!";    # A newline does not occur automatically
+my $msg = "Goodbye, World!";
+
+print $msg;    # A newline does not occur automatically
+
+my $result = sprintf "%s", $msg;
+
+use Test::More;
+is $result, $msg;
+done_testing();
