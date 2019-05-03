@@ -1,3 +1,6 @@
+2019-05-02
+tackled meta-Rosetta tasks, but leaving the two biggest alone (P6 covers well enough)
+
 2019-04-24
 Updated to perl5.28.2 yesteday, mass update of CPAN modules today; no RC tasks failed.
 
