@@ -1,6 +1,5 @@
 #!/usr/local/bin/perl
 #u# http://rosettacode.org/wiki/Rosetta_Code/Rank_languages_by_popularity
-#t# skiptest
 #c# 2018-08-21 <RC
 #p# OK
 
@@ -41,6 +40,13 @@ my @sorted_languages =
 binmode STDOUT, ':encoding(utf8)';
 my $n = 1;
 for (@sorted_languages) {
-    printf "%3d. %20s - %3d\n", $n++, $_->{'title'},
+    next unless $_->{'categoryinfo'}{'size'} > 1000;
+    push @res, sprintf "%3d. %20s - %3d", $n++, $_->{'title'},
       $_->{'categoryinfo'}{'size'};
 }
+
+say join "\n", @res;
+
+use Test::More;
+ok @res >= 6 and @res < 10;
+done_testing();
