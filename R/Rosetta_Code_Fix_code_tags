@@ -1,14 +1,14 @@
 #!/usr/local/bin/perl
 #u# http://rosettacode.org/wiki/Rosetta_Code/Fix_code_tags
-#t# skiptest
 #c# 2018-08-21 <RC
 #p# OK
 
 use feature 'say';
 my $result;
-# my @res;
 
-my @langs = qw(ada cpp-qt pascal lscript z80 visualprolog
+my @langs = <foo bar baz>; 
+
+my @reallangs = qw(ada cpp-qt pascal lscript z80 visualprolog
 html4strict cil objc asm progress teraterm hq9plus genero tsql
 email pic16 tcl apt_sources io apache vhdl avisynth winbatch
 vbnet ini scilab ocaml-brief sas actionscript3 qbasic perl bnf
@@ -24,23 +24,34 @@ gml prolog bf per scheme mxml d basic4gl m68k gnuplot idl abap
 intercal c_mac thinbasic java5 xpp boo klonecpp blitzbasic eiffel
 povray c gettext);
 
-my $text = join "", <STDIN>;
+#my $text = join "", <STDIN>;
+my $result = 'Lorem ipsum <code foo>saepe audire</code> elaboraret ne quo, id equidem
+atomorum inciderint usu. <foo>In sit inermis deleniti percipit</foo>,
+ius ex tale civibus omittam. <barf>Vix ut doctus cetero invenire</barf>, his eu
+altera electram. Tota adhuc altera te sea, <code bar>soluta appetere ut mel</bar>.
+Quo quis graecis vivendo te, <baz>posse nullam lobortis ex usu</code>. Eam volumus perpetua
+constituto id, mea an omittam fierent vituperatoribus.';
+
 my $slang="/lang";
 for (@langs) {
-    $text =~ s|<$_>|<lang $_>|g;
-    $text =~ s|</$_>|<$slang>|g;
+    $result =~ s|<$_>|<lang $_>|g;
+    $result =~ s|</$_>|<$slang>|g;
 }
 
-$text =~ s|<code (.+?)>(.*?)</code>|<lang $1>$2<$slang>|sg;
+$result =~ s|<code (.+?)>(.*?)</code>|<lang $1>$2<$slang>|sg;
 
-print $text;
+say $result;
 
-
-say $result; 
-#say $result = join "\n", @res;
 my $ref = <<'EOD';
+Lorem ipsum <lang foo>saepe audire</lang> elaboraret ne quo, id equidem
+atomorum inciderint usu. <lang foo>In sit inermis deleniti percipit</lang>,
+ius ex tale civibus omittam. <barf>Vix ut doctus cetero invenire</barf>, his eu
+altera electram. Tota adhuc altera te sea, <lang bar>soluta appetere ut mel</lang>.
+Quo quis graecis vivendo te, <lang baz>posse nullam lobortis ex usu</lang>. Eam volumus perpetua
+constituto id, mea an omittam fierent vituperatoribus.
 EOD
 
 use Test::More;
-#is ($result, $ref);
-#done_testing();
+chomp $ref;
+is ($result, $ref);
+done_testing();
