@@ -1,12 +1,14 @@
 #!/usr/local/bin/perl
 #u# http://rosettacode.org/wiki/Distributed_programming
-#t# skiptest
 #c# 2018-07-28 <RC
 #p# OK
+#i# RC cli: wait
+#n# tweaked to self-test: call with an argument, but then run a copy (with slight delay) without no arg.
 
+use strict;
+use warnings;
 use feature 'say';
 my $result;
-
 
 # Using Data::Dumper and Safe to transmit arbitrary data structures as serialized text between hosts. Same code works as both sender and receiver.
 
@@ -48,17 +50,38 @@ sub send_data {
 }
  
 if (@ARGV) {
+    system("$0 &"); # DH trick of self-test
 	my $x = get_data();
-	print "Got data\n", Data::Dumper->Dump([$x]);
+	$result = "Got data\n" . Data::Dumper->Dump([$x]);
 } else {
-	send_data('some_host', { a=>100, b=>[1 .. 10] });
+    sleep 1;
+	send_data('localhost', { b=>[1 .. 10] });
+	#send_data('localhost', { a=>100, b=>[1 .. 10] }); # hash elements might print as a/b or b/a
+    exit;
 }
 
-
 say $result; 
+
 my $ref = <<'EOD';
+Got data
+$VAR1 = {
+          'b' => [
+                   1,
+                   2,
+                   3,
+                   4,
+                   5,
+                   6,
+                   7,
+                   8,
+                   9,
+                   10
+                 ]
+        };
+
 EOD
 
 use Test::More;
-#is ($result, $ref);
-#done_testing();
+chomp $ref;
+is ($result, $ref);
+done_testing();
