@@ -448,7 +448,6 @@ File: A/Assertions
 File: A/Associative_array_Creation
 #!/usr/local/bin/perl
 #u# http://rosettacode.org/wiki/Associative_array/Creation
-#t# skiptest
 #c# 2018-07-15 <>RC
 #p# OK
 
@@ -1723,6 +1722,14 @@ File: D/Discordian_date
 File: D/Distributed_programming
 #!/usr/local/bin/perl
 #u# http://rosettacode.org/wiki/Distributed_programming
+#c# 2018-07-28 <RC
+#p# OK
+#i# RC cli: wait
+#n# tweaked to self-test: call with an argument, but then run a copy (with slight delay) without no arg.
+
+File: D/Distributed_programming.1
+#!/usr/local/bin/perl
+#u# http://rosettacode.org/wiki/Distributed_programming
 #t# skiptest
 #c# 2018-07-28 <RC
 #p# OK
@@ -2124,6 +2131,14 @@ File: E/Extensible_prime_generator-4
 #u# http://rosettacode.org/wiki/Extensible_prime_generator
 #c# 2018-08-01 <RC
 #p# OK
+
+File: E/External_sort
+#!/usr/local/bin/perl
+#u# http://rosettacode.org/wiki/External_sort
+#c# 2019-05-03 >RC
+#p# OK
+#n# note dual use of 'mysort', via direct call, and passed as a sorting routine for native 'sort' function
+#n# (hence the need for the prototype)
 
 File: E/Extract_file_extension
 #!/usr/local/bin/perl
@@ -2907,7 +2922,7 @@ File: H/Hello_world_Line_printer
 File: H/Hello_world_Newbie
 #!/usr/local/bin/perl
 #u# http://rosettacode.org/wiki/Hello_world/Newbie
-#t# skiptest
+#t# nocode
 #c# 2018-08-12 <RC
 #p# OK
 
@@ -3832,6 +3847,14 @@ File: M/Magic_8-Ball
 #c# 2018-09-10 >RC
 #p# OK
 #=# RC pipe: who\nwhat\nwhen\nwhere\n\n
+
+File: M/Magic_squares_Perl
+#!/usr/local/bin/perl
+#u# http://rosettacode.org/wiki/RC_REMOTE
+#t# skiptest
+#c# 2019-05-xx >RC
+#p# OK
+#   pass in '2' on command line to have results 2 .. 12 validated
 
 File: M/Magic_squares_of_odd_order
 #!/usr/local/bin/perl
@@ -7191,9 +7214,9 @@ File: V/Variable_size_Set
 File: V/Variables
 #!/usr/local/bin/perl
 #u# http://rosettacode.org/wiki/Variables
-#t# skiptest
 #c# 2018-08-06 <RC
 #p# OK
+#n# 'fruit' testing, but not variable assignments
 
 File: V/Variadic_function
 #!/usr/local/bin/perl
