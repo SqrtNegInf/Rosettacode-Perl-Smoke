@@ -1,17 +1,17 @@
 
 This is perl 5, version 28, subversion 2 (v5.28.2) built for darwin-thread-multi-2level
 updating from RC…
-+------------> Perl: Good/Bad [1134/13]
-|+-----------> Smoke testing [1002]
-||+----------> sKipping validation [138]
++------------> Perl: Good/Bad [1135/13]
+|+-----------> Smoke testing [1006]
+||+----------> sKipping validation [135]
 |||+---------> Interactive [48]
-||||+--------> Touched (modified by me) [277]
+||||+--------> Touched (modified by me) [278]
 |||||+-------> Random seed [90]
 ||||||+------> File output [60]
 |||||||+-----> Draft [227]
 ||||||||+----> Ignoring [33]
-|||||||||+---> Void (no local copy) [170]
-||||||||||+--> Un-implemented/reliable [160]
+|||||||||+---> Void (no local copy) [169]
+||||||||||+--> Un-implemented/reliable [159]
 |||||||||||
 GS......... 100_doors-1
 GS......... 100_doors-2
@@ -97,7 +97,7 @@ GS......... Arrays
 G.K.T..D... Aspect_Oriented_Programming
 GS......... Assertions
 .......DXVU Assertions_in_design_by_contract
-G.K.T...... Associative_array_Creation
+GS..T...... Associative_array_Creation
 GS......... Associative_array_Iteration
 G.K..R..... Atomic_updates
 GS..T..D... Attractive_numbers
@@ -331,7 +331,7 @@ GS......... Dinesman%27s_multiple-dwelling_problem-2
 G.K..R..... Dining_philosophers
 GS......... Discordian_date
 .......D.V. Display_a_linear_combination
-G.K........ Distributed_programming
+GS......... Distributed_programming
 GS..T..D... Diversity_prediction_theorem
 G.K........ Documentation
 GS......... Dot_product
@@ -397,7 +397,7 @@ GS......... Extensible_prime_generator-1
 GS......... Extensible_prime_generator-2
 GS......... Extensible_prime_generator-3
 GS......... Extensible_prime_generator-4
-.......D.VU External_sort
+GS..T..D... External_sort
 GS.....D... Extract_file_extension
 GS......... Extreme_floating_point_values
 GS......... FASTA_format
@@ -1282,7 +1282,7 @@ GS......... Van_der_Corput_sequence
 GS......... Variable-length_quantity
 GS..T...... Variable_size_Get
 G.K........ Variable_size_Set
-G.K........ Variables
+GS......... Variables
 GS......... Variadic_function
 GS.....D... Vector
 GS......... Vector_products
