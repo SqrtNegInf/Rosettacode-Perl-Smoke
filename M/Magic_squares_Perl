@@ -1,133 +1,99 @@
 #!/usr/local/bin/perl
-#u# http://rosettacode.org/wiki/RC_REMOTE
-#t# skiptest
-#c# 2019-05-xx >RC
+#u# http://rosettacode.org/wiki/Magic_magics/Perl
+#c# 2019-05-04 >RC
 #p# OK
-#   pass in '2' on command line to have results 2 .. 12 validated
-
-use Data::Printer;
+#n# rather than having multiple examples for different orders of magic square, this will generate a magic square for any valid n x n grid.
+#n# surprising P5/P6 difference: '= $i++' must be done *after* subscripting
 
 use strict;
 use warnings;
 use feature 'say';
 my $result;
 
-#Rather than having multiple examples for different orders of magic square, this will generate a magic square for any valid n x n grid.
-#Invoke at the command line and pass in the desired size as a parameter.
-
 use List::Util 'sum';
 
-#sub MAIN (Int $n where {$n > 0}) {
-my $n = 2;
 my(@sq,$i,$h,$q);
  
-if ($n == 2) {
-  for $n (3..12) {
+for my $n (3..12,31) {
     $i = 1;
     $h = int($n / 2);
     $q = int($n / 4);
-    gen_sq($n);
-    $result .= sprintf("%@{[1+length($n)]}d"x$n,@$_), $result .= "\n" for @sq;
-    say $result;
-    printf("The magic number is %d", sum @{$sq[0]}); $result .=  "\n\n";
-exit;
-  }
-} else { 
-    gensq($n);
+    generate_magic($n);
+    validate_magic($n);
+    $result .= sprintf("N = $n, magic number = %d\n", sum @{$sq[0]});
+    $result .= sprintf(("%@{[1+length($n**2)]}d"x$n)."\n",@$_) for @sq;
+    $result .= "\n";
 }
 
-say $result;
-
-sub gensq {
-    my($n) = @_;
-    $i = 1;
-    $h = int($n / 2);
-    $q = int($n / 4);
-    gen_sq($n);
-    $result .= sprintf("%@{[1+length($n)]}d"x$n,@$_), $result .= "\n" for @sq;
-    $result .= sprintf("The magic number is %d", sum $sq[0]); $result .=  "\n\n";
-} 
-
- 
-sub gen_sq {
+sub generate_magic {
     my($n) = @_;
 
-    if ($n == 2) {
-        die "Sorry, can not generate a 2 x 2 magic square.";
+    if ($n <= 2) {
+        print "Sorry, can not generate a $n x $n magic square.\n" and return;
  
     } elsif ($n % 2) { # odd
         my $x = $n/2;
         my $y = 0;
-    say "x0: $x";
-        $sq[($i % $n  ? $y--  : $y++) % $n][($i % $n  ? $x++  : $x) % $n] = $i++ for 0..-1+$n**2;
-       #@sq[($i % $n ?? $y-- !! $y++) % $n][($i % $n ?? $x++ !! $x) % $n] = $i++ for ^$n²;
-    say "x1: $x";
-    say "y1: $y";
-    }
+        for (0 .. $n**2-1) {
+            $sq[($i%$n ? $y-- : $y++) % $n][($i%$n ? $x++ : $x) % $n] = $i;
+            $i++;
+        }
  
-}
-#@sq = [[8, 1, 6], [3, 5, 7], [4, 9, 2]]
-#The magic number is 15
-
-    #p @sq; exit;
-__END__
-    multi sub gen_sq ($n where {$n %% 4}) { # doubly even
+    } elsif (0 == int $n%4) { # doubly even
         my $x = 0;
         my $y = 0;
-        @sq[$i % $n ?? $y !! $y++][($i-1) % $n] = $i++ for ^$n²;
-        for ^$q -> $r {
-            for $q ..^ $n - $q -> $c {
-                my $ŕ = $n - 1 - $r;
-                my $ć = $n - 1 - $c;
-                (@sq[$r;$c], @sq[$ŕ;$ć]) = (@sq[$ŕ;$ć], @sq[$r;$c]);
-                (@sq[$c;$r], @sq[$ć;$ŕ]) = (@sq[$ć;$ŕ], @sq[$c;$r]);
+        for (0 .. $n**2-1) {
+            $sq[$i % $n ? $y : $y++][($i-1) % $n] = $i;
+            $i++;
+        }
+        for my $r (0..$q-1) {
+            for my $c ($q .. $n-$q-1) {
+                swap( ($r,$c), ($n-1-$r,$n-1-$c) );
+                swap( ($c,$r), ($n-1-$c,$n-1-$r) );
             }
         }
-    }
  
-    multi sub gen_sq ($n where {$n %% 2 and $n % 4}) { # singly even
-        gen_sq($h);
+    } elsif (0 == int($n%2) && $n%4) { # singly even
+        generate_magic($h);
         $i *= 4;
-        for ^$h -> $r {
-            for ^$h -> $c {
-                @sq[$r + $h; $c]      = @sq[$r;$c] + $h² * 3;
-                @sq[$r; $c + $h]      = @sq[$r;$c] + $h² * 2;
-                @sq[$r + $h; $c + $h] = @sq[$r;$c] + $h²;
+        for my $r (0..$h-1) {
+            for my $c (0..$h-1) {
+                $sq[$r+$h][$c   ] = $sq[$r][$c] + $h**2 * 3;
+                $sq[$r   ][$c+$h] = $sq[$r][$c] + $h**2 * 2;
+                $sq[$r+$h][$c+$h] = $sq[$r][$c] + $h**2;
             }
-            for ^$q -> $c {
-                next if $c == 0 and $r == ($h-1) div 2;
-                (@sq[$r;$c], @sq[$r + $h;$c]) = (@sq[$r + $h;$c], @sq[$r;$c]);
+            for my $c (0..$q-1) {
+                next if $c == 0 and $r == int(($h-1)/2);
+                swap( ($r,$c), ($r+$h,$c) );
             }
-            if $h > 4 {
-                for ($n - $q + 1) ..^ $n -> $c {
-                        (@sq[$r;$c], @sq[$r + $h;$c]) = (@sq[$r + $h;$c], @sq[$r;$c]);
-                }
+            if ($h > 4) {
+                swap( ($r,$_), ($r+$h,$_) ) for $n-$q+1 .. $n-1;
             }
         }
-        (@sq[$q;$q], @sq[$q+$h;$q]) = (@sq[$q+$h;$q], @sq[$q;$q]);
+        swap( ($q,$q), ($q+$h,$q) );
     }
+}
 
-exit unless $n == 2;
-my $ref = slurp 'ref/magic_squares.txt';
-use Test;
-is $result, $ref;
-#}
+sub swap { 
+    my($a,$b,$c,$d) = @_;
+    ($sq[$a][$b], $sq[$c][$d]) = ($sq[$c][$d], $sq[$a][$b]);
+} 
 
-# say $result; 
-# say my $result = join "\n", @res;
-my $ref = <<'EOD';
-EOD
+sub validate_magic {
+    my $magic = sum @{$sq[0]};
+    my @transpose;
+    foreach my $j (0..$#{$sq[0]}) {
+        push(@transpose, [map $_->[$j], @sq]);
+    }
+    for (0..$#sq) {
+        die unless $magic == sum @{ $sq[$_]} and $magic == sum @{$transpose[$_]}
+    }
+}
+
+#say $result;
 
 use Test::More;
-#chomp $ref;
-#is($result, $ref);
-#done_testing();
-
-__END__
-
-=={{header|Perl}}==
-{{trans|Perl 6}}
-<lang perl></lang>
-{{out}}
-<pre style="height:20ex"></pre>
-[https://github.com/SqrtNegInf/Rosettacode-Perl5-Smoke/blob/master/ref/XXX XXX]
+my $ref = `cat ref/magic_squares.txt`;
+chomp $ref;
+is($result, $ref);
+done_testing();
