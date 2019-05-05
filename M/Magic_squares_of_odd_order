@@ -1,50 +1,6 @@
 #!/usr/local/bin/perl
 #u# http://rosettacode.org/wiki/Magic_squares_of_odd_order
-#c# 2018-08-18 <RC
+#t# nocode
+#c# 2019-05-04 <RC
 #p# OK
-
-use strict;
-use warnings;
-use feature 'say';
-my $result;
-
-sub magic_square {
-    my $n = shift;
-    my $i = 0;
-    my $j = $n / 2;
-    my @magic_square;
-
-    for my $l ( 1 .. $n**2 ) {
-        $magic_square[$i][$j] = $l;
-
-        if ( $magic_square[ ( $i - 1 ) % $n ][ ( $j + 1 ) % $n ] ) {
-            $i = ( $i + 1 ) % $n;
-        }
-        else {
-            $i = ( $i - 1 ) % $n;
-            $j = ( $j + 1 ) % $n;
-        }
-    }
-    return @magic_square;
-}
-
-my $n = 7;
-
-for ( magic_square($n) ) {
-    $result .= sprintf '%8d' x $n . qq{\n}, @{$_};
-}
-
-say $result; 
-my $ref = <<'EOD';
-      30      39      48       1      10      19      28
-      38      47       7       9      18      27      29
-      46       6       8      17      26      35      37
-       5      14      16      25      34      36      45
-      13      15      24      33      42      44       4
-      21      23      32      41      43       3      12
-      22      31      40      49       2      11      20
-EOD
-
-use Test::More;
-is ($result, $ref);
-done_testing();
+#n# See Magic squares/Perl for a general magic square generator.
