@@ -3850,11 +3850,18 @@ File: M/Magic_8-Ball
 
 File: M/Magic_squares_Perl
 #!/usr/local/bin/perl
-#u# http://rosettacode.org/wiki/RC_REMOTE
-#t# skiptest
-#c# 2019-05-xx >RC
+#u# http://rosettacode.org/wiki/Magic_magics/Perl
+#c# 2019-05-04 >RC
 #p# OK
-#   pass in '2' on command line to have results 2 .. 12 validated
+#n# rather than having multiple examples for different orders of magic square, this will generate a magic square for any valid n x n grid.
+#n# surprising P5/P6 difference: '= $i++' must be done *after* subscripting
+
+File: M/Magic_squares_Perl-debug
+#!/usr/local/bin/perl
+#u# http://rosettacode.org/wiki/Magic_magics/Perl
+#t# skiptest
+#n# cf ~/perl6/Rosetta-Code/M/Magic_squares_Perl_6-debug
+use feature 'say';
 
 File: M/Magic_squares_of_odd_order
 #!/usr/local/bin/perl
