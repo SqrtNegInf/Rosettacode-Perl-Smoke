@@ -11,7 +11,7 @@ updating from RC…
 |||||||+-----> Draft [227]
 ||||||||+----> Ignoring [33]
 |||||||||+---> Void (no local copy) [169]
-||||||||||+--> Un-implemented/reliable [159]
+||||||||||+--> Un-implemented/reliable [157]
 |||||||||||
 GS......... 100_doors-1
 GS......... 100_doors-2
@@ -689,9 +689,9 @@ GS......... MD5_Implementation
 .........VU Machine_code
 GS......... Mad_Libs
 GS..TR.D... Magic_8-Ball
-.........VU Magic_squares_of_doubly_even_order
+.........V. Magic_squares_of_doubly_even_order
 GS......... Magic_squares_of_odd_order
-.........VU Magic_squares_of_singly_even_order
+.........V. Magic_squares_of_singly_even_order
 .........VU Main_step_of_GOST_28147-89
 .......D.VU Make_a_backup_file
 GS......... Make_directory_path
