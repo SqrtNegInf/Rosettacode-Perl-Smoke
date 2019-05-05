@@ -1,28 +1,73 @@
 #!/usr/local/bin/perl
-#u# http://rosettacode.org/wiki/Magic_magics/Perl
+#u# http://rosettacode.org/wiki/Magic_squares/Perl
 #t# skiptest
-#n# cf ~/perl6/Rosetta-Code/M/Magic_squares_Perl_6-debug
+#n# cf ~/perl6/Rosetta-Code/M/Magic_sqares_Perl_6-debug
+#n# decidedly sub-optimal!
+
 use feature 'say';
+
+# wrong 
+$n = 3; $i = 1; $x = $n/2; $y = 0;
+$sq[($i%$n ? $y-- : $y++) % $n][($i%$n ? $x++ : $x) % $n] = $i++ for 0 .. -1 + $n**2;
+say '1'; say join ' ', @$_ for @sq; say '';
 
 # wrong
 $n = 3; $i = 1; $x = $n/2; $y = 0;
-$sq1[($i%$n ? $y-- : $y++) % $n][($i%$n ? $x++ : $x) % $n] = $i++ for 0 .. -1 + $n**2;
-say join ' ', @$_ for @sq1; say '';
+for (0 .. -1 + $n**2) {
+    $sq[($i%$n ? $y-- : $y++) % $n][($i%$n ? $x++ : $x) % $n] = $i++;
+}
+say '2'; say join ' ', @$_ for @sq; say '';
 
-# correct
+# different -- still a magic sqare, but rows 2/3 swapped
 $n = 3; $i = 1; $x = $n/2; $y = 0;
-for (0 .. $n**2-1) {
-    $sq2[($i%$n ? $y-- : $y++) % $n][($i%$n ? $x++ : $x) % $n] = $i;
+for (0 .. -1 + $n**2) {
+    $sq[(0 == $i%$n ? $y-- : $y) % $n][($i%$n ? $x++ : $x)%$n] = $i;
+    $y++ if 0 != $i%$n;
     $i++;
 }
-say join ' ', @$_ for @sq2; say '';
+say '3'; say join ' ', @$_ for @sq; say '';
+
+# correct
+$n = 3; $i = 1; $x = $n/2; $y = 0;
+for (0 .. -1 + $n**2) {
+    $sq[($i%$n ? $y-- : $y++) % $n][($i%$n ? $x++ : $x) % $n] = $i;
+    $i++;
+}
+say '4'; say join ' ', @$_ for @sq; say '';
+
+# correct
+$n = 3; $i = 1; $x = $n/2; $y = 0;
+for (0 .. -1 + $n**2) {
+    $sq[(0 != $i%$n ? $y : $y++) % $n][($i%$n ? $x++ : $x)%$n] = $i;
+    $y-- if $i%$n;
+    $i++;
+}
+say '5'; say join ' ', @$_ for @sq; say '';
+
+# correct
+$n = 3; $i = 1; $x = $n/2; $y = 0;
+for (0 .. -1 + $n**2) {
+    $sq[($i%$n ? $y : $y++) % $n][($i%$n ? $x++ : $x)%$n] = $i;
+    $y-- if $i%$n;
+    $i++;
+}
+say '6'; say join ' ', @$_ for @sq; say '';
+
+# correct
+$n = 3; $i = 1; $x = $n/2; $y = 0;
+for (0 .. -1 + $n**2) {
+    $sq[($i%$n ? $y-- : $y++) % $n][$x%$n] = $i;
+    $x++ if $i%$n;
+    $i++;
+}
+say '7'; say join ' ', @$_ for @sq; say '';
 
 # correct
 $n = 3; $i = 1; $x = $n/2; $y = 0;
 for (0 .. $n**2-1) {
-    $sq3[$y%$n][$x%$n] = $i;
+    $sq[$y%$n][$x%$n] = $i;
     $i%$n ? $y-- : $y++;
     $x++ if $i%$n;
     $i++;
 }
-say join ' ', @$_ for @sq3; say '';
+say '8'; say join ' ', @$_ for @sq; say '';
