@@ -1,16 +1,16 @@
 
 This is perl 5, version 28, subversion 2 (v5.28.2) built for darwin-thread-multi-2level
 updating from RC…
-+------------> Perl: Good/Bad [1135/13]
-|+-----------> Smoke testing [1006]
-||+----------> sKipping validation [135]
++------------> Perl: Good/Bad [1137/13]
+|+-----------> Smoke testing [1005]
+||+----------> sKipping validation [138]
 |||+---------> Interactive [48]
 ||||+--------> Touched (modified by me) [278]
 |||||+-------> Random seed [90]
 ||||||+------> File output [60]
 |||||||+-----> Draft [227]
 ||||||||+----> Ignoring [33]
-|||||||||+---> Void (no local copy) [169]
+|||||||||+---> Void (no local copy) [167]
 ||||||||||+--> Un-implemented/reliable [157]
 |||||||||||
 GS......... 100_doors-1
@@ -689,9 +689,9 @@ GS......... MD5_Implementation
 .........VU Machine_code
 GS......... Mad_Libs
 GS..TR.D... Magic_8-Ball
-.........V. Magic_squares_of_doubly_even_order
-GS......... Magic_squares_of_odd_order
-.........V. Magic_squares_of_singly_even_order
+G.K........ Magic_squares_of_doubly_even_order
+G.K........ Magic_squares_of_odd_order
+G.K........ Magic_squares_of_singly_even_order
 .........VU Main_step_of_GOST_28147-89
 .......D.VU Make_a_backup_file
 GS......... Make_directory_path
