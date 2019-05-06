@@ -3858,17 +3858,39 @@ File: M/Magic_squares_Perl
 
 File: M/Magic_squares_Perl-debug
 #!/usr/local/bin/perl
-#u# http://rosettacode.org/wiki/Magic_magics/Perl
+#u# http://rosettacode.org/wiki/Magic_squares/Perl
 #t# skiptest
-#n# cf ~/perl6/Rosetta-Code/M/Magic_squares_Perl_6-debug
-use feature 'say';
+#n# cf ~/perl6/Rosetta-Code/M/Magic_sqares_Perl_6-debug
+#n# decidedly sub-optimal!
+#n# https://stackoverflow.com/questions/55994128/multiple-post-increment-and-decrement-operations-in-a-statement-perl-5-vs-perl
 
+File: M/Magic_squares_of_doubly_even_order
+#!/usr/local/bin/perl
+#u# http://rosettacode.org/wiki/Magic_squares_of_doubly_even_order
+#t# nocode
+#c# 2019-05-04 <RC
+#p# OK
+#n# See Magic squares/Perl for a general magic square generator.
 File: M/Magic_squares_of_odd_order
+#!/usr/local/bin/perl
+#u# http://rosettacode.org/wiki/Magic_squares_of_odd_order
+#t# nocode
+#c# 2019-05-04 <RC
+#p# OK
+#n# See Magic squares/Perl for a general magic square generator.
+File: M/Magic_squares_of_odd_order.1
 #!/usr/local/bin/perl
 #u# http://rosettacode.org/wiki/Magic_squares_of_odd_order
 #c# 2018-08-18 <RC
 #p# OK
 
+File: M/Magic_squares_of_singly_even_order
+#!/usr/local/bin/perl
+#u# http://rosettacode.org/wiki/Magic_squares_of_singly_even_order
+#t# nocode
+#c# 2019-05-04 <RC
+#p# OK
+#n# See Magic squares/Perl for a general magic square generator.
 File: M/Make_directory_path
 #!/usr/local/bin/perl
 #u# http://rosettacode.org/wiki/Make_directory_path
