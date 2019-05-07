@@ -2,63 +2,16 @@
 #u# http://rosettacode.org/wiki/Magic_squares/Perl
 #t# skiptest
 #n# cf ~/perl6/Rosetta-Code/M/Magic_sqares_Perl_6-debug
-#n# decidedly sub-optimal!
-#n# https://stackoverflow.com/questions/55994128/multiple-post-increment-and-decrement-operations-in-a-statement-perl-5-vs-perl
+#n# https://stackoverflow.com/questions/55994128/
 
 use feature 'say';
-use Data::Printer;
 
-# wrong - the original one
+# wrong
 $n = 3; $i = 1; $x = $n/2; $y = 0;
 for (0 .. -1 + $n**2) {
     $sq[($i%$n ? $y-- : $y++) % $n][($i%$n ? $x++ : $x) % $n] = $i++;
 }
-say '1'; say join ' ', @$_ for @sq; say '';
-
-# correct
-$n = 3; $i = 1; $x = $n/2; $y = 0;
-for (0 .. -1 + $n**2) {
-    $sq[($i%$n ? $y-- : $y) % $n][($i%$n ? $x++ : $x)%$n] = $i;
-    $y++ if 0 == $i%$n;
-    $i++;
-}
-say '2'; say join ' ', @$_ for @sq; say '';
-
-# correct
-$n = 3; $i = 1; $x = $n/2; $y = 0;
-for (0 .. -1 + $n**2) {
-    $sq[($i%$n ? $y-- : $y++) % $n][($i%$n ? $x++ : $x) % $n] = $i;
-    #say 'x/y ' . $x . '/' . $y;
-    $i++;
-}
-say '3'; say join ' ', @$_ for @sq; say '';
-
-# correct
-$n = 3; $i = 1; $x = $n/2; $y = 0;
-for (0 .. -1 + $n**2) {
-    $sq[(0 != $i%$n ? $y : $y++) % $n][($i%$n ? $x++ : $x)%$n] = $i;
-    $y-- if $i%$n;
-    $i++;
-}
-say '4'; say join ' ', @$_ for @sq; say '';
-
-# correct
-$n = 3; $i = 1; $x = $n/2; $y = 0;
-for (0 .. -1 + $n**2) {
-    $sq[($i%$n ? $y : $y++) % $n][($i%$n ? $x++ : $x)%$n] = $i;
-    $y-- if $i%$n;
-    $i++;
-}
-say '5'; say join ' ', @$_ for @sq; say '';
-
-# correct
-$n = 3; $i = 1; $x = $n/2; $y = 0;
-for (0 .. -1 + $n**2) {
-    $sq[($i%$n ? $y-- : $y++) % $n][$x%$n] = $i;
-    $x++ if $i%$n;
-    $i++;
-}
-say '6'; say join ' ', @$_ for @sq; say '';
+say join ' ', @$_ for @sq; say '';
 
 # correct
 $n = 3; $i = 1; $x = $n/2; $y = 0;
@@ -68,4 +21,4 @@ for (0 .. $n**2-1) {
     $x++ if $i%$n;
     $i++;
 }
-say '7'; say join ' ', @$_ for @sq; say '';
+say join ' ', @$_ for @sq; 
