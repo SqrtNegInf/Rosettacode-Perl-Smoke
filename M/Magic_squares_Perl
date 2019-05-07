@@ -3,7 +3,7 @@
 #c# 2019-05-04 >RC
 #p# OK
 #n# rather than having multiple examples for different orders of magic square, this will generate a magic square for any valid n x n grid.
-#n# surprising P5/P6 difference: '= $i++' must be done *after* subscripting
+#n# clearer/safer code, cf. -debug version
 
 use strict;
 use warnings;
@@ -35,7 +35,9 @@ sub generate_magic {
         my $x = $n/2;
         my $y = 0;
         for (0 .. $n**2-1) {
-            $sq[($i%$n ? $y-- : $y++) % $n][($i%$n ? $x++ : $x) % $n] = $i;
+            $sq[$y%$n][$x%$n] = $i;
+            $i%$n ? $y-- : $y++;
+            $x++ if $i%$n;
             $i++;
         }
  
@@ -43,7 +45,8 @@ sub generate_magic {
         my $x = 0;
         my $y = 0;
         for (0 .. $n**2-1) {
-            $sq[$i % $n ? $y : $y++][($i-1) % $n] = $i;
+            $sq[$y][($i-1) % $n] = $i;
+            $y++ unless $i%$n;
             $i++;
         }
         for my $r (0..$q-1) {
