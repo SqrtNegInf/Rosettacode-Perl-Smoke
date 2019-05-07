@@ -3854,15 +3854,14 @@ File: M/Magic_squares_Perl
 #c# 2019-05-04 >RC
 #p# OK
 #n# rather than having multiple examples for different orders of magic square, this will generate a magic square for any valid n x n grid.
-#n# surprising P5/P6 difference: '= $i++' must be done *after* subscripting
+#n# clearer/safer code, cf. -debug version
 
 File: M/Magic_squares_Perl-debug
 #!/usr/local/bin/perl
 #u# http://rosettacode.org/wiki/Magic_squares/Perl
 #t# skiptest
 #n# cf ~/perl6/Rosetta-Code/M/Magic_sqares_Perl_6-debug
-#n# decidedly sub-optimal!
-#n# https://stackoverflow.com/questions/55994128/multiple-post-increment-and-decrement-operations-in-a-statement-perl-5-vs-perl
+#n# https://stackoverflow.com/questions/55994128/
 
 File: M/Magic_squares_of_doubly_even_order
 #!/usr/local/bin/perl
@@ -3891,6 +3890,12 @@ File: M/Magic_squares_of_singly_even_order
 #c# 2019-05-04 <RC
 #p# OK
 #n# See Magic squares/Perl for a general magic square generator.
+File: M/Main_step_of_GOST_28147-89
+#!/usr/local/bin/perl
+#u# http://rosettacode.org/wiki/Main_step_of_GOST_28147-89
+#c# 2019-05-06 >RC
+#p# OK
+
 File: M/Make_directory_path
 #!/usr/local/bin/perl
 #u# http://rosettacode.org/wiki/Make_directory_path
