@@ -44,21 +44,20 @@ sub display_board {
         # precompute a board
         our @tmpl;
         sub out {
-            my(@stuff) = @_;
-say 'collecting...';
+            my(@stuff) = split '', shift;
             my @tempX;
             push @tempX, ord($_) for @stuff;
-            push @tmpl, @tempX;
+            push @tmpl, [@tempX];
         }
         # three lines of space above
-        out "  ", " " x (2 * $row_count) for 1..3;
+        out("  ", " "x(2 * $row_count)) for 1..3;
         # $row_count lines of pegs
 # DH
         #for flat ($row_count...1) Z (1...$row_count) -> $spaces, $pegs {
         #    buf "  ", " " x $spaces, join(' ',($peg) x $pegs), " " x $spaces;
         #}
         # four lines of space below
-        out "  ", " " x (2 * $row_count) for 1..4;
+        out ("  " . " "x(2 * $row_count)) for 1..4;
         return @tmpl; 
     }
     state @board_tmpl = abc();
