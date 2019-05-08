@@ -3366,6 +3366,13 @@ File: K/Keyboard_input_Obtain_a_Y_or_N_response
 #c# 2018-08-14 <RC
 #p# OK
 
+File: K/Keyboard_macros
+#!/usr/local/bin/perl
+#u# http://rosettacode.org/wiki/Keyboard_macros
+#t# interactive
+#c# 2019-05-06 >RC
+#p# OK
+
 File: K/Knapsack_problem_0-1
 #!/usr/local/bin/perl
 #u# http://rosettacode.org/wiki/Knapsack_problem/0-1
@@ -3427,6 +3434,12 @@ File: K/Kolakoski_sequence
 #!/usr/local/bin/perl
 #u# http://rosettacode.org/wiki/Kolakoski_sequence
 #c# 2018-12-01 >RC
+#p# OK
+
+File: K/Kosaraju
+#!/usr/local/bin/perl
+#u# http://rosettacode.org/wiki/Kosaraju
+#c# 2019-05-07 >RC
 #p# OK
 
 File: K/Kronecker_product
