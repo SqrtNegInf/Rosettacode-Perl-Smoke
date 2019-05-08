@@ -1,17 +1,17 @@
 
 This is perl 5, version 28, subversion 2 (v5.28.2) built for darwin-thread-multi-2level
 updating from RC…
-+------------> Perl: Good/Bad [1136/13]
-|+-----------> Smoke testing [1006]
-||+----------> sKipping validation [138]
-|||+---------> Interactive [48]
-||||+--------> Touched (modified by me) [279]
++------------> Perl: Good/Bad [1140/13]
+|+-----------> Smoke testing [1007]
+||+----------> sKipping validation [139]
+|||+---------> Interactive [49]
+||||+--------> Touched (modified by me) [281]
 |||||+-------> Random seed [90]
 ||||||+------> File output [60]
 |||||||+-----> Draft [227]
 ||||||||+----> Ignoring [33]
-|||||||||+---> Void (no local copy) [166]
-||||||||||+--> Un-implemented/reliable [156]
+|||||||||+---> Void (no local copy) [164]
+||||||||||+--> Un-implemented/reliable [154]
 |||||||||||
 GS......... 100_doors-1
 GS......... 100_doors-2
@@ -610,7 +610,7 @@ GS......... Kernighans_large_earthquake_problem
 G.KI....... Keyboard_input_Flush_the_keyboard_buffer
 G.KI....... Keyboard_input_Keypress_check
 G.KI....... Keyboard_input_Obtain_a_Y_or_N_response
-.........VU Keyboard_macros
+G.KIT...... Keyboard_macros
 GS..T...... Knapsack_problem_0-1
 GS......... Knapsack_problem_Bounded
 GS......... Knapsack_problem_Continuous
@@ -621,7 +621,7 @@ GS......... Knuth%27s_power_tree
 GS...R..... Knuth_shuffle
 GS..T.FD... Koch_curve
 GS..T...... Kolakoski_sequence
-.......D.VU Kosaraju
+GS..T..D... Kosaraju
 GS......... Kronecker_product
 GS..T.F.... Kronecker_product_based_fractals
 GS..T...... LU_decomposition
@@ -987,7 +987,7 @@ GS..T...... Roman_numerals_Encode-4
 GS......... Roots_of_a_function
 GS......... Roots_of_a_quadratic_function
 GS......... Roots_of_unity
-!S..T...... Rosetta_Code_Count_examples
+GS..T...... Rosetta_Code_Count_examples
 GS..T...... Rosetta_Code_Find_bare_lang_tags
 GS..T...... Rosetta_Code_Find_unimplemented_tasks
 GS......... Rosetta_Code_Fix_code_tags
@@ -1227,7 +1227,7 @@ G.K.T.....U Thiele%27s_interpolation_formula
 GS......... Thue-Morse
 GS...R..... Tic-tac-toe
 .......D.VU Time-based_One-time_Password_Algorithm
-!S......... Time_a_function
+GS......... Time_a_function
 GS......... Tokenize_a_string
 GS......... Tokenize_a_string_with_escaping
 GS..T..D... Tonelli-Shanks_algorithm
