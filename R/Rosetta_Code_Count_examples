@@ -42,7 +42,7 @@ my $result2 = join "\n", @res2;
 
 my $ref = <<'END';
 100 doors: 281 examples
-15 Puzzle Game: 50 examples
+15 Puzzle Game: 51 examples
 15 puzzle solver: 10 examples
 2048: 41 examples
 END
