@@ -6,9 +6,12 @@
 #i# RC cli: 10 4
 #f# RC file: galton_box.dat
 
+use Data::Printer;
+
 use strict; # 'vars';
 use warnings;
 use feature 'state';
+use feature 'say';
 
 srand 123456;
 
@@ -28,18 +31,24 @@ my @board_tmpl;
 my $row_count = 6;
 
 my $peg = "*";
-my @coin_icons = "\c[UPPER HALF BLOCK]", "\c[LOWER HALF BLOCK]";
+my @coin_icons = ("▀", "▄");
+#my @coin_icons = ("\c[UPPER HALF BLOCK]", "\c[LOWER HALF BLOCK]");
 
 sub display_board {
-    my(@positions, @stats, $halfstep) = @_;
+    my($p_ref, $s_ref, $halfstep) = @_;
+    my @positions = @$p_ref;
+    my @stats     = @$s_ref;
     my $coin = $coin_icons[int $halfstep]; # ? .Int
 
     sub abc {
         # precompute a board
-        my @tmpl;
+        our @tmpl;
         sub out {
             my(@stuff) = @_;
-            #push @tmpl, $[@stuff.join>>.ords.flat]; # DH
+say 'collecting...';
+            my @tempX;
+            push @tempX, ord($_) for @stuff;
+            push @tmpl, @tempX;
         }
         # three lines of space above
         out "  ", " " x (2 * $row_count) for 1..3;
@@ -53,6 +62,7 @@ sub display_board {
         return @tmpl; 
     }
     state @board_tmpl = abc();
+p @board_tmpl; exit;
 
     my $midpos = $row_count + 2;
 
@@ -73,14 +83,20 @@ sub display_board {
 
         my @output_lines = '' ; #map { [map *.clone, @$_].item }, @board_tmpl;  # DH
         # place the coins
-        for my $line (keys @positions) {
+#p @positions; 
+        for my $line (0..$#positions) {
             my $pos = $positions[$line];
             next unless defined $pos;
+#print ord($coin); print "\n"; 
+$DB::single = 1;
             $output_lines[$line][$pos + $midpos] = ord($coin);
         }
         # output the board with its coins
+#p @output_lines; exit;
         for my $line (@output_lines) {
+#p $line; exit;
             #say @$line>>.chr.join(""); # DH
+            say join '', map { chr($_) } @$line;
         }
 
         # show the statistics
@@ -88,17 +104,18 @@ sub display_board {
         while (any { $_ > 0 } @stats) {
             $padding++;
             printl "  ";
-            #@stats = do 
             for my $stat (@stats) {
                 if ($stat == 1) {
-                        printl "\c[UPPER HALF BLOCK]";
-                        $stat - 1;
+                        printl "▀";
+                        #printl "\c[UPPER HALF BLOCK]";
+                        push @stats, $stat - 1;
                 } elsif ($stat <= 0) {
                         printl " ";
-                        0
+                        push @stats, 0
                 } else {
-                        printl "\c[FULL BLOCK]";
-                        $stat - 2;
+                        printl "█";
+                        #printl "\c[FULL BLOCK]";
+                        push @stats, $stat - 2;
                 }
             }
             say("");
@@ -110,7 +127,7 @@ sub display_board {
 
 }
 
-sub simulate { 
+sub simulate {
     my($coins) = @_;
 
     sub hits_peg {
@@ -121,7 +138,8 @@ sub simulate {
         return 0;
     }
 
-    my @coins = (0) x (3 + $row_count + 4);
+$DB::single = 1;
+    my @coins = (undef) x (3 + $row_count + 4);
     my @stats = (0) x ($row_count * 2);
     # this line will dispense coins until turned off.
     $coins[0] = 0;
@@ -129,24 +147,26 @@ sub simulate {
     while ($alive == 1) {
         $alive = 0;
         # if a coin falls through the bottom, count it
-        $stats[$_ + $row_count]++ if defined $coins[-1];
+        $stats[$coins[-1] + $row_count]++ if defined $coins[-1];
 
         # move every coin down one row
-        #for my $line ( ( 3 + $row_count + 3 )...1) { # DH fix!
+        #for my $line ( ( 3 + $row_count + 3 )...1) x # DH fix!
         for my $line (reverse 1..(3+$row_count+3) ) {
             my $coinpos = $coins[$line - 1];
 
-            $coins[$line] = do if (! defined $coinpos) {
-                undef
+            #$coins[$line] = do if (! defined $coinpos) x
+            if (! defined $coinpos) {
+                $coins[$line] = undef
             } elsif (hits_peg($coinpos, $line)) {
                 # when a coin from above hits a peg, it will bounce to either side.
                 $alive = 1;
                 $coinpos += rand() < .5 ? -1 : 1;
+                $coins[$line] = $coinpos
                 #($coinpos - 1, $coinpos + 1).pick; # DH 
             } else {
                 # if there was a coin above, it will fall to this position.
                 $alive = 1;
-                $coinpos;
+                $coins[$line] = $coinpos;
             }
         }
         # let the coin dispenser blink and turn it off if we run out of coins
@@ -157,15 +177,19 @@ sub simulate {
         }
 
         # smooth out the two halfsteps of the animation
-        my $start-time;
-        ENTER { $start-time = now }
-        my $wait-time = now - $start-time;
+        #my $start-time;
+        #ENTER { $start-time = now }
+        #my $wait-time = now - $start-time;
 
-        sleep 0.01 - $wait-time if $wait-time < 0.01;
-        for (keys @coin_icons) {
-            sleep $wait-time max 0.1;
+say 'coins';
+#p @coins; 
+#        sleep 0.01 - $wait-time if $wait-time < 0.01;
+         #for (keys @coin_icons) x
+         for (<0 1>) {
+#            sleep $wait-time max 0.1;
             display_board(\@coins, \@stats, $_);
-        }
+            sleep 1;
+         }
     }
 }
 
