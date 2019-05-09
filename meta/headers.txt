@@ -2644,10 +2644,9 @@ File: G/GUI_component_interaction
 File: G/Galton_box_animation
 #!/usr/local/bin/perl
 #u# http://rosettacode.org/wiki/Galton_box_animation
-#c# 2019-04-RC >RC
-#t# skiptest
-#p# BROKEN
-#i# RC cli: 10 4
+#c# 2019-05-09 >RC
+#p# OK
+#i# RC cli: 4 10
 #f# RC file: galton_box.dat
 
 File: G/Gamma_function
@@ -4242,6 +4241,13 @@ File: M/Munching_squares
 #c# 2018-08-19 <RC
 #p# OK
 #f# RC file: munching.png
+
+File: M/Musical_scale
+#!/usr/local/bin/perl
+#u# http://rosettacode.org/wiki/Musical_scale
+#c# 2019-05-08 >RC
+#p# OK
+#f# RC file: scale.mid
 
 File: M/Mutual_recursion
 #!/usr/local/bin/perl
