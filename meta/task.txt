@@ -1,17 +1,17 @@
 
 This is perl 5, version 28, subversion 2 (v5.28.2) built for darwin-thread-multi-2level
 updating from RC…
-+------------> Perl: Good/Bad [1140/13]
-|+-----------> Smoke testing [1007]
-||+----------> sKipping validation [139]
++------------> Perl: Good/Bad [1140/12]
+|+-----------> Smoke testing [1009]
+||+----------> sKipping validation [138]
 |||+---------> Interactive [49]
-||||+--------> Touched (modified by me) [281]
+||||+--------> Touched (modified by me) [282]
 |||||+-------> Random seed [90]
-||||||+------> File output [60]
+||||||+------> File output [61]
 |||||||+-----> Draft [227]
-||||||||+----> Ignoring [33]
-|||||||||+---> Void (no local copy) [164]
-||||||||||+--> Un-implemented/reliable [154]
+||||||||+----> Ignoring [34]
+|||||||||+---> Void (no local copy) [163]
+||||||||||+--> Un-implemented/reliable [153]
 |||||||||||
 GS......... 100_doors-1
 GS......... 100_doors-2
@@ -479,7 +479,7 @@ GS..T...... Fusc_sequence
 G.KI....... GUI_Maximum_window_dimensions
 G.KIT.....U GUI_component_interaction
 .........VU GUI_enabling_disabling_of_controls
-B.K.TRF...U Galton_box_animation
+!S..TRF...U Galton_box_animation
 GS......... Gamma_function
 GS..T..D... Gauss-Jordan_matrix_inversion
 GS......... Gaussian_elimination
@@ -753,7 +753,7 @@ GS......... Multiplicative_order
 GS......... Multisplit
 GS......... Munchausen_numbers
 GS....F.... Munching_squares
-.......D.VU Musical_scale
+GS..T.FD... Musical_scale
 GS......... Mutual_recursion
 GS......... N%27th
 .......D.VU N-body_problem
@@ -954,7 +954,7 @@ GS..T...... Recaman%27s_sequence
 ........XVU Record_sound
 .......D.VU Recursive_descent_parser_generator
 GS..T...... Reduced_row_echelon_form
-.........VU Reflection_Get_source
+........XVU Reflection_Get_source
 GS..T..D.V. Reflection_List_methods
 G.K.T...... Reflection_List_properties
 GS......... Regular_expressions
@@ -987,7 +987,7 @@ GS..T...... Roman_numerals_Encode-4
 GS......... Roots_of_a_function
 GS......... Roots_of_a_quadratic_function
 GS......... Roots_of_unity
-GS..T...... Rosetta_Code_Count_examples
+!S..T...... Rosetta_Code_Count_examples
 GS..T...... Rosetta_Code_Find_bare_lang_tags
 GS..T...... Rosetta_Code_Find_unimplemented_tasks
 GS......... Rosetta_Code_Fix_code_tags
