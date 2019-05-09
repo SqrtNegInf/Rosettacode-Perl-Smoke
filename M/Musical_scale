@@ -1,0 +1,15 @@
+#!/usr/local/bin/perl
+#u# http://rosettacode.org/wiki/Musical_scale
+#c# 2019-05-08 >RC
+#p# OK
+#f# RC file: scale.mid
+
+use MIDI::Simple;
+
+# setup, 1 quarter note is 0.5 seconds (500,000 microseconds)
+set_tempo 500_000;
+
+# C-major scale
+n 60; n 62; n 64; n 65; n 67; n 69; n 71; n 72;
+
+write_score 'run/scale.mid';
