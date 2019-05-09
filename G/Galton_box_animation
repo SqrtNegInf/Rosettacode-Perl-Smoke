@@ -2,15 +2,13 @@
 #u# http://rosettacode.org/wiki/Galton_box_animation
 #c# 2019-05-09 >RC
 #p# OK
-#i# RC cli: 4 10
+#i# RC cli: 4 10 
 #f# RC file: galton_box.dat
 
 use strict;
 use warnings;
-use feature 'state';
-use feature 'say';
 
-#srand 123456;
+srand 123456;
 
 use List::Util 'any';
 use Time::HiRes qw(sleep);
@@ -19,8 +17,8 @@ use List::AllUtils <pairwise pairs>;
 use utf8;
 binmode STDOUT, ':utf8';
 
-#open my $fh, ">run/galton_box.dat" || die;
-#binmode $fh, ':utf8';
+open my $fh, ">run/galton_box.dat" || die;
+binmode $fh, ':utf8';
 
 my $peg_lines  = shift || 13;
 my $row_count  = $peg_lines;
@@ -62,19 +60,10 @@ while (1) {
         $coins[0] = 0 
     }
 
-    # smooth out the two halfsteps of the animation
-    #my $start-time;
-    #ENTER { $start-time = now }
-    #my $wait-time = now - $start-time;
-
-#   sleep 0.01 - $wait-time if $wait-time < 0.01;
-    #for (keys @coin_icons) x
-#    for (<0 1>) {
-#       sleep $wait-time max 0.1;
-        display_board(\@coins, \@stats, $_); # unless $active;
-        #sleep .1;
-#    }
-    
+    for (<0 1>) {
+        display_board(\@coins, \@stats, $_);
+        sleep .1;
+    }
     exit unless $active; 
 }
 
@@ -84,8 +73,7 @@ sub display_board {
     my @stats     = @$s_ref;
     my $coin      = $coin_icons[$halfstep];
 
-    # precompute a board (i.e. just once)
-    state @board_tmpl = do {
+    my @board = do {
         my @tmpl;
 
         sub out {
@@ -118,21 +106,20 @@ sub display_board {
         # make some space above the picture
         printnl("") for 0..9;
 
-        my @output_lines = @board_tmpl;
         # place the coins
         for my $line (0..$#positions) {
             my $pos = $positions[$line];
             next unless defined $pos;
-            $output_lines[$line][$pos + $midpos] = ord($coin);
+            $board[$line][$pos + $midpos] = ord($coin);
         }
         # output the board with its coins
-        for my $line (@output_lines) {
+        for my $line (@board) {
             printnl join '', map { chr($_) } @$line;
         }
 
         # show the statistics
         my $padding = 0;
-        if (any { $_ > 0 } @stats) {
+        while (any {$_> 0} @stats) {
             $padding++;
             printl "  ";
             for my $i (0..$#stats) {
@@ -152,10 +139,8 @@ sub display_board {
         printnl("") for $padding..(10-1);
     }
 
-#    say 's ' . join ' ', @stats;
-    #$DB::single = 1;
-    say join '', @output;# . "\n";
-    #print $fh join('', @output) . "\n";  # DH for final
+    #print join('', @output) . "\n";
+    print $fh join('', @output) . "\n";  # DH for final
 
 }
 
@@ -165,12 +150,3 @@ sub hits_peg {
         ? not 0 == ($x - $y) % 2
         : 0 
 }
-
-__END__
-
-=={{header|Perl}}==
-{{trans|Perl 6}}
-<lang perl></lang>
-{{out}}
-<pre style="height:35ex"></pre>
-[https://github.com/SqrtNegInf/Rosettacode-Perl5-Smoke/blob/master/ref/XXX XXX]
