@@ -1,5 +1,6 @@
 #!/usr/local/bin/perl
 #u# http://rosettacode.org/wiki/Musical_scale
+#t# skiptest
 #c# 2019-05-08 >RC
 #p# OK
 #f# RC file: scale.mid
