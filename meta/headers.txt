@@ -2646,7 +2646,7 @@ File: G/Galton_box_animation
 #u# http://rosettacode.org/wiki/Galton_box_animation
 #c# 2019-05-09 >RC
 #p# OK
-#i# RC cli: 4 10
+#i# RC cli: 4 10 
 #f# RC file: galton_box.dat
 
 File: G/Gamma_function
@@ -4245,6 +4245,7 @@ File: M/Munching_squares
 File: M/Musical_scale
 #!/usr/local/bin/perl
 #u# http://rosettacode.org/wiki/Musical_scale
+#t# skiptest
 #c# 2019-05-08 >RC
 #p# OK
 #f# RC file: scale.mid
@@ -6953,7 +6954,7 @@ File: T/Thiele%27s_interpolation_formula
 #!/usr/local/bin/perl
 #u# http://rosettacode.org/wiki/Thiele\'s_interpolation_formula
 #t# skiptest
-#c# 2019-03-31 >RC
+#c# 2019-04-17 >RC
 #p# OK
 #n#  made default table size 12, 'invcos' converges slowly
 
