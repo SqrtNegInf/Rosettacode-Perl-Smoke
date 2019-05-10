@@ -1,20 +1,19 @@
 #!/usr/local/bin/perl
 #u# http://rosettacode.org/wiki/Thiele\'s_interpolation_formula
 #t# skiptest
-#c# 2019-03-31 >RC
+#c# 2019-04-17 >RC
 #p# OK
 #n#  made default table size 12, 'invcos' converges slowly
 
+use Data::Printer;
+
+use strict;
 use warnings;
-use strict 'vars';
 use feature 'say';
 
-use Data::Printer;
 use Math::Trig;
 
 use constant pi => 2 * atan2(1, 0);
-
-# Implemented to parallel the (generalized) formula. (i.e. clearer, but naive and very slow.)
  
 # reciprocal difference:
 sub r {
