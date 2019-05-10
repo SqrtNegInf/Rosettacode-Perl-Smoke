@@ -1,9 +1,9 @@
 
 This is perl 5, version 28, subversion 2 (v5.28.2) built for darwin-thread-multi-2level
 updating from RC…
-+------------> Perl: Good/Bad [1140/12]
-|+-----------> Smoke testing [1009]
-||+----------> sKipping validation [138]
++------------> Perl: Good/Bad [1142/12]
+|+-----------> Smoke testing [1008]
+||+----------> sKipping validation [139]
 |||+---------> Interactive [49]
 ||||+--------> Touched (modified by me) [282]
 |||||+-------> Random seed [90]
@@ -11,7 +11,7 @@ updating from RC…
 |||||||+-----> Draft [227]
 ||||||||+----> Ignoring [34]
 |||||||||+---> Void (no local copy) [163]
-||||||||||+--> Un-implemented/reliable [153]
+||||||||||+--> Un-implemented/reliable [152]
 |||||||||||
 GS......... 100_doors-1
 GS......... 100_doors-2
@@ -479,7 +479,7 @@ GS..T...... Fusc_sequence
 G.KI....... GUI_Maximum_window_dimensions
 G.KIT.....U GUI_component_interaction
 .........VU GUI_enabling_disabling_of_controls
-!S..TRF...U Galton_box_animation
+GS..TRF.... Galton_box_animation
 GS......... Gamma_function
 GS..T..D... Gauss-Jordan_matrix_inversion
 GS......... Gaussian_elimination
@@ -753,7 +753,7 @@ GS......... Multiplicative_order
 GS......... Multisplit
 GS......... Munchausen_numbers
 GS....F.... Munching_squares
-GS..T.FD... Musical_scale
+G.K.T.FD... Musical_scale
 GS......... Mutual_recursion
 GS......... N%27th
 .......D.VU N-body_problem
@@ -987,7 +987,7 @@ GS..T...... Roman_numerals_Encode-4
 GS......... Roots_of_a_function
 GS......... Roots_of_a_quadratic_function
 GS......... Roots_of_unity
-!S..T...... Rosetta_Code_Count_examples
+GS..T...... Rosetta_Code_Count_examples
 GS..T...... Rosetta_Code_Find_bare_lang_tags
 GS..T...... Rosetta_Code_Find_unimplemented_tasks
 GS......... Rosetta_Code_Fix_code_tags
