@@ -1,34 +1,55 @@
 #!/usr/local/bin/perl
-#u# http://rosettacode.org/wiki/RC_REMOTE
-#t# skiptest
-#c# 2019-05-xx >RC
+#u# http://rosettacode.org/wiki/Make_a_backup_file
+#c# 2019-05-11 >RC
 #p# OK
-
-use Data::Printer;
+#r# RC prep: cp -p ref/not-in-kansas.txt run
+#f# RC file: not-in-kansas.txt.bk1
 
 use strict;
 use warnings;
-use feature 'say';
-#my $result;
-#my @res;
 
-# ~/perl6/Rosetta-Code/X/RC_LOCAL
+# Back up the given path/filename with a default extension .bk(n)
+# where n is in the range 1 - $limit (default 3).
+# Prints 'File not found' to STDERR if the file does not exist.
+# Will not do anything if limit is set to less than 1.
+# Will not follow symlinks by default.
+ 
+sub backup {
+    my($filepath,$limit,$ext) = @_;
+    my $abs = readlink $filepath // $filepath;
+    for my $bnum (reverse 1 .. $limit-1) {
+        rename "$abs$ext$bnum", "$abs$ext" . ++$bnum if -e "$abs$ext$bnum";
+    }
 
-# say $result; 
-# say my $result = join "\n", @res;
-my $ref = <<'EOD';
-EOD
+    if (-e $abs) {
+        if ($limit > 0) {
+            my $orig = $abs . $ext . '1';
+            rename $abs, $orig;
+            open(IN,  '<', $orig) or die "can't open $orig: $!";
+            open(OUT, '>', $abs) or die "can't open $abs: $!";
 
-use Test::More;
-#chomp $ref;
-#is($result, $ref);
-#done_testing();
+            my $blksize = (stat IN)[11] || 2**14;          # preferred block size?
+            my $buf;
+            while (my $len = sysread IN, $buf, $blksize) {
+                die "System read error: $!\n" if !defined $len;
+                my $offset = 0;
+                while ($len) {          # Handle partial writes.
+                    defined(my $written = syswrite OUT, $buf, $len, $offset)
+                        or die "System write error: $!\n";
+                    $len    -= $written;
+                    $offset += $written;
+                };
+            }
 
-__END__
-
-=={{header|Perl}}==
-{{trans|Perl 6}}
-<lang perl></lang>
-{{out}}
-<pre style="height:20ex"></pre>
-[https://github.com/SqrtNegInf/Rosettacode-Perl5-Smoke/blob/master/ref/XXX XXX]
+            close(IN);
+            close(OUT);
+        }
+    } else {
+        warn "File not found: $abs" and return 0;
+    }
+    $abs # return filepath on success
+}
+ 
+my $fn = 'not-in-kansas.txt';
+unlink "run/$fn.bk1" if  -e "run/$fn.bk1";
+backup("run/$fn",3,'.bk');
