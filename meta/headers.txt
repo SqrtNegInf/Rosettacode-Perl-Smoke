@@ -3908,6 +3908,13 @@ File: M/Main_step_of_GOST_28147-89
 #c# 2019-05-06 >RC
 #p# OK
 
+File: M/Make_a_backup_file
+#!/usr/local/bin/perl
+#u# http://rosettacode.org/wiki/RC_REMOTE
+#t# skiptest
+#c# 2019-05-xx >RC
+#p# OK
+
 File: M/Make_directory_path
 #!/usr/local/bin/perl
 #u# http://rosettacode.org/wiki/Make_directory_path
