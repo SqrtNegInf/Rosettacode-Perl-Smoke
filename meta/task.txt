@@ -1,17 +1,17 @@
 
 This is perl 5, version 28, subversion 2 (v5.28.2) built for darwin-thread-multi-2level
 updating from RC…
-+------------> Perl: Good/Bad [1142/12]
++------------> Perl: Good/Bad [1143/12]
 |+-----------> Smoke testing [1008]
-||+----------> sKipping validation [139]
+||+----------> sKipping validation [140]
 |||+---------> Interactive [49]
-||||+--------> Touched (modified by me) [282]
+||||+--------> Touched (modified by me) [283]
 |||||+-------> Random seed [90]
 ||||||+------> File output [61]
 |||||||+-----> Draft [227]
 ||||||||+----> Ignoring [34]
-|||||||||+---> Void (no local copy) [163]
-||||||||||+--> Un-implemented/reliable [152]
+|||||||||+---> Void (no local copy) [162]
+||||||||||+--> Un-implemented/reliable [151]
 |||||||||||
 GS......... 100_doors-1
 GS......... 100_doors-2
@@ -585,7 +585,7 @@ GS......... Integer_overflow
 GS..T...... Integer_roots-1
 GS......... Integer_roots-2
 G.KI....... Integer_sequence
-.......D.VU Interactive_Help
+.......D.V. Interactive_Help
 GS......... Interactive_programming
 GS..T...... Introspection
 GS......... Inverted_index
@@ -693,7 +693,7 @@ G.K........ Magic_squares_of_doubly_even_order
 G.K........ Magic_squares_of_odd_order
 G.K........ Magic_squares_of_singly_even_order
 GS..T...... Main_step_of_GOST_28147-89
-.......D.VU Make_a_backup_file
+G.K.T..D..U Make_a_backup_file
 GS......... Make_directory_path
 GS......... Man_or_boy_test
 GS......... Mandelbrot_set
