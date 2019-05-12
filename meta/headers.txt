@@ -3910,10 +3910,11 @@ File: M/Main_step_of_GOST_28147-89
 
 File: M/Make_a_backup_file
 #!/usr/local/bin/perl
-#u# http://rosettacode.org/wiki/RC_REMOTE
-#t# skiptest
-#c# 2019-05-xx >RC
+#u# http://rosettacode.org/wiki/Make_a_backup_file
+#c# 2019-05-11 >RC
 #p# OK
+#r# RC prep: cp -p ref/not-in-kansas.txt run
+#f# RC file: not-in-kansas.txt.bk1
 
 File: M/Make_directory_path
 #!/usr/local/bin/perl
@@ -4124,6 +4125,12 @@ File: M/Modular_inverse
 #!/usr/local/bin/perl
 #u# http://rosettacode.org/wiki/Modular_inverse
 #c# 2018-08-18 <RC
+#p# OK
+
+File: M/Monads_List_monad
+#!/usr/local/bin/perl
+#u# http://rosettacode.org/wiki/Monads/List_monad
+#c# 2019-05-11 <RC
 #p# OK
 
 File: M/Monte_Carlo_methods
