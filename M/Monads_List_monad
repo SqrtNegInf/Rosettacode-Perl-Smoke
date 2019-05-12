@@ -1,0 +1,57 @@
+#!/usr/local/bin/perl
+#u# http://rosettacode.org/wiki/Monads/List_monad
+#c# 2019-05-11 <RC
+#p# OK
+
+use strict;
+#use warnings;
+use feature 'say';
+my @res;
+
+use Data::Monad::List;
+
+# Cartesian product to 'count' in binary
+my @cartesian = [(
+    list_flat_map_multi { scalar_list(join '', @_) }
+        scalar_list(0..1),
+        scalar_list(0..1),
+        scalar_list(0..1)
+)->scalars];
+push @res, join "\n", @{shift @cartesian};
+
+push @res, '';
+
+# Pythagorean triples
+my @triples = [(
+    list_flat_map_multi { scalar_list(
+            { $_[0] < $_[1] && $_[0]**2+$_[1]**2 == $_[2]**2 ? join(',',@_) : () }
+        ) }
+        scalar_list(1..10),
+        scalar_list(1..10),
+        scalar_list(1..10)
+)->scalars];
+
+for (@{shift @triples}) {
+    push @res, keys %$_ if keys %$_;
+}
+
+say my $result = join "\n", @res;
+
+my $ref = <<'EOD';
+000
+001
+010
+011
+100
+101
+110
+111
+
+3,4,5
+6,8,10
+EOD
+
+use Test::More;
+chomp $ref;
+is ($result, $ref);
+done_testing();
