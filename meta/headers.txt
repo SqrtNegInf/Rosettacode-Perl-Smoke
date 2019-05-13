@@ -5274,10 +5274,11 @@ File: R/Ramanujan%27s_constant
 
 File: R/Ramanujan%27s_constant-2
 #!/usr/local/bin/perl
-#t# skiptest
 #u# http://rosettacode.org/wiki/Ramanujan%27s_constant
-#c# 2019-04-27 >RC
 #p# OK
+#n# current limits depend on built-in π value
+#n# not on RC
+#n# using 'rat 19' promotes all further values to rational
 
 File: R/Ramer-Douglas-Peucker_line_simplification
 #!/usr/local/bin/perl
