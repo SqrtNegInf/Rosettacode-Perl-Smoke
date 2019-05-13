@@ -1,34 +1,39 @@
 #!/usr/local/bin/perl
-#t# skiptest
 #u# http://rosettacode.org/wiki/Ramanujan%27s_constant
-#c# 2019-04-27 >RC
 #p# OK
+#n# current limits depend on built-in π value
+#n# not on RC
+#n# using 'rat 19' promotes all further values to rational
 
 use strict;
 #use warnings;
 use feature 'say';
 my $result;
 
-#use Math::AnyNum;
+use Math::AnyNum qw(:all);
+local $Math::AnyNum::PREC = 248;
 
 sub continued_fraction {
     my ($a, $b, $n) = (@_[0,1], $_[2] // 100);
-
     $a->() + ($n && $b->() / continued_fraction($a, $b, $n-1));
 }
 
-printf "π   ≈ %.9f\n", continued_fraction do { my $n; sub { $n++ ? 6 : 3 } }, do { my $n; sub { (2*$n++ + 1)**2 } }, 1_000;
+#my $pi = continued_fraction do { my $n; sub { $n++ ? 2 : 1 } }, do { my $n; sub { rat (1+2*$n++)**2 } }, 100;
+#say ' cπ = ' . as_dec((4*(1/$pi)),40);
+#say ' rπ = ' . as_dec(pi,40);
+#exit;
 
-# my $r163 =           continued-fraction( 50, :a(12,|((2*12) xx *)),      :b(19 xx *));
-# my $pi   =         4*continued-fraction(140, :a( 0,|(1, 3 ... *)),       :b(4, 1, |((1, 2, 3 ... *) X** 2)));
-# my $R    = 1 + ($_ / continued-fraction(170, :a( 1,|(2+$_, 3+$_ ... *)), :b(Nil,  |(-1*$_, -2*$_ ... *)  ))) given $r163*$pi;
-#say my $result = $R.precise(32);
-exit;
+my$r163 = rat(continued_fraction do { my $n; sub { $n++ ? 2*12 : 12 } }, do { my $n; sub { rat 19 } }, 40);
+#say '  r = ' . as_dec($r163,40);
+my $pi   =   rat(continued_fraction do { my $n; sub { rat $n++ ? 1 + 2*($n-2) : 0 } }, do { my $n; sub { $n++ ? (rat $n>2 ? ($n-2)**2 : 1) : rat 4 } }, 100);
+#`{ π/4  } my $pi   =       4 * continued-fraction(140, :a( 0,|(1, 3 ... *)),       :b(4, 1, |((1, 2, 3 ... *) X** 2)));
+say ' cπ = ' . as_dec($pi,40); 
+say '  π = ' . as_dec(pi,40); exit;
+my $p    = pi * $r163;
+my $R = Math::AnyNum->new( 1+$p/(continued_fraction do { my $n; sub { $n++ ? $p+($n+0) : 1 } }, do { my $n; sub { $n++; -1*$n*$p } }, 180));
+say my $result = as_dec($R,58);
 
-my $ref = <<'EOD';
-Ramanujan's constant to 100 decimals:
-262537412640768743.9999999999992500725971981856888793538563373369908627075374103782106479101186073129511813461860645042
-EOD
+my $ref = '262537412640768743.9999999999992500725971981856888793538563';
 
 use Test::More;
 is ($result, $ref);
