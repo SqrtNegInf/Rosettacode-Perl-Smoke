@@ -1,11 +1,11 @@
 
 This is perl 5, version 28, subversion 2 (v5.28.2) built for darwin-thread-multi-2level
 updating from RC…
-+------------> Perl: Good/Bad [1144/12]
-|+-----------> Smoke testing [1010]
-||+----------> sKipping validation [139]
++------------> Perl: Good/Bad [1142/12]
+|+-----------> Smoke testing [1011]
+||+----------> sKipping validation [138]
 |||+---------> Interactive [49]
-||||+--------> Touched (modified by me) [283]
+||||+--------> Touched (modified by me) [282]
 |||||+-------> Random seed [90]
 ||||||+------> File output [62]
 |||||||+-----> Draft [227]
@@ -930,7 +930,7 @@ GS..TR..... RPG_Attributes_Generator
 GS..T...... RSA_code
 .......D.VU Railway_circuit
 GS.....D... Ramanujan%27s_constant
-G.K.T...... Ramanujan%27s_constant-2
+GS......... Ramanujan%27s_constant-2
 GS..T...... Ramer-Douglas-Peucker_line_simplification
 GS..T..D... Ramsey%27s_theorem
 G.K........ Random_number_generator_device
@@ -987,13 +987,13 @@ GS..T...... Roman_numerals_Encode-4
 GS......... Roots_of_a_function
 GS......... Roots_of_a_quadratic_function
 GS......... Roots_of_unity
-GS..T...... Rosetta_Code_Count_examples
+!S..T...... Rosetta_Code_Count_examples
 GS..T...... Rosetta_Code_Find_bare_lang_tags
 GS..T...... Rosetta_Code_Find_unimplemented_tasks
 GS......... Rosetta_Code_Fix_code_tags
 .......D.VU Rosetta_Code_List_authors_of_task_descriptions
 GS..T..D... Rosetta_Code_Rank_languages_by_number_of_users
-GS......... Rosetta_Code_Rank_languages_by_popularity
+!S......... Rosetta_Code_Rank_languages_by_popularity
 .......D.VU Rosetta_Code_Run_examples
 .......D.VU Rosetta_Code_Tasks_sorted_by_average_lines_of_code
 GS..T..D... Rosetta_Code_Tasks_without_examples
