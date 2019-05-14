@@ -1,16 +1,16 @@
 
 This is perl 5, version 28, subversion 2 (v5.28.2) built for darwin-thread-multi-2level
 updating from RC…
-+------------> Perl: Good/Bad [1142/12]
++------------> Perl: Good/Bad [1144/12]
 |+-----------> Smoke testing [1011]
-||+----------> sKipping validation [138]
+||+----------> sKipping validation [139]
 |||+---------> Interactive [49]
 ||||+--------> Touched (modified by me) [282]
 |||||+-------> Random seed [90]
 ||||||+------> File output [62]
-|||||||+-----> Draft [227]
+|||||||+-----> Draft [226]
 ||||||||+----> Ignoring [34]
-|||||||||+---> Void (no local copy) [161]
+|||||||||+---> Void (no local copy) [160]
 ||||||||||+--> Un-implemented/reliable [150]
 |||||||||||
 GS......... 100_doors-1
@@ -215,7 +215,7 @@ GS..T..D... Cheryl%27s_Birthday
 GS..T...... Chinese_remainder_theorem
 GS......... Chinese_zodiac
 GS......... Cholesky_decomposition
-GS..T..D... Chowla_numbers
+GS..T...... Chowla_numbers
 GS......... Church_Numerals
 .......D... Cipolla%27s_algorithm
 GS..T...... Cipolla%27s_algorithm-1
@@ -431,7 +431,7 @@ GS......... File_modification_time
 GS......... File_size
 GS..T..D... File_size_distribution
 GS......... Filter
-B.K.T..D..U Find_URI_in_text
+B.K....D..U Find_URI_in_text
 GS..T...... Find_common_directory_path
 GS..T..D... Find_duplicate_files
 GS.....D... Find_first_and_last_set_bit_of_a_long_integer
@@ -600,7 +600,7 @@ GS......... Josephus_problem
 .........VU Joystick_position
 GS....F.... Julia_set
 GS......... Jump_anywhere
-.......D.VU Just_in_time_processing_on_a_character_stream
+G.K.T..D..U Just_in_time_processing_on_a_character_stream
 .........VU K-d_tree
 .........VU K-means%2B%2B_clustering
 .......D.VU Kahan_summation
@@ -987,7 +987,7 @@ GS..T...... Roman_numerals_Encode-4
 GS......... Roots_of_a_function
 GS......... Roots_of_a_quadratic_function
 GS......... Roots_of_unity
-!S..T...... Rosetta_Code_Count_examples
+GS..T...... Rosetta_Code_Count_examples
 GS..T...... Rosetta_Code_Find_bare_lang_tags
 GS..T...... Rosetta_Code_Find_unimplemented_tasks
 GS......... Rosetta_Code_Fix_code_tags
