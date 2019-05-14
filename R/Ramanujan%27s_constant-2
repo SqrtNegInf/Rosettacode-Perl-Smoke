@@ -25,10 +25,10 @@ sub continued_fraction {
 
 my$r163 = rat(continued_fraction do { my $n; sub { $n++ ? 2*12 : 12 } }, do { my $n; sub { rat 19 } }, 40);
 #say '  r = ' . as_dec($r163,40);
-my $pi   =   rat(continued_fraction do { my $n; sub { rat $n++ ? 1 + 2*($n-2) : 0 } }, do { my $n; sub { $n++ ? (rat $n>2 ? ($n-2)**2 : 1) : rat 4 } }, 100);
+#my $pi   = 4*rat(continued_fraction do { my $n; sub { rat $n++ ? 1 + 2*($n-2) : 0 } }, do { my $n; sub { say $n++ ? (rat $n>2 ? ($n-2)**2 : 1) : rat 4 } }, 100);
 #`{ π/4  } my $pi   =       4 * continued-fraction(140, :a( 0,|(1, 3 ... *)),       :b(4, 1, |((1, 2, 3 ... *) X** 2)));
-say ' cπ = ' . as_dec($pi,40); 
-say '  π = ' . as_dec(pi,40); exit;
+#say ' cπ = ' . as_dec($pi,40); 
+#say '  π = ' . as_dec(pi,40); exit;
 my $p    = pi * $r163;
 my $R = Math::AnyNum->new( 1+$p/(continued_fraction do { my $n; sub { $n++ ? $p+($n+0) : 1 } }, do { my $n; sub { $n++; -1*$n*$p } }, 180));
 say my $result = as_dec($R,58);
