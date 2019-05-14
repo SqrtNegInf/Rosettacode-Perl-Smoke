@@ -2351,7 +2351,6 @@ File: F/Find_URI_in_text
 #!/usr/local/bin/perl
 #u# http://rosettacode.org/wiki/Find_URI_in_text
 #t# skiptest
-#c# 2019-02-11 >RC
 #p# BROKEN
 
 File: F/Find_common_directory_path
@@ -3324,6 +3323,13 @@ File: J/Jump_anywhere
 #!/usr/local/bin/perl
 #u# http://rosettacode.org/wiki/Jump_anywhere
 #c# 2018-08-14 <RC
+#p# OK
+
+File: J/Just_in_time_processing_on_a_character_stream
+#!/usr/local/bin/perl
+#u# http://rosettacode.org/wiki/RC_REMOTE
+#t# skiptest
+#c# 2019-05-xx >RC
 #p# OK
 
 File: K/Kaprekar_numbers-1
