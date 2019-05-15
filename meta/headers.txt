@@ -2350,7 +2350,6 @@ File: F/Filter
 File: F/Find_URI_in_text
 #!/usr/local/bin/perl
 #u# http://rosettacode.org/wiki/Find_URI_in_text
-#t# skiptest
 #p# BROKEN
 
 File: F/Find_common_directory_path
@@ -5284,7 +5283,7 @@ File: R/Ramanujan%27s_constant-2
 #p# OK
 #n# current limits depend on built-in π value
 #n# not on RC
-#n# using 'rat 19' promotes all further values to rational
+#n# using 'rat' on 2nd arg to func. promotes all further values to rational
 
 File: R/Ramer-Douglas-Peucker_line_simplification
 #!/usr/local/bin/perl
