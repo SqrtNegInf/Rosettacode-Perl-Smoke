@@ -1,26 +1,25 @@
 #!/usr/local/bin/perl
 #u# http://rosettacode.org/wiki/Ramanujan%27s_constant
+#c# 2019-05-14 >RC
 #p# OK
-#n# current limits depend on built-in π value
-#n# not on RC
-#n# using 'rat' on 2nd arg to func. promotes all further values to rational
+#n# using 'rat' on 2nd arg to func. promotes all further values to rational (for $r163 and $pi)
 
 use strict;
 #use warnings; # deep recursion is to be expected
 use feature 'say';
 
-use Math::AnyNum qw(:all);
-#local $Math::AnyNum::PREC = 100;
+use Math::AnyNum <as_dec rat>;
 
 sub continued_fraction {
     my ($a, $b, $n) = (@_[0,1], $_[2] // 100);
     $a->() + ($n && $b->() / continued_fraction($a, $b, $n-1));
 }
 
-my$r163 = rat(continued_fraction do { my $n; sub { $n++ ? 2*12 : 12 } }, do { my $n; sub { rat 19 } }, 40);
-my $pi  = rat(continued_fraction do { my $n; sub { $n++ ? 1 + 2*($n-2) : 0 } }, do { my $n; sub { $n++ ? ($n>2 ? rat ($n-1)**2 : rat 1) : rat 4 } }, 140);
-my $p   = $pi * $r163;
-my $R = Math::AnyNum->new( 1+$p/(continued_fraction do { my $n; sub { $n++ ? $p+($n+0) : 1 } }, do { my $n; sub { $n++; -1*$n*$p } }, 180));
+my $r163 = continued_fraction do {my $n; sub {$n++ ? 2*12 : 12 }},        do {my $n; sub { rat 19 }}, 40;
+my $pi   = continued_fraction do {my $n; sub {$n++ ? 1 + 2*($n-2) : 0 }}, do {my $n; sub { rat($n++ ? ($n>2 ? ($n-1)**2 : 1) : 4)}}, 140;
+my $p    = $pi * $r163;
+my $R    = 1 + $p / continued_fraction do { my $n; sub { $n++ ? $p+($n+0) : 1 } }, do {my $n; sub { $n++; -1*$n*$p }}, 180;
+
 say my $result = as_dec($R,58);
 
 my $ref = '262537412640768743.9999999999992500725971981856888793538563';
