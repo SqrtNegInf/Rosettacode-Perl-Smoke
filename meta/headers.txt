@@ -3326,9 +3326,8 @@ File: J/Jump_anywhere
 
 File: J/Just_in_time_processing_on_a_character_stream
 #!/usr/local/bin/perl
-#u# http://rosettacode.org/wiki/RC_REMOTE
-#t# skiptest
-#c# 2019-05-xx >RC
+#u# http://rosettacode.org/wiki/Just_in_time_processing_on_a_character_stream
+#c# 2019-05-15 >RC
 #p# OK
 
 File: K/Kaprekar_numbers-1
@@ -4399,8 +4398,9 @@ File: N/Non-decimal_radices_Output
 File: N/Nonoblock
 #!/usr/local/bin/perl
 #u# http://rosettacode.org/wiki/Nonoblock
-#c# 2019-04-03 <RC
+#c# 2019-04-03 <RC, 2019-05-15 >RC
 #p# OK
+#n# just minor fiddling
 
 File: N/Nonogram_solver
 #!/usr/local/bin/perl
@@ -5280,10 +5280,9 @@ File: R/Ramanujan%27s_constant
 File: R/Ramanujan%27s_constant-2
 #!/usr/local/bin/perl
 #u# http://rosettacode.org/wiki/Ramanujan%27s_constant
+#c# 2019-05-14 >RC
 #p# OK
-#n# current limits depend on built-in π value
-#n# not on RC
-#n# using 'rat' on 2nd arg to func. promotes all further values to rational
+#n# using 'rat' on 2nd arg to func. promotes all further values to rational (for $r163 and $pi)
 
 File: R/Ramer-Douglas-Peucker_line_simplification
 #!/usr/local/bin/perl
