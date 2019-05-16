@@ -1,17 +1,17 @@
 
 This is perl 5, version 28, subversion 2 (v5.28.2) built for darwin-thread-multi-2level
 updating from RC…
-+------------> Perl: Good/Bad [1144/12]
-|+-----------> Smoke testing [1011]
-||+----------> sKipping validation [138]
++------------> Perl: Good/Bad [1145/12]
+|+-----------> Smoke testing [1012]
+||+----------> sKipping validation [137]
 |||+---------> Interactive [49]
-||||+--------> Touched (modified by me) [282]
+||||+--------> Touched (modified by me) [284]
 |||||+-------> Random seed [90]
 ||||||+------> File output [62]
 |||||||+-----> Draft [226]
 ||||||||+----> Ignoring [34]
 |||||||||+---> Void (no local copy) [160]
-||||||||||+--> Un-implemented/reliable [150]
+||||||||||+--> Un-implemented/reliable [149]
 |||||||||||
 GS......... 100_doors-1
 GS......... 100_doors-2
@@ -600,7 +600,7 @@ GS......... Josephus_problem
 .........VU Joystick_position
 GS....F.... Julia_set
 GS......... Jump_anywhere
-G.K.T..D..U Just_in_time_processing_on_a_character_stream
+GS..T..D... Just_in_time_processing_on_a_character_stream
 .........VU K-d_tree
 .........VU K-means%2B%2B_clustering
 .......D.VU Kahan_summation
@@ -776,7 +776,7 @@ GS......... Non-continuous_subsequences
 GS......... Non-decimal_radices_Convert
 GS......... Non-decimal_radices_Input
 GS......... Non-decimal_radices_Output
-GS......... Nonoblock
+GS..T...... Nonoblock
 GS......... Nonogram_solver
 GS......... Nth_root
 GS......... Null_object
@@ -930,7 +930,7 @@ GS..TR..... RPG_Attributes_Generator
 GS..T...... RSA_code
 .......D.VU Railway_circuit
 GS.....D... Ramanujan%27s_constant
-GS......... Ramanujan%27s_constant-2
+GS..T...... Ramanujan%27s_constant-2
 GS..T...... Ramer-Douglas-Peucker_line_simplification
 GS..T..D... Ramsey%27s_theorem
 G.K........ Random_number_generator_device
@@ -1227,7 +1227,7 @@ G.K.T.....U Thiele%27s_interpolation_formula
 GS......... Thue-Morse
 GS...R..... Tic-tac-toe
 .......D.VU Time-based_One-time_Password_Algorithm
-!S......... Time_a_function
+GS......... Time_a_function
 GS......... Tokenize_a_string
 GS......... Tokenize_a_string_with_escaping
 GS..T..D... Tonelli-Shanks_algorithm
