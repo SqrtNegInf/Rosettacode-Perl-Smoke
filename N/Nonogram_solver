@@ -2,16 +2,18 @@
 #u# http://rosettacode.org/wiki/Nonogram_solver
 #c# 2019-04-02 <RC
 #p# OK
+#n# move external file to DATA handle
 
 use strict;
 use warnings;
 use feature 'say';
 my @res;
 
-while(<DATA>) {
-  /\S/ or next;
-  my @rpats = makepatterns(split ' ', $_);
-  my @cpats = makepatterns(split ' ', <DATA>);
+while(my $row = <DATA>) {
+  $row =~ /\S/ or next;
+  my $column = <DATA>;
+  my @rpats = makepatterns($row);
+  my @cpats = makepatterns($column);
   my @rows = ( '.' x @cpats ) x @rpats;
   for( my $prev = ''; $prev ne "@rows"; ) {
     $prev = "@rows";
@@ -37,8 +39,15 @@ sub try {
 }
 
 sub makepatterns {
-  map qr/^$_$/, map { '[0.]*' . join('[0.]+', map { "[1.]{$_}" }
-    map -64+ord, split //) . '[0.]*' } @_;
+    map { qr/^$_$/                          # convert strings to regex
+        } map {  '[0.]*'                    # prepend static pattern
+               . join('[0.]+',              # join with static pattern
+                       map { "[1.]{$_}"     # require to match exactly 'n' times
+                           } map { -64+ord  # convert letter value to repetition count 'n'
+                                 } split // # for each letter in group
+                     )
+               . '[0.]*'                    # append static pattern
+              } split ' ', shift;           # for each letter grouping
 }
 
 my $result = join '', @res;
