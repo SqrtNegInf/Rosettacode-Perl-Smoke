@@ -133,8 +133,9 @@ File: A/Abbreviations,_simple
 File: A/Abundant,_deficient_and_perfect_number_classifications
 #!/usr/local/bin/perl
 #u# http://rosettacode.org/wiki/Abundant,_deficient_and_perfect_number_classifications
-#c# 2018-07-07 <RC
+#c# 2018-07-07 <RC, 2019-05-16 >RC
 #p# OK
+#n# 
 
 File: A/Accumulator_factory
 #!/usr/local/bin/perl
@@ -4364,6 +4365,12 @@ File: N/Nested_templated_data
 #c# 2018-10-02 >RC
 #p# OK
 
+File: N/Nice_numbers
+#!/usr/local/bin/perl
+#u# http://rosettacode.org/wiki/Nice_numbers
+#c# 2019-05-xx >RC
+#p# OK
+
 File: N/Nim_Game
 #!/usr/local/bin/perl
 #u# http://rosettacode.org/wiki/Nim_Game
@@ -4407,6 +4414,7 @@ File: N/Nonogram_solver
 #u# http://rosettacode.org/wiki/Nonogram_solver
 #c# 2019-04-02 <RC
 #p# OK
+#n# move external file to DATA handle
 
 File: N/Nth_root
 #!/usr/local/bin/perl
