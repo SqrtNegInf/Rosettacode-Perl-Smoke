@@ -1,7 +1,8 @@
 #!/usr/local/bin/perl
 #u# http://rosettacode.org/wiki/Abundant,_deficient_and_perfect_number_classifications
-#c# 2018-07-07 <RC
+#c# 2018-07-07 <RC, 2019-05-16 >RC
 #p# OK
+#n# 
 
 use strict;
 use warnings;
@@ -9,20 +10,40 @@ use feature 'say';
 
 use ntheory qw/divisor_sum/;
 
+# Without the module
+
+sub div_sum {
+    my($n) = @_;
+    my $sum = 0;
+    map { $sum += $_ unless $n % $_ } 1 .. $n-1;
+    $sum;
+}
+
+say my $result1a = join " ", map { div_sum($_) <=> $_ } 1..30;
+
+# a tad slow, because the div_sum routine is not optimized in any fashion
+my %h1;
+$h1{div_sum($_) <=> $_}++ for 1..10000;
+say my $result1b = "Perfect: $h1{0}    Deficient: $h1{-1}    Abundant: $h1{1}";
+
+# With the module
+
 #We can use the <=> operator to return a comparison of -1, 0, or 1, which classifies the results. Let's look at the values from 1 to 30:
-say my $result1 = join " ", map { divisor_sum($_)-$_ <=> $_ } 1..30;
+say my $result2a = join " ", map { divisor_sum($_)-$_ <=> $_ } 1..30;
 
 # We can see 6 is the first perfect number, 12 is the first abundant number, and 1 is classified as a deficient number.
 # Showing the totals for the first 20k numbers:
 
-my %h;
-$h{divisor_sum($_)-$_ <=> $_}++ for 1..20000;
-say my $result2 = "Perfect: $h{0}    Deficient: $h{-1}    Abundant: $h{1}";
+my %h2;
+$h2{divisor_sum($_)-$_ <=> $_}++ for 1..20000;
+say my $result2b = "Perfect: $h2{0}    Deficient: $h2{-1}    Abundant: $h2{1}";
 
 my $ref = <<EOD;
 EOD
 
 use Test::More;
-is ($result1, '-1 -1 -1 -1 -1 0 -1 -1 -1 -1 -1 1 -1 -1 -1 -1 -1 1 -1 1 -1 -1 -1 1 -1 -1 -1 0 -1 1');
-is ($result2, 'Perfect: 4    Deficient: 15043    Abundant: 4953');
+is ($result1a, '-1 -1 -1 -1 -1 0 -1 -1 -1 -1 -1 1 -1 -1 -1 -1 -1 1 -1 1 -1 -1 -1 1 -1 -1 -1 0 -1 1');
+is ($result1b, 'Perfect: 4    Deficient: 7508    Abundant: 2488');
+is ($result2a, '-1 -1 -1 -1 -1 0 -1 -1 -1 -1 -1 1 -1 -1 -1 -1 -1 1 -1 1 -1 -1 -1 1 -1 -1 -1 0 -1 1');
+is ($result2b, 'Perfect: 4    Deficient: 15043    Abundant: 4953');
 done_testing();
