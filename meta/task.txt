@@ -1,17 +1,17 @@
 
 This is perl 5, version 28, subversion 2 (v5.28.2) built for darwin-thread-multi-2level
 updating from RC…
-+------------> Perl: Good/Bad [1145/12]
-|+-----------> Smoke testing [1012]
++------------> Perl: Good/Bad [1146/12]
+|+-----------> Smoke testing [1013]
 ||+----------> sKipping validation [137]
 |||+---------> Interactive [49]
-||||+--------> Touched (modified by me) [284]
+||||+--------> Touched (modified by me) [286]
 |||||+-------> Random seed [90]
 ||||||+------> File output [62]
-|||||||+-----> Draft [226]
+|||||||+-----> Draft [227]
 ||||||||+----> Ignoring [34]
 |||||||||+---> Void (no local copy) [160]
-||||||||||+--> Un-implemented/reliable [149]
+||||||||||+--> Un-implemented/reliable [150]
 |||||||||||
 GS......... 100_doors-1
 GS......... 100_doors-2
@@ -42,7 +42,7 @@ GS..T...... Abbreviations,_automatic
 GS..T...... Abbreviations,_easy
 GS..T...... Abbreviations,_simple
 ........XV. Abstract_type
-GS......... Abundant,_deficient_and_perfect_number_classifications
+GS..T...... Abundant,_deficient_and_perfect_number_classifications
 GS..T...... Accumulator_factory
 GS......... Ackermann_function-1
 GS......... Ackermann_function-2
@@ -771,6 +771,7 @@ GS......... Nautical_bell-2
 GS..T...... Negative_base_numbers
 GS......... Nested_function
 GS..T...... Nested_templated_data
+GS..T..D..U Nice_numbers
 GS..T...... Nim_Game
 GS......... Non-continuous_subsequences
 GS......... Non-decimal_radices_Convert
