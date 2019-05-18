@@ -19,7 +19,8 @@ sub div_sum {
     $sum;
 }
 
-say my $result1a = join " ", map { div_sum($_) <=> $_ } 1..30;
+my @type = <Perfect Abundant Deficient>;
+say my $result1a = join "\n", map { sprintf "%2d %s", $_, $type[div_sum($_) <=> $_] } 1..12;
 
 # a tad slow, because the div_sum routine is not optimized in any fashion
 my %h1;
@@ -29,7 +30,7 @@ say my $result1b = "Perfect: $h1{0}    Deficient: $h1{-1}    Abundant: $h1{1}";
 # With the module
 
 #We can use the <=> operator to return a comparison of -1, 0, or 1, which classifies the results. Let's look at the values from 1 to 30:
-say my $result2a = join " ", map { divisor_sum($_)-$_ <=> $_ } 1..30;
+my $result2a = join "\n", map { sprintf "%2d %s", $_, $type[divisor_sum($_)-$_ <=> $_] } 1..12;
 
 # We can see 6 is the first perfect number, 12 is the first abundant number, and 1 is classified as a deficient number.
 # Showing the totals for the first 20k numbers:
@@ -39,11 +40,24 @@ $h2{divisor_sum($_)-$_ <=> $_}++ for 1..20000;
 say my $result2b = "Perfect: $h2{0}    Deficient: $h2{-1}    Abundant: $h2{1}";
 
 my $ref = <<EOD;
+ 1 Deficient
+ 2 Deficient
+ 3 Deficient
+ 4 Deficient
+ 5 Deficient
+ 6 Perfect
+ 7 Deficient
+ 8 Deficient
+ 9 Deficient
+10 Deficient
+11 Deficient
+12 Abundant
 EOD
 
 use Test::More;
-is ($result1a, '-1 -1 -1 -1 -1 0 -1 -1 -1 -1 -1 1 -1 -1 -1 -1 -1 1 -1 1 -1 -1 -1 1 -1 -1 -1 0 -1 1');
+chomp $ref;
+is ($result1a, $ref);
 is ($result1b, 'Perfect: 4    Deficient: 7508    Abundant: 2488');
-is ($result2a, '-1 -1 -1 -1 -1 0 -1 -1 -1 -1 -1 1 -1 -1 -1 -1 -1 1 -1 1 -1 -1 -1 1 -1 -1 -1 0 -1 1');
+is ($result2a, $ref);
 is ($result2b, 'Perfect: 4    Deficient: 15043    Abundant: 4953');
 done_testing();
