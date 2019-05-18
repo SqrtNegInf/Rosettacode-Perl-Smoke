@@ -137,6 +137,13 @@ File: A/Abundant,_deficient_and_perfect_number_classifications
 #p# OK
 #n# 
 
+File: A/Abundant_odd_numbers
+#!/usr/local/bin/perl
+#u# http://rosettacode.org/wiki/Abundant_odd_numbers
+#c# 2019-05-xx 
+#p# BROKEN
+#n# task shifted...
+
 File: A/Accumulator_factory
 #!/usr/local/bin/perl
 #u# http://rosettacode.org/wiki/Accumulator_factory
@@ -4363,12 +4370,6 @@ File: N/Nested_templated_data
 #!/usr/local/bin/perl
 #u# http://rosettacode.org/wiki/Nested_templated_data
 #c# 2018-10-02 >RC
-#p# OK
-
-File: N/Nice_numbers
-#!/usr/local/bin/perl
-#u# http://rosettacode.org/wiki/Nice_numbers
-#c# 2019-05-xx >RC
 #p# OK
 
 File: N/Nim_Game
