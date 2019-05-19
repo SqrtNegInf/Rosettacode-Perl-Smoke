@@ -22,7 +22,8 @@ sub Euler92 {
 
 sub sum {
    my $sum;
-   $sum += shift while @_;
+   #$sum += shift while @_;
+   $sum += $_ for @_; # DH a shade faster?
    $sum;
 }
 
