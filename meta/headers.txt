@@ -133,16 +133,14 @@ File: A/Abbreviations,_simple
 File: A/Abundant,_deficient_and_perfect_number_classifications
 #!/usr/local/bin/perl
 #u# http://rosettacode.org/wiki/Abundant,_deficient_and_perfect_number_classifications
-#c# 2018-07-07 <RC, 2019-05-16 >RC
+#c# 2018-07-07 <RC, 2019-05-18 >RC
 #p# OK
-#n# 
 
 File: A/Abundant_odd_numbers
 #!/usr/local/bin/perl
 #u# http://rosettacode.org/wiki/Abundant_odd_numbers
-#c# 2019-05-xx 
-#p# BROKEN
-#n# task shifted...
+#c# 2019-05-19 >RC
+#p# OK
 
 File: A/Accumulator_factory
 #!/usr/local/bin/perl
