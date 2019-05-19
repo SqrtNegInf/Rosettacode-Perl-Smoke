@@ -1,8 +1,7 @@
 #!/usr/local/bin/perl
 #u# http://rosettacode.org/wiki/Abundant,_deficient_and_perfect_number_classifications
-#c# 2018-07-07 <RC, 2019-05-16 >RC
+#c# 2018-07-07 <RC, 2019-05-18 >RC
 #p# OK
-#n# 
 
 use strict;
 use warnings;
