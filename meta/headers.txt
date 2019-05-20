@@ -2776,12 +2776,14 @@ File: G/Greatest_subsequential_sum-1
 #u# http://rosettacode.org/wiki/Greatest_subsequential_sum
 #c# 2018-08-11 <RC
 #p# OK
+#n# noodling, not worth RC update
 
 File: G/Greatest_subsequential_sum-2
 #!/usr/local/bin/perl
 #u# http://rosettacode.org/wiki/Greatest_subsequential_sum
 #c# 2018-08-11 <RC
 #p# OK
+#n# noodling, not worth RC update
 
 File: G/Greyscale_bars_Display
 #!/usr/local/bin/perl
