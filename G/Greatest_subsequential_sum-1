@@ -2,26 +2,31 @@
 #u# http://rosettacode.org/wiki/Greatest_subsequential_sum
 #c# 2018-08-11 <RC
 #p# OK
+#n# noodling, not worth RC update
 
 srand 123456;
 
+use strict;
+use warnings;
 use feature 'say';
 my $result;
 
-use strict;
-
 sub max_sub(\@) {
-	my ($a, $maxs, $maxe, $s, $sum, $maxsum) = shift;
-	foreach (0 .. $#$a) {
-		my $t = $sum + $a->[$_];
-		($s, $sum) = $t > 0 ? ($s, $t) : ($_ + 1, 0);
+    my ($a, $maxs, $maxe, $s, $sum, $maxsum) = shift;
+    $maxs   //= 0;
+    $maxe   //= 0;
+    $sum    //= 0;
+    $maxsum //= 0;
+    for (0 .. $#$a) {
+        my $t = $sum + $a->[$_];
+        ($s, $sum) = $t > 0 ? ($s, $t) : ($_ + 1, 0);
 
-		if ($maxsum < $sum) {
-			$maxsum = $sum;
-			($maxs, $maxe) = ($s, $_ + 1)
-		}
-	}
-	@$a[$maxs .. $maxe - 1]
+        if ($maxsum < $sum) {
+            $maxsum = $sum;
+            ($maxs, $maxe) = ($s, $_ + 1)
+        }
+    }
+    @$a[$maxs .. $maxe - 1]
 }
 
 my @a = map { int(rand(20) - 10) } 1 .. 10;
