@@ -11,7 +11,7 @@ updating from RC…
 |||||||+-----> Draft [227]
 ||||||||+----> Ignoring [34]
 |||||||||+---> Void (no local copy) [160]
-||||||||||+--> Un-implemented/reliable [150]
+||||||||||+--> Un-implemented/reliable [149]
 |||||||||||
 GS......... 100_doors-1
 GS......... 100_doors-2
@@ -43,7 +43,7 @@ GS..T...... Abbreviations,_easy
 GS..T...... Abbreviations,_simple
 ........XV. Abstract_type
 GS..T...... Abundant,_deficient_and_perfect_number_classifications
-GS..T..D..U Abundant_odd_numbers
+GS..T..D... Abundant_odd_numbers
 GS..T...... Accumulator_factory
 GS......... Ackermann_function-1
 GS......... Ackermann_function-2
