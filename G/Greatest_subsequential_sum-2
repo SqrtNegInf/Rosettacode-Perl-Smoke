@@ -2,30 +2,29 @@
 #u# http://rosettacode.org/wiki/Greatest_subsequential_sum
 #c# 2018-08-11 <RC
 #p# OK
-
-use feature 'say';
-my $result;
+#n# noodling, not worth RC update
 
 use strict;
+use warnings;
 
-my @a = (-1 , -2 , 3 , 5 , 6 , -2 , -1 , 4 , -4 , 2 , -1);
+my @a = <-1 -2 3 5 6 -2 -1 4 -4 2 -1>;
 
 my @maxsubarray;
 my $maxsum = 0;
 
-foreach my $begin (0..$#a) {
-        foreach my $end ($begin..$#a) {
-                my $sum = 0;
-                $sum += $_ foreach @a[$begin..$end];
-                if($sum > $maxsum) {
-                        $maxsum = $sum;
-                        @maxsubarray = @a[$begin..$end];
-                }
+for my $begin (0..$#a) {
+    for my $end ($begin..$#a) {
+        my $sum = 0;
+        $sum += $_ for @a[$begin..$end];
+        if ($sum > $maxsum) {
+            $maxsum = $sum;
+            @maxsubarray = @a[$begin..$end];
         }
+    }
 }
 
-say $result = "@maxsubarray";
+print "@maxsubarray\n";
 
 use Test::More;
-is ($result, '3 5 6 -2 -1 4');
+is ("@maxsubarray", '3 5 6 -2 -1 4');
 done_testing();
