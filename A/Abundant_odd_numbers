@@ -3,8 +3,6 @@
 #c# 2019-05-19 >RC
 #p# OK
 
-use Data::Printer;
-
 use strict;
 use warnings;
 use feature 'say';
@@ -14,10 +12,9 @@ use ntheory qw/divisor_sum divisors/;
 
 sub odd_abundants {
     my($start,$count) = @_;
-    my $n = int ( $start + 2 ) / 3;
-    $n   += 0 != $start / 2;
+    my $n = int(( $start + 2 ) / 3);
+    $n   += 1 if 0 == $n / 2;
     $n   *= 3;
-    $n   -= 6;
     my @out;
     while (@out < $count) {
         $n += 6;
@@ -28,12 +25,15 @@ sub odd_abundants {
     @out;
 }
 
+# say 'First 25 abundant odd numbers:';
+# say for odd_abundants(1, 25);
+# say "\nOne thousandth abundant odd number:\n", (odd_abundants(1, 1000))[999];
+# say "\nFirst abundant odd number above one billion:\n", odd_abundants(999_999_999, 1);
+
 push @res, 'First 25 abundant odd numbers:';
-push @res, odd_abundants(100, 25);
-#say "\nOne thousandth abundant odd number:\n" . (odd_abundants(100, 1000))[999];
-push @res, "\nOne thousandth abundant odd number:\n" . (odd_abundants(100, 1000))[999];
-#say "\nFirst abundant odd number above one billion:\n"; say odd_abundants(1_000_000_000, 1); exit;
-push @res, "\nFirst abundant odd number above one billion:\n" . (odd_abundants(1_000_000_000, 1))[0];
+push @res, odd_abundants(1, 25);
+push @res, "\nOne thousandth abundant odd number:\n" . (odd_abundants(1, 1000))[999];
+push @res, "\nFirst abundant odd number above one billion:\n" . (odd_abundants(999_999_999, 1))[0];
 
 my $result = join "\n", @res;
 
@@ -76,12 +76,3 @@ use Test::More;
 chomp $ref;
 is $result, $ref;
 done_testing();
-
-__END__
-
-=={{header|Perl}}==
-<lang perl>use strict;
-use warnings;
-</lang>
-{{out}}
-<pre></pre>
