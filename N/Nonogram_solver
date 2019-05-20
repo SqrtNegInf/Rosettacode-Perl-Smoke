@@ -15,7 +15,8 @@ while(my $row = <DATA>) {
   my @rpats = makepatterns($row);
   my @cpats = makepatterns($column);
   my @rows = ( '.' x @cpats ) x @rpats;
-  for( my $prev = ''; $prev ne "@rows"; ) {
+  my $prev = '';
+  while ($prev ne "@rows") {
     $prev = "@rows";
     try(\@rows, \@rpats);
     my @cols = map { join '', map { s/.//; $& } @rows } 0..$#cpats;
@@ -27,14 +28,14 @@ while(my $row = <DATA>) {
 }
 
 sub try {
-  my ($lines, $patterns) = @_;
-  for my $i ( 0 .. $#$lines ) {
-    while( $lines->[$i] =~ /\./g ) {
-      for my $try ( 0, 1 ) {
-        $lines->[$i] =~ s/.\G/$try/r =~ $patterns->[$i] or
-          $lines->[$i] =~ s// 1 - $try /e;
+    my ($lines, $patterns) = @_;
+    for my $i ( 0 .. $#$lines ) {
+        while( $lines->[$i] =~ /\./g ) {
+            for my $try ( 0, 1 ) {
+                next if ($lines->[$i] =~ s/.\G/$try/r) =~ $patterns->[$i];
+                $lines->[$i] =~ s// 1 - $try /e; # substitute where \G left the cursor
+            }
         }
-      }
     }
 }
 
