@@ -1,0 +1,62 @@
+#!/usr/local/bin/perl
+#u# http://rosettacode.org/wiki/RC_REMOTE
+#t# skiptest
+#c# 2019-05-xx >RC
+#p# OK
+
+use Data::Printer;
+
+use strict;
+use warnings;
+use feature 'say';
+#my @res;
+
+use ntheory <fromdigits todigitstring>;
+my($n, $sq);
+printf "Base %2d: %10s² == %s", $n, $sq, $sq;
+
+__END__
+
+sub first_square (Int $n) {
+    my $start = (($n - 1)/2).exp($n).floor || 1;
+    my $sq = ($start .. *).map( $_**2 ).hyper.first: *.base($n).comb.Bag.elems >= $n;
+    sprintf "Base %2d: %10s² == %s", $n, $sq.sqrt.base($n), $sq.base($n);
+}
+
+say  "First perfect square with N unique digits in base N: ";
+push @res, first_square($_) for 2 .. 12; #  13 .. 16  # optional
+
+.say for @res;
+# say my $result = join "\n", @res;
+
+my $ref = <<'EOD';
+Base  2:         10² == 100
+Base  3:         22² == 2101
+Base  4:         33² == 3201
+Base  5:        243² == 132304
+Base  6:        523² == 452013
+Base  7:       1431² == 2450361
+Base  8:       3344² == 13675420
+Base  9:      11642² == 136802574
+Base 10:      32043² == 1026753849
+Base 11:     111453² == 1240A536789
+Base 12:     3966B9² == 124A7B538609
+EOD
+#Base 13:    3828943² == 10254773CA86B9
+#Base 14:    3A9DB7C² == 10269B8C57D3A4
+#Base 15:   1012B857² == 102597BACE836D4
+#Base 16:   404A9D9B² == 1025648CFEA37BD9
+
+use Test::More;
+#chomp $ref;
+#is($result, $ref);
+#done_testing();
+
+__END__
+
+=={{header|Perl}}==
+{{trans|Perl 6}}
+<lang perl></lang>
+{{out}}
+<pre style="height:20ex"></pre>
+[https://github.com/SqrtNegInf/Rosettacode-Perl5-Smoke/blob/master/ref/XXX XXX]
