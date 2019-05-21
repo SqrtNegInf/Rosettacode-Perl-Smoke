@@ -1,0 +1,107 @@
+#!/usr/local/bin/perl
+#u# http://rosettacode.org/wiki/Convex_hull
+#t# skiptest
+#c# 2019-05-20 >RC
+#p# OK
+
+use Data::Printer;
+
+use strict;
+use warnings;
+use feature 'say';
+#my $result;
+#my @res;
+
+my @hull1 = graham_scan(
+    (16, 3), (12,17), ( 0, 6), (-4,-6), (16, 6), (16,-7), (16,-3),
+    (17,-4), ( 5,19), (19,-8), ( 3,16), (12,13), ( 3,-4), (17, 5),
+    (-3,15), (-3,-9), ( 0,11), (-9,-3), (-4,-2), (12,10)
+  );
+
+say "Convex Hull (@{[+@hull1]} points): ", @hull1;
+
+my @hull2 = graham_scan(
+    (16, 3), (12,17), ( 0, 6), (-4,-6), (16, 6), (16,-7), (16,-3),
+    (17,-4), ( 5,19), (19,-8), ( 3,16), (12,13), ( 3,-4), (17, 5),
+    (-3,15), (-3,-9), ( 0,11), (-9,-3), (-4,-2), (12,10), (14,-9), (1,-9)
+  );
+
+say "Convex Hull (@{[+@hull2]} points): ", @hull2;
+
+# Convex Hull (7 points): [(-3, -9) (19, -8) (17, 5) (12, 17) (5, 19) (-3, 15) (-9, -3)]
+# Convex Hull (9 points): [(-3, -9) (1, -9) (14, -9) (19, -8) (17, 5) (12, 17) (5, 19) (-3, 15) (-9, -3)]
+
+#is @hull1.gist, '[(-3, -9) (19, -8) (17, 5) (12, 17) (5, 19) (-3, 15) (-9, -3)]';
+#is @hull2.gist, '[(-3, -9) (1, -9) (14, -9) (19, -8) (17, 5) (12, 17) (5, 19) (-3, 15) (-9, -3)]';
+
+# say $result; 
+# say my $result = join "\n", @res;
+my $ref = <<'EOD';
+EOD
+
+use Test::More;
+#chomp $ref;
+#is($result, $ref);
+#done_testing();
+
+
+__END__
+
+class Point {
+    has Real $.x is rw;
+    has Real $.y is rw;
+    sub gist { join '', '(', self.x,', ', self.y, ')' };
+}
+
+sub ccw (Point $a, Point $b, Point $c) {
+    ($b.x - $a.x)*($c.y - $a.y) - ($b.y - $a.y)*($c.x - $a.x);
+}
+
+sub tangent {
+    my($a, $b) = @_;
+    my $opp = $b.x - $a.x;
+    my $adj = $b.y - $a.y;
+    $adj != 0 ? $opp / $adj : 0 + "inf" # DH ??
+}
+
+sub graham_scan {
+    my($coords) = @_;
+#    @$coords;
+    # sort points by y, secondary sort on x
+    my @sp = sort { } map{ Point.new( :x($_[0]), :y($_[1]) ) } @coords;
+    #my @sp = @coords.map( { Point.new( :x($_[0]), :y($_[1]) ) } ) .sort: {.y, .x};
+
+    # need at least 3 points to make a hull
+    return @sp if +@sp < 3;
+
+    # first point on hull is minimum y point
+    my @h  = shift @sp;
+
+    # re-sort the points by angle, secondary on x
+    @sp    = @sp.map( { $++ => [tangent(@h[0], $_), $_.x] } )
+                .sort( {-$_.value[0], $_.value[1] } )
+                .map: { @sp[$_.key] };
+
+    # first point of re-sorted list is guaranteed to be on hull
+    push @h, shift @sp;
+
+    # check through the remaining list making sure that
+    # there is always a positive angle
+    for my $point (@sp) {
+        if ccw( |@h.tail(2), $point ) >= 0 {
+            push @h, $point;
+        } else {
+            pop @h;
+            redo;
+        }
+    }
+    @h
+}
+__END__
+
+=={{header|Perl}}==
+{{trans|Perl 6}}
+<lang perl></lang>
+{{out}}
+<pre style="height:20ex"></pre>
+[https://github.com/SqrtNegInf/Rosettacode-Perl5-Smoke/blob/master/ref/XXX XXX]
