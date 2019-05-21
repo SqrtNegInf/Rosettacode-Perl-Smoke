@@ -1340,6 +1340,13 @@ File: C/Convert_seconds_to_compound_duration
 #c# 2018-07-25 <RC
 #p# OK
 
+File: C/Convex_hull
+#!/usr/local/bin/perl
+#u# http://rosettacode.org/wiki/Convex_hull
+#t# skiptest
+#c# 2019-05-20 >RC
+#p# OK
+
 File: C/Conway%27s_Game_of_Life-1
 #!/usr/local/bin/perl
 #u# http://rosettacode.org/wiki/Conway%27s_Game_of_Life
@@ -2445,6 +2452,13 @@ File: F/First_class_environments
 #!/usr/local/bin/perl
 #u# http://rosettacode.org/wiki/First_class_environments
 #c# 2018-08-06 <RC
+#p# OK
+
+File: F/First_perfect_square_in_base_N_with_N_unique_digits
+#!/usr/local/bin/perl
+#u# http://rosettacode.org/wiki/RC_REMOTE
+#t# skiptest
+#c# 2019-05-xx >RC
 #p# OK
 
 File: F/Five_weekends
