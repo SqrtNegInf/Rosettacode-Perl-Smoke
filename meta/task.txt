@@ -3,14 +3,14 @@ This is perl 5, version 28, subversion 2 (v5.28.2) built for darwin-thread-multi
 updating from RC…
 +------------> Perl: Good/Bad [1146/12]
 |+-----------> Smoke testing [1013]
-||+----------> sKipping validation [137]
+||+----------> sKipping validation [138]
 |||+---------> Interactive [49]
-||||+--------> Touched (modified by me) [286]
+||||+--------> Touched (modified by me) [287]
 |||||+-------> Random seed [90]
 ||||||+------> File output [62]
 |||||||+-----> Draft [227]
 ||||||||+----> Ignoring [34]
-|||||||||+---> Void (no local copy) [160]
+|||||||||+---> Void (no local copy) [159]
 ||||||||||+--> Un-implemented/reliable [149]
 |||||||||||
 GS......... 100_doors-1
@@ -267,7 +267,7 @@ GS......... Continued_fraction_Arithmetic_Construct_from_rational_number
 .......D.VU Continued_fraction_Arithmetic_Gmatrix_NG,_Contined_Fraction_N1,_Contined_Fraction_N2
 GS......... Convert_decimal_number_to_rational
 GS......... Convert_seconds_to_compound_duration
-.......D.VU Convex_hull
+G.K.T..D..U Convex_hull
 GS...R..... Conway%27s_Game_of_Life-1
 G.KI....... Conway%27s_Game_of_Life-2
 GS......... Copy_a_string
@@ -988,7 +988,7 @@ GS..T...... Roman_numerals_Encode-4
 GS......... Roots_of_a_function
 GS......... Roots_of_a_quadratic_function
 GS......... Roots_of_unity
-GS..T...... Rosetta_Code_Count_examples
+!S..T...... Rosetta_Code_Count_examples
 GS..T...... Rosetta_Code_Find_bare_lang_tags
 GS..T...... Rosetta_Code_Find_unimplemented_tasks
 GS......... Rosetta_Code_Fix_code_tags
