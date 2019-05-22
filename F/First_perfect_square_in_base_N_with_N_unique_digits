@@ -1,33 +1,41 @@
 #!/usr/local/bin/perl
-#u# http://rosettacode.org/wiki/RC_REMOTE
-#t# skiptest
-#c# 2019-05-xx >RC
+#u# http://rosettacode.org/wiki/First_perfect_square_in_base_N_with_N_unique_digits
+#c# 2019-05-21 >RC, 2019-05-21 <RC
 #p# OK
-
-use Data::Printer;
+#n# with a little help from thundergnat++
+#n# but can't go past 16, bigint issue again
 
 use strict;
 use warnings;
 use feature 'say';
-#my @res;
+use ntheory 'todigitstring';
+my @res;
 
-use ntheory <fromdigits todigitstring>;
-my($n, $sq);
-printf "Base %2d: %10s² == %s", $n, $sq, $sq;
+# older Perls need this I guess?
+#use utf8;
+#binmode('STDOUT', 'utf8');
 
-__END__
-
-sub first_square (Int $n) {
-    my $start = (($n - 1)/2).exp($n).floor || 1;
-    my $sq = ($start .. *).map( $_**2 ).hyper.first: *.base($n).comb.Bag.elems >= $n;
-    sprintf "Base %2d: %10s² == %s", $n, $sq.sqrt.base($n), $sq.base($n);
+sub first_square {
+    my $n = shift;
+    my $r = int( $n**( ($n - 1) / 2) ) || 1;
+    my @digits = reverse split '', substr('0123456789abcdef',0,$n);
+    TRY: while (1) {
+        my $sq = $r * $r;
+        my $cnt = 0;
+        my $s = todigitstring($sq, $n);
+        my $i = scalar @digits;
+        for (@digits) {
+            $r++ and redo TRY if (-1 == index($s, $_)) || ($i-- + $cnt < $n);
+            last if $cnt++ == $n;
+        }
+        return sprintf "Base %2d: %10s² == %s", $n, todigitstring($r, $n), todigitstring($sq, $n);
+    }
 }
 
-say  "First perfect square with N unique digits in base N: ";
-push @res, first_square($_) for 2 .. 12; #  13 .. 16  # optional
+say "First perfect square with N unique digits in base N: ";
+push @res, first_square($_) for 2..16;
 
-.say for @res;
-# say my $result = join "\n", @res;
+say my $result = join "\n", @res;
 
 my $ref = <<'EOD';
 Base  2:         10² == 100
@@ -39,24 +47,15 @@ Base  7:       1431² == 2450361
 Base  8:       3344² == 13675420
 Base  9:      11642² == 136802574
 Base 10:      32043² == 1026753849
-Base 11:     111453² == 1240A536789
-Base 12:     3966B9² == 124A7B538609
+Base 11:     111453² == 1240a536789
+Base 12:     3966b9² == 124a7b538609
+Base 13:    3828943² == 10254773ca86b9
+Base 14:    3a9db7c² == 10269b8c57d3a4
+Base 15:   1012b857² == 102597bace836d4
+Base 16:   404a9d9b² == 1025648cfea37bd9
 EOD
-#Base 13:    3828943² == 10254773CA86B9
-#Base 14:    3A9DB7C² == 10269B8C57D3A4
-#Base 15:   1012B857² == 102597BACE836D4
-#Base 16:   404A9D9B² == 1025648CFEA37BD9
 
 use Test::More;
-#chomp $ref;
-#is($result, $ref);
-#done_testing();
-
-__END__
-
-=={{header|Perl}}==
-{{trans|Perl 6}}
-<lang perl></lang>
-{{out}}
-<pre style="height:20ex"></pre>
-[https://github.com/SqrtNegInf/Rosettacode-Perl5-Smoke/blob/master/ref/XXX XXX]
+chomp $ref;
+is ($result, $ref);
+done_testing();
