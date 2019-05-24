@@ -1,0 +1,32 @@
+#!/usr/local/bin/perl
+#n# NOT CURRENT, NOT SMOKE-TESTED
+#u# http://rosettacode.org/wiki/Checksumcolor
+#c# 2019-04-xx >RC
+#p# OK
+#n# this mostly follows Perl 6
+
+use Data::Printer;
+
+use strict 'vars';
+#use warnings;
+use feature 'say';
+
+my @res;
+
+open STDIN,  '<', 'ref/checksumcolor.dat'  || die $!;
+
+use List::AllUtils <zip natatime>;
+
+while (<>) {
+    my($cs,$remainder) = /(^\S+)\s+(.*)/;
+        print "\e[48;5;232m";
+        my @escape_seq = ();
+        for my $it (natatime 6, split '', $cs x 8) {
+            while (my @v = $it->()) {
+                push @escape_seq, sprintf "\e[38;2;%d;%d;%dm", hex(join '', @v[0,1]), hex(join '', @v[2,3]), hex(join '', @v[4,5]); 
+            }
+        my @md5_values = split '', $cs;
+        print join '', zip @escape_seq, @md5_values;
+        say "\e[0m $remainder";
+    }
+}
