@@ -1,24 +1,28 @@
 #!/usr/local/bin/perl
 #u# http://rosettacode.org/wiki/First_perfect_square_in_base_N_with_N_unique_digits
-#c# 2019-05-21 >RC, 2019-05-21 <RC
+#c# 2019-05-21 >RC, 2019-05-21 <RC, 2019-05-23 <RC
 #p# OK
 #n# with a little help from thundergnat++
 #n# but can't go past 16, bigint issue again
+#n# decent speed-up from previous version:
+#n#    20.977u 0.062s 0:21.09 99.7%
+#n#    30.832u 0.125s 0:31.14 99.3%
 
 use strict;
 use warnings;
 use feature 'say';
-use ntheory 'todigitstring';
+use ntheory <fromdigits todigitstring>;
 my @res;
 
 # older Perls need this I guess?
 #use utf8;
 #binmode('STDOUT', 'utf8');
 
-sub first_square {
+sub first_square  {
     my $n = shift;
-    my $r = int( $n**( ($n - 1) / 2) ) || 1;
-    my @digits = reverse split '', substr('0123456789abcdef',0,$n);
+    my $sr = substr('1023456789abcdef',0,$n);
+    my $r  = int fromdigits($sr, $n) ** .5;
+    my @digits = reverse split '', $sr;
     TRY: while (1) {
         my $sq = $r * $r;
         my $cnt = 0;
@@ -28,9 +32,11 @@ sub first_square {
             $r++ and redo TRY if (-1 == index($s, $_)) || ($i-- + $cnt < $n);
             last if $cnt++ == $n;
         }
-        return sprintf "Base %2d: %10s² == %s", $n, todigitstring($r, $n), todigitstring($sq, $n);
+        return sprintf "Base %2d: %10s² == %s", $n, todigitstring($r, $n),
+               todigitstring($sq, $n);
     }
 }
+push @res, first_square($_) for 2..16;
 
 say "First perfect square with N unique digits in base N: ";
 push @res, first_square($_) for 2..16;
