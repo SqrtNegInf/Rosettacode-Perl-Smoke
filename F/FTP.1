@@ -1,0 +1,56 @@
+#!/usr/local/bin/perl
+#n# NOT CURRENT, NOT SMOKE-TESTED
+#u# http://rosettacode.org/wiki/FTP
+#c# 2018-07-31 <RC
+#p# OK
+
+use feature 'say';
+my $result;
+
+use strict;
+use warnings;
+use 5.020;
+#This script is dependent upon the Net::FTP cpan module
+use Net::FTP;
+ 
+#Put the name of the FTP server here
+my $host = "ftp.netbsd.org";
+#Credentials go here
+my $user = "anonymous";
+my $password = "";
+ 
+#Attempt to connect to the server using the credentials provided.
+my $f = Net::FTP->new($host) or die("Something went wrong. Can't open $host\n");
+$f->login($user, $password) or die("Something went wrong. Can't log $user in.\n");
+ 
+#Set to passive mode
+$f->passive();
+ 
+#Change to whatever directory you want. If no args are passed to cwd(), it sets it to the root directory 
+#$f->cwd("pub/NetBSD");
+#Print the current dir
+my @dir = $f->ls();
+foreach my $element (@dir)
+{
+    $result .= "$element\n";
+    #say("$element");
+}
+ 
+#Download the file and store locally. get() returns the local filename
+#my $local = $f->get("README");
+#say("Your file was stored as $local in the current directory! ");
+
+say $result;
+
+my $ref = <<'END';
+pub
+etc
+NetBSD-archive
+.message
+ls-lRA.gz
+robots.txt
+END
+ 
+use Test::More;
+is ($result, $ref);
+done_testing();
