@@ -1,0 +1,75 @@
+#!/usr/local/bin/perl
+#n# NOT CURRENT, NOT SMOKE-TESTED
+#u# http://rosettacode.org/wiki/Straddling_checkerboard
+#c# 2019-04-17 >RC
+#p# OK
+
+use strict;
+use warnings;
+use feature 'say';
+my @res;
+
+use List::Util <min max>;
+
+my(%trans,@table);
+
+sub build {
+    my($u,$v,$alphabet) = @_;
+    my(@flat_board,%p2c,%c2p);
+    my $numeric_escape = '/';
+
+    @flat_board = split '', uc $alphabet;
+    splice @flat_board, min($u,$v), 0, undef;
+    splice @flat_board, max($u,$v), 0, undef;
+
+    push @table, [' ', 0..9];
+    push @table, [' ', map { defined $_ ? $_ : ' '} @flat_board[ 0 ..  9] ];
+    push @table, [$u,  @flat_board[10 .. 19]];
+    push @table, [$v,  @flat_board[20 .. 29]];
+
+    my @nums = my @order = 0..9;
+    push @nums, (map { +"$u$_" } @order), map { +"$v$_" } @order;
+
+    @c2p{@nums} = @flat_board;
+    for (keys %c2p) { delete $c2p{$_} unless defined $c2p{$_} }
+    @p2c{values %c2p} = keys %c2p;
+    $p2c{$_} = $p2c{$numeric_escape} . $_ for 0..9;
+    while ( my ($k, $v) = each %p2c) {
+        $trans{encode}{$k} = $v;
+        $trans{decode}{$v} = $k unless $k eq $numeric_escape;
+    }
+}
+
+sub decode {
+    my($string) = @_;
+    my $keys = join '|', keys %{$trans{decode}};
+    $string =~ s/($keys)/$trans{decode}{$1}/gr;
+}
+
+sub encode {
+    my($string) = uc shift;
+    $string =~ s#(.)#$trans{encode}{$1} // $trans{encode}{'.'}#ger;
+}
+
+my $sc = build(3, 7, 'HOLMESRTABCDFGIJKNPQUVWXYZ./');
+push @res, join ' ', @$_ for @table;
+push @res, my $original = 'One night-it was on the twentieth of March, 1888-I was returning';
+push @res, my $en = encode($original);
+push @res, decode($en);
+
+say my $result = join "\n", @res;
+
+my $ref = <<'EOD';
+  0 1 2 3 4 5 6 7 8 9
+  H O L   M E S   R T
+3 A B C D F G I J K N
+7 P Q U V W X Y Z . /
+One night-it was on the twentieth of March, 1888-I was returning
+13957839363509783697874306781397890578974539936590781347843083207878791798798798783678743067885972839363935
+ONE.NIGHT.IT.WAS.ON.THE.TWENTIETH.OF.MARCH..1888.I.WAS.RETURNING
+EOD
+
+use Test::More;
+chomp $ref;
+is($result, $ref);
+done_testing();
