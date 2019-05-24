@@ -36,7 +36,6 @@ sub first_square  {
                todigitstring($sq, $n);
     }
 }
-push @res, first_square($_) for 2..16;
 
 say "First perfect square with N unique digits in base N: ";
 push @res, first_square($_) for 2..16;
