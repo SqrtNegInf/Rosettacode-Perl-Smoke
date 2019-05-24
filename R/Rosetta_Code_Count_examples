@@ -41,7 +41,7 @@ $ua->get("$site$list_url")->res->dom->find('cm')->each(sub {
 my $result2 = join "\n", @res2;
 
 my $ref = <<'END';
-100 doors: 282 examples
+100 doors: 283 examples
 15 Puzzle Game: 52 examples
 15 puzzle solver: 10 examples
 2048: 42 examples
