@@ -2,6 +2,7 @@
 #u# http://rosettacode.org/wiki/Top_rank_per_group
 #c# 2018-08-10 <>RC
 #p# OK
+#n# double-curlies: outer for map, inner for hash creation
 
 use feature 'say';
 my $result;
