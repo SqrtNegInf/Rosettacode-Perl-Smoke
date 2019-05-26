@@ -2461,7 +2461,7 @@ File: F/First_class_environments
 #c# 2018-08-06 <RC
 #p# OK
 
-File: F/First_perfect_square_in_base_N_with_N_unique_digits
+File: F/First_perfect_square_in_base_N_with_N_unique_digits-1
 #!/usr/local/bin/perl
 #u# http://rosettacode.org/wiki/First_perfect_square_in_base_N_with_N_unique_digits
 #c# 2019-05-21 >RC, 2019-05-21 <RC, 2019-05-23 <RC
@@ -2471,6 +2471,13 @@ File: F/First_perfect_square_in_base_N_with_N_unique_digits
 #n# decent speed-up from previous version:
 #n#    20.977u 0.062s 0:21.09 99.7%
 #n#    30.832u 0.125s 0:31.14 99.3%
+
+File: F/First_perfect_square_in_base_N_with_N_unique_digits-2
+#!/usr/local/bin/perl
+#u# http://rosettacode.org/wiki/First_perfect_square_in_base_N_with_N_unique_digits
+#c# 2019-05-21 >RC, 2019-05-21 <RC, 2019-05-23 <RC
+#p# OK
+#n# trizen++
 
 File: F/First_perfect_square_in_base_N_with_N_unique_digits.1
 #!/usr/local/bin/perl
