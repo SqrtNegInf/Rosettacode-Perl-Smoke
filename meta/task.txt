@@ -1,11 +1,11 @@
 
 This is perl 5, version 28, subversion 2 (v5.28.2) built for darwin-thread-multi-2level
 updating from RC…
-+------------> Perl: Good/Bad [1147/12]
-|+-----------> Smoke testing [1014]
++------------> Perl: Good/Bad [1149/12]
+|+-----------> Smoke testing [1015]
 ||+----------> sKipping validation [138]
 |||+---------> Interactive [49]
-||||+--------> Touched (modified by me) [288]
+||||+--------> Touched (modified by me) [289]
 |||||+-------> Random seed [90]
 ||||||+------> File output [62]
 |||||||+-----> Draft [228]
@@ -449,7 +449,9 @@ GS......... Find_the_missing_permutation
 GS......... First-class_functions
 GS......... First-class_functions_Use_numbers_analogously
 GS......... First_class_environments
-GS..T..D... First_perfect_square_in_base_N_with_N_unique_digits
+.......D... First_perfect_square_in_base_N_with_N_unique_digits
+GS..T...... First_perfect_square_in_base_N_with_N_unique_digits-1
+GS..T...... First_perfect_square_in_base_N_with_N_unique_digits-2
 GS......... Five_weekends
 GS..T..D... Fivenum
 GS..T.F.... Fixed_length_records
@@ -989,7 +991,7 @@ GS..T...... Roman_numerals_Encode-4
 GS......... Roots_of_a_function
 GS......... Roots_of_a_quadratic_function
 GS......... Roots_of_unity
-!S..T...... Rosetta_Code_Count_examples
+GS..T...... Rosetta_Code_Count_examples
 GS..T...... Rosetta_Code_Find_bare_lang_tags
 GS..T...... Rosetta_Code_Find_unimplemented_tasks
 GS......... Rosetta_Code_Fix_code_tags
