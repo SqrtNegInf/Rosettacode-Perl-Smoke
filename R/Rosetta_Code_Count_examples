@@ -22,7 +22,7 @@ for ($response->{content} =~ /cm.*?title="(.*?)"/g) {
     my $response = HTTP::Tiny->new->get("$site/wiki/$slug");
     my $count = () = $response->{content} =~ /toclevel-1/g;
     push @res1, "$_: $count examples";
-    last if $_ eq '2048';
+    last if $_ eq '15 puzzle solver';
 }
 
 my $result1 = join "\n", @res1;
@@ -35,7 +35,7 @@ $ua->get("$site$list_url")->res->dom->find('cm')->each(sub {
     (my $slug = $_->{title}) =~ tr/ /_/;
     my $count = $ua->get("$site/wiki/$slug")->res->dom->find("#toc .toclevel-1")->size;
     push @res2, "$_->{title}: $count examples";
-    last if $_->{title} =~ /2048/;
+    last if $_->{title} =~ /15 puzzle solver/;
 });
 
 my $result2 = join "\n", @res2;
@@ -44,11 +44,12 @@ my $ref = <<'END';
 100 doors: 283 examples
 15 Puzzle Game: 52 examples
 15 puzzle solver: 10 examples
-2048: 42 examples
 END
 
 use Test::More;
 chomp $ref;
-is($result1,$ref);
-is($result2,$ref);
+ok $result1 =~ /100 doors: 2[89]\d examples/;
+ok $result1 =~ /15 Puzzle Game: [56]\d examples/;
+ok $result1 =~ /15 puzzle solver: 1\d examples/;
+is($result1,$result2);
 done_testing();
