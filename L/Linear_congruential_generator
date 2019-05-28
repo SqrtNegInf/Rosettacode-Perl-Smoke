@@ -83,9 +83,3 @@ EOD
 use Test::More;
 is ($result, $ref);
 done_testing();
-
-__END__
-
-Use of uninitialized value in integer multiplication (*) at L/Linear_congruential_generator line 18.
-Use of uninitialized value in integer multiplication (*) at L/Linear_congruential_generator line 21.
-Use of uninitialized value $opts{"meth"} in string eq at L/Linear_congruential_generator line 37.
