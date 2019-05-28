@@ -6137,6 +6137,13 @@ File: S/Simulate_input_Keyboard
 #c# 2018-08-16 <RC
 #p# OK
 
+File: S/Simulated_annealing
+#!/usr/local/bin/perl
+#u# http://rosettacode.org/wiki/RC_REMOTE
+#t# skiptest
+#c# 2019-05-xx >RC
+#p# OK
+
 File: S/Singleton
 #!/usr/local/bin/perl
 #u# http://rosettacode.org/wiki/Singleton
