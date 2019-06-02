@@ -1040,6 +1040,12 @@ File: C/Chemical_Calculator-2
 #c# 2019-03-20 >RC
 #p# OK
 
+File: C/Chernick%27s_Carmichael_numbers
+#!/usr/local/bin/perl
+#u# http://rosettacode.org/wiki/Chernick%27s_Carmichael_numbers
+#c# 2019-06-01 <RC
+#p# OK
+
 File: C/Cheryl%27s_Birthday
 #!/usr/local/bin/perl
 #u# http://rosettacode.org/wiki/Cheryl%27s_Birthday
@@ -6142,7 +6148,7 @@ File: S/Simulated_annealing
 #u# http://rosettacode.org/wiki/RC_REMOTE
 #t# skiptest
 #c# 2019-05-xx >RC
-#p# OK
+#p# BROKEN
 
 File: S/Singleton
 #!/usr/local/bin/perl
