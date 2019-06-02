@@ -1,0 +1,92 @@
+#!/usr/local/bin/perl
+#u# http://rosettacode.org/wiki/First_perfect_square_in_base_N_with_N_unique_digits
+#c# 2019-06-01 <RC
+#p# OK
+
+use feature 'say';
+my $result;
+# my @res;
+
+
+Library: ntheory
+use strict;
+use warnings;
+use feature 'say';
+use ntheory qw/fromdigits todigitstring/;
+use utf8;
+binmode('STDOUT', 'utf8');
+
+sub first_square  {
+    my $n = shift;
+    my $sr = substr('1023456789abcdef',0,$n);
+    my $r  = int fromdigits($sr, $n) ** .5;
+    my @digits = reverse split '', $sr;
+    TRY: while (1) {
+        my $sq = $r * $r;
+        my $cnt = 0;
+        my $s = todigitstring($sq, $n);
+        my $i = scalar @digits;
+        for (@digits) {
+            $r++ and redo TRY if (-1 == index($s, $_)) || ($i-- + $cnt < $n);
+            last if $cnt++ == $n;
+        }
+        return sprintf "Base %2d: %10s² == %s", $n, todigitstring($r, $n),
+               todigitstring($sq, $n);
+    }
+}
+
+say "First perfect square with N unique digits in base N: ";
+say first_square($_) for 2..16;
+
+Output:
+First perfect square with N unique digits in base N: 
+Base  2:         10² == 100
+Base  3:         22² == 2101
+Base  4:         33² == 3201
+Base  5:        243² == 132304
+Base  6:        523² == 452013
+Base  7:       1431² == 2450361
+Base  8:       3344² == 13675420
+Base  9:      11642² == 136802574
+Base 10:      32043² == 1026753849
+Base 11:     111453² == 1240a536789
+Base 12:     3966b9² == 124a7b538609
+Base 13:    3828943² == 10254773ca86b9
+Base 14:    3a9db7c² == 10269b8c57d3a4
+Base 15:   1012b857² == 102597bace836d4
+Base 16:   404a9d9b² == 1025648cfea37bd9
+Alternative solution:
+
+Library: ntheory
+use strict;
+use warnings;
+use ntheory qw(:all);
+use List::Util qw(uniq);
+
+sub first_square {
+    my ($base) = @_;
+
+    my $start = sqrtint(fromdigits([1, 0, 2 .. $base-1], $base));
+
+    for (my $k = $start ; ; ++$k) {
+        if (uniq(todigits($k * $k, $base)) == $base) {
+            return $k * $k;
+        }
+    }
+}
+
+foreach my $n (2 .. 16) {
+    my $s = first_square($n);
+    printf("Base %2d: %10s² == %s\n", $n,
+        todigitstring(sqrtint($s), $n), todigitstring($s, $n));
+}
+
+
+say $result; 
+#say $result = join "\n", @res;
+my $ref = <<'EOD';
+EOD
+
+use Test::More;
+#is ($result, $ref);
+#done_testing();
