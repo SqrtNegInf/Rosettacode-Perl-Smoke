@@ -1,0 +1,49 @@
+#!/usr/local/bin/perl
+#u# http://rosettacode.org/wiki/Chernick%27s_Carmichael_numbers
+#c# 2019-06-01 <RC
+#p# OK
+
+use strict;
+use warnings;
+use feature 'say';
+my @res;
+
+use ntheory qw/:all/;
+use experimental qw/signatures/;
+
+sub chernick_carmichael_factors ($n, $m) {
+    (6*$m + 1, 12*$m + 1, (map { (1 << $_) * 9*$m + 1 } 1 .. $n-2));
+}
+
+sub chernick_carmichael_number ($n, $callback) {
+
+    my $multiplier = ($n > 4) ? (1 << ($n-4)) : 1;
+
+    for (my $m = 1 ; ; ++$m) {
+        my @f = chernick_carmichael_factors($n, $m * $multiplier);
+        next if not vecall { is_prime($_) } @f;
+        $callback->(@f);
+        last;
+    }
+}
+
+foreach my $n (3..9) {
+    chernick_carmichael_number($n, sub (@f) { push @res, "a($n) = " . vecprod(@f) });
+}
+
+say my $result = join "\n", @res;
+
+my $ref = <<'EOD';
+a(3) = 1729
+a(4) = 63973
+a(5) = 26641259752490421121
+a(6) = 1457836374916028334162241
+a(7) = 24541683183872873851606952966798288052977151461406721
+a(8) = 53487697914261966820654105730041031613370337776541835775672321
+a(9) = 58571442634534443082821160508299574798027946748324125518533225605795841
+EOD
+
+use Test::More;
+chomp $ref;
+is ($result, $ref);
+done_testing();
