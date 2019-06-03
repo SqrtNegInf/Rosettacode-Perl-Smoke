@@ -10,7 +10,7 @@ $new = 'N';
 while (<RC>) {
     ($date) = m#<h4>(\d+ \S+) 20\d\d</h4># if m/<h4>/;
     next unless /Perl|SqrtNegInf|Trizen/i;              # always want these
-    next if     /Perl_6/;                               # hey, you got your own repository...
+    next if     /Perl.6/;                               # hey, you got your own repository...
     next if $user =~ /Robbie|CraigD|Purefox|Nigel/i;    # users known to be adding non-Perl code
 
     ($user)  = m#Special:Contributions/(.*?)"#;
