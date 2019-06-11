@@ -8,7 +8,7 @@ updating from RC…
 ||||+--------> Touched (modified by me) [290]
 |||||+-------> Random seed [90]
 ||||||+------> File output [62]
-|||||||+-----> Draft [232]
+|||||||+-----> Draft [231]
 ||||||||+----> Ignoring [34]
 |||||||||+---> Void (no local copy) [161]
 ||||||||||+--> Un-implemented/reliable [152]
@@ -938,7 +938,7 @@ GS.....D... Ramanujan%27s_constant
 GS..T...... Ramanujan%27s_constant-2
 GS..T...... Ramer-Douglas-Peucker_line_simplification
 GS..T..D... Ramsey%27s_theorem
-.......D.VU Random_Latin_Squares
+.........VU Random_Latin_Squares
 G.K........ Random_number_generator_device
 G.K........ Random_number_generator_included
 GS...R..... Random_numbers
