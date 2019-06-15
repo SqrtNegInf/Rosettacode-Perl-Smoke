@@ -8,7 +8,7 @@ updating from RC…
 ||||+--------> Touched (modified by me) [290]
 |||||+-------> Random seed [90]
 ||||||+------> File output [62]
-|||||||+-----> Draft [232]
+|||||||+-----> Draft [231]
 ||||||||+----> Ignoring [34]
 |||||||||+---> Void (no local copy) [161]
 ||||||||||+--> Un-implemented/reliable [152]
@@ -704,7 +704,7 @@ GS......... Man_or_boy_test
 GS......... Mandelbrot_set
 GS......... Map_range
 GS..TR.D... Markov_chain_text_generator
-GS..TR.D... Mastermind
+GS..TR..... Mastermind
 GS......... Matrix-exponentiation_operator
 G.KI...D... Matrix_Digital_Rain
 GS..T...... Matrix_chain_multiplication
