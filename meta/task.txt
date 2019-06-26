@@ -8,10 +8,10 @@ updating from RC…
 ||||+--------> Touched (modified by me) [290]
 |||||+-------> Random seed [90]
 ||||||+------> File output [62]
-|||||||+-----> Draft [231]
+|||||||+-----> Draft [232]
 ||||||||+----> Ignoring [34]
-|||||||||+---> Void (no local copy) [162]
-||||||||||+--> Un-implemented/reliable [153]
+|||||||||+---> Void (no local copy) [163]
+||||||||||+--> Un-implemented/reliable [154]
 |||||||||||
 GS......... 100_doors-1
 GS......... 100_doors-2
@@ -1184,6 +1184,7 @@ GS.....D... Suffix_tree
 GS..T...... Suffixation_of_decimal_numbers
 GS..T...... Sum_and_Product_Puzzle
 GS......... Sum_and_product_of_an_array
+.......D.VU Sum_data_type
 GS......... Sum_digits_of_an_integer
 GS......... Sum_multiples_of_3_and_5-1
 GS..T...... Sum_multiples_of_3_and_5-2
