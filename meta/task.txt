@@ -8,10 +8,10 @@ updating from RC…
 ||||+--------> Touched (modified by me) [290]
 |||||+-------> Random seed [90]
 ||||||+------> File output [62]
-|||||||+-----> Draft [235]
+|||||||+-----> Draft [236]
 ||||||||+----> Ignoring [34]
-|||||||||+---> Void (no local copy) [166]
-||||||||||+--> Un-implemented/reliable [157]
+|||||||||+---> Void (no local copy) [167]
+||||||||||+--> Un-implemented/reliable [158]
 |||||||||||
 GS......... 100_doors-1
 GS......... 100_doors-2
@@ -125,6 +125,7 @@ GS...RF.... Barnsley_fern
 GS..T..D... Base58Check_encoding
 GS..T..D... Base64_decode_data
 GS.....D... Base64_encode_data
+.......D.VU Bell_numbers
 GS......... Benford%27s_law
 GS......... Bernoulli_numbers-1
 GS......... Bernoulli_numbers-2
