@@ -8,10 +8,10 @@ updating from RC…
 ||||+--------> Touched (modified by me) [289]
 |||||+-------> Random seed [90]
 ||||||+------> File output [62]
-|||||||+-----> Draft [236]
+|||||||+-----> Draft [237]
 ||||||||+----> Ignoring [34]
-|||||||||+---> Void (no local copy) [168]
-||||||||||+--> Un-implemented/reliable [158]
+|||||||||+---> Void (no local copy) [169]
+||||||||||+--> Un-implemented/reliable [159]
 |||||||||||
 GS......... 100_doors-1
 GS......... 100_doors-2
@@ -639,6 +639,7 @@ GS..T...... Largest_number_divisible_by_its_digits-1
 GS..T...... Largest_number_divisible_by_its_digits-2
 GS......... Last_Friday_of_each_month
 GS..TR..... Last_letter-first_letter
+.......D.VU Latin_Squares_in_reduced_form
 GS..T...... Law_of_cosines_-_triples
 GS......... Leap_year
 GS......... Least_common_multiple
