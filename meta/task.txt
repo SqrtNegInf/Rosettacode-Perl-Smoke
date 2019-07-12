@@ -8,7 +8,7 @@ updating from RC…
 ||||+--------> Touched (modified by me) [289]
 |||||+-------> Random seed [90]
 ||||||+------> File output [62]
-|||||||+-----> Draft [237]
+|||||||+-----> Draft [236]
 ||||||||+----> Ignoring [34]
 |||||||||+---> Void (no local copy) [169]
 ||||||||||+--> Un-implemented/reliable [159]
@@ -195,7 +195,7 @@ GS......... Catalan_numbers-3
 GS......... Catalan_numbers_Pascal%27s_triangle
 GS......... Catamorphism
 .........VU Catmull-Clark_subdivision_surface
-GS..T..D... Chaocipher
+GS..T...... Chaocipher
 GS...RF.... Chaos_game
 GS......... Character_codes
 G.KI....... Chat_server
