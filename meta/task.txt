@@ -8,10 +8,10 @@ updating from RC…
 ||||+--------> Touched (modified by me) [289]
 |||||+-------> Random seed [90]
 ||||||+------> File output [62]
-|||||||+-----> Draft [237]
+|||||||+-----> Draft [214]
 ||||||||+----> Ignoring [34]
-|||||||||+---> Void (no local copy) [170]
-||||||||||+--> Un-implemented/reliable [160]
+|||||||||+---> Void (no local copy) [168]
+||||||||||+--> Un-implemented/reliable [158]
 |||||||||||
 GS......... 100_doors-1
 GS......... 100_doors-2
@@ -43,7 +43,7 @@ GS..T...... Abbreviations,_easy
 GS..T...... Abbreviations,_simple
 ........XV. Abstract_type
 GS..T...... Abundant,_deficient_and_perfect_number_classifications
-GS..T..D... Abundant_odd_numbers
+GS..T...... Abundant_odd_numbers
 GS..T...... Accumulator_factory
 GS......... Ackermann_function-1
 GS......... Ackermann_function-2
@@ -124,7 +124,7 @@ GS......... Balanced_ternary
 .......D.VU Banker%27s_algorithm
 GS...RF.... Barnsley_fern
 GS..T..D... Base58Check_encoding
-GS..T..D... Base64_decode_data
+GS..T...... Base64_decode_data
 GS.....D... Base64_encode_data
 .......D.VU Bell_numbers
 GS......... Benford%27s_law
@@ -182,7 +182,7 @@ G.K........ Call_a_function
 .........VU Call_a_function_in_a_shared_library
 G.K........ Call_an_object_method
 .........VU Canny_edge_detector
-GS..T..D... Cantor_set
+GS..T...... Cantor_set
 GS..TR.D... Card_shuffles
 GS......... Carmichael_3_strong_pseudoprimes
 GS..T...... Cartesian_product_of_two_or_more_lists-1
@@ -270,7 +270,7 @@ GS......... Continued_fraction_Arithmetic_Construct_from_rational_number
 .......D.VU Continued_fraction_Arithmetic_Gmatrix_NG,_Contined_Fraction_N1,_Contined_Fraction_N2
 GS......... Convert_decimal_number_to_rational
 GS......... Convert_seconds_to_compound_duration
-G.K.T..D..U Convex_hull
+G.K.T.....U Convex_hull
 GS...R..... Conway%27s_Game_of_Life-1
 G.KI....... Conway%27s_Game_of_Life-2
 GS......... Copy_a_string
@@ -319,7 +319,7 @@ GS......... Deepcopy
 GS......... Define_a_primitive_data_type
 G.K........ Delegates
 GS......... Delete_a_file
-GS..T..D... Deming%27s_Funnel
+GS..T...... Deming%27s_Funnel
 GS......... Department_Numbers
 GS......... Detect_division_by_zero
 GS......... Determinant_and_permanent
@@ -452,7 +452,6 @@ GS......... Find_the_missing_permutation
 GS......... First-class_functions
 GS......... First-class_functions_Use_numbers_analogously
 GS......... First_class_environments
-.......D... First_perfect_square_in_base_N_with_N_unique_digits
 GS..T...... First_perfect_square_in_base_N_with_N_unique_digits-1
 GS..T...... First_perfect_square_in_base_N_with_N_unique_digits-2
 GS......... Five_weekends
@@ -627,9 +626,9 @@ GS...R..... Knight%27s_tour
 GS...R..... Knuth%27s_algorithm_S
 GS......... Knuth%27s_power_tree
 GS...R..... Knuth_shuffle
-GS..T.FD... Koch_curve
+GS..T.F.... Koch_curve
 GS..T...... Kolakoski_sequence
-GS..T..D... Kosaraju
+GS..T...... Kosaraju
 GS......... Kronecker_product
 GS..T.F.... Kronecker_product_based_fractals
 GS..T...... LU_decomposition
@@ -660,7 +659,7 @@ G.K........ Literals_String
 GS......... Logical_operations
 GS......... Long_multiplication
 GS..T...... Long_primes
-GS.....D... Longest_Common_Substring
+GS......... Longest_Common_Substring
 GS.....D... Longest_common_prefix
 GS......... Longest_common_subsequence
 GS..T...... Longest_increasing_subsequence-1
@@ -909,7 +908,7 @@ GS......... Power_set-9
 G.K........ Pragmatic_directives
 GS...R..... Price_fraction
 GS......... Primality_by_trial_division
-GS..T..D... Prime_conspiracy
+GS..T...... Prime_conspiracy
 GS......... Prime_decomposition-1
 GS......... Prime_decomposition-2
 GS......... Prime_decomposition-3
@@ -983,7 +982,6 @@ GS..T..D... Resistance_Calculator
 GS..T..D... Resistance_Network_Calculator
 GS..T...... Resistor_mesh
 GS......... Respond_to_an_unknown_method_call
-.......D.VU Restart
 .........VU Retrieve_and_search_chat_history
 GS......... Return_multiple_values
 GS..T...... Reverse_a_string
@@ -1042,9 +1040,9 @@ GS......... Semordnilap
 GS......... Send_an_unknown_method_call
 G.K........ Send_email
 GS..T..D... Separate_the_house_number_from_the_street_name
-GS..T..D... Sequence:_nth_number_with_exactly_n_divisors
-GS..T..D... Sequence:_smallest_number_greater_than_previous_term_with_exactly_n_divisors
-GS..T..D... Sequence:_smallest_number_with_exactly_n_divisors
+GS..T...... Sequence:_nth_number_with_exactly_n_divisors
+GS..T...... Sequence:_smallest_number_greater_than_previous_term_with_exactly_n_divisors
+GS..T...... Sequence:_smallest_number_with_exactly_n_divisors
 GS......... Sequence_of_non-squares
 GS......... Sequence_of_primes_by_trial_division
 GS......... Sequence_of_primorial_primes
@@ -1053,7 +1051,6 @@ GS......... Set_consolidation
 GS......... Set_of_real_numbers
 GS...R..... Set_puzzle
 GS...R..... Seven-sided_dice_from_five-sided_dice
-.......D... Sexy_primes
 GS..T...... Sexy_primes-1
 GS..T...... Sexy_primes-2
 GS..T...... Sexy_primes-3
@@ -1064,7 +1061,6 @@ GS......... Shortest_common_supersequence
 GS..T.F.... Show_Ascii_table-1
 GS..T.F.... Show_Ascii_table-2
 GS......... Show_the_epoch
-.......D.VU Shutdown
 GS......... Sierpinski_carpet
 GS..T.F.... Sierpinski_pentagon
 GS......... Sierpinski_triangle
@@ -1090,7 +1086,7 @@ G.K........ Singly-linked_list_Element_insertion
 .......D.VU Singly-linked_list_Element_removal
 GS......... Singly-linked_list_Traversal
 GS......... Sleep
-.......D.VU Smarandache_prime-digital_sequence
+.........VU Smarandache_prime-digital_sequence
 GS......... Smith_numbers
 G.KI...D... Snake
 GS..TR.D... Snake_And_Ladder
@@ -1108,7 +1104,7 @@ GS......... Sort_a_list_of_object_identifiers-2
 GS......... Sort_an_array_of_composite_structures
 GS......... Sort_an_integer_array
 GS......... Sort_disjoint_sublist
-GS..T..D... Sort_numbers_lexicographically
+GS..T...... Sort_numbers_lexicographically
 G.K........ Sort_stability
 GS..T...... Sort_three_variables
 GS......... Sort_using_a_custom_comparator
@@ -1197,7 +1193,7 @@ GS..T...... Sum_multiples_of_3_and_5-2
 GS......... Sum_of_a_series
 GS......... Sum_of_squares
 GS......... Sum_to_100
-GS..T.FD... Sunflower_fractal
+GS..T.F.... Sunflower_fractal
 GS..T.F.... Superellipse
 GS......... Superpermutation_minimisation
 .........VU Sutherland-Hodgman_polygon_clipping
@@ -1208,7 +1204,7 @@ GS......... System_time
 ........XV. Table_creation_Postal_addresses
 GS....F.... Take_notes_on_the_command_line
 .......D.VU Tamagotchi_emulator
-GS..T..D... Tarjan
+GS..T...... Tarjan
 GS......... Taxicab_numbers
 GS......... Temperature_conversion
 G.KI....... Terminal_control_Clear_the_screen
@@ -1245,7 +1241,7 @@ GS...R..... Tic-tac-toe
 GS......... Time_a_function
 GS......... Tokenize_a_string
 GS......... Tokenize_a_string_with_escaping
-GS..T..D... Tonelli-Shanks_algorithm
+GS..T...... Tonelli-Shanks_algorithm
 GS..T...... Top_rank_per_group
 G.K........ Topic_variable
 GS......... Topological_sort
@@ -1319,7 +1315,6 @@ GS......... Water_collected_between_towers
 .......D.VU Weather_Routing
 ........X.. Weather_routing
 GS......... Web_scraping
-.......D... Weird_numbers
 GS..T...... Weird_numbers-1
 GS......... Weird_numbers-2
 .......D... Welch%27s_t-test
@@ -1330,7 +1325,7 @@ G.KI....... Window_creation_X11
 G.KI....... Window_management
 GS......... Wireworld
 GS..T..D... Word_break_problem
-.......D.V. Word_frequency
+.........V. Word_frequency
 .........VU Word_search
 GS......... Word_wrap
 GS..T...... World_Cup_group_stage
