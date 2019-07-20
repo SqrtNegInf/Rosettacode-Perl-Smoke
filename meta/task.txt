@@ -405,7 +405,7 @@ GS..T..D... External_sort
 GS.....D... Extract_file_extension
 GS......... Extreme_floating_point_values
 GS......... FASTA_format
-GS..T...... FTP
+!S..T...... FTP
 GS......... Factorial-1
 GS......... Factorial-2
 GS......... Factorial-3
@@ -1006,7 +1006,7 @@ GS..T..D... Rosetta_Code_Rank_languages_by_number_of_users
 GS......... Rosetta_Code_Rank_languages_by_popularity
 .......D.VU Rosetta_Code_Run_examples
 .......D.VU Rosetta_Code_Tasks_sorted_by_average_lines_of_code
-!S..T..D... Rosetta_Code_Tasks_without_examples
+GS..T..D... Rosetta_Code_Tasks_without_examples
 GS......... Rot-13
 GS......... Run-length_encoding
 .......D.VU Run_as_a_daemon_or_service
