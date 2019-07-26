@@ -8,10 +8,10 @@ updating from RC…
 ||||+--------> Touched (modified by me) [289]
 |||||+-------> Random seed [90]
 ||||||+------> File output [62]
-|||||||+-----> Draft [214]
+|||||||+-----> Draft [215]
 ||||||||+----> Ignoring [34]
-|||||||||+---> Void (no local copy) [168]
-||||||||||+--> Un-implemented/reliable [158]
+|||||||||+---> Void (no local copy) [169]
+||||||||||+--> Un-implemented/reliable [159]
 |||||||||||
 GS......... 100_doors-1
 GS......... 100_doors-2
@@ -871,6 +871,7 @@ G.K..R..... Permutations_Rank_of_a_permutation
 GS......... Permutations_by_swapping-1
 GS......... Permutations_by_swapping-2
 GS.....D... Permutations_with_repetitions
+.......D.VU Permutations_with_some_identical_elements
 GS......... Pernicious_numbers
 GS......... Phrase_reversals
 GS......... Pi-1
