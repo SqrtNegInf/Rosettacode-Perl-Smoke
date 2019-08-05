@@ -8,10 +8,10 @@ updating from RC…
 ||||+--------> Touched (modified by me) [289]
 |||||+-------> Random seed [90]
 ||||||+------> File output [62]
-|||||||+-----> Draft [215]
+|||||||+-----> Draft [216]
 ||||||||+----> Ignoring [34]
-|||||||||+---> Void (no local copy) [169]
-||||||||||+--> Un-implemented/reliable [159]
+|||||||||+---> Void (no local copy) [170]
+||||||||||+--> Un-implemented/reliable [160]
 |||||||||||
 GS......... 100_doors-1
 GS......... 100_doors-2
@@ -1207,6 +1207,7 @@ GS....F.... Take_notes_on_the_command_line
 .......D.VU Tamagotchi_emulator
 GS..T...... Tarjan
 GS......... Taxicab_numbers
+.......D.VU Teacup_rim_text
 GS......... Temperature_conversion
 G.KI....... Terminal_control_Clear_the_screen
 G.KIT...... Terminal_control_Coloured_text
