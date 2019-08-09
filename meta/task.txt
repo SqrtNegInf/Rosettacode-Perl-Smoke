@@ -1,17 +1,17 @@
 
 This is perl 5, version 28, subversion 2 (v5.28.2) built for darwin-thread-multi-2level
 updating from RC…
-+------------> Perl: Good/Bad [1149/13]
++------------> Perl: Good/Bad [1148/13]
 |+-----------> Smoke testing [1015]
 ||+----------> sKipping validation [139]
 |||+---------> Interactive [49]
 ||||+--------> Touched (modified by me) [289]
 |||||+-------> Random seed [90]
 ||||||+------> File output [62]
-|||||||+-----> Draft [218]
+|||||||+-----> Draft [219]
 ||||||||+----> Ignoring [34]
-|||||||||+---> Void (no local copy) [172]
-||||||||||+--> Un-implemented/reliable [162]
+|||||||||+---> Void (no local copy) [173]
+||||||||||+--> Un-implemented/reliable [163]
 |||||||||||
 GS......... 100_doors-1
 GS......... 100_doors-2
@@ -515,6 +515,7 @@ GS......... Greatest_subsequential_sum-2
 .......D.VU Greed
 GS..T.F.... Greyscale_bars_Display
 GS...R..... Guess_the_number
+.......D.VU Guess_the_number_One-liner
 GS...R..... Guess_the_number_With_feedback
 GS...R..... Guess_the_number_With_feedback_player
 GS......... HTTP
@@ -692,7 +693,7 @@ GS..T...... Lucky_and_even_lucky_numbers-2
 GS......... Ludic_numbers
 GS......... Luhn_test_of_credit_card_numbers
 GS......... Lychrel_numbers
-GS......... MAC_Vendor_Lookup
+!S......... MAC_Vendor_Lookup
 GS..T...... MD4
 GS......... MD5
 GS......... MD5_Implementation
