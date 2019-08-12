@@ -1,5 +1,6 @@
 
 This is perl 5, version 28, subversion 2 (v5.28.2) built for darwin-thread-multi-2level
+updating from RC…
 +------------> Perl: Good/Bad [1149/13]
 |+-----------> Smoke testing [1015]
 ||+----------> sKipping validation [139]
@@ -159,6 +160,7 @@ GS......... Bitwise_operations
 GS......... Boolean_values
 GS......... Box_the_compass
 GS......... Brace_expansion
+.......D.VU Brazilian_numbers
 GS......... Break_OO_privacy
 GS..TRF.... Brownian_tree
 GS...R..... Bulls_and_cows
@@ -514,7 +516,6 @@ GS......... Greatest_subsequential_sum-2
 .......D.VU Greed
 GS..T.F.... Greyscale_bars_Display
 GS...R..... Guess_the_number
-.......D.VU Guess_the_number_One-liner
 GS...R..... Guess_the_number_With_feedback
 GS...R..... Guess_the_number_With_feedback_player
 GS......... HTTP
