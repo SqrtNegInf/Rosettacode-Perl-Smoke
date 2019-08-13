@@ -8,10 +8,10 @@ updating from RC…
 ||||+--------> Touched (modified by me) [289]
 |||||+-------> Random seed [90]
 ||||||+------> File output [62]
-|||||||+-----> Draft [219]
+|||||||+-----> Draft [220]
 ||||||||+----> Ignoring [34]
-|||||||||+---> Void (no local copy) [173]
-||||||||||+--> Un-implemented/reliable [163]
+|||||||||+---> Void (no local copy) [174]
+||||||||||+--> Un-implemented/reliable [164]
 |||||||||||
 GS......... 100_doors-1
 GS......... 100_doors-2
@@ -412,6 +412,7 @@ GS......... Factorial-2
 GS......... Factorial-3
 GS......... Factorial-4
 B.K.TR....U Factorial_base_numbers_indexing_permutations_of_a_collection
+.......D.VU Factorions
 GS......... Factors_of_a_Mersenne_number-1
 GS......... Factors_of_a_Mersenne_number-2
 GS......... Factors_of_an_integer-1
