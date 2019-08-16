@@ -8,10 +8,10 @@ updating from RC…
 ||||+--------> Touched (modified by me) [289]
 |||||+-------> Random seed [90]
 ||||||+------> File output [62]
-|||||||+-----> Draft [220]
+|||||||+-----> Draft [221]
 ||||||||+----> Ignoring [34]
-|||||||||+---> Void (no local copy) [174]
-||||||||||+--> Un-implemented/reliable [164]
+|||||||||+---> Void (no local copy) [175]
+||||||||||+--> Un-implemented/reliable [165]
 |||||||||||
 GS......... 100_doors-1
 GS......... 100_doors-2
@@ -1161,6 +1161,7 @@ GS..TR..... Statistics_Normal_distribution
 GS..T...... Stem-and-leaf_plot
 GS......... Stern-Brocot_sequence-1
 GS......... Stern-Brocot_sequence-2
+.......D.VU Stirling_numbers_of_the_first_kind
 GS..T...... Straddling_checkerboard
 GS......... Stream_Merge
 GS......... String_append
