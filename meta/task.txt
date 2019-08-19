@@ -8,10 +8,10 @@ updating from RC…
 ||||+--------> Touched (modified by me) [289]
 |||||+-------> Random seed [90]
 ||||||+------> File output [62]
-|||||||+-----> Draft [221]
+|||||||+-----> Draft [226]
 ||||||||+----> Ignoring [34]
-|||||||||+---> Void (no local copy) [175]
-||||||||||+--> Un-implemented/reliable [165]
+|||||||||+---> Void (no local copy) [180]
+||||||||||+--> Un-implemented/reliable [170]
 |||||||||||
 GS......... 100_doors-1
 GS......... 100_doors-2
@@ -424,6 +424,7 @@ GS......... Fast_Fourier_transform
 GS.....D... Faulhaber%27s_formula
 GS.....D... Faulhaber%27s_triangle
 GS..T..D... Feigenbaum_constant_calculation
+.......D.VU Fermat_numbers
 .......D.VU Fibonacci_heap
 GS......... Fibonacci_n-step_number_sequences
 GS......... Fibonacci_sequence-1
@@ -635,6 +636,7 @@ GS......... Kronecker_product
 GS..T.F.... Kronecker_product_based_fractals
 GS..T...... LU_decomposition
 GS......... LZW_compression
+.......D.VU Lah_numbers
 GS...R..... Langton%27s_ant
 GS......... Largest_int_from_concatenated_ints
 GS..T...... Largest_number_divisible_by_its_digits-1
@@ -883,6 +885,7 @@ GS......... Pi-2
 GS......... Pi-3
 GS......... Pi-4
 GS...R..... Pick_random_element
+.......D.VU Pierpont_primes
 GS...R..... Pig_the_dice_game
 GS..TR..... Pig_the_dice_game_Player
 GS..T.F.... Pinstripe_Display
@@ -1162,6 +1165,7 @@ GS..T...... Stem-and-leaf_plot
 GS......... Stern-Brocot_sequence-1
 GS......... Stern-Brocot_sequence-2
 .......D.VU Stirling_numbers_of_the_first_kind
+.......D.VU Stirling_numbers_of_the_second_kind
 GS..T...... Straddling_checkerboard
 GS......... Stream_Merge
 GS......... String_append
@@ -1357,3 +1361,4 @@ GS......... Zero_to_the_zero_power
 GS..T...... Zhang-Suen_thinning_algorithm
 GS......... Zig-zag_matrix-1
 GS......... Zig-zag_matrix-2
+.......D.VU Zumkeller_numbers
