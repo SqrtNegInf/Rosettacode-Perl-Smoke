@@ -1,14 +1,14 @@
 
 This is perl 5, version 28, subversion 2 (v5.28.2) built for darwin-thread-multi-2level
 updating from RC…
-+------------> Perl: Good/Bad [1148/13]
++------------> Perl: Good/Bad [1149/13]
 |+-----------> Smoke testing [1015]
 ||+----------> sKipping validation [139]
 |||+---------> Interactive [49]
 ||||+--------> Touched (modified by me) [289]
 |||||+-------> Random seed [90]
 ||||||+------> File output [62]
-|||||||+-----> Draft [226]
+|||||||+-----> Draft [224]
 ||||||||+----> Ignoring [34]
 |||||||||+---> Void (no local copy) [180]
 ||||||||||+--> Un-implemented/reliable [170]
@@ -643,7 +643,7 @@ GS..T...... Largest_number_divisible_by_its_digits-1
 GS..T...... Largest_number_divisible_by_its_digits-2
 GS......... Last_Friday_of_each_month
 GS..TR..... Last_letter-first_letter
-.......D.VU Latin_Squares_in_reduced_form
+.........VU Latin_Squares_in_reduced_form
 .......D.VU Latin_Squares_in_reduced_form_Randomizing_using_Jacobson_and_Matthews_Technique
 .......D.VU Launch_rocket_with_countdown_and_acceleration_in_stdout
 GS..T...... Law_of_cosines_-_triples
@@ -1129,7 +1129,7 @@ GS...R..... Sorting_algorithms_Heapsort
 GS......... Sorting_algorithms_Insertion_sort
 GS......... Sorting_algorithms_Merge_sort
 GS......... Sorting_algorithms_Pancake_sort
-GS.....D... Sorting_algorithms_Patience_sort
+GS......... Sorting_algorithms_Patience_sort
 GS...R..... Sorting_algorithms_Permutation_sort
 GS......... Sorting_algorithms_Quicksort
 GS......... Sorting_algorithms_Radix_sort
@@ -1249,7 +1249,7 @@ G.K.T.....U Thiele%27s_interpolation_formula
 GS......... Thue-Morse
 GS...R..... Tic-tac-toe
 .......D.VU Time-based_One-time_Password_Algorithm
-!S......... Time_a_function
+GS......... Time_a_function
 GS......... Tokenize_a_string
 GS......... Tokenize_a_string_with_escaping
 GS..T...... Tonelli-Shanks_algorithm
