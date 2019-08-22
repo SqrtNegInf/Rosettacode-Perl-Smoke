@@ -1,16 +1,16 @@
 
 This is perl 5, version 28, subversion 2 (v5.28.2) built for darwin-thread-multi-2level
 updating from RC…
-+------------> Perl: Good/Bad [1149/13]
-|+-----------> Smoke testing [1015]
-||+----------> sKipping validation [139]
++------------> Perl: Good/Bad [1152/13]
+|+-----------> Smoke testing [1016]
+||+----------> sKipping validation [141]
 |||+---------> Interactive [49]
-||||+--------> Touched (modified by me) [289]
+||||+--------> Touched (modified by me) [292]
 |||||+-------> Random seed [90]
 ||||||+------> File output [62]
 |||||||+-----> Draft [224]
 ||||||||+----> Ignoring [34]
-|||||||||+---> Void (no local copy) [180]
+|||||||||+---> Void (no local copy) [177]
 ||||||||||+--> Un-implemented/reliable [170]
 |||||||||||
 GS......... 100_doors-1
@@ -636,7 +636,7 @@ GS......... Kronecker_product
 GS..T.F.... Kronecker_product_based_fractals
 GS..T...... LU_decomposition
 GS......... LZW_compression
-.......D.VU Lah_numbers
+G.K.T..D..U Lah_numbers
 GS...R..... Langton%27s_ant
 GS......... Largest_int_from_concatenated_ints
 GS..T...... Largest_number_divisible_by_its_digits-1
@@ -1164,8 +1164,8 @@ GS..TR..... Statistics_Normal_distribution
 GS..T...... Stem-and-leaf_plot
 GS......... Stern-Brocot_sequence-1
 GS......... Stern-Brocot_sequence-2
-.......D.VU Stirling_numbers_of_the_first_kind
-.......D.VU Stirling_numbers_of_the_second_kind
+GS..T..D..U Stirling_numbers_of_the_first_kind
+G.K.T..D..U Stirling_numbers_of_the_second_kind
 GS..T...... Straddling_checkerboard
 GS......... Stream_Merge
 GS......... String_append
