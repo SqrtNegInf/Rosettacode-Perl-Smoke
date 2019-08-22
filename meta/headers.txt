@@ -3532,6 +3532,13 @@ File: L/LZW_compression
 #c# 2018-08-14 <RC
 #p# OK
 
+File: L/Lah_numbers
+#!/usr/local/bin/perl
+#u# http://rosettacode.org/wiki/Lah_numbers
+#t# skiptest
+#c# 2019-08-xx >RC
+#p# OK
+
 File: L/Langton%27s_ant
 #!/usr/local/bin/perl
 #u# http://rosettacode.org/wiki/Langton%27s_ant
@@ -6600,6 +6607,19 @@ File: S/Stern-Brocot_sequence-2
 #!/usr/local/bin/perl
 #u# http://rosettacode.org/wiki/Stern-Brocot_sequence
 #c# 2018-08-13 <RC, 2018-11-06 <RC
+#p# OK
+
+File: S/Stirling_numbers_of_the_first_kind
+#!/usr/local/bin/perl
+#u# http://rosettacode.org/wiki/Stirling_numbers_of_the_first_kind
+#c# 2019-08-xx >RC
+#p# OK
+
+File: S/Stirling_numbers_of_the_second_kind
+#!/usr/local/bin/perl
+#u# http://rosettacode.org/wiki/Stirling_numbers_of_the_second_kind
+#t# skiptest
+#c# 2019-08-xx >RC
 #p# OK
 
 File: S/Straddling_checkerboard
