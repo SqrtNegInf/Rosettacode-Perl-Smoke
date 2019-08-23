@@ -3535,7 +3535,6 @@ File: L/LZW_compression
 File: L/Lah_numbers
 #!/usr/local/bin/perl
 #u# http://rosettacode.org/wiki/Lah_numbers
-#t# skiptest
 #c# 2019-08-xx >RC
 #p# OK
 
