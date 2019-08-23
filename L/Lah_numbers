@@ -1,19 +1,15 @@
 #!/usr/local/bin/perl
 #u# http://rosettacode.org/wiki/Lah_numbers
-#t# skiptest
 #c# 2019-08-xx >RC
 #p# OK
-
-use Data::Printer;
 
 use strict;
 use warnings;
 use feature 'say';
-#use bigrat;
 use ntheory qw(factorial);
-my @res;
-
 use List::Util qw(max);
+
+my @res;
 
 sub Lah {
     my($n, $k) = @_;
@@ -25,8 +21,7 @@ sub Lah {
 }
 
 my $upto = 12;
-my $mx   = 11;
-#my $mx = (1..$upto).map( { Lah($upto, $_) } ).max.chars;
+my $mx   = 1 + length max map { Lah(12,$_) } 0..$upto;
 
 push @res, 'Unsigned Lah numbers:  L(n, k):';
 push @res, 'n\k';
