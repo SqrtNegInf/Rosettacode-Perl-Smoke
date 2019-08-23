@@ -2,8 +2,8 @@
 This is perl 5, version 28, subversion 2 (v5.28.2) built for darwin-thread-multi-2level
 updating from RC…
 +------------> Perl: Good/Bad [1152/13]
-|+-----------> Smoke testing [1016]
-||+----------> sKipping validation [141]
+|+-----------> Smoke testing [1017]
+||+----------> sKipping validation [140]
 |||+---------> Interactive [49]
 ||||+--------> Touched (modified by me) [292]
 |||||+-------> Random seed [90]
@@ -636,7 +636,7 @@ GS......... Kronecker_product
 GS..T.F.... Kronecker_product_based_fractals
 GS..T...... LU_decomposition
 GS......... LZW_compression
-G.K.T..D..U Lah_numbers
+GS..T..D..U Lah_numbers
 GS...R..... Langton%27s_ant
 GS......... Largest_int_from_concatenated_ints
 GS..T...... Largest_number_divisible_by_its_digits-1
