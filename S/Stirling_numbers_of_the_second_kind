@@ -21,7 +21,7 @@ sub Stirling2 {
 
 my $upto = 12;
 my $mx   =  8;
-#my $mx = (1..^$upto).map( { Stirling2($upto, $_) } ).max.chars;
+#my $mx   = 1 + length max map { Stirling2(12,$_) } 0..$upto;
 
 push @res, 'Unsigned Stirling2 numbers of the second kind: S2(n, k):';
 push @res, 'n\k';
