@@ -24,8 +24,7 @@ sub Stirling1 {
 }
 
 my $upto = 12;
-my $mx   = 10;
-#my $mx = (1..^$upto).map( { Stirling11($upto, $_) } ).max.chars;
+my $mx   = 1 + length max map { Stirling1(12,$_) } 0..$upto;
 
 push @res, 'Unsigned Stirling1 numbers of the first kind: S1(n, k):';
 push @res, 'n\k';
