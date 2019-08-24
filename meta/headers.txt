@@ -588,6 +588,12 @@ File: B/Base64_encode_data
 #c# 2018-07-16 <RC
 #p# OK
 
+File: B/Bell_numbers
+#!/usr/local/bin/perl
+#u# http://rosettacode.org/wiki/Bell_numbers
+#c# 2019-08-xx >RC
+#p# OK
+
 File: B/Benford%27s_law
 #!/usr/local/bin/perl
 #u# http://rosettacode.org/wiki/Benford%27s_law
@@ -2765,7 +2771,7 @@ File: G/Get_system_command_output
 File: G/Globally_replace_text_in_several_files
 #!/usr/local/bin/perl
 #u# http://rosettacode.org/wiki/Globally_replace_text_in_several_files
-#n# skiptest
+#t# skiptest
 #c# 2018-08-11 <RC
 #p# OK
 
@@ -3860,7 +3866,7 @@ File: L/Lucky_and_even_lucky_numbers-1
 File: L/Lucky_and_even_lucky_numbers-2
 #!/usr/local/bin/perl
 #u# http://rosettacode.org/wiki/Lucky_and_even_lucky_numbers
-#n# skiptest
+#t# skiptest
 #c# 2018-09-19 >RC
 #p# OK
 #n# command-line version
@@ -6191,6 +6197,13 @@ File: S/Sleep
 #p# OK
 #=# RC pipe: 4\n4000000\n4000000000\n
 
+File: S/Smarandache_prime-digital_sequence
+#!/usr/local/bin/perl
+#u# http://rosettacode.org/wiki/RC_REMOTE
+#t# skiptest
+#c# 2019-08-xx >RC
+#p# OK
+
 File: S/Smith_numbers
 #!/usr/local/bin/perl
 #u# http://rosettacode.org/wiki/Smith_numbers
@@ -7359,6 +7372,12 @@ File: V/Vampire_number-2
 #c# 2018-08-06 <RC
 #p# OK
 
+File: V/Van_Eck_sequence
+#!/usr/local/bin/perl
+#u# http://rosettacode.org/wiki/Van_Eck_sequence
+#c# 2019-08-xx >RC
+#p# OK
+
 File: V/Van_der_Corput_sequence
 #!/usr/local/bin/perl
 #u# http://rosettacode.org/wiki/Van_der_Corput_sequence
@@ -7693,6 +7712,13 @@ File: Z/Zig-zag_matrix-2
 #!/usr/local/bin/perl
 #u# http://rosettacode.org/wiki/Zig-zag_matrix
 #c# 2018-07-11 <RC
+#p# OK
+
+File: Z/Zumkeller_numbers
+#!/usr/local/bin/perl
+#u# http://rosettacode.org/wiki/Zumkeller_numbers
+#t# skiptest
+#c# 2019-08-xx >RC
 #p# OK
 
 
