@@ -1,6 +1,6 @@
 #!/usr/local/bin/perl
 #u# http://rosettacode.org/wiki/Globally_replace_text_in_several_files
-#n# skiptest
+#t# skiptest
 #c# 2018-08-11 <RC
 #p# OK
 
