@@ -1,16 +1,16 @@
 
 This is perl 5, version 28, subversion 2 (v5.28.2) built for darwin-thread-multi-2level
 updating from RC…
-+------------> Perl: Good/Bad [1152/13]
++------------> Perl: Good/Bad [1155/13]
 |+-----------> Smoke testing [1017]
-||+----------> sKipping validation [140]
+||+----------> sKipping validation [144]
 |||+---------> Interactive [49]
-||||+--------> Touched (modified by me) [292]
+||||+--------> Touched (modified by me) [296]
 |||||+-------> Random seed [90]
 ||||||+------> File output [62]
 |||||||+-----> Draft [224]
 ||||||||+----> Ignoring [34]
-|||||||||+---> Void (no local copy) [177]
+|||||||||+---> Void (no local copy) [173]
 ||||||||||+--> Un-implemented/reliable [170]
 |||||||||||
 GS......... 100_doors-1
@@ -126,7 +126,7 @@ GS...RF.... Barnsley_fern
 GS..T..D... Base58Check_encoding
 GS..T...... Base64_decode_data
 GS.....D... Base64_encode_data
-.......D.VU Bell_numbers
+GS..T..D..U Bell_numbers
 GS......... Benford%27s_law
 GS......... Bernoulli_numbers-1
 GS......... Bernoulli_numbers-2
@@ -502,7 +502,7 @@ GS......... Generator_Exponential
 GS......... Generic_swap
 .......D.VU Geometric_algebra
 GS......... Get_system_command_output
-GS......... Globally_replace_text_in_several_files
+G.K........ Globally_replace_text_in_several_files
 .........VU Go_Fish
 .......D.VU Gradient_descent
 GS......... Gray_code
@@ -692,11 +692,11 @@ G.K........ Lucas-Lehmer_test-2
 GS......... Lucas-Lehmer_test-3
 GS......... Lucas-Lehmer_test-4
 GS..T...... Lucky_and_even_lucky_numbers-1
-GS..T...... Lucky_and_even_lucky_numbers-2
+G.K.T...... Lucky_and_even_lucky_numbers-2
 GS......... Ludic_numbers
 GS......... Luhn_test_of_credit_card_numbers
 GS......... Lychrel_numbers
-GS......... MAC_Vendor_Lookup
+!S......... MAC_Vendor_Lookup
 GS..T...... MD4
 GS......... MD5
 GS......... MD5_Implementation
@@ -1094,7 +1094,7 @@ G.K........ Singly-linked_list_Element_insertion
 .......D.VU Singly-linked_list_Element_removal
 GS......... Singly-linked_list_Traversal
 GS......... Sleep
-.........VU Smarandache_prime-digital_sequence
+G.K.T.....U Smarandache_prime-digital_sequence
 GS......... Smith_numbers
 G.KI...D... Snake
 GS..TR.D... Snake_And_Ladder
@@ -1300,7 +1300,7 @@ GS......... User_input_Text
 GS......... Validate_International_Securities_Identification_Number
 GS......... Vampire_number-1
 GS......... Vampire_number-2
-.........VU Van_Eck_sequence
+GS..T.....U Van_Eck_sequence
 GS......... Van_der_Corput_sequence
 GS......... Variable-length_quantity
 GS..T...... Variable_size_Get
@@ -1361,4 +1361,4 @@ GS......... Zero_to_the_zero_power
 GS..T...... Zhang-Suen_thinning_algorithm
 GS......... Zig-zag_matrix-1
 GS......... Zig-zag_matrix-2
-.......D.VU Zumkeller_numbers
+G.K.T..D..U Zumkeller_numbers
