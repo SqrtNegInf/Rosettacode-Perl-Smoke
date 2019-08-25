@@ -1,7 +1,7 @@
 
 This is perl 5, version 28, subversion 2 (v5.28.2) built for darwin-thread-multi-2level
 updating from RC…
-+------------> Perl: Good/Bad [1155/13]
++------------> Perl: Good/Bad [1156/13]
 |+-----------> Smoke testing [1017]
 ||+----------> sKipping validation [144]
 |||+---------> Interactive [49]
@@ -10,8 +10,8 @@ updating from RC…
 ||||||+------> File output [62]
 |||||||+-----> Draft [224]
 ||||||||+----> Ignoring [34]
-|||||||||+---> Void (no local copy) [173]
-||||||||||+--> Un-implemented/reliable [170]
+|||||||||+---> Void (no local copy) [174]
+||||||||||+--> Un-implemented/reliable [171]
 |||||||||||
 GS......... 100_doors-1
 GS......... 100_doors-2
@@ -41,6 +41,7 @@ GS......... AKS_test_for_primes-3
 GS..T...... Abbreviations,_automatic
 GS..T...... Abbreviations,_easy
 GS..T...... Abbreviations,_simple
+.........VU Abelian_sandpile_model
 ........XV. Abstract_type
 GS..T...... Abundant,_deficient_and_perfect_number_classifications
 GS..T...... Abundant_odd_numbers
@@ -696,7 +697,7 @@ G.K.T...... Lucky_and_even_lucky_numbers-2
 GS......... Ludic_numbers
 GS......... Luhn_test_of_credit_card_numbers
 GS......... Lychrel_numbers
-!S......... MAC_Vendor_Lookup
+GS......... MAC_Vendor_Lookup
 GS..T...... MD4
 GS......... MD5
 GS......... MD5_Implementation
