@@ -6199,7 +6199,7 @@ File: S/Sleep
 
 File: S/Smarandache_prime-digital_sequence
 #!/usr/local/bin/perl
-#u# http://rosettacode.org/wiki/RC_REMOTE
+#u# http://rosettacode.org/wiki/Smarandache_prime-digital_sequence
 #t# skiptest
 #c# 2019-08-xx >RC
 #p# OK
