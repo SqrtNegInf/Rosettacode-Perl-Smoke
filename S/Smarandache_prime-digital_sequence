@@ -1,28 +1,75 @@
 #!/usr/local/bin/perl
-#u# http://rosettacode.org/wiki/RC_REMOTE
+#u# http://rosettacode.org/wiki/Smarandache_prime-digital_sequence
 #t# skiptest
 #c# 2019-08-xx >RC
 #p# OK
 
-use Data::Printer;
-
 use strict;
 use warnings;
 use feature 'say';
-#my $result;
-#my @res;
+use feature 'state';
 
-# ~/perl6/Rosetta-Code/X/RC_LOCAL
+use bigint try=>"GMP";
+use ntheory qw<is_prime>;
+use Lingua::EN::Numbers qw(num2en_ordinal);
 
-# say $result; 
-# say my $result = join "\n", @res;
+my @res;
+
+my @spds = grep { is_prime($_) && /^[2357]+$/ } 1..100;
+
+my @p = (23,27,33,37,53,57,73,77);
+while ($#spds < 100_00) {
+    state $o++; 
+    my $oom = 10**(1+$o); 
+    my @next;
+    for my $l (2,3,5,7) {
+        push @next, map { $l*$oom + $_ } @p;
+    }
+    push @spds, grep { is_prime($_) } @p = @next;
+}
+
+say 'Smarandache prime-digitals:';
+push @res, sprintf "%22s: %s", ucfirst(num2en_ordinal(1+$_)), $spds[$_] for 0..24, 99, 999, 9999; #, 99999;
+
+say my $result = join "\n", @res;
+#exit;
+
 my $ref = <<'EOD';
+                 First: 2
+                Second: 3
+                 Third: 5
+                Fourth: 7
+                 Fifth: 23
+                 Sixth: 37
+               Seventh: 53
+                Eighth: 73
+                 Ninth: 223
+                 Tenth: 227
+              Eleventh: 233
+               Twelfth: 257
+            Thirteenth: 277
+            Fourteenth: 337
+             Fifteenth: 353
+             Sixteenth: 373
+           Seventeenth: 523
+            Eighteenth: 557
+            Nineteenth: 577
+             Twentieth: 727
+          Twenty-first: 733
+         Twenty-second: 757
+          Twenty-third: 773
+         Twenty-fourth: 2237
+          Twenty-fifth: 2273
+         One hundredth: 33223
+        One thousandth: 3273527
+        Ten thousandth: 273322727
 EOD
+#One hundred thousandth: 23,325,232,253
 
 use Test::More;
-#chomp $ref;
-#is($result, $ref);
-#done_testing();
+chomp $ref;
+is($result, $ref);
+done_testing();
 
 __END__
 
@@ -30,5 +77,4 @@ __END__
 {{trans|Perl 6}}
 <lang perl></lang>
 {{out}}
-<pre style="height:20ex"></pre>
-[https://github.com/SqrtNegInf/Rosettacode-Perl5-Smoke/blob/master/ref/XXX XXX]
+<pre></pre>
