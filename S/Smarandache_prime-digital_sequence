@@ -1,6 +1,5 @@
 #!/usr/local/bin/perl
 #u# http://rosettacode.org/wiki/Smarandache_prime-digital_sequence
-#t# skiptest
 #c# 2019-08-xx >RC
 #p# OK
 
@@ -9,30 +8,33 @@ use warnings;
 use feature 'say';
 use feature 'state';
 
-use bigint try=>"GMP";
 use ntheory qw<is_prime>;
 use Lingua::EN::Numbers qw(num2en_ordinal);
 
 my @res;
 
-my @spds = grep { is_prime($_) && /^[2357]+$/ } 1..100;
+my @prime_digits = <2 3 5 7>;
 
-my @p = (23,27,33,37,53,57,73,77);
-while ($#spds < 100_00) {
+#my @spds = grep { is_prime($_) && /^[2357]+$/ } 1..100;
+my @spds = grep { is_prime($_) && /^[@{[join '',@prime_digits]}]+$/ } 1..100;
+
+#my @p = <23 27 33 37 53 57 73 77>;
+my @p = map { $_+3, $_+7 } map { 10*$_ } @prime_digits;
+
+while ($#spds < 100_000) {
     state $o++; 
     my $oom = 10**(1+$o); 
-    my @next;
-    for my $l (2,3,5,7) {
-        push @next, map { $l*$oom + $_ } @p;
+    my @q;
+    for my $l (@prime_digits) {
+        push @q, map { $l*$oom + $_ } @p;
     }
-    push @spds, grep { is_prime($_) } @p = @next;
+    push @spds, grep { is_prime($_) } @p = @q;
 }
 
 say 'Smarandache prime-digitals:';
-push @res, sprintf "%22s: %s", ucfirst(num2en_ordinal(1+$_)), $spds[$_] for 0..24, 99, 999, 9999; #, 99999;
+push @res, sprintf "%22s: %s", ucfirst(num2en_ordinal($_)), $spds[$_-1] for 1..25, 100, 1000, 10_000, 100_000;
 
 say my $result = join "\n", @res;
-#exit;
 
 my $ref = <<'EOD';
                  First: 2
@@ -63,8 +65,8 @@ my $ref = <<'EOD';
          One hundredth: 33223
         One thousandth: 3273527
         Ten thousandth: 273322727
+One hundred thousandth: 23325232253
 EOD
-#One hundred thousandth: 23,325,232,253
 
 use Test::More;
 chomp $ref;
