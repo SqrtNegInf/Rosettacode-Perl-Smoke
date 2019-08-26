@@ -10,9 +10,11 @@ use strict;
 use warnings;
 use feature 'say';
 
+use ntheory <factor is_prime>;
+
 my @res;
 
-use ntheory <factor is_prime>;
+__END__
 
 sub zumkeller {
     my($range) = @_;
