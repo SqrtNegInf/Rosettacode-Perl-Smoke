@@ -10,15 +10,23 @@ use strict;
 use warnings;
 use feature 'say';
 
-__END__
-
-use ntheory <is_prime>;
+use ntheory qw<is_prime>;
 
 my @res;
 
-sub pierpont ($kind is copy = 1) {
-    fail "Unknown type: $kind. Must be one of 1 (default) or 2" if $kind !== 1|2;
+sub pierpont {
+    my($kind) = @_ ? shift : 1;
+    die "Unknown type: $kind. Must be one of 1 (default) or 2" unless $kind == 1 || $kind == 2;
     $kind = -1 if $kind == 2;
+    say $kind;
+}
+
+pierpont(2);
+pierpont(1);
+pierpont();
+pierpont(0);
+
+__END__
     my $po3 = 3;
     my $add-one = 3;
     my @iterators = [1,2,4,8 … *].iterator, [3,9,27 … *].iterator;
