@@ -740,6 +740,13 @@ File: B/Brace_expansion
 #c# 2018-07-17 <RC
 #p# OK
 
+File: B/Brazilian_numbers
+#!/usr/local/bin/perl
+#u# http://rosettacode.org/wiki/Brazilian_numbers
+#t# skiptest
+#c# 2019-08-xx >RC
+#p# OK
+
 File: B/Break_OO_privacy
 #!/usr/local/bin/perl
 #u# http://rosettacode.org/wiki/Break_OO_privacy
@@ -2305,6 +2312,13 @@ File: F/Feigenbaum_constant_calculation
 #n# except on Mac OS: https://github.com/leto/math--gsl/issues/151
 #n# cf: https://github.com/SqrtNegInf/Feigenbaum
 
+File: F/Fermat_numbers
+#!/usr/local/bin/perl
+#u# http://rosettacode.org/wiki/Fermat_numbers
+#t# skiptest
+#c# 2019-08-xx >RC
+#p# OK
+
 File: F/Fibonacci_n-step_number_sequences
 #!/usr/local/bin/perl
 #u# http://rosettacode.org/wiki/Fibonacci_n-step_number_sequences
@@ -3167,6 +3181,13 @@ File: H/Huffman_coding
 #!/usr/local/bin/perl
 #u# http://rosettacode.org/wiki/Huffman_coding
 #c# 2018-08-13 <RC
+#p# OK
+
+File: H/Humble_numbers
+#!/usr/local/bin/perl
+#u# http://rosettacode.org/wiki/Humble_numbers
+#t# skiptest
+#c# 2019-08-xx >RC
 #p# OK
 
 File: I/I.Q._Puzzle
@@ -4999,7 +5020,6 @@ File: P/Pick_random_element
 File: P/Pierpont_primes
 #!/usr/local/bin/perl
 #u# http://rosettacode.org/wiki/Pierpont_primes
-#t# skiptest
 #c# 2019-08-xx >RC
 #p# OK
 
