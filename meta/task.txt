@@ -1,17 +1,17 @@
 
 This is perl 5, version 28, subversion 2 (v5.28.2) built for darwin-thread-multi-2level
 updating from RC…
-+------------> Perl: Good/Bad [1157/13]
-|+-----------> Smoke testing [1018]
-||+----------> sKipping validation [144]
++------------> Perl: Good/Bad [1160/13]
+|+-----------> Smoke testing [1019]
+||+----------> sKipping validation [146]
 |||+---------> Interactive [49]
-||||+--------> Touched (modified by me) [297]
+||||+--------> Touched (modified by me) [300]
 |||||+-------> Random seed [90]
 ||||||+------> File output [62]
 |||||||+-----> Draft [225]
 ||||||||+----> Ignoring [34]
-|||||||||+---> Void (no local copy) [174]
-||||||||||+--> Un-implemented/reliable [172]
+|||||||||+---> Void (no local copy) [172]
+||||||||||+--> Un-implemented/reliable [173]
 |||||||||||
 GS......... 100_doors-1
 GS......... 100_doors-2
@@ -71,7 +71,7 @@ GS..T...... Anagrams-1
 GS..T...... Anagrams-2
 GS......... Anagrams_Deranged_anagrams
 GS..T...... Angle_difference_between_two_bearings
-.......D.VU Angles_geometric,_normalization_and_conversion
+.........VU Angles_geometric,_normalization_and_conversion
 G.KI....... Animate_a_pendulum
 G.KIT...... Animation
 GS......... Anonymous_recursion-1
@@ -161,7 +161,7 @@ GS......... Bitwise_operations
 GS......... Boolean_values
 GS......... Box_the_compass
 GS......... Brace_expansion
-.......D.VU Brazilian_numbers
+G.K.T..D..U Brazilian_numbers
 GS......... Break_OO_privacy
 GS..TRF.... Brownian_tree
 GS...R..... Bulls_and_cows
@@ -425,7 +425,7 @@ GS......... Fast_Fourier_transform
 GS.....D... Faulhaber%27s_formula
 GS.....D... Faulhaber%27s_triangle
 GS..T..D... Feigenbaum_constant_calculation
-.......D.VU Fermat_numbers
+G.K.T..D..U Fermat_numbers
 .......D.VU Fibonacci_heap
 GS......... Fibonacci_n-step_number_sequences
 GS......... Fibonacci_sequence-1
@@ -565,7 +565,7 @@ GS......... Host_introspection
 GS......... Hostname
 GS..T.F.... Hough_transform
 GS......... Huffman_coding
-.......D.VU Humble_numbers
+G.K.T..D..U Humble_numbers
 .........VU Hunt_The_Wumpus
 .......D.VU I%27m_a_software_engineer,_get_me_out_of_here
 GS..T..D... I.Q._Puzzle
@@ -887,7 +887,7 @@ GS......... Pi-2
 GS......... Pi-3
 GS......... Pi-4
 GS...R..... Pick_random_element
-G.K.T..D..U Pierpont_primes
+GS..T..D..U Pierpont_primes
 GS...R..... Pig_the_dice_game
 GS..TR..... Pig_the_dice_game_Player
 GS..T.F.... Pinstripe_Display
@@ -925,6 +925,7 @@ GS......... Prime_decomposition-3
 B.......... Prime_decomposition-4
 GS..T...... Primes_-_allocate_descendants_to_their_ancestors
 GS......... Primorial_numbers
+.......D.VU Print_debugging_statement
 GS......... Priority_queue
 GS...R..... Probabilistic_choice
 GS..T...... Problem_of_Apollonius
