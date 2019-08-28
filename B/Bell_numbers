@@ -10,17 +10,15 @@ use bignum;
 
 my @res;
 
-#my @b = 1;
-#my @Aitkens = [@b];
-
-my @Aitkens = [1];
 my @b = 1;
+my @Aitkens = [1];
+
 push @Aitkens, do {
     my @c = $b[-1];
     push @c, $b[$_] + $c[$_] for 0..$#b;
     @b = @c;
     [@c]
-} until ($#Aitkens == 50);
+} until (@Aitkens == 50);
 
 my @Bell_numbers = map { @$_[0] } @Aitkens;
 
@@ -28,7 +26,7 @@ push @res, 'First fifteen and fiftieth Bell numbers:';
 push @res, sprintf '%2d: %s', 1+$_, $Bell_numbers[$_] for 0..14, 49;
 
 push @res, "\nFirst ten rows of Aitken's array:";
-push @res, join ' ', @{$Aitkens[$_]} for 0..9;
+push @res, sprintf '%-7d'x@{$Aitkens[$_]}, @{$Aitkens[$_]} for 0..9;
 
 say my $result = join "\n", @res;
 
@@ -52,16 +50,16 @@ First fifteen and fiftieth Bell numbers:
 50: 10726137154573358400342215518590002633917247281
 
 First ten rows of Aitken's array:
-1
-1 2
-2 3 5
-5 7 10 15
-15 20 27 37 52
-52 67 87 114 151 203
-203 255 322 409 523 674 877
-877 1080 1335 1657 2066 2589 3263 4140
-4140 5017 6097 7432 9089 11155 13744 17007 21147
-21147 25287 30304 36401 43833 52922 64077 77821 94828 115975
+1      
+1      2      
+2      3      5      
+5      7      10     15     
+15     20     27     37     52     
+52     67     87     114    151    203    
+203    255    322    409    523    674    877    
+877    1080   1335   1657   2066   2589   3263   4140   
+4140   5017   6097   7432   9089   11155  13744  17007  21147  
+21147  25287  30304  36401  43833  52922  64077  77821  94828  115975 
 EOD
 
 use Test::More;
@@ -75,4 +73,4 @@ __END__
 {{trans|Perl 6}}
 <lang perl></lang>
 {{out}}
-<pre style="height:20ex"></pre>
+<pre></pre>
