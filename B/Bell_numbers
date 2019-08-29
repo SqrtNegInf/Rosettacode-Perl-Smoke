@@ -6,7 +6,7 @@
 use strict 'vars';
 use warnings;
 use feature 'say';
-use bignum;
+use bigint;
 
 my @res;
 
