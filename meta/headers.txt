@@ -743,7 +743,6 @@ File: B/Brace_expansion
 File: B/Brazilian_numbers
 #!/usr/local/bin/perl
 #u# http://rosettacode.org/wiki/Brazilian_numbers
-#t# skiptest
 #c# 2019-08-xx >RC
 #p# OK
 
@@ -2315,7 +2314,6 @@ File: F/Feigenbaum_constant_calculation
 File: F/Fermat_numbers
 #!/usr/local/bin/perl
 #u# http://rosettacode.org/wiki/Fermat_numbers
-#t# skiptest
 #c# 2019-08-xx >RC
 #p# OK
 
