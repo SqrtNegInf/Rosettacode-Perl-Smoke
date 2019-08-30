@@ -1,14 +1,14 @@
 
 This is perl 5, version 28, subversion 2 (v5.28.2) built for darwin-thread-multi-2level
 updating from RC…
-+------------> Perl: Good/Bad [1159/13]
-|+-----------> Smoke testing [1019]
-||+----------> sKipping validation [146]
++------------> Perl: Good/Bad [1160/13]
+|+-----------> Smoke testing [1021]
+||+----------> sKipping validation [144]
 |||+---------> Interactive [49]
 ||||+--------> Touched (modified by me) [300]
 |||||+-------> Random seed [90]
 ||||||+------> File output [62]
-|||||||+-----> Draft [226]
+|||||||+-----> Draft [225]
 ||||||||+----> Ignoring [34]
 |||||||||+---> Void (no local copy) [173]
 ||||||||||+--> Un-implemented/reliable [174]
@@ -103,7 +103,7 @@ GS......... Assertions
 GS..T...... Associative_array_Creation
 GS......... Associative_array_Iteration
 G.K..R..... Atomic_updates
-GS..T..D... Attractive_numbers
+GS..T...... Attractive_numbers
 .......D.VU AudioAlarm
 .......D.VU Audio_Overlap_Loop
 .......D.VU Audio_frequency_generator
@@ -161,7 +161,7 @@ GS......... Bitwise_operations
 GS......... Boolean_values
 GS......... Box_the_compass
 GS......... Brace_expansion
-G.K.T..D..U Brazilian_numbers
+GS..T..D..U Brazilian_numbers
 GS......... Break_OO_privacy
 GS..TRF.... Brownian_tree
 GS...R..... Bulls_and_cows
@@ -425,7 +425,7 @@ GS......... Fast_Fourier_transform
 GS.....D... Faulhaber%27s_formula
 GS.....D... Faulhaber%27s_triangle
 GS..T..D... Feigenbaum_constant_calculation
-G.K.T..D..U Fermat_numbers
+GS..T..D..U Fermat_numbers
 .......D.VU Fibonacci_heap
 GS......... Fibonacci_n-step_number_sequences
 GS......... Fibonacci_sequence-1
@@ -1253,7 +1253,7 @@ G.K.T.....U Thiele%27s_interpolation_formula
 GS......... Thue-Morse
 GS...R..... Tic-tac-toe
 .......D.VU Time-based_One-time_Password_Algorithm
-!S......... Time_a_function
+GS......... Time_a_function
 GS......... Tokenize_a_string
 GS......... Tokenize_a_string_with_escaping
 GS..T...... Tonelli-Shanks_algorithm
