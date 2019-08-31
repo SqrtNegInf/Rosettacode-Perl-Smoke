@@ -8,10 +8,10 @@ updating from RC…
 ||||+--------> Touched (modified by me) [300]
 |||||+-------> Random seed [90]
 ||||||+------> File output [62]
-|||||||+-----> Draft [225]
+|||||||+-----> Draft [226]
 ||||||||+----> Ignoring [34]
-|||||||||+---> Void (no local copy) [173]
-||||||||||+--> Un-implemented/reliable [174]
+|||||||||+---> Void (no local copy) [174]
+||||||||||+--> Un-implemented/reliable [175]
 |||||||||||
 GS......... 100_doors-1
 GS......... 100_doors-2
@@ -800,6 +800,7 @@ GS......... Null_object
 GS......... Number_names
 GS...R..... Number_reversal_game
 GS......... Numeric_error_propagation
+.......D.VU Numeric_separator_syntax
 .........VU Numerical_and_alphabetical_suffixes
 GS..T...... Numerical_integration
 GS..T..D... Numerical_integration_Adaptive_Simpson%27s_method
