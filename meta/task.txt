@@ -1,17 +1,17 @@
 
 This is perl 5, version 28, subversion 2 (v5.28.2) built for darwin-thread-multi-2level
 updating from RC…
-+------------> Perl: Good/Bad [1159/13]
++------------> Perl: Good/Bad [1160/13]
 |+-----------> Smoke testing [1021]
 ||+----------> sKipping validation [144]
 |||+---------> Interactive [49]
 ||||+--------> Touched (modified by me) [300]
 |||||+-------> Random seed [90]
 ||||||+------> File output [62]
-|||||||+-----> Draft [226]
+|||||||+-----> Draft [228]
 ||||||||+----> Ignoring [34]
-|||||||||+---> Void (no local copy) [174]
-||||||||||+--> Un-implemented/reliable [175]
+|||||||||+---> Void (no local copy) [176]
+||||||||||+--> Un-implemented/reliable [176]
 |||||||||||
 GS......... 100_doors-1
 GS......... 100_doors-2
@@ -82,6 +82,7 @@ GS......... Anti-primes
 GS....F.... Append_a_record_to_the_end_of_a_text_file
 GS......... Apply_a_callback_to_an_array
 GS..T...... Apply_a_digital_filter_direct_form_II_transposed
+.......D.VU Approximate_Equality
 GS......... Arbitrary-precision_integers_included-1
 GS......... Arbitrary-precision_integers_included-2
 GS..T.F.... Archimedean_spiral
@@ -311,6 +312,7 @@ GS......... Day_of_the_week-1
 GS......... Day_of_the_week-2
 GS......... Day_of_the_week-3
 GS......... Day_of_the_week-4
+.......D.VU De_Bruijn_sequences
 GS...R..... Deal_cards_for_FreeCell
 GS......... Death_Star
 B...T..D..U Decimal_floating_point_number_to_binary
@@ -800,7 +802,7 @@ GS......... Null_object
 GS......... Number_names
 GS...R..... Number_reversal_game
 GS......... Numeric_error_propagation
-.......D.VU Numeric_separator_syntax
+.......D.V. Numeric_separator_syntax
 .........VU Numerical_and_alphabetical_suffixes
 GS..T...... Numerical_integration
 GS..T..D... Numerical_integration_Adaptive_Simpson%27s_method
@@ -1254,7 +1256,7 @@ G.K.T.....U Thiele%27s_interpolation_formula
 GS......... Thue-Morse
 GS...R..... Tic-tac-toe
 .......D.VU Time-based_One-time_Password_Algorithm
-!S......... Time_a_function
+GS......... Time_a_function
 GS......... Tokenize_a_string
 GS......... Tokenize_a_string_with_escaping
 GS..T...... Tonelli-Shanks_algorithm
