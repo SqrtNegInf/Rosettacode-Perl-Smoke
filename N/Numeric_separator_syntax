@@ -1,0 +1,37 @@
+#!/usr/local/bin/perl
+#u# http://rosettacode.org/wiki/Numeric_separator_syntax
+#c# 2019-09-01 <RC
+#p# OK
+
+use feature 'say';
+
+# Perl allows underscore as a grouping / separator character in numeric inputs, as long as you use it between digits, and you do not use two underscores in a row:
+
+# Int
+$result .= 1_2_3 . "\n";  # 123
+
+# Binary Int
+$result .= 0b1_0_1_0_1 . "\n"; # 21
+
+# Hexadecimal Int
+$result .= 0xa_bc_d . "\n"; # 43981
+
+# Rat
+$result .= 1_2_3_4.2_5 . "\n"; # 1234.25
+
+# Num
+$result .= 6.0_22e4 . "\n"; # 60220
+
+say $result; 
+
+my $ref = <<'EOD';
+123
+21
+43981
+1234.25
+60220
+EOD
+
+use Test::More;
+is ($result, $ref);
+done_testing();
