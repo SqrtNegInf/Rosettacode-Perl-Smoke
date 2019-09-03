@@ -1,16 +1,16 @@
 
 This is perl 5, version 28, subversion 2 (v5.28.2) built for darwin-thread-multi-2level
 updating from RC…
-+------------> Perl: Good/Bad [1160/13]
-|+-----------> Smoke testing [1021]
-||+----------> sKipping validation [144]
++------------> Perl: Good/Bad [1163/13]
+|+-----------> Smoke testing [1023]
+||+----------> sKipping validation [145]
 |||+---------> Interactive [49]
-||||+--------> Touched (modified by me) [300]
+||||+--------> Touched (modified by me) [302]
 |||||+-------> Random seed [90]
 ||||||+------> File output [62]
 |||||||+-----> Draft [228]
 ||||||||+----> Ignoring [34]
-|||||||||+---> Void (no local copy) [176]
+|||||||||+---> Void (no local copy) [173]
 ||||||||||+--> Un-implemented/reliable [176]
 |||||||||||
 GS......... 100_doors-1
@@ -312,7 +312,7 @@ GS......... Day_of_the_week-1
 GS......... Day_of_the_week-2
 GS......... Day_of_the_week-3
 GS......... Day_of_the_week-4
-.......D.VU De_Bruijn_sequences
+GS..T..D..U De_Bruijn_sequences
 GS...R..... Deal_cards_for_FreeCell
 GS......... Death_Star
 B...T..D..U Decimal_floating_point_number_to_binary
@@ -776,7 +776,7 @@ GS......... Mutual_recursion
 GS......... N%27th
 .......D.VU N-body_problem
 GS..T...... N-queens_problem
-.......D.VU N-smooth_numbers
+G.K.T..D..U N-smooth_numbers
 GS..T..D... NYSIIS
 GS......... Named_parameters
 GS.....D... Names_to_numbers
@@ -802,7 +802,7 @@ GS......... Null_object
 GS......... Number_names
 GS...R..... Number_reversal_game
 GS......... Numeric_error_propagation
-.......D.V. Numeric_separator_syntax
+GS.....D... Numeric_separator_syntax
 .........VU Numerical_and_alphabetical_suffixes
 GS..T...... Numerical_integration
 GS..T..D... Numerical_integration_Adaptive_Simpson%27s_method
