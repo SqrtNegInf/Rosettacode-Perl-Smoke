@@ -1,6 +1,6 @@
 #!/usr/local/bin/perl
 #u# http://rosettacode.org/wiki/Stirling_numbers_of_the_first_kind
-#c# 2019-08-xx >RC
+#c# 2019-09-03 >RC
 #p# OK
 
 use strict;
@@ -27,8 +27,7 @@ my $upto = 12;
 my $mx   = 1 + length max map { Stirling1(12,$_) } 0..$upto;
 
 push @res, 'Unsigned Stirling1 numbers of the first kind: S1(n, k):';
-push @res, 'n\k';
-map { $res[-1] .= sprintf "%${mx}s", $_ } 0..$upto;
+push @res, 'n\k' . sprintf "%${mx}s"x(1+$upto), 0..$upto;
 
 for my $row (0..$upto) {
     push @res, sprintf '%-3d', $row;
@@ -65,11 +64,3 @@ use Test::More;
 chop $ref;
 is ($result, $ref);
 done_testing();
-
-__END__
-
-=={{header|Perl}}==
-{{trans|Perl 6}}
-<lang perl></lang>
-{{out}}
-<pre></pre>
