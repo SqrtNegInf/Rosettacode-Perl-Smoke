@@ -743,7 +743,7 @@ File: B/Brace_expansion
 File: B/Brazilian_numbers
 #!/usr/local/bin/perl
 #u# http://rosettacode.org/wiki/Brazilian_numbers
-#c# 2019-08-xx >RC
+#c# 2019-09-03 >RC
 #p# OK
 
 File: B/Break_OO_privacy
@@ -3190,7 +3190,6 @@ File: H/Huffman_coding
 File: H/Humble_numbers
 #!/usr/local/bin/perl
 #u# http://rosettacode.org/wiki/Humble_numbers
-#t# skiptest
 #c# 2019-08-xx >RC
 #p# OK
 
@@ -4385,7 +4384,7 @@ File: N/N-queens_problem
 
 File: N/N-smooth_numbers
 #!/usr/local/bin/perl
-#u# http://rosettacode.org/wiki/RC_REMOTE
+#u# http://rosettacode.org/wiki/N-smooth_numbers
 #t# skiptest
 #c# 2019-08-xx >RC
 #p# OK
@@ -7760,8 +7759,7 @@ File: Z/Zig-zag_matrix-2
 File: Z/Zumkeller_numbers
 #!/usr/local/bin/perl
 #u# http://rosettacode.org/wiki/Zumkeller_numbers
-#t# skiptest
-#c# 2019-08-xx >RC
+#c# 2019-09-03 >RC
 #p# OK
 
 
