@@ -1,11 +1,11 @@
 #!/usr/local/bin/perl
 #u# http://rosettacode.org/wiki/Van_Eck_sequence
-#c# 2019-08-xx >RC
+#c# 2019-09-03 >RC
 #p# OK
 
 use strict;
 use warnings;
-use 5.26.0;
+use feature 'say';
 
 my @res;
 
@@ -41,6 +41,7 @@ for (
     Terms 991 through 1000: @{[@seq[990..999]]}
     END
 }
+
 say my $result = join "\n", @res;
 
 my $ref = <<'EOD';
@@ -86,10 +87,3 @@ use Test::More;
 chomp $ref;
 is($result, $ref);
 done_testing();
-
-__END__
-
-=={{header|Perl}}==
-{{trans|Perl 6}}
-<lang perl></lang>
-{{out}}
