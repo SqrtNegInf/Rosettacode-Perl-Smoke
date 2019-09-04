@@ -2,16 +2,16 @@
 This is perl 5, version 28, subversion 2 (v5.28.2) built for darwin-thread-multi-2level
 updating from RC…
 +------------> Perl: Good/Bad [1163/13]
-|+-----------> Smoke testing [1023]
-||+----------> sKipping validation [145]
+|+-----------> Smoke testing [1025]
+||+----------> sKipping validation [143]
 |||+---------> Interactive [49]
 ||||+--------> Touched (modified by me) [302]
 |||||+-------> Random seed [90]
 ||||||+------> File output [62]
-|||||||+-----> Draft [228]
+|||||||+-----> Draft [229]
 ||||||||+----> Ignoring [34]
-|||||||||+---> Void (no local copy) [173]
-||||||||||+--> Un-implemented/reliable [176]
+|||||||||+---> Void (no local copy) [174]
+||||||||||+--> Un-implemented/reliable [177]
 |||||||||||
 GS......... 100_doors-1
 GS......... 100_doors-2
@@ -479,6 +479,7 @@ GS......... Four_bit_adder
 GS..T...... Four_is_magic
 GS..T...... Four_is_the_number_of_letters_in_the_...
 GS....F.... Fractal_tree
+.......D.VU Fraction_reduction
 GS......... Fractran
 G.K.T..D..U Free_polyominoes_enumeration
 GS.....D... French_Republican_calendar
@@ -567,7 +568,7 @@ GS......... Host_introspection
 GS......... Hostname
 GS..T.F.... Hough_transform
 GS......... Huffman_coding
-G.K.T..D..U Humble_numbers
+GS..T..D..U Humble_numbers
 .........VU Hunt_The_Wumpus
 .......D.VU I%27m_a_software_engineer,_get_me_out_of_here
 GS..T..D... I.Q._Puzzle
@@ -1368,4 +1369,4 @@ GS......... Zero_to_the_zero_power
 GS..T...... Zhang-Suen_thinning_algorithm
 GS......... Zig-zag_matrix-1
 GS......... Zig-zag_matrix-2
-G.K.T..D..U Zumkeller_numbers
+GS..T..D..U Zumkeller_numbers
