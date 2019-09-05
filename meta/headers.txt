@@ -591,7 +591,7 @@ File: B/Base64_encode_data
 File: B/Bell_numbers
 #!/usr/local/bin/perl
 #u# http://rosettacode.org/wiki/Bell_numbers
-#c# 2019-08-xx >RC
+#c# 2019-09-03 >RC
 #p# OK
 
 File: B/Benford%27s_law
@@ -1590,7 +1590,7 @@ File: D/Day_of_the_week-4
 File: D/De_Bruijn_sequences
 #!/usr/local/bin/perl
 #u# http://rosettacode.org/wiki/De_Bruijn_sequences
-#c# 2019-08-xx >RC
+#c# 2019-09-03 >RC
 #p# OK
 
 File: D/Deal_cards_for_FreeCell
@@ -2320,7 +2320,7 @@ File: F/Feigenbaum_constant_calculation
 File: F/Fermat_numbers
 #!/usr/local/bin/perl
 #u# http://rosettacode.org/wiki/Fermat_numbers
-#c# 2019-08-xx >RC
+#c# 2019-09-03 >RC
 #p# OK
 
 File: F/Fibonacci_n-step_number_sequences
@@ -3190,8 +3190,9 @@ File: H/Huffman_coding
 File: H/Humble_numbers
 #!/usr/local/bin/perl
 #u# http://rosettacode.org/wiki/Humble_numbers
-#c# 2019-08-xx >RC
+#c# 2019-09-04 >RC
 #p# OK
+#n# GMPz provides ~ 16x speed-up, GMP ~ 4x
 
 File: I/I.Q._Puzzle
 #!/usr/local/bin/perl
@@ -3565,7 +3566,7 @@ File: L/LZW_compression
 File: L/Lah_numbers
 #!/usr/local/bin/perl
 #u# http://rosettacode.org/wiki/Lah_numbers
-#c# 2019-08-xx >RC
+#c# 2019-09-03 >RC
 #p# OK
 
 File: L/Langton%27s_ant
@@ -5036,7 +5037,7 @@ File: P/Pick_random_element
 File: P/Pierpont_primes
 #!/usr/local/bin/perl
 #u# http://rosettacode.org/wiki/Pierpont_primes
-#c# 2019-08-xx >RC
+#c# 2019-09-03 >RC
 #p# OK
 
 File: P/Pig_the_dice_game
@@ -6243,7 +6244,7 @@ File: S/Sleep
 File: S/Smarandache_prime-digital_sequence
 #!/usr/local/bin/perl
 #u# http://rosettacode.org/wiki/Smarandache_prime-digital_sequence
-#c# 2019-08-xx >RC
+#c# 2019-09-03 >RC
 #p# OK
 
 File: S/Smith_numbers
@@ -6666,14 +6667,13 @@ File: S/Stern-Brocot_sequence-2
 File: S/Stirling_numbers_of_the_first_kind
 #!/usr/local/bin/perl
 #u# http://rosettacode.org/wiki/Stirling_numbers_of_the_first_kind
-#c# 2019-08-xx >RC
+#c# 2019-09-03 >RC
 #p# OK
 
 File: S/Stirling_numbers_of_the_second_kind
 #!/usr/local/bin/perl
 #u# http://rosettacode.org/wiki/Stirling_numbers_of_the_second_kind
-#t# skiptest
-#c# 2019-08-xx >RC
+#c# 2019-09-04 >RC
 #p# OK
 
 File: S/Straddling_checkerboard
@@ -7417,7 +7417,7 @@ File: V/Vampire_number-2
 File: V/Van_Eck_sequence
 #!/usr/local/bin/perl
 #u# http://rosettacode.org/wiki/Van_Eck_sequence
-#c# 2019-08-xx >RC
+#c# 2019-09-03 >RC
 #p# OK
 
 File: V/Van_der_Corput_sequence
