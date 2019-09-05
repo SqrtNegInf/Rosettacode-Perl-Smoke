@@ -9,7 +9,6 @@ use bigrat;
 use feature 'say';
 use feature 'state';
 no warnings 'recursion';
-
 use List::Util qw(max);
 
 my @res;
@@ -19,25 +18,29 @@ sub Stirling1 {
     return 1 unless $n || $k;
     return 0 unless $n && $k;
     state %seen;
-    $seen{"{$n - 1}|{$k - 1}"} //= Stirling1($n - 1, $k - 1) +
-    ($n - 1) * ($seen{"{$n - 1}|{$k}"} //= Stirling1($n - 1, $k))
+              $seen{"{$n-1}|{$k-1}"} //= Stirling1($n-1, $k-1) +
+    ($n-1) * ($seen{"{$n-1}|{$k}"  } //= Stirling1($n-1, $k  ))
 }
 
-my $upto = 12;
-my $mx   = 1 + length max map { Stirling1(12,$_) } 0..$upto;
+my $upto  = 12;
+my $width = 1 + length max map { Stirling1($upto,$_) } 0..$upto;
 
 push @res, 'Unsigned Stirling1 numbers of the first kind: S1(n, k):';
-push @res, 'n\k' . sprintf "%${mx}s"x(1+$upto), 0..$upto;
+push @res, 'n\k' . sprintf "%${width}s"x(1+$upto), 0..$upto;
 
 for my $row (0..$upto) {
     push @res, sprintf '%-3d', $row;
-    map { $res[-1] .= sprintf "%${mx}d", Stirling1($row, $_) } 0..$row;
+    map { $res[-1] .= sprintf "%${width}d", Stirling1($row, $_) } 0..$row;
 }
+
+# alternate display code, kludgy and obscure (you say that like it's a bad thing?)
+# $width--; 
+# for my $row (0..$upto) { push @res, sprintf('%-3d', $row) . join ' ', map { sprintf "%${width}d", Stirling1($row, $_) } 0..$row }
 
 push @res, "\nMaximum value from the S1(100, *) row:";
 push @res, max map { Stirling1(100,$_) } 0..100;
 
-say my $result = join "\n", @res;
+say my $result = join "\n", @res; 
 
 my $ref = <<'EOD';
 Unsigned Stirling1 numbers of the first kind: S1(n, k):
