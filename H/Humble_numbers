@@ -1,7 +1,8 @@
 #!/usr/local/bin/perl
 #u# http://rosettacode.org/wiki/Humble_numbers
-#c# 2019-08-xx >RC
+#c# 2019-09-04 >RC
 #p# OK
+#n# GMPz provides ~ 16x speed-up, GMP ~ 4x
 
 use strict;
 use warnings;
