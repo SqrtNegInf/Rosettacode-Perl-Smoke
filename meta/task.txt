@@ -1,9 +1,9 @@
 
 This is perl 5, version 28, subversion 2 (v5.28.2) built for darwin-thread-multi-2level
 updating from RC…
-+------------> Perl: Good/Bad [1163/13]
-|+-----------> Smoke testing [1025]
-||+----------> sKipping validation [143]
++------------> Perl: Good/Bad [1162/13]
+|+-----------> Smoke testing [1026]
+||+----------> sKipping validation [142]
 |||+---------> Interactive [49]
 ||||+--------> Touched (modified by me) [302]
 |||||+-------> Random seed [90]
@@ -11,7 +11,7 @@ updating from RC…
 |||||||+-----> Draft [229]
 ||||||||+----> Ignoring [34]
 |||||||||+---> Void (no local copy) [174]
-||||||||||+--> Un-implemented/reliable [177]
+||||||||||+--> Un-implemented/reliable [167]
 |||||||||||
 GS......... 100_doors-1
 GS......... 100_doors-2
@@ -128,7 +128,7 @@ GS...RF.... Barnsley_fern
 GS..T..D... Base58Check_encoding
 GS..T...... Base64_decode_data
 GS.....D... Base64_encode_data
-GS..T..D..U Bell_numbers
+GS..T..D... Bell_numbers
 GS......... Benford%27s_law
 GS......... Bernoulli_numbers-1
 GS......... Bernoulli_numbers-2
@@ -162,7 +162,7 @@ GS......... Bitwise_operations
 GS......... Boolean_values
 GS......... Box_the_compass
 GS......... Brace_expansion
-GS..T..D..U Brazilian_numbers
+GS..T..D... Brazilian_numbers
 GS......... Break_OO_privacy
 GS..TRF.... Brownian_tree
 GS...R..... Bulls_and_cows
@@ -312,7 +312,7 @@ GS......... Day_of_the_week-1
 GS......... Day_of_the_week-2
 GS......... Day_of_the_week-3
 GS......... Day_of_the_week-4
-GS..T..D..U De_Bruijn_sequences
+GS..T..D... De_Bruijn_sequences
 GS...R..... Deal_cards_for_FreeCell
 GS......... Death_Star
 B...T..D..U Decimal_floating_point_number_to_binary
@@ -427,7 +427,7 @@ GS......... Fast_Fourier_transform
 GS.....D... Faulhaber%27s_formula
 GS.....D... Faulhaber%27s_triangle
 GS..T..D... Feigenbaum_constant_calculation
-GS..T..D..U Fermat_numbers
+!S..T..D... Fermat_numbers
 .......D.VU Fibonacci_heap
 GS......... Fibonacci_n-step_number_sequences
 GS......... Fibonacci_sequence-1
@@ -641,7 +641,7 @@ GS......... Kronecker_product
 GS..T.F.... Kronecker_product_based_fractals
 GS..T...... LU_decomposition
 GS......... LZW_compression
-GS..T..D..U Lah_numbers
+GS..T..D... Lah_numbers
 GS...R..... Langton%27s_ant
 GS......... Largest_int_from_concatenated_ints
 GS..T...... Largest_number_divisible_by_its_digits-1
@@ -892,7 +892,7 @@ GS......... Pi-2
 GS......... Pi-3
 GS......... Pi-4
 GS...R..... Pick_random_element
-GS..T..D..U Pierpont_primes
+GS..T..D... Pierpont_primes
 GS...R..... Pig_the_dice_game
 GS..TR..... Pig_the_dice_game_Player
 GS..T.F.... Pinstripe_Display
@@ -1102,7 +1102,7 @@ G.K........ Singly-linked_list_Element_insertion
 .......D.VU Singly-linked_list_Element_removal
 GS......... Singly-linked_list_Traversal
 GS......... Sleep
-GS..T.....U Smarandache_prime-digital_sequence
+GS..T...... Smarandache_prime-digital_sequence
 GS......... Smith_numbers
 G.KI...D... Snake
 GS..TR.D... Snake_And_Ladder
@@ -1172,8 +1172,8 @@ GS..TR..... Statistics_Normal_distribution
 GS..T...... Stem-and-leaf_plot
 GS......... Stern-Brocot_sequence-1
 GS......... Stern-Brocot_sequence-2
-GS..T..D..U Stirling_numbers_of_the_first_kind
-G.K.T..D..U Stirling_numbers_of_the_second_kind
+GS..T..D... Stirling_numbers_of_the_first_kind
+GS..T..D..U Stirling_numbers_of_the_second_kind
 GS..T...... Straddling_checkerboard
 GS......... Stream_Merge
 GS......... String_append
@@ -1308,7 +1308,7 @@ GS......... User_input_Text
 GS......... Validate_International_Securities_Identification_Number
 GS......... Vampire_number-1
 GS......... Vampire_number-2
-GS..T.....U Van_Eck_sequence
+GS..T...... Van_Eck_sequence
 GS......... Van_der_Corput_sequence
 GS......... Variable-length_quantity
 GS..T...... Variable_size_Get
@@ -1369,4 +1369,4 @@ GS......... Zero_to_the_zero_power
 GS..T...... Zhang-Suen_thinning_algorithm
 GS......... Zig-zag_matrix-1
 GS......... Zig-zag_matrix-2
-GS..T..D..U Zumkeller_numbers
+GS..T..D... Zumkeller_numbers
