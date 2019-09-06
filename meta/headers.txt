@@ -3190,7 +3190,7 @@ File: H/Huffman_coding
 File: H/Humble_numbers
 #!/usr/local/bin/perl
 #u# http://rosettacode.org/wiki/Humble_numbers
-#c# 2019-09-04 >RC
+#c# 2019-09-05 >RC
 #p# OK
 #n# GMPz provides ~ 16x speed-up, GMP ~ 4x
 
@@ -4385,9 +4385,9 @@ File: N/N-queens_problem
 
 File: N/N-smooth_numbers
 #!/usr/local/bin/perl
-#u# http://rosettacode.org/wiki/N-smooth_numbers
 #t# skiptest
-#c# 2019-08-xx >RC
+#u# http://rosettacode.org/wiki/N-smooth_numbers
+#c# 2019-09-05 >RC
 #p# OK
 
 File: N/NYSIIS
@@ -4989,6 +4989,12 @@ File: P/Permutations_with_repetitions
 #!/usr/local/bin/perl
 #u# http://rosettacode.org/wiki/Permutations_with_repetitions
 #c# 2018-08-21 <RC
+#p# OK
+
+File: P/Permutations_with_some_identical_elements
+#!/usr/local/bin/perl
+#u# http://rosettacode.org/wiki/Permutations_with_some_identical_elements
+#c# 2019-09-05 >RC
 #p# OK
 
 File: P/Pernicious_numbers
