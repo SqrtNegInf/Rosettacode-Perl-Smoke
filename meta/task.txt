@@ -1,17 +1,17 @@
 
 This is perl 5, version 28, subversion 2 (v5.28.2) built for darwin-thread-multi-2level
 updating from RC…
-+------------> Perl: Good/Bad [1162/13]
-|+-----------> Smoke testing [1026]
++------------> Perl: Good/Bad [1163/13]
+|+-----------> Smoke testing [1027]
 ||+----------> sKipping validation [142]
 |||+---------> Interactive [49]
-||||+--------> Touched (modified by me) [302]
+||||+--------> Touched (modified by me) [303]
 |||||+-------> Random seed [90]
 ||||||+------> File output [62]
 |||||||+-----> Draft [229]
 ||||||||+----> Ignoring [34]
-|||||||||+---> Void (no local copy) [174]
-||||||||||+--> Un-implemented/reliable [167]
+|||||||||+---> Void (no local copy) [173]
+||||||||||+--> Un-implemented/reliable [165]
 |||||||||||
 GS......... 100_doors-1
 GS......... 100_doors-2
@@ -884,7 +884,7 @@ G.K..R..... Permutations_Rank_of_a_permutation
 GS......... Permutations_by_swapping-1
 GS......... Permutations_by_swapping-2
 GS.....D... Permutations_with_repetitions
-.......D.VU Permutations_with_some_identical_elements
+GS..T..D... Permutations_with_some_identical_elements
 GS......... Pernicious_numbers
 GS......... Phrase_reversals
 GS......... Pi-1
@@ -1173,7 +1173,7 @@ GS..T...... Stem-and-leaf_plot
 GS......... Stern-Brocot_sequence-1
 GS......... Stern-Brocot_sequence-2
 GS..T..D... Stirling_numbers_of_the_first_kind
-GS..T..D..U Stirling_numbers_of_the_second_kind
+GS..T..D... Stirling_numbers_of_the_second_kind
 GS..T...... Straddling_checkerboard
 GS......... Stream_Merge
 GS......... String_append
