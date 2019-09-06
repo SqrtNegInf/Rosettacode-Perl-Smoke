@@ -18,8 +18,8 @@ sub Stirling1 {
     return 1 unless $n || $k;
     return 0 unless $n && $k;
     state %seen;
-              $seen{"{$n-1}|{$k-1}"} //= Stirling1($n-1, $k-1) +
-    ($n-1) * ($seen{"{$n-1}|{$k}"  } //= Stirling1($n-1, $k  ))
+    return  $seen{"{$n-1}|{$k-1}"} //= Stirling1($n-1, $k-1) +
+           ($seen{"{$n-1}|{$k}"  } //= Stirling1($n-1, $k  )) * ($n-1)
 }
 
 my $upto  = 12;
