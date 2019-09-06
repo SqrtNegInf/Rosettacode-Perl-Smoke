@@ -1,7 +1,7 @@
 #!/usr/local/bin/perl
-#u# http://rosettacode.org/wiki/N-smooth_numbers
 #t# skiptest
-#c# 2019-08-xx >RC
+#u# http://rosettacode.org/wiki/N-smooth_numbers
+#c# 2019-09-05 >RC
 #p# OK
 
 use Data::Printer;
@@ -9,9 +9,9 @@ use Data::Printer;
 use strict;
 use warnings;
 use feature 'say';
-use ntheory qw<is_prime>;
 
-use List::Util 'min';
+use ntheory qw<primes>;
+use List::Util qw<min>;
 
 my @res;
 
@@ -20,14 +20,16 @@ my @res;
 #use Math::GMP qw/:constant/;        # (1) uncomment this to use Math::GMP
 use Math::GMPz;                     # (2) uncomment this plus later line for Math::GMPz
 
-sub smooth_gen {
-    my @s = ([1], [1], [1], [1]);
-    my @m = (2, 3, 5, 7);
-    @m = map { Math::GMPz->new($_) } @m;     # (2) uncomment for Math::GMPz
+sub smooth_numbers {
+#    my(@m) = @_;
+    my @m = map { Math::GMPz->new($_) } @_;     # (2) uncomment for Math::GMPz
+    my @s ;
+    push @s, [1] for 0..$#m;
 
     return sub {
-    my $n = min $s[0][0], $s[1][0], $s[2][0], $s[3][0];
-    for (0..3) {
+    my $n = $s[0][0];
+    $n = min($n,$s[$_][0]) for 1..$#m;
+    for (0..$#m) {
             shift @{$s[$_]} if $s[$_][0] == $n;
             push @{$s[$_]}, $n * $m[$_]
         }
@@ -35,38 +37,30 @@ sub smooth_gen {
     }
 }
 
-sub smooth_numbers {
-    my(@list) = @_;
-    cache my \Smooth := gather {
-        my %i = (flat @list) Z=> (Smooth.iterator for ^@list);
-        my %n = (flat @list) Z=> 1 xx *;
-
-        loop {
-            take my $n := %n{*}.min;
-
-            for @list -> \k {
-                %n{k} = %i{k}.pull-one * k if %n{k} == $n;
-            }
-        }
-    }
-}
-
 sub abbrev {
     my($n) = @_;
     length($n) > 50 ?
-    substr($n,0,10) . "...(@{[length($n) - 20]} digits omitted)..." . substr($n, -10, 10) :
+    substr($n,0,10) . "...(@{[length($n) - 2*10]} digits omitted)..." . substr($n, -10, 10) :
     $n
 }
 
-my @primes = (2..*).grep: *.is_prime;
+#$s = smooth_numbers(<2 3 5 7>);
+#print ' ' . $s->() for 1..25; print "\n";
 
+my @primes = @{primes( 100 )};
 my $start = 3000;
 
-for ^@primes.first( * > 29, :k ) -> $p {
-    push @res, join "\n", "\nFirst 25, and ${start}th through {$start+2}nd {@primes[$p]}-smooth numbers:";
-    push @res, $(smooth_numbers(|@primes[0..$p])[^25]);
-    push @res, $(smooth_numbers(|@primes[0..$p])[$start - 1 .. $start + 1]».&abbrev);
+for my $n_smooth (0..9) {
+    print "\nFirst 25, and ${start}th through @{[$start+2]}nd $primes[$n_smooth]-smooth numbers:\n";
+    my $s = smooth_numbers(@primes[0..$n_smooth]);
+    print ' ' . $s->() for 1..25; print "\n";
+    #push @res, $(smooth_numbers(|@primes[0..$p])[^25]);
+    #push @res, $(smooth_numbers(|@primes[0..$p])[$start - 1 .. $start + 1]».&abbrev);
 }
+
+say my $result = join "\n", @res;
+
+__END__
 
 $start = 30000;
 for 503, 509, 521 -> $p {
