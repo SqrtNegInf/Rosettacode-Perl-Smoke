@@ -19,12 +19,12 @@ sub Stirling2 {
     return 1 if     $n1 == $k;
     return 0 unless $n1 && $k;
     state %seen;
-    ($seen{"{$n1}|{$k}"  } //= $k * Stirling2($n1,$k  )) +
-    ($seen{"{$n1}|{$k-1}"} //=      Stirling2($n1,$k-1))
+    return ($seen{"{$n1}|{$k}"  } //= Stirling2($n1,$k  ) * $k) +
+           ($seen{"{$n1}|{$k-1}"} //= Stirling2($n1,$k-1))
 }
 
-my $upto = 12;
-my $width   = 1 + length max map { Stirling2($upto+1,$_) } 0..$upto+1;
+my $upto  = 12;
+my $width = 1 + length max map { Stirling2($upto+1,$_) } 0..$upto+1;
 
 push @res, 'Unsigned Stirling2 numbers of the second kind: S2(n, k):';
 push @res, 'n\k' . sprintf "%${width}s"x(1+$upto), 0..$upto;
@@ -64,11 +64,3 @@ use Test::More;
 chop $ref;
 is ($result, $ref);
 done_testing();
-
-__END__
-
-=={{header|Perl}}==
-{{trans|Perl 6}}
-<lang perl></lang>
-{{out}}
-<pre></pre>
