@@ -1,0 +1,21 @@
+#!/usr/local/bin/perl
+#u# http://rosettacode.org/wiki/Print_debugging_statement
+#t# skiptest
+#c# 2019-09-07 >RC
+#p# OK
+#n# to test would need to capture STDERR...
+
+use feature 'say';
+use Carp;
+
+my $str = 'Resistance'; carp "'$str' is futile."; say '';
+
+doodle($str); say '';
+
+fiddle(7);
+
+sub doodle { my ($str) = @_; carp "'$str' is still futile." }
+
+sub fiddle { faddle(2*shift) }
+sub faddle { fuddle(3*shift) }
+sub fuddle { ( carp("'$_[0]', interesting number.") ); }
