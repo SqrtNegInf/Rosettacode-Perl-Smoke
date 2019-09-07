@@ -2,16 +2,16 @@
 This is perl 5, version 28, subversion 2 (v5.28.2) built for darwin-thread-multi-2level
 updating from RC…
 +------------> Perl: Good/Bad [1163/13]
-|+-----------> Smoke testing [1027]
+|+-----------> Smoke testing [1028]
 ||+----------> sKipping validation [142]
 |||+---------> Interactive [49]
-||||+--------> Touched (modified by me) [303]
+||||+--------> Touched (modified by me) [305]
 |||||+-------> Random seed [90]
 ||||||+------> File output [62]
 |||||||+-----> Draft [229]
 ||||||||+----> Ignoring [34]
-|||||||||+---> Void (no local copy) [173]
-||||||||||+--> Un-implemented/reliable [165]
+|||||||||+---> Void (no local copy) [172]
+||||||||||+--> Un-implemented/reliable [162]
 |||||||||||
 GS......... 100_doors-1
 GS......... 100_doors-2
@@ -545,7 +545,7 @@ G.K........ Hello_world_Newline_omission
 G.K........ Hello_world_Standard_error
 G.K........ Hello_world_Text
 G.K........ Hello_world_Web_server
-GS......... Here_document
+GS..T...... Here_document
 GS......... Heronian_triangles
 .......D.VU Hexapawn
 GS......... Hickerson_series_of_almost_integers
@@ -568,7 +568,7 @@ GS......... Host_introspection
 GS......... Hostname
 GS..T.F.... Hough_transform
 GS......... Huffman_coding
-GS..T..D..U Humble_numbers
+GS..T..D... Humble_numbers
 .........VU Hunt_The_Wumpus
 .......D.VU I%27m_a_software_engineer,_get_me_out_of_here
 GS..T..D... I.Q._Puzzle
@@ -777,7 +777,7 @@ GS......... Mutual_recursion
 GS......... N%27th
 .......D.VU N-body_problem
 GS..T...... N-queens_problem
-G.K.T..D..U N-smooth_numbers
+!S..T..D... N-smooth_numbers
 GS..T..D... NYSIIS
 GS......... Named_parameters
 GS.....D... Names_to_numbers
@@ -930,7 +930,7 @@ GS......... Prime_decomposition-3
 B.......... Prime_decomposition-4
 GS..T...... Primes_-_allocate_descendants_to_their_ancestors
 GS......... Primorial_numbers
-.......D.VU Print_debugging_statement
+G.K.T..D... Print_debugging_statement
 GS......... Priority_queue
 GS...R..... Probabilistic_choice
 GS..T...... Problem_of_Apollonius
