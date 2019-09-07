@@ -3034,7 +3034,7 @@ File: H/Hello_world_Web_server
 File: H/Here_document
 #!/usr/local/bin/perl
 #u# http://rosettacode.org/wiki/Here_document
-#c# 2018-08-12 <RC
+#c# 2018-08-12 <RC, 2019-09-06 >RC
 #p# OK
 
 File: H/Heronian_triangles
@@ -4385,7 +4385,6 @@ File: N/N-queens_problem
 
 File: N/N-smooth_numbers
 #!/usr/local/bin/perl
-#t# skiptest
 #u# http://rosettacode.org/wiki/N-smooth_numbers
 #c# 2019-09-05 >RC
 #p# OK
@@ -5276,6 +5275,14 @@ File: P/Primorial_numbers
 #u# http://rosettacode.org/wiki/Primorial_numbers
 #c# 2018-08-20 <RC
 #p# OK
+
+File: P/Print_debugging_statement
+#!/usr/local/bin/perl
+#u# http://rosettacode.org/wiki/Print_debugging_statement
+#t# skiptest
+#c# 2019-09-07 >RC
+#p# OK
+#n# to test would need to capture STDERR...
 
 File: P/Priority_queue
 #!/usr/local/bin/perl
