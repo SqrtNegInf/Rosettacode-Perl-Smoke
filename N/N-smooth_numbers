@@ -1,10 +1,7 @@
 #!/usr/local/bin/perl
-#t# skiptest
 #u# http://rosettacode.org/wiki/N-smooth_numbers
 #c# 2019-09-05 >RC
 #p# OK
-
-use Data::Printer;
 
 use strict;
 use warnings;
@@ -15,20 +12,18 @@ use List::Util qw<min>;
 
 my @res;
 
-# If you want the large output, uncomment either the one line
-# marked (1) or the two lines marked (2)
-#use Math::GMP qw/:constant/;        # (1) uncomment this to use Math::GMP
-use Math::GMPz;                     # (2) uncomment this plus later line for Math::GMPz
+#use bigint     # works, but slow
+use Math::GMPz; # this module gives roughly 16x speed-up
 
 sub smooth_numbers {
-#    my(@m) = @_;
-    my @m = map { Math::GMPz->new($_) } @_;     # (2) uncomment for Math::GMPz
-    my @s ;
-    push @s, [1] for 0..$#m;
+#    my(@m) = @_;                               # use with 'bigint'
+    my @m = map { Math::GMPz->new($_) } @_;     # comment out to NOT use Math::GMPz
+    my @s;
+    push my @s, [1] for 0..$#m;
 
     return sub {
     my $n = $s[0][0];
-    $n = min($n,$s[$_][0]) for 1..$#m;
+    $n = min $n, $s[$_][0] for 1..$#m;
     for (0..$#m) {
             shift @{$s[$_]} if $s[$_][0] == $n;
             push @{$s[$_]}, $n * $m[$_]
@@ -39,39 +34,44 @@ sub smooth_numbers {
 
 sub abbrev {
     my($n) = @_;
-    length($n) > 50 ?
-    substr($n,0,10) . "...(@{[length($n) - 2*10]} digits omitted)..." . substr($n, -10, 10) :
-    $n
+    return $n if length($n) <= 50;
+    substr($n,0,10) . "...(@{[length($n) - 2*10]} digits omitted)..." . substr($n, -10, 10)
 }
 
-#$s = smooth_numbers(<2 3 5 7>);
-#print ' ' . $s->() for 1..25; print "\n";
+my @primes = @{primes(10_000)};
 
-my @primes = @{primes( 100 )};
-my $start = 3000;
-
+my $start = 3000; my $cnt = 3;
 for my $n_smooth (0..9) {
-    print "\nFirst 25, and ${start}th through @{[$start+2]}nd $primes[$n_smooth]-smooth numbers:\n";
+    push @res, "\nFirst 25, and ${start}th through @{[$start+2]}nd $primes[$n_smooth]-smooth numbers:";
     my $s = smooth_numbers(@primes[0..$n_smooth]);
-    print ' ' . $s->() for 1..25; print "\n";
-    #push @res, $(smooth_numbers(|@primes[0..$p])[^25]);
-    #push @res, $(smooth_numbers(|@primes[0..$p])[$start - 1 .. $start + 1]».&abbrev);
+    my @S25;
+    push @S25, $s->() for 1..25; 
+    push @res, join ' ', @S25;
+
+    my @Sm; my $c = 25;
+    do {
+        my $sn = $s->(); 
+        push @Sm, abbrev($sn) if ++$c >= $start;
+    } until @Sm == $cnt;
+    push @res, join ' ', @Sm;
 }
 
-say my $result = join "\n", @res;
-
-__END__
-
-$start = 30000;
-for 503, 509, 521 -> $p {
-    my $i = @primes.first( * == $p, :k );
-    push @res, "\n{$start}th through {$start+19}th {@primes[$i]}-smooth numbers:";
-    push @res, smooth_numbers(|@primes[0..$i])[$start - 1 .. $start + 18];
+$start = 30000; $cnt = 20;
+for my $n_smooth (95..97) { # (503, 509, 521) {
+    push @res, "\n${start}th through @{[$start+$cnt-1]}th $primes[$n_smooth]-smooth numbers:";
+    my $s = smooth_numbers(@primes[0..$n_smooth]);
+    my(@Sm,$c);
+    do {
+        my $sn = $s->();
+        push @Sm, $sn if ++$c >= $start;
+    } until @Sm == $cnt;
+    push @res, join ' ', @Sm;
 }
 
 say my $result = join "\n", @res;
 
 my $ref = <<'EOD';
+
 First 25, and 3000th through 3002nd 2-smooth numbers:
 1 2 4 8 16 32 64 128 256 512 1024 2048 4096 8192 16384 32768 65536 131072 262144 524288 1048576 2097152 4194304 8388608 16777216
 6151159610...(883 digits omitted)...9114994688 1230231922...(884 digits omitted)...8229989376 2460463844...(884 digits omitted)...6459978752
@@ -126,11 +126,3 @@ use Test::More;
 chomp $ref;
 is($result, $ref);
 done_testing();
-
-__END__
-
-=={{header|Perl}}==
-{{trans|Perl 6}}
-<lang perl></lang>
-{{out}}
-<pre></pre>
