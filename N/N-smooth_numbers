@@ -19,7 +19,7 @@ sub smooth_numbers {
 #    my(@m) = @_;                               # use with 'bigint'
     my @m = map { Math::GMPz->new($_) } @_;     # comment out to NOT use Math::GMPz
     my @s;
-    push my @s, [1] for 0..$#m;
+    push @s, [1] for 0..$#m;
 
     return sub {
     my $n = $s[0][0];
