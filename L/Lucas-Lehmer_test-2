@@ -1,27 +1,73 @@
 #!/usr/local/bin/perl
 #u# http://rosettacode.org/wiki/Lucas-Lehmer_test
-#t# toodamnslow
 #c# 2018-08-17 <RC
 #p# OK
+#n# spits them out pretty rapidly up to 47, then hits a wall
 
 use feature 'say';
 my $result;
 
 # The ntheory module offers a couple options. This is direct:
 #Library: ntheory
-use ntheory qw/:all/;
-$|=1; # flush output on every print
+
+#$|=1; # flush output on every print
 my $n = 0;
-for (1..46) {
+for (1..45) {
   1 while !is_mersenne_prime(++$n);
-  print "M$n\n";
-  #$result .= "M$n\n";
+#  print "M$n\n";
+  $result .= "M$n\n";
 }
 
 say $result; 
+
 my $ref = <<'EOD';
+M2
+M3
+M5
+M7
+M13
+M17
+M19
+M31
+M61
+M89
+M107
+M127
+M521
+M607
+M1279
+M2203
+M2281
+M3217
+M4253
+M4423
+M9689
+M9941
+M11213
+M19937
+M21701
+M23209
+M44497
+M86243
+M110503
+M132049
+M216091
+M756839
+M859433
+M1257787
+M1398269
+M2976221
+M3021377
+M6972593
+M13466917
+M20996011
+M24036583
+M25964951
+M30402457
+M32582657
+M37156667
 EOD
 
 use Test::More;
-#is ($result, $ref);
-#done_testing();
+is ($result, $ref);
+done_testing();
