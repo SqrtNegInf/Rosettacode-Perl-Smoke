@@ -2286,9 +2286,9 @@ File: F/Farey_sequence-1
 File: F/Farey_sequence-2
 #!/usr/local/bin/perl
 #u# http://rosettacode.org/wiki/Farey_sequence
-#t# toodamnslow
 #c# 2018-08-03 <RC
 #p# OK
+#n# 2019-09-06 test a limited range ('Memoize' does not help)
 
 File: F/Fast_Fourier_transform
 #!/usr/local/bin/perl
@@ -2649,6 +2649,13 @@ File: F/Fractal_tree
 #c# 2018-08-08 <RC
 #p# OK
 #f# RC file: fractal_tree.png
+
+File: F/Fraction_reduction
+#!/usr/local/bin/perl
+#u# http://rosettacode.org/wiki/RC_REMOTE
+#c# 2019-09-07 >RC
+#p# OK
+#n# takes over 4 minutes if '4' is included
 
 File: F/Fractran
 #!/usr/local/bin/perl
@@ -3865,9 +3872,9 @@ File: L/Lucas-Lehmer_test-1
 File: L/Lucas-Lehmer_test-2
 #!/usr/local/bin/perl
 #u# http://rosettacode.org/wiki/Lucas-Lehmer_test
-#t# toodamnslow
 #c# 2018-08-17 <RC
 #p# OK
+#n# spits them out pretty rapidly up to 47, then hits a wall
 
 File: L/Lucas-Lehmer_test-3
 #!/usr/local/bin/perl
