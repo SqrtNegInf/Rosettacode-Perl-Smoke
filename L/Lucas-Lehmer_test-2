@@ -8,7 +8,7 @@ use feature 'say';
 my $result;
 
 # The ntheory module offers a couple options. This is direct:
-#Library: ntheory
+use ntheory qw<is_mersenne_prime>;
 
 #$|=1; # flush output on every print
 my $n = 0;
