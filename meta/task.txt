@@ -1,17 +1,17 @@
 
 This is perl 5, version 28, subversion 2 (v5.28.2) built for darwin-thread-multi-2level
 updating from RC…
-+------------> Perl: Good/Bad [1163/13]
-|+-----------> Smoke testing [1028]
-||+----------> sKipping validation [142]
++------------> Perl: Good/Bad [1165/13]
+|+-----------> Smoke testing [1031]
+||+----------> sKipping validation [140]
 |||+---------> Interactive [49]
-||||+--------> Touched (modified by me) [305]
+||||+--------> Touched (modified by me) [306]
 |||||+-------> Random seed [90]
 ||||||+------> File output [62]
 |||||||+-----> Draft [229]
 ||||||||+----> Ignoring [34]
-|||||||||+---> Void (no local copy) [172]
-||||||||||+--> Un-implemented/reliable [162]
+|||||||||+---> Void (no local copy) [171]
+||||||||||+--> Un-implemented/reliable [161]
 |||||||||||
 GS......... 100_doors-1
 GS......... 100_doors-2
@@ -422,12 +422,12 @@ GS......... Factors_of_an_integer-1
 GS......... Factors_of_an_integer-2
 GS......... Factors_of_an_integer-3
 GS......... Farey_sequence-1
-G.K........ Farey_sequence-2
+GS......... Farey_sequence-2
 GS......... Fast_Fourier_transform
 GS.....D... Faulhaber%27s_formula
 GS.....D... Faulhaber%27s_triangle
 GS..T..D... Feigenbaum_constant_calculation
-!S..T..D... Fermat_numbers
+GS..T..D... Fermat_numbers
 .......D.VU Fibonacci_heap
 GS......... Fibonacci_n-step_number_sequences
 GS......... Fibonacci_sequence-1
@@ -479,7 +479,7 @@ GS......... Four_bit_adder
 GS..T...... Four_is_magic
 GS..T...... Four_is_the_number_of_letters_in_the_...
 GS....F.... Fractal_tree
-.......D.VU Fraction_reduction
+GS..T..D... Fraction_reduction
 GS......... Fractran
 G.K.T..D..U Free_polyominoes_enumeration
 GS.....D... French_Republican_calendar
@@ -693,7 +693,7 @@ GS......... Loops_While
 GS..T...... Loops_Wrong_ranges
 GS..T...... Loops_with_multiple_ranges
 GS......... Lucas-Lehmer_test-1
-G.K........ Lucas-Lehmer_test-2
+!S......... Lucas-Lehmer_test-2
 GS......... Lucas-Lehmer_test-3
 GS......... Lucas-Lehmer_test-4
 GS..T...... Lucky_and_even_lucky_numbers-1
@@ -777,7 +777,7 @@ GS......... Mutual_recursion
 GS......... N%27th
 .......D.VU N-body_problem
 GS..T...... N-queens_problem
-!S..T..D... N-smooth_numbers
+GS..T..D... N-smooth_numbers
 GS..T..D... NYSIIS
 GS......... Named_parameters
 GS.....D... Names_to_numbers
