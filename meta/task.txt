@@ -1,16 +1,16 @@
 
 This is perl 5, version 28, subversion 2 (v5.28.2) built for darwin-thread-multi-2level
 updating from RC…
-+------------> Perl: Good/Bad [1165/13]
-|+-----------> Smoke testing [1031]
++------------> Perl: Good/Bad [1166/13]
+|+-----------> Smoke testing [1033]
 ||+----------> sKipping validation [140]
 |||+---------> Interactive [49]
-||||+--------> Touched (modified by me) [306]
+||||+--------> Touched (modified by me) [308]
 |||||+-------> Random seed [90]
 ||||||+------> File output [62]
-|||||||+-----> Draft [229]
+|||||||+-----> Draft [230]
 ||||||||+----> Ignoring [34]
-|||||||||+---> Void (no local copy) [171]
+|||||||||+---> Void (no local copy) [170]
 ||||||||||+--> Un-implemented/reliable [161]
 |||||||||||
 GS......... 100_doors-1
@@ -82,7 +82,7 @@ GS......... Anti-primes
 GS....F.... Append_a_record_to_the_end_of_a_text_file
 GS......... Apply_a_callback_to_an_array
 GS..T...... Apply_a_digital_filter_direct_form_II_transposed
-.......D.VU Approximate_Equality
+GS..T..D... Approximate_Equality
 GS......... Arbitrary-precision_integers_included-1
 GS......... Arbitrary-precision_integers_included-2
 GS..T.F.... Archimedean_spiral
@@ -525,7 +525,7 @@ GS...R..... Guess_the_number
 GS...R..... Guess_the_number_With_feedback
 GS...R..... Guess_the_number_With_feedback_player
 GS......... HTTP
-GS......... HTTPS
+!S......... HTTPS
 G.K........ HTTPS_Authenticated
 G.K........ HTTPS_Client-authenticated
 GS......... Hailstone_sequence-1
@@ -693,7 +693,7 @@ GS......... Loops_While
 GS..T...... Loops_Wrong_ranges
 GS..T...... Loops_with_multiple_ranges
 GS......... Lucas-Lehmer_test-1
-!S......... Lucas-Lehmer_test-2
+GS......... Lucas-Lehmer_test-2
 GS......... Lucas-Lehmer_test-3
 GS......... Lucas-Lehmer_test-4
 GS..T...... Lucky_and_even_lucky_numbers-1
@@ -965,6 +965,7 @@ GS..T...... Range_consolidation
 GS......... Range_expansion
 GS..T...... Range_extraction
 GS..T...... Ranking_methods
+GS..T..D..U Rare_numbers
 .......D.VU Raster_bars
 GS......... Rate_counter
 GS......... Ray-casting_algorithm
@@ -1333,7 +1334,7 @@ GS......... Water_collected_between_towers
 .......D.VU Waveform_analysis_Top_and_tail
 .......D.VU Weather_Routing
 ........X.. Weather_routing
-GS......... Web_scraping
+!S......... Web_scraping
 GS..T...... Weird_numbers-1
 GS......... Weird_numbers-2
 .......D... Welch%27s_t-test
