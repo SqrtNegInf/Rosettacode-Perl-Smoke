@@ -1,0 +1,87 @@
+#!/usr/local/bin/perl
+#u# http://rosettacode.org/wiki/Rare_numbers
+#c# 2019-09-xx >RC
+#p# OK
+#n# about as efficient as can be? (but still too slow to really find more than 2 numbers without cheating)
+
+use strict;
+use warnings;
+use feature 'say';
+
+#use List::Util qw(sum any); # tiny speed penalty for 'sum', but 10x for 'any'?
+use ntheory qw(is_power);
+
+my @res;
+
+#for my $n (1..1E6) { 
+for my $n (
+              1 .. 1_000_000,
+    281_000_000 .. 282_000_000,
+  2_022_600_000 .. 2_023_000_000,
+868_591_000_000 .. 868_592_000_000, 
+) {
+    next unless $n =~ /^[2468]/;
+
+    if ($n > 1000) {
+        my $q = substr $n, -1, 1;
+        next if $q == 1 || $q == 4 || $q == 6 || $q == 9;
+
+        my $a = substr $n,  0, 1;
+        my $z = $a - $q;
+        next unless $z == 0 || $z == 1 || $z == 4 || $z == 5 || $z == 6;
+
+        my $b = substr $n,  1, 1;
+        my $p = substr $n, -2, 1;
+        if ($a eq '2') {
+            next if $q != 2 or $b != $p;
+        } elsif ($a eq '4') {
+            next unless $q == 0;
+            next unless 0 == $b-$p;
+        } elsif ($a eq '6') {
+            next unless $q == 0 || $q == 5;
+            next unless 0 != $b-$p;
+        } else {
+            next unless $q == 2 || $q == 3 || $q == 7 || $q == 8;
+            if ($q == 2) { next unless 9 == $b + $p }
+        }
+    }
+
+    my $r = join '', reverse split '', $n;
+    next if $n <= $r;
+    next unless is_power($n+$r, 2) and is_power($n-$r, 2);
+
+    # possibly redundant?
+    #my $dr = $n;
+    #do { my $drn; $drn += $_ for split '', $dr; $dr = $drn; } until $dr < 10;
+    #next unless $dr == 2 || $dr == 5 || $dr == 8 || $dr == 9;
+
+    push @res, $n;
+}
+
+say my $result = join "\n", @res;
+
+my $ref = <<'END';
+65
+621770
+281089082
+2022652202
+868591084757
+END
+
+my $refextra =<<'END';
+2,042,832,002
+872,546,974,178
+872,568,754,178
+END
+
+use Test::More;
+chomp $ref;
+is($result, $ref);
+done_testing();
+
+__END__
+
+=={{header|Perl}}==
+<lang perl></lang>
+{{out}}
+<pre</pre>
