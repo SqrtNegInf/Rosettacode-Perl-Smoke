@@ -2,7 +2,7 @@
 #u# http://rosettacode.org/wiki/RC_REMOTE
 #c# 2019-09-07 >RC
 #p# OK
-#n# takes over 4 minutes if '4' is included
+#n# takes over 4 minutes if '4' is included, about 180 minutes with '5'
 
 use strict;
 use warnings;
@@ -19,11 +19,9 @@ for my $exp (map { $_ - 1 } <2 3>) {
     my $end   = 10**(1+$exp) - -1 + sum map { 10 ** $_ * ($exp - $_) } 0..$exp-1;
 
     for my $den ($start .. $end-1) {
-        next if $den =~ /0/ or (uniqnum split '', $den) <= $exp;
+        next if $den =~ /0/ or (uniqnum split '',$den) <= $exp;
         for my $num ($start .. $den-1) {
-            next if $num =~ /0/ or (uniqnum split '', $num) <= $exp;
-#            my $lc = List::Compare->new([uniq head(-1, split '',$den)], [uniq tail(-1,split '',$num)]);
-#            my @set = $lc->get_intersection;
+            next if $num =~ /0/ or (uniqnum split '',$num) <= $exp;
             my %i;
             map { $i{$_}++ } (uniq head -1, split '',$den), uniq tail -1, split '',$num;
             my @set = grep { $_ if $i{$_} > 1 } keys %i;
@@ -38,12 +36,13 @@ for my $exp (map { $_ - 1 } <2 3>) {
 
     my $digit = $exp + 1;
     #my %d = map { ($_, $reduced{$_}) if length($_) == $digit * 2 + 3} keys %reduced; # P6 needs, we don't?
-    push @res, "\n" . +%reduced . " $digit-digit reduceable fractions:";
+    push @res, "\n" . +%reduced . " $digit-digit reducible fractions:";
     for my $n (1..9) {
         my $cnt = scalar grep { /:$n/ } keys %reduced;
         push @res, "  $cnt with removed $n" if $cnt;
     }
-    push @res, "\n  12 (or all, if less) $digit-digit reduceable fractions:";
+
+    push @res, "\n  12 (or all, if less) $digit-digit reducible fractions:";
     for my $f (head 12, sort keys %reduced) {
         push @res, sprintf "    %s => %s removed %s", substr($f,0,$digit*2+1), $reduced{$f}, substr($f,-1)
     }
@@ -53,17 +52,17 @@ say my $result = join "\n", @res;
 
 my $ref = <<'END';
 
-4 2-digit reduceable fractions:
+4 2-digit reducible fractions:
   2 with removed 6
   2 with removed 9
 
-  12 (or all, if less) 2-digit reduceable fractions:
+  12 (or all, if less) 2-digit reducible fractions:
     16/64 => 1/4 removed 6
     19/95 => 1/5 removed 9
     26/65 => 2/5 removed 6
     49/98 => 4/8 removed 9
 
-122 3-digit reduceable fractions:
+122 3-digit reducible fractions:
   9 with removed 3
   1 with removed 4
   6 with removed 5
@@ -72,7 +71,7 @@ my $ref = <<'END';
   15 with removed 8
   60 with removed 9
 
-  12 (or all, if less) 3-digit reduceable fractions:
+  12 (or all, if less) 3-digit reducible fractions:
     132/231 => 12/21 removed 3
     134/536 => 14/56 removed 3
     134/938 => 14/98 removed 3
