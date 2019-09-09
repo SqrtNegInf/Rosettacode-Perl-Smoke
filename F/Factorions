@@ -1,0 +1,66 @@
+#!/usr/local/bin/perl
+#u# http://rosettacode.org/wiki/Factorions
+#c# 2019-09-09 >RC
+#p# OK
+
+use strict;
+use warnings;
+use feature 'say';
+
+use ntheory qw/factorial todigits/;
+
+my @res;
+
+my $limit = 1_500_000;
+
+for my $b (9 .. 12) {
+
+    push @res, "\nFactorions in base $b:";
+
+    $_ == factorial($_) and push @res, $_ for 0..$b-1;
+
+    for my $i (1 .. int $limit/$b) {
+        my $sum;
+        my $prod = $i * $b;
+
+        for (reverse todigits($i, $b)) {
+            $sum += factorial($_);
+            $sum = 0 && last if $sum > $prod;
+        }
+
+        next if $sum == 0;
+        ($sum + factorial($_) == $prod + $_) and push(@res, $prod+$_) for 0..$b-1;
+    }
+}
+
+say my $result = join "\n", @res;
+
+my $ref = <<'END';
+
+Factorions in base 9:
+1
+2
+41282
+
+Factorions in base 10:
+1
+2
+145
+40585
+
+Factorions in base 11:
+1
+2
+26
+48
+40472
+
+Factorions in base 12:
+1
+2
+END
+
+use Test::More;
+chomp $ref;
+is($result, $ref);
+done_testing();
