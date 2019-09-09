@@ -1,0 +1,80 @@
+#!/usr/local/bin/perl
+#u# http://rosettacode.org/wiki/RC_REMOTE
+#c# 2019-09-07 >RC
+#p# OK
+#n# hard to test (hash key randomess) and doesn't strict meet task spec.
+
+use strict;
+use warnings;
+use feature 'say';
+
+use List::Util qw<sum uniq uniqnum head tail>;
+#use List::Compare qw<get_intersection>; # pokey little puppy
+
+my @res;
+
+for my $exp (map { $_ - 1 } <2 3>) {
+    my %reduced;
+    my $start = sum map { 10 ** $_ * ($exp - $_ + 1) } 0..$exp;
+    my $end   = 10**(1+$exp) - -1 + sum map { 10 ** $_ * ($exp - $_) } 0..$exp-1;
+
+    for my $den ($start .. $end-1) {
+        next if $den =~ /0/ or (uniqnum split '',$den) <= $exp;
+        for my $num ($start .. $den-1) {
+            next if $num =~ /0/ or (uniqnum split '',$num) <= $exp;
+            my(%i,@set);
+            ++$i{$_} > 1 && push(@set, $_) for (uniq head -1, split '',$den), uniq tail -1, split '',$num;
+            #map { $i{$_}++ } (uniq head -1, split '',$den), uniq tail -1, split '',$num;
+            #my @set = grep { $_ if $i{$_} > 1 } keys %i;
+            next if @set < 1;
+            for (@set) {
+                (my $ne = $num) =~ s/$_//; 
+                (my $de = $den) =~ s/$_//; 
+                $reduced{"$num/$den:$_"} = "$ne/$de" if $ne/$de == $num/$den;
+            }
+        }
+    }
+
+    my $digit = $exp + 1;
+    push @res, "\n" . +%reduced . " $digit-digit reducible fractions:";
+    my(%seen,$cancel);
+    for my $f (sort { substr($a,-1) cmp substr($b,-1) } keys %reduced) {
+        $seen{$cancel = substr($f,-1)} ? next : $seen{$cancel}++;
+        next unless my $cnt = scalar grep { /:$cancel/ } keys %reduced;
+        push @res, sprintf "%5d with removed %d, e.g. %s => %s", $cnt, $cancel, substr($f,0,$digit*2+1), $reduced{$f};
+    }
+}
+
+say my $result = join "\n", @res; exit;
+
+my $ref = <<'END';
+
+4 2-digit reducible fractions:
+    2 with removed 6, e.g. 26/65 => 2/5
+    2 with removed 9, e.g. 19/95 => 1/5
+
+122 3-digit reducible fractions:
+    9 with removed 3, e.g. 536/938 => 56/98
+    1 with removed 4, e.g. 143/341 => 13/31
+    6 with removed 5, e.g. 154/253 => 14/23
+   15 with removed 6, e.g. 162/648 => 12/48
+   16 with removed 7, e.g. 374/572 => 34/52
+   15 with removed 8, e.g. 583/781 => 53/71
+   60 with removed 9, e.g. 596/894 => 56/84
+
+660 4-digit reducible fractions:
+   14 with removed 1, e.g. 7168/8176 => 768/876
+   25 with removed 2, e.g. 8214/9213 => 814/913
+   92 with removed 3, e.g. 1683/6732 => 168/672
+   14 with removed 4, e.g. 2945/8246 => 295/826
+   29 with removed 5, e.g. 6549/9546 => 649/946
+   63 with removed 6, e.g. 3652/9628 => 352/928
+   16 with removed 7, e.g. 2735/7658 => 235/658
+   17 with removed 8, e.g. 3829/8752 => 329/752
+  390 with removed 9, e.g. 3946/9865 => 346/865
+END
+
+use Test::More;
+chomp $ref;
+is($result, $ref);
+done_testing();
