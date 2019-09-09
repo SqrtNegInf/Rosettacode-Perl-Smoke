@@ -1,0 +1,64 @@
+#!/usr/local/bin/perl
+#u# http://rosettacode.org/wiki/Approximate_Equality
+#c# 2019-09-08 >RC
+#p# OK
+
+use strict;
+use warnings;
+use feature 'say';
+
+my @res;
+
+for (
+    [100000000000000.01, 100000000000000.011],
+    [100.01, 100.011],
+    [10000000000000.001 / 10000.0, 1000000000.0000001000],
+    [0.001, 0.0010000001],
+    [0.000000000000000000000101, 0.0],
+    [sqrt(2) * sqrt(2), 2.0],
+    [-sqrt(2) * sqrt(2), -2.0],
+    [100000000000000003.0, 100000000000000004.0],
+    [3.14159265358979323846, 3.14159265358979324]
+    ) {
+        my($a,$b) = @$_;
+        is_close($a,$b,16);
+}
+
+sub is_close {
+    my($a,$b,$eps) = @_;
+    $eps //= 15;
+    my $epse = $eps;
+    $epse++ if sprintf("%.${eps}f",$a) =~ /\./;
+    $epse++ if sprintf("%.${eps}f",$a) =~ /\-/;
+    my $afmt = substr((sprintf "%.${eps}f", $a), 0, $epse); 
+    my $bfmt = substr((sprintf "%.${eps}f", $b), 0, $epse);
+    push @res, sprintf "%-5s %s ≅ %s", ($afmt eq $bfmt ? 'True' : 'False'), $afmt, $bfmt;
+}
+
+push @res, "\nTolerance may be adjusted.";
+my $real_pi  = 2 * atan2(1, 0);
+my $roman_pi = 22/7;
+is_close($real_pi,$roman_pi,$_) for <10 3>;
+
+say my $result = join "\n", @res;
+
+my $ref = <<'END';
+True  100000000000000.0 ≅ 100000000000000.0
+False 100.0100000000000 ≅ 100.0109999999999
+True  1000000000.000000 ≅ 1000000000.000000
+False 0.001000000000000 ≅ 0.001000000100000
+True  0.000000000000000 ≅ 0.000000000000000
+True  2.000000000000000 ≅ 2.000000000000000
+True  -2.000000000000000 ≅ -2.000000000000000
+True  10000000000000000 ≅ 10000000000000000
+True  3.141592653589793 ≅ 3.141592653589793
+
+Tolerance may be adjusted.
+False 3.141592653 ≅ 3.142857142
+True  3.14 ≅ 3.14
+END
+
+use Test::More;
+chomp $ref;
+is($result, $ref);
+done_testing();
