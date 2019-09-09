@@ -349,6 +349,19 @@ File: A/Apply_a_digital_filter_direct_form_II_transposed
 #c# 2019-03-23 >RC
 #p# OK
 
+File: A/Approximate_Equality
+#!/usr/local/bin/perl
+#u# http://rosettacode.org/wiki/Approximate_Equality
+#c# 2019-09-08 >RC
+#p# OK
+
+File: A/Approximate_Equality.1
+#!/usr/local/bin/perl
+#t# skiptest
+#u# http://rosettacode.org/wiki/Approximate_Equality
+#p# OK
+#n# differences in absolute vs relative modes
+
 File: A/Arbitrary-precision_integers_included-1
 #!/usr/local/bin/perl
 #u# http://rosettacode.org/wiki/Arbitrary-precision_integers_(included)
@@ -2655,7 +2668,14 @@ File: F/Fraction_reduction
 #u# http://rosettacode.org/wiki/RC_REMOTE
 #c# 2019-09-07 >RC
 #p# OK
-#n# takes over 4 minutes if '4' is included
+#n# takes over 4 minutes if '4' is included, about 180 minutes with '5'
+
+File: F/Fraction_reduction.1
+#!/usr/local/bin/perl
+#u# http://rosettacode.org/wiki/RC_REMOTE
+#c# 2019-09-07 >RC
+#p# OK
+#n# hard to test (hash key randomess) and doesn't strict meet task spec.
 
 File: F/Fractran
 #!/usr/local/bin/perl
@@ -5480,6 +5500,13 @@ File: R/Ranking_methods
 #u# http://rosettacode.org/wiki/Ranking_methods
 #c# 2018-09-27 >RC
 #p# OK
+
+File: R/Rare_numbers
+#!/usr/local/bin/perl
+#u# http://rosettacode.org/wiki/Rare_numbers
+#c# 2019-09-xx >RC
+#p# OK
+#n# about as efficient as can be? (but still too slow to really find more than 2 numbers without cheating)
 
 File: R/Rate_counter
 #!/usr/local/bin/perl
