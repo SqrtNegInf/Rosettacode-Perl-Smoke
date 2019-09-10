@@ -1,4 +1,5 @@
 #!/usr/local/bin/perl
+#t# skiptest
 #u# http://rosettacode.org/wiki/Primorial_numbers
 #c# 2018-08-20 <RC
 #p# OK
@@ -7,12 +8,15 @@ use feature 'say';
 my $result;
 
 # Library: ntheory
-use ntheory qw(pn_primorial);
+#use ntheory qw(pn_primorial);
 
-$result .= "First ten primorials: ". join ", ", map { pn_primorial($_) } 0..9;
-$result .= "\n";
+use Math::Pari qw/allocatemem/;
+allocatemem(1e9);
 
-$result .= "primorial(10^$_) has ".(length pn_primorial(10**$_))." digits\n" for 1..6;
+#$result .= "First ten primorials: ". join ", ", map { pn_primorial($_) } 0..9;
+#$result .= "\n";
+
+#$result .= "primorial(10^$_) has ".(length pn_primorial(10**$_))." digits\n" for 1..6;
 #The pn_primorial function is smart enough to return a Math::BigInt object if the result won't fit into a native integer, so it all works out.
 
 
@@ -21,6 +25,7 @@ $result .= "primorial(10^$_) has ".(length pn_primorial(10**$_))." digits\n" for
 use ntheory ":all";
 $result .= length( vecprod( @{primes( nth_prime(10**6) )} ) ) . "\n";
 #returning the same result in only slightly more time. Both examples take under 4 seconds.
+say $result ;exit;
 
 say $result; 
 
