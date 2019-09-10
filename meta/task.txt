@@ -1,17 +1,17 @@
 
-This is perl 5, version 28, subversion 2 (v5.28.2) built for darwin-thread-multi-2level
+This is perl 5, version 30, subversion 0 (v5.30.0) built for darwin-thread-multi-2level
 updating from RC…
-+------------> Perl: Good/Bad [1166/13]
-|+-----------> Smoke testing [1033]
-||+----------> sKipping validation [140]
++------------> Perl: Good/Bad [1165/13]
+|+-----------> Smoke testing [1034]
+||+----------> sKipping validation [142]
 |||+---------> Interactive [49]
-||||+--------> Touched (modified by me) [308]
+||||+--------> Touched (modified by me) [310]
 |||||+-------> Random seed [90]
 ||||||+------> File output [62]
 |||||||+-----> Draft [230]
 ||||||||+----> Ignoring [34]
-|||||||||+---> Void (no local copy) [170]
-||||||||||+--> Un-implemented/reliable [161]
+|||||||||+---> Void (no local copy) [168]
+||||||||||+--> Un-implemented/reliable [160]
 |||||||||||
 GS......... 100_doors-1
 GS......... 100_doors-2
@@ -71,7 +71,7 @@ GS..T...... Anagrams-1
 GS..T...... Anagrams-2
 GS......... Anagrams_Deranged_anagrams
 GS..T...... Angle_difference_between_two_bearings
-.........VU Angles_geometric,_normalization_and_conversion
+G.K.T.....U Angles_geometric,_normalization_and_conversion
 G.KI....... Animate_a_pendulum
 G.KIT...... Animation
 GS......... Anonymous_recursion-1
@@ -180,7 +180,7 @@ GS..T...... Calculating_the_value_of_e-3
 G.K........ Calculating_the_value_of_e-4
 GS......... Calendar
 G.K........ Calendar_-_for_%22REAL%22_programmers
-GS......... Call_a_foreign-language_function
+!S......... Call_a_foreign-language_function
 G.K........ Call_a_function
 .........VU Call_a_function_in_a_shared_library
 G.K........ Call_an_object_method
@@ -415,7 +415,7 @@ GS......... Factorial-2
 GS......... Factorial-3
 GS......... Factorial-4
 B.K.TR....U Factorial_base_numbers_indexing_permutations_of_a_collection
-.......D.VU Factorions
+GS..T..D... Factorions
 GS......... Factors_of_a_Mersenne_number-1
 GS......... Factors_of_a_Mersenne_number-2
 GS......... Factors_of_an_integer-1
@@ -566,7 +566,7 @@ GS......... Horner%27s_rule_for_polynomial_evaluation-2
 GS......... Horner%27s_rule_for_polynomial_evaluation-3
 GS......... Host_introspection
 GS......... Hostname
-GS..T.F.... Hough_transform
+!S..T.F.... Hough_transform
 GS......... Huffman_coding
 GS..T..D... Humble_numbers
 .........VU Hunt_The_Wumpus
@@ -929,7 +929,7 @@ GS......... Prime_decomposition-2
 GS......... Prime_decomposition-3
 B.......... Prime_decomposition-4
 GS..T...... Primes_-_allocate_descendants_to_their_ancestors
-GS......... Primorial_numbers
+GSK........ Primorial_numbers
 G.K.T..D... Print_debugging_statement
 GS......... Priority_queue
 GS...R..... Probabilistic_choice
@@ -1288,7 +1288,7 @@ GS......... URL_encoding
 GS......... URL_parser
 GS......... UTF-8_encode_and_decode
 .......D.VU Ukkonens_Suffix_Tree_Construction
-GS....F.... Ulam_spiral_for_primes
+!S....F.... Ulam_spiral_for_primes
 GS...R..... Unbias_a_random_generator
 GS......... Undefined_values
 .......D.VU Unicode_polynomial_equation
