@@ -2,7 +2,7 @@
 #t# skiptest
 #u# http://rosettacode.org/wiki/Primorial_numbers
 #c# 2018-08-20 <RC
-#p# OK
+#p# BROKEN
 
 use feature 'say';
 my $result;
