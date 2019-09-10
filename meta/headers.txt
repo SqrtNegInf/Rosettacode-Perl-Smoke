@@ -282,6 +282,13 @@ File: A/Angle_difference_between_two_bearings
 #c# 2018-08-26 >RC
 #p# OK
 
+File: A/Angles_geometric,_normalization_and_conversion
+#!/usr/local/bin/perl
+#u# http://rosettacode.org/wiki/Angles_(geometric),_normalization_and_conversion
+#t# skiptest
+#c# 2019-09-xx >RC
+#p# OK
+
 File: A/Animate_a_pendulum
 #!/usr/local/bin/perl
 #u# http://rosettacode.org/wiki/Animate_a_pendulum
@@ -2259,6 +2266,12 @@ File: F/Factorial_base_numbers_indexing_permutations_of_a_collection
 #c# 2019-02-RC >RC
 #p# BROKEN
 #n# working on a Perl 6 translation...
+
+File: F/Factorions
+#!/usr/local/bin/perl
+#u# http://rosettacode.org/wiki/Factorions
+#c# 2019-09-09 >RC
+#p# OK
 
 File: F/Factors_of_a_Mersenne_number-1
 #!/usr/local/bin/perl
@@ -5299,6 +5312,7 @@ File: P/Primes_-_allocate_descendants_to_their_ancestors
 
 File: P/Primorial_numbers
 #!/usr/local/bin/perl
+#t# skiptest
 #u# http://rosettacode.org/wiki/Primorial_numbers
 #c# 2018-08-20 <RC
 #p# OK
@@ -5507,6 +5521,7 @@ File: R/Rare_numbers
 #c# 2019-09-xx >RC
 #p# OK
 #n# about as efficient as can be? (but still too slow to really find more than 2 numbers without cheating)
+#n# key to decent runtime is adding more filtering tricks...
 
 File: R/Rate_counter
 #!/usr/local/bin/perl
