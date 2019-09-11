@@ -39,7 +39,7 @@ my Code %cvt = (@units X @units).map: -> ($a, $b) {
 
 for my $angle (-2, -1, 0, 1, 2, $tau, 16, 360/$tau, 360-1, 400-1, 6400-1, 1_000_000) {
     push @res, '';
-    for @units -> $from {
+    for my $from (@units) {
         my @sub_keys = @units.map: { "{$from.<code>}2{.<code>}" };
 
         my @results = %cvt{@sub_keys}».($angle);
