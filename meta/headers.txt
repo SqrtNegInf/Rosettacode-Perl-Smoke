@@ -5312,10 +5312,10 @@ File: P/Primes_-_allocate_descendants_to_their_ancestors
 
 File: P/Primorial_numbers
 #!/usr/local/bin/perl
-#t# skiptest
 #u# http://rosettacode.org/wiki/Primorial_numbers
 #c# 2018-08-20 <RC
 #p# OK
+#n# after 5.30 update, needed to separately re-install Math::BigInt::GMP
 
 File: P/Print_debugging_statement
 #!/usr/local/bin/perl
