@@ -3,15 +3,42 @@
 #c# 2018-08-20 <RC
 #p# OK
 
+use strict;
+use warnings;
 use feature 'say';
-my $result;
 
-use List::MoreUtils 'all';
+my @res;
 
-sub pangram {all {$_[0] =~ /$_/i} 'a' .. 'z';}
+sub pangramA {
+    use List::MoreUtils 'all';
+    my($str,@set) = @_;
+    all {$str =~ /$_/i} @set;
+}
 
-say $result = "Yes.\n" if pangram 'Cozy lummox gives smart squid who asks for job pen.';
+sub pangramB {
+    my($str,@set) = @_;
+    '' eq (join '',@set) =~ s/[$str]//gir;
+}
+
+my @alpha = 'a' .. 'z';
+for (
+    'Cozy Lummox Gives Smart Squid Who Asks For Job Pen.',
+    'Crabby Lummox Gives Smart Squid Who Asks For Job Pen.'
+) {
+    push @res, pangramA($_,@alpha) ? 'Yes' : 'No';
+    push @res, pangramB($_,@alpha) ? 'Yes' : 'No';
+}
+
+say my $result = join "\n", @res;
+
+my $ref = <<'END';
+Yes
+Yes
+No
+No
+END
 
 use Test::More;
+chomp $ref;
 is ($result, $ref);
 done_testing();
