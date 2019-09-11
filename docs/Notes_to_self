@@ -1,3 +1,6 @@
+2019-09-10
+Only program change involved a spurious, but useful, warning about '$#' (they were just characters in a string)
+
 2019-09-09
 Finally upgrading to 5.30, some difficulties in the process.
 
