@@ -20,8 +20,9 @@ sub hough {
  
     $height = 2 * int $height/2;
  
-    my $xsize = $im->getwidth();
-    my $ysize = $im->getheight();
+    my($xsize, $ysize) = ($im->getwidth, $im->getheight);
+#    my $xsize = $im->getwidth();
+#    my $ysize = $im->getheight();
  
     my $ht = Imager->new(xsize => $width, ysize => $height);
     for my $i (0..$height-1) { for my $j (0..$width-1) { $canvas[$i][$j] = 255 } } 
@@ -48,6 +49,8 @@ sub hough {
     return $ht;
 }
  
-my $img = Imager->new(file => 'ref/pentagon.png');
+my $img = Imager->new;
+#      $img->read(file=>$filename, type=>$type)
+$img->read(file => 'ref/pentagon.png') or die "Cannot read: ", $img->errstr;
 my $ht  = hough($img);
 $ht->write(        file => 'run/hough.png');
