@@ -3,22 +3,22 @@
 #c# 2018-08-11 <RC
 #p# OK
 
-use feature 'say';
-my $result;
-
-#Library: LWP
-
 use strict;
+use warnings;
+use feature 'say';
 use LWP::UserAgent;
 
 my $url = 'https://www.google.com';
+
 my $response = LWP::UserAgent->new->get( $url );
+
+#my $ua = LWP::UserAgent->new( protocols_allowed => ['http', 'https']);
+#my $response = $ua->get($url);
 
 $response->is_success or die "Failed to GET '$url': ", $response->status_line;
 
-say $result = $response->status_line;
+say my $result = $response->status_line;
 #print $response->as_string;
-
 
 use Test::More;
 is ($result, '200 OK');
