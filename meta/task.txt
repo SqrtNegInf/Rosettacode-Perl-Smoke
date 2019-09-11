@@ -1,9 +1,8 @@
 
 This is perl 5, version 30, subversion 0 (v5.30.0) built for darwin-thread-multi-2level
-updating from RC…
-+------------> Perl: Good/Bad [1165/13]
++------------> Perl: Good/Bad [1170/13]
 |+-----------> Smoke testing [1034]
-||+----------> sKipping validation [142]
+||+----------> sKipping validation [141]
 |||+---------> Interactive [49]
 ||||+--------> Touched (modified by me) [310]
 |||||+-------> Random seed [90]
@@ -180,7 +179,7 @@ GS..T...... Calculating_the_value_of_e-3
 G.K........ Calculating_the_value_of_e-4
 GS......... Calendar
 G.K........ Calendar_-_for_%22REAL%22_programmers
-!S......... Call_a_foreign-language_function
+GS......... Call_a_foreign-language_function
 G.K........ Call_a_function
 .........VU Call_a_function_in_a_shared_library
 G.K........ Call_an_object_method
@@ -525,7 +524,7 @@ GS...R..... Guess_the_number
 GS...R..... Guess_the_number_With_feedback
 GS...R..... Guess_the_number_With_feedback_player
 GS......... HTTP
-!S......... HTTPS
+GS......... HTTPS
 G.K........ HTTPS_Authenticated
 G.K........ HTTPS_Client-authenticated
 GS......... Hailstone_sequence-1
@@ -566,7 +565,7 @@ GS......... Horner%27s_rule_for_polynomial_evaluation-2
 GS......... Horner%27s_rule_for_polynomial_evaluation-3
 GS......... Host_introspection
 GS......... Hostname
-!S..T.F.... Hough_transform
+GS..T.F.... Hough_transform
 GS......... Huffman_coding
 GS..T..D... Humble_numbers
 .........VU Hunt_The_Wumpus
@@ -929,7 +928,7 @@ GS......... Prime_decomposition-2
 GS......... Prime_decomposition-3
 B.......... Prime_decomposition-4
 GS..T...... Primes_-_allocate_descendants_to_their_ancestors
-GSK........ Primorial_numbers
+GS......... Primorial_numbers
 G.K.T..D... Print_debugging_statement
 GS......... Priority_queue
 GS...R..... Probabilistic_choice
@@ -1288,7 +1287,7 @@ GS......... URL_encoding
 GS......... URL_parser
 GS......... UTF-8_encode_and_decode
 .......D.VU Ukkonens_Suffix_Tree_Construction
-!S....F.... Ulam_spiral_for_primes
+GS....F.... Ulam_spiral_for_primes
 GS...R..... Unbias_a_random_generator
 GS......... Undefined_values
 .......D.VU Unicode_polynomial_equation
@@ -1334,7 +1333,7 @@ GS......... Water_collected_between_towers
 .......D.VU Waveform_analysis_Top_and_tail
 .......D.VU Weather_Routing
 ........X.. Weather_routing
-!S......... Web_scraping
+GS......... Web_scraping
 GS..T...... Weird_numbers-1
 GS......... Weird_numbers-2
 .......D... Welch%27s_t-test
