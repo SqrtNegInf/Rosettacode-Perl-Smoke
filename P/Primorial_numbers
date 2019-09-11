@@ -1,31 +1,27 @@
 #!/usr/local/bin/perl
-#t# skiptest
 #u# http://rosettacode.org/wiki/Primorial_numbers
 #c# 2018-08-20 <RC
-#p# BROKEN
+#p# OK
+#n# after 5.30 update, needed to separately re-install Math::BigInt::GMP
 
 use feature 'say';
 my $result;
 
-# Library: ntheory
-#use ntheory qw(pn_primorial);
+use ntheory qw(pn_primorial vecprod primes nth_prime);
 
 use Math::Pari qw/allocatemem/;
-allocatemem(1e9);
+allocatemem(1e8);
 
-#$result .= "First ten primorials: ". join ", ", map { pn_primorial($_) } 0..9;
-#$result .= "\n";
+$result .= "First ten primorials: ". join ", ", map { pn_primorial($_) } 0..9;
+$result .= "\n";
 
-#$result .= "primorial(10^$_) has ".(length pn_primorial(10**$_))." digits\n" for 1..6;
+$result .= "primorial(10^$_) has ".(length pn_primorial(10**$_))." digits\n" for 1..6;
 #The pn_primorial function is smart enough to return a Math::BigInt object if the result won't fit into a native integer, so it all works out.
-
 
 #Still using the library for the core activities, we can do the same in two steps. primes($n) returns a reference to a list of primes up to n, nth_prime($n) returns the nth prime, and vecprod does an efficient product tree. So for 10^6 we can do:
 
-use ntheory ":all";
 $result .= length( vecprod( @{primes( nth_prime(10**6) )} ) ) . "\n";
 #returning the same result in only slightly more time. Both examples take under 4 seconds.
-say $result ;exit;
 
 say $result; 
 
