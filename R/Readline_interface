@@ -3,6 +3,7 @@
 #u# http://rosettacode.org/wiki/Readline_interface
 #c# 2019-04-10 >RC
 #p# OK
+#n# with 5.30, '$#' in character class flagged as the deprecated special variable
 
 use strict;
 use warnings;
