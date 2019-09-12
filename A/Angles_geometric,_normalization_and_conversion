@@ -1,69 +1,60 @@
 #!/usr/local/bin/perl
 #u# http://rosettacode.org/wiki/Angles_(geometric),_normalization_and_conversion
-#t# skiptest
-#c# 2019-09-xx >RC
+#c# 2019-09-11 >RC
 #p# OK
-
-use Data::Printer;
-use Time::HiRes qw(sleep);
 
 use strict;
 use warnings;
 use feature 'say';
+use POSIX 'fmod';
 
 my @res;
 
 my $tau = 2 * 4*atan2(1, 1);
 
 my @units = (
-    [{ code => 'd', name => 'degrees' , number =>  360 }],
-    [{ code => 'g', name => 'gradians', number =>  400 }],
-    [{ code => 'm', name => 'mills'   , number => 6400 }],
-    [{ code => 'r', name => 'radians' , number => $tau }],
+    { code => 'd', name => 'degrees' , number =>  360 },
+    { code => 'g', name => 'gradians', number =>  400 },
+    { code => 'm', name => 'mills'   , number => 6400 },
+    { code => 'r', name => 'radians' , number => $tau },
 );
 
-p @units;
-
-__END__
-
-my Code %cvt = (@units X @units).map: -> ($a, $b) {
-    "{$a.<code>}2{$b.<code>}" => sub ($angle) {
-        my $norm = $angle % $a.<number>
-                 - ( $a.<number> if $angle < 0 );
-        $norm * $b.<number> / $a.<number>
-    }
+my %cvt;
+for my $a (@units) {
+  for my $b (@units) {
+    $cvt{ "${$a}{code}2${$b}{code}" } = sub {
+        my($angle) = shift;
+        my $norm = fmod($angle,${$a}{number}); # built-in '%' returns only integers
+        $norm -= ${$a}{number} if $angle < 0;
+        $norm * ${$b}{number} / ${$a}{number}
+        }
+  }
 }
 
-#say '     Angle Unit     ', @units».<name>».tc.fmt('%11s');
- say '     Angle Unit         Degrees    Gradians       Mills     Radians';
-
+push @res, '     Angle Unit    ' . sprintf "%12s"x4, <Degrees Gradians Mills Radians>;
 for my $angle (-2, -1, 0, 1, 2, $tau, 16, 360/$tau, 360-1, 400-1, 6400-1, 1_000_000) {
     push @res, '';
     for my $from (@units) {
-        my @sub_keys = @units.map: { "{$from.<code>}2{.<code>}" };
-
-        my @results = %cvt{@sub_keys}».($angle);
-
-        push @res, join ' ', $angle      .fmt('%10g'),
-                      $from.<name>.fmt('%-8s'),
-                      @results    .fmt('%11g');
+        my @sub_keys = map { "${$from}{code}2${$_}{code}" } @units;
+        my @results  = map { &{$cvt{$_}}($angle) } @sub_keys;
+        push @res, sprintf '%10g %-8s'.'%12g'x4, $angle, ${$from}{name}, @results;
     }
 }
 
 say my $result = join "\n", @res;
-exit;
 
 my $ref = <<'END';
+     Angle Unit         Degrees    Gradians       Mills     Radians
 
-        -2 degrees           -2    -2.22222    -35.5556  -0.0349066
-        -2 gradians        -1.8          -2         -32  -0.0314159
-        -2 mills        -0.1125      -0.125          -2  -0.0019635
-        -2 radians     -114.592    -127.324    -2037.18          -2
+        -2 degrees         -362    -402.222    -6435.56    -6.31809
+        -2 gradians      -361.8        -402       -6432     -6.3146
+        -2 mills       -360.113    -400.125       -6402    -6.28515
+        -2 radians     -474.592    -527.324    -8437.18    -8.28319
 
-        -1 degrees           -1    -1.11111    -17.7778  -0.0174533
-        -1 gradians        -0.9          -1         -16   -0.015708
-        -1 mills       -0.05625     -0.0625          -1 -0.000981748
-        -1 radians     -57.2958     -63.662    -1018.59          -1
+        -1 degrees         -361    -401.111    -6417.78    -6.30064
+        -1 gradians      -360.9        -401       -6416    -6.29889
+        -1 mills       -360.056    -400.062       -6401    -6.28417
+        -1 radians     -417.296    -463.662    -7418.59    -7.28319
 
          0 degrees            0           0           0           0
          0 gradians           0           0           0           0
@@ -110,21 +101,13 @@ my $ref = <<'END';
       6399 mills        359.944     399.938        6399      6.2822
       6399 radians      155.693     172.992     2767.88     2.71736
 
-   1000000 degrees          280     311.111     4977.78     4.88692
-   1000000 gradians           0           0           0           0
-   1000000 mills             90         100        1600      1.5708
-   1000000 radians      339.513     377.237     6035.79     5.92562
+     1e+06 degrees          280     311.111     4977.78     4.88692
+     1e+06 gradians           0           0           0           0
+     1e+06 mills             90         100        1600      1.5708
+     1e+06 radians      339.513     377.237     6035.79     5.92562
 END
 
 use Test::More;
 chomp $ref;
 is($result, $ref);
 done_testing();
-
-__END__
-
-=={{header|Perl}}==
-{{trans|Perl 6}}
-<lang perl></lang>
-{{out}}
-<pre style="height:20ex"></pre>
