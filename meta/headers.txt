@@ -285,8 +285,7 @@ File: A/Angle_difference_between_two_bearings
 File: A/Angles_geometric,_normalization_and_conversion
 #!/usr/local/bin/perl
 #u# http://rosettacode.org/wiki/Angles_(geometric),_normalization_and_conversion
-#t# skiptest
-#c# 2019-09-xx >RC
+#c# 2019-09-11 >RC
 #p# OK
 
 File: A/Animate_a_pendulum
@@ -3217,7 +3216,7 @@ File: H/Hostname
 File: H/Hough_transform
 #!/usr/local/bin/perl
 #u# http://rosettacode.org/wiki/Hough_transform
-#c# 2018-09-25 >RC
+#c# 2018-09-25 >RC, 2019-09-10 >RC
 #p# OK
 #f# RC file: hough.png
 
@@ -4745,7 +4744,7 @@ File: P/Palindrome_detection
 File: P/Pangram_checker
 #!/usr/local/bin/perl
 #u# http://rosettacode.org/wiki/Pangram_checker
-#c# 2018-08-20 <RC
+#c# 2018-08-20 <RC, 2019-09-10 >RC
 #p# OK
 
 File: P/Paraffins
@@ -5579,6 +5578,7 @@ File: R/Readline_interface
 #u# http://rosettacode.org/wiki/Readline_interface
 #c# 2019-04-10 >RC
 #p# OK
+#n# with 5.30, '$#' in character class flagged as the deprecated special variable
 
 File: R/Real_constants_and_functions
 #!/usr/local/bin/perl
@@ -5814,8 +5814,9 @@ File: R/Rosetta_Code_Rank_languages_by_number_of_users
 File: R/Rosetta_Code_Rank_languages_by_popularity
 #!/usr/local/bin/perl
 #u# http://rosettacode.org/wiki/Rosetta_Code/Rank_languages_by_popularity
-#c# 2018-08-21 <RC
+#c# 2018-08-21 <RC, 2019-09-11 >RC
 #p# OK
+#n# testing somewhat fragile
 
 File: R/Rosetta_Code_Tasks_without_examples
 #!/usr/local/bin/perl
@@ -5928,7 +5929,7 @@ File: S/Sattolo_cycle
 File: S/Scope_Function_names_and_labels
 #!/usr/local/bin/perl 
 #u# http://rosettacode.org/wiki/Scope/Function_names_and_labels
-#c# 2019-01-21 >RC
+#c# 2019-09-11 >RC
 #p# OK
 
 File: S/Scope_modifiers
