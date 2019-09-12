@@ -1,6 +1,6 @@
 #!/usr/local/bin/perl
 #u# http://rosettacode.org/wiki/Pangram_checker
-#c# 2018-08-20 <RC
+#c# 2018-08-20 <RC, 2019-09-10 >RC
 #p# OK
 
 use strict;
@@ -9,13 +9,13 @@ use feature 'say';
 
 my @res;
 
-sub pangramA {
-    use List::MoreUtils 'all';
+sub pangram1 {
     my($str,@set) = @_;
+    use List::MoreUtils 'all';
     all {$str =~ /$_/i} @set;
 }
 
-sub pangramB {
+sub pangram2 {
     my($str,@set) = @_;
     '' eq (join '',@set) =~ s/[$str]//gir;
 }
@@ -25,8 +25,8 @@ for (
     'Cozy Lummox Gives Smart Squid Who Asks For Job Pen.',
     'Crabby Lummox Gives Smart Squid Who Asks For Job Pen.'
 ) {
-    push @res, pangramA($_,@alpha) ? 'Yes' : 'No';
-    push @res, pangramB($_,@alpha) ? 'Yes' : 'No';
+    push @res, pangram1($_,@alpha) ? 'Yes' : 'No';
+    push @res, pangram2($_,@alpha) ? 'Yes' : 'No';
 }
 
 say my $result = join "\n", @res;
