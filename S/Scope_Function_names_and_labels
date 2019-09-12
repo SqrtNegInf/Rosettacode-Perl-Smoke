@@ -1,55 +1,55 @@
 #!/usr/local/bin/perl 
 #u# http://rosettacode.org/wiki/Scope/Function_names_and_labels
-#c# 2019-01-21 >RC
+#c# 2019-09-11 >RC
 #p# OK
 
+use strict;
+use warnings;
+no warnings 'redefine';
 use feature 'say';
 
-push @res, logger();
-sub logger { "I have something to say" }; 
+my @res;
+
+sub logger { push @res, shift . ": Dicitur clamantis in deserto." }; 
+
+logger('A');
+
+Highlander::logger('B');
+
+package Highlander { 
+
+logger('C');
+
+sub logger { push @res, shift . ": I have something to say." }; 
+
 sub down_one_level {
-    push @res, logger();
-    sub logger { "I am a man, not a fish." };
+
+    sub logger { push @res, shift . ": I am a man, not a fish." };
+
     sub down_two_levels {
-        sub logger { "There can be only one!" };
+        sub logger { push @res, shift . ": There can be only one!" };
     }
 }
-down_one_level();
-push @res, logger();
 
-say $result = join "\n", @res;
+logger('D');
+
+}
+
+logger('E');
+
+sub logger { push @res, shift . ": This thought intentionally left blank." }; 
 
 my $ref = <<'END';
-There can be only one!
-There can be only one!
-There can be only one!
+A: This thought intentionally left blank.
+B: There can be only one!
+C: There can be only one!
+D: There can be only one!
+E: This thought intentionally left blank.
 END
+
+say my $result = join "\n", @res;
 
 use Test::More;
 chomp $ref;
 is($result,$ref);
 done_testing();
-
-__END__
-
-=={{header|Perl}}==
-<lang perl>use feature 'say';
-
-say logger();
-sub logger { "I have something to say" }; 
-sub down_one_level {
-    say logger();
-    sub logger { "I am a man, not a fish." };
-    sub down_two_levels {
-        sub logger { "There can be only one!" };
-    }
-}
-down_one_level();
-say logger();
-</lang>
-{{out}}
-<pre>
-There can be only one!
-There can be only one!
-There can be only one!
-</pre>
