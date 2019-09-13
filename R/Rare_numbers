@@ -21,7 +21,9 @@ for my $n (
   2_022_600_000 .. 2_023_000_000,
 868_591_000_000 .. 868_592_000_000, 
 ) {
-    next unless $n =~ /^[2468]/;
+    #next unless $n =~ /^[2468]/;
+    my $x = substr $n, 0, 1;
+    next unless $x eq 2 || $x eq 4 || $x eq 6 || $x eq 8;
 
     if ($n > 1000) {
         my $q = substr $n, -1, 1;
