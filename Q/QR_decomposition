@@ -1,42 +1,62 @@
 #!/usr/local/bin/perl
 #u# http://rosettacode.org/wiki/QR_decomposition
-#t# skiptest
-#c# 2019-02-10 >RC
-#p# BROKEN
+#c# 2019-02-12 >RC
+#p# OK
 
-use Math::GSL::Matrix qw/:all/;
-use Math::GSL::Linalg qw/:all/;
+use strict;
+use warnings;
+use feature 'say';
 
-my $A = gsl_matrix_alloc(4,4);
-#     map { gsl_matrix_set($Matrix, 0, $_, $_+1) } (0..3);
+use PDL;
+use PDL::LinearAlgebra qw(mqr);
 
-gsl_matrix_set($A,  12, -51,   4);
-gsl_matrix_set($A,   6, 167, -68);
-gsl_matrix_set($A,  -4,  24, -41);
-gsl_matrix_set($A,  -1,   1,   0);
-gsl_matrix_set($A,   2,   0,   3);
+my @res;
 
-__END__
+my $a = pdl(
+      [12, -51,   4],
+      [ 6, 167, -68],
+      [-4,  24, -41],
+      [-1,   1,   0],
+      [ 2,   0,   3]
+);
 
-     my ($result, $signum) = gsl_linalg_LU_decomp($Matrix, $permutation);
-     my $det = gsl_linalg_LU_det($Matrix, $signum);
-     print "The value of the determinant of the matrix is $det \n";
+my ( $q, $r )  = mqr($a);
+push @res, $q; 
+push @res, $r;
+push @res, grep { s/(-?[\d.]{3,}e\-1[56])/' 'x(-1+length($1)) . '0'/ge } $q x $r;
 
-   my $Q = householder(@A);
-   $Q = transpose($Q);
-   print-mat($Q, 'Q');
-   # after householder, @A is now @R
-   print-mat(@A, 'R');
-   print-mat(multiply($Q, @A), 'check Q x R = A');
+say my $result = join "\n", @res;
 
-   my @x = [^11];
-   my @y = [1, 6, 17, 34, 57, 86, 121, 162, 209, 262, 321];
+my $ref = <<'END';
 
-   my @coef = polyfit(@x, @y, 2);
+[
+ [ -0.84641474   0.39129081  -0.34312406]
+ [ -0.42320737  -0.90408727  0.029270162]
+ [  0.28213825  -0.17042055  -0.93285599]
+ [ 0.070534562 -0.014040652  0.001099372]
+ [ -0.14106912  0.016655511   0.10577161]
+]
 
-   say my $result =
-      "\npolyfit:\n"~
-      <constant X X^2>.fmt("%12s")~
-      "\n"~
-      @coef.fmt("%12.6f");
 
+[
+ [-14.177447 -20.666627  13.401567]
+ [         0 -175.04254  70.080307]
+ [         0          0  35.201543]
+]
+
+
+[
+ [           12           -51             4]
+ [            6           167           -68]
+ [           -4            24           -41]
+ [           -1             1             0]
+ [            2             0             3]
+]
+
+END
+ #[           -1             1 3.3306691e-16]
+
+use Test::More;
+chomp $ref;
+is($result, $ref);
+done_testing();
