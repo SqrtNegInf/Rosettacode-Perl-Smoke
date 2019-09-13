@@ -5384,9 +5384,8 @@ File: P/Pythagorean_triples
 File: Q/QR_decomposition
 #!/usr/local/bin/perl
 #u# http://rosettacode.org/wiki/QR_decomposition
-#t# skiptest
-#c# 2019-02-10 >RC
-#p# BROKEN
+#c# 2019-02-12 >RC
+#p# OK
 
 File: Q/Quaternion_type
 #!/usr/local/bin/perl
