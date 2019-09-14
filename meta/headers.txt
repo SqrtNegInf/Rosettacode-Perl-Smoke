@@ -5520,6 +5520,7 @@ File: R/Rare_numbers
 #p# OK
 #n# about as efficient as can be? (but still too slow to really find more than 2 numbers without cheating)
 #n# key to decent runtime is adding more filtering tricks...
+#n# can SPVM help?
 
 File: R/Rate_counter
 #!/usr/local/bin/perl
