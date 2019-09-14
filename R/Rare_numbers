@@ -4,6 +4,7 @@
 #p# OK
 #n# about as efficient as can be? (but still too slow to really find more than 2 numbers without cheating)
 #n# key to decent runtime is adding more filtering tricks...
+#n# can SPVM help?
 
 use strict;
 use warnings;
