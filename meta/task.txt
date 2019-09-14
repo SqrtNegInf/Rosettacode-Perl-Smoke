@@ -1,14 +1,14 @@
 
 This is perl 5, version 30, subversion 0 (v5.30.0) built for darwin-thread-multi-2level
 updating from RC…
-+------------> Perl: Good/Bad [1169/12]
++------------> Perl: Good/Bad [1170/12]
 |+-----------> Smoke testing [1035]
 ||+----------> sKipping validation [139]
 |||+---------> Interactive [49]
 ||||+--------> Touched (modified by me) [311]
 |||||+-------> Random seed [90]
 ||||||+------> File output [62]
-|||||||+-----> Draft [229]
+|||||||+-----> Draft [227]
 ||||||||+----> Ignoring [34]
 |||||||||+---> Void (no local copy) [168]
 ||||||||||+--> Un-implemented/reliable [157]
@@ -82,7 +82,7 @@ GS......... Anti-primes
 GS....F.... Append_a_record_to_the_end_of_a_text_file
 GS......... Apply_a_callback_to_an_array
 GS..T...... Apply_a_digital_filter_direct_form_II_transposed
-GS..T..D... Approximate_Equality
+GS..T...... Approximate_Equality
 GS......... Arbitrary-precision_integers_included-1
 GS......... Arbitrary-precision_integers_included-2
 GS..T.F.... Archimedean_spiral
@@ -312,7 +312,7 @@ GS......... Day_of_the_week-1
 GS......... Day_of_the_week-2
 GS......... Day_of_the_week-3
 GS......... Day_of_the_week-4
-GS..T..D... De_Bruijn_sequences
+GS..T...... De_Bruijn_sequences
 GS...R..... Deal_cards_for_FreeCell
 GS......... Death_Star
 B...T..D..U Decimal_floating_point_number_to_binary
@@ -1022,7 +1022,7 @@ GS..T..D... Rosetta_Code_Rank_languages_by_number_of_users
 GS..T...... Rosetta_Code_Rank_languages_by_popularity
 .......D.VU Rosetta_Code_Run_examples
 .......D.VU Rosetta_Code_Tasks_sorted_by_average_lines_of_code
-!S..T..D... Rosetta_Code_Tasks_without_examples
+GS..T..D... Rosetta_Code_Tasks_without_examples
 GS......... Rot-13
 GS......... Run-length_encoding
 .......D.VU Run_as_a_daemon_or_service
