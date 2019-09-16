@@ -6603,6 +6603,14 @@ File: S/Special_variables
 #c# 2018-08-14 <>RC
 #p# OK
 
+File: S/Speech_synthesis
+#!/usr/local/bin/perl
+#u# http://rosettacode.org/wiki/Speech_synthesis
+#t# nocode
+#c# 2019-09-15 <RC
+#p# OK
+#n# does not work on modern OS, replace?
+
 File: S/Spelling_of_ordinal_numbers
 #!/usr/local/bin/perl
 #u# http://rosettacode.org/wiki/Spelling_of_ordinal_numbers
