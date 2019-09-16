@@ -1,0 +1,15 @@
+#!/usr/local/bin/perl
+#u# http://rosettacode.org/wiki/Speech_synthesis
+#t# nocode
+#c# 2019-09-15 <RC
+#p# OK
+#n# does not work on modern OS, replace?
+
+#use Speech::Synthesis;
+#
+#($engine) = Speech::Synthesis->InstalledEngines();
+#($voice) = Speech::Synthesis->InstalledVoices(engine => $engine);
+#
+#Speech::Synthesis
+#  ->new(engine => $engine, voice => $voice->{id})
+#  ->speak("This is an example of speech synthesis.");
