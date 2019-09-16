@@ -15,6 +15,9 @@ use ntheory qw(is_power);
 
 my @res;
 
+my %squares;
+#$squares{$_*$_} = 1 for 1..1_500_000;
+
 #for my $n (1..1E6) { 
 for my $n (
               1 .. 1_000_000,
@@ -52,9 +55,19 @@ for my $n (
 
     my $r = join '', reverse split '', $n;
     next if $n <= $r;
+
+# how to test pefect square efficiently...
+
 #    next unless (0x202021202030213 & (1 << (($n+$r) & 63))) > 0; # no diff at all
 #    next unless (0x202021202030213 & (1 << (($n-$r) & 63))) > 0;
+
+    # table lookup faster?
+    #next unless $squares {$n+$r} and $squares{$n-$r};
     next unless is_power($n+$r, 2) and is_power($n-$r, 2);
+
+# fixeddigits = Dict(2 => [[0, 0, 2], [8, 8, 2]], 4 => [[0, 0, 0]],
+#     6 => [[2, 7, 0], [9, 8, 5]], 8 => [[6, 5, 7],[7, 7, 8]])
+
 
     # possibly redundant?
     #my $dr = $n;
