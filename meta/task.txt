@@ -8,7 +8,7 @@ updating from RC…
 ||||+--------> Touched (modified by me) [311]
 |||||+-------> Random seed [90]
 ||||||+------> File output [62]
-|||||||+-----> Draft [226]
+|||||||+-----> Draft [224]
 ||||||||+----> Ignoring [34]
 |||||||||+---> Void (no local copy) [167]
 ||||||||||+--> Un-implemented/reliable [157]
@@ -567,7 +567,7 @@ GS......... Host_introspection
 GS......... Hostname
 GS..T.F.... Hough_transform
 GS......... Huffman_coding
-GS..T..D... Humble_numbers
+GS..T...... Humble_numbers
 .........VU Hunt_The_Wumpus
 .......D.VU I%27m_a_software_engineer,_get_me_out_of_here
 GS..T..D... I.Q._Puzzle
@@ -776,7 +776,7 @@ GS......... Mutual_recursion
 GS......... N%27th
 .......D.VU N-body_problem
 GS..T...... N-queens_problem
-GS..T..D... N-smooth_numbers
+GS..T...... N-smooth_numbers
 GS..T..D... NYSIIS
 GS......... Named_parameters
 GS.....D... Names_to_numbers
