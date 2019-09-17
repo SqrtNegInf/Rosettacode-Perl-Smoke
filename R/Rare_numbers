@@ -10,22 +10,17 @@ use strict;
 use warnings;
 use feature 'say';
 
-#use List::Util qw(sum any); # tiny speed penalty for 'sum', but 10x for 'any'?
 use ntheory qw(is_power);
 
 my @res;
 
-my %squares;
-#$squares{$_*$_} = 1 for 1..1_500_000;
-
-#for my $n (1..1E6) { 
 for my $n (
               1 .. 1_000_000,
     281_000_000 .. 282_000_000,
   2_022_600_000 .. 2_023_000_000,
 868_591_000_000 .. 868_592_000_000, 
 ) {
-    #next unless $n =~ /^[2468]/;
+
     my $x = substr $n, 0, 1;
     next unless $x eq 2 || $x eq 4 || $x eq 6 || $x eq 8;
 
@@ -39,40 +34,30 @@ for my $n (
 
         my $b = substr $n,  1, 1;
         my $p = substr $n, -2, 1;
+
         if ($a eq '2') {
-            next if $q != 2 or $b != $p;
+            next unless ($b == 0 && $p == 0 && $q == 2) or
+                        ($b == 8 && $p == 8 && $q == 2);
         } elsif ($a eq '4') {
-            next unless $q == 0;
-            next unless 0 == $b-$p;
+            next unless ($b == 0 && $p == 0 && $q == 0);
         } elsif ($a eq '6') {
-            next unless $q == 0 || $q == 5;
-            next unless 0 != $b-$p;
+            next unless ($b == 2 && $p == 7 && $q == 0) or
+                        ($b == 9 && $p == 8 && $q == 5);
         } else {
-            next unless $q == 2 || $q == 3 || $q == 7 || $q == 8;
-            if ($q == 2) { next unless 9 == $b + $p }
+            next unless ($b == 6 && $p == 5 && $q == 7) or
+                        ($b == 7 && $p == 7 && $q == 8);
         }
     }
 
     my $r = join '', reverse split '', $n;
     next if $n <= $r;
 
-# how to test pefect square efficiently...
-
-#    next unless (0x202021202030213 & (1 << (($n+$r) & 63))) > 0; # no diff at all
-#    next unless (0x202021202030213 & (1 << (($n-$r) & 63))) > 0;
-
-    # table lookup faster?
-    #next unless $squares {$n+$r} and $squares{$n-$r};
     next unless is_power($n+$r, 2) and is_power($n-$r, 2);
 
-# fixeddigits = Dict(2 => [[0, 0, 2], [8, 8, 2]], 4 => [[0, 0, 0]],
-#     6 => [[2, 7, 0], [9, 8, 5]], 8 => [[6, 5, 7],[7, 7, 8]])
-
-
     # possibly redundant?
-    #my $dr = $n;
-    #do { my $drn; $drn += $_ for split '', $dr; $dr = $drn; } until $dr < 10;
-    #next unless $dr == 2 || $dr == 5 || $dr == 8 || $dr == 9;
+    my $dr = $n;
+    do { my $drn; $drn += $_ for split '', $dr; $dr = $drn; } until $dr < 10;
+    next unless $dr == 2 || $dr == 5 || $dr == 8 || $dr == 9;
 
     push @res, $n;
 }
