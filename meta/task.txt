@@ -11,7 +11,7 @@ updating from RC…
 |||||||+-----> Draft [224]
 ||||||||+----> Ignoring [34]
 |||||||||+---> Void (no local copy) [167]
-||||||||||+--> Un-implemented/reliable [157]
+||||||||||+--> Un-implemented/reliable [156]
 |||||||||||
 GS......... 100_doors-1
 GS......... 100_doors-2
@@ -41,7 +41,7 @@ GS......... AKS_test_for_primes-3
 GS..T...... Abbreviations,_automatic
 GS..T...... Abbreviations,_easy
 GS..T...... Abbreviations,_simple
-.........VU Abelian_sandpile_model
+.........V. Abelian_sandpile_model
 ........XV. Abstract_type
 GS..T...... Abundant,_deficient_and_perfect_number_classifications
 GS..T...... Abundant_odd_numbers
