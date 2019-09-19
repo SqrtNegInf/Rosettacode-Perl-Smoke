@@ -8,20 +8,22 @@ use warnings;
 use feature 'say';
 my $result;
 
+#sub Pi () { 3.1415926535897932384626433832795028842 }
 
-sub Pi () { 3.1415926535897932384626433832795028842 }
+use utf8;
+use constant π => 2 * atan2(1, 0);
  
 sub meanangle {
   my($x, $y) = (0,0);
   ($x,$y) = ($x + sin($_), $y + cos($_)) for @_;
   my $atan = atan2($x,$y);
-  $atan += 2*Pi while $atan < 0;    # Ghetto fmod
-  $atan -= 2*Pi while $atan > 2*Pi;
+  $atan += 2*π while $atan < 0;    # Ghetto fmod
+  $atan -= 2*π while $atan > 2*π;
   $atan;
 }
  
 sub meandegrees {
-  meanangle( map { $_ * Pi/180 } @_ ) * 180/Pi;
+  meanangle( map { $_ * π/180 } @_ ) * 180/π;
 }
  
 $result .= sprintf "The mean angle of [@$_] is: ". meandegrees(@$_) . " degrees\n"
