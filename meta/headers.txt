@@ -130,6 +130,12 @@ File: A/Abbreviations,_simple
 #c# 2018-09-12 >RC
 #p# OK
 
+File: A/Abelian_sandpile_model
+#!/usr/local/bin/perl
+#u# http://rosettacode.org/wiki/Abelian_sandpile_model
+#c# 2019-09-17 <RC
+#p# OK
+
 File: A/Abundant,_deficient_and_perfect_number_classifications
 #!/usr/local/bin/perl
 #u# http://rosettacode.org/wiki/Abundant,_deficient_and_perfect_number_classifications
@@ -2603,6 +2609,12 @@ File: F/Forest_fire
 #!/usr/local/bin/perl
 #u# http://rosettacode.org/wiki/Forest_fire
 #c# 2018-08-07 <RC
+#p# OK
+
+File: F/Forest_fire-2
+#!/usr/local/bin/perl
+#u# http://rosettacode.org/wiki/Forest_fire
+#c# 2019-09-18 <RC
 #p# OK
 
 File: F/Forest_fire.0
