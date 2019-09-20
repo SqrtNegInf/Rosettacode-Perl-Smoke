@@ -21,7 +21,8 @@ sub molar_mass {
     $mf =~ s/(.*)\((.*?)\)(\d*)/$1 . $2 x ($3 ? $3 : 1) /e while $mf =~ m/\(/;
 
     # totals for each atom type
-    $mf =~ s/([A-Z][a-z]{0,2})(\d*)/ $count{$1} += $2 ? $2 : 1/eg;
+    #$mf =~ s/([A-Z][a-z]{0,2})(\d*)/ $count{$1} += $2 ? $2 : 1/eg;
+    $mf =~ s/([[:upper:]] [[:lower:]]{0,2}) ([[:digit:]]*)/ $count{$1} += $2 ? $2 : 1/egx;
 
     # calculate molar mass and display, along with standardized MF, and original one
     $mass += $count{$_}*$atomic_weight{"$_"} for sort keys %count;
