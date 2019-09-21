@@ -1,20 +1,39 @@
 #!/usr/local/bin/perl
 #u# http://rosettacode.org/wiki/Command-line_arguments
-#t# nocode
-#c# 2018-07-24 <RC
+#c# 2019-09-21 <RC
 #p# OK
+#i# RC cli: ref/lines_of_numbers.txt mode=frobnicate iterations=42
 
-# Works with: Perl version 5.x
+#use strict;
+#use warnings;
+use feature 'say';
+
+my @res;
+
 # @ARGV is the array containing all command line parameters
 
-my @params = @ARGV;
-my $params_size = @ARGV; 
-my $second = $ARGV[1];
-my $fifth = $ARGV[4];
-# If you don't mind importing a module:
+push @res, join ':', @ARGV;
+push @res, scalar @ARGV; 
+push @res, $second = $ARGV[1];
+push @res, $third = $ARGV[2];
 
-use Getopt::Long;
-GetOptions ( 
-    'help|h'     => \my $help,
-    'verbose|v'  => \my $verbose,
-);
+#If you don't mind importing a module:
+#use Getopt::Long;
+#GetOptions ( 
+#    'help|h'     => \my $help,
+#    'verbose|v'  => \my $verbose,
+#);
+
+say $result = join "\n", @res;
+
+my $ref = <<'EOD';
+ref/lines_of_numbers.txt:mode=frobnicate:iterations=42
+3
+mode=frobnicate
+iterations=42
+EOD
+
+use Test::More;
+chomp $ref;
+is ($result, $ref);
+done_testing();
