@@ -3,7 +3,7 @@
 #t# skiptest
 #c# 2019-05-08 >RC
 #p# OK
-#f# RC file: scale.mid
+#f# RC file: scale.midi
 
 use MIDI::Simple;
 
@@ -13,4 +13,4 @@ set_tempo 500_000;
 # C-major scale
 n 60; n 62; n 64; n 65; n 67; n 69; n 71; n 72;
 
-write_score 'run/scale.mid';
+write_score 'run/scale.midi';
