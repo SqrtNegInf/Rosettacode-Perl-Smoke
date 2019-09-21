@@ -1,0 +1,81 @@
+#!/usr/local/bin/perl
+#u# http://rosettacode.org/wiki/Scope_modifiers
+#c# 2019-09-21 <RC
+#p# OK
+
+use feature 'say';
+my $result;
+# my @res;
+
+
+A name explicitly qualified as belonging to a package with :: (like $Foo::bar; as a special case, for any identifier var and sigil $, $::var is short for $main::var) always refers to a package variable, i.e., a global variable belonging to the given package. So only unqualified names can have context-sensitive interpretations.
+By default, an unqualified name refers to a package variable in the current package. The current package is whatever you set it to with the last package declaration in the current lexical scope, or main by default. But wherever stricture is in effect, using a name that would be resolved this way is a compile-time error.
+There are four kinds of declaration that can influence the scoping of a particular variable: our, my, state, and local. our makes a package variable lexically available. Its primary use is to allow easy access to package variables under stricture.
+
+use strict;
+$x = 1;                   # Compilation error.
+our $y = 2;
+print "$y\n";             # Legal; refers to $main::y.
+
+package Foo;
+our $z = 3;
+package Bar;
+print "$z\n";             # Refers to $Foo::z.
+my creates a new lexical variable, independent of any package. It's destroyed as soon as it falls out of scope, and each execution of the statement containing the my creates a new, independent variable.
+
+package Foo;
+my $fruit = 'apple';
+package Bar;
+print "$fruit\n";         # Prints "apple".
+{
+    my $fruit = 'banana';
+    print "$fruit\n";     # Prints "banana".
+}
+print "$fruit\n";         # Prints "apple".
+                          # The second $fruit has been destroyed.
+our $fruit = 'orange';
+print "$fruit\n";         # Prints "orange"; refers to $Bar::fruit.
+                          # The first $fruit is inaccessible.
+state is like my but creates a variable only once. The variable's value is remembered between visits to the enclosing scope. The state feature is only available in perl 5.9.4 and later, and must be activated with use feature 'state'; or a use demanding a sufficiently recent perl.
+
+use 5.10.0;
+
+sub count_up
+{
+    state $foo = 13;
+    say $foo++;
+}
+
+count_up;                 # Prints "13".
+count_up;                 # Prints "14".
+local gives a package variable a new value for the duration of the current dynamic scope.
+
+our $camelid = 'llama';
+
+sub phooey
+{
+    print "$camelid\n";
+}
+
+phooey;                   # Prints "llama".
+
+sub do_phooey
+{
+    local $camelid = 'alpaca';
+    phooey;
+}
+
+do_phooey;                # Prints "alpaca".
+phooey;                   # Prints "llama".
+Usually, my is preferable to local, but one thing local can do that my can't is affect the special punctuation variables, like $/ and $". Actually, in perl 5.9.1 and later, my $_ is specially allowed and works as you would expect.
+
+
+
+say $result; 
+#say $result = join "\n", @res;
+my $ref = <<'EOD';
+EOD
+
+use Test::More;
+#is ($result, $ref);
+#done_testing();
