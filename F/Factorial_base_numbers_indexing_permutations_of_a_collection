@@ -1,189 +1,35 @@
 #!/usr/local/bin/perl
-#u# http://rosettacode.org/wiki/Factorial_base_numbers_indexing_permutations_of_a_collection
+#u# http://rosettacode.org/wiki/RC_REMOTE
 #t# skiptest
-#c# 2019-02-RC >RC
-#p# BROKEN
-#n# working on a Perl 6 translation...
+#c# 2019-09-xx >RC
+#c# 2019-1x-xx >RC
+#p# OK
 
-srand 123456;
+use Data::Printer;
+use Time::HiRes qw(sleep);
 
-use warnings;
 use strict;
+use warnings;
 use feature 'say';
 
 my @res;
 
-use Data::Printer;
-use List::Util qw(reduce);
+# ~/perl6/Rosetta-Code/X/RC_LOCAL
 
-# if cached value available, return it; else compute, cache and return
-my @fact = (1);
-sub factorial { $fact[ $_[0] ] //= $_[0] * factorial($_[0] - 1) }
-
-__END__
-
-sub base {
-    my($n, 'F', $length) = @_;
-    #constant @fact = [\*] 1 .. *;
-    #my $i = $length // @fact.first: * > $n, :k;
-    my $f;
-    #[ @fact[^$i].reverse.map: { ($n, $f) = $n.polymod($_); $f } ]
-}
-
-sub fpermute {
-    my (@a , *@f)  = @_;
-    (^@f).map: { @a[$_ .. $_ + @f[$_]].=rotate(-1) }; 
-    @a 
-}
-
-push @res, "Part 1: Generate table";
-push @res, $_.&base('F', 3).join('.') ~ ' -> ' ~ [0,1,2,3].&fpermute($_.&base('F', 3)).join for ^24;
-
-# ======
-
-#push @res, "\nPart 3: Generate the given task shuffles";
-
-my $omega = qw<
-AS KS QS JS 10S 9S 8S 7S 6S 5S 4S 3S 2S AH KH QH JH 10H 9H 8H 7H 6H 5H 4H 3H 2H
-AD KD QD JD 10D 9D 8D 7D 6D 5D 4D 3D 2D AC KC QC JC 10C 9C 8C 7C 6C 5C 4C 3C 2C
->;
-
-my @books = qw<
-39.49.7.47.29.30.2.12.10.3.29.37.33.17.12.31.29.34.17.25.2.4.25.4.1.14.20.6.21.18.1.1.1.4.0.5.15.12.4.3.10.10.9.1.6.5.5.3.0.0.0
-51.48.16.22.3.0.19.34.29.1.36.30.12.32.12.29.30.26.14.21.8.12.1.3.10.4.7.17.6.21.8.12.15.15.13.15.7.3.12.11.9.5.5.6.6.3.4.0.3.2.1
->;
-
-push @res, "Original deck:";
-push @res, join '', $omega;
-
-#say $result = join "\n", @res;
-my $ref = <<'EOD';
-Part 1: Generate table
-0.0.0 -> 0123
-0.0.1 -> 0132
-0.1.0 -> 0213
-0.1.1 -> 0231
-0.2.0 -> 0312
-0.2.1 -> 0321
-1.0.0 -> 1023
-1.0.1 -> 1032
-1.1.0 -> 1203
-1.1.1 -> 1230
-1.2.0 -> 1302
-1.2.1 -> 1320
-2.0.0 -> 2013
-2.0.1 -> 2031
-2.1.0 -> 2103
-2.1.1 -> 2130
-2.2.0 -> 2301
-2.2.1 -> 2310
-3.0.0 -> 3012
-3.0.1 -> 3021
-3.1.0 -> 3102
-3.1.1 -> 3120
-3.2.0 -> 3201
-3.2.1 -> 3210
-EOD
+say my $result = join "\n", @res;
+my $ref = <<'END';
+END
 
 use Test::More;
-#is($result, $ref);
-#done_testing();
+chomp $ref;
+is($result, $ref);
+done_testing();
 
 __END__
-
-multi base (Int $n is copy, 'F', $length? is copy) {
-    constant @fact = [\*] 1 .. *;
-    my $i = $length // @fact.first: * > $n, :k;
-    my $f;
-    [ @fact[^$i].reverse.map: { ($n, $f) = $n.polymod($_); $f } ]
-}
-
-sub fpermute (@a is copy, *@f) { (^@f).map: { @a[$_ .. $_ + @f[$_]].=rotate(-1) }; @a }
-
-@res.push: "Part 1: Generate table";
-@res.push: $_.&base('F', 3).join('.') ~ ' -> ' ~ [0,1,2,3].&fpermute($_.&base('F', 3)).join for ^24;
-
-@res.push: "\nPart 2: Compare 11! to 11! ";
-# This is kind of a weird request. Since we don't actually need to _generate_
-# the permutations, only _count_ them: compare count of 11! vs count of 11!
-@res.push: "11! === 11! : {11! === 11!}";
-
-@res.push: "\nPart 3: Generate the given task shuffles";
-my \omega = <AS KS QS JS 10S 9S 8S 7S 6S 5S 4S 3S 2S AH KH QH JH 10H 9H 8H 7H 6H 5H 4H 3H 2H
-         AD KD QD JD 10D 9D 8D 7D 6D 5D 4D 3D 2D AC KC QC JC 10C 9C 8C 7C 6C 5C 4C 3C 2C
->;
-
-my @books = <
-    39.49.7.47.29.30.2.12.10.3.29.37.33.17.12.31.29.34.17.25.2.4.25.4.1.14.20.6.21.18.1.1.1.4.0.5.15.12.4.3.10.10.9.1.6.5.5.3.0.0.0
-    51.48.16.22.3.0.19.34.29.1.36.30.12.32.12.29.30.26.14.21.8.12.1.3.10.4.7.17.6.21.8.12.15.15.13.15.7.3.12.11.9.5.5.6.6.3.4.0.3.2.1
->;
-
-@res.push: "Original deck:";
-@res.push: omega.join;
-
-@res.push: "\n$_\n" ~ omega[(^omega).&fpermute($_.split: '.')].join for @books;
-
-@res.push: "\nPart 4: Generate a random shuffle";
-my @shoe = (+omega ... 2).map: { (^$_).pick };
-@res.push: @shoe.join('.');
-@res.push: omega[(^omega).&fpermute(@shoe)].join;
-
-@res.push: "\nSeems to me it would be easier to just say: omega.pick(*).join";
-@res.push: omega.pick(*).join;
-
-.say for @res;
-
-my $moar = q:to/END/;
-Part 1: Generate table
-0.0.0 -> 0123
-0.0.1 -> 0132
-0.1.0 -> 0213
-0.1.1 -> 0231
-0.2.0 -> 0312
-0.2.1 -> 0321
-1.0.0 -> 1023
-1.0.1 -> 1032
-1.1.0 -> 1203
-1.1.1 -> 1230
-1.2.0 -> 1302
-1.2.1 -> 1320
-2.0.0 -> 2013
-2.0.1 -> 2031
-2.1.0 -> 2103
-2.1.1 -> 2130
-2.2.0 -> 2301
-2.2.1 -> 2310
-3.0.0 -> 3012
-3.0.1 -> 3021
-3.1.0 -> 3102
-3.1.1 -> 3120
-3.2.0 -> 3201
-3.2.1 -> 3210
-
-Part 2: Compare 11! to 11! 
-11! === 11! : True
-
-Part 3: Generate the given task shuffles
-Original deck:
-ASKSQSJS10S9S8S7S6S5S4S3S2SAHKHQHJH10H9H8H7H6H5H4H3H2HADKDQDJD10D9D8D7D6D5D4D3D2DACKCQCJC10C9C8C7C6C5C4C3C2C
-
-39.49.7.47.29.30.2.12.10.3.29.37.33.17.12.31.29.34.17.25.2.4.25.4.1.14.20.6.21.18.1.1.1.4.0.5.15.12.4.3.10.10.9.1.6.5.5.3.0.0.0
-AC3C7S4C10D8DQSKH2S10S4D7CJC5H10H10CKC2C3H5DJS6SQC5SKSAD3DQH8C6D9S8S4S9HAS6H5C2D7H8H9C6C7DAHJDQD9D2H3SJH4HKD
-
-51.48.16.22.3.0.19.34.29.1.36.30.12.32.12.29.30.26.14.21.8.12.1.3.10.4.7.17.6.21.8.12.15.15.13.15.7.3.12.11.9.5.5.6.6.3.4.0.3.2.1
-2C5CJH4HJSAS5HAC6DQS9C3DQHJC10HKC10C5D7H10D3S8H10S7S6H5SKH4DAH4C2H9DQC8C7D6C3H6S7C2DJD9HADQD8D4SKDKS3C2S8S9S
-
-Part 4: Generate a random shuffle
-36.6.40.45.29.24.7.5.39.11.13.24.3.10.28.32.9.4.0.10.21.6.20.11.8.9.9.8.21.4.16.16.5.13.15.3.7.13.11.9.6.7.6.0.1.0.3.2.3.0.0
-4D8SJC5C10D2H6S9S7CKH10H9DJSQHAC8CAH7SAS7H5D2S3D4H8H5H3H6H4C4SQC10CJH2D6C5SQD3CKC7DKD8DJDKS10SQS6DAD2C3S9H9C
-
-Seems to me it would be easier to just say: omega.pick(*).join
-5D3S8D10D2H7S7DQDAS5C8CQS4S2DKD5SQH7C10S2SKSJC9C3C4H3H4D3DQC2C4CJD9SACJS10C6C9D6S10H6H9HJH7HKHAD8SAH5H8HKC6D
-END
 
 =={{header|Perl}}==
 {{trans|Perl 6}}
 <lang perl></lang>
 {{out}}
-<pre style="height:35ex"></pre>
+<pre style="height:20ex"></pre>
 [https://github.com/SqrtNegInf/Rosettacode-Perl5-Smoke/blob/master/ref/XXX XXX]
