@@ -1245,9 +1245,9 @@ File: C/Comma_quibbling-2
 File: C/Command-line_arguments
 #!/usr/local/bin/perl
 #u# http://rosettacode.org/wiki/Command-line_arguments
-#t# nocode
-#c# 2018-07-24 <RC
+#c# 2019-09-21 <RC
 #p# OK
+#i# RC cli: ref/lines_of_numbers.txt mode=frobnicate iterations=42
 
 File: C/Commatizing_numbers
 #!/usr/local/bin/perl #u# http://rosettacode.org/wiki/Commatizing_numbers
@@ -2266,11 +2266,11 @@ File: F/Factorial-4
 
 File: F/Factorial_base_numbers_indexing_permutations_of_a_collection
 #!/usr/local/bin/perl
-#u# http://rosettacode.org/wiki/Factorial_base_numbers_indexing_permutations_of_a_collection
+#u# http://rosettacode.org/wiki/RC_REMOTE
 #t# skiptest
-#c# 2019-02-RC >RC
-#p# BROKEN
-#n# working on a Perl 6 translation...
+#c# 2019-09-xx >RC
+#c# 2019-1x-xx >RC
+#p# OK
 
 File: F/Factorions
 #!/usr/local/bin/perl
@@ -4414,7 +4414,7 @@ File: M/Musical_scale
 #t# skiptest
 #c# 2019-05-08 >RC
 #p# OK
-#f# RC file: scale.mid
+#f# RC file: scale.midi
 
 File: M/Mutual_recursion
 #!/usr/local/bin/perl
@@ -5363,9 +5363,9 @@ File: P/Program_name
 
 File: P/Program_termination
 #!/usr/local/bin/perl
-#u# http://rosettacode.org/wiki/Program_termination
 #t# nocode
-#c# 2018-08-20 <RC
+#u# http://rosettacode.org/wiki/Program_termination
+#c# 2019-09-21 <RC
 #p# OK
 
 File: P/Proper_divisors
@@ -6282,6 +6282,13 @@ File: S/Simulated_annealing
 #c# 2019-05-xx >RC
 #p# BROKEN
 
+File: S/Sine_wave
+#!/usr/local/bin/perl
+#u# http://rosettacode.org/wiki/Sine_wave
+#t# skiptest
+#c# 2019-09-22 >RC
+#p# OK
+
 File: S/Singleton
 #!/usr/local/bin/perl
 #u# http://rosettacode.org/wiki/Singleton
@@ -7025,6 +7032,13 @@ File: S/System_time
 #!/usr/local/bin/perl
 #u# http://rosettacode.org/wiki/System_time
 #c# 2018-08-11 <RC
+#p# OK
+
+File: T/Table_creation_Postal_addresses
+#!/usr/local/bin/perl
+#t# skiptest;
+#u# http://rosettacode.org/wiki/Table_creation/Postal_addresses
+#c# 2019-09-21 <RC
 #p# OK
 
 File: T/Take_notes_on_the_command_line
