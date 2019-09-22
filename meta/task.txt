@@ -1,16 +1,16 @@
 
 This is perl 5, version 30, subversion 0 (v5.30.0) built for darwin-thread-multi-2level
 updating from RC…
-+------------> Perl: Good/Bad [1173/12]
-|+-----------> Smoke testing [1037]
-||+----------> sKipping validation [140]
++------------> Perl: Good/Bad [1176/11]
+|+-----------> Smoke testing [1038]
+||+----------> sKipping validation [141]
 |||+---------> Interactive [49]
-||||+--------> Touched (modified by me) [311]
-|||||+-------> Random seed [92]
+||||+--------> Touched (modified by me) [312]
+|||||+-------> Random seed [91]
 ||||||+------> File output [62]
 |||||||+-----> Draft [224]
 ||||||||+----> Ignoring [34]
-|||||||||+---> Void (no local copy) [166]
+|||||||||+---> Void (no local copy) [164]
 ||||||||||+--> Un-implemented/reliable [156]
 |||||||||||
 GS......... 100_doors-1
@@ -248,7 +248,7 @@ GS......... Combinations_with_repetitions-2
 GS..T..D... Combinations_with_repetitions_Square_Digit_Chain
 GS......... Comma_quibbling-1
 GS......... Comma_quibbling-2
-G.K........ Command-line_arguments
+GS......... Command-line_arguments
 GS..T...... Commatizing_numbers
 G.K........ Comments
 GS..T...... Compare_a_list_of_strings
@@ -414,7 +414,7 @@ GS......... Factorial-1
 GS......... Factorial-2
 GS......... Factorial-3
 GS......... Factorial-4
-B.K.TR....U Factorial_base_numbers_indexing_permutations_of_a_collection
+G.K.T.....U Factorial_base_numbers_indexing_permutations_of_a_collection
 GS..T..D... Factorions
 GS......... Factors_of_a_Mersenne_number-1
 GS......... Factors_of_a_Mersenne_number-2
@@ -1096,7 +1096,7 @@ G.KI....... Simple_windowed_application
 G.KI....... Simulate_input_Keyboard
 .........VU Simulate_input_Mouse
 B.K.T..D..U Simulated_annealing
-.......DXVU Sine_wave
+G.K.T..DX.U Sine_wave
 G.K........ Singleton
 G.K........ Singly-linked_list_Element_definition
 G.K........ Singly-linked_list_Element_insertion
@@ -1220,7 +1220,7 @@ GS......... Symmetric_difference
 GS......... Synchronous_concurrency
 GS......... System_time
 .......DXVU Table_creation
-........XV. Table_creation_Postal_addresses
+G.K.....X.. Table_creation_Postal_addresses
 GS....F.... Take_notes_on_the_command_line
 .......D.VU Tamagotchi_emulator
 GS..T...... Tarjan
