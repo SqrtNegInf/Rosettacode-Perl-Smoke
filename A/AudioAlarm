@@ -1,0 +1,26 @@
+#!/usr/local/bin/perl
+#u# http://rosettacode.org/wiki/AudioAlarm
+#t# skiptest
+#c# 2019-09-22 NOT ON RC
+#p# OK
+
+use strict;
+use warnings;
+
+use Audio::Play::MPG123;
+
+my ($delay,$file);
+if ($ARGV[0]) { $delay = shift } else { print 'How long? ';  $delay = <>; chomp $delay }
+if ($ARGV[0]) { $file  = shift } else { print 'Which MP3? '; $file  = <>; chomp $file  }
+$file =~ s/\.mp3$//;
+ 
+sleep $delay;
+
+my $player = new Audio::Play::MPG123;
+$player->load("$file.mp3");
+$player->poll(1) until $player->state == 0;
+
+__END__
+
+=={{header|Perl}}==
+<lang perl></lang>
