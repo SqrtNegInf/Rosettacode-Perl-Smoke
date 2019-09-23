@@ -1,0 +1,56 @@
+#!/usr/local/bin/perl
+#u# http://rosettacode.org/wiki/Play_recorded_sounds
+#t# skiptest
+#c# 2019-09-xx NOT ON RC
+#p# BROKEN
+#n# components out-of-date, buggy
+#n# /usr/local/bin/perl5.28.2 -I/opt/local/lib/perl5/vendor_perl/5.28/ Play_recorded_sounds
+
+use strict;
+use warnings;
+#use feature 'say';
+
+__END__
+
+#use SDL;
+#use SDL::Mixer;
+#use Alien::SDL;
+use SDLx::Sound;
+
+my $snd = SDLx::Sound->new();
+
+# loads and plays a single sound now
+$snd->play('tone.wav');
+
+        # load a single file
+        $snd->load('theSound.aif');
+
+        # plays it or all loaded files
+        $snd->play();
+
+        # more sounds
+        my %files = (
+            channel_01 => "/my_sound1.wav",
+            channel_02 => "/my_sound2.ogg"
+        );
+
+        # times sounds bangs
+        my %times = (
+            channel_01 => 0,      # start
+            channel_01 => 1256,   # milliseconds
+            channel_02 => 2345
+        );
+
+        # Load files in channels for realtime play
+        $snd->load(%files);
+
+        # sets sound channel_01 loudness
+        $snd->loud('channel_01', 80);       # loud at 80%
+        $snd->play(%times);                 # play loaded files at times
+        $snd->play;                         # play again
+
+        # plays sound channel_01 at 578 milliseconds from now
+        $snd->play('channel_01', 578);
+
+        # fades sound
+        $snd->fade('channel_02', 2345, 3456, -20);
