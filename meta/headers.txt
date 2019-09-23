@@ -501,6 +501,20 @@ File: A/Attractive_numbers
 #c# 2019-04-09 >RC
 #p# OK
 
+File: A/AudioAlarm
+#!/usr/local/bin/perl
+#u# http://rosettacode.org/wiki/AudioAlarm
+#t# skiptest
+#c# 2019-09-22 NOT ON RC
+#p# OK
+
+File: A/Audio_frequency_generator
+#!/usr/local/bin/perl
+#u# http://rosettacode.org/wiki/Audio_frequency_generator
+#t# skiptest
+#c# 2019-09-22 >RC
+#p# OK
+
 File: A/Average_loop_length
 #!/usr/bin/env perl
 #u# http://rosettacode.org/wiki/Average_loop_length
@@ -2266,10 +2280,9 @@ File: F/Factorial-4
 
 File: F/Factorial_base_numbers_indexing_permutations_of_a_collection
 #!/usr/local/bin/perl
-#u# http://rosettacode.org/wiki/RC_REMOTE
+#u# http://rosettacode.org/wiki/Factorial_base_numbers_indexing_permutations_of_a_collection
 #t# skiptest
 #c# 2019-09-xx >RC
-#c# 2019-1x-xx >RC
 #p# OK
 
 File: F/Factorions
@@ -5130,6 +5143,15 @@ File: P/Plasma_effect.1
 #u# http://rosettacode.org/wiki/Plasma_effect
 #c# 2018-11-05 >RC
 #p# OK
+
+File: P/Play_recorded_sounds
+#!/usr/local/bin/perl
+#u# http://rosettacode.org/wiki/Play_recorded_sounds
+#t# skiptest
+#c# 2019-09-xx NOT ON RC
+#p# BROKEN
+#n# components out-of-date, buggy
+#n# /usr/local/bin/perl5.28.2 -I/opt/local/lib/perl5/vendor_perl/5.28/ Play_recorded_sounds
 
 File: P/Playfair_cipher
 #!/usr/local/bin/perl
