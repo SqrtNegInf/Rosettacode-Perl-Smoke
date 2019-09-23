@@ -1,17 +1,17 @@
 
 This is perl 5, version 30, subversion 0 (v5.30.0) built for darwin-thread-multi-2level
 updating from RC…
-+------------> Perl: Good/Bad [1176/11]
++------------> Perl: Good/Bad [1178/12]
 |+-----------> Smoke testing [1038]
-||+----------> sKipping validation [141]
+||+----------> sKipping validation [144]
 |||+---------> Interactive [49]
-||||+--------> Touched (modified by me) [312]
-|||||+-------> Random seed [91]
+||||+--------> Touched (modified by me) [313]
+|||||+-------> Random seed [92]
 ||||||+------> File output [62]
 |||||||+-----> Draft [224]
 ||||||||+----> Ignoring [34]
-|||||||||+---> Void (no local copy) [164]
-||||||||||+--> Un-implemented/reliable [156]
+|||||||||+---> Void (no local copy) [161]
+||||||||||+--> Un-implemented/reliable [154]
 |||||||||||
 GS......... 100_doors-1
 GS......... 100_doors-2
@@ -105,9 +105,9 @@ GS..T...... Associative_array_Creation
 GS......... Associative_array_Iteration
 G.K..R..... Atomic_updates
 GS..T...... Attractive_numbers
-.......D.VU AudioAlarm
+G.K....D..U AudioAlarm
 .......D.VU Audio_Overlap_Loop
-.......D.VU Audio_frequency_generator
+G.K.T..D... Audio_frequency_generator
 GS..TR..... Average_loop_length
 GS..T...... Averages_Arithmetic_mean
 GS......... Averages_Mean_angle
@@ -414,7 +414,7 @@ GS......... Factorial-1
 GS......... Factorial-2
 GS......... Factorial-3
 GS......... Factorial-4
-G.K.T.....U Factorial_base_numbers_indexing_permutations_of_a_collection
+G.K.TR....U Factorial_base_numbers_indexing_permutations_of_a_collection
 GS..T..D... Factorions
 GS......... Factors_of_a_Mersenne_number-1
 GS......... Factors_of_a_Mersenne_number-2
@@ -898,7 +898,7 @@ GS..TR..... Pig_the_dice_game_Player
 GS..T.F.... Pinstripe_Display
 .........VU Pinstripe_Printer
 GS..T.F.... Plasma_effect
-.........VU Play_recorded_sounds
+B.K.......U Play_recorded_sounds
 GS..T..D... Playfair_cipher
 GS...R..... Playing_cards
 GS......... Plot_coordinate_pairs
@@ -1096,7 +1096,7 @@ G.KI....... Simple_windowed_application
 G.KI....... Simulate_input_Keyboard
 .........VU Simulate_input_Mouse
 B.K.T..D..U Simulated_annealing
-G.K.T..DX.U Sine_wave
+G.K.T..DX.. Sine_wave
 G.K........ Singleton
 G.K........ Singly-linked_list_Element_definition
 G.K........ Singly-linked_list_Element_insertion
