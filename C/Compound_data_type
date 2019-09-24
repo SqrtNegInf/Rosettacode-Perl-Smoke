@@ -9,17 +9,16 @@ use warnings;
 use feature 'say';
 my $result;
 
-# Array[edit]
+# Array
 my @point1 = (3, 8);
 
-# Hash[edit]
+# Hash
 my %point2 = (
    x => 3,
    y => 8
 );
 
-# Class instance[edit]
-
+# Class instance
 package Point;
  
 use Class::Struct;
@@ -33,7 +32,6 @@ my $point = Point->new(x => 3, y => 8);
 use Test::More;
 ok $point1[0] == 3 && $point1[1] == 8;
 ok $point->x == 3 && $point->y == 8;
-#ok ($point2{'x'} == 3) && ($point2{'y'} == 8); # ?? Useless use of numeric eq (==) in void context
 ok $point2{'y'} == 8;
 ok $point2{'x'} == 3;
 done_testing();
