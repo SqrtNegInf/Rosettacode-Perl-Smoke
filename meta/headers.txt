@@ -911,6 +911,18 @@ File: C/Call_a_function
 #c# 2018-07-21 <RC
 #p# OK
 
+File: C/Call_a_function_in_a_shared_library-1
+#!/usr/local/bin/perl
+#u# http://rosettacode.org/wiki/Call_a_function_in_a_shared_library
+#c# 2019-09-24 >RC
+#p# OK
+
+File: C/Call_a_function_in_a_shared_library-2
+#!/usr/local/bin/perl
+#u# http://rosettacode.org/wiki/Call_a_function_in_a_shared_library
+#c# 2019-09-24 >RC
+#p# OK
+
 File: C/Call_an_object_method
 #!/usr/local/bin/perl
 #u# http://rosettacode.org/wiki/Call_an_object_method
@@ -5559,7 +5571,6 @@ File: R/Rare_numbers
 File: R/Rate_counter
 #!/usr/local/bin/perl
 #u# http://rosettacode.org/wiki/Rate_counter
-#n# nocode
 #c# 2018-08-19 <RC
 #p# OK
 
