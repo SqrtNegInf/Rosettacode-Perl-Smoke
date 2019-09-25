@@ -1,0 +1,21 @@
+#!/usr/local/bin/perl
+#u# http://rosettacode.org/wiki/Call_a_function_in_a_shared_library
+#c# 2019-09-24 >RC
+#p# OK
+
+use strict;
+use warnings;
+
+use FFI::Platypus;
+
+my $ffi = FFI::Platypus->new;
+$ffi->lib(undef);
+$ffi->attach(puts => ['string'] => 'int');
+
+$ffi->attach(atan => ['double'] => 'double');
+puts(4*atan(1));
+my $pi = 4*atan(1);
+
+use Test::More;
+is($pi, '3.14159265358979');
+done_testing();
