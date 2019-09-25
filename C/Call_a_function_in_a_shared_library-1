@@ -1,0 +1,23 @@
+#!/usr/local/bin/perl
+#u# http://rosettacode.org/wiki/Call_a_function_in_a_shared_library
+#c# 2019-09-24 >RC
+#p# OK
+
+use strict;
+use warnings;
+use feature 'say';
+
+use Inline 
+    C => "DATA",
+    ENABLE => "AUTOWRAP", 
+    LIBS => "-lm";
+
+say my $pi = 4*atan(1); 
+
+use Test::More;
+is($pi, '3.14159265358979');
+done_testing();
+
+__DATA__
+__C__
+double atan(double x);
