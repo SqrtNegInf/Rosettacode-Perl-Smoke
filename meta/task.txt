@@ -1,17 +1,17 @@
 
 This is perl 5, version 30, subversion 0 (v5.30.0) built for darwin-thread-multi-2level
 updating from RC…
-+------------> Perl: Good/Bad [1180/12]
++------------> Perl: Good/Bad [1179/12]
 |+-----------> Smoke testing [1040]
 ||+----------> sKipping validation [144]
 |||+---------> Interactive [49]
 ||||+--------> Touched (modified by me) [315]
 |||||+-------> Random seed [92]
 ||||||+------> File output [62]
-|||||||+-----> Draft [224]
+|||||||+-----> Draft [225]
 ||||||||+----> Ignoring [32]
-|||||||||+---> Void (no local copy) [160]
-||||||||||+--> Un-implemented/reliable [153]
+|||||||||+---> Void (no local copy) [161]
+||||||||||+--> Un-implemented/reliable [154]
 |||||||||||
 GS......... 100_doors-1
 GS......... 100_doors-2
@@ -394,6 +394,7 @@ GS......... Exceptions
 GS......... Exceptions_Catch_an_exception_thrown_in_a_nested_call
 GS......... Executable_library
 B.......... Execute_Brainfuck
+.......D.VU Execute_CopyPasta_Language
 GS......... Execute_HQ9%2B
 ........XV. Execute_SNUSP
 GS......... Execute_a_Markov_algorithm
@@ -968,7 +969,7 @@ GS..T...... Range_extraction
 GS..T...... Ranking_methods
 GS..T..D..U Rare_numbers
 .......D.VU Raster_bars
-GS......... Rate_counter
+!S......... Rate_counter
 GS......... Ray-casting_algorithm
 GS......... Read_a_configuration_file
 GS.....D... Read_a_file_character_by_character_UTF8
