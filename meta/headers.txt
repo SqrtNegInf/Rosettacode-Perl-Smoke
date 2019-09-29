@@ -690,6 +690,12 @@ File: B/Binary_search-2
 #p# OK
 #n# was producing bogus answer, changed to numeric input
 
+File: B/Birthday_problem
+#!/usr/local/bin/perl
+#u# http://rosettacode.org/wiki/Birthday_problem
+#c# 2019-09-xx >RC
+#p# OK
+
 File: B/Bitcoin_address_validation
 #!/usr/local/bin/perl
 #u# http://rosettacode.org/wiki/Bitcoin/address_validation
