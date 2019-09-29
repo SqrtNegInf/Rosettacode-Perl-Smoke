@@ -2,16 +2,16 @@
 This is perl 5, version 30, subversion 0 (v5.30.0) built for darwin-thread-multi-2level
 updating from RC…
 +------------> Perl: Good/Bad [1180/12]
-|+-----------> Smoke testing [1040]
+|+-----------> Smoke testing [1041]
 ||+----------> sKipping validation [144]
 |||+---------> Interactive [49]
-||||+--------> Touched (modified by me) [315]
-|||||+-------> Random seed [92]
+||||+--------> Touched (modified by me) [316]
+|||||+-------> Random seed [93]
 ||||||+------> File output [62]
-|||||||+-----> Draft [225]
+|||||||+-----> Draft [226]
 ||||||||+----> Ignoring [32]
 |||||||||+---> Void (no local copy) [161]
-||||||||||+--> Un-implemented/reliable [154]
+||||||||||+--> Un-implemented/reliable [155]
 |||||||||||
 GS......... 100_doors-1
 GS......... 100_doors-2
@@ -140,7 +140,7 @@ GS......... Binary_digits
 GS......... Binary_search-1
 GS......... Binary_search-2
 .........VU Binary_strings
-.......D.VU Birthday_problem
+!S..TR.D..U Birthday_problem
 GS......... Bitcoin_address_validation
 GS......... Bitcoin_public_point_to_address
 GS....F.... Bitmap
@@ -604,6 +604,7 @@ GS......... Integer_roots-2
 G.KI....... Integer_sequence
 .......D.V. Interactive_Help
 GS......... Interactive_programming
+.......D.VU Intersecting_Number_Wheels
 GS..T...... Introspection
 GS......... Inverted_index
 G.K........ Inverted_syntax
