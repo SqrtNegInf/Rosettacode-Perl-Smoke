@@ -2,6 +2,7 @@
 #u# http://rosettacode.org/wiki/Birthday_problem
 #c# 2019-09-30 >RC
 #p# OK
+#n# slow, only test c=2..3
 
 use strict;
 use warnings;
@@ -18,47 +19,28 @@ my $debug = 0;
 
 sub simulation {
     my($c) = shift;
-    my $max_trials =     500_000;
-    my $min_trials =       5_000;
+    my $max_trials =   500_000;
+    my $min_trials =     5_000;
 
-my $n = int 47 * ($c-1.5)**1.5; # OEIS/A050256: 16 86 185 307
-my $N = min $max_trials, max $min_trials, 1000 * sqrt $n;
+    my $n = int 47 * ($c-1.5)**1.5; # OEIS/A050256: 16 86 185 307
+    my $N = min $max_trials, max $min_trials, 1000 * sqrt $n;
+    say "starting with n = $n and N = $N" if $debug;
 
-#say "starting with n = $n and N = $N" if $debug;
-
-if ($c == 0) {
-    while (1) {
-        my $no = 0;
-        for (1..$N) {
-            $no++ if $n == scalar uniqnum random_uniform_integer($n, 1, 365);
-        }
-        my $p = 1 - $no/$N;
-        return($n, $p) if $p > 0.5;
-        $N = min $max_trials, max $min_trials, int 1000/(0.5-$p)**1.5;
-        say "n: $n  p: $p  next N: $N" if $debug;
-        $n++;
-      }
-} else {
     while (1) {
         my $yes = 0;
         for (1..$N) {
-            my @bdays; $bdays[$n] = 0;
-            $bdays[$_] = 1 + int rand(365) for 0..$n-1;
+            my @bdays;
+            push @bdays, 1 + int rand(365) for 1..$n;
             my %hits = count_by { $_ } @bdays;
             #my %hits = count_by { $_ } random_uniform_integer($n, 1, 365); # not for testing, answers vary
-
             $yes++ if any { $hits{$_} >= $c } keys %hits;
-
         }
         my $p = $yes/$N;
         return($n, $p) if $p > 0.5;
         $N = min $max_trials, max $min_trials, int 1000/(0.5-$p)**1.75;
         say "n: $n  p: $p  next N: $N" if $debug;
         $n++;
-}
-
-}
-
+    }
 }
 
 for (2..3) {
