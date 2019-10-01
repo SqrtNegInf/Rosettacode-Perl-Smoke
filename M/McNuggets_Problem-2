@@ -1,0 +1,62 @@
+#!/usr/local/bin/perl
+#u# http://rosettacode.org/wiki/McNuggets_Problem
+#c# 2019-09-30 <RC
+#p# OK
+#n# Tybalt89
+
+use strict;
+use warnings;
+use feature 'say';
+my @res;
+
+# correct
+$_ = 1 . 0 x 100;
+1 while s/ (?=1) (?:.{6}|.{9}|.{20}) \K 0 /1/x;
+/01*$/ and push @res, "Maximum non-Mcnugget number is: $-[0]";
+
+# correct
+$_ = 1 . 0 x 100;
+1 while s/ (?=1) (?:.{6}|.{7}|.{20}) \K 0 /1/x;
+/01*$/ and push @res, "Maximum non-Mcnugget number is: $-[0]";
+
+# return 100 (which is to say 'no max'?)
+$_ = 1 . 0 x 100;
+1 while s/ (?=1) (?:.{1}|.{3}|.{20}) \K 0 /1/x;
+push @res, "Maximum non-Mcnugget number is: $-[0]";
+
+# correct
+$_ = 1 . 0 x 100;
+1 while s/ (?=1) (?:.{10}|.{5}|.{18}) \K 0 /1/x;
+/01*$/ and push @res, "Maximum non-Mcnugget number is: $-[0]";
+
+# fails, gives 63
+$_ = 1 . 0 x 100;
+1 while s/ (?=1) (?:.{5}|.{17}|.{44}) \K 0 /1/x;
+/01*$/ and push @res, "Maximum non-Mcnugget number is: $-[0]";
+
+# return 99 (which is to say 'no max'?)
+$_ = 1 . 0 x 100;
+1 while s/ (?=1) (?:.{2}|.{4}|.{6}) \K 0 /1/x;
+/01*$/ and push @res, "Maximum non-Mcnugget number is: $-[0]";
+
+# return 100 (which is to say 'no max'?)
+$_ = 1 . 0 x 100;
+1 while s/ (?=1) (?:.{3}|.{6}|.{15}) \K 0 /1/x;
+/01*$/ and push @res, "Maximum non-Mcnugget number is: $-[0]";
+
+say my $result = join "\n", @res;
+
+my $ref = <<'EOD';
+Maximum non-Mcnugget number is: 43
+Maximum non-Mcnugget number is: 29
+Maximum non-Mcnugget number is: 100
+Maximum non-Mcnugget number is: 67
+Maximum non-Mcnugget number is: 63
+Maximum non-Mcnugget number is: 99
+Maximum non-Mcnugget number is: 100
+EOD
+
+use Test::More;
+chop $ref;
+is($result, $ref);
+done_testing();
