@@ -1,15 +1,14 @@
 #!/usr/local/bin/perl
 #u# http://rosettacode.org/wiki/Birthday_problem
-#c# 2019-09-xx >RC
+#c# 2019-09-30 >RC
 #p# OK
-
-use Data::Printer;
-use List::AllUtils qw(max min uniqnum count_by any);
-use Math::Random qw(random_uniform_integer);
 
 use strict;
 use warnings;
 use feature 'say';
+
+use List::AllUtils qw(max min uniqnum count_by any);
+use Math::Random qw(random_uniform_integer);
 
 my @res;
 
@@ -19,24 +18,23 @@ my $debug = 0;
 
 sub simulation {
     my($c) = shift;
-    my $max_trials =  1_000_000;
-    my $min_trials =      5_000;
+    my $max_trials =     500_000;
+    my $min_trials =       5_000;
 
 my $n = int 47 * ($c-1.5)**1.5; # OEIS/A050256: 16 86 185 307
 my $N = min $max_trials, max $min_trials, 1000 * sqrt $n;
 
-say "starting with n = $n and N = $N" if $debug;
+#say "starting with n = $n and N = $N" if $debug;
 
 if ($c == 0) {
     while (1) {
         my $no = 0;
         for (1..$N) {
-            my @bdays = random_uniform_integer($n, 1, 365);
-            $no++ if $n == scalar uniqnum @bdays;
+            $no++ if $n == scalar uniqnum random_uniform_integer($n, 1, 365);
         }
         my $p = 1 - $no/$N;
         return($n, $p) if $p > 0.5;
-        $N = min $max_trials, max $min_trials, int 1000/(0.5-$p)**2.0;
+        $N = min $max_trials, max $min_trials, int 1000/(0.5-$p)**1.5;
         say "n: $n  p: $p  next N: $N" if $debug;
         $n++;
       }
@@ -44,18 +42,18 @@ if ($c == 0) {
     while (1) {
         my $yes = 0;
         for (1..$N) {
-            my @bdays = random_uniform_integer($n, 1, 365);
+            my @bdays; $bdays[$n] = 0;
+            $bdays[$_] = 1 + int rand(365) for 0..$n-1;
             my %hits = count_by { $_ } @bdays;
-            $yes++ if any { $hits{$_} == $c } keys %hits;
+            #my %hits = count_by { $_ } random_uniform_integer($n, 1, 365); # not for testing, answers vary
 
-            #my %hits = count_by { $_ } random_uniform_integer($n, 1, 365);
-            #$yes++ if any { $hits{$_} == $c } keys %hits;
+            $yes++ if any { $hits{$_} >= $c } keys %hits;
 
         }
         my $p = $yes/$N;
         return($n, $p) if $p > 0.5;
-        $N = min $max_trials, max $min_trials, int 1000/(0.5-$p)**1.5;
-        #say "n: $n  p: $p  next N: $N" if $debug;
+        $N = min $max_trials, max $min_trials, int 1000/(0.5-$p)**1.75;
+        say "n: $n  p: $p  next N: $N" if $debug;
         $n++;
 }
 
@@ -63,36 +61,20 @@ if ($c == 0) {
 
 }
 
-for (2..2) {
-    my($n,$p) = simulation($_);
-    printf "$_ people in a group of %s share a common birthday. (%.3f)\n", $n, $p;
-    push @res, $n;
+for (2..3) {
+    push @res, sprintf "$_ people in a group of %s share a common birthday. (%.4f)", simulation($_);
 }
 
-#say my $result = join "\n", @res;
-my $result = shift @res;
-#exit;
-
-# 2389.537u 28.374s 51:37.76 78.0% 1_000_000
+say my $result = join "\n", @res;
 
 my $ref = <<'END';
-2 people in a group of 23 share a common birthday. (0.507)
-3 people in a group of 88 share a common birthday. (0.511)
-4 people in a group of 187 share a common birthday. (0.503)
-5 people in a group of 313 share a common birthday. (0.501)
+2 people in a group of 23 share a common birthday. (0.5083)
+3 people in a group of 88 share a common birthday. (0.5120)
 END
+#4 people in a group of 187 share a common birthday. (0.5034)
+#5 people in a group of 313 share a common birthday. (0.5008)
 
 use Test::More;
 chomp $ref;
-is($result, 23);
-#is($result, $ref);
+is($result, $ref);
 done_testing();
-
-__END__
-
-=={{header|Perl}}==
-{{trans|Perl 6}}
-<lang perl></lang>
-{{out}}
-<pre style="height:20ex"></pre>
-[https://github.com/SqrtNegInf/Rosettacode-Perl5-Smoke/blob/master/ref/XXX XXX]
