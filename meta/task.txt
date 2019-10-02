@@ -1,17 +1,17 @@
 
 This is perl 5, version 30, subversion 0 (v5.30.0) built for darwin-thread-multi-2level
 updating from RC…
-+------------> Perl: Good/Bad [1181/12]
-|+-----------> Smoke testing [1042]
++------------> Perl: Good/Bad [1184/12]
+|+-----------> Smoke testing [1044]
 ||+----------> sKipping validation [144]
 |||+---------> Interactive [49]
-||||+--------> Touched (modified by me) [316]
+||||+--------> Touched (modified by me) [318]
 |||||+-------> Random seed [93]
 ||||||+------> File output [62]
 |||||||+-----> Draft [226]
 ||||||||+----> Ignoring [32]
-|||||||||+---> Void (no local copy) [162]
-||||||||||+--> Un-implemented/reliable [156]
+|||||||||+---> Void (no local copy) [160]
+||||||||||+--> Un-implemented/reliable [152]
 |||||||||||
 GS......... 100_doors-1
 GS......... 100_doors-2
@@ -140,7 +140,7 @@ GS......... Binary_digits
 GS......... Binary_search-1
 GS......... Binary_search-2
 .........VU Binary_strings
-GS..TR.D..U Birthday_problem
+GS..TR.D... Birthday_problem
 GS......... Bitcoin_address_validation
 GS......... Bitcoin_public_point_to_address
 GS....F.... Bitmap
@@ -232,7 +232,7 @@ GS..T...... Circles_of_given_radius_through_two_points
 G.K........ Classes
 GS..TR..... Closest-pair_problem
 GS......... Closures_Value_capture
-.......D.VU Code_segment_unload
+.......D.V. Code_segment_unload
 GS......... Collections
 ........XVU Color_of_a_screen_pixel
 .........VU Color_quantization
@@ -313,7 +313,7 @@ GS......... Day_of_the_week-1
 GS......... Day_of_the_week-2
 GS......... Day_of_the_week-3
 GS......... Day_of_the_week-4
-.......D.VU Days_between_dates
+GS..T..D... Days_between_dates
 GS..T...... De_Bruijn_sequences
 GS...R..... Deal_cards_for_FreeCell
 GS......... Death_Star
@@ -780,7 +780,7 @@ GS....F.... Munching_squares
 G.K.T.FD... Musical_scale
 GS......... Mutual_recursion
 GS......... N%27th
-.......D.VU N-body_problem
+GS..T..D... N-body_problem
 GS..T...... N-queens_problem
 GS..T...... N-smooth_numbers
 GS..T..D... NYSIIS
@@ -972,7 +972,7 @@ GS..T...... Range_extraction
 GS..T...... Ranking_methods
 GS..T..D..U Rare_numbers
 .......D.VU Raster_bars
-!S......... Rate_counter
+GS......... Rate_counter
 GS......... Ray-casting_algorithm
 GS......... Read_a_configuration_file
 GS.....D... Read_a_file_character_by_character_UTF8
