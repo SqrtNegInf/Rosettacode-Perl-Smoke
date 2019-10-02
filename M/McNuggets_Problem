@@ -1,6 +1,6 @@
 #!/usr/local/bin/perl
 #u# http://rosettacode.org/wiki/McNuggets_Problem
-#c# 2018-11-01 >RC, 2018-11-15 <RC
+#c# 2018-11-01 >RC, 2018-11-15 <RC, 2019-10-01 >RC
 #p# OK
 
 use strict;
@@ -8,12 +8,12 @@ use warnings;
 use feature 'say';
 my @res;
 
-use ntheory qw/forperm vecall vecmin/;
+use ntheory qw/forperm vecmin gcd/;
 
 sub Mcnugget_number {
     my $counts = shift;
 
-    return 'No maximum' if vecall { 0 == $_%2 } @$counts;
+    return 'No maximum' if 1 < gcd @$counts;
 
     my $min = vecmin @$counts;
     my @meals;
@@ -48,8 +48,7 @@ sub Mcnugget_number {
     $min[0] ? $min[0] - 1 : 0
 }
 
-#for my $counts ([6,9,20], [6,7,20], [1,3,20], [10,5,18], [5,17,44], [2,4,6], [3,6,15]) {
-for my $counts ([6,9,20], [6,7,20], [1,3,20], [10,5,18], [5,17,44], [2,4,6]) {
+for my $counts ([6,9,20], [6,7,20], [1,3,20], [10,5,18], [5,17,44], [2,4,6], [3,6,15]) {
     push @res, 'Maximum non-Mcnugget number using ' . join(', ', @$counts) . ' is: ' . Mcnugget_number($counts)
 }
 
@@ -62,8 +61,8 @@ Maximum non-Mcnugget number using 1, 3, 20 is: 0
 Maximum non-Mcnugget number using 10, 5, 18 is: 67
 Maximum non-Mcnugget number using 5, 17, 44 is: 131
 Maximum non-Mcnugget number using 2, 4, 6 is: No maximum
+Maximum non-Mcnugget number using 3, 6, 15 is: No maximum
 EOD
-#Maximum non-Mcnugget number using 3, 6, 15 is: No maximum
 
 use Test::More;
 chop $ref;
