@@ -695,6 +695,7 @@ File: B/Birthday_problem
 #u# http://rosettacode.org/wiki/Birthday_problem
 #c# 2019-09-30 >RC
 #p# OK
+#n# slow, only test c=2..3
 
 File: B/Bitcoin_address_validation
 #!/usr/local/bin/perl
@@ -1642,6 +1643,12 @@ File: D/Day_of_the_week-4
 #!/usr/local/bin/perl
 #u# http://rosettacode.org/wiki/Day_of_the_week
 #c# 2018-07-28 <RC
+#p# OK
+
+File: D/Days_between_dates
+#!/usr/local/bin/perl
+#u# http://rosettacode.org/wiki/Days_between_dates
+#c# 2019-10-01 >RC
 #p# OK
 
 File: D/De_Bruijn_sequences
@@ -4204,7 +4211,7 @@ File: M/Maze_solving
 File: M/McNuggets_Problem
 #!/usr/local/bin/perl
 #u# http://rosettacode.org/wiki/McNuggets_Problem
-#c# 2018-11-01 >RC, 2018-11-15 <RC
+#c# 2018-11-01 >RC, 2018-11-15 <RC, 2019-10-01 >RC
 #p# OK
 
 File: M/McNuggets_Problem-2
@@ -4465,6 +4472,14 @@ File: N/N%27th
 #u# http://rosettacode.org/wiki/N%27th
 #c# 2018-08-19 <RC
 #p# OK
+
+File: N/N-body_problem
+#!/usr/local/bin/perl
+#u# http://rosettacode.org/wiki/N-body_problem
+#c# 2019-10-01 >RC
+#p# OK
+#n# cycle through 1 Neptunian year
+#n# todo: show time-steps when planets complete annual orbits
 
 File: N/N-queens_problem
 #!/usr/local/bin/perl
