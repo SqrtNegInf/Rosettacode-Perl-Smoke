@@ -9,7 +9,7 @@ updating from RC…
 |||||+-------> Random seed [93]
 ||||||+------> File output [62]
 |||||||+-----> Draft [226]
-||||||||+----> Ignoring [32]
+||||||||+----> Ignoring [34]
 |||||||||+---> Void (no local copy) [160]
 ||||||||||+--> Un-implemented/reliable [152]
 |||||||||||
@@ -500,8 +500,8 @@ GS......... Gamma_function
 GS..T..D... Gauss-Jordan_matrix_inversion
 GS......... Gaussian_elimination
 GS......... General_FizzBuzz
-.......D.VU Generalised_floating_point_addition
-.......D.VU Generalised_floating_point_multiplication
+.......DXVU Generalised_floating_point_addition
+.......DXVU Generalised_floating_point_multiplication
 GS...R..... Generate_Chess960_starting_position
 GS......... Generate_lower_case_ASCII_alphabet
 GS..TR..... Generate_random_chess_position
