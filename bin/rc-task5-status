@@ -178,6 +178,8 @@ return $x;
 
 # these are being ignored, for various reasons
 __DATA__
+Generalised_floating_point_addition
+Generalised_floating_point_multiplication
 Sorting_algorithms/Tree_sort_on_a_linked_list
 Abstract_type
 Active_Directory_Connect
