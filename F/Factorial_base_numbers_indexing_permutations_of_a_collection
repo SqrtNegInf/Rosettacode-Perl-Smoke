@@ -16,7 +16,6 @@ my @res;
 srand 123456;
 
 use ntheory qw/factorial/;
-
 say factorial 8;
 
 say my $result = join "\n", @res;
