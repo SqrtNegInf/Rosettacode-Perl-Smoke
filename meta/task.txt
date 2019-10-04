@@ -1,17 +1,17 @@
 
 This is perl 5, version 30, subversion 0 (v5.30.0) built for darwin-thread-multi-2level
 updating from RC…
-+------------> Perl: Good/Bad [1184/12]
-|+-----------> Smoke testing [1044]
++------------> Perl: Good/Bad [1185/12]
+|+-----------> Smoke testing [1046]
 ||+----------> sKipping validation [144]
 |||+---------> Interactive [49]
-||||+--------> Touched (modified by me) [318]
+||||+--------> Touched (modified by me) [320]
 |||||+-------> Random seed [93]
 ||||||+------> File output [62]
 |||||||+-----> Draft [226]
-||||||||+----> Ignoring [34]
-|||||||||+---> Void (no local copy) [160]
-||||||||||+--> Un-implemented/reliable [152]
+||||||||+----> Ignoring [33]
+|||||||||+---> Void (no local copy) [158]
+||||||||||+--> Un-implemented/reliable [151]
 |||||||||||
 GS......... 100_doors-1
 GS......... 100_doors-2
@@ -500,7 +500,7 @@ GS......... Gamma_function
 GS..T..D... Gauss-Jordan_matrix_inversion
 GS......... Gaussian_elimination
 GS......... General_FizzBuzz
-.......DXVU Generalised_floating_point_addition
+GS..T..D... Generalised_floating_point_addition
 .......DXVU Generalised_floating_point_multiplication
 GS...R..... Generate_Chess960_starting_position
 GS......... Generate_lower_case_ASCII_alphabet
@@ -622,7 +622,7 @@ GS......... Jump_anywhere
 GS..T..D... Just_in_time_processing_on_a_character_stream
 .........VU K-d_tree
 .........VU K-means%2B%2B_clustering
-.......D.VU Kahan_summation
+GS..T..D..U Kahan_summation
 GS......... Kaprekar_numbers-1
 GS......... Kaprekar_numbers-2
 GS......... Kernighans_large_earthquake_problem
@@ -1263,7 +1263,7 @@ G.K.T.....U Thiele%27s_interpolation_formula
 GS......... Thue-Morse
 GS...R..... Tic-tac-toe
 .......D.VU Time-based_One-time_Password_Algorithm
-GS......... Time_a_function
+!S......... Time_a_function
 GS......... Tokenize_a_string
 GS......... Tokenize_a_string_with_escaping
 GS..T...... Tonelli-Shanks_algorithm
