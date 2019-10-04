@@ -178,9 +178,6 @@ return $x;
 
 # these are being ignored, for various reasons
 __DATA__
-Generalised_floating_point_addition
-Generalised_floating_point_multiplication
-Sorting_algorithms/Tree_sort_on_a_linked_list
 Abstract_type
 Active_Directory_Connect
 Arena_storage_pool
@@ -190,6 +187,7 @@ Constrained_genericity
 Create_a_file_on_magnetic_tape
 Create_an_object_at_a_given_address
 Execute_SNUSP
+Generalised_floating_point_multiplication
 Inheritance_Multiple
 Inheritance_Single
 JortSort
@@ -204,6 +202,7 @@ Reflection_Get_source
 SOAP
 SQL-based_authentication
 Solving_coin_problems
+Sorting_algorithms/Tree_sort_on_a_linked_list
 Speech_synthesis
 Stair-climbing_puzzle
 Table_creation
