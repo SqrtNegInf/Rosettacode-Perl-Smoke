@@ -1,0 +1,46 @@
+#!/usr/local/bin/perl
+#u# http://rosettacode.org/wiki/Kahan_summation
+#c# 2019-10-04 >RC
+#p# OK
+
+use strict;
+use warnings;
+use feature 'say';
+
+my @res;
+
+sub kahan {
+    my(@nums) = @_;
+    my $summ = my $c = 0e0;
+    for my $num (@nums) {
+        my $y = $num - $c;
+        my $t = $summ + $y;
+        $c = ($t - $summ) - $y;
+        $summ = $t;
+    }
+    $summ
+}
+
+my $eps;
+for my $e (1..100) {
+    #$eps /= 2; # but then initialize with: $eps = 1
+    $eps = 1/2**$e;
+    say "e: $e" and last if ($eps + 1e0) == 1e0;
+}
+
+push @res, 'Epsilon:    ' . $eps;
+push @res, 'Simple sum: ' . sprintf "%.16f", ((1e0 + $eps) - $eps);
+push @res, 'Kahan sum:  ' . sprintf "%.16f", kahan(1e0, $eps, -$eps);
+
+say my $result = join "\n", @res;
+
+my $ref = <<'END';
+Epsilon:    1.11022302462516e-16
+Simple sum: 0.9999999999999999
+Kahan sum:  1.0000000000000000
+END
+
+use Test::More;
+chomp $ref;
+is($result, $ref);
+done_testing();
