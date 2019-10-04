@@ -2839,6 +2839,13 @@ File: G/General_FizzBuzz
 #c# 2018-08-08 <RC
 #p# OK
 
+File: G/Generalised_floating_point_addition
+#!/usr/local/bin/perl
+#u# http://rosettacode.org/wiki/Generalised_floating_point_addition
+#c# 2019-10-03 >RC
+#p# OK
+#n# works with upper limit of 9999 (and almost certainly well beyond)
+
 File: G/Generate_Chess960_starting_position
 #!/usr/local/bin/perl
 #u# http://rosettacode.org/wiki/Generate_Chess960_starting_position
@@ -3506,6 +3513,12 @@ File: J/Just_in_time_processing_on_a_character_stream
 #!/usr/local/bin/perl
 #u# http://rosettacode.org/wiki/Just_in_time_processing_on_a_character_stream
 #c# 2019-05-15 >RC
+#p# OK
+
+File: K/Kahan_summation
+#!/usr/local/bin/perl
+#u# http://rosettacode.org/wiki/Kahan_summation
+#c# 2019-10-04 >RC
 #p# OK
 
 File: K/Kaprekar_numbers-1
