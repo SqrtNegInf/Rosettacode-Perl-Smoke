@@ -21,12 +21,8 @@ sub kahan {
     $summ
 }
 
-my $eps;
-for my $e (1..100) {
-    #$eps /= 2; # but then initialize with: $eps = 1
-    $eps = 1/2**$e;
-    say "e: $e" and last if ($eps + 1e0) == 1e0;
-}
+my $eps = 1;
+do { $eps /= 2 } until 1e0 == 1e0 + $eps;
 
 push @res, 'Epsilon:    ' . $eps;
 push @res, 'Simple sum: ' . sprintf "%.16f", ((1e0 + $eps) - $eps);
