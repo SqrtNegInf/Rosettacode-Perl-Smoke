@@ -1672,8 +1672,8 @@ File: D/Death_Star
 File: D/Decimal_floating_point_number_to_binary
 #!/usr/local/bin/perl
 #u# http://rosettacode.org/wiki/Decimal_floating_point_number_to_binary
-#c# 2018-xx-xx >RC
-#p# BROKEN
+#c# 2019-10-04 >RC
+#p# OK
 
 File: D/Decision_tables
 #!/usr/local/bin/perl
@@ -2845,6 +2845,7 @@ File: G/Generalised_floating_point_addition
 #c# 2019-10-03 >RC
 #p# OK
 #n# works with upper limit of 9999 (and almost certainly well beyond)
+#n# Math::BigFloat extension also provides an arbitrary-precision decimal calculations
 
 File: G/Generate_Chess960_starting_position
 #!/usr/local/bin/perl
