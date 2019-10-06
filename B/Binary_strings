@@ -1,0 +1,44 @@
+#!/usr/local/bin/perl
+#u# http://rosettacode.org/wiki/Binary_strings
+#c# 2019-10-05 >RC
+#p# OK
+
+use strict;
+use warnings;
+use feature 'say';
+
+my @res;
+
+my $s = undef;
+push @res, 'Nothing to see here' if ! defined $s;  # 'Nothing to see here'
+push @res, $s = '';                                # ''
+push @res, 'Empty string' if $s eq '';             # 'Empty string'
+push @res, $s = 'be';                              # 'be'
+push @res, my $t = $s;                             # 'be' 
+push @res, 'Same' if $t eq $s;                     # 'Same'
+push @res, $t = $t . 'e';                          # 'bee'
+push @res, $t .= 'keeper';                         # 'beekeeper'
+$t =~ s/ee/ook/; push @res, $t;                    # 'bookkeeper'
+push @res, my $u = substr $t, 2, 2;                # 'ok'
+push @res, 'Oklahoma' . ' is ' . uc $u;            # 'Oklahoma is OK'
+
+say my $result = join "\n", @res;
+
+my $ref = <<'END';
+Nothing to see here
+
+Empty string
+be
+be
+Same
+bee
+beekeeper
+bookkeeper
+ok
+Oklahoma is OK
+END
+
+use Test::More;
+chomp $ref;
+is($result, $ref);
+done_testing();
