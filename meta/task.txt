@@ -1,17 +1,17 @@
 
 This is perl 5, version 30, subversion 0 (v5.30.0) built for darwin-thread-multi-2level
 updating from RC…
-+------------> Perl: Good/Bad [1187/11]
-|+-----------> Smoke testing [1047]
++------------> Perl: Good/Bad [1188/11]
+|+-----------> Smoke testing [1048]
 ||+----------> sKipping validation [144]
 |||+---------> Interactive [49]
-||||+--------> Touched (modified by me) [320]
+||||+--------> Touched (modified by me) [321]
 |||||+-------> Random seed [93]
 ||||||+------> File output [62]
 |||||||+-----> Draft [226]
 ||||||||+----> Ignoring [33]
-|||||||||+---> Void (no local copy) [158]
-||||||||||+--> Un-implemented/reliable [149]
+|||||||||+---> Void (no local copy) [157]
+||||||||||+--> Un-implemented/reliable [148]
 |||||||||||
 GS......... 100_doors-1
 GS......... 100_doors-2
@@ -139,7 +139,7 @@ GS...R..... Best_shuffle-2
 GS......... Binary_digits
 GS......... Binary_search-1
 GS......... Binary_search-2
-.........VU Binary_strings
+GS..T...... Binary_strings
 GS..TR.D... Birthday_problem
 GS......... Bitcoin_address_validation
 GS......... Bitcoin_public_point_to_address
