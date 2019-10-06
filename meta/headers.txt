@@ -690,6 +690,12 @@ File: B/Binary_search-2
 #p# OK
 #n# was producing bogus answer, changed to numeric input
 
+File: B/Binary_strings
+#!/usr/local/bin/perl
+#u# http://rosettacode.org/wiki/Binary_strings
+#c# 2019-10-05 >RC
+#p# OK
+
 File: B/Birthday_problem
 #!/usr/local/bin/perl
 #u# http://rosettacode.org/wiki/Birthday_problem
