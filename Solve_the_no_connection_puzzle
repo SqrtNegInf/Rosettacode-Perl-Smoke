@@ -1,0 +1,50 @@
+#!/usr/local/bin/perl
+#u# http://rosettacode.org/wiki/Solve_the_no_connection_puzzle
+#c# 2019-10-06 <RC
+#p# OK
+
+use strict;
+use warnings;
+use feature 'say';
+my $result;
+my @res;
+
+my $gap = qr/.{3}/s;
+
+find( <<terminator );
+-AB-
+CDEF
+-GH-
+terminator
+
+sub find {
+  my $p = shift;
+  $p =~ /(\d)$gap.{0,2}(\d)(??{abs $1 - $2 <= 1 ? '' : '(*F)'})/ ||
+    $p =~ /^.*\n.*(\d)(\d)(??{abs $1 - $2 <= 1 ? '' : '(*F)'})/ and return;
+  if( $p =~ /[A-H]/ )
+    {
+    find( $p =~ s/[A-H]/$_/r ) for grep $p !~ $_, 1 .. 8;
+    }
+  else
+    {
+    #print $p =~ tr/-/ /r;
+    push @res, $p =~ tr/-/ /r;
+    goto FOO;
+    }
+}
+
+FOO:
+say $result = join "\n", @res;
+#exit;
+
+
+my $ref = <<'EOD';
+ 34 
+7182
+ 56 
+EOD
+
+
+use Test::More;
+is ($result, $ref);
+done_testing();
