@@ -11,7 +11,7 @@ updating from RC…
 |||||||+-----> Draft [226]
 ||||||||+----> Ignoring [33]
 |||||||||+---> Void (no local copy) [157]
-||||||||||+--> Un-implemented/reliable [148]
+||||||||||+--> Un-implemented/reliable [147]
 |||||||||||
 GS......... 100_doors-1
 GS......... 100_doors-2
@@ -1119,7 +1119,7 @@ GS....F.... Solve_a_Holy_Knight%27s_tour
 GS......... Solve_a_Hopido_puzzle
 GS......... Solve_a_Numbrix_puzzle
 .......D.VU Solve_a_Rubik%27s_Cube
-.........VU Solve_the_no_connection_puzzle
+.........V. Solve_the_no_connection_puzzle
 .......DXV. Solving_coin_problems
 GS......... Sort_a_list_of_object_identifiers-1
 GS......... Sort_a_list_of_object_identifiers-2
