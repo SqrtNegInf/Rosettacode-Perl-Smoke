@@ -1,0 +1,84 @@
+#!/usr/local/bin/perl
+#u# http://rosettacode.org/wiki/K-means%2B%2B_clustering
+#t# inprogress
+#c# 2019-10-07 >RC
+#p# BROKEN
+
+use Data::Printer;
+use Time::HiRes qw(sleep);
+
+use strict;
+use warnings;
+use feature 'say';
+
+use Math::Complex;
+use List::Util qw(first shuffle);
+
+srand 123456;
+
+my @res;
+
+sub K_means {
+    my($K,@data) = @_;
+    my @means = @data;
+    until (@means == $K) {
+         my @cumulD2;
+#        @cumulD2 = [\+] @data.map: -> $x { min map { abs($x - $_)**2 } @means }
+        my $rand = rand() * $cumulD2[-1];
+        push @means, $data[ first { $cumulD2[$_] > $rand } 0..1+$#data ];
+    }
+
+#    sub cluster { @data.classify: -> $x { @means.min: { abs($_ - $x) } } }
+
+#    loop (
+        my %cluster;
+#        $*TOLERANCE < [+] (@means Z- sort keys (%cluster = cluster))».abs X** 2;
+#        @means = %cluster.values.map( { .elems R/ [+] @$_ } )
+#    ) { ; }
+
+    return @means;
+}
+
+my @centers = (0, 5, 3 + 2*i);
+my @data;
+for my $c (@centers) {
+    push @data, ($_ + .5 - rand() + (.5 - rand()) * i) for 1..10;
+}
+
+#say $_ for @data; exit;
+
+push @res, $_ for K_means(3, @data);
+
+say my $result = join "\n", @res;
+exit;
+
+my $ref = <<'END';
+END
+
+use Test::More;
+chomp $ref;
+is($result, $ref);
+done_testing();
+
+__END__
+
+# We use Complex numbers to represent points in the plane. We feed the algorithm with three artificially made clouds of points so we can easily see if the output makes sense.
+
+my @centers = 0, 5, 3 + 2i;
+my @data = flat @centers.map: { ($_ + .5 - rand + (.5 - rand) * i) xx 100 }
+@data .= pick(*);
+
+my @res.push: $_ for 3-means++ @data;
+.say for @res.sort; #exit;
+my $moar = qq:to/END/;
+END
+
+use Test;
+my $ref = $*VM ~~ /jvm/ ?? $jvm !! $moar;
+is @res.sort.join("\n"), chomp $ref;
+
+=={{header|Perl}}==
+{{trans|Perl 6}}
+<lang perl></lang>
+{{out}}
+<pre></pre>
