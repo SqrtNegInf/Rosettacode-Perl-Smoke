@@ -1,33 +1,28 @@
 #!/usr/local/bin/perl
 #u# http://rosettacode.org/wiki/Unicode_strings
-#t# skiptest
 #c# 2018-08-07 <RC
 #p# OK
 
+use strict;
+use warnings;
 use feature 'say';
-my $result;
-no warnings;
 
-# In Perl, "Unicode" means "UTF-8". If you want to include utf8 characters in your source file, unless you have set PERL_UNICODE environment correctly, you should douse utf8; or you risk the parser treating the file as raw bytes.
-# Inside the script, utf8 characters can be used both as identifiers and literal strings, and built-in string functions will respect it:
+use utf8;
+binmode(STDOUT, ':utf8');
 
-#$��� = "voil�";
-#print "$���";                # voil�
-#print uc($���);          # VOIL�
-
-# or you can specify unicode characters by name or ordinal:
+my $四十二 = "voilà";
+say "$四十二";       # voilà
+say uc($四十二);     # VOILÀ
 
 use charnames qw(greek);
+my($x,$y);
 $x = "\N{sigma} \U\N{sigma}";
 $y = "\x{2708}";
-say $result = scalar reverse("$x $y");
+my $result = scalar reverse("$x $y");
 
-# Regular expressions also have support for unicode based on properties, for example, finding characters that's normally written from right to left:print "Say עִבְרִית" =~ /(\p{BidiClass:R})/g;	# עברית
-# When it comes to IO, one should specify whether a file is to be opened in utf8 or raw byte mode:open IN, "<:utf8", "file_utf";
-# open OUT, ">:raw", "file_byte";
-#The default of IO behavior can also be set in PERL_UNICODE.
-#However, when your program interacts with the environment, you may still run into tricky spots if you have incompatible locale settings or your OS is not using unicode; that's not what Perl has control over, unfortunately.
+"Say עִבְרִית" =~ /(\p{BidiClass:R})/g;  # עברית
+say $result .= ' ' . $1;
 
 use Test::More;
-is ($result, '� � �');
+is ($result, '✈ Σ σ ע');
 done_testing();
