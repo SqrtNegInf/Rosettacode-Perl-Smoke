@@ -1,8 +1,8 @@
 #!/usr/local/bin/perl
 #u# http://rosettacode.org/wiki/Factorial_base_numbers_indexing_permutations_of_a_collection
-#t# skiptest
-#c# 2019-09-xx >RC
-#p# OK
+#t# inprogress
+#c# 2019-10-xx >RC
+#p# BROKEN
 
 use Data::Printer;
 use Time::HiRes qw(sleep);
