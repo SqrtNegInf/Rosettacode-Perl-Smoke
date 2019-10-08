@@ -207,8 +207,9 @@ File: A/Addition_chains
 File: A/Address_of_a_variable
 #!/usr/local/bin/perl
 #u# http://rosettacode.org/wiki/Address_of_a_variable
-#c# 2018-07-11 <RC
+#c# 2018-07-11 <RC, 2019-10-06 >RC
 #p# OK
+#n# learn something every day
 
 File: A/Align_columns-1
 #!/usr/local/bin/perl
@@ -573,10 +574,9 @@ File: B/Babbage_problem
 File: B/Bacon_cipher
 #!/usr/local/bin/perl 
 #u# http://rosettacode.org/wiki/Bacon_cipher
-#c# 2018-11-10 >RC
+#c# 2018-11-10 >RC, 2019-10-07 >RC
 #p# OK
 #f# RC file: bacon_cipher.txt
-#n# incomplete: no decrypt 
 
 File: B/Balanced_brackets-1
 #!/usr/local/bin/perl
@@ -764,9 +764,10 @@ File: B/Bitmap_Write_a_PPM_file
 File: B/Bitwise_IO
 #!/usr/local/bin/perl
 #u# http://rosettacode.org/wiki/Bitwise_IO
-#t# skiptest
 #c# 2018-07-17 <RC
 #p# OK
+#f# RC file: bitwise.step2
+#n# always worked, now smoke-tested
 
 File: B/Bitwise_operations
 #!/usr/local/bin/perl
@@ -1424,6 +1425,12 @@ File: C/Convert_seconds_to_compound_duration
 #c# 2018-07-25 <RC
 #p# OK
 
+File: C/Convert_seconds_to_compound_duration-2
+#!/usr/local/bin/perl
+#u# http://rosettacode.org/wiki/Convert_seconds_to_compound_duration
+#c# 2019-10-07 NOT ON RC
+#p# OK
+
 File: C/Convex_hull
 #!/usr/local/bin/perl
 #u# http://rosettacode.org/wiki/Convex_hull
@@ -1543,6 +1550,13 @@ File: C/Create_an_object_Native_demonstration
 #c# 2018-07-26 <RC
 #p# OK
 #n# "Tie::Hash" not allowed while "strict subs" in use
+
+File: C/Create_an_object_at_a_given_address
+#!/usr/local/bin/perl
+#u# http://rosettacode.org/wiki/Create_an_object_at_a_given_address
+#t# inprogress
+#c# 2019-10-07 >RC
+#p# OK
 
 File: C/Cuban_primes
 #!/usr/local/bin/perl
@@ -2312,9 +2326,9 @@ File: F/Factorial-4
 File: F/Factorial_base_numbers_indexing_permutations_of_a_collection
 #!/usr/local/bin/perl
 #u# http://rosettacode.org/wiki/Factorial_base_numbers_indexing_permutations_of_a_collection
-#t# skiptest
-#c# 2019-09-xx >RC
-#p# OK
+#t# inprogress
+#c# 2019-10-xx >RC
+#p# BROKEN
 
 File: F/Factorions
 #!/usr/local/bin/perl
@@ -2754,8 +2768,8 @@ File: F/Fractran
 File: F/Free_polyominoes_enumeration
 #!/usr/local/bin/perl
 #u# http://rosettacode.org/wiki/Free_polyominoes_enumeration
-#t# skiptest
-#c# 2019-04-xx >RC
+#t# inprogress
+#c# 2019-10-xx >RC
 #p# OK
 
 File: F/French_Republican_calendar
@@ -3447,6 +3461,13 @@ File: I/Interactive_programming
 #c# 2018-08-13 <RC
 #p# OK
 
+File: I/Intersecting_Number_Wheels
+#!/usr/local/bin/perl
+#u# http://rosettacode.org/wiki/Intersecting_Number_Wheels
+#t# inprogress
+#c# 2019-10-01 >RC
+#p# BROKEN
+
 File: I/Introspection
 #!/usr/local/bin/perl
 #u# http://rosettacode.org/wiki/Introspection
@@ -3521,6 +3542,13 @@ File: J/Just_in_time_processing_on_a_character_stream
 #u# http://rosettacode.org/wiki/Just_in_time_processing_on_a_character_stream
 #c# 2019-05-15 >RC
 #p# OK
+
+File: K/K-means%2B%2B_clustering
+#!/usr/local/bin/perl
+#u# http://rosettacode.org/wiki/K-means%2B%2B_clustering
+#t# inprogress
+#c# 2019-10-07 >RC
+#p# BROKEN
 
 File: K/Kahan_summation
 #!/usr/local/bin/perl
@@ -6475,6 +6503,12 @@ File: S/Solve_a_Numbrix_puzzle
 #c# 2018-08-05 <RC
 #p# OK
 
+File: S/Solve_the_no_connection_puzzle
+#!/usr/local/bin/perl
+#u# http://rosettacode.org/wiki/Solve_the_no_connection_puzzle
+#c# 2019-10-06 <RC
+#p# OK
+
 File: S/Sort_a_list_of_object_identifiers-1
 #!/usr/local/bin/perl
 #u# http://rosettacode.org/wiki/Sort_a_list_of_object_identifiers
@@ -7304,10 +7338,10 @@ File: T/The_Twelve_Days_of_Christmas
 File: T/Thiele%27s_interpolation_formula
 #!/usr/local/bin/perl
 #u# http://rosettacode.org/wiki/Thiele\'s_interpolation_formula
-#t# skiptest
-#c# 2019-04-17 >RC
-#p# OK
-#n#  made default table size 12, 'invcos' converges slowly
+#t# inprogress
+#c# 2019-10-xx >RC
+#p# BROKEN
+#n# made default table size 12, 'invcos' converges slowly
 
 File: T/Thue-Morse
 #!/usr/local/bin/perl
@@ -7356,7 +7390,6 @@ File: T/Top_rank_per_group
 File: T/Topic_variable
 #!/usr/local/bin/perl
 #u# http://rosettacode.org/wiki/Topic_variable
-#t# skiptest
 #c# 2018-08-09 <RC
 #p# OK
 #n# not such a great explainer?
@@ -7518,7 +7551,6 @@ File: U/Undefined_values
 File: U/Unicode_strings
 #!/usr/local/bin/perl
 #u# http://rosettacode.org/wiki/Unicode_strings
-#t# skiptest
 #c# 2018-08-07 <RC
 #p# OK
 
