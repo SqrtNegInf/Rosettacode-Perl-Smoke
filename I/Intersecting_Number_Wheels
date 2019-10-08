@@ -1,0 +1,70 @@
+#!/usr/local/bin/perl
+#u# http://rosettacode.org/wiki/Intersecting_Number_Wheels
+#t# inprogress
+#c# 2019-10-01 >RC
+#p# BROKEN
+
+use Data::Printer;
+use Time::HiRes qw(sleep);
+
+use strict;
+use warnings;
+use feature 'say';
+
+my @res;
+
+sub roll_wheels {
+    my(%wheels) = @_;
+    say "$_: " . join ', ', @{${$wheels{$_}}[0]} for sort keys %wheels;
+}
+
+my %d1 = ('A' => [['1', '2', '3'], 42]);
+my %d2 = ('A' => [['1', 'B', '2'], 1], 'B' => [['3', '4'], 1]);
+my %d3 = ('A' => [['1', 'D', 'D'], 1], 'D' => [['6', '7', '8'], 1]);
+my %d4 = ('A' => [['1', 'B', 'C'], 1], 'B' => [['3', '4'], 1], 'C' => [['5', 'B'], 1]);
+
+roll_wheels(%d4);
+
+say my $result = join "\n", @res;
+my $ref = <<'END';
+END
+
+use Test::More;
+#chomp $ref;
+#is($result, $ref);
+#done_testing();
+
+__END__
+
+ 
+function getvalue(wheelname, allwheels)
+    wheel = allwheels[wheelname]
+    s = wheel[1][wheel[2]]
+    wheel[2] = mod1(wheel[2] + 1, length(wheel[1]))
+    return haskey(allwheels, s) ? getvalue(s, allwheels) : s
+end
+ 
+function testwheels(wheels, numterms = 20, firstwheel = "A")
+X   println("\nNumber Wheels:")
+X   for k in sort(collect(keys(wheels)))
+X       print("$k: [")
+X       for s in wheels[k][1]
+X           print(s, " ")
+X       end
+X       println("\b]")
+X   end
+    print("Output: ")
+    for _ in 1:numterms
+        print(getvalue(firstwheel, wheels), " ")
+    end
+    println("...")
+end
+ 
+foreach(testwheels, [d1, d2, d3, d4])
+
+=={{header|Perl}}==
+{{trans|Perl 6}}
+<lang perl></lang>
+{{out}}
+<pre style="height:20ex"></pre>
+[https://github.com/SqrtNegInf/Rosettacode-Perl5-Smoke/blob/master/ref/XXX XXX]
