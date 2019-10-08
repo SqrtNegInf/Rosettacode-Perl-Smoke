@@ -1,7 +1,8 @@
 #!/usr/local/bin/perl
 #u# http://rosettacode.org/wiki/Address_of_a_variable
-#c# 2018-07-11 <RC
+#c# 2018-07-11 <RC, 2019-10-06 >RC
 #p# OK
+#n# learn something every day
 
 use strict;
 use warnings;
@@ -11,7 +12,11 @@ my $result;
 #To get the address, get the reference to a variable, and either stringify it, or use Scalar::Util's refaddr() to get just the address. Also see Devel::Peek.
 
 use Scalar::Util qw(refaddr);
-say refaddr(\my $v), "\n";  # 135691508
+my $v = 47;
+say refaddr(\$v);
+printf "%x\n", refaddr(\$v);
+printf "%p\n", $v;
+
 #Use Devel::Pointer::PP if you want to dereference a certain address in memory.
 #Changing the address of a variable is not easily possible, but see perlapi. Wanting to go against the automatic memory management is a sign that this is only used to hack around the deficiencies of dafter languages. I can imagine address munging is commonly used to make variable aliasing possible, but Perl already has a higher level syntax for that.
 #Simple reference (address) manipulation.
