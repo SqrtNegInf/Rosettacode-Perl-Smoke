@@ -1,7 +1,7 @@
 #!/usr/local/bin/perl
 #u# http://rosettacode.org/wiki/Free_polyominoes_enumeration
-#t# skiptest
-#c# 2019-04-xx >RC
+#t# inprogress
+#c# 2019-10-xx >RC
 #p# OK
 
 use Data::Printer;
