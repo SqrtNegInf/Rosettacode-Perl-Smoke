@@ -1,13 +1,13 @@
 #!/usr/local/bin/perl 
 #u# http://rosettacode.org/wiki/Bacon_cipher
-#c# 2018-11-10 >RC
+#c# 2018-11-10 >RC, 2019-10-07 >RC
 #p# OK
 #f# RC file: bacon_cipher.txt
-#n# incomplete: no decrypt 
 
 use strict;
 use warnings;
 use feature 'say';
+use utf8;
 
 my $secret = <<'END';
 This task is to implement a program for encryption and decryption
@@ -35,7 +35,8 @@ Bacon cipher, but I think it falls within the spirit of the task,
 if not the exact definition.
 END
 
-my @enc = ("﻿", "​");
+#my @enc = ("﻿", "​");
+my @enc = ("\N{U+FEFF}", "\N{U+200B}"); # zero-width spaces
 my %dec;
 $dec{$enc[0]} = 0;
 $dec{$enc[1]} = 1;
@@ -52,52 +53,26 @@ sub hide {
     $merge . $tail;
 }
  
-#  join '', map { :2(%dec{$_.comb}.join('')).chr },
-#   $steg.subst( /\w | <punct> | " " | "\n" /, '', :g).comb(/. ** 7/);
-
-use Time::HiRes qw(sleep);
 sub reveal {
-    my($steg) = @_;
-    (my $clean = $steg) =~ s/\w|[,?:.!\-&*()*"']| |\n//g;
-    my @x = grep { $_ } split /(.{7})/, $clean;
-#say 'x: '. scalar @x; exit;
-    for my $i (@x) {
-    my(@bit);
-    my($typea) = $i =~ /^(.)/;
-say 'l0 ' . length($enc[0]);
-say 'l1 ' . length($enc[1]);
-    say 'e0 ' . unpack 'H6', pack 'B24', $enc[0];
-    say 'e1 ' . unpack 'H6', pack 'B24', $enc[1];
-exit;
-    for (split '', $i) {
-$DB::single = 1;
-        push @bit, $typea eq $_ ? 0 : 1;
+    my($steganography) = @_;
+    my $message;
+    (my $cleaned = $steganography) =~ s/\w|[,?:.!\-&*()*"']| |\n//g;
+    for my $coded_char (split /(.{7})/, $cleaned) {
+        next if length $coded_char == 0;
+        my $bits = '';
+        $bits .= $dec{$_} for split //, $coded_char;
+        $message .= chr eval('0b'.$bits);
     }
-say join ':', @bit; 
-    my $chr = unpack 'H2', pack 'B8', '0' . join '', @bit;
-    #}
-say hex($chr);  sleep .25;
-    }
-print "\n";
-exit;
-
-# This task is to implement a program for encryption and decryption
-# of plaintext using the simple alphabet of the Baconian cipher or
-# some other kind of representation of this alphabet (make anything
-# signify anything). This example will work with anything in the
-# ASCII range... even code! $r%_-^&*(){}+~ #=`/\';*1234567890"'
+    $message;
 }
- 
+
 my @hidden = map  { encode($_) } split '', $secret;
- 
 my $steganography = hide($text, @hidden);
+my $decoded       = reveal $steganography;
 
 open my $fh, '>', 'run/bacon_cipher.txt';
- 
-print $fh "Steganograpic message hidden in text:\n";
-print $fh $steganography;
- 
-#say '';
-print "Hidden message revealed:\n";
-$DB::single = 1;
-print reveal($steganography);
+binmode($fh, ':utf8');
+say $fh 'Steganograpic message hidden in text:';
+say $fh $steganography;
+say $fh 'Hidden message revealed:';
+say $fh $decoded;
