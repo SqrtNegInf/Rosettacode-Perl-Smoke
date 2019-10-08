@@ -1,9 +1,9 @@
 #!/usr/local/bin/perl
 #u# http://rosettacode.org/wiki/Thiele\'s_interpolation_formula
-#t# skiptest
-#c# 2019-04-17 >RC
-#p# OK
-#n#  made default table size 12, 'invcos' converges slowly
+#t# inprogress
+#c# 2019-10-xx >RC
+#p# BROKEN
+#n# made default table size 12, 'invcos' converges slowly
 
 use Data::Printer;
 use Time::HiRes qw(sleep);
