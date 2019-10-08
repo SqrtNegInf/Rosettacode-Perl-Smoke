@@ -1,17 +1,17 @@
 
 This is perl 5, version 30, subversion 0 (v5.30.0) built for darwin-thread-multi-2level
 updating from RC…
-+------------> Perl: Good/Bad [1188/11]
-|+-----------> Smoke testing [1048]
++------------> Perl: Good/Bad [1189/15]
+|+-----------> Smoke testing [1053]
 ||+----------> sKipping validation [144]
 |||+---------> Interactive [49]
-||||+--------> Touched (modified by me) [321]
-|||||+-------> Random seed [93]
-||||||+------> File output [62]
+||||+--------> Touched (modified by me) [325]
+|||||+-------> Random seed [94]
+||||||+------> File output [63]
 |||||||+-----> Draft [226]
 ||||||||+----> Ignoring [33]
-|||||||||+---> Void (no local copy) [157]
-||||||||||+--> Un-implemented/reliable [147]
+|||||||||+---> Void (no local copy) [153]
+||||||||||+--> Un-implemented/reliable [146]
 |||||||||||
 GS......... 100_doors-1
 GS......... 100_doors-2
@@ -57,7 +57,7 @@ GS......... Active_object
 GS......... Add_a_variable_to_a_class_instance_at_runtime
 .......D.VU Addition-chain_exponentiation
 GS..T..D... Addition_chains
-GS......... Address_of_a_variable
+GS..T...... Address_of_a_variable
 GS......... Align_columns-1
 GS......... Align_columns-2
 GS......... Aliquot_sequence_classifications
@@ -118,7 +118,7 @@ GS......... Averages_Pythagorean_means
 GS......... Averages_Root_mean_square
 GS......... Averages_Simple_moving_average
 GS......... Babbage_problem
-GS..T.FD..U Bacon_cipher
+GS..T.FD... Bacon_cipher
 GS...R..... Balanced_brackets-1
 GS...R..... Balanced_brackets-2
 GS...R..... Balanced_brackets-3
@@ -154,7 +154,7 @@ GS....F.... Bitmap_Flood_fill
 GS....F.... Bitmap_Read_a_PPM_file
 .........VU Bitmap_Read_an_image_through_a_pipe
 GS..T.F.... Bitmap_Write_a_PPM_file
-G.K........ Bitwise_IO
+GS....F.... Bitwise_IO
 GS......... Bitwise_operations
 .......D.VU Black_Box
 .......D.VU Blackjack_strategy
@@ -274,6 +274,7 @@ GS......... Continued_fraction_Arithmetic_Construct_from_rational_number
 .......D.VU Continued_fraction_Arithmetic_Gmatrix_NG,_Contined_Fraction_N1,_Contined_Fraction_N2
 GS......... Convert_decimal_number_to_rational
 GS......... Convert_seconds_to_compound_duration
+GS......... Convert_seconds_to_compound_duration-2
 G.K.T.....U Convex_hull
 GS...R..... Conway%27s_Game_of_Life-1
 G.KI....... Conway%27s_Game_of_Life-2
@@ -293,7 +294,7 @@ G.K........ Create_a_file
 GS......... Create_a_two-dimensional_array_at_runtime
 GS...R..... Create_an_HTML_table
 GS.....D... Create_an_object_Native_demonstration
-........XVU Create_an_object_at_a_given_address
+G.K.T...X.U Create_an_object_at_a_given_address
 GS......... Cuban_primes
 GS......... Cumulative_standard_deviation-1
 GS......... Cumulative_standard_deviation-2
@@ -417,7 +418,7 @@ GS......... Factorial-1
 GS......... Factorial-2
 GS......... Factorial-3
 GS......... Factorial-4
-G.K.TR....U Factorial_base_numbers_indexing_permutations_of_a_collection
+B.K.TR....U Factorial_base_numbers_indexing_permutations_of_a_collection
 GS..T..D... Factorions
 GS......... Factors_of_a_Mersenne_number-1
 GS......... Factors_of_a_Mersenne_number-2
@@ -605,7 +606,7 @@ GS......... Integer_roots-2
 G.KI....... Integer_sequence
 .......D.V. Interactive_Help
 GS......... Interactive_programming
-.........VU Intersecting_Number_Wheels
+B.K.T.....U Intersecting_Number_Wheels
 GS..T...... Introspection
 GS......... Inverted_index
 G.K........ Inverted_syntax
@@ -621,7 +622,7 @@ GS....F.... Julia_set
 GS......... Jump_anywhere
 GS..T..D... Just_in_time_processing_on_a_character_stream
 .........VU K-d_tree
-.........VU K-means%2B%2B_clustering
+B.K.TR....U K-means%2B%2B_clustering
 GS..T..D... Kahan_summation
 GS......... Kaprekar_numbers-1
 GS......... Kaprekar_numbers-2
@@ -1119,7 +1120,7 @@ GS....F.... Solve_a_Holy_Knight%27s_tour
 GS......... Solve_a_Hopido_puzzle
 GS......... Solve_a_Numbrix_puzzle
 .......D.VU Solve_a_Rubik%27s_Cube
-.........V. Solve_the_no_connection_puzzle
+GS......... Solve_the_no_connection_puzzle
 .......DXV. Solving_coin_problems
 GS......... Sort_a_list_of_object_identifiers-1
 GS......... Sort_a_list_of_object_identifiers-2
@@ -1259,7 +1260,7 @@ GS..T...... Textonyms
 GS......... The_ISAAC_Cipher
 GS..T...... The_Name_Game
 GS......... The_Twelve_Days_of_Christmas
-G.K.T.....U Thiele%27s_interpolation_formula
+B.K.T.....U Thiele%27s_interpolation_formula
 GS......... Thue-Morse
 GS...R..... Tic-tac-toe
 .......D.VU Time-based_One-time_Password_Algorithm
@@ -1268,7 +1269,7 @@ GS......... Tokenize_a_string
 GS......... Tokenize_a_string_with_escaping
 GS..T...... Tonelli-Shanks_algorithm
 GS..T...... Top_rank_per_group
-G.K........ Topic_variable
+GS......... Topic_variable
 GS......... Topological_sort
 GS.....D... Topological_sort_Extracted_top_item
 GS......... Topswops
@@ -1297,7 +1298,7 @@ GS....F.... Ulam_spiral_for_primes
 GS...R..... Unbias_a_random_generator
 GS......... Undefined_values
 .......D.VU Unicode_polynomial_equation
-G.K........ Unicode_strings
+GS......... Unicode_strings
 GS......... Unicode_variable_names
 .......DXVU Unit_testing
 GS......... Universal_Turing_machine
