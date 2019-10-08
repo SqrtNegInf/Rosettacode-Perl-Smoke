@@ -1,17 +1,15 @@
 #!/usr/local/bin/perl
 #u# http://rosettacode.org/wiki/Bitwise_IO
-#t# skiptest
 #c# 2018-07-17 <RC
 #p# OK
-
-use feature 'say';
-my $result;
+#f# RC file: bitwise.step2
+#n# always worked, now smoke-tested
 
 use strict;
+#use warnings; # line 68: $buf < 0
  
 # $buffer = write_bits(*STDOUT, $buffer, $number, $bits)
-sub write_bits( $$$$ )
-{
+sub write_bits( $$$$ ) {
     my ($out, $l, $num, $q) = @_;
     $l .= substr(unpack("B*", pack("N", $num)),
 		 -$q);
@@ -24,15 +22,13 @@ sub write_bits( $$$$ )
 }
  
 # flush_bits(*STDOUT, $buffer)
-sub flush_bits( $$ )
-{
+sub flush_bits( $$ ) {
     my ($out, $b) = @_;
     print $out pack("B*", $b);
 }
  
 # ($val, $buf) = read_bits(*STDIN, $buf, $n)
-sub read_bits( $$$ )
-{
+sub read_bits( $$$ ) {
     my ( $in, $b, $n ) = @_;
     # we put a limit in the number of bits we can read
     # with one shot; this should mirror the limit of the max
@@ -49,30 +45,26 @@ sub read_bits( $$$ )
     $b = substr($b, $n);
     return ($val, $b);
 }
-# Crunching bytes discarding most significant bit (lossless compression for ASCII and few more!)
 
+# Crunching bytes discarding most significant bit (lossless compression for ASCII and few more!)
 my $buf = "";
 my $c;
-while( read(*STDIN, $c, 1) > 0 ) {
-    $buf = write_bits(*STDOUT, $buf, unpack("C1", $c), 7);
+open my $f_in,  '<', 'ref/passwd.txt';
+open my $f_step1, '>', 'run/bitwise.step1';
+while( read($f_in, $c, 1) > 0 ) {
+    $buf = write_bits($f_step1, $buf, unpack("C1", $c), 7);
 }
-flush_bits(*STDOUT, $buf);
+flush_bits($f_step1, $buf);
+close $f_step1;
 # Expanding each seven bits to fit a byte (padding the eight most significant bit with 0):
 
 # ($val, $buf) = read_bits(*STDIN, $buf, $n)
-my $buf = "";
+open    $f_step1, '<', 'run/bitwise.step1';
+open my $f_step2, '>', 'run/bitwise.step2';
+$buf = "";
 my $v;
 while(1) {
-    ( $v, $buf ) = read_bits(*STDIN, $buf, 7);
+    ( $v, $buf ) = read_bits($f_step1, $buf, 7);
     last if ($buf < 0); 
-    print pack("C1", $v);
+    print $f_step2 pack("C1", $v);
 }
-
-
-say $result; 
-my $ref = <<'EOD';
-EOD
-
-use Test::More;
-#is ($result, $ref);
-#done_testing();
