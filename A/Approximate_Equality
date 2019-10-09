@@ -2,6 +2,7 @@
 #u# http://rosettacode.org/wiki/Approximate_Equality
 #c# 2019-09-08 >RC
 #p# OK
+#n# learn something every day: %.*f
 
 use strict;
 use warnings;
@@ -28,10 +29,10 @@ sub is_close {
     my($a,$b,$eps) = @_;
     $eps //= 15;
     my $epse = $eps;
-    $epse++ if sprintf("%.${eps}f",$a) =~ /\./;
-    $epse++ if sprintf("%.${eps}f",$a) =~ /\-/;
-    my $afmt = substr((sprintf "%.${eps}f", $a), 0, $epse); 
-    my $bfmt = substr((sprintf "%.${eps}f", $b), 0, $epse);
+    $epse++ if sprintf("%.*f", $eps, $a) =~ /\./;
+    $epse++ if sprintf("%.*f", $eps, $a) =~ /\-/;
+    my $afmt = substr((sprintf "%.*f", $eps, $a), 0, $epse); 
+    my $bfmt = substr((sprintf "%.*f", $eps, $b), 0, $epse);
     push @res, sprintf "%-5s %s ≅ %s", ($afmt eq $bfmt ? 'True' : 'False'), $afmt, $bfmt;
 }
 
