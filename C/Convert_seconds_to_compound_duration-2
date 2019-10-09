@@ -2,6 +2,7 @@
 #u# http://rosettacode.org/wiki/Convert_seconds_to_compound_duration
 #c# 2019-10-07 NOT ON RC
 #p# OK
+#n# explicitly like APL/encode (and more like P6/polymod)
 
 use strict;
 use warnings;
