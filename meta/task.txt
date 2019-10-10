@@ -1,9 +1,9 @@
 
 This is perl 5, version 30, subversion 0 (v5.30.0) built for darwin-thread-multi-2level
 updating from RC…
-+------------> Perl: Good/Bad [1189/15]
-|+-----------> Smoke testing [1053]
-||+----------> sKipping validation [144]
++------------> Perl: Good/Bad [1191/13]
+|+-----------> Smoke testing [1055]
+||+----------> sKipping validation [142]
 |||+---------> Interactive [49]
 ||||+--------> Touched (modified by me) [325]
 |||||+-------> Random seed [94]
@@ -11,7 +11,7 @@ updating from RC…
 |||||||+-----> Draft [226]
 ||||||||+----> Ignoring [33]
 |||||||||+---> Void (no local copy) [153]
-||||||||||+--> Un-implemented/reliable [146]
+||||||||||+--> Un-implemented/reliable [145]
 |||||||||||
 GS......... 100_doors-1
 GS......... 100_doors-2
@@ -418,7 +418,7 @@ GS......... Factorial-1
 GS......... Factorial-2
 GS......... Factorial-3
 GS......... Factorial-4
-B.K.TR....U Factorial_base_numbers_indexing_permutations_of_a_collection
+GS..TR....U Factorial_base_numbers_indexing_permutations_of_a_collection
 GS..T..D... Factorions
 GS......... Factors_of_a_Mersenne_number-1
 GS......... Factors_of_a_Mersenne_number-2
@@ -606,7 +606,7 @@ GS......... Integer_roots-2
 G.KI....... Integer_sequence
 .......D.V. Interactive_Help
 GS......... Interactive_programming
-B.K.T.....U Intersecting_Number_Wheels
+GS..T...... Intersecting_Number_Wheels
 GS..T...... Introspection
 GS......... Inverted_index
 G.K........ Inverted_syntax
