@@ -1,11 +1,7 @@
 #!/usr/local/bin/perl
 #u# http://rosettacode.org/wiki/Factorial_base_numbers_indexing_permutations_of_a_collection
-#t# inprogress
-#c# 2019-10-xx >RC
-#p# BROKEN
-
-use Data::Printer;
-use Time::HiRes qw(sleep);
+#c# 2019-10-09 >RC
+#p# OK
 
 use strict;
 use warnings;
@@ -15,18 +11,78 @@ my @res;
 
 srand 123456;
 
-use ntheory qw/factorial/;
-say factorial 8;
+sub fpermute {
+    my($f,@a) = @_; 
+    my @f = split //, $f;
+    for (0..$#f) {
+        my @b = @a[$_ ..  $_ + $f[$_]];
+        unshift @b, splice @b, $#b, 1;
+        @a[$_ .. $_ + $f[$_]] = @b;
+    }
+    join '', @a;
+}
+
+sub base {
+    my($n,$length) = @_;
+    my @fact = <6 2 1>;
+    my @out;
+    for (@fact) {
+        push @out, int $n/$_;
+        $n = $n % $_;
+    }
+    join '', @out;
+}
+
+push @res, 'Generate table';
+for (0..23) {
+    my $x = base($_,3);
+    push @res, join('.', split //, $x) . ' -> ' . fpermute($x, <0 1 2 3>) 
+}
+
+if (0) {
+push @res, "\nGenerate the given task shuffles";
+my $omega = <AS KS QS JS 10S 9S 8S 7S 6S 5S 4S 3S 2S AH KH QH JH 10H 9H 8H 7H 6H 5H 4H 3H 2H AD KD QD JD 10D 9D 8D 7D 6D 5D 4D 3D 2D AC KC QC JC 10C 9C 8C 7C 6C 5C 4C 3C 2C>;
+
+my @books = (
+'39.49.7.47.29.30.2.12.10.3.29.37.33.17.12.31.29.34.17.25.2.4.25.4.1.14.20.6.21.18.1.1.1.4.0.5.15.12.4.3.10.10.9.1.6.5.5.3.0.0.0',
+'51.48.16.22.3.0.19.34.29.1.36.30.12.32.12.29.30.26.14.21.8.12.1.3.10.4.7.17.6.21.8.12.15.15.13.15.7.3.12.11.9.5.5.6.6.3.4.0.3.2.1'
+);
+
+push @res, "Original deck:";
+push @res, join '', $omega;
+
+#push @res, "\n$_\n" . $omega[(^$omega).&fpermute($_.split: '.')].join for @books;
+}
 
 say my $result = join "\n", @res;
-my $ref = <<'END';
-END
 
-sub fpermute {
-    my($a,@f) = @_; 
-    # map { $a[$_ .. $_ + $f[$_]] .= rotate(-1) } 0..$#f;  #  r(-1) = unshift @a, splice @a, $#a, 1;
-    return @$a ;
-}
+my $ref = <<'END';
+Generate table
+0.0.0 -> 0123
+0.0.1 -> 0132
+0.1.0 -> 0213
+0.1.1 -> 0231
+0.2.0 -> 0312
+0.2.1 -> 0321
+1.0.0 -> 1023
+1.0.1 -> 1032
+1.1.0 -> 1203
+1.1.1 -> 1230
+1.2.0 -> 1302
+1.2.1 -> 1320
+2.0.0 -> 2013
+2.0.1 -> 2031
+2.1.0 -> 2103
+2.1.1 -> 2130
+2.2.0 -> 2301
+2.2.1 -> 2310
+3.0.0 -> 3012
+3.0.1 -> 3021
+3.1.0 -> 3102
+3.1.1 -> 3120
+3.2.0 -> 3201
+3.2.1 -> 3210
+END
 
 use Test::More;
 chomp $ref;
@@ -35,37 +91,6 @@ done_testing();
 
 __END__
 
-multi base (Int $n is copy, 'F', $length? is copy) {
-    constant @fact = [\*] 1 .. *;
-    my $i = $length // @fact.first: * > $n, :k;
-    my $f;
-    [ @fact[^$i].reverse.map: { ($n, $f) = $n.polymod($_); $f } ]
-}
-
-sub fpermute (@a is copy, *@f) { (^@f).map: { @a[$_ .. $_ + @f[$_]] .= rotate(-1) }; @a }
-
-@res.push: "Part 1: Generate table";
-@res.push: $_.&base('F', 3).join('.') ~ ' -> ' ~ [0,1,2,3].&fpermute($_.&base('F', 3)).join for ^24;
-
-@res.push: "\nPart 2: Compare 11! to 11! ";
-# This is kind of a weird request. Since we don't actually need to _generate_
-# the permutations, only _count_ them: compare count of 11! vs count of 11!
-@res.push: "11! === 11! : {11! === 11!}";
-
-@res.push: "\nPart 3: Generate the given task shuffles";
-my \omega = <AS KS QS JS 10S 9S 8S 7S 6S 5S 4S 3S 2S AH KH QH JH 10H 9H 8H 7H 6H 5H 4H 3H 2H
-         AD KD QD JD 10D 9D 8D 7D 6D 5D 4D 3D 2D AC KC QC JC 10C 9C 8C 7C 6C 5C 4C 3C 2C
->;
-
-my @books = <
-    39.49.7.47.29.30.2.12.10.3.29.37.33.17.12.31.29.34.17.25.2.4.25.4.1.14.20.6.21.18.1.1.1.4.0.5.15.12.4.3.10.10.9.1.6.5.5.3.0.0.0
-    51.48.16.22.3.0.19.34.29.1.36.30.12.32.12.29.30.26.14.21.8.12.1.3.10.4.7.17.6.21.8.12.15.15.13.15.7.3.12.11.9.5.5.6.6.3.4.0.3.2.1
->;
-
-@res.push: "Original deck:";
-@res.push: omega.join;
-
-@res.push: "\n$_\n" ~ omega[(^omega).&fpermute($_.split: '.')].join for @books;
 
 @res.push: "\nPart 4: Generate a random shuffle";
 my @shoe = (+omega ... 2).map: { (^$_).pick };
