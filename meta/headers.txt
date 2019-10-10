@@ -2328,9 +2328,8 @@ File: F/Factorial-4
 File: F/Factorial_base_numbers_indexing_permutations_of_a_collection
 #!/usr/local/bin/perl
 #u# http://rosettacode.org/wiki/Factorial_base_numbers_indexing_permutations_of_a_collection
-#t# inprogress
-#c# 2019-10-xx >RC
-#p# BROKEN
+#c# 2019-10-09 >RC
+#p# OK
 
 File: F/Factorions
 #!/usr/local/bin/perl
@@ -3466,9 +3465,8 @@ File: I/Interactive_programming
 File: I/Intersecting_Number_Wheels
 #!/usr/local/bin/perl
 #u# http://rosettacode.org/wiki/Intersecting_Number_Wheels
-#t# inprogress
-#c# 2019-10-01 >RC
-#p# BROKEN
+#c# 2019-10-08 >RC
+#p# OK
 
 File: I/Introspection
 #!/usr/local/bin/perl
