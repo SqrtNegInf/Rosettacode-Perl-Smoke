@@ -1,17 +1,17 @@
 
 This is perl 5, version 30, subversion 0 (v5.30.0) built for darwin-thread-multi-2level
 updating from RC…
-+------------> Perl: Good/Bad [1191/13]
-|+-----------> Smoke testing [1055]
-||+----------> sKipping validation [142]
++------------> Perl: Good/Bad [1195/13]
+|+-----------> Smoke testing [1058]
+||+----------> sKipping validation [143]
 |||+---------> Interactive [49]
-||||+--------> Touched (modified by me) [325]
+||||+--------> Touched (modified by me) [327]
 |||||+-------> Random seed [94]
 ||||||+------> File output [63]
-|||||||+-----> Draft [226]
+|||||||+-----> Draft [227]
 ||||||||+----> Ignoring [33]
-|||||||||+---> Void (no local copy) [153]
-||||||||||+--> Un-implemented/reliable [145]
+|||||||||+---> Void (no local copy) [151]
+||||||||||+--> Un-implemented/reliable [143]
 |||||||||||
 GS......... 100_doors-1
 GS......... 100_doors-2
@@ -418,7 +418,7 @@ GS......... Factorial-1
 GS......... Factorial-2
 GS......... Factorial-3
 GS......... Factorial-4
-GS..TR....U Factorial_base_numbers_indexing_permutations_of_a_collection
+GS..TR..... Factorial_base_numbers_indexing_permutations_of_a_collection
 GS..T..D... Factorions
 GS......... Factors_of_a_Mersenne_number-1
 GS......... Factors_of_a_Mersenne_number-2
@@ -491,7 +491,7 @@ GS......... Function_composition
 GS......... Function_definition
 GS......... Function_frequency
 GS......... Function_prototype
-.......D.VU Functional_coverage_tree
+GS.....D... Functional_coverage_tree
 GS..T...... Fusc_sequence
 G.KI....... GUI_Maximum_window_dimensions
 G.KIT.....U GUI_component_interaction
@@ -1219,6 +1219,9 @@ GS......... Sum_of_a_series
 GS......... Sum_of_squares
 GS......... Sum_to_100
 GS..T.F.... Sunflower_fractal
+.......D... Super-d_numbers
+GS......... Super-d_numbers-1
+GS..T...... Super-d_numbers-2
 GS..T.F.... Superellipse
 GS......... Superpermutation_minimisation
 .........VU Sutherland-Hodgman_polygon_clipping
@@ -1231,7 +1234,7 @@ GS....F.... Take_notes_on_the_command_line
 .......D.VU Tamagotchi_emulator
 GS..T...... Tarjan
 GS......... Taxicab_numbers
-.......D.VU Teacup_rim_text
+G.K.T..D..U Teacup_rim_text
 GS......... Temperature_conversion
 G.KI....... Terminal_control_Clear_the_screen
 G.KIT...... Terminal_control_Coloured_text
