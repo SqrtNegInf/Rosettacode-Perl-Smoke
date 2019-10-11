@@ -1,0 +1,71 @@
+#!/usr/local/bin/perl
+#u# http://rosettacode.org/wiki/Teacup_rim_text
+#t# inprogress
+#c# 2019-10-xx >RC
+#p# OK
+
+use Data::Printer;
+use Time::HiRes qw(sleep);
+
+use strict;
+use warnings;
+use feature 'say';
+
+my @res;
+
+say my $result = join "\n", @res;
+
+my $ref = <<'END';
+AIM, IMA, MAI
+ARC, RCA, CAR
+ASP, SPA, PAS
+ATE, TEA, EAT
+IPS, PSI, SIP
+END
+
+use Test::More;
+chomp $ref;
+is($result, $ref);
+done_testing();
+
+__END__
+
+my %words;
+'./ref/wordlist.10000'.IO.slurp.words.map: { .chars < 3 ?? (next) !! %words{.uc.comb.sort.join}.push: .uc };
+
+for %words.keys { %words{$_}:delete if %words{$_}.elems < 2 or $_.chars < 3 };
+
+my @teacups;
+my %seen;
+
+for %words.values -> @these {
+    next if @these < 2;
+    MAYBE: for @these {
+        my $maybe = $_;
+        next if %seen{$_};
+        my @print;
+        for ^$maybe.chars {
+            if $maybe ∈ @these {
+                @print.push: $maybe;
+                $maybe = $maybe.comb.list.rotate.join;
+            } else {
+                @print = ();
+                next MAYBE
+            }
+        }
+        if @print.elems {
+            @teacups.push: @print;
+            %seen{$_}++ for @print;
+        }
+    }
+}
+
+@res.push: $_.unique.join(", ") if .elems for sort @teacups;
+
+
+=={{header|Perl}}==
+{{trans|Perl 6}}
+<lang perl></lang>
+{{out}}
+<pre style="height:20ex"></pre>
+[https://github.com/SqrtNegInf/Rosettacode-Perl5-Smoke/blob/master/ref/XXX XXX]
