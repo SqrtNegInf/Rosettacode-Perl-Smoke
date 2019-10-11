@@ -2328,8 +2328,9 @@ File: F/Factorial-4
 File: F/Factorial_base_numbers_indexing_permutations_of_a_collection
 #!/usr/local/bin/perl
 #u# http://rosettacode.org/wiki/Factorial_base_numbers_indexing_permutations_of_a_collection
-#c# 2019-10-09 >RC
+#c# 2019-10-10 >RC
 #p# OK
+#n# just me, or was this just PITA task?
 
 File: F/Factorions
 #!/usr/local/bin/perl
@@ -2804,6 +2805,12 @@ File: F/Function_prototype
 #u# http://rosettacode.org/wiki/Function_prototype
 #n# nocode
 #c# 2018-08-08 <RC
+#p# OK
+
+File: F/Functional_coverage_tree
+#!/usr/local/bin/perl
+#u# http://rosettacode.org/wiki/Functional_coverage_tree
+#c# 2019-10-10 <RC
 #p# OK
 
 File: F/Fusc_sequence
@@ -7118,6 +7125,22 @@ File: S/Sunflower_fractal
 #f# RC file: sunflower.svg
 #n# much less slapdash...
 
+File: S/Super-d_numbers-1
+#!/usr/local/bin/perl
+#u# http://rosettacode.org/wiki/Super-d_numbers
+#c# 2019-10-10 NOT ON RC
+#p# OK
+#n# due to the 'bigint' requirement, slower than P6 version
+#n# 202.732u 0.344s 3:23.32 99.8%
+#n# 167.730u 0.366s 2:48.57 99.7% GMP
+
+File: S/Super-d_numbers-2
+#!/usr/local/bin/perl
+#u# http://rosettacode.org/wiki/Super-d_numbers
+#c# 2019-10-10 >RC
+#p# OK
+#n# thundergnat's version, just testing for basic functionality
+
 File: S/Superellipse
 #!/usr/local/bin/perl
 #u# http://rosettacode.org/wiki/Superellipse
@@ -7175,6 +7198,13 @@ File: T/Taxicab_numbers
 #!/usr/local/bin/perl
 #u# http://rosettacode.org/wiki/Taxicab_numbers
 #c# 2018-08-11 <RC
+#p# OK
+
+File: T/Teacup_rim_text
+#!/usr/local/bin/perl
+#u# http://rosettacode.org/wiki/Teacup_rim_text
+#t# inprogress
+#c# 2019-10-xx >RC
 #p# OK
 
 File: T/Temperature_conversion
