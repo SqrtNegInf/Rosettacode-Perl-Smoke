@@ -1,0 +1,17 @@
+#!/usr/local/bin/perl
+#u# http://rosettacode.org/wiki/Image_convolution
+#c# 2019-10-13 >RC
+#p# OK
+#f# RC file: pythagoras_convolution.png
+
+use strict;
+use warnings;
+
+use PDL;
+use PDL::Image2D;
+
+my $kernel = pdl [[-2, -1, 0],[-1, 1, 1], [0, 1, 2]]; # emboss
+
+my $image = rpic 'ref/pythagoras_tree.png';
+my $smoothed = conv2d $image, $kernel, {Boundary => 'Truncate'};
+wpic $smoothed, 'run/pythagoras_convolution.png';
