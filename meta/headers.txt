@@ -4283,6 +4283,13 @@ File: M/McNuggets_Problem.1
 #c# 2018-11-01 >RC
 #p# OK
 
+File: M/Median_filter
+#!/usr/local/bin/perl
+#u# http://rosettacode.org/wiki/Median_filter
+#c# 2019-10-12 >RC
+#p# OK
+#f# RC file: plasma_median.png
+
 File: M/Memory_allocation
 #!/usr/local/bin/perl
 #u# http://rosettacode.org/wiki/Memory_allocation
