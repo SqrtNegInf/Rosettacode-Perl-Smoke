@@ -1,17 +1,17 @@
 
 This is perl 5, version 30, subversion 0 (v5.30.0) built for darwin-thread-multi-2level
 updating from RC…
-+------------> Perl: Good/Bad [1195/13]
-|+-----------> Smoke testing [1058]
++------------> Perl: Good/Bad [1196/13]
+|+-----------> Smoke testing [1059]
 ||+----------> sKipping validation [143]
 |||+---------> Interactive [49]
-||||+--------> Touched (modified by me) [327]
+||||+--------> Touched (modified by me) [328]
 |||||+-------> Random seed [94]
-||||||+------> File output [63]
+||||||+------> File output [64]
 |||||||+-----> Draft [226]
 ||||||||+----> Ignoring [33]
-|||||||||+---> Void (no local copy) [151]
-||||||||||+--> Un-implemented/reliable [143]
+|||||||||+---> Void (no local copy) [150]
+||||||||||+--> Un-implemented/reliable [142]
 |||||||||||
 GS......... 100_doors-1
 GS......... 100_doors-2
@@ -736,7 +736,7 @@ GS...R..... Maze_generation
 GS...R..... Maze_solving
 GS..T...... McNuggets_Problem
 GS......... McNuggets_Problem-2
-.........VU Median_filter
+GS..T.F.... Median_filter
 GS..T...... Memory_allocation
 GS......... Memory_layout_of_a_data_structure
 GS......... Menu
