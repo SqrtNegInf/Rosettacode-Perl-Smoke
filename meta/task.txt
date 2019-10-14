@@ -1,17 +1,17 @@
 
 This is perl 5, version 30, subversion 0 (v5.30.0) built for darwin-thread-multi-2level
 updating from RC…
-+------------> Perl: Good/Bad [1196/13]
-|+-----------> Smoke testing [1059]
++------------> Perl: Good/Bad [1198/13]
+|+-----------> Smoke testing [1061]
 ||+----------> sKipping validation [143]
 |||+---------> Interactive [49]
-||||+--------> Touched (modified by me) [328]
+||||+--------> Touched (modified by me) [330]
 |||||+-------> Random seed [94]
-||||||+------> File output [64]
+||||||+------> File output [66]
 |||||||+-----> Draft [226]
 ||||||||+----> Ignoring [33]
-|||||||||+---> Void (no local copy) [150]
-||||||||||+--> Un-implemented/reliable [142]
+|||||||||+---> Void (no local copy) [148]
+||||||||||+--> Un-implemented/reliable [140]
 |||||||||||
 GS......... 100_doors-1
 GS......... 100_doors-2
@@ -135,7 +135,7 @@ GS......... Bernoulli_numbers-2
 GS......... Bernoulli_numbers-3
 GS...R..... Best_shuffle-1
 GS...R..... Best_shuffle-2
-.......D.VU Bilinear_interpolation
+GS..T.FD... Bilinear_interpolation
 GS......... Binary_digits
 GS......... Binary_search-1
 GS......... Binary_search-2
@@ -584,7 +584,7 @@ GS......... I_before_E_except_after_C-2
 GS......... Identity_matrix
 GS..T...... Idiomatically_determine_all_the_characters_that_can_be_used_for_symbols
 GS..T...... Idiomatically_determine_all_the_lowercase_and_uppercase_letters
-.........VU Image_convolution
+GS..T.F.... Image_convolution
 G.KIT...... Image_noise
 .........VU Imaginary_base_numbers
 G.K.T..D... Implicit_type_conversion
