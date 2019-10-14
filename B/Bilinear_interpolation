@@ -9,24 +9,10 @@ use warnings;
 
 use GD;
 
-my $file = 'ref/color_wheel.png';
-my $image = GD::Image->newFromPng($file);
+my $image = GD::Image->newFromPng('ref/color_wheel.png');
 
 $image->interpolationMethod( ['GD_BILINEAR_FIXED'] );
 my($width,$height) = $image->getBounds();
 my $image2 = $image->copyScaleInterpolated( 1.6*$width, 1.6*$height );
 
 $image2->_file('run/color_wheel_interpolated.png') || die 'That did not go well...';
-
-__END__
-
-my $png_data = $image->png;
-open (DISPLAY,"| display -") || die;
-binmode DISPLAY;
-print DISPLAY $png_data;
-close DISPLAY;
-
-
-=={{header|Perl}}==
-<lang perl></lang>
-[https://github.com/SqrtNegInf/Rosettacode-Perl5-Smoke/blob/master/ref/XXX XXX]
