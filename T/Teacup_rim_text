@@ -4,7 +4,8 @@
 #c# 2019-10-xx >RC
 #p# OK
 
-use Data::Printer;
+#use Data::Printer;
+use Data::Dumper;
 use Time::HiRes qw(sleep);
 
 use strict;
@@ -12,6 +13,18 @@ use warnings;
 use feature 'say';
 
 my @res;
+
+my %words;
+open my $fh, '<', 'ref/wordlist.10000';
+while ($_ = <$fh>) {
+    next if length($_) < 3;
+#    next unless /^pos/;
+    my $w = uc $_;
+    push @{$words{join '', sort split //, $w}}, $w;
+}
+
+p $words{'OPST'}; exit;
+#print Dumper(%words); exit;
 
 say my $result = join "\n", @res;
 
@@ -29,9 +42,6 @@ is($result, $ref);
 done_testing();
 
 __END__
-
-my %words;
-'./ref/wordlist.10000'.IO.slurp.words.map: { .chars < 3 ?? (next) !! %words{.uc.comb.sort.join}.push: .uc };
 
 for %words.keys { %words{$_}:delete if %words{$_}.elems < 2 or $_.chars < 3 };
 
