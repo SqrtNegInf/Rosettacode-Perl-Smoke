@@ -671,6 +671,13 @@ File: B/Best_shuffle-2
 #c# 2018-07-16 <RC
 #p# OK
 
+File: B/Bilinear_interpolation
+#!/usr/local/bin/perl
+#u# http://rosettacode.org/wiki/Bilinear_interpolation
+#c# 2019-10-13 >RC
+#p# OK
+#f# RC File: color_wheel_interpolated.png
+
 File: B/Binary_digits
 #!/usr/local/bin/perl
 #u# http://rosettacode.org/wiki/Binary_digits
@@ -3361,6 +3368,13 @@ File: I/Idiomatically_determine_all_the_lowercase_and_uppercase_letters
 #u# http://rosettacode.org/wiki/Idiomatically_determine_all_the_lowercase_and_uppercase_letters
 #c# 2018-09-15 >RC
 #p# OK
+
+File: I/Image_convolution
+#!/usr/local/bin/perl
+#u# http://rosettacode.org/wiki/Image_convolution
+#c# 2019-10-13 >RC
+#p# OK
+#f# RC file: pythagoras_convolution.png
 
 File: I/Image_noise
 #!/usr/local/bin/perl # do-not-check
