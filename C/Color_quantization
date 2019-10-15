@@ -1,0 +1,14 @@
+#!/usr/local/bin/perl
+#u# http://rosettacode.org/wiki/Color_quantization
+#c# 2019-10-14 >RC
+#p# OK
+
+use strict;
+use warnings;
+
+use Imager;
+
+my $img = Imager->new;
+$img->read(file => 'ref/frog.png');
+my $img16 = $img->to_paletted({ max_colors => 16});
+$img16->write(file => "run/frog-16.png")
