@@ -1,17 +1,17 @@
 
 This is perl 5, version 30, subversion 0 (v5.30.0) built for darwin-thread-multi-2level
 updating from RC…
-+------------> Perl: Good/Bad [1198/13]
-|+-----------> Smoke testing [1061]
++------------> Perl: Good/Bad [1199/13]
+|+-----------> Smoke testing [1062]
 ||+----------> sKipping validation [143]
 |||+---------> Interactive [49]
-||||+--------> Touched (modified by me) [330]
+||||+--------> Touched (modified by me) [331]
 |||||+-------> Random seed [94]
 ||||||+------> File output [66]
 |||||||+-----> Draft [226]
 ||||||||+----> Ignoring [33]
-|||||||||+---> Void (no local copy) [148]
-||||||||||+--> Un-implemented/reliable [140]
+|||||||||+---> Void (no local copy) [147]
+||||||||||+--> Un-implemented/reliable [139]
 |||||||||||
 GS......... 100_doors-1
 GS......... 100_doors-2
@@ -235,7 +235,7 @@ GS......... Closures_Value_capture
 .......D.V. Code_segment_unload
 GS......... Collections
 ........XVU Color_of_a_screen_pixel
-.........VU Color_quantization
+GS..T...... Color_quantization
 GS....FD... Color_wheel
 GS....F.... Colour_bars_Display
 GS....F.... Colour_pinstripe_Display
