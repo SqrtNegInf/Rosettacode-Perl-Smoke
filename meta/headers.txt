@@ -1215,6 +1215,12 @@ File: C/Collections
 #c# 2018-07-23 <RC
 #p# OK
 
+File: C/Color_quantization
+#!/usr/local/bin/perl
+#u# http://rosettacode.org/wiki/Color_quantization
+#c# 2019-10-14 >RC
+#p# OK
+
 File: C/Color_wheel
 #!/usr/local/bin/perl
 #u# http://rosettacode.org/wiki/Color_wheel
