@@ -2,15 +2,15 @@
 This is perl 5, version 30, subversion 0 (v5.30.0) built for darwin-thread-multi-2level
 updating from RC…
 +------------> Perl: Good/Bad [1199/13]
-|+-----------> Smoke testing [1062]
-||+----------> sKipping validation [143]
+|+-----------> Smoke testing [1063]
+||+----------> sKipping validation [142]
 |||+---------> Interactive [49]
 ||||+--------> Touched (modified by me) [331]
 |||||+-------> Random seed [94]
 ||||||+------> File output [66]
-|||||||+-----> Draft [226]
+|||||||+-----> Draft [227]
 ||||||||+----> Ignoring [33]
-|||||||||+---> Void (no local copy) [147]
+|||||||||+---> Void (no local copy) [148]
 ||||||||||+--> Un-implemented/reliable [139]
 |||||||||||
 GS......... 100_doors-1
@@ -1234,7 +1234,7 @@ GS....F.... Take_notes_on_the_command_line
 .......D.VU Tamagotchi_emulator
 GS..T...... Tarjan
 GS......... Taxicab_numbers
-G.K.T..D..U Teacup_rim_text
+GS..T..D... Teacup_rim_text
 GS......... Temperature_conversion
 G.KI....... Terminal_control_Clear_the_screen
 G.KIT...... Terminal_control_Coloured_text
@@ -1282,6 +1282,7 @@ GS..T...... Totient_function-2
 GS......... Towers_of_Hanoi
 GS..T...... Trabb_Pardo-Knuth_algorithm
 .......D.VU Transportation_problem
+.......D.VU Tree_datastructures
 GS......... Tree_traversal
 GS......... Trigonometric_functions
 GS......... Truncatable_primes-1
