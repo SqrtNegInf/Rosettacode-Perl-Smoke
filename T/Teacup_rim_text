@@ -1,52 +1,36 @@
 #!/usr/local/bin/perl
 #u# http://rosettacode.org/wiki/Teacup_rim_text
-#t# inprogress
-#c# 2019-10-xx >RC
+#c# 2019-10-15 >RC
 #p# OK
-
-use Data::Printer;
-use Time::HiRes qw(sleep);
-
-use List::Util qw(uniqstr any);
 
 use strict;
 use warnings;
 use feature 'say';
+use List::Util qw(uniqstr any);
 
 my @res;
+my(%words, %seen, @teacups);
 
-my %words;
 open my $fh, '<', 'ref/wordlist.10000';
-while ($_ = <$fh>) {
-    chomp;
-    next if length($_) < 3;
-    my $w = uc $_;
+while (<$fh>) {
+    chomp(my $w = uc $_);
+    next if length $w < 3;
     push @{$words{join '', sort split //, $w}}, $w;
 }
 
-for my $w (keys %words) {
-    delete $words{$w} if length($w) < 3 or +@{$words{$w}} < 2
-}
+#(length($_) < 3 or @{$words{$_}} < 2) and delete $words{$_} for keys %words;
 
-my @teacups;
-my %seen;
-
-for my $k (sort keys %words) {
-    my $these = $words{$k};
-     next if @$these < 3;
+for my $these (values %words) {
+    next if @$these < 3;
     MAYBE: for (@$these) {
-        my $maybe = $_;
-        next if $seen{$_};
+        next if $seen{my $maybe = $_};
         my @print;
-        for my $i (0 .. length($maybe)) {
+        for my $i (0 .. length $maybe) {
             if (any { $maybe eq $_ } @$these) {
                 push @print, $maybe;
-                my @mlist = split //, $maybe;
-                push @mlist, shift @mlist;
-                $maybe = join '', @mlist;
+                $maybe = substr($maybe,1) . substr($maybe,0,1)
             } else {
-                @print = ();
-                next MAYBE
+                @print = () and next MAYBE
             }
         }
         if (@print) {
@@ -56,29 +40,19 @@ for my $k (sort keys %words) {
     }
 }
 
-
 push @res, join ', ', uniqstr @$_ for sort @teacups;
 
-say my $result = join "\n", @res;
-exit;
+say my $result = join "\n", sort @res;
 
 my $ref = <<'END';
-ARC, RCA, CAR
 AIM, IMA, MAI
-IPS, PSI, SIP
-ATE, TEA, EAT
+ARC, RCA, CAR
 ASP, SPA, PAS
+ATE, TEA, EAT
+IPS, PSI, SIP
 END
 
 use Test::More;
 chomp $ref;
 is($result, $ref);
 done_testing();
-
-__END__
-
-=={{header|Perl}}==
-{{trans|Perl 6}}
-<lang perl></lang>
-{{out}}
-<pre></pre>
