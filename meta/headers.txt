@@ -7230,8 +7230,7 @@ File: T/Taxicab_numbers
 File: T/Teacup_rim_text
 #!/usr/local/bin/perl
 #u# http://rosettacode.org/wiki/Teacup_rim_text
-#t# inprogress
-#c# 2019-10-xx >RC
+#c# 2019-10-15 >RC
 #p# OK
 
 File: T/Temperature_conversion
