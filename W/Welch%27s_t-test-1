@@ -1,6 +1,6 @@
 #!/usr/local/bin/perl
 #u# http://rosettacode.org/wiki/Welch%27s_t-test
-#c# 2018-08-03 <RC
+#c# 2018-08-03 <RC, 2019-10-16 >RC
 #p# OK
 #n# cumulative error changed; possibly how my Perl is compiled? 
 
@@ -118,77 +118,66 @@ sub calculate_Pvalue {
 	}
 	return $value;
 }
-my @d1 = (27.5,21.0,19.0,23.6,17.0,17.9,16.9,20.1,21.9,22.6,23.1,19.6,19.0,21.7,21.4);
-my @d2 = (27.1,22.0,20.8,23.4,23.4,23.5,25.8,22.0,24.8,20.2,21.9,22.1,22.9,20.5,24.4);
-my @d3 = (17.2,20.9,22.6,18.1,21.7,21.4,23.5,24.2,14.7,21.8);
-my @d4 = (21.5,22.8,21.0,23.0,21.6,23.6,22.5,20.7,23.4,21.8,20.7,21.7,21.5,22.5,23.6,21.5,22.5,23.5,21.5,21.8);
-my @d5 = (19.8,20.4,19.6,17.8,18.5,18.9,18.3,18.9,19.5,22.0);
-my @d6 = (28.2,26.6,20.1,23.3,25.2,22.1,17.7,27.6,20.6,13.7,23.2,17.5,20.6,18.0,23.9,21.6,24.3,20.4,24.0,13.2);
-my @d7 = (30.02,29.99,30.11,29.97,30.01,29.99);
-my @d8 = (29.89,29.93,29.72,29.98,30.02,29.98);
-my @x = (3.0,4.0,1.0,2.1);
-my @y = (490.2,340.0,433.9);
-my @s1 = (1.0/15,10.0/62.0);
-my @s2 = (1.0/10,2/50.0);
-my @v1 = (0.010268,0.000167,0.000167);
-my @v2 = (0.159258,0.136278,0.122389);
-my @z1 = (9/23.0,21/45.0,0/38.0);
-my @z2 = (0/44.0,42/94.0,0/22.0);
 
-my @CORRECT_ANSWERS = (0.021378001462867,
+my @answers = (
+0.021378001462867,
 0.148841696605327,
 0.0359722710297968,
 0.090773324285671,
 0.0107515611497845,
 0.00339907162713746,
 0.52726574965384,
-0.545266866977794);
+0.545266866977794,
+);
 
-my $pvalue = calculate_Pvalue(\@d1,\@d2);
-my $error = abs($pvalue - $CORRECT_ANSWERS[0]);
-$result .= sprintf("Test sets 1 p-value = %.14g\n",$pvalue);
+my @tests = (
+    [27.5,21.0,19.0,23.6,17.0,17.9,16.9,20.1,21.9,22.6,23.1,19.6,19.0,21.7,21.4],
+    [27.1,22.0,20.8,23.4,23.4,23.5,25.8,22.0,24.8,20.2,21.9,22.1,22.9,20.5,24.4],
 
-$pvalue = calculate_Pvalue(\@d3,\@d4);
-$error += abs($pvalue - $CORRECT_ANSWERS[1]);
-$result .= sprintf("Test sets 2 p-value = %.14g\n",$pvalue);
+    [17.2,20.9,22.6,18.1,21.7,21.4,23.5,24.2,14.7,21.8],
+    [21.5,22.8,21.0,23.0,21.6,23.6,22.5,20.7,23.4,21.8,20.7,21.7,21.5,22.5,23.6,21.5,22.5,23.5,21.5,21.8],
 
-$pvalue = calculate_Pvalue(\@d5,\@d6);
-$error += abs($pvalue - $CORRECT_ANSWERS[2]);
-$result .= sprintf("Test sets 3 p-value = %.14g\n",$pvalue);
+    [19.8,20.4,19.6,17.8,18.5,18.9,18.3,18.9,19.5,22.0],
+    [28.2,26.6,20.1,23.3,25.2,22.1,17.7,27.6,20.6,13.7,23.2,17.5,20.6,18.0,23.9,21.6,24.3,20.4,24.0,13.2],
 
-$pvalue = calculate_Pvalue(\@d7,\@d8);
-$error += abs($pvalue - $CORRECT_ANSWERS[3]);
-$result .= sprintf("Test sets 4 p-value = %.14g\n",$pvalue);
+    [30.02,29.99,30.11,29.97,30.01,29.99],
+    [29.89,29.93,29.72,29.98,30.02,29.98],
 
-$pvalue = calculate_Pvalue(\@x,\@y);
-$error += abs($pvalue - $CORRECT_ANSWERS[4]);
+    [3.0,4.0,1.0,2.1],
+    [490.2,340.0,433.9],
 
-$pvalue = calculate_Pvalue(\@v1,\@v2);
-$error += abs($pvalue - $CORRECT_ANSWERS[5]);
-$result .= sprintf("Test sets 6 p-value = %.14g\n",$pvalue);
+    [0.010268,0.000167,0.000167],
+    [0.159258,0.136278,0.122389],
 
-$pvalue = calculate_Pvalue(\@s1,\@s2);
-$error += abs($pvalue - $CORRECT_ANSWERS[6]);
-$result .= sprintf("Test sets 7 p-value = %.14g\n",$pvalue);
+    [1.0/15,10.0/62.0],
+    [1.0/10,2/50.0],
 
-$pvalue = calculate_Pvalue(\@z1,\@z2);
-$error += abs($pvalue - $CORRECT_ANSWERS[7]);
-$result .= sprintf("Test sets z p-value = %.14g\n",$pvalue);
+    [9/23.0,21/45.0,0/38.0],
+    [0/44.0,42/94.0,0/22.0],
+);
 
-$result .= sprintf("the cumulative error is %g\n", $error);
+my $error = 0;
+while (@tests) { 
+    my ($left, $right) = splice(@tests, 0, 2);
+    my $pvalue = calculate_Pvalue($left,$right);
+    $error += abs($pvalue - shift @answers);
+    $result .= sprintf("p-value = %.14g\n",$pvalue);
+}
+$result .= sprintf("cumulative error is %g\n", $error);
 
 say $result;
+
 my $ref = <<'EOD';
-Test sets 1 p-value = 0.021378001462867
-Test sets 2 p-value = 0.14884169660533
-Test sets 3 p-value = 0.035972271029797
-Test sets 4 p-value = 0.090773324285661
-Test sets 6 p-value = 0.0033990716271375
-Test sets 7 p-value = 0.52726574965384
-Test sets z p-value = 0.54526686697779
-the cumulative error is 1.11139e-14
+p-value = 0.021378001462867
+p-value = 0.14884169660533
+p-value = 0.035972271029797
+p-value = 0.090773324285661
+p-value = 0.010751561149784
+p-value = 0.0033990716271375
+p-value = 0.52726574965384
+p-value = 0.54526686697779
+cumulative error is 1.11139e-14
 EOD
-# the cumulative error is 4.87106e-15
 
 use Test::More;
 is ($result, $ref);
