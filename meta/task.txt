@@ -1,17 +1,17 @@
 
 This is perl 5, version 30, subversion 0 (v5.30.0) built for darwin-thread-multi-2level
 updating from RC…
-+------------> Perl: Good/Bad [1199/13]
++------------> Perl: Good/Bad [1200/13]
 |+-----------> Smoke testing [1063]
-||+----------> sKipping validation [142]
-|||+---------> Interactive [49]
-||||+--------> Touched (modified by me) [331]
+||+----------> sKipping validation [143]
+|||+---------> Interactive [50]
+||||+--------> Touched (modified by me) [332]
 |||||+-------> Random seed [94]
 ||||||+------> File output [66]
 |||||||+-----> Draft [227]
 ||||||||+----> Ignoring [33]
-|||||||||+---> Void (no local copy) [148]
-||||||||||+--> Un-implemented/reliable [139]
+|||||||||+---> Void (no local copy) [147]
+||||||||||+--> Un-implemented/reliable [138]
 |||||||||||
 GS......... 100_doors-1
 GS......... 100_doors-2
@@ -655,7 +655,7 @@ GS......... Last_Friday_of_each_month
 GS..TR..... Last_letter-first_letter
 .........VU Latin_Squares_in_reduced_form
 .......D.VU Latin_Squares_in_reduced_form_Randomizing_using_Jacobson_and_Matthews_Technique
-.......D.VU Launch_rocket_with_countdown_and_acceleration_in_stdout
+G.KIT..D... Launch_rocket_with_countdown_and_acceleration_in_stdout
 GS..T...... Law_of_cosines_-_triples
 GS......... Leap_year
 GS......... Least_common_multiple
