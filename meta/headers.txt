@@ -7830,11 +7830,18 @@ File: W/Weird_numbers-2
 File: W/Welch%27s_t-test-1
 #!/usr/local/bin/perl
 #u# http://rosettacode.org/wiki/Welch%27s_t-test
-#c# 2018-08-03 <RC
+#c# 2018-08-03 <RC, 2019-10-16 >RC
 #p# OK
 #n# cumulative error changed; possibly how my Perl is compiled? 
 
 File: W/Welch%27s_t-test-2
+#!/usr/local/bin/perl
+#u# http://rosettacode.org/wiki/Welch%27s_t-test
+#c# 2018-08-03 <RC
+#p# OK
+#n# interesting, different modules require different quoting constructions (when not using 'qw')
+
+File: W/Welch%27s_t-test-2.0
 #!/usr/local/bin/perl
 #u# http://rosettacode.org/wiki/Welch%27s_t-test
 #c# 2018-08-03 <RC
