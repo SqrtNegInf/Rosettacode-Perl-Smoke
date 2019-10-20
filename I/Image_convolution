@@ -2,7 +2,7 @@
 #u# http://rosettacode.org/wiki/Image_convolution
 #c# 2019-10-13 >RC
 #p# OK
-#f# RC file: pythagoras_convolution.png
+#f# RC file: frog_convolution.png
 
 use strict;
 use warnings;
