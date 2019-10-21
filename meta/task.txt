@@ -8,10 +8,10 @@ updating from RC…
 ||||+--------> Touched (modified by me) [333]
 |||||+-------> Random seed [94]
 ||||||+------> File output [66]
-|||||||+-----> Draft [227]
+|||||||+-----> Draft [226]
 ||||||||+----> Ignoring [33]
-|||||||||+---> Void (no local copy) [147]
-||||||||||+--> Un-implemented/reliable [138]
+|||||||||+---> Void (no local copy) [148]
+||||||||||+--> Un-implemented/reliable [139]
 |||||||||||
 GS......... 100_doors-1
 GS......... 100_doors-2
@@ -342,6 +342,7 @@ GS......... Dinesman%27s_multiple-dwelling_problem-2
 G.K..R..... Dining_philosophers
 GS......... Discordian_date
 .......D.V. Display_a_linear_combination
+.......D.VU Display_an_outline_as_a_nested_table
 GS......... Distributed_programming
 GS..T..D... Diversity_prediction_theorem
 G.K........ Documentation
@@ -725,7 +726,7 @@ GS......... Map_range
 GS..TR.D... Markov_chain_text_generator
 GS..TR..... Mastermind
 GS......... Matrix-exponentiation_operator
-G.KI...D... Matrix_Digital_Rain
+G.KI....... Matrix_Digital_Rain
 GS..T...... Matrix_chain_multiplication
 GS..T...... Matrix_multiplication
 GS......... Matrix_transposition
@@ -971,7 +972,7 @@ GS..T...... Range_consolidation
 GS......... Range_expansion
 GS..T...... Range_extraction
 GS..T...... Ranking_methods
-GS..T..D..U Rare_numbers
+GS..T.....U Rare_numbers
 .......D.VU Raster_bars
 GS......... Rate_counter
 GS......... Ray-casting_algorithm
