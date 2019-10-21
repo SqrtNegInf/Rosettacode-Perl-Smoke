@@ -3380,7 +3380,7 @@ File: I/Image_convolution
 #u# http://rosettacode.org/wiki/Image_convolution
 #c# 2019-10-13 >RC
 #p# OK
-#f# RC file: pythagoras_convolution.png
+#f# RC file: frog_convolution.png
 
 File: I/Image_noise
 #!/usr/local/bin/perl # do-not-check
