@@ -1057,6 +1057,13 @@ File: C/Chat_server
 #c# 2018-07-22 <RC
 #p# OK
 
+File: C/Chat_server-2
+#!/usr/local/bin/perl
+#u# http://rosettacode.org/wiki/Chat_server
+#t# interactive
+#c# 2019-10-28 <RC
+#p# OK
+
 File: C/Chebyshev_coefficients
 #!/usr/local/bin/perl
 #u# http://rosettacode.org/wiki/Chebyshev_coefficients
@@ -4236,6 +4243,13 @@ File: M/Matrix_Digital_Rain
 #u# http://rosettacode.org/wiki/Matrix_Digital_Rain
 #t# gui
 #c# 2018-12-20 <RC
+#p# OK
+
+File: M/Matrix_Digital_Rain-2
+#!/usr/local/bin/perl
+#u# http://rosettacode.org/wiki/Matrix_Digital_Rain
+#t# gui
+#c# 2019-10-28 <RC
 #p# OK
 
 File: M/Matrix_chain_multiplication
