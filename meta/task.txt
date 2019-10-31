@@ -1,17 +1,17 @@
 
 This is perl 5, version 30, subversion 0 (v5.30.0) built for darwin-thread-multi-2level
 updating from RC…
-+------------> Perl: Good/Bad [1200/13]
++------------> Perl: Good/Bad [1201/13]
 |+-----------> Smoke testing [1063]
 ||+----------> sKipping validation [145]
 |||+---------> Interactive [52]
 ||||+--------> Touched (modified by me) [333]
 |||||+-------> Random seed [94]
 ||||||+------> File output [66]
-|||||||+-----> Draft [227]
+|||||||+-----> Draft [229]
 ||||||||+----> Ignoring [33]
-|||||||||+---> Void (no local copy) [149]
-||||||||||+--> Un-implemented/reliable [140]
+|||||||||+---> Void (no local copy) [151]
+||||||||||+--> Un-implemented/reliable [142]
 |||||||||||
 GS......... 100_doors-1
 GS......... 100_doors-2
@@ -331,6 +331,7 @@ GS..T...... Deming%27s_Funnel
 GS......... Department_Numbers
 GS......... Detect_division_by_zero
 GS......... Determinant_and_permanent
+.......D.VU Determine_if_a_string_has_all_the_same_characters
 .......D.VU Determine_if_a_string_has_all_unique_characters
 GS......... Determine_if_a_string_is_numeric
 G.K........ Determine_if_only_one_instance_is_running
@@ -745,6 +746,7 @@ GS..T...... Memory_allocation
 GS......... Memory_layout_of_a_data_structure
 GS......... Menu
 GS.....D... Mersenne_primes
+.......D.VU Metallic_ratios
 GS......... Metaprogramming
 ........XV. Metered_concurrency
 GS..T...... Metronome
@@ -1271,7 +1273,7 @@ B.K.T.....U Thiele%27s_interpolation_formula
 GS......... Thue-Morse
 GS...R..... Tic-tac-toe
 .......D.VU Time-based_One-time_Password_Algorithm
-!S......... Time_a_function
+GS......... Time_a_function
 GS......... Tokenize_a_string
 GS......... Tokenize_a_string_with_escaping
 GS..T...... Tonelli-Shanks_algorithm
