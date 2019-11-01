@@ -1788,6 +1788,20 @@ File: D/Determinant_and_permanent
 #c# 2018-08-18 <RC
 #p# OK
 
+File: D/Determine_if_a_string_has_all_the_same_characters
+#!/usr/local/bin/perl
+#u# http://rosettacode.org/wiki/Determine_if_a_string_has_all_the_same_characters
+#t# inprogress
+#c# 2019-11-xx >RC
+#p# OK
+
+File: D/Determine_if_a_string_has_all_unique_characters
+#!/usr/local/bin/perl
+#u# http://rosettacode.org/wiki/Determine_if_a_string_has_all_unique_characters
+#t# inprogress
+#c# 2019-11-xx >RC
+#p# OK
+
 File: D/Determine_if_a_string_is_numeric
 #!/usr/local/bin/perl
 #u# http://rosettacode.org/wiki/Determine_if_a_string_is_numeric
@@ -2936,6 +2950,13 @@ File: G/Globally_replace_text_in_several_files
 #u# http://rosettacode.org/wiki/Globally_replace_text_in_several_files
 #t# skiptest
 #c# 2018-08-11 <RC
+#p# OK
+
+File: G/Gradient_descent
+#!/usr/local/bin/perl
+#u# http://rosettacode.org/wiki/Gradient_descent
+#t# inprogress
+#c# 2019-11-xx >RC
 #p# OK
 
 File: G/Gray_code
@@ -4356,6 +4377,13 @@ File: M/Mersenne_primes
 #!/usr/local/bin/perl
 #u# http://rosettacode.org/wiki/Mersenne_primes
 #c# 2018-08-18 <RC
+#p# OK
+
+File: M/Metallic_ratios
+#!/usr/local/bin/perl
+#u# http://rosettacode.org/wiki/Metallic_ratios
+#t# inprogress
+#c# 2019-10-31 >RC
 #p# OK
 
 File: M/Metaprogramming
