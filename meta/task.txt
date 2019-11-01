@@ -1,16 +1,16 @@
 
 This is perl 5, version 30, subversion 0 (v5.30.0) built for darwin-thread-multi-2level
 updating from RC…
-+------------> Perl: Good/Bad [1201/13]
++------------> Perl: Good/Bad [1205/13]
 |+-----------> Smoke testing [1063]
-||+----------> sKipping validation [145]
+||+----------> sKipping validation [149]
 |||+---------> Interactive [52]
-||||+--------> Touched (modified by me) [333]
+||||+--------> Touched (modified by me) [337]
 |||||+-------> Random seed [94]
 ||||||+------> File output [66]
 |||||||+-----> Draft [229]
 ||||||||+----> Ignoring [33]
-|||||||||+---> Void (no local copy) [151]
+|||||||||+---> Void (no local copy) [147]
 ||||||||||+--> Un-implemented/reliable [142]
 |||||||||||
 GS......... 100_doors-1
@@ -331,8 +331,8 @@ GS..T...... Deming%27s_Funnel
 GS......... Department_Numbers
 GS......... Detect_division_by_zero
 GS......... Determinant_and_permanent
-.......D.VU Determine_if_a_string_has_all_the_same_characters
-.......D.VU Determine_if_a_string_has_all_unique_characters
+G.K.T..D..U Determine_if_a_string_has_all_the_same_characters
+G.K.T..D..U Determine_if_a_string_has_all_unique_characters
 GS......... Determine_if_a_string_is_numeric
 G.K........ Determine_if_only_one_instance_is_running
 GS..T..D... Determine_if_two_triangles_overlap
@@ -417,7 +417,7 @@ GS..T..D... External_sort
 GS.....D... Extract_file_extension
 GS......... Extreme_floating_point_values
 GS......... FASTA_format
-GS..T...... FTP
+!S..T...... FTP
 GS......... Factorial-1
 GS......... Factorial-2
 GS......... Factorial-3
@@ -516,7 +516,7 @@ GS......... Generic_swap
 GS......... Get_system_command_output
 G.K........ Globally_replace_text_in_several_files
 .........VU Go_Fish
-.......D.VU Gradient_descent
+G.K.T..D..U Gradient_descent
 GS......... Gray_code
 GS....F.... Grayscale_image
 GS......... Greatest_common_divisor-1
@@ -746,7 +746,7 @@ GS..T...... Memory_allocation
 GS......... Memory_layout_of_a_data_structure
 GS......... Menu
 GS.....D... Mersenne_primes
-.......D.VU Metallic_ratios
+G.K.T..D..U Metallic_ratios
 GS......... Metaprogramming
 ........XV. Metered_concurrency
 GS..T...... Metronome
@@ -979,7 +979,7 @@ GS..T...... Range_extraction
 GS..T...... Ranking_methods
 GS..T.....U Rare_numbers
 .......D.VU Raster_bars
-!S......... Rate_counter
+GS......... Rate_counter
 GS......... Ray-casting_algorithm
 GS......... Read_a_configuration_file
 GS.....D... Read_a_file_character_by_character_UTF8
