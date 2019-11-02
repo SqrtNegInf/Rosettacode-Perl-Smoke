@@ -1,41 +1,29 @@
 #!/usr/local/bin/perl
 #u# http://rosettacode.org/wiki/P-value_correction
-#c# 2018-08-20 <RC, 2018-12-20 <RC,
+#c# 2018-08-20 <RC, 2018-12-20 <RC, 2019-11-01 <RC
 #p# OK
 
 use strict;
-use warnings;
+#use warnings FATAL => 'all';
+#use autodie ':all';
+use List::Util 'min';
 use feature 'say';
+
 my $result;
 
-# Translation of: C
-# This work is based on R source code covered by the GPL license. It is thus a modified version, also covered by the GPL. See the FAQ about GNU licenses.
-
 sub pmin {
-	my $array_ref = shift;
+	my $array = shift;
 	my $x = 1;
-	unless ((ref $array_ref) =~ m/ARRAY/) {
-		print "cummin requires an array.\n";
-		die;
-	}
 	my @pmin_array;
-	my $n = scalar @$array_ref;
+	my $n = scalar @$array;
 	for (my $index = 0; $index < $n; $index++) {
-		if (@$array_ref[$index] < $x) {
-			$pmin_array[$index] = @$array_ref[$index];
-		} else {
-			$pmin_array[$index] = $x;
-		}
+		$pmin_array[$index] = min(@$array[$index], $x);
 	}
-	return @pmin_array;
+	@pmin_array
 }
 
 sub cummin {
 	my $array_ref = shift;
-	unless ((ref $array_ref) =~ m/ARRAY/) {
-		print "cummin requires an array.\n";
-		die;
-	}
 	my @cummin;
 	my $cumulative_min = @$array_ref[0];
 	foreach my $p (@$array_ref) {
@@ -44,15 +32,11 @@ sub cummin {
 		}
 		push @cummin, $cumulative_min;
 	}
-	return @cummin;
+	@cummin
 }
 
 sub cummax {
 	my $array_ref = shift;
-	unless ((ref $array_ref) =~ m/ARRAY/) {
-		print "cummin requires an array.\n";
-		die;
-	}
 	my @cummax;
 	my $cumulative_max = @$array_ref[0];
 	foreach my $p (@$array_ref) {
@@ -61,7 +45,7 @@ sub cummax {
 		}
 		push @cummax, $cumulative_max;
 	}
-	return @cummax;
+	@cummax
 }
 
 sub order {#made to match R's "order"
@@ -78,10 +62,6 @@ sub order {#made to match R's "order"
 			die;
 		}
 	}
-	unless ((ref $array_ref) =~ m/ARRAY/) {
-		print "You should have entered an array.\n";
-		die;
-	}
 	my @array;
 	my $max_index = scalar @$array_ref-1;
 	if ($decreasing eq 'false') {
@@ -89,21 +69,16 @@ sub order {#made to match R's "order"
 	} elsif ($decreasing eq 'true') {
 		@array = sort { @$array_ref[$b] <=> @$array_ref[$a] } 0..$max_index;
 	}
+	@array
 }
-
-use List::Util 'min';
 
 sub p_adjust {
 	my $pvalues_ref = shift;
-	unless ((ref $pvalues_ref) =~ m/ARRAY/) {
-		print "p_adjust requires an array.\n";
-		die;
-	}
 	my $method;
 	if (defined $_[0]) {
-		$method = shift;
+		$method = shift
 	} else {
-		$method = 'Holm';
+		$method = 'Holm'
 	}
 	my %methods = (
 						'bh'         => 1,
@@ -119,7 +94,7 @@ sub p_adjust {
 		if ((uc $method) eq (uc $key)) {
 			$method = $key;
 			$method_found = 'yes';
-			last;
+			last
 		}
 	}
 	if ($method_found eq 'no') {
@@ -133,7 +108,7 @@ sub p_adjust {
 	}
 	if ($method_found eq 'no') {
 		print "No method could be determined from $method.\n";
-		die;
+		die
 	}
 	my $lp = scalar @$pvalues_ref;
 	my $n  = $lp;
@@ -145,11 +120,8 @@ sub p_adjust {
 			$cummin_input[$index] = ($index+1)* @$pvalues_ref[$o[$index]];#PVALUES[$o[$index]] is p[o]
 		}
 		my @cummin = cummin(\@cummin_input);
-		undef @cummin_input;
 		my @pmin   = pmin(\@cummin);
-		undef @cummin;
 		my @ro = order(\@o);
-		undef @o;
 		@qvalues = @pmin[@ro];
 	} elsif ($method eq 'bh') {
 		my @o = order($pvalues_ref, 'TRUE');
@@ -158,11 +130,8 @@ sub p_adjust {
 			$cummin_input[$index] = ($n/($n-$index))* @$pvalues_ref[$o[$index]];#PVALUES[$o[$index]] is p[o]
 		}
 		my @ro = order(\@o);
-		undef @o;
 		my @cummin = cummin(\@cummin_input);
-		undef @cummin_input;
 		my @pmin   = pmin(\@cummin);
-		undef @cummin;
 		@qvalues = @pmin[@ro];
 	} elsif ($method eq 'by') {
 		my $q = 0.0;
@@ -175,10 +144,11 @@ sub p_adjust {
 		for (my $index = 0; $index < $n; $index++) {
 			$cummin_input[$index] = $q * ($n/($n-$index)) * @$pvalues_ref[$o[$index]];#PVALUES[$o[$index]] is p[o]
 		}
+#		say join (',', @cummin_input);
+#		say '@cummin_input # of elements = ' . scalar @cummin_input;
 		my @cummin = cummin(\@cummin_input);
 		undef @cummin_input;
 		my @pmin   = pmin(\@cummin);
-		undef @cummin;
 		@qvalues = @pmin[@ro];
 	} elsif ($method eq 'bonferroni') {
 		for (my $index = 0; $index < $n; $index++) {
@@ -188,7 +158,7 @@ sub p_adjust {
 			} elsif ($q >= 1) {
 				$qvalues[$index] = 1.0;
 			} else {
-				print "Failed to get Bonferroni adjusted p.";
+				say 'Failed to get Bonferroni adjusted p.';
 				die;
 			}
 		}
@@ -206,30 +176,22 @@ sub p_adjust {
 		undef @cummax;
 		@qvalues = @pmin[@ro];
 	} elsif ($method eq 'hommel') {
-		my @i = 1..$n;
 		my @o = order($pvalues_ref);
 		my @p = @$pvalues_ref[@o];
 		my @ro = order(\@o);
 		undef @o;
-		my @pa;
-		my @q;
+		my (@q, @pa);
 		my $min = $n*$p[0];
 		for (my $index = 0; $index < $n; $index++) {
 			my $temp = $n*$p[$index] / ($index + 1);
-			if ($temp < $min) {
-				$min = $temp;
-			}
+			$min = min($min, $temp);
 		}
 		for (my $index = 0; $index < $n; $index++) {
 			$pa[$index] = $min;#q <- pa <- rep.int(min(n * p/i), n)
 			 $q[$index] = $min;#q <- pa <- rep.int(min(n * p/i), n)
 		}
 		for (my $j = ($n-1); $j >= 2; $j--) {
-#			printf("j = %zu\n", j);
-			my @ij = 1..($n - $j + 1);#ij <- seq_len(n - j + 1)
-			for (my $i = 0; $i < $n - $j + 1; $i++) {
-				$ij[$i]--;#R's indices are 1-based, C's are 0-based
-			}
+			my @ij = 0..($n - $j);#ij <- seq_len(n - j + 1)
 			my $I2_LENGTH = $j - 1;
 			my @i2;
 			for (my $i = 0; $i < $I2_LENGTH; $i++) {
@@ -240,17 +202,14 @@ sub p_adjust {
 			my $q1 = $j * $p[$i2[0]] / 2.0;
 			for (my $i = 1; $i < $I2_LENGTH; $i++) {#loop through 2:j
 				my $TEMP_Q1 = $j * $p[$i2[$i]] / (2 + $i);
-				if ($TEMP_Q1 < $q1) {
-					$q1 = $TEMP_Q1;
-				}
+				$q1 = min($TEMP_Q1, $q1);
 			}
-
 			for (my $i = 0; $i < ($n - $j + 1); $i++) {#q[ij] <- pmin(j * p[ij], q1)
 				$q[$ij[$i]] = min( $j*$p[$ij[$i]], $q1);
 			}
 
 			for (my $i = 0; $i < $I2_LENGTH; $i++) {#q[i2] <- q[n - j + 1]
-				$q[$i2[$i]] = $q[$n - $j];#subtract 1 because of starting index difference
+				$q[$i2[$i]] = $q[$n - $j];
 			}
 
 			for (my $i = 0; $i < $n; $i++) {#pa <- pmax(pa, q)
@@ -264,9 +223,9 @@ sub p_adjust {
 		@qvalues = @pa[@ro];
 	} else {
 		print "$method doesn't fit my types.\n";
-		die;
+		die
 	}
-	return @qvalues;
+	@qvalues
 }
 my @pvalues = (4.533744e-01, 7.296024e-01, 9.936026e-02, 9.079658e-02, 1.801962e-01,
 8.752257e-01, 2.922222e-01, 9.115421e-01, 4.355806e-01, 5.324867e-01,
@@ -343,7 +302,6 @@ my %correct_answers = (
 8.825610e-04, 1.252228e-05, 8.743649e-01, 3.016908e-01, 3.516461e-02,
 9.582456e-03, 3.877222e-02, 3.172920e-03, 8.122276e-01, 1.950067e-01]);
 
- 
 foreach my $method ('Hochberg','Benjamini-Hochberg','Benjamini-Yekutieli', 'Bonferroni', 'Holm', 'Hommel') {
 	$result .= "$method\n";
 	my @qvalues = p_adjust(\@pvalues, $method);
@@ -354,8 +312,8 @@ foreach my $method ('Hochberg','Benjamini-Hochberg','Benjamini-Yekutieli', 'Bonf
 	$result .= sprintf("type $method has cumulative error of %g.\n", $error);
 }
 
+say $result;
 
-say $result; 
 my $ref = <<'EOD';
 Hochberg
 type Hochberg has cumulative error of 2.7375e-07.
