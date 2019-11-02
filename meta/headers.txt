@@ -2955,8 +2955,7 @@ File: G/Globally_replace_text_in_several_files
 File: G/Gradient_descent
 #!/usr/local/bin/perl
 #u# http://rosettacode.org/wiki/Gradient_descent
-#t# inprogress
-#c# 2019-11-xx >RC
+#c# 2019-11-01 >RC
 #p# OK
 
 File: G/Gray_code
@@ -4921,14 +4920,13 @@ File: O/Ordered_words
 File: P/P-value_correction
 #!/usr/local/bin/perl
 #u# http://rosettacode.org/wiki/P-value_correction
-#c# 2018-08-20 <RC, 2018-12-20 <RC,
+#c# 2018-08-20 <RC, 2018-12-20 <RC, 2019-11-01 <RC
 #p# OK
 
 File: P/P-value_correction.1
 #!/usr/local/bin/perl
-#n# NOT CURRENT, NOT SMOKE-TESTED
 #u# http://rosettacode.org/wiki/P-value_correction
-#c# 2018-08-20 <RC
+#c# 2018-08-20 <RC, 2018-12-20 <RC,
 #p# OK
 
 File: P/Palindrome_detection
