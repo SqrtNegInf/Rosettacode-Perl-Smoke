@@ -1,9 +1,9 @@
 
 This is perl 5, version 30, subversion 0 (v5.30.0) built for darwin-thread-multi-2level
 updating from RC…
-+------------> Perl: Good/Bad [1205/13]
-|+-----------> Smoke testing [1063]
-||+----------> sKipping validation [149]
++------------> Perl: Good/Bad [1206/13]
+|+-----------> Smoke testing [1064]
+||+----------> sKipping validation [148]
 |||+---------> Interactive [52]
 ||||+--------> Touched (modified by me) [337]
 |||||+-------> Random seed [94]
@@ -11,7 +11,7 @@ updating from RC…
 |||||||+-----> Draft [229]
 ||||||||+----> Ignoring [33]
 |||||||||+---> Void (no local copy) [147]
-||||||||||+--> Un-implemented/reliable [142]
+||||||||||+--> Un-implemented/reliable [141]
 |||||||||||
 GS......... 100_doors-1
 GS......... 100_doors-2
@@ -417,7 +417,7 @@ GS..T..D... External_sort
 GS.....D... Extract_file_extension
 GS......... Extreme_floating_point_values
 GS......... FASTA_format
-!S..T...... FTP
+GS..T...... FTP
 GS......... Factorial-1
 GS......... Factorial-2
 GS......... Factorial-3
@@ -516,7 +516,7 @@ GS......... Generic_swap
 GS......... Get_system_command_output
 G.K........ Globally_replace_text_in_several_files
 .........VU Go_Fish
-G.K.T..D..U Gradient_descent
+GS..T..D... Gradient_descent
 GS......... Gray_code
 GS....F.... Grayscale_image
 GS......... Greatest_common_divisor-1
