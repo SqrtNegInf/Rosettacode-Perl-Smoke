@@ -2,15 +2,16 @@
 #u# http://rosettacode.org/wiki/Ramanujan%27s_constant
 #c# 2019-04-25 <RC
 #p# OK
-
-use feature 'say';
-my $result;
-
-#Translation of: Sidef  -- trizen++
+#n# could partly simplify with ':overload', but still need 'Math::AnyNum->pi', as it depends on 
+#n# $Math::AnyNum::PREC which is varies at runtine ('use Math::AnyNum qw(pi)' is fixed at startup)
+#n# Translation of: Sidef  -- trizen++
 
 use strict;
 use warnings;
+use feature 'say';
 use Math::AnyNum;
+
+my $result;
 
 sub ramanujan_const {
     my ($x, $decimals) = @_;
