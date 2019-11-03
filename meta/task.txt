@@ -2,16 +2,16 @@
 This is perl 5, version 30, subversion 0 (v5.30.0) built for darwin-thread-multi-2level
 updating from RC…
 +------------> Perl: Good/Bad [1206/13]
-|+-----------> Smoke testing [1064]
-||+----------> sKipping validation [148]
+|+-----------> Smoke testing [1065]
+||+----------> sKipping validation [147]
 |||+---------> Interactive [52]
-||||+--------> Touched (modified by me) [337]
+||||+--------> Touched (modified by me) [336]
 |||||+-------> Random seed [94]
 ||||||+------> File output [66]
 |||||||+-----> Draft [229]
 ||||||||+----> Ignoring [33]
 |||||||||+---> Void (no local copy) [147]
-||||||||||+--> Un-implemented/reliable [141]
+||||||||||+--> Un-implemented/reliable [140]
 |||||||||||
 GS......... 100_doors-1
 GS......... 100_doors-2
@@ -746,7 +746,8 @@ GS..T...... Memory_allocation
 GS......... Memory_layout_of_a_data_structure
 GS......... Menu
 GS.....D... Mersenne_primes
-G.K.T..D..U Metallic_ratios
+GS..T..D... Metallic_ratios
+GS......... Metallic_ratios-2
 GS......... Metaprogramming
 ........XV. Metered_concurrency
 GS..T...... Metronome
@@ -966,7 +967,6 @@ GS..TR..... RPG_Attributes_Generator
 GS..T...... RSA_code
 .......D.VU Railway_circuit
 GS.....D... Ramanujan%27s_constant
-GS..T...... Ramanujan%27s_constant-2
 GS..T...... Ramer-Douglas-Peucker_line_simplification
 GS..T..D... Ramsey%27s_theorem
 .......D.VU Random_Latin_Squares
