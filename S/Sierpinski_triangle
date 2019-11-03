@@ -2,6 +2,8 @@
 #u# http://rosettacode.org/wiki/Sierpinski_triangle
 #c# 2018-08-17 <RC
 #p# OK
+#n# 2019-11-02 woo-hoo, code-golfing
+#n# perl -le '$l=80;$l2="!" x $l;substr+($l2^=$l2),$l/2,1,"\xFF";foreach(1..16){local $_=$l2;y/\0\xFF/ ^/;print;($lf,$rt)=map{substr $l2 x 2,$_%$l,$l;}1,-1;$l2=$lf^$rt;select undef,undef,undef,.1;}'
 
 use strict;
 use warnings;
@@ -19,7 +21,7 @@ sub sierpinski {
     return @down;
 }
 
-$result .= "$_\n" foreach sierpinski 4;
+$result .= "$_\n" for sierpinski 4;
 say $result; 
 
 my $ref = <<'EOD';
