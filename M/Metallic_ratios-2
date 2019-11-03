@@ -1,0 +1,84 @@
+#!/usr/local/bin/perl
+#u# http://rosettacode.org/wiki/Metallic_ratios
+#c# 2019-11-02 NOT ON RC
+#p# OK
+#n# using real Lucas sequences, as per trizen++
+
+use strict;
+use warnings;
+use feature 'say';
+use feature 'state';
+
+use Math::AnyNum qw<:overload as_dec lucasU>;
+
+my @res;
+
+sub metallic {
+    my $b  = shift;
+    my $places = shift || 32;
+    my $n = my $last = 0;
+    while (1) {
+        my $this = as_dec( lucasU($b,-1,$n+1)/lucasU($b,-1,$n), $places+1 );
+        last if $this eq $last;
+        $last = $this;
+        $n++;
+    }
+    $last, $n
+}
+
+my @name = <Platinum Golden Silver Bronze Copper Nickel Aluminum Iron Tin Lead>;
+
+for my $b (1..$#name) {
+    push @res, "\nLucas sequence for $name[$b] ratio, where b = $b:\nFirst 15 elements: " . join ', ', map { lucasU($b,-1,$_) } 1..15;
+    push @res, sprintf "Approximated value %s reached after %d iterations", metallic($b);
+}
+
+push @res, sprintf "\nGolden ratio to 256 decimal places %s reached after %d iterations", metallic(1,256);
+
+say my $result = join "\n", @res;
+
+my $ref = <<'END';
+
+Lucas sequence for Golden ratio, where b = 1:
+First 15 elements: 1, 1, 2, 3, 5, 8, 13, 21, 34, 55, 89, 144, 233, 377, 610
+Approximated value 1.61803398874989484820458683436564 reached after 79 iterations
+
+Lucas sequence for Silver ratio, where b = 2:
+First 15 elements: 1, 2, 5, 12, 29, 70, 169, 408, 985, 2378, 5741, 13860, 33461, 80782, 195025
+Approximated value 2.4142135623730950488016887242097 reached after 45 iterations
+
+Lucas sequence for Bronze ratio, where b = 3:
+First 15 elements: 1, 3, 10, 33, 109, 360, 1189, 3927, 12970, 42837, 141481, 467280, 1543321, 5097243, 16835050
+Approximated value 3.30277563773199464655961063373525 reached after 33 iterations
+
+Lucas sequence for Copper ratio, where b = 4:
+First 15 elements: 1, 4, 17, 72, 305, 1292, 5473, 23184, 98209, 416020, 1762289, 7465176, 31622993, 133957148, 567451585
+Approximated value 4.23606797749978969640917366873128 reached after 28 iterations
+
+Lucas sequence for Nickel ratio, where b = 5:
+First 15 elements: 1, 5, 26, 135, 701, 3640, 18901, 98145, 509626, 2646275, 13741001, 71351280, 370497401, 1923838285, 9989688826
+Approximated value 5.19258240356725201562535524577016 reached after 26 iterations
+
+Lucas sequence for Aluminum ratio, where b = 6:
+First 15 elements: 1, 6, 37, 228, 1405, 8658, 53353, 328776, 2026009, 12484830, 76934989, 474094764, 2921503573, 18003116202, 110940200785
+Approximated value 6.16227766016837933199889354443272 reached after 23 iterations
+
+Lucas sequence for Iron ratio, where b = 7:
+First 15 elements: 1, 7, 50, 357, 2549, 18200, 129949, 927843, 6624850, 47301793, 337737401, 2411463600, 17217982601, 122937341807, 877779375250
+Approximated value 7.14005494464025913554865124576352 reached after 21 iterations
+
+Lucas sequence for Tin ratio, where b = 8:
+First 15 elements: 1, 8, 65, 528, 4289, 34840, 283009, 2298912, 18674305, 151693352, 1232221121, 10009462320, 81307919681, 660472819768, 5365090477825
+Approximated value 8.12310562561766054982140985597408 reached after 20 iterations
+
+Lucas sequence for Lead ratio, where b = 9:
+First 15 elements: 1, 9, 82, 747, 6805, 61992, 564733, 5144589, 46866034, 426938895, 3889316089, 35430783696, 322766369353, 2940328107873, 26785719340210
+Approximated value 9.1097722286464436550011371408814 reached after 19 iterations
+
+Golden ratio to 256 decimal places 1.6180339887498948482045868343656381177203091798057628621354486227052604628189024497072072041893911374847540880753868917521266338622235369317931800607667263544333890865959395829056383226613199282902678806752087668925017116962070322210432162695486262963136144 reached after 616 iterations
+END
+
+use Test::More;
+chomp $ref;
+is($result, $ref);
+done_testing();
