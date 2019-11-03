@@ -4381,9 +4381,15 @@ File: M/Mersenne_primes
 File: M/Metallic_ratios
 #!/usr/local/bin/perl
 #u# http://rosettacode.org/wiki/Metallic_ratios
-#t# inprogress
-#c# 2019-10-31 >RC
+#c# 2019-11-02 >RC
 #p# OK
+
+File: M/Metallic_ratios-2
+#!/usr/local/bin/perl
+#u# http://rosettacode.org/wiki/Metallic_ratios
+#c# 2019-11-02 NOT ON RC
+#p# OK
+#n# using real Lucas sequences, as per trizen++
 
 File: M/Metaprogramming
 #!/usr/local/bin/perl do-not-check
@@ -5651,13 +5657,9 @@ File: R/Ramanujan%27s_constant
 #u# http://rosettacode.org/wiki/Ramanujan%27s_constant
 #c# 2019-04-25 <RC
 #p# OK
-
-File: R/Ramanujan%27s_constant-2
-#!/usr/local/bin/perl
-#u# http://rosettacode.org/wiki/Ramanujan%27s_constant
-#c# 2019-05-14 >RC
-#p# OK
-#n# using 'rat' on 2nd arg to func. promotes all further values to rational (for $r163 and $pi)
+#n# could partly simplify with ':overload', but still need 'Math::AnyNum->pi', as it depends on 
+#n# $Math::AnyNum::PREC which is varies at runtine ('use Math::AnyNum qw(pi)' is fixed at startup)
+#n# Translation of: Sidef  -- trizen++
 
 File: R/Ramer-Douglas-Peucker_line_simplification
 #!/usr/local/bin/perl
@@ -6367,6 +6369,8 @@ File: S/Sierpinski_triangle
 #u# http://rosettacode.org/wiki/Sierpinski_triangle
 #c# 2018-08-17 <RC
 #p# OK
+#n# 2019-11-02 woo-hoo, code-golfing
+#n# perl -le '$l=80;$l2="!" x $l;substr+($l2^=$l2),$l/2,1,"\xFF";foreach(1..16){local $_=$l2;y/\0\xFF/ ^/;print;($lf,$rt)=map{substr $l2 x 2,$_%$l,$l;}1,-1;$l2=$lf^$rt;select undef,undef,undef,.1;}'
 
 File: S/Sierpinski_triangle_Graphical
 #!/usr/local/bin/perl
