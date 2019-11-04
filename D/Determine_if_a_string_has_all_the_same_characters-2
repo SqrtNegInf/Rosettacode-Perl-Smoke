@@ -1,0 +1,55 @@
+#!/usr/local/bin/perl
+#u# http://rosettacode.org/wiki/Determine_if_a_string_has_all_the_same_characters
+#c# 2019-11-03 NOT ON RC
+#p# OK
+#n# works for just Unicode, but how to combine with main task?
+
+use strict;
+use warnings;
+use feature 'say';
+use utf8;
+binmode(STDOUT, ':utf8');
+use List::AllUtils qw(uniq);
+use Unicode::Normalize qw(NFD NFC NFKD NFKC FCD FCC);
+use Unicode::UCD 'charinfo';
+
+my @res;
+
+for my $str (
+    '.555',
+#    '🇬🇧🇬🇧🇬🇧🇬🇧',
+    'Böbb¥',
+    "\N{LATIN CAPITAL LETTER A}\N{COMBINING DIAERESIS}\N{COMBINING MACRON}".  # NFC/NFKC/FCC works
+    "\N{LATIN CAPITAL LETTER A WITH DIAERESIS}\N{COMBINING MACRON}".
+    "\N{LATIN CAPITAL LETTER A WITH DIAERESIS AND MACRON}"
+) {
+    my $len = () = ($str =~ /\X/g);
+    #my $len = 0;
+    #$len++ while $str =~ /\X/g;
+    push @res, sprintf qq{\n"$str" (length: %d) has }, $len;
+    my @U = uniq my @S = split //, NFC($str);
+    if (1 != @U and @U > 0) {
+        $res[-1] .= "different characters:";
+        for my $l (@U) {
+            push @res, sprintf "'%s' (0x%x) %s in positions: %s", 
+                $l, ord($l), charinfo(ord $l)->{'name'}, join ', ', map { 1+$_ } grep { $l eq $S[$_] } 0..$#S;
+        }
+    } else {
+        $res[-1] .= "the same character in all positions."
+    }
+}
+
+say my $result = join "\n", @res;
+exit;
+
+my $ref = <<'END';
+
+"🇬🇧🇬🇧🇬🇧🇬🇧" (length: 4) has the same character in all positions.
+
+"ǞǞǞ" (length: 3) has the same character in all positions.
+END
+
+use Test::More;
+chomp $ref;
+is($result, $ref);
+done_testing();
