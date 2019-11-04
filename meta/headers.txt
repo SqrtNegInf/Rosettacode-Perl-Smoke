@@ -1791,9 +1791,15 @@ File: D/Determinant_and_permanent
 File: D/Determine_if_a_string_has_all_the_same_characters
 #!/usr/local/bin/perl
 #u# http://rosettacode.org/wiki/Determine_if_a_string_has_all_the_same_characters
-#t# inprogress
-#c# 2019-11-xx >RC
+#c# 2019-11-03 >RC
 #p# OK
+
+File: D/Determine_if_a_string_has_all_the_same_characters-2
+#!/usr/local/bin/perl
+#u# http://rosettacode.org/wiki/Determine_if_a_string_has_all_the_same_characters
+#c# 2019-11-03 NOT ON RC
+#p# OK
+#n# works for just Unicode, but how to combine with main task?
 
 File: D/Determine_if_a_string_has_all_unique_characters
 #!/usr/local/bin/perl
