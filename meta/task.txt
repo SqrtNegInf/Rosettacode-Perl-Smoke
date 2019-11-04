@@ -1,9 +1,9 @@
 
 This is perl 5, version 30, subversion 0 (v5.30.0) built for darwin-thread-multi-2level
 updating from RC…
-+------------> Perl: Good/Bad [1206/13]
-|+-----------> Smoke testing [1065]
-||+----------> sKipping validation [147]
++------------> Perl: Good/Bad [1207/13]
+|+-----------> Smoke testing [1067]
+||+----------> sKipping validation [146]
 |||+---------> Interactive [52]
 ||||+--------> Touched (modified by me) [336]
 |||||+-------> Random seed [94]
@@ -11,7 +11,7 @@ updating from RC…
 |||||||+-----> Draft [229]
 ||||||||+----> Ignoring [33]
 |||||||||+---> Void (no local copy) [147]
-||||||||||+--> Un-implemented/reliable [140]
+||||||||||+--> Un-implemented/reliable [139]
 |||||||||||
 GS......... 100_doors-1
 GS......... 100_doors-2
@@ -331,7 +331,8 @@ GS..T...... Deming%27s_Funnel
 GS......... Department_Numbers
 GS......... Detect_division_by_zero
 GS......... Determinant_and_permanent
-G.K.T..D..U Determine_if_a_string_has_all_the_same_characters
+GS..T..D... Determine_if_a_string_has_all_the_same_characters
+GS......... Determine_if_a_string_has_all_the_same_characters-2
 G.K.T..D..U Determine_if_a_string_has_all_unique_characters
 GS......... Determine_if_a_string_is_numeric
 G.K........ Determine_if_only_one_instance_is_running
