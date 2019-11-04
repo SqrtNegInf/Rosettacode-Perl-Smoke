@@ -5,8 +5,7 @@
 
 use strict;
 use warnings;
-use feature 'say';
-use feature 'state';
+use feature qw<say state>;
 
 use ntheory qw<is_prime>;
 use Lingua::EN::Numbers qw(num2en_ordinal);
