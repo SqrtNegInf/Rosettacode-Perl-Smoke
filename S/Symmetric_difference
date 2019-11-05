@@ -6,7 +6,6 @@
 use strict;
 use warnings;
 use feature 'say';
-my $result;
 
 sub symm_diff {
         # two lists passed in as references
@@ -24,9 +23,8 @@ my @a = <John Serena Bob  Mary Serena>;
 my @b = <Jim  Mary   John Jim  Bob   >;
 
 my ($a, $b, $s) = symm_diff(\@a, \@b);
-say $result = "A\\B: @$a\nB\\A: @$b\nSymm: @$s\n";
+say my $result = "A\\B: @$a\nB\\A: @$b\nSymm: @$s\n";
 
-say $result; 
 my $ref = <<'EOD';
 A\B: Serena
 B\A: Jim
