@@ -2,15 +2,15 @@
 This is perl 5, version 30, subversion 0 (v5.30.0) built for darwin-thread-multi-2level
 updating from RC…
 +------------> Perl: Good/Bad [1207/13]
-|+-----------> Smoke testing [1067]
-||+----------> sKipping validation [146]
+|+-----------> Smoke testing [1068]
+||+----------> sKipping validation [145]
 |||+---------> Interactive [52]
 ||||+--------> Touched (modified by me) [336]
 |||||+-------> Random seed [94]
 ||||||+------> File output [66]
-|||||||+-----> Draft [229]
+|||||||+-----> Draft [230]
 ||||||||+----> Ignoring [33]
-|||||||||+---> Void (no local copy) [147]
+|||||||||+---> Void (no local copy) [148]
 ||||||||||+--> Un-implemented/reliable [139]
 |||||||||||
 GS......... 100_doors-1
@@ -18,6 +18,7 @@ GS......... 100_doors-2
 GS......... 100_doors-3
 GS......... 100_doors-4
 GS......... 100_doors-5
+.......D.VU 100_prisoners
 G.KI....... 15_Puzzle_Game-1
 GS...RF.... 15_Puzzle_Game-2
 .......D.VU 15_Puzzle_Game_in_3D
@@ -333,7 +334,7 @@ GS......... Detect_division_by_zero
 GS......... Determinant_and_permanent
 GS..T..D... Determine_if_a_string_has_all_the_same_characters
 GS......... Determine_if_a_string_has_all_the_same_characters-2
-G.K.T..D..U Determine_if_a_string_has_all_unique_characters
+GS..T..D... Determine_if_a_string_has_all_unique_characters
 GS......... Determine_if_a_string_is_numeric
 G.K........ Determine_if_only_one_instance_is_running
 GS..T..D... Determine_if_two_triangles_overlap
