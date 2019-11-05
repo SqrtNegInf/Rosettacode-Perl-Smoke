@@ -2,13 +2,15 @@
 #u# http://rosettacode.org/wiki/Determine_if_a_string_has_all_the_same_characters
 #c# 2019-11-03 >RC
 #p# OK
+#n# still not working for 'flag'
 
 use strict;
 use warnings;
 use feature 'say';
-#use utf8;
-#binmode(STDOUT, ':utf8');
+use utf8;
+binmode(STDOUT, ':utf8');
 use List::AllUtils qw(uniq);
+use Unicode::Normalize qw(NFC);
 use Unicode::UCD 'charinfo';
 
 my @res;
@@ -22,14 +24,15 @@ for my $str (
     'tttTTT',
     '4444 444k',
 #    '🇬🇧🇬🇧🇬🇧🇬🇧',
-#    "\N{LATIN CAPITAL LETTER A}\N{COMBINING DIAERESIS}\N{COMBINING MACRON}".
-#    "\N{LATIN CAPITAL LETTER A WITH DIAERESIS}\N{COMBINING MACRON}".
-#    "\N{LATIN CAPITAL LETTER A WITH DIAERESIS AND MACRON}"
+    'Δ👍👨',
+    "\N{LATIN CAPITAL LETTER A}\N{COMBINING DIAERESIS}\N{COMBINING MACRON}" .
+    "\N{LATIN CAPITAL LETTER A WITH DIAERESIS}\N{COMBINING MACRON}" .
+    "\N{LATIN CAPITAL LETTER A WITH DIAERESIS AND MACRON}"
 ) {
-#    my $len = 0;
-#    $len++ while ($str =~ /\X/g);
-    push @res, sprintf qq{\n"$str" (length: %d) has }, length $str;
-    my @U = uniq my @S = split //, $str;
+    my $len = 0;
+    $len++ while ($str =~ /\X/g);
+    push @res, sprintf qq{\n"$str" (length: %d) has }, $len;
+    my @U = uniq my @S = split //, NFC $str;
     if (1 != @U and @U > 0) {
         $res[-1] .= "different characters:";
         for my $l (@U) {
@@ -65,18 +68,18 @@ my $ref = <<'END';
 '4' DIGIT FOUR (0x34) in positions: 1, 2, 3, 4, 6, 7, 8
 ' ' SPACE (0x20) in positions: 5
 'k' LATIN SMALL LETTER K (0x6b) in positions: 9
+
+"Δ👍👨" (length: 3) has different characters:
+'Δ' GREEK CAPITAL LETTER DELTA (0x394) in positions: 1
+'👍' THUMBS UP SIGN (0x1f44d) in positions: 2
+'👨' MAN (0x1f468) in positions: 3
+
+"ǞǞǞ" (length: 3) has the same character in all positions.
 END
+
 #"🇬🇧🇬🇧🇬🇧🇬🇧" (length: 4), has the same character in all positions.
-#"ǞǞǞ" (length: 3), has the same character in all positions.
 
 use Test::More;
 chomp $ref;
 is($result, $ref);
 done_testing();
-
-__END__
-
-=={{header|Perl}}==
-<lang perl></lang>
-{{out}}
-<pre></pre>
