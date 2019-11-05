@@ -6,28 +6,40 @@
 
 use feature 'say';
 
-use List::Util 1.33 'all';
+use List::Util 'all';
+ 
+#@strings = ();
+#$t1 = all { $strings[0] eq $strings[$_] } 1..$#strings;         # All equal
+#$t2 = all { $strings[$_-1] lt $strings[$_] } 1..$#strings;      # Strictly ascending
+#$t3 = join("\0", @strings) =~ /^ ( [^\0]*+ ) (?: \0 \1 )* $/x;  # All equal
+#say "t1:$t1 t2:$t2 t3:$t3 : "; # all 'true'
  
 @strings = <abc>;
-$t1 = all { $strings[0] eq $strings[$_] } 1..$#strings;  # All equal
-$t2 = all { $strings[$_-1] lt $strings[$_] } 1..$#strings;  # Strictly ascending
+$t1 = all { $strings[0] eq $strings[$_] } 1..$#strings;         # All equal
+$t2 = all { $strings[$_-1] lt $strings[$_] } 1..$#strings;      # Strictly ascending
 $t3 = join("\0", @strings) =~ /^ ( [^\0]*+ ) (?: \0 \1 )* $/x;  # All equal
 $result .= "t1:$t1 t2:$t2 t3:$t3 : ";
 
 @strings = <abc def ghi>;
-$t1 = all { $strings[0] eq $strings[$_] } 1..$#strings;  # All equal
-$t2 = all { $strings[$_-1] lt $strings[$_] } 1..$#strings;  # Strictly ascending
+$t1 = all { $strings[0] eq $strings[$_] } 1..$#strings;         # All equal
+$t2 = all { $strings[$_-1] lt $strings[$_] } 1..$#strings;      # Strictly ascending
 $t3 = join("\0", @strings) =~ /^ ( [^\0]*+ ) (?: \0 \1 )* $/x;  # All equal
 $result .= "t1:$t1 t2:$t2 t3:$t3 : ";
 
 @strings = <abc abc abc>;
-$t1 = all { $strings[0] eq $strings[$_] } 1..$#strings;  # All equal
-$t2 = all { $strings[$_-1] lt $strings[$_] } 1..$#strings;  # Strictly ascending
-$t3 = join("\0", @strings) =~ /^ ( [^\0]*+ ) (?: \0 \1 )* $/x;  # All equal # buggy?
+$t1 = all { $strings[0] eq $strings[$_] } 1..$#strings;         # All equal
+$t2 = all { $strings[$_-1] lt $strings[$_] } 1..$#strings;      # Strictly ascending
+$t3 = join("\0", @strings) =~ /^ ( [^\0]*+ ) (?: \0 \1 )* $/x;  # All equal # [2018-07-24 buggy?] {2019-11-04 why did I '?'?}
+$result .= "t1:$t1 t2:$t2 t3:$t3 : ";
+
+@strings = <abc def def ghi>;
+$t1 = all { $strings[0] eq $strings[$_] } 1..$#strings;         # All equal
+$t2 = all { $strings[$_-1] lt $strings[$_] } 1..$#strings;      # Strictly ascending
+$t3 = join("\0", @strings) =~ /^ ( [^\0]*+ ) (?: \0 \1 )* $/x;  # All equal
 $result .= "t1:$t1 t2:$t2 t3:$t3 : ";
 
 say $result;
 
 use Test::More;
-is ($result, 't1:1 t2:1 t3:1 : t1: t2:1 t3: : t1:1 t2: t3:1 : ');
+is ($result, 't1:1 t2:1 t3:1 : t1: t2:1 t3: : t1:1 t2: t3:1 : t1: t2: t3: : ');
 done_testing();
