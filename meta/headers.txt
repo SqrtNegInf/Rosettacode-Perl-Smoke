@@ -1793,20 +1793,21 @@ File: D/Determine_if_a_string_has_all_the_same_characters
 #u# http://rosettacode.org/wiki/Determine_if_a_string_has_all_the_same_characters
 #c# 2019-11-03 >RC
 #p# OK
+#n# still not working for 'flag'
 
 File: D/Determine_if_a_string_has_all_the_same_characters-2
 #!/usr/local/bin/perl
 #u# http://rosettacode.org/wiki/Determine_if_a_string_has_all_the_same_characters
 #c# 2019-11-03 NOT ON RC
 #p# OK
-#n# works for just Unicode, but how to combine with main task?
+#n# still not working for 'flag'
 
 File: D/Determine_if_a_string_has_all_unique_characters
 #!/usr/local/bin/perl
 #u# http://rosettacode.org/wiki/Determine_if_a_string_has_all_unique_characters
-#t# inprogress
-#c# 2019-11-xx >RC
+#c# 2019-11-04 >RC
 #p# OK
+#n# still not working for Unicode strings with 'joiners'
 
 File: D/Determine_if_a_string_is_numeric
 #!/usr/local/bin/perl
