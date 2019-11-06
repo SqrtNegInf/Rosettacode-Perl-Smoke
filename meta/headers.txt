@@ -28,6 +28,12 @@ File: 0/100_doors-5
 #c# 2018-07-09 <RC
 #p# OK
 
+File: 0/100_prisoners
+#!/usr/local/bin/perl
+#u# http://rosettacode.org/wiki/100_prisoners
+#c# 2019-11-05 >RC
+#p# OK
+
 File: 0/15_Puzzle_Game-1
 #!/usr/local/bin/perl
 #u# http://rosettacode.org/wiki/15_Puzzle_Game
