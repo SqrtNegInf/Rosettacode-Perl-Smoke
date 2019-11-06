@@ -1,24 +1,24 @@
 
 This is perl 5, version 30, subversion 0 (v5.30.0) built for darwin-thread-multi-2level
 updating from RC…
-+------------> Perl: Good/Bad [1207/13]
-|+-----------> Smoke testing [1068]
++------------> Perl: Good/Bad [1208/13]
+|+-----------> Smoke testing [1069]
 ||+----------> sKipping validation [145]
 |||+---------> Interactive [52]
-||||+--------> Touched (modified by me) [336]
-|||||+-------> Random seed [94]
+||||+--------> Touched (modified by me) [337]
+|||||+-------> Random seed [95]
 ||||||+------> File output [66]
-|||||||+-----> Draft [230]
+|||||||+-----> Draft [229]
 ||||||||+----> Ignoring [33]
-|||||||||+---> Void (no local copy) [148]
-||||||||||+--> Un-implemented/reliable [139]
+|||||||||+---> Void (no local copy) [147]
+||||||||||+--> Un-implemented/reliable [138]
 |||||||||||
 GS......... 100_doors-1
 GS......... 100_doors-2
 GS......... 100_doors-3
 GS......... 100_doors-4
 GS......... 100_doors-5
-.......D.VU 100_prisoners
+GS..TR..... 100_prisoners
 G.KI....... 15_Puzzle_Game-1
 GS...RF.... 15_Puzzle_Game-2
 .......D.VU 15_Puzzle_Game_in_3D
