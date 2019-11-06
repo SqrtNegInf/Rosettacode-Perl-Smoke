@@ -1,6 +1,6 @@
 #!/usr/local/bin/perl
 #u# http://rosettacode.org/wiki/100_prisoners
-#c# 2019-11-05 >RC
+#c# 2019-11-06 >RC
 #p# OK
 
 use strict;
@@ -34,7 +34,7 @@ sub simulation {
                     }
                 }
             } else {
-                for my $card ( (shuffle @drawers)[0..$half]) {
+                for my $card ( (shuffle @drawers)[0..$half-1]) {
                     ($found = 1, last) if $card == $prisoner
                 }
             }
@@ -48,14 +48,23 @@ sub simulation {
 
 my $population = 100;
 my $trials     = 10000;
-say my $result = " Simulation count: $trials\n" .
-(sprintf " Random strategy pardons: %4.1f%% of simulations\n", simulation $population, $trials, 'random' ) .
-(sprintf "Optimal strategy pardons: %4.1f%% of simulations\n", simulation $population, $trials, 'optimal');
+my $result = " Simulation count: $trials\n" .
+(sprintf " Random strategy pardons: %6.3f%% of simulations\n", simulation $population, $trials, 'random' ) .
+(sprintf "Optimal strategy pardons: %6.3f%% of simulations\n", simulation $population, $trials, 'optimal');
+
+$population = 10;
+$trials     = 1000000;
+say $result.= " Simulation count: $trials\n" .
+(sprintf " Random strategy pardons: %6.3f%% of simulations\n", simulation $population, $trials, 'random' ) .
+(sprintf "Optimal strategy pardons: %6.3f%% of simulations\n", simulation $population, $trials, 'optimal');
 
 my $ref = <<'END';
  Simulation count: 10000
- Random strategy pardons:  0.0% of simulations
-Optimal strategy pardons: 31.7% of simulations
+ Random strategy pardons:  0.000% of simulations
+Optimal strategy pardons: 31.510% of simulations
+ Simulation count: 1000000
+ Random strategy pardons:  0.099% of simulations
+Optimal strategy pardons: 35.420% of simulations
 END
 
 use Test::More;
