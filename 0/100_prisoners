@@ -1,0 +1,63 @@
+#!/usr/local/bin/perl
+#u# http://rosettacode.org/wiki/100_prisoners
+#c# 2019-11-05 >RC
+#p# OK
+
+use strict;
+use warnings;
+use feature 'say';
+
+use List::Util 'shuffle';
+
+srand 123456;
+
+sub simulation {
+    my($population,$trials,$strategy) = @_;
+    my $optimal   = $strategy =~ /^o/i ? 1 : 0;
+    my @prisoners = 0..$population-1;
+    my $half      = int $population / 2;
+    my $pardoned  = 0;
+
+    for (1..$trials) {
+        my @drawers = shuffle @prisoners;
+        my $total = 0;
+        for my $prisoner (@prisoners) {
+            my $found = 0;
+            if ($optimal) {
+                my $card = $drawers[$prisoner];
+                if ($card == $prisoner) {
+                    $found = 1;
+                } else {
+                    for (1..$half-1) {
+                        $card = $drawers[$card];
+                        ($found = 1, last) if $card == $prisoner
+                    }
+                }
+            } else {
+                for my $card ( (shuffle @drawers)[0..$half]) {
+                    ($found = 1, last) if $card == $prisoner
+                }
+            }
+            last unless $found;
+            $total++;
+        }
+        $pardoned++ if $total == $population; 
+    }
+    $pardoned / $trials * 100
+}
+
+my $population = 100;
+my $trials     = 10000;
+say my $result = " Simulation count: $trials\n" .
+(sprintf " Random strategy pardons: %4.1f%% of simulations\n", simulation $population, $trials, 'random' ) .
+(sprintf "Optimal strategy pardons: %4.1f%% of simulations\n", simulation $population, $trials, 'optimal');
+
+my $ref = <<'END';
+ Simulation count: 10000
+ Random strategy pardons:  0.0% of simulations
+Optimal strategy pardons: 31.7% of simulations
+END
+
+use Test::More;
+is($result, $ref);
+done_testing();
