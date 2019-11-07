@@ -2,8 +2,8 @@
 This is perl 5, version 30, subversion 0 (v5.30.0) built for darwin-thread-multi-2level
 updating from RC…
 +------------> Perl: Good/Bad [1208/13]
-|+-----------> Smoke testing [1069]
-||+----------> sKipping validation [145]
+|+-----------> Smoke testing [1070]
+||+----------> sKipping validation [144]
 |||+---------> Interactive [52]
 ||||+--------> Touched (modified by me) [337]
 |||||+-------> Random seed [95]
@@ -11,7 +11,7 @@ updating from RC…
 |||||||+-----> Draft [229]
 ||||||||+----> Ignoring [33]
 |||||||||+---> Void (no local copy) [147]
-||||||||||+--> Un-implemented/reliable [138]
+||||||||||+--> Un-implemented/reliable [137]
 |||||||||||
 GS......... 100_doors-1
 GS......... 100_doors-2
@@ -277,7 +277,7 @@ GS......... Continued_fraction_Arithmetic_Construct_from_rational_number
 GS......... Convert_decimal_number_to_rational
 GS......... Convert_seconds_to_compound_duration
 GS......... Convert_seconds_to_compound_duration-2
-G.K.T.....U Convex_hull
+GS..T...... Convex_hull
 GS...R..... Conway%27s_Game_of_Life-1
 G.KI....... Conway%27s_Game_of_Life-2
 GS......... Copy_a_string
