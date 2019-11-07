@@ -31,7 +31,7 @@ File: 0/100_doors-5
 File: 0/100_prisoners
 #!/usr/local/bin/perl
 #u# http://rosettacode.org/wiki/100_prisoners
-#c# 2019-11-05 >RC
+#c# 2019-11-06 >RC
 #p# OK
 
 File: 0/15_Puzzle_Game-1
@@ -1462,8 +1462,7 @@ File: C/Convert_seconds_to_compound_duration-2
 File: C/Convex_hull
 #!/usr/local/bin/perl
 #u# http://rosettacode.org/wiki/Convex_hull
-#t# skiptest
-#c# 2019-05-20 >RC
+#c# 2019-11-06 >RC
 #p# OK
 
 File: C/Conway%27s_Game_of_Life-1
