@@ -12,7 +12,7 @@ use warnings;
 use feature 'say';
 
 use Math::Complex;
-use List::Util qw(first shuffle);
+use List::Util qw(min first shuffle);
 
 srand 123456;
 
@@ -23,7 +23,11 @@ sub K_means {
     my @means = @data;
     until (@means == $K) {
          my @cumulD2;
+p @means;
 #        @cumulD2 = [\+] @data.map: -> $x { min map { abs($x - $_)**2 } @means }
+        for my $x (@data) {
+        my @temp = min map { abs($x - $_)**2 } @means;
+#        @cumulD2 =  [\+] @temp;
         my $rand = rand() * $cumulD2[-1];
         push @means, $data[ first { $cumulD2[$_] > $rand } 0..1+$#data ];
     }
