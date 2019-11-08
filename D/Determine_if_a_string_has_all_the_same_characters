@@ -1,8 +1,7 @@
 #!/usr/local/bin/perl
 #u# http://rosettacode.org/wiki/Determine_if_a_string_has_all_the_same_characters
-#c# 2019-11-03 >RC
+#c# 2019-11-03 >RC, 2019-11-07 >RC
 #p# OK
-#n# still not working for 'flag'
 
 use strict;
 use warnings;
@@ -23,16 +22,16 @@ for my $str (
     '.55',
     'tttTTT',
     '4444 444k',
-#    '🇬🇧🇬🇧🇬🇧🇬🇧',
     'Δ👍👨',
+    '🇬🇧🇬🇧🇬🇧🇬🇧',
     "\N{LATIN CAPITAL LETTER A}\N{COMBINING DIAERESIS}\N{COMBINING MACRON}" .
     "\N{LATIN CAPITAL LETTER A WITH DIAERESIS}\N{COMBINING MACRON}" .
     "\N{LATIN CAPITAL LETTER A WITH DIAERESIS AND MACRON}"
 ) {
-    my $len = 0;
-    $len++ while ($str =~ /\X/g);
-    push @res, sprintf qq{\n"$str" (length: %d) has }, $len;
-    my @U = uniq my @S = split //, NFC $str;
+    my @S;
+    push @S, NFC $1 while $str =~ /(\X)/g;
+    push @res, sprintf qq{\n"$str" (length: %d) has }, scalar @S;
+    my @U = uniq @S;
     if (1 != @U and @U > 0) {
         $res[-1] .= "different characters:";
         for my $l (@U) {
@@ -74,10 +73,11 @@ my $ref = <<'END';
 '👍' THUMBS UP SIGN (0x1f44d) in positions: 2
 '👨' MAN (0x1f468) in positions: 3
 
+"🇬🇧🇬🇧🇬🇧🇬🇧" (length: 4) has the same character in all positions.
+
 "ǞǞǞ" (length: 3) has the same character in all positions.
 END
 
-#"🇬🇧🇬🇧🇬🇧🇬🇧" (length: 4), has the same character in all positions.
 
 use Test::More;
 chomp $ref;
