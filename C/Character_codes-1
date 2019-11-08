@@ -1,8 +1,8 @@
 #!/usr/local/bin/perl
 #u# http://rosettacode.org/wiki/Character_codes
-#t# inprogress
 #c# 2019-11-07 >RC
 #p# OK
+#n# works for 'narrow' (single byte)
 
 use strict;
 use warnings;
@@ -15,11 +15,8 @@ use List::AllUtils qw(zip natatime);
 
 my @res;
 
-# works if character length == 1
 for my $c (split //, 'AΑА𪚥') {
     my $o = ord $c;
-    #utf8::encode(my $utf8 = $c);
-    #$utf8 = join '', map { sprintf "%x ", ord } split //, $utf8;
     my $utf8 = join '', map { sprintf "%x ", ord } split //, Encode::encode("utf8", $c);
     my $iterator = natatime 2, zip 
         @{['Character', 'Character name',       'Ordinal(s)', 'Hex ordinal(s)',   'UTF-8', 'Round trip']},
@@ -63,29 +60,7 @@ Hex ordinal(s): 0x2a6a5
 
 END
 
-my $more_results = <<'END';
-Character:       🇺🇸
-Character name:  REGIONAL INDICATOR SYMBOL LETTER U REGIONAL INDICATOR SYMBOL LETTER S
-Ordinal(s):      127482 127480
-Hex ordinal(s):  0x1F1FA 0x1F1F8
-Round trip:      🇺🇸
-
-Character:       👨‍👩‍👧‍👦
-Character name:  MAN ZERO WIDTH JOINER WOMAN ZERO WIDTH JOINER GIRL ZERO WIDTH JOINER BOY
-Ordinal(s):      128104 8205 128105 8205 128103 8205 128102
-Hex ordinal(s):  0x1F468 0x200D 0x1F469 0x200D 0x1F467 0x200D 0x1F466
-Round trip:      👨‍👩‍👧‍👦
-END
-
-
 use Test::More;
 chomp $ref;
 is($result, $ref);
 done_testing();
-
-__END__
-
-=={{header|Perl}}==
-<lang perl></lang>
-{{out}}
-<pre></pre>
