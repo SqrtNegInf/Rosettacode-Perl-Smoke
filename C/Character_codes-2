@@ -2,6 +2,7 @@
 #u# http://rosettacode.org/wiki/Character_codes
 #c# 2019-11-07 >RC
 #p# OK
+#n# works for 'wide' (multi-byte)
 
 use strict;
 use warnings;
@@ -13,19 +14,15 @@ use Unicode::UCD 'charinfo';
 
 my @res;
 
-my $fmt = "%14s: %s\n";
-my @label = ('Character', 'Character name', 'Ordinal(s)', 'Hex ordinal(s)', 'UTF-8', 'Round trip');
-
 for my $char (qw<Δ̂ 🇺🇸 👨‍👩‍👧‍👦>) {
     my @ordinals = map { ord } split //, $char;        
-#    printf "%14s: %s\n"x6 . "\n", # for RC
     push @res, sprintf "%14s: %s\n"x6,
-    $label[0], $char,
-    $label[1], join(', ', map { charinfo($_)->{'name'} } @ordinals),
-    $label[2], join(' ', @ordinals),
-    $label[3], join(' ',  map { sprintf("0x%x", $_)    } @ordinals),
-    $label[4], join('',   map { sprintf "%x ", ord     } split //, Encode::encode("utf8", $char)),
-    $label[5], join('',   map { chr                    } @ordinals);
+    'Character',      $char,
+    'Character name', join(', ', map { charinfo($_)->{'name'} } @ordinals),
+    'Ordinal(s)',     join(' ', @ordinals),
+    'Hex ordinal(s)', join(' ',  map { sprintf("0x%x", $_)    } @ordinals),
+    'UTF-8',          join('',   map { sprintf "%x ", ord     } split //, Encode::encode("utf8", $char)),
+    'Round trip',     join('',   map { chr                    } @ordinals);
 }
 
 say my $result = join "\n", @res;
@@ -59,10 +56,3 @@ use Test::More;
 chomp $ref;
 is($result, $ref);
 done_testing();
-
-__END__
-
-=={{header|Perl}}==
-<lang perl></lang>
-{{out}}
-<pre></pre>
