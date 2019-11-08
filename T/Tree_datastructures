@@ -1,11 +1,9 @@
 #!/usr/local/bin/perl
 #u# http://rosettacode.org/wiki/Tree_datastructures
-#t# inprogress
-#c# 2019-11-07 >RC
+#c# 2019-11-08 >RC
 #p# OK
 
 use Data::Printer;
-use Time::HiRes qw(sleep);
 
 use strict;
 use warnings;
@@ -30,19 +28,17 @@ my $trees = <<~END;
         comparison
     END
 
-# sub nested-to-indent { $^str.subst: / ^^ ($($level))* /, -> $/ { "{+$0} " }, :g }
-# sub indent-to-nested { $^str.subst: / ^^ (\d+) \s* /, -> $/ { "{$level x +$0}" }, :g }
-
 my $level = '  ';
-sub nested_to_indent { my($str) = @_; $str =~ s#^($level)*#(length($1)/2 || 0) . ' '#egmr }
-#sub indent_to_nested { my($str) = @_; $str =~ s/^ (\d+) \s* /, -> $/ { "{$level x +$1}" }/gx  }
+#sub nested_to_indent { shift =~ s#^(($level*))*# ($1 ? length($1)/length $level : 0) . ' ' #egmr } # tree root marked with 'zero'
+sub nested_to_indent { shift =~ s#^($level*)# length($1)/length $level . ' ' #egmr }  # no 'zero' level, but OK for round-trip
+sub indent_to_nested { shift =~ s#^(\d+)\s*# $level x $1 #egmr }
 
-say my $indent = nested_to_indent $trees; exit;
-#say my $nest   = indent_to_nested $indent;
+#my $nest= indent_to_nested my $indent = nested_to_indent $trees; say $indent;
+say my $indent = nested_to_indent $trees;
+    my $nest   = indent_to_nested $indent;
 
-__END__
 use Test::More;
-is($trees, $nest);
+is($trees, $nest, 'Round-trip is good.');
 done_testing();
 
 __END__
@@ -99,8 +95,8 @@ $["RosettaCode", ["encourages", ["code", ["diversity", "comparison"]], "discoura
 
 JSON:
 [ "RosettaCode", [ "encourages", [ "code", [ "diversity", "comparison" ] ], "discourages", [ "golfing", "trolling", "emphasising execution speed" ] ], "code-golf.io", [ "encourages", [ "golfing" ], "discourages", [ "comparison" ] ] ]
-
 YAML:
+
 ---
 - RosettaCode
 - - encourages
@@ -134,13 +130,3 @@ use Test::More;
 chomp $ref;
 is($result, $ref);
 done_testing();
-
-__END__
-
-=={{header|Perl}}==
-{{trans|Perl 6}}
-{{libheader|ntheory}}
-<lang perl></lang>
-{{out}}
-<pre style="height:20ex"></pre>
-[https://github.com/SqrtNegInf/Rosettacode-Perl5-Smoke/blob/master/ref/XXX XXX]
