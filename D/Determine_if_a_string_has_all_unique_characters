@@ -1,8 +1,9 @@
 #!/usr/local/bin/perl
 #u# http://rosettacode.org/wiki/Determine_if_a_string_has_all_unique_characters
-#c# 2019-11-04 >RC
+#c# 2019-11-04 >RC, 2019-11-07 >RC
 #p# OK
-#n# still not working for Unicode strings with 'joiners'
+#n# but the case of duplicated combining-chars still not handled, e.g. 'ΔδΔ̂ΔΛΔ̂' should be:  [Raku gets it right of course...]
+#n# 'Δ̂' GREEK CAPITAL LETTER DELTA COMBINING CIRCUMFLEX ACCENT (0x394 0x302) in positions: 3, 6
 
 use strict;
 use warnings;
@@ -11,7 +12,6 @@ use feature 'say';
 use utf8;
 binmode(STDOUT, ':utf8');
 use List::AllUtils qw(uniq);
-use Unicode::Normalize qw(NFC);
 use Unicode::UCD 'charinfo';
 
 my @res;
@@ -24,12 +24,15 @@ for my $str (
     '1234567890ABCDEFGHIJKLMN0PQRSTUVWXYZ',
     '01234567890ABCDEFGHIJKLMN0PQRSTUVWXYZ0X',
     'Δ👍👨👍Δ',
-#    '🦋🙂👨‍👩‍👧‍👦🙄ΔΔ̂ 🦋Δ👍👨‍👩‍👧‍👦'
+    'ΔδΔ̂ΔΛ',
 ) {
-#   $len++ while $str =~ /\X/g;
-    push @res, sprintf qq{\n"$str" (length: %d) has }, my $len = length NFC $str;
 
-    if ($len != uniq my @S = split //, NFC $str) {
+    my @S;
+    #my @S = split /\X/, $str; # why not?
+    push @S, $1 while $str =~ /(\X)/g;
+    push @res, sprintf qq{\n"$str" (length: %d) has }, scalar @S;
+
+    if (@S != uniq @S) {
         $res[-1] .= "duplicated characters:";
         my %P;
         push @{ $P{$S[$_]} }, 1+$_ for 0..$#S;
@@ -69,12 +72,10 @@ my $ref = <<'END';
 "Δ👍👨👍Δ" (length: 5) has duplicated characters:
 'Δ' GREEK CAPITAL LETTER DELTA (0x394) in positions: 1, 5
 '👍' THUMBS UP SIGN (0x1f44d) in positions: 2, 4
-END
 
-# "🦋🙂👨‍👩‍👧‍👦🙄ΔΔ̂ 🦋Δ👍👨‍👩‍👧‍👦" (length: 11), has duplicated characters:
-# '🦋' (BUTTERFLY; hex ordinal: 0x1F98B) in positions: 1, 8
-# '👨‍👩‍👧‍👦' (MAN ZERO WIDTH JOINER WOMAN ZERO WIDTH JOINER GIRL ZERO WIDTH JOINER BOY; hex ordinal: 0x1F468 0x200D 0x1F469 0x200D 0x1F467 0x200D 0x1F466) in positions: 3, 11
-# 'Δ' (GREEK CAPITAL LETTER DELTA; hex ordinal: 0x394) in positions: 5, 9
+"ΔδΔ̂ΔΛ" (length: 5) has duplicated characters:
+'Δ' GREEK CAPITAL LETTER DELTA (0x394) in positions: 1, 4
+END
 
 use Test::More;
 chomp $ref;
