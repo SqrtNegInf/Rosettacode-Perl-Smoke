@@ -1,16 +1,16 @@
 
 This is perl 5, version 30, subversion 0 (v5.30.0) built for darwin-thread-multi-2level
 updating from RC…
-+------------> Perl: Good/Bad [1208/13]
++------------> Perl: Good/Bad [1211/13]
 |+-----------> Smoke testing [1070]
-||+----------> sKipping validation [144]
+||+----------> sKipping validation [147]
 |||+---------> Interactive [52]
-||||+--------> Touched (modified by me) [337]
+||||+--------> Touched (modified by me) [341]
 |||||+-------> Random seed [95]
 ||||||+------> File output [66]
 |||||||+-----> Draft [229]
 ||||||||+----> Ignoring [33]
-|||||||||+---> Void (no local copy) [147]
+|||||||||+---> Void (no local copy) [145]
 ||||||||||+--> Un-implemented/reliable [137]
 |||||||||||
 GS......... 100_doors-1
@@ -203,7 +203,8 @@ GS......... Catamorphism
 .........VU Catmull-Clark_subdivision_surface
 GS..T...... Chaocipher
 GS...RF.... Chaos_game
-GS......... Character_codes
+G.K.T...... Character_codes-1
+GS..T...... Character_codes-2
 G.KI....... Chat_server
 G.KI....... Chat_server-2
 GS.....D... Chebyshev_coefficients
@@ -347,7 +348,7 @@ GS......... Dinesman%27s_multiple-dwelling_problem-2
 G.K..R..... Dining_philosophers
 GS......... Discordian_date
 .......D.V. Display_a_linear_combination
-.......D.VU Display_an_outline_as_a_nested_table
+G.K.T..D..U Display_an_outline_as_a_nested_table
 GS......... Distributed_programming
 GS..T..D... Diversity_prediction_theorem
 G.K........ Documentation
@@ -1290,7 +1291,7 @@ GS..T...... Totient_function-2
 GS......... Towers_of_Hanoi
 GS..T...... Trabb_Pardo-Knuth_algorithm
 .......D.VU Transportation_problem
-.......D.VU Tree_datastructures
+G.K.T..D..U Tree_datastructures
 GS......... Tree_traversal
 GS......... Trigonometric_functions
 GS......... Truncatable_primes-1
