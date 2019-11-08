@@ -1,0 +1,91 @@
+#!/usr/local/bin/perl
+#u# http://rosettacode.org/wiki/Character_codes
+#t# inprogress
+#c# 2019-11-07 >RC
+#p# OK
+
+use strict;
+use warnings;
+use feature 'say';
+use utf8;
+binmode(STDOUT, ':utf8');
+use Encode;
+use Unicode::UCD 'charinfo';
+use List::AllUtils qw(zip natatime);
+
+my @res;
+
+# works if character length == 1
+for my $c (split //, 'AΑА𪚥') {
+    my $o = ord $c;
+    #utf8::encode(my $utf8 = $c);
+    #$utf8 = join '', map { sprintf "%x ", ord } split //, $utf8;
+    my $utf8 = join '', map { sprintf "%x ", ord } split //, Encode::encode("utf8", $c);
+    my $iterator = natatime 2, zip 
+        @{['Character', 'Character name',       'Ordinal(s)', 'Hex ordinal(s)',   'UTF-8', 'Round trip']},
+        @{[ $c,          charinfo($o)->{'name'}, $o,           sprintf("0x%x",$o), $utf8,   chr $o,    ]};
+    while ( my ($label, $value) = $iterator->() ) { 
+        push @res, sprintf "%14s: %s", $label, $value 
+    }
+    push @res, '';
+}
+
+say my $result = join "\n", @res;
+
+my $ref = <<'END';
+     Character: A
+Character name: LATIN CAPITAL LETTER A
+    Ordinal(s): 65
+Hex ordinal(s): 0x41
+         UTF-8: 41 
+    Round trip: A
+
+     Character: Α
+Character name: GREEK CAPITAL LETTER ALPHA
+    Ordinal(s): 913
+Hex ordinal(s): 0x391
+         UTF-8: ce 91 
+    Round trip: Α
+
+     Character: А
+Character name: CYRILLIC CAPITAL LETTER A
+    Ordinal(s): 1040
+Hex ordinal(s): 0x410
+         UTF-8: d0 90 
+    Round trip: А
+
+     Character: 𪚥
+Character name: CJK UNIFIED IDEOGRAPH-2A6A5
+    Ordinal(s): 173733
+Hex ordinal(s): 0x2a6a5
+         UTF-8: f0 aa 9a a5 
+    Round trip: 𪚥
+
+END
+
+my $more_results = <<'END';
+Character:       🇺🇸
+Character name:  REGIONAL INDICATOR SYMBOL LETTER U REGIONAL INDICATOR SYMBOL LETTER S
+Ordinal(s):      127482 127480
+Hex ordinal(s):  0x1F1FA 0x1F1F8
+Round trip:      🇺🇸
+
+Character:       👨‍👩‍👧‍👦
+Character name:  MAN ZERO WIDTH JOINER WOMAN ZERO WIDTH JOINER GIRL ZERO WIDTH JOINER BOY
+Ordinal(s):      128104 8205 128105 8205 128103 8205 128102
+Hex ordinal(s):  0x1F468 0x200D 0x1F469 0x200D 0x1F467 0x200D 0x1F466
+Round trip:      👨‍👩‍👧‍👦
+END
+
+
+use Test::More;
+chomp $ref;
+is($result, $ref);
+done_testing();
+
+__END__
+
+=={{header|Perl}}==
+<lang perl></lang>
+{{out}}
+<pre></pre>
