@@ -27,5 +27,8 @@ head -10 meta/timings.txt
 # combine task headers for easy grep
 /usr/local/pbin/grep-paragraph -H '#u# http' [0-Z]/* | /usr/local/pbin/grep-paragraph -v ReadMe.md - > meta/headers.txt
 
+# find non-ASCII
+bin/rc-non-ascii [0A-Z]/* > meta/non-ascii.txt
+
 # push changes to github
 bin/Task5-git
