@@ -30,55 +30,72 @@ my $outline = <<~END;
         Optionally add color to the nodes.
     END
 
-say $outline;
-__END__
-
-# Import outline paragraph into native data structure
-sub import (Str $trees, $level = '  ') {
+sub import {
+    my($trees) = @_;
+    my $level = '    ';
     my $forest;
-    my $last = -Inf;
+    my $last = -999;
 
-    for $trees.lines -> $branch {
-        $branch ~~ / ($($level))* /;
-        my $this = +$0;
-        $forest ~= do {
-            given $this cmp $last {
-                when More { "\['{esc $branch.trim}', " }
-                when Same { "'{esc $branch.trim}', " }
-                when Less { "{']' x $last - $this}, '{esc $branch.trim}', " }
-            }
-        }
+    for my $branch (split /\n/, $trees) {
+        $branch =~ m/(($level*))*/;
+        my $this = $1 ? length($1)/length($level) : 0;
+        $forest .= do {
+            if    ($this gt $last) { '['                   . trim_and_quote($branch) }
+            elsif ($this lt $last) { ']'x($last-$this).',' . trim_and_quote($branch) }
+            else                   {                         trim_and_quote($branch) }
+        };
         $last = $this;
     }
+    sub trim_and_quote { shift =~ s/^\s*(.*\S)\s*$/"$1",/r }
 
-    sub esc { $^s.subst( /(<['\\]>)/, -> $/ { "\\$0" }, :g) }
-
-    $forest ~= ']' x 1 + $last;
-    use MONKEY-SEE-NO-EVAL;
-    $forest.EVAL;
+    eval $forest . ']' x (1+$last);
 }
 
-my @AoA = import $outline, '    ';
+my $AoA = import $outline; 
 my @layout;
 
+print np($AoA);
+say '';
+
 # Collect information about node depth, position and children
-{
-    my @width = 0;
-    my $depth = -1;
-    @AoA.&insert;
+my @width = 0;
+my $depth = -1;
+insert($AoA);
 
-    multi insert ($item) {
-        @width[*-1]++;
-        @layout.push: { :depth($depth.clone), :id(@width[*-1].clone), :text($item) };
-    }
+sub insert {
+    my ($item) = @_;
 
-    multi insert (@array) {
-        @width.push: @width[*-1] * 10;
+    if (! ref $item) {
+say 'hi'; exit;
+        $width[-1]++;
+        #push @layout, { :depth($depth.clone), :id(@width[*-1].clone), :text($item) };
+
+    } else {
+say 'ho'; exit;
+        push @width, $width[-1] * 10;
         ++$depth;
-        @array.map: *.&insert;
+        map { insert($_) } @{$item};
         --$depth;
-        @width.pop;
+        pop @width;
     }
+    }
+
+__END__
+
+sub hsv2rgb {
+    my($h,$s,$v) = @_;
+    my $c = $v * $s;
+    my $x = $c * (1 - ( abs( (fmod(($h*6),2)) - 1 ) ) );
+    our $m = $v - $c;
+    my @rgb;
+       if ( $h < 1/6 ){ @rgb = scale($c, $x,  0) }
+    elsif ( $h < 2/6 ){ @rgb = scale($x, $c,  0) }
+    elsif ( $h < 3/6 ){ @rgb = scale( 0, $c, $x) }
+    elsif ( $h < 4/6 ){ @rgb = scale( 0, $x, $c) }
+    elsif ( $h < 5/6 ){ @rgb = scale($x,  0, $c) }
+    else              { @rgb = scale($c,  0, $x) }
+    sub scale { int(255*($_[0]+$m)), int(255*($_[1]+$m)), int(255*($_[2]+$m)) }
+    return \@rgb;
 }
 
 my $max-depth = @layout.max( *.<depth> )<depth>;
@@ -148,22 +165,7 @@ my $result2;
     $result2 = "<div style=\"background: #fee;\">\n" ~ @AoA.&ol ~ "</div>";
 }
 
-sub hsv2rgb ( $h, $s, $v ){
-    my $c = $v * $s;
-    my $x = $c * (1 - abs( (($h*6) % 2) - 1 ) );
-    my $m = $v - $c;
-    my ($r, $g, $b) = do given $h {
-        when   0..^(1/6) { $c, $x, 0 }
-        when 1/6..^(1/3) { $x, $c, 0 }
-        when 1/3..^(1/2) { 0, $c, $x }
-        when 1/2..^(2/3) { 0, $x, $c }
-        when 2/3..^(5/6) { $x, 0, $c }
-        when 5/6..1      { $c, 0, $x }
-    }
-    ( $r, $g, $b ).map( ((*+$m) * 255).Int)».base(16).join
-}
-
-my $ref1 = q:to/END/;
+my $ref1 = <<'END';
 {| class="wikitable" style="text-align: center;"
 | style="background: #E5FFFF" colspan=9 | Display an outline as a nested table.
 |-
@@ -193,7 +195,7 @@ my $ref1 = q:to/END/;
 |}
 END
 
-my $ref2 = q:to/END/;
+my $ref2 = <<'END';
 <div style="background: #fee;">
 <ol style="list-style: upper-roman;">
 <li>Display an outline as a nested table.
@@ -224,25 +226,17 @@ my $ref2 = q:to/END/;
 </div>
 END
 
-use Test;
-is $result1, chomp $ref1;
-is $result2, chomp $ref2;
-
 say my $result = join "\n", @res;
-my $ref = <<'END';
-END
 
 use Test::More;
-chomp $ref;
-is($result, $ref);
+chomp $ref1; is($result1, $ref1);
+chomp $ref2; is($result2, $ref2);
 done_testing();
 
 __END__
 
 =={{header|Perl}}==
 {{trans|Perl 6}}
-{{libheader|ntheory}}
 <lang perl></lang>
 {{out}}
 <pre style="height:20ex"></pre>
-[https://github.com/SqrtNegInf/Rosettacode-Perl5-Smoke/blob/master/ref/XXX XXX]
