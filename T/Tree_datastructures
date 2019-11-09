@@ -42,7 +42,7 @@ sub import {
     my($trees) = @_;
     my $level = '  ';
     my $forest;
-    my $last = -9;
+    my $last = -999;
 
     for my $branch (split /\n/, $trees) {
         $branch =~ m/(($level*))*/;
