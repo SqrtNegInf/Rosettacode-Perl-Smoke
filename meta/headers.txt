@@ -1053,15 +1053,16 @@ File: C/Chaos_game
 File: C/Character_codes-1
 #!/usr/local/bin/perl
 #u# http://rosettacode.org/wiki/Character_codes
-#t# inprogress
 #c# 2019-11-07 >RC
 #p# OK
+#n# works for 'narrow' (single byte)
 
 File: C/Character_codes-2
 #!/usr/local/bin/perl
 #u# http://rosettacode.org/wiki/Character_codes
 #c# 2019-11-07 >RC
 #p# OK
+#n# works for 'wide' (multi-byte)
 
 File: C/Character_codes.1
 #!/usr/local/bin/perl
@@ -1811,13 +1812,6 @@ File: D/Determine_if_a_string_has_all_the_same_characters
 #u# http://rosettacode.org/wiki/Determine_if_a_string_has_all_the_same_characters
 #c# 2019-11-03 >RC, 2019-11-07 >RC
 #p# OK
-
-File: D/Determine_if_a_string_has_all_the_same_characters-2
-#!/usr/local/bin/perl
-#u# http://rosettacode.org/wiki/Determine_if_a_string_has_all_the_same_characters
-#c# 2019-11-03 NOT ON RC
-#p# OK
-#n# still not working for 'flag'
 
 File: D/Determine_if_a_string_has_all_unique_characters
 #!/usr/local/bin/perl
@@ -7585,8 +7579,7 @@ File: T/Trabb_Pardo-Knuth_algorithm
 File: T/Tree_datastructures
 #!/usr/local/bin/perl
 #u# http://rosettacode.org/wiki/Tree_datastructures
-#t# inprogress
-#c# 2019-11-07 >RC
+#c# 2019-11-08 >RC
 #p# OK
 
 File: T/Tree_traversal
