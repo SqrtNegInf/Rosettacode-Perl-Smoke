@@ -1,9 +1,9 @@
 
 This is perl 5, version 30, subversion 0 (v5.30.0) built for darwin-thread-multi-2level
 updating from RC…
-+------------> Perl: Good/Bad [1211/13]
-|+-----------> Smoke testing [1070]
-||+----------> sKipping validation [147]
++------------> Perl: Good/Bad [1209/13]
+|+-----------> Smoke testing [1071]
+||+----------> sKipping validation [145]
 |||+---------> Interactive [52]
 ||||+--------> Touched (modified by me) [341]
 |||||+-------> Random seed [95]
@@ -11,7 +11,7 @@ updating from RC…
 |||||||+-----> Draft [229]
 ||||||||+----> Ignoring [33]
 |||||||||+---> Void (no local copy) [145]
-||||||||||+--> Un-implemented/reliable [137]
+||||||||||+--> Un-implemented/reliable [136]
 |||||||||||
 GS......... 100_doors-1
 GS......... 100_doors-2
@@ -54,7 +54,7 @@ GS......... Ackermann_function-4
 GS......... Ackermann_function-5
 ........XV. Active_Directory_Connect
 .........VU Active_Directory_Search_for_a_user
-GS......... Active_object
+!S......... Active_object
 GS......... Add_a_variable_to_a_class_instance_at_runtime
 .......D.VU Addition-chain_exponentiation
 GS..T..D... Addition_chains
@@ -203,7 +203,7 @@ GS......... Catamorphism
 .........VU Catmull-Clark_subdivision_surface
 GS..T...... Chaocipher
 GS...RF.... Chaos_game
-G.K.T...... Character_codes-1
+GS..T...... Character_codes-1
 GS..T...... Character_codes-2
 G.KI....... Chat_server
 G.KI....... Chat_server-2
@@ -334,7 +334,6 @@ GS......... Department_Numbers
 GS......... Detect_division_by_zero
 GS......... Determinant_and_permanent
 GS..T..D... Determine_if_a_string_has_all_the_same_characters
-GS......... Determine_if_a_string_has_all_the_same_characters-2
 GS..T..D... Determine_if_a_string_has_all_unique_characters
 GS......... Determine_if_a_string_is_numeric
 G.K........ Determine_if_only_one_instance_is_running
@@ -1291,7 +1290,7 @@ GS..T...... Totient_function-2
 GS......... Towers_of_Hanoi
 GS..T...... Trabb_Pardo-Knuth_algorithm
 .......D.VU Transportation_problem
-G.K.T..D..U Tree_datastructures
+GS..T..D... Tree_datastructures
 GS......... Tree_traversal
 GS......... Trigonometric_functions
 GS......... Truncatable_primes-1
