@@ -3,11 +3,12 @@
 #c# 2019-11-08 >RC
 #p# OK
 
-use Data::Printer;
-
 use strict;
 use warnings;
 use feature 'say';
+
+use JSON;
+use Data::Printer;
 
 my @res;
 
@@ -30,103 +31,79 @@ my $trees = <<~END;
 
 my $level = '  ';
 #sub nested_to_indent { shift =~ s#^(($level*))*# ($1 ? length($1)/length $level : 0) . ' ' #egmr } # tree root marked with 'zero'
-sub nested_to_indent { shift =~ s#^($level*)# length($1)/length $level . ' ' #egmr }  # no 'zero' level, but OK for round-trip
+sub nested_to_indent { shift =~ s#^($level*)# (length($1)/length $level) . ' ' #egmr }  # no 'zero' level, but OK for round-trip
 sub indent_to_nested { shift =~ s#^(\d+)\s*# $level x $1 #egmr }
 
-#my $nest= indent_to_nested my $indent = nested_to_indent $trees; say $indent;
 say my $indent = nested_to_indent $trees;
     my $nest   = indent_to_nested $indent;
 
-use Test::More;
-is($trees, $nest, 'Round-trip is good.');
-done_testing();
-
-__END__
-
-#`(
-If, on the other hand, we want perform more complex transformations; better to
-load it into a native data structure which will then allow us to manipulate it
-however we like.
-)
-
 # Import outline paragraph into native data structure
-sub import (Str $trees, $level = '  ') {
+sub import {
+    my($trees) = @_;
+    my $level = '  ';
     my $forest;
-    my $last = -Inf;
+    my $last = -9;
 
-    for $trees.lines -> $branch {
-        $branch ~~ / ($($level))* /;
-        my $this = +$0;
-        $forest ~= do {
-            given $this cmp $last {
-                when More { "\['{esc $branch.trim}', " }
-                when Same { "'{esc $branch.trim}', " }
-                when Less { "{']' x $last - $this}, '{esc $branch.trim}', " }
-            }
-        }
+    for my $branch (split /\n/, $trees) {
+        $branch =~ m/(($level*))*/;
+        my $this = $1 ? length($1)/length($level) : 0;
+        $forest .= do {
+            if    ($this gt $last) { '['                   . trim_and_quote($branch) }
+            elsif ($this lt $last) { ']'x($last-$this).',' . trim_and_quote($branch) }
+            else                   {                         trim_and_quote($branch) }
+        };
         $last = $this;
     }
+    sub trim_and_quote { shift =~ s/^\s*(.*\S)\s*$/"$1",/r }
 
-    sub esc { $^s.subst( /(<['\\]>)/, -> $/ { "\\$0" }, :g) }
-
-    $forest ~= ']' x 1 + $last;
-    use MONKEY-SEE-NO-EVAL;
-    $forest.EVAL;
+    eval $forest . ']' x (1+$last);
 }
 
 my $forest = import $trees;
-
-push @res, "\nNative data structure:\n" . $forest;
-
-{
-    use JSON;
-    push @res, "\nJSON:\n" . encode_json $forest;
-}
-
-{
-    use YAML;
-    push @res, "\nYAML:\n"~ $forest.&dump;
-}
-
-my $ref = q:to/END/;
-
-Native data structure:
-$["RosettaCode", ["encourages", ["code", ["diversity", "comparison"]], "discourages", ["golfing", "trolling", "emphasising execution speed"]], "code-golf.io", ["encourages", ["golfing"], "discourages", ["comparison"]]]
-
-JSON:
-[ "RosettaCode", [ "encourages", [ "code", [ "diversity", "comparison" ] ], "discourages", [ "golfing", "trolling", "emphasising execution speed" ] ], "code-golf.io", [ "encourages", [ "golfing" ], "discourages", [ "comparison" ] ] ]
-YAML:
-
----
-- RosettaCode
-- - encourages
-  - - code
-    - - diversity
-      - comparison
-  - discourages
-  - - golfing
-    - trolling
-    - emphasising execution speed
-- code-golf.io
-- - encourages
-  - - golfing
-  - discourages
-  - - comparison
-...
-
-END
-
-#.say for @res;
-
-use Test;
-is($trees, $nest, 'Round-trip equals original');
-is @res.join("\n"), chomp $ref;
+push @res, "Native data structure:\n" . np $forest;
+push @res, "\nJSON:\n" . encode_json($forest);
 
 say my $result = join "\n", @res;
+
 my $ref = <<'END';
+Native data structure:
+\ [
+    [0] "RosettaCode",
+    [1] [
+        [0] "encourages",
+        [1] [
+            [0] "code",
+            [1] [
+                [0] "diversity",
+                [1] "comparison"
+            ]
+        ],
+        [2] "discourages",
+        [3] [
+            [0] "golfing",
+            [1] "trolling",
+            [2] "emphasising execution speed"
+        ]
+    ],
+    [2] "code-golf.io",
+    [3] [
+        [0] "encourages",
+        [1] [
+            [0] "golfing"
+        ],
+        [2] "discourages",
+        [3] [
+            [0] "comparison"
+        ]
+    ]
+]
+
+JSON:
+["RosettaCode",["encourages",["code",["diversity","comparison"]],"discourages",["golfing","trolling","emphasising execution speed"]],"code-golf.io",["encourages",["golfing"],"discourages",["comparison"]]]
 END
 
 use Test::More;
+is($trees, $nest, 'Round-trip is good.');
 chomp $ref;
 is($result, $ref);
 done_testing();
