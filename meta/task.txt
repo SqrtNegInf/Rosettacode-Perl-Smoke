@@ -1,16 +1,16 @@
 
 This is perl 5, version 30, subversion 0 (v5.30.0) built for darwin-thread-multi-2level
 updating from RC…
-+------------> Perl: Good/Bad [1209/13]
++------------> Perl: Good/Bad [1211/13]
 |+-----------> Smoke testing [1071]
-||+----------> sKipping validation [145]
+||+----------> sKipping validation [146]
 |||+---------> Interactive [52]
-||||+--------> Touched (modified by me) [341]
+||||+--------> Touched (modified by me) [342]
 |||||+-------> Random seed [95]
 ||||||+------> File output [66]
 |||||||+-----> Draft [229]
 ||||||||+----> Ignoring [33]
-|||||||||+---> Void (no local copy) [145]
+|||||||||+---> Void (no local copy) [144]
 ||||||||||+--> Un-implemented/reliable [136]
 |||||||||||
 GS......... 100_doors-1
@@ -54,7 +54,7 @@ GS......... Ackermann_function-4
 GS......... Ackermann_function-5
 ........XV. Active_Directory_Connect
 .........VU Active_Directory_Search_for_a_user
-!S......... Active_object
+GS......... Active_object
 GS......... Add_a_variable_to_a_class_instance_at_runtime
 .......D.VU Addition-chain_exponentiation
 GS..T..D... Addition_chains
@@ -971,7 +971,7 @@ GS..T...... RSA_code
 GS.....D... Ramanujan%27s_constant
 GS..T...... Ramer-Douglas-Peucker_line_simplification
 GS..T..D... Ramsey%27s_theorem
-.......D.VU Random_Latin_Squares
+G.K.T..D..U Random_Latin_Squares
 G.K........ Random_number_generator_device
 G.K........ Random_number_generator_included
 GS...R..... Random_numbers
