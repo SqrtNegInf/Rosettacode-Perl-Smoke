@@ -1,16 +1,39 @@
 #!/usr/local/bin/perl
 #u# http://rosettacode.org/wiki/Split_a_character_string_based_on_change_of_character
-#c# 2018-08-13 <>RC
+#c# 2018-08-13 <>RC, 2019-11-09 >RC
 #p# OK
+#n# not all elegant and Rakuvian, but hey it works
 
+use strict;
+use warnings;
 use feature 'say';
+use utf8;
+binmode(STDOUT, ':utf8');
 
-# Works with: Perl version 5.x
-my $str = 'gHHH5YY++///\\';
-$str =~ s/((.)\g{-1}*)/$1, /g; # remove trailing ,
-$str =~ s/, $//;
-say  $str;
+my @res;
+
+for my $string (q[gHHH5YY++///\\], q[fff﻿﻿﻿n⃗n⃗n⃗»»»  ℵℵ☄☄☃☃̂☃🤔🇺🇸🤦‍♂️👨‍👩‍👧‍👦]) {
+    my @S; 
+    my $last = '';
+    while ($string =~ /(\X)/g) {
+        if ($last eq $1) { $S[-1] .= $1 } else { push @S, $1 }
+        $last = $1;
+    }
+    push @res, "Orginal: $string\n  Split: 「" . join('」 「', @S) . "」\n";
+}
+
+say my $result = join "\n", @res;
+
+my $ref = <<'END';
+Orginal: gHHH5YY++///\
+  Split: 「g」 「HHH」 「5」 「YY」 「++」 「///」 「\」
+
+Orginal: fff﻿﻿﻿n⃗n⃗n⃗»»»  ℵℵ☄☄☃☃̂☃🤔🇺🇸🤦‍♂️👨‍👩‍👧‍👦
+  Split: 「fff」 「﻿﻿﻿」 「n⃗n⃗n⃗」 「»»»」 「  」 「ℵℵ」 「☄☄」 「☃」 「☃̂」 「☃」 「🤔」 「🇺🇸」 「🤦‍♂️」 「👨‍👩‍👧‍👦」
+
+END
 
 use Test::More;
-is ($str, "g, HHH, 5, YY, ++, ///, \\");
+chomp $ref;
+is ($result,$ref);
 done_testing();
