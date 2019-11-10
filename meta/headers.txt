@@ -1060,7 +1060,7 @@ File: C/Character_codes-1
 File: C/Character_codes-2
 #!/usr/local/bin/perl
 #u# http://rosettacode.org/wiki/Character_codes
-#c# 2019-11-07 >RC
+#c# 2019-11-07 >RC, 2019-11-09 >RC
 #p# OK
 #n# works for 'wide' (multi-byte)
 
@@ -1175,7 +1175,7 @@ File: C/Chinese_zodiac
 #u# http://rosettacode.org/wiki/Chinese_zodiac
 #c# 2018-07-23 <RC
 #p# OK
-#n# Unicode problems in output, but logic is right
+#n# always save file with 'write ++enc=utf-8'
 
 File: C/Cholesky_decomposition
 #!/usr/local/bin/perl
@@ -5699,6 +5699,13 @@ File: R/Ramsey%27s_theorem
 #c# 2018-09-22 >RC
 #p# OK
 
+File: R/Random_Latin_Squares
+#!/usr/local/bin/perl
+#u# http://rosettacode.org/wiki/RC_REMOTE
+#t# inprogress
+#c# 2019-11-xx >RC
+#p# OK
+
 File: R/Random_number_generator_device
 #!/usr/local/bin/perl
 #u# http://rosettacode.org/wiki/Random_number_generator_(device)
@@ -6879,8 +6886,9 @@ File: S/Spiral_matrix
 File: S/Split_a_character_string_based_on_change_of_character
 #!/usr/local/bin/perl
 #u# http://rosettacode.org/wiki/Split_a_character_string_based_on_change_of_character
-#c# 2018-08-13 <>RC
+#c# 2018-08-13 <>RC, 2019-11-09 >RC
 #p# OK
+#n# not all elegant and Rakuvian, but hey it works
 
 File: S/Square-free_integers
 #!/usr/local/bin/perl
