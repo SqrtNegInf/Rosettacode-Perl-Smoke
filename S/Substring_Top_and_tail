@@ -5,6 +5,8 @@
 
 use feature 'say';
 my $result;
+use utf8;
+binmode(STDOUT, ':utf8');
 
 $result .= substr("knight",1). "\n";        # strip first character
 $result .= substr("socks", 0, -1). "\n";    # strip last character
@@ -16,6 +18,17 @@ $bits = chop($string);       # The last letter is returned by the chop function
 $result .= $bits . "\n";        # h
 $result .= $string . "\n";      # ouc    # See we really did chop the last letter off
 
+# fine with 'narrow' chars;
+my $s = '♯♮♭𝄫';
+say substr($s,0,$_) for <1 2 3 4>;
+chop $s; say $s;
+chop $s; say $s;
+say '';
+
+# but this is not right
+my $t = '1n⃗34';
+say "$_ chars: " . substr($t,0,$_) for <1 2 3 4>;
+say '';
 
 say $result; 
 my $ref = <<'EOD';
