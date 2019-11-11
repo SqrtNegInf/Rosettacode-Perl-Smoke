@@ -1,17 +1,17 @@
 
 This is perl 5, version 30, subversion 0 (v5.30.0) built for darwin-thread-multi-2level
 updating from RC…
-+------------> Perl: Good/Bad [1211/13]
-|+-----------> Smoke testing [1071]
++------------> Perl: Good/Bad [1213/13]
+|+-----------> Smoke testing [1073]
 ||+----------> sKipping validation [146]
 |||+---------> Interactive [52]
-||||+--------> Touched (modified by me) [342]
+||||+--------> Touched (modified by me) [343]
 |||||+-------> Random seed [95]
 ||||||+------> File output [66]
-|||||||+-----> Draft [229]
+|||||||+-----> Draft [230]
 ||||||||+----> Ignoring [33]
 |||||||||+---> Void (no local copy) [144]
-||||||||||+--> Un-implemented/reliable [136]
+||||||||||+--> Un-implemented/reliable [137]
 |||||||||||
 GS......... 100_doors-1
 GS......... 100_doors-2
@@ -205,6 +205,7 @@ GS..T...... Chaocipher
 GS...RF.... Chaos_game
 GS..T...... Character_codes-1
 GS..T...... Character_codes-2
+GS......... Character_codes-3
 G.KI....... Chat_server
 G.KI....... Chat_server-2
 GS.....D... Chebyshev_coefficients
@@ -504,6 +505,7 @@ G.KIT.....U GUI_component_interaction
 .........VU GUI_enabling_disabling_of_controls
 GS..TRF.... Galton_box_animation
 GS......... Gamma_function
+GS..T..D..U Gapful_numbers
 GS..T..D... Gauss-Jordan_matrix_inversion
 GS......... Gaussian_elimination
 GS......... General_FizzBuzz
