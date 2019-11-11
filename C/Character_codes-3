@@ -1,0 +1,63 @@
+#!/usr/local/bin/perl
+#u# http://rosettacode.org/wiki/Character_codes
+#c# 2019-11-10 NOT ON RC
+#p# OK
+#n# annoying that I can't use 'split' directly...
+
+use strict;
+use warnings;
+use feature 'say';
+use utf8;
+binmode(STDOUT, ':utf8');
+#use Unicode::Normalize qw(NFC);
+use Unicode::UCD qw(charinfo charprop);
+
+my @res;
+
+sub wsplit { my @s; push @s, $1 while $_[0] =~ /(\X)/g; @s }
+
+for my $c (wsplit('Δ̂🇺🇸👨‍👩‍👧‍👦')) {
+    my @ordinals = map { ord } split //, $c;
+    push @res, sprintf "%16s: %s\n"x7,
+    'Character',        sprintf("%s", $c), #NFC $c, 
+    'Character name',   join(', ', map { charinfo($_)->{'name'} } @ordinals),
+    'Unicode property', join(', ', map { charprop($_, "Gc")     } @ordinals),
+    'Ordinal(s)',       join(' ', @ordinals),
+    'Hex ordinal(s)',   join(' ',  map { sprintf("0x%x", $_)    } @ordinals),
+    'UTF-8',            join('',   map { sprintf "%x ", ord     } (utf8::encode($c), split //, $c)),
+    'Round trip',       join('',   map { chr                    } @ordinals);
+}
+
+say my $result = join "\n", @res;
+
+my $ref = <<'END';
+       Character: Δ̂
+  Character name: GREEK CAPITAL LETTER DELTA, COMBINING CIRCUMFLEX ACCENT
+Unicode property: Uppercase_Letter, Nonspacing_Mark
+      Ordinal(s): 916 770
+  Hex ordinal(s): 0x394 0x302
+           UTF-8: ce 94 cc 82 
+      Round trip: Δ̂
+
+       Character: 🇺🇸
+  Character name: REGIONAL INDICATOR SYMBOL LETTER U, REGIONAL INDICATOR SYMBOL LETTER S
+Unicode property: Other_Symbol, Other_Symbol
+      Ordinal(s): 127482 127480
+  Hex ordinal(s): 0x1f1fa 0x1f1f8
+           UTF-8: f0 9f 87 ba f0 9f 87 b8 
+      Round trip: 🇺🇸
+
+       Character: 👨‍👩‍👧‍👦
+  Character name: MAN, ZERO WIDTH JOINER, WOMAN, ZERO WIDTH JOINER, GIRL, ZERO WIDTH JOINER, BOY
+Unicode property: Other_Symbol, Format, Other_Symbol, Format, Other_Symbol, Format, Other_Symbol
+      Ordinal(s): 128104 8205 128105 8205 128103 8205 128102
+  Hex ordinal(s): 0x1f468 0x200d 0x1f469 0x200d 0x1f467 0x200d 0x1f466
+           UTF-8: f0 9f 91 a8 e2 80 8d f0 9f 91 a9 e2 80 8d f0 9f 91 a7 e2 80 8d f0 9f 91 a6 
+      Round trip: 👨‍👩‍👧‍👦
+
+END
+
+use Test::More;
+chomp $ref;
+is($result, $ref);
+done_testing();
