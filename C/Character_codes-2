@@ -9,20 +9,22 @@ use warnings;
 use feature 'say';
 use utf8;
 binmode(STDOUT, ':utf8');
-use Encode;
+#use Encode;
+use Unicode::Normalize 'NFC';
 use Unicode::UCD qw(charinfo charprop);
 
 my @res;
 
-for my $char (qw<Δ̂ 🇺🇸 👨‍👩‍👧‍👦>) {
-    my @ordinals = map { ord } split //, $char;        
+while ('Δ̂🇺🇸👨‍👩‍👧‍👦' =~ /(\X)/g) {
+    my @ordinals = map { ord } split //, my $c = $1;
     push @res, sprintf "%16s: %s\n"x7,
-    'Character',        $char,
+    'Character',        NFC $c,
     'Character name',   join(', ', map { charinfo($_)->{'name'} } @ordinals),
     'Unicode property', join(', ', map { charprop($_, "Gc")     } @ordinals),
     'Ordinal(s)',       join(' ', @ordinals),
     'Hex ordinal(s)',   join(' ',  map { sprintf("0x%x", $_)    } @ordinals),
-    'UTF-8',            join('',   map { sprintf "%x ", ord     } split //, Encode::encode("utf8", $char)),
+    'UTF-8',            join('',   map { sprintf "%x ", ord     } (utf8::encode($c), split //, $c)),
+    #'UTF-8',            join('',   map { sprintf "%x ", ord     } split //, Encode::encode("utf8", $1)),
     'Round trip',       join('',   map { chr                    } @ordinals);
 }
 
