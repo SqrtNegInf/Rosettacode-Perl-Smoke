@@ -1064,6 +1064,13 @@ File: C/Character_codes-2
 #p# OK
 #n# works for 'wide' (multi-byte)
 
+File: C/Character_codes-3
+#!/usr/local/bin/perl
+#u# http://rosettacode.org/wiki/Character_codes
+#c# 2019-11-10 NOT ON RC
+#p# OK
+#n# annoying that I can't use 'split' directly...
+
 File: C/Character_codes.1
 #!/usr/local/bin/perl
 #u# http://rosettacode.org/wiki/Character_codes
@@ -2906,6 +2913,12 @@ File: G/Gamma_function
 #!/usr/local/bin/perl
 #u# http://rosettacode.org/wiki/Gamma_function
 #c# 2018-08-08 <RC
+#p# OK
+
+File: G/Gapful_numbers
+#!/usr/local/bin/perl
+#u# http://rosettacode.org/wiki/Gapful_numbers
+#c# 2019-11-10 >RC
 #p# OK
 
 File: G/Gauss-Jordan_matrix_inversion
