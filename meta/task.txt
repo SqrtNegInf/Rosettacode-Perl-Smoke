@@ -1,14 +1,14 @@
 
 This is perl 5, version 30, subversion 0 (v5.30.0) built for darwin-thread-multi-2level
 updating from RC…
-+------------> Perl: Good/Bad [1213/13]
++------------> Perl: Good/Bad [1214/13]
 |+-----------> Smoke testing [1073]
-||+----------> sKipping validation [146]
+||+----------> sKipping validation [147]
 |||+---------> Interactive [52]
-||||+--------> Touched (modified by me) [343]
-|||||+-------> Random seed [95]
+||||+--------> Touched (modified by me) [344]
+|||||+-------> Random seed [96]
 ||||||+------> File output [66]
-|||||||+-----> Draft [230]
+|||||||+-----> Draft [231]
 ||||||||+----> Ignoring [33]
 |||||||||+---> Void (no local copy) [144]
 ||||||||||+--> Un-implemented/reliable [137]
@@ -236,7 +236,7 @@ GS..T...... Circles_of_given_radius_through_two_points
 G.K........ Classes
 GS..TR..... Closest-pair_problem
 GS......... Closures_Value_capture
-.......D.V. Code_segment_unload
+G.K.T..D... Code_segment_unload
 GS......... Collections
 ........XVU Color_of_a_screen_pixel
 GS..T...... Color_quantization
@@ -505,7 +505,7 @@ G.KIT.....U GUI_component_interaction
 .........VU GUI_enabling_disabling_of_controls
 GS..TRF.... Galton_box_animation
 GS......... Gamma_function
-GS..T..D..U Gapful_numbers
+GS..T..D... Gapful_numbers
 GS..T..D... Gauss-Jordan_matrix_inversion
 GS......... Gaussian_elimination
 GS......... General_FizzBuzz
@@ -850,6 +850,7 @@ GS......... Ordered_Partitions-2
 GS......... Ordered_words
 GS......... P-value_correction
 GS......... Palindrome_detection
+.......D.VU Palindromic_gapful_numbers
 GS..T...... Pangram_checker
 GS......... Paraffins
 GS......... Parallel_Brute_Force
@@ -973,7 +974,7 @@ GS..T...... RSA_code
 GS.....D... Ramanujan%27s_constant
 GS..T...... Ramer-Douglas-Peucker_line_simplification
 GS..T..D... Ramsey%27s_theorem
-G.K.T..D..U Random_Latin_Squares
+G.K.TR.D..U Random_Latin_Squares
 G.K........ Random_number_generator_device
 G.K........ Random_number_generator_included
 GS...R..... Random_numbers
