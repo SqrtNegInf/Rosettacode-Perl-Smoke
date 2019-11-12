@@ -1243,6 +1243,13 @@ File: C/Closures_Value_capture
 #c# 2018-07-23 <RC
 #p# OK
 
+File: C/Code_segment_unload
+#!/usr/local/bin/perl
+#u# http://rosettacode.org/wiki/Code_segment_unload
+#t# nocode
+#c# 2019-09-30 >RC
+#p# OK
+
 File: C/Collections
 #!/usr/local/bin/perl
 #u# http://rosettacode.org/wiki/Collections
@@ -5714,9 +5721,9 @@ File: R/Ramsey%27s_theorem
 
 File: R/Random_Latin_Squares
 #!/usr/local/bin/perl
-#u# http://rosettacode.org/wiki/RC_REMOTE
+#u# http://rosettacode.org/wiki/Random_Latin_Squares
 #t# inprogress
-#c# 2019-11-xx >RC
+#c# 2019-11-09 >RC
 #p# OK
 
 File: R/Random_number_generator_device
