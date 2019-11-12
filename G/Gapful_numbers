@@ -9,17 +9,18 @@ use feature 'say';
 
 my @res;
 
+use constant Inf  => 1e10;
+
 sub comma { reverse ((reverse shift) =~ s/(.{3})/$1,/gr) =~ s/^,//r }
 
-sub is_gapful { my $n = shift; 0 == $n % join('', (split //, "$n")[0,-1]) }
+sub is_gapful { my $n = shift; 0 == $n % join('', (split //, $n)[0,-1]) }
 
-my $Inf  = 10e10;
 for ([1e2, 30], [1e6, 15], [1e9, 10], [7123, 25]) {
     my($start, $count) = @$_;
     push @res, sprintf "\nFirst $count gapful numbers starting at %s:", comma $start;
-    my $n = 1; my $s = '';
-    $s .= do { $n <= $count ? is_gapful($_) && $n++ && "$_ " : last } for $start..$Inf;
-    push @res, $s;
+    my $n = 0; my $g = '';
+    $g .= do { $n < $count ? (is_gapful($_) and ++$n and "$_ ") : last } for $start .. Inf;
+    push @res, $g;
 }
 
 say my $result = join "\n", @res;
