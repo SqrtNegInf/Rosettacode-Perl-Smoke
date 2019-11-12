@@ -31,22 +31,22 @@ sub is_Brazilian {
 }
 
 my $upto = 20;
-my $Inf  = 10e10;
+use constant Inf  => 1e10;
 
 push @res, "First $upto Brazilian numbers:";
-my $n = 1; my $s = '';
-$s .= do { $n <= $upto ? is_Brazilian($_) && $n++ && "$_ " : last } for 1..$Inf;
-push @res, $s . "\n";
+my $n = 0; my $b = '';
+$b .= do { $n < $upto ? (is_Brazilian($_) and ++$n and "$_ ") : last } for 1 .. Inf;
+push @res, $b . "\n";
 
 push @res, "First $upto odd Brazilian numbers:";
-$n = 1; $s = '';
-$s .= do { $n <= $upto ? 0 != $_%2 && is_Brazilian($_) && $n++ && "$_ " : last } for 1..$Inf;
-push @res, $s . "\n";
+$n = 0; $b = '';
+$b .= do { $n < $upto ? (!!($_%2) and is_Brazilian($_) and ++$n and "$_ ") : last } for 1 .. Inf;
+push @res, $b . "\n";
 
 push @res, "First $upto prime Brazilian numbers:";
-$n = 1; $s = '';
-$s .= do { $n <= $upto ? !!is_prime($_) && is_Brazilian($_) && $n++ && "$_ " : last } for 1..$Inf;
-push @res, $s;
+$n = 0; $b = '';
+$b .= do { $n < $upto ? (!!is_prime($_) and is_Brazilian($_) and ++$n and "$_ ") : last } for 1 .. Inf;
+push @res, $b;
 
 say my $result = join "\n", @res;
 
