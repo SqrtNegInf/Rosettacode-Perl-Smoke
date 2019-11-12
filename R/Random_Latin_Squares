@@ -1,7 +1,7 @@
 #!/usr/local/bin/perl
-#u# http://rosettacode.org/wiki/RC_REMOTE
+#u# http://rosettacode.org/wiki/Random_Latin_Squares
 #t# inprogress
-#c# 2019-11-xx >RC
+#c# 2019-11-09 >RC
 #p# OK
 
 use Data::Printer;
@@ -11,11 +11,54 @@ use strict;
 use warnings;
 use feature 'say';
 
+use List::Util 'shuffle';
+
 my @res;
 
-# ~/perl6/Rosetta-Code/X/RC_LOCAL
+srand 123456;
+
+sub latin_square { [[0],] };
+
+sub random {
+    my($size, @ls ) = @_;
+
+    # Build
+    for my $i (1 ..$size-1) {
+        $ls[$i] = $ls[0]; #.clone;
+        #splice(@ls[$_], $_, 0, $i) for 0 .. $i;
+    }
+
+    # Shuffle
+    @ls = @ls[shuffle 0..$size-1];
+    my @cols = shuffle 0..$size-1;
+    $ls[$_] = $ls[$_][@cols] for $#ls;
+
+    # Some random Latin glyphs
+    my @symbols = ('A' .. 'Z').pick($size);
+
+    #@ls.deepmap: { $_ = @symbols[$_] };
+
+}
+
+sub display {
+    my( @array ) = @_;
+    push @res, sprintf "%2s ", $_ for @array, '' 
+}
+
+# The Task
+
+# Default size 5
+display random(5, latin_square);
+
+# Specified size
+#display random :size($_), latin-square for 5, 3, 9;
+
+# Or, if you'd prefer:
+#display random latin-square, :size($_) for 12, 2, 1;
 
 say my $result = join "\n", @res;
+exit;
+
 my $ref = <<'END';
 END
 
