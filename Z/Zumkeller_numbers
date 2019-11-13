@@ -34,7 +34,7 @@ sub is_zumkeller {
     }
 }
 
-use constant Inf  => 1e10;
+use constant Inf => 1e10;
 
 push @res, "First 220 Zumkeller numbers:";
 my $n = 0; my $z;
