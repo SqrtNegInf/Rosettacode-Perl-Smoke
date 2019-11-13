@@ -2884,7 +2884,7 @@ File: F/Function_prototype
 File: F/Functional_coverage_tree
 #!/usr/local/bin/perl
 #u# http://rosettacode.org/wiki/Functional_coverage_tree
-#c# 2019-10-10 <RC
+#c# 2019-10-10 <RC, 2010-11-12 >RC
 #p# OK
 
 File: F/Fusc_sequence
