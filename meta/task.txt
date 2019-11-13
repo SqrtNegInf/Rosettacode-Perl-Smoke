@@ -5,7 +5,7 @@ updating from RC…
 |+-----------> Smoke testing [1073]
 ||+----------> sKipping validation [147]
 |||+---------> Interactive [52]
-||||+--------> Touched (modified by me) [344]
+||||+--------> Touched (modified by me) [345]
 |||||+-------> Random seed [96]
 ||||||+------> File output [66]
 |||||||+-----> Draft [231]
@@ -498,7 +498,7 @@ GS......... Function_composition
 GS......... Function_definition
 GS......... Function_frequency
 GS......... Function_prototype
-GS......... Functional_coverage_tree
+GS..T...... Functional_coverage_tree
 GS..T...... Fusc_sequence
 G.KI....... GUI_Maximum_window_dimensions
 G.KIT.....U GUI_component_interaction
