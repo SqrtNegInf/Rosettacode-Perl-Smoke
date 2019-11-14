@@ -2887,6 +2887,13 @@ File: F/Functional_coverage_tree
 #c# 2019-10-10 <RC, 2010-11-12 >RC
 #p# OK
 
+File: F/Functional_coverage_tree.1
+#!/usr/local/bin/perl
+#u# http://rosettacode.org/wiki/Functional_coverage_tree
+#c# 2019-10-10 <RC
+#p# OK
+#n# keep to contrast with revised code!
+
 File: F/Fusc_sequence
 #!/usr/local/bin/perl
 #u# http://rosettacode.org/wiki/Fusc_sequence
