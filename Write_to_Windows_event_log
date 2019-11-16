@@ -1,0 +1,40 @@
+#!/usr/local/bin/perl
+#u# http://rosettacode.org/wiki/Write_to_Windows_event_log
+#t# skiptest
+#c# 2019-11-15 <RC
+#p# OK
+
+use feature 'say';
+my $result;
+
+# my @res;
+
+__END__
+
+# The Win32::EventLog module has the Report method to write in the EventLog
+
+use strict;
+use warnings;
+
+use Win32::EventLog;
+my $handle = Win32::EventLog->new("Application");
+
+my $event = {
+	Computer 	=>	$ENV{COMPUTERNAME},
+	Source		=> 	'Rosettacode',
+	EventType 	=> 	EVENTLOG_INFORMATION_TYPE,
+	Category  	=> 	'test',
+	EventID 	=> 	0,
+	Data 		=> 	'a test for rosettacode',
+	Strings 	=> 	'a string test for rosettacode',
+};
+$handle->Report($event);
+
+say $result; 
+#say $result = join "\n", @res;
+my $ref = <<'EOD';
+EOD
+
+use Test::More;
+#is ($result, $ref);
+#done_testing();
