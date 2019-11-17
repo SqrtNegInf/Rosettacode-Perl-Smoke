@@ -1,16 +1,16 @@
 
 This is perl 5, version 30, subversion 0 (v5.30.0) built for darwin-thread-multi-2level
 updating from RC…
-+------------> Perl: Good/Bad [1214/13]
++------------> Perl: Good/Bad [1215/13]
 |+-----------> Smoke testing [1073]
-||+----------> sKipping validation [147]
+||+----------> sKipping validation [148]
 |||+---------> Interactive [52]
-||||+--------> Touched (modified by me) [345]
+||||+--------> Touched (modified by me) [346]
 |||||+-------> Random seed [96]
 ||||||+------> File output [66]
 |||||||+-----> Draft [231]
 ||||||||+----> Ignoring [33]
-|||||||||+---> Void (no local copy) [144]
+|||||||||+---> Void (no local copy) [143]
 ||||||||||+--> Un-implemented/reliable [137]
 |||||||||||
 GS......... 100_doors-1
@@ -876,7 +876,7 @@ GS..T...... Pathological_floating_point_problems-1
 GS..T...... Pathological_floating_point_problems-2
 GS......... Pathological_floating_point_problems-3
 GS...R..... Pattern_matching
-GS......... Peaceful_chess_queen_armies
+GS..T...... Peaceful_chess_queen_armies
 GS..T.F.... Peano_curve
 GS......... Pell%27s_equation
 GS...R..... Penney%27s_game
@@ -1374,7 +1374,7 @@ GS....F.... Write_entire_file
 GS....F.... Write_float_arrays_to_a_text_file-1
 GS....F.... Write_float_arrays_to_a_text_file-2
 GS......... Write_language_name_in_3D_ASCII
-........XV. Write_to_Windows_event_log
+G.K.....X.. Write_to_Windows_event_log
 GS......... XML_DOM_serialization
 GS......... XML_Input
 GS......... XML_Output
