@@ -2,6 +2,8 @@
 #u# http://rosettacode.org/wiki/Peaceful_chess_queen_armies
 #c# 2019-04-02 <RC,  2019-11-16 >RC
 #p# OK
+#n# refactored original, still too clever by half, and scales very poorly to larger boards (slow and memory hungry)
+#n# this may be step 1 of 2 (replacing with a better algorithm)
 
 use strict;
 use warnings;
@@ -64,4 +66,3 @@ use Test::More;
 chomp $ref;
 is ($solution, $ref);
 done_testing();
-
