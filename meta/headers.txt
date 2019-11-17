@@ -5133,6 +5133,14 @@ File: P/Pattern_matching
 File: P/Peaceful_chess_queen_armies
 #!/usr/local/bin/perl
 #u# http://rosettacode.org/wiki/Peaceful_chess_queen_armies
+#c# 2019-04-02 <RC,  2019-11-16 >RC
+#p# OK
+#n# refactored original, still too clever by half, and scales very poorly to larger boards (slow and memory hungry)
+#n# this may be step 1 of 2 (replacing with a better algorithm)
+
+File: P/Peaceful_chess_queen_armies.1
+#!/usr/local/bin/perl
+#u# http://rosettacode.org/wiki/Peaceful_chess_queen_armies
 #c# 2019-04-02 <RC
 #p# OK
 
@@ -8046,6 +8054,13 @@ File: W/Write_language_name_in_3D_ASCII
 #!/usr/local/bin/perl
 #u# http://rosettacode.org/wiki/Write_language_name_in_3D_ASCII
 #c# 2018-08-01 <RC
+#p# OK
+
+File: W/Write_to_Windows_event_log
+#!/usr/local/bin/perl
+#u# http://rosettacode.org/wiki/Write_to_Windows_event_log
+#t# skiptest
+#c# 2019-11-15 <RC
 #p# OK
 
 File: X/XML_DOM_serialization
