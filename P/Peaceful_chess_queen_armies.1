@@ -9,13 +9,13 @@ use feature 'say';
 
 my $soln;
 
-my $m = shift // 7;
-my $n = shift // 7;
+my $m = shift // 4;
+my $n = shift // 5;
 my %seen;
 my $gaps = join '|', qr/-*/, map qr/.{$_}(?:-.{$_})*/s, $n-1, $n, $n+1;
 my $attack = qr/(\w)(?:$gaps)(?!\1)\w/;
 
-place( scalar +('-' x $n . "\n") x $n );
+place( scalar ('-' x $n . "\n") x $n );
 say my $result = $soln ? "Solution to $m $n\n\n$soln" : "No solution to $m $n";
 
 sub place
