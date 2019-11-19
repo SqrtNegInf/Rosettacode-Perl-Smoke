@@ -280,8 +280,8 @@ N/Numerical_integration_Gauss-Legendre_Quadrature
 
 P/Peaceful_chess_queen_armies
 ×:     1 MULTIPLICATION SIGN
-•:    10 BULLET
-◦:     9 WHITE BULLET
+•:    19 BULLET
+◦:    17 WHITE BULLET
 ♕:     1 WHITE CHESS QUEEN
 ♛:     1 BLACK CHESS QUEEN
 
