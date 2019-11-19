@@ -8,10 +8,10 @@ updating from RC…
 ||||+--------> Touched (modified by me) [346]
 |||||+-------> Random seed [96]
 ||||||+------> File output [66]
-|||||||+-----> Draft [231]
+|||||||+-----> Draft [230]
 ||||||||+----> Ignoring [33]
-|||||||||+---> Void (no local copy) [143]
-||||||||||+--> Un-implemented/reliable [137]
+|||||||||+---> Void (no local copy) [144]
+||||||||||+--> Un-implemented/reliable [138]
 |||||||||||
 GS......... 100_doors-1
 GS......... 100_doors-2
@@ -334,8 +334,9 @@ GS..T...... Deming%27s_Funnel
 GS......... Department_Numbers
 GS......... Detect_division_by_zero
 GS......... Determinant_and_permanent
-GS..T..D... Determine_if_a_string_has_all_the_same_characters
-GS..T..D... Determine_if_a_string_has_all_unique_characters
+GS..T...... Determine_if_a_string_has_all_the_same_characters
+GS..T...... Determine_if_a_string_has_all_unique_characters
+.......D.VU Determine_if_a_string_is_collapsible
 GS......... Determine_if_a_string_is_numeric
 G.K........ Determine_if_only_one_instance_is_running
 GS..T..D... Determine_if_two_triangles_overlap
