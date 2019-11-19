@@ -5133,16 +5133,16 @@ File: P/Pattern_matching
 File: P/Peaceful_chess_queen_armies
 #!/usr/local/bin/perl
 #u# http://rosettacode.org/wiki/Peaceful_chess_queen_armies
-#c# 2019-04-02 <RC,  2019-11-16 >RC
+#c# 2019-04-02 <RC, 2019-11-16 >RC, 2019-11-18 >RC
 #p# OK
-#n# refactored original, still too clever by half, and scales very poorly to larger boards (slow and memory hungry)
-#n# this may be step 1 of 2 (replacing with a better algorithm)
+#n# d'oh, stop at first solution (was previously proceeding to the last before showing result)
 
 File: P/Peaceful_chess_queen_armies.1
 #!/usr/local/bin/perl
 #u# http://rosettacode.org/wiki/Peaceful_chess_queen_armies
 #c# 2019-04-02 <RC
 #p# OK
+#n# stop at first solution (was previously proceeding to the last before showing result)
 
 File: P/Peano_curve
 #!/usr/local/bin/perl
