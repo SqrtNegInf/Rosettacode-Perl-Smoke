@@ -1,9 +1,8 @@
 #!/usr/local/bin/perl
 #u# http://rosettacode.org/wiki/Peaceful_chess_queen_armies
-#c# 2019-04-02 <RC,  2019-11-16 >RC
+#c# 2019-04-02 <RC, 2019-11-16 >RC, 2019-11-18 >RC
 #p# OK
-#n# refactored original, still too clever by half, and scales very poorly to larger boards (slow and memory hungry)
-#n# this may be step 1 of 2 (replacing with a better algorithm)
+#n# d'oh, stop at first solution (was previously proceeding to the last before showing result)
 
 use strict;
 use warnings;
@@ -17,26 +16,28 @@ my $solution; # algorithm requires this variable to be global
 # recursively place the next queen
 sub place {
     my($board, $n, $m, $empty_square) = @_;
-    state %seen;
+    state(%seen,$attack);
 
     # logic of 'attack' regex: queen ( ... paths between queens containing only empty squares ... ) queen of other color
-    my $attack =
-    '([WB])' .      # 1st queen
-    '(?:' .
-        join('|',
-            "[$empty_square]*",
-            map {
-                "(?^s:.{$_}(?:[$empty_square].{$_})*)"
-            } $n-1, $n, $n+1
-        ) .
-    ')' .
-    '(?!\1)[WB]';   # 2nd queen
+    unless ($attack) {
+      $attack =
+        '([WB])' .      # 1st queen
+        '(?:' .
+            join('|',
+                "[$empty_square]*",
+                map {
+                    "(?^s:.{$_}(?:[$empty_square].{$_})*)"
+                } $n-1, $n, $n+1
+            ) .
+        ')' .
+        '(?!\1)[WB]';   # 2nd queen
+    }
 
     # bail out if seen this configuration previously, or attack detected
     return if $seen{$board}++ or $board =~ /$attack/;
 
     # success if queen count is m×2
-    $solution = $board and return if $m * 2 == (my $have = $board =~ tr/WB//);
+    $solution = $board and goto DONE if $m * 2 == (my $have = $board =~ tr/WB//);
 
     # place the next queen (alternating colors each time)
     place(   $board =~ s/[$empty_square]\G/ qw<W B>[$have % 2] /er, $n, $m, $empty_square ) 
@@ -49,20 +50,28 @@ my $board = join "\n", map { substr $empty_square x $n, $_%2, $n } 1..$n;
 
 place( $board, $n, $m, $empty_square );
 
-say $solution
+DONE: say $solution
     #? sprintf "Solution to $m $n\n\n%s", map { s/(.)/$1 /gm; s/B /♛/gm; s/W /♕/gmr } $solution # this line for RC
     ? sprintf "Solution to $m $n\n\n%s", $solution =~ s/(.)/$1 /gr
     : "No solution to $m $n";
 
 my $ref = <<'END';
+W◦•◦W
+◦•B•◦
 •B•B•
-B•◦•◦
-•◦W◦W
-B•◦•◦
-•◦W◦W
+◦•B•◦
+W◦•◦W
 END
 
 use Test::More;
 chomp $ref;
 is ($solution, $ref);
 done_testing();
+
+__END__
+
+W ◦ • ◦ W
+◦ • B • ◦
+• B • B •
+◦ • B • ◦
+W ◦ • ◦ W
