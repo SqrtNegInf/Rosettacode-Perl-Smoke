@@ -11,12 +11,10 @@ use feature 'state';
 use utf8;
 binmode(STDOUT, ':utf8');
 
-my $solution; # algorithm requires this variable to be global
-
 # recursively place the next queen
 sub place {
     my($board, $n, $m, $empty_square) = @_;
-    state(%seen,$attack);
+    state(%seen,$attack,$solution);
 
     # logic of 'attack' regex: queen ( ... paths between queens containing only empty squares ... ) queen of other color
     unless ($attack) {
@@ -33,24 +31,30 @@ sub place {
         '(?!\1)[WB]';   # 2nd queen
     }
 
+    # pass first result found back up the stack (omit this line to get last result found)
+    return $solution if $solution;
+
     # bail out if seen this configuration previously, or attack detected
     return if $seen{$board}++ or $board =~ /$attack/;
 
     # success if queen count is m×2
-    $solution = $board and goto DONE if $m * 2 == (my $have = $board =~ tr/WB//);
+    $solution = $board and return if $m * 2 == (my $have = $board =~ tr/WB//);
 
     # place the next queen (alternating colors each time)
     place(   $board =~ s/[$empty_square]\G/ qw<W B>[$have % 2] /er, $n, $m, $empty_square ) 
        while $board =~  /[$empty_square]/g;
+
+    # pass already-found result back up the stack
+    return $solution if $solution;
 }
 
 my($m, $n) = (shift, shift) || (4, 5);
 my $empty_square = '◦•';
 my $board = join "\n", map { substr $empty_square x $n, $_%2, $n } 1..$n;
 
-place( $board, $n, $m, $empty_square );
+my $solution = place $board, $n, $m, $empty_square;
 
-DONE: say $solution
+say $solution
     #? sprintf "Solution to $m $n\n\n%s", map { s/(.)/$1 /gm; s/B /♛/gm; s/W /♕/gmr } $solution # this line for RC
     ? sprintf "Solution to $m $n\n\n%s", $solution =~ s/(.)/$1 /gr
     : "No solution to $m $n";
@@ -67,11 +71,3 @@ use Test::More;
 chomp $ref;
 is ($solution, $ref);
 done_testing();
-
-__END__
-
-W ◦ • ◦ W
-◦ • B • ◦
-• B • B •
-◦ • B • ◦
-W ◦ • ◦ W
