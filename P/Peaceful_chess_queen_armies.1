@@ -2,6 +2,7 @@
 #u# http://rosettacode.org/wiki/Peaceful_chess_queen_armies
 #c# 2019-04-02 <RC
 #p# OK
+#n# stop at first solution (was previously proceeding to the last before showing result)
 
 use strict;
 use warnings;
@@ -16,13 +17,13 @@ my $gaps = join '|', qr/-*/, map qr/.{$_}(?:-.{$_})*/s, $n-1, $n, $n+1;
 my $attack = qr/(\w)(?:$gaps)(?!\1)\w/;
 
 place( scalar ('-' x $n . "\n") x $n );
-say my $result = $soln ? "Solution to $m $n\n\n$soln" : "No solution to $m $n";
+DONE: say my $result = $soln ? "Solution to $m $n\n\n$soln" : "No solution to $m $n";
 
 sub place
   {
   local $_ = shift;
   $seen{$_}++ || /$attack/ and return; # previously or attack
-  (my $have = tr/WB//) < $m * 2 or $soln = $_ and return;
+  (my $have = tr/WB//) < $m * 2 or $soln = $_ and goto DONE;
   #(my $have = tr/WB//) < $m * 2 or exit !print "Solution to $m $n\n\n$_";
   place( s/-\G/ qw(W B)[$have % 2] /er ) while /-/g; # place next queen
   }
@@ -30,11 +31,11 @@ sub place
 my $ref = <<'EOD';
 Solution to 4 5
 
+W---W
+--B--
 -B-B-
-B----
---W-W
-B----
---W-W
+--B--
+W---W
 EOD
 
 use Test::More;
