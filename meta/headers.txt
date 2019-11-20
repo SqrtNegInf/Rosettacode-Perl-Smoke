@@ -1835,6 +1835,12 @@ File: D/Determine_if_a_string_has_all_unique_characters
 #n# but the case of duplicated combining-chars still not handled, e.g. 'ΔδΔ̂ΔΛΔ̂' should be:  [Raku gets it right of course...]
 #n# 'Δ̂' GREEK CAPITAL LETTER DELTA COMBINING CIRCUMFLEX ACCENT (0x394 0x302) in positions: 3, 6
 
+File: D/Determine_if_a_string_is_collapsible
+#!/usr/local/bin/perl
+#u# http://rosettacode.org/wiki/Determine_if_a_string_is_collapsible
+#c# 2019-11-19 >RC
+#p# OK
+
 File: D/Determine_if_a_string_is_numeric
 #!/usr/local/bin/perl
 #u# http://rosettacode.org/wiki/Determine_if_a_string_is_numeric
