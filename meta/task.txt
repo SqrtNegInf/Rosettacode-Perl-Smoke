@@ -1,17 +1,17 @@
 
 This is perl 5, version 30, subversion 0 (v5.30.0) built for darwin-thread-multi-2level
 updating from RC…
-+------------> Perl: Good/Bad [1215/13]
-|+-----------> Smoke testing [1073]
++------------> Perl: Good/Bad [1216/13]
+|+-----------> Smoke testing [1074]
 ||+----------> sKipping validation [148]
 |||+---------> Interactive [52]
-||||+--------> Touched (modified by me) [346]
+||||+--------> Touched (modified by me) [347]
 |||||+-------> Random seed [96]
 ||||||+------> File output [66]
 |||||||+-----> Draft [230]
 ||||||||+----> Ignoring [33]
-|||||||||+---> Void (no local copy) [144]
-||||||||||+--> Un-implemented/reliable [138]
+|||||||||+---> Void (no local copy) [143]
+||||||||||+--> Un-implemented/reliable [137]
 |||||||||||
 GS......... 100_doors-1
 GS......... 100_doors-2
@@ -336,7 +336,7 @@ GS......... Detect_division_by_zero
 GS......... Determinant_and_permanent
 GS..T...... Determine_if_a_string_has_all_the_same_characters
 GS..T...... Determine_if_a_string_has_all_unique_characters
-.......D.VU Determine_if_a_string_is_collapsible
+GS..T..D... Determine_if_a_string_is_collapsible
 GS......... Determine_if_a_string_is_numeric
 G.K........ Determine_if_only_one_instance_is_running
 GS..T..D... Determine_if_two_triangles_overlap
