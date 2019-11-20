@@ -31,7 +31,7 @@ sub place {
         '(?!\1)[WB]';   # 2nd queen
     }
 
-    # pass first result found back up the stack (omit this line to get last result found)
+    # return first result found (omit this line to get last result found)
     return $solution if $solution;
 
     # bail out if seen this configuration previously, or attack detected
@@ -44,11 +44,10 @@ sub place {
     place(   $board =~ s/[$empty_square]\G/ qw<W B>[$have % 2] /er, $n, $m, $empty_square ) 
        while $board =~  /[$empty_square]/g;
 
-    # pass already-found result back up the stack
-    return $solution if $solution;
+    return $solution
 }
 
-my($m, $n) = (shift, shift) || (4, 5);
+my($m, $n) = $#ARGV == 1 ? @ARGV : (4, 5);
 my $empty_square = '◦•';
 my $board = join "\n", map { substr $empty_square x $n, $_%2, $n } 1..$n;
 
