@@ -1,19 +1,20 @@
 #!/usr/local/bin/perl
 #u# http://rosettacode.org/wiki/Stream_Merge
-#c# 2018-08-13 <RC
+#c# 2018-08-13 <RC, 2019-11-20 >RC
 #p# OK
-#n# testing only 2-stream merge, cannot install 'Heap::Simple', can't get 'Heap' to work
+#n# did force install on ::XS module, and discovered spacing problems with 'N_streams' (words all ran together)
 
+use strict;
+use warnings;
 use feature 'say';
-my $result;
+
+use English;
+use String::Tokenizer;
+use Heap::Simple;
 
 # We make use of an iterator interface which String::Tokenizer provides. Credit: we obtained all the sample text from http://www.lipsum.com/.
 
-use strict;
-use English;
-use String::Tokenizer;
-#use Heap::Simple;
-use Heap;
+my $result;
 
 my $stream1 = <<"END_STREAM_1";
 Integer vel neque ligula. Etiam a ipsum a leo eleifend viverra sit amet ac
@@ -65,10 +66,10 @@ END_STREAM_6
 
 merge_two_streams(map {String::Tokenizer->new($ARG)->iterator()}
                       ($stream1, $stream2));
-#merge_N_streams(6, map {String::Tokenizer->new($ARG)->iterator()}
-#                       ($stream1, $stream2, $stream3,
-#                        $stream4, $stream5, $stream6));
-#exit 0;
+
+merge_N_streams(6, map {String::Tokenizer->new($ARG)->iterator()}
+                       ($stream1, $stream2, $stream3,
+                        $stream4, $stream5, $stream6));
 
 sub merge_two_streams {
     my ($iter1, $iter2) = @ARG;
@@ -79,16 +80,16 @@ sub merge_two_streams {
             last;
         }
         elsif (!$iter1->hasNextToken()) {
-            $result .= $iter2->nextToken(). q{ };
+            $result .= $iter2->nextToken(). ' ';
         }
         elsif (!$iter2->hasNextToken()) {
-            $result .= $iter1->nextToken(). q{ };
+            $result .= $iter1->nextToken(). ' ';
         }
         elsif ($iter1->lookAheadToken() lt $iter2->lookAheadToken()) {
-            $result .= $iter1->nextToken(). q{ };
+            $result .= $iter1->nextToken(). ' ';
         }
         else {
-            $result .= $iter2->nextToken(). q{ };
+            $result .= $iter2->nextToken(). ' ';
         }
     }
     return;
@@ -96,27 +97,25 @@ sub merge_two_streams {
 
 sub merge_N_streams {
     my $N = shift;
-    print "Merge of $N streams:\n";
+    $result .= "Merge of $N streams:\n";
     my @iters = @ARG;
-    my $heap = Heap->new;
+    my $heap = Heap::Simple->new(order => 'lt', elements => 'Array');
     for (my $i=0; $i<$N; $i++) {
         my $iter = $iters[$i];
         $iter->hasNextToken() or die "Each stream must have >= 1 element";
-        $heap->add([$iter->nextToken(), $i]);
+        $heap->insert([$iter->nextToken() . ' ', $i]);
     }
-    #$heap->count == $N or die "Problem with initial population of heap";
+    $heap->count == $N or die "Problem with initial population of heap";
     while (1) {
         my ($token, $iter_idx) = @{ $heap->extract_top };
-        print $token, q{ };
+        $result .= $token;
         # Attempt to read the next element from the same iterator where we
         # obtained the element we just extracted.
         my $to_insert = _fetch_next_element($iter_idx, $N, @iters);
         if (! $to_insert) {
-            #x#print join(q{ }, map {$ARG->[0]} $heap->extract_all), "\n\n";
-            #print join(q{ }, map {$ARG->[0]} $heap->extract_top), "\n\n";
-            last;
+            $result .= join('', map {$ARG->[0]} $heap->extract_all); last;
         }
-        $heap->add($to_insert);
+        $heap->insert($to_insert);
     }
     return;
 }
@@ -130,7 +129,7 @@ sub _fetch_next_element {
     foreach my $iter_idx (@round_robin_idxs) {
         my $iter = $iters[$iter_idx];
         if ($iter->hasNextToken()) {
-            return [$iter->nextToken(), $iter_idx];
+            return [$iter->nextToken() . ' ', $iter_idx];
         }
     }
     # At this point every iterator has been exhausted.
@@ -138,15 +137,16 @@ sub _fetch_next_element {
 }
 
 say $result;
+
 my $ref = <<'EOD';
 Merge of 2 streams:
 In Integer luctus odio nulla, ut finibus elit aliquet in. In auctor vel neque ligula. Etiam a ipsum a leo eleifend vitae purus quis tristique. Mauris sed erat pulvinar, venenatis lectus auctor, malesuada neque. Integer a hendrerit tortor. Suspendisse aliquet pellentesque lorem, nec tincidunt arcu aliquet non. Phasellus eu diam massa. Integer vitae viverra sit amet ac arcu. Suspendisse odio libero, ullamcorper eu sem vitae, gravida dignissim ipsum. Aenean tincidunt commodo feugiat. Nunc viverra dolor a tincidunt porta. Ut malesuada quis mauris eget vestibulum. Fusce sit amet libero id augue mattis auctor et sit amet ligula. volutpat augue. Nulla condimentum consectetur ante, ut consequat lectus suscipit eget. 
 
+Merge of 6 streams:
+Curabitur Donec In In Integer Suspendisse elementum hendrerit eleifend luctus mi nec enim eu nec nisi maximus nunc ex, ac odio nulla, pulvinar mauris finibus sed. Ut non ex sed sit amet suscipit rutrum non sem. Donec lobortis nulla et rutrum bibendum. Duis tortor ultricies feugiat non at eros. Donec et scelerisque est. In ultricies. Vestibulum euismod, tellus sit amet eleifend ultrices, urna nulla. Duis nec consectetur lacus, et ut finibus elit aliquet in. In auctor varius, tellus in commodo gravida, lorem neque finibus quam, sagittis elementum leo mauris sit amet justo. Sed vel neque ligula. Etiam a ipsum a leo eleifend velit nisi dignissim lectus, non vestibulum fringilla metus eget varius. Aenean fringilla pellentesque massa, non ullamcorper mi commodo non. Sed aliquam molestie congue. Nunc lobortis turpis at nunc lacinia, id laoreet ipsum bibendum. ex. Aliquam lobortis tristique hendrerit. Suspendisse vestibulum velit eget sapien bibendum, sit amet porta lorem fringilla. Morbi bibendum in turpis ac blandit. Mauris semper nibh nec dignissim dapibus. Proin sagittis lacus est. sit amet ac arcu. Suspendisse odio libero, ullamcorper eu sem vestibulum sem nisi sed mi. Nulla scelerisque ut purus sed ultricies. Donec pulvinar eleifend malesuada. In vitae purus quis tristique. Mauris sed erat pulvinar, venenatis lectus auctor, malesuada neque. Integer a hendrerit tortor. Suspendisse aliquet pellentesque lorem, nec tincidunt arcu aliquet non. Phasellus eu diam massa. Integer vitae vitae, gravida dignissim ipsum. Aenean tincidunt commodo feugiat. Nunc viverra vehicula lorem id gravida. Pellentesque at ligula lorem. Cras gravida accumsan lacus sit amet tincidunt. Curabitur quam nisi, viverra dolor a tincidunt porta. Ut malesuada quis mauris eget vestibulum. Fusce sit amet libero id augue mattis auctor et sit amet ligula. augue. Nulla condimentum consectetur ante, ut consequat lectus suscipit eget. faucibus enim a luctus. Vivamus tellus erat, congue quis quam in, lobortis varius mi. Nulla ante orci, porttitor id dui ac, iaculis consequat ligula. vel nulla vel, rhoncus facilisis massa. Aliquam erat viverra viverra viverra viverra volutpat volutpat. 
 EOD
 
-# Merge of 6 streams:
-# Curabitur Donec In In Integer Suspendisse elementum hendrerit eleifend luctus mi nec enim eu nec nisi maximus nunc ex, ac odio nulla, pulvinar mauris finibus sed. Ut non ex sed sit amet suscipit rutrum non sem. Donec lobortis nulla et rutrum bibendum. Duis tortor ultricies feugiat non at eros. Donec et scelerisque est. In ultricies. Vestibulum euismod, tellus sit amet eleifend ultrices, urna nulla. Duis nec consectetur lacus, et ut finibus elit aliquet in. In auctor varius, tellus in commodo gravida, lorem neque finibus quam, sagittis elementum leo mauris sit amet justo. Sed vel neque ligula. Etiam a ipsum a leo eleifend velit nisi dignissim lectus, non vestibulum fringilla metus eget varius. Aenean fringilla pellentesque massa, non ullamcorper mi commodo non. Sed aliquam molestie congue. Nunc lobortis turpis at nunc lacinia, id laoreet ipsum bibendum. ex. Aliquam lobortis tristique hendrerit. Suspendisse vestibulum velit eget sapien bibendum, sit amet porta lorem fringilla. Morbi bibendum in turpis ac blandit. Mauris semper nibh nec dignissim dapibus. Proin sagittis lacus est. sit amet ac arcu. Suspendisse odio libero, ullamcorper eu sem vestibulum sem nisi sed mi. Nulla scelerisque ut purus sed ultricies. Donec pulvinar eleifend malesuada. In vitae purus quis tristique. Mauris sed erat pulvinar, venenatis lectus auctor, malesuada neque. Integer a hendrerit tortor. Suspendisse aliquet pellentesque lorem, nec tincidunt arcu aliquet non. Phasellus eu diam massa. Integer vitae vitae, gravida dignissim ipsum. Aenean tincidunt commodo feugiat. Nunc viverra vehicula lorem id gravida. Pellentesque at ligula lorem. Cras gravida accumsan lacus sit amet tincidunt. Curabitur quam nisi, viverra dolor a tincidunt porta. Ut malesuada quis mauris eget vestibulum. Fusce sit amet libero id augue mattis auctor et sit amet ligula. augue. Nulla condimentum consectetur ante, ut consequat lectus suscipit eget. faucibus enim a luctus. Vivamus tellus erat, congue quis quam in, lobortis varius mi. Nulla ante orci, porttitor id dui ac, iaculis consequat ligula. vel nulla vel, rhoncus facilisis massa. Aliquam erat viverra viverra viverra viverra volutpat volutpat.
-
 use Test::More;
+chomp $ref;
 is ($result, $ref);
 done_testing();
