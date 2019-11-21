@@ -7057,9 +7057,9 @@ File: S/Straddling_checkerboard.1
 File: S/Stream_Merge
 #!/usr/local/bin/perl
 #u# http://rosettacode.org/wiki/Stream_Merge
-#c# 2018-08-13 <RC
+#c# 2018-08-13 <RC, 2019-11-20 >RC
 #p# OK
-#n# testing only 2-stream merge, cannot install 'Heap::Simple', can't get 'Heap' to work
+#n# did force install on ::XS module, and discovered spacing problems with 'N_streams' (words all ran together)
 
 File: S/String_append
 #!/usr/local/bin/perl
