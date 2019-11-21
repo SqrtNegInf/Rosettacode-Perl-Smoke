@@ -86,9 +86,9 @@ It{{em,alic}iz,erat}e{d,}, please.
     gotta have more cowbell!
     gotta have\, again\, more cowbell!
 
-{}} some }{,{\\{ edge, edge} \,}{ cases, {here} \\\\\}
+{}} some }{,{\\{ edge, edgy} \,}{ cases, {here} \\\\\}
     {}} some }{,{\\ edge \,}{ cases, {here} \\\\\}
-    {}} some }{,{\\ edge \,}{ cases, {here} \\\\\}
+    {}} some }{,{\\ edgy \,}{ cases, {here} \\\\\}
 
 EOD
 
@@ -100,4 +100,4 @@ __DATA__
 ~/{Downloads,Pictures}/*.{jpg,gif,png}
 It{{em,alic}iz,erat}e{d,}, please.
 {,{,gotta have{ ,\, again\, }}more }cowbell!
-{}} some }{,{\\{ edge, edge} \,}{ cases, {here} \\\\\}
+{}} some }{,{\\{ edge, edgy} \,}{ cases, {here} \\\\\}
