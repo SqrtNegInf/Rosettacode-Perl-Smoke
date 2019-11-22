@@ -1,17 +1,17 @@
 
 This is perl 5, version 30, subversion 0 (v5.30.0) built for darwin-thread-multi-2level
 updating from RC…
-+------------> Perl: Good/Bad [1215/13]
++------------> Perl: Good/Bad [1216/13]
 |+-----------> Smoke testing [1074]
 ||+----------> sKipping validation [148]
 |||+---------> Interactive [52]
 ||||+--------> Touched (modified by me) [348]
 |||||+-------> Random seed [96]
 ||||||+------> File output [66]
-|||||||+-----> Draft [230]
+|||||||+-----> Draft [231]
 ||||||||+----> Ignoring [33]
-|||||||||+---> Void (no local copy) [143]
-||||||||||+--> Un-implemented/reliable [137]
+|||||||||+---> Void (no local copy) [144]
+||||||||||+--> Un-implemented/reliable [138]
 |||||||||||
 GS......... 100_doors-1
 GS......... 100_doors-2
@@ -338,6 +338,7 @@ GS..T...... Determine_if_a_string_has_all_the_same_characters
 GS..T...... Determine_if_a_string_has_all_unique_characters
 GS..T..D... Determine_if_a_string_is_collapsible
 GS......... Determine_if_a_string_is_numeric
+.......D.VU Determine_if_a_string_is_squeezable
 G.K........ Determine_if_only_one_instance_is_running
 GS..T..D... Determine_if_two_triangles_overlap
 GS.....D... Dice_game_probabilities
@@ -1194,7 +1195,7 @@ GS......... Stern-Brocot_sequence-2
 GS..T..D... Stirling_numbers_of_the_first_kind
 GS..T..D... Stirling_numbers_of_the_second_kind
 GS..T...... Straddling_checkerboard
-!S..T...... Stream_Merge
+GS..T...... Stream_Merge
 GS......... String_append
 GS......... String_case
 GS......... String_comparison
