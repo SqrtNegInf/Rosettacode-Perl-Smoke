@@ -67,11 +67,13 @@ END_STREAM_6
 merge_two_streams(map {String::Tokenizer->new($ARG)->iterator()}
                       ($stream1, $stream2));
 
+#say $result ;exit;
 merge_N_streams(6, map {String::Tokenizer->new($ARG)->iterator()}
                        ($stream1, $stream2, $stream3,
                         $stream4, $stream5, $stream6));
 
 sub merge_two_streams {
+    no warnings 'uninitialized';
     my ($iter1, $iter2) = @ARG;
     $result .= "Merge of 2 streams:\n";
     while (1) {
