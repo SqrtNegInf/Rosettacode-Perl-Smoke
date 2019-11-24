@@ -1,0 +1,35 @@
+#!/usr/local/bin/perl
+#u# http://rosettacode.org/wiki/Color_of_a_screen_pixel
+#c# 2019-11-23 >RC
+#p# OK
+#n# for MacOS...
+
+use strict;
+use warnings;
+use feature 'say';
+
+use GD;
+
+my $file = '/tmp/one-pixel-screen-capture.png';
+
+# menu bar, extreme upper left
+system "screencapture -R 1,1024,1,1 $file";
+my $image = GD::Image->newFromPng($file);
+my $index = $image->getPixel(0,0);
+my($red,$green,$blue) = $image->rgb($index);
+say my $result1 = "RGB: $red, $green, $blue";
+unlink $file;
+
+# menu bar, apple logo
+system "screencapture -R 28,1012,1,1 $file";
+$image = GD::Image->newFromPng($file);
+$index = $image->getPixel(0,0);
+($red,$green,$blue) = $image->rgb($index);
+say my $result2 = "RGB: $red, $green, $blue";
+
+unlink $file;
+
+use Test::More;
+is($result1,'RGB: 204, 206, 204');
+is($result2,'RGB: 252, 254, 252');
+done_testing();
