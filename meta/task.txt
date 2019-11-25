@@ -1,15 +1,15 @@
 
 This is perl 5, version 30, subversion 0 (v5.30.0) built for darwin-thread-multi-2level
 updating from RC…
-+------------> Perl: Good/Bad [1217/13]
++------------> Perl: Good/Bad [1216/13]
 |+-----------> Smoke testing [1075]
 ||+----------> sKipping validation [148]
 |||+---------> Interactive [52]
 ||||+--------> Touched (modified by me) [349]
 |||||+-------> Random seed [96]
 ||||||+------> File output [66]
-|||||||+-----> Draft [231]
-||||||||+----> Ignoring [33]
+|||||||+-----> Draft [229]
+||||||||+----> Ignoring [32]
 |||||||||+---> Void (no local copy) [143]
 ||||||||||+--> Un-implemented/reliable [137]
 |||||||||||
@@ -238,7 +238,7 @@ GS..TR..... Closest-pair_problem
 GS......... Closures_Value_capture
 G.K.T..D... Code_segment_unload
 GS......... Collections
-GS..T...X.. Color_of_a_screen_pixel
+!S..T...... Color_of_a_screen_pixel
 GS..T...... Color_quantization
 GS....FD... Color_wheel
 GS....F.... Colour_bars_Display
@@ -448,7 +448,7 @@ GS......... Fibonacci_sequence-2
 GS......... Fibonacci_sequence-3
 GS......... Fibonacci_word
 GS....F.... Fibonacci_word_fractal
-GS.....D... File_extension_is_in_extensions_list
+GS......... File_extension_is_in_extensions_list
 GS....F.... File_input_output
 GS......... File_modification_time
 GS......... File_size
@@ -1232,7 +1232,6 @@ GS......... Sum_of_a_series
 GS......... Sum_of_squares
 GS......... Sum_to_100
 GS..T.F.... Sunflower_fractal
-.......D... Super-d_numbers
 GS......... Super-d_numbers-1
 GS..T...... Super-d_numbers-2
 GS..T.F.... Superellipse
