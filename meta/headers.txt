@@ -4713,6 +4713,7 @@ File: N/Names_to_numbers
 #u# http://rosettacode.org/wiki/Names_to_numbers
 #c# 2018-08-19 <RC
 #p# OK
+#n# oops, now I see that I dup'ed the answers as part of the input.
 
 File: N/Naming_conventions
 #!/usr/local/bin/perl
