@@ -2,18 +2,19 @@
 #u# http://rosettacode.org/wiki/Names_to_numbers
 #c# 2018-08-19 <RC
 #p# OK
+#n# oops, now I see that I dup'ed the answers as part of the input.
 
 use strict;
 use warnings;
 use feature 'say';
+
+use List::Util qw(sum);
+
 my $result;
 
 # The following code reads a file line-by-line. It echos comment lines starting with a hashmark and blank lines. Remaining lines are output followed by an arrow "=>" and any non-negative integer number names translated into numbers, e.g., a line with "ninety-nine" is output like this: "ninety-nine => 99".
 
-use strict;
-use List::Util qw(sum);
-
-our %nums = (
+my %nums = (
     zero      => 0,	one	=> 1,	two	=> 2,	three	=> 3,
     four      => 4,	five	=> 5,	six	=> 6,	seven	=> 7,
     eight     => 8,	nine	=> 9,	ten	=> 10,	eleven	=> 11,
@@ -27,10 +28,10 @@ our %nums = (
     quadrillion => 1e+015,              quintillion =>  1e+018);
 
 # Groupings for thousands, millions, ..., quintillions
-our $groups = qr/\d{4}|\d{7}|\d{10}|\d{13}|1e\+015|1e\+018/;
+my $groups = qr/\d{4}|\d{7}|\d{10}|\d{13}|1e\+015|1e\+018/;
 
 # Numeral or e-notation
-our $num = qr/\d+|\d+e\+\d+/;
+my $num = qr/\d+|\d+e\+\d+/;
 
 while ($_ = <DATA>) {
         # skip blank lines
@@ -44,14 +45,16 @@ while ($_ = <DATA>) {
 	s/ $//g;                # remove trailing blank
 	s/^ //g;                # remove leading blank
 	$_ = lc($_);            # convert to lower case
+
 	# tokenize sentence boundaries
-	s/([\.\?\!]) / $1\n/g;
-	s/([\.\?\!])$/ $1\n/g;
+	s/([.?!]) / $1\n/g; # DH backslashes not needed?
+	s/([.?!])$/ $1\n/g;
+
 	# tokenize other punctuation and symbols
 	s/\$(.)/\$ $1/g;             # prefix
-	s/(.)([\;\:\%',])/$1 $2/g;   # suffix
+	s/(.)([;:%',])/$1 $2/g;   # suffix # DH backslashes not needed?
 
-	foreach my $key (keys %nums) { s/\b$key\b/$nums{$key}/eg; }
+	foreach my $key (keys %nums) { s/\b$key\b/$nums{$key}/g; } # DH 'g' not 'eg'
 
 	s/(\d) , (\d)/$1 $2/g;
 	s/(\d) and (\d)/$1 $2/g;
@@ -82,6 +85,7 @@ while ($_ = <DATA>) {
 }
 
 say $result; 
+
 my $ref = <<'EOD';
 # For numbers between 21 and 99 inclusive, we're supposed to use a hyphen,
 # but the bank still cashes our check without the hyphen:
@@ -97,7 +101,8 @@ One Thousand and One Nights => 1001 nights
 Two Thousand and One: A Space Odyssey => 2001 : a space odyssey
 # Date anomolies
 Twenty Thirteen => 2013
-Nineteen Eighty-Four => 1984
+Nineteen Eighty-Four! => 1984 !
+
 # Maximum value an "unsigned long int" can hold on a 32-bit machine = 2^32 - 1
 # define ULONG_MAX	4294967295
 four billion, two hundred ninety-four million, nine hundred sixty-seven thousand, two hundred ninety five => 4294967295
@@ -129,53 +134,6 @@ ninety nine thousand nine hundred ninety nine => 99999
 one hundred thousand => 100000
 nine billion one hundred twenty three million four hundred fifty six thousand seven hundred eighty nine => 9123456789
 one hundred eleven billion one hundred eleven => 111000000111
-And here is the resulting output file: => and here is the resulting output file :
-# For numbers between 21 and 99 inclusive, we're supposed to use a hyphen,
-# but the bank still cashes our check without the hyphen:
-Seventy-two dollars => 72 dollars => 72 dollars => 72 dollars
-Seventy two dollars => 72 dollars => 72 dollars => 72 dollars
-# For numbers bigger than 100, we're not supposed to use "and,"
-# except we still use "and" anyway, e.g.,
-One Hundred and One Dalmatians => 101 dalmatians => 101 dalmatians => 101 dalmatians
-A Hundred and One Dalmatians => a 101 dalmatians => a 101 dalmatians => a 101 dalmatians
-One Hundred One Dalmatians => 101 dalmatians => 101 dalmatians => 101 dalmatians
-Hundred and One Dalmatians => 101 dalmatians => 101 dalmatians => 101 dalmatians
-One Thousand and One Nights => 1001 nights => 1001 nights => 1001 nights
-Two Thousand and One: A Space Odyssey => 2001 : a space odyssey => 2001 : a space odyssey => 2001  : a space odyssey
-# Date anomolies
-Twenty Thirteen => 2013 => 2013 => 2013
-Nineteen Eighty-Four => 1984 => 1984 => 1984
-# Maximum value an "unsigned long int" can hold on a 32-bit machine = 2^32 - 1
-# define ULONG_MAX	4294967295
-four billion, two hundred ninety-four million, nine hundred sixty-seven thousand, two hundred ninety five => 4294967295 => 4294967295 => 4294967295
-# Max positive integer on 32-bit Perl is 9_007_199_254_740_992 = 2^53
-# Use Math::BigInt if you need more.
-# Note Perl usually stringifies to 15 digits of precision and this has 16
-Nine quadrillion, seven trillion, one hundred ninety-nine billion, two hundred fifty-four million, seven hundred forty thousand, nine hundred ninety two => 9.00719925474099e+015 => Inf => 9.719925474099e+15
-Nine Hundred Ninety-Nine => 999 => 999 => 999
-One Thousand One Hundred Eleven => 1111 => 1111 => 1111
-Eleven Hundred Eleven => 1111 => 1111 => 1111
-Eight Thousand Eight Hundred Eighty-Eight => 8888 => 8888 => 8888
-Eighty-Eight Hundred Eighty-Eight => 8888 => 8888 => 8888
-Seven Million Seven Hundred Seventy-Seven Thousand Seven Hundred Seventy-Seven => 7777777 => 7777777 => 7777777
-Ninety-Nine Trillion Nine Hundred Ninety-Nine Billion Nine Hundred Ninety-Nine Million Nine Hundred Ninety-Nine Thousand Nine Hundred Ninety-Nine => 99999999999999 => 99999999999999 => 99999999999999
-ninety-nine => 99 => 99 => 99
-three hundred => 300 => 300 => 300
-three hundred and ten => 310 => 310 => 310
-one thousand, five hundred and one => 1501 => 1501 => 1501
-twelve thousand, six hundred and nine => 12609 => 12609 => 12609
-five hundred and twelve thousand, six hundred and nine => 512609 => 512609 => 512609
-forty-three million, one hundred and twelve thousand, six hundred and nine => 43112609 => 43112609 => 43112609
-two billion, one hundred => 2000000100 => 2000000100 => 2000000100
-zero => 0 => 0 => 0
-eight => 8 => 8 => 8
-one hundred => 100 => 100 => 100
-one hundred twenty three => 123 => 123 => 123
-one thousand one => 1001 => 1001 => 1001
-ninety nine thousand nine hundred ninety nine => 99999 => 99999 => 99999
-one hundred thousand => 100000 => 100000 => 100000
-nine billion one hundred twenty three million four hundred fifty six thousand seven hundred eighty nine => 9123456789 => 9123456789 => 9123456789
-one hundred eleven billion one hundred eleven => 111000000111 => 111000000111 => 111000000111
 EOD
 
 use Test::More;
@@ -199,7 +157,7 @@ Two Thousand and One: A Space Odyssey
 
 # Date anomolies
 Twenty Thirteen
-Nineteen Eighty-Four
+Nineteen Eighty-Four!
 
 # Maximum value an "unsigned long int" can hold on a 32-bit machine = 2^32 - 1
 # define ULONG_MAX	4294967295
@@ -236,59 +194,3 @@ ninety nine thousand nine hundred ninety nine
 one hundred thousand
 nine billion one hundred twenty three million four hundred fifty six thousand seven hundred eighty nine
 one hundred eleven billion one hundred eleven
-
-And here is the resulting output file:
-
-# For numbers between 21 and 99 inclusive, we're supposed to use a hyphen,
-# but the bank still cashes our check without the hyphen:
-Seventy-two dollars => 72 dollars
-Seventy two dollars => 72 dollars
-
-# For numbers bigger than 100, we're not supposed to use "and,"
-# except we still use "and" anyway, e.g.,
-One Hundred and One Dalmatians => 101 dalmatians
-A Hundred and One Dalmatians => a 101 dalmatians
-One Hundred One Dalmatians => 101 dalmatians
-Hundred and One Dalmatians => 101 dalmatians
-One Thousand and One Nights => 1001 nights
-Two Thousand and One: A Space Odyssey => 2001 : a space odyssey
-
-# Date anomolies
-Twenty Thirteen => 2013
-Nineteen Eighty-Four => 1984
-
-# Maximum value an "unsigned long int" can hold on a 32-bit machine = 2^32 - 1
-# define ULONG_MAX	4294967295
-four billion, two hundred ninety-four million, nine hundred sixty-seven thousand, two hundred ninety five => 4294967295
-
-# Max positive integer on 32-bit Perl is 9_007_199_254_740_992 = 2^53
-# Use Math::BigInt if you need more.
-# Note Perl usually stringifies to 15 digits of precision and this has 16
-Nine quadrillion, seven trillion, one hundred ninety-nine billion, two hundred fifty-four million, seven hundred forty thousand, nine hundred ninety two => 9.00719925474099e+015
-
-Nine Hundred Ninety-Nine => 999
-One Thousand One Hundred Eleven => 1111
-Eleven Hundred Eleven => 1111
-Eight Thousand Eight Hundred Eighty-Eight => 8888
-Eighty-Eight Hundred Eighty-Eight => 8888
-Seven Million Seven Hundred Seventy-Seven Thousand Seven Hundred Seventy-Seven => 7777777
-Ninety-Nine Trillion Nine Hundred Ninety-Nine Billion Nine Hundred Ninety-Nine Million Nine Hundred Ninety-Nine Thousand Nine Hundred Ninety-Nine => 99999999999999
-
-ninety-nine => 99
-three hundred => 300
-three hundred and ten => 310
-one thousand, five hundred and one => 1501
-twelve thousand, six hundred and nine => 12609
-five hundred and twelve thousand, six hundred and nine => 512609
-forty-three million, one hundred and twelve thousand, six hundred and nine => 43112609
-two billion, one hundred => 2000000100
-
-zero => 0
-eight => 8
-one hundred => 100
-one hundred twenty three => 123
-one thousand one => 1001
-ninety nine thousand nine hundred ninety nine => 99999
-one hundred thousand => 100000
-nine billion one hundred twenty three million four hundred fifty six thousand seven hundred eighty nine => 9123456789
-one hundred eleven billion one hundred eleven => 111000000111
