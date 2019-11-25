@@ -13,7 +13,7 @@ use GD;
 my $file = '/tmp/one-pixel-screen-capture.png';
 
 # menu bar, extreme upper left
-system "screencapture -R 1,1024,1,1 $file";
+system "/usr/sbin/screencapture -R 1,1024,1,1 $file";
 my $image = GD::Image->newFromPng($file);
 my $index = $image->getPixel(0,0);
 my($red,$green,$blue) = $image->rgb($index);
@@ -21,7 +21,7 @@ say my $result1 = "RGB: $red, $green, $blue";
 unlink $file;
 
 # menu bar, apple logo
-system "screencapture -R 28,1012,1,1 $file";
+system "/usr/sbin/screencapture -R 28,1012,1,1 $file";
 $image = GD::Image->newFromPng($file);
 $index = $image->getPixel(0,0);
 ($red,$green,$blue) = $image->rgb($index);
