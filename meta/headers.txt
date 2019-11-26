@@ -4711,6 +4711,13 @@ File: N/Named_parameters
 File: N/Names_to_numbers
 #!/usr/local/bin/perl
 #u# http://rosettacode.org/wiki/Names_to_numbers
+#c# 2018-08-19 <RC, 2019-11-25 >RC
+#p# OK
+#n# doesn't 'count' as high as P6 (goes to exp notation)
+
+File: N/Names_to_numbers.1
+#!/usr/local/bin/perl
+#u# http://rosettacode.org/wiki/Names_to_numbers
 #c# 2018-08-19 <RC
 #p# OK
 #n# oops, now I see that I dup'ed the answers as part of the input.
