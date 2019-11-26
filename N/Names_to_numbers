@@ -2,9 +2,7 @@
 #u# http://rosettacode.org/wiki/Names_to_numbers
 #c# 2018-08-19 <RC, 2019-11-25 >RC
 #p# OK
-#n# oops, now I see that I dup'ed the answers as part of the input.
-
-use Data::Printer;
+#n# doesn't 'count' as high as P6 (goes to exp notation)
 
 use strict;
 use warnings;
@@ -39,6 +37,7 @@ while ($_ = <DATA>) {
     next if (/^\s*$/) or /^\s*#.*$/;
     chomp;
 
+    # extract to 'squeeze'?
     my $orig = $_;
     s/-/ /g;
     s/\s\s+/ /g;
@@ -46,46 +45,42 @@ while ($_ = <DATA>) {
     s/^ //g;
     $_ = lc($_);
 
-    # tokenize sentence boundaries
-    s/([.?!]) / $1\n/g;
-    s/([.?!])$/ $1\n/g;
-
-    # tokenize other punctuation and symbols
-    s/\$(.)/\$ $1/g;          # prefix
-    s/(.)([;:%',])/$1 $2/g;   # suffix
+    s/(.)([[:punct:]])/$1 $2/g; # tokenize punctuation
+    #s/(.)([;:%',])/$1 $2/g; # DH kill
 
     foreach my $key (keys %nums) { s/\b$key\b/$nums{$key}/g; }
 
-    s/(\d) , (\d)/$1 $2/g;
-    s/(\d) and (\d)/$1 $2/g;
+    s/(\d) (?:,|and) (\d)/$1 $2/g;
 
-    s/\b(\d) 100 (\d\d) (\d) (${groups})\b/($1 * 100 + $2 + $3) * $4/eg;
-
-    s/\b(\d) 100 (\d\d) (${groups})\b/($1 * 100 + $2) * $3/eg;
-    s/\b(\d) 100 (\d) (${groups})\b/($1 * 100 + $2) * $3/eg;
-    s/\b(\d) 100 (${groups})\b/$1 * $2 * 100/eg;
-
-    s/\b100 (\d\d) (\d) (${groups})\b/(100 + $1 + $2) * $3/eg;
-    s/\b100 (\d\d) (${groups})\b/(100 + $1) * $2/eg;
-    s/\b100 (\d) (${groups})\b/(100 + $1) * $2/eg;
-    s/\b100 (${groups})\b/$1 * 100/eg;
-
-    s/\b(\d\d) (\d) (${groups})\b/($1 + $2) * $3/eg;
-    s/\b(\d{1,2}) (${groups})\b/$1 * $2/eg;
-
-    s/\b(\d\d) (\d) 100\b/($1 + $2) * 100/eg;
-    s/\b(\d{1,2}) 100\b/$1 * 100/eg;
-
-    s/\b(\d{2}) (\d{2})\b/$1 * 100 + $2/eg;
+    s/\b (\d) \s+ 100 \s+ (\d\d) \s+ (\d) \s+    ($groups) \b / ($1 * 100 + $2 + $3) * $4 /egx;
+    s/\b (\d) \s+ 100 \s+ (\d{1,2}) \s+          ($groups) \b / ($1 * 100 + $2) * $3      /egx;
+    s/\b (\d) \s+ 100 \s+                        ($groups) \b / $1 * $2 * 100             /egx;
+    s/\b      \s+ 100 \s+ (\d\d) \s+ (\d) \s+    ($groups) \b / (100 + $1 + $2) * $3      /egx;
+    s/\b      \s+ 100 \s+ (\d{1,2}) \s+          ($groups) \b / (100 + $1) * $2           /egx;
+    s/\b      \s+ 100 \s+                        ($groups) \b / $1 * 100                  /egx;
+    s/\b                  (\d\d) \s+ (\d) \s+    ($groups) \b / ($1 + $2) * $3            /egx;
+    s/\b                  (\d{1,2}) \s+          ($groups) \b / $1 * $2                   /egx;
+    s/\b                  (\d\d) \s+ (\d) \s+ 100          \b / ($1 + $2) * 100           /egx;
+    s/\b                  (\d{1,2}) \s+ 100                \b / $1 * 100                  /egx;
+    s/\b                  (\d{2}) \s+ (\d{2})              \b / $1 * 100 + $2             /egx;
 
     s/((?:\d+ )*\d+)/sum $1/eg;
+
+    s/(\d+) \s+ pairs.of        / $1 *  2 /egx;
+    s/(\d+) \s+ dozen           / $1 * 12 /egx;
+    s/(\d+) \s+ point \s+ (\d+) /  $1.$2  /gx;
+    
+# need to squeeze...
 
     $result .= $orig. " => ". $_. "\n";
 }
 
-say $result; exit;
+#say $result; exit;
 
-my $ref = <<'EOD';
+my $ref = <<'END';
+two hundred pairs of socks => 400 socks
+One hour, fifty-nine minutes, forty point two seconds => 1 hour , 59 minutes ,   40.2   seconds
+twelve dozen is one hundred forty-four, aka 'one gross' => 144 is 144 , aka  '1 gross '
 Seventy-two dollars => 72 dollars
 Seventy two dollars => 72 dollars
 One Hundred and One Dalmatians => 101 dalmatians
@@ -96,8 +91,6 @@ One Thousand and One Nights => 1001 nights
 Two Thousand and One: A Space Odyssey => 2001 : a space odyssey
 Twenty Thirteen => 2013
 Nineteen Eighty-Four => 1984
-four billion, two hundred ninety-four million, nine hundred sixty-seven thousand, two hundred ninety five => 4294967295
-Nine quadrillion, seven trillion, one hundred ninety-nine billion, two hundred fifty-four million, seven hundred forty thousand, nine hundred ninety two => Inf
 Nine Hundred Ninety-Nine => 999
 One Thousand One Hundred Eleven => 1111
 Eleven Hundred Eleven => 1111
@@ -120,16 +113,22 @@ one hundred twenty three => 123
 one thousand one => 1001
 ninety nine thousand nine hundred ninety nine => 99999
 one hundred thousand => 100000
-nine billion one hundred twenty three million four hundred fifty six thousand seven hundred eighty nine => 9123456789
 one hundred eleven billion one hundred eleven => 111000000111
-EOD
+four billion, two hundred ninety-four million, nine hundred sixty-seven thousand, two hundred ninety five => 4294967295
+Nine quadrillion, seven trillion, one hundred ninety-nine billion, two hundred fifty-four million, seven hundred forty thousand, nine hundred ninety two => 9007199254740992
+
+END
 
 use Test::More;
+chomp $ref;
 is ($result, $ref);
 done_testing();
 
 __END__
-Seven Million Seven Hundred Seventy-Seven Thousand Seven Hundred Seventy-Seven
+two hundred pairs of socks
+One hour, fifty-nine minutes, forty point two seconds
+twelve dozen is one hundred forty-four, aka 'one gross'
+
 # For numbers between 21 and 99 inclusive, we're supposed to use a hyphen,
 # but the bank still cashes our check without the hyphen:
 Seventy-two dollars
