@@ -1,17 +1,17 @@
 
 This is perl 5, version 30, subversion 0 (v5.30.0) built for darwin-thread-multi-2level
 updating from RC…
-+------------> Perl: Good/Bad [1216/13]
++------------> Perl: Good/Bad [1217/13]
 |+-----------> Smoke testing [1075]
 ||+----------> sKipping validation [148]
 |||+---------> Interactive [52]
-||||+--------> Touched (modified by me) [349]
+||||+--------> Touched (modified by me) [350]
 |||||+-------> Random seed [96]
 ||||||+------> File output [66]
-|||||||+-----> Draft [229]
+|||||||+-----> Draft [231]
 ||||||||+----> Ignoring [32]
-|||||||||+---> Void (no local copy) [143]
-||||||||||+--> Un-implemented/reliable [137]
+|||||||||+---> Void (no local copy) [146]
+||||||||||+--> Un-implemented/reliable [140]
 |||||||||||
 GS......... 100_doors-1
 GS......... 100_doors-2
@@ -141,6 +141,8 @@ GS......... Binary_digits
 GS......... Binary_search-1
 GS......... Binary_search-2
 GS..T...... Binary_strings
+.......D.VU Bioinformatics_Sequence_mutation
+.......D.VU Bioinformatics_base_count
 GS..TR.D... Birthday_problem
 GS......... Bitcoin_address_validation
 GS......... Bitcoin_public_point_to_address
@@ -238,7 +240,7 @@ GS..TR..... Closest-pair_problem
 GS......... Closures_Value_capture
 G.K.T..D... Code_segment_unload
 GS......... Collections
-!S..T...... Color_of_a_screen_pixel
+GS..T...... Color_of_a_screen_pixel
 GS..T...... Color_quantization
 GS....FD... Color_wheel
 GS....F.... Colour_bars_Display
@@ -492,7 +494,7 @@ GS......... Four_bit_adder
 GS..T...... Four_is_magic
 GS..T...... Four_is_the_number_of_letters_in_the_...
 GS....F.... Fractal_tree
-GS..T..D... Fraction_reduction
+GS..T...... Fraction_reduction
 GS......... Fractran
 G.K.T..D..U Free_polyominoes_enumeration
 GS.....D... French_Republican_calendar
@@ -799,7 +801,7 @@ GS..T...... N-queens_problem
 GS..T...... N-smooth_numbers
 GS..T..D... NYSIIS
 GS......... Named_parameters
-GS.....D... Names_to_numbers
+GS..T..D... Names_to_numbers
 G.K.T...... Naming_conventions
 ........XV. Narcissist
 GS......... Narcissistic_decimal_number
@@ -1305,6 +1307,7 @@ GS....F.... Truth_table
 GS......... Twelve_statements
 GS..T..D... Two_Sum
 GS..T..D... Type_detection
+.......D.VU UPC
 GS......... URL_decoding
 GS......... URL_encoding
 GS......... URL_parser
