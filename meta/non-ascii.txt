@@ -256,6 +256,11 @@ M/Multidimensional_Newton-Raphson_method
 Δ:    13 GREEK CAPITAL LETTER DELTA
 ε:     8 GREEK SMALL LETTER EPSILON
 
+N/Names_to_numbers
+¢:     2 CENT SIGN
+π:     3 GREEK SMALL LETTER PI
+≅:     3 APPROXIMATELY EQUAL TO
+
 N/Natural_sorting
 ß:     1 LATIN SMALL LETTER SHARP S
 Ĳ:     1 LATIN CAPITAL LIGATURE IJ
