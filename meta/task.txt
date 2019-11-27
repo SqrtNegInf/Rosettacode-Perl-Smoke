@@ -1,7 +1,7 @@
 
 This is perl 5, version 30, subversion 0 (v5.30.0) built for darwin-thread-multi-2level
 updating from RC…
-+------------> Perl: Good/Bad [1217/13]
++------------> Perl: Good/Bad [1216/13]
 |+-----------> Smoke testing [1075]
 ||+----------> sKipping validation [148]
 |||+---------> Interactive [52]
@@ -801,7 +801,7 @@ GS..T...... N-queens_problem
 GS..T...... N-smooth_numbers
 GS..T..D... NYSIIS
 GS......... Named_parameters
-GS..T..D... Names_to_numbers
+!S..T..D... Names_to_numbers
 G.K.T...... Naming_conventions
 ........XV. Narcissist
 GS......... Narcissistic_decimal_number
