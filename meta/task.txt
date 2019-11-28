@@ -240,7 +240,7 @@ GS..TR..... Closest-pair_problem
 GS......... Closures_Value_capture
 G.K.T..D... Code_segment_unload
 GS......... Collections
-GS..T...... Color_of_a_screen_pixel
+!S..T...... Color_of_a_screen_pixel
 GS..T...... Color_quantization
 GS....FD... Color_wheel
 GS....F.... Colour_bars_Display
@@ -801,7 +801,7 @@ GS..T...... N-queens_problem
 GS..T...... N-smooth_numbers
 GS..T..D... NYSIIS
 GS......... Named_parameters
-!S..T..D... Names_to_numbers
+GS..T..D... Names_to_numbers
 G.K.T...... Naming_conventions
 ........XV. Narcissist
 GS......... Narcissistic_decimal_number
