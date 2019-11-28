@@ -105,7 +105,7 @@ sub numify {
     $str =~ s/\b      \s+ 100                     \s+     ($groups) \b /  $1 * 100                 /gxe;
     $str =~ s/\b                  (\d\d) \s+ (\d) \s+     ($groups) \b / ($1 + $2) * $3            /gxe;
     $str =~ s/\b                  (\d{1,2})       \s+     ($groups) \b /  $1 * $2                  /gxe;
-    $str =~ s/\b                  (\d\d) \s+ (\d) \s+ 100 \s+       \b / ($1 + $2) * 100           /gxe;
+    $str =~ s/\b                  (\d\d) \s+ (\d) \s+ 100           \b / ($1 + $2) * 100           /gxe;
     $str =~ s/\b                  (\d{1,2})       \s+ 100           \b /  $1 * 100                 /gxe;
     $str =~ s/\b                  (\d{2}) \s+ (\d{2})               \b /  $1 * 100 + $2            /gxe;
 
