@@ -11,7 +11,7 @@ updating from RC…
 |||||||+-----> Draft [228]
 ||||||||+----> Ignoring [32]
 |||||||||+---> Void (no local copy) [147]
-||||||||||+--> Un-implemented/reliable [142]
+||||||||||+--> Un-implemented/reliable [141]
 |||||||||||
 GS......... 100_doors-1
 GS......... 100_doors-2
@@ -340,7 +340,7 @@ GS..T...... Determine_if_a_string_has_all_the_same_characters
 GS..T...... Determine_if_a_string_has_all_unique_characters
 GS..T...... Determine_if_a_string_is_collapsible
 GS......... Determine_if_a_string_is_numeric
-G.K.T.....U Determine_if_a_string_is_squeezable
+G.K.T...... Determine_if_a_string_is_squeezable
 G.K........ Determine_if_only_one_instance_is_running
 GS..T..D... Determine_if_two_triangles_overlap
 GS.....D... Dice_game_probabilities
