@@ -693,7 +693,7 @@ File: B/Binary_digits
 File: B/Binary_search-1
 #!/usr/local/bin/perl
 #u# http://rosettacode.org/wiki/Binary_search
-#c# 2018-07-16 <RC
+#c# 2018-07-16 <RC, 2019-12-03 <RC
 #p# OK
 #n# was producing bogus answer, changed tests to be for strings (eg, lt)
 
