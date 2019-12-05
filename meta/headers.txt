@@ -693,7 +693,7 @@ File: B/Binary_digits
 File: B/Binary_search-1
 #!/usr/local/bin/perl
 #u# http://rosettacode.org/wiki/Binary_search
-#c# 2018-07-16 <RC, 2019-12-03 <RC
+#c# 2018-07-16 <RC
 #p# OK
 #n# was producing bogus answer, changed tests to be for strings (eg, lt)
 
@@ -708,6 +708,18 @@ File: B/Binary_strings
 #!/usr/local/bin/perl
 #u# http://rosettacode.org/wiki/Binary_strings
 #c# 2019-10-05 >RC
+#p# OK
+
+File: B/Bioinformatics_Sequence_mutation
+#!/usr/local/bin/perl
+#u# http://rosettacode.org/wiki/Bioinformatics/Sequence_mutation
+#c# 2019-12-04 >RC
+#p# OK
+
+File: B/Bioinformatics_base_count
+#!/usr/local/bin/perl
+#u# http://rosettacode.org/wiki/Bioinformatics_base_count
+#c# 2019-12-04 >RC
 #p# OK
 
 File: B/Birthday_problem
@@ -3443,6 +3455,13 @@ File: I/IBAN
 #u# http://rosettacode.org/wiki/IBAN
 #c# 2018-08-13 <RC
 #p# OK
+
+File: I/ISBN13_check_digit
+#!/usr/local/bin/perl
+#u# http://rosettacode.org/wiki/ISBN13_check_digit
+#c# 2019-12-04 >RC
+#p# OK
+#n# when I was a kid, we didn't have any fancy hyper-operators, but we made do...
 
 File: I/I_before_E_except_after_C-1
 #!/usr/local/bin/perl
