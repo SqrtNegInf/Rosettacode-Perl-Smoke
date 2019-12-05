@@ -1,0 +1,86 @@
+#!/usr/local/bin/perl
+#u# http://rosettacode.org/wiki/Bioinformatics/Sequence_mutation
+#c# 2019-12-04 >RC
+#p# OK
+
+use strict;
+use warnings;
+use feature 'say';
+
+srand 123456;
+
+my @res;
+
+my @bases = <A C G T>;
+ 
+my $dna;
+$dna .= $bases[int rand 4] for 1..200;
+ 
+my %cnt;
+$cnt{$_}++ for split //, $dna;
+ 
+sub pretty {
+    my($string) = @_;
+    my $chunk = 10;
+    my $wrap  = 5 * ($chunk+1);
+    ($string =~ s/(.{$chunk})/$1 /gr) =~ s/(.{$wrap})/$1\n/gr;
+}
+
+sub mutate {
+    my($dna,$count) = @_;
+    my $orig = $dna;
+    substr($dna,rand length $dna,1) = $bases[int rand 4] while $count > diff($orig, $dna) =~ tr/acgt//;
+    $dna
+}
+
+sub diff {
+    my($orig, $repl) = @_;
+    for my $i (0 .. -1+length $orig) {
+        substr($repl,$i,1, lc substr $repl,$i,1) if substr($orig,$i,1) ne substr($repl,$i,1);
+    }
+    $repl;
+}
+
+push @res, "Original DNA strand:\n" . pretty($dna);
+push @res, "Total bases: ". length $dna;
+push @res, "$_: $cnt{$_}" for @bases;
+ 
+my $mutate = mutate($dna, 10);
+%cnt = ();
+$cnt{$_}++ for split //, $mutate;
+push @res, "\nMutated DNA strand:\n" . pretty diff $dna, $mutate;
+push @res, "Total bases: ". length $mutate;
+push @res, "$_: $cnt{$_}" for @bases;
+
+say my $result = join "\n", @res;
+
+my $ref = <<'END';
+Original DNA strand:
+TGGAACATGT CCCAACGAGT TCTTCTTGCT AGCAGATTTT TTCAGTTGAT 
+CGTCACATGC GGTAGACTAC CCAAGGTGTG ACTACTCGCA TGCCTGATCT 
+AAATGGACAG TCGGCAGGCT AGTGCTAATT ACCGGAAGTA CGAACGAGCC 
+ATGCTGAGCG ACTCATCATT GTGAAATCGA GCCTATCTGC ATGACCTAAT 
+
+Total bases: 200
+A: 52
+C: 48
+G: 47
+T: 53
+
+Mutated DNA strand:
+TGGAACATGT CCCAACGAGT cCTTCTTGCT AGCcGATTTT TTCAGTTGgT 
+gGTCACATGC aGTAGACTAC CCgAGGTGTG ACTACTCGCA TGCCTGATCT 
+AAATGGACAG TCGGCAGGCT AGTGCTAATT ACCGGAAGTA CGAACGAGCt 
+ATGCaGAGCG ACTCATCgTT GTGAAATCGA GCCTATCTGC AgGACCTAAT 
+
+Total bases: 200
+A: 50
+C: 48
+G: 51
+T: 51
+END
+
+use Test::More;
+chomp $ref;
+is($result, $ref);
+done_testing();
