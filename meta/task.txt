@@ -1,17 +1,17 @@
 
 This is perl 5, version 30, subversion 0 (v5.30.0) built for darwin-thread-multi-2level
 updating from RC…
-+------------> Perl: Good/Bad [1218/13]
-|+-----------> Smoke testing [1075]
++------------> Perl: Good/Bad [1220/13]
+|+-----------> Smoke testing [1078]
 ||+----------> sKipping validation [149]
 |||+---------> Interactive [52]
-||||+--------> Touched (modified by me) [351]
-|||||+-------> Random seed [96]
+||||+--------> Touched (modified by me) [354]
+|||||+-------> Random seed [97]
 ||||||+------> File output [66]
-|||||||+-----> Draft [228]
+|||||||+-----> Draft [229]
 ||||||||+----> Ignoring [32]
-|||||||||+---> Void (no local copy) [147]
-||||||||||+--> Un-implemented/reliable [141]
+|||||||||+---> Void (no local copy) [145]
+||||||||||+--> Un-implemented/reliable [139]
 |||||||||||
 GS......... 100_doors-1
 GS......... 100_doors-2
@@ -141,8 +141,8 @@ GS......... Binary_digits
 GS......... Binary_search-1
 GS......... Binary_search-2
 GS..T...... Binary_strings
-.......D.VU Bioinformatics_Sequence_mutation
-.......D.VU Bioinformatics_base_count
+GS..TR.D... Bioinformatics_Sequence_mutation
+GS..T..D... Bioinformatics_base_count
 GS..TR.D... Birthday_problem
 GS......... Bitcoin_address_validation
 GS......... Bitcoin_public_point_to_address
@@ -240,7 +240,7 @@ GS..TR..... Closest-pair_problem
 GS......... Closures_Value_capture
 G.K.T..D... Code_segment_unload
 GS......... Collections
-GS..T...... Color_of_a_screen_pixel
+!S..T...... Color_of_a_screen_pixel
 GS..T...... Color_quantization
 GS....FD... Color_wheel
 GS....F.... Colour_bars_Display
@@ -592,6 +592,7 @@ GS..T..D... I.Q._Puzzle
 GS......... IBAN
 .......D.VU IPC_via_named_pipe
 .......D.VU IRC_gateway
+GS..T..D... ISBN13_check_digit
 GS......... I_before_E_except_after_C-1
 GS......... I_before_E_except_after_C-2
 GS......... Identity_matrix
