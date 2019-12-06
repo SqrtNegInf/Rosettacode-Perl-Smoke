@@ -37,15 +37,3 @@ use Test::More;
 chomp $ref;
 is($result, $ref);
 done_testing();
-
-__END__
-
-=={{header|Perl}}==
-<lang perl></lang>
-{{out}}
-<pre>978-1734314502 : Good
-978-1734314509 : Bad check-digit 9; should be 2
-978-1788399081 : Good
-978-1788399083 : Bad check-digit 3; should be 1
-978-2-74839-908-0 : Good
-978-2-74839-908-5 : Bad check-digit 5; should be 0</pre>
