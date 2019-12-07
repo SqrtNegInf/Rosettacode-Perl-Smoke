@@ -1,11 +1,7 @@
 #!/usr/local/bin/perl
 #u# http://rosettacode.org/wiki/Unprimeable_numbers
-#t# inprogress
-#c# 2019-12-xx >RC
+#c# 2019-12-06 >RC
 #p# OK
-
-use Data::Printer;
-use Time::HiRes qw(sleep);
 
 use strict;
 use warnings;
@@ -14,30 +10,34 @@ use feature 'say';
 my @res;
 
 use ntheory 'is_prime';
+use enum qw(False True);
 
 sub is_unprimeable {
     my($n) = @_;
-    return 0 if is_prime($n);
+    return False if is_prime($n);
     my $chrs = length $n;
 
     for my $place (0..$chrs-1) {
         my $pow = 10**($chrs - $place - 1);
         my $this = substr($n, $place, 1) * $pow;
-        map { return 0 if $this != $_ && is_prime($n - $this + $_ * $pow) } 0..9;
+        map { return False if $this != $_ and is_prime($n - $this + $_ * $pow) } 0..9;
      }
-     1
+     True
 }
 
 sub comma { reverse ((reverse shift) =~ s/(.{3})/$1,/gr) =~ s/^,//r }
 
-my @ups = grep { is_unprimeable($_) } 1..10000;
-#say "First 35 unprimeables:\n@ups[0..34]\n";
-push @res, "First 35 unprimeables:\n" . join ' ', @ups[0..34];
-push @res, "\n600th unprimeable: " . comma $ups[599];
+my($n, @ups);
 
-#my $n = 0; my $b = '';
-#$b .= do { $n < $upto ? (is_Brazilian($_) and ++$n and "$_ ") : last } for 1 .. Inf;
-#push @res, $b . "\n";
+do { push @ups, $n if is_unprimeable(++$n); } until @ups == 600;
+push @res, "First 35 unprimeables:\n" . join ' ', @ups[0..34];
+push @res, sprintf "\n600th unprimeable: %s\n", comma $ups[599];
+
+map {
+    my $x = $_;
+    while ($x += 10) { last if is_unprimeable($x) }
+    push @res, "First unprimeable that ends with $_: " . sprintf "%9s", comma $x;
+} 0..9;
 
 say my $result = join "\n", @res;
 
@@ -46,9 +46,7 @@ First 35 unprimeables:
 200 204 206 208 320 322 324 325 326 328 510 512 514 515 516 518 530 532 534 535 536 538 620 622 624 625 626 628 840 842 844 845 846 848 890
 
 600th unprimeable: 5,242
-END
 
-my $xef = <<'END';
 First unprimeable that ends with 0:       200
 First unprimeable that ends with 1:   595,631
 First unprimeable that ends with 2:       322
@@ -65,15 +63,6 @@ use Test::More;
 chomp $ref;
 is($result, $ref);
 done_testing();
-
-__END__
-
-@res.push: "\n{ordinal-digit(600, :u)} unprimeable: " ~ comma( @ups[599] ) ~ "\n";
-
-^10 .map: -> \n {
-    @res.push: "First unprimeable that ends with {n}: " ~
-    sprintf "%9s", comma (n, *+10 … *).race.first: { .&is-unprimeable }
-}
 
 __END__
 
