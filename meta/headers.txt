@@ -7802,6 +7802,12 @@ File: U/Unix_ls
 #c# 2018-08-07 <RC
 #p# OK
 
+File: U/Unprimeable_numbers
+#!/usr/local/bin/perl
+#u# http://rosettacode.org/wiki/Unprimeable_numbers
+#c# 2019-12-06 >RC
+#p# OK
+
 File: U/Untrusted_environment
 #!/usr/local/bin/perl
 #u# http://rosettacode.org/wiki/Untrusted_environment
