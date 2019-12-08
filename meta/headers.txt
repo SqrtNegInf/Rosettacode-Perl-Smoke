@@ -7735,6 +7735,13 @@ File: T/Type_detection
 #c# 2018-08-31 >RC
 #p# OK
 
+File: U/UPC
+#!/usr/local/bin/perl
+#u# http://rosettacode.org/wiki/UPC
+#t# inprogress
+#c# 2019-12-xx >RC
+#p# OK
+
 File: U/URL_decoding
 #!/usr/local/bin/perl
 #u# http://rosettacode.org/wiki/URL_decoding
