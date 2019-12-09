@@ -1,11 +1,7 @@
 #!/usr/local/bin/perl
 #u# http://rosettacode.org/wiki/UPC
-#t# inprogress
-#c# 2019-12-xx >RC
+#c# 2019-12-08 >RC
 #p# OK
-
-use Data::Printer;
-use Time::HiRes qw(sleep);
 
 use strict;
 use warnings;
@@ -13,31 +9,48 @@ use feature 'say';
 
 my @res;
 
+sub decode_UPC {
+    my($line) = @_;
+    my(%pattern_to_digit_1,%pattern_to_digit_2,@digits,$sum);
 
-sub decode_UPC ( Str $line ) {
-    constant @patterns1 = '   ## #', '  ##  #', '  #  ##', ' #### #', ' #   ##',
-                          ' ##   #', ' # ####', ' ### ##', ' ## ###', '   # ##';
-    constant @patterns2 = @patterns1».trans( '#' => ' ', ' ' => '#' );
+    my @patterns1 = ('   ## #', '  ##  #', '  #  ##', ' #### #', ' #   ##',
+                     ' ##   #', ' # ####', ' ### ##', ' ## ###', '   # ##');
+    my @patterns2 = @patterns1;
+    $patterns2[$_] =~ tr/# / #/ for 0..$#patterns2;
 
-    constant %pattern_to_digit_1 = @patterns1.antipairs;
-    constant %pattern_to_digit_2 = @patterns2.antipairs;
+    $pattern_to_digit_1{$patterns1[$_]} = $_ for 0..$#patterns1;
+    $pattern_to_digit_2{$patterns2[$_]} = $_ for 0..$#patterns2;
 
-    constant $re = / ^  '# #'  (@patterns1) ** 6
-                       ' # # ' (@patterns2) ** 6
-                        '# #'                     $ /;
+     #my $re = '\s*# #\s*((?:' . join('|',@patterns1) . '){6})\s*# #\s*((?:' . join('|',@patterns2) . '){6})\s*# #\s*';
 
-    $line.trim ~~ $re
-        orelse return;
+     my $re = '\s*# #\s*' .
+              "(?<match1>(?:@{[join '|', @patterns1]}){6})" .    # match1
+              '\s*# #\s*' .
+              "(?<match2>(?:@{[join '|', @patterns2]}){6})" .    # match2
+              '\s*# #\s*';
+     $line =~ /^$re$/g || return;
 
-    my @digits = flat %pattern_to_digit_1{ $0».Str },
-                      %pattern_to_digit_2{ $1».Str };
+    # not working, why?  ultimate goal is to put named caputure in here...
+#   $line =~ /^ \s*#\s#\s*
+#               ( (?: @{[join '|', @patterns1]} ) {6} )  # match1
+#               \s*#\s#\s*
+#               ( (?: @{[join '|', @patterns2]} ) {6} )  # match2
+#               \s*#\s#\s*
+#             $/gx || return;
 
-    return unless ( @digits Z* ( |(3,1) xx * ) ).sum %% 10;
+    #say $+{match1}; say $+{match2}; say '';
+    #push @digits, $pattern_to_digit_1{$_} for $+{match1} =~ /(.......)/g;
+    #push @digits, $pattern_to_digit_2{$_} for $+{match2} =~ /(.......)/g;
 
-    return @digits.join;
+    my($match1,$match2) = ($+{match1}, $+{match2});
+    push @digits, $pattern_to_digit_1{$_} for $+{match1} =~ /(.......)/g;
+    push @digits, $pattern_to_digit_2{$_} for $match2 =~ /(.......)/g;
+
+    $sum += (3,1)[$_%2] * $digits[$_] for 0..11;
+    $sum % 10 ? '' : join '', @digits;
 }
 
-my @lines =
+my @lines = (
     '         # #   # ##  #  ## #   ## ### ## ### ## #### # # # ## ##  #   #  ##  ## ###  # ##  ## ### #  # #       ',
      '        # # #   ##   ## # #### #   # ## #   ## #   ## # # # ###  # ###  ##  ## ###  # #  ### ###  # # #      ',
     '         # #    # # #  ###  #   #    # #  #   #    # # # # ## #   ## #   ## #   ##   # # #### ### ## # #       ',
@@ -48,17 +61,17 @@ my @lines =
      '        # # #    # ##  ##   #  # ##  ##  ### #   #  # # # ### ## ## ### ## ### ### ## #  ##  ### ## # #      ',
     '         # # ### ##   ## # # #### #   ## # #### # #### # # #   #  # ###  #    # ###  # #    # ###  # # #       ',
      '        # # # #### ##   # #### # #   ## ## ### #### # # # #  ### # ###  ###  # # ###  #    # #  ### # #      ',
-;
+);
 
-for @lines -> $line {
-    @res.push: decode_UPC($line)
-     // decode_UPC($line.flip)
+for my $line (@lines) {
+    push @res, decode_UPC($line)
+     // decode_UPC(join '', reverse split '', $line)
      // 'Invalid';
 }
 
-.say for @res;
+say my $result = join "\n", @res;
 
-my $ref = q:to/END/;
+my $ref = <<'END';
 924773271019
 403944441050
 834999676706
@@ -71,22 +84,7 @@ Invalid
 653483540435
 END
 
-use Test;
-is @res.join("\n"), chomp $ref;
-
-say my $result = join "\n", @res;
-my $ref = <<'END';
-END
-
 use Test::More;
 chomp $ref;
 is($result, $ref);
 done_testing();
-
-__END__
-
-=={{header|Perl}}==
-{{trans|Perl 6}}
-<lang perl></lang>
-{{out}}
-<pre></pre>
