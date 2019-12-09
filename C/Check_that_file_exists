@@ -1,9 +1,14 @@
 #!/usr/local/bin/perl
 #u# http://rosettacode.org/wiki/Check_that_file_exists
-#t# nocode
 #c# 2018-07-22 <RC
 #p# OK
 #n# re-write this?
+
+my @res;
+
+use strict;
+use warnings;
+use feature 'say';
 
 # use File::Spec::Functions qw(catfile rootdir);
 # # here
@@ -19,3 +24,20 @@
 # perl -e 'print -d "./docs", "\n";'
 # perl -e 'print -e "/input.txt", "\n";'
 # perl -e 'print -d "/docs", "\n";'
+
+push @res, 'dir. ref exists' if -e 'ref' && -d 'ref';
+push @res, 'rex does not exist' unless -e 'rex';
+push @res, 'π±Δ exists and is zero length' if -e 'ref/π±Δ' and -z 'ref/π±Δ';
+
+say my $result = join "\n", @res;
+
+my $ref = <<'END';
+dir. ref exists
+rex does not exist
+π±Δ exists and is zero length
+END
+
+use Test::More;
+chomp $ref;
+is $result, $ref;
+done_testing();
