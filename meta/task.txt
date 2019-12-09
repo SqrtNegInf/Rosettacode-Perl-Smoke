@@ -2,8 +2,8 @@
 This is perl 5, version 30, subversion 0 (v5.30.0) built for darwin-thread-multi-2level
 updating from RC…
 +------------> Perl: Good/Bad [1222/13]
-|+-----------> Smoke testing [1079]
-||+----------> sKipping validation [150]
+|+-----------> Smoke testing [1080]
+||+----------> sKipping validation [149]
 |||+---------> Interactive [52]
 ||||+--------> Touched (modified by me) [356]
 |||||+-------> Random seed [97]
@@ -11,7 +11,7 @@ updating from RC…
 |||||||+-----> Draft [229]
 ||||||||+----> Ignoring [32]
 |||||||||+---> Void (no local copy) [143]
-||||||||||+--> Un-implemented/reliable [138]
+||||||||||+--> Un-implemented/reliable [137]
 |||||||||||
 GS......... 100_doors-1
 GS......... 100_doors-2
@@ -1309,7 +1309,7 @@ GS....F.... Truth_table
 GS......... Twelve_statements
 GS..T..D... Two_Sum
 GS..T..D... Type_detection
-G.K.T..D..U UPC
+GS..T..D... UPC
 GS......... URL_decoding
 GS......... URL_encoding
 GS......... URL_parser
