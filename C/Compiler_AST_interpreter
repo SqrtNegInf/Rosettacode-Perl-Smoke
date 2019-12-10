@@ -1,10 +1,10 @@
 #!/usr/local/bin/perl
 #u# http://rosettacode.org/wiki/Compiler/AST_interpreter
-#t# skiptest
 #c# 2018-07-24 <RC
 #p# OK
 
 use feature 'say';
+
 my $result;
 
 # Tested with perl v5.26.1
@@ -19,7 +19,7 @@ tree()->run;
  
 sub tree
   {
-  my $line = <> // die "incomplete tree\n";
+  my $line = <DATA> // die "incomplete tree\n";
   (local $_, my $arg) = $line =~ /^(\w+|;)\s+(.*)/ or die "bad input $line";
   /String/ ? bless [$arg =~ tr/""//dr =~ s/\\(.)/$1 eq 'n' ? "\n" : $1/ger], $_ :
     /Identifier|Integer/ ? bless [ $arg ], $_ :
@@ -46,20 +46,141 @@ sub Not::run { $_[0][0]->run ? 0 : 1 }
 sub NotEqual::run { $_[0][0]->run != $_[0][1]->run ? 1 : 0 }
 sub Null::run {}
 sub Or::run { $_[0][0]->run || $_[0][1]->run }
-sub Prtc::run { print chr $_[0][0]->run }
-sub Prti::run { print $_[0][0]->run }
-sub Prts::run { print $_[0][0][0] }
+sub Prtc::run { $result .= chr $_[0][0]->run }
+sub Prti::run { $result .= $_[0][0]->run }
+sub Prts::run { $result .= $_[0][0][0] }
 sub Sequence::run { $_->run for $_[0]->@* }
 sub Subtract::run { $_[0][0]->run - $_[0][1]->run }
 sub While::run { $_[0][1]->run while $_[0][0]->run }
 
-# Passes all tests.
+say $result;
 
-
-say $result; 
 my $ref = <<'EOD';
+3 is prime
+5 is prime
+7 is prime
+11 is prime
+13 is prime
+17 is prime
+19 is prime
+23 is prime
+29 is prime
+31 is prime
+37 is prime
+41 is prime
+43 is prime
+47 is prime
+53 is prime
+59 is prime
+61 is prime
+67 is prime
+71 is prime
+73 is prime
+79 is prime
+83 is prime
+89 is prime
+97 is prime
+101 is prime
+Total primes found: 26
 EOD
 
 use Test::More;
-#is ($result, $ref);
-#done_testing();
+is ($result, $ref);
+done_testing();
+
+__END__
+Sequence
+Sequence
+Sequence
+Sequence
+Sequence
+;
+Assign
+Identifier    count
+Integer       1
+Assign
+Identifier    n
+Integer       1
+Assign
+Identifier    limit
+Integer       100
+While
+Less
+Identifier    n
+Identifier    limit
+Sequence
+Sequence
+Sequence
+Sequence
+Sequence
+;
+Assign
+Identifier    k
+Integer       3
+Assign
+Identifier    p
+Integer       1
+Assign
+Identifier    n
+Add
+Identifier    n
+Integer       2
+While
+And
+LessEqual
+Multiply
+Identifier    k
+Identifier    k
+Identifier    n
+Identifier    p
+Sequence
+Sequence
+;
+Assign
+Identifier    p
+NotEqual
+Multiply
+Divide
+Identifier    n
+Identifier    k
+Identifier    k
+Identifier    n
+Assign
+Identifier    k
+Add
+Identifier    k
+Integer       2
+If
+Identifier    p
+If
+Sequence
+Sequence
+;
+Sequence
+Sequence
+;
+Prti
+Identifier    n
+;
+Prts
+String        " is prime\n"
+;
+Assign
+Identifier    count
+Add
+Identifier    count
+Integer       1
+;
+Sequence
+Sequence
+Sequence
+;
+Prts
+String        "Total primes found: "
+;
+Prti
+Identifier    count
+;
+Prts
+String        "\n"
+;
