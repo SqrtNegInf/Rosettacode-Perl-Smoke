@@ -1,12 +1,10 @@
 #!/usr/local/bin/perl
 #u# http://rosettacode.org/wiki/Compiler/code_generator
-#t# skiptest
 #c# 2018-07-24 <RC
 #p# OK
 
 use feature 'say';
 my $result;
-
 
 # Tested with perl v5.26.1
  
@@ -21,7 +19,7 @@ my %opnames = qw( Less lt LessEqual le Multiply mul Subtract sub Divide div
 sub tree
   {
   my ($A, $B) = ( '_' . ++$pairsym, '_' . ++$pairsym ); # labels for jumps
-  my $line = <> // return '';
+  my $line = <DATA> // return '';
   (local $_, my $arg) = $line =~ /^(\w+|;)\s+(.*)/ or die "bad input $line";
   /Identifier/ ? "fetch [@{[ $names{$arg} //= $namecount++ ]}]\n" :
     /Sequence/ ? tree() . tree() :
@@ -29,7 +27,7 @@ sub tree
     /String/   ? "push  @{[ $strings{$arg} //= $stringcount++ ]}\n" :
     /Assign/   ? join '', reverse tree() =~ s/fetch/store/r, tree() :
     /While/    ? "$A:\n@{[ tree() ]}jz    $B\n@{[ tree() ]}jmp   $A\n$B:\n" :
-    /If/       ? tree() . "jz    $A\n@{[ !<> . # !<> skips second 'If'
+    /If/       ? tree() . "jz    $A\n@{[ !<DATA> . # !<DATA> skips second 'If'
                   tree() ]}jmp   $B\n$A:\n@{[ tree() ]}$B:\n" :
     /;/        ? '' :
     tree() . tree() . ($opnames{$_} // lc) . "\n";
@@ -45,17 +43,69 @@ s/^ *(\d+) j(?:z|mp) *\K(_\d+)$/ (@{[                # fix jumps
   $labels{$2} - $1 - 1]}) $labels{$2}/gm;
 s/^_\d+.*\n//gm;                                     # remove labels
  
-print "Datasize: $namecount Strings: $stringcount\n";
-print "$_\n" for sort { $strings{$a} <=> $strings{$b} } keys %strings;
-print;
-# Passes all tests.
-
-
+$result .= "Datasize: $namecount Strings: $stringcount\n";
+$result .= "$_\n" for sort { $strings{$a} <=> $strings{$b} } keys %strings;
+$result .= $_; # print
 
 say $result; 
+
 my $ref = <<'EOD';
+Datasize: 1 Strings: 2
+"count is: "
+"\n"
+   0 push  1
+   5 store [0]
+  10 fetch [0]
+  15 push  10
+  20 lt
+  21 jz     (43) 65
+  26 push  0
+  31 prts
+  32 fetch [0]
+  37 prti
+  38 push  1
+  43 prts
+  44 fetch [0]
+  49 push  1
+  54 add
+  55 store [0]
+  60 jmp    (-51) 10
+  65 halt
 EOD
 
 use Test::More;
-#is ($result, $ref);
-#done_testing();
+is ($result, $ref);
+done_testing();
+
+__END__
+Sequence
+Sequence
+;
+Assign
+Identifier    count
+Integer       1
+While
+Less
+Identifier    count
+Integer       10
+Sequence
+Sequence
+;
+Sequence
+Sequence
+Sequence
+;
+Prts
+String        "count is: "
+;
+Prti
+Identifier    count
+;
+Prts
+String        "\n"
+;
+Assign
+Identifier    count
+Add
+Identifier    count
+Integer       1
