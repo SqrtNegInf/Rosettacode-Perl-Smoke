@@ -1,9 +1,9 @@
 
 This is perl 5, version 30, subversion 0 (v5.30.0) built for darwin-thread-multi-2level
 updating from RC…
-+------------> Perl: Good/Bad [1222/13]
-|+-----------> Smoke testing [1080]
-||+----------> sKipping validation [149]
++------------> Perl: Good/Bad [1223/13]
+|+-----------> Smoke testing [1085]
+||+----------> sKipping validation [144]
 |||+---------> Interactive [52]
 ||||+--------> Touched (modified by me) [356]
 |||||+-------> Random seed [97]
@@ -214,7 +214,7 @@ GS.....D... Chebyshev_coefficients
 GS......... Check_Machin-like_formulas
 GS.....D... Check_input_device_is_a_terminal
 G.K....D... Check_output_device_is_a_terminal
-G.K........ Check_that_file_exists
+GS......... Check_that_file_exists
 GS......... Checkpoint_synchronization
 GS..T..D... Checksumcolor
 .......D... Chemical_Calculator
@@ -240,7 +240,7 @@ GS..TR..... Closest-pair_problem
 GS......... Closures_Value_capture
 G.K.T..D... Code_segment_unload
 GS......... Collections
-!S..T...... Color_of_a_screen_pixel
+GS..T...... Color_of_a_screen_pixel
 GS..T...... Color_quantization
 GS....FD... Color_wheel
 GS....F.... Colour_bars_Display
@@ -261,12 +261,12 @@ G.K........ Comments
 GS..T...... Compare_a_list_of_strings
 .........VU Compare_sorting_algorithms%27_performance
 GS......... Compile-time_calculation
-G.K........ Compiler_AST_interpreter
-G.K........ Compiler_code_generator
+GS......... Compiler_AST_interpreter
+GS......... Compiler_code_generator
 GS......... Compiler_lexical_analyzer-1
 GS......... Compiler_lexical_analyzer-2
-G.K........ Compiler_syntax_analyzer
-G.K........ Compiler_virtual_machine_interpreter
+GS......... Compiler_syntax_analyzer
+GS......... Compiler_virtual_machine_interpreter
 GS......... Compound_data_type
 G.K..R..... Concurrent_computing-1
 GS......... Concurrent_computing-2
