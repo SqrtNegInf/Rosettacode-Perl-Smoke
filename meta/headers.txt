@@ -1132,7 +1132,6 @@ File: C/Check_output_device_is_a_terminal
 File: C/Check_that_file_exists
 #!/usr/local/bin/perl
 #u# http://rosettacode.org/wiki/Check_that_file_exists
-#t# nocode
 #c# 2018-07-22 <RC
 #p# OK
 #n# re-write this?
@@ -1391,14 +1390,12 @@ File: C/Compile-time_calculation
 File: C/Compiler_AST_interpreter
 #!/usr/local/bin/perl
 #u# http://rosettacode.org/wiki/Compiler/AST_interpreter
-#t# skiptest
 #c# 2018-07-24 <RC
 #p# OK
 
 File: C/Compiler_code_generator
 #!/usr/local/bin/perl
 #u# http://rosettacode.org/wiki/Compiler/code_generator
-#t# skiptest
 #c# 2018-07-24 <RC
 #p# OK
 
@@ -1417,16 +1414,15 @@ File: C/Compiler_lexical_analyzer-2
 File: C/Compiler_syntax_analyzer
 #!/usr/local/bin/perl
 #u# http://rosettacode.org/wiki/Compiler/syntax_analyzer
-#t# skiptest
 #c# 2018-07-24 <RC
 #p# OK
 
 File: C/Compiler_virtual_machine_interpreter
 #!/usr/local/bin/perl
 #u# http://rosettacode.org/wiki/Compiler/virtual_machine_interpreter
-#t# skiptest
 #c# 2018-07-24 <RC
 #p# OK
+#n# with expected input from code-gen in DATA handle
 
 File: C/Compound_data_type
 #!/usr/local/bin/perl
