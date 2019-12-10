@@ -1,28 +1,27 @@
 #!/usr/local/bin/perl
 #u# http://rosettacode.org/wiki/Compiler/virtual_machine_interpreter
-#t# skiptest
 #c# 2018-07-24 <RC
 #p# OK
+#n# with expected input from code-gen in DATA handle
 
 use feature 'say';
-my $result;
 
-# Tested with perl v5.26.1
- 
-# http://www.rosettacode.org/wiki/Compiler/virtual_machine_interpreter
-use strict; # vm.pl - run rosetta code
+use strict;
 use warnings;
 use integer;
+
+my @res;
  
 my ($binary, $pc, @stack, @data) = ('', 0);
  
-<> =~ /Strings: (\d+)/ or die "bad header";
-my @strings = map <> =~ tr/\n""//dr =~ s/\\(.)/$1 eq 'n' ? "\n" : $1/ger, 1..$1;
+<DATA> =~ /Strings: (\d+)/ or die "bad header";
+my @strings = map <DATA> =~ tr/\n""//dr =~ s/\\(.)/$1 eq 'n' ? "\n" : $1/ger, 1..$1;
  
 sub value { unpack 'l', substr $binary, ($pc += 4) - 4, 4 }
  
 my @ops = (
-  [ halt  => sub { exit } ],
+  #[ halt  => sub { exit } ], 
+  [ halt  => sub { goto DONE } ], 
   [ add   => sub { $stack[-2] += pop @stack } ],
   [ sub   => sub { $stack[-2] -= pop @stack } ],
   [ mul   => sub { $stack[-2] *= pop @stack } ],
@@ -38,18 +37,19 @@ my @ops = (
   [ ge    => sub { $stack[-1] = $stack[-2] >= pop @stack ? 1 : 0 } ],
   [ ne    => sub { $stack[-1] = $stack[-2] != pop @stack ? 1 : 0 } ],
   [ eq    => sub { $stack[-1] = $stack[-2] == pop @stack ? 1 : 0 } ],
-  [ prts  => sub { print $strings[pop @stack] } ],
-  [ prti  => sub { print pop @stack } ],
-  [ prtc  => sub { print chr pop @stack } ],
+  [ prts  => sub { push @res, $strings[pop @stack] } ],
+  [ prti  => sub { push @res, pop @stack } ],
+  [ prtc  => sub { push @res, chr pop @stack } ],
   [ store => sub { $data[value()] = pop @stack } ],
   [ fetch => sub { push @stack, $data[value()] // 0 } ],
   [ push  => sub { push @stack, value() } ],
   [ jmp   => sub { $pc += value() - 4 } ],
   [ jz    => sub { $pc += pop @stack ? 4 : value() - 4 } ],
   );
+
 my %op2n = map { $ops[$_][0], $_ } 0..$#ops;            # map name to op number
  
-while(<>)
+while(<DATA>)
   {
   /^ *\d+ +(\w+)/ or die "bad line $_";                 # format error
   $binary .= chr( $op2n{$1} // die "$1 not defined" ) . # op code
@@ -57,14 +57,45 @@ while(<>)
   }
  
 $ops[vec($binary, $pc++, 8)][1]->() while 1;            # run it
-#Passes all tests.
 
+DONE:
+say my $result = join '', @res;
 
-
-say $result; 
 my $ref = <<'EOD';
+count is: 1
+count is: 2
+count is: 3
+count is: 4
+count is: 5
+count is: 6
+count is: 7
+count is: 8
+count is: 9
 EOD
 
 use Test::More;
-#is ($result, $ref);
-#done_testing();
+is ($result, $ref);
+done_testing();
+
+__END__
+Datasize: 1 Strings: 2
+"count is: "
+"\n"
+    0 push  1
+    5 store [0]
+   10 fetch [0]
+   15 push  10
+   20 lt
+   21 jz     (43) 65
+   26 push  0
+   31 prts
+   32 fetch [0]
+   37 prti
+   38 push  1
+   43 prts
+   44 fetch [0]
+   49 push  1
+   54 add
+   55 store [0]
+   60 jmp    (-51) 10
+   65 halt
