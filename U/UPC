@@ -11,12 +11,11 @@ my @res;
 
 sub decode_UPC {
     my($line) = @_;
-    my(%pattern_to_digit_1,%pattern_to_digit_2,@digits,$sum);
+    my(%pattern_to_digit_1,%pattern_to_digit_2,@patterns2,@digits,$sum);
 
     my @patterns1 = ('   ## #', '  ##  #', '  #  ##', ' #### #', ' #   ##',
                      ' ##   #', ' # ####', ' ### ##', ' ## ###', '   # ##');
-    my @patterns2 = @patterns1;
-    $patterns2[$_] =~ tr/# / #/ for 0..$#patterns2;
+    push @patterns2, tr/# / #/r for @patterns1;
 
     $pattern_to_digit_1{$patterns1[$_]} = $_ for 0..$#patterns1;
     $pattern_to_digit_2{$patterns2[$_]} = $_ for 0..$#patterns2;
