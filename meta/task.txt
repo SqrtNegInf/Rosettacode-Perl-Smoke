@@ -1,7 +1,7 @@
 
 This is perl 5, version 30, subversion 0 (v5.30.0) built for darwin-thread-multi-2level
 updating from RC…
-+------------> Perl: Good/Bad [1223/13]
++------------> Perl: Good/Bad [1222/13]
 |+-----------> Smoke testing [1085]
 ||+----------> sKipping validation [144]
 |||+---------> Interactive [52]
@@ -240,7 +240,7 @@ GS..TR..... Closest-pair_problem
 GS......... Closures_Value_capture
 G.K.T..D... Code_segment_unload
 GS......... Collections
-GS..T...... Color_of_a_screen_pixel
+!S..T...... Color_of_a_screen_pixel
 GS..T...... Color_quantization
 GS....FD... Color_wheel
 GS....F.... Colour_bars_Display
