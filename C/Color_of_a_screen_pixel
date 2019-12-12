@@ -2,7 +2,7 @@
 #u# http://rosettacode.org/wiki/Color_of_a_screen_pixel
 #c# 2019-11-23 >RC
 #p# OK
-#n# for MacOS...
+#n# for MacOS... sporadic failures (as with P6 version)
 
 use strict;
 use warnings;
