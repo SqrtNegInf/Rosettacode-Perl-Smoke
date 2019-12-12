@@ -1,24 +1,31 @@
 #!/usr/local/bin/perl
 #u# http://rosettacode.org/wiki/Count_in_octal
 #t# trivial
-#c# 2018-07-02 <RC
+#c# 2018-07-02 <RC, 2019-12-11 <RC
 #p# OK
 
-my $result;
+my $result1;
+my $result2;
 
 # Since task says "system register", I take it to mean "no larger than machine native integer limit":
 
 # DH: ha ha ha
 #use POSIX;
+#use bigint;
 #printf "%o\n", $_ for (0 .. POSIX::UINT_MAX);
 
 #Otherwise:
 
-use bigint;
 my $i = 0;
-$result .= sprintf "%o\n", $i++ until $i == 17;
+$result1 .= sprintf "%o\n", $i++ until $i == 17;
 
-print $result;
+print $result1;
+
+$_ = 0;
+(s/([^7])?(7*)$/ $1 + 1 . $2 =~ tr!7!0!r /e and $_ > 20 and goto DONE) while $result2 .= "$_\n";
+#s/([^7])?(7*)$/ $1 + 1 . $2 =~ tr!7!0!r /e while print "$_\n"; # on RC
+
+DONE:
 
 my $ref = <<EOD;
 0
@@ -41,5 +48,6 @@ my $ref = <<EOD;
 EOD
 
 use Test::More;
-is ($result, $ref);
+is ($result1, $ref);
+is ($result2, $ref);
 done_testing();
