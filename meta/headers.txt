@@ -1272,7 +1272,7 @@ File: C/Color_of_a_screen_pixel
 #u# http://rosettacode.org/wiki/Color_of_a_screen_pixel
 #c# 2019-11-23 >RC
 #p# OK
-#n# for MacOS...
+#n# for MacOS... sporadic failures (as with P6 version)
 
 File: C/Color_quantization
 #!/usr/local/bin/perl
@@ -1572,7 +1572,7 @@ File: C/Count_in_octal
 #!/usr/local/bin/perl
 #u# http://rosettacode.org/wiki/Count_in_octal
 #t# trivial
-#c# 2018-07-02 <RC
+#c# 2018-07-02 <RC, 2019-12-11 <RC
 #p# OK
 
 File: C/Count_occurrences_of_a_substring
