@@ -3,25 +3,27 @@
 #c# 2018-08-12 <RC
 #p# OK
 
+use strict;
+use warnings;
 use feature 'say';
 my $result;
 
-sub sum_of_squares {
+sub sum_of_squares1 {
   my $sum = 0;
   $sum += $_**2 foreach @_;
   return $sum;
 }
 
-$result .= sum_of_squares(3, 1, 4, 1, 5, 9). "\n";
+$result .= sum_of_squares1(3, 1, 4, 1, 5, 9). "\n";
 
 #or
 
 use List::Util qw(reduce);
-sub sum_of_squares {
+sub sum_of_squares2 {
   reduce { $a + $b **2 } 0, @_;
 }
 
-$result .= sum_of_squares(3, 1, 4, 1, 5, 9). "\n";
+$result .= sum_of_squares2(3, 1, 4, 1, 5, 9). "\n";
 
 say $result;
 my $ref = <<'EOD';
