@@ -16,12 +16,11 @@ my (%strings, %names);
 my %opnames = qw( Less lt LessEqual le Multiply mul Subtract sub Divide div
   GreaterEqual ge Equal eq Greater gt NotEqual ne Negate neg );
  
-sub tree
-  {
-  my ($A, $B) = ( '_' . ++$pairsym, '_' . ++$pairsym ); # labels for jumps
-  my $line = <DATA> // return '';
-  (local $_, my $arg) = $line =~ /^(\w+|;)\s+(.*)/ or die "bad input $line";
-  /Identifier/ ? "fetch [@{[ $names{$arg} //= $namecount++ ]}]\n" :
+sub tree {
+    my ($A, $B) = ( '_' . ++$pairsym, '_' . ++$pairsym ); # labels for jumps
+    my $line = <DATA> // return '';
+    (local $_, my $arg) = $line =~ /^(\w+|;)\s+(.*)/ or die "bad input $line";
+    /Identifier/ ? "fetch [@{[ $names{$arg} //= $namecount++ ]}]\n" :
     /Sequence/ ? tree() . tree() :
     /Integer/  ? "push  $arg\n" :
     /String/   ? "push  @{[ $strings{$arg} //= $stringcount++ ]}\n" :
@@ -31,7 +30,7 @@ sub tree
                   tree() ]}jmp   $B\n$A:\n@{[ tree() ]}$B:\n" :
     /;/        ? '' :
     tree() . tree() . ($opnames{$_} // lc) . "\n";
-  }
+}
  
 $_ = tree() . "halt\n";
  
