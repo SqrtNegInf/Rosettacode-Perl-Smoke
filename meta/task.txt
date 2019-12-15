@@ -1,17 +1,17 @@
 
 This is perl 5, version 30, subversion 0 (v5.30.0) built for darwin-thread-multi-2level
 updating from RC…
-+------------> Perl: Good/Bad [1223/13]
++------------> Perl: Good/Bad [1224/13]
 |+-----------> Smoke testing [1086]
 ||+----------> sKipping validation [144]
 |||+---------> Interactive [52]
 ||||+--------> Touched (modified by me) [357]
 |||||+-------> Random seed [97]
 ||||||+------> File output [66]
-|||||||+-----> Draft [229]
+|||||||+-----> Draft [230]
 ||||||||+----> Ignoring [32]
-|||||||||+---> Void (no local copy) [142]
-||||||||||+--> Un-implemented/reliable [136]
+|||||||||+---> Void (no local copy) [143]
+||||||||||+--> Un-implemented/reliable [137]
 |||||||||||
 GS......... 100_doors-1
 GS......... 100_doors-2
@@ -240,7 +240,7 @@ GS..TR..... Closest-pair_problem
 GS......... Closures_Value_capture
 G.K.T..D... Code_segment_unload
 GS......... Collections
-!S..T...... Color_of_a_screen_pixel
+GS..T...... Color_of_a_screen_pixel
 GS..T...... Color_quantization
 GS....FD... Color_wheel
 GS....F.... Colour_bars_Display
@@ -767,6 +767,7 @@ GS......... Miller-Rabin_primality_test-1
 GS......... Miller-Rabin_primality_test-2
 GS..TR..... Mind_boggling_card_trick
 G.KI....... Minesweeper_game
+.......D.VU Minimal_steps_down_to_1
 GS.....D... Modular_arithmetic
 GS..T...... Modular_exponentiation
 GS......... Modular_inverse
