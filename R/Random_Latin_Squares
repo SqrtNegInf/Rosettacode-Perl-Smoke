@@ -12,6 +12,7 @@ use warnings;
 use feature 'say';
 
 use List::Util 'shuffle';
+use Storable qw(dclone);
 
 my @res;
 
@@ -24,14 +25,18 @@ sub random {
 
     # Build
     for my $i (1 ..$size-1) {
-        $ls[$i] = $ls[0]; #.clone;
-        #splice(@ls[$_], $_, 0, $i) for 0 .. $i;
+        $ls[$i] = [dclone \$ls[0]];
+        splice(@{$ls[$_]}, $_, 0, $i) for 0 .. $i;
     }
+
+p @ls; exit;
 
     # Shuffle
     @ls = @ls[shuffle 0..$size-1];
     my @cols = shuffle 0..$size-1;
     $ls[$_] = $ls[$_][@cols] for $#ls;
+
+p @ls; exit;
 
     # Some random Latin glyphs
     my @symbols = ('A' .. 'Z').pick($size);
