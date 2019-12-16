@@ -20,11 +20,13 @@ srand 123456;
 
 sub latin_square { [[0],] };
 
+use Data::Dumper;
 sub random {
     my($size, @ls ) = @_;
+print Dumper @ls ;exit;
 
     # Build
-    for my $i (1 ..$size-1) {
+    for my $i (1 .. $size-1) {
         $ls[$i] = [dclone \$ls[0]];
         splice(@{$ls[$_]}, $_, 0, $i) for 0 .. $i;
     }
