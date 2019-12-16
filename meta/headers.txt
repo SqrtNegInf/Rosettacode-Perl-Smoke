@@ -1864,7 +1864,7 @@ File: D/Determine_if_a_string_is_numeric
 
 File: D/Determine_if_a_string_is_squeezable
 #!/usr/local/bin/perl
-#u# http://rosettacode.org/wiki/RC_REMOTE
+#u# http://rosettacode.org/wiki/Determine_if_a_string_is_squeezable
 #t# inprogress
 #c# 2019-12-02 >RC
 #p# OK
