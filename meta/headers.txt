@@ -1865,7 +1865,6 @@ File: D/Determine_if_a_string_is_numeric
 File: D/Determine_if_a_string_is_squeezable
 #!/usr/local/bin/perl
 #u# http://rosettacode.org/wiki/Determine_if_a_string_is_squeezable
-#t# inprogress
 #c# 2019-12-02 >RC
 #p# OK
 
@@ -5787,8 +5786,7 @@ File: R/Ramsey%27s_theorem
 File: R/Random_Latin_Squares
 #!/usr/local/bin/perl
 #u# http://rosettacode.org/wiki/Random_Latin_Squares
-#t# inprogress
-#c# 2019-11-09 >RC
+#c# 2019-12-16 >RC
 #p# OK
 
 File: R/Random_number_generator_device
