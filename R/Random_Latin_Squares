@@ -1,85 +1,77 @@
 #!/usr/local/bin/perl
 #u# http://rosettacode.org/wiki/Random_Latin_Squares
-#t# inprogress
-#c# 2019-11-09 >RC
+#c# 2019-12-16 >RC
 #p# OK
-
-use Data::Printer;
-use Time::HiRes qw(sleep);
 
 use strict;
 use warnings;
 use feature 'say';
 
 use List::Util 'shuffle';
-use Storable qw(dclone);
 
 my @res;
 
-srand 123456;
+srand 12345;
 
-sub latin_square { [[0],] };
-
-use Data::Dumper;
 sub random {
-    my($size, @ls ) = @_;
-print Dumper @ls ;exit;
+    my($n) = @_;
+    my(@cols,@symbols,@ls_sym);
+    my @ls = [0,];
 
-    # Build
-    for my $i (1 .. $size-1) {
-        $ls[$i] = [dclone \$ls[0]];
-        splice(@{$ls[$_]}, $_, 0, $i) for 0 .. $i;
+    # build n-sized latin square
+    for my $i (1..$n-1) {
+        @{$ls[$i]} = @{$ls[0]};
+        splice(@{$ls[$_]}, $_, 0, $i) for 0..$i;
     }
 
-p @ls; exit;
+    # shuffle rows and columns
+    @cols = shuffle 0..$n-1;
+    @ls = map [ @{$_}[@cols] ], @ls[shuffle 0..$n-1];
 
-    # Shuffle
-    @ls = @ls[shuffle 0..$size-1];
-    my @cols = shuffle 0..$size-1;
-    $ls[$_] = $ls[$_][@cols] for $#ls;
-
-p @ls; exit;
-
-    # Some random Latin glyphs
-    my @symbols = ('A' .. 'Z').pick($size);
-
-    #@ls.deepmap: { $_ = @symbols[$_] };
-
+    # replace numbers with chars
+    @symbols = shuffle( ('A'..'Z')[0..$n-1] ); 
+    push @ls_sym, [@symbols[@$_]] for @ls;
+    @ls_sym
 }
 
-sub display {
-    my( @array ) = @_;
-    push @res, sprintf "%2s ", $_ for @array, '' 
+sub as_square {
+    my $str;
+    $str .= join(' ', @$_) . "\n" for @_;
+    $str
 }
 
-# The Task
-
-# Default size 5
-display random(5, latin_square);
-
-# Specified size
-#display random :size($_), latin-square for 5, 3, 9;
-
-# Or, if you'd prefer:
-#display random latin-square, :size($_) for 12, 2, 1;
+push @res, as_square random($_) for 5, 2..5;
 
 say my $result = join "\n", @res;
-exit;
 
 my $ref = <<'END';
+E D C B A
+C E B A D
+A B D E C
+B C A D E
+D A E C B
+
+B A
+A B
+
+A B C
+B C A
+C A B
+
+A B D C
+B D C A
+C A B D
+D C A B
+
+C E A B D
+E A D C B
+B C E D A
+D B C A E
+A D B E C
+
 END
 
 use Test::More;
 chomp $ref;
 is($result, $ref);
 done_testing();
-
-__END__
-
-=={{header|Perl}}==
-{{trans|Perl 6}}
-{{libheader|ntheory}}
-<lang perl></lang>
-{{out}}
-<pre style="height:20ex"></pre>
-[https://github.com/SqrtNegInf/Rosettacode-Perl5-Smoke/blob/master/ref/XXX XXX]
