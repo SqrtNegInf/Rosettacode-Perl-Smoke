@@ -2,8 +2,8 @@
 This is perl 5, version 30, subversion 0 (v5.30.0) built for darwin-thread-multi-2level
 updating from RC…
 +------------> Perl: Good/Bad [1224/13]
-|+-----------> Smoke testing [1086]
-||+----------> sKipping validation [144]
+|+-----------> Smoke testing [1088]
+||+----------> sKipping validation [142]
 |||+---------> Interactive [52]
 ||||+--------> Touched (modified by me) [357]
 |||||+-------> Random seed [97]
@@ -340,7 +340,7 @@ GS..T...... Determine_if_a_string_has_all_the_same_characters
 GS..T...... Determine_if_a_string_has_all_unique_characters
 GS..T...... Determine_if_a_string_is_collapsible
 GS......... Determine_if_a_string_is_numeric
-G.K.T...... Determine_if_a_string_is_squeezable
+GS..T...... Determine_if_a_string_is_squeezable
 G.K........ Determine_if_only_one_instance_is_running
 GS..T..D... Determine_if_two_triangles_overlap
 GS.....D... Dice_game_probabilities
@@ -981,7 +981,7 @@ GS..T...... RSA_code
 GS.....D... Ramanujan%27s_constant
 GS..T...... Ramer-Douglas-Peucker_line_simplification
 GS..T..D... Ramsey%27s_theorem
-G.K.TR.D..U Random_Latin_Squares
+GS..TR.D..U Random_Latin_Squares
 G.K........ Random_number_generator_device
 G.K........ Random_number_generator_included
 GS...R..... Random_numbers
