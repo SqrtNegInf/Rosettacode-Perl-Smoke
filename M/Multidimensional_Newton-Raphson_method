@@ -1,7 +1,7 @@
 #!/usr/local/bin/perl
 #u# http://rosettacode.org/wiki/Multidimensional_Newton-Raphson_method
-#t# skiptest
-#c# 2019-03-RC >RC
+#t# inprogress
+#c# 2019-03-xx >RC
 #p# OK
 
 use Data::Printer;
