@@ -4621,8 +4621,8 @@ File: M/Multi-dimensional_array
 File: M/Multidimensional_Newton-Raphson_method
 #!/usr/local/bin/perl
 #u# http://rosettacode.org/wiki/Multidimensional_Newton-Raphson_method
-#t# skiptest
-#c# 2019-03-RC >RC
+#t# inprogress
+#c# 2019-03-xx >RC
 #p# OK
 
 File: M/Multifactorial-1
@@ -7955,6 +7955,14 @@ File: V/Vigen%C3%A8re_cipher
 #u# http://rosettacode.org/wiki/Vigen%C3%A8re_cipher
 #c# 2018-08-06 <>RC
 #p# OK
+
+File: V/Vigenère_cipher_Cryptanalysis
+#!/usr/local/bin/perl
+#u# http://rosettacode.org/wiki/Vigenère_cipher/Cryptanalysis
+#c# 2019-12-17 <RC
+#p# OK
+#n# submitter translated from julia (?), I've clean up a bit
+#n# runs, but the scoring sytem is wacky?
 
 File: V/Visualize_a_tree
 #!/usr/local/bin/perl
