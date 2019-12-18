@@ -13,12 +13,12 @@ my @res;
 
 srand 12345;
 
-sub random {
+sub random_ls {
     my($n) = @_;
     my(@cols,@symbols,@ls_sym);
-    my @ls = [0,];
 
     # build n-sized latin square
+    my @ls = [0,];
     for my $i (1..$n-1) {
         @{$ls[$i]} = @{$ls[0]};
         splice(@{$ls[$_]}, $_, 0, $i) for 0..$i;
@@ -40,7 +40,7 @@ sub as_square {
     $str
 }
 
-push @res, as_square random($_) for 5, 2..5;
+push @res, as_square random_ls($_) for 5, 2..5;
 
 say my $result = join "\n", @res;
 
