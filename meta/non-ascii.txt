@@ -543,6 +543,9 @@ V/Vibrating_rectangles
 └:     1 BOX DRAWINGS LIGHT UP AND RIGHT
 ┘:     1 BOX DRAWINGS LIGHT UP AND LEFT
 
+V/Vigene􏿽xCC􏿽x80re_cipher_Cryptanalysis
+è:     1 LATIN SMALL LETTER E WITH GRAVE
+
 V/Visualize_a_tree
 ─:    23 BOX DRAWINGS LIGHT HORIZONTAL
 │:    23 BOX DRAWINGS LIGHT VERTICAL
