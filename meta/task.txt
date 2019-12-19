@@ -2,15 +2,15 @@
 This is perl 5, version 30, subversion 0 (v5.30.0) built for darwin-thread-multi-2level
 updating from RC…
 +------------> Perl: Good/Bad [1223/13]
-|+-----------> Smoke testing [1088]
+|+-----------> Smoke testing [1089]
 ||+----------> sKipping validation [142]
 |||+---------> Interactive [52]
 ||||+--------> Touched (modified by me) [357]
 |||||+-------> Random seed [97]
 ||||||+------> File output [66]
-|||||||+-----> Draft [230]
+|||||||+-----> Draft [229]
 ||||||||+----> Ignoring [32]
-|||||||||+---> Void (no local copy) [143]
+|||||||||+---> Void (no local copy) [142]
 ||||||||||+--> Un-implemented/reliable [135]
 |||||||||||
 GS......... 100_doors-1
@@ -425,7 +425,7 @@ GS.....D... Extract_file_extension
 GS......... Extreme_floating_point_values
 GS......... FASTA_format
 GS..T...... FTP
-GS..T..D... Faces_from_a_mesh
+GS..T...... Faces_from_a_mesh
 GS......... Factorial-1
 GS......... Factorial-2
 GS......... Factorial-3
@@ -1352,7 +1352,7 @@ GS..TR..... Verify_distribution_uniformity_Naive
 G.KIT..D... Vibrating_rectangles
 G.KIT...... Video_display_modes
 GS..T...... Vigen%C3%A8re_cipher
-.........V. Vigen%C3%A8re_cipher_Cryptanalysis
+!S......... Vigen%C3%A8re_cipher_Cryptanalysis
 GS......... Visualize_a_tree
 .........VU Vogel%27s_approximation_method
 GS..TRF.... Voronoi_diagram
