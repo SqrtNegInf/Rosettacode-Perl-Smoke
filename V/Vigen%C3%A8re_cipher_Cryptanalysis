@@ -1,36 +1,28 @@
 #!/usr/local/bin/perl
 #u# http://rosettacode.org/wiki/Vigenère_cipher/Cryptanalysis
-#c# 2019-12-17 <RC
+#c# 2019-12-17 <RC, 2019-12-19 >RC
 #p# OK
-#n# submitter translated from julia (?), I've clean up a bit
-#n# runs, but the scoring sytem is wacky?
 
 my @res;
-
-use Data::Printer;
 
 use strict;
 use warnings;
 use feature 'say';
 
-# specify how many keylengths to try; based on this will pick the most probable decrypt the message
-my $max_key_lengths = 5;
-
-# only decoding in this task
-use constant decode => -1;
+my $max_key_lengths = 5; # number of keylengths to try
 
 sub myguess {
     my ($text) = (@_);
-    my ($seqtext, $i, @guesses_ranked, @spacing, @factors, @sortedfactors, $pos, %freq, %chi);
+    my ($seqtext, $i, @guesses_ranked, @spacing, @factors, @sortedfactors, $pos, %freq, %Keys);
 
-    # letter frequencies, from Wikipedia
+    # from Wikipedia
     my %EnglishLetterFreq = (
         'E'=>12.70, 'L'=>4.03, 'Y'=>1.97, 'P'=>1.93, 'T'=>9.06, 'A'=>8.17, 'O'=>7.51, 'I'=>6.97, 'N'=>6.75, 
         'S'=>6.33,  'H'=>6.09, 'R'=>5.99, 'D'=>4.25, 'C'=>2.78, 'U'=>2.76, 'M'=>2.41, 'W'=>2.36, 'F'=>2.23, 
         'G'=>2.02,  'B'=>1.29, 'V'=>0.98, 'K'=>0.77, 'J'=>0.15, 'X'=>0.15, 'Q'=>0.10, 'Z'=>0.07
     );
 
-    # Kasiski's search
+    # Kasiski examination
     $seqtext = $text;
     while ($seqtext =~ /(...).*\1/) {
         $i = index($seqtext, $1);
@@ -45,43 +37,39 @@ sub myguess {
         push @factors, grep { $j % $_ == 0 } 2..$j;
     }
     $freq{$_}++ for @factors;
-    @sortedfactors = grep { $_ >= 4 } sort { $freq{$b} <=> $freq{$a} } keys %freq;
+    @sortedfactors = grep { $_ >= 4 } sort { $freq{$b} <=> $freq{$a} } keys %freq; # discard very short keys
 
     for my $keylen ( @sortedfactors[0..$max_key_lengths-1] ) {
         my $keyguess = '';
         for (my $i = 0; $i < $keylen; $i++) {
-            my($mykey, %chivalues, $bestchi, $bestguess);
+            my($mykey, %chi_values, $bestguess);
             for (my $j = 0; $j < length($text); $j += $keylen) {
                 $mykey .= substr($text, ($j+$i) % length($text), 1);
             }
 
             for my $subkey ('A'..'Z') {
-                my $chi = 0;
                 my $decrypted = mycrypt($mykey, $subkey);
                 my $length    = length($decrypted);
                 for my $char ('A'..'Z') {
                     my $count = 0;
                     my $expected = $EnglishLetterFreq{$char} * $length / 100;
-                    ++$count while $decrypted =~ /\Q$char/g;
-                    $chivalues{$subkey} += ($count - $expected)**2 / $expected unless !$count;
+                    ++$count while $decrypted =~ /$char/g;
+                    $chi_values{$subkey} += ($count - $expected)**2 / $expected unless !$count;
                 }
             }
-            for my $sk (keys %chivalues) {
-                if (!$bestchi or $chivalues{$sk} < $bestchi) {
-                    $bestchi   = $chivalues{$sk};
+
+            $Keys{$keylen}{score} = $chi_values{'A'};
+            for my $sk (sort keys %chi_values) {
+                if ($chi_values{$sk} <= $Keys{$keylen}{score}) {
                     $bestguess = $sk;
-            $chi{$keylen}{key}   = $keyguess . $bestguess;
-            $chi{$keylen}{score} = $chivalues{$sk};
+                    $Keys{$keylen}{score} = $chi_values{$sk};
                 }
             }
             $keyguess .= $bestguess;
-#p %chivalues; exit;
-#printf "kg: $keyguess ::  bestchi: %d\n" , int $bestchi;
         }
-    }
-    p %chi; exit;
-    push @guesses_ranked, sort { $chi{$a} <=> $chi{$b} } keys %chi;
-    return @guesses_ranked;
+        $Keys{$keylen}{key} = $keyguess;
+    } 
+    map { $Keys{$_}{key} } sort { $Keys{$a}{score} <=> $Keys{$b}{score}} keys %Keys;
 }
 
 sub mycrypt {
@@ -93,8 +81,8 @@ sub mycrypt {
     my %values_letters = reverse %values_numbers;
 
     for (my $i = 0; $i < length($text); $i++) {
-        my $val =  decode * $values_numbers{substr( $key, $i%$keylen, 1)}
-                 +          $values_numbers{substr($text, $i,         1)};
+        my $val =  -1 * $values_numbers{substr( $key, $i%$keylen, 1)} # negative shift for decode
+                 +      $values_numbers{substr($text, $i,         1)};
         $newtext .= $values_letters{ $val % 26 };
     }
     return $newtext;
@@ -122,33 +110,36 @@ EOD
 
 my $text = uc($ciphertext) =~ s/[^A-Z]//gr;
 
-#say join "\n", myguess($text); exit;
-
 for my $key ( myguess($text) ) {
-    my $head = substr(mycrypt($text, $key), 0, 80);
-    push @res, "Key:       " . $key  . "\n". 
-               "Plaintext: " . $head . "\n";
+    push @res, "Key        $key\n" . 
+               "Key length " . length($key) . "\n" . 
+               "Plaintext  " . substr(mycrypt($text, $key), 0, 80) . "...\n";
 }
 
 say my $result = join "\n", @res;
-exit;
 
 my $ref = << 'END';
-Key: EC
-Plaintext: IMISZCGYLTPOADIMATDNWHIGEAZAPGBEUYCHONTWWJQWILOKUFRSTHAJANTHBVCAIHDIZXNWEAQFUNQQLEEEIMEWDDSFPAMIIJNBERHVVJFDROCFKJSAQFHMIBOMAIPYHSRWHLVPBEXVLFREWJSOEQBENNDHKMBUCSXWEJWNHYHAWDWYIIHEYCPBSTKCHHEICHXVLFREWJSOYQJUXSXWDAQFGMYCTHAWGZMIRWGGECDENJCFTCKJSYSDKHEJKTRPDNGBSGDIJYPSDLRPUYMBETDVBFNXROSKSTHEOFJLHTVQFJWIEDDVQDTHHVIRXJMTNVTFNDVVCTHPWHECTNNTKQILLIANZRHNNUIHWXLIHOQXWYHEVVCTHIHEFRQGERZQQPAXTHAPTXOFINORIRAMANWNFFOKBLXWROQXWYHEWWZLINWOKUPSDBXTPQISASEKRFMERPSYADONAKLTANGVVWSJGHWESYHRRWUMXWEVKIEFLBOCRJATNTOEXHKEUUBFGZHEHVUYITGGOIECDWEKWNTSKGOILTWEJKVFLUPRVNRVBAYBPSDHDUHYLDUSHRXSTHHLOGFTRWKTZHOMHVCRCPRMODNGEAPKGMFDYOBIPGJOXURFCRALHFDMCAONODLTCHKIIQEDLPVNWYOYPNPXBRLNZNKPNDPYTXLIWJMYSKESZZSLYRHCBIKXMBHVXSTHHYOGIPLLIZBXYWHTSYLTBONFVTVEVCBIXWEMKDTWATKUCZXVRAXVXYSEHOGAIGYPNVIYYSKGGFMSWHAEHMEHDFTNRXSHAUXYBUWKHXVPTHAIWFRDWQISHTRSPRCI
+Key        THECHESHIRECAT
+Key length 14
+Plaintext  THISWASTHEPOEMTHATALICEREADJABBERWOCKYTWASBRILLIGANDTHESLITHYTOVESDIDGYREANDGIMB...
 
-Key: THECSAS
-Plaintext: THISLESHIRRYENTHATPPIQFEGKDKABBEGAOQLLVGATBRILAMGOOQVRETLITHNXOJFFFSDHYREACHGWNONOIOTHEWPFEOMYOSMTYWERTXHSCBTYGPVESACHTVFZQWESATHSDYTUSNDOBFWAREILEXBODORXOCKMNWOBUUGTAXSTHAIFIHFGJOCMAWSTWETQBGERBFWAREILEXVOLEBCIRDACHSVVAVREGRUMIDYSPBAFORTNATCWLEHPBMRITVORPPPSKPEFSNIANDLDRGHJZGDHFMANXDQETPRJOSPUGHTHSRSTGGNHFBYTHTXUAUHODRFEANDHXOCENYRIMEINTWSUUIGCXDBSINUUJIGIGJYUHHTHEHXOCEGJOJBBBERLSCYXVVREZESOFUPAAFPCWEXHIFFAMNUUUTYUHHTHEIYLUFLYYOEANDBJVBZFQCCIUCAMEDREHXBQXEUWOANSXHFPHIRAODTHRDYGVUUGFOSPALBAEDSXRPDSOICKEGWNODXJOLFFTITSIARBAFGIUHITSWIARIRYONUGALUBTHWOTDKCLANDHPWTHIBWCLBINTHTNAPCRTGODKCOMTXOAZNTWSNYBEABMSVCBAYFSABJOJWDOZPCVLPOHCAAPAMIREROSTLEDXRHWTWQITXASBRXPLWHNPNTIESLIILYHPIGCDJDGYRTENRHVOLLFINTHTAAPFNNVMJMSYWTVEHIRDYRPGOVEHENRUUGWONERATWWOIUTTKBFITSETQSJFEAZRFTTYSWISOJQYREOSHEHPHFWOVUREEITBUIMTGSNVRESHARDISUBERTCTBND
+Key        THECHESCIRECATTHECHESHIRECAT
+Key length 28
+Plaintext  THISWASYHEPOEMTHATALICEREADJABBERWOHKYTWASBRILLIGANDTHESLITHYTOAESDIDGYREANDGIMB...
 
-Key: THECHESHIRECAT
-Plaintext: THISWASTHEPOEMTHATALICEREADJABBERWOCKYTWASBRILLIGANDTHESLITHYTOVESDIDGYREANDGIMBLEINTHEWABEALLMIMSYWERETHEBOROGOVESANDTHEMOMERATHSOUTGRABEBEWARETHEJABBERWOCKMYSONTHEJAWSTHATBITETHECLAWSTHATCATCHBEWARETHEJUBJUBBIRDANDSHUNTHEFRUMIOUSBANDERSNATCHHETOOKHISVORPALSWORDINHANDLONGTIMETHEMANXOMEFOEHESOUGHTSORESTEDHEBYTHETUMTUMTREEANDSTOODAWHILEINTHOUGHTANDASINUFFISHTHOUGHTHESTOODTHEJABBERWOCKWITHEYESOFFLAMECAMEWHIFFLINGTHROUGHTHETULGEYWOODANDBURBLEDASITCAMEONETWOONETWOANDTHROUGHANDTHROUGHTHEVORPALBLADEWENTSNICKERSNACKHELEFTITDEADANDWITHITSHEADHEWENTGALUMPHINGBACKANDHASTTHOUSLAINTHEJABBERWOCKCOMETOMYARMSMYBEAMISHBOYOFRABJOUSDAYCALLOOHCALLAYHECHORTLEDINHISJOYTWASBRILLIGANDTHESLITHYTOVESDIDGYREANDGIMBLEINTHEWABEALLMIMSYWERETHEBOROGOVESANDTHEMOMERATHSOUTGRABEITSEEMSVERYPRETTYSHESAIDWHENSHEHADFINISHEDITBUTITSRATHERHARDTOUNDERSTAND
+Key        TJGGAHET
+Key length 8
+Plaintext  TFGODXGHWMNKEYIVLMBJACIPPTXWTBBNFRADSITFHCOSMGOTFYPOXCASLGRDFQCJTABEDSNFPTOBYIQZ...
 
-Key: THEC
-Plaintext: THISKXGYWOPOLYIMLODNHCIGPVZAABBEFTCHZITWHEQWTGOKFARSECAJLITHMQCATCDIKSNWPVQFFIQQWZEETHEWOYSFAVMITENBPMHVGEFDCJCFVESABAHMTWOMLDPYSNRWSGVPMZXVWAREHESOPLBEYIDHVHBUNNXWPEWNSTHAHYWYTDHEJXPBDOKCSCEINCXVWAREHESOJLJUINXWOVQFRHYCECAWRUMICRGGPXDEYECFEXKJDTSDVCEJVORPOIGBDBDIUTPSOGRPFTMBPODVMANXCJSKDOHEZAJLSOVQQEWIPYDVBYTHSQIRIEMTYQTFYYVVNOHPHCECEINTVLILWDANKMHNYPIHHSLISJQXHTHEGQCTSDHEQMQGPMZQBKAXECAPESOFTIORTMAMLIWNQAOKMGXWCJQXHTHEHRZLTIWOVPPSOWXTALISLNEKCAMECKSYLYONLFLTLIGVGRSJRCWEDTHRCRUMIREVVDEFWWOCCEATYOOEICKEFPBFRUHESQUYTOGGZDECOREKHITSVBOIWOWEUFVFWPPRGIRVMVYBANDHOPHYWYUSSMXSECHLZBFTCRKTKCOMSQCRNKRMZYNGPVPKRHFDJJBIABJOIPRFNMALSADMNVONZYLTNCKITLEDWKVNHTOYAIPXMMLNKIKPYYPYESLIHEMYDFESKUSLJMHCMDKXXWHVINTHSTOGTKLLTUBXJRHTDTLTMJNFGOVEGXBIIREMVYTWLOKUNUXVCVXVITSESJGATBYPYQIYJNKGRAMSHCAESHEHOATNCSSHLPXYMPWKSSVPECAIHARDHLISSORSAMCI
+Key        THECSAS
+Key length 7
+Plaintext  THISLESHIRRYENTHATPPIQFEGKDKABBEGAOQLLVGATBRILAMGOOQVRETLITHNXOJFFFSDHYREACHGWNO...
+
+Key        THEC
+Key length 4
+Plaintext  THISKXGYWOPOLYIMLODNHCIGPVZAABBEFTCHZITWHEQWTGOKFARSECAJLITHMQCATCDIKSNWPVQFFIQQ...
 
 END
-#Key: THECHESCIRECATTHECHESHIRECAT
-#Plaintext: THISWASYHEPOEMTHATALICEREADJABBERWOHKYTWASBRILLIGANDTHESLITHYTOAESDIDGYREANDGIMBLEINTHEWABEFLLMIMSYWERETHEBOROGOVESANDTMEMOMERATHSOUTGRABEBEWARETHEOABBERWOCKMYSONTHEJAWSTHATBIYETHECLAWSTHATCATCHBEWARETHEOUBJUBBIRDANDSHUNTHEFRUMIOUSGANDERSNATCHHETOOKHISVORPALSBORDINHANDLONGTIMETHEMANXOMEKOEHESOUGHTSORESTEDHEBYTHETURTUMTREEANDSTOODAWHILEINTHOULHTANDASINUFFISHTHOUGHTHESTOTDTHEJABBERWOCKWITHEYESOFFLARECAMEWHIFFLINGTHROUGHTHETULLEYWOODANDBURBLEDASITCAMEONEYWOONETWOANDTHROUGHANDTHROUGMTHEVORPALBLADEWENTSNICKERSNFCKHELEFTITDEADANDWITHITSHEAIHEWENTGALUMPHINGBACKANDHASTYHOUSLAINTHEJABBERWOCKCOMETORYARMSMYBEAMISHBOYOFRABJOUSDFYCALLOOHCALLAYHECHORTLEDINHNSJOYTWASBRILLIGANDTHESLITHYYOVESDIDGYREANDGIMBLEINTHEWAGEALLMIMSYWERETHEBOROGOVESANITHEMOMERATHSOUTGRABEITSEEMSAERYPRETTYSHESAIDWHENSHEHADFNNISHEDITBUTITSRATHERHARDTOUSDERSTAND
 
 use Test::More;
 chomp $ref;
