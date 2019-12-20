@@ -1,17 +1,17 @@
 
 This is perl 5, version 30, subversion 0 (v5.30.0) built for darwin-thread-multi-2level
 updating from RC…
-+------------> Perl: Good/Bad [1223/13]
-|+-----------> Smoke testing [1089]
++------------> Perl: Good/Bad [1225/13]
+|+-----------> Smoke testing [1090]
 ||+----------> sKipping validation [142]
 |||+---------> Interactive [52]
-||||+--------> Touched (modified by me) [357]
-|||||+-------> Random seed [97]
+||||+--------> Touched (modified by me) [358]
+|||||+-------> Random seed [98]
 ||||||+------> File output [66]
 |||||||+-----> Draft [229]
 ||||||||+----> Ignoring [32]
-|||||||||+---> Void (no local copy) [142]
-||||||||||+--> Un-implemented/reliable [135]
+|||||||||+---> Void (no local copy) [141]
+||||||||||+--> Un-implemented/reliable [134]
 |||||||||||
 GS......... 100_doors-1
 GS......... 100_doors-2
@@ -1352,7 +1352,7 @@ GS..TR..... Verify_distribution_uniformity_Naive
 G.KIT..D... Vibrating_rectangles
 G.KIT...... Video_display_modes
 GS..T...... Vigen%C3%A8re_cipher
-!S......... Vigen%C3%A8re_cipher_Cryptanalysis
+GS..T...... Vigen%C3%A8re_cipher_Cryptanalysis
 GS......... Visualize_a_tree
 .........VU Vogel%27s_approximation_method
 GS..TRF.... Voronoi_diagram
@@ -1375,7 +1375,7 @@ G.KI....... Window_management
 GS......... Wireworld
 GS..T..D... Word_break_problem
 .........V. Word_frequency
-.........VU Word_search
+GS...R..... Word_search
 GS......... Word_wrap
 GS..T...... World_Cup_group_stage
 GS....F.... Write_entire_file
