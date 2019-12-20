@@ -7959,10 +7959,8 @@ File: V/Vigen%C3%A8re_cipher
 File: V/Vigen%C3%A8re_cipher_Cryptanalysis
 #!/usr/local/bin/perl
 #u# http://rosettacode.org/wiki/Vigenère_cipher/Cryptanalysis
-#c# 2019-12-17 <RC
+#c# 2019-12-17 <RC, 2019-12-19 >RC
 #p# OK
-#n# submitter translated from julia (?), I've clean up a bit
-#n# runs, but the scoring sytem is wacky?
 
 File: V/Visualize_a_tree
 #!/usr/local/bin/perl
@@ -8082,6 +8080,12 @@ File: W/Word_count.0
 #!/usr/bin/env perl
 #u# http://rosettacode.org/wiki/Word_count
 #c# 2018-08-07 >RC
+#p# OK
+
+File: W/Word_search
+#!/usr/local/bin/perl
+#u# http://rosettacode.org/wiki/Word_search
+#c# 2019-12-19 <RC
 #p# OK
 
 File: W/Word_wrap
