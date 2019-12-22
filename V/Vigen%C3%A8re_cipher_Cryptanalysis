@@ -13,10 +13,10 @@ my $max_key_lengths = 5; # number of keylengths to try
 
 sub myguess {
     my ($text) = (@_);
-    my ($seqtext, $i, @guesses_ranked, @spacing, @factors, @sortedfactors, $pos, %freq, %Keys);
+    my ($seqtext, @spacing, @factors, @sortedfactors, $pos, %freq, %Keys);
 
     # from Wikipedia
-    my %EnglishLetterFreq = (
+    my %English_letter_freq = (
         'E'=>12.70, 'L'=>4.03, 'Y'=>1.97, 'P'=>1.93, 'T'=>9.06, 'A'=>8.17, 'O'=>7.51, 'I'=>6.97, 'N'=>6.75, 
         'S'=>6.33,  'H'=>6.09, 'R'=>5.99, 'D'=>4.25, 'C'=>2.78, 'U'=>2.76, 'M'=>2.41, 'W'=>2.36, 'F'=>2.23, 
         'G'=>2.02,  'B'=>1.29, 'V'=>0.98, 'K'=>0.77, 'J'=>0.15, 'X'=>0.15, 'Q'=>0.10, 'Z'=>0.07
@@ -25,12 +25,9 @@ sub myguess {
     # Kasiski examination
     $seqtext = $text;
     while ($seqtext =~ /(...).*\1/) {
-        $i = index($seqtext, $1);
-        $pos += $i++;
+        my $i = 1 + index($seqtext, $1);
         $seqtext = substr($seqtext, $i);
-        $pos++;
-        $i = index($seqtext, $1);
-        push @spacing, $i+1;
+        push @spacing,  1 + index($seqtext, $1);
     }
 
     for my $j (@spacing) {
@@ -51,10 +48,10 @@ sub myguess {
                 my $decrypted = mycrypt($mykey, $subkey);
                 my $length    = length($decrypted);
                 for my $char ('A'..'Z') {
-                    my $count = 0;
-                    my $expected = $EnglishLetterFreq{$char} * $length / 100;
-                    ++$count while $decrypted =~ /$char/g;
-                    $chi_values{$subkey} += ($count - $expected)**2 / $expected unless !$count;
+                    my $expected = $English_letter_freq{$char} * $length / 100;
+                    my $observed;
+                    ++$observed while $decrypted =~ /$char/g;
+                    $chi_values{$subkey} += ($observed - $expected)**2 / $expected if $observed;
                 }
             }
 
