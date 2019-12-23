@@ -8,10 +8,10 @@ updating from RC…
 ||||+--------> Touched (modified by me) [358]
 |||||+-------> Random seed [98]
 ||||||+------> File output [66]
-|||||||+-----> Draft [229]
+|||||||+-----> Draft [230]
 ||||||||+----> Ignoring [32]
-|||||||||+---> Void (no local copy) [141]
-||||||||||+--> Un-implemented/reliable [134]
+|||||||||+---> Void (no local copy) [142]
+||||||||||+--> Un-implemented/reliable [135]
 |||||||||||
 GS......... 100_doors-1
 GS......... 100_doors-2
@@ -262,6 +262,7 @@ GS..T...... Compare_a_list_of_strings
 .........VU Compare_sorting_algorithms%27_performance
 GS......... Compile-time_calculation
 GS......... Compiler_AST_interpreter
+.......D.VU Compiler__Verifying_Syntax
 GS......... Compiler_code_generator
 GS......... Compiler_lexical_analyzer-1
 GS......... Compiler_lexical_analyzer-2
