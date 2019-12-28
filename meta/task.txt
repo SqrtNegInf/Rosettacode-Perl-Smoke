@@ -11,7 +11,7 @@ updating from RC…
 |||||||+-----> Draft [229]
 ||||||||+----> Ignoring [32]
 |||||||||+---> Void (no local copy) [142]
-||||||||||+--> Un-implemented/reliable [135]
+||||||||||+--> Un-implemented/reliable [133]
 |||||||||||
 GS......... 100_doors-1
 GS......... 100_doors-2
@@ -262,7 +262,7 @@ GS..T...... Compare_a_list_of_strings
 .........VU Compare_sorting_algorithms%27_performance
 GS......... Compile-time_calculation
 GS......... Compiler_AST_interpreter
-.......D.VU Compiler__Verifying_Syntax
+.......D.V. Compiler__Verifying_Syntax
 GS......... Compiler_code_generator
 GS......... Compiler_lexical_analyzer-1
 GS......... Compiler_lexical_analyzer-2
@@ -353,7 +353,7 @@ GS......... Dinesman%27s_multiple-dwelling_problem-2
 G.K..R..... Dining_philosophers
 GS......... Discordian_date
 .......D.V. Display_a_linear_combination
-G.K.T..D..U Display_an_outline_as_a_nested_table
+G.K.T..D... Display_an_outline_as_a_nested_table
 GS......... Distributed_programming
 GS..T..D... Diversity_prediction_theorem
 G.K........ Documentation
