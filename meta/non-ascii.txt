@@ -114,6 +114,9 @@ C/Cipolla%27s_algorithm-1
 C/Commatizing_numbers
 ±:     3 PLUS-MINUS SIGN
 
+C/Compiler_Verifying_Syntax
+é:     4 LATIN SMALL LETTER E WITH ACUTE
+
 C/Continued_fraction
 π:     4 GREEK SMALL LETTER PI
 √:     2 SQUARE ROOT
@@ -149,7 +152,7 @@ D/Dinesman%27s_multiple-dwelling_problem-2
 ¿:     1 INVERTED QUESTION MARK
 é:     1 LATIN SMALL LETTER E WITH ACUTE
 
-D/Display_an_outline_as_a_nested_table
+D/Display_an_outline_as_a_nested_table.0
 ¯:     2 MACRON
 ツ:     1 KATAKANA LETTER TU
 
