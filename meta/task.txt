@@ -2,10 +2,10 @@
 This is perl 5, version 30, subversion 0 (v5.30.0) built for darwin-thread-multi-2level
 updating from RC…
 +------------> Perl: Good/Bad [1225/13]
-|+-----------> Smoke testing [1090]
-||+----------> sKipping validation [142]
+|+-----------> Smoke testing [1091]
+||+----------> sKipping validation [141]
 |||+---------> Interactive [52]
-||||+--------> Touched (modified by me) [358]
+||||+--------> Touched (modified by me) [357]
 |||||+-------> Random seed [98]
 ||||||+------> File output [66]
 |||||||+-----> Draft [229]
@@ -353,7 +353,7 @@ GS......... Dinesman%27s_multiple-dwelling_problem-2
 G.K..R..... Dining_philosophers
 GS......... Discordian_date
 .......D.V. Display_a_linear_combination
-G.K.T..D... Display_an_outline_as_a_nested_table
+GS.....D... Display_an_outline_as_a_nested_table
 GS......... Distributed_programming
 GS..T..D... Diversity_prediction_theorem
 G.K........ Documentation
