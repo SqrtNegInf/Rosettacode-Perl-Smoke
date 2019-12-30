@@ -10,10 +10,9 @@ use warnings;
 use feature 'say';
  
 sub error { die s/\G/{{\U@_}}/r }
-sub want { /\G\Q$_[0]/gc ? pop : error $_[1]; 1 }
+sub want  { /\G\Q$_[0]/gc ? pop : error $_[1]; 1 }
  
-sub expr
-  {
+sub expr {
   my $level = shift;
   /\G\h+/gc;
   /\G(true|false)\b/gc or
@@ -23,21 +22,19 @@ sub expr
     /\G(?:\d+|[a-zA-Z]\w*)/gc or
     error "expected a primary";
   /\G\h+/gc ? 1 :
-    $level <= 2   && /\Gor\b/gc  ? expr(2) :
-    $level <= 3   && /\Gand\b/gc ? expr(4) :
-    $level <= 4   && /\G[=<]/gc  ? expr(4.5) :
-    $level == 4.5 && /\G(?=[=<])/gc  ? error "operator is non-associative" :
-    $level <= 5   && /\G[+-]/gc  ? expr(6) :
-    $level <= 6   && /\G[*\/]/gc ? expr(7) :
+    $level <= 2   && /\Gor\b/gc     ? expr(2) :
+    $level <= 3   && /\Gand\b/gc    ? expr(4) :
+    $level <= 4   && /\G[=<]/gc     ? expr(4.5) :
+    $level == 4.5 && /\G(?=[=<])/gc ? error "operator is non-associative" :
+    $level <= 5   && /\G[+-]/gc     ? expr(6) :
+    $level <= 6   && /\G[*\/]/gc    ? expr(7) :
     return 1 while 1;
-  }
+}
  
-while( <DATA> )
-  {
+while( <DATA> ) {
   push @res, eval { want "\n", "expected end of input", expr(0) } ?
     "${_}true\n" : "$@false\n", "\n";
-
-  }
+}
 
 say my $result = join "", @res;
 
@@ -89,11 +86,6 @@ END
 use Test::More;
 is($result, $ref);
 done_testing();
-
-# =={{header|Perl}}==
-# <lang perl></lang>
-# {{out}}
-# <pre></pre>
  
 __DATA__
 (42 + 3
