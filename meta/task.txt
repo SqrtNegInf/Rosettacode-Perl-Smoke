@@ -240,7 +240,7 @@ GS..TR..... Closest-pair_problem
 GS......... Closures_Value_capture
 G.K.T..D... Code_segment_unload
 GS......... Collections
-!S..T...... Color_of_a_screen_pixel
+GS..T...... Color_of_a_screen_pixel
 GS..T...... Color_quantization
 GS....FD... Color_wheel
 GS....F.... Colour_bars_Display
@@ -992,7 +992,7 @@ GS..T...... Range_extraction
 GS..T...... Ranking_methods
 GS..T.....U Rare_numbers
 .......D.VU Raster_bars
-GS......... Rate_counter
+!S......... Rate_counter
 GS......... Ray-casting_algorithm
 GS......... Read_a_configuration_file
 GS.....D... Read_a_file_character_by_character_UTF8
