@@ -260,6 +260,9 @@ M/Metaprogramming
 M/Mian-Chowla_sequence
 –:     3 EN DASH
 
+M/Minimal_steps_down_to_1
+»:     1 RIGHT-POINTING DOUBLE ANGLE QUOTATION MARK
+
 M/Multidimensional_Newton-Raphson_method
 Δ:    13 GREEK CAPITAL LETTER DELTA
 ε:     8 GREEK SMALL LETTER EPSILON
