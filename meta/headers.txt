@@ -4546,6 +4546,13 @@ File: M/Minesweeper_game
 #c# 2018-08-18 <RC
 #p# OK
 
+File: M/Minimal_steps_down_to_1
+#!/usr/local/bin/perl
+#u# http://rosettacode.org/wiki/Minimal_steps_down_to_1
+#t# inprogress
+#c# 2019-12-xx >RC
+#p# OK
+
 File: M/Modular_arithmetic
 #!/usr/local/bin/perl
 #u# http://rosettacode.org/wiki/Modular_arithmetic
