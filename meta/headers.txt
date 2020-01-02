@@ -1270,6 +1270,7 @@ File: C/Collections
 File: C/Color_of_a_screen_pixel
 #!/usr/local/bin/perl
 #u# http://rosettacode.org/wiki/Color_of_a_screen_pixel
+#t# gui
 #c# 2019-11-23 >RC
 #p# OK
 #n# for MacOS... sporadic failures (as with P6 version)
