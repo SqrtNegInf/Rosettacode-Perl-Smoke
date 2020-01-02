@@ -1,17 +1,17 @@
 
 This is perl 5, version 30, subversion 0 (v5.30.0) built for darwin-thread-multi-2level
 updating from RC…
-+------------> Perl: Good/Bad [1226/13]
-|+-----------> Smoke testing [1091]
-||+----------> sKipping validation [142]
-|||+---------> Interactive [52]
++------------> Perl: Good/Bad [1227/13]
+|+-----------> Smoke testing [1090]
+||+----------> sKipping validation [143]
+|||+---------> Interactive [53]
 ||||+--------> Touched (modified by me) [358]
 |||||+-------> Random seed [98]
 ||||||+------> File output [66]
-|||||||+-----> Draft [229]
+|||||||+-----> Draft [230]
 ||||||||+----> Ignoring [32]
-|||||||||+---> Void (no local copy) [141]
-||||||||||+--> Un-implemented/reliable [133]
+|||||||||+---> Void (no local copy) [142]
+||||||||||+--> Un-implemented/reliable [134]
 |||||||||||
 GS......... 100_doors-1
 GS......... 100_doors-2
@@ -240,7 +240,7 @@ GS..TR..... Closest-pair_problem
 GS......... Closures_Value_capture
 G.K.T..D... Code_segment_unload
 GS......... Collections
-!S..T...... Color_of_a_screen_pixel
+G.KIT...... Color_of_a_screen_pixel
 GS..T...... Color_quantization
 GS....FD... Color_wheel
 GS....F.... Colour_bars_Display
@@ -949,6 +949,7 @@ GS......... Power_set-9
 G.K........ Pragmatic_directives
 GS...R..... Price_fraction
 GS......... Primality_by_trial_division
+.......D.VU Primalty_by_Wilson%27s_theorem
 GS..T...... Prime_conspiracy
 GS......... Prime_decomposition-1
 GS......... Prime_decomposition-2
