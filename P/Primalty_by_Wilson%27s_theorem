@@ -1,0 +1,56 @@
+#!/usr/local/bin/perl
+#u# http://rosettacode.org/wiki/Primalty_by_Wilson%27s_theorem
+#c# 2020-01-xx >RC
+#p# OK
+
+use strict;
+use warnings;
+use feature 'say';
+
+use ntheory qw(factorial factorialmod);
+
+my($result_slow, $result_fast);
+
+sub is_wilson_prime_slow {
+    my($n) = @_;
+    $n > 1 || return 0;
+    (factorial($n-1) % $n) == ($n-1) ? 1 : 0;
+}
+ 
+sub is_wilson_prime_fast {
+    my($n) = @_;
+    $n > 1 || return 0;
+    factorialmod($n-1, $n) == $n-1 ? 1 : 0;
+}
+ 
+for (0..50) { 
+    my $n = 7 + 10*$_; 
+    $result_slow .= "$n " if is_wilson_prime_slow($n);
+    my $m = 3 + 10*$_; 
+    $result_fast .= "$m " if is_wilson_prime_fast($m);
+}
+
+say $result_slow;
+say $result_fast;
+ 
+#use bigint;
+#say is_wilson_prime_fast(2**43 - 1);   #=> false
+#say is_wilson_prime_fast(2**61 - 1);   #=> true
+
+my $ref1 = '7 17 37 47 67 97 107 127 137 157 167 197 227 257 277 307 317 337 347 367 397 457 467 487 ';
+my $ref2 = '3 13 23 43 53 73 83 103 113 163 173 193 223 233 263 283 293 313 353 373 383 433 443 463 503 ';
+
+use Test::More;
+is($result_slow, $ref1);
+is($result_fast, $ref2);
+done_testing();
+
+__END__
+
+=={{header|Perl}}==
+{{trans|Sidef}}
+{{libheader|ntheory}}
+<lang perl></lang>
+{{out}}
+<pre>7 17 37 47 67 97 107 127 137 157 167 197 227 257 277 307 317 337 347 367 397 457 467 487
+3 13 23 43 53 73 83 103 113 163 173 193 223 233 263 283 293 313 353 373 383 433 443 463 503</pre>
