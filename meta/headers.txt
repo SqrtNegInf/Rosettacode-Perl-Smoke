@@ -5604,6 +5604,12 @@ File: P/Primality_by_trial_division
 #c# 2018-08-20 <RC
 #p# OK
 
+File: P/Primalty_by_Wilson%27s_theorem
+#!/usr/local/bin/perl
+#u# http://rosettacode.org/wiki/Primalty_by_Wilson%27s_theorem
+#c# 2020-01-xx >RC
+#p# OK
+
 File: P/Prime_conspiracy
 #!/usr/local/bin/perl
 #u# http://rosettacode.org/wiki/Prime_conspiracy
