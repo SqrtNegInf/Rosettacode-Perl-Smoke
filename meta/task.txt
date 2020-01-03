@@ -1,16 +1,16 @@
 
 This is perl 5, version 30, subversion 0 (v5.30.0) built for darwin-thread-multi-2level
 updating from RC…
-+------------> Perl: Good/Bad [1227/13]
-|+-----------> Smoke testing [1090]
++------------> Perl: Good/Bad [1228/13]
+|+-----------> Smoke testing [1091]
 ||+----------> sKipping validation [143]
 |||+---------> Interactive [53]
-||||+--------> Touched (modified by me) [358]
+||||+--------> Touched (modified by me) [359]
 |||||+-------> Random seed [98]
 ||||||+------> File output [66]
 |||||||+-----> Draft [230]
 ||||||||+----> Ignoring [32]
-|||||||||+---> Void (no local copy) [142]
+|||||||||+---> Void (no local copy) [141]
 ||||||||||+--> Un-implemented/reliable [134]
 |||||||||||
 GS......... 100_doors-1
@@ -949,7 +949,7 @@ GS......... Power_set-9
 G.K........ Pragmatic_directives
 GS...R..... Price_fraction
 GS......... Primality_by_trial_division
-.......D.VU Primalty_by_Wilson%27s_theorem
+GS..T..D..U Primalty_by_Wilson%27s_theorem
 GS..T...... Prime_conspiracy
 GS......... Prime_decomposition-1
 GS......... Prime_decomposition-2
