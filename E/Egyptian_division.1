@@ -19,7 +19,7 @@ sub egyptian_divmod {
         last if $multiples{$k} > $dividend;
         $table{$k} = $multiples{$k};
     } 
-    
+
     my $accumulator = 0;
     for my $k (sort {$b <=> $a} keys %table) {
         next unless $dividend >= $table{$k};
