@@ -27,7 +27,6 @@ until ( join('', @jumble) eq '123456789' ) {
 
     #my $d = <>;
     my $d = shift @steps; # DH change
-    
 
     @jumble[0..$d-1] = reverse @jumble[0..$d-1];
 }
