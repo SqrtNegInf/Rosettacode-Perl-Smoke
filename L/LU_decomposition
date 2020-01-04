@@ -26,7 +26,7 @@ for my $test (
     say_it('AP matrix', @$AP);
     say_it('L matrix',  @$L);
     say_it('U matrix',  @$U);
-    
+
 }
 
 sub lu {
