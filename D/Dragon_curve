@@ -13,7 +13,7 @@ use List::Util qw(max min);
 my(@X,@Y);
 
 use constant pi => 2 * atan2(1, 0);
-    
+
 # Compute the curve with a Lindemayer-system
 my %rules = (
     X => 'X+YF+',
