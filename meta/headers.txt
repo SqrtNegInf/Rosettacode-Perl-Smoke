@@ -1394,11 +1394,12 @@ File: C/Compiler_AST_interpreter
 #c# 2018-07-24 <RC
 #p# OK
 
-File: C/Compiler_Verifying_Syntax
+File: C/Compiler__Verifying_Syntax
 #!/usr/local/bin/perl
-#u# http://rosettacode.org/wiki/Compiler/Verifying_Syntax
-#c# 2019-12-28 <RC
+#u# http://rosettacode.org/wiki/Compiler/ Verifying_Syntax
+#c# 2019-12-28 <RC, 2020-01-03 <RC
 #p# OK
+#n# note the stupid space in the URL...
 
 File: C/Compiler_code_generator
 #!/usr/local/bin/perl
@@ -5607,7 +5608,7 @@ File: P/Primality_by_trial_division
 File: P/Primalty_by_Wilson%27s_theorem
 #!/usr/local/bin/perl
 #u# http://rosettacode.org/wiki/Primalty_by_Wilson%27s_theorem
-#c# 2020-01-xx >RC
+#c# 2020-01-03 >RC
 #p# OK
 
 File: P/Prime_conspiracy
