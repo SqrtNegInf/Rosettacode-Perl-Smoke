@@ -117,7 +117,7 @@ sub numify {
     $str =~ s/(\d+) \s+ percent         /   $1%     /gx;
     $str =~ s/(\d+) \s+ dollars         / \$$1      /gx;
     $str =~ s/(\d+) \s+ cents           /   $1¢     /gx;
-    
+
     squeeze $str;
 }
 
