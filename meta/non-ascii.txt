@@ -114,7 +114,7 @@ C/Cipolla%27s_algorithm-1
 C/Commatizing_numbers
 ±:     3 PLUS-MINUS SIGN
 
-C/Compiler_Verifying_Syntax
+C/Compiler__Verifying_Syntax
 é:     4 LATIN SMALL LETTER E WITH ACUTE
 
 C/Continued_fraction
