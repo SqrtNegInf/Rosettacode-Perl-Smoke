@@ -1,8 +1,8 @@
 
 This is perl 5, version 30, subversion 0 (v5.30.0) built for darwin-thread-multi-2level
 updating from RC…
-+------------> Perl: Good/Bad [1228/13]
-|+-----------> Smoke testing [1091]
++------------> Perl: Good/Bad [1229/13]
+|+-----------> Smoke testing [1092]
 ||+----------> sKipping validation [143]
 |||+---------> Interactive [53]
 ||||+--------> Touched (modified by me) [359]
@@ -10,7 +10,7 @@ updating from RC…
 ||||||+------> File output [66]
 |||||||+-----> Draft [230]
 ||||||||+----> Ignoring [32]
-|||||||||+---> Void (no local copy) [141]
+|||||||||+---> Void (no local copy) [140]
 ||||||||||+--> Un-implemented/reliable [134]
 |||||||||||
 GS......... 100_doors-1
@@ -262,7 +262,7 @@ GS..T...... Compare_a_list_of_strings
 .........VU Compare_sorting_algorithms%27_performance
 GS......... Compile-time_calculation
 GS......... Compiler_AST_interpreter
-.......D.V. Compiler__Verifying_Syntax
+GS.....D... Compiler__Verifying_Syntax
 GS......... Compiler_code_generator
 GS......... Compiler_lexical_analyzer-1
 GS......... Compiler_lexical_analyzer-2
