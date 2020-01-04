@@ -16,7 +16,7 @@ my @res;
 #use Lingua::EN::Numbers;
 
 for ([1, 20], [1, 50000], [2, 2000], [2, 50000]) { 
-    my @div = [2,3];
+    my @div = (2,3);
     my($sub, $limit) = @$_;
     my %min = (1 => {op=>'', v=>1, s=>0});
 
@@ -25,20 +25,23 @@ for ([1, 20], [1, 50000], [2, 2000], [2, 50000]) {
         for (@div) {
             push @ops, [$n / $_, "/$_"] if 0 == $n % $_ 
         }
-        #push @ops, ($n / $_, "/$_") if $n %% $_ for @div;
 
         push @ops, [$n - $sub, "-$sub"] if $n > $sub;
-        #my $op = @ops.min( {%min{.[0]}<s>} );
-#Array @ops = [(1.0, "/2"), (1, "-1")]
-#List $op = $(1.0, "/2")
-
 p @ops; exit;
-        #%min{$n} = {:op($op[1]), :v($op[0]), :s(1 + %min{$op[0]}<s>)};
+        #my $op = @ops.min( {%min{.[0]}<s>} );
+
 #p $op; exit;
+        #%min{$n} = {:op($op[1]), :v($op[0]), :s(1 + %min{$op[0]}<s>)};
         #p %min;
         exit;
     }
 }
+
+#Hash % = {:op("/2"), :s(1), :v(1.0)}
+#Hash % = {:op("/3"), :s(1), :v(1.0)}
+#Hash % = {:op("/2"), :s(2), :v(2.0)}
+#Hash % = {:op("-1"), :s(3), :v(4)}
+#Hash % = {:op("/2"), :s(2), :v(3.0)}
 
 exit;
 say my $result = join "\n", @res;
