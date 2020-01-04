@@ -29,18 +29,18 @@ sub decide {
     say 'ok 1 -' and exit if $result eq 'Check for paper jam';
     say 'not ok 1 -'; exit;
 }
- 
+
 my @queries = (
     'Printer is unrecognised',             
     'A red light is flashing',             
     'Printer does not print',              
 ); 
 my %answers = (
-	0b00100000 => 'Check the power cable',                
-	0b10100000 => 'Check the printer-computer cable',     
-	0b10101010 => 'Ensure printer software is installed', 
-	0b11001100 => 'Check/replace ink',                    
-	0b01010000 => 'Check for paper jam',                  
+    0b00100000 => 'Check the power cable',                
+    0b10100000 => 'Check the printer-computer cable',     
+    0b10101010 => 'Ensure printer software is installed', 
+    0b11001100 => 'Check/replace ink',                    
+    0b01010000 => 'Check for paper jam',                  
 );
-    
+
 decide(\@queries,\%answers);
