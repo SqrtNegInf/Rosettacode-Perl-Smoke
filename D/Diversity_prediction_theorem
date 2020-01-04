@@ -16,7 +16,7 @@ sub diversity_calc {
     $ae = avg_error($truth, @pred); # average individual error
     $ce = ($cp - $truth)**2;        # collective error
     $pd = avg_error($cp, @pred);    # prediction diversity
-    
+
     my $fmt = "%13s: %6.3f\n";
     $stats  = sprintf $fmt, 'average-error', $ae;
     $stats .= sprintf $fmt, 'crowd-error',   $ce;
