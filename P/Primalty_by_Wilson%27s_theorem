@@ -1,56 +1,67 @@
 #!/usr/local/bin/perl
 #u# http://rosettacode.org/wiki/Primalty_by_Wilson%27s_theorem
-#c# 2020-01-xx >RC
+#c# 2020-01-03 >RC
 #p# OK
 
 use strict;
 use warnings;
 use feature 'say';
 
-use ntheory qw(factorial factorialmod);
+use ntheory qw(factorial);
 
-my($result_slow, $result_fast);
+my($ends_in_7, $ends_in_3);
 
-sub is_wilson_prime_slow {
+sub is_wilson_prime {
     my($n) = @_;
     $n > 1 || return 0;
     (factorial($n-1) % $n) == ($n-1) ? 1 : 0;
 }
- 
-sub is_wilson_prime_fast {
-    my($n) = @_;
-    $n > 1 || return 0;
-    factorialmod($n-1, $n) == $n-1 ? 1 : 0;
-}
- 
+
 for (0..50) { 
-    my $n = 7 + 10*$_; 
-    $result_slow .= "$n " if is_wilson_prime_slow($n);
     my $m = 3 + 10*$_; 
-    $result_fast .= "$m " if is_wilson_prime_fast($m);
+    $ends_in_3 .= "$m " if is_wilson_prime($m);
+    my $n = 7 + 10*$_; 
+    $ends_in_7 .= "$n " if is_wilson_prime($n);
 }
 
-say $result_slow;
-say $result_fast;
- 
-#use bigint;
-#say is_wilson_prime_fast(2**43 - 1);   #=> false
-#say is_wilson_prime_fast(2**61 - 1);   #=> true
+say $ends_in_3;
+say $ends_in_7;
 
-my $ref1 = '7 17 37 47 67 97 107 127 137 157 167 197 227 257 277 307 317 337 347 367 397 457 467 487 ';
-my $ref2 = '3 13 23 43 53 73 83 103 113 163 173 193 223 233 263 283 293 313 353 373 383 433 443 463 503 ';
+my $ref1 = '3 13 23 43 53 73 83 103 113 163 173 193 223 233 263 283 293 313 353 373 383 433 443 463 503 ';
+my $ref2 = '7 17 37 47 67 97 107 127 137 157 167 197 227 257 277 307 317 337 347 367 397 457 467 487 ';
 
 use Test::More;
-is($result_slow, $ref1);
-is($result_fast, $ref2);
+is($ends_in_3, $ref1);
+is($ends_in_7, $ref2);
 done_testing();
 
 __END__
 
 =={{header|Perl}}==
-{{trans|Sidef}}
 {{libheader|ntheory}}
-<lang perl></lang>
+<lang perl>use strict;
+use warnings;
+use feature 'say';
+
+use ntheory qw(factorial);
+
+my($ends_in_7, $ends_in_3);
+
+sub is_wilson_prime {
+    my($n) = @_;
+    $n > 1 || return 0;
+    (factorial($n-1) % $n) == ($n-1) ? 1 : 0;
+}
+
+for (0..50) { 
+    my $m = 3 + 10 * $_; 
+    $ends_in_3 .= "$m " if is_wilson_prime($m);
+    my $n = 7 + 10 * $_; 
+    $ends_in_7 .= "$n " if is_wilson_prime($n);
+}
+
+say $ends_in_3;
+say $ends_in_7;</lang>
 {{out}}
-<pre>7 17 37 47 67 97 107 127 137 157 167 197 227 257 277 307 317 337 347 367 397 457 467 487
-3 13 23 43 53 73 83 103 113 163 173 193 223 233 263 283 293 313 353 373 383 433 443 463 503</pre>
+<pre>3 13 23 43 53 73 83 103 113 163 173 193 223 233 263 283 293 313 353 373 383 433 443 463 503
+7 17 37 47 67 97 107 127 137 157 167 197 227 257 277 307 317 337 347 367 397 457 467 487</pre>
