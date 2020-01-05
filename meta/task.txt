@@ -8,10 +8,10 @@ updating from RC…
 ||||+--------> Touched (modified by me) [359]
 |||||+-------> Random seed [98]
 ||||||+------> File output [66]
-|||||||+-----> Draft [230]
+|||||||+-----> Draft [231]
 ||||||||+----> Ignoring [32]
-|||||||||+---> Void (no local copy) [140]
-||||||||||+--> Un-implemented/reliable [134]
+|||||||||+---> Void (no local copy) [141]
+||||||||||+--> Un-implemented/reliable [135]
 |||||||||||
 GS......... 100_doors-1
 GS......... 100_doors-2
@@ -1316,6 +1316,7 @@ GS..T..D... UPC
 GS......... URL_decoding
 GS......... URL_encoding
 GS......... URL_parser
+.......D.VU URL_shortener
 GS......... UTF-8_encode_and_decode
 .......D.VU Ukkonens_Suffix_Tree_Construction
 GS....F.... Ulam_spiral_for_primes
