@@ -12,7 +12,7 @@ my @res;
 srand 123456;
 
 use Path::Tiny;
-use List::Util qw( shuffle );
+use List::Util qw 'shuffle';
 
 my $size = 10;
 my $s1   = $size + 1;
@@ -41,7 +41,7 @@ for my $word ( (@words) x 5 ) {
     $nulls //= '';
     my $expand = $word =~ s/\B/$nulls/gr;
     my $pos = $start;
-    if( $start > $end ) {
+    if ($start > $end) {
         $pos = $end;
         $expand = reverse $expand;
     }
@@ -87,10 +87,10 @@ sub find {
     }
 
     for my $key ( sort keys %pats ) {
-        if( $word =~ /^$key$/ ) {
+        if ($word =~ /^$key$/) {
             my @all = @{ $pats{$key} };
             return $key, split ' ', $all[ rand @all ];
-        } elsif( (reverse $word) =~ /^$key$/ ) {
+        } elsif ((reverse $word) =~ /^$key$/) {
             my @all = @{ $pats{$key} };
             my @parts = split ' ', $all[ rand @all ];
             return $key, @parts[ 1, 0, 2, 3]
