@@ -1,7 +1,7 @@
 
 This is perl 5, version 30, subversion 0 (v5.30.0) built for darwin-thread-multi-2level
 updating from RC…
-+------------> Perl: Good/Bad [1229/13]
++------------> Perl: Good/Bad [1228/13]
 |+-----------> Smoke testing [1092]
 ||+----------> sKipping validation [143]
 |||+---------> Interactive [53]
@@ -11,7 +11,7 @@ updating from RC…
 |||||||+-----> Draft [231]
 ||||||||+----> Ignoring [32]
 |||||||||+---> Void (no local copy) [141]
-||||||||||+--> Un-implemented/reliable [135]
+||||||||||+--> Un-implemented/reliable [134]
 |||||||||||
 GS......... 100_doors-1
 GS......... 100_doors-2
@@ -949,7 +949,7 @@ GS......... Power_set-9
 G.K........ Pragmatic_directives
 GS...R..... Price_fraction
 GS......... Primality_by_trial_division
-GS..T..D..U Primalty_by_Wilson%27s_theorem
+GS..T..D... Primalty_by_Wilson%27s_theorem
 GS..T...... Prime_conspiracy
 GS......... Prime_decomposition-1
 GS......... Prime_decomposition-2
@@ -993,7 +993,7 @@ GS..T...... Range_extraction
 GS..T...... Ranking_methods
 GS..T.....U Rare_numbers
 .......D.VU Raster_bars
-GS......... Rate_counter
+!S......... Rate_counter
 GS......... Ray-casting_algorithm
 GS......... Read_a_configuration_file
 GS.....D... Read_a_file_character_by_character_UTF8
