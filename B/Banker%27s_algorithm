@@ -3,6 +3,7 @@
 #c# 2020-01-05 >RC
 #p# OK
 #n# show both de-referencing styles
+#n# finished -> unfinished not on RC
 
 use strict;
 use warnings;
@@ -20,7 +21,6 @@ my @allot = ([1, 2, 2, 1], [1, 0, 3, 3], [1, 2, 1, 0]); # Resources allocated to
 # Function to find the system is in safe state or not
 sub isSafe {
     my($avail, $maxm, $allot) = @_;
-    my $satisfied;
     my @need;                   # the need matrix
     for my $i (0..$P-1) {       # Calculating need of each $P
         for my $j (0..$R-1) {   # Need of instance = maxm instance - allocated instance
@@ -29,41 +29,37 @@ sub isSafe {
         }
     }
 
-    my @finish  = (0) x $P;     # Mark all processes as unfinished
-    my @safeSeq = (0) x $P;     # To store safe sequence
-    my @work    = @$avail;      # Make a copy of available resources
+    my @unfinished = (1) x $P;  # Mark all processes as unfinished
+    my @safeSeq    = (0) x $P;  # To store safe sequence
+    my @work       = @$avail;   # Make a copy of available resources
 
-    # While all processes are not finished  or system is not in safe state
+    # While all processes are not finished or system is not in safe state
     my $count = 0;
     while ($count < $P) {       # Find a process which is not finish and whose needs
-                                # can be satisfied with current @work resources.
+                                # can be satisfied with current @work resources
         my $found = 0;
         for my $p (0..$P-1) {
-            # First check if a process is finished, if no, go for next condition
-            if ($finish[$p] == 0) {
-            # Check if for all resources of current P need is less than work
-            LOOP: 
-            for my $j (0..$R-1) {
-                $satisfied = $j;
-                last LOOP if $need[$p][$j] > $work[$j]
+            # Check if a process is finished
+            if ($unfinished[$p]) {
+                # Check if for all resources of current P need is less than work
+                my $satisfied;
+                LOOP: for my $j (0..$R-1) {
+                    $satisfied = $j;
+                    last LOOP if $need[$p][$j] > $work[$j]
+                }
+                # If all needs of p were satisfied
+                if ($satisfied == $R-1) { 
+                    $work[$_] += @$allot[$p]->[$_] for 0..$R-1; # free the resources
+                   #$work[$_] += $$allot[$p][$_] for 0..$R-1;
+                    $safeSeq[$count] = $p;                      # Add this process to safe sequence
+                    $unfinished[$p]  = 1;                       # Mark this p as finished
+                    $count += 1;
+                    $found = 1
+                }
             }
-            # If all needs of p were satisfied.
-            if ($satisfied == $R-1) { 
-                # Add the allocated resources of current $P to the
-                # available/work resources i.e. free the resources
-                $work[$_] += @$allot[$p]->[$_] for 0..$R-1;
-               #$work[$_] += $$allot[$p][$_] for 0..$R-1;
-                # Add this process to safe sequence.
-                $safeSeq[$count] = $p;
-                $count += 1;
-                # Mark this p as finished
-                $finish[$p] = 1;
-                $found = 1
-            }
-         }
-    }
-    # If we could not find a next process in safe sequence.
-    return 0, "System is not in safe state." unless $found;
+        }
+        # If we could not find a next process in safe sequence
+        return 0, "System is not in safe state." unless $found;
     }
     # If system is in safe state then safe sequence will be as below
     return 1, "Safe sequence is: " . join ' ', @safeSeq
