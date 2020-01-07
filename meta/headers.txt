@@ -609,6 +609,12 @@ File: B/Balanced_ternary
 #c# 2018-07-16 <RC
 #p# OK
 
+File: B/Banker%27s_algorithm
+#!/usr/local/bin/perl
+#u# http://rosettacode.org/wiki/Banker%27s_algorithm
+#c# 2020-01-05 >RC, 2020-01-06 >RC
+#p# OK
+
 File: B/Barnsley_fern
 #!/usr/local/bin/perl
 #u# http://rosettacode.org/wiki/Barnsley_fern
