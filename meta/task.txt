@@ -1,17 +1,17 @@
 
 This is perl 5, version 30, subversion 0 (v5.30.0) built for darwin-thread-multi-2level
 updating from RC…
-+------------> Perl: Good/Bad [1228/13]
-|+-----------> Smoke testing [1092]
++------------> Perl: Good/Bad [1230/13]
+|+-----------> Smoke testing [1093]
 ||+----------> sKipping validation [143]
 |||+---------> Interactive [53]
-||||+--------> Touched (modified by me) [359]
+||||+--------> Touched (modified by me) [360]
 |||||+-------> Random seed [98]
 ||||||+------> File output [66]
 |||||||+-----> Draft [231]
 ||||||||+----> Ignoring [32]
-|||||||||+---> Void (no local copy) [141]
-||||||||||+--> Un-implemented/reliable [134]
+|||||||||+---> Void (no local copy) [140]
+||||||||||+--> Un-implemented/reliable [133]
 |||||||||||
 GS......... 100_doors-1
 GS......... 100_doors-2
@@ -124,7 +124,7 @@ GS...R..... Balanced_brackets-1
 GS...R..... Balanced_brackets-2
 GS...R..... Balanced_brackets-3
 GS......... Balanced_ternary
-.......D.VU Banker%27s_algorithm
+GS..T..D... Banker%27s_algorithm
 GS...RF.... Barnsley_fern
 GS..T..D... Base58Check_encoding
 GS..T...... Base64_decode_data
@@ -993,7 +993,7 @@ GS..T...... Range_extraction
 GS..T...... Ranking_methods
 GS..T.....U Rare_numbers
 .......D.VU Raster_bars
-!S......... Rate_counter
+GS......... Rate_counter
 GS......... Ray-casting_algorithm
 GS......... Read_a_configuration_file
 GS.....D... Read_a_file_character_by_character_UTF8
