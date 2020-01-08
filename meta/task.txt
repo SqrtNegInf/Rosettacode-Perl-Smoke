@@ -8,10 +8,10 @@ updating from RC…
 ||||+--------> Touched (modified by me) [360]
 |||||+-------> Random seed [98]
 ||||||+------> File output [66]
-|||||||+-----> Draft [231]
+|||||||+-----> Draft [232]
 ||||||||+----> Ignoring [32]
-|||||||||+---> Void (no local copy) [140]
-||||||||||+--> Un-implemented/reliable [133]
+|||||||||+---> Void (no local copy) [141]
+||||||||||+--> Un-implemented/reliable [134]
 |||||||||||
 GS......... 100_doors-1
 GS......... 100_doors-2
@@ -627,6 +627,7 @@ GS......... Inverted_index
 G.K........ Inverted_syntax
 GS......... Iterated_digits_squaring
 GS......... JSON
+.......D.VU Jacobi_symbol
 GS......... Jaro_distance
 GS......... Jensen%27s_Device
 GS..T...... Jewels_and_Stones
