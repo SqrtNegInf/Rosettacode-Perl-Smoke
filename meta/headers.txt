@@ -1403,7 +1403,7 @@ File: C/Compiler_AST_interpreter
 File: C/Compiler__Verifying_Syntax
 #!/usr/local/bin/perl
 #u# http://rosettacode.org/wiki/Compiler/ Verifying_Syntax
-#c# 2019-12-28 <RC, 2020-01-03 <RC
+#c# 2019-12-28 <RC, 2020-01-03 <RC, 2020-01-07 <RC
 #p# OK
 #n# note the stupid space in the URL...
 
