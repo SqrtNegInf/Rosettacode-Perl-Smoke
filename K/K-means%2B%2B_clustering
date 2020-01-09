@@ -40,7 +40,9 @@ p @means;
 #        @means = %cluster.values.map( { .elems R/ [+] @$_ } )
 #    ) { ; }
 
+    }
     return @means;
+
 }
 
 my @centers = (0, 5, 3 + 2*i);
