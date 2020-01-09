@@ -2,6 +2,7 @@
 #u# http://rosettacode.org/wiki/Sieve_of_Eratosthenes
 #c# 2018-08-16 <RC
 #p# OK
+#n# https://www.perlmonks.org/?node_id=1125331
 
 use strict;
 use warnings;
