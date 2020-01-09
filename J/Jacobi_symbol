@@ -27,8 +27,7 @@ sub J {
     $n == 1 ? $jacobi : 0
 }
 
-my $maxa = 30;
-my $maxn = 29;
+my $maxa = 1 + (my $maxn = 29);
 
 my $header = 'n\k';
 $header .= sprintf '%4d', $_ for 1..$maxa;
