@@ -3667,6 +3667,12 @@ File: J/JSON
 #c# 2018-08-14 <RC
 #p# OK
 
+File: J/Jacobi_symbol
+#!/usr/local/bin/perl
+#u# http://rosettacode.org/wiki/Jacobi_symbol
+#c# 2020-01-08 >RC
+#p# OK
+
 File: J/Jaro_distance
 #!/usr/local/bin/perl
 #u# http://rosettacode.org/wiki/Jaro_distance
@@ -6571,6 +6577,7 @@ File: S/Sieve_of_Eratosthenes-5
 #u# http://rosettacode.org/wiki/Sieve_of_Eratosthenes
 #c# 2018-08-16 <RC
 #p# OK
+#n# https://www.perlmonks.org/?node_id=1125331
 
 File: S/Sieve_of_Eratosthenes-6
 #!/usr/local/bin/perl
