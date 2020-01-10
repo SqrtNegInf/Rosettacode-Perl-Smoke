@@ -1,0 +1,46 @@
+#!/usr/local/bin/perl
+#u# http://rosettacode.org/wiki/Long_year?
+#c# 2020-01-10 >RC
+#p# OK
+
+use strict;
+use warnings;
+use feature 'say';
+
+use DateTime;
+
+my @res;
+
+# for RC
+for my $century (19 .. 21) {
+  for my $year ($century*100 .. ++$century*100 - 1) {
+    my $dt = DateTime->new( year =>$year, month=>12, day=>28);
+    my $n_weeks = $dt->week_number;
+    print "$year " if $n_weeks > 52;
+  }
+  print "\n";
+}
+
+for my $century (19 .. 21) {
+  my $out;
+  my $year00 = $century * 100;
+  for my $i (0 .. 100) {
+    my $dt = DateTime->new( year =>$year00 + $i, month=>12, day=>28);
+    my $n_weeks = $dt->week_number;
+    $out .= $year00 + $i . ' ' if $n_weeks > 52;
+  }
+  push @res, $out;
+}
+
+my $ref = <<'END';
+1903 1908 1914 1920 1925 1931 1936 1942 1948 1953 1959 1964 1970 1976 1981 1987 1992 1998 
+2004 2009 2015 2020 2026 2032 2037 2043 2048 2054 2060 2065 2071 2076 2082 2088 2093 2099 
+2105 2111 2116 2122 2128 2133 2139 2144 2150 2156 2161 2167 2172 2178 2184 2189 2195 
+END
+
+my $result = join "\n", @res;
+
+use Test::More;
+chop $ref;
+is ($result, $ref);
+done_testing();
