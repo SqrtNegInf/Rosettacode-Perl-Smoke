@@ -1,16 +1,16 @@
 
 This is perl 5, version 30, subversion 0 (v5.30.0) built for darwin-thread-multi-2level
 updating from RC…
-+------------> Perl: Good/Bad [1231/13]
-|+-----------> Smoke testing [1094]
++------------> Perl: Good/Bad [1233/13]
+|+-----------> Smoke testing [1096]
 ||+----------> sKipping validation [143]
 |||+---------> Interactive [53]
-||||+--------> Touched (modified by me) [361]
+||||+--------> Touched (modified by me) [363]
 |||||+-------> Random seed [98]
 ||||||+------> File output [66]
-|||||||+-----> Draft [232]
+|||||||+-----> Draft [233]
 ||||||||+----> Ignoring [32]
-|||||||||+---> Void (no local copy) [140]
+|||||||||+---> Void (no local copy) [139]
 ||||||||||+--> Un-implemented/reliable [133]
 |||||||||||
 GS......... 100_doors-1
@@ -408,7 +408,7 @@ GS......... Exceptions
 GS......... Exceptions_Catch_an_exception_thrown_in_a_nested_call
 GS......... Executable_library
 B.......... Execute_Brainfuck
-.......D.VU Execute_CopyPasta_Language
+GS..T..D... Execute_CopyPasta_Language
 GS......... Execute_HQ9%2B
 ........XV. Execute_SNUSP
 GS......... Execute_a_Markov_algorithm
@@ -691,6 +691,7 @@ G.K........ Literals_String
 GS......... Logical_operations
 GS......... Long_multiplication
 GS..T...... Long_primes
+GS..T..D..U Long_year%3F
 GS......... Longest_Common_Substring
 GS.....D... Longest_common_prefix
 GS......... Longest_common_subsequence
