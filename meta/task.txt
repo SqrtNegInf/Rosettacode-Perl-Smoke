@@ -1,17 +1,17 @@
 
 This is perl 5, version 30, subversion 0 (v5.30.0) built for darwin-thread-multi-2level
 updating from RC…
-+------------> Perl: Good/Bad [1233/13]
-|+-----------> Smoke testing [1096]
-||+----------> sKipping validation [143]
-|||+---------> Interactive [53]
-||||+--------> Touched (modified by me) [363]
++------------> Perl: Good/Bad [1235/13]
+|+-----------> Smoke testing [1097]
+||+----------> sKipping validation [144]
+|||+---------> Interactive [54]
+||||+--------> Touched (modified by me) [364]
 |||||+-------> Random seed [98]
 ||||||+------> File output [66]
 |||||||+-----> Draft [233]
 ||||||||+----> Ignoring [32]
-|||||||||+---> Void (no local copy) [139]
-||||||||||+--> Un-implemented/reliable [133]
+|||||||||+---> Void (no local copy) [137]
+||||||||||+--> Un-implemented/reliable [131]
 |||||||||||
 GS......... 100_doors-1
 GS......... 100_doors-2
@@ -23,7 +23,7 @@ G.KI....... 15_Puzzle_Game-1
 GS...RF.... 15_Puzzle_Game-2
 .......D.VU 15_Puzzle_Game_in_3D
 .........VU 15_puzzle_solver
-.......D.VU 16_Puzzle_Game
+G.KI...D... 16_Puzzle_Game
 .........VU 2048
 GS..TR.D... 21_Game
 GS...R..... 24_game
@@ -691,7 +691,7 @@ G.K........ Literals_String
 GS......... Logical_operations
 GS......... Long_multiplication
 GS..T...... Long_primes
-GS..T..D..U Long_year%3F
+GS..T..D... Long_year%3F
 GS......... Longest_Common_Substring
 GS.....D... Longest_common_prefix
 GS......... Longest_common_subsequence
@@ -1245,7 +1245,7 @@ GS......... Super-d_numbers-1
 GS..T...... Super-d_numbers-2
 GS..T.F.... Superellipse
 GS......... Superpermutation_minimisation
-.........VU Sutherland-Hodgman_polygon_clipping
+GS..T.....U Sutherland-Hodgman_polygon_clipping
 GS......... Symmetric_difference
 GS......... Synchronous_concurrency
 GS......... System_time
