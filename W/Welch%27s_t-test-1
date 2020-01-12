@@ -1,20 +1,20 @@
 #!/usr/local/bin/perl
 #u# http://rosettacode.org/wiki/Welch%27s_t-test
-#c# 2018-08-03 <RC, 2019-10-16 >RC
+#c# 2018-08-03 <RC, 2019-10-16 >RC, 2020-01-11 >RC
 #p# OK
-#n# cumulative error changed; possibly how my Perl is compiled? 
+#n# 2019-09-09 cumulative error changed; possibly how my Perl is compiled? 
 
-use feature 'say';
-my $result;
-
-# Using Burkardt's betain[edit]
+# Using Burkhardt's 'incomplete beta'
 
 # We use a slightly more accurate lgamma than the C code. Note that Perl can be compiled with different underlying floating point representations -- double, long double, or quad double.
 
 # Translation of: C
 
-use warnings;
 use strict;
+use warnings;
+use feature 'say';
+
+use List::Util 'sum';
 
 sub lgamma {
   my $x = shift;
@@ -31,92 +31,69 @@ sub lgamma {
   $sum;
 }
 
-use List::Util 'sum';
-sub calculate_Pvalue {
-	my $array1 = shift;
-	my $array2 = shift;
-	if (scalar @$array1 <= 1) {
-	return 1.0;
-	}
-	if (scalar @$array2 <= 1) {
-	return 1.0;
-	}
-	my $mean1 = sum(@{ $array1 });
-	$mean1 /= scalar @$array1;
-	my $mean2 = sum(@{ $array2 });
-	$mean2 /= scalar @$array2;
-	if ($mean1 == $mean2) {
-	return 1.0;
-	}
-	my $variance1 = 0.0;
-	my $variance2 = 0.0;
-	foreach my $x (@$array1) {
-	$variance1 += ($x-$mean1)*($x-$mean1);
-	}
-	foreach my $x (@$array2) {
-	$variance2 += ($x-$mean2)*($x-$mean2);
-	}
-	if (($variance1 == 0.0) && ($variance2 == 0.0)) {
-	return 1.0;
-	}
-	$variance1 = $variance1/(scalar @$array1-1);
-	$variance2 = $variance2/(scalar @$array2-1);
-	my $array1_size = scalar @$array1;
-	my $array2_size = scalar @$array2;
-	my $WELCH_T_STATISTIC = ($mean1-$mean2)/sqrt($variance1/$array1_size+$variance2/$array2_size);
-	my $DEGREES_OF_FREEDOM = (($variance1/$array1_size+$variance2/(scalar @$array2))**2)
-	/
-	(
-	($variance1*$variance1)/($array1_size*$array1_size*($array1_size-1))+
-	($variance2*$variance2)/($array2_size*$array2_size*($array2_size-1))
-	);
-	my $A = $DEGREES_OF_FREEDOM/2;
-	my $value = $DEGREES_OF_FREEDOM/($WELCH_T_STATISTIC*$WELCH_T_STATISTIC+$DEGREES_OF_FREEDOM);
-#from here, translation of John Burkhardt's C
-	my $beta = lgamma($A)+0.57236494292470009-lgamma($A+0.5);
-	my $acu = 10**(-15);
-	my($ai,$cx,$indx,$ns,$pp,$psq,$qq,$rx,$temp,$term,$xx);
-# Check the input arguments.
-	return $value if $A <= 0.0;# || $q <= 0.0;
-	return $value if $value < 0.0 || 1.0 < $value;
-# Special cases
-	return $value if $value == 0.0 || $value == 1.0;
-	$psq = $A + 0.5;
-	$cx = 1.0 - $value;
-	if ($A < $psq * $value) {
-		($xx, $cx, $pp, $qq, $indx) = ($cx, $value, 0.5, $A, 1);
-	} else {
-		($xx, $pp, $qq, $indx) = ($value, $A, 0.5, 0);
-	}
-	$term = 1.0;
-	$ai = 1.0;
-	$value = 1.0;
-	$ns = int($qq + $cx * $psq);
-#Soper reduction formula.
-	$rx = $xx / $cx;
-	$temp = $qq - $ai;
-	$rx = $xx if $ns == 0;
-	while (1) {
-		$term = $term * $temp * $rx / ( $pp + $ai );
-		$value = $value + $term;
-		$temp = abs ($term);
-		if ($temp <= $acu && $temp <= $acu * $value) {
-	   	$value = $value * exp ($pp * log($xx)
-	                          + ($qq - 1.0) * log($cx) - $beta) / $pp;
-	   	$value = 1.0 - $value if $indx;
-	   	last;
-		}
-	 	$ai = $ai + 1.0;
-		$ns = $ns - 1;
-		if (0 <= $ns) {
-			$temp = $qq - $ai;
-			$rx = $xx if $ns == 0;
-		} else {
-			$temp = $psq;
-			$psq = $psq + 1.0;
-		}
-	}
-	return $value;
+
+sub calculate_P_value {
+    my ($array1,$array2) = (shift, shift);
+    return 1 if @$array1 <= 1 or @$array2 <= 1;
+
+    my $mean1 = sum(@$array1);
+    my $mean2 = sum(@$array2);
+    $mean1 /= scalar @$array1;
+    $mean2 /= scalar @$array2;
+    return 1 if $mean1 == $mean2;
+
+    my ($variance1,$variance2);
+    $variance1 += ($mean1-$_)**2 for @$array1;
+    $variance2 += ($mean2-$_)**2 for @$array2;
+    return 1 if $variance1 == 0 and $variance2 == 0;
+
+    $variance1 = $variance1/(@$array1-1);
+    $variance2 = $variance2/(@$array2-1);
+    my $Welch_t_statistic = ($mean1-$mean2)/sqrt($variance1/@$array1 + $variance2/@$array2);
+    my $DoF = (($variance1/@$array1+$variance2/@$array2)**2) /
+                (
+                 ($variance1*$variance1)/(@$array1*@$array1*(@$array1-1)) +
+                 ($variance2*$variance2)/(@$array2*@$array2*(@$array2-1))
+                );
+    my $A     = $DoF / 2;
+    my $value = $DoF / ($Welch_t_statistic**2 + $DoF);
+    return $value if $A <= 0 or $value <= 0 or 1 <= $value;
+
+    # from here, translation of John Burkhardt's C code
+    my $beta = lgamma($A) + 0.57236494292470009 - lgamma($A+0.5); # constant is logΓ(.5), more precise than 'lgamma' routine
+    my $eps = 10**-15;
+    my ($ai,$cx,$indx,$ns,$pp,$psq,$qq,$qq_ai,$rx,$term,$xx);
+
+    $psq = $A + 0.5;
+    $cx = 1 - $value;
+    if ($A < $psq * $value) { ($xx, $cx, $pp, $qq, $indx) = ($cx,   $value, 0.5,  $A, 1) }
+    else                    { ($xx,      $pp, $qq, $indx) = ($value,         $A, 0.5, 0) }
+    $term = $ai = $value = 1;
+    $ns = int $qq + $cx * $psq;
+
+    # Soper reduction formula
+    $qq_ai = $qq - $ai;
+    $rx = $ns == 0 ? $xx : $xx / $cx;
+    while (1) {
+        $term = $term * $qq_ai * $rx / ( $pp + $ai );
+        $value = $value + $term;
+        $qq_ai = abs($term);
+        if ($qq_ai <= $eps && $qq_ai <= $eps * $value) {
+           $value = $value * exp ($pp * log($xx) + ($qq - 1) * log($cx) - $beta) / $pp;
+           $value = 1 - $value if $indx;
+           last;
+        }
+        $ai++;
+        $ns--;
+        if ($ns >= 0) {
+            $qq_ai = $qq - $ai;
+            $rx = $xx if $ns == 0;
+        } else {
+            $qq_ai = $psq;
+            $psq = $psq + 1;
+        }
+    }
+    $value
 }
 
 my @answers = (
@@ -157,9 +134,10 @@ my @tests = (
 );
 
 my $error = 0;
+my $result;
 while (@tests) { 
     my ($left, $right) = splice(@tests, 0, 2);
-    my $pvalue = calculate_Pvalue($left,$right);
+    my $pvalue = calculate_P_value($left,$right);
     $error += abs($pvalue - shift @answers);
     $result .= sprintf("p-value = %.14g\n",$pvalue);
 }
