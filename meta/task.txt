@@ -1,16 +1,16 @@
 
 This is perl 5, version 30, subversion 0 (v5.30.0) built for darwin-thread-multi-2level
 updating from RC…
-+------------> Perl: Good/Bad [1235/13]
-|+-----------> Smoke testing [1097]
++------------> Perl: Good/Bad [1236/13]
+|+-----------> Smoke testing [1098]
 ||+----------> sKipping validation [144]
 |||+---------> Interactive [54]
-||||+--------> Touched (modified by me) [364]
+||||+--------> Touched (modified by me) [365]
 |||||+-------> Random seed [98]
 ||||||+------> File output [66]
-|||||||+-----> Draft [233]
+|||||||+-----> Draft [234]
 ||||||||+----> Ignoring [32]
-|||||||||+---> Void (no local copy) [137]
+|||||||||+---> Void (no local copy) [138]
 ||||||||||+--> Un-implemented/reliable [131]
 |||||||||||
 GS......... 100_doors-1
@@ -478,6 +478,7 @@ GS......... First_class_environments
 GS..T...... First_perfect_square_in_base_N_with_N_unique_digits-1
 GS..T...... First_perfect_square_in_base_N_with_N_unique_digits-2
 GS......... Five_weekends
+GS..T..D... Fivenum
 GS..T.F.... Fixed_length_records
 GS......... FizzBuzz
 GS......... Flatten_a_list
@@ -604,6 +605,7 @@ G.KIT...... Image_noise
 .........VU Imaginary_base_numbers
 G.K.T..D... Implicit_type_conversion
 G.K........ Include_a_file
+.......D.VU Increasing_gaps_between_consecutive_Niven_numbers
 GS......... Increment_a_numerical_string
 GS..T...... Index_finite_lists_of_positive_integers-1
 B...TR..... Index_finite_lists_of_positive_integers-2
@@ -800,6 +802,7 @@ GS......... Multisplit
 GS......... Munchausen_numbers
 GS....F.... Munching_squares
 G.K.T.FD... Musical_scale
+.........V. Mutex
 GS......... Mutual_recursion
 GS......... N%27th
 GS..T..D... N-body_problem
@@ -1010,7 +1013,7 @@ GS..T...... Recaman%27s_sequence
 .......D.VU Recursive_descent_parser_generator
 GS..T...... Reduced_row_echelon_form
 ........XVU Reflection_Get_source
-GS..T..D.V. Reflection_List_methods
+GS..T...... Reflection_List_methods
 G.K.T...... Reflection_List_properties
 GS......... Regular_expressions
 .......D.VU Remote_agent_Agent_interface
@@ -1245,7 +1248,7 @@ GS......... Super-d_numbers-1
 GS..T...... Super-d_numbers-2
 GS..T.F.... Superellipse
 GS......... Superpermutation_minimisation
-GS..T.....U Sutherland-Hodgman_polygon_clipping
+GS..T...... Sutherland-Hodgman_polygon_clipping
 GS......... Symmetric_difference
 GS......... Synchronous_concurrency
 GS......... System_time
