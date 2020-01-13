@@ -16,7 +16,7 @@ use ntheory qw/divisors powmod forprimes znorder/;
 sub is_long_prime {
 my($p) = @_;
     for my $d (divisors($p-1)) {
-        return $d+1 == $p if powmod(10, $d, $p)== 1;
+        return $d+1 == $p if powmod(10, $d, $p) == 1;
     }
     0;
 }
