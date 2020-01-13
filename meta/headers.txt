@@ -3556,6 +3556,12 @@ File: I/Include_a_file
 #c# 2018-08-13 <RC
 #p# OK
 
+File: I/Increasing_gaps_between_consecutive_Niven_numbers
+#!/usr/local/bin/perl
+#u# http://rosettacode.org/wiki/Increasing_gaps_between_consecutive_Niven_numbers
+#c# 2020-01-13 >RC
+#p# OK
+
 File: I/Increment_a_numerical_string
 #!/usr/local/bin/perl
 #u# http://rosettacode.org/wiki/Increment_a_numerical_string
