@@ -1,16 +1,16 @@
 
 This is perl 5, version 30, subversion 0 (v5.30.0) built for darwin-thread-multi-2level
 updating from RC…
-+------------> Perl: Good/Bad [1236/13]
-|+-----------> Smoke testing [1098]
++------------> Perl: Good/Bad [1237/13]
+|+-----------> Smoke testing [1099]
 ||+----------> sKipping validation [144]
 |||+---------> Interactive [54]
-||||+--------> Touched (modified by me) [365]
+||||+--------> Touched (modified by me) [366]
 |||||+-------> Random seed [98]
 ||||||+------> File output [66]
-|||||||+-----> Draft [234]
+|||||||+-----> Draft [225]
 ||||||||+----> Ignoring [32]
-|||||||||+---> Void (no local copy) [138]
+|||||||||+---> Void (no local copy) [137]
 ||||||||||+--> Un-implemented/reliable [131]
 |||||||||||
 GS......... 100_doors-1
@@ -129,7 +129,7 @@ GS...RF.... Barnsley_fern
 GS..T..D... Base58Check_encoding
 GS..T...... Base64_decode_data
 GS.....D... Base64_encode_data
-GS..T..D... Bell_numbers
+GS..T...... Bell_numbers
 GS......... Benford%27s_law
 GS......... Bernoulli_numbers-1
 GS......... Bernoulli_numbers-2
@@ -165,7 +165,7 @@ GS......... Bitwise_operations
 GS......... Boolean_values
 GS......... Box_the_compass
 GS......... Brace_expansion
-GS..T..D... Brazilian_numbers
+GS..T...... Brazilian_numbers
 GS......... Break_OO_privacy
 GS..TRF.... Brownian_tree
 GS...R..... Bulls_and_cows
@@ -444,7 +444,7 @@ GS......... Fast_Fourier_transform
 GS.....D... Faulhaber%27s_formula
 GS.....D... Faulhaber%27s_triangle
 GS..T..D... Feigenbaum_constant_calculation
-GS..T..D... Fermat_numbers
+GS..T...... Fermat_numbers
 .......D.VU Fibonacci_heap
 GS......... Fibonacci_n-step_number_sequences
 GS......... Fibonacci_sequence-1
@@ -605,7 +605,7 @@ G.KIT...... Image_noise
 .........VU Imaginary_base_numbers
 G.K.T..D... Implicit_type_conversion
 G.K........ Include_a_file
-.......D.VU Increasing_gaps_between_consecutive_Niven_numbers
+GS..T..D..U Increasing_gaps_between_consecutive_Niven_numbers
 GS......... Increment_a_numerical_string
 GS..T...... Index_finite_lists_of_positive_integers-1
 B...TR..... Index_finite_lists_of_positive_integers-2
@@ -761,7 +761,7 @@ GS..T...... Memory_allocation
 GS......... Memory_layout_of_a_data_structure
 GS......... Menu
 GS.....D... Mersenne_primes
-GS..T..D... Metallic_ratios
+GS..T...... Metallic_ratios
 GS......... Metallic_ratios-2
 GS......... Metaprogramming
 ........XV. Metered_concurrency
@@ -863,7 +863,7 @@ GS......... Ordered_Partitions-2
 GS......... Ordered_words
 GS......... P-value_correction
 GS......... Palindrome_detection
-.......D.VU Palindromic_gapful_numbers
+.........VU Palindromic_gapful_numbers
 GS..T...... Pangram_checker
 GS......... Paraffins
 GS......... Parallel_Brute_Force
@@ -923,7 +923,7 @@ GS......... Pi-2
 GS......... Pi-3
 GS......... Pi-4
 GS...R..... Pick_random_element
-GS..T..D... Pierpont_primes
+GS..T...... Pierpont_primes
 GS...R..... Pig_the_dice_game
 GS..TR..... Pig_the_dice_game_Player
 GS..T.F.... Pinstripe_Display
@@ -1204,8 +1204,8 @@ GS..TR..... Statistics_Normal_distribution
 GS..T...... Stem-and-leaf_plot
 GS......... Stern-Brocot_sequence-1
 GS......... Stern-Brocot_sequence-2
-GS..T..D... Stirling_numbers_of_the_first_kind
-GS..T..D... Stirling_numbers_of_the_second_kind
+GS..T...... Stirling_numbers_of_the_first_kind
+GS..T...... Stirling_numbers_of_the_second_kind
 GS..T...... Straddling_checkerboard
 GS..T...... Stream_Merge
 GS......... String_append
@@ -1333,7 +1333,7 @@ GS......... Unicode_variable_names
 .......DXVU Unit_testing
 GS......... Universal_Turing_machine
 GS......... Unix_ls
-GS..T..D... Unprimeable_numbers
+GS..T...... Unprimeable_numbers
 G.K....D... Untrusted_environment
 GS......... Update_a_configuration_file
 .........VU Use_another_language_to_call_a_function
