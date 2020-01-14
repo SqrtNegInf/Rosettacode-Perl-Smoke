@@ -8,9 +8,9 @@ updating from RC…
 ||||+--------> Touched (modified by me) [366]
 |||||+-------> Random seed [98]
 ||||||+------> File output [66]
-|||||||+-----> Draft [225]
+|||||||+-----> Draft [226]
 ||||||||+----> Ignoring [32]
-|||||||||+---> Void (no local copy) [137]
+|||||||||+---> Void (no local copy) [138]
 ||||||||||+--> Un-implemented/reliable [131]
 |||||||||||
 GS......... 100_doors-1
@@ -104,6 +104,7 @@ GS......... Assertions
 .......DXVU Assertions_in_design_by_contract
 GS..T...... Associative_array_Creation
 GS......... Associative_array_Iteration
+.......D.VU Associative_array_Merging
 G.K..R..... Atomic_updates
 GS..T...... Attractive_numbers
 G.K....D..U AudioAlarm
@@ -605,7 +606,7 @@ G.KIT...... Image_noise
 .........VU Imaginary_base_numbers
 G.K.T..D... Implicit_type_conversion
 G.K........ Include_a_file
-GS..T..D..U Increasing_gaps_between_consecutive_Niven_numbers
+GS..T..D... Increasing_gaps_between_consecutive_Niven_numbers
 GS......... Increment_a_numerical_string
 GS..T...... Index_finite_lists_of_positive_integers-1
 B...TR..... Index_finite_lists_of_positive_integers-2
