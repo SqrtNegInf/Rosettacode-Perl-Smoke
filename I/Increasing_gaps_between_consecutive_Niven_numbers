@@ -11,21 +11,18 @@ use List::Util 'sum';
 
 my @res;
 
-my $index = 0;
-my $last  = 0;
-my $gap   = 0;
-my $threshold = 1_000_000; # 10_000_000;
-
 sub comma { reverse ((reverse shift) =~ s/(.{3})/$1,/gr) =~ s/^,//r }
 
+my ($index, $last, $gap, $count) = (0, 0, 0);
+my $threshold = 1_000_000; # 10_000_000;
+
 push @res, 'Gap    Index of gap  Starting Niven';
-my $count;
 while (1) {
     $count++;
     next unless 0 == $count % sum split //, $count;
     if ((my $diff = $count - $last) > $gap) { 
         $gap = $diff;
-        push @res, sprintf "%3d %15s %15s", $gap, comma($index > 1 ? $index : 1), comma($last > 1 ? $last : 1);
+        push @res, sprintf "%3d %15s %15s", $gap, $index > 1 ? comma $index : 1, $last > 1 ? comma $last : 1;
     }
     $last = $count;
     last if ++$index >= $threshold;
@@ -64,11 +61,3 @@ use Test::More;
 chomp $ref;
 is($result, $ref);
 done_testing();
-
-__END__
-
-=={{header|Perl}}==
-{{trans|Perl 6}}
-<lang perl></lang>
-{{out}}
-<pre></pre>
