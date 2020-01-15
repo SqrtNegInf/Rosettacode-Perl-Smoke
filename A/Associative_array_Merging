@@ -1,0 +1,81 @@
+#!/usr/local/bin/perl
+#u# http://rosettacode.org/wiki/Associative_array_Merging
+#c# 2020-01-14 >RC
+#p# OK
+
+use strict;
+use warnings;
+use feature 'say';
+
+my @res;
+
+my %base = (name => 'Rocket Skates', price => 12.75, color => 'yellow');
+my %new  = (price => 15.25, color => 'red', year => 1974);
+
+say 'Update';
+my $update = {%base, %new};
+printf "%-7s %s\n", $_, $$update{$_} for sort keys %$update;
+
+say "\nMerge";
+my %merge;
+$merge{$_} = [$base{$_}] for keys %base;
+push @{$merge{$_}}, $new{$_} for keys %new;
+printf "%-7s %s\n", $_, join ', ', @{$merge{$_}} for sort keys %merge;
+
+push @res, 'Update';
+push @res, sprintf "%-7s %s", $_, $$update{$_} for sort keys %$update;
+push @res, "\nMerge";
+push @res, sprintf "%-7s %s", $_, join ', ', @{$merge{$_}} for sort keys %merge;
+
+my $result = join "\n", @res;
+
+my $ref = <<'END';
+Update
+color   red
+name    Rocket Skates
+price   15.25
+year    1974
+
+Merge
+color   yellow, red
+name    Rocket Skates
+price   12.75, 15.25
+year    1974
+END
+
+use Test::More;
+chomp $ref;
+is($result, $ref);
+done_testing();
+
+__END__
+
+=={{header|Perl}}==
+<lang perl>use strict;
+use warnings;
+use feature 'say';
+
+my %base = (name => 'Rocket Skates', price => 12.75, color => 'yellow');
+my %new  = (price => 15.25, color => 'red', year => 1974);
+
+say 'Update';
+my $update = {%base, %new};
+printf "%-7s %s\n", $_, $$update{$_} for sort keys %$update;
+
+say "\nMerge";
+my %merge;
+$merge{$_} = [$base{$_}] for keys %base;
+push @{$merge{$_}}, $new{$_} for keys %new;
+printf "%-7s %s\n", $_, join ', ', @{$merge{$_}} for sort keys %merge;</lang>
+{{out}}
+<pre>Update
+color   red
+name    Rocket Skates
+price   15.25
+year    1974
+
+Merge
+color   yellow, red
+name    Rocket Skates
+price   12.75, 15.25
+year    1974</pre>
