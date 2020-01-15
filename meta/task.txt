@@ -1,16 +1,16 @@
 
 This is perl 5, version 30, subversion 0 (v5.30.0) built for darwin-thread-multi-2level
 updating from RC…
-+------------> Perl: Good/Bad [1237/13]
-|+-----------> Smoke testing [1099]
++------------> Perl: Good/Bad [1238/13]
+|+-----------> Smoke testing [1100]
 ||+----------> sKipping validation [144]
 |||+---------> Interactive [54]
-||||+--------> Touched (modified by me) [366]
+||||+--------> Touched (modified by me) [367]
 |||||+-------> Random seed [98]
 ||||||+------> File output [66]
-|||||||+-----> Draft [226]
+|||||||+-----> Draft [225]
 ||||||||+----> Ignoring [32]
-|||||||||+---> Void (no local copy) [138]
+|||||||||+---> Void (no local copy) [137]
 ||||||||||+--> Un-implemented/reliable [131]
 |||||||||||
 GS......... 100_doors-1
@@ -104,7 +104,7 @@ GS......... Assertions
 .......DXVU Assertions_in_design_by_contract
 GS..T...... Associative_array_Creation
 GS......... Associative_array_Iteration
-.......D.VU Associative_array_Merging
+GS..T.....U Associative_array_Merging
 G.K..R..... Atomic_updates
 GS..T...... Attractive_numbers
 G.K....D..U AudioAlarm
