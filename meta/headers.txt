@@ -503,6 +503,12 @@ File: A/Associative_array_Iteration
 #c# 2018-07-15 <RC
 #p# OK
 
+File: A/Associative_array_Merging
+#!/usr/local/bin/perl
+#u# http://rosettacode.org/wiki/Associative_array_Merging
+#c# 2020-01-14 >RC
+#p# OK
+
 File: A/Atomic_updates
 #!/usr/local/bin/perl
 #u# http://rosettacode.org/wiki/Atomic_updates
