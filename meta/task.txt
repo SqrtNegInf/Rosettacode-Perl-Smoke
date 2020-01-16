@@ -8,9 +8,9 @@ updating from RC…
 ||||+--------> Touched (modified by me) [367]
 |||||+-------> Random seed [98]
 ||||||+------> File output [66]
-|||||||+-----> Draft [225]
+|||||||+-----> Draft [226]
 ||||||||+----> Ignoring [32]
-|||||||||+---> Void (no local copy) [137]
+|||||||||+---> Void (no local copy) [138]
 ||||||||||+--> Un-implemented/reliable [131]
 |||||||||||
 GS......... 100_doors-1
@@ -104,7 +104,7 @@ GS......... Assertions
 .......DXVU Assertions_in_design_by_contract
 GS..T...... Associative_array_Creation
 GS......... Associative_array_Iteration
-GS..T.....U Associative_array_Merging
+GS..T...... Associative_array_Merging
 G.K..R..... Atomic_updates
 GS..T...... Attractive_numbers
 G.K....D..U AudioAlarm
@@ -478,6 +478,7 @@ GS......... First-class_functions_Use_numbers_analogously
 GS......... First_class_environments
 GS..T...... First_perfect_square_in_base_N_with_N_unique_digits-1
 GS..T...... First_perfect_square_in_base_N_with_N_unique_digits-2
+.......D.VU First_power_of_2_that_has_leading_decimal_digits_of_12
 GS......... Five_weekends
 GS..T..D... Fivenum
 GS..T.F.... Fixed_length_records
