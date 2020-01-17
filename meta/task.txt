@@ -8,10 +8,10 @@ updating from RC…
 ||||+--------> Touched (modified by me) [367]
 |||||+-------> Random seed [98]
 ||||||+------> File output [66]
-|||||||+-----> Draft [226]
+|||||||+-----> Draft [227]
 ||||||||+----> Ignoring [32]
-|||||||||+---> Void (no local copy) [138]
-||||||||||+--> Un-implemented/reliable [131]
+|||||||||+---> Void (no local copy) [139]
+||||||||||+--> Un-implemented/reliable [132]
 |||||||||||
 GS......... 100_doors-1
 GS......... 100_doors-2
@@ -703,6 +703,7 @@ GS..T...... Longest_increasing_subsequence-1
 GS......... Longest_increasing_subsequence-2
 GS......... Longest_string_challenge
 GS..T...... Look-and-say_sequence
+.......D.VU Look_and_Say
 GS......... Loop_over_multiple_arrays_simultaneously
 GS...R..... Loops_Break
 GS......... Loops_Continue
