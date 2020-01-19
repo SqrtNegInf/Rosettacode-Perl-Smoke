@@ -1,0 +1,42 @@
+#!/usr/local/bin/perl
+#u# http://rosettacode.org/wiki/Sum_data_type
+#c# 2020-01-18 NOT ON RC
+#p# OK
+#n# just like Perl 6
+
+use strict;
+use warnings;
+use feature 'say';
+
+my @res;
+
+use enum qw<Red Yellow Green Blue>;
+
+sub message {
+    my($light) = @_;
+    if    ($light eq 'Red')    { 'Stop!'                                       }
+    elsif ($light eq 'Yellow') { 'Speed Up!'                                   }
+    elsif ($light eq 'Green')  { 'Go! Go! Go!'                                 }
+    elsif ($light eq 'Blue')   { 'Wait a minute, How did we end up in Japan?!' }
+    else                       { 'Whut?'                                       }
+}
+
+use constant Pink => 'A Happy Balloon';
+
+for my $signal (<Red Green Blue Pink>) {
+    push @res, message $signal;
+}
+
+say my $result =  join "\n", @res;
+
+my $ref = <<'END';
+Stop!
+Go! Go! Go!
+Wait a minute, How did we end up in Japan?!
+Whut?
+END
+
+use Test::More;
+chomp $ref;
+is($result, $ref);
+done_testing();
