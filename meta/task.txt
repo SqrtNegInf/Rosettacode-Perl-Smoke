@@ -1,16 +1,17 @@
 
 This is perl 5, version 30, subversion 0 (v5.30.0) built for darwin-thread-multi-2level
-+------------> Perl: Good/Bad [1238/13]
-|+-----------> Smoke testing [1100]
-||+----------> sKipping validation [144]
+updating from RC…
++------------> Perl: Good/Bad [1241/13]
+|+-----------> Smoke testing [1102]
+||+----------> sKipping validation [145]
 |||+---------> Interactive [54]
-||||+--------> Touched (modified by me) [367]
+||||+--------> Touched (modified by me) [369]
 |||||+-------> Random seed [98]
 ||||||+------> File output [66]
-|||||||+-----> Draft [227]
+|||||||+-----> Draft [226]
 ||||||||+----> Ignoring [32]
-|||||||||+---> Void (no local copy) [139]
-||||||||||+--> Un-implemented/reliable [132]
+|||||||||+---> Void (no local copy) [136]
+||||||||||+--> Un-implemented/reliable [131]
 |||||||||||
 GS......... 100_doors-1
 GS......... 100_doors-2
@@ -477,7 +478,7 @@ GS......... First-class_functions_Use_numbers_analogously
 GS......... First_class_environments
 GS..T...... First_perfect_square_in_base_N_with_N_unique_digits-1
 GS..T...... First_perfect_square_in_base_N_with_N_unique_digits-2
-.......D.VU First_power_of_2_that_has_leading_decimal_digits_of_12
+G.K.T..D..U First_power_of_2_that_has_leading_decimal_digits_of_12
 GS......... Five_weekends
 GS..T..D... Fivenum
 GS..T.F.... Fixed_length_records
@@ -702,7 +703,6 @@ GS..T...... Longest_increasing_subsequence-1
 GS......... Longest_increasing_subsequence-2
 GS......... Longest_string_challenge
 GS..T...... Look-and-say_sequence
-.......D.VU Look_and_Say
 GS......... Loop_over_multiple_arrays_simultaneously
 GS...R..... Loops_Break
 GS......... Loops_Continue
@@ -1238,7 +1238,9 @@ GS.....D... Suffix_tree
 GS..T...... Suffixation_of_decimal_numbers
 GS..T...... Sum_and_Product_Puzzle
 GS......... Sum_and_product_of_an_array
-.......D.VU Sum_data_type
+.......D..U Sum_data_type
+GS..T...... Sum_data_type-1
+GS......... Sum_data_type-2
 GS......... Sum_digits_of_an_integer
 GS......... Sum_multiples_of_3_and_5-1
 GS..T...... Sum_multiples_of_3_and_5-2
