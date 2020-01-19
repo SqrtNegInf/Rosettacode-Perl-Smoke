@@ -1,0 +1,42 @@
+#!/usr/local/bin/perl
+#u# http://rosettacode.org/wiki/Sum_data_type
+#c# 2020-01-18 >RC
+#p# OK
+
+use strict;
+use warnings;
+use feature 'say';
+
+my @res;
+
+sub analyze {
+    my($text) = @_;
+    if (length($text)>1 and $text eq reverse $text) {
+        return 1, 'Palindromic';
+    } elsif (0 == length(($text =~ s/\B..*?\b ?//gr) =~ s/^(.)\1+//r)) {
+        return 1, 'Alliterative';
+    }
+    0, 'Does not compute'
+
+}
+
+for my $text ('otto', 'ha ha', 'a', 'blue skies', 'tiptoe through the tulips', 12321) {
+    my($status,$message) = analyze $text;
+    push @res, sprintf "%s $message", $status ? 'Yes' : 'No ';
+}
+
+say my $result =  join "\n", @res;
+
+my $ref = <<'END';
+Yes Palindromic
+Yes Alliterative
+No  Does not compute
+No  Does not compute
+Yes Alliterative
+Yes Palindromic
+END
+
+use Test::More;
+chomp $ref;
+is($result, $ref);
+done_testing();
