@@ -2754,6 +2754,13 @@ File: F/First_perfect_square_in_base_N_with_N_unique_digits.1
 #p# OK
 #n# fine for 2..15 (with 13 taking most of the time), but 16 requires bigint, which would be super slow
 
+File: F/First_power_of_2_that_has_leading_decimal_digits_of_12
+#!/usr/local/bin/perl
+#u# http://rosettacode.org/wiki/First_power_of_2_that_has_leading_decimal_digits_of_12
+#t# inprogress
+#c# 2020-01-xx >RC
+#p# OK
+
 File: F/Five_weekends
 #!/usr/local/bin/perl
 #u# http://rosettacode.org/wiki/Five_weekends
@@ -7345,6 +7352,19 @@ File: S/Sum_and_product_of_an_array
 #u# http://rosettacode.org/wiki/Sum_and_product_of_an_array
 #c# 2018-08-12 <RC
 #p# OK
+
+File: S/Sum_data_type-1
+#!/usr/local/bin/perl
+#u# http://rosettacode.org/wiki/Sum_data_type
+#c# 2020-01-18 >RC
+#p# OK
+
+File: S/Sum_data_type-2
+#!/usr/local/bin/perl
+#u# http://rosettacode.org/wiki/Sum_data_type
+#c# 2020-01-18 NOT ON RC
+#p# OK
+#n# just like Perl 6
 
 File: S/Sum_digits_of_an_integer
 #!/usr/local/bin/perl
