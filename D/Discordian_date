@@ -2,16 +2,15 @@
 #u# http://rosettacode.org/wiki/Discordian_date
 #c# 2018-07-28 <RC
 #p# OK
+#n# cf 'First_power_of_2_that_has_leading_decimal_digits_of_12' method of adding ordinal suffix
 
-use feature 'say';
-my $result;
-
-# Translation of: Perl6
-
-use 5.010;
 use strict;
 use warnings;
-use Time::Piece ();
+use feature 'say';
+
+my $result;
+
+use Time::Piece;
  
 my @seasons = (< Chaos Discord Confusion Bureaucracy >, 'The Aftermath');
 my @week_days = (< Sweetmorn Boomtime Pungenday Prickle-Prickle >, 'Setting Orange');
