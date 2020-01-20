@@ -1,64 +1,79 @@
 #!/usr/local/bin/perl
 #u# http://rosettacode.org/wiki/First_power_of_2_that_has_leading_decimal_digits_of_12
-#t# inprogress
-#c# 2020-01-xx >RC
+#c# 2020-01-19 >RC
 #p# OK
-
-use Data::Printer;
-use Time::HiRes qw(sleep);
+#n# cf 'Discordian_date' method of adding ordinal suffix
 
 use strict;
 use warnings;
 use feature 'say';
+use feature 'state';
 
 my @res;
 
-# Uses logs similar to Go and Pascal entries. Takes advantage of patterns in the powers to cut out a bunch of calculations.
-
-use feature 'state';
-
-#use Lingua::EN::Numbers;
+use POSIX qw(fmod);
+use Perl6::GatherTake;
 
 use constant ln2ln10 => log(2) / log(10);
 
-__END__
+sub comma { reverse ((reverse shift) =~ s/(.{3})/$1,/gr) =~ s/^,//r }
 
-my @startswith12  = ^∞ .grep: { ( 10 ** ($_ * ln2ln10 % 1) ).substr(0,3) eq '1.2' };
+sub ordinal_digit {
+    my($d) = $_[0] =~ /(.)$/;
+    $d eq '1' ? 'st' : $d eq '2' ? 'nd' : $d eq '3' ? 'rd' : 'th'
+}
 
-my @startswith123 = lazy gather loop {
-    state $pre   = '1.23';
-    state $count = 0;
-    state $this  = 0;
-    given $this {
-        when 196 {
-            $this = 289;
-            my \n = $count + $this;
-            $this = 485 unless ( 10 ** (n * ln2ln10 % 1) ).substr(0,4) eq $pre;
-        }
-        when 485 {
-            $this = 196;
-            my \n = $count + $this;
-            $this = 485 unless ( 10 ** (n * ln2ln10 % 1) ).substr(0,4) eq $pre;
-        }
-        when 289 { $this = 196 }
-        when 90  { $this = 289 }
-        when 0   { $this = 90  }
+sub startswith12 {
+    my($nth) = @_;
+    state $i = 0;
+    state $n = 0;
+    while (1) {
+      next unless '1.2' eq substr(( 10 ** fmod(++$i * ln2ln10, 1) ), 0, 3);
+      return $i if ++$n eq $nth;
     }
-    take $count += $this;
 }
 
-multi p ($prefix where *.chars == 2, $nth) {  @startswith12[$nth-1] }
-multi p ($prefix where *.chars == 3, $nth) { @startswith123[$nth-1] }
+sub startswith123 {
+    my $pre   = '1.23';
+    my ($this, $count) = (0, 0);
 
-# The Task
-for < 12 1  12 2  123 45  123 12345  123 678910 > -> $prefix, $nth {
-    @res.push: sprintf "%-15s %9s power of two (2^n) that starts with %5s is at n = %s", "p($prefix, $nth):",
-        comma($nth) ~ ordinal-digit($nth).substr(*-2), "'$prefix'", comma p($prefix, $nth);
+    gather {
+      while (1) {
+        if ($this == 196) {
+            $this = 289;
+            $this = 485 unless $pre eq substr(( 10 ** fmod(($count+$this) * ln2ln10, 1) ), 0, 4);
+           #$this = 485 unless $pre eq substr(( 10 ** fmod(($count+($this=289)) * ln2ln10, 1) ), 0, 4); # yes, but no
+        } elsif ($this == 485) {
+            $this = 196;
+            $this = 485 unless $pre eq substr(( 10 ** fmod(($count+$this) * ln2ln10, 1) ), 0, 4);
+        } elsif ($this == 289) {
+            $this = 196
+        } elsif ($this ==  90) {
+            $this = 289
+        } elsif ($this ==   0) { 
+            $this = 90; 
+        }
+        take $count += $this;
+      }
+    }
 }
 
-.say for @res;
+my $start_123 = startswith123(); # lazy list
 
-my $ref = q:to/END/;
+sub p {
+    my($prefix,$nth) = @_;
+    $prefix eq '12' ? startswith12($nth) : $start_123->[$nth-1];
+}
+
+for ([12, 1], [12, 2], [123, 45], [123, 12345], [123, 678910]) {
+    my($prefix,$nth) = @$_;
+    push @res, sprintf "%-15s %9s power of two (2^n) that starts with %5s is at n = %s", "p($prefix, $nth):",
+        comma($nth) . ordinal_digit($nth), "'$prefix'", comma p($prefix, $nth);
+}
+
+say my $result = join "\n", @res;
+
+my $ref = <<'END';
 p(12, 1):             1st power of two (2^n) that starts with  '12' is at n = 7
 p(12, 2):             2nd power of two (2^n) that starts with  '12' is at n = 80
 p(123, 45):          45th power of two (2^n) that starts with '123' is at n = 12,710
@@ -66,24 +81,7 @@ p(123, 12345):   12,345th power of two (2^n) that starts with '123' is at n = 3,
 p(123, 678910): 678,910th power of two (2^n) that starts with '123' is at n = 193,060,223
 END
 
-use Test;
-is @res.join("\n"), chomp $ref;
-
-say my $result = join "\n", @res;
-my $ref = <<'END';
-END
-
 use Test::More;
 chomp $ref;
 is($result, $ref);
 done_testing();
-
-__END__
-
-=={{header|Perl}}==
-{{trans|Perl 6}}
-{{libheader|ntheory}}
-<lang perl></lang>
-{{out}}
-<pre style="height:20ex"></pre>
-[https://github.com/SqrtNegInf/Rosettacode-Perl5-Smoke/blob/master/ref/XXX XXX]
