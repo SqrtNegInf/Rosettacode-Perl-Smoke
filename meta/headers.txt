@@ -1965,6 +1965,7 @@ File: D/Discordian_date
 #u# http://rosettacode.org/wiki/Discordian_date
 #c# 2018-07-28 <RC
 #p# OK
+#n# cf 'First_power_of_2_that_has_leading_decimal_digits_of_12' method of adding ordinal suffix
 
 File: D/Display_an_outline_as_a_nested_table
 #!/usr/local/bin/perl
@@ -2757,9 +2758,9 @@ File: F/First_perfect_square_in_base_N_with_N_unique_digits.1
 File: F/First_power_of_2_that_has_leading_decimal_digits_of_12
 #!/usr/local/bin/perl
 #u# http://rosettacode.org/wiki/First_power_of_2_that_has_leading_decimal_digits_of_12
-#t# inprogress
-#c# 2020-01-xx >RC
+#c# 2020-01-19 >RC
 #p# OK
+#n# cf 'Discordian_date' method of adding ordinal suffix
 
 File: F/Five_weekends
 #!/usr/local/bin/perl
@@ -4332,17 +4333,17 @@ File: M/Magic_squares_Perl-debug
 File: M/Magic_squares_of_doubly_even_order
 #!/usr/local/bin/perl
 #u# http://rosettacode.org/wiki/Magic_squares_of_doubly_even_order
-#t# nocode
 #c# 2019-05-04 <RC
 #p# OK
 #n# See Magic squares/Perl for a general magic square generator.
+
 File: M/Magic_squares_of_odd_order
 #!/usr/local/bin/perl
 #u# http://rosettacode.org/wiki/Magic_squares_of_odd_order
-#t# nocode
 #c# 2019-05-04 <RC
 #p# OK
 #n# See Magic squares/Perl for a general magic square generator.
+
 File: M/Magic_squares_of_odd_order.1
 #!/usr/local/bin/perl
 #n# NOT CURRENT, NOT SMOKE-TESTED
@@ -4353,10 +4354,10 @@ File: M/Magic_squares_of_odd_order.1
 File: M/Magic_squares_of_singly_even_order
 #!/usr/local/bin/perl
 #u# http://rosettacode.org/wiki/Magic_squares_of_singly_even_order
-#t# nocode
 #c# 2019-05-04 <RC
 #p# OK
 #n# See Magic squares/Perl for a general magic square generator.
+
 File: M/Main_step_of_GOST_28147-89
 #!/usr/local/bin/perl
 #u# http://rosettacode.org/wiki/Main_step_of_GOST_28147-89
@@ -5179,6 +5180,13 @@ File: P/Partial_function_application
 #!/usr/local/bin/perl
 #u# http://rosettacode.org/wiki/Partial_function_application
 #c# 2018-08-20 <RC
+#p# OK
+
+File: P/Particle_Swarm_Optimization
+#!/usr/local/bin/perl
+#u# http://rosettacode.org/wiki/Particle_Swarm_Optimization
+#t# inprogress
+#c# 2020-01-21 >RC
 #p# OK
 
 File: P/Partition_an_integer_X_into_N_primes
