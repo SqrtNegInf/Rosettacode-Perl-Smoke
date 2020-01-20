@@ -2,16 +2,16 @@
 This is perl 5, version 30, subversion 0 (v5.30.0) built for darwin-thread-multi-2level
 updating from RC…
 +------------> Perl: Good/Bad [1241/13]
-|+-----------> Smoke testing [1102]
-||+----------> sKipping validation [145]
+|+-----------> Smoke testing [1106]
+||+----------> sKipping validation [142]
 |||+---------> Interactive [54]
-||||+--------> Touched (modified by me) [369]
-|||||+-------> Random seed [98]
+||||+--------> Touched (modified by me) [370]
+|||||+-------> Random seed [99]
 ||||||+------> File output [66]
-|||||||+-----> Draft [226]
+|||||||+-----> Draft [224]
 ||||||||+----> Ignoring [32]
-|||||||||+---> Void (no local copy) [136]
-||||||||||+--> Un-implemented/reliable [131]
+|||||||||+---> Void (no local copy) [135]
+||||||||||+--> Un-implemented/reliable [130]
 |||||||||||
 GS......... 100_doors-1
 GS......... 100_doors-2
@@ -143,7 +143,7 @@ GS......... Binary_search-1
 GS......... Binary_search-2
 GS..T...... Binary_strings
 GS..TR..... Bioinformatics_Sequence_mutation
-GS..T..D... Bioinformatics_base_count
+GS..T...... Bioinformatics_base_count
 GS..TR.D... Birthday_problem
 GS......... Bitcoin_address_validation
 GS......... Bitcoin_public_point_to_address
@@ -478,7 +478,7 @@ GS......... First-class_functions_Use_numbers_analogously
 GS......... First_class_environments
 GS..T...... First_perfect_square_in_base_N_with_N_unique_digits-1
 GS..T...... First_perfect_square_in_base_N_with_N_unique_digits-2
-G.K.T..D..U First_power_of_2_that_has_leading_decimal_digits_of_12
+GS..T..D... First_power_of_2_that_has_leading_decimal_digits_of_12
 GS......... Five_weekends
 GS..T..D... Fivenum
 GS..T.F.... Fixed_length_records
@@ -734,9 +734,9 @@ GS......... MD5_Implementation
 .........VU Machine_code
 GS......... Mad_Libs
 GS..TR.D... Magic_8-Ball
-G.K........ Magic_squares_of_doubly_even_order
-G.K........ Magic_squares_of_odd_order
-G.K........ Magic_squares_of_singly_even_order
+GS......... Magic_squares_of_doubly_even_order
+GS......... Magic_squares_of_odd_order
+GS......... Magic_squares_of_singly_even_order
 GS..T...... Main_step_of_GOST_28147-89
 GS..T.FD... Make_a_backup_file
 GS......... Make_directory_path
@@ -774,7 +774,7 @@ GS......... Miller-Rabin_primality_test-1
 GS......... Miller-Rabin_primality_test-2
 GS..TR..... Mind_boggling_card_trick
 G.KI....... Minesweeper_game
-G.K.T..D..U Minimal_steps_down_to_1
+G.K.T.....U Minimal_steps_down_to_1
 GS.....D... Modular_arithmetic
 GS..T...... Modular_exponentiation
 GS......... Modular_inverse
@@ -879,7 +879,7 @@ GS..T...... Parsing_RPN_calculator_algorithm
 GS..T...... Parsing_RPN_to_infix_conversion
 GS......... Parsing_Shunting-yard_algorithm
 GS......... Partial_function_application
-.......D.VU Particle_Swarm_Optimization
+G.K.TR.D..U Particle_Swarm_Optimization
 GS......... Partition_an_integer_X_into_N_primes
 GS......... Pascal%27s_triangle-1
 GS......... Pascal%27s_triangle-2
@@ -1000,7 +1000,7 @@ GS..T...... Range_extraction
 GS..T...... Ranking_methods
 GS..T.....U Rare_numbers
 .......D.VU Raster_bars
-GS......... Rate_counter
+!S......... Rate_counter
 GS......... Ray-casting_algorithm
 GS......... Read_a_configuration_file
 GS.....D... Read_a_file_character_by_character_UTF8
