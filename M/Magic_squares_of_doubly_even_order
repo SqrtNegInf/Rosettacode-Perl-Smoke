@@ -1,6 +1,9 @@
 #!/usr/local/bin/perl
 #u# http://rosettacode.org/wiki/Magic_squares_of_doubly_even_order
-#t# nocode
 #c# 2019-05-04 <RC
 #p# OK
 #n# See Magic squares/Perl for a general magic square generator.
+
+use Test::More;
+ok 1 == 1;
+done_testing();
