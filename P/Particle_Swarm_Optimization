@@ -1,11 +1,8 @@
 #!/usr/local/bin/perl
 #u# http://rosettacode.org/wiki/Particle_Swarm_Optimization
-#t# inprogress
-#c# 2020-01-21 >RC
+#c# 2020-01-20 >RC
 #p# OK
-
-use Data::Printer;
-use Time::HiRes qw(sleep);
+#n# TIL: wrapping function to coerce output: %{pso()}
 
 use strict;
 use warnings;
@@ -15,24 +12,18 @@ my @res;
 
 srand 123456;
 
-use constant PI   => 2 * atan2(1, 0);
-use constant Inf  => 1e10;
+use constant PI  => 2 * atan2(1, 0);
+use constant Inf => 1e10;
 
 sub pso_init {
     my(%y) = @_;
     my $d = @{$y{'min'}};
     my $n = $y{'n'};
 
-my $foo = $y{'min'};
-#p @$foo; exit;
-$y{'bpos'}  = ([@$foo]) x $n;
-p ($y{'bpos'})[0];exit;
-#p %y; exit;
-
     $y{'gbval'} = Inf; 
     $y{'gbpos'} = [(Inf) x $d];
     $y{'bval'}  = [(Inf) x $n];
-    #$y{'bpos'}  = [$y{'min'} x $n];
+    $y{'bpos'}  = [($y{'min'}) x $n];
     $y{'pos'}   = [($y{'min'}) x $n];
     $y{'vel'}   = [([(0) x $d]) x $n];
 
@@ -41,16 +32,16 @@ p ($y{'bpos'})[0];exit;
 
 sub pso {
     my($fn, %y) = @_;
-    my %p      = $y{'p'};
+    my $p      = $y{'p'};
     my $n      = $y{'n'};
-    my $d      = $y{'min'};
+    my $d      = @{$y{'min'}};
     my @bpos   = ($y{'min'}) x $n;
     my $gbval  = Inf; 
     my $rand_g = rand;
     my (@pos, @vel, @v, @gbpos, @bval);
 
     for my $j (0 .. $n-1) {
-        @v[$j] = &fn($y{'pos'}[$j]); # evaluate
+        $v[$j] = &$fn(@{$y{'pos'}[$j]}); # evaluate
 
         # update
         if ($v[$j] < $y{'bval'}[$j]) {
@@ -61,7 +52,7 @@ sub pso {
             $bval[$j] = $y{'bval'}[$j];
         }
         if ($bval[$j] < $gbval) {
-            @gbpos = $bpos[$j];
+            @gbpos = @{$bpos[$j]};
             $gbval = $bval[$j];
         }
     }
@@ -71,24 +62,24 @@ sub pso {
         my $rand_p = rand;
         my $ok = 1;
         for my $k (0 .. $d-1) {
-            $vel[$j][$k] = $p{'omega'}              * $y{'vel'}[$j][$k] 
-                       + $p{'phi_p'} * $rand_p * ($bpos[$j][$k] - $y{'pos'}[$j][$k]) 
-                       + $p{'phi_g'} * $rand_g * ($gbpos[$k]  - $y{'pos'}[$j][$k]);
+            $vel[$j][$k] = $$p{'omega'} * $y{'vel'}[$j][$k] 
+                       + $$p{'phi_p'} * $rand_p * ($bpos[$j][$k] - $y{'pos'}[$j][$k]) 
+                       + $$p{'phi_g'} * $rand_g * ($gbpos[$k]    - $y{'pos'}[$j][$k]);
             $pos[$j][$k] = $y{'pos'}[$j][$k] + $vel[$j][$k];
             $ok = ($y{'min'}[$k] < $pos[$j][$k]) && ($pos[$j][$k] < $y{'max'}[$k]) && $ok;
         }
         next if $ok;
         $pos[$j][$_] = $y{'min'}[$_] + ($y{'max'}[$_] - $y{'min'}[$_]) * rand for 0 .. $d-1;
     }
-    return {gbpos => @gbpos, gbval => $gbval, bpos => @bpos, bval => @bval, pos => @pos, vel => @vel, 
-            min => $y{'min'}, max => $y{'max'}, p=> $y{'p'}, n => $n, d => $d}
+    return {gbpos => \@gbpos, gbval => $gbval, bpos => \@bpos, bval => \@bval, pos => \@pos, vel => \@vel,
+               min => $y{'min'}, max => $y{'max'}, p=> $y{'p'}, n => $n};
 }
 
 sub report {
     my($function_name, %state) = @_;
     push @res, $function_name;
-    push @res, 'Global best position: ' . sprintf '%.5f', $state{'gbpos'}; 
-    push @res, 'Global best value:    ' . sprintf '%.5f', $state{'gbval'};
+    push @res, 'Global best position: ' . sprintf '%.5f %.5f', @{$state{'gbpos'}}; 
+    push @res, 'Global best value:    ' . sprintf '%.5f',      $state{'gbval'};
     push @res, '';
 }
 
@@ -101,11 +92,10 @@ sub mccormick {
 my %state = pso_init( (
     min => [-1.5, -3], 
     max => [4, 4], 
-    n   => 10,
+    n   => 100,
     p   => {omega => 0, phi_p => 0.6, phi_g => 0.3},
 ) );
-p %state; exit; # DH
-%state = pso(&mccormick, %state) for 1 .. 40;
+%state = %{pso(\&mccormick, %state)} for 1 .. 40;
 report('McCormick', %state);
 
 # Michalewicz 
@@ -121,24 +111,24 @@ sub michalewicz {
     -$sum
 }
 
-%state = pso_init( {
+%state = pso_init( (
     min => [0, 0], 
     max => [PI, PI], 
     n   => 1000,
     p   => {omega => 0.3, phi_p => 0.3, phi_g => 0.3},
-} );
-%state = pso(&michalewicz, %state) for 1 .. 30;
+) );
+%state = %{pso(\&michalewicz, %state)} for 1 .. 30;
 report('Michalewicz', %state);
 
 say my $result = join "\n", @res;
 
 my $ref = <<'END';
 McCormick
-Global best position: -0.54714 -1.54710
+Global best position: -0.54675 -1.54665
 Global best value:    -1.91322
 
 Michalewicz
-Global best position: 2.20291 1.57080
+Global best position: 2.20293 1.57080
 Global best value:    -1.80130
 
 END
@@ -147,13 +137,3 @@ use Test::More;
 chomp $ref;
 is($result, $ref);
 done_testing();
-
-__END__
-
-=={{header|Perl}}==
-{{trans|Perl 6}}
-{{libheader|ntheory}}
-<lang perl></lang>
-{{out}}
-<pre style="height:20ex"></pre>
-[https://github.com/SqrtNegInf/Rosettacode-Perl5-Smoke/blob/master/ref/XXX XXX]
