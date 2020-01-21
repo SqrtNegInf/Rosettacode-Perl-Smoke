@@ -1,9 +1,9 @@
 
 This is perl 5, version 30, subversion 0 (v5.30.0) built for darwin-thread-multi-2level
 updating from RC…
-+------------> Perl: Good/Bad [1241/13]
-|+-----------> Smoke testing [1106]
-||+----------> sKipping validation [142]
++------------> Perl: Good/Bad [1242/13]
+|+-----------> Smoke testing [1107]
+||+----------> sKipping validation [141]
 |||+---------> Interactive [54]
 ||||+--------> Touched (modified by me) [370]
 |||||+-------> Random seed [99]
@@ -11,7 +11,7 @@ updating from RC…
 |||||||+-----> Draft [224]
 ||||||||+----> Ignoring [32]
 |||||||||+---> Void (no local copy) [135]
-||||||||||+--> Un-implemented/reliable [130]
+||||||||||+--> Un-implemented/reliable [129]
 |||||||||||
 GS......... 100_doors-1
 GS......... 100_doors-2
@@ -879,7 +879,7 @@ GS..T...... Parsing_RPN_calculator_algorithm
 GS..T...... Parsing_RPN_to_infix_conversion
 GS......... Parsing_Shunting-yard_algorithm
 GS......... Partial_function_application
-G.K.TR.D..U Particle_Swarm_Optimization
+GS..TR.D... Particle_Swarm_Optimization
 GS......... Partition_an_integer_X_into_N_primes
 GS......... Pascal%27s_triangle-1
 GS......... Pascal%27s_triangle-2
@@ -1000,7 +1000,7 @@ GS..T...... Range_extraction
 GS..T...... Ranking_methods
 GS..T.....U Rare_numbers
 .......D.VU Raster_bars
-!S......... Rate_counter
+GS......... Rate_counter
 GS......... Ray-casting_algorithm
 GS......... Read_a_configuration_file
 GS.....D... Read_a_file_character_by_character_UTF8
