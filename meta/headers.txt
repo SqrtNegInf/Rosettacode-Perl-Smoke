@@ -5185,9 +5185,9 @@ File: P/Partial_function_application
 File: P/Particle_Swarm_Optimization
 #!/usr/local/bin/perl
 #u# http://rosettacode.org/wiki/Particle_Swarm_Optimization
-#t# inprogress
-#c# 2020-01-21 >RC
+#c# 2020-01-20 >RC
 #p# OK
+#n# TIL: wrapping function to coerce output: %{pso()}
 
 File: P/Partition_an_integer_X_into_N_primes
 #!/usr/local/bin/perl
