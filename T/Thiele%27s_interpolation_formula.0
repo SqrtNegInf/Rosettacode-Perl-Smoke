@@ -1,0 +1,111 @@
+#!/usr/local/bin/perl
+#u# http://rosettacode.org/wiki/Thiele\'s_interpolation_formula
+#t# inprogress
+#c# 2019-10-xx >RC
+#p# BROKEN
+#n# made default table size 12, 'invcos' converges slowly
+
+use Data::Printer;
+use Time::HiRes qw(sleep);
+
+use strict;
+use warnings;
+use feature 'say';
+
+use Math::Trig;
+
+use constant pi => 2 * atan2(1, 0);
+ 
+# reciprocal difference:
+sub r {
+    my($hash, @x) = @_;
+
+#p $hash; sleep .3;
+    if ($#x < 0) {
+say '==> PATH0'; p @x; sleep .2;
+        return 0;
+    } elsif ($#x == 0) {
+say '==> PATH1'; p @x; sleep .2;
+#say '====='; say "eval " .  &{$func}($x[0]); say '====='; sleep 10; 
+        return $$hash{$x[0]};
+    } else {
+say '==> PATH2'; p @x; 
+#$DB::single =1;
+        my @i;
+        if (scalar(@x) > 2) { 
+            @i = 0 .. (scalar(@x)-1)
+        } elsif (scalar(@x) == 2) { 
+            @i = (0,1);
+        } else {
+            @i = 0;
+        }
+say 'sz i: ', scalar(@x) . ' => ' . join ',', @i;
+sleep 2;
+          ($x[0] - $x[-1])        
+        / (r($hash, @x[@i]  )   # ρ(&f, @x[^(@x - 1)])
+        #/ (r(&$func, @x[0..@x-1]  )   # ρ(&f, @x[^(@x - 1)])
+        -  r($hash, @x[1..-1+@x] ))  # ρ(&f, @x[1..^@x]) 
+        +  r($hash, @x[1..-1+@x-1]); # ρ(&f, @x[1..^(@x - 1)]);
+
+    }
+
+}
+ 
+# Thiele:
+sub thiele {
+    my($x, $hash, $ord) = @_;
+    return 1 if $ord == scalar keys %$hash;
+
+say "x: $x"; say "ord: $ord";
+#say 'f.keys.sort'; my @foo = (keys %$hash)[0 .. -1+$ord+1]; p @foo;
+    my $a = r($hash, (sort keys %$hash)[0 .. -1+$ord+1]);
+    my $b = r($hash, (sort keys %$hash)[0 .. -1+$ord-1]);
+ 
+#say "x: $x";
+#say "ord: $ord";
+#say "abc: "  . join ' :: ', (sort keys %$hash)[$ord];
+    my $num = $x - (sort keys %$hash)[$ord];
+say "======================================================== num: $num"; 
+    my $cont = thiele($x, $hash, $ord+1);
+ 
+    # Thiele always takes this form:
+    return $a - $b + ( $num / $cont );
+}
+ 
+sub mk_inv {
+    my ($fn, $d, $lim) = @_;
+    my %h;
+    for (0..$lim) { $h{ eval "$fn($_ * $d)" } = $_ * $d }
+    return %h;
+}
+ 
+my $tblsz = 12;
+ 
+#my ($sin_pi, $cos_pi, $tan_pi);
+my %invsin = mk_inv('sin', 0.05, $tblsz); 
+#p %invsin; say 'ping'; exit;
+my $sin_pi = 6 * thiele(0.5, \%invsin, 0);
+my %invcos = mk_inv('cos', 0.05, $tblsz); #$cos_pi = 3 * thiele(0.5, %invcos, 0);
+my %invtan = mk_inv('tan', 0.05, $tblsz); #$tan_pi = 4 * thiele(1.0, %invtan, 0);
+ 
+say 'pi = ' . pi;
+  say "estimations using a table of $tblsz elements:";
+  say "sin interpolation: $sin_pi";
+  #say "cos interpolation: $cos_pi";
+  #say "tan interpolation: $tan_pi";
+
+exit;
+
+use Test::More;
+is($sin_pi, '3.1415926535896332');
+#is($cos_pi, '3.138724321984095';
+#is($tan_pi, '3.14163334892717';
+done_testing();
+
+__END__
+
+=={{header|Perl}}==
+{{trans|Perl 6}}
+<lang perl></lang>
+{{out}}
+<pre></pre>
