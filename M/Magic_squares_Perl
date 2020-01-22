@@ -1,5 +1,5 @@
 #!/usr/local/bin/perl
-#u# http://rosettacode.org/wiki/Magic_magics/Perl
+#u# http://rosettacode.org/wiki/Magic_squares/Perl
 #c# 2019-05-04 >RC
 #p# OK
 #n# rather than having multiple examples for different orders of magic square, this will generate a magic square for any valid n x n grid.
