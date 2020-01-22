@@ -1,17 +1,17 @@
 
 This is perl 5, version 30, subversion 0 (v5.30.0) built for darwin-thread-multi-2level
 updating from RC…
-+------------> Perl: Good/Bad [1242/13]
-|+-----------> Smoke testing [1107]
-||+----------> sKipping validation [141]
++------------> Perl: Good/Bad [1243/12]
+|+-----------> Smoke testing [1108]
+||+----------> sKipping validation [140]
 |||+---------> Interactive [54]
-||||+--------> Touched (modified by me) [370]
+||||+--------> Touched (modified by me) [373]
 |||||+-------> Random seed [99]
 ||||||+------> File output [66]
 |||||||+-----> Draft [224]
 ||||||||+----> Ignoring [32]
 |||||||||+---> Void (no local copy) [135]
-||||||||||+--> Un-implemented/reliable [129]
+||||||||||+--> Un-implemented/reliable [128]
 |||||||||||
 GS......... 100_doors-1
 GS......... 100_doors-2
@@ -734,9 +734,9 @@ GS......... MD5_Implementation
 .........VU Machine_code
 GS......... Mad_Libs
 GS..TR.D... Magic_8-Ball
-GS......... Magic_squares_of_doubly_even_order
-GS......... Magic_squares_of_odd_order
-GS......... Magic_squares_of_singly_even_order
+GS..T...... Magic_squares_of_doubly_even_order
+GS..T...... Magic_squares_of_odd_order
+GS..T...... Magic_squares_of_singly_even_order
 GS..T...... Main_step_of_GOST_28147-89
 GS..T.FD... Make_a_backup_file
 GS......... Make_directory_path
@@ -1238,7 +1238,7 @@ GS.....D... Suffix_tree
 GS..T...... Suffixation_of_decimal_numbers
 GS..T...... Sum_and_Product_Puzzle
 GS......... Sum_and_product_of_an_array
-.......D..U Sum_data_type
+.......D... Sum_data_type
 GS..T...... Sum_data_type-1
 GS......... Sum_data_type-2
 GS......... Sum_digits_of_an_integer
@@ -1291,7 +1291,7 @@ GS..T...... Textonyms
 GS......... The_ISAAC_Cipher
 GS..T...... The_Name_Game
 GS......... The_Twelve_Days_of_Christmas
-B.K.T.....U Thiele%27s_interpolation_formula
+GS..T.....U Thiele%27s_interpolation_formula
 GS......... Thue-Morse
 GS...R..... Tic-tac-toe
 .......D.VU Time-based_One-time_Password_Algorithm
