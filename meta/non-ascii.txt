@@ -497,6 +497,9 @@ T/Text_between
 好:     2 CJK UNIFIED IDEOGRAPH-597D
 
 T/Thiele%27s_interpolation_formula
+ρ:    18 GREEK SMALL LETTER RHO
+
+T/Thiele%27s_interpolation_formula.0
 ρ:     4 GREEK SMALL LETTER RHO
 
 T/Tonelli-Shanks_algorithm
