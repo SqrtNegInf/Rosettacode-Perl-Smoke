@@ -4317,7 +4317,7 @@ File: M/Magic_8-Ball
 
 File: M/Magic_squares_Perl
 #!/usr/local/bin/perl
-#u# http://rosettacode.org/wiki/Magic_magics/Perl
+#u# http://rosettacode.org/wiki/Magic_squares/Perl
 #c# 2019-05-04 >RC
 #p# OK
 #n# rather than having multiple examples for different orders of magic square, this will generate a magic square for any valid n x n grid.
@@ -4333,14 +4333,14 @@ File: M/Magic_squares_Perl-debug
 File: M/Magic_squares_of_doubly_even_order
 #!/usr/local/bin/perl
 #u# http://rosettacode.org/wiki/Magic_squares_of_doubly_even_order
-#c# 2019-05-04 <RC
+#c# 2019-05-04 >RC
 #p# OK
 #n# See Magic squares/Perl for a general magic square generator.
 
 File: M/Magic_squares_of_odd_order
 #!/usr/local/bin/perl
 #u# http://rosettacode.org/wiki/Magic_squares_of_odd_order
-#c# 2019-05-04 <RC
+#c# 2019-05-04 >RC
 #p# OK
 #n# See Magic squares/Perl for a general magic square generator.
 
@@ -4354,7 +4354,7 @@ File: M/Magic_squares_of_odd_order.1
 File: M/Magic_squares_of_singly_even_order
 #!/usr/local/bin/perl
 #u# http://rosettacode.org/wiki/Magic_squares_of_singly_even_order
-#c# 2019-05-04 <RC
+#c# 2019-05-04 >RC
 #p# OK
 #n# See Magic squares/Perl for a general magic square generator.
 
@@ -7666,6 +7666,12 @@ File: T/The_Twelve_Days_of_Christmas
 #p# OK
 
 File: T/Thiele%27s_interpolation_formula
+#!/usr/local/bin/perl
+#u# http://rosettacode.org/wiki/Thiele\'s_interpolation_formula
+#c# 2020-01-21 >RC
+#p# OK
+
+File: T/Thiele%27s_interpolation_formula.0
 #!/usr/local/bin/perl
 #u# http://rosettacode.org/wiki/Thiele\'s_interpolation_formula
 #t# inprogress
