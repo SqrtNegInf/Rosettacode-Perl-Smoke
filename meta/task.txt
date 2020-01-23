@@ -1,17 +1,17 @@
 
 This is perl 5, version 30, subversion 0 (v5.30.0) built for darwin-thread-multi-2level
 updating from RC…
-+------------> Perl: Good/Bad [1243/12]
-|+-----------> Smoke testing [1108]
-||+----------> sKipping validation [140]
-|||+---------> Interactive [54]
-||||+--------> Touched (modified by me) [373]
++------------> Perl: Good/Bad [1246/13]
+|+-----------> Smoke testing [1109]
+||+----------> sKipping validation [143]
+|||+---------> Interactive [55]
+||||+--------> Touched (modified by me) [376]
 |||||+-------> Random seed [99]
 ||||||+------> File output [66]
 |||||||+-----> Draft [224]
 ||||||||+----> Ignoring [32]
-|||||||||+---> Void (no local copy) [135]
-||||||||||+--> Un-implemented/reliable [128]
+|||||||||+---> Void (no local copy) [132]
+||||||||||+--> Un-implemented/reliable [126]
 |||||||||||
 GS......... 100_doors-1
 GS......... 100_doors-2
@@ -109,7 +109,7 @@ G.K..R..... Atomic_updates
 GS..T...... Attractive_numbers
 G.K....D..U AudioAlarm
 .......D.VU Audio_Overlap_Loop
-G.K.T..D... Audio_frequency_generator
+G.KIT..D... Audio_frequency_generator
 GS..TR..... Average_loop_length
 GS..T...... Averages_Arithmetic_mean
 GS......... Averages_Mean_angle
@@ -688,7 +688,8 @@ GS.....D... Levenshtein_distance_Alignment
 GS......... Linear_congruential_generator
 G.K.T..D... Linux_CPU_utilization
 GS......... List_comprehensions
-.......D.VU List_rooted_trees
+GS..T..D..U List_rooted_trees
+B.K.T...... List_rooted_trees-1
 G.K........ Literals_Floating_point
 GS......... Literals_Integer
 G.K........ Literals_String
@@ -854,7 +855,7 @@ B.KI....... OpenGL-1
 B.KI....... OpenGL-2
 .......D.VU OpenGL_Pixel_Shader
 .......D.VU OpenGL_Utah_Teapot
-.........VU OpenWebNet_Password
+GS..T...... OpenWebNet_Password
 G.K........ Operator_precedence
 GS......... Optional_parameters
 GS.....D... Orbital_elements
@@ -998,7 +999,7 @@ GS..T...... Range_consolidation
 GS......... Range_expansion
 GS..T...... Range_extraction
 GS..T...... Ranking_methods
-GS..T.....U Rare_numbers
+G.K.T.....U Rare_numbers
 .......D.VU Raster_bars
 GS......... Rate_counter
 GS......... Ray-casting_algorithm
@@ -1148,7 +1149,7 @@ GS......... Solve_a_Hopido_puzzle
 GS......... Solve_a_Numbrix_puzzle
 .......D.VU Solve_a_Rubik%27s_Cube
 GS......... Solve_the_no_connection_puzzle
-.......DXV. Solving_coin_problems
+G.K....DX.. Solving_coin_problems
 GS......... Sort_a_list_of_object_identifiers-1
 GS......... Sort_a_list_of_object_identifiers-2
 GS......... Sort_an_array_of_composite_structures
@@ -1291,7 +1292,7 @@ GS..T...... Textonyms
 GS......... The_ISAAC_Cipher
 GS..T...... The_Name_Game
 GS......... The_Twelve_Days_of_Christmas
-GS..T.....U Thiele%27s_interpolation_formula
+GS..T...... Thiele%27s_interpolation_formula
 GS......... Thue-Morse
 GS...R..... Tic-tac-toe
 .......D.VU Time-based_One-time_Password_Algorithm
