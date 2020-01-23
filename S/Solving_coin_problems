@@ -1,0 +1,220 @@
+#!/usr/local/bin/perl
+#u# http://rosettacode.org/wiki/Solving_coin_problems
+#t# inprogress
+#c# 2020-01-22 <RC
+#p# OK-ish
+#n# 2 problems failing
+
+my @res;
+
+use strict;
+use warnings;
+use utf8;
+#use feature 'say';
+
+use List::Util qw(sum uniq);
+
+my %nums = (
+    half        => .5,
+    zero        => 0,   one       => 1,     two      => 2,    three    => 3,
+    four        => 4,   five      => 5,     six      => 6,    seven    => 7,
+    eight       => 8,   nine      => 9,     ten      => 10,   eleven   => 11,
+    twelve      => 12,  thirteen  => 13,    fourteen => 14,   fifteen  => 15,
+    sixteen     => 16,  seventeen => 17,    eighteen => 18,   nineteen => 19,
+    twenty      => 20,  thirty    => 30,    forty    => 40,   fifty    => 50,
+    sixty       => 60,  seventy   => 70,    eighty   => 80,   ninety   => 90,
+    hundred     => 100
+);
+
+my(@words,@eqns,@vars,@types);
+my $float = qr/(?:(?:[1-9][0-9]*\.?[0-9]*)|(?:0?\.[0-9]+))(?:[Ee][+-]?[0-9]+)?/;
+
+sub add_type {
+  my ($type,$value) = @_;
+  push @vars, "v_$type: $value";
+  push @types, $type;
+}
+
+open F, '<ref/solving_coin_problems.txt' or die;
+
+while ($_ = <F>) {
+  chomp;                  # chop trailing newline
+  my $orig = $_;
+  @words = ();
+  @eqns  = ();
+  @vars  = ();
+  @types = ();
+  my($count,$total) = (0, 0);
+
+  next if /^\s*$/;		# skip blank lines
+
+  # echo comment lines
+  if( /^\s*#.*$/ ) { print $_, "\n"; next; }
+
+  s/-/ /g;                # convert hyphens to spaces
+  s/\s+/ /g;              # remove duplicate whitespace, convert ws to space
+  s/ $//g;                # remove trailing blank
+  s/^ //g;                # remove leading blank
+  $_ = lc($_);            # convert to lower case
+  # tokenize sentence boundaries
+  s/([\.\?\!]) / $1\n/g;
+  s/([\.\?\!])$/ $1\n/g;
+  # tokenize other punctuation and symbols
+  s/\$(.)/\$ $1/g;              # prefix
+  s/(.)([\;\:\%',¢])/$1 $2/g;   # suffix
+  s/\btwice\b/two times/g;
+
+  # Fractions
+  s/half.dollars?/half_dollar/g;
+  s/\b(one )?half\b/0.5/g;
+
+  # Remove noise words
+  s/\b(the|a|to|of|i|is|that|it|on|you|this|for|but|with|are|have|be|at|or|was|so|if|out|not|he|she|they|has|do|does)\b\s*//g;
+
+  # Convert English number-names to numbers
+  foreach my $key (keys %nums) { s/\b$key\b/$nums{$key}/eg; }
+
+  s/(\d) (?:,|and) (\d)/$1 $2/g;
+
+  s/\b(\d\d) (\d) 100\b/($1 + $2) * 100/eg;
+  s/\b(\d{1,2}) 100\b/$1 * 100/eg;
+
+  s/((?:\d+ )*\d+)/sum(split(" ",$1))/eg;
+
+  s/dollar coin/dollar_coin/g;
+  s/(quarter|dime|nickel|dollar|coin|bill)s/$1/g;
+  s/pennies/penny/g;
+  s/(\d+) dollar\b/\$ $1/g;
+
+  # Rules for coin problems
+  # Rule triggers are just regexes
+
+  add_type("dollar_coin",100) if /dollar_coin/;
+  add_type("half_dollar",50) if /half_dollar/;
+  add_type("quarter",25) if /quarter/;
+  add_type("dime",10) if /dime/;
+  add_type("nickel",5) if /nickel/;
+  add_type("penny",1) if /penny/;
+
+  while(/($float) (?:times )?as many \$ (\d+) bill as \$ (\d+) bill/g) {
+    push @eqns, "n_$2 = $1 * n_$3";
+  }
+
+  while(/($float) (?:times )?as many (\w+) as (\w+)/g) {
+    push @eqns, "n_$2 = $1 * n_$3";
+  }
+
+  while(/(\d+) more (\w+) than (\w+)/g) {
+    push @eqns, "n_$2 = n_$3 + $1";
+  }
+
+  while(/(\d+) less (\w+) than (\w+)/g) {
+    push @eqns, "n_$2 = n_$3 - $1";
+  }
+
+  if(/same number (\w+) , (\w+) (?:, )?and (\w+)/){
+    push @eqns, "n_$1 = n_$2";
+    push @eqns, "n_$2 = n_$3";
+  } elsif(/same number (\w+) and (\w+)/){
+    push @eqns, "n_$1 = n_$2";
+  }
+
+  if(/(\d+) (?:\w+ )*consists/
+      or /(\d+) (?:\w+ )*,?consisting/
+      or /total (\d+)(?! ¢)/
+      or /(?<!\$ )(\d+) coin/
+      or /[^\$] (\d+) bill/
+      or /number [^\?\!\.0-9]*(\d+)/) {
+    $count = $1;
+    push @vars, "count: $count";
+  }
+
+  if(/total (?:\w+ )*\$ ($float)/
+    or /valu(?:e|ing) \$ ($float)/
+    or /\$ ($float) ((bill|coin) )?in/) {
+    $total = 100 * $1;
+    push @vars, "total: $total";
+  }
+
+  if(/total (?:\w+ )*($float) ¢/) {
+    $total = $1;
+    push @vars, "total: $total";
+  }
+
+  # Rules for stamp problems
+  s/stamps/stamp/g;
+  while(/(\d+) ¢ stamp/g) { add_type("$1_stamp", $1); }
+  if(/cost (?:\w+ )*\$ ($float) (?!each)/) { $total = 100 * $1; push @vars, "total: $total"; }
+
+  # Rules for unusual types
+  while(/(\w+) cost \$ ($float) each/g) { add_type($1, 100 * $2); }
+  if(/made \$ ($float)/) { $total = 100 * $1; push @vars, "total: $total"; }
+
+  # Rules for bill problems
+  while(/\$ (\d+) bill/g) { add_type($1, 100 * $1); }
+  while(/(\d+) times as many \$ (\d+) bill as \$ (\d+) bill/g) { push @eqns, "n_$2 = $1 * n_$3"; }
+  while(/(\d+) more \$ (\d+) bill than \$ (\d+) bill/g) { push @eqns, "n_$2 = n_$3 + $1"; }
+  while(/(\d+) less \$ (\d+) bill than \$ (\d+) bill/g) { push @eqns, "n_$2 = n_$3 - $1"; }
+  if(/\$ ($float) in bill/) { $total = 100 * $1; push @vars, "total: $total"; }
+
+  # Rules for greeting card example
+  if(/consisting (.+?)costing \$ (${float}) each and (.+?)costing \$ (${float}) each/) {
+    my ($t1,$v1,$t2,$v2) = ($1,$2,$3,$4);
+    $t1 =~ s/ $//; $t1 =~ s/ /_/g;
+    $t2 =~ s/ $//; $t2 =~ s/ /_/g;
+    add_type($t1,100*$v1);
+    add_type($t2,100*$v2);
+  }
+
+  # Rules for notebook paper example
+  if(/sells ([^\$]+)\$ (${float}) (\w+) and ([^\$]+)\$ (${float}) (\w+)/) {
+    my ($t1,$v1,$u1,$t2,$v2,$u2) = ($1,$2,$3,$4,$5,$6);
+    $t1 =~ s/ $//; $t1 =~ s/ /_/g;
+    $t2 =~ s/ $//; $t2 =~ s/ /_/g;
+    add_type($t1,100*$v1);
+    add_type($t2,100*$v2);
+    if($u1 eq $u2){
+      if(/purchased (\d+) ${u1}(?:s|es)? (?:\w+ )*and paid \$ (${float})/){
+        $count = $1; push @vars, "count: $count"; 
+        $total = 100*$2; push @vars, "total: $total"; 
+      }
+    }
+  }
+
+  # Rules ALL coin problems obey...
+  # Rule no 1: Total is sum over all coin types of coin value times coin number
+  # i.e., total = dot product of values and quantities
+  my $dot = join(" + ", map {"n_$_ * v_$_"} uniq @types);
+  if($total and @types){ push @eqns, "total = $dot"; }
+
+  # Rule no 2: Count of all coins is sum of counts of each coin type
+  my $trace = join(" + ", map {"n_$_"} uniq @types);
+  if($count and @types){ push @eqns, "count = $trace"; }
+
+  print "original input: $orig\n";
+
+  # Prepare MAXIMA batch file
+  my $maxima_vars = join("\$\n", uniq @vars);
+  my $maxima_eqns = "[". join(", ", @eqns) . "]";
+  my $maxima_find = "[". join(", ", map {"n_$_"} @types) . "]";
+  my $maxima_script = "${maxima_vars}\$\nsolve(${maxima_eqns}, ${maxima_find});\n";
+  print $maxima_script;
+  if(@eqns and @vars) {
+    my $temp = 'tmp/' . time . "_" . rand . ".max";
+    open(TEMP, ">$temp") or die "Couldn't open temp file: $!\n";
+    print TEMP $maxima_script;
+    close TEMP;
+    open(MAXIMA, "/opt/local/bin/maxima -q -b $temp |") || die "Couldn't open maxima: $!\n";
+    while($_ = <MAXIMA>) {
+      # filter out everything but output line with the solution
+      if (/\(\%o\d+\)\s+\[\[([^\]]+)\]\]/) {
+        print "solution: $1\n";
+      }
+    }
+    close MAXIMA;
+    unlink $temp;
+  } else {
+    print "Couldn't deduce enough information to formulate equations.\n"
+  }
+  print "\n";
+}
