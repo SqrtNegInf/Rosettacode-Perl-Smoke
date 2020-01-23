@@ -532,7 +532,7 @@ File: A/AudioAlarm
 File: A/Audio_frequency_generator
 #!/usr/local/bin/perl
 #u# http://rosettacode.org/wiki/Audio_frequency_generator
-#t# skiptest
+#t# interactive
 #c# 2019-09-22 >RC
 #p# OK
 
@@ -4034,6 +4034,19 @@ File: L/List_comprehensions
 #p# OK
 #n# triples not unique
 
+File: L/List_rooted_trees
+#!/usr/local/bin/perl
+#u# http://rosettacode.org/wiki/List_rooted_trees
+#c# 2020-01-22 >RC
+#p# OK
+
+File: L/List_rooted_trees-1
+#!/usr/local/bin/perl
+#u# http://rosettacode.org/wiki/List_rooted_trees
+#t# inprogress
+#c# 2020-01-xx >RC
+#p# BROKEN
+
 File: L/Literals_Floating_point
 #!/usr/local/bin/perl
 #u# http://rosettacode.org/wiki/Literals/Floating_point
@@ -5046,6 +5059,13 @@ File: O/OpenGL-2
 #p# BROKEN
 #n# cannot get modules
 
+File: O/OpenWebNet_Password
+#!/usr/local/bin/perl
+#u# http://rosettacode.org/wiki/OpenWebNet_Password
+#c# 2020-01-22 >RC
+#p# OK
+#n# 'use integer' required for 2's complement to work
+
 File: O/Operator_precedence
 #!/usr/local/bin/perl
 #u# http://rosettacode.org/wiki/Operator_precedence
@@ -5922,10 +5942,10 @@ File: R/Ranking_methods
 File: R/Rare_numbers
 #!/usr/local/bin/perl
 #u# http://rosettacode.org/wiki/Rare_numbers
+#t# toodamnslow
 #c# 2019-09-xx >RC
 #p# OK
-#n# about as efficient as can be? (but still too slow to really find more than 2 numbers without cheating)
-#n# key to decent runtime is adding more filtering tricks...
+#n# 12 min to find 5, even if parallel execution added, getting just the even values would take nearly 10 hours
 #n# can SPVM help?
 
 File: R/Rate_counter
@@ -6795,6 +6815,14 @@ File: S/Solve_the_no_connection_puzzle
 #u# http://rosettacode.org/wiki/Solve_the_no_connection_puzzle
 #c# 2019-10-06 <RC
 #p# OK
+
+File: S/Solving_coin_problems
+#!/usr/local/bin/perl
+#u# http://rosettacode.org/wiki/Solving_coin_problems
+#t# inprogress
+#c# 2020-01-22 <RC
+#p# OK-ish
+#n# 2 problems failing
 
 File: S/Sort_a_list_of_object_identifiers-1
 #!/usr/local/bin/perl
