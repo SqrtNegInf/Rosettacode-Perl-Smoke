@@ -3,16 +3,15 @@
 #c# 2018-08-10 <RC
 #p# OK
 
+use strict;
+use warnings;
 use feature 'say';
-my $result;
 
-# Works with: Perl version 5.x
-sub complement
-{
+my @res;
+
+sub complement {
     my $s = shift;
-
     $s =~ tr/01/10/;
-
     return $s;
 }
 
@@ -23,7 +22,7 @@ for (0..6) {
     $str .= complement($str);
 }
 
-say $result = join "\n", @res; 
+say my $result = join "\n", @res; 
 
 my $ref = <<'EOD';
 0
