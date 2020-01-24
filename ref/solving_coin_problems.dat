@@ -1,0 +1,83 @@
+problem: person 3 times as many quarter as dime and total amount money $ 5.95 , find number quarter and dime . 
+solution: n_quarter = 21, n_dime = 7
+
+problem: pile 18 coin consists penny and nickel . total amount coin 38 ¢ , find number penny and nickel . 
+solution: n_nickel = 5, n_penny = 13
+
+problem: small child 6 more quarter than nickel . total amount coin $ 3.0 , find number nickel and quarter child . 
+solution: n_quarter = 11, n_nickel = 5
+
+problem: child 's bank contains 32 coin consisting nickel and quarter . total amount money $ 3.80 , find number nickel and quarter in bank . 
+solution: n_quarter = 11, n_nickel = 21
+
+problem: person 2 times as many dime as penny and 3 more nickel than penny . total amount coin $ 1.97 , find numbers each type coin person . 
+solution: n_dime = 14, n_nickel = 10, n_penny = 7
+
+problem: in bank , 3 times as many quarter as half_dollar and 6 more dime than half_dollar . total amount money in bank $ 4.65 , find number each type coin in bank . 
+solution: n_half_dollar = 3, n_quarter = 9, n_dime = 9
+
+problem: person bought 12 stamps consisting 37 ¢ stamps and 23 ¢ stamps . cost stamps $ 3.74 , find number each type stamps purchased . 
+
+problem: dairy store sold total 80 ice cream sandwiches and ice cream bars . sandwiches cost $ 0.69 each and bars cost $ 0.75 each and store made $ 58.8 , find number each sold . 
+solution: n_sandwiches = 20, n_bars = 60
+
+problem: an office supply store sells college ruled notebook paper $ 1.59 ream and wide ruled notebook paper $ 2.29 ream . student purchased 9 reams notebook paper and paid $ 15.71 , how many reams each type paper student purchase ? 
+solution: n_college_ruled_notebook_paper = 7, n_wide_ruled_notebook_paper = 2
+
+problem: clerk given $ 75 in bill put in cash drawer start workday . 2 times as many $ 1 bill as $ 5 bill and 1 less $ 10 bill than $ 5 bill . how many each type bill ? 
+solution: n_1 = 10, n_10 = 4, n_5 = 5
+
+problem: person 8 coin consisting quarter and dime . total amount change $ 1.25 , how many each kind coin ? 
+solution: n_quarter = 3, n_dime = 5
+
+problem: person 3 times as many dime as nickel and 5 more penny than nickel . total amount these coin $ 1.13 , how many each kind coin ? 
+solution: n_dime = 9, n_nickel = 3, n_penny = 8
+
+problem: person bought 10 greeting cards consisting birthday cards costing $ 1.50 each and anniversary cards costing $ 2.0 each . total cost cards $ 17.0 , find number each kind card person bought . 
+solution: n_birthday_cards = 6, n_anniversary_cards = 4
+
+problem: person 9 more dime than nickel . total amount money $ 1.20 , find number dime person . 
+solution: n_dime = 11, n_nickel = 2
+
+problem: person 20 bill consisting $ 1 bill and $ 2 bill . total amount money person $ 35 , find number $ 2 bill person . 
+solution: n_1 = 5, n_2 = 15
+
+problem: bank contains 8 more penny than nickel and 3 more dime than nickel . total amount money in bank $ 3.10 , find number dime in bank . 
+solution: n_dime = 20, n_nickel = 17, n_penny = 25
+
+problem: 26 coin in my pocket all dollar_coin and quarter , and add up $ 17 in value . how many each coin ? 
+solution: n_dollar_coin = 14, n_quarter = 12
+
+problem: collection 33 coin , consisting nickel , dime , and quarter , value $ 3.30 . 3 times as many nickel as quarter , and 0.5 as many dime as nickel , how many coin each kind ? 
+solution: n_quarter = 6, n_dime = 9, n_nickel = 18
+
+problem: wallet contains same number penny , nickel , and dime . coin total $ 1.44 . how many each type coin wallet contain ? 
+solution: n_dime = 9, n_nickel = 9, n_penny = 9
+
+problem: suppose ken 25 coin in nickel and dime only and total $ 1.65 . how many each coin ? 
+solution: n_dime = 8, n_nickel = 17
+
+problem: terry 2 more quarter than dime and total $ 6.80 . number quarter and dime 38 . how many quarter and dime terry ? 
+solution: n_quarter = 20, n_dime = 18
+
+problem: in my wallet , $ 1 bill , $ 5 bill , and $ 10 bill . total amount in my wallet $ 43 . 4 times as many $ 1 bill as $ 10 bill . all together , 13 bill in my wallet . how many each bill ? 
+solution: n_5 = 3, n_1 = 8, n_10 = 2
+
+problem: marsha 3 times as many $ 1 bill as $ 5 bill . total $ 32 . how many each bill ? 
+solution: n_1 = 12, n_5 = 4
+
+problem: vending machine $ 41.25 in . 255 coin total and machine only accepts nickel , dime and quarter . 2 times as many dime as nickel . how many each coin in machine . 
+solution: n_quarter = 120, n_dime = 90, n_nickel = 45
+
+problem: michael had 27 coin in all , valuing $ 4.50 . had only quarter and dime , how many coin each kind ? 
+solution: n_quarter = 12, n_dime = 15
+
+problem: lucille had $ 13.25 in nickel and quarter . had 165 coin in all , how many each type coin ? 
+solution: n_quarter = 25, n_nickel = 140
+
+problem: ben $ 45.25 in quarter and dime . 29 less quarter than dime , how many each type coin ? 
+solution: n_quarter = 121, n_dime = 150
+
+problem: person 12 coin consisting dime and penny . total amount money $ 0.30 , how many each coin ? 
+solution: n_dime = 2, n_penny = 10
+
