@@ -2,16 +2,16 @@
 This is perl 5, version 30, subversion 0 (v5.30.0) built for darwin-thread-multi-2level
 updating from RC…
 +------------> Perl: Good/Bad [1246/13]
-|+-----------> Smoke testing [1109]
-||+----------> sKipping validation [143]
+|+-----------> Smoke testing [1110]
+||+----------> sKipping validation [142]
 |||+---------> Interactive [55]
-||||+--------> Touched (modified by me) [376]
+||||+--------> Touched (modified by me) [377]
 |||||+-------> Random seed [99]
-||||||+------> File output [66]
+||||||+------> File output [67]
 |||||||+-----> Draft [224]
 ||||||||+----> Ignoring [32]
 |||||||||+---> Void (no local copy) [132]
-||||||||||+--> Un-implemented/reliable [126]
+||||||||||+--> Un-implemented/reliable [125]
 |||||||||||
 GS......... 100_doors-1
 GS......... 100_doors-2
@@ -688,7 +688,7 @@ GS.....D... Levenshtein_distance_Alignment
 GS......... Linear_congruential_generator
 G.K.T..D... Linux_CPU_utilization
 GS......... List_comprehensions
-GS..T..D..U List_rooted_trees
+GS..T..D... List_rooted_trees
 B.K.T...... List_rooted_trees-1
 G.K........ Literals_Floating_point
 GS......... Literals_Integer
@@ -1149,7 +1149,7 @@ GS......... Solve_a_Hopido_puzzle
 GS......... Solve_a_Numbrix_puzzle
 .......D.VU Solve_a_Rubik%27s_Cube
 GS......... Solve_the_no_connection_puzzle
-G.K....DX.. Solving_coin_problems
+GS..T.FDX.. Solving_coin_problems
 GS......... Sort_a_list_of_object_identifiers-1
 GS......... Sort_a_list_of_object_identifiers-2
 GS......... Sort_an_array_of_composite_structures
