@@ -5064,7 +5064,7 @@ File: O/OpenWebNet_Password
 #u# http://rosettacode.org/wiki/OpenWebNet_Password
 #c# 2020-01-22 >RC
 #p# OK
-#n# 'use integer' required for 2's complement to work
+#n# 'use integer' required solely for 2's complement to work
 
 File: O/Operator_precedence
 #!/usr/local/bin/perl
@@ -6819,10 +6819,9 @@ File: S/Solve_the_no_connection_puzzle
 File: S/Solving_coin_problems
 #!/usr/local/bin/perl
 #u# http://rosettacode.org/wiki/Solving_coin_problems
-#t# inprogress
-#c# 2020-01-22 <RC
-#p# OK-ish
-#n# 2 problems failing
+#c# 2020-01-22 <RC, 2020-01-23 >RC
+#p# OK
+#f# RC file: solving_coin_problems.dat
 
 File: S/Sort_a_list_of_object_identifiers-1
 #!/usr/local/bin/perl
