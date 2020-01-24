@@ -40,15 +40,15 @@ sub try {
 }
 
 sub makepatterns {
-    map { qr/^$_$/                          # 7 convert strings to regex
+    map { qr/^$_$/                          # 7  convert strings to regex
         } map {  '[0.]*'                    # 6a prepend static pattern
-               . join('[0.]+',              # 5 join with static pattern
-                       map { "[1.]{$_}"     # 4 require to match exactly 'n' times
-                           } map { -64+ord  # 3 convert letter value to repetition count 'n'
-                                 } split // # 2 for each letter in group
+               . join('[0.]+',              # 5  interleave with static pattern
+                       map { "[1.]{$_}"     # 4  require to match exactly 'n' times
+                           } map { -64+ord  # 3  convert letter value to repetition count 'n'
+                                 } split // # 2  for each letter in group
                      )
                . '[0.]*'                    # 6b append static pattern
-              } split ' ', shift;           # 1 for each letter grouping
+              } split ' ', shift;           # 1  do all of the above for each letter grouping
 }
 
 my $result = join '', @res;
