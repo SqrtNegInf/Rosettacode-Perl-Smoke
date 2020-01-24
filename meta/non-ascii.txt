@@ -406,7 +406,7 @@ S/Snake
 ❇:     1 SPARKLE
 
 S/Solving_coin_problems
-¢:     4 CENT SIGN
+¢:     2 CENT SIGN
 
 S/Sparkline_in_unicode
 ▁:     4 LOWER ONE EIGHTH BLOCK
