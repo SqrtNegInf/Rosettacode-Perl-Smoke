@@ -36,7 +36,7 @@ sub calc_diff {
 		for my $j (0 .. $w) {
 			my ($p, $v) = $n[$i][$j];
 			$v += $v[$_->[0]][$_->[1]] for @$p;
-			$d[$i][$j] = $v = $v[$i][$j] - $v / scalar(@$p);
+			$d[$i][$j] = $v = $v[$i][$j] - $v / @$p;
 			$total_diff += $v * $v unless $f[$i][$j];
 		}
 	}
@@ -59,7 +59,7 @@ sub iter {
 	my @current = (0) x 3;
 	for my $i (0 .. $h) {
 		for my $j (0 .. $w) {
-			$current[ $f[$i][$j] ] += $d[$i][$j] * scalar(@{$n[$i][$j]});
+			$current[ $f[$i][$j] ] += $d[$i][$j] * $n[$i][$j]->@*;
 		}
 	}
 	return ($current[1] - $current[-1]) / 2;
