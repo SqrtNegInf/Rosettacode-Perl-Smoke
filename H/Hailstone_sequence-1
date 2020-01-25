@@ -10,13 +10,13 @@ use warnings;
 use strict;
 
 my @h = hailstone(27);
-$result .= "Length of hailstone(27) = " . scalar @h . "\n";
+$result .= "Length of hailstone(27) = " . @h . "\n";
 $result .= "[" . join(", ", @h[0 .. 3], "...", @h[-4 .. -1]) . "]\n";
 
 my ($max, $n) = (0, 0);
 for my $x (1 .. 99_999) {
     @h = hailstone($x);
-    if (scalar @h > $max) {
+    if (@h > $max) {
         ($max, $n) = (scalar @h, $x);
     }
 }
