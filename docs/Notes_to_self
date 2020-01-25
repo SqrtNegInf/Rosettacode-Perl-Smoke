@@ -1,8 +1,5 @@
-2020-01-23
-In theory, largest end-point for range operator (compiled 64-bit):
-    use constant Inf => 2**63 - 1 # 9223372036854775807
-But must 'use bigint' (slow!) for that to work, whereas this works, but hmmmm...
-    use constant Inf => -1 + 2**10 + 2**63 - 2**10 # same as above
+2020-01-24
+Experimental fiddling with code (postderef, scalar) but not worth updating on RC
 
 2020-01-03
 Trivial but annoying: fixed 'blank' lines to become true paragraphs
