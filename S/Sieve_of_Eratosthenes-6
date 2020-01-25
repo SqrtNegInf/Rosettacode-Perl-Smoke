@@ -10,7 +10,7 @@ my $result;
 
 sub dj_string {
   my($end) = @_;
-  return @{([],[],[2],[2,3],[2,3])[$end]} if $end <= 4;
+  return ([],[],[2],[2,3],[2,3])[$end] if $end <= 4;
   $end-- if ($end & 1) == 0;
   my $s_end = $end >> 1;
 
