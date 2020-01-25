@@ -8,7 +8,7 @@ my $result;
 
 sub sieve2 {
   my($n) = @_;
-  return @{([],[],[2],[2,3],[2,3])[$n]} if $n <= 4;
+  return ([],[],[2],[2,3],[2,3])[$n] if $n <= 4;
 
   my @composite;
   for (my $t = 3;  $t*$t <= $n;  $t += 2) {
