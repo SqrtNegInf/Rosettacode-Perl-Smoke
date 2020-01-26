@@ -1967,6 +1967,13 @@ File: D/Discordian_date
 #p# OK
 #n# cf 'First_power_of_2_that_has_leading_decimal_digits_of_12' method of adding ordinal suffix
 
+File: D/Display_a_linear_combination
+#!/usr/local/bin/perl
+#u# http://rosettacode.org/wiki/Display_a_linear_combination
+#c# 2020-01-24 <>RC
+#p# OK
+#n# oops, 'strict' compliant now (my own code, but didn't have it in my own collection for some reason...)
+
 File: D/Display_an_outline_as_a_nested_table
 #!/usr/local/bin/perl
 #u# http://rosettacode.org/wiki/Display_an_outline_as_a_nested_table
@@ -6817,6 +6824,14 @@ File: S/Solve_the_no_connection_puzzle
 #p# OK
 
 File: S/Solving_coin_problems
+#!/usr/local/bin/perl
+#u# http://rosettacode.org/wiki/Solving_coin_problems
+#c# 2020-01-22 <RC, 2020-01-24 >RC
+#p# OK
+#f# RC file: solving_coin_problems.dat
+#n# next step: remove dependence on MAXIMA
+
+File: S/Solving_coin_problems.0
 #!/usr/local/bin/perl
 #u# http://rosettacode.org/wiki/Solving_coin_problems
 #c# 2020-01-22 <RC, 2020-01-23 >RC
