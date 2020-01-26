@@ -16,14 +16,6 @@ solution: n_dime = 14, n_nickel = 10, n_penny = 7
 problem: in bank , 3 times as many quarter as half_dollar and 6 more dime than half_dollar . total amount money in bank $ 4.65 , find number each type coin in bank . 
 solution: n_half_dollar = 3, n_quarter = 9, n_dime = 9
 
-problem: person bought 12 stamps consisting 37 ¢ stamps and 23 ¢ stamps . cost stamps $ 3.74 , find number each type stamps purchased . 
-
-problem: dairy store sold total 80 ice cream sandwiches and ice cream bars . sandwiches cost $ 0.69 each and bars cost $ 0.75 each and store made $ 58.8 , find number each sold . 
-solution: n_sandwiches = 20, n_bars = 60
-
-problem: an office supply store sells college ruled notebook paper $ 1.59 ream and wide ruled notebook paper $ 2.29 ream . student purchased 9 reams notebook paper and paid $ 15.71 , how many reams each type paper student purchase ? 
-solution: n_college_ruled_notebook_paper = 7, n_wide_ruled_notebook_paper = 2
-
 problem: clerk given $ 75 in bill put in cash drawer start workday . 2 times as many $ 1 bill as $ 5 bill and 1 less $ 10 bill than $ 5 bill . how many each type bill ? 
 solution: n_1 = 10, n_10 = 4, n_5 = 5
 
@@ -32,9 +24,6 @@ solution: n_quarter = 3, n_dime = 5
 
 problem: person 3 times as many dime as nickel and 5 more penny than nickel . total amount these coin $ 1.13 , how many each kind coin ? 
 solution: n_dime = 9, n_nickel = 3, n_penny = 8
-
-problem: person bought 10 greeting cards consisting birthday cards costing $ 1.50 each and anniversary cards costing $ 2.0 each . total cost cards $ 17.0 , find number each kind card person bought . 
-solution: n_birthday_cards = 6, n_anniversary_cards = 4
 
 problem: person 9 more dime than nickel . total amount money $ 1.20 , find number dime person . 
 solution: n_dime = 11, n_nickel = 2
