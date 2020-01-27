@@ -2,15 +2,15 @@
 This is perl 5, version 30, subversion 0 (v5.30.0) built for darwin-thread-multi-2level
 updating from RC…
 +------------> Perl: Good/Bad [1247/13]
-|+-----------> Smoke testing [1111]
+|+-----------> Smoke testing [1112]
 ||+----------> sKipping validation [142]
 |||+---------> Interactive [55]
-||||+--------> Touched (modified by me) [378]
+||||+--------> Touched (modified by me) [379]
 |||||+-------> Random seed [99]
 ||||||+------> File output [67]
 |||||||+-----> Draft [226]
 ||||||||+----> Ignoring [31]
-|||||||||+---> Void (no local copy) [133]
+|||||||||+---> Void (no local copy) [132]
 ||||||||||+--> Un-implemented/reliable [127]
 |||||||||||
 GS......... 100_doors-1
@@ -765,7 +765,7 @@ GS..T...... Memory_allocation
 GS......... Memory_layout_of_a_data_structure
 GS......... Menu
 GS.....D... Mersenne_primes
-.......D.VU Mertens_function
+!S..T..D..U Mertens_function
 GS..T...... Metallic_ratios
 GS......... Metallic_ratios-2
 GS......... Metaprogramming
