@@ -4556,6 +4556,12 @@ File: M/Mersenne_primes
 #c# 2018-08-18 <RC
 #p# OK
 
+File: M/Mertens_function
+#!/usr/local/bin/perl
+#u# http://rosettacode.org/wiki/Mertens_function
+#c# 2020-01-xx >RC
+#p# OK
+
 File: M/Metallic_ratios
 #!/usr/local/bin/perl
 #u# http://rosettacode.org/wiki/Metallic_ratios
@@ -4702,6 +4708,12 @@ File: M/Move-to-front_algorithm
 #!/usr/local/bin/perl
 #u# http://rosettacode.org/wiki/Move-to-front_algorithm
 #c# 2018-08-19 <RC
+#p# OK
+
+File: M/Möbius_function
+#!/usr/local/bin/perl
+#u# http://rosettacode.org/wiki/Möbius_function
+#c# 2020-01-xx >RC
 #p# OK
 
 File: M/Multi-dimensional_array
