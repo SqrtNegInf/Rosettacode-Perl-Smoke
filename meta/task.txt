@@ -1,7 +1,7 @@
 
 This is perl 5, version 30, subversion 0 (v5.30.0) built for darwin-thread-multi-2level
 updating from RC…
-+------------> Perl: Good/Bad [1247/13]
++------------> Perl: Good/Bad [1248/13]
 |+-----------> Smoke testing [1112]
 ||+----------> sKipping validation [142]
 |||+---------> Interactive [55]
@@ -32,13 +32,13 @@ GS..T...... 4-rings_or_4-squares_puzzle
 GS......... 99_Bottles_of_Beer
 GS......... 9_billion_names_of_God_the_integer
 GS......... A%2BB
-.......D.VU A*_search_algorithm
 GS......... ABC_Problem
 GS......... AKS_test_for_primes-1
 GS......... AKS_test_for_primes-2
 GS......... AKS_test_for_primes-3
 .......D.VU ASCII_art_diagram_converter
 .........VU AVL_tree
+.......D.VU A_star_search_algorithm
 GS..T...... Abbreviations,_automatic
 GS..T...... Abbreviations,_easy
 GS..T...... Abbreviations,_simple
@@ -765,7 +765,7 @@ GS..T...... Memory_allocation
 GS......... Memory_layout_of_a_data_structure
 GS......... Menu
 GS.....D... Mersenne_primes
-!S..T..D..U Mertens_function
+GS..T..D..U Mertens_function
 GS..T...... Metallic_ratios
 GS......... Metallic_ratios-2
 GS......... Metaprogramming
