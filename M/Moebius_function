@@ -1,0 +1,55 @@
+#!/usr/local/bin/perl
+#u# http://rosettacode.org/wiki/Möbius_function
+#c# 2020-01-27 >RC
+#p# OK
+#n# annotated chained ternaries for Oscar...
+
+use strict;
+use warnings;
+use feature 'say';
+
+use utf8;
+use List::Util 'uniq';
+
+my @res;
+
+sub prime_factors {
+    my ($n, $d, @factors) = (shift, 1);
+    while ($n > 1 and $d++) {
+        $n /= $d, push @factors, $d until $n % $d;
+    }
+    @factors
+}
+
+sub μ {
+    my @p = prime_factors(shift);
+#      +---> if T ---| 2nd ? |
+#      |               +- if T --+
+    @p == uniq(@p) ? 0 == @p%2 ? 1 : -1 : 0  # with 2 tests you get 3 possible outcomes, all in one short line of code
+#      |               +---> if F ----+   |
+#      +--------> if F -------------------+
+}
+ 
+my @möebius;
+push @möebius, μ($_) for 1 .. (my $upto = 199);
+
+say my $result = "Möbius sequence - First $upto terms:\n" .
+    (' 'x4 . sprintf "@{['%4d' x $upto]}", @möebius) =~ s/((.){80})/$1\n/gr;
+
+my $ref = <<'END';
+Möbius sequence - First 199 terms:
+       1  -1  -1   0  -1   1  -1   0   0   1  -1   0  -1   1   1   0  -1   0  -1
+   0   1   1  -1   0   0   1   0   0  -1  -1  -1   0   1   1   1   0  -1   1   1
+   0  -1  -1  -1   0   0   1  -1   0   0   0   1   0  -1   0   1   0   1   1  -1
+   0  -1   1   0   0   1  -1  -1   0   1  -1  -1   0  -1   1   0   0   1  -1  -1
+   0   0   1  -1   0   1   1   1   0  -1   0   1   0   1   1   1   0  -1   0   0
+   0  -1  -1  -1   0  -1   1  -1   0  -1  -1   1   0  -1  -1   1   0   0   1   1
+   0   0   1   1   0   0   0  -1   0   1  -1  -1   0   1   1   0   0  -1  -1  -1
+   0   1   1   1   0   1   1   0   0  -1   0  -1   0   0  -1   1   0  -1   1   1
+   0   1   0  -1   0  -1   1  -1   0   0  -1   0   0  -1  -1   0   0   1   1  -1
+   0  -1  -1   1   0   1  -1   1   0   0  -1  -1   0  -1   1  -1   0  -1   0  -1
+END
+
+use Test::More;
+is($result, $ref);
+done_testing();
