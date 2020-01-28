@@ -1,6 +1,6 @@
 #!/usr/local/bin/perl
 #u# http://rosettacode.org/wiki/Mertens_function
-#c# 2020-01-xx >RC
+#c# 2020-01-27 >RC
 #p# OK
 
 use strict;
@@ -20,33 +20,28 @@ sub prime_factors {
     @factors
 }
 
-sub möebius {
-    my($n) = @_;
-    my @p = prime_factors($n);
-    @p == uniq(@p) ? (0 == @p % 2) ? 1 : -1 : 0
+sub μ {
+    my @p = prime_factors(shift);
+    @p == uniq(@p) ? 0 == @p%2 ? 1 : -1 : 0
 }
 
 sub progressive_sum {
-    my @pr_sum = shift @_;
-    push @pr_sum, $pr_sum[-1] + $_ for @_;
-    @pr_sum;
+    my @sum = shift @_;
+    push @sum, $sum[-1] + $_ for @_;
+    @sum
 }
  
-my $max1 = 1000;
-my $max2 =  199;
-
-my @möebius;
-push @möebius, möebius($_) for 1..$max1;
+my($upto, $show, @möebius) = (1000, 199);
+push @möebius, μ($_) for 1..$upto;
 my @mertens = progressive_sum @möebius;
 
-#say "Mertens sequence - First $max2 terms:";
-my $result = (' 'x4 . sprintf "@{['%4d' x $max2]}", @mertens[0..$max2]) =~ s/((.){80})/$1\n/gr;
-$result   .= sprintf "\nEquals zero %3d times between 1 and $max1\n", scalar grep { 0 == $_ } @mertens;
-$result   .= sprintf "Crosses zero%3d times between 1 and $max1\n",   scalar grep { ! $mertens[$_-1] and $mertens[$_] } 1 .. @mertens;
-
-say $result;
+say my $result = "Mertens sequence - First $show terms:\n" .
+    (' 'x4 . sprintf "@{['%4d' x $show]}", @mertens[0..$show-1]) =~ s/((.){80})/$1\n/gr .
+    sprintf("\nEquals zero %3d times between 1 and $upto", scalar grep { ! $_ } @mertens) .
+    sprintf "\nCrosses zero%3d times between 1 and $upto", scalar grep { ! $mertens[$_-1] and $mertens[$_] } 1 .. @mertens;
 
 my $ref = <<'END';
+Mertens sequence - First 199 terms:
        1   0  -1  -1  -2  -1  -2  -2  -2  -1  -2  -2  -3  -2  -1  -1  -2  -2  -3
   -3  -2  -1  -2  -2  -2  -1  -1  -1  -2  -3  -4  -4  -3  -2  -1  -1  -2  -1   0
    0  -1  -2  -3  -3  -3  -2  -3  -3  -3  -3  -2  -2  -3  -3  -2  -2  -1   0  -1
@@ -60,17 +55,9 @@ my $ref = <<'END';
 
 Equals zero  92 times between 1 and 1000
 Crosses zero 59 times between 1 and 1000
-
 END
 
 use Test::More;
 chomp $ref;
 is($result, $ref);
 done_testing();
-
-__END__
-
-=={{header|Perl}}==
-<lang perl></lang>
-{{out}}
-<pre></pre>
