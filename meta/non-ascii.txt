@@ -252,7 +252,8 @@ M/Mayan_numerals
 ●:    12 BLACK CIRCLE
 
 M/Mertens_function
-ö:     5 LATIN SMALL LETTER O WITH DIAERESIS
+ö:     3 LATIN SMALL LETTER O WITH DIAERESIS
+μ:     2 GREEK SMALL LETTER MU
 
 M/Metaprogramming
 …:     6 HORIZONTAL ELLIPSIS
@@ -263,8 +264,9 @@ M/Mian-Chowla_sequence
 M/Minimal_steps_down_to_1
 »:     1 RIGHT-POINTING DOUBLE ANGLE QUOTATION MARK
 
-M/Mo􏿽xCC􏿽x88bius_function
-ö:     8 LATIN SMALL LETTER O WITH DIAERESIS
+M/Moebius_function
+ö:     6 LATIN SMALL LETTER O WITH DIAERESIS
+μ:     2 GREEK SMALL LETTER MU
 
 M/Multidimensional_Newton-Raphson_method
 Δ:    13 GREEK CAPITAL LETTER DELTA
