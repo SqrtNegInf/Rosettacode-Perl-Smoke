@@ -1,126 +1,117 @@
 #!/usr/local/bin/perl
-#u# http://rosettacode.org/wiki/RC_REMOTE
-#t# skiptest
-#c# 2019-05-xx >RC
-#p# BROKEN
+#u# http://rosettacode.org/wiki/Simulated_annealing
+#c# 2020-01-27 >RC
+#p# OK
 
-use Data::Printer;
-
+use utf8;
 use strict;
 use warnings;
 use feature 'say';
-#my $result;
-#my @res;
+use List::Util qw(shuffle sum);
 
-# say $result; 
-# say my $result = join "\n", @res;
-my $ref = <<'EOD';
-EOD
+my @res;
+
+srand 123456;
+
+# simulation setup
+my $cities = 100;  # number of cities
+my $kmax   = 1e6;  # iterations to run
+my $kT     = 1;    # initial 'temperature'
+
+die 'City count must be a perfect square.' if sqrt($cities) != int sqrt($cities);
+
+# locations of (up to) 8 neighbors, with grid size derived from number of cities
+my $gs = sqrt $cities;
+my @neighbors = (1, -1, $gs, -$gs, $gs-1, $gs+1, -($gs+1), -($gs-1));
+
+# matrix of distances between cities
+my @D;
+for my $j (0 .. $cities**2 - 1) {
+    my ($ab, $cd)       = (int($j/$cities), int($j%$cities));
+    my ($a, $b, $c, $d) = (int($ab/$gs), int($ab%$gs), int($cd/$gs), int($cd%$gs));
+    $D[$ab][$cd] = sqrt(($a - $c)**2 + ($b - $d)**2);
+}
+
+# temperature function, decreases to 0
+sub T { 
+    my($k, $kmax, $kT) = @_;
+    (1 - $k/$kmax) * $kT 
+}
+
+# probability to move from s to s_next
+sub P {
+    my($ΔE, $k, $kmax, $kT) = @_; 
+    exp -$ΔE / T($k, $kmax, $kT) 
+}
+
+# energy at s, to be minimized
+sub Es { 
+    my(@path) = @_; 
+    sum map { $D[ $path[$_] ] [ $path[$_+1] ] } 0 .. @path-2  
+}
+
+# variation of E, from state s to state s_next
+sub delta_E {
+    my($u, $v, @s) = @_;
+    my ($a,   $b,  $c,  $d) = ($D[$s[$u-1]][$s[$u]], $D[$s[$u+1]][$s[$u]], $D[$s[$v-1]][$s[$v]], $D[$s[$v+1]][$s[$v]]);
+    my ($na, $nb, $nc, $nd) = ($D[$s[$u-1]][$s[$v]], $D[$s[$u+1]][$s[$v]], $D[$s[$v-1]][$s[$u]], $D[$s[$v+1]][$s[$u]]);
+    if    ($v == $u+1) { return ($na + $nd) - ($a + $d) }
+    elsif ($u == $v+1) { return ($nc + $nb) - ($c + $b) }
+    else               { return ($na + $nb + $nc + $nd) - ($a + $b + $c + $d) }
+}
+
+# E(s0), initial state
+my @s = 0; map { push @s, $_ } shuffle 1..$cities-1; push @s, 0;
+my $E_min_global = my $E_min = Es(@s);
+
+for my $k (0 .. $kmax-1) {
+    push @res, sprintf "k:%8u  T:%4.1f  Es: %3.1f" , $k, T($k, $kmax, $kT), Es(@s)
+            if $k % ($kmax/10) == 0;
+
+    # valid candidate cities (exist, adjacent)
+    my $u = 1 + int rand $cities-1;
+    my $cv = $neighbors[int rand 8] + $s[$u]; 
+    next if $cv <= 0 or $cv >= $cities or $D[$s[$u]][$cv] > sqrt(2);
+
+    my $v  = $s[$cv];
+    my $ΔE = delta_E($u, $v, @s);
+    if ($ΔE < 0 or P($ΔE, $k, $kmax, $kT) >= rand) { # always move if negative
+        ($s[$u], $s[$v]) = ($s[$v], $s[$u]);
+        $E_min += $ΔE;
+        $E_min_global = $E_min if $E_min < $E_min_global;
+    }
+}
+
+push @res, "\nE(s_final): " . sprintf '%.1f', $E_min_global;
+for my $l (0..4) {
+    push @res, sprintf "@{['%4d' x 20]}", @s[$l*20 .. ($l+1)*20 - 1];
+}
+push @res, '   0';
+
+say my $result = join "\n" , @res;
+
+my $ref = <<'END';
+k:       0  T: 1.0  Es: 519.2
+k:  100000  T: 0.9  Es: 188.2
+k:  200000  T: 0.8  Es: 178.5
+k:  300000  T: 0.7  Es: 162.3
+k:  400000  T: 0.6  Es: 157.0
+k:  500000  T: 0.5  Es: 148.9
+k:  600000  T: 0.4  Es: 128.7
+k:  700000  T: 0.3  Es: 129.5
+k:  800000  T: 0.2  Es: 119.8
+k:  900000  T: 0.1  Es: 119.5
+
+E(s_final): 119.1
+   0  12  23  24  35  36  26  27  16   7   8   9  19  29  28  18  17   6  14  13
+  22  32  33  34  25  15   5   4   3   2   1  11  20  21  31  30  40  51  50  60
+  61  62  53  43  44  54  56  57  48  49  39  38  37  46  45  55  65  64  63  74
+  84  83  82  81  80  90  91  92  93  94  95  85  66  47  58  59  69  89  88  87
+  77  67  68  78  79  99  98  97  96  86  76  75  73  72  70  71  52  42  41  10
+   0
+END
 
 use Test::More;
-#chomp $ref;
-#is($result, $ref);
-#done_testing();
-
-__END__
-
-=={{header|Perl}}==
-<lang perl></lang>
-{{out}}
-<pre style="height:20ex"></pre>
-[https://github.com/SqrtNegInf/Rosettacode-Perl5-Smoke/blob/master/ref/XXX XXX]
-
-#module TravelingSalesman {
- 
-    # ₛ: 
-    # Eₛ: length(path)
-    func Eₛ(distances, path) {
-        var total = 0
-        [path, path.slice(1)].zip {|ci,cj|
-            total += distances[ci-1][cj-1]
-        }
-        total
-    }
- 
-    # T: temperature
-    func T(k, kmax, kT) { kT * (1 - k/kmax) }
- 
-    # ΔE = Eₛ_new - Eₛ_old > 0
-    # Prob. to move if ΔE > 0, → 0 when T → 0 (fronzen state)
-    func P(ΔE, k, kmax, kT) { exp(-ΔE / T(k, kmax, kT)) }
- 
-    # ∆E from path ( .. a u b .. c v d ..) to (.. a v b ... c u d ..)
-    # ∆E before swapping (u,v)
-    # Quicker than Eₛ(s_next) - Eₛ(path)
-    func dE(distances, path, u, v) {
- 
-        var a = distances[path[u-1]-1][path[u]-1]
-        var b = distances[path[u+1]-1][path[u]-1]
-        var c = distances[path[v-1]-1][path[v]-1]
-        var d = distances[path[v+1]-1][path[v]-1]
- 
-        var na = distances[path[u-1]-1][path[v]-1]
-        var nb = distances[path[u+1]-1][path[v]-1]
-        var nc = distances[path[v-1]-1][path[u]-1]
-        var nd = distances[path[v+1]-1][path[u]-1]
- 
-        if (v == u+1) {
-            return ((na+nd) - (a+d))
-        }
- 
-        if (u == v+1) {
-            return ((nc+nb) - (c+b))
-        }
- 
-        return ((na+nb+nc+nd) - (a+b+c+d))
-    }
- 
-    const dirs = [1, -1, 10, -10, 9, 11, -11, -9]
- 
-    func _prettypath(path) {
-        path.slices(10).map { .map{ "%3s" % _ }.join(', ') }.join("\n")
-    }
- 
-    func findpath(distances, kmax, kT) {
- 
-        const n = distances.len
-        const R = 2..n
- 
-        var path = [1, R.shuffle..., 1]
-        var Emin = Eₛ(distances, path)
- 
-        printf("# Entropy(s₀) = s%10.2f\n", Emin)
-        printf("# Random path:\n%s\n\n", _prettypath(path))
- 
-        for k in (1 .. kmax) {
- 
-            if (k % (kmax//10) == 0) {
-                printf("k: %10d | T: %8.4f | Eₛ: %8.4f\n", k, T(k, kmax, kT), Eₛ(distances, path))
-            }
- 
-            var u = R.rand
-            var v = (path[u-1] + dirs.rand)
-            v ~~ R || next
- 
-            var δE = dE(distances, path, u-1, v-1)
-            if ((δE < 0) || (P(δE, k, kmax, kT) >= 1.rand)) {
-                path.swap(u-1, v-1)
-                Emin += δE
-            }
-        }
- 
-        printf("k: %10d | T: %8.4f | Eₛ: %8.4f\n", kmax, T(kmax, kmax, kT), Eₛ(distances, path))
-        say ("\n# Found path:\n", _prettypath(path))
-        return path
-    }
-#}
- 
-var citydist = {|ci|
-    { |cj|
-        var v1 = Vec(ci%10, ci//10)
-        var v2 = Vec(cj%10, cj//10)
-        v1.dist(v2)
-    }.map(1..100)
-}.map(1..100)
- 
-TravelingSalesman::findpath(citydist, 1e6, 1)
+chomp $ref;
+is($result, $ref);
+done_testing();
