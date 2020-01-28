@@ -4559,7 +4559,7 @@ File: M/Mersenne_primes
 File: M/Mertens_function
 #!/usr/local/bin/perl
 #u# http://rosettacode.org/wiki/Mertens_function
-#c# 2020-01-xx >RC
+#c# 2020-01-27 >RC
 #p# OK
 
 File: M/Metallic_ratios
@@ -4651,6 +4651,13 @@ File: M/Modular_inverse
 #c# 2018-08-18 <RC
 #p# OK
 
+File: M/Moebius_function
+#!/usr/local/bin/perl
+#u# http://rosettacode.org/wiki/Möbius_function
+#c# 2020-01-27 >RC
+#p# OK
+#n# annotated chained ternaries for Oscar...
+
 File: M/Monads_List_monad
 #!/usr/local/bin/perl
 #u# http://rosettacode.org/wiki/Monads/List_monad
@@ -4708,12 +4715,6 @@ File: M/Move-to-front_algorithm
 #!/usr/local/bin/perl
 #u# http://rosettacode.org/wiki/Move-to-front_algorithm
 #c# 2018-08-19 <RC
-#p# OK
-
-File: M/Möbius_function
-#!/usr/local/bin/perl
-#u# http://rosettacode.org/wiki/Möbius_function
-#c# 2020-01-xx >RC
 #p# OK
 
 File: M/Multi-dimensional_array
