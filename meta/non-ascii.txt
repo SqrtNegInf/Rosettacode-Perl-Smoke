@@ -391,12 +391,7 @@ S/Set_of_real_numbers
 ∪:    14 UNION
 
 S/Simulated_annealing
-Δ:     4 GREEK CAPITAL LETTER DELTA
-δ:     4 GREEK SMALL LETTER DELTA
-₀:     1 SUBSCRIPT ZERO
-ₛ:    12 LATIN SUBSCRIPT SMALL LETTER S
-→:     2 RIGHTWARDS ARROW
-∆:     2 INCREMENT
+Δ:     6 GREEK CAPITAL LETTER DELTA
 
 S/Snake
 ╴:     1 BOX DRAWINGS LIGHT LEFT
@@ -415,9 +410,6 @@ S/Snake
 
 S/Solving_coin_problems
 ¢:     2 CENT SIGN
-
-S/Solving_coin_problems.0
-¢:     3 CENT SIGN
 
 S/Sparkline_in_unicode
 ▁:     4 LOWER ONE EIGHTH BLOCK
