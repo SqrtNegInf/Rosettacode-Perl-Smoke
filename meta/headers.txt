@@ -1648,13 +1648,6 @@ File: C/Create_an_object_Native_demonstration
 #p# OK
 #n# "Tie::Hash" not allowed while "strict subs" in use
 
-File: C/Create_an_object_at_a_given_address
-#!/usr/local/bin/perl
-#u# http://rosettacode.org/wiki/Create_an_object_at_a_given_address
-#t# inprogress
-#c# 2019-10-07 >RC
-#p# OK
-
 File: C/Cuban_primes
 #!/usr/local/bin/perl
 #u# http://rosettacode.org/wiki/Cuban_primes
@@ -1983,9 +1976,10 @@ File: D/Display_an_outline_as_a_nested_table
 File: D/Display_an_outline_as_a_nested_table.0
 #!/usr/local/bin/perl
 #u# http://rosettacode.org/wiki/Display_an_outline_as_a_nested_table
-#t# inprogress
-#c# 2019-11-xx >RC
-#p# OK
+#t# skiptest
+#c# 2019-11-xx NOT ON RC
+#p# BROKEN
+#n# unlikely to work on this anytime soon
 
 File: D/Distributed_programming
 #!/usr/local/bin/perl
@@ -6713,10 +6707,9 @@ File: S/Simulate_input_Keyboard
 
 File: S/Simulated_annealing
 #!/usr/local/bin/perl
-#u# http://rosettacode.org/wiki/RC_REMOTE
-#t# skiptest
-#c# 2019-05-xx >RC
-#p# BROKEN
+#u# http://rosettacode.org/wiki/Simulated_annealing
+#c# 2020-01-27 >RC
+#p# OK
 
 File: S/Sine_wave
 #!/usr/local/bin/perl
@@ -6843,13 +6836,6 @@ File: S/Solving_coin_problems
 #p# OK
 #f# RC file: solving_coin_problems.dat
 #n# next step: remove dependence on MAXIMA
-
-File: S/Solving_coin_problems.0
-#!/usr/local/bin/perl
-#u# http://rosettacode.org/wiki/Solving_coin_problems
-#c# 2020-01-22 <RC, 2020-01-23 >RC
-#p# OK
-#f# RC file: solving_coin_problems.dat
 
 File: S/Sort_a_list_of_object_identifiers-1
 #!/usr/local/bin/perl
@@ -7729,10 +7715,11 @@ File: T/Thiele%27s_interpolation_formula
 File: T/Thiele%27s_interpolation_formula.0
 #!/usr/local/bin/perl
 #u# http://rosettacode.org/wiki/Thiele\'s_interpolation_formula
-#t# inprogress
-#c# 2019-10-xx >RC
+#t# skiptest
+#c# 2019-10-xx NOT ON RC
 #p# BROKEN
 #n# made default table size 12, 'invcos' converges slowly
+#n# abandoned this approach
 
 File: T/Thue-Morse
 #!/usr/local/bin/perl
