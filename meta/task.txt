@@ -1,16 +1,16 @@
 
 This is perl 5, version 30, subversion 0 (v5.30.0) built for darwin-thread-multi-2level
 updating from RC…
-+------------> Perl: Good/Bad [1247/12]
++------------> Perl: Good/Bad [1249/12]
 |+-----------> Smoke testing [1114]
-||+----------> sKipping validation [140]
+||+----------> sKipping validation [141]
 |||+---------> Interactive [55]
-||||+--------> Touched (modified by me) [379]
+||||+--------> Touched (modified by me) [380]
 |||||+-------> Random seed [100]
 ||||||+------> File output [67]
-|||||||+-----> Draft [226]
+|||||||+-----> Draft [225]
 ||||||||+----> Ignoring [31]
-|||||||||+---> Void (no local copy) [133]
+|||||||||+---> Void (no local copy) [132]
 ||||||||||+--> Un-implemented/reliable [125]
 |||||||||||
 GS......... 100_doors-1
@@ -311,7 +311,7 @@ GS......... Currying
 GS..T.FD... Curve_that_touches_three_points
 GS......... Cut_a_rectangle
 GS..T..D... Cycle_detection
-.........VU Cyclotomic_Polynomial
+.......D.VU Cyclotomic_Polynomial
 GS......... DNS_query
 .......D... Damm_algorithm
 GS..T...... Damm_algorithm-1
@@ -479,7 +479,7 @@ GS......... First-class_functions_Use_numbers_analogously
 GS......... First_class_environments
 GS..T...... First_perfect_square_in_base_N_with_N_unique_digits-1
 GS..T...... First_perfect_square_in_base_N_with_N_unique_digits-2
-GS..T..D... First_power_of_2_that_has_leading_decimal_digits_of_12
+GS..T...... First_power_of_2_that_has_leading_decimal_digits_of_12
 GS......... Five_weekends
 GS..T..D... Fivenum
 GS..T.F.... Fixed_length_records
@@ -605,10 +605,10 @@ GS..T...... Idiomatically_determine_all_the_characters_that_can_be_used_for_symb
 GS..T...... Idiomatically_determine_all_the_lowercase_and_uppercase_letters
 GS..T.F.... Image_convolution
 G.KIT...... Image_noise
-.........VU Imaginary_base_numbers
+G.K.T.....U Imaginary_base_numbers
 G.K.T..D... Implicit_type_conversion
 G.K........ Include_a_file
-GS..T..D... Increasing_gaps_between_consecutive_Niven_numbers
+GS..T...... Increasing_gaps_between_consecutive_Niven_numbers
 GS......... Increment_a_numerical_string
 GS..T...... Index_finite_lists_of_positive_integers-1
 B...TR..... Index_finite_lists_of_positive_integers-2
@@ -1004,7 +1004,7 @@ GS..T...... Range_extraction
 GS..T...... Ranking_methods
 G.K.T.....U Rare_numbers
 .......D.VU Raster_bars
-!S......... Rate_counter
+GS......... Rate_counter
 GS......... Ray-casting_algorithm
 GS......... Read_a_configuration_file
 GS.....D... Read_a_file_character_by_character_UTF8
