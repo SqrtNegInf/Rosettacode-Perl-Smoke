@@ -3557,6 +3557,13 @@ File: I/Image_noise
 #c# 2018-11-28 >RC
 #p# OK
 
+File: I/Imaginary_base_numbers
+#!/usr/local/bin/perl
+#u# http://rosettacode.org/wiki/Imaginary_base_numbers
+#t# inprogress
+#c# 2020-01-xx >RC
+#p# OK
+
 File: I/Implicit_type_conversion
 #!/usr/local/bin/perl
 #u# http://rosettacode.org/wiki/Implicit_type_conversion
