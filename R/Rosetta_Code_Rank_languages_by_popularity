@@ -3,6 +3,7 @@
 #c# 2018-08-21 <RC, 2019-09-11 >RC
 #p# OK
 #n# testing somewhat fragile
+#n# 2020-01-29 Pleased to welcome 'C' to the '1000 club'
 
 use 5.010;
 use MediaWiki::API;
@@ -48,6 +49,6 @@ for (@sorted_languages) {
 say join "\n", @res;
 
 use Test::More;
-ok @res == 8;
+ok @res == 9;
 #ok @res >= 6 and @res < 10;
 done_testing();
