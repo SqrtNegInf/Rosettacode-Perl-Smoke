@@ -1700,6 +1700,14 @@ File: C/Cycle_detection
 #c# 2018-11-26 >RC
 #p# OK
 
+File: C/Cyclotomic_Polynomial
+#!/usr/local/bin/perl
+#u# http://rosettacode.org/wiki/Cyclotomic_Polynomial
+#c# 2020-01-30 >RC
+#p# OK
+#n# didn't get to 10: exponent too large at /usr/local/lib/perl5/site_perl/5.30.0/Math/Polynomial/Cyclotomic.pm line 29.
+#n# slow: 8044.630u 14.225s 2:14:29.80 99.8% 
+
 File: D/DNS_query
 #!/usr/local/bin/perl
 #u# http://rosettacode.org/wiki/DNS_query
@@ -3561,7 +3569,7 @@ File: I/Imaginary_base_numbers
 #!/usr/local/bin/perl
 #u# http://rosettacode.org/wiki/Imaginary_base_numbers
 #t# inprogress
-#c# 2020-01-xx >RC
+#c# 2020-01-31 >RC
 #p# OK
 
 File: I/Implicit_type_conversion
@@ -6263,6 +6271,7 @@ File: R/Rosetta_Code_Rank_languages_by_popularity
 #c# 2018-08-21 <RC, 2019-09-11 >RC
 #p# OK
 #n# testing somewhat fragile
+#n# 2020-01-29 Pleased to welcome 'C' to the '1000 club'
 
 File: R/Rosetta_Code_Tasks_without_examples
 #!/usr/local/bin/perl
