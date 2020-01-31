@@ -1,14 +1,14 @@
 
 This is perl 5, version 30, subversion 0 (v5.30.0) built for darwin-thread-multi-2level
 updating from RC…
-+------------> Perl: Good/Bad [1249/12]
-|+-----------> Smoke testing [1114]
++------------> Perl: Good/Bad [1251/12]
+|+-----------> Smoke testing [1115]
 ||+----------> sKipping validation [141]
 |||+---------> Interactive [55]
-||||+--------> Touched (modified by me) [380]
+||||+--------> Touched (modified by me) [381]
 |||||+-------> Random seed [100]
 ||||||+------> File output [67]
-|||||||+-----> Draft [225]
+|||||||+-----> Draft [226]
 ||||||||+----> Ignoring [31]
 |||||||||+---> Void (no local copy) [132]
 ||||||||||+--> Un-implemented/reliable [125]
@@ -311,7 +311,7 @@ GS......... Currying
 GS..T.FD... Curve_that_touches_three_points
 GS......... Cut_a_rectangle
 GS..T..D... Cycle_detection
-.......D.VU Cyclotomic_Polynomial
+GS..T..D... Cyclotomic_Polynomial
 GS......... DNS_query
 .......D... Damm_algorithm
 GS..T...... Damm_algorithm-1
@@ -448,6 +448,7 @@ GS.....D... Faulhaber%27s_triangle
 GS..T..D... Feigenbaum_constant_calculation
 GS..T...... Fermat_numbers
 .......D.VU Fibonacci_heap
+.......D.VU Fibonacci_matrix-exponentiation
 GS......... Fibonacci_n-step_number_sequences
 GS......... Fibonacci_sequence-1
 GS......... Fibonacci_sequence-2
@@ -1057,7 +1058,7 @@ GS..T...... Rosetta_Code_Find_unimplemented_tasks
 GS......... Rosetta_Code_Fix_code_tags
 .......D.VU Rosetta_Code_List_authors_of_task_descriptions
 GS..T..D... Rosetta_Code_Rank_languages_by_number_of_users
-!S..T...... Rosetta_Code_Rank_languages_by_popularity
+GS..T...... Rosetta_Code_Rank_languages_by_popularity
 .......D.VU Rosetta_Code_Run_examples
 .......D.VU Rosetta_Code_Tasks_sorted_by_average_lines_of_code
 GS..T..D... Rosetta_Code_Tasks_without_examples
