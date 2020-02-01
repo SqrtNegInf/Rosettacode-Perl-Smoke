@@ -21,7 +21,7 @@ sub compound_duration {
     join ', ', @out;
 }
 
-for (7259, 86400, 6000000) {
+for (7259, 86400, 6000000, 7654321) {
     $result .= sprintf "%7d sec  =  %s\n", $_, compound_duration($_)
 }
 
@@ -31,6 +31,7 @@ my $ref = <<'EOD';
    7259 sec  =  2 hr, 59 sec
   86400 sec  =  1 d
 6000000 sec  =  9 wk, 6 d, 10 hr, 40 min
+7654321 sec  =  12 wk, 4 d, 14 hr, 12 min, 1 sec
 EOD
 
 use Test::More;
