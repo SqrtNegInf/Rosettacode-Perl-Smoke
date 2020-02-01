@@ -224,9 +224,6 @@ H/Horizontal_sundial_calculations
 I/Idiomatically_determine_all_the_characters_that_can_be_used_for_symbols
 鲜:     3 CJK UNIFIED IDEOGRAPH-9C9C
 
-I/Imaginary_base_numbers
-²:     2 SUPERSCRIPT TWO
-
 K/K-means%2B%2B_clustering
 »:     1 RIGHT-POINTING DOUBLE ANGLE QUOTATION MARK
 
