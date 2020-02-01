@@ -1703,10 +1703,10 @@ File: C/Cycle_detection
 File: C/Cyclotomic_Polynomial
 #!/usr/local/bin/perl
 #u# http://rosettacode.org/wiki/Cyclotomic_Polynomial
-#c# 2020-01-30 >RC
+#c# 2020-01-30 >RC, 2020-01-31 <RC
 #p# OK
-#n# didn't get to 10: exponent too large at /usr/local/lib/perl5/site_perl/5.30.0/Math/Polynomial/Cyclotomic.pm line 29.
-#n# slow: 8044.630u 14.225s 2:14:29.80 99.8% 
+#n# post in haste, repent at leisure (kudos to trizen++ for cleaning up my mess)
+#n# 2219.698u 4.298s 37:06.13 99.9% for '<= 9' in 2nd part
 
 File: D/DNS_query
 #!/usr/local/bin/perl
@@ -3568,7 +3568,6 @@ File: I/Image_noise
 File: I/Imaginary_base_numbers
 #!/usr/local/bin/perl
 #u# http://rosettacode.org/wiki/Imaginary_base_numbers
-#t# inprogress
 #c# 2020-01-31 >RC
 #p# OK
 
