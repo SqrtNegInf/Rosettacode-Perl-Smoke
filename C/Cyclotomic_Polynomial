@@ -1,44 +1,36 @@
 #!/usr/local/bin/perl
 #u# http://rosettacode.org/wiki/Cyclotomic_Polynomial
-#c# 2020-01-30 >RC
+#c# 2020-01-30 >RC, 2020-01-31 <RC
 #p# OK
-#n# didn't get to 10: exponent too large at /usr/local/lib/perl5/site_perl/5.30.0/Math/Polynomial/Cyclotomic.pm line 29.
-#n# slow: 8044.630u 14.225s 2:14:29.80 99.8% 
+#n# post in haste, repent at leisure (kudos to trizen++ for cleaning up my mess)
+#n# 2219.698u 4.298s 37:06.13 99.9% for '<= 9' in 2nd part
+
+use feature 'say';
 
 my @res;
 
-use strict;
-use warnings;
 use feature 'say';
-
+use List::Util qw(first);
 use Math::Polynomial::Cyclotomic qw(cyclo_poly_iterate);
- 
+
 push @res, 'First 30 cyclotomic polynomials:';
 my $it = cyclo_poly_iterate(1);
-push @res, "$_: " . $it->() for 1..30;
+push @res, "$_: " . $it->() for 1 .. 30;
 
 push @res, "\nSmallest cyclotomic polynomial with n or -n as a coefficient:";
-
 $it = cyclo_poly_iterate(1);
-$it->();
-my $cnt = my $int = 1;
-push @res, "CP $int has coefficient with magnitude = 1";
-$int++;
-while ($int <= 4) {
-    $cnt++;
+
+for (my ($n, $k) = (1, 1) ; $n <= 4 ; ++$k) {
     my $poly = $it->();
-    next unless $poly =~ / $int\*/;
-    push @res, "CP $cnt has coefficient with magnitude = $int";
-    $int++;
-    if ($poly =~ / $int\*/) {
-        push @res, "CP $cnt has coefficient with magnitude = $int";
-        $int++;
+    while (my $c = first { abs($_) == $n } $poly->coeff) {
+        push @res, "CP $k has coefficient with magnitude = $n";
+        $n++;
     }
 }
- 
-say my $result = join "\n", @res;
 
-my $ref = <<'END';
+say $result = join "\n", @res;
+
+my $ref = <<'EOD';
 First 30 cyclotomic polynomials:
 1: (x - 1)
 2: (x + 1)
@@ -76,15 +68,14 @@ CP 1 has coefficient with magnitude = 1
 CP 105 has coefficient with magnitude = 2
 CP 385 has coefficient with magnitude = 3
 CP 1365 has coefficient with magnitude = 4
-END
+EOD
 #CP 1785 has coefficient with magnitude = 5
 #CP 2805 has coefficient with magnitude = 6
 #CP 3135 has coefficient with magnitude = 7
 #CP 6545 has coefficient with magnitude = 8
 #CP 6545 has coefficient with magnitude = 9
-#CP 10465 has coefficient with magnitude = 10
 
 use Test::More;
 chomp $ref;
-is($result, $ref);
+is ($result, $ref);
 done_testing();
