@@ -1,25 +1,29 @@
 #!/usr/local/bin/perl
 #u# http://rosettacode.org/wiki/Imaginary_base_numbers
-#t# inprogress
 #c# 2020-01-31 >RC
 #p# OK
-
-use Data::Printer;
-use Time::HiRes qw(sleep);
 
 use strict;
 use warnings;
 use feature 'say';
 
 use Math::Complex;
-use ntheory qw<todigitstring>;
 use List::AllUtils qw(sum mesh);
+use ntheory qw<todigitstring fromdigits>;
 
 my @res;
 
+sub zip {
+    my($a,$b) = @_;
+    my($la, $lb) = (length $a, length $b);
+    my $l = '0' x abs $la - $lb;
+    $a .= $l if $la < $lb;
+    $b .= $l if $lb < $la;
+    (join('', mesh(@{[split('',$a),]}, @{[split('',$b),]})) =~ s/0+$//r) or 0;
+}
+
 sub base_i {
     my($num,$radix,$precision) = @_;
-    $precision //= -15;
     die unless $radix > -37 and $radix < -1;
     return '0' unless $num;
     my $value  = $num;
@@ -33,7 +37,7 @@ sub base_i {
     while (($value or $place > 0) and $place > $precision) {
         my $digit = int $radix * $value - $lower_bound;
         $value    =  $radix * $value - $digit;
-        $result  .= '.' unless $place or ! index($result, '.');
+        $result  .= '.' unless $place or not index($result, '.');
         $result  .= $digit == -$radix ? todigitstring($digit-1, -$radix) . '0' : (todigitstring($digit, -$radix) or '0');
         $place--;
     }
@@ -42,137 +46,73 @@ sub base_i {
 
 sub base_c {
     my($num, $radix, $precision) = @_;
-    $precision //= -8;
     die "Base $radix out of range" unless 
         (-6 <= $radix->Im or $radix->Im <= -2) or (2 <= $radix->Im or $radix->Im <= 6);
-    my ($re,$im) = (0, 0);
-    if (defined $num->Im) { ($re, $im) = ($num->Re, $num->Im); } else { $re = $num; }
-    my ($re_wh, $re_fr) = split /\./, base_i( $re,              -1 * int(($radix->Im)**2), $precision);
-    $re_fr //= '0';
-    my ($im_wh, $im_fr) = split /\./, base_i( ($im/($radix->Im)), -1 * int(($radix->Im)**2), $precision);
-    $im_fr //= '0';
+    my ($re,$im);
+    defined $num->Im ? ($re, $im) = ($num->Re, $num->Im) : $re = $num;
+    my ($re_wh, $re_fr) = split /\./, base_i(  $re,               -1 * int($radix->Im**2), $precision);
+    my ($im_wh, $im_fr) = split /\./, base_i( ($im/($radix->Im)), -1 * int($radix->Im**2), $precision);
     $_ //= '' for $re_fr, $im_fr;
-
-    sub zip {
-        my($a,$b) = @_;
-        my $l = '0' x abs(length($a) - length($b));
-        $a .= $l if length($a) < length($b);
-        $b .= $l if length($b) < length($a);
-        my @a = split(//,$a); my @b = split(//,$b);
-        my $foo = join '', mesh(@a, @b);
-        $foo =~ s/0+$//;
-        return $foo ? $foo : 0;
-    }
 
     my $whole = join '', reverse split '', zip join('', reverse split '', $re_wh), join('', reverse split '', $im_wh);
     my $fraction = zip $im_fr, $re_fr;
     $fraction eq 0 ? "$whole" : "$whole.$fraction"
 }
 
+sub parse_base {
+    my($str, $radix) = @_;
+    return -1 * parse_base( substr($str,1), $radix) if substr($str,0,1) eq '-';
+    my($whole, $frac) = split /\./, $str;
+    my $k = my $fraction = 0;
+    $fraction = sum map { (fromdigits($_, int $radix->Im**2) || 0) * $radix ** -($k++ +1) }         split '', $frac
+        if $frac;
+    $k = 0;
+    $fraction + sum map { (fromdigits($_, int $radix->Im**2) || 0) * $radix **   $k++     } reverse split '', $whole;
+}
+
 for (
-    [0+0*i, 0+2*i], [1+0*i, 0+2*i], [5+0*i,      0+2*i], [-13+0*i, 0+2*i], 
-    [0+9*i, 0+2*i], [0-3*i, 0+2*i], [7.75-7.5*i, 0+2*i], [0.25+0*i, 0+2*i], 
-    [5+5*i, 0+2*i], [5+5*i, 0+3*i], [5+5*i, 0+4*i], [5+5*i, 0+5*i], [5+5*i, 0+6*i],
-    [5+5*i, 0-2*i], [5+5*i, 0-3*i], [5+5*i, 0-4*i], [5+5*i, 0-5*i], [5+5*i, 0-6*i]
+    [  0*i,  2*i], [1+0*i,  2*i], [     5+0*i, 2*i], [ -13+0*i, 2*i], 
+    [  9*i,  2*i], [ -3*i,  2*i], [7.75-7.5*i, 2*i], [0.25+0*i, 2*i], 
+    [5+5*i,  2*i], [5+5*i,  3*i], [5+5*i,  4*i], [5+5*i,  5*i], [5+5*i,  6*i],
+    [5+5*i, -2*i], [5+5*i, -3*i], [5+5*i, -4*i], [5+5*i, -5*i], [5+5*i, -6*i]
 ) {
     my($v,$r) = @$_;
     my $ibase = base_c($v, $r, -6);
-    push @res, sprintf "%10s b(%3s) = %s", $v, $r, $ibase;
+    my $rt = cplx parse_base($ibase, $r); 
+    $rt->display_format('format' => '%.2f');
+    push @res, sprintf "base(%3s): %10s  => %9s  => %13s", $r, $v, $ibase, $rt;
 }
 
-my $result = join "\n", @res;
-
-my $ref = <<'END';
-         0 b( 2i) = 0
-         1 b( 2i) = 1
-         5 b( 2i) = 10301
-       -13 b( 2i) = 1030003
-        9i b( 2i) = 103010.2
-       -3i b( 2i) = 1030.2
- 7.75-7.5i b( 2i) = 11210.31
-      0.25 b( 2i) = 1.03
-      5+5i b( 2i) = 10331.2
-      5+5i b( 3i) = 25.3
-      5+5i b( 4i) = 25.c
-      5+5i b( 5i) = 15
-      5+5i b( 6i) = 15.6
-      5+5i b(-2i) = 11321.2
-      5+5i b(-3i) = 1085.6
-      5+5i b(-4i) = 10f5.4
-      5+5i b(-5i) = 10o5
-      5+5i b(-6i) = 5.u
-END
-
-use Test::More;
-chomp $ref;
-is($result, $ref);
-done_testing();
-
-__END__
-
-sub parse_base {
-    my($str, $radix) = @_; # Complex radix where *.re == 0) 
-    return -1 * $str.substr(1).&parse_base($radix) if substr($str,0,1) eq '-';
-    my ($whole, $frac) = split: /\./, $str;
-    my $fraction = 0;
-    $fraction = sum $frac.comb.kv.map: { $^v.parse_base($radix.im².Int) * $radix ** -($^k+1) } if $frac;
-    $fraction + sum $whole.flip.comb.kv.map: { $^v.parse_base($radix.im².Int) * $radix ** $^k }
-}
-
-for 0, 2i, 1, 2i, 5, 2i, -13, 2i, 9i, 2i, -3i, 2i, 7.75-7.5i, 2i, .25, 2i, 5+5i,  2i, # base 2i tests
-    5+5i,  3i, 5+5i,  4i, 5+5i,  5i, 5+5i,  6i,            # same value, positive imaginary bases
-    5+5i, -2i, 5+5i, -3i, 5+5i, -4i, 5+5i, -5i, 5+5i, -6i, # same value, negative imaginary bases
-    227.65625+10.859375i, 4i, # larger test value
-    31433.3487654321-2902.4480452675i, 6i # heh
-  -> $v, $r {
-my $ibase = $v.&base($r, :precision(-6));
-#@res.push: sprintf "%33s.&base\(%2si\) = %-11s : %13s.&parse_base\(%2si\) = %s",
-#  $v, $r.im, $ibase, "'$ibase'", $r.im, $ibase.&parse_base($r).round(1e-10).narrow;
-}
-
-#.say for @res;
-
-my $ref = <<'END';
-                                0.&base( 2i) = 0           :           '0'.&parse-base( 2i) = 0
-                                1.&base( 2i) = 1           :           '1'.&parse-base( 2i) = 1
-                                5.&base( 2i) = 10301       :       '10301'.&parse-base( 2i) = 5
-                              -13.&base( 2i) = 1030003     :     '1030003'.&parse-base( 2i) = -13
-                             0+9i.&base( 2i) = 103010.2    :    '103010.2'.&parse-base( 2i) = 0+9i
-                            -0-3i.&base( 2i) = 1030.2      :      '1030.2'.&parse-base( 2i) = 0-3i
-                        7.75-7.5i.&base( 2i) = 11210.31    :    '11210.31'.&parse-base( 2i) = 7.75-7.5i
-                             0.25.&base( 2i) = 1.03        :        '1.03'.&parse-base( 2i) = 0.25
-                             5+5i.&base( 2i) = 10331.2     :     '10331.2'.&parse-base( 2i) = 5+5i
-                             5+5i.&base( 3i) = 25.3        :        '25.3'.&parse-base( 3i) = 5+5i
-                             5+5i.&base( 4i) = 25.C        :        '25.C'.&parse-base( 4i) = 5+5i
-                             5+5i.&base( 5i) = 15          :          '15'.&parse-base( 5i) = 5+5i
-                             5+5i.&base( 6i) = 15.6        :        '15.6'.&parse-base( 6i) = 5+5i
-                             5+5i.&base(-2i) = 11321.2     :     '11321.2'.&parse-base(-2i) = 5+5i
-                             5+5i.&base(-3i) = 1085.6      :      '1085.6'.&parse-base(-3i) = 5+5i
-                             5+5i.&base(-4i) = 10F5.4      :      '10F5.4'.&parse-base(-4i) = 5+5i
-                             5+5i.&base(-5i) = 10O5        :        '10O5'.&parse-base(-5i) = 5+5i
-                             5+5i.&base(-6i) = 5.U         :         '5.U'.&parse-base(-6i) = 5+5i
-             227.65625+10.859375i.&base( 4i) = 10234.5678  :  '10234.5678'.&parse-base( 4i) = 227.65625+10.859375i
-31433.3487654321-2902.4480452675i.&base( 6i) = PERL6.ROCKS : 'PERL6.ROCKS'.&parse-base( 6i) = 31433.3487654321-2902.4480452675i
-END
-
-use Test;
-is @res.join("\n"), chomp $ref;
+push @res, '';
+push @res, 'base( 6i): 31432.6219135802-2898.5266203704*i => ' .
+                base_c(31432.6219135802-2898.5266203704*i, 6*i, -3);
 
 say my $result = join "\n", @res;
+
 my $ref = <<'END';
+base( 2i):          0  =>         0  =>             0
+base( 2i):          1  =>         1  =>          1.00
+base( 2i):          5  =>     10301  =>    5.00-0.00i
+base( 2i):        -13  =>   1030003  =>  -13.00+0.00i
+base( 2i):         9i  =>  103010.2  =>    0.00+9.00i
+base( 2i):        -3i  =>    1030.2  =>   -0.00-3.00i
+base( 2i):  7.75-7.5i  =>  11210.31  =>    7.75-7.50i
+base( 2i):       0.25  =>      1.03  =>    0.25-0.00i
+base( 2i):       5+5i  =>   10331.2  =>    5.00+5.00i
+base( 3i):       5+5i  =>      25.3  =>    5.00+5.00i
+base( 4i):       5+5i  =>      25.c  =>    5.00+5.00i
+base( 5i):       5+5i  =>        15  =>    5.00+5.00i
+base( 6i):       5+5i  =>      15.6  =>    5.00+5.00i
+base(-2i):       5+5i  =>   11321.2  =>    5.00+5.00i
+base(-3i):       5+5i  =>    1085.6  =>    5.00+5.00i
+base(-4i):       5+5i  =>    10f5.4  =>    5.00+5.00i
+base(-5i):       5+5i  =>      10o5  =>    5.00+5.00i
+base(-6i):       5+5i  =>       5.u  =>    5.00+5.00i
+
+base( 6i): 31432.6219135802-2898.5266203704*i => perl5.4ever
 END
 
 use Test::More;
 chomp $ref;
 is($result, $ref);
 done_testing();
-
-__END__
-
-=={{header|Perl}}==
-{{trans|Perl 6}}
-{{libheader|ntheory}}
-<lang perl></lang>
-{{out}}
-<pre style="height:20ex"></pre>
-[https://github.com/SqrtNegInf/Rosettacode-Perl5-Smoke/blob/master/ref/XXX XXX]
