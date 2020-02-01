@@ -1,0 +1,59 @@
+#!/usr/local/bin/perl
+#u# http://rosettacode.org/wiki/Möbius_function
+#c# 2020-02-xx >RC
+#p# OK
+#n# very close translation of Sidef
+
+use strict;
+use warnings;
+use feature 'say';
+
+my @res;
+
+use Math::AnyNum qw(fibmod floor);
+
+sub binet_approx {
+    my($n) = @_;
+    use constant PHI =>  (sqrt(1.25) + 0.5);
+    use constant IHP => -(sqrt(1.25) - 0.5);
+    (log(PHI)*$n - log(PHI-IHP))
+}
+ 
+sub nth_fib_first_k_digits {
+    my($n,$k) = @_;
+    my $f = binet_approx($n);
+    floor(exp($f - log(10)*(floor($f / log(10) + 1))) * 10**$k)
+}
+
+sub nth_fib_last_k_digits {
+    my($n,$k) = @_;
+    fibmod($n, 10**$k);
+}
+
+for my $n (16, 32) { #, 64) {
+    my $first20 = nth_fib_first_k_digits(2**$n, 20);
+    my $last20  = nth_fib_last_k_digits(2**$n, 20);
+    push @res, sprintf "F(2^$n) = %s ... %s", $first20, $last20;
+}
+
+say my $result = join "\n", @res;
+
+my $ref = <<'END';
+F(2^16) = 73199214459295283944 ... 97270190955307463227
+F(2^32) = 61999011211362773582 ... 39623735538208076347
+END
+#F(2^64) = 11175807536929528424 ... 17529800348089840187
+
+use Test::More;
+chomp $ref;
+is($result, $ref);
+done_testing();
+
+__END__
+
+=={{header|Perl}}==
+{{trans|Sidef}}
+{{libheader|ntheory}}
+<lang perl></lang>
+{{out}}
+<pre></pre>
