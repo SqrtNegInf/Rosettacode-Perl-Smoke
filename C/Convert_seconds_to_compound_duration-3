@@ -1,0 +1,43 @@
+#!/usr/local/bin/perl
+#u# http://rosettacode.org/wiki/Convert_seconds_to_compound_duration
+#c# 2020-02-01 >RC
+#p# OK
+#n# like P6/polymod
+
+use strict;
+use warnings;
+use feature 'say';
+
+use Math::AnyNum qw(polymod);
+
+my @res;
+
+sub compound_duration {
+    my $sec = shift;
+    my @out;
+
+    my @durations = reverse polymod($sec, 60, 60, 24, 7);
+    my @timespans = <wk d hr min sec>;
+    while (my $d = shift @durations, my $t = shift @timespans) {
+        push @out, "$d $t" if $d 
+    }
+    join ', ', @out
+}
+
+for (<7259 86400 6000000 7654321>) {
+    push @res, sprintf "%7d sec  =  %s", $_, compound_duration($_)
+}
+
+say my $result = join "\n", @res; 
+
+my $ref = <<'EOD';
+   7259 sec  =  2 hr, 59 sec
+  86400 sec  =  1 d
+6000000 sec  =  9 wk, 6 d, 10 hr, 40 min
+7654321 sec  =  12 wk, 4 d, 14 hr, 12 min, 1 sec
+EOD
+
+use Test::More;
+chomp $ref;
+is ($result, $ref);
+done_testing();
