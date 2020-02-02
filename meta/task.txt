@@ -1,14 +1,14 @@
 
 This is perl 5, version 30, subversion 0 (v5.30.0) built for darwin-thread-multi-2level
 updating from RC…
-+------------> Perl: Good/Bad [1251/12]
-|+-----------> Smoke testing [1116]
++------------> Perl: Good/Bad [1253/12]
+|+-----------> Smoke testing [1118]
 ||+----------> sKipping validation [140]
 |||+---------> Interactive [55]
-||||+--------> Touched (modified by me) [381]
+||||+--------> Touched (modified by me) [383]
 |||||+-------> Random seed [100]
 ||||||+------> File output [67]
-|||||||+-----> Draft [226]
+|||||||+-----> Draft [227]
 ||||||||+----> Ignoring [31]
 |||||||||+---> Void (no local copy) [132]
 ||||||||||+--> Un-implemented/reliable [124]
@@ -283,6 +283,7 @@ GS......... Continued_fraction_Arithmetic_Construct_from_rational_number
 GS......... Convert_decimal_number_to_rational
 GS......... Convert_seconds_to_compound_duration
 GS......... Convert_seconds_to_compound_duration-2
+GS..T...... Convert_seconds_to_compound_duration-3
 GS..T...... Convex_hull
 GS...R..... Conway%27s_Game_of_Life-1
 G.KI....... Conway%27s_Game_of_Life-2
@@ -440,6 +441,7 @@ GS......... Factors_of_a_Mersenne_number-2
 GS......... Factors_of_an_integer-1
 GS......... Factors_of_an_integer-2
 GS......... Factors_of_an_integer-3
+.......D.VU Fairshare_between_two_and_more
 GS......... Farey_sequence-1
 GS......... Farey_sequence-2
 GS......... Fast_Fourier_transform
@@ -448,7 +450,7 @@ GS.....D... Faulhaber%27s_triangle
 GS..T..D... Feigenbaum_constant_calculation
 GS..T...... Fermat_numbers
 .......D.VU Fibonacci_heap
-.......D.VU Fibonacci_matrix-exponentiation
+GS..T..D... Fibonacci_matrix-exponentiation
 GS......... Fibonacci_n-step_number_sequences
 GS......... Fibonacci_sequence-1
 GS......... Fibonacci_sequence-2
