@@ -1529,6 +1529,13 @@ File: C/Convert_seconds_to_compound_duration-2
 #p# OK
 #n# explicitly like APL/encode (and more like P6/polymod)
 
+File: C/Convert_seconds_to_compound_duration-3
+#!/usr/local/bin/perl
+#u# http://rosettacode.org/wiki/Convert_seconds_to_compound_duration
+#c# 2020-02-01 >RC
+#p# OK
+#n# like P6/polymod
+
 File: C/Convex_hull
 #!/usr/local/bin/perl
 #u# http://rosettacode.org/wiki/Convex_hull
@@ -2569,6 +2576,13 @@ File: F/Fermat_numbers
 #u# http://rosettacode.org/wiki/Fermat_numbers
 #c# 2019-09-03 >RC
 #p# OK
+
+File: F/Fibonacci_matrix-exponentiation
+#!/usr/local/bin/perl
+#u# http://rosettacode.org/wiki/Fibonacci_matrix-exponentiation
+#c# 2020-02-01 >RC
+#p# OK
+#n# very close translation of Sidef (needs ':overload', or starts failing at 2**53)
 
 File: F/Fibonacci_n-step_number_sequences
 #!/usr/local/bin/perl
