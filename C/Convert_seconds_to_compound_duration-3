@@ -8,23 +8,25 @@ use strict;
 use warnings;
 use feature 'say';
 
-use Math::AnyNum qw(polymod);
+use Math::AnyNum 'polymod';
 
 my @res;
 
 sub compound_duration {
-    my $sec = shift;
-    my @out;
+    my $seconds = shift;
+    my @terms;
 
-    my @durations = reverse polymod($sec, 60, 60, 24, 7);
+    my @durations = reverse polymod($seconds, 60, 60, 24, 7);
     my @timespans = <wk d hr min sec>;
     while (my $d = shift @durations, my $t = shift @timespans) {
-        push @out, "$d $t" if $d 
+        push @terms, "$d $t" if $d 
     }
-    join ', ', @out
+    join ', ', @terms
 }
 
-for (<7259 86400 6000000 7654321>) {
+# perl6 -e 'say [+] ([\*] <1 60 60 24 7>) Z* <1 2 3 4 5>'
+
+for (<7259 86400 6000000 3380521>) {
     push @res, sprintf "%7d sec  =  %s", $_, compound_duration($_)
 }
 
@@ -34,7 +36,7 @@ my $ref = <<'EOD';
    7259 sec  =  2 hr, 59 sec
   86400 sec  =  1 d
 6000000 sec  =  9 wk, 6 d, 10 hr, 40 min
-7654321 sec  =  12 wk, 4 d, 14 hr, 12 min, 1 sec
+3380521 sec  =  5 wk, 4 d, 3 hr, 2 min, 1 sec
 EOD
 
 use Test::More;
