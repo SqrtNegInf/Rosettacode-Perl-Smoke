@@ -2531,6 +2531,13 @@ File: F/Factors_of_an_integer-3
 #c# 2018-08-03 <RC
 #p# OK
 
+File: F/Fairshare_between_two_and_more
+#!/usr/local/bin/perl
+#u# http://rosettacode.org/wiki/Fairshare_between_two_and_more
+#c# 2020-02-02 >RC
+#p# OK
+#n# polymod used to 'count in base B' (low digits first which is what counts, modulus zaps higher ones)
+
 File: F/Farey_sequence-1
 #!/usr/local/bin/perl
 #u# http://rosettacode.org/wiki/Farey_sequence
