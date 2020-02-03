@@ -1,14 +1,14 @@
 
 This is perl 5, version 30, subversion 0 (v5.30.0) built for darwin-thread-multi-2level
 updating from RC…
-+------------> Perl: Good/Bad [1253/12]
-|+-----------> Smoke testing [1118]
++------------> Perl: Good/Bad [1254/12]
+|+-----------> Smoke testing [1119]
 ||+----------> sKipping validation [140]
 |||+---------> Interactive [55]
-||||+--------> Touched (modified by me) [383]
+||||+--------> Touched (modified by me) [384]
 |||||+-------> Random seed [100]
 ||||||+------> File output [67]
-|||||||+-----> Draft [227]
+|||||||+-----> Draft [228]
 ||||||||+----> Ignoring [31]
 |||||||||+---> Void (no local copy) [132]
 ||||||||||+--> Un-implemented/reliable [124]
@@ -441,7 +441,7 @@ GS......... Factors_of_a_Mersenne_number-2
 GS......... Factors_of_an_integer-1
 GS......... Factors_of_an_integer-2
 GS......... Factors_of_an_integer-3
-.......D.VU Fairshare_between_two_and_more
+GS..T..D... Fairshare_between_two_and_more
 GS......... Farey_sequence-1
 GS......... Farey_sequence-2
 GS......... Fast_Fourier_transform
@@ -871,6 +871,7 @@ GS......... Ordered_Partitions
 GS......... Ordered_Partitions-2
 GS......... Ordered_words
 GS......... P-value_correction
+.......D.VU Palindrome_dates
 GS......... Palindrome_detection
 .........VU Palindromic_gapful_numbers
 GS..T...... Pangram_checker
