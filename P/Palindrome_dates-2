@@ -1,0 +1,46 @@
+#!/usr/local/bin/perl
+#u# http://rosettacode.org/wiki/Palindrome_dates
+#c# 2020-02-03 <RC
+#p# OK
+#n# for no other reason than that it makes perfect sense to do so, trizen++ here uses time/date library
+
+my @res;
+
+use strict;
+use warnings;
+use feature 'say';
+
+use Time::Piece;
+my $d = Time::Piece->strptime("2020-02-03", "%Y-%m-%d");
+ 
+for (my $k = 1 ; $k <= 15 ; $d += Time::Piece::ONE_DAY) {
+    my $s = $d->strftime("%Y%m%d");
+    if ($s eq reverse($s) and ++$k) {
+        push @res, $d->strftime("%Y-%m-%d");
+    }
+}
+
+say my $result = join "\n", @res;
+
+my $ref = <<'END';
+2021-12-02
+2030-03-02
+2040-04-02
+2050-05-02
+2060-06-02
+2070-07-02
+2080-08-02
+2090-09-02
+2101-10-12
+2110-01-12
+2111-11-12
+2120-02-12
+2121-12-12
+2130-03-12
+2140-04-12
+END
+
+use Test::More;
+chomp $ref;
+is($result, $ref);
+done_testing();
