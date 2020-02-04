@@ -5178,6 +5178,22 @@ File: P/P-value_correction.1
 #c# 2018-08-20 <RC, 2018-12-20 <RC,
 #p# OK
 
+File: P/Palindrome_dates-1
+#!/usr/local/bin/perl
+#u# http://rosettacode.org/wiki/Palindrome_dates
+#c# 2020-02-02 >RC
+#p# OK
+#n# TIMTOWTDI, right?
+#n# day 31 (and leap years) aren't a factor in the near future
+#n# I would have use date libraries, except they are currently out-of-service for previously scheduled maintenance...
+
+File: P/Palindrome_dates-2
+#!/usr/local/bin/perl
+#u# http://rosettacode.org/wiki/Palindrome_dates
+#c# 2020-02-03 <RC
+#p# OK
+#n# for no other reason than that it makes perfect sense to do so, trizen++ here uses time/date library
+
 File: P/Palindrome_detection
 #!/usr/local/bin/perl
 #u# http://rosettacode.org/wiki/Palindrome_detection
