@@ -2,7 +2,8 @@
 #u# http://rosettacode.org/wiki/Palindrome_dates
 #c# 2020-02-02 >RC
 #p# OK
-#n# day 29/30/31 (and leap years) aren't a factor in the near future
+#n# TIMTOWTDI, right?
+#n# day 31 (and leap years) aren't a factor in the near future
 #n# I would have use date libraries, except they are currently out-of-service for previously scheduled maintenance...
 
 my @res;
@@ -21,7 +22,7 @@ my(@dates,$cnt);
 forsetproduct { push @dates, "@_" } [$y..$y+999],['01'..'12'],['01'..'31'];
 for (@dates) {
     (my $date = $_) =~ s/ //g;
-    next unless $date > $start and $date eq join '', reverse split '', $date;
+    next unless $date > $start and $date eq reverse $date;
 #    my($year,$month,$day) = split / /, $_;
 #    next if $month == $M{'Feb'} and $day > 28; # or ($day == 29 and not leap-year $year) );
 #    next if $day == 31 and any { $month == $M{$_} } keys %M;
@@ -53,24 +54,3 @@ use Test::More;
 chomp $ref;
 is($result, $ref);
 done_testing();
-
-__END__
-
-=={{header|Perl}}==
-<lang perl></lang>
-{{out}}
-<pre>2021-12-02
-2030-03-02
-2040-04-02
-2050-05-02
-2060-06-02
-2070-07-02
-2080-08-02
-2090-09-02
-2101-10-12
-2110-01-12
-2111-11-12
-2120-02-12
-2121-12-12
-2130-03-12
-2140-04-12</pre>
