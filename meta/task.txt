@@ -1,17 +1,17 @@
 
 This is perl 5, version 30, subversion 0 (v5.30.0) built for darwin-thread-multi-2level
 updating from RC…
-+------------> Perl: Good/Bad [1254/12]
-|+-----------> Smoke testing [1119]
++------------> Perl: Good/Bad [1256/12]
+|+-----------> Smoke testing [1121]
 ||+----------> sKipping validation [140]
 |||+---------> Interactive [55]
-||||+--------> Touched (modified by me) [384]
+||||+--------> Touched (modified by me) [385]
 |||||+-------> Random seed [100]
 ||||||+------> File output [67]
 |||||||+-----> Draft [228]
 ||||||||+----> Ignoring [31]
-|||||||||+---> Void (no local copy) [132]
-||||||||||+--> Un-implemented/reliable [124]
+|||||||||+---> Void (no local copy) [131]
+||||||||||+--> Un-implemented/reliable [123]
 |||||||||||
 GS......... 100_doors-1
 GS......... 100_doors-2
@@ -871,7 +871,9 @@ GS......... Ordered_Partitions
 GS......... Ordered_Partitions-2
 GS......... Ordered_words
 GS......... P-value_correction
-.......D.VU Palindrome_dates
+.......D... Palindrome_dates
+GS..T...... Palindrome_dates-1
+GS......... Palindrome_dates-2
 GS......... Palindrome_detection
 .........VU Palindromic_gapful_numbers
 GS..T...... Pangram_checker
