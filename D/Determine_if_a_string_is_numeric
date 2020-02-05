@@ -48,6 +48,10 @@ sub is_numeric { defined getnum($_[0]) }
 $result .= getnum('154') . "\n";
 $result .= getnum('1.54') . "\n";
 $result .= getnum('l.0O') . "\n";
+$result .= getnum('-2.6e-3') . "\n";
+$result .= getnum('0xA10') . "\n";
+$result .= getnum('Inf') . "\n";
+$result .= getnum('2+5i') . "\n"; # 'works' but bogus, discards 'i' portion
 
 say $result; 
 my $ref = <<'EOD';
@@ -56,6 +60,10 @@ not numeric
 154
 1.54
 0
+-0.0026
+2576
+Inf
+2
 EOD
 
 use Test::More;
