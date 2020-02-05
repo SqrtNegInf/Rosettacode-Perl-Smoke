@@ -8,7 +8,7 @@ updating from RC…
 ||||+--------> Touched (modified by me) [385]
 |||||+-------> Random seed [100]
 ||||||+------> File output [67]
-|||||||+-----> Draft [228]
+|||||||+-----> Draft [227]
 ||||||||+----> Ignoring [31]
 |||||||||+---> Void (no local copy) [131]
 ||||||||||+--> Un-implemented/reliable [123]
@@ -441,7 +441,7 @@ GS......... Factors_of_a_Mersenne_number-2
 GS......... Factors_of_an_integer-1
 GS......... Factors_of_an_integer-2
 GS......... Factors_of_an_integer-3
-GS..T..D... Fairshare_between_two_and_more
+GS..T...... Fairshare_between_two_and_more
 GS......... Farey_sequence-1
 GS......... Farey_sequence-2
 GS......... Fast_Fourier_transform
