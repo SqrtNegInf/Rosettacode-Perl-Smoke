@@ -1,0 +1,114 @@
+#!/usr/local/bin/perl
+#u# http://rosettacode.org/wiki/Spoof_game
+#c# 2020-02-xx >RC
+#p# OK
+#n# rendered non-interactive for testing
+
+use strict;
+use warnings;
+use feature 'say';
+
+srand 123456;
+
+my @res;
+
+sub query_for_integer {
+    my ($prompt) = @_;
+    while (1) {
+        print "$prompt " and chop($_ = <>);
+        /^\d+$/ ? return $_ : say '(need an integer)';
+    } 
+}
+ 
+sub spoof_for_2 {
+    my ($mypot, $myguess, $yourpot, $yourguess) = (0, 0, 0, 0);
+    my $ngames = 1; # query_for_integer('How many games do you want?');
+
+    for (1 .. $ngames) {
+
+        do {
+            $mypot   = 1 + int rand 3;
+            $myguess = 1 + int rand 6;
+        } until $mypot+3 < $myguess;
+        say 'I have set my pot and guess.';
+
+        do {
+            $yourpot   = 2; # query_for_integer('Your pot?'  );
+            $yourguess = 3; # query_for_integer('Your guess?');
+        } until (0 <= $yourpot and $yourpot <= 6) and (0 <= $yourguess and $yourguess <= 6) and $yourpot+4 > $yourguess;
+
+        push @res, "My pot is: $mypot\nMy guess is: $myguess";
+        my $pot = $mypot + $yourpot;
+
+        if ($myguess == $pot and $yourguess == $pot) { push @res, 'Draw!'      }
+        elsif ($myguess == $pot)                     { push @res, 'I won!'     }
+        elsif ($yourguess == $pot)                   { push @res, 'You won!'   }
+        else                                         { push @res, 'No winner!' }
+    }
+}
+ 
+spoof_for_2();
+
+say my $result = join "\n", @res;
+
+my $ref = <<'END';
+My pot is: 1
+My guess is: 6
+You won!
+END
+
+use Test::More;
+chomp $ref;
+is($result, $ref);
+done_testing();
+
+__END__
+
+=={{header|Perl}}==
+{{trans|Julia}}
+<lang perl> use strict;
+use warnings;
+use feature 'say';
+
+my @res;
+
+sub query_for_integer {
+    my ($prompt) = @_;
+    while (1) {
+        print "$prompt " and chop($_ = <>);
+        /^\d+$/ ? return $_ : say '(need an integer)';
+    } 
+}
+ 
+sub spoof_for_2 {
+    my ($mypot, $myguess, $yourpot, $yourguess) = (0, 0, 0, 0);
+    my $ngames = query_for_integer('How many games do you want?');
+
+    for (1 .. $ngames) {
+
+        while (1) {
+            $mypot   = 1 + int rand 3;
+            $myguess = 1 + int rand 6;
+            last if $mypot+3 < $myguess;
+        }
+        say 'I have put my pot and guess.';
+
+        while (1) {
+            $yourpot   = query_for_integer('Your pot?'  );
+            $yourguess = query_for_integer('Your guess?');
+            last if (0 <= $yourpot and $yourpot <= 6) and (0 <= $yourguess and $yourguess <= 6) and $yourpot+4 > $yourguess;
+        }
+
+        say "My put is: $mypot\nMy guess is: $myguess";
+        my $pot = $mypot + $yourpot;
+
+        if ($myguess == $pot and $yourguess == $pot) { say 'Draw!'      }
+        elsif ($myguess == $pot)                     { say 'I won!'     }
+        elsif ($yourguess == $pot)                   { say 'You won!'   }
+        else                                         { say 'No winner!' }
+    }
+}
+ 
+spoof_for_2();</lang>
+{{out}}
+<pre></pre>
