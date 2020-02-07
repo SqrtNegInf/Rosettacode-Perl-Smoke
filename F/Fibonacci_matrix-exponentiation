@@ -43,8 +43,6 @@ sub nth_fib_last_k_digits {
     fibmod($n, 10**$k);
 }
 
-printf "%.60f\n", log(2); exit;
-
 for my $n (16, 32, 64) {
     my $first20 = nth_fib_first_k_digits(2**$n, 20);
     my $last20  = nth_fib_last_k_digits(2**$n, 20);
