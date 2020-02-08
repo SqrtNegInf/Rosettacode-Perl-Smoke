@@ -7152,6 +7152,13 @@ File: S/Split_a_character_string_based_on_change_of_character
 #p# OK
 #n# not all elegant and Rakuvian, but hey it works
 
+File: S/Spoof_game
+#!/usr/local/bin/perl
+#u# http://rosettacode.org/wiki/Spoof_game
+#c# 2020-02-07 >RC
+#p# OK
+#n# rendered non-interactive for testing
+
 File: S/Square-free_integers
 #!/usr/local/bin/perl
 #u# http://rosettacode.org/wiki/Square-free_integers
