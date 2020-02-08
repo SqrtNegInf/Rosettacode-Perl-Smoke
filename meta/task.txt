@@ -1,17 +1,17 @@
 
 This is perl 5, version 30, subversion 0 (v5.30.0) built for darwin-thread-multi-2level
 updating from RC…
-+------------> Perl: Good/Bad [1256/12]
-|+-----------> Smoke testing [1121]
++------------> Perl: Good/Bad [1257/12]
+|+-----------> Smoke testing [1122]
 ||+----------> sKipping validation [140]
 |||+---------> Interactive [55]
-||||+--------> Touched (modified by me) [385]
-|||||+-------> Random seed [100]
+||||+--------> Touched (modified by me) [386]
+|||||+-------> Random seed [101]
 ||||||+------> File output [67]
 |||||||+-----> Draft [225]
 ||||||||+----> Ignoring [31]
-|||||||||+---> Void (no local copy) [131]
-||||||||||+--> Un-implemented/reliable [123]
+|||||||||+---> Void (no local copy) [130]
+||||||||||+--> Un-implemented/reliable [122]
 |||||||||||
 GS......... 100_doors-1
 GS......... 100_doors-2
@@ -1200,7 +1200,7 @@ GS..T...... Spelling_of_ordinal_numbers
 GS..T.F.... Spinning_rod_animation_Text
 GS......... Spiral_matrix
 GS..T...... Split_a_character_string_based_on_change_of_character
-.......D.VU Spoof_game
+GS..TR.D... Spoof_game
 GS......... Square-free_integers
 GS..T...... Square_but_not_cube-1
 GS..T...... Square_but_not_cube-2
