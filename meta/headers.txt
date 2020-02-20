@@ -8403,6 +8403,14 @@ File: Y/Yahoo_search_interface
 #p# OK
 #n# code OK, https problem
 
+File: Y/Yellowstone_sequence
+#!/usr/local/bin/perl
+#u# http://rosettacode.org/wiki/RC_REMOTE
+#t# inprogress
+#c# 2020-02-xx >RC
+#p# OK
+#f# RC file: yellowstone-sequence.svg
+
 File: Y/Yin_and_yang
 #!/usr/local/bin/perl
 #u# http://rosettacode.org/wiki/Yin_and_yang
