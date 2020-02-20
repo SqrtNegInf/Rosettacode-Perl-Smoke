@@ -1,5 +1,5 @@
 #!/usr/local/bin/perl
-#u# http://rosettacode.org/wiki/RC_REMOTE
+#u# http://rosettacode.org/wiki/Fraction_reduction
 #c# 2019-09-07 >RC
 #p# OK
 #n# takes over 4 minutes if '4' is included, about 180 minutes with '5'
