@@ -581,6 +581,9 @@ X/XML_Input
 Y/Y_combinator
 λ:     4 GREEK SMALL LETTER LAMDA
 
+Y/Yellowstone_sequence
+…:     1 HORIZONTAL ELLIPSIS
+
 Z/Zebra_puzzle
 ¿:     1 INVERTED QUESTION MARK
 Æ:     1 LATIN CAPITAL LETTER AE
