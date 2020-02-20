@@ -1,16 +1,16 @@
 
 This is perl 5, version 30, subversion 0 (v5.30.0) built for darwin-thread-multi-2level
 updating from RC…
-+------------> Perl: Good/Bad [1256/12]
++------------> Perl: Good/Bad [1258/12]
 |+-----------> Smoke testing [1122]
-||+----------> sKipping validation [140]
+||+----------> sKipping validation [141]
 |||+---------> Interactive [55]
-||||+--------> Touched (modified by me) [386]
+||||+--------> Touched (modified by me) [387]
 |||||+-------> Random seed [101]
-||||||+------> File output [67]
+||||||+------> File output [68]
 |||||||+-----> Draft [222]
 ||||||||+----> Ignoring [31]
-|||||||||+---> Void (no local copy) [131]
+|||||||||+---> Void (no local copy) [130]
 ||||||||||+--> Un-implemented/reliable [123]
 |||||||||||
 GS......... 100_doors-1
@@ -1305,7 +1305,7 @@ GS..T...... Thiele%27s_interpolation_formula
 GS......... Thue-Morse
 GS...R..... Tic-tac-toe
 .......D.VU Time-based_One-time_Password_Algorithm
-!S......... Time_a_function
+GS......... Time_a_function
 GS......... Tokenize_a_string
 GS......... Tokenize_a_string_with_escaping
 GS..T...... Tonelli-Shanks_algorithm
@@ -1413,7 +1413,7 @@ B.......... XML_XPath
 GS......... Xiaolin_Wu%27s_line_algorithm
 GS......... Y_combinator
 G.K........ Yahoo_search_interface
-.......D.VU Yellowstone_sequence
+G.K.T.FD..U Yellowstone_sequence
 GS....F.... Yin_and_yang
 GS......... Zebra_puzzle
 .........VU Zeckendorf_arithmetic
