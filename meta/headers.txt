@@ -2933,7 +2933,7 @@ File: F/Fractal_tree
 
 File: F/Fraction_reduction
 #!/usr/local/bin/perl
-#u# http://rosettacode.org/wiki/RC_REMOTE
+#u# http://rosettacode.org/wiki/Fraction_reduction
 #c# 2019-09-07 >RC
 #p# OK
 #n# takes over 4 minutes if '4' is included, about 180 minutes with '5'
@@ -8405,11 +8405,10 @@ File: Y/Yahoo_search_interface
 
 File: Y/Yellowstone_sequence
 #!/usr/local/bin/perl
-#u# http://rosettacode.org/wiki/RC_REMOTE
-#t# inprogress
-#c# 2020-02-xx >RC
+#u# http://rosettacode.org/wiki/Yellowstone_sequence
+#c# 2020-02-20 >RC
 #p# OK
-#f# RC file: yellowstone-sequence.svg
+#f# RC file: yellowstone-sequence.png
 
 File: Y/Yin_and_yang
 #!/usr/local/bin/perl
