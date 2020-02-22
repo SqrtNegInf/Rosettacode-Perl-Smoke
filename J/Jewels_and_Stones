@@ -30,21 +30,3 @@ EOD
 use Test::More;
 is ($result, $ref);
 done_testing();
-
-__END__
-
-=={{header|Perl}}==
-<lang perl>sub count_jewels {
-    my( $j, $s ) = @_;
-    my($c,%S);
-
-    $S{$_}++     for split //, $s;
-    $c += $S{$_} for split //, $j;
-    return "$c for $j in $s\n";
-}
-
-print count_jewels 'aA' , 'aAAbbbb';
-print count_jewels 'z'  , 'ZZ';</lang>
-{{out}}
-<pre>3 for aA in aAAbbbb
-0 for z in ZZ</pre>
