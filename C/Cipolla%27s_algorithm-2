@@ -80,17 +80,3 @@ say $result;
 use Test::More;
 is ($result, $ref);
 done_testing();
-
-__END__
-
-=={{header|Perl}}==
-{{trans|Perl 6}}
-<lang perl></lang>
-{{out}}
-<pre>Roots of 10 are (6, 7) mod 13
-Roots of 56 are (37, 64) mod 101
-Roots of 8218 are (9872, 135) mod 10007
-No solution for (8219, 10007)
-Roots of 331575 are (855842, 144161) mod 1000003
-Roots of 665165880 are (475131702, 524868305) mod 1000000007
-Roots of 881398088036 are (791399408049, 208600591990) mod 1000000000039</pre>
