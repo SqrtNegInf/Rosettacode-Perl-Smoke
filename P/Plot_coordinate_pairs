@@ -15,6 +15,7 @@ $gd = $graph->plot(\@data) or die $graph->error;
 
 # Save as image.
 
+my $format = $graph->export_format;
 open my $fh, '>', "run/qsort-range-10-9.$format";
 binmode $fh;
 print $fh $gd->$format();
