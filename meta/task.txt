@@ -1,17 +1,17 @@
 
 This is perl 5, version 30, subversion 0 (v5.30.0) built for darwin-thread-multi-2level
 updating from RC…
-+------------> Perl: Good/Bad [1257/12]
-|+-----------> Smoke testing [1123]
++------------> Perl: Good/Bad [1259/12]
+|+-----------> Smoke testing [1125]
 ||+----------> sKipping validation [140]
 |||+---------> Interactive [55]
 ||||+--------> Touched (modified by me) [387]
 |||||+-------> Random seed [101]
 ||||||+------> File output [68]
-|||||||+-----> Draft [222]
+|||||||+-----> Draft [224]
 ||||||||+----> Ignoring [31]
-|||||||||+---> Void (no local copy) [130]
-||||||||||+--> Un-implemented/reliable [122]
+|||||||||+---> Void (no local copy) [131]
+||||||||||+--> Un-implemented/reliable [123]
 |||||||||||
 GS......... 100_doors-1
 GS......... 100_doors-2
@@ -54,7 +54,7 @@ GS......... Ackermann_function-4
 GS......... Ackermann_function-5
 ........XV. Active_Directory_Connect
 .........VU Active_Directory_Search_for_a_user
-GS......... Active_object
+!S......... Active_object
 GS......... Add_a_variable_to_a_class_instance_at_runtime
 .......D.VU Addition-chain_exponentiation
 GS..T..D... Addition_chains
@@ -830,6 +830,7 @@ GS......... Nautical_bell-2
 GS..T...... Negative_base_numbers
 GS......... Nested_function
 GS..T...... Nested_templated_data
+.......D.VU Next_highest_int_from_digits
 GS..T...... Nim_Game
 GS......... Non-continuous_subsequences
 GS......... Non-decimal_radices_Convert
@@ -963,6 +964,9 @@ GS......... Power_set-6
 GS......... Power_set-7
 GS......... Power_set-8
 GS......... Power_set-9
+.......D... Powerful_numbers
+GS......... Powerful_numbers-1
+GS......... Powerful_numbers-2
 G.K........ Pragmatic_directives
 GS...R..... Price_fraction
 GS......... Primality_by_trial_division
@@ -1010,7 +1014,7 @@ GS..T...... Range_extraction
 GS..T...... Ranking_methods
 G.K.T.....U Rare_numbers
 .......D.VU Raster_bars
-!S......... Rate_counter
+GS......... Rate_counter
 GS......... Ray-casting_algorithm
 GS......... Read_a_configuration_file
 GS.....D... Read_a_file_character_by_character_UTF8
