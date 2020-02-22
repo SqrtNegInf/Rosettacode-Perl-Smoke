@@ -42,9 +42,3 @@ $random.clicked.tap: {
 }
  
 $app.run;
-
-__END__
-
-=={{header|Perl}}==
-{{trans|Perl 6}}
-<lang perl></lang>
