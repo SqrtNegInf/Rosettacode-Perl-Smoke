@@ -26,11 +26,3 @@ say colored('BLUE ON YELLOW', 'bold blue on_yellow');
 say colored('MAGENTA', 'bold magenta');
 say colored('CYAN ON RED', 'bold cyan on_red');
 say colored('YELLOW', 'bold yellow');
-
-__END__
-
-=={{header|Perl}}==
-{{trans|Perl 6}}
-<lang perl></lang>
-{{out}}
-<pre></pre>
