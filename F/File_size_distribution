@@ -56,18 +56,3 @@ use Test::More;
 chop $ref;
 is ($result, $ref);
 done_testing();
-
-__END__
-
-=={{header|Perl}}==
-{{trans|Perl 6}}
-<lang perl></lang>
-{{out}}
-<pre># files @    0b        5:
-# files @ 10e0b    46455: ████████████████████████████████████████████████████████████████████████████████
-# files @ 10e1b    26146: ████████████████████████████████████████▋
-# files @ 10e2b     3993: ▊
-# files @ 10e3b     1222: ▎
-# files @ 10e4b       19:
-# files @ 10e5b        3:
-77843 total files.</pre>
