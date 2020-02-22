@@ -1,0 +1,58 @@
+#!/usr/local/bin/perl
+#u# http://rosettacode.org/wiki/Powerful_numbers
+#c# 2020-02-21 <RC
+#p# OK
+
+use 5.020;
+use ntheory qw(is_square_free);
+use experimental qw(signatures);
+use Math::AnyNum qw(:overload idiv iroot ipow is_coprime);
+
+my @res;
+
+sub powerful_numbers ($n, $k = 2) {
+
+    my @powerful;
+
+    sub ($m, $r) {
+        if ($r < $k) {
+            push @powerful, $m;
+            return;
+        }
+        for my $v (1 .. iroot(idiv($n, $m), $r)) {
+            if ($r > $k) {
+                is_square_free($v) || next;
+                is_coprime($m, $v) || next;
+            }
+            __SUB__->($m * ipow($v, $r), $r - 1);
+        }
+    }->(1, 2*$k - 1);
+
+    sort { $a <=> $b } @powerful;
+}
+
+foreach my $k (2 .. 10) {
+    my @a = powerful_numbers(10**$k, $k);
+    my $h = join(', ', @a[0..4]);
+    my $t = join(', ', @a[$#a-4..$#a]);
+    push @res, sprintf("For k=%-2d there are %d k-powerful numbers <= 10^k: [%s, ..., %s]", $k, scalar(@a), $h, $t);
+}
+
+say my $result = join "\n", @res;
+
+my $ref = <<'EOD';
+For k=2  there are 14 k-powerful numbers <= 10^k: [1, 4, 8, 9, 16, ..., 49, 64, 72, 81, 100]
+For k=3  there are 20 k-powerful numbers <= 10^k: [1, 8, 16, 27, 32, ..., 625, 648, 729, 864, 1000]
+For k=4  there are 25 k-powerful numbers <= 10^k: [1, 16, 32, 64, 81, ..., 5184, 6561, 7776, 8192, 10000]
+For k=5  there are 32 k-powerful numbers <= 10^k: [1, 32, 64, 128, 243, ..., 65536, 69984, 78125, 93312, 100000]
+For k=6  there are 38 k-powerful numbers <= 10^k: [1, 64, 128, 256, 512, ..., 559872, 746496, 823543, 839808, 1000000]
+For k=7  there are 46 k-powerful numbers <= 10^k: [1, 128, 256, 512, 1024, ..., 7558272, 8388608, 8957952, 9765625, 10000000]
+For k=8  there are 52 k-powerful numbers <= 10^k: [1, 256, 512, 1024, 2048, ..., 60466176, 67108864, 80621568, 90699264, 100000000]
+For k=9  there are 59 k-powerful numbers <= 10^k: [1, 512, 1024, 2048, 4096, ..., 644972544, 725594112, 816293376, 967458816, 1000000000]
+For k=10 there are 68 k-powerful numbers <= 10^k: [1, 1024, 2048, 4096, 8192, ..., 7739670528, 8589934592, 8707129344, 9795520512, 10000000000]
+EOD
+
+use Test::More;
+chomp $ref;
+is ($result, $ref);
+done_testing();
