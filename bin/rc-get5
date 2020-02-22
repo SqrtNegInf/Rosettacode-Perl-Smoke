@@ -6,14 +6,16 @@ use utf8;
 
 use Modern::Perl;
 
-my $w = shift || die;
+my $w = join '_', @ARGV;
 $w =~ s#^.*wiki/##;
 $w =~ s/#.*//;
+$w =~ s/\*$//;
+$w =~ s#^\.\./##;
+$w =~ s#\s#_#g;
 
 (my $f = $w) =~ s#/#_#g;
 $f =~ s#'#_#g;
 $f =~ s#\$#_#g;
-#$f .= '.pl';
 
 if (-e "$f") {
 for my $i (reverse 1..8) {
