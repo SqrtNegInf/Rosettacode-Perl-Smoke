@@ -47,6 +47,15 @@ File: 0/15_Puzzle_Game-2
 #u# http://rosettacode.org/wiki/15_Puzzle_Game
 #c# 2018-07-01 <RC
 #p# OK
+#n# the kind of Perl that gives Perl a bad name, re-formatted it
+#f# RC file: 15_game.dat
+#=# RC pipe: 10\n8\n2\nq\n
+
+File: 0/15_Puzzle_Game-2.0
+#!/usr/local/bin/perl
+#u# http://rosettacode.org/wiki/15_Puzzle_Game
+#c# 2018-07-01 <RC
+#p# OK
 #n3 the kind of Perl that gives Perl a bad name... re-write?
 #f# RC file: 15_game.dat
 #=# RC pipe: 10\n8\n2\nq\n
@@ -4943,6 +4952,13 @@ File: N/Nested_templated_data
 #c# 2018-10-02 >RC
 #p# OK
 
+File: N/Next_highest_int_from_digits.0
+#!/usr/local/bin/perl
+#u# http://rosettacode.org/wiki/Next_highest_int_from_digits
+#t# inprogress
+#c# 2020-02-xx >RC
+#p# OK
+
 File: N/Nim_Game
 #!/usr/local/bin/perl
 #u# http://rosettacode.org/wiki/Nim_Game
@@ -5727,6 +5743,18 @@ File: P/Power_set-9
 #!/usr/local/bin/perl
 #u# http://rosettacode.org/wiki/Power_set
 #c# 2018-08-20 <RC
+#p# OK
+
+File: P/Powerful_numbers-1
+#!/usr/local/bin/perl
+#u# http://rosettacode.org/wiki/Powerful_numbers
+#c# 2020-02-21 <RC
+#p# OK
+
+File: P/Powerful_numbers-2
+#!/usr/local/bin/perl
+#u# http://rosettacode.org/wiki/Powerful_numbers
+#c# 2020-02-21 <RC
 #p# OK
 
 File: P/Pragmatic_directives
