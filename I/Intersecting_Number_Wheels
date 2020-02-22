@@ -52,11 +52,3 @@ use Test::More;
 chomp $ref;
 is($result, $ref);
 done_testing();
-
-__END__
-
-=={{header|Perl}}==
-{{trans|Julia}}
-<lang perl></lang>
-{{out}}
-<pre></pre>
