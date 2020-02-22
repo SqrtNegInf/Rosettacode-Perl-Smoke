@@ -56,12 +56,3 @@ EOD
 use Test::More;
 is ($result, $ref);
 done_testing();
-
-__END__
-
-=={{header|Perl}}==
-{{trans|Perl 6}}
-<lang perl>
-print join(' ' ,@$_) . "\n" for @a</lang>
-{{out}}
-<pre  style="height:35ex"></pre>
