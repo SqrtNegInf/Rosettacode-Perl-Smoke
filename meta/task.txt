@@ -1,8 +1,8 @@
 
 This is perl 5, version 30, subversion 0 (v5.30.0) built for darwin-thread-multi-2level
 updating from RC…
-+------------> Perl: Good/Bad [1258/12]
-|+-----------> Smoke testing [1124]
++------------> Perl: Good/Bad [1259/12]
+|+-----------> Smoke testing [1125]
 ||+----------> sKipping validation [140]
 |||+---------> Interactive [55]
 ||||+--------> Touched (modified by me) [387]
@@ -428,7 +428,7 @@ GS..T..D... External_sort
 GS.....D... Extract_file_extension
 GS......... Extreme_floating_point_values
 GS......... FASTA_format
-!S..T...... FTP
+GS..T...... FTP
 GS..T...... Faces_from_a_mesh
 GS......... Factorial-1
 GS......... Factorial-2
@@ -1014,7 +1014,7 @@ GS..T...... Range_extraction
 GS..T...... Ranking_methods
 G.K.T.....U Rare_numbers
 .......D.VU Raster_bars
-G.......... Rate_counter
+GS......... Rate_counter
 GS......... Ray-casting_algorithm
 GS......... Read_a_configuration_file
 GS.....D... Read_a_file_character_by_character_UTF8
