@@ -4,6 +4,7 @@
 #p# OK
 #n# testing somewhat fragile
 #n# 2020-01-29 Pleased to welcome 'C' to the '1000 club'
+#n# 2020-02-24 'Java' joins the no-longer-quite-so-exclusive club
 
 use 5.010;
 use MediaWiki::API;
@@ -49,6 +50,6 @@ for (@sorted_languages) {
 say join "\n", @res;
 
 use Test::More;
-ok @res == 9;
+ok @res == 10
 #ok @res >= 6 and @res < 10;
 done_testing();
