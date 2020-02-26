@@ -1,7 +1,7 @@
 
 This is perl 5, version 30, subversion 0 (v5.30.0) built for darwin-thread-multi-2level
 updating from RC…
-+------------> Perl: Good/Bad [1258/12]
++------------> Perl: Good/Bad [1259/12]
 |+-----------> Smoke testing [1125]
 ||+----------> sKipping validation [140]
 |||+---------> Interactive [55]
@@ -1061,7 +1061,7 @@ GS..T...... Roman_numerals_Encode-4
 GS......... Roots_of_a_function
 GS......... Roots_of_a_quadratic_function
 GS......... Roots_of_unity
-!S..T...... Rosetta_Code_Count_examples
+GS..T...... Rosetta_Code_Count_examples
 GS..T...... Rosetta_Code_Find_bare_lang_tags
 GS..T...... Rosetta_Code_Find_unimplemented_tasks
 GS......... Rosetta_Code_Fix_code_tags
