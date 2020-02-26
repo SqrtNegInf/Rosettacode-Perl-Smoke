@@ -6336,6 +6336,7 @@ File: R/Rosetta_Code_Rank_languages_by_popularity
 #p# OK
 #n# testing somewhat fragile
 #n# 2020-01-29 Pleased to welcome 'C' to the '1000 club'
+#n# 2020-02-24 'Java' joins the no-longer-quite-so-exclusive club
 
 File: R/Rosetta_Code_Tasks_without_examples
 #!/usr/local/bin/perl
