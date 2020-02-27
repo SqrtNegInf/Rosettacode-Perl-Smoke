@@ -50,6 +50,6 @@ for (@sorted_languages) {
 say join "\n", @res;
 
 use Test::More;
-ok @res == 10
+ok @res == 11;
 #ok @res >= 6 and @res < 10;
 done_testing();
