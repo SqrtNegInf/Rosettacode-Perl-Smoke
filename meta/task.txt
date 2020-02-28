@@ -8,10 +8,10 @@ updating from RC…
 ||||+--------> Touched (modified by me) [387]
 |||||+-------> Random seed [101]
 ||||||+------> File output [68]
-|||||||+-----> Draft [223]
+|||||||+-----> Draft [220]
 ||||||||+----> Ignoring [31]
-|||||||||+---> Void (no local copy) [131]
-||||||||||+--> Un-implemented/reliable [123]
+|||||||||+---> Void (no local copy) [128]
+||||||||||+--> Un-implemented/reliable [120]
 |||||||||||
 GS......... 100_doors-1
 GS......... 100_doors-2
@@ -224,9 +224,6 @@ GS..T...... Chemical_Calculator-2
 GS......... Chernick%27s_Carmichael_numbers
 GS..T..D... Cheryl%27s_Birthday
 .......D.VU Chess_player
-.......D.VU Chess_player_Move_generation
-.......D.VU Chess_player_Program_options_and_user_interface
-.......D.VU Chess_player_Search_and_evaluation
 GS..T...... Chinese_remainder_theorem
 GS......... Chinese_zodiac
 GS......... Cholesky_decomposition
