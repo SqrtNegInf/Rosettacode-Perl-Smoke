@@ -10,8 +10,8 @@ updating from RC…
 ||||||+------> File output [68]
 |||||||+-----> Draft [220]
 ||||||||+----> Ignoring [31]
-|||||||||+---> Void (no local copy) [128]
-||||||||||+--> Un-implemented/reliable [120]
+|||||||||+---> Void (no local copy) [129]
+||||||||||+--> Un-implemented/reliable [121]
 |||||||||||
 GS......... 100_doors-1
 GS......... 100_doors-2
@@ -309,7 +309,7 @@ GS......... Currying
 GS..T.FD... Curve_that_touches_three_points
 GS......... Cut_a_rectangle
 GS..T..D... Cycle_detection
-GS..T..D... Cyclotomic_Polynomial
+GS..T...... Cyclotomic_Polynomial
 GS......... DNS_query
 .......D... Damm_algorithm
 GS..T...... Damm_algorithm-1
@@ -778,6 +778,7 @@ GS......... Miller-Rabin_primality_test-2
 GS..TR..... Mind_boggling_card_trick
 G.KI....... Minesweeper_game
 G.K.T.....U Minimal_steps_down_to_1
+.......D.VU Minimum_positive_multiple_in_base_10_using_only_0_and_1
 GS.....D... Modular_arithmetic
 GS..T...... Modular_exponentiation
 GS......... Modular_inverse
