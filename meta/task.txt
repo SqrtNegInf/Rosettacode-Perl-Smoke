@@ -1,17 +1,17 @@
 
 This is perl 5, version 30, subversion 0 (v5.30.0) built for darwin-thread-multi-2level
 updating from RC…
-+------------> Perl: Good/Bad [1257/12]
-|+-----------> Smoke testing [1125]
-||+----------> sKipping validation [140]
++------------> Perl: Good/Bad [1264/12]
+|+-----------> Smoke testing [1128]
+||+----------> sKipping validation [141]
 |||+---------> Interactive [55]
-||||+--------> Touched (modified by me) [387]
+||||+--------> Touched (modified by me) [391]
 |||||+-------> Random seed [101]
-||||||+------> File output [68]
-|||||||+-----> Draft [219]
+||||||+------> File output [70]
+|||||||+-----> Draft [220]
 ||||||||+----> Ignoring [31]
-|||||||||+---> Void (no local copy) [129]
-||||||||||+--> Un-implemented/reliable [121]
+|||||||||+---> Void (no local copy) [128]
+||||||||||+--> Un-implemented/reliable [123]
 |||||||||||
 GS......... 100_doors-1
 GS......... 100_doors-2
@@ -697,7 +697,7 @@ G.K........ Literals_String
 GS......... Logical_operations
 GS......... Long_multiplication
 GS..T...... Long_primes
-GS..T..D... Long_year%3F
+GS..T...... Long_year%3F
 GS......... Longest_Common_Substring
 GS.....D... Longest_common_prefix
 GS......... Longest_common_subsequence
@@ -778,7 +778,8 @@ GS......... Miller-Rabin_primality_test-2
 GS..TR..... Mind_boggling_card_trick
 G.KI....... Minesweeper_game
 G.K.T.....U Minimal_steps_down_to_1
-.......D.VU Minimum_positive_multiple_in_base_10_using_only_0_and_1
+GS..T..D..U Minimum_positive_multiple_in_base_10_using_only_0_and_1
+G.K.T...... Minimum_positive_multiple_in_base_10_using_only_0_and_1-2
 GS.....D... Modular_arithmetic
 GS..T...... Modular_exponentiation
 GS......... Modular_inverse
@@ -1058,16 +1059,16 @@ GS..T...... Roman_numerals_Encode-4
 GS......... Roots_of_a_function
 GS......... Roots_of_a_quadratic_function
 GS......... Roots_of_unity
-!S..T...... Rosetta_Code_Count_examples
+GS..T...... Rosetta_Code_Count_examples
 GS..T...... Rosetta_Code_Find_bare_lang_tags
 GS..T...... Rosetta_Code_Find_unimplemented_tasks
 GS......... Rosetta_Code_Fix_code_tags
 .......D.VU Rosetta_Code_List_authors_of_task_descriptions
 GS..T..D... Rosetta_Code_Rank_languages_by_number_of_users
-!S..T...... Rosetta_Code_Rank_languages_by_popularity
+GS..T...... Rosetta_Code_Rank_languages_by_popularity
 .......D.VU Rosetta_Code_Run_examples
 .......D.VU Rosetta_Code_Tasks_sorted_by_average_lines_of_code
-!S..T..D... Rosetta_Code_Tasks_without_examples
+GS..T..D... Rosetta_Code_Tasks_without_examples
 GS......... Rot-13
 GS......... Run-length_encoding
 .......D.VU Run_as_a_daemon_or_service
@@ -1122,8 +1123,10 @@ GS......... Shortest_common_supersequence
 GS..T.F.... Show_Ascii_table-1
 GS..T.F.... Show_Ascii_table-2
 GS......... Show_the_epoch
+GS..T.FD..U Sierpinski_arrowhead_curve
 GS......... Sierpinski_carpet
 GS..T.F.... Sierpinski_pentagon
+GS..T.FD..U Sierpinski_square_curve
 GS......... Sierpinski_triangle
 G.K.T.F.... Sierpinski_triangle_Graphical
 GS......... Sieve_of_Eratosthenes-1
