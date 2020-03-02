@@ -12,12 +12,9 @@ my @res;
 use Math::AnyNum qw(:overload base digits2num);
 
 for my $x (1..10, 95..105, 297, 576, 594, 891, 909, 999) { #, 1998, 2079, 2251, 2277, 2439, 2997, 4878) {
-    my $y = 1;
-    while (1) { 
-        $y = digits2num([(1) x (9 * length $x)],2) if $x =~ /^9+$/;  # all 9's implies all 1's
-        last if 0 == base($y, 2) % $x;
-        $y++;
-    }
+    my $y;
+    if ($x =~ /^9+$/) { $y = digits2num([(1) x (9 * length $x)],2)   } # all 9's implies all 1's
+    else              { while (1) { last unless base(++$y, 2) % $x } }
     push @res, sprintf "%4d: %28s  %s", $x, base($y,2), base($y,2)/$x;
 }
 
