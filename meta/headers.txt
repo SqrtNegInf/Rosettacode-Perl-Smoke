@@ -4670,6 +4670,19 @@ File: M/Minimal_steps_down_to_1
 #c# 2019-12-xx >RC
 #p# OK
 
+File: M/Minimum_positive_multiple_in_base_10_using_only_0_and_1
+#!/usr/local/bin/perl
+#u# http://rosettacode.org/wiki/Minimum_positive_multiple_in_base_10_using_only_0_and_1
+#c# 2020-03-01 >RC
+#p# OK
+
+File: M/Minimum_positive_multiple_in_base_10_using_only_0_and_1-2
+#!/usr/local/bin/perl
+#u# http://rosettacode.org/wiki/Minimum_positive_multiple_in_base_10_using_only_0_and_1
+#t# inprogress
+#c# 2020-03-01 >RC
+#p# OK
+
 File: M/Modular_arithmetic
 #!/usr/local/bin/perl
 #u# http://rosettacode.org/wiki/Modular_arithmetic
@@ -6667,6 +6680,13 @@ File: S/Show_the_epoch
 #c# 2018-08-16 <RC
 #p# OK
 
+File: S/Sierpinski_arrowhead_curve
+#!/usr/local/bin/perl
+#u# http://rosettacode.org/wiki/Sierpinski_arrowhead_curve
+#c# 2020-03-xx >RC
+#p# OK
+#f# RC file: sierpinski-arrowhead-curve.svg
+
 File: S/Sierpinski_carpet
 #!/usr/local/bin/perl
 #u# http://rosettacode.org/wiki/Sierpinski_carpet
@@ -6679,6 +6699,13 @@ File: S/Sierpinski_pentagon
 #c# 2018-11-18 >RC
 #p# OK
 #f# RC file: sierpinski_pentagon.svg
+
+File: S/Sierpinski_square_curve
+#!/usr/local/bin/perl
+#u# http://rosettacode.org/wiki/Sierpinski_square_curve
+#c# 2020-03-xx >RC
+#p# OK
+#f# RC file: sierpinski-square-curve.svg
 
 File: S/Sierpinski_triangle
 #!/usr/local/bin/perl
