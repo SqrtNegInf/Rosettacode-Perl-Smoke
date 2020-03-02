@@ -20,8 +20,8 @@ $koch =~ s/F/F+F--F+F/g for 1..5;
 
 # Draw the curve in SVG
 my($x, $y) = (0, 0);
-my$theta   = pi/3;
-my$r       = 2;
+my $theta  = pi/3;
+my $r      = 2;
 
 for (split //, $koch) {
     if (/F/) {
