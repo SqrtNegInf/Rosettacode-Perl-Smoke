@@ -1,3 +1,6 @@
+2020-03-02
+Never install Math::BigInt::Lite!  Screws up tasks that need for-real 'bigint'.
+
 2020-03-01
 Gotta start playing catch-up, or be over-taken by Python (O the horror!)
 
