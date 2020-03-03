@@ -1,0 +1,35 @@
+#!/usr/local/bin/perl
+#u# http://rosettacode.org/wiki/RC_REMOTE
+#t# inprogress
+#c# 2020-03-xx >RC
+#p# OK
+
+use Data::Printer;
+use Time::HiRes qw(sleep);
+
+use strict;
+use warnings;
+use feature 'say';
+
+my @res;
+
+# ~/perl6/Rosetta-Code/X/RC_LOCAL
+
+say my $result = join "\n", @res;
+my $ref = <<'END';
+END
+
+use Test::More;
+chomp $ref;
+is($result, $ref);
+done_testing();
+
+__END__
+
+=={{header|Perl}}==
+{{trans|Perl 6}}
+{{libheader|ntheory}}
+<lang perl></lang>
+{{out}}
+<pre style="height:20ex"></pre>
+[https://github.com/SqrtNegInf/Rosettacode-Perl5-Smoke/blob/master/ref/XXX XXX]
