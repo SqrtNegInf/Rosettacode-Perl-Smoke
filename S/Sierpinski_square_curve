@@ -13,7 +13,7 @@ use List::Util qw(max min);
 use constant pi => 2 * atan2(1, 0);
 
 my $rule = 'XF-F+F-XF+F+XF-F+F-X';
-my $S = 'XF+F+X';
+my $S = 'F+F+XF+F+XF'; # drop the leading 'F+' to leave curve 'open'
 $S =~ s/X/$rule/g for 1..5;
 
 my (@X, @Y);
