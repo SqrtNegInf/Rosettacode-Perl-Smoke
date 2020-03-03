@@ -1,7 +1,8 @@
 #!/usr/local/bin/perl
 #u# http://rosettacode.org/wiki/Minimum_positive_multiple_in_base_10_using_only_0_and_1
-#c# 2020-03-01 >RC
+#c# 2020-03-xx >RC
 #p# OK
+#n# special-case all 9's, otherwise intolerably slow even for minimum results
 
 use strict;
 use warnings;
@@ -9,13 +10,13 @@ use feature 'say';
 
 my @res;
 
-use Math::AnyNum qw(:overload base digits2num);
+use Math::AnyNum qw(:overload as_bin digits2num);
 
-for my $x (1..10, 95..105, 297, 576, 594, 891, 909, 999) { #, 1998, 2079, 2251, 2277, 2439, 2997, 4878) {
+for my $x (1..10, 95..105, 297, 576, 594, 891, 909, 999) {
     my $y;
-    if ($x =~ /^9+$/) { $y = digits2num([(1) x (9 * length $x)],2)   } # all 9's implies all 1's
-    else              { while (1) { last unless base(++$y, 2) % $x } }
-    push @res, sprintf "%4d: %28s  %s", $x, base($y,2), base($y,2)/$x;
+    if ($x =~ /^9+$/) { $y = digits2num([(1) x (9 * length $x)],2)  } # all 9's implies all 1's
+    else              { while (1) { last unless as_bin(++$y) % $x } }
+    push @res, sprintf "%4d: %28s  %s", $x, as_bin($y), as_bin($y)/$x;
 }
 
 say my $result = join "\n", @res;
@@ -60,4 +61,4 @@ __END__
 =={{header|Perl}}==
 <lang perl></lang>
 {{out}}
-<pre></pre>
+<pre style="height:20ex"></pre>
