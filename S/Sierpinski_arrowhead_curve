@@ -1,6 +1,6 @@
 #!/usr/local/bin/perl
 #u# http://rosettacode.org/wiki/Sierpinski_arrowhead_curve
-#c# 2020-03-xx >RC
+#c# 2020-03-02 >RC
 #p# OK
 #f# RC file: sierpinski-arrowhead-curve.svg
 
@@ -9,8 +9,6 @@ use warnings;
 
 use SVG;
 use List::Util qw(max min);
-
-my(@X,@Y);
 
 use constant pi => 2 * atan2(1, 0);
 
@@ -21,7 +19,7 @@ my %rules = (
 my $S = 'Y';
 $S =~ s/([XY])/$rules{$1}/eg for 1..7;
 
-# Draw the curve in SVG
+my (@X, @Y);
 my ($x, $y) = (0, 0);
 my $theta   = 0;
 my $r       = 6;
@@ -37,10 +35,9 @@ for (split //, $S) {
     elsif (/\-/) { $theta -= pi/3; }
 }
 
-my $xrng =  max(@X) - min(@X);
-my $yrng =  max(@Y) - min(@Y);
-my $xt   = -min(@X)+10;
-my $yt   = -min(@Y)+10;
+my ($xrng, $yrng) = ( max(@X) - min(@X),  max(@Y) - min(@Y));
+my ($xt,   $yt)   = (-min(@X) + 10,      -min(@Y) + 10);
+
 my $svg = SVG->new(width=>$xrng+20, height=>$yrng+20);
 my $points = $svg->get_path(x=>\@X, y=>\@Y, -type=>'polyline');
 $svg->rect(width=>"100%", height=>"100%", style=>{'fill'=>'black'});
