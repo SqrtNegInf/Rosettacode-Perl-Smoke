@@ -1,8 +1,8 @@
 #!/usr/local/bin/perl
 #u# http://rosettacode.org/wiki/Minimum_positive_multiple_in_base_10_using_only_0_and_1
-#t# inprogress
-#c# 2020-03-01 >RC
+#c# 2020-03-xx >RC
 #p# OK
+#n# no special cases
 
 use strict;
 use warnings;
@@ -10,48 +10,77 @@ use feature 'say';
 
 my @res;
 
-#use Math::AnyNum qw(:overload base digits2num);
+use bigint try=>'GMP';
 
-use ntheory 'factor';
+sub B10 {
+    my($n) = @_;
+    return 1 if $n == 1;
+    my ($num, $count, $ten) = ($n+1, 0, 1);
+    my @val = my @pow = (0) x ($num+1);
+    for my $i (1..$n) {
+        $val[$i+1] = $ten;
+        for my $j (1..$num) {
+            my $k = ($j + $ten - 1) % $n+1;
+            $pow[$k] = $i if $pow[$j] != 0 && $pow[$k] == 0 && $pow[$j] != $i;
+        }
+        $pow[$ten+1] = $i if $pow[$ten+1] == 0;
+        last if $pow[1] != 0;
+        $ten = (10 * $ten) % $n;
+    }
 
-printf "%5s: %28s  %s\n", 'Number', 'B10', 'Multiplier';
-
-for flat 1..10, 95..105, 297, 576, 594, 891, 909, 999, 1998, 2079, 2251, 2277 { #2439, 2997, 4878
-    @res.push: sprintf "%6d: %28s  %s", $_, my $a = b10($_), $a / $_;
+    my($res,$i) = ('',$n);
+    while ($i != 0) {
+        my $pm = $pow[$i % $n+1];
+        $res .= '0' x ($count - $pm) if $count > $pm;
+        $count = $pm - 1;
+        $res .= '1';
+        $i = ($n + $i - $val[$pm+1]) % $n
+    }
+    $res .= '0' x $count if $count > 0;
+    return $res;
 }
 
+for my $n (1..10, 95..105, 97, 576, 891, 909, 999, 1998, 2079, 2251, 2277, 2439, 2997, 4878) {
+    my $i = B10($n);
+    push @res, sprintf "%4d: %28s  %s", $n, $i, $i/$n;
+}
+
+my $result = join "\n", @res;
+
 my $ref = <<'END';
-1:                            1  1
-2:                           10  5
-3:                          111  37
-4:                          100  25
-5:                           10  2
-6:                         1110  185
-7:                         1001  143
-8:                         1000  125
-9:                    111111111  12345679
-10:                           10  1
-95:                       110010  1158
-96:                     11100000  115625
-97:                     11100001  114433
-98:                     11000010  112245
-99:           111111111111111111  1122334455667789
-100:                          100  1
-101:                          101  1
-102:                      1000110  9805
-103:                     11100001  107767
-104:                      1001000  9625
-105:                       101010  962
-297:          1111011111111111111  3740778151889263
-576:              111111111000000  192901234375
-594:         11110111111111111110  18703890759446315
-891:          1111111111111111011  1247038284075321
-909:          1011111111111111111  1112333455567779
-999:  111111111111111111111111111  111222333444555666777889
+   1:                            1  1
+   2:                           10  5
+   3:                          111  37
+   4:                          100  25
+   5:                           10  2
+   6:                         1110  185
+   7:                         1001  143
+   8:                         1000  125
+   9:                    111111111  12345679
+  10:                           10  1
+  95:                       110010  1158
+  96:                     11100000  115625
+  97:                     11100001  114433
+  98:                     11000010  112245
+  99:           111111111111111111  1122334455667789
+ 100:                          100  1
+ 101:                          101  1
+ 102:                      1000110  9805
+ 103:                     11100001  107767
+ 104:                      1001000  9625
+ 105:                       101010  962
+  97:                     11100001  114433
+ 576:              111111111000000  192901234375
+ 891:          1111111111111111011  1247038284075321
+ 909:          1011111111111111111  1112333455567779
+ 999:  111111111111111111111111111  111222333444555666777889
 1998: 1111111111111111111111111110  556111667222778333889445
 2079:       1001101101111111111111  481530111164555609
 2251:                 101101101111  44913861
 2277:         11110111111111111011  4879275850290343
+2439:   10000101011110111101111111  4100082415379299344449
+2997: 1111110111111111111111111111  370740777814851888925963
+4878:  100001010111101111011111110  20500412076896496722245
 END
 
 use Test::More;
@@ -62,66 +91,7 @@ done_testing();
 __END__
 
 =={{header|Perl}}==
+{{trans|Julia}}
 <lang perl></lang>
 {{out}}
-<pre></pre>
-
-__END__
-
-my $iter = cache (1..*).map: *.base(2);
-
-my @b10; # or cache
-
-sub b10 (Int \n where * > -1) {
-    return n if n == 0|1;
-    my @factors = prime-factors(n);
-    my $two  = +@factors.grep: * == 2;
-    my $five = +@factors.grep: * == 5;
-    my $this;
-    if $two { # Special handling for n with prime factor 2 (and 5)
-        my $rest = [*] @factors.grep: * != 2|5;
-        $this = (@b10[$rest] //= b10($rest)) ~ '0' x ($two max $five);
-    }
-    elsif $five { # Special handling for n with prime factor 5
-        my $rest = [*] @factors.grep: * != 5;
-        $this = (@b10[$rest] //= b10($rest)) ~ '0' x $five;
-    }
-    elsif n !~~ /<-[9]>/ { # Special handling for n that contains only digits 9
-        $this = @b10[n] //= 1 x n.chars * 9
-    }
-    elsif n > 1500 and n %% 9 { # Special handling for multiples of 9, not worth it for less than ~1500
-        $this = @b10[n] //= stringy(n);
-    }
-    else { # no special handling just brute force
-        $this = @b10[n] //= $iter.first: * %% n;
-    }
-    $this
-}
-
-# String manipulation to generate permutations
-sub stringy (Int \k, $i9 = '1' x 9) {
-    return $i9 if $i9 %% k;
-    my $chars = 1;
-    my @try = (1..^$i9.chars).map: { sst($i9, $_, '0'); };
-    my $answer;
-
-    # Cheats slightly to cut down on some unnecessary calculations.
-    # Adjusts the orders of magnitude searched.
-    my $cheat = $i9.chars == 9 ?? 6 !! k < 2300 ?? 5 !! 8;
-
-    loop {
-        @try.map: -> \b { if b %% k { $answer = b; last }  }
-        last if $answer;
-        if ++$chars > $cheat { return stringy( k, $i9 ~ '1' x 9 ) }
-        @try = flat @try.map: -> \b {
-            (1..^b.chars).map: -> \o {
-                next if b.substr(o,1) eq '0';
-                sst(b, o, '0')
-            }
-        }
-    }
-    $answer;
-}
-
-# substring insert
-sub sst (\str, \idx, \add) { substr(str,0,idx) ~ add ~ substr(str,idx) }
+<pre style="height:20ex"></pre>
