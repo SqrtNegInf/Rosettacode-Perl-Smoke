@@ -12,8 +12,6 @@ my $result;
 use SVG;
 use List::Util qw(max min);
 
-my(@X,@Y);
-
 use constant pi => 2 * atan2(1, 0);
 
 # Compute the curve with a Lindemayer-system
@@ -25,6 +23,7 @@ my $peano = 'L';
 $peano =~ s/([LR])/$rules{$1}/eg for 1..4;
 
 # Draw the curve in SVG
+my (@X, @Y);
 my ($x, $y) = (0, 0);
 my $theta   = pi/2;
 my $r       = 4;
@@ -40,9 +39,9 @@ for (split //, $peano) {
     elsif (/\-/) { $theta -= pi/2; }
 }
 
-my $max =  max(@X,@Y);
-my $xt  = -min(@X)+10;
-my $yt  = -min(@Y)+10;
+my $max =  max(@X, @Y);
+my $xt  = -min(@X) + 10;
+my $yt  = -min(@Y) + 10;
 my $svg = SVG->new(width=>$max+20, height=>$max+20);
 my $points = $svg->get_path(x=>\@X, y=>\@Y, -type=>'polyline');
 $svg->rect(width=>"100%", height=>"100%", style=>{'fill'=>'black'});
