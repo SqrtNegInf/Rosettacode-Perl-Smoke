@@ -1,6 +1,6 @@
 #!/usr/local/bin/perl
 #u# http://rosettacode.org/wiki/Minimum_positive_multiple_in_base_10_using_only_0_and_1
-#c# 2020-03-xx >RC
+#c# 2020-03-03 >RC
 #p# OK
 #n# special-case all 9's, otherwise intolerably slow even for minimum results
 
