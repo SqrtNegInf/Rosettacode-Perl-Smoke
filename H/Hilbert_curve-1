@@ -8,7 +8,6 @@
 use strict;
 use warnings;
 
-my(@X,@Y);
 use SVG;
 use List::Util qw(max min);
 
@@ -23,6 +22,7 @@ my $hilbert = 'A';
 $hilbert =~ s/([AB])/$rules{$1}/eg for 1..6;
 
 # Draw the curve in SVG
+my (@X, @Y);
 my ($x, $y) = (0, 0);
 my $theta   = pi/2;
 my $r       = 5;
@@ -38,9 +38,9 @@ for (split //, $hilbert) {
     elsif (/\-/) { $theta -= pi/2; }
 }
 
-my $max =  max(@X,@Y);
-my $xt  = -min(@X)+10;
-my $yt  = -min(@Y)+10;
+my $max =  max(@X, @Y);
+my $xt  = -min(@X) + 10;
+my $yt  = -min(@Y) + 10;
 my $svg = SVG->new(width=>$max+20, height=>$max+20);
 my $points = $svg->get_path(x=>\@X, y=>\@Y, -type=>'polyline');
 $svg->rect(width=>"100%", height=>"100%", style=>{'fill'=>'black'});
