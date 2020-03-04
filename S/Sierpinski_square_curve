@@ -3,6 +3,7 @@
 #c# 2020-03-02 >RC
 #p# OK
 #f# RC file: sierpinski-square-curve.svg
+#n# slight modification of starting point used by trizen++
 
 use strict;
 use warnings;
