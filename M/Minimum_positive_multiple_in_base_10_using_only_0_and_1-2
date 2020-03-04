@@ -83,11 +83,3 @@ use Test::More;
 chomp $ref;
 is($result, $ref);
 done_testing();
-
-__END__
-
-=={{header|Perl}}==
-{{trans|Sidef}}
-<lang perl></lang>
-{{out}}
-<pre style="height:20ex"></pre>
