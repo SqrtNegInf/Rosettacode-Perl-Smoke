@@ -1,17 +1,17 @@
 
 This is perl 5, version 30, subversion 0 (v5.30.0) built for darwin-thread-multi-2level
 updating from RC…
-+------------> Perl: Good/Bad [1259/12]
-|+-----------> Smoke testing [1129]
++------------> Perl: Good/Bad [1267/12]
+|+-----------> Smoke testing [1131]
 ||+----------> sKipping validation [141]
 |||+---------> Interactive [55]
-||||+--------> Touched (modified by me) [392]
+||||+--------> Touched (modified by me) [393]
 |||||+-------> Random seed [101]
 ||||||+------> File output [70]
-|||||||+-----> Draft [220]
+|||||||+-----> Draft [221]
 ||||||||+----> Ignoring [31]
 |||||||||+---> Void (no local copy) [127]
-||||||||||+--> Un-implemented/reliable [123]
+||||||||||+--> Un-implemented/reliable [122]
 |||||||||||
 GS......... 100_doors-1
 GS......... 100_doors-2
@@ -130,7 +130,7 @@ GS...RF.... Barnsley_fern
 GS..T..D... Base58Check_encoding
 GS..T...... Base64_decode_data
 GS.....D... Base64_encode_data
-!S..T...... Bell_numbers
+GS..T...... Bell_numbers
 GS......... Benford%27s_law
 GS......... Bernoulli_numbers-1
 GS......... Bernoulli_numbers-2
@@ -199,7 +199,7 @@ GS......... Cartesian_product_of_two_or_more_lists-3
 GS......... Case-sensitivity_of_identifiers
 GS......... Casting_out_nines
 GS......... Catalan_numbers-1
-!S......... Catalan_numbers-2
+GS......... Catalan_numbers-2
 GS......... Catalan_numbers-3
 GS......... Catalan_numbers_Pascal%27s_triangle
 GS......... Catamorphism
@@ -658,7 +658,7 @@ GS......... Knapsack_problem_Continuous
 GS......... Knapsack_problem_Unbounded
 GS...R..... Knight%27s_tour
 GS...R..... Knuth%27s_algorithm_S
-!S......... Knuth%27s_power_tree
+GS......... Knuth%27s_power_tree
 GS...R..... Knuth_shuffle
 GS..T.F.... Koch_curve
 GS..T...... Kolakoski_sequence
@@ -781,6 +781,7 @@ G.K.T.....U Minimal_steps_down_to_1
 .......D..U Minimum_positive_multiple_in_base_10_using_only_0_and_1
 GS..T...... Minimum_positive_multiple_in_base_10_using_only_0_and_1-1
 GS..T...... Minimum_positive_multiple_in_base_10_using_only_0_and_1-2
+GS......... Minimum_positive_multiple_in_base_10_using_only_0_and_1-3
 GS.....D... Modular_arithmetic
 GS..T...... Modular_exponentiation
 GS......... Modular_inverse
@@ -931,7 +932,7 @@ GS..T..D... Permutations_with_some_identical_elements
 GS......... Pernicious_numbers
 GS......... Phrase_reversals
 GS......... Pi-1
-!S......... Pi-2
+GS......... Pi-2
 GS......... Pi-3
 GS......... Pi-4
 GS...R..... Pick_random_element
@@ -940,6 +941,7 @@ GS...R..... Pig_the_dice_game
 GS..TR..... Pig_the_dice_game_Player
 GS..T.F.... Pinstripe_Display
 .........VU Pinstripe_Printer
+GS..T..D..U Pisano_period
 GS..T.F.... Plasma_effect
 B.K.......U Play_recorded_sounds
 GS..T..D... Playfair_cipher
@@ -1124,10 +1126,10 @@ GS......... Shortest_common_supersequence
 GS..T.F.... Show_Ascii_table-1
 GS..T.F.... Show_Ascii_table-2
 GS......... Show_the_epoch
-GS..T.FD..U Sierpinski_arrowhead_curve
+GS..T.FD... Sierpinski_arrowhead_curve
 GS......... Sierpinski_carpet
 GS..T.F.... Sierpinski_pentagon
-GS..T.FD..U Sierpinski_square_curve
+GS..T.FD... Sierpinski_square_curve
 GS......... Sierpinski_triangle
 G.K.T.F.... Sierpinski_triangle_Graphical
 GS......... Sieve_of_Eratosthenes-1
@@ -1221,8 +1223,8 @@ GS..TR..... Statistics_Normal_distribution
 GS..T...... Stem-and-leaf_plot
 GS......... Stern-Brocot_sequence-1
 GS......... Stern-Brocot_sequence-2
-!S..T...... Stirling_numbers_of_the_first_kind
-!S..T...... Stirling_numbers_of_the_second_kind
+GS..T...... Stirling_numbers_of_the_first_kind
+GS..T...... Stirling_numbers_of_the_second_kind
 GS..T...... Straddling_checkerboard
 GS..T...... Stream_Merge
 GS......... String_append
