@@ -4673,16 +4673,23 @@ File: M/Minimal_steps_down_to_1
 File: M/Minimum_positive_multiple_in_base_10_using_only_0_and_1-1
 #!/usr/local/bin/perl
 #u# http://rosettacode.org/wiki/Minimum_positive_multiple_in_base_10_using_only_0_and_1
-#c# 2020-03-xx >RC
+#c# 2020-03-03 >RC
 #p# OK
 #n# special-case all 9's, otherwise intolerably slow even for minimum results
 
 File: M/Minimum_positive_multiple_in_base_10_using_only_0_and_1-2
 #!/usr/local/bin/perl
 #u# http://rosettacode.org/wiki/Minimum_positive_multiple_in_base_10_using_only_0_and_1
-#c# 2020-03-xx >RC
+#c# 2020-03-03 >RC
 #p# OK
-#n# no special cases
+#n# from Sidef: no special cases, reasonably speedy (~40% faster than using bigint/ntheory combo here)
+
+File: M/Minimum_positive_multiple_in_base_10_using_only_0_and_1-3
+#!/usr/local/bin/perl
+#u# http://rosettacode.org/wiki/Minimum_positive_multiple_in_base_10_using_only_0_and_1
+#c# 2020-03-03 NOT ON RC
+#p# OK
+#n# no special cases, fastest of 3 versions
 
 File: M/Modular_arithmetic
 #!/usr/local/bin/perl
@@ -4968,7 +4975,7 @@ File: N/Nested_templated_data
 
 File: N/Next_highest_int_from_digits
 #!/usr/local/bin/perl
-#u# http://rosettacode.org/wiki/RC_REMOTE
+#u# http://rosettacode.org/wiki/Next_highest_int_from_digits
 #t# inprogress
 #c# 2020-03-xx >RC
 #p# OK
@@ -5615,6 +5622,13 @@ File: P/Pinstripe_Display
 #c# 2018-11-15 >RC
 #p# OK
 #f# RC file: pinstripes-bw.png
+
+File: P/Pisano_period
+#!/usr/local/bin/perl
+#u# http://rosettacode.org/wiki/Pisano_period
+#c# 2020-03-xx >RC
+#p# OK
+#n# getting a little golf-ish
 
 File: P/Plasma_effect
 #!/usr/local/bin/perl
@@ -6714,6 +6728,7 @@ File: S/Sierpinski_square_curve
 #c# 2020-03-02 >RC
 #p# OK
 #f# RC file: sierpinski-square-curve.svg
+#n# slight modification of starting point used by trizen++
 
 File: S/Sierpinski_triangle
 #!/usr/local/bin/perl
