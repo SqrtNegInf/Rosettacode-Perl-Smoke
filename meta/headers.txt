@@ -4680,9 +4680,10 @@ File: M/Minimum_positive_multiple_in_base_10_using_only_0_and_1-1
 File: M/Minimum_positive_multiple_in_base_10_using_only_0_and_1-2
 #!/usr/local/bin/perl
 #u# http://rosettacode.org/wiki/Minimum_positive_multiple_in_base_10_using_only_0_and_1
-#c# 2020-03-03 >RC
+#c# 2020-03-03 >RC, 2020-03-04 <RC
 #p# OK
 #n# from Sidef: no special cases, reasonably speedy (~40% faster than using bigint/ntheory combo here)
+#n# range adjustment from ++trizen (no difference in output), but why P: <0..$n-1> vs S: <0..n> ?
 
 File: M/Minimum_positive_multiple_in_base_10_using_only_0_and_1-3
 #!/usr/local/bin/perl
