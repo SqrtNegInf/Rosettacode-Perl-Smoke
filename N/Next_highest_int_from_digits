@@ -27,14 +27,14 @@ sub next_greatest_index {
 
 sub next_greatest_integer {
     my($num) = @_;
+    my($numr);
     return 0 if length $num < 2;
-    #return $num.flip > $num ?? $num.flip !! 0 
-    if (length $num == 2) {
-        my $numr = reverse split '', $num;
-        return $numr > $num ? $numr : 0;
-    }
+
+    return ($numr = 0 + reverse $num) > $num ? $numr : 0 if length $num == 2;
+
     return 0 unless my $i = next_greatest_index( $num ) // 0;
     return 42;
+
 #    my $digit = $num.substr($i, 1);
 #    my @rest  = (flat $num.substr($i).comb).sort(+*);
 #    my $next  = @rest.first: * > $digit, :k;
