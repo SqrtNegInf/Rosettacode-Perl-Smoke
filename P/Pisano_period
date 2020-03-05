@@ -21,7 +21,7 @@ sub pisano_period_pp {
 }
 
 sub pisano_period {
-    (lcm map { pisano_period_pp($$_[0],$$_[1]) } factor_exp($_[0])) or 1;
+    (lcm map { pisano_period_pp($$_[0],$$_[1]) } factor_exp($_[0])) or 1;  # factor_exp returns empty list for an arg. of 1
 }
 
 sub display { (sprintf "@{['%5d' x @_]}", @_) =~ s/(.{75})/$1\n/gr }
@@ -34,6 +34,10 @@ push @res, display map { pisano_period_pp($_, 1) } @{primes(1,180)};
  
 push @res, "\nPisano periods for integers n from 1 to 180:";
 push @res, display map { pisano_period($_) } 1..180;
+
+#say "Pisano periods for squares of primes p <= 50:\n", display( map { pisano_period_pp($_, 2) } @{primes(1,  50)} ),
+#  "\nPisano periods for primes p <= 180:\n",           display( map { pisano_period_pp($_, 1) } @{primes(1, 180)} ),
+#"\n\nPisano periods for integers n from 1 to 180:\n",  display( map { pisano_period   ($_   ) }          1..180   );
 
 say my $result = join "\n", @res;
 
