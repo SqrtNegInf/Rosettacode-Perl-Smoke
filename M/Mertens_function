@@ -36,7 +36,7 @@ push @möebius, μ($_) for 1..$upto;
 my @mertens = progressive_sum @möebius;
 
 say my $result = "Mertens sequence - First $show terms:\n" .
-    (' 'x4 . sprintf "@{['%4d' x $show]}", @mertens[0..$show-1]) =~ s/((.){80})/$1\n/gr .
+    (' 'x4 . sprintf "@{['%4d' x $show]}", @mertens[0..$show-1]) =~ s/(.{80})/$1\n/gr .
     sprintf("\nEquals zero %3d times between 1 and $upto", scalar grep { ! $_ } @mertens) .
     sprintf "\nCrosses zero%3d times between 1 and $upto", scalar grep { ! $mertens[$_-1] and $mertens[$_] } 1 .. @mertens;
 
