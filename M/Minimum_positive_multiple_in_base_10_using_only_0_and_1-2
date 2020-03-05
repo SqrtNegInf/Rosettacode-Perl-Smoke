@@ -1,8 +1,9 @@
 #!/usr/local/bin/perl
 #u# http://rosettacode.org/wiki/Minimum_positive_multiple_in_base_10_using_only_0_and_1
-#c# 2020-03-03 >RC
+#c# 2020-03-03 >RC, 2020-03-04 <RC
 #p# OK
 #n# from Sidef: no special cases, reasonably speedy (~40% faster than using bigint/ntheory combo here)
+#n# range adjustment from ++trizen (no difference in output), but why P: <0..$n-1> vs S: <0..n> ?
 
 use strict;
 use warnings;
@@ -18,7 +19,7 @@ sub B10 {
 
     my @P = (-1) x $n;
     for (my $m = 0; $P[0] == -1; ++$m) {
-        for my $r (1..$n) {
+        for my $r (0..$n-1) { # 2020-03-04
             next if $P[$r] == -1 or $P[$r] == $m;
             for ((powmod(10, $m, $n) + $r) % $n) { $P[$_] = $m if $P[$_] == -1 }
         }
