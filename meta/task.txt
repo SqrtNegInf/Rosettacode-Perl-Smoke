@@ -8,9 +8,9 @@ updating from RC…
 ||||+--------> Touched (modified by me) [393]
 |||||+-------> Random seed [101]
 ||||||+------> File output [70]
-|||||||+-----> Draft [221]
+|||||||+-----> Draft [222]
 ||||||||+----> Ignoring [31]
-|||||||||+---> Void (no local copy) [127]
+|||||||||+---> Void (no local copy) [128]
 ||||||||||+--> Un-implemented/reliable [122]
 |||||||||||
 GS......... 100_doors-1
@@ -686,6 +686,7 @@ GS......... Letter_frequency
 GS......... Levenshtein_distance-1
 GS......... Levenshtein_distance-2
 GS.....D... Levenshtein_distance_Alignment
+.......D.VU Line_circle_intersection
 GS......... Linear_congruential_generator
 G.K.T..D... Linux_CPU_utilization
 GS......... List_comprehensions
@@ -778,7 +779,7 @@ GS......... Miller-Rabin_primality_test-2
 GS..TR..... Mind_boggling_card_trick
 G.KI....... Minesweeper_game
 G.K.T.....U Minimal_steps_down_to_1
-.......D..U Minimum_positive_multiple_in_base_10_using_only_0_and_1
+.......D... Minimum_positive_multiple_in_base_10_using_only_0_and_1
 GS..T...... Minimum_positive_multiple_in_base_10_using_only_0_and_1-1
 GS..T...... Minimum_positive_multiple_in_base_10_using_only_0_and_1-2
 GS......... Minimum_positive_multiple_in_base_10_using_only_0_and_1-3
