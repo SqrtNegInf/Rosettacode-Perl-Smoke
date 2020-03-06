@@ -1,6 +1,6 @@
 #!/usr/local/bin/perl
 #u# http://rosettacode.org/wiki/Pisano_period
-#c# 2020-03-xx >RC
+#c# 2020-03-05 >RC
 #p# OK
 #n# getting a little golf-ish
 
@@ -70,12 +70,3 @@ use Test::More;
 chomp $ref;
 is($result, $ref);
 done_testing();
-
-__END__
-
-=={{header|Perl}}==
-{{trans|Sidef}}
-{{libheader|ntheory}}
-<lang perl></lang>
-{{out}}
-<pre></pre>
