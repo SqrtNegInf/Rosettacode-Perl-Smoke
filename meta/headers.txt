@@ -5627,7 +5627,7 @@ File: P/Pinstripe_Display
 File: P/Pisano_period
 #!/usr/local/bin/perl
 #u# http://rosettacode.org/wiki/Pisano_period
-#c# 2020-03-xx >RC
+#c# 2020-03-05 >RC
 #p# OK
 #n# getting a little golf-ish
 
@@ -6715,6 +6715,13 @@ File: S/Sierpinski_carpet
 #u# http://rosettacode.org/wiki/Sierpinski_carpet
 #c# 2018-08-17 <RC
 #p# OK
+
+File: S/Sierpinski_curve
+#!/usr/local/bin/perl
+#u# http://rosettacode.org/wiki/Sierpinski_square_curve
+#c# 2020-03-xx >RC
+#p# OK
+#f# RC file: sierpinski-curve.svg
 
 File: S/Sierpinski_pentagon
 #!/usr/local/bin/perl
