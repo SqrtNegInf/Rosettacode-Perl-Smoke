@@ -1,6 +1,6 @@
 #!/usr/local/bin/perl
-#u# http://rosettacode.org/wiki/Sierpinski_square_curve
-#c# 2020-03-xx >RC
+#u# http://rosettacode.org/wiki/Sierpinski_curve
+#c# 2020-03-06 >RC
 #p# OK
 #f# RC file: sierpinski-curve.svg
 
