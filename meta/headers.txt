@@ -4977,16 +4977,15 @@ File: N/Nested_templated_data
 File: N/Next_highest_int_from_digits
 #!/usr/local/bin/perl
 #u# http://rosettacode.org/wiki/Next_highest_int_from_digits
-#t# inprogress
-#c# 2020-03-xx >RC
+#c# 2020-03-06 >RC
 #p# OK
 
 File: N/Next_highest_int_from_digits.0
 #!/usr/local/bin/perl
 #u# http://rosettacode.org/wiki/Next_highest_int_from_digits
-#t# inprogress
-#c# 2020-02-xx >RC
+#c# 2020-02-xx NOT ON RC
 #p# OK
+#n# works fine, but doesn't scale well
 
 File: N/Nim_Game
 #!/usr/local/bin/perl
@@ -6718,8 +6717,8 @@ File: S/Sierpinski_carpet
 
 File: S/Sierpinski_curve
 #!/usr/local/bin/perl
-#u# http://rosettacode.org/wiki/Sierpinski_square_curve
-#c# 2020-03-xx >RC
+#u# http://rosettacode.org/wiki/Sierpinski_curve
+#c# 2020-03-06 >RC
 #p# OK
 #f# RC file: sierpinski-curve.svg
 
