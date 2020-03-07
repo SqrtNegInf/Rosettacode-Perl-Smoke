@@ -291,10 +291,6 @@ N/Nautical_bell-2
 ♪:    25 EIGHTH NOTE
 ♫:    97 BEAMED EIGHTH NOTES
 
-N/Next_highest_int_from_digits
-«:     1 LEFT-POINTING DOUBLE ANGLE QUOTATION MARK
-»:     1 RIGHT-POINTING DOUBLE ANGLE QUOTATION MARK
-
 N/Numeric_error_propagation
 ±:     5 PLUS-MINUS SIGN
 σ:     1 GREEK SMALL LETTER SIGMA
