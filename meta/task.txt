@@ -1,16 +1,17 @@
 
 This is perl 5, version 30, subversion 0 (v5.30.0) built for darwin-thread-multi-2level
-+------------> Perl: Good/Bad [1266/12]
-|+-----------> Smoke testing [1131]
-||+----------> sKipping validation [141]
+updating from RC…
++------------> Perl: Good/Bad [1268/12]
+|+-----------> Smoke testing [1133]
+||+----------> sKipping validation [140]
 |||+---------> Interactive [55]
-||||+--------> Touched (modified by me) [393]
+||||+--------> Touched (modified by me) [394]
 |||||+-------> Random seed [101]
-||||||+------> File output [70]
-|||||||+-----> Draft [222]
+||||||+------> File output [71]
+|||||||+-----> Draft [223]
 ||||||||+----> Ignoring [31]
 |||||||||+---> Void (no local copy) [128]
-||||||||||+--> Un-implemented/reliable [122]
+||||||||||+--> Un-implemented/reliable [121]
 |||||||||||
 GS......... 100_doors-1
 GS......... 100_doors-2
@@ -831,7 +832,7 @@ GS......... Nautical_bell-2
 GS..T...... Negative_base_numbers
 GS......... Nested_function
 GS..T...... Nested_templated_data
-G.K.T.....U Next_highest_int_from_digits
+GS..T...... Next_highest_int_from_digits
 GS..T...... Nim_Game
 GS......... Non-continuous_subsequences
 GS......... Non-decimal_radices_Convert
@@ -941,7 +942,7 @@ GS...R..... Pig_the_dice_game
 GS..TR..... Pig_the_dice_game_Player
 GS..T.F.... Pinstripe_Display
 .........VU Pinstripe_Printer
-GS..T..D..U Pisano_period
+GS..T..D... Pisano_period
 GS..T.F.... Plasma_effect
 B.K.......U Play_recorded_sounds
 GS..T..D... Playfair_cipher
@@ -1015,7 +1016,7 @@ GS..T...... Range_extraction
 GS..T...... Ranking_methods
 G.K.T.....U Rare_numbers
 .......D.VU Raster_bars
-!S......... Rate_counter
+GS......... Rate_counter
 GS......... Ray-casting_algorithm
 GS......... Read_a_configuration_file
 GS.....D... Read_a_file_character_by_character_UTF8
@@ -1128,6 +1129,7 @@ GS..T.F.... Show_Ascii_table-2
 GS......... Show_the_epoch
 GS..T.FD... Sierpinski_arrowhead_curve
 GS......... Sierpinski_carpet
+GS..T.FD..U Sierpinski_curve
 GS..T.F.... Sierpinski_pentagon
 GS..T.FD... Sierpinski_square_curve
 GS......... Sierpinski_triangle
