@@ -1,11 +1,7 @@
 #!/usr/local/bin/perl
 #u# http://rosettacode.org/wiki/Next_highest_int_from_digits
-#t# inprogress
-#c# 2020-03-xx >RC
+#c# 2020-03-06 >RC
 #p# OK
-
-use Data::Printer;
-use Time::HiRes qw(sleep);
 
 use strict;
 use warnings;
@@ -20,114 +16,43 @@ sub comma { reverse ((reverse shift) =~ s/(.{3})/$1,/gr) =~ s/^,//r }
 
 sub next_greatest_index {
     my($str) = @_;
-    my @i = split //, $str;
-    #(1..^@i).first: { @i[$_ - 1] < @i[$_] }, :end, :k;
-    first { $i[$_ - 1] < $i[$_] } 1 .. @i;
+    my @i = reverse split //, $str;
+    @i-1 - (1 + first { $i[$_] > $i[$_+1] } 0 .. @i-1);
 }
 
 sub next_greatest_integer {
     my($num) = @_;
-    my($numr);
+    my $numr;
     return 0 if length $num < 2;
-
     return ($numr = 0 + reverse $num) > $num ? $numr : 0 if length $num == 2;
-
     return 0 unless my $i = next_greatest_index( $num ) // 0;
-    return 42;
-
-#    my $digit = $num.substr($i, 1);
-#    my @rest  = (flat $num.substr($i).comb).sort(+*);
-#    my $next  = @rest.first: * > $digit, :k;
-#    $digit    = @rest.splice($next,1);
-#    join '', flat $num.substr(0,$i), $digit, @rest;
+    my $digit = substr($num, $i, 1);
+    my @rest  = sort split '', substr($num, $i);
+    my $next  = first { $rest[$_] > $digit } 1..@rest;
+    join '', substr($num, 0, $i), (splice(@rest, $next, 1)), @rest;
 }
 
 say 'Next largest integer able to be made from these digits, or zero if no larger exists:';
 
 for (0, 9, 12, 21, 12453, 738440, 45072010, 95322020, 9589776899767587796600, 3345333) {
-    printf "%30s  -> %s\n", comma($_), comma next_greatest_integer $_;
+    push @res, sprintf "%30s  ->  %s", comma($_), comma next_greatest_integer $_;
 }
 
-#    95897768997675877966000000000000000000000000000000000000000000000000000000000000000000).map: { $_, -$_ };
-
-exit;
 say my $result = join "\n", @res;
 my $ref = <<'END';
                              0  ->  0
                              9  ->  0
-                            -9  ->  0
                             12  ->  21
-                           -12  ->  0
                             21  ->  0
-                           -21  -> -12
                         12,453  ->  12,534
-                       -12,453  -> -12,435
                        738,440  ->  740,348
-                      -738,440  -> -738,404
                     45,072,010  ->  45,072,100
-                   -45,072,010  -> -45,072,001
                     95,322,020  ->  95,322,200
-                   -95,322,020  -> -95,322,002
  9,589,776,899,767,587,796,600  ->  9,589,776,899,767,587,900,667
--9,589,776,899,767,587,796,600  -> -9,589,776,899,767,587,796,060
                      3,345,333  ->  3,353,334
-                    -3,345,333  -> -3,343,533
 END
 
 use Test::More;
 chomp $ref;
 is($result, $ref);
 done_testing();
-
-__END__
-
-multi next-greatest-integer (Int $num where * < 0) {
-    return 0 if $num.chars < 3;
-    return $num.abs.flip < -$num ?? -$num.abs.flip !! 0 if $num.chars == 3;
-    return 0 unless my $i = next-greatest-index( $num, &CORE::infix:«>» ) // 0;
-    my $digit = $num.substr($i, 1);
-    my @rest  = (flat $num.substr($i).comb).sort(-*);
-    my $next  = @rest.first: * < $digit, :k;
-    $digit    = @rest.splice($next,1);
-    join '', flat $num.substr(0,$i), $digit, @rest;
-}
-
-@res.push: "Next largest integer able to be made from these digits, or zero if no larger exists:";
-@res.push: sprintf "%30s  -> %s%s", .&comma, .&next-greatest-integer < 0 ?? '' !! ' ', .&next-greatest-integer.&comma for
-    flat 0, (9, 12, 21, 12453, 738440, 45072010, 95322020, 9589776899767587796600, 3345333,
-    95897768997675877966000000000000000000000000000000000000000000000000000000000000000000).map: { $_, -$_ };
-
-.say for @res;
-
-my $ref = q:to/END/;
-Next largest integer able to be made from these digits, or zero if no larger exists:
-                             0  ->  0
-                             9  ->  0
-                            -9  ->  0
-                            12  ->  21
-                           -12  ->  0
-                            21  ->  0
-                           -21  -> -12
-                        12,453  ->  12,534
-                       -12,453  -> -12,435
-                       738,440  ->  740,348
-                      -738,440  -> -738,404
-                    45,072,010  ->  45,072,100
-                   -45,072,010  -> -45,072,001
-                    95,322,020  ->  95,322,200
-                   -95,322,020  -> -95,322,002
- 9,589,776,899,767,587,796,600  ->  9,589,776,899,767,587,900,667
--9,589,776,899,767,587,796,600  -> -9,589,776,899,767,587,796,060
-                     3,345,333  ->  3,353,334
-                    -3,345,333  -> -3,343,533
-95,897,768,997,675,877,966,000,000,000,000,000,000,000,000,000,000,000,000,000,000,000,000,000,000,000,000,000,000  ->  95,897,768,997,675,879,000,000,000,000,000,000,000,000,000,000,000,000,000,000,000,000,000,000,000,000,000,000,667
--95,897,768,997,675,877,966,000,000,000,000,000,000,000,000,000,000,000,000,000,000,000,000,000,000,000,000,000,000  -> -95,897,768,997,675,877,960,600,000,000,000,000,000,000,000,000,000,000,000,000,000,000,000,000,000,000,000,000,000
-END
-
-__END__
-
-=={{header|Perl}}==
-{{trans|Perl 6}}
-<lang perl></lang>
-{{out}}
-<pre></pre>
