@@ -1,7 +1,7 @@
 
 This is perl 5, version 30, subversion 0 (v5.30.0) built for darwin-thread-multi-2level
 updating from RC…
-+------------> Perl: Good/Bad [1268/12]
++------------> Perl: Good/Bad [1267/12]
 |+-----------> Smoke testing [1133]
 ||+----------> sKipping validation [140]
 |||+---------> Interactive [55]
@@ -458,7 +458,7 @@ GS......... File_extension_is_in_extensions_list
 GS....F.... File_input_output
 GS......... File_modification_time
 GS......... File_size
-GS..T..D... File_size_distribution
+!S..T..D... File_size_distribution
 GS......... Filter
 B......D..U Find_URI_in_text
 GS..T...... Find_common_directory_path
