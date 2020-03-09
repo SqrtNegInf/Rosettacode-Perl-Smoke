@@ -11,7 +11,7 @@ updating from RC…
 |||||||+-----> Draft [223]
 ||||||||+----> Ignoring [31]
 |||||||||+---> Void (no local copy) [128]
-||||||||||+--> Un-implemented/reliable [121]
+||||||||||+--> Un-implemented/reliable [120]
 |||||||||||
 GS......... 100_doors-1
 GS......... 100_doors-2
@@ -458,7 +458,7 @@ GS......... File_extension_is_in_extensions_list
 GS....F.... File_input_output
 GS......... File_modification_time
 GS......... File_size
-!S..T..D... File_size_distribution
+GS..T..D... File_size_distribution
 GS......... Filter
 B......D..U Find_URI_in_text
 GS..T...... Find_common_directory_path
@@ -1016,7 +1016,7 @@ GS..T...... Range_extraction
 GS..T...... Ranking_methods
 G.K.T.....U Rare_numbers
 .......D.VU Raster_bars
-GS......... Rate_counter
+!S......... Rate_counter
 GS......... Ray-casting_algorithm
 GS......... Read_a_configuration_file
 GS.....D... Read_a_file_character_by_character_UTF8
@@ -1129,7 +1129,7 @@ GS..T.F.... Show_Ascii_table-2
 GS......... Show_the_epoch
 GS..T.FD... Sierpinski_arrowhead_curve
 GS......... Sierpinski_carpet
-GS..T.FD..U Sierpinski_curve
+GS..T.FD... Sierpinski_curve
 GS..T.F.... Sierpinski_pentagon
 GS..T.FD... Sierpinski_square_curve
 GS......... Sierpinski_triangle
