@@ -12,7 +12,7 @@ use File::Find;
 use List::Util 'max';
 
 my %fsize;
-my $dir = '/Users/dhoekman/perl6/Rosetta-Code/bench/2018-01-01-m';
+my $dir = '/Users/dhoekman/perl6/Rosetta-Code/bench/2020-01-01-m';
 find(\&fsize, $dir);
 
 my($max,$size,$total) = (0,0,0);
@@ -41,15 +41,14 @@ sub log10 { my($s) = @_; $s ? int log($s)/log(10) : 0 }
 sub fsize { $fsize{ log10( (lstat($_))[7] ) }++ }
 
 my $ref = <<'END';
-File size distribution in bytes for directory: /Users/dhoekman/perl6/Rosetta-Code/bench/2018-01-01-m
+File size distribution in bytes for directory: /Users/dhoekman/perl6/Rosetta-Code/bench/2020-01-01-m
 
-# files @    0b        1: 
-# files @ 10e0b      901: ████████████████████████████████████████████████████████████████████████████████
-# files @ 10e1b      476: ████████████████████████████████████████▎
-# files @ 10e2b       53: ▌
-# files @ 10e3b        6: 
-# files @ 10e4b        1: 
-1438 total files.
+# files @    0b        0: 
+# files @ 10e0b     1264: ████████████████████████████████████████████████████████████████████████████████
+# files @ 10e1b      742: ████████████████████████████████████████▊
+# files @ 10e2b      120: ▉
+# files @ 10e3b        3: 
+2129 total files.
 END
 
 use Test::More;
