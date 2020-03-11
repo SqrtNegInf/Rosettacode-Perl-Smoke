@@ -1,14 +1,14 @@
 
 This is perl 5, version 30, subversion 0 (v5.30.0) built for darwin-thread-multi-2level
 updating from RC…
-+------------> Perl: Good/Bad [1268/12]
-|+-----------> Smoke testing [1133]
++------------> Perl: Good/Bad [1269/12]
+|+-----------> Smoke testing [1134]
 ||+----------> sKipping validation [140]
 |||+---------> Interactive [55]
-||||+--------> Touched (modified by me) [394]
+||||+--------> Touched (modified by me) [395]
 |||||+-------> Random seed [101]
 ||||||+------> File output [71]
-|||||||+-----> Draft [223]
+|||||||+-----> Draft [224]
 ||||||||+----> Ignoring [31]
 |||||||||+---> Void (no local copy) [128]
 ||||||||||+--> Un-implemented/reliable [120]
@@ -531,6 +531,7 @@ GS......... Get_system_command_output
 G.K........ Globally_replace_text_in_several_files
 .........VU Go_Fish
 GS..T..D... Gradient_descent
+.......D.VU Graph_colouring
 GS......... Gray_code
 GS....F.... Grayscale_image
 GS......... Greatest_common_divisor-1
@@ -806,7 +807,7 @@ GS......... Multifactorial-1
 GS......... Multifactorial-2
 GS.....D... Multiline_shebang
 G.K........ Multiple_distinct_objects
-.........VU Multiple_regression
+GS..T...... Multiple_regression
 GS......... Multiplication_tables
 GS......... Multiplicative_order
 GS......... Multisplit
