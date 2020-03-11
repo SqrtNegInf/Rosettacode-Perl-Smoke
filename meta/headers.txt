@@ -4816,6 +4816,12 @@ File: M/Multiple_distinct_objects
 #c# 2018-08-19 <RC
 #p# OK
 
+File: M/Multiple_regression
+#!/usr/local/bin/perl
+#u# http://rosettacode.org/wiki/Multiple_regression
+#c# 2020-03-10 >RC
+#p# OK
+
 File: M/Multiplication_tables
 #!/usr/local/bin/perl
 #u# http://rosettacode.org/wiki/Multiplication_tables
@@ -7678,7 +7684,7 @@ File: T/Take_notes_on_the_command_line
 File: T/Tarjan
 #!/usr/local/bin/perl
 #u# http://rosettacode.org/wiki/Tarjan
-#c# 2018-11-19 >RC
+#c# 2018-11-19 >RC, 2020-03-09 <RC
 #p# OK
 
 File: T/Taxicab_numbers
