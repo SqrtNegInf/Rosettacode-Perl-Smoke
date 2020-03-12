@@ -4058,6 +4058,13 @@ File: L/Levenshtein_distance_Alignment
 #c# 2018-08-15 <RC
 #p# OK
 
+File: L/Line_circle_intersection
+#!/usr/local/bin/perl
+#u# http://rosettacode.org/wiki/Line_circle_intersection
+#c# 2020-03-11 >RC
+#p# OK
+#n# skipping the 3D solution for now, easy in P6, but here would need to break out as separate routine
+
 File: L/Linear_congruential_generator
 #!/usr/local/bin/perl
 #u# http://rosettacode.org/wiki/Linear_congruential_generator
