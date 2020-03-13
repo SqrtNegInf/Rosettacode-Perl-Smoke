@@ -4063,7 +4063,14 @@ File: L/Line_circle_intersection
 #u# http://rosettacode.org/wiki/Line_circle_intersection
 #c# 2020-03-11 >RC
 #p# OK
-#n# skipping the 3D solution for now, easy in P6, but here would need to break out as separate routine
+#n# skipping the 3D solution for now, easy in P6, but here would need to break out as separate routine (inplemented in .0 version)
+
+File: L/Line_circle_intersection.0
+#!/usr/local/bin/perl
+#u# http://rosettacode.org/wiki/Line_circle_intersection
+#c# 2020-03-11 NOT ON RC
+#p# OK
+#n# 3D solution works, but not motivated to putting up on RC
 
 File: L/Linear_congruential_generator
 #!/usr/local/bin/perl
