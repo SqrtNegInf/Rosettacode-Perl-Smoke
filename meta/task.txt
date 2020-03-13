@@ -1,7 +1,7 @@
 
 This is perl 5, version 30, subversion 0 (v5.30.0) built for darwin-thread-multi-2level
 updating from RC…
-+------------> Perl: Good/Bad [1269/12]
++------------> Perl: Good/Bad [1270/12]
 |+-----------> Smoke testing [1135]
 ||+----------> sKipping validation [140]
 |||+---------> Interactive [55]
@@ -10,8 +10,8 @@ updating from RC…
 ||||||+------> File output [71]
 |||||||+-----> Draft [224]
 ||||||||+----> Ignoring [31]
-|||||||||+---> Void (no local copy) [128]
-||||||||||+--> Un-implemented/reliable [120]
+|||||||||+---> Void (no local copy) [127]
+||||||||||+--> Un-implemented/reliable [119]
 |||||||||||
 GS......... 100_doors-1
 GS......... 100_doors-2
@@ -54,7 +54,7 @@ GS......... Ackermann_function-4
 GS......... Ackermann_function-5
 ........XV. Active_Directory_Connect
 .........VU Active_Directory_Search_for_a_user
-!S......... Active_object
+GS......... Active_object
 GS......... Add_a_variable_to_a_class_instance_at_runtime
 .......D.VU Addition-chain_exponentiation
 GS..T..D... Addition_chains
@@ -292,7 +292,6 @@ GS......... Count_in_factors-3
 GS......... Count_in_factors-4
 GS......... Count_in_factors-5
 GS......... Count_in_octal
-.........VU Count_letters
 GS......... Count_occurrences_of_a_substring
 GS......... Count_the_coins
 GS......... Cramer%27s_rule
