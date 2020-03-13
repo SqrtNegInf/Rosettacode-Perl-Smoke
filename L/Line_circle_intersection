@@ -2,7 +2,7 @@
 #u# http://rosettacode.org/wiki/Line_circle_intersection
 #c# 2020-03-11 >RC
 #p# OK
-#n# skipping the 3D solution for now, easy in P6, but here would need to break out as separate routine
+#n# skipping the 3D solution for now, easy in P6, but here would need to break out as separate routine (inplemented in .0 version)
 
 my @res;
 
@@ -22,9 +22,8 @@ sub find_intersection {
    my $D =  $b**2 - 4*$a*$c;
 
    return unless $D >= 0;
-   my ($t1,$t2) = ((-$b - sqrt $D)/(2*$a), (-$b + sqrt $D)/(2*$a));
+   my ($t1, $t2) = ( (-$b - sqrt $D) / (2*$a), (-$b + sqrt $D) / (2*$a) );
    return unless $t1 >= 0 and $t1 <= 1 or $t2 >= 0 and $t2  <= 1;
-   #return unless ( $t1 >= 0 and $t1 <= 1 ) or ( $t2 >= 0 and $t2  <= 1 );
 
    my ($dx, $dy) = ($$P2[0] - $$P1[0], $$P2[1] - $$P1[1]);
    return ([$dx*$t1 + $$P1[0], $dy*$t1 + $$P1[1]], 
