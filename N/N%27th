@@ -3,7 +3,12 @@
 #c# 2018-08-19 <RC
 #p# OK
 
-use feature 'say';
+#use strict;
+#use warnings;
+use 5.10.0;
+#use feature 'say';
+
+my $result;
 
 #Translation of: Perl 6
 #Requires Perl 5.10 or newer for the Defined OR operator (//).
