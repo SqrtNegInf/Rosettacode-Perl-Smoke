@@ -8,7 +8,7 @@ updating from RC…
 ||||+--------> Touched (modified by me) [396]
 |||||+-------> Random seed [101]
 ||||||+------> File output [71]
-|||||||+-----> Draft [224]
+|||||||+-----> Draft [223]
 ||||||||+----> Ignoring [31]
 |||||||||+---> Void (no local copy) [127]
 ||||||||||+--> Un-implemented/reliable [119]
@@ -531,7 +531,7 @@ GS......... Get_system_command_output
 G.K........ Globally_replace_text_in_several_files
 .........VU Go_Fish
 GS..T..D... Gradient_descent
-.......D.VU Graph_colouring
+.........VU Graph_colouring
 GS......... Gray_code
 GS....F.... Grayscale_image
 GS......... Greatest_common_divisor-1
