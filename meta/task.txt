@@ -1,17 +1,17 @@
 
 This is perl 5, version 30, subversion 0 (v5.30.0) built for darwin-thread-multi-2level
 updating from RC…
-+------------> Perl: Good/Bad [1270/12]
-|+-----------> Smoke testing [1135]
++------------> Perl: Good/Bad [1271/12]
+|+-----------> Smoke testing [1136]
 ||+----------> sKipping validation [140]
 |||+---------> Interactive [55]
-||||+--------> Touched (modified by me) [396]
+||||+--------> Touched (modified by me) [397]
 |||||+-------> Random seed [101]
 ||||||+------> File output [71]
-|||||||+-----> Draft [223]
+|||||||+-----> Draft [224]
 ||||||||+----> Ignoring [31]
 |||||||||+---> Void (no local copy) [127]
-||||||||||+--> Un-implemented/reliable [119]
+||||||||||+--> Un-implemented/reliable [120]
 |||||||||||
 GS......... 100_doors-1
 GS......... 100_doors-2
@@ -682,6 +682,7 @@ GS..T...... Law_of_cosines_-_triples
 GS......... Leap_year
 GS......... Least_common_multiple
 GS......... Left_factorials
+GS..T..D..U Length_of_an_arc_between_two_angles
 GS......... Leonardo_numbers
 GS......... Letter_frequency
 GS......... Levenshtein_distance-1
