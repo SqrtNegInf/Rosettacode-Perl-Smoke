@@ -1,0 +1,33 @@
+#!/usr/local/bin/perl
+#u# http://rosettacode.org/wiki/Length_of_an_arc_between_two_angles
+#c# 2020-03-16 >RC
+#p# OK
+
+use strict;
+use warnings;
+use feature 'say';
+
+use constant pi => 2 * atan2(1, 0);
+
+sub arc {
+    my($r, $angle1, $angle2) = @_;
+    (360 - abs($angle2 - $angle1)) * pi/180 * $r
+}
+
+say my $result = sprintf '%.5f engineering units', arc(10, 10, 120);
+
+my $ref = <<'END';
+43.63323 engineering units
+END
+
+use Test::More;
+chomp $ref;
+is($result, $ref);
+done_testing();
+
+__END__
+
+=={{header|Perl}}==
+<lang perl></lang>
+{{out}}
+<pre>43.63323 engineering units</pre>
