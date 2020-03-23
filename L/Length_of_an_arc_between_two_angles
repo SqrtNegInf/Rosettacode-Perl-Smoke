@@ -1,4 +1,5 @@
 #!/usr/local/bin/perl
+#t# inprogress
 #u# http://rosettacode.org/wiki/Length_of_an_arc_between_two_angles
 #c# 2020-03-16 >RC
 #p# OK
@@ -7,7 +8,30 @@ use strict;
 use warnings;
 use feature 'say';
 
-use constant pi => 2 * atan2(1, 0);
+my @res;
+
+use utf8;
+binmode STDOUT, ":utf8";
+
+use constant π => 2 * atan2(1, 0);
+
+my $result = join "\n", @res;
+
+my $ref = <<'END';
+Task example: from 120° counter-clockwise to 10° with 10 unit radius
+43.63323129985824 engineering units
+
+Some test examples:
+Arc length: 4.363323  Parameters: \(2.0943951023931953e0, 0.17453292519943295e0)
+Arc length: 1.919862  Parameters: \(0.17453292519943295e0, 2.0943951023931953e0)
+Arc length:        5  Parameters: \(3.141592653589793e0, -1.5707963267948966e0, :radius(3.183098861837907e0))
+Arc length:       15  Parameters: \(0e0, -1.5707963267948966e0, :r(3.183098861837907e0))
+Arc length:        5  Parameters: \(0e0, 1.5707963267948966e0, :radius(3.183098861837907e0))
+Arc length:       15  Parameters: \(0.7853981633974483e0, 5.497787143782138e0, :r(3.183098861837907e0))
+Arc length:        9  Parameters: \(2.7488935718910685e0, -0.7068583470577035e0, :r(3.183098861837907e0))
+END
+
+__END__
 
 use Test::More;
 chomp $ref;
@@ -52,20 +76,6 @@ for \(120°, 10°), # radian magnitude (unit radius)
 }
 
 .say for @res;
-
-my $ref = q:to/END/;
-Task example: from 120° counter-clockwise to 10° with 10 unit radius
-43.63323129985824 engineering units
-
-Some test examples:
-Arc length: 4.363323  Parameters: \(2.0943951023931953e0, 0.17453292519943295e0)
-Arc length: 1.919862  Parameters: \(0.17453292519943295e0, 2.0943951023931953e0)
-Arc length:        5  Parameters: \(3.141592653589793e0, -1.5707963267948966e0, :radius(3.183098861837907e0))
-Arc length:       15  Parameters: \(0e0, -1.5707963267948966e0, :r(3.183098861837907e0))
-Arc length:        5  Parameters: \(0e0, 1.5707963267948966e0, :radius(3.183098861837907e0))
-Arc length:       15  Parameters: \(0.7853981633974483e0, 5.497787143782138e0, :r(3.183098861837907e0))
-Arc length:        9  Parameters: \(2.7488935718910685e0, -0.7068583470577035e0, :r(3.183098861837907e0))
-END
 
 use Test;
 is @res.join("\n"), chomp $ref;
