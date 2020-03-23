@@ -1,16 +1,16 @@
 
 This is perl 5, version 30, subversion 0 (v5.30.0) built for darwin-thread-multi-2level
 updating from RC…
-+------------> Perl: Good/Bad [1270/12]
-|+-----------> Smoke testing [1136]
-||+----------> sKipping validation [140]
++------------> Perl: Good/Bad [1272/12]
+|+-----------> Smoke testing [1135]
+||+----------> sKipping validation [142]
 |||+---------> Interactive [55]
-||||+--------> Touched (modified by me) [397]
+||||+--------> Touched (modified by me) [398]
 |||||+-------> Random seed [101]
 ||||||+------> File output [71]
 |||||||+-----> Draft [226]
 ||||||||+----> Ignoring [31]
-|||||||||+---> Void (no local copy) [129]
+|||||||||+---> Void (no local copy) [128]
 ||||||||||+--> Un-implemented/reliable [122]
 |||||||||||
 GS......... 100_doors-1
@@ -683,7 +683,7 @@ GS..T...... Law_of_cosines_-_triples
 GS......... Leap_year
 GS......... Least_common_multiple
 GS......... Left_factorials
-!S..T..D..U Length_of_an_arc_between_two_angles
+G.K.T..D..U Length_of_an_arc_between_two_angles
 GS......... Leonardo_numbers
 GS......... Letter_frequency
 GS......... Levenshtein_distance-1
@@ -743,7 +743,7 @@ GS..TR.D... Magic_8-Ball
 GS..T...... Magic_squares_of_doubly_even_order
 GS..T...... Magic_squares_of_odd_order
 GS..T...... Magic_squares_of_singly_even_order
-.......D.VU Magnanimous_numbers
+G.K.T..D..U Magnanimous_numbers
 GS..T...... Main_step_of_GOST_28147-89
 GS..T.FD... Make_a_backup_file
 GS......... Make_directory_path
