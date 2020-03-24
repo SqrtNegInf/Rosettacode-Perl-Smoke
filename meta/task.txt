@@ -2,15 +2,15 @@
 This is perl 5, version 30, subversion 0 (v5.30.0) built for darwin-thread-multi-2level
 updating from RC…
 +------------> Perl: Good/Bad [1272/12]
-|+-----------> Smoke testing [1135]
-||+----------> sKipping validation [142]
+|+-----------> Smoke testing [1136]
+||+----------> sKipping validation [141]
 |||+---------> Interactive [55]
 ||||+--------> Touched (modified by me) [398]
 |||||+-------> Random seed [101]
 ||||||+------> File output [71]
 |||||||+-----> Draft [226]
 ||||||||+----> Ignoring [31]
-|||||||||+---> Void (no local copy) [128]
+|||||||||+---> Void (no local copy) [129]
 ||||||||||+--> Un-implemented/reliable [122]
 |||||||||||
 GS......... 100_doors-1
@@ -683,7 +683,7 @@ GS..T...... Law_of_cosines_-_triples
 GS......... Leap_year
 GS......... Least_common_multiple
 GS......... Left_factorials
-G.K.T..D..U Length_of_an_arc_between_two_angles
+GS..T..D... Length_of_an_arc_between_two_angles
 GS......... Leonardo_numbers
 GS......... Letter_frequency
 GS......... Levenshtein_distance-1
@@ -699,6 +699,7 @@ G.K........ Literals_Floating_point
 GS......... Literals_Integer
 G.K........ Literals_String
 GS......... Logical_operations
+.......D.VU Long_literals,_with_continuations
 GS......... Long_multiplication
 GS..T...... Long_primes
 GS..T...... Long_year%3F
@@ -739,7 +740,7 @@ GS......... MD5
 GS......... MD5_Implementation
 .........VU Machine_code
 GS......... Mad_Libs
-GS..TR.D... Magic_8-Ball
+GS..TR..... Magic_8-Ball
 GS..T...... Magic_squares_of_doubly_even_order
 GS..T...... Magic_squares_of_odd_order
 GS..T...... Magic_squares_of_singly_even_order
