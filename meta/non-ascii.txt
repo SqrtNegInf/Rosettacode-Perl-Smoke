@@ -237,12 +237,8 @@ L/Law_of_cosines_-_triples
 °:     6 DEGREE SIGN
 
 L/Length_of_an_arc_between_two_angles
-°:    18 DEGREE SIGN
-×:     3 MULTIPLICATION SIGN
-π:     8 GREEK SMALL LETTER PI
+π:     5 GREEK SMALL LETTER PI
 τ:     6 GREEK SMALL LETTER TAU
-ᵍ:     4 MODIFIER LETTER SMALL G
-↓:     7 DOWNWARDS ARROW
 
 L/Long_primes
 ≤:    11 LESS-THAN OR EQUAL TO
