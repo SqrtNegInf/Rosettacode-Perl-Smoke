@@ -8,10 +8,10 @@ updating from RC…
 ||||+--------> Touched (modified by me) [398]
 |||||+-------> Random seed [101]
 ||||||+------> File output [71]
-|||||||+-----> Draft [226]
-||||||||+----> Ignoring [31]
-|||||||||+---> Void (no local copy) [129]
-||||||||||+--> Un-implemented/reliable [122]
+|||||||+-----> Draft [227]
+||||||||+----> Ignoring [32]
+|||||||||+---> Void (no local copy) [130]
+||||||||||+--> Un-implemented/reliable [123]
 |||||||||||
 GS......... 100_doors-1
 GS......... 100_doors-2
@@ -699,7 +699,7 @@ G.K........ Literals_Floating_point
 GS......... Literals_Integer
 G.K........ Literals_String
 GS......... Logical_operations
-.......D.VU Long_literals,_with_continuations
+.......DXVU Long_literals,_with_continuations
 GS......... Long_multiplication
 GS..T...... Long_primes
 GS..T...... Long_year%3F
@@ -1003,6 +1003,7 @@ GS......... Queue_Definition
 GS......... Queue_Usage
 GS......... Quickselect_algorithm
 G.K........ Quine
+.......D.VU Quoting_constructs
 G.K........ RCRPG
 GS......... RIPEMD-160
 GS..TR..... RPG_Attributes_Generator
