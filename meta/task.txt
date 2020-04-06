@@ -8,10 +8,10 @@ updating from RC…
 ||||+--------> Touched (modified by me) [398]
 |||||+-------> Random seed [101]
 ||||||+------> File output [71]
-|||||||+-----> Draft [228]
+|||||||+-----> Draft [229]
 ||||||||+----> Ignoring [32]
-|||||||||+---> Void (no local copy) [131]
-||||||||||+--> Un-implemented/reliable [124]
+|||||||||+---> Void (no local copy) [132]
+||||||||||+--> Un-implemented/reliable [125]
 |||||||||||
 GS......... 100_doors-1
 GS......... 100_doors-2
@@ -233,6 +233,7 @@ GS......... Church_Numerals
 GS..T...... Cipolla%27s_algorithm-1
 GS..T...... Cipolla%27s_algorithm-2
 GS..T...... Circles_of_given_radius_through_two_points
+.......D.VU Circular_primes
 G.K........ Classes
 GS..TR..... Closest-pair_problem
 GS......... Closures_Value_capture
