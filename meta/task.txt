@@ -1,17 +1,17 @@
 
 This is perl 5, version 30, subversion 0 (v5.30.0) built for darwin-thread-multi-2level
 updating from RC…
-+------------> Perl: Good/Bad [1272/12]
-|+-----------> Smoke testing [1136]
++------------> Perl: Good/Bad [1273/12]
+|+-----------> Smoke testing [1137]
 ||+----------> sKipping validation [141]
 |||+---------> Interactive [55]
-||||+--------> Touched (modified by me) [398]
+||||+--------> Touched (modified by me) [399]
 |||||+-------> Random seed [101]
 ||||||+------> File output [71]
 |||||||+-----> Draft [230]
 ||||||||+----> Ignoring [32]
-|||||||||+---> Void (no local copy) [133]
-||||||||||+--> Un-implemented/reliable [126]
+|||||||||+---> Void (no local copy) [132]
+||||||||||+--> Un-implemented/reliable [125]
 |||||||||||
 GS......... 100_doors-1
 GS......... 100_doors-2
@@ -233,7 +233,7 @@ GS......... Church_Numerals
 GS..T...... Cipolla%27s_algorithm-1
 GS..T...... Cipolla%27s_algorithm-2
 GS..T...... Circles_of_given_radius_through_two_points
-.......D.VU Circular_primes
+GS..T..D... Circular_primes
 G.K........ Classes
 GS..TR..... Closest-pair_problem
 GS......... Closures_Value_capture
