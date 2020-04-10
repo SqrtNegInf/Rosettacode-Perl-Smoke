@@ -1263,6 +1263,13 @@ File: C/Circles_of_given_radius_through_two_points
 #c# 2018-07-23 <RC, 2018-11-12 >RC, 2019-02-28 >RC
 #p# OK
 
+File: C/Circular_primes
+#!/usr/local/bin/perl
+#u# http://rosettacode.org/wiki/Circular_primes
+#c# 2020-04-09 >RC
+#p# OK
+#n# full run: 1888.93s user 21.69s system 77% cpu 41:20.77 total
+
 File: C/Classes
 #!/usr/local/bin/perl
 #u# http://rosettacode.org/wiki/Classes
