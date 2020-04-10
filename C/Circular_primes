@@ -1,0 +1,72 @@
+#!/usr/local/bin/perl
+#u# http://rosettacode.org/wiki/Circular_primes
+#c# 2020-04-09 >RC
+#p# OK
+#n# full run: 1888.93s user 21.69s system 77% cpu 41:20.77 total
+
+use strict;
+use warnings;
+use feature 'say';
+
+my @res;
+
+use List::Util 'min';
+use ntheory 'is_prime';
+
+sub rotate { my($i,@a) = @_; join '', @a[$i .. @a-1, 0 .. $i-1] }
+
+sub isCircular {
+    my ($n) = @_;
+    return 0 unless is_prime($n);
+    my @circular = split //, $n;
+    return 0 if min(@circular) < $circular[0];
+    for (1 .. scalar @circular) {
+        my $r = join '', rotate($_,@circular);
+        return 0 unless is_prime($r) and $r >= $n;
+    }
+    1
+}
+
+push @res, "The first 19 circular primes are:";
+my @c;
+for ( my $i = 1, my $count = 0; $count < 19; $i++ ) {
+    ++$count and push(@c, $i) if isCircular($i);
+}
+push @res, join ' ', @c;
+
+push @res, "\nThe next 4 circular primes, in repunit format, are:";
+for ( my $i = 7, my $count = 0; $count < 4; $i++ ) {
+    ++$count and push @res, "R($i)" if is_prime 1 x $i
+}
+
+push @res, "\nRepunit testing:";
+
+for (5003, 9887, 15073) { #, 25031, 35317, 49081) {
+    push @res, "R($_): Prime? " . (is_prime 1 x $_ ? 'True' : 'False');
+}
+
+say my $result = join "\n", @res;
+
+my $ref = <<'END';
+The first 19 circular primes are:
+2 3 5 7 11 13 17 37 79 113 197 199 337 1193 3779 11939 19937 193939 199933
+
+The next 4 circular primes, in repunit format, are:
+R(19)
+R(23)
+R(317)
+R(1031)
+
+Repunit testing:
+R(5003): Prime? False
+R(9887): Prime? False
+R(15073): Prime? False
+END
+#R(25031): Prime? False
+#R(35317): Prime? False
+#R(49081): Prime? True
+
+use Test::More;
+chomp $ref;
+is($result, $ref);
+done_testing();
