@@ -3,6 +3,7 @@
 #c# 2020-01-27 >RC
 #p# OK
 #n# annotated chained ternaries for Oscar...
+#n# table hack, like Raku: ».fmt/batch/join
 
 use strict;
 use warnings;
