@@ -4453,9 +4453,9 @@ File: M/Magic_squares_of_singly_even_order
 File: M/Magnanimous_numbers
 #!/usr/local/bin/perl
 #u# http://rosettacode.org/wiki/Magnanimous_numbers
-#t# inprogress
-#c# 2020-03-xx >RC
+#c# 2020-04-10 >RC
 #p# OK
+#n# table hack, like Raku: ».fmt/batch/join
 
 File: M/Main_step_of_GOST_28147-89
 #!/usr/local/bin/perl
@@ -4640,6 +4640,7 @@ File: M/Mertens_function
 #u# http://rosettacode.org/wiki/Mertens_function
 #c# 2020-01-27 >RC
 #p# OK
+##n# table hack, like Raku: ».fmt/batch/join
 
 File: M/Metallic_ratios
 #!/usr/local/bin/perl
@@ -4758,6 +4759,7 @@ File: M/Moebius_function
 #c# 2020-01-27 >RC
 #p# OK
 #n# annotated chained ternaries for Oscar...
+#n# table hack, like Raku: ».fmt/batch/join
 
 File: M/Monads_List_monad
 #!/usr/local/bin/perl
@@ -5676,6 +5678,7 @@ File: P/Pisano_period
 #c# 2020-03-05 >RC
 #p# OK
 #n# getting a little golf-ish
+#n# table hack, like Raku: ».fmt/batch/join
 
 File: P/Plasma_effect
 #!/usr/local/bin/perl
