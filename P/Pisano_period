@@ -3,6 +3,7 @@
 #c# 2020-03-05 >RC
 #p# OK
 #n# getting a little golf-ish
+#n# table hack, like Raku: ».fmt/batch/join
 
 use strict;
 use warnings;
