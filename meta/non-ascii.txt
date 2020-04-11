@@ -245,7 +245,6 @@ L/Long_primes
 
 M/Magnanimous_numbers
 »:     1 RIGHT-POINTING DOUBLE ANGLE QUOTATION MARK
-∞:     1 INFINITY
 
 M/Mastermind
 ○:     2 WHITE CIRCLE
@@ -260,6 +259,7 @@ M/Mayan_numerals
 ●:    12 BLACK CIRCLE
 
 M/Mertens_function
+»:     1 RIGHT-POINTING DOUBLE ANGLE QUOTATION MARK
 ö:     3 LATIN SMALL LETTER O WITH DIAERESIS
 μ:     2 GREEK SMALL LETTER MU
 
@@ -273,6 +273,7 @@ M/Minimal_steps_down_to_1
 »:     1 RIGHT-POINTING DOUBLE ANGLE QUOTATION MARK
 
 M/Moebius_function
+»:     1 RIGHT-POINTING DOUBLE ANGLE QUOTATION MARK
 ö:     6 LATIN SMALL LETTER O WITH DIAERESIS
 μ:     2 GREEK SMALL LETTER MU
 
@@ -338,6 +339,9 @@ P/Percolation_Site_percolation
 
 P/Permutations_by_swapping-1
 –:     2 EN DASH
+
+P/Pisano_period
+»:     1 RIGHT-POINTING DOUBLE ANGLE QUOTATION MARK
 
 P/Prime_conspiracy
 →:    22 RIGHTWARDS ARROW
