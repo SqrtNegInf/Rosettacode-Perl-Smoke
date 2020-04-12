@@ -8518,6 +8518,13 @@ File: X/XML_XPath
 #p# BROKEN
 #n# does not fulfill task criteria
 
+File: X/XXXX_redacted
+#!/usr/local/bin/perl
+#u# http://rosettacode.org/wiki/XXXX_redacted
+#t# inprogress
+#c# 2020-04-xx >RC
+#p# OK
+
 File: X/Xiaolin_Wu%27s_line_algorithm
 #!/usr/local/bin/perl
 #u# http://rosettacode.org/wiki/Xiaolin_Wu%27s_line_algorithm
