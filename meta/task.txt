@@ -1,17 +1,17 @@
 
 This is perl 5, version 30, subversion 0 (v5.30.0) built for darwin-thread-multi-2level
 updating from RC…
-+------------> Perl: Good/Bad [1274/12]
-|+-----------> Smoke testing [1138]
++------------> Perl: Good/Bad [1275/12]
+|+-----------> Smoke testing [1139]
 ||+----------> sKipping validation [141]
 |||+---------> Interactive [55]
-||||+--------> Touched (modified by me) [400]
+||||+--------> Touched (modified by me) [401]
 |||||+-------> Random seed [101]
 ||||||+------> File output [71]
 |||||||+-----> Draft [230]
 ||||||||+----> Ignoring [32]
-|||||||||+---> Void (no local copy) [131]
-||||||||||+--> Un-implemented/reliable [124]
+|||||||||+---> Void (no local copy) [130]
+||||||||||+--> Un-implemented/reliable [123]
 |||||||||||
 GS......... 100_doors-1
 GS......... 100_doors-2
@@ -700,7 +700,7 @@ G.K........ Literals_Floating_point
 GS......... Literals_Integer
 G.K........ Literals_String
 GS......... Logical_operations
-.......D.VU Logistic_Curve_Fitting_in_Epidemiology
+GS..T..D... Logistic_Curve_Fitting_in_Epidemiology
 .......DXVU Long_literals,_with_continuations
 GS......... Long_multiplication
 GS..T...... Long_primes
