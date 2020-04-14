@@ -4153,6 +4153,12 @@ File: L/Logical_operations
 #p# OK
 #n# could use a re-write along the lines of Perl 6 entry
 
+File: L/Logistic_Curve_Fitting_in_Epidemiology
+#!/usr/local/bin/perl
+#u# http://rosettacode.org/wiki/Logistic_Curve_Fitting_in_Epidemiology
+#c# 2020-04-13 >RC
+#p# OK
+
 File: L/Long_multiplication
 #!/usr/local/bin/perl
 #u# http://rosettacode.org/wiki/Long_multiplication
