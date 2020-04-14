@@ -28,7 +28,7 @@ sub redact {
         $insensitive ? 
             $partial ? 
            $overkill ? qr/<after ^ | <:Po> | \s > (<[\w<:!Po>-]>*? [\w*\']? $redact [\'\w+]? \S*?) <before $ | <:Po> | \s > /ix
-                     : qr/($redact) /ix
+                     : qr/ ($redact) /ix
                      : qr/<after ^ | [\s<:Po>] | \s > ($redact) <before $ | <:Po> | \s > /ix
                      : 
             $partial ?
