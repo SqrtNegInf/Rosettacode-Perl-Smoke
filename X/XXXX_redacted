@@ -1,13 +1,10 @@
 #!/usr/local/bin/perl
 #u# http://rosettacode.org/wiki/XXXX_redacted
-#c# 2020-04-xx >RC
+#c# 2020-04-16 >RC
 #p# OK
-#n# still working on 'overkill', Unicode
+#n# no Unicode yet
 
-use Data::Printer;
-use Time::HiRes qw(sleep);
-
-#use strict;
+use strict;
 use warnings;
 use feature 'say';
 
@@ -27,86 +24,37 @@ sub redact {
     my $rx =
         $insensitive ? 
             $partial ? 
-           $overkill ? qr/<after ^ | <:Po> | \s > (<[\w<:!Po>-]>*? [\w*\']? $redact [\'\w+]? \S*?) <before $ | <:Po> | \s > /ix
+           $overkill ? qr/ \b{wb} ((?i)[-\w_]* [\w*']* $redact [-'\w]* \S*?) \b{wb} /x
                      : qr/ ((?i)$redact) /x
                      : qr/ \b{wb}(?<!-) ((?i)$redact) (?!-)\b{wb} /x
-                     #: qr/ (?:^|\s|\p{Blk=Punctuation}) ($redact) (?:$|\s|\p{Blk=Punctuation}) /ix
-                     #: qr/<after ^ | [\s<:Po>] | \s > ($redact) <before $ | <:Po> | \s > /ix
                      : 
             $partial ?
-           $overkill ? qr/ <after ^ | <:Po> | \s > (<[\w<:!Po>-]>*? [\w*\']? $redact [\'\w+]? \S*?) <before $ | <:Po> | \s > /x
+           $overkill ? qr/ \b{wb} ([-\w]* [\w*']* $redact [-'\w]* \S*?) \b{wb} /x
                      : qr/ ($redact) /x
                      : qr/ \b{wb}(?<!-) ($redact) (?!-)\b{wb} /x
-                     #: qr/ (?:^|\s|\p{Blk=Punctuation}) ($redact) (?:$|\s|\p{Blk=Punctuation}) /x
-                     #: qr/ <after ^ | [\s<:Po>] | \s > ($redact) <before $ | <:Po> | \s > /x
     ;
     $str =~ s/($rx)/'X' x length $1/gre;
 }
 
 for my $redact (<Tom tom t>) {
     push @res, "\nRedact '$redact':";
-    for ((['[w|s|n]', ''],
-          ['[w|i|n]', {i=>1}],
-          ['[p|s|n]', {p=>1}],
-          ['[p|i|n]', {p=>1, i=>1}],
-#         ['[p|s|o]', {p=>1, o=>1}],
-#         ['[p|i|o]', {p=>1, i=>1, o=>1}]
+     for ((['[w|s|n]', {}],                 # placeholder optional
+           ['[w|i|n]', {i=>1}],
+           ['[p|s|n]', {p=>1}],
+           ['[p|i|n]', {p=>1, i=>1}],
+           ['[p|s|o]', {p=>1, o=>1}],
+           ['[p|i|o]', {p=>1, i=>1, o=>1}]
          )) { 
-            my($option, $opts) = ($$_[0], $$_[1]);
+            my($option, $opts) = @$_;
+            no strict 'refs';
             push @res, sprintf "%s %s", $option, redact($test, $redact, %$opts) 
         }
 }
 
 say my $result = join "\n", @res;
-#exit;
 
 my $ref = <<'END';
 
-Redact 'Tom':
-[w|s|n] XXX? Toms bottom tomato is in his stomach while playing the "Tom-tom" brand tom-toms. That's so tom.
-'Tis very tomish, don't you think?
-
-[w|i|n] XXX? Toms bottom tomato is in his stomach while playing the "Tom-tom" brand tom-toms. That's so XXX.
-'Tis very tomish, don't you think?
-
-[p|s|n] XXX? XXXs bottom tomato is in his stomach while playing the "XXX-tom" brand tom-toms. That's so tom.
-'Tis very tomish, don't you think?
-
-[p|i|n] XXX? XXXs botXXX XXXato is in his sXXXach while playing the "XXX-XXX" brand XXX-XXXs. That's so XXX.
-'Tis very XXXish, don't you think?
-
-
-Redact 'tom':
-[w|s|n] Tom? Toms bottom tomato is in his stomach while playing the "Tom-tom" brand tom-toms. That's so XXX.
-'Tis very tomish, don't you think?
-
-[w|i|n] XXX? Toms bottom tomato is in his stomach while playing the "Tom-tom" brand tom-toms. That's so XXX.
-'Tis very tomish, don't you think?
-
-[p|s|n] Tom? Toms botXXX XXXato is in his sXXXach while playing the "Tom-XXX" brand XXX-XXXs. That's so XXX.
-'Tis very XXXish, don't you think?
-
-[p|i|n] XXX? XXXs botXXX XXXato is in his sXXXach while playing the "XXX-XXX" brand XXX-XXXs. That's so XXX.
-'Tis very XXXish, don't you think?
-
-
-Redact 't':
-[w|s|n] Tom? Toms bottom tomato is in his stomach while playing the "Tom-tom" brand tom-toms. That's so tom.
-'Tis very tomish, don't you think?
-
-[w|i|n] Tom? Toms bottom tomato is in his stomach while playing the "Tom-tom" brand tom-toms. That's so tom.
-'Tis very tomish, don't you think?
-
-[p|s|n] Tom? Toms boXXom XomaXo is in his sXomach while playing Xhe "Tom-Xom" brand Xom-Xoms. ThaX's so Xom.
-'Tis very Xomish, don'X you Xhink?
-
-[p|i|n] Xom? Xoms boXXom XomaXo is in his sXomach while playing Xhe "Xom-Xom" brand Xom-Xoms. XhaX's so Xom.
-'Xis very Xomish, don'X you Xhink?
-
-END
-
-
-my $xef = <<'END';
 Redact 'Tom':
 [w|s|n] XXX? Toms bottom tomato is in his stomach while playing the "Tom-tom" brand tom-toms. That's so tom.
 'Tis very tomish, don't you think?
@@ -163,7 +111,7 @@ Redact 't':
 [p|s|o] Tom? Toms XXXXXX XXXXXX is in his XXXXXXX while playing XXX "XXXXXXX" brand XXXXXXXX. XXXXXX so XXX.
 'Tis very XXXXXX, XXXXX you XXXXX?
 
-[p|i|o] XXX? XXXX XXXXXX XXXXXX is in his XXXXXXX while playing XXX "XXXXXXX" brand XXXXXXXX. XXXX's so XXX.
+[p|i|o] XXX? XXXX XXXXXX XXXXXX is in his XXXXXXX while playing XXX "XXXXXXX" brand XXXXXXXX. XXXXXX so XXX.
 XXXX very XXXXXX, XXXXX you XXXXX?
 
 END
@@ -172,12 +120,3 @@ use Test::More;
 chomp $ref;
 is($result, $ref);
 done_testing();
-
-__END__
-
-=={{header|Perl}}==
-{{trans|Raku}}
-{{libheader|ntheory}}
-<lang perl></lang>
-{{out}}
-<pre style="height:20ex"></pre>
