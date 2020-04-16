@@ -2,8 +2,8 @@
 This is perl 5, version 30, subversion 0 (v5.30.0) built for darwin-thread-multi-2level
 updating from RC…
 +------------> Perl: Good/Bad [1275/12]
-|+-----------> Smoke testing [1139]
-||+----------> sKipping validation [141]
+|+-----------> Smoke testing [1140]
+||+----------> sKipping validation [140]
 |||+---------> Interactive [55]
 ||||+--------> Touched (modified by me) [401]
 |||||+-------> Random seed [101]
@@ -1427,7 +1427,7 @@ GS......... XML_Input
 GS......... XML_Output
 G.K....D... XML_Validation
 B.......... XML_XPath
-G.K.T..D..U XXXX_redacted
+GS..T..D..U XXXX_redacted
 GS......... Xiaolin_Wu%27s_line_algorithm
 GS......... Y_combinator
 G.K........ Yahoo_search_interface
