@@ -1,8 +1,8 @@
 #!/usr/local/bin/perl
 #u# http://rosettacode.org/wiki/XXXX_redacted
-#t# inprogress
 #c# 2020-04-xx >RC
 #p# OK
+#n# still working on 'overkill', Unicode
 
 use Data::Printer;
 use Time::HiRes qw(sleep);
@@ -28,13 +28,17 @@ sub redact {
         $insensitive ? 
             $partial ? 
            $overkill ? qr/<after ^ | <:Po> | \s > (<[\w<:!Po>-]>*? [\w*\']? $redact [\'\w+]? \S*?) <before $ | <:Po> | \s > /ix
-                     : qr/ ($redact) /ix
-                     : qr/<after ^ | [\s<:Po>] | \s > ($redact) <before $ | <:Po> | \s > /ix
+                     : qr/ ((?i)$redact) /x
+                     : qr/ \b{wb}(?<!-) ((?i)$redact) (?!-)\b{wb} /x
+                     #: qr/ (?:^|\s|\p{Blk=Punctuation}) ($redact) (?:$|\s|\p{Blk=Punctuation}) /ix
+                     #: qr/<after ^ | [\s<:Po>] | \s > ($redact) <before $ | <:Po> | \s > /ix
                      : 
             $partial ?
            $overkill ? qr/ <after ^ | <:Po> | \s > (<[\w<:!Po>-]>*? [\w*\']? $redact [\'\w+]? \S*?) <before $ | <:Po> | \s > /x
                      : qr/ ($redact) /x
-                     : qr/ <after ^ | [\s<:Po>] | \s > ($redact) <before $ | <:Po> | \s > /x
+                     : qr/ \b{wb}(?<!-) ($redact) (?!-)\b{wb} /x
+                     #: qr/ (?:^|\s|\p{Blk=Punctuation}) ($redact) (?:$|\s|\p{Blk=Punctuation}) /x
+                     #: qr/ <after ^ | [\s<:Po>] | \s > ($redact) <before $ | <:Po> | \s > /x
     ;
     $str =~ s/($rx)/'X' x length $1/gre;
 }
@@ -44,7 +48,7 @@ for my $redact (<Tom tom t>) {
     for ((['[w|s|n]', ''],
           ['[w|i|n]', {i=>1}],
           ['[p|s|n]', {p=>1}],
-#         ['[p|i|n]', {p=>1, i=>1}],
+          ['[p|i|n]', {p=>1, i=>1}],
 #         ['[p|s|o]', {p=>1, o=>1}],
 #         ['[p|i|o]', {p=>1, i=>1, o=>1}]
          )) { 
@@ -54,9 +58,55 @@ for my $redact (<Tom tom t>) {
 }
 
 say my $result = join "\n", @res;
-exit;
+#exit;
 
 my $ref = <<'END';
+
+Redact 'Tom':
+[w|s|n] XXX? Toms bottom tomato is in his stomach while playing the "Tom-tom" brand tom-toms. That's so tom.
+'Tis very tomish, don't you think?
+
+[w|i|n] XXX? Toms bottom tomato is in his stomach while playing the "Tom-tom" brand tom-toms. That's so XXX.
+'Tis very tomish, don't you think?
+
+[p|s|n] XXX? XXXs bottom tomato is in his stomach while playing the "XXX-tom" brand tom-toms. That's so tom.
+'Tis very tomish, don't you think?
+
+[p|i|n] XXX? XXXs botXXX XXXato is in his sXXXach while playing the "XXX-XXX" brand XXX-XXXs. That's so XXX.
+'Tis very XXXish, don't you think?
+
+
+Redact 'tom':
+[w|s|n] Tom? Toms bottom tomato is in his stomach while playing the "Tom-tom" brand tom-toms. That's so XXX.
+'Tis very tomish, don't you think?
+
+[w|i|n] XXX? Toms bottom tomato is in his stomach while playing the "Tom-tom" brand tom-toms. That's so XXX.
+'Tis very tomish, don't you think?
+
+[p|s|n] Tom? Toms botXXX XXXato is in his sXXXach while playing the "Tom-XXX" brand XXX-XXXs. That's so XXX.
+'Tis very XXXish, don't you think?
+
+[p|i|n] XXX? XXXs botXXX XXXato is in his sXXXach while playing the "XXX-XXX" brand XXX-XXXs. That's so XXX.
+'Tis very XXXish, don't you think?
+
+
+Redact 't':
+[w|s|n] Tom? Toms bottom tomato is in his stomach while playing the "Tom-tom" brand tom-toms. That's so tom.
+'Tis very tomish, don't you think?
+
+[w|i|n] Tom? Toms bottom tomato is in his stomach while playing the "Tom-tom" brand tom-toms. That's so tom.
+'Tis very tomish, don't you think?
+
+[p|s|n] Tom? Toms boXXom XomaXo is in his sXomach while playing Xhe "Tom-Xom" brand Xom-Xoms. ThaX's so Xom.
+'Tis very Xomish, don'X you Xhink?
+
+[p|i|n] Xom? Xoms boXXom XomaXo is in his sXomach while playing Xhe "Xom-Xom" brand Xom-Xoms. XhaX's so Xom.
+'Xis very Xomish, don'X you Xhink?
+
+END
+
+
+my $xef = <<'END';
 Redact 'Tom':
 [w|s|n] XXX? Toms bottom tomato is in his stomach while playing the "Tom-tom" brand tom-toms. That's so tom.
 'Tis very tomish, don't you think?
