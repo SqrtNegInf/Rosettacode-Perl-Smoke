@@ -8527,9 +8527,9 @@ File: X/XML_XPath
 File: X/XXXX_redacted
 #!/usr/local/bin/perl
 #u# http://rosettacode.org/wiki/XXXX_redacted
-#c# 2020-04-xx >RC
+#c# 2020-04-16 >RC
 #p# OK
-#n# still working on 'overkill', Unicode
+#n# no Unicode yet
 
 File: X/Xiaolin_Wu%27s_line_algorithm
 #!/usr/local/bin/perl
