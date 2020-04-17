@@ -1,17 +1,17 @@
 
 This is perl 5, version 30, subversion 0 (v5.30.0) built for darwin-thread-multi-2level
 updating from RC…
-+------------> Perl: Good/Bad [1275/12]
++------------> Perl: Good/Bad [1274/12]
 |+-----------> Smoke testing [1140]
 ||+----------> sKipping validation [140]
 |||+---------> Interactive [55]
 ||||+--------> Touched (modified by me) [401]
 |||||+-------> Random seed [101]
 ||||||+------> File output [71]
-|||||||+-----> Draft [230]
+|||||||+-----> Draft [229]
 ||||||||+----> Ignoring [32]
 |||||||||+---> Void (no local copy) [130]
-||||||||||+--> Un-implemented/reliable [123]
+||||||||||+--> Un-implemented/reliable [122]
 |||||||||||
 GS......... 100_doors-1
 GS......... 100_doors-2
@@ -434,7 +434,7 @@ GS......... Factorial-2
 GS......... Factorial-3
 GS......... Factorial-4
 GS..TR..... Factorial_base_numbers_indexing_permutations_of_a_collection
-GS..T..D... Factorions
+GS..T...... Factorions
 GS......... Factors_of_a_Mersenne_number-1
 GS......... Factors_of_a_Mersenne_number-2
 GS......... Factors_of_an_integer-1
@@ -1024,7 +1024,7 @@ GS..T...... Range_extraction
 GS..T...... Ranking_methods
 G.K.T.....U Rare_numbers
 .......D.VU Raster_bars
-GS......... Rate_counter
+!S......... Rate_counter
 GS......... Ray-casting_algorithm
 GS......... Read_a_configuration_file
 GS.....D... Read_a_file_character_by_character_UTF8
@@ -1427,7 +1427,7 @@ GS......... XML_Input
 GS......... XML_Output
 G.K....D... XML_Validation
 B.......... XML_XPath
-GS..T..D..U XXXX_redacted
+GS..T..D... XXXX_redacted
 GS......... Xiaolin_Wu%27s_line_algorithm
 GS......... Y_combinator
 G.K........ Yahoo_search_interface
