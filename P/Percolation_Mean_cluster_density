@@ -1,6 +1,6 @@
 #!/usr/local/bin/perl
 #u# http://rosettacode.org/wiki/P/Percolation/Mean_cluster_density
-#c# 2019-01-RC >RC
+#c# 2019-03-16 >RC
 #p# OK
 
 use strict;
