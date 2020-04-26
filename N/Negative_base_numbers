@@ -1,6 +1,6 @@
 #!/usr/local/bin/perl
 #u# http://rosettacode.org/wiki/Negative_base_numbers
-#c# 2019-02-RC >RC
+#c# 2019-02-09 >RC
 #p# OK
 
 my @res;
