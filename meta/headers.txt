@@ -5014,7 +5014,7 @@ File: N/Nautical_bell-2
 File: N/Negative_base_numbers
 #!/usr/local/bin/perl
 #u# http://rosettacode.org/wiki/Negative_base_numbers
-#c# 2019-02-RC >RC
+#c# 2019-02-09 >RC
 #p# OK
 
 File: N/Nested_function
@@ -5512,7 +5512,7 @@ File: P/Percolation_Bond_percolation
 File: P/Percolation_Mean_cluster_density
 #!/usr/local/bin/perl
 #u# http://rosettacode.org/wiki/P/Percolation/Mean_cluster_density
-#c# 2019-01-RC >RC
+#c# 2019-03-16 >RC
 #p# OK
 
 File: P/Percolation_Mean_run_density
@@ -8301,7 +8301,7 @@ File: V/Video_display_modes
 #!/usr/local/bin/perl
 #u# http://rosettacode.org/wiki/Video_display_modes
 #t# gui
-#c# 2019-01-RC >RC
+#c# 2019-01-21 >RC
 #p# OK
 #n# tested on Ubuntu 18
 
