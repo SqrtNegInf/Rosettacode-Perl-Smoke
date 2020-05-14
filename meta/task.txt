@@ -1,14 +1,14 @@
 
 This is perl 5, version 30, subversion 0 (v5.30.0) built for darwin-thread-multi-2level
 updating from RC…
-+------------> Perl: Good/Bad [1274/12]
++------------> Perl: Good/Bad [1273/12]
 |+-----------> Smoke testing [1139]
 ||+----------> sKipping validation [140]
 |||+---------> Interactive [55]
 ||||+--------> Touched (modified by me) [401]
 |||||+-------> Random seed [101]
 ||||||+------> File output [71]
-|||||||+-----> Draft [230]
+|||||||+-----> Draft [229]
 ||||||||+----> Ignoring [32]
 |||||||||+---> Void (no local copy) [132]
 ||||||||||+--> Un-implemented/reliable [123]
@@ -233,7 +233,7 @@ GS......... Church_Numerals
 GS..T...... Cipolla%27s_algorithm-1
 GS..T...... Cipolla%27s_algorithm-2
 GS..T...... Circles_of_given_radius_through_two_points
-GS..T..D... Circular_primes
+GS..T...... Circular_primes
 G.K........ Classes
 GS..TR..... Closest-pair_problem
 GS......... Closures_Value_capture
@@ -1077,7 +1077,7 @@ GS..T...... Rosetta_Code_Find_unimplemented_tasks
 GS......... Rosetta_Code_Fix_code_tags
 .......D.VU Rosetta_Code_List_authors_of_task_descriptions
 GS..T..D... Rosetta_Code_Rank_languages_by_number_of_users
-GS..T...... Rosetta_Code_Rank_languages_by_popularity
+!S..T...... Rosetta_Code_Rank_languages_by_popularity
 .......D.VU Rosetta_Code_Run_examples
 .......D.VU Rosetta_Code_Tasks_sorted_by_average_lines_of_code
 GS..T..D... Rosetta_Code_Tasks_without_examples
