@@ -3323,7 +3323,7 @@ File: H/Hash_join
 File: H/Haversine_formula
 #!/usr/local/bin/perl
 #u# http://rosettacode.org/wiki/Haversine_formula
-#c# 2018-08-12 <RC
+#c# 2018-08-12 <RC, 2020-05-18 <RC
 #p# OK
 
 File: H/Hello_world_Graphical
