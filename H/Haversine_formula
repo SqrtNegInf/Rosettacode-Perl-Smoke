@@ -1,6 +1,6 @@
 #!/usr/local/bin/perl
 #u# http://rosettacode.org/wiki/Haversine_formula
-#c# 2018-08-12 <RC
+#c# 2018-08-12 <RC, 2020-05-18 <RC
 #p# OK
 
 use strict;
@@ -25,7 +25,10 @@ sub surfacedist {
   return $radius * $c;
 }
 
-say $result = sprintf "Distance: %.3f km", surfacedist(36.12, -86.67, 33.94, -118.4);
+my @BNA = (36.12, -86.67);
+my @LAX = (33.94, -118.4);
+say $result = sprintf "Distance: %.3f km", surfacedist(@BNA, @LAX);
+#say $result = sprintf "Distance: %.3f km", surfacedist(36.12, -86.67, 33.94, -118.4);
 
 use Test::More;
 is ($result, 'Distance: 2887.260 km');
