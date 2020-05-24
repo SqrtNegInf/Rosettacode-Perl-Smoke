@@ -1024,7 +1024,7 @@ GS..T...... Range_extraction
 GS..T...... Ranking_methods
 G.K.T.....U Rare_numbers
 .......D.VU Raster_bars
-GS......... Rate_counter
+!S......... Rate_counter
 GS......... Ray-casting_algorithm
 GS......... Read_a_configuration_file
 GS.....D... Read_a_file_character_by_character_UTF8
@@ -1323,7 +1323,7 @@ GS..T...... Thiele%27s_interpolation_formula
 GS......... Thue-Morse
 GS...R..... Tic-tac-toe
 .......D.VU Time-based_One-time_Password_Algorithm
-!S......... Time_a_function
+GS......... Time_a_function
 GS......... Tokenize_a_string
 GS......... Tokenize_a_string_with_escaping
 GS..T...... Tonelli-Shanks_algorithm
