@@ -8,7 +8,7 @@ updating from RC…
 ||||+--------> Touched (modified by me) [401]
 |||||+-------> Random seed [101]
 ||||||+------> File output [71]
-|||||||+-----> Draft [230]
+|||||||+-----> Draft [228]
 ||||||||+----> Ignoring [32]
 |||||||||+---> Void (no local copy) [133]
 ||||||||||+--> Un-implemented/reliable [124]
@@ -25,7 +25,7 @@ GS...RF.... 15_Puzzle_Game-2
 .........VU 15_puzzle_solver
 G.KI...D... 16_Puzzle_Game
 .........VU 2048
-GS..TR.D... 21_Game
+GS..TR..... 21_Game
 GS...R..... 24_game
 GS......... 24_game_Solve
 GS..T...... 4-rings_or_4-squares_puzzle
@@ -1433,7 +1433,7 @@ GS..T..D... XXXX_redacted
 GS......... Xiaolin_Wu%27s_line_algorithm
 GS......... Y_combinator
 G.K........ Yahoo_search_interface
-GS..T.FD... Yellowstone_sequence
+GS..T.F.... Yellowstone_sequence
 GS....F.... Yin_and_yang
 GS......... Zebra_puzzle
 .........VU Zeckendorf_arithmetic
