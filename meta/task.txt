@@ -11,7 +11,7 @@ updating from RC…
 |||||||+-----> Draft [189]
 ||||||||+----> Ignoring [32]
 |||||||||+---> Void (no local copy) [134]
-||||||||||+--> Un-implemented/reliable [123]
+||||||||||+--> Un-implemented/reliable [122]
 |||||||||||
 G.......... 100_doors-1
 G.......... 100_doors-2
@@ -395,7 +395,7 @@ G.......... Entropy_Narcissist
 G.......... Enumerations
 G.......... Environment_variables
 G.......... Equilibrium_index
-.......D.VU Esthetic_numbers
+.......D.V. Esthetic_numbers
 G.......... Ethiopian_multiplication
 G.......... Euler%27s_identity
 G.......... Euler%27s_sum_of_powers_conjecture-1
