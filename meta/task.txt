@@ -8,10 +8,10 @@ updating from RC…
 ||||+--------> Touched (modified by me) [399]
 |||||+-------> Random seed [101]
 ||||||+------> File output [71]
-|||||||+-----> Draft [193]
+|||||||+-----> Draft [194]
 ||||||||+----> Ignoring [32]
-|||||||||+---> Void (no local copy) [138]
-||||||||||+--> Un-implemented/reliable [126]
+|||||||||+---> Void (no local copy) [139]
+||||||||||+--> Un-implemented/reliable [127]
 |||||||||||
 GS......... 100_doors-1
 GS......... 100_doors-2
@@ -528,6 +528,7 @@ GS......... Generate_lower_case_ASCII_alphabet
 GS..TR..... Generate_random_chess_position
 GS......... Generator_Exponential
 GS......... Generic_swap
+.......D.VU Geohash
 .......D.VU Geometric_algebra
 GS......... Get_system_command_output
 G.K........ Globally_replace_text_in_several_files
