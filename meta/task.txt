@@ -8,7 +8,7 @@ updating from RC…
 ||||+--------> Touched (modified by me) [399]
 |||||+-------> Random seed [101]
 ||||||+------> File output [71]
-|||||||+-----> Draft [194]
+|||||||+-----> Draft [193]
 ||||||||+----> Ignoring [32]
 |||||||||+---> Void (no local copy) [139]
 ||||||||||+--> Un-implemented/reliable [127]
@@ -1192,7 +1192,7 @@ GS...R..... Sorting_algorithms_Bead_sort
 GS......... Sorting_algorithms_Bogosort
 GS...R..... Sorting_algorithms_Bubble_sort
 GS...R..... Sorting_algorithms_Cocktail_sort
-.......D.VU Sorting_algorithms_Cocktail_sort_with_shifting_bounds
+.........VU Sorting_algorithms_Cocktail_sort_with_shifting_bounds
 GS...R..... Sorting_algorithms_Comb_sort
 GS......... Sorting_algorithms_Counting_sort
 GS...R.D... Sorting_algorithms_Cycle_sort
