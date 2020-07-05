@@ -4773,6 +4773,12 @@ File: M/Monads_List_monad
 #c# 2019-05-11 <RC
 #p# OK
 
+File: M/Monads_Writer_monad
+#!/usr/local/bin/perl
+#u# http://rosettacode.org/wiki/Monads/Writer_monad
+#c# 2020-07-04 <RC
+#p# OK
+
 File: M/Monte_Carlo_methods
 #!/usr/local/bin/perl
 #u# http://rosettacode.org/wiki/Monte_Carlo_methods
