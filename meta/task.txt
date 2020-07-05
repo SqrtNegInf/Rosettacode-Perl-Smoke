@@ -2,13 +2,13 @@
 This is perl 5, version 30, subversion 0 (v5.30.0) built for darwin-thread-multi-2level
 updating from RC…
 +------------> Perl: Good/Bad [1272/12]
-|+-----------> Smoke testing [1137]
+|+-----------> Smoke testing [1138]
 ||+----------> sKipping validation [140]
 |||+---------> Interactive [55]
 ||||+--------> Touched (modified by me) [399]
 |||||+-------> Random seed [101]
 ||||||+------> File output [71]
-|||||||+-----> Draft [193]
+|||||||+-----> Draft [194]
 ||||||||+----> Ignoring [32]
 |||||||||+---> Void (no local copy) [139]
 ||||||||||+--> Un-implemented/reliable [127]
@@ -797,7 +797,7 @@ GS......... Modular_inverse
 GS..T..D... Moebius_function
 GS......... Monads_List_monad
 .........VU Monads_Maybe_monad
-.........VU Monads_Writer_monad
+GS......... Monads_Writer_monad
 GS...R..... Monte_Carlo_methods
 GS..T..D... Montgomery_reduction
 GS...R..... Monty_Hall_problem
@@ -1026,7 +1026,7 @@ GS..T...... Range_extraction
 GS..T...... Ranking_methods
 G.K.T.....U Rare_numbers
 .......D.VU Raster_bars
-GS......... Rate_counter
+!S......... Rate_counter
 GS......... Ray-casting_algorithm
 GS......... Read_a_configuration_file
 GS......... Read_a_file_character_by_character_UTF8
@@ -1419,6 +1419,7 @@ GS......... Wireworld
 GS..T..D... Word_break_problem
 .........V. Word_frequency
 GS...R..... Word_search
+.......D.VU Word_wheel
 GS......... Word_wrap
 GS..T...... World_Cup_group_stage
 GS....F.... Write_entire_file
