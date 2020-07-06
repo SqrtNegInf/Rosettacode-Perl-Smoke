@@ -1,10 +1,10 @@
 
 This is perl 5, version 30, subversion 0 (v5.30.0) built for darwin-thread-multi-2level
 updating from RC…
-+------------> Perl: Good/Bad [1272/12]
++------------> Perl: Good/Bad [1274/12]
 |+-----------> Smoke testing [1138]
-||+----------> sKipping validation [140]
-|||+---------> Interactive [55]
+||+----------> sKipping validation [141]
+|||+---------> Interactive [56]
 ||||+--------> Touched (modified by me) [399]
 |||||+-------> Random seed [101]
 ||||||+------> File output [71]
@@ -1026,7 +1026,7 @@ GS..T...... Range_extraction
 GS..T...... Ranking_methods
 G.K.T.....U Rare_numbers
 .......D.VU Raster_bars
-!S......... Rate_counter
+GS......... Rate_counter
 GS......... Ray-casting_algorithm
 GS......... Read_a_configuration_file
 GS......... Read_a_file_character_by_character_UTF8
@@ -1324,6 +1324,7 @@ GS......... The_Twelve_Days_of_Christmas
 GS..T...... Thiele%27s_interpolation_formula
 GS......... Thue-Morse
 GS...R..... Tic-tac-toe
+G.KI....... Tic-tac-toe-2
 .......D.VU Time-based_One-time_Password_Algorithm
 GS......... Time_a_function
 GS......... Tokenize_a_string
