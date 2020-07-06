@@ -7941,6 +7941,13 @@ File: T/Tic-tac-toe
 #p# OK
 #=# RC pipe: e\ni\nc\nd
 
+File: T/Tic-tac-toe-2
+#!/usr/local/bin/perl
+#t# interactive
+#u# http://rosettacode.org/wiki/Tic-tac-toe
+#c# 2020-07-05 <RC
+#p# OK
+
 File: T/Time_a_function
 #!/usr/local/bin/perl
 #u# http://rosettacode.org/wiki/Time_a_function
