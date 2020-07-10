@@ -998,6 +998,12 @@ File: C/Call_an_object_method
 #c# 2018-07-21 <RC
 #p# OK
 
+File: C/Canonicalize_CIDR
+#!/usr/local/bin/perl
+#u# http://rosettacode.org/wiki/Canonicalize_CIDR
+#c# 2020-07-09 <RC
+#p# OK
+
 File: C/Cantor_set
 #!/usr/bin/env perl
 #u# http://rosettacode.org/wiki/Cantor_set
