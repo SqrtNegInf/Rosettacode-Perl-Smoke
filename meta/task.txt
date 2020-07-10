@@ -1,8 +1,8 @@
 
 This is perl 5, version 30, subversion 0 (v5.30.0) built for darwin-thread-multi-2level
 updating from RC…
-+------------> Perl: Good/Bad [1273/12]
-|+-----------> Smoke testing [1138]
++------------> Perl: Good/Bad [1275/12]
+|+-----------> Smoke testing [1139]
 ||+----------> sKipping validation [141]
 |||+---------> Interactive [56]
 ||||+--------> Touched (modified by me) [399]
@@ -191,6 +191,7 @@ GS..T...... Call_a_function_in_a_shared_library-1
 GS..T...... Call_a_function_in_a_shared_library-2
 G.K........ Call_an_object_method
 .........VU Canny_edge_detector
+GS......... Canonicalize_CIDR
 GS..T...... Cantor_set
 GS..TR.D... Card_shuffles
 GS......... Carmichael_3_strong_pseudoprimes
@@ -1326,7 +1327,7 @@ GS......... Thue-Morse
 GS...R..... Tic-tac-toe
 G.KI....... Tic-tac-toe-2
 .......D.VU Time-based_One-time_Password_Algorithm
-!S......... Time_a_function
+GS......... Time_a_function
 GS......... Tokenize_a_string
 GS......... Tokenize_a_string_with_escaping
 GS..T...... Tonelli-Shanks_algorithm
