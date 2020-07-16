@@ -8,10 +8,10 @@ updating from RC…
 ||||+--------> Touched (modified by me) [399]
 |||||+-------> Random seed [101]
 ||||||+------> File output [71]
-|||||||+-----> Draft [194]
+|||||||+-----> Draft [196]
 ||||||||+----> Ignoring [32]
-|||||||||+---> Void (no local copy) [139]
-||||||||||+--> Un-implemented/reliable [127]
+|||||||||+---> Void (no local copy) [141]
+||||||||||+--> Un-implemented/reliable [129]
 |||||||||||
 GS......... 100_doors-1
 GS......... 100_doors-2
@@ -43,6 +43,7 @@ GS..T...... Abbreviations,_automatic
 GS..T...... Abbreviations,_easy
 GS..T...... Abbreviations,_simple
 GS...R..... Abelian_sandpile_model
+.......D.VU Abelian_sandpile_model_Identity
 ........XV. Abstract_type
 GS..T...... Abundant,_deficient_and_perfect_number_classifications
 GS..T...... Abundant_odd_numbers
@@ -634,6 +635,7 @@ GS..T...... Intersecting_Number_Wheels
 GS..T...... Introspection
 GS......... Inverted_index
 G.K........ Inverted_syntax
+.......D.VU Isqrt_integer_square_root_of_X
 GS......... Iterated_digits_squaring
 GS......... JSON
 GS..T...... Jacobi_symbol
