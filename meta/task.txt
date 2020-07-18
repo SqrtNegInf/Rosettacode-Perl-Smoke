@@ -8,7 +8,7 @@ updating from RC…
 ||||+--------> Touched (modified by me) [399]
 |||||+-------> Random seed [101]
 ||||||+------> File output [71]
-|||||||+-----> Draft [196]
+|||||||+-----> Draft [194]
 ||||||||+----> Ignoring [32]
 |||||||||+---> Void (no local copy) [141]
 ||||||||||+--> Un-implemented/reliable [129]
@@ -43,7 +43,7 @@ GS..T...... Abbreviations,_automatic
 GS..T...... Abbreviations,_easy
 GS..T...... Abbreviations,_simple
 GS...R..... Abelian_sandpile_model
-.......D.VU Abelian_sandpile_model_Identity
+.........VU Abelian_sandpile_model_Identity
 ........XV. Abstract_type
 GS..T...... Abundant,_deficient_and_perfect_number_classifications
 GS..T...... Abundant_odd_numbers
@@ -704,7 +704,7 @@ GS......... Literals_Integer
 G.K........ Literals_String
 GS......... Logical_operations
 GS..T..D... Logistic_Curve_Fitting_in_Epidemiology
-.......DXVU Long_literals,_with_continuations
+........XVU Long_literals,_with_continuations
 GS......... Long_multiplication
 GS..T...... Long_primes
 GS..T...... Long_year%3F
