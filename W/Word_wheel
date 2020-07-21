@@ -1,0 +1,38 @@
+#!/usr/local/bin/perl
+#u# http://rosettacode.org/wiki/Word_wheel
+#c# 2020-07-21 <RC
+#p# OK
+
+my @res;
+
+use strict;
+use warnings;
+use feature 'say';
+
+use Path::Tiny;
+
+$_ = lc <<END;
+                    N  D  E
+                    O  K  G
+                    E  L  W
+END
+
+my @letters = /\w/g;
+my $center = $letters[@letters / 2];
+my $regex = join '?', sort(@letters), '';
+
+my @words = grep /$center/ && (join '', sort /./g) =~ /^$regex$/,
+  path('ref/unixdict.txt')->slurp =~ /^[a-z]{3,}$/gm;
+
+push @res, "@words\n" =~ s/.{40}\K /\n/gr;
+
+my $ref = <<'EOD';
+eke elk keel keen keg ken keno knee kneel
+knew know knowledge kong leek week wok woke
+EOD
+
+say my $result = join "\n", @res;
+
+use Test::More;
+is ($result, $ref);
+done_testing();
