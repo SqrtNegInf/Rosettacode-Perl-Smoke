@@ -64,7 +64,6 @@ sub decode {
 
 # Demonstration of the third version:
 
-use Data::Dump qw(dd);
 my $str = "XXXXXABCDEFGHIoooooooooooooooooooooooooAAAAAA";
 my $enc = encode($str);
 say $result = decode($enc);
