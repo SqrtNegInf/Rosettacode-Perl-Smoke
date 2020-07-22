@@ -134,6 +134,12 @@ File: A/AKS_test_for_primes-3
 #c# 2018-06-30 <RC
 #p# OK
 
+File: A/ASCII_art_diagram_converter
+#!/usr/local/bin/perl
+#u# http://rosettacode.org/wiki/ASCII_art_diagram_converter
+#c# 2020-07-21 <RC
+#p# OK
+
 File: A/Abbreviations,_automatic
 #!/usr/local/bin/perl
 #u# http://rosettacode.org/wiki/Abbreviations,_automatic
@@ -8460,6 +8466,12 @@ File: W/Word_search
 #!/usr/local/bin/perl
 #u# http://rosettacode.org/wiki/Word_search
 #c# 2019-12-19 <RC
+#p# OK
+
+File: W/Word_wheel
+#!/usr/local/bin/perl
+#u# http://rosettacode.org/wiki/Word_wheel
+#c# 2020-07-21 <RC
 #p# OK
 
 File: W/Word_wrap
