@@ -1,8 +1,8 @@
 
 This is perl 5, version 30, subversion 0 (v5.30.0) built for darwin-thread-multi-2level
 updating from RC…
-+------------> Perl: Good/Bad [1275/12]
-|+-----------> Smoke testing [1139]
++------------> Perl: Good/Bad [1277/12]
+|+-----------> Smoke testing [1141]
 ||+----------> sKipping validation [141]
 |||+---------> Interactive [56]
 ||||+--------> Touched (modified by me) [399]
@@ -10,8 +10,8 @@ updating from RC…
 ||||||+------> File output [71]
 |||||||+-----> Draft [195]
 ||||||||+----> Ignoring [32]
-|||||||||+---> Void (no local copy) [142]
-||||||||||+--> Un-implemented/reliable [130]
+|||||||||+---> Void (no local copy) [140]
+||||||||||+--> Un-implemented/reliable [128]
 |||||||||||
 GS......... 100_doors-1
 GS......... 100_doors-2
@@ -36,7 +36,7 @@ GS......... ABC_Problem
 GS......... AKS_test_for_primes-1
 GS......... AKS_test_for_primes-2
 GS......... AKS_test_for_primes-3
-.........VU ASCII_art_diagram_converter
+GS......... ASCII_art_diagram_converter
 .........VU AVL_tree
 .......D.VU A_star_search_algorithm
 GS..T...... Abbreviations,_automatic
@@ -1424,7 +1424,7 @@ GS......... Wireworld
 GS..T..D... Word_break_problem
 .........V. Word_frequency
 GS...R..... Word_search
-.......D.VU Word_wheel
+GS.....D... Word_wheel
 GS......... Word_wrap
 GS..T...... World_Cup_group_stage
 GS....F.... Write_entire_file
