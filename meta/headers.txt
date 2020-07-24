@@ -1762,6 +1762,12 @@ File: D/Damm_algorithm-2
 #p# OK
 #n# more like Perl 6
 
+File: D/Data_Encryption_Standard
+#!/usr/local/bin/perl
+#u# http://rosettacode.org/wiki/Data_Encryption_Standard
+#c# 2020-07-23 <RC
+#p# OK
+
 File: D/Date_format
 #!/usr/local/bin/perl
 #u# http://rosettacode.org/wiki/Date_format
