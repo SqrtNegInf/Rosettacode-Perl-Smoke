@@ -1,0 +1,27 @@
+#!/usr/local/bin/perl
+#u# http://rosettacode.org/wiki/Data_Encryption_Standard
+#c# 2020-07-23 <RC
+#p# OK
+
+use strict;
+use warnings;
+use feature 'say';
+
+use Crypt::DES;
+
+my $key        = pack("H*", "0E329232EA6D0D73");
+my $cipher     = new Crypt::DES $key;
+my $ciphertext = $cipher->encrypt(pack("H*", "8787878787878787"));
+my $result  = "Encoded : ". unpack("H*", $ciphertext) . "\n";
+   $result .= "Decoded : ". unpack("H*", $cipher->decrypt($ciphertext)) . "\n";
+
+say $result;
+
+my $ref = <<'EOD';
+Encoded : 0000000000000000
+Decoded : 8787878787878787
+EOD
+
+use Test::More;
+is ($result, $ref);
+done_testing();
