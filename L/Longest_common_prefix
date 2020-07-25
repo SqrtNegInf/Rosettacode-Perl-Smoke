@@ -3,6 +3,9 @@
 #c# 2018-08-16 <RC
 #p# OK
 
+use strict;
+use warnings;
+
 # If the strings are known not to contain null-bytes, we can let the regex backtracking engine find the longest common prefix like this:
 
 sub lcp {
