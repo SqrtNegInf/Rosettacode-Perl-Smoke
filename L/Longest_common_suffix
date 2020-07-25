@@ -1,0 +1,46 @@
+#!/usr/local/bin/perl
+#u# http://rosettacode.org/wiki/Longest_common_suffix
+#c# 2020-07-25 >RC
+#p# OK
+
+use strict;
+use warnings;
+use feature 'say';
+
+my @res;
+
+# If the strings are known not to contain null-bytes, we can let the regex backtracking engine find the longest common suffix like this:
+
+sub lcs {
+    for (0..$#_) { $_[$_] = join '', reverse split '', $_[$_] }
+    join '', reverse split '', (join("\0", @_) =~ /^ ([^\0]*) [^\0]* (?:\0 \1 [^\0]*)* $/sx)[0];
+}
+
+for my $words (
+  [qw<Sunday Monday Tuesday Wednesday Thursday Friday Saturday>],
+  [qw<Sondag Maandag Dinsdag Woensdag Donderdag Vrydag Saterdag dag>],
+  [2347, 9312347, 'acx5g2347', 12.02347],
+  [qw<longest common suffix>],
+  [('one, Hey!', 'three, Hey!', 'ale, Hey!', 'me, Hey!')],
+  ['suffix'],
+  ['']) {
+
+    push @res, lcs(@$words)
+}
+
+say my $result = join "\n", @res;
+
+my $ref = <<'EOD';
+day
+dag
+2347
+
+e, Hey!
+suffix
+
+EOD
+
+use Test::More;
+chop $ref;
+is ($result, $ref);
+done_testing();
