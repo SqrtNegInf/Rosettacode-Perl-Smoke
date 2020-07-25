@@ -1,0 +1,44 @@
+#!/usr/local/bin/perl
+#u# http://rosettacode.org/wiki/Word_wheel
+#c# 2020-07-24 <RC
+#p# OK
+
+my @res;
+
+use strict;
+use warnings;
+use feature 'say';
+
+$_ = <<END;
+                    N  D  E
+                    O  K  G
+                    E  L  W
+END
+
+my $file = do { local(@ARGV, $/) = 'ref/unixdict.txt'; <> };
+my $length = my @letters = lc =~ /\w/g;
+my $center = $letters[@letters / 2];
+my $toomany = (join '', sort @letters) =~ s/(.)\1*/
+  my $count = length "$1$&"; "(?!(?:.*$1){$count})" /ger;
+my $valid = qr/^(?=.*$center)$toomany([@letters]{3,$length}$)$/m;
+
+my @words;
+push @words, $file =~ /$valid/g;
+
+push @res, " words for\n$_\n@words\n" =~ s/.{60}\K /\n/gr;
+
+say my $result = @words . join "\n", @res;
+
+my $ref = <<'EOD';
+17 words for
+                    N  D  E
+                    O  K  G
+                    E  L  W
+
+eke elk keel keen keg ken keno knee kneel knew know knowledge
+kong leek week wok woke
+EOD
+
+use Test::More;
+is ($result, $ref);
+done_testing();
