@@ -2,6 +2,7 @@
 #u# http://rosettacode.org/wiki/Longest_common_suffix
 #c# 2020-07-25 >RC
 #p# OK
+#n# sub-optimal display of strings containing blanks
 
 use strict;
 use warnings;
@@ -17,27 +18,26 @@ sub lcs {
 }
 
 for my $words (
-  [qw<Sunday Monday Tuesday Wednesday Thursday Friday Saturday>],
-  [qw<Sondag Maandag Dinsdag Woensdag Donderdag Vrydag Saterdag dag>],
-  [2347, 9312347, 'acx5g2347', 12.02347],
-  [qw<longest common suffix>],
-  [('one, Hey!', 'three, Hey!', 'ale, Hey!', 'me, Hey!')],
-  ['suffix'],
-  ['']) {
-
-    push @res, lcs(@$words)
+  [ <Sunday Monday Tuesday Wednesday Thursday Friday Saturday> ],
+  [ <Sondag Maandag Dinsdag Woensdag Donderdag Vrydag Saterdag dag> ],
+  [ 2347, 9312347, 'acx5g2347', 12.02347 ],
+  [ <longest common suffix> ],
+  [ ('one, Hey!', 'three, Hey!', 'ale, Hey!', 'me, Hey!') ],
+  [ 'suffix' ],
+  [ '' ]) {
+    push @res, qq{'@$words' ==> '@{[lcs(@$words)]}'};
 }
 
 say my $result = join "\n", @res;
 
 my $ref = <<'EOD';
-day
-dag
-2347
-
-e, Hey!
-suffix
-
+'Sunday Monday Tuesday Wednesday Thursday Friday Saturday' ==> 'day'
+'Sondag Maandag Dinsdag Woensdag Donderdag Vrydag Saterdag dag' ==> 'dag'
+'2347 9312347 acx5g2347 12.02347' ==> '2347'
+'longest common suffix' ==> ''
+'one, Hey! three, Hey! ale, Hey! me, Hey!' ==> 'e, Hey!'
+'suffix' ==> 'suffix'
+'' ==> ''
 EOD
 
 use Test::More;
