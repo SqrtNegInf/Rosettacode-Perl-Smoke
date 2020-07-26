@@ -4213,6 +4213,13 @@ File: L/Longest_common_subsequence
 #c# 2018-08-16 <RC
 #p# OK
 
+File: L/Longest_common_suffix
+#!/usr/local/bin/perl
+#u# http://rosettacode.org/wiki/Longest_common_suffix
+#c# 2020-07-25 >RC
+#p# OK
+#n# sub-optimal display of strings containing blanks
+
 File: L/Longest_increasing_subsequence-1
 #!/usr/local/bin/perl
 #u# http://rosettacode.org/wiki/Longest_increasing_subsequence
@@ -8475,6 +8482,12 @@ File: W/Word_search
 #p# OK
 
 File: W/Word_wheel
+#!/usr/local/bin/perl
+#u# http://rosettacode.org/wiki/Word_wheel
+#c# 2020-07-24 <RC
+#p# OK
+
+File: W/Word_wheel.1
 #!/usr/local/bin/perl
 #u# http://rosettacode.org/wiki/Word_wheel
 #c# 2020-07-21 <RC
