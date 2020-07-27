@@ -1,0 +1,72 @@
+#!/usr/local/bin/perl
+#u# http://rosettacode.org/wiki/Twin_Prime_Conjecture
+#c# 2020-07-26 >RC
+#p# OK
+#n# at least this task motivated me install a new module...
+#n# as should be, same as for Raku for 10**12: 712.40s user 4.91s system 718% cpu 1:39.77 total
+
+use strict;
+use warnings;
+use feature 'say';
+
+use Primesieve;
+
+my @res;
+
+sub comma { reverse ((reverse shift) =~ s/(.{3})/$1,/gr) =~ s/^,//r }
+
+push @res, sprintf "Twin prime pairs less than %14s: %s", comma(10**$_), comma count_twins(1, 10**$_) for 1..10;
+
+say my $result = join "\n", @res;
+
+my $ref = <<'END';
+Twin prime pairs less than             10: 2
+Twin prime pairs less than            100: 8
+Twin prime pairs less than          1,000: 35
+Twin prime pairs less than         10,000: 205
+Twin prime pairs less than        100,000: 1,224
+Twin prime pairs less than      1,000,000: 8,169
+Twin prime pairs less than     10,000,000: 58,980
+Twin prime pairs less than    100,000,000: 440,312
+Twin prime pairs less than  1,000,000,000: 3,424,506
+Twin prime pairs less than 10,000,000,000: 27,412,679
+END
+
+# Twin prime pairs less than 1,000,000,000,000: 1,870,585,220
+
+use Test::More;
+chomp $ref;
+is($result, $ref);
+done_testing();
+
+__END__
+
+# fairly fast until 10**10
+use ntheory qw(is_prime forprimes prime_precalc);
+push @res, sprintf "Twin prime pairs less than %14s: %s", comma(10**$_), comma tally(10**$_) for 1..10;
+sub tally {
+    my $cnt;
+    forprimes { $cnt++ if is_prime($_+2) } $_[0];
+    $cnt
+}
+
+=={{header|Perl}}==
+<lang perl>use strict;
+use warnings;
+
+use Primesieve;
+
+sub comma { reverse ((reverse shift) =~ s/(.{3})/$1,/gr) =~ s/^,//r }
+
+printf "Twin prime pairs less than %14s: %s\n", comma(10**$_), comma count_twins(1, 10**$_) for 1..10;</lang>
+{{out}}
+<pre>Twin prime pairs less than             10: 2
+Twin prime pairs less than            100: 8
+Twin prime pairs less than          1,000: 35
+Twin prime pairs less than         10,000: 205
+Twin prime pairs less than        100,000: 1,224
+Twin prime pairs less than      1,000,000: 8,169
+Twin prime pairs less than     10,000,000: 58,980
+Twin prime pairs less than    100,000,000: 440,312
+Twin prime pairs less than  1,000,000,000: 3,424,506
+Twin prime pairs less than 10,000,000,000: 27,412,679</pre>
