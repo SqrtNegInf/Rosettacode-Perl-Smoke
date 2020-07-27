@@ -1,17 +1,17 @@
 
 This is perl 5, version 30, subversion 0 (v5.30.0) built for darwin-thread-multi-2level
 updating from RC…
-+------------> Perl: Good/Bad [1278/12]
-|+-----------> Smoke testing [1143]
-||+----------> sKipping validation [141]
-|||+---------> Interactive [56]
-||||+--------> Touched (modified by me) [400]
-|||||+-------> Random seed [101]
-||||||+------> File output [71]
-|||||||+-----> Draft [197]
++------------> Perl: Good/Bad [1230/11]
+|+-----------> Smoke testing [1102]
+||+----------> sKipping validation [135]
+|||+---------> Interactive [53]
+||||+--------> Touched (modified by me) [396]
+|||||+-------> Random seed [98]
+||||||+------> File output [68]
+|||||||+-----> Draft [198]
 ||||||||+----> Ignoring [32]
-|||||||||+---> Void (no local copy) [140]
-||||||||||+--> Un-implemented/reliable [128]
+|||||||||+---> Void (no local copy) [133]
+||||||||||+--> Un-implemented/reliable [126]
 |||||||||||
 GS......... 100_doors-1
 GS......... 100_doors-2
@@ -22,7 +22,6 @@ GS..TR..... 100_prisoners
 G.KI....... 15_Puzzle_Game-1
 GS...RF.... 15_Puzzle_Game-2
 .......D.VU 15_Puzzle_Game_in_3D
-.........VU 15_puzzle_solver
 G.KI...D... 16_Puzzle_Game
 .........VU 2048
 GS..TR..... 21_Game
@@ -53,13 +52,11 @@ GS......... Ackermann_function-2
 GS......... Ackermann_function-3
 GS......... Ackermann_function-4
 GS......... Ackermann_function-5
-........XV. Active_Directory_Connect
+........X.. Active_Directory_Connect
 .........VU Active_Directory_Search_for_a_user
-GS......... Active_object
 GS......... Add_a_variable_to_a_class_instance_at_runtime
 .......D.VU Addition-chain_exponentiation
 GS..T..D... Addition_chains
-GS..T...... Address_of_a_variable
 GS......... Align_columns-1
 GS......... Align_columns-2
 GS......... Aliquot_sequence_classifications
@@ -151,7 +148,6 @@ GS......... Bitcoin_public_point_to_address
 GS....F.... Bitmap
 .........VU Bitmap_B%C3%A9zier_curves_Cubic
 .........VU Bitmap_B%C3%A9zier_curves_Quadratic
-GS....F.... Bitmap_Bresenham%27s_line_algorithm
 GS....F.... Bitmap_Flood_fill
 .........VU Bitmap_Histogram
 .........VU Bitmap_Midpoint_circle_algorithm
@@ -199,7 +195,6 @@ GS......... Carmichael_3_strong_pseudoprimes
 GS..T...... Cartesian_product_of_two_or_more_lists-1
 GS..T...... Cartesian_product_of_two_or_more_lists-2
 GS......... Cartesian_product_of_two_or_more_lists-3
-GS......... Case-sensitivity_of_identifiers
 GS......... Casting_out_nines
 GS......... Catalan_numbers-1
 GS......... Catalan_numbers-2
@@ -216,10 +211,8 @@ G.KI....... Chat_server
 G.KI....... Chat_server-2
 GS.....D... Chebyshev_coefficients
 GS......... Check_Machin-like_formulas
-GS......... Check_input_device_is_a_terminal
 G.K........ Check_output_device_is_a_terminal
 GS......... Check_that_file_exists
-GS......... Checkpoint_synchronization
 GS..T..D... Checksumcolor
 .......D... Chemical_Calculator
 GS..T...... Chemical_Calculator-1
@@ -239,7 +232,6 @@ GS..T...... Circles_of_given_radius_through_two_points
 GS..T...... Circular_primes
 G.K........ Classes
 GS..TR..... Closest-pair_problem
-GS......... Closures_Value_capture
 G.K.T..D... Code_segment_unload
 GS......... Collections
 G.KIT...... Color_of_a_screen_pixel
@@ -273,10 +265,8 @@ GS......... Compiler_virtual_machine_interpreter
 GS......... Compound_data_type
 G.K..R..... Concurrent_computing-1
 GS......... Concurrent_computing-2
-G.K........ Conditional_structures
 GS......... Conjugate_transpose
 ........XVU Constrained_genericity
-GS..TR..... Constrained_random_points_on_a_circle
 GS......... Continued_fraction
 GS......... Continued_fraction_Arithmetic_Construct_from_rational_number
 .......D.VU Continued_fraction_Arithmetic_Gmatrix_NG,_Contined_Fraction_N
@@ -302,7 +292,6 @@ GS......... Cramer%27s_rule
 .......D.VU Create_DWM_statusbar
 G.K........ Create_a_file
 ........XVU Create_a_file_on_magnetic_tape
-GS......... Create_a_two-dimensional_array_at_runtime
 GS...R..... Create_an_HTML_table
 GS.....D... Create_an_object_Native_demonstration
 ........XVU Create_an_object_at_a_given_address
@@ -316,10 +305,7 @@ GS......... Cut_a_rectangle
 GS..T..D... Cycle_detection
 GS..T...... Cyclotomic_Polynomial
 GS......... DNS_query
-GS..T...... Damm_algorithm-1
-GS......... Damm_algorithm-2
 GS.....D... Data_Encryption_Standard
-GS......... Date_format
 GS......... Date_manipulation
 GS......... Day_of_the_week-1
 GS......... Day_of_the_week-2
@@ -396,7 +382,6 @@ GS......... Empty_string
 GS......... Enforced_immutability
 GS......... Entropy
 GS......... Entropy_Narcissist
-GS......... Enumerations
 GS......... Environment_variables
 GS......... Equilibrium_index
 .......D.V. Esthetic_numbers
@@ -417,7 +402,6 @@ GS..T..D... Execute_CopyPasta_Language
 GS......... Execute_HQ9%2B
 ........XV. Execute_SNUSP
 GS......... Execute_a_Markov_algorithm
-GS..T...... Execute_a_system_command
 GS......... Exponentiation_operator-1
 GS......... Exponentiation_operator-2
 GS......... Exponentiation_order
@@ -440,9 +424,6 @@ GS..TR..... Factorial_base_numbers_indexing_permutations_of_a_collection
 GS..T...... Factorions
 GS......... Factors_of_a_Mersenne_number-1
 GS......... Factors_of_a_Mersenne_number-2
-GS......... Factors_of_an_integer-1
-GS......... Factors_of_an_integer-2
-GS......... Factors_of_an_integer-3
 GS..T...... Fairshare_between_two_and_more
 GS......... Farey_sequence-1
 GS......... Farey_sequence-2
@@ -459,8 +440,6 @@ GS......... Fibonacci_sequence-2
 GS......... Fibonacci_sequence-3
 GS......... Fibonacci_word
 GS....F.... Fibonacci_word_fractal
-GS......... File_extension_is_in_extensions_list
-GS....F.... File_input_output
 GS......... File_modification_time
 GS......... File_size
 GS..T...... File_size_distribution
@@ -499,7 +478,6 @@ GS......... Fork
 GS......... Formal_power_series-1
 GS......... Formal_power_series-2
 GS......... Formatted_numeric_output
-GS..T...... Forward_difference
 GS......... Four_bit_adder
 GS..T...... Four_is_magic
 GS..T...... Four_is_the_number_of_letters_in_the_...
@@ -514,7 +492,6 @@ GS......... Function_frequency
 GS......... Function_prototype
 GS..T...... Functional_coverage_tree
 GS..T...... Fusc_sequence
-G.KI....... GUI_Maximum_window_dimensions
 G.KIT.....U GUI_component_interaction
 .........VU GUI_enabling_disabling_of_controls
 GS..TRF.... Galton_box_animation
@@ -534,7 +511,6 @@ GS......... Generic_swap
 .......D.VU Geometric_algebra
 GS......... Get_system_command_output
 G.K........ Globally_replace_text_in_several_files
-.........VU Go_Fish
 GS..T..D... Gradient_descent
 .........VU Graph_colouring
 GS......... Gray_code
@@ -566,7 +542,6 @@ GS......... Harshad_or_Niven_series
 GS......... Hash_from_two_arrays
 GS......... Hash_join
 GS......... Haversine_formula
-G.KI....... Hello_world_Graphical
 G.K........ Hello_world_Line_printer
 G.K........ Hello_world_Newbie
 G.K........ Hello_world_Newline_omission
@@ -592,8 +567,6 @@ GS..T...... Horizontal_sundial_calculations
 GS......... Horner%27s_rule_for_polynomial_evaluation-1
 GS......... Horner%27s_rule_for_polynomial_evaluation-2
 GS......... Horner%27s_rule_for_polynomial_evaluation-3
-GS......... Host_introspection
-GS......... Hostname
 GS..T.F.... Hough_transform
 GS......... Huffman_coding
 GS..T...... Humble_numbers
@@ -608,21 +581,18 @@ GS......... I_before_E_except_after_C-2
 GS......... Identity_matrix
 GS..T...... Idiomatically_determine_all_the_characters_that_can_be_used_for_symbols
 GS..T...... Idiomatically_determine_all_the_lowercase_and_uppercase_letters
-GS..T.F.... Image_convolution
 G.KIT...... Image_noise
 GS..T...... Imaginary_base_numbers
 G.K.T..D... Implicit_type_conversion
-G.K........ Include_a_file
 GS..T...... Increasing_gaps_between_consecutive_Niven_numbers
 GS......... Increment_a_numerical_string
 GS..T...... Index_finite_lists_of_positive_integers-1
 B...TR..... Index_finite_lists_of_positive_integers-2
 GS..T...... Infinity
-........XV. Inheritance_Multiple
-........XV. Inheritance_Single
+........X.. Inheritance_Multiple
+........X.. Inheritance_Single
 GS..T..D... Input_Output_for_Lines_of_Text
 GS..T..D... Input_Output_for_Pairs_of_Numbers
-G.K........ Input_loop
 GS......... Integer_comparison
 GS......... Integer_overflow
 .......D... Integer_roots
@@ -636,7 +606,6 @@ GS..T...... Introspection
 GS......... Inverted_index
 G.K........ Inverted_syntax
 .......D.VU Isqrt_integer_square_root_of_X
-GS......... Iterated_digits_squaring
 GS......... JSON
 GS..T...... Jacobi_symbol
 GS......... Jaro_distance
@@ -721,7 +690,6 @@ GS...R..... Loops_Break
 GS......... Loops_Continue
 GS......... Loops_Do-while
 GS......... Loops_Downward_for
-GS......... Loops_For
 GS......... Loops_For_with_a_specified_step
 GS......... Loops_Foreach
 GS..T...... Loops_Increment_loop_index_within_loop_body
@@ -801,7 +769,6 @@ GS......... Modular_inverse
 GS..T..D... Moebius_function
 GS......... Monads_List_monad
 .........VU Monads_Maybe_monad
-GS......... Monads_Writer_monad
 GS...R..... Monte_Carlo_methods
 GS..T..D... Montgomery_reduction
 GS...R..... Monty_Hall_problem
@@ -810,7 +777,6 @@ GS......... Morse_code
 GS.....D... Most_frequent_k_chars_distance
 G.KI....... Mouse_position-1
 G.KI....... Mouse_position-2
-GS......... Move-to-front_algorithm
 GS..T...... Multi-dimensional_array
 G.K.T..D..U Multidimensional_Newton-Raphson_method
 GS......... Multifactorial-1
@@ -818,14 +784,12 @@ GS......... Multifactorial-2
 GS.....D... Multiline_shebang
 G.K........ Multiple_distinct_objects
 GS..T...... Multiple_regression
-GS......... Multiplication_tables
 GS......... Multiplicative_order
 GS......... Multisplit
 GS......... Munchausen_numbers
 GS....F.... Munching_squares
 G.K.T.FD... Musical_scale
 .........V. Mutex
-GS......... Mutual_recursion
 GS......... N%27th
 GS..T..D... N-body_problem
 GS..T...... N-queens_problem
@@ -837,7 +801,6 @@ G.K.T...... Naming_conventions
 ........XV. Narcissist
 GS......... Narcissistic_decimal_number
 GS.....D... Native_shebang
-GS......... Natural_sorting
 G.KIT...... Nautical_bell-1
 GS......... Nautical_bell-2
 GS..T...... Negative_base_numbers
@@ -846,7 +809,6 @@ GS..T...... Nested_templated_data
 GS..T...... Next_highest_int_from_digits
 GS..T...... Nim_Game
 .......D.VU Nimber_arithmetic
-GS......... Non-continuous_subsequences
 GS......... Non-decimal_radices_Convert
 GS......... Non-decimal_radices_Input
 GS......... Non-decimal_radices_Output
@@ -888,13 +850,12 @@ GS......... Ordered_words
 GS......... P-value_correction
 GS..T...... Palindrome_dates-1
 GS......... Palindrome_dates-2
-GS......... Palindrome_detection
 .........VU Palindromic_gapful_numbers
 GS..T...... Pangram_checker
 GS......... Paraffins
 GS......... Parallel_Brute_Force
 GS......... Parallel_calculations
-........XVU Parametric_polymorphism
+........X.U Parametric_polymorphism
 ........XV. Parametrized_SQL_statement
 GS....FD... Parse_EBNF
 GS......... Parse_an_IP_Address
@@ -932,7 +893,6 @@ GS..TR..... Percolation_Site_percolation
 GS......... Perfect_numbers
 GS......... Perfect_shuffle
 GS..T...... Perfect_totient_numbers
-GS......... Perlin_noise
 GS......... Permutation_test
 GS..T...... Permutations
 GS......... Permutations_Derangements-1
@@ -960,7 +920,6 @@ B.K.......U Play_recorded_sounds
 GS..T...... Playfair_cipher
 GS...R..... Playing_cards
 GS......... Plot_coordinate_pairs
-GS......... Pointers_and_references
 GS......... Poker_hand_analyser
 GS......... Polymorphic_copy
 GS......... Polymorphism
@@ -982,14 +941,8 @@ GS......... Power_set-9
 GS......... Powerful_numbers-1
 GS......... Powerful_numbers-2
 G.K........ Pragmatic_directives
-GS...R..... Price_fraction
 .........V. Primality_by_Wilson%27s_theorem
-GS......... Primality_by_trial_division
 GS..T...... Prime_conspiracy
-GS......... Prime_decomposition-1
-GS......... Prime_decomposition-2
-GS......... Prime_decomposition-3
-B.......... Prime_decomposition-4
 GS..T...... Primes_-_allocate_descendants_to_their_ancestors
 GS......... Primorial_numbers
 G.K.T..D... Print_debugging_statement
@@ -1051,9 +1004,8 @@ GS......... Regular_expressions
 .......D.VU Remote_agent_Agent_interface
 .......D.VU Remote_agent_Agent_logic
 .......D.VU Remote_agent_Simulation
-GS......... Remove_duplicate_elements
 GS....F.... Remove_lines_from_a_file
-.......D.VU Remove_vowels_from_a_string
+GS..T..D... Remove_vowels_from_a_string
 GS......... Rename_a_file
 .........VU Rendezvous
 GS......... Rep-string
@@ -1078,7 +1030,7 @@ GS..T...... Roman_numerals_Encode-4
 GS......... Roots_of_a_function
 GS......... Roots_of_a_quadratic_function
 GS......... Roots_of_unity
-GS..T...... Rosetta_Code_Count_examples
+!S..T...... Rosetta_Code_Count_examples
 GS..T...... Rosetta_Code_Find_bare_lang_tags
 GS..T...... Rosetta_Code_Find_unimplemented_tasks
 GS......... Rosetta_Code_Fix_code_tags
@@ -1195,7 +1147,6 @@ GS......... Sort_using_a_custom_comparator
 GS..T...... Sorting_Algorithms_Circle_Sort
 GS...R..... Sorting_algorithms_Bead_sort
 GS......... Sorting_algorithms_Bogosort
-GS...R..... Sorting_algorithms_Bubble_sort
 GS...R..... Sorting_algorithms_Cocktail_sort
 .........VU Sorting_algorithms_Cocktail_sort_with_shifting_bounds
 GS...R..... Sorting_algorithms_Comb_sort
@@ -1308,7 +1259,6 @@ G.KIT...... Terminal_control_Display_an_extended_character
 G.KIT...... Terminal_control_Hiding_the_cursor
 G.KIT...... Terminal_control_Inverse_video
 ........XVU Terminal_control_Positional_read
-G.KI....... Terminal_control_Preserve_screen
 .......D.VU Terminal_control_Restricted_width_positional_input_No_wrapping
 .......D.VU Terminal_control_Restricted_width_positional_input_With_wrapping
 G.KI....... Terminal_control_Ringing_the_terminal_bell
@@ -1348,7 +1298,6 @@ GS......... Towers_of_Hanoi
 GS..T...... Trabb_Pardo-Knuth_algorithm
 .......D.VU Transportation_problem
 GS..T..D... Tree_datastructures
-GS......... Tree_traversal
 GS......... Trigonometric_functions
 GS......... Truncatable_primes-1
 GS......... Truncatable_primes-2
@@ -1356,6 +1305,7 @@ GS......... Truncatable_primes-3
 GS......... Truncate_a_file
 GS....F.... Truth_table
 GS......... Twelve_statements
+GS..T..D..U Twin_Prime_Conjecture
 GS..T..D... Two_Sum
 GS..T..D... Type_detection
 GS..T..D... UPC
@@ -1413,7 +1363,6 @@ GS......... Water_collected_between_towers
 .......D.VU Waveform_analysis_Top_and_tail
 .......D.VU Weather_Routing
 ........X.. Weather_routing
-GS......... Web_scraping
 GS..T...... Weird_numbers-1
 GS......... Weird_numbers-2
 .......D... Welch%27s_t-test
