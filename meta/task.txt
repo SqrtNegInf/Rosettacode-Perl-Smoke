@@ -1,16 +1,16 @@
 
 This is perl 5, version 30, subversion 0 (v5.30.0) built for darwin-thread-multi-2level
 updating from RC…
-+------------> Perl: Good/Bad [1230/11]
-|+-----------> Smoke testing [1102]
++------------> Perl: Good/Bad [1231/11]
+|+-----------> Smoke testing [1103]
 ||+----------> sKipping validation [135]
 |||+---------> Interactive [53]
 ||||+--------> Touched (modified by me) [396]
-|||||+-------> Random seed [98]
+|||||+-------> Random seed [99]
 ||||||+------> File output [68]
-|||||||+-----> Draft [198]
+|||||||+-----> Draft [199]
 ||||||||+----> Ignoring [32]
-|||||||||+---> Void (no local copy) [133]
+|||||||||+---> Void (no local copy) [134]
 ||||||||||+--> Un-implemented/reliable [126]
 |||||||||||
 GS......... 100_doors-1
@@ -955,6 +955,7 @@ GS......... Program_name
 G.K........ Program_termination
 .......D.VU Proof
 GS......... Proper_divisors
+.......D.VU Pseudorandom_Number_Generator_Image
 GS....F.... Pythagoras_tree
 GS..T...... Pythagorean_quadruples
 GS......... Pythagorean_triples
@@ -1147,6 +1148,7 @@ GS......... Sort_using_a_custom_comparator
 GS..T...... Sorting_Algorithms_Circle_Sort
 GS...R..... Sorting_algorithms_Bead_sort
 GS......... Sorting_algorithms_Bogosort
+GS...R..... Sorting_algorithms_Bubble_sort
 GS...R..... Sorting_algorithms_Cocktail_sort
 .........VU Sorting_algorithms_Cocktail_sort_with_shifting_bounds
 GS...R..... Sorting_algorithms_Comb_sort
@@ -1305,7 +1307,7 @@ GS......... Truncatable_primes-3
 GS......... Truncate_a_file
 GS....F.... Truth_table
 GS......... Twelve_statements
-GS..T..D..U Twin_Prime_Conjecture
+GS..T..D... Twin_Prime_Conjecture
 GS..T..D... Two_Sum
 GS..T..D... Type_detection
 GS..T..D... UPC
