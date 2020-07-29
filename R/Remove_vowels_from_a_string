@@ -2,6 +2,7 @@
 #u# http://rosettacode.org/wiki/Remove_vowels_from_a_string
 #c# 2020-07-26 >RC
 #p# OK
+#n# Den snabbbruna räven hoppade över den lata hunden
 
 use strict;
 use warnings;
@@ -12,7 +13,8 @@ binmode STDOUT, ":utf8";
 use Unicode::Normalize;
 
 my $text = <<'END';
-Norwegian, Icelandic, German, Turkish, French, Spanish, English:
+Swedish, Norwegian, Icelandic, German, Turkish, French, Spanish, English:
+Utbildning ska vara gratis, åtminstone i de grundläggande och grundläggande stadierna.
 Undervisningen skal være gratis, i det minste på de elementære og grunnleggende trinn.
 Skal hún veitt ókeypis, að minnsta kosti barnafræðsla og undirstöðummentu.
 Hochschulunterricht muß allen gleichermaßen entsprechend ihren Fähigkeiten offenstehen.
@@ -28,7 +30,8 @@ $result .= NFD($_) =~ /@{[join '|', @vowels]}/ ? ' ' : $_ for split /(\X)/, $tex
 say $result;
 
 my $ref = <<'END';
-N rw g  n,  c l nd c, G rm n, T rk sh, Fr nch, Sp n sh,  ngl sh:
+Sw d sh, N rw g  n,  c l nd c, G rm n, T rk sh, Fr nch, Sp n sh,  ngl sh:
+ tb ldn ng sk  v r  gr t s,  tm nst n    d  gr ndl gg nd   ch gr ndl gg nd  st d  rn .
  nd rv sn ng n sk l v r  gr t s,   d t m nst  p  d   l m nt r   g gr nnl gg nd  tr nn.
 Sk l h n v  tt  k yp s,  ð m nnst  k st  b rn fr ðsl   g  nd rst ð mm nt .
 H chsch l nt rr cht m ß  ll n gl  ch rm ß n  ntspr ch nd  hr n F h gk  t n  ff nst h n.
