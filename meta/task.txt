@@ -1,17 +1,17 @@
 
 This is perl 5, version 30, subversion 0 (v5.30.0) built for darwin-thread-multi-2level
 updating from RC…
-+------------> Perl: Good/Bad [1231/11]
++------------> Perl: Good/Bad [1232/11]
 |+-----------> Smoke testing [1103]
 ||+----------> sKipping validation [135]
 |||+---------> Interactive [53]
 ||||+--------> Touched (modified by me) [396]
 |||||+-------> Random seed [99]
 ||||||+------> File output [68]
-|||||||+-----> Draft [199]
+|||||||+-----> Draft [200]
 ||||||||+----> Ignoring [32]
-|||||||||+---> Void (no local copy) [134]
-||||||||||+--> Un-implemented/reliable [126]
+|||||||||+---> Void (no local copy) [135]
+||||||||||+--> Un-implemented/reliable [127]
 |||||||||||
 GS......... 100_doors-1
 GS......... 100_doors-2
@@ -984,7 +984,7 @@ GS..T...... Range_extraction
 GS..T...... Ranking_methods
 G.K.T.....U Rare_numbers
 .......D.VU Raster_bars
-!S......... Rate_counter
+GS......... Rate_counter
 GS......... Ray-casting_algorithm
 GS......... Read_a_configuration_file
 GS......... Read_a_file_character_by_character_UTF8
@@ -1269,6 +1269,7 @@ GS......... Ternary_logic
 GS......... Test_a_function
 GS......... Test_integerness
 .......D.VU Tetris
+.......D.VU Text_Completion
 GS..T..D... Text_between
 GS......... Text_processing_1
 GS......... Text_processing_2
