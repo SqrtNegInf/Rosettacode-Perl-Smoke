@@ -41,7 +41,6 @@ $ua->get("$site$list_url")->res->dom->find('cm')->each(sub {
 my $result2 = join "\n", @res2;
 
 use Test::More;
-chomp $ref;
 ok $result1 =~ /100 doors: 3\d\d examples/;
 ok $result1 =~ /15 Puzzle Game: [5-9]\d examples/;
 is($result1,$result2);
