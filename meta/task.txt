@@ -1,8 +1,8 @@
 
 This is perl 5, version 30, subversion 0 (v5.30.0) built for darwin-thread-multi-2level
 updating from RC…
-+------------> Perl: Good/Bad [1232/11]
-|+-----------> Smoke testing [1103]
++------------> Perl: Good/Bad [1234/11]
+|+-----------> Smoke testing [1104]
 ||+----------> sKipping validation [135]
 |||+---------> Interactive [53]
 ||||+--------> Touched (modified by me) [396]
@@ -10,8 +10,8 @@ updating from RC…
 ||||||+------> File output [68]
 |||||||+-----> Draft [200]
 ||||||||+----> Ignoring [32]
-|||||||||+---> Void (no local copy) [135]
-||||||||||+--> Un-implemented/reliable [127]
+|||||||||+---> Void (no local copy) [136]
+||||||||||+--> Un-implemented/reliable [128]
 |||||||||||
 GS......... 100_doors-1
 GS......... 100_doors-2
@@ -22,6 +22,7 @@ GS..TR..... 100_prisoners
 G.KI....... 15_Puzzle_Game-1
 GS...RF.... 15_Puzzle_Game-2
 .......D.VU 15_Puzzle_Game_in_3D
+.........VU 15_puzzle_solver
 G.KI...D... 16_Puzzle_Game
 .........VU 2048
 GS..TR..... 21_Game
@@ -801,6 +802,7 @@ G.K.T...... Naming_conventions
 ........XV. Narcissist
 GS......... Narcissistic_decimal_number
 GS.....D... Native_shebang
+GS......... Natural_sorting
 G.KIT...... Nautical_bell-1
 GS......... Nautical_bell-2
 GS..T...... Negative_base_numbers
@@ -1031,7 +1033,7 @@ GS..T...... Roman_numerals_Encode-4
 GS......... Roots_of_a_function
 GS......... Roots_of_a_quadratic_function
 GS......... Roots_of_unity
-!S..T...... Rosetta_Code_Count_examples
+GS..T...... Rosetta_Code_Count_examples
 GS..T...... Rosetta_Code_Find_bare_lang_tags
 GS..T...... Rosetta_Code_Find_unimplemented_tasks
 GS......... Rosetta_Code_Fix_code_tags
