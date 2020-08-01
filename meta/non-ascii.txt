@@ -539,6 +539,10 @@ T/Thiele%27s_interpolation_formula
 T/Thiele%27s_interpolation_formula.0
 ρ:     4 GREEK SMALL LETTER RHO
 
+T/Three_word_location
+»:     2 RIGHT-POINTING DOUBLE ANGLE QUOTATION MARK
+×:     4 MULTIPLICATION SIGN
+
 T/Tonelli-Shanks_algorithm
 │:     1 BOX DRAWINGS LIGHT VERTICAL
 
