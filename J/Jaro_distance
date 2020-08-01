@@ -55,7 +55,6 @@ $result .= sprintf("%f\n", jaro("SAME",      "SAME"));
 $result .= sprintf("%f\n", jaro("",          ""));
 
 say $result; 
-exit;
 
 my $ref = <<'EOD';
 0.944444
