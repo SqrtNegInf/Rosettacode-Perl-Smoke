@@ -6,12 +6,12 @@ updating from RC…
 ||+----------> sKipping validation [142]
 |||+---------> Interactive [56]
 ||||+--------> Touched (modified by me) [403]
-|||||+-------> Random seed [101]
+|||||+-------> Random seed [102]
 ||||||+------> File output [71]
-|||||||+-----> Draft [200]
+|||||||+-----> Draft [201]
 ||||||||+----> Ignoring [32]
-|||||||||+---> Void (no local copy) [140]
-||||||||||+--> Un-implemented/reliable [129]
+|||||||||+---> Void (no local copy) [141]
+||||||||||+--> Un-implemented/reliable [130]
 |||||||||||
 GS......... 100_doors-1
 GS......... 100_doors-2
@@ -639,6 +639,7 @@ G.K........ Inverted_syntax
 GS......... Iterated_digits_squaring
 GS......... JSON
 GS..T...... Jacobi_symbol
+.......D.VU Jaro-Winkler_Distance
 GS......... Jaro_distance
 GS......... Jensen%27s_Device
 GS..T...... Jewels_and_Stones
@@ -1329,7 +1330,7 @@ GS......... The_ISAAC_Cipher
 GS..T...... The_Name_Game
 GS......... The_Twelve_Days_of_Christmas
 GS..T...... Thiele%27s_interpolation_formula
-G.K.T..D..U Three_word_location
+G.K.TR.D..U Three_word_location
 GS......... Thue-Morse
 GS...R..... Tic-tac-toe
 G.KI....... Tic-tac-toe-2
