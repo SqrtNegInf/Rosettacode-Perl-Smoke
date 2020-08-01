@@ -7962,7 +7962,7 @@ File: T/Thiele%27s_interpolation_formula.0
 
 File: T/Three_word_location
 #!/usr/local/bin/perl
-#u# http://rosettacode.org/wiki/RC_REMOTE
+#u# http://rosettacode.org/wiki/Three_word_location
 #t# inprogress
 #c# 2020-08-xx >RC
 #p# OK
