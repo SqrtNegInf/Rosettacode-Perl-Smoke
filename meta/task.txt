@@ -5,12 +5,12 @@ updating from RC…
 |+-----------> Smoke testing [1145]
 ||+----------> sKipping validation [142]
 |||+---------> Interactive [56]
-||||+--------> Touched (modified by me) [403]
+||||+--------> Touched (modified by me) [404]
 |||||+-------> Random seed [102]
 ||||||+------> File output [71]
 |||||||+-----> Draft [201]
 ||||||||+----> Ignoring [32]
-|||||||||+---> Void (no local copy) [141]
+|||||||||+---> Void (no local copy) [140]
 ||||||||||+--> Un-implemented/reliable [130]
 |||||||||||
 GS......... 100_doors-1
@@ -639,7 +639,7 @@ G.K........ Inverted_syntax
 GS......... Iterated_digits_squaring
 GS......... JSON
 GS..T...... Jacobi_symbol
-.......D.VU Jaro-Winkler_Distance
+G...T..D..U Jaro-Winkler_Distance
 GS......... Jaro_distance
 GS......... Jensen%27s_Device
 GS..T...... Jewels_and_Stones
@@ -1032,7 +1032,7 @@ GS..T...... Range_extraction
 GS..T...... Ranking_methods
 G.K.T.....U Rare_numbers
 .......D.VU Raster_bars
-GS......... Rate_counter
+!S......... Rate_counter
 GS......... Ray-casting_algorithm
 GS......... Read_a_configuration_file
 GS......... Read_a_file_character_by_character_UTF8
