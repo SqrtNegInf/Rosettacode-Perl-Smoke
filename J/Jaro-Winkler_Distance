@@ -1,0 +1,137 @@
+#!/usr/local/bin/perl
+#u# http://rosettacode.org/wiki/Jaro-Winkler_Distance
+#c# 2020-08-01 >RC
+#p# OK
+
+use strict;
+use warnings;
+use feature 'say';
+
+use List::Util qw(min max head);
+
+my @res;
+
+sub jaro_winkler {
+    my($s, $t) = @_;
+    my(@s_matches, @t_matches, $matches);
+
+    return 0 if $s eq $t;
+
+    my $s_len = length $s; my @s = split //, $s;
+    my $t_len = length $t; my @t = split //, $t;
+
+    my $match_distance = int (max($s_len,$t_len)/2) - 1;
+
+    for my $i (0 .. $#s) {
+        my $start = max(0, $i - $match_distance);
+        my $end   = min($i + $match_distance, $t_len - 1);
+        for my $j ($start .. $end) {
+            next if $t_matches[$j] or $s[$i] ne $t[$j];
+            ($s_matches[$i], $t_matches[$j]) = (1, 1);
+            $matches++ and last;
+        }
+    }
+    return 1 unless $matches;
+
+    my($k, $transpositions) = (0, 0);
+
+    for my $i (0 .. $#s) {
+        next unless $s_matches[$i];
+        until ($t_matches[$k]) { $k++ }
+        $transpositions++ if $s[$i] ne $t[$k];
+        $k++;
+    }
+
+    my $prefix = 0;
+    $s[$_] eq $t[$_] and ++$prefix for 0 .. -1 + min 5, $s_len, $t_len;
+
+    my $jaro = ($matches / $s_len + $matches / $t_len +
+        (($matches - $transpositions / 2) / $matches)) / 3;
+
+    my $jfinal = 1 - ($jaro + $prefix * .1 * ( 1 - $jaro) );
+
+    1 - ($jaro + $prefix * .1 * ( 1 - $jaro) )
+}
+
+my @words = split /\n/, `cat ref/unixdict.txt`;
+
+for my $word (<accomodate definately goverment occured publically recieve seperate untill wich>) {
+    my %J;
+    $J{$_} = jaro_winkler($word, $_) for @words;
+    push @res, "\nClosest 5 dictionary words with a Jaro-Winkler distance < .15 from '$word':";
+    push @res, sprintf "%15s : %0.4f", $_, $J{$_}
+         for head 5, sort { $J{$a} <=> $J{$b} or $a cmp $b } grep { $J{$_} < 0.15 } keys %J;
+}
+
+say my $result = join "\n", @res;
+
+my $ref = <<'END';
+
+Closest 5 dictionary words with a Jaro-Winkler distance < .15 from 'accomodate':
+    accommodate : 0.0152
+      accordant : 0.1044
+    accompanist : 0.1106
+       accolade : 0.1136
+  accompaniment : 0.1183
+
+Closest 5 dictionary words with a Jaro-Winkler distance < .15 from 'definately':
+         define : 0.0667
+       definite : 0.0708
+        defiant : 0.0886
+     definitive : 0.1000
+      designate : 0.1219
+
+Closest 5 dictionary words with a Jaro-Winkler distance < .15 from 'goverment':
+         govern : 0.0556
+       governor : 0.0972
+      governess : 0.0979
+     governance : 0.1108
+       coverlet : 0.1167
+
+Closest 5 dictionary words with a Jaro-Winkler distance < .15 from 'occured':
+       occurred : 0.0208
+          occur : 0.0476
+      occurrent : 0.0794
+        occlude : 0.1056
+      occurring : 0.1217
+
+Closest 5 dictionary words with a Jaro-Winkler distance < .15 from 'publically':
+         public : 0.0667
+    publication : 0.1106
+        publish : 0.1310
+           pull : 0.1400
+       pullback : 0.1492
+
+Closest 5 dictionary words with a Jaro-Winkler distance < .15 from 'recieve':
+        receive : 0.0333
+        relieve : 0.0571
+          reeve : 0.0667
+      receptive : 0.0852
+      recessive : 0.0852
+
+Closest 5 dictionary words with a Jaro-Winkler distance < .15 from 'seperate':
+      desperate : 0.0708
+       separate : 0.0786
+       sewerage : 0.1000
+       repartee : 0.1083
+       repeater : 0.1083
+
+Closest 5 dictionary words with a Jaro-Winkler distance < .15 from 'untill':
+          until : 0.0278
+           till : 0.1111
+           tilt : 0.1111
+     huntsville : 0.1333
+        instill : 0.1357
+
+Closest 5 dictionary words with a Jaro-Winkler distance < .15 from 'wich':
+          winch : 0.0533
+          witch : 0.0533
+          which : 0.0600
+        wichita : 0.0857
+         switch : 0.1111
+END
+
+use Test::More;
+chomp $ref;
+is($result, $ref);
+done_testing();
