@@ -7,7 +7,7 @@ use strict;
 use warnings;
 use feature 'say';
 
-my $result;
+my @res;
 
 use List::Util qw(min max);
 
@@ -17,11 +17,9 @@ sub jaro {
 
     return 1 if $s eq $t;
 
-    my $s_len = length($s);
-    my $t_len = length($t);
+    my $s_len = length $s; my @s = split //, $s;
+    my $t_len = length $t; my @t = split //, $t;
 
-    my @s = split(//, $s);
-    my @t = split(//, $t);
     my $match_distance = int(max($s_len, $t_len) / 2) - 1;
     foreach my $i (0 .. $#s) {
         my $start = max(0, $i - $match_distance);
@@ -29,41 +27,40 @@ sub jaro {
 
         foreach my $j ($start .. $end - 1) {
             next if $t_matches[$j] or $s[$i] ne $t[$j];
-            $s_matches[$i] = 1;
-            $t_matches[$j] = 1;
-            $matches++;
-            last;
+            ($s_matches[$i], $t_matches[$j]) = (1, 1);
+            $matches++ and last;
         }
     }
     return 0 unless $matches;
 
     my($k, $transpositions) = (0, 0);
-    foreach my $i (0 .. $#s) {
+    for my $i (0 .. $#s) {
         next unless $s_matches[$i];
-        until ($t_matches[$k]) { ++$k }
-        $s[$i] eq $t[$k] or ++$transpositions;
-        ++$k;
+        until ($t_matches[$k]) { $k++ }
+        $transpositions++ if $s[$i] ne $t[$k];
+        $k++;
     }
 
     ( $matches/$s_len + $matches/$t_len + (($matches - $transpositions/2) / $matches) ) / 3;
 }
 
-$result .= sprintf("%f\n", jaro("MARTHA",    "MARHTA"));
-$result .= sprintf("%f\n", jaro("DIXON",     "DICKSONX"));
-$result .= sprintf("%f\n", jaro("JELLYFISH", "SMELLYFISH"));
-$result .= sprintf("%f\n", jaro("SAME",      "SAME"));
-$result .= sprintf("%f\n", jaro("",          ""));
+for (['MARTHA', 'MARHTA'], ['DIXON', 'DICKSONX'], ['JELLYFISH', 'SMELLYFISH'],
+     ['I repeat myself', 'I repeat myself'], ['', '']
+    ) {
+        push @res, sprintf '%.3f', jaro(@$_[0], @$_[1])
+}
 
-say $result; 
+say my $result = join("\n", @res); 
 
 my $ref = <<'EOD';
-0.944444
-0.766667
-0.896296
-1.000000
-1.000000
+0.944
+0.767
+0.896
+1.000
+1.000
 EOD
 
 use Test::More;
+chomp $ref;
 is ($result, $ref);
 done_testing();
