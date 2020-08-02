@@ -3776,6 +3776,12 @@ File: J/Jacobi_symbol
 #c# 2020-01-08 >RC
 #p# OK
 
+File: J/Jaro-Winkler_Distance
+#!/usr/local/bin/perl
+#u# http://rosettacode.org/wiki/Jaro-Winkler_Distance
+#c# 2020-08-01 >RC
+#p# OK
+
 File: J/Jaro_distance
 #!/usr/local/bin/perl
 #u# http://rosettacode.org/wiki/Jaro_distance
