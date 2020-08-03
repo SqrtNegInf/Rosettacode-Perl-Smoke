@@ -3785,7 +3785,7 @@ File: J/Jaro-Winkler_Distance
 File: J/Jaro_distance
 #!/usr/local/bin/perl
 #u# http://rosettacode.org/wiki/Jaro_distance
-#c# 2018-08-14 <RC
+#c# 2018-08-14 <RC, 2020-08-01 >RC
 #p# OK
 
 File: J/Jensen%27s_Device
