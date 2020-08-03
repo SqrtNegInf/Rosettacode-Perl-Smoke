@@ -37,7 +37,7 @@ sub jaro_winkler {
 
     for my $i (0 .. $#s) {
         next unless $s_matches[$i];
-        until ($t_matches[$k]) { $k++ }
+        $k++ until $t_matches[$k];
         $transpositions++ if $s[$i] ne $t[$k];
         $k++;
     }
