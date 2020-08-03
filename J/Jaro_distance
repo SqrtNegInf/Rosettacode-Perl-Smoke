@@ -35,7 +35,7 @@ sub jaro {
     my($k, $transpositions) = (0, 0);
     for my $i (0 .. $#s) {
         next unless $s_matches[$i];
-        $k++ until $t_matches[$k];
+        $k++ until  $t_matches[$k];
         $transpositions++ if $s[$i] ne $t[$k];
         $k++;
     }
