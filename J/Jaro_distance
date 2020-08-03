@@ -1,6 +1,6 @@
 #!/usr/local/bin/perl
 #u# http://rosettacode.org/wiki/Jaro_distance
-#c# 2018-08-14 <RC
+#c# 2018-08-14 <RC, 2020-08-01 >RC
 #p# OK
 
 use strict;
@@ -12,7 +12,7 @@ my @res;
 use List::Util qw(min max);
 
 sub jaro {
-    my ($s, $t) = @_;
+    my($s, $t) = @_;
     my(@s_matches, @t_matches, $matches);
 
     return 1 if $s eq $t;
@@ -20,12 +20,11 @@ sub jaro {
     my $s_len = length $s; my @s = split //, $s;
     my $t_len = length $t; my @t = split //, $t;
 
-    my $match_distance = int(max($s_len, $t_len) / 2) - 1;
-    foreach my $i (0 .. $#s) {
+    my $match_distance = int (max($s_len, $t_len) / 2) - 1;
+    for my $i (0 .. $#s) {
         my $start = max(0, $i - $match_distance);
         my $end   = min($i + $match_distance + 1, $t_len);
-
-        foreach my $j ($start .. $end - 1) {
+        for my $j ($start .. $end - 1) {
             next if $t_matches[$j] or $s[$i] ne $t[$j];
             ($s_matches[$i], $t_matches[$j]) = (1, 1);
             $matches++ and last;
@@ -36,7 +35,7 @@ sub jaro {
     my($k, $transpositions) = (0, 0);
     for my $i (0 .. $#s) {
         next unless $s_matches[$i];
-        until ($t_matches[$k]) { $k++ }
+        $k++ until $t_matches[$k];
         $transpositions++ if $s[$i] ne $t[$k];
         $k++;
     }
@@ -44,11 +43,9 @@ sub jaro {
     ( $matches/$s_len + $matches/$t_len + (($matches - $transpositions/2) / $matches) ) / 3;
 }
 
-for (['MARTHA', 'MARHTA'], ['DIXON', 'DICKSONX'], ['JELLYFISH', 'SMELLYFISH'],
-     ['I repeat myself', 'I repeat myself'], ['', '']
-    ) {
-        push @res, sprintf '%.3f', jaro(@$_[0], @$_[1])
-}
+push @res, sprintf '%.3f', jaro(@$_[0], @$_[1]) for
+    ['MARTHA', 'MARHTA'], ['DIXON', 'DICKSONX'], ['JELLYFISH', 'SMELLYFISH'],
+    ['I repeat myself', 'I repeat myself'], ['', ''];
 
 say my $result = join("\n", @res); 
 
