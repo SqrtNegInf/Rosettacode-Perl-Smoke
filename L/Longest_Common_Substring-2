@@ -1,0 +1,21 @@
+#!/usr/local/bin/perl
+#u# http://rosettacode.org/wiki/Longest_Common_Substring
+#c# 2018-08-16 <RC
+#p# OK
+
+use strict;
+use warnings;
+use feature 'say';
+ 
+my $one = 'thisisatest';
+my $two = 'testing123testing';
+
+my $result;
+ 
+my @best;
+"$one\n$two" =~ /(.+).*\n.*\1(?{ $best[length $1]{$1}++})(*FAIL)/;
+say $result = "$_" for sort keys %{ $best[-1] };
+
+use Test::More;
+is ($result, 'test');
+done_testing();
