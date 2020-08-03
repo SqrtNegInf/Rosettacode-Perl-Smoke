@@ -2,10 +2,10 @@
 This is perl 5, version 30, subversion 0 (v5.30.0) built for darwin-thread-multi-2level
 updating from RC…
 +------------> Perl: Good/Bad [1282/12]
-|+-----------> Smoke testing [1145]
+|+-----------> Smoke testing [1146]
 ||+----------> sKipping validation [142]
 |||+---------> Interactive [56]
-||||+--------> Touched (modified by me) [404]
+||||+--------> Touched (modified by me) [405]
 |||||+-------> Random seed [102]
 ||||||+------> File output [71]
 |||||||+-----> Draft [201]
@@ -639,8 +639,8 @@ G.K........ Inverted_syntax
 GS......... Iterated_digits_squaring
 GS......... JSON
 GS..T...... Jacobi_symbol
-G...T..D..U Jaro-Winkler_Distance
-GS......... Jaro_distance
+GS..T..D..U Jaro-Winkler_Distance
+GS..T...... Jaro_distance
 GS......... Jensen%27s_Device
 GS..T...... Jewels_and_Stones
 ........XV. JortSort
