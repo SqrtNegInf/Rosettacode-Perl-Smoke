@@ -1,8 +1,8 @@
 
 This is perl 5, version 30, subversion 0 (v5.30.0) built for darwin-thread-multi-2level
 updating from RC…
-+------------> Perl: Good/Bad [1282/12]
-|+-----------> Smoke testing [1146]
++------------> Perl: Good/Bad [1285/12]
+|+-----------> Smoke testing [1148]
 ||+----------> sKipping validation [142]
 |||+---------> Interactive [56]
 ||||+--------> Touched (modified by me) [405]
@@ -710,6 +710,7 @@ GS......... Long_multiplication
 GS..T...... Long_primes
 GS..T...... Long_year%3F
 GS......... Longest_Common_Substring
+GS......... Longest_Common_Substring-2
 GS.....D... Longest_common_prefix
 GS......... Longest_common_subsequence
 GS..T..D... Longest_common_suffix
@@ -996,6 +997,7 @@ GS......... Primorial_numbers
 G.K.T..D... Print_debugging_statement
 .......D.VU Print_itself
 GS......... Priority_queue
+GS......... Priority_queue-2
 GS...R..... Probabilistic_choice
 GS..T...... Problem_of_Apollonius
 .......D.VU Process_SMIL_directives_in_XML_data
@@ -1032,7 +1034,7 @@ GS..T...... Range_extraction
 GS..T...... Ranking_methods
 G.K.T.....U Rare_numbers
 .......D.VU Raster_bars
-!S......... Rate_counter
+GS......... Rate_counter
 GS......... Ray-casting_algorithm
 GS......... Read_a_configuration_file
 GS......... Read_a_file_character_by_character_UTF8
