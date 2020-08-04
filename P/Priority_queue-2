@@ -1,0 +1,54 @@
+#!/usr/local/bin/perl
+#u# http://rosettacode.org/wiki/Priority_queue
+#c# 2020-08-03 <RC
+#p# OK
+
+# in homage to IBM card sorters :)
+
+use strict;
+use warnings; 
+use feature 'say';
+
+my @res;
+
+my $data = <<END;
+Priority    Task
+  3        Clear drains
+  4        Feed cat
+  5        Make tea
+  1        Solve RC tasks
+  2        Tax return
+  4        Feed dog
+END
+
+# insert all data
+insert( $1, $2 ) while $data =~ /(\d+)\h+(.*)/g; 
+
+# get in priority order
+while( my $item = top_item_removal() ) { push @res, $item }
+
+my @bins; # priorities limited to small (<1e6 maybe?) non-negative integers
+
+sub insert { push @{ $bins[shift] }, pop } # O(1)
+
+# O(1) (sort of, maybe?)
+sub top_item_removal {
+    delete $bins[-1] while @bins and @{ $bins[-1] // [] } == 0;
+    shift @{ $bins[-1] // [] };
+}
+
+say my $result = join "\n", @res;
+
+my $ref = <<'EOD';
+Make tea
+Feed cat
+Feed dog
+Clear drains
+Tax return
+Solve RC tasks
+EOD
+
+use Test::More;
+chomp $ref;
+is ($result, $ref);
+done_testing();
