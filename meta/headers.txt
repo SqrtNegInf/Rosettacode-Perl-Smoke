@@ -8005,6 +8005,12 @@ File: T/Tic-tac-toe-2
 #c# 2020-07-05 <RC
 #p# OK
 
+File: T/Time-based_One-time_Password_Algorithm
+#!/usr/local/bin/perl
+#u# http://rosettacode.org/wiki/Time-based_One-time_Password_Algorithm
+#c# 2020-08-06 <RC
+#p# OK
+
 File: T/Time_a_function
 #!/usr/local/bin/perl
 #u# http://rosettacode.org/wiki/Time_a_function
