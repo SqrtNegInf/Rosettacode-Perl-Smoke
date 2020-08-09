@@ -3779,7 +3779,7 @@ File: J/Jacobi_symbol
 File: J/Jaro-Winkler_Distance
 #!/usr/local/bin/perl
 #u# http://rosettacode.org/wiki/Jaro-Winkler_Distance
-#c# 2020-08-01 >RC
+#c# 2020-08-07 >RC
 #p# OK
 
 File: J/Jaro_distance
@@ -8432,6 +8432,13 @@ File: W/Water_collected_between_towers
 #u# http://rosettacode.org/wiki/Water_collected_between_towers
 #c# 2018-08-03 <RC
 #p# OK
+
+File: W/Waveform_analysis_Doh_ray_me
+#!/usr/local/bin/perl
+#u# http://rosettacode.org/wiki/Waveform_analysis/Doh_ray_me
+#c# 2020-08-08 <RC
+#p# OK
+#n# removed given/when construction
 
 File: W/Web_scraping
 #!/usr/local/bin/perl
