@@ -1,0 +1,75 @@
+#!/usr/local/bin/perl
+#u# http://rosettacode.org/wiki/Waveform_analysis/Doh_ray_me
+#c# 2020-08-08 <RC
+#p# OK
+#n# removed given/when construction
+
+use strict;
+use warnings;
+use feature 'say';
+
+my @res;
+
+use Math::Trig;
+use List::Util qw/sum/;
+use constant PI => 4 * atan2(1, 1);
+
+my @freqs = qw ( 261.6 293.6 329.6 349.2 392.0 440.0 493.9 523.3 );
+my @notes = qw ( Doh Ray Mee Fah Soh Lah Tee doh );
+
+sub getNote {
+   my $freq  = $_[0];
+   my $index = @freqs;
+   for (0..$index-1) { $index = $_ and last if $freq <= $freqs[$_] }
+   if    ($index == 0)      { return "Doh-" }
+   elsif ($index == @freqs) { return "doh+" }
+   else                     { return $freqs[$index] - $freq <= $freq - $freqs[$index-1]
+                                     ? $notes[$index] . "-" : $notes[$index-1] . "+" }
+}
+
+open my $fh, '<:raw', 'ref/notes.wav';
+
+read $fh, my $header, 28;
+my $sampleRate = unpack(' x24 L< ', $header);
+push @res, 'Sample Rate    : ' . $sampleRate;
+
+read $fh, $header, 16;
+my $dataLength = unpack(' x12 L< ', $header);
+my $duration = $dataLength / $sampleRate;
+push @res, 'Duration       : ' . $duration;
+
+my ( $sum, $nbytes )  =  ( 0, 20 ) ;
+
+push @res, "Bytes examined : $nbytes per sample";
+
+while ( read $fh, my $data, $sampleRate ) {
+   my @chunk = split('', $data);
+   for my $k (1..$nbytes) {
+      my $bf = ord($chunk[$k]) / 32;
+      $sum += asin($bf) * $sampleRate / ( 2 * PI * $k );
+   }
+}
+
+close $fh;
+
+my $cav = $sum / ( $duration * $nbytes );
+push @res, sprintf("Computed average frequency = %.1f", $cav) . ' Hz (' . getNote($cav) . ')';
+
+my $aav = sum(@freqs) / @freqs;
+push @res, sprintf("Actual   average frequency = %.1f", $aav) . ' Hz (' . getNote($aav) . ')';
+
+say my $result = join "\n", @res;
+
+my $ref = <<'EOD';
+Sample Rate    : 44100
+Duration       : 8
+Bytes examined : 20 per sample
+Computed average frequency = 387.1 Hz (Soh-)
+Actual   average frequency = 385.4 Hz (Soh-)
+EOD
+
+
+use Test::More;
+chomp $ref;
+is ($result, $ref);
+done_testing();
