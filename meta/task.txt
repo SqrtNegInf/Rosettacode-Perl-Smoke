@@ -1,8 +1,8 @@
 
 This is perl 5, version 30, subversion 0 (v5.30.0) built for darwin-thread-multi-2level
 updating from RC…
-+------------> Perl: Good/Bad [1286/12]
-|+-----------> Smoke testing [1149]
++------------> Perl: Good/Bad [1287/12]
+|+-----------> Smoke testing [1150]
 ||+----------> sKipping validation [142]
 |||+---------> Interactive [56]
 ||||+--------> Touched (modified by me) [405]
@@ -10,8 +10,8 @@ updating from RC…
 ||||||+------> File output [71]
 |||||||+-----> Draft [201]
 ||||||||+----> Ignoring [32]
-|||||||||+---> Void (no local copy) [139]
-||||||||||+--> Un-implemented/reliable [129]
+|||||||||+---> Void (no local copy) [138]
+||||||||||+--> Un-implemented/reliable [128]
 |||||||||||
 GS......... 100_doors-1
 GS......... 100_doors-2
@@ -1415,7 +1415,7 @@ GS..TRF.... Voronoi_diagram
 GS..T...... Walk_a_directory_Non-recursively
 GS..T...... Walk_a_directory_Recursively
 GS......... Water_collected_between_towers
-.......D.VU Waveform_analysis_Doh_ray_me
+GS.....D... Waveform_analysis_Doh_ray_me
 .......D.VU Waveform_analysis_Top_and_tail
 .......D.VU Weather_Routing
 ........X.. Weather_routing
