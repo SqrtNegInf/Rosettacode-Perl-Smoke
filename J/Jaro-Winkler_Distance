@@ -1,6 +1,6 @@
 #!/usr/local/bin/perl
 #u# http://rosettacode.org/wiki/Jaro-Winkler_Distance
-#c# 2020-08-01 >RC
+#c# 2020-08-07 >RC
 #p# OK
 
 use strict;
@@ -37,7 +37,7 @@ sub jaro_winkler {
 
     for my $i (0 .. $#s) {
         next unless $s_matches[$i];
-        $k++ until $t_matches[$k];
+        $k++ until  $t_matches[$k];
         $transpositions++ if $s[$i] ne $t[$k];
         $k++;
     }
@@ -47,8 +47,6 @@ sub jaro_winkler {
 
     my $jaro = ($matches / $s_len + $matches / $t_len +
         (($matches - $transpositions / 2) / $matches)) / 3;
-
-    my $jfinal = 1 - ($jaro + $prefix * .1 * ( 1 - $jaro) );
 
     1 - ($jaro + $prefix * .1 * ( 1 - $jaro) )
 }
