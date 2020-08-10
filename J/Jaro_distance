@@ -1,15 +1,15 @@
 #!/usr/local/bin/perl
 #u# http://rosettacode.org/wiki/Jaro_distance
-#c# 2018-08-14 <RC, 2020-08-01 >RC
+#c# 2018-08-14 <RC, 2020-08-09 >RC
 #p# OK
 
 use strict;
 use warnings;
 use feature 'say';
 
-my @res;
-
 use List::Util qw(min max);
+
+my @res;
 
 sub jaro {
     my($s, $t) = @_;
@@ -17,8 +17,8 @@ sub jaro {
 
     return 1 if $s eq $t;
 
-    my $s_len = length $s; my @s = split //, $s;
-    my $t_len = length $t; my @t = split //, $t;
+    my($s_len, @s) = (length $s, split //, $s);
+    my($t_len, @t) = (length $t, split //, $t);
 
     my $match_distance = int (max($s_len, $t_len) / 2) - 1;
     for my $i (0 .. $#s) {
