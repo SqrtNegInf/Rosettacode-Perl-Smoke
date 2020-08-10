@@ -11,7 +11,7 @@ updating from RC…
 |||||||+-----> Draft [201]
 ||||||||+----> Ignoring [32]
 |||||||||+---> Void (no local copy) [138]
-||||||||||+--> Un-implemented/reliable [128]
+||||||||||+--> Un-implemented/reliable [127]
 |||||||||||
 GS......... 100_doors-1
 GS......... 100_doors-2
@@ -639,7 +639,7 @@ G.K........ Inverted_syntax
 GS......... Iterated_digits_squaring
 GS......... JSON
 GS..T...... Jacobi_symbol
-GS..T..D..U Jaro-Winkler_Distance
+GS..T..D... Jaro-Winkler_Distance
 GS..T...... Jaro_distance
 GS......... Jensen%27s_Device
 GS..T...... Jewels_and_Stones
