@@ -1,6 +1,6 @@
 #!/usr/local/bin/perl
 #u# http://rosettacode.org/wiki/Jaro-Winkler_Distance
-#c# 2020-08-07 >RC
+#c# 2020-08-09 >RC
 #p# OK
 
 use strict;
