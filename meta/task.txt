@@ -1,17 +1,17 @@
 
 This is perl 5, version 30, subversion 0 (v5.30.0) built for darwin-thread-multi-2level
 updating from RC…
-+------------> Perl: Good/Bad [1286/12]
++------------> Perl: Good/Bad [1287/12]
 |+-----------> Smoke testing [1150]
 ||+----------> sKipping validation [142]
 |||+---------> Interactive [56]
 ||||+--------> Touched (modified by me) [405]
 |||||+-------> Random seed [102]
 ||||||+------> File output [71]
-|||||||+-----> Draft [203]
+|||||||+-----> Draft [204]
 ||||||||+----> Ignoring [32]
-|||||||||+---> Void (no local copy) [140]
-||||||||||+--> Un-implemented/reliable [129]
+|||||||||+---> Void (no local copy) [141]
+||||||||||+--> Un-implemented/reliable [130]
 |||||||||||
 GS......... 100_doors-1
 GS......... 100_doors-2
@@ -533,6 +533,7 @@ GS......... Generic_swap
 .......D.VU Geohash
 .......D.VU Geometric_algebra
 GS......... Get_system_command_output
+.......D.VU Getting_the_number_of_decimals
 G.K........ Globally_replace_text_in_several_files
 .........VU Go_Fish
 GS..T..D... Gradient_descent
@@ -1036,7 +1037,7 @@ GS..T...... Range_extraction
 GS..T...... Ranking_methods
 G.K.T.....U Rare_numbers
 .......D.VU Raster_bars
-!S......... Rate_counter
+GS......... Rate_counter
 GS......... Ray-casting_algorithm
 GS......... Read_a_configuration_file
 GS......... Read_a_file_character_by_character_UTF8
