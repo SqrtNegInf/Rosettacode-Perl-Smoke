@@ -8,10 +8,10 @@ updating from RC…
 ||||+--------> Touched (modified by me) [405]
 |||||+-------> Random seed [102]
 ||||||+------> File output [71]
-|||||||+-----> Draft [204]
+|||||||+-----> Draft [205]
 ||||||||+----> Ignoring [32]
-|||||||||+---> Void (no local copy) [141]
-||||||||||+--> Un-implemented/reliable [130]
+|||||||||+---> Void (no local copy) [142]
+||||||||||+--> Un-implemented/reliable [131]
 |||||||||||
 GS......... 100_doors-1
 GS......... 100_doors-2
@@ -1006,6 +1006,7 @@ GS......... Program_name
 G.K........ Program_termination
 .......D.VU Proof
 GS......... Proper_divisors
+.......D.VU Pseudo-random_numbers_Combined_recursive_generator_MRG32k3a
 .......D.VU Pseudo-random_numbers_PCG32
 .......D.VU Pseudo-random_numbers_Xorshift_star
 .......D.VU Pseudorandom_Number_Generator_Image
