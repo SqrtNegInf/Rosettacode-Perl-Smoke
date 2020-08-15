@@ -1,8 +1,8 @@
 
 This is perl 5, version 30, subversion 0 (v5.30.0) built for darwin-thread-multi-2level
 updating from RC…
-+------------> Perl: Good/Bad [1287/12]
-|+-----------> Smoke testing [1150]
++------------> Perl: Good/Bad [1288/12]
+|+-----------> Smoke testing [1151]
 ||+----------> sKipping validation [142]
 |||+---------> Interactive [56]
 ||||+--------> Touched (modified by me) [405]
@@ -10,8 +10,8 @@ updating from RC…
 ||||||+------> File output [71]
 |||||||+-----> Draft [205]
 ||||||||+----> Ignoring [32]
-|||||||||+---> Void (no local copy) [142]
-||||||||||+--> Un-implemented/reliable [131]
+|||||||||+---> Void (no local copy) [141]
+||||||||||+--> Un-implemented/reliable [130]
 |||||||||||
 GS......... 100_doors-1
 GS......... 100_doors-2
@@ -873,7 +873,7 @@ GS......... Odd_word_problem-2
 GS..T...... Old_Russian_measure_of_length
 GS......... Old_lady_swallowed_a_fly
 GS......... One-dimensional_cellular_automata
-.........VU One-time_pad
+GS......... One-time_pad
 GS...R..... One_of_n_lines_in_a_file
 B.KI....... OpenGL-1
 B.KI....... OpenGL-2
