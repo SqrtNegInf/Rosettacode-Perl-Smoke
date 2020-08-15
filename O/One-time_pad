@@ -1,0 +1,36 @@
+#!/usr/local/bin/perl
+#u# http://rosettacode.org/wiki/One-time_pad
+#c# 2020-08-14 <RC
+#p# OK
+
+my $result;
+my @res;
+
+use strict;
+use warnings;
+use feature 'say';
+
+use Crypt::OTP;
+use Bytes::Random::Secure qw( random_bytes );
+
+my $message = "show me the monKey\n";
+$result = "Message     : ".  $message;
+
+my $otp = random_bytes(length $message);
+#$result .= "Ord(OTP)    : "; $result .= ord($_).' ' for split //, $otp; $result .= "\n";
+
+my $cipher = OTP( $otp, $message, 1 );
+#$result .= "Ord(Cipher) : "; $result .= ord($_).' ' for split //, $cipher; $result .= "\n";
+
+$result .= "Decoded     : ".  OTP( $otp, $cipher, 1 ); #. "\n";
+
+say $result;
+
+my $ref = <<'EOD';
+Message     : show me the monKey
+Decoded     : show me the monKey
+EOD
+
+use Test::More;
+is ($result, $ref);
+done_testing();
