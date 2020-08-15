@@ -5228,6 +5228,12 @@ File: O/One-dimensional_cellular_automata
 #c# 2018-08-20 <RC
 #p# OK
 
+File: O/One-time_pad
+#!/usr/local/bin/perl
+#u# http://rosettacode.org/wiki/One-time_pad
+#c# 2020-08-14 <RC
+#p# OK
+
 File: O/One_of_n_lines_in_a_file
 #!/usr/local/bin/perl
 #u# http://rosettacode.org/wiki/One_of_n_lines_in_a_file
