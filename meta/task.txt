@@ -1,17 +1,17 @@
 
 This is perl 5, version 30, subversion 0 (v5.30.0) built for darwin-thread-multi-2level
 updating from RC…
-+------------> Perl: Good/Bad [1288/12]
-|+-----------> Smoke testing [1151]
++------------> Perl: Good/Bad [1289/12]
+|+-----------> Smoke testing [1152]
 ||+----------> sKipping validation [142]
 |||+---------> Interactive [56]
-||||+--------> Touched (modified by me) [405]
+||||+--------> Touched (modified by me) [406]
 |||||+-------> Random seed [102]
 ||||||+------> File output [71]
-|||||||+-----> Draft [205]
-||||||||+----> Ignoring [32]
+|||||||+-----> Draft [206]
+||||||||+----> Ignoring [34]
 |||||||||+---> Void (no local copy) [141]
-||||||||||+--> Un-implemented/reliable [130]
+||||||||||+--> Un-implemented/reliable [131]
 |||||||||||
 GS......... 100_doors-1
 GS......... 100_doors-2
@@ -173,7 +173,7 @@ GS..TRF.... Brownian_tree
 GS...R..... Bulls_and_cows
 GS...R..... Bulls_and_cows_Player
 GS..T...... Burrows-Wheeler_transform
-.......D.VU CLI-based_maze-game
+.......DXVU CLI-based_maze-game
 GS......... CRC-32
 GS..T...... CSV_data_manipulation-1
 G.K........ CSV_data_manipulation-2
@@ -299,7 +299,7 @@ GS......... Count_in_octal
 GS......... Count_occurrences_of_a_substring
 GS......... Count_the_coins
 GS......... Cramer%27s_rule
-.......D.VU Create_DWM_statusbar
+.......DXVU Create_DWM_statusbar
 G.K........ Create_a_file
 ........XVU Create_a_file_on_magnetic_tape
 GS......... Create_a_two-dimensional_array_at_runtime
@@ -533,7 +533,7 @@ GS......... Generic_swap
 .......D.VU Geohash
 .......D.VU Geometric_algebra
 GS......... Get_system_command_output
-.......D.VU Getting_the_number_of_decimals
+GS..T..D..U Getting_the_number_of_decimals
 G.K........ Globally_replace_text_in_several_files
 .........VU Go_Fish
 GS..T..D... Gradient_descent
@@ -1008,6 +1008,7 @@ G.K........ Program_termination
 GS......... Proper_divisors
 .......D.VU Pseudo-random_numbers_Combined_recursive_generator_MRG32k3a
 .......D.VU Pseudo-random_numbers_PCG32
+.......D.VU Pseudo-random_numbers_Splitmix64
 .......D.VU Pseudo-random_numbers_Xorshift_star
 .......D.VU Pseudorandom_Number_Generator_Image
 GS....F.... Pythagoras_tree
