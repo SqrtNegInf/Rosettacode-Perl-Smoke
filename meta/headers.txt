@@ -3142,6 +3142,12 @@ File: G/Get_system_command_output
 #c# 2018-08-10 <RC
 #p# OK
 
+File: G/Getting_the_number_of_decimals
+#!/usr/local/bin/perl
+#u# http://rosettacode.org/wiki/Getting_the_number_of_decimals
+#c# 2020-08-16 >RC
+#p# OK
+
 File: G/Globally_replace_text_in_several_files
 #!/usr/local/bin/perl
 #u# http://rosettacode.org/wiki/Globally_replace_text_in_several_files
