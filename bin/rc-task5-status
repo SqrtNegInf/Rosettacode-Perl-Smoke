@@ -1,9 +1,9 @@
 #!/usr/local/bin/perl
 ## RC task status for Perl 5
-#c# 2018-06-30
+#c# 2018-06-30 ... 2020-08-16 amened 'ignore' list
 
-use warnings;
 use strict 'vars';
+use warnings;
 
 chdir "$ENV{HOME}/perl5/Rosetta-Code/meta";
 
@@ -13,15 +13,15 @@ print `perl -v | head -2`;
 
 # update only once a day
 if (.95 < -M "Category:Programming_Tasks" || ! -e "Category:Programming_Tasks") {
-print "updating from RC…\n";
-system <<"END";
-mv Category:Programming_Tasks Category:Programming_Tasks~
-mv Category:Draft_Programming_Tasks Category:Draft_Programming_Tasks~
-mv Reports:Tasks_not_implemented_in_Perl Reports:Tasks_not_implemented_in_Perl~
-/opt/local/bin/curl -s -O http://rosettacode.org/wiki/Category:Programming_Tasks
-/opt/local/bin/curl -s -O http://rosettacode.org/wiki/Category:Draft_Programming_Tasks
-/opt/local/bin/curl -s -O http://rosettacode.org/wiki/Reports:Tasks_not_implemented_in_Perl
-END
+    print "updating from RC…\n";
+    system <<~'END';
+        mv Category:Programming_Tasks Category:Programming_Tasks~
+        mv Category:Draft_Programming_Tasks Category:Draft_Programming_Tasks~
+        mv Reports:Tasks_not_implemented_in_Perl Reports:Tasks_not_implemented_in_Perl~
+        /opt/local/bin/curl -s -O http://rosettacode.org/wiki/Category:Programming_Tasks
+        /opt/local/bin/curl -s -O http://rosettacode.org/wiki/Category:Draft_Programming_Tasks
+        /opt/local/bin/curl -s -O http://rosettacode.org/wiki/Reports:Tasks_not_implemented_in_Perl
+        END
 }
 
 ## characterize RC tasks
@@ -123,11 +123,6 @@ my($task,$header,$compiles,$pout,$perr,$skip,$srand);
     $perr = (-e $pout) ? `grep STDERR $pout` : undef;
     $P{$p}{'P'} = '!' if $compiles =~ /SORRY/ || ($P{$p}{'P'} eq 'G' && $perr);
 
-#    $P{$p}{'J'} = $header =~ /JVM:\s*OK/ ? 'G' : 'B';
-#    $jout = "../bench/jvm/$p.out";
-#    $jerr = (-e $jout) ? `grep STDERR $jout` : undef;
-#    $P{$p}{'J'} = '!' if $P{$p}{'J'} eq 'G' && $jerr;
-
     $skip = 'interactive|gui|toodamnslow|skiptest|inprogress|nocode|forever|broken';  # cf. def in 'rc-p5'
     $P{$p}{'K'} = $header =~ /$skip/             ? 'K' : '.';
     $P{$p}{'T'} = $header =~ />RC/               ? 'T' : '.';
@@ -193,6 +188,7 @@ Execute_SNUSP
 Generalised_floating_point_multiplication
 Inheritance_Multiple
 Inheritance_Single
+Isqrt_integer_square_root_of_X
 JortSort
 Long_literals,_with_continuations
 Metered_concurrency
