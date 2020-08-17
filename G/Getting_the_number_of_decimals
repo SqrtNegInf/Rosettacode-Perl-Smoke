@@ -1,0 +1,31 @@
+#!/usr/local/bin/perl
+#u# http://rosettacode.org/wiki/Getting_the_number_of_decimals
+#c# 2020-08-16 >RC
+#p# OK
+
+use strict;
+use warnings;
+use feature 'say';
+
+use bignum;
+
+my @res;
+
+push @res, sprintf "Fractional precision: %2s  Number: %s", length((split /\./, $_)[1]) // 0, $_
+    for 9, 12.345, <12.3450>, 0.1234567890987654321, 1/3, 1.5**63;
+
+say my $result = join "\n", @res;
+
+my $ref = <<'END';
+Fractional precision:  0  Number: 9
+Fractional precision:  3  Number: 12.345
+Fractional precision:  4  Number: 12.3450
+Fractional precision: 19  Number: 0.1234567890987654321
+Fractional precision: 40  Number: 0.3333333333333333333333333333333333333333
+Fractional precision: 63  Number: 124093581919.648947697827373650380188008224280338254175148904323577880859375
+END
+
+use Test::More;
+chomp $ref;
+is($result, $ref);
+done_testing();
