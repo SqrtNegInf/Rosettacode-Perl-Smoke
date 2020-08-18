@@ -214,6 +214,10 @@ G/GUI_component_interaction
 G/Generate_random_chess_position
 ø:     2 LATIN SMALL LETTER O WITH STROKE
 
+G/Geohash
+±:    13 PLUS-MINUS SIGN
+å:     2 LATIN SMALL LETTER A WITH RING ABOVE
+
 H/Heronian_triangles
 ×:    34 MULTIPLICATION SIGN
 
