@@ -1,15 +1,15 @@
 
 This is perl 5, version 30, subversion 0 (v5.30.0) built for darwin-thread-multi-2level
 updating from RC…
-+------------> Perl: Good/Bad [1289/12]
-|+-----------> Smoke testing [1152]
++------------> Perl: Good/Bad [1290/12]
+|+-----------> Smoke testing [1153]
 ||+----------> sKipping validation [142]
 |||+---------> Interactive [56]
-||||+--------> Touched (modified by me) [406]
+||||+--------> Touched (modified by me) [407]
 |||||+-------> Random seed [102]
 ||||||+------> File output [71]
-|||||||+-----> Draft [206]
-||||||||+----> Ignoring [34]
+|||||||+-----> Draft [207]
+||||||||+----> Ignoring [35]
 |||||||||+---> Void (no local copy) [141]
 ||||||||||+--> Un-implemented/reliable [131]
 |||||||||||
@@ -530,7 +530,7 @@ GS......... Generate_lower_case_ASCII_alphabet
 GS..TR..... Generate_random_chess_position
 GS......... Generator_Exponential
 GS......... Generic_swap
-.......D.VU Geohash
+GS..T..D... Geohash
 .......D.VU Geometric_algebra
 GS......... Get_system_command_output
 GS..T..D..U Getting_the_number_of_decimals
@@ -636,7 +636,7 @@ GS..T...... Intersecting_Number_Wheels
 GS..T...... Introspection
 GS......... Inverted_index
 G.K........ Inverted_syntax
-.......D.VU Isqrt_integer_square_root_of_X
+.......DXVU Isqrt_integer_square_root_of_X
 GS......... Iterated_digits_squaring
 GS......... JSON
 GS..T...... Jacobi_symbol
@@ -1196,6 +1196,7 @@ GS......... Sort_a_list_of_object_identifiers-1
 GS......... Sort_a_list_of_object_identifiers-2
 GS......... Sort_an_array_of_composite_structures
 GS......... Sort_an_integer_array
+.......D.VU Sort_an_outline_at_every_level
 GS......... Sort_disjoint_sublist
 GS..T...... Sort_numbers_lexicographically
 G.K........ Sort_stability
