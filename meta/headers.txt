@@ -3136,6 +3136,13 @@ File: G/Generic_swap
 #c# 2018-08-10 <RC
 #p# OK
 
+File: G/Geohash
+#!/usr/local/bin/perl
+#u# http://rosettacode.org/wiki/Geohash
+#c# 2020-08-17 >RC
+#p# OK
+#n# multiple ways to handle binary to decimal conversion
+
 File: G/Get_system_command_output
 #!/usr/local/bin/perl
 #u# http://rosettacode.org/wiki/Get_system_command_output
