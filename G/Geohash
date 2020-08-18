@@ -1,0 +1,113 @@
+#!/usr/local/bin/perl
+#u# http://rosettacode.org/wiki/Geohash
+#c# 2020-08-17 >RC
+#p# OK
+#n# multiple ways to handle binary to decimal conversion
+
+use strict;
+use warnings;
+use feature 'say';
+# use bignum; # not needed
+
+#use ntheory 'fromdigits';
+use List::AllUtils qw<sum max natatime>;
+
+my @res;
+
+my @Geo32 = <0 1 2 3 4 5 6 7 8 9 b c d e f g h j k m n p q r s t u v w x y z>;
+
+sub bin2dec { unpack('N', pack('B32', substr('0' x 32 . shift, -32))) } 
+
+sub geo_encode {
+    my( $latitude, $longitude, $precision ) = @_;
+    my @coord = ($latitude, $longitude);
+    my @range = ([-90, 90], [-180, 180]);
+    my($which,$value) = (1, '');
+    while (length($value) < $precision * 5) {
+        $value .= my $upper = $coord[$which] <= (my $mid = sum(@{$range[$which]}) / 2) ? 0 : 1; # fog rolling in...
+        $range[$which][$upper ? 0 : 1] = $mid;
+        $which = $which ? 0 : 1;
+    }
+    my $enc;
+    my $iterator = natatime 5, split '', $value;
+    while (my @n = $iterator->()) { 
+        $enc .= $Geo32[ord pack 'B8', '000' . join '', @n]; # very specific to task
+        #$enc .= $Geo32[bin2dec join('', @n)]
+        #$enc .= $Geo32[fromdigits(join('', @n), 2)]
+    }
+    $enc
+}
+
+sub geo_decode {
+    my($geo) = @_;
+     my @range = ([-90, 90], [-180, 180]);
+     my(%Geo32,$c); $Geo32{$_} = $c++ for @Geo32;
+     my $which = 1;
+     for ( split '', join '', map { sprintf '%05b', $_ } @Geo32{split '', $geo} ) {
+        $range[$which][$_] = sum(@{$range[$which]}) / 2;
+        $which = $which ? 0 : 1;
+     }
+     @range
+}
+
+for ([51.433718,   -0.214126,  2, 'Ireland, most of England and Wales, small part of Scotland'],
+     [51.433718,   -0.214126,  9, "the umpire's chair on Center Court at Wimbledon"],
+     [51.433718,   -0.214126, 17, 'likely an individual molecule of the chair'],
+     [57.649110,   10.407440, 11, 'Wikipedia test value - Råbjerg Mile in Denmark'],
+     [59.115800, -151.687312,  7, 'Perl Island, Alaska'],
+     [38.743586, -109.499336,  8, 'Delicate Arch, Utah'],
+    ) {
+    my($lat, $long, $precision, $description) = @$_;
+    my $enc = geo_encode($lat, $long, $precision);
+    push @res, 
+        "\n$lat, $long, $precision ($description):" .
+        "\ngeo-encoded: $enc\n" .
+        'geo-decoded: ' . join ',  ',
+        map {         sprintf("%.@{[max(3,$precision-3)]}f", (  -($$_[0] + $$_[1]) / 2)) . # approximately accurate
+              ' ± ' . sprintf('%.3e',                        (abs($$_[0] - $$_[1]) / 2))
+            } geo_decode($enc);
+}
+
+say my $result = join "\n", @res;
+
+my $ref = <<'END';
+
+51.433718, -0.214126, 2 (Ireland, most of England and Wales, small part of Scotland):
+geo-encoded: gc
+geo-decoded: 53.438 ± 2.812e+00,  -5.625 ± 5.625e+00
+
+51.433718, -0.214126, 9 (the umpire's chair on Center Court at Wimbledon):
+geo-encoded: gcpue5hp4
+geo-decoded: 51.433718 ± 2.146e-05,  -0.214126 ± 2.146e-05
+
+51.433718, -0.214126, 17 (likely an individual molecule of the chair):
+geo-encoded: gcpue5hp4ebnf8unc
+geo-decoded: 51.43371800000523 ± 2.046e-11,  -0.21412600000303 ± 2.046e-11
+
+57.64911, 10.40744, 11 (Wikipedia test value - Råbjerg Mile in Denmark):
+geo-encoded: u4pruydqqvj
+geo-decoded: 57.64911063 ± 6.706e-07,  10.40743969 ± 6.706e-07
+
+59.1158, -151.687312, 7 (Perl Island, Alaska):
+geo-encoded: bds0k38
+geo-decoded: 59.1154 ± 6.866e-04,  -151.6875 ± 6.866e-04
+
+38.743586, -109.499336, 8 (Delicate Arch, Utah):
+geo-encoded: 9wfhkm11
+geo-decoded: 38.74354 ± 8.583e-05,  -109.49919 ± 1.717e-04
+END
+
+use Test::More;
+chomp $ref;
+is($result, $ref);
+done_testing();
+
+__END__
+
+# or with module
+use Geo::Hash;
+my $gh = Geo::Hash->new;
+say $gh->encode(51.433718e0, -0.214126e0, 2);
+say $gh->encode(51.433718e0, -0.214126e0, 9);
+say $gh->encode(59.358639e0, 24.744778e0, 4);
+say $gh->encode(29.2021188e0, 81.5324561e0, 4);
