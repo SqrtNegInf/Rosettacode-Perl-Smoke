@@ -2,8 +2,8 @@
 This is perl 5, version 30, subversion 0 (v5.30.0) built for darwin-thread-multi-2level
 updating from RC…
 +------------> Perl: Good/Bad [1290/12]
-|+-----------> Smoke testing [1153]
-||+----------> sKipping validation [142]
+|+-----------> Smoke testing [1154]
+||+----------> sKipping validation [141]
 |||+---------> Interactive [56]
 ||||+--------> Touched (modified by me) [407]
 |||||+-------> Random seed [102]
@@ -11,7 +11,7 @@ updating from RC…
 |||||||+-----> Draft [207]
 ||||||||+----> Ignoring [35]
 |||||||||+---> Void (no local copy) [141]
-||||||||||+--> Un-implemented/reliable [131]
+||||||||||+--> Un-implemented/reliable [130]
 |||||||||||
 GS......... 100_doors-1
 GS......... 100_doors-2
@@ -1338,7 +1338,7 @@ GS......... The_ISAAC_Cipher
 GS..T...... The_Name_Game
 GS......... The_Twelve_Days_of_Christmas
 GS..T...... Thiele%27s_interpolation_formula
-G.K.TR.D..U Three_word_location
+GS..TR.D... Three_word_location
 GS......... Thue-Morse
 GS...R..... Tic-tac-toe
 G.KI....... Tic-tac-toe-2
