@@ -1,15 +1,15 @@
 
 This is perl 5, version 30, subversion 0 (v5.30.0) built for darwin-thread-multi-2level
 updating from RC…
-+------------> Perl: Good/Bad [1290/12]
-|+-----------> Smoke testing [1154]
-||+----------> sKipping validation [141]
++------------> Perl: Good/Bad [1291/11]
+|+-----------> Smoke testing [1155]
+||+----------> sKipping validation [140]
 |||+---------> Interactive [56]
 ||||+--------> Touched (modified by me) [407]
-|||||+-------> Random seed [102]
-||||||+------> File output [71]
+|||||+-------> Random seed [103]
+||||||+------> File output [72]
 |||||||+-----> Draft [207]
-||||||||+----> Ignoring [35]
+||||||||+----> Ignoring [36]
 |||||||||+---> Void (no local copy) [141]
 ||||||||||+--> Un-implemented/reliable [130]
 |||||||||||
@@ -357,7 +357,7 @@ GS......... Dinesman%27s_multiple-dwelling_problem-2
 G.K..R..... Dining_philosophers
 GS......... Discordian_date
 GS..T...... Display_a_linear_combination
-GS.....D... Display_an_outline_as_a_nested_table
+GS......... Display_an_outline_as_a_nested_table
 GS......... Distributed_programming
 GS..T..D... Diversity_prediction_theorem
 G.K........ Documentation
@@ -700,7 +700,6 @@ GS......... Linear_congruential_generator
 G.K.T..D... Linux_CPU_utilization
 GS......... List_comprehensions
 GS..T...... List_rooted_trees
-B.K.T...... List_rooted_trees-1
 G.K........ Literals_Floating_point
 GS......... Literals_Integer
 G.K........ Literals_String
@@ -996,7 +995,7 @@ B.......... Prime_decomposition-4
 GS..T...... Primes_-_allocate_descendants_to_their_ancestors
 GS......... Primorial_numbers
 G.K.T..D... Print_debugging_statement
-.......D.VU Print_itself
+.......DXVU Print_itself
 GS......... Priority_queue
 GS......... Priority_queue-2
 GS...R..... Probabilistic_choice
@@ -1010,7 +1009,7 @@ GS......... Proper_divisors
 .......D.VU Pseudo-random_numbers_PCG32
 .......D.VU Pseudo-random_numbers_Splitmix64
 .......D.VU Pseudo-random_numbers_Xorshift_star
-.......D.VU Pseudorandom_Number_Generator_Image
+GS..TRFD... Pseudorandom_Number_Generator_Image
 GS....F.... Pythagoras_tree
 GS..T...... Pythagorean_quadruples
 GS......... Pythagorean_triples
@@ -1420,6 +1419,7 @@ GS......... Visualize_a_tree
 GS..TRF.... Voronoi_diagram
 GS..T...... Walk_a_directory_Non-recursively
 GS..T...... Walk_a_directory_Recursively
+.......D.VU WalledMonument
 GS......... Water_collected_between_towers
 GS.....D... Waveform_analysis_Doh_ray_me
 .......D.VU Waveform_analysis_Top_and_tail
