@@ -14,7 +14,7 @@ my $img = new GD::Image(500, 500, 1);
 
 for my $y(0..500) {
         for my $x(0..500) {
-                my $color = $img->colorAllocate(rand 255, rand 255, rand 255);
+                my $color = $img->colorAllocate(rand 256, rand 256, rand 256);
                 $img->setPixel($x, $y, $color);
         }
 }
