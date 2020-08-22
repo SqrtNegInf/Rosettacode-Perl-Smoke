@@ -2702,6 +2702,13 @@ File: F/Filter
 File: F/Find_URI_in_text
 #!/usr/local/bin/perl
 #u# http://rosettacode.org/wiki/Find_URI_in_text
+#c# 2020-08-21 <RC
+#p# OK
+#n# Only covers whatever Regexp::Common::URI supports.
+
+File: F/Find_URI_in_text.1
+#!/usr/local/bin/perl
+#u# http://rosettacode.org/wiki/Find_URI_in_text
 #p# BROKEN
 
 File: F/Find_common_directory_path
