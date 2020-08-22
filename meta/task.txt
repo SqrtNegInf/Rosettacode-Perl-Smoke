@@ -1,8 +1,8 @@
 
 This is perl 5, version 30, subversion 0 (v5.30.0) built for darwin-thread-multi-2level
 updating from RC…
-+------------> Perl: Good/Bad [1291/11]
-|+-----------> Smoke testing [1155]
++------------> Perl: Good/Bad [1292/10]
+|+-----------> Smoke testing [1156]
 ||+----------> sKipping validation [140]
 |||+---------> Interactive [56]
 ||||+--------> Touched (modified by me) [407]
@@ -11,7 +11,7 @@ updating from RC…
 |||||||+-----> Draft [207]
 ||||||||+----> Ignoring [36]
 |||||||||+---> Void (no local copy) [141]
-||||||||||+--> Un-implemented/reliable [130]
+||||||||||+--> Un-implemented/reliable [129]
 |||||||||||
 GS......... 100_doors-1
 GS......... 100_doors-2
@@ -465,7 +465,7 @@ GS......... File_modification_time
 GS......... File_size
 GS..T...... File_size_distribution
 GS......... Filter
-B......D..U Find_URI_in_text
+GS.....D... Find_URI_in_text
 GS..T...... Find_common_directory_path
 GS..T...... Find_duplicate_files
 GS.....D... Find_first_and_last_set_bit_of_a_long_integer
