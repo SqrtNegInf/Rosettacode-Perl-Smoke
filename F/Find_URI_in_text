@@ -1,0 +1,48 @@
+#!/usr/local/bin/perl
+#u# http://rosettacode.org/wiki/Find_URI_in_text
+#c# 2020-08-21 <RC
+#p# OK
+#n# Only covers whatever Regexp::Common::URI supports.
+
+use strict;
+use warnings;
+use feature 'say';
+
+my @res;
+
+use Regexp::Common qw /URI/;
+
+while ( my $line = <DATA> ) {
+   chomp $line;
+   my @URIs = $line =~ /$RE{URI}/g; # and push @res, "URI(s) found.";
+   foreach my $uri (@URIs) { push @res, "URI : $uri" }
+}
+
+say my $result = join "\n", @res;
+
+my $ref = <<'EOD';
+URI : http://en.wikipedia.org/wiki/Erich_K
+URI : http://mediawiki.org/).
+URI : http://en.wikipedia.org/wiki/-)
+URI : ftp://domain.name/path(balanced_brackets)/foo.html
+URI : ftp://domain.name/path(balanced_brackets)/ending.in.dot.
+URI : ftp://domain.name/path(unbalanced_brackets/ending.in.dot.
+URI : ftp://domain.name/path/embedded
+URI : ftp://domain.name/dangling_close_paren)
+EOD
+
+use Test::More;
+chomp $ref;
+is ($result, $ref);
+done_testing();
+
+__DATA__
+this URI contains an illegal character, parentheses and a misplaced full stop:
+http://en.wikipedia.org/wiki/Erich_Kästner_(camera_designer). (which is handled by http://mediawiki.org/).
+and another one just to confuse the parser: http://en.wikipedia.org/wiki/-)
+")" is handled the wrong way by the mediawiki parser.
+ftp://domain.name/path(balanced_brackets)/foo.html
+ftp://domain.name/path(balanced_brackets)/ending.in.dot.
+ftp://domain.name/path(unbalanced_brackets/ending.in.dot.
+leading junk ftp://domain.name/path/embedded?punct/uation.
+leading junk ftp://domain.name/dangling_close_paren)
