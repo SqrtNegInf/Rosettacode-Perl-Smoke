@@ -192,6 +192,9 @@ F/File_size_distribution
 F/Find_URI_in_text
 ä:     1 LATIN SMALL LETTER A WITH DIAERESIS
 
+F/Find_URI_in_text.1
+ä:     1 LATIN SMALL LETTER A WITH DIAERESIS
+
 F/First_perfect_square_in_base_N_with_N_unique_digits-1
 ²:    16 SUPERSCRIPT TWO
 
@@ -533,9 +536,7 @@ T/Terminal_control_Unicode_output
 △:     1 WHITE UP-POINTING TRIANGLE
 
 T/Text_Completion~
-×:     1 MULTIPLICATION SIGN
-ø:     2 LATIN SMALL LETTER O WITH STROKE
-∩:     1 INTERSECTION
+ø:     1 LATIN SMALL LETTER O WITH STROKE
 
 T/Text_between
 你:     2 CJK UNIFIED IDEOGRAPH-4F60
