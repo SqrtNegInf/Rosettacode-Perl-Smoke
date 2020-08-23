@@ -1,16 +1,16 @@
 
 This is perl 5, version 30, subversion 0 (v5.30.0) built for darwin-thread-multi-2level
 updating from RC…
-+------------> Perl: Good/Bad [1292/10]
-|+-----------> Smoke testing [1156]
++------------> Perl: Good/Bad [1293/10]
+|+-----------> Smoke testing [1157]
 ||+----------> sKipping validation [140]
 |||+---------> Interactive [56]
-||||+--------> Touched (modified by me) [407]
+||||+--------> Touched (modified by me) [408]
 |||||+-------> Random seed [103]
 ||||||+------> File output [72]
 |||||||+-----> Draft [207]
 ||||||||+----> Ignoring [36]
-|||||||||+---> Void (no local copy) [141]
+|||||||||+---> Void (no local copy) [140]
 ||||||||||+--> Un-implemented/reliable [129]
 |||||||||||
 GS......... 100_doors-1
@@ -1326,7 +1326,7 @@ GS......... Ternary_logic
 GS......... Test_a_function
 GS......... Test_integerness
 .......D.VU Tetris
-.......D.VU Text_Completion
+GS..T..D..U Text_Completion
 GS..T..D... Text_between
 GS......... Text_processing_1
 GS......... Text_processing_2
