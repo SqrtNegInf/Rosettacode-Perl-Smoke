@@ -7939,11 +7939,17 @@ File: T/Test_integerness
 #c# 2018-08-11 <RC
 #p# OK
 
+File: T/Text_Completion
+#!/usr/local/bin/perl
+#u# http://rosettacode.org/wiki/Text_Completion
+#c# 2020-08-22 >RC
+#p# OK
+#n# too much work to handle extended grapheme clusters, Text::Dice can do it...
+
 File: T/Text_Completion~
 #!/usr/local/bin/perl
 #u# http://rosettacode.org/wiki/Text_Completion
-#t# inprogress
-#c# 2020-08-xx >RC
+#c# 2020-08-22 >RC
 #p# OK
 
 File: T/Text_between
