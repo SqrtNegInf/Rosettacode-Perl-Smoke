@@ -535,7 +535,12 @@ T/Terminal_control_Display_an_extended_character
 T/Terminal_control_Unicode_output
 △:     1 WHITE UP-POINTING TRIANGLE
 
+T/Text_Completion
+ø:     1 LATIN SMALL LETTER O WITH STROKE
+
 T/Text_Completion~
+¸:     1 CEDILLA
+Ã:     1 LATIN CAPITAL LETTER A WITH TILDE
 ø:     1 LATIN SMALL LETTER O WITH STROKE
 
 T/Text_between
