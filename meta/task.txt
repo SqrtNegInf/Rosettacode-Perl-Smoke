@@ -11,7 +11,7 @@ updating from RC…
 |||||||+-----> Draft [207]
 ||||||||+----> Ignoring [36]
 |||||||||+---> Void (no local copy) [140]
-||||||||||+--> Un-implemented/reliable [129]
+||||||||||+--> Un-implemented/reliable [127]
 |||||||||||
 GS......... 100_doors-1
 GS......... 100_doors-2
@@ -533,7 +533,7 @@ GS......... Generic_swap
 GS..T..D... Geohash
 .......D.VU Geometric_algebra
 GS......... Get_system_command_output
-GS..T..D..U Getting_the_number_of_decimals
+GS..T..D... Getting_the_number_of_decimals
 G.K........ Globally_replace_text_in_several_files
 .........VU Go_Fish
 GS..T..D... Gradient_descent
@@ -1326,7 +1326,7 @@ GS......... Ternary_logic
 GS......... Test_a_function
 GS......... Test_integerness
 .......D.VU Tetris
-GS..T..D..U Text_Completion
+GS..T..D... Text_Completion
 GS..T..D... Text_between
 GS......... Text_processing_1
 GS......... Text_processing_2
