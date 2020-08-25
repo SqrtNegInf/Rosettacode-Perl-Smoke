@@ -6045,6 +6045,13 @@ File: P/Proper_divisors
 #c# 2018-08-20 <RC
 #p# OK
 
+File: P/Pseudo-random_numbers_Combined_recursive_generator_MRG32k3a~
+#!/usr/local/bin/perl
+#u# http://rosettacode.org/wiki/Pseudo-random_numbers/Combined_recursive_generator_MRG32k3a
+#t# inprogress
+#c# 2020-08-xx >RC
+#p# OK
+
 File: P/Pseudorandom_Number_Generator_Image
 #!/usr/local/bin/perl
 #u# http://rosettacode.org/wiki/Pseudorandom_Number_Generator_Image
