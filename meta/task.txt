@@ -8,10 +8,10 @@ updating from RC…
 ||||+--------> Touched (modified by me) [408]
 |||||+-------> Random seed [103]
 ||||||+------> File output [72]
-|||||||+-----> Draft [207]
+|||||||+-----> Draft [208]
 ||||||||+----> Ignoring [36]
-|||||||||+---> Void (no local copy) [140]
-||||||||||+--> Un-implemented/reliable [127]
+|||||||||+---> Void (no local copy) [141]
+||||||||||+--> Un-implemented/reliable [128]
 |||||||||||
 GS......... 100_doors-1
 GS......... 100_doors-2
@@ -167,6 +167,7 @@ GS......... Bitwise_operations
 GS......... Boolean_values
 GS......... Box_the_compass
 GS......... Brace_expansion
+.......D.VU Brace_expansion_using_ranges
 GS..T...... Brazilian_numbers
 GS......... Break_OO_privacy
 GS..TRF.... Brownian_tree
