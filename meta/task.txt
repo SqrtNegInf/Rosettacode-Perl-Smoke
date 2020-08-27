@@ -9,7 +9,7 @@ updating from RC…
 |||||+-------> Random seed [103]
 ||||||+------> File output [72]
 |||||||+-----> Draft [208]
-||||||||+----> Ignoring [36]
+||||||||+----> Ignoring [37]
 |||||||||+---> Void (no local copy) [141]
 ||||||||||+--> Un-implemented/reliable [128]
 |||||||||||
@@ -1393,7 +1393,7 @@ GS......... Update_a_configuration_file
 GS.....D... User_defined_pipe_and_redirection_operators
 G.KI....... User_input_Graphical
 GS......... User_input_Text
-.......D.VU Using_a_Speech_engine_to_highlight_words
+.......DXVU Using_a_Speech_engine_to_highlight_words
 .......D.VU Using_the_Meetup.com_API
 .......D.VU VList
 GS......... Validate_International_Securities_Identification_Number
