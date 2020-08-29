@@ -1,19 +1,7 @@
 #!/usr/local/bin/perl
-#t# skiptest
 #u# http://rosettacode.org/wiki/Elliptic_Curve_Digital_Signature_Algorithm
 #c# 2020-08-28 <RC
-#p# BROKEN
-#n# cannot install module?
-#n# Error:  Can't locate Math/EllipticCurve/Prime.pm in @INC (you may need to install the Math::EllipticCurve::Prime module)
-#n# Could not expand [Math::EllipticCurve::Prime]. Check the module name.
-
-use feature 'say';
-my $result;
-# my @res;
-
-
-Translation of: Go
-# 20200828 added Perl programming solution
+#p# OK
 
 use strict;
 use warnings;
@@ -34,9 +22,10 @@ print "Signature   :\n";
 for (sort keys %$signature) { print "$_ => $signature->{$_}\n"; }
 
 $ecdsa->verify( Message => $msg, Key => $pubkey, Signature => $signature ) and
-   print "Signature verified.\n"
+   print "Signature verified.\n";
 
-Output:
+# this varies each run, so don't test against!
+my $ref = <<'EOD';
 Message: Rosetta Code
 Private Key :
 50896950174101144529764022934807089163030534967278433074982207331912857967110
@@ -47,13 +36,8 @@ Signature   :
 r => 113328268998856048369024784426817827689451364968174533291969247274701793929451
 s => 102496515866716695113707075780391660331998173218829535655149484671019624453603
 Signature verified.
-
-
-say $result; 
-#say $result = join "\n", @res;
-my $ref = <<'EOD';
 EOD
 
 use Test::More;
-#is ($result, $ref);
-#done_testing();
+ok $ecdsa->verify( Message => $msg, Key => $pubkey, Signature => $signature );
+done_testing();
