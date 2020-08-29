@@ -1,3 +1,7 @@
+2020-08-28
+'cpan -i Crypt::EC_DSA' failed, had to download and install this by hand first:
+curl -O http://cpan.metacpan.org/authors/id/B/BR/BRIANC/Math-EllipticCurve-Prime-0.003.tar.gz
+
 2020-03-02
 Never install Math::BigInt::Lite!  Screws up tasks that need for-real 'bigint'.
 
