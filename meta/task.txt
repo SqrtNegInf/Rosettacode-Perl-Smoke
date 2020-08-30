@@ -1,9 +1,9 @@
 
 This is perl 5, version 30, subversion 0 (v5.30.0) built for darwin-thread-multi-2level
 updating from RC…
-+------------> Perl: Good/Bad [1292/11]
-|+-----------> Smoke testing [1157]
-||+----------> sKipping validation [141]
++------------> Perl: Good/Bad [1293/10]
+|+-----------> Smoke testing [1158]
+||+----------> sKipping validation [140]
 |||+---------> Interactive [56]
 ||||+--------> Touched (modified by me) [408]
 |||||+-------> Random seed [103]
@@ -388,7 +388,7 @@ GS......... Element-wise_operations
 GS......... Elementary_cellular_automaton
 GS..T...... Elementary_cellular_automaton_Infinite_length
 GS......... Elementary_cellular_automaton_Random_Number_Generator
-B.K....D... Elliptic_Curve_Digital_Signature_Algorithm
+GS.....D... Elliptic_Curve_Digital_Signature_Algorithm
 GS......... Elliptic_curve_arithmetic
 GS..T...... Emirp_primes
 GS......... Empty_directory
@@ -1039,7 +1039,7 @@ GS..T...... Range_extraction
 GS..T...... Ranking_methods
 G.K.T.....U Rare_numbers
 .......D.VU Raster_bars
-GS......... Rate_counter
+!S......... Rate_counter
 GS......... Ray-casting_algorithm
 GS......... Read_a_configuration_file
 GS......... Read_a_file_character_by_character_UTF8
@@ -1093,7 +1093,7 @@ GS..T...... Rosetta_Code_Find_unimplemented_tasks
 GS......... Rosetta_Code_Fix_code_tags
 .......D.VU Rosetta_Code_List_authors_of_task_descriptions
 GS..T..D... Rosetta_Code_Rank_languages_by_number_of_users
-!S..T...... Rosetta_Code_Rank_languages_by_popularity
+GS..T...... Rosetta_Code_Rank_languages_by_popularity
 .......D.VU Rosetta_Code_Run_examples
 GS..T..D... Rosetta_Code_Tasks_without_examples
 GS......... Rot-13
