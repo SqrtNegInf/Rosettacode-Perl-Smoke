@@ -2231,13 +2231,9 @@ File: E/Elementary_cellular_automaton_Random_Number_Generator
 
 File: E/Elliptic_Curve_Digital_Signature_Algorithm
 #!/usr/local/bin/perl
-#t# skiptest
 #u# http://rosettacode.org/wiki/Elliptic_Curve_Digital_Signature_Algorithm
 #c# 2020-08-28 <RC
-#p# BROKEN
-#n# cannot install module?
-#n# Error:  Can't locate Math/EllipticCurve/Prime.pm in @INC (you may need to install the Math::EllipticCurve::Prime module)
-#n# Could not expand [Math::EllipticCurve::Prime]. Check the module name.
+#p# OK
 
 File: E/Elliptic_curve_arithmetic
 #!/usr/local/bin/perl
