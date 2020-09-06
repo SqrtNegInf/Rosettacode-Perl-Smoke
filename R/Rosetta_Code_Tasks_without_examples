@@ -18,7 +18,7 @@ $ua->agent('');
 # cloudflare restricts for this page.  Probably cause of 'too many redirects' seen in P6 version
 #my $html   = $ua->request( HTTP::Request->new( GET => 'http://rosettacode.org/wiki/Category:Programming_Tasks'))->content;
 
-my $html  = `cat meta/Category:Programming_Tasks`; # obtained via 'curl' in 'bin/rc-task-status'
+my $html  = `cat meta/Category:Programming_Tasks`; # obtained via 'curl' in 'bin/rc-task5-status'
 my @tasks = $html =~ m#<li><a href="/wiki/(.*?)"#g;
  
 # download tasks, and extract task descriptions
