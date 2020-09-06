@@ -756,6 +756,12 @@ File: B/Bioinformatics_base_count
 #c# 2019-12-04 >RC
 #p# OK
 
+File: B/Biorhythms
+#!/usr/local/bin/perl
+#u# http://rosettacode.org/wiki/Biorhythms
+#c# 2020-09-06 >RC
+#p# OK
+
 File: B/Birthday_problem
 #!/usr/local/bin/perl
 #u# http://rosettacode.org/wiki/Birthday_problem
