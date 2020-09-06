@@ -1,0 +1,65 @@
+#!/usr/local/bin/perl
+#u# http://rosettacode.org/wiki/Biorhythms
+#c# 2020-09-06 >RC
+#p# OK
+
+use strict;
+use warnings;
+use feature 'say';
+
+use DateTime;
+
+my @res;
+
+use constant PI => 2 * atan2(1, 0);
+
+my %cycles = ( 'Physical' => 23, 'Emotional' => 28, 'Mental' => 33 );
+my @Q = ( ['up and rising',    'peak'],
+          ['up but falling',   'transition'],
+          ['down and falling', 'valley'],
+          ['down but rising',  'transition']
+        );
+
+  my $target = DateTime->new(year=>1863, month=>11, day=>19);
+  my $bday   = DateTime->new(year=>1809, month=> 2, day=>12);
+  my $days   = $bday->delta_days( $target )->in_units('days');
+ 
+  push @res, "Day $days:";
+  for my $label (sort keys %cycles) {
+    my($length) = $cycles{$label};
+    my $position = $days % $length;
+    my $quadrant = int $position / $length * 4;
+    my $percentage = int(sin($position / $length * 2 * PI )*1000)/10;
+    my $description;
+    if    (    $percentage  >  95) { $description = 'peak' }
+    elsif (    $percentage  < -95) { $description = 'valley' }
+    elsif (abs($percentage) <   5) { $description = 'critical transition' }
+    else {
+        my $transition = $target->clone->add( days => (int(($quadrant + 1)/4 * $length) - $position))->ymd;
+        my ($trend, $next) = @{$Q[$quadrant]};
+        $description = sprintf "%5.1f%% ($trend, next $next $transition)", $percentage;
+    }
+    push @res, sprintf "%-13s %2d: %s", "$label day", $position, $description;
+  }
+
+say my $result = join "\n", @res;
+
+my $ref = <<'END';
+Day 20003:
+Emotional day 11:  62.3% (up but falling, next transition 1863-11-22)
+Mental day     5:  81.4% (up and rising, next peak 1863-11-22)
+Physical day  16: -94.2% (down and falling, next valley 1863-11-20)
+END
+
+use Test::More;
+chomp $ref;
+is($result, $ref);
+done_testing();
+
+__END__
+
+=={{header|Perl}}==
+{{trans|Raku}}
+<lang perl></lang>
+{{out}}
+<pre></pre>
