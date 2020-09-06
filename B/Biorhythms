@@ -20,12 +20,13 @@ my @Q = ( ['up and rising',    'peak'],
           ['down but rising',  'transition']
         );
 
-  my $target = DateTime->new(year=>1863, month=>11, day=>19);
-  my $bday   = DateTime->new(year=>1809, month=> 2, day=>12);
-  my $days   = $bday->delta_days( $target )->in_units('days');
+my $target = DateTime->new(year=>1863, month=>11, day=>19);
+my $bday   = DateTime->new(year=>1809, month=> 2, day=>12);
+
+my $days   = $bday->delta_days( $target )->in_units('days');
  
-  push @res, "Day $days:";
-  for my $label (sort keys %cycles) {
+push @res, "Day $days:";
+for my $label (sort keys %cycles) {
     my($length) = $cycles{$label};
     my $position = $days % $length;
     my $quadrant = int $position / $length * 4;
@@ -40,7 +41,7 @@ my @Q = ( ['up and rising',    'peak'],
         $description = sprintf "%5.1f%% ($trend, next $next $transition)", $percentage;
     }
     push @res, sprintf "%-13s %2d: %s", "$label day", $position, $description;
-  }
+}
 
 say my $result = join "\n", @res;
 
