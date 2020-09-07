@@ -41,7 +41,7 @@ for my $label (sort keys %cycles) {
         $description = sprintf "%5.1f%% ($trend, next $next $transition)", $percentage;
     }
     push @res, sprintf "%-13s %2d: %s", "$label day", $position, $description;
-}
+  }
 
 say my $result = join "\n", @res;
 
