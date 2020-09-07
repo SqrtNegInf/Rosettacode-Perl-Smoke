@@ -1,62 +1,43 @@
 #!/usr/local/bin/perl
 #u# http://rosettacode.org/wiki/Sorting_algorithms/Cocktail_sort
-#c# 2018-08-15 <RC
+#c# 2018-08-15 <RC, 2020-09-06 >RC
 #p# OK
 
-srand 12345; # fragile!
+#srand 123456;
 
 use strict;
 use warnings;
 use feature 'say';
 
-my @B=<t h e q u i c k b r o w n f o x j u m p s o v e r t h e l a z y d o g>;
+sub cocktail_sort {
+    my @a = @_;
+    while (1) {
+        my $swapped_forward = 0;
+        for my $i (0..$#a-1) {
+            if ($a[$i] > $a[$i+1]) {
+                @a[ $i, $i+1 ] = @a[ $i+1, $i];
+                $swapped_forward = 1;
+            }
+        }
+        last if not $swapped_forward;
 
-#print "@B\n";
-#my @C=cocktailSort(@B);
-#print "@C\n";
-
-################### cocktailSort #####################
-sub cocktailSort {   #( A : list of sortable items ) defined as:
-  my @A = @_;
-  my $swapped = 1;
-  while ($swapped == 1) {
-    $swapped = 0;
-    for (my $i=0; $i<($#A-1); $i+=1) {
-
-      if ($A[$i] gt $A[$i+1]) { # test whether the two 
-                            # elements are in the wrong 
-                            # order
-
-         ($A[$i+1], $A[$i])=($A[$i], $A[$i+1]); # let the two elements
-                                                # change places
-        $swapped = 1;
-      } 
+        my $swapped_backward = 0;
+        for my $i (reverse 0..$#a-1) {
+            if ($a[$i] > $a[$i+1]) {
+                @a[ $i, $i+1 ] = @a[ $i+1, $i];
+                $swapped_backward = 1;
+            }
+        }
+        last if not $swapped_backward;
     }
-    if ($swapped == 0) {
-      # we can exit the outer loop here if no swaps occurred.
-      #print "no more swaps"; 
-    }
-    else {
-    $swapped = 0;
-    for (my $i=($#A-1); $i>0 ; $i-=1) {
-
-      if($A[$i] gt $A[$i+1]) {
-
-        ($A[$i+1], $A[$i])=($A[$i], $A[$i+1]);
-        $swapped = 1;
-      }
-    }
-    }
-#  if no elements have been swapped, 
-#  then the list is sorted
-  }
-return (@A);
-#end sub
+    return @a;
 }
 
+# say join ' ', cocktail_sort( <t h e q u i c k b r o w n f o x j u m p s o v e r t h e l a z y d o g> ); # on RC
+
 my @nums;
-push @nums, int(rand 100) for 1..10;
-say my $result = join ' ', cocktailSort(@nums);
+push @nums, int(rand 100) for 1..25;
+say my $result = join ' ', cocktail_sort(@nums);
     my $ref    = join ' ', sort { $a <=> $b } @nums;
 
 use Test::More;
