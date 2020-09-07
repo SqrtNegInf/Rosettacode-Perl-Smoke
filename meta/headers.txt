@@ -7225,7 +7225,13 @@ File: S/Sorting_algorithms_Bubble_sort
 File: S/Sorting_algorithms_Cocktail_sort
 #!/usr/local/bin/perl
 #u# http://rosettacode.org/wiki/Sorting_algorithms/Cocktail_sort
-#c# 2018-08-15 <RC
+#c# 2018-08-15 <RC, 2020-09-06 >RC
+#p# OK
+
+File: S/Sorting_algorithms_Cocktail_sort_with_shifting_bounds
+#!/usr/local/bin/perl
+#u# http://rosettacode.org/wiki/Sorting_algorithms/Cocktail_sort_with_shifting_bounds
+#c# 2020-09-06 >RC
 #p# OK
 
 File: S/Sorting_algorithms_Comb_sort
