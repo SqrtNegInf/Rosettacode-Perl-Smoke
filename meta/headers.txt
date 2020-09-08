@@ -7228,6 +7228,13 @@ File: S/Sorting_algorithms_Cocktail_sort
 #c# 2018-08-15 <RC, 2020-09-06 >RC
 #p# OK
 
+File: S/Sorting_algorithms_Cocktail_sort.1
+#!/usr/local/bin/perl
+#u# http://rosettacode.org/wiki/Sorting_algorithms/Cocktail_sort
+#c# 2018-08-15 <RC
+#p# OK
+#n# or, to put it another way: buggy!
+
 File: S/Sorting_algorithms_Cocktail_sort_with_shifting_bounds
 #!/usr/local/bin/perl
 #u# http://rosettacode.org/wiki/Sorting_algorithms/Cocktail_sort_with_shifting_bounds
