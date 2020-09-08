@@ -1,16 +1,17 @@
 
 This is perl 5, version 30, subversion 0 (v5.30.0) built for darwin-thread-multi-2level
-+------------> Perl: Good/Bad [1295/10]
+updating from RC…
++------------> Perl: Good/Bad [1296/10]
 |+-----------> Smoke testing [1160]
 ||+----------> sKipping validation [140]
 |||+---------> Interactive [56]
 ||||+--------> Touched (modified by me) [411]
 |||||+-------> Random seed [104]
 ||||||+------> File output [72]
-|||||||+-----> Draft [208]
+|||||||+-----> Draft [206]
 ||||||||+----> Ignoring [37]
-|||||||||+---> Void (no local copy) [139]
-||||||||||+--> Un-implemented/reliable [128]
+|||||||||+---> Void (no local copy) [140]
+||||||||||+--> Un-implemented/reliable [129]
 |||||||||||
 GS......... 100_doors-1
 GS......... 100_doors-2
@@ -190,7 +191,7 @@ G.K........ Calendar_-_for_%22REAL%22_programmers
 GS......... Call_a_foreign-language_function
 G.K........ Call_a_function
 GS..T...... Call_a_function_in_a_shared_library-1
-!S..T...... Call_a_function_in_a_shared_library-2
+GS..T...... Call_a_function_in_a_shared_library-2
 G.K........ Call_an_object_method
 .........VU Canny_edge_detector
 GS......... Canonicalize_CIDR
@@ -853,6 +854,7 @@ GS......... Non-continuous_subsequences
 GS......... Non-decimal_radices_Convert
 GS......... Non-decimal_radices_Input
 GS......... Non-decimal_radices_Output
+.......D.VU Non-transitive_dice
 GS..T...... Nonoblock
 GS......... Nonogram_solver
 GS......... Nth_root
@@ -1007,9 +1009,9 @@ G.K........ Program_termination
 .......D.VU Proof
 GS......... Proper_divisors
 .......D.VU Pseudo-random_numbers_Combined_recursive_generator_MRG32k3a
-.......D.VU Pseudo-random_numbers_PCG32
+.........VU Pseudo-random_numbers_PCG32
 .......D.VU Pseudo-random_numbers_Splitmix64
-.......D.VU Pseudo-random_numbers_Xorshift_star
+.........VU Pseudo-random_numbers_Xorshift_star
 GS..TRFD... Pseudorandom_Number_Generator_Image
 GS....F.... Pythagoras_tree
 GS..T...... Pythagorean_quadruples
@@ -1358,7 +1360,7 @@ GS..T...... Totient_function-2
 GS......... Towers_of_Hanoi
 GS..T...... Trabb_Pardo-Knuth_algorithm
 .......D.VU Transportation_problem
-GS..T..D... Tree_datastructures
+GS..T...... Tree_datastructures
 GS......... Tree_traversal
 GS......... Trigonometric_functions
 GS......... Truncatable_primes-1
