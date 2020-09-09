@@ -19,7 +19,7 @@ sub bubble_sort {
 }
 
 use Test::More;
-say 'input: ' . join ' ', my @a = my @b = map+(int rand 100), 0 .. 50;
+say 'input: ' . join ' ', my @a = my @b = map (int rand 100), 0 .. 50;
 bubble_sort(@b);
 is_deeply(\@b, [sort { $a <=> $b } @b]);
 done_testing();
