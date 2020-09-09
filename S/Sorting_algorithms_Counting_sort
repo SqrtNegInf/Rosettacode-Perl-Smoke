@@ -23,7 +23,7 @@ sub counting_sort
 #print join("\n", @ages), "\n";
 
 use Test::More;
-say 'input: ' . join ' ', my @a = my @b = map+(int rand 100), 0 .. 50;
+say 'input: ' . join ' ', my @a = my @b = map (int rand 100), 0 .. 50;
 counting_sort(\@b,0,99);
 is_deeply(\@b, [sort { $a <=> $b } @b]);
 done_testing();
