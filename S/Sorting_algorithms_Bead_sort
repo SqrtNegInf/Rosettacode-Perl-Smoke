@@ -27,6 +27,6 @@ sub beadsort {
 }
 
 use Test::More;
-say 'input: ' . join ' ', my @a = map+(int rand 100), 0 .. 50;
+say 'input: ' . join ' ', my @a = map (int rand 100), 0 .. 50;
 is_deeply([beadsort(@a)], [sort { $a <=> $b } @a]);
 done_testing();
