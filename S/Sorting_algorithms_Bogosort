@@ -23,6 +23,6 @@ sub in_order
   return 1;}
 
 use Test::More;
-say 'input: ' . join ' ', my @a = map+(int rand 100), 0 .. 5;
+say 'input: ' . join ' ', my @a = map (int rand 100), 0 .. 5;
 is_deeply([bogosort(@a)], [sort { $a <=> $b } @a]);
 done_testing();
