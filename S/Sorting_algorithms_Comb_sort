@@ -27,6 +27,6 @@ sub combSort {
 }
 
 use Test::More;
-say 'input: ' . join ' ', my @a = map+(int rand 100), 0 .. 10;
+say 'input: ' . join ' ', my @a = map (int rand 100), 0 .. 10;
 is_deeply([combSort(@a)], [sort { $a <=> $b } @a]);
 done_testing();
