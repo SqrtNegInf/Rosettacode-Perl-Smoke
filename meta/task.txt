@@ -11,7 +11,7 @@ updating from RC…
 |||||||+-----> Draft [206]
 ||||||||+----> Ignoring [37]
 |||||||||+---> Void (no local copy) [140]
-||||||||||+--> Un-implemented/reliable [129]
+||||||||||+--> Un-implemented/reliable [127]
 |||||||||||
 GS......... 100_doors-1
 GS......... 100_doors-2
@@ -145,7 +145,7 @@ GS......... Binary_search-2
 GS..T...... Binary_strings
 GS..TR..... Bioinformatics_Sequence_mutation
 GS..T...... Bioinformatics_base_count
-GS..T.....U Biorhythms
+GS..T...... Biorhythms
 GS..TR.D... Birthday_problem
 GS......... Bitcoin_address_validation
 GS......... Bitcoin_public_point_to_address
@@ -1209,7 +1209,7 @@ GS...R..... Sorting_algorithms_Bead_sort
 GS......... Sorting_algorithms_Bogosort
 GS...R..... Sorting_algorithms_Bubble_sort
 GS..TR..... Sorting_algorithms_Cocktail_sort
-GS..TR....U Sorting_algorithms_Cocktail_sort_with_shifting_bounds
+GS..TR..... Sorting_algorithms_Cocktail_sort_with_shifting_bounds
 GS...R..... Sorting_algorithms_Comb_sort
 GS......... Sorting_algorithms_Counting_sort
 GS...R.D... Sorting_algorithms_Cycle_sort
