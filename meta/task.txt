@@ -1,17 +1,17 @@
 
 This is perl 5, version 30, subversion 0 (v5.30.0) built for darwin-thread-multi-2level
 updating from RC…
-+------------> Perl: Good/Bad [1296/10]
-|+-----------> Smoke testing [1160]
++------------> Perl: Good/Bad [1294/10]
+|+-----------> Smoke testing [1161]
 ||+----------> sKipping validation [140]
 |||+---------> Interactive [56]
 ||||+--------> Touched (modified by me) [411]
-|||||+-------> Random seed [104]
+|||||+-------> Random seed [105]
 ||||||+------> File output [72]
 |||||||+-----> Draft [205]
 ||||||||+----> Ignoring [37]
-|||||||||+---> Void (no local copy) [140]
-||||||||||+--> Un-implemented/reliable [127]
+|||||||||+---> Void (no local copy) [139]
+||||||||||+--> Un-implemented/reliable [126]
 |||||||||||
 GS......... 100_doors-1
 GS......... 100_doors-2
@@ -1041,7 +1041,7 @@ GS..T...... Range_extraction
 GS..T...... Ranking_methods
 G.K.T.....U Rare_numbers
 .......D.VU Raster_bars
-GS......... Rate_counter
+!S......... Rate_counter
 GS......... Ray-casting_algorithm
 GS......... Read_a_configuration_file
 GS......... Read_a_file_character_by_character_UTF8
@@ -1319,7 +1319,7 @@ G.KI....... Terminal_control_Dimensions
 G.KIT...... Terminal_control_Display_an_extended_character
 G.KIT...... Terminal_control_Hiding_the_cursor
 G.KIT...... Terminal_control_Inverse_video
-........XVU Terminal_control_Positional_read
+!S...R..X.. Terminal_control_Positional_read
 G.KI....... Terminal_control_Preserve_screen
 .......D.VU Terminal_control_Restricted_width_positional_input_No_wrapping
 .......D.VU Terminal_control_Restricted_width_positional_input_With_wrapping
@@ -1345,7 +1345,7 @@ GS......... Thue-Morse
 GS...R..... Tic-tac-toe
 G.KI....... Tic-tac-toe-2
 GS.....D... Time-based_One-time_Password_Algorithm
-GS......... Time_a_function
+!S......... Time_a_function
 GS......... Tokenize_a_string
 GS......... Tokenize_a_string_with_escaping
 GS..T...... Tonelli-Shanks_algorithm
