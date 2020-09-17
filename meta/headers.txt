@@ -7932,6 +7932,12 @@ File: T/Terminal_control_Inverse_video
 #c# 2018-09-04 >RC
 #p# OK
 
+File: T/Terminal_control_Positional_read
+#!/usr/local/bin/perl
+#u# http://rosettacode.org/wiki/Terminal_control/Positional_read
+#c# 2020-09-16 <RC
+#p# OK
+
 File: T/Terminal_control_Preserve_screen
 #!/usr/local/bin/perl
 #u# http://rosettacode.org/wiki/Terminal_control/Preserve_screen
