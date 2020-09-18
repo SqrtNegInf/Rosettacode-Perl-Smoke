@@ -7935,6 +7935,7 @@ File: T/Terminal_control_Inverse_video
 File: T/Terminal_control_Positional_read
 #!/usr/local/bin/perl
 #u# http://rosettacode.org/wiki/Terminal_control/Positional_read
+#t# interactive
 #c# 2020-09-16 <RC
 #p# OK
 
