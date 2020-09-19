@@ -9,7 +9,7 @@ updating from RC…
 |||||+-------> Random seed [105]
 ||||||+------> File output [72]
 |||||||+-----> Draft [205]
-||||||||+----> Ignoring [37]
+||||||||+----> Ignoring [36]
 |||||||||+---> Void (no local copy) [139]
 ||||||||||+--> Un-implemented/reliable [126]
 |||||||||||
@@ -1319,7 +1319,7 @@ G.KI....... Terminal_control_Dimensions
 G.KIT...... Terminal_control_Display_an_extended_character
 G.KIT...... Terminal_control_Hiding_the_cursor
 G.KIT...... Terminal_control_Inverse_video
-G.KI.R..X.. Terminal_control_Positional_read
+G.KI.R..... Terminal_control_Positional_read
 G.KI....... Terminal_control_Preserve_screen
 .......D.VU Terminal_control_Restricted_width_positional_input_No_wrapping
 .......D.VU Terminal_control_Restricted_width_positional_input_With_wrapping
