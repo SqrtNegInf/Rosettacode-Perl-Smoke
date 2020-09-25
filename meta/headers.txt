@@ -2308,6 +2308,12 @@ File: E/Equilibrium_index
 #c# 2018-07-31 <RC
 #p# OK
 
+File: E/Esthetic_numbers
+#!/usr/local/bin/perl
+#u# http://rosettacode.org/wiki/Esthetic_numbers
+#c# 2020-07-25 <RC
+#p# OK
+
 File: E/Ethiopian_multiplication
 #!/usr/local/bin/perl
 #u# http://rosettacode.org/wiki/Ethiopian_multiplication
