@@ -8,10 +8,10 @@ updating from RC…
 ||||+--------> Touched (modified by me) [411]
 |||||+-------> Random seed [105]
 ||||||+------> File output [72]
-|||||||+-----> Draft [205]
+|||||||+-----> Draft [207]
 ||||||||+----> Ignoring [36]
-|||||||||+---> Void (no local copy) [138]
-||||||||||+--> Un-implemented/reliable [125]
+|||||||||+---> Void (no local copy) [140]
+||||||||||+--> Un-implemented/reliable [127]
 |||||||||||
 GS......... 100_doors-1
 GS......... 100_doors-2
@@ -367,6 +367,7 @@ GS......... Dot_product
 .........VU Doubly-linked_list_Definition
 G.K........ Doubly-linked_list_Element_definition
 G.K........ Doubly-linked_list_Element_insertion
+.......D.VU Doubly-linked_list_Element_removal
 .........VU Doubly-linked_list_Traversal
 GS..T.F.... Dragon_curve
 G.KI....... Draw_a_clock
@@ -1256,6 +1257,7 @@ GS......... Stern-Brocot_sequence-2
 GS..T...... Stirling_numbers_of_the_first_kind
 GS..T...... Stirling_numbers_of_the_second_kind
 GS..T...... Straddling_checkerboard
+.......D.VU Strassen%27s_algorithm
 GS..T...... Stream_Merge
 GS......... String_append
 GS......... String_case
