@@ -3606,6 +3606,13 @@ File: I/IBAN
 #c# 2018-08-13 <RC
 #p# OK
 
+File: I/IPC_via_named_pipe
+#!/usr/local/bin/perl
+#u# http://rosettacode.org/wiki/IPC_via_named_pipe
+#t# interactive
+#c# 2020-09-24 <RC
+#p# OK
+
 File: I/ISBN13_check_digit
 #!/usr/local/bin/perl
 #u# http://rosettacode.org/wiki/ISBN13_check_digit
