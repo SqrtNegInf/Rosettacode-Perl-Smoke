@@ -1,16 +1,16 @@
 
 This is perl 5, version 30, subversion 0 (v5.30.0) built for darwin-thread-multi-2level
 updating from RC…
-+------------> Perl: Good/Bad [1297/10]
++------------> Perl: Good/Bad [1299/10]
 |+-----------> Smoke testing [1161]
-||+----------> sKipping validation [141]
-|||+---------> Interactive [57]
+||+----------> sKipping validation [142]
+|||+---------> Interactive [58]
 ||||+--------> Touched (modified by me) [411]
 |||||+-------> Random seed [105]
 ||||||+------> File output [72]
 |||||||+-----> Draft [207]
 ||||||||+----> Ignoring [36]
-|||||||||+---> Void (no local copy) [140]
+|||||||||+---> Void (no local copy) [139]
 ||||||||||+--> Un-implemented/reliable [127]
 |||||||||||
 GS......... 100_doors-1
@@ -557,7 +557,7 @@ GS...R..... Guess_the_number
 GS...R..... Guess_the_number_With_feedback
 GS...R..... Guess_the_number_With_feedback_player
 GS......... HTTP
-!S......... HTTPS
+GS......... HTTPS
 G.K........ HTTPS_Authenticated
 G.K........ HTTPS_Client-authenticated
 GS......... Hailstone_sequence-1
@@ -604,7 +604,7 @@ GS..T...... Humble_numbers
 .........VU Hunt_The_Wumpus
 .......D.VU I%27m_a_software_engineer,_get_me_out_of_here
 GS......... IBAN
-.......D.V. IPC_via_named_pipe
+G.KI...D... IPC_via_named_pipe
 .......D.VU IRC_gateway
 GS..T...... ISBN13_check_digit
 GS......... I_before_E_except_after_C-1
