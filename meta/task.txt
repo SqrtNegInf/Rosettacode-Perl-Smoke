@@ -8,7 +8,7 @@ updating from RC…
 ||||+--------> Touched (modified by me) [411]
 |||||+-------> Random seed [105]
 ||||||+------> File output [72]
-|||||||+-----> Draft [207]
+|||||||+-----> Draft [206]
 ||||||||+----> Ignoring [36]
 |||||||||+---> Void (no local copy) [139]
 ||||||||||+--> Un-implemented/reliable [127]
@@ -639,7 +639,7 @@ GS..T...... Intersecting_Number_Wheels
 GS..T...... Introspection
 GS......... Inverted_index
 G.K........ Inverted_syntax
-.......DXVU Isqrt_integer_square_root_of_X
+........XVU Isqrt_integer_square_root_of_X
 GS......... Iterated_digits_squaring
 GS......... JSON
 GS..T...... Jacobi_symbol
