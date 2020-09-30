@@ -8,10 +8,10 @@ updating from RC…
 ||||+--------> Touched (modified by me) [411]
 |||||+-------> Random seed [105]
 ||||||+------> File output [72]
-|||||||+-----> Draft [207]
+|||||||+-----> Draft [208]
 ||||||||+----> Ignoring [36]
-|||||||||+---> Void (no local copy) [140]
-||||||||||+--> Un-implemented/reliable [128]
+|||||||||+---> Void (no local copy) [141]
+||||||||||+--> Un-implemented/reliable [129]
 |||||||||||
 GS......... 100_doors-1
 GS......... 100_doors-2
@@ -863,6 +863,7 @@ GS......... Nth_root
 GS......... Null_object
 GS......... Number_names
 GS...R..... Number_reversal_game
+.......D.VU Numbers_with_prime_digits_whose_sum_is_13
 GS......... Numeric_error_propagation
 GS.....D... Numeric_separator_syntax
 .........VU Numerical_and_alphabetical_suffixes
