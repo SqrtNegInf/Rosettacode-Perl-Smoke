@@ -3,8 +3,9 @@
 #c# 2020-08-22 >RC
 #p# OK
 #n# too much work to handle extended grapheme clusters, Text::Dice can do it...
+#n# known bug, fix pending:
+#n# https://github.com/Perl/perl5/issues/18123
 #n# perl5-32: \K not permitted in lookahead/lookbehind in regex; marked by <-- HERE in m/(?<=\K <-- HERE .)./ at Text_Completion line 19.
-#
 
 use strict;
 use warnings;
@@ -15,6 +16,7 @@ use List::Util 'head';
 
 my @res;
 
+# Can't handle Unicode
 # Lookbehind longer than 255 not implemented in regex m/(?<=\K\X)\X/ at T/Text_Completion line 16.
 # sub bi_gram { (lc shift) =~ /(?<=\K\X)\X/g }
 
