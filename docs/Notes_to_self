@@ -1,3 +1,7 @@
+2020-10-02
+Upgraded to the current release of Perl. Should just go with 'cpanm --force' for all modules 
+(needed for quite a few: Data::Locations Heap::Simple::XS, PDL::LinearAlgebra, etc.)
+
 2020-08-28
 'cpan -i Crypt::EC_DSA' failed, had to download and install this by hand first:
 curl -O http://cpan.metacpan.org/authors/id/B/BR/BRIANC/Math-EllipticCurve-Prime-0.003.tar.gz
