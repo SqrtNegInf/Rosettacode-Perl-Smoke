@@ -3,6 +3,8 @@
 #c# 2020-08-22 >RC
 #p# OK
 #n# too much work to handle extended grapheme clusters, Text::Dice can do it...
+#n# perl5-32: \K not permitted in lookahead/lookbehind in regex; marked by <-- HERE in m/(?<=\K <-- HERE .)./ at Text_Completion line 19.
+#
 
 use strict;
 use warnings;
