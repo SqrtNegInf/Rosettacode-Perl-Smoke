@@ -1,3 +1,6 @@
+2020-10-03
+Stuck on 'Imager' install. SVG problems were trivial (version #)  'bigint' issues with a few tasks.
+
 2020-10-02
 Upgraded to the current release of Perl. Should just go with 'cpanm --force' for all modules 
 (needed for quite a few: Data::Locations Heap::Simple::XS, PDL::LinearAlgebra, etc.)
