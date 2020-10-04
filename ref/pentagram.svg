@@ -4,7 +4,7 @@
 	<svg:rect height="100%" style="fill: bisque" width="100%" />
 	<svg:polyline points="180,0 -145.623058987491,105.801345412645 55.6230589874905,-171.190172933128 55.6230589874905,171.190172933128 -145.623058987491,-105.801345412645 180,0 " style="fill: seashell; stroke: blue; stroke-width: 3" transform="translate(200,200) rotate(-18)" />
 	<!--
-	Generated using the Perl SVG Module V2.84
+	Generated using the Perl SVG Module V2.85
 	by Ronan Oger
 	Info: http://www.roitsystems.com/
 	-->
