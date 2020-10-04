@@ -1,14 +1,14 @@
 
 This is perl 5, version 32, subversion 0 (v5.32.0) built for darwin-thread-multi-2level
 updating from RC…
-+------------> Perl: Good/Bad [1278/10]
++------------> Perl: Good/Bad [1276/10]
 |+-----------> Smoke testing [1161]
 ||+----------> sKipping validation [142]
 |||+---------> Interactive [58]
 ||||+--------> Touched (modified by me) [411]
 |||||+-------> Random seed [105]
 ||||||+------> File output [72]
-|||||||+-----> Draft [208]
+|||||||+-----> Draft [207]
 ||||||||+----> Ignoring [36]
 |||||||||+---> Void (no local copy) [141]
 ||||||||||+--> Un-implemented/reliable [129]
@@ -131,7 +131,7 @@ GS..T..D... Banker%27s_algorithm
 GS..T..D... Base58Check_encoding
 GS..T...... Base64_decode_data
 GS.....D... Base64_encode_data
-GS..T...... Bell_numbers
+!S..T...... Bell_numbers
 GS......... Benford%27s_law
 GS......... Bernoulli_numbers-1
 GS......... Bernoulli_numbers-2
@@ -204,7 +204,7 @@ GS......... Cartesian_product_of_two_or_more_lists-3
 GS......... Case-sensitivity_of_identifiers
 GS......... Casting_out_nines
 GS......... Catalan_numbers-1
-GS......... Catalan_numbers-2
+!S......... Catalan_numbers-2
 GS......... Catalan_numbers-3
 GS......... Catalan_numbers_Pascal%27s_triangle
 GS......... Catamorphism
@@ -361,7 +361,7 @@ GS......... Discordian_date
 GS..T...... Display_a_linear_combination
 GS......... Display_an_outline_as_a_nested_table
 GS......... Distributed_programming
-GS..T..D... Diversity_prediction_theorem
+GS..T...... Diversity_prediction_theorem
 G.K........ Documentation
 GS......... Dot_product
 .........VU Doubly-linked_list_Definition
@@ -557,7 +557,7 @@ GS...R..... Guess_the_number
 GS...R..... Guess_the_number_With_feedback
 GS...R..... Guess_the_number_With_feedback_player
 GS......... HTTP
-!S......... HTTPS
+GS......... HTTPS
 G.K........ HTTPS_Authenticated
 G.K........ HTTPS_Client-authenticated
 GS......... Hailstone_sequence-1
@@ -669,7 +669,7 @@ GS......... Knapsack_problem_Continuous
 GS......... Knapsack_problem_Unbounded
 GS...R..... Knight%27s_tour
 GS...R..... Knuth%27s_algorithm_S
-GS......... Knuth%27s_power_tree
+!S......... Knuth%27s_power_tree
 GS...R..... Knuth_shuffle
 GS..T.F.... Koch_curve
 GS..T...... Kolakoski_sequence
@@ -1051,7 +1051,7 @@ GS......... Read_a_file_character_by_character_UTF8
 GS......... Read_a_file_line_by_line
 GS......... Read_a_specific_line_from_a_file
 GS......... Read_entire_file-1
-!S......... Read_entire_file-2
+GS......... Read_entire_file-2
 G.KIT..D... Readline_interface
 GS......... Real_constants_and_functions
 GS..T...... Recaman%27s_sequence
@@ -1256,8 +1256,8 @@ GS..TR..... Statistics_Normal_distribution
 GS..T...... Stem-and-leaf_plot
 GS......... Stern-Brocot_sequence-1
 GS......... Stern-Brocot_sequence-2
-GS..T...... Stirling_numbers_of_the_first_kind
-GS..T...... Stirling_numbers_of_the_second_kind
+!S..T...... Stirling_numbers_of_the_first_kind
+!S..T...... Stirling_numbers_of_the_second_kind
 GS..T...... Straddling_checkerboard
 .......D.VU Strassen%27s_algorithm
 GS..T...... Stream_Merge
@@ -1432,7 +1432,7 @@ GS.....D... Waveform_analysis_Doh_ray_me
 .......D.VU Waveform_analysis_Top_and_tail
 .......D.VU Weather_Routing
 ........X.. Weather_routing
-!S......... Web_scraping
+GS......... Web_scraping
 GS..T...... Weird_numbers-1
 GS......... Weird_numbers-2
 .......D... Welch%27s_t-test
