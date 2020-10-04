@@ -2,6 +2,7 @@
 #u# http://rosettacode.org/wiki/Bell_numbers
 #c# 2019-09-03 >RC
 #p# OK
+#n# perl5.32 - does not actually use big integers?
 
 use strict 'vars';
 use warnings;
