@@ -7997,8 +7997,9 @@ File: T/Text_Completion
 #c# 2020-08-22 >RC
 #p# OK
 #n# too much work to handle extended grapheme clusters, Text::Dice can do it...
+#n# known bug, fix pending:
+#n# https://github.com/Perl/perl5/issues/18123
 #n# perl5-32: \K not permitted in lookahead/lookbehind in regex; marked by <-- HERE in m/(?<=\K <-- HERE .)./ at Text_Completion line 19.
-#
 
 File: T/Text_Completion~
 #!/usr/local/bin/perl
