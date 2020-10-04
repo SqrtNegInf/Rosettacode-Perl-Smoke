@@ -2,16 +2,20 @@
 #u# http://rosettacode.org/wiki/Catalan_numbers
 #c# 2018-07-21 <RC
 #p# OK
+#n# perl5.32 - gives 'Inf' after 1.0E305
 
 use strict;
 use warnings;
 use feature 'say';
+
+use bignum lib => 'GMP';
+
 my $result;
 my @c1000;
 
 my @c = (1);
 sub catalan { 
-        use bigint;
+        #use bigint;
         $c[$_[0]] //= catalan($_[0]-1) * (4 * $_[0]-2) / ($_[0]+1)
 }
 
