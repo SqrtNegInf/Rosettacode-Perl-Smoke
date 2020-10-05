@@ -1,5 +1,6 @@
 2020-10-03
-Stuck on 'Imager' install. SVG problems were trivial (version #)  'bigint' issues with a few tasks.
+Stuck on 'Imager' install. SVG problems were trivial (version #)  
+'bigint' issues solved with: sudo cpanm --uninstall Math::BigInt::Lite
 
 2020-10-02
 Upgraded to the current release of Perl. Should just go with 'cpanm --force' for all modules 
