@@ -1,7 +1,6 @@
 
 This is perl 5, version 32, subversion 0 (v5.32.0) built for darwin-thread-multi-2level
-updating from RC…
-+------------> Perl: Good/Bad [1276/10]
++------------> Perl: Good/Bad [1281/10]
 |+-----------> Smoke testing [1161]
 ||+----------> sKipping validation [142]
 |||+---------> Interactive [58]
@@ -131,7 +130,7 @@ GS..T..D... Banker%27s_algorithm
 GS..T..D... Base58Check_encoding
 GS..T...... Base64_decode_data
 GS.....D... Base64_encode_data
-!S..T...... Bell_numbers
+GS..T...... Bell_numbers
 GS......... Benford%27s_law
 GS......... Bernoulli_numbers-1
 GS......... Bernoulli_numbers-2
@@ -204,7 +203,7 @@ GS......... Cartesian_product_of_two_or_more_lists-3
 GS......... Case-sensitivity_of_identifiers
 GS......... Casting_out_nines
 GS......... Catalan_numbers-1
-!S......... Catalan_numbers-2
+GS......... Catalan_numbers-2
 GS......... Catalan_numbers-3
 GS......... Catalan_numbers_Pascal%27s_triangle
 GS......... Catamorphism
@@ -669,7 +668,7 @@ GS......... Knapsack_problem_Continuous
 GS......... Knapsack_problem_Unbounded
 GS...R..... Knight%27s_tour
 GS...R..... Knuth%27s_algorithm_S
-!S......... Knuth%27s_power_tree
+GS......... Knuth%27s_power_tree
 GS...R..... Knuth_shuffle
 GS..T.F.... Koch_curve
 GS..T...... Kolakoski_sequence
@@ -1256,8 +1255,8 @@ GS..TR..... Statistics_Normal_distribution
 GS..T...... Stem-and-leaf_plot
 GS......... Stern-Brocot_sequence-1
 GS......... Stern-Brocot_sequence-2
-!S..T...... Stirling_numbers_of_the_first_kind
-!S..T...... Stirling_numbers_of_the_second_kind
+GS..T...... Stirling_numbers_of_the_first_kind
+GS..T...... Stirling_numbers_of_the_second_kind
 GS..T...... Straddling_checkerboard
 .......D.VU Strassen%27s_algorithm
 GS..T...... Stream_Merge
