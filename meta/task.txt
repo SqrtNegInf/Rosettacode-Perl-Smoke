@@ -1,5 +1,6 @@
 
 This is perl 5, version 32, subversion 0 (v5.32.0) built for darwin-thread-multi-2level
+updating from RC…
 +------------> Perl: Good/Bad [1281/10]
 |+-----------> Smoke testing [1161]
 ||+----------> sKipping validation [142]
