@@ -8,10 +8,10 @@ updating from RC…
 ||||+--------> Touched (modified by me) [411]
 |||||+-------> Random seed [105]
 ||||||+------> File output [72]
-|||||||+-----> Draft [207]
+|||||||+-----> Draft [208]
 ||||||||+----> Ignoring [36]
-|||||||||+---> Void (no local copy) [141]
-||||||||||+--> Un-implemented/reliable [129]
+|||||||||+---> Void (no local copy) [142]
+||||||||||+--> Un-implemented/reliable [130]
 |||||||||||
 GS......... 100_doors-1
 GS......... 100_doors-2
@@ -1129,6 +1129,7 @@ GS..T..D... Selective_File_Copy
 GS......... Self-describing_numbers
 .......D.VU Self-hosting_compiler
 GS..T...... Self-referential_sequence
+.......D.VU Self_numbers_sequence_A003052_in_the_OEIS
 GS......... Semiprime
 GS......... Semordnilap
 GS......... Send_an_unknown_method_call
