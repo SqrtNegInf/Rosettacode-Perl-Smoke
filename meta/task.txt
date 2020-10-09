@@ -10,8 +10,8 @@ updating from RC…
 ||||||+------> File output [72]
 |||||||+-----> Draft [208]
 ||||||||+----> Ignoring [36]
-|||||||||+---> Void (no local copy) [142]
-||||||||||+--> Un-implemented/reliable [130]
+|||||||||+---> Void (no local copy) [143]
+||||||||||+--> Un-implemented/reliable [131]
 |||||||||||
 GS......... 100_doors-1
 GS......... 100_doors-2
@@ -856,13 +856,14 @@ GS......... Non-continuous_subsequences
 GS......... Non-decimal_radices_Convert
 GS......... Non-decimal_radices_Input
 GS......... Non-decimal_radices_Output
-.......D.VU Non-transitive_dice
+.........VU Non-transitive_dice
 GS..T...... Nonoblock
 GS......... Nonogram_solver
 GS......... Nth_root
 GS......... Null_object
 GS......... Number_names
 GS...R..... Number_reversal_game
+.......D.VU Numbers_With_Equal_Rises_and_Falls
 .......D.VU Numbers_with_prime_digits_whose_sum_is_13
 GS......... Numeric_error_propagation
 GS.....D... Numeric_separator_syntax
@@ -1129,7 +1130,7 @@ GS..T..D... Selective_File_Copy
 GS......... Self-describing_numbers
 .......D.VU Self-hosting_compiler
 GS..T...... Self-referential_sequence
-.......D.VU Self_numbers_sequence_A003052_in_the_OEIS
+.......D.VU Self_numbers
 GS......... Semiprime
 GS......... Semordnilap
 GS......... Send_an_unknown_method_call
