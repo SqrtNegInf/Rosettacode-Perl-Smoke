@@ -1,5 +1,7 @@
 2020-10-10
-Oops, forget I was using 'brew' for image libraries. So after updating, all was fine.
+Oops, forget I was using 'brew' for image libraries, but 'macports' as well, so strenuous efforts needed to 
+get the right mix of headers and libraries. 
+Also revealed I was skipping testing on P/Plot_coordinate_pairs for no reason, it works fine.
 
 2020-10-03
 Stuck on 'Imager' install. SVG problems were trivial (version #)  
