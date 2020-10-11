@@ -1,3 +1,6 @@
+2020-10-10
+Oops, forget I was using 'brew' for image libraries. So after updating, all was fine.
+
 2020-10-03
 Stuck on 'Imager' install. SVG problems were trivial (version #)  
 'bigint' issues solved with: sudo cpanm --uninstall Math::BigInt::Lite
