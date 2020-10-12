@@ -3430,6 +3430,7 @@ File: H/Hello_world_Web_server
 #t# skiptest
 #c# 2018-08-12 <RC
 #p# OK
+#n# commented out whole Plack solution, can't get module to install
 
 File: H/Here_document
 #!/usr/local/bin/perl
@@ -5820,6 +5821,7 @@ File: P/Plot_coordinate_pairs
 #u# http://rosettacode.org/wiki/Plot_coordinate_pairs
 #c# 2018-08-20 <RC
 #p# OK
+#f# RC file: qsort-range-10-9.gif
 
 File: P/Pointers_and_references
 #!/usr/local/bin/perl
@@ -8001,7 +8003,7 @@ File: T/Text_Completion
 #n# https://github.com/Perl/perl5/issues/18123
 #n# perl5-32: \K not permitted in lookahead/lookbehind in regex; marked by <-- HERE in m/(?<=\K <-- HERE .)./ at Text_Completion line 19.
 
-File: T/Text_Completion~
+File: T/Text_Completion.0
 #!/usr/local/bin/perl
 #u# http://rosettacode.org/wiki/Text_Completion
 #c# 2020-08-22 >RC
