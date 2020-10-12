@@ -1,3 +1,18 @@
+2020-10-11
+'Cwd.pm' mis-match error solved by removing auto-generated '_Inline' directory, duh.
+?? For raku, 'zef install Inline::Perl5'
+Useful tools/techniques:
+   cpan -a / PERL_MM_USE_DEFAULT=1 perl -MCPAN -e 'install Bundle::Snapshot_2020_10_11_00'
+   perl -MCPAN -e 'recompile()'
+   LWP::Protocol::https requires a separate install from libwww-perl aka LWP
+
+For Perl/Path/SMILES:
+cd /usr/local/perllib/BB/$dir; rm Makefile; perl Makefile.PL; sudo make install
+
+Can abandon: MediaWiki::API, Archive::Zip, HTML::Tree
+
+Also: Pays to check CPAN mirror site list once every so often, primary was very stale...
+
 2020-10-10
 Oops, forget I was using 'brew' for image libraries, but 'macports' as well, so strenuous efforts needed to 
 get the right mix of headers and libraries. 
