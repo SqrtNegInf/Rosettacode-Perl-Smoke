@@ -3,6 +3,7 @@
 #t# skiptest
 #c# 2018-08-12 <RC
 #p# OK
+#n# commented out whole Plack solution, can't get module to install
 
 use feature 'say';
 my $result;
@@ -60,6 +61,7 @@ while (++(our $vn)) {
       "Goodbye, World! (hello, visitor No. $vn!)\xd\xa";
 }
 
+__END__
 # Here's another solution using Plack (may be found on CPAN):
 use Plack::Runner;
 my $app = sub {
