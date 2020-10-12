@@ -1,10 +1,10 @@
 2020-10-11
 'Cwd.pm' mis-match error solved by removing auto-generated '_Inline' directory, duh.
-?? For raku, 'zef install Inline::Perl5'
+NB: LWP::Protocol::https requires a separate install from libwww-perl aka LWP
 Useful tools/techniques:
    cpan -a / PERL_MM_USE_DEFAULT=1 perl -MCPAN -e 'install Bundle::Snapshot_2020_10_11_00'
    perl -MCPAN -e 'recompile()'
-   LWP::Protocol::https requires a separate install from libwww-perl aka LWP
+Updating raku: Best to install Inline::Perl5 by hand (zef kept trying to use .dylib from 5.30.0)
 
 For Perl/Path/SMILES:
 cd /usr/local/perllib/BB/$dir; rm Makefile; perl Makefile.PL; sudo make install
