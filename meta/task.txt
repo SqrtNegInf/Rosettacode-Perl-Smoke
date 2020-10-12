@@ -1,17 +1,17 @@
 
 This is perl 5, version 32, subversion 0 (v5.32.0) built for darwin-thread-multi-2level
 updating from RC…
-+------------> Perl: Good/Bad [1281/10]
++------------> Perl: Good/Bad [1297/10]
 |+-----------> Smoke testing [1161]
 ||+----------> sKipping validation [142]
 |||+---------> Interactive [58]
 ||||+--------> Touched (modified by me) [411]
 |||||+-------> Random seed [105]
-||||||+------> File output [72]
+||||||+------> File output [73]
 |||||||+-----> Draft [208]
 ||||||||+----> Ignoring [36]
 |||||||||+---> Void (no local copy) [143]
-||||||||||+--> Un-implemented/reliable [131]
+||||||||||+--> Un-implemented/reliable [130]
 |||||||||||
 GS......... 100_doors-1
 GS......... 100_doors-2
@@ -87,7 +87,7 @@ GS..T...... Apply_a_digital_filter_direct_form_II_transposed
 GS..T...... Approximate_Equality
 GS......... Arbitrary-precision_integers_included-1
 GS......... Arbitrary-precision_integers_included-2
-!S..T.F.... Archimedean_spiral
+GS..T.F.... Archimedean_spiral
 ........XVU Arena_storage_pool
 GS......... Arithmetic-geometric_mean
 GS......... Arithmetic-geometric_mean_Calculate_Pi-1
@@ -127,7 +127,7 @@ GS...R..... Balanced_brackets-2
 GS...R..... Balanced_brackets-3
 GS......... Balanced_ternary
 GS..T..D... Banker%27s_algorithm
-!S...RF.... Barnsley_fern
+GS...RF.... Barnsley_fern
 GS..T..D... Base58Check_encoding
 GS..T...... Base64_decode_data
 GS.....D... Base64_encode_data
@@ -159,7 +159,7 @@ GS....F.... Bitmap_Flood_fill
 .........VU Bitmap_PPM_conversion_through_a_pipe
 GS....F.... Bitmap_Read_a_PPM_file
 .........VU Bitmap_Read_an_image_through_a_pipe
-!S..T.F.... Bitmap_Write_a_PPM_file
+GS..T.F.... Bitmap_Write_a_PPM_file
 GS....F.... Bitwise_IO
 GS......... Bitwise_operations
 .......D.VU Black_Box
@@ -188,9 +188,9 @@ GS..T...... Calculating_the_value_of_e-3
 G.K........ Calculating_the_value_of_e-4
 GS......... Calendar
 G.K........ Calendar_-_for_%22REAL%22_programmers
-!S......... Call_a_foreign-language_function
+GS......... Call_a_foreign-language_function
 G.K........ Call_a_function
-!S..T...... Call_a_function_in_a_shared_library-1
+GS..T...... Call_a_function_in_a_shared_library-1
 GS..T...... Call_a_function_in_a_shared_library-2
 G.K........ Call_an_object_method
 .........VU Canny_edge_detector
@@ -210,7 +210,7 @@ GS......... Catalan_numbers_Pascal%27s_triangle
 GS......... Catamorphism
 .........VU Catmull-Clark_subdivision_surface
 GS..T...... Chaocipher
-!S...RF.... Chaos_game
+GS...RF.... Chaos_game
 GS..T...... Character_codes-1
 GS..T...... Character_codes-2
 GS......... Character_codes-3
@@ -245,8 +245,8 @@ GS......... Closures_Value_capture
 G.K.T..D... Code_segment_unload
 GS......... Collections
 G.KIT...... Color_of_a_screen_pixel
-!S..T...... Color_quantization
-!S....F.... Color_wheel
+GS..T...... Color_quantization
+GS....F.... Color_wheel
 GS....F.... Colour_bars_Display
 GS....F.... Colour_pinstripe_Display
 .........VU Colour_pinstripe_Printer
@@ -598,7 +598,7 @@ GS......... Horner%27s_rule_for_polynomial_evaluation-2
 GS......... Horner%27s_rule_for_polynomial_evaluation-3
 GS......... Host_introspection
 GS......... Hostname
-!S..T.F.... Hough_transform
+GS..T.F.... Hough_transform
 GS......... Huffman_coding
 GS..T...... Humble_numbers
 .........VU Hunt_The_Wumpus
@@ -650,7 +650,7 @@ GS..T...... Jewels_and_Stones
 ........XV. JortSort
 GS......... Josephus_problem
 .........VU Joystick_position
-!S....F.... Julia_set
+GS....F.... Julia_set
 GS......... Jump_anywhere
 GS..T..D... Just_in_time_processing_on_a_character_stream
 .........VU K-d_tree
@@ -675,7 +675,7 @@ GS..T.F.... Koch_curve
 GS..T...... Kolakoski_sequence
 GS..T...... Kosaraju
 GS......... Kronecker_product
-!S..T.F.... Kronecker_product_based_fractals
+GS..T.F.... Kronecker_product_based_fractals
 GS..T...... LU_decomposition
 GS......... LZW_compression
 GS..T...... Lah_numbers
@@ -932,7 +932,7 @@ GS..T.FD... Penrose_tiling
 GS..T.F.... Pentagram
 .......D.VU Pentomino_tiling
 GS..T...... Percentage_difference_between_images-1
-!S......... Percentage_difference_between_images-2
+GS......... Percentage_difference_between_images-2
 .......D.VU Perceptron
 GS..TR..... Percolation_Bond_percolation
 GS..TR..... Percolation_Mean_cluster_density
@@ -961,14 +961,14 @@ GS...R..... Pick_random_element
 GS..T...... Pierpont_primes
 GS...R..... Pig_the_dice_game
 GS..TR..... Pig_the_dice_game_Player
-!S..T.F.... Pinstripe_Display
+GS..T.F.... Pinstripe_Display
 .........VU Pinstripe_Printer
 GS..T..D... Pisano_period
-!S..T.F.... Plasma_effect
+GS..T.F.... Plasma_effect
 B.K.......U Play_recorded_sounds
 GS..T...... Playfair_cipher
 GS...R..... Playing_cards
-GS......... Plot_coordinate_pairs
+GS....F.... Plot_coordinate_pairs
 GS......... Pointers_and_references
 GS......... Poker_hand_analyser
 GS......... Polymorphic_copy
@@ -1002,7 +1002,7 @@ B.......... Prime_decomposition-4
 GS..T...... Primes_-_allocate_descendants_to_their_ancestors
 GS......... Primorial_numbers
 G.K.T..D... Print_debugging_statement
-.......DXVU Print_itself
+.......DXV. Print_itself
 GS......... Priority_queue
 GS......... Priority_queue-2
 GS...R..... Probabilistic_choice
@@ -1017,7 +1017,7 @@ GS......... Proper_divisors
 .......D.VU Pseudo-random_numbers_Splitmix64
 .........VU Pseudo-random_numbers_Xorshift_star
 GS..TRFD... Pseudorandom_Number_Generator_Image
-!S....F.... Pythagoras_tree
+GS....F.... Pythagoras_tree
 GS..T...... Pythagorean_quadruples
 GS......... Pythagorean_triples
 GS..T...... QR_decomposition
@@ -1099,7 +1099,7 @@ GS..T...... Rosetta_Code_Find_unimplemented_tasks
 GS......... Rosetta_Code_Fix_code_tags
 .......D.VU Rosetta_Code_List_authors_of_task_descriptions
 GS..T..D... Rosetta_Code_Rank_languages_by_number_of_users
-GS..T...... Rosetta_Code_Rank_languages_by_popularity
+!S..T...... Rosetta_Code_Rank_languages_by_popularity
 .......D.VU Rosetta_Code_Run_examples
 GS..T..D... Rosetta_Code_Tasks_without_examples
 GS......... Rot-13
@@ -1385,7 +1385,7 @@ GS......... URL_parser
 .......D.VU URL_shortener
 GS......... UTF-8_encode_and_decode
 .......D.VU Ukkonens_Suffix_Tree_Construction
-!S....F.... Ulam_spiral_for_primes
+GS....F.... Ulam_spiral_for_primes
 GS...R..... Unbias_a_random_generator
 GS......... Undefined_values
 .......D.VU Unicode_polynomial_equation
@@ -1425,7 +1425,7 @@ GS..T...... Vigen%C3%A8re_cipher
 GS..T...... Vigen%C3%A8re_cipher_Cryptanalysis
 GS......... Visualize_a_tree
 .........VU Vogel%27s_approximation_method
-!S..TRF.... Voronoi_diagram
+GS..TRF.... Voronoi_diagram
 GS..T...... Walk_a_directory_Non-recursively
 GS..T...... Walk_a_directory_Recursively
 .......D.VU WalledMonument
