@@ -541,7 +541,7 @@ T/Terminal_control_Unicode_output
 T/Text_Completion
 ø:     1 LATIN SMALL LETTER O WITH STROKE
 
-T/Text_Completion~
+T/Text_Completion.0
 ¸:     1 CEDILLA
 Ã:     1 LATIN CAPITAL LETTER A WITH TILDE
 ø:     1 LATIN SMALL LETTER O WITH STROKE
