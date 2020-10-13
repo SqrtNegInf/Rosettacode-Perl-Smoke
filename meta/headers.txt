@@ -6028,6 +6028,13 @@ File: P/Print_debugging_statement
 #p# OK
 #n# to test would need to capture STDERR...
 
+File: P/Print_itself
+#!/usr/local/bin/perl
+#t# skiptest
+#u# http://rosettacode.org/wiki/Print_itself
+#c# 2020-10-12 <RC
+#p# OK
+
 File: P/Priority_queue
 #!/usr/local/bin/perl
 #u# http://rosettacode.org/wiki/Priority_queue
