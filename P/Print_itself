@@ -1,0 +1,9 @@
+#!/usr/local/bin/perl
+#t# skiptest
+#u# http://rosettacode.org/wiki/Print_itself
+#c# 2020-10-12 <RC
+#p# OK
+
+open my $in, '<', $0 or die;
+print while <$in>;
+close($in);
