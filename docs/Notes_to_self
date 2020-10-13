@@ -1,12 +1,14 @@
+2020-10-12
+The CPAN autobundle for this date reflects a 100% functioning RC (plus local stuff)
+
 2020-10-11
 'Cwd.pm' mis-match error solved by removing auto-generated '_Inline' directory, duh.
 NB: LWP::Protocol::https requires a separate install from libwww-perl aka LWP
 Useful tools/techniques:
    cpan -a / PERL_MM_USE_DEFAULT=1 perl -MCPAN -e 'install Bundle::Snapshot_2020_10_11_00'
    perl -MCPAN -e 'recompile()'
-Updating raku: Best to install Inline::Perl5 by hand (zef kept trying to use .dylib from 5.30.0)
 
-For Perl/Path/SMILES:
+For Perl/Path/SMILES/Depict/QSAR:
 cd /usr/local/perllib/BB/$dir; rm Makefile; perl Makefile.PL; sudo make install
 
 Can abandon: MediaWiki::API, Archive::Zip, HTML::Tree
