@@ -1,17 +1,17 @@
 
 This is perl 5, version 32, subversion 0 (v5.32.0) built for darwin-thread-multi-2level
 updating from RC…
-+------------> Perl: Good/Bad [1297/10]
++------------> Perl: Good/Bad [1298/10]
 |+-----------> Smoke testing [1161]
-||+----------> sKipping validation [142]
+||+----------> sKipping validation [143]
 |||+---------> Interactive [58]
 ||||+--------> Touched (modified by me) [411]
 |||||+-------> Random seed [105]
 ||||||+------> File output [73]
-|||||||+-----> Draft [208]
+|||||||+-----> Draft [209]
 ||||||||+----> Ignoring [36]
-|||||||||+---> Void (no local copy) [143]
-||||||||||+--> Un-implemented/reliable [130]
+|||||||||+---> Void (no local copy) [144]
+||||||||||+--> Un-implemented/reliable [132]
 |||||||||||
 GS......... 100_doors-1
 GS......... 100_doors-2
@@ -63,6 +63,7 @@ GS..T...... Address_of_a_variable
 GS......... Align_columns-1
 GS......... Align_columns-2
 GS......... Aliquot_sequence_classifications
+.......D.VU Almkvist-Giullera_formula_for_pi
 GS......... Almost_prime-1
 GS......... Almost_prime-2
 GS......... Amb-1
@@ -1002,7 +1003,7 @@ B.......... Prime_decomposition-4
 GS..T...... Primes_-_allocate_descendants_to_their_ancestors
 GS......... Primorial_numbers
 G.K.T..D... Print_debugging_statement
-.......DXV. Print_itself
+G.K....DX.. Print_itself
 GS......... Priority_queue
 GS......... Priority_queue-2
 GS...R..... Probabilistic_choice
@@ -1130,7 +1131,7 @@ GS..T..D... Selective_File_Copy
 GS......... Self-describing_numbers
 .......D.VU Self-hosting_compiler
 GS..T...... Self-referential_sequence
-.......D.VU Self_numbers
+.........VU Self_numbers
 GS......... Semiprime
 GS......... Semordnilap
 GS......... Send_an_unknown_method_call
@@ -1244,6 +1245,7 @@ GS......... Spiral_matrix
 GS..T...... Split_a_character_string_based_on_change_of_character
 GS..TR.D... Spoof_game
 GS......... Square-free_integers
+.......D.VU Square_Root_by_Hand
 GS..T...... Square_but_not_cube-1
 GS..T...... Square_but_not_cube-2
 GS......... Stable_marriage_problem
