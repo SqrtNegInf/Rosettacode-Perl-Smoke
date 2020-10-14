@@ -1,0 +1,9 @@
+#!/usr/local/bin/perl
+#u# http://rosettacode.org/wiki/Print_itself
+#c# 2020-10-13 <RC
+#p# OK
+#f# RC file: print_itself.txt
+
+open SELF, '>run/print_itself.txt';
+
+@ARGV=$0; print SELF <> 
