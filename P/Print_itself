@@ -1,9 +1,9 @@
 #!/usr/local/bin/perl
-#t# skiptest
 #u# http://rosettacode.org/wiki/Print_itself
-#c# 2020-10-12 <RC
+#c# 2020-10-13 <RC
 #p# OK
+#f# RC file: print_itself.txt
 
-open my $in, '<', $0 or die;
-print while <$in>;
-close($in);
+open SELF, '>run/print_itself.txt';
+
+@ARGV=$0; print SELF <> 
