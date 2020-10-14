@@ -6030,10 +6030,10 @@ File: P/Print_debugging_statement
 
 File: P/Print_itself
 #!/usr/local/bin/perl
-#t# skiptest
 #u# http://rosettacode.org/wiki/Print_itself
-#c# 2020-10-12 <RC
+#c# 2020-10-13 <RC
 #p# OK
+#f# RC file: print_itself.txt
 
 File: P/Priority_queue
 #!/usr/local/bin/perl
