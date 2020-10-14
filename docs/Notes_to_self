@@ -11,7 +11,7 @@ Useful tools/techniques:
 For Perl/Path/SMILES/Depict/QSAR:
 cd /usr/local/perllib/BB/$dir; rm Makefile; perl Makefile.PL; sudo make install
 
-Can abandon: MediaWiki::API, Archive::Zip, HTML::Tree
+Can abandon: Archive::Zip, HTML::Tree
 
 Also: Pays to check CPAN mirror site list once every so often, primary was very stale...
 
