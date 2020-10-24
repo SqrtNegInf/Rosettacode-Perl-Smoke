@@ -8040,6 +8040,12 @@ File: T/Text_processing_Max_licenses_in_use
 #c# 2018-08-11 <RC
 #p# OK
 
+File: T/Text_to_HTML
+#!/usr/local/bin/perl
+#u# http://rosettacode.org/wiki/Text_to_HTML
+#c# 2020-10-23 <RC
+#p# OK
+
 File: T/Textonyms
 #!/usr/local/bin/perl
 #u# http://rosettacode.org/wiki/Textonyms
