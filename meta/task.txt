@@ -1,14 +1,14 @@
 
 This is perl 5, version 32, subversion 0 (v5.32.0) built for darwin-thread-multi-2level
 updating from RC…
-+------------> Perl: Good/Bad [1299/10]
-|+-----------> Smoke testing [1162]
++------------> Perl: Good/Bad [1300/10]
+|+-----------> Smoke testing [1163]
 ||+----------> sKipping validation [142]
 |||+---------> Interactive [58]
 ||||+--------> Touched (modified by me) [411]
 |||||+-------> Random seed [105]
 ||||||+------> File output [74]
-|||||||+-----> Draft [209]
+|||||||+-----> Draft [210]
 ||||||||+----> Ignoring [36]
 |||||||||+---> Void (no local copy) [144]
 ||||||||||+--> Un-implemented/reliable [132]
@@ -1043,6 +1043,7 @@ GS...R..... Random_numbers
 GS..T...... Range_consolidation
 GS......... Range_expansion
 GS..T...... Range_extraction
+.......D.VU Range_modifications
 GS..T...... Ranking_methods
 G.K.T.....U Rare_numbers
 .......D.VU Raster_bars
@@ -1342,7 +1343,7 @@ GS..T..D... Text_between
 GS......... Text_processing_1
 GS......... Text_processing_2
 GS......... Text_processing_Max_licenses_in_use
-.......D.VU Text_to_HTML
+GS.....D... Text_to_HTML
 GS..T...... Textonyms
 GS......... The_ISAAC_Cipher
 GS..T...... The_Name_Game
