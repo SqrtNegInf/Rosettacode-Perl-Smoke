@@ -8,7 +8,7 @@ updating from RC…
 ||||+--------> Touched (modified by me) [411]
 |||||+-------> Random seed [105]
 ||||||+------> File output [74]
-|||||||+-----> Draft [210]
+|||||||+-----> Draft [209]
 ||||||||+----> Ignoring [36]
 |||||||||+---> Void (no local copy) [144]
 ||||||||||+--> Un-implemented/reliable [132]
@@ -1450,7 +1450,7 @@ GS......... Wireworld
 GS..T..D... Word_break_problem
 .........V. Word_frequency
 GS...R..... Word_search
-GS.....D... Word_wheel
+GS......... Word_wheel
 GS......... Word_wrap
 GS..T...... World_Cup_group_stage
 GS....F.... Write_entire_file
