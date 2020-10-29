@@ -8,10 +8,10 @@ updating from RC…
 ||||+--------> Touched (modified by me) [411]
 |||||+-------> Random seed [105]
 ||||||+------> File output [74]
-|||||||+-----> Draft [209]
+|||||||+-----> Draft [210]
 ||||||||+----> Ignoring [36]
-|||||||||+---> Void (no local copy) [144]
-||||||||||+--> Un-implemented/reliable [132]
+|||||||||+---> Void (no local copy) [146]
+||||||||||+--> Un-implemented/reliable [134]
 |||||||||||
 GS......... 100_doors-1
 GS......... 100_doors-2
@@ -900,6 +900,7 @@ GS..T...... Palindrome_dates-1
 GS......... Palindrome_dates-2
 GS......... Palindrome_detection
 .........VU Palindromic_gapful_numbers
+.......D.VU Pancake_numbers
 GS..T...... Pangram_checker
 GS......... Paraffins
 GS......... Parallel_Brute_Force
@@ -914,6 +915,7 @@ GS..T...... Parsing_RPN_to_infix_conversion
 GS......... Parsing_Shunting-yard_algorithm
 GS......... Partial_function_application
 GS..TR.D... Particle_Swarm_Optimization
+.........VU Partition_Function_P
 GS......... Partition_an_integer_X_into_N_primes
 GS......... Pascal%27s_triangle-1
 GS......... Pascal%27s_triangle-2
