@@ -11,7 +11,7 @@ updating from RC…
 |||||||+-----> Draft [210]
 ||||||||+----> Ignoring [36]
 |||||||||+---> Void (no local copy) [146]
-||||||||||+--> Un-implemented/reliable [134]
+||||||||||+--> Un-implemented/reliable [133]
 |||||||||||
 GS......... 100_doors-1
 GS......... 100_doors-2
@@ -640,7 +640,7 @@ GS..T...... Intersecting_Number_Wheels
 GS..T...... Introspection
 GS......... Inverted_index
 G.K........ Inverted_syntax
-........XVU Isqrt_integer_square_root_of_X
+........XV. Isqrt_integer_square_root_of_X
 GS......... Iterated_digits_squaring
 GS......... JSON
 GS..T...... Jacobi_symbol
