@@ -3,6 +3,7 @@
 #c# 2018-09-09 >RC
 #p# OK
 #n# the native/slow way, see -2 variant
+#n# cf 'Isqrt__integer_square_root__of_X'
 
 use strict;
 use warnings;
