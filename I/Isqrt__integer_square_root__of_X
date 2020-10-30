@@ -2,6 +2,7 @@
 #u# http://rosettacode.org/wiki/Isqrt_(integer_square_root)_of_X
 #c# 2020-10-29 <RC
 #p# OK
+#n# cf Integer_roots-1, Integer_roots-2
 
 my @res;
 
