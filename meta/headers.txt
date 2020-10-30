@@ -3812,6 +3812,12 @@ File: I/Inverted_syntax
 #c# 2018-08-13 <RC
 #p# OK
 
+File: I/Isqrt__integer_square_root__of_X
+#!/usr/local/bin/perl
+#u# http://rosettacode.org/wiki/Isqrt_(integer_square_root)_of_X
+#c# 2020-10-29 <RC
+#p# OK
+
 File: I/Iterated_digits_squaring
 #!/usr/local/bin/perl
 #u# http://rosettacode.org/wiki/Iterated_digits_squaring
