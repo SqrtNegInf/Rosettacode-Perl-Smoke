@@ -1,351 +1,642 @@
 
 A/Abbreviations,_automatic
-Died in "A/Abbreviations,_automatic" with "NFC not yet implemented. Sorry." 
+ª:     3 FEMININE ORDINAL INDICATOR
+Ç:     4 LATIN CAPITAL LETTER C WITH CEDILLA
+Ö:     3 LATIN CAPITAL LETTER O WITH DIAERESIS
+Ü:    25 LATIN CAPITAL LETTER U WITH DIAERESIS
+à:     9 LATIN SMALL LETTER A WITH GRAVE
+á:    14 LATIN SMALL LETTER A WITH ACUTE
+â:     2 LATIN SMALL LETTER A WITH CIRCUMFLEX
+ä:     6 LATIN SMALL LETTER A WITH DIAERESIS
+å:     2 LATIN SMALL LETTER A WITH RING ABOVE
+æ:    13 LATIN SMALL LETTER AE
+ç:     3 LATIN SMALL LETTER C WITH CEDILLA
+è:     9 LATIN SMALL LETTER E WITH GRAVE
+é:    13 LATIN SMALL LETTER E WITH ACUTE
+ë:     7 LATIN SMALL LETTER E WITH DIAERESIS
+ì:     4 LATIN SMALL LETTER I WITH GRAVE
+í:     7 LATIN SMALL LETTER I WITH ACUTE
+ï:     1 LATIN SMALL LETTER I WITH DIAERESIS
+ñ:     1 LATIN SMALL LETTER N WITH TILDE
+ò:     6 LATIN SMALL LETTER O WITH GRAVE
+ó:     8 LATIN SMALL LETTER O WITH ACUTE
+ö:     4 LATIN SMALL LETTER O WITH DIAERESIS
+ù:     3 LATIN SMALL LETTER U WITH GRAVE
+ú:     7 LATIN SMALL LETTER U WITH ACUTE
+ü:     1 LATIN SMALL LETTER U WITH DIAERESIS
+ÿ:     2 LATIN SMALL LETTER Y WITH DIAERESIS
+δ:     2 GREEK SMALL LETTER DELTA
+φ:     2 GREEK SMALL LETTER PHI
+∞:     2 INFINITY
+╞:     1 BOX DRAWINGS VERTICAL SINGLE AND RIGHT DOUBLE
 
 A/Approximate_Equality
-Died in "A/Approximate_Equality" with "NFC not yet implemented. Sorry." 
+≅:    12 APPROXIMATELY EQUAL TO
 
 A/Averages_Mean_angle
-Died in "A/Averages_Mean_angle" with "NFC not yet implemented. Sorry." 
+π:     6 GREEK SMALL LETTER PI
 
 B/Bacon_cipher
-Died in "B/Bacon_cipher" with "NFC not yet implemented. Sorry." 
+​:     1 ZERO WIDTH SPACE
+﻿:     1 ZERO WIDTH NO-BREAK SPACE
 
 B/Box_the_compass
-Died in "B/Box_the_compass" with "NFC not yet implemented. Sorry." 
+°:    34 DEGREE SIGN
 
 B/Burrows-Wheeler_transform
-Died in "B/Burrows-Wheeler_transform" with "NFC not yet implemented. Sorry." 
+ɐ:     2 LATIN SMALL LETTER TURNED A
+ɟ:     2 LATIN SMALL LETTER DOTLESS J WITH STROKE
+ɯ:     2 LATIN SMALL LETTER TURNED M
+ɹ:     4 LATIN SMALL LETTER TURNED R
+ʇ:     2 LATIN SMALL LETTER TURNED T
+👍:     5 THUMBS UP SIGN
 
 C/Character_codes-1
-Died in "C/Character_codes-1" with "NFC not yet implemented. Sorry." 
+Α:     3 GREEK CAPITAL LETTER ALPHA
+А:     3 CYRILLIC CAPITAL LETTER A
+𪚥:     3 CJK UNIFIED IDEOGRAPH-2A6A5
 
 C/Character_codes-2
-Died in "C/Character_codes-2" with "NFC not yet implemented. Sorry." 
+Δ̂:     3 GREEK CAPITAL LETTER DELTA, COMBINING CIRCUMFLEX ACCENT
+🇺🇸:     3 REGIONAL INDICATOR SYMBOL LETTER U, REGIONAL INDICATOR SYMBOL LETTER S
+👨‍👩‍👧‍👦:     3 MAN, ZERO WIDTH JOINER, WOMAN, ZERO WIDTH JOINER, GIRL, ZERO WIDTH JOINER, BOY
 
 C/Character_codes-3
-Died in "C/Character_codes-3" with "NFC not yet implemented. Sorry." 
+Δ̂:     3 GREEK CAPITAL LETTER DELTA, COMBINING CIRCUMFLEX ACCENT
+🇺🇸:     3 REGIONAL INDICATOR SYMBOL LETTER U, REGIONAL INDICATOR SYMBOL LETTER S
+👨‍👩‍👧‍👦:     3 MAN, ZERO WIDTH JOINER, WOMAN, ZERO WIDTH JOINER, GIRL, ZERO WIDTH JOINER, BOY
 
 C/Check_that_file_exists
-Died in "C/Check_that_file_exists" with "NFC not yet implemented. Sorry." 
+±:     4 PLUS-MINUS SIGN
+Δ:     4 GREEK CAPITAL LETTER DELTA
+π:     4 GREEK SMALL LETTER PI
 
 C/Chinese_zodiac
-Died in "C/Chinese_zodiac" with "NFC not yet implemented. Sorry." 
+à:     2 LATIN SMALL LETTER A WITH GRAVE
+è:     1 LATIN SMALL LETTER E WITH GRAVE
+é:     4 LATIN SMALL LETTER E WITH ACUTE
+ì:     1 LATIN SMALL LETTER I WITH GRAVE
+í:     2 LATIN SMALL LETTER I WITH ACUTE
+ù:     3 LATIN SMALL LETTER U WITH GRAVE
+ă:     2 LATIN SMALL LETTER A WITH BREVE
+ē:     3 LATIN SMALL LETTER E WITH MACRON
+ī:     3 LATIN SMALL LETTER I WITH MACRON
+ĭ:     7 LATIN SMALL LETTER I WITH BREVE
+ŏ:     3 LATIN SMALL LETTER O WITH BREVE
+ū:     1 LATIN SMALL LETTER U WITH MACRON
+ŭ:     2 LATIN SMALL LETTER U WITH BREVE
+丁:     2 CJK UNIFIED IDEOGRAPH-4E01
+丑:     1 CJK UNIFIED IDEOGRAPH-4E11
+丙:     2 CJK UNIFIED IDEOGRAPH-4E19
+乙:     2 CJK UNIFIED IDEOGRAPH-4E59
+亥:     2 CJK UNIFIED IDEOGRAPH-4EA5
+午:     1 CJK UNIFIED IDEOGRAPH-5348
+卯:     1 CJK UNIFIED IDEOGRAPH-536F
+壬:     2 CJK UNIFIED IDEOGRAPH-58EC
+子:     2 CJK UNIFIED IDEOGRAPH-5B50
+寅:     2 CJK UNIFIED IDEOGRAPH-5BC5
+己:     1 CJK UNIFIED IDEOGRAPH-5DF1
+巳:     1 CJK UNIFIED IDEOGRAPH-5DF3
+庚:     1 CJK UNIFIED IDEOGRAPH-5E9A
+戊:     3 CJK UNIFIED IDEOGRAPH-620A
+戌:     1 CJK UNIFIED IDEOGRAPH-620C
+未:     1 CJK UNIFIED IDEOGRAPH-672A
+甲:     1 CJK UNIFIED IDEOGRAPH-7532
+申:     2 CJK UNIFIED IDEOGRAPH-7533
+癸:     1 CJK UNIFIED IDEOGRAPH-7678
+辛:     1 CJK UNIFIED IDEOGRAPH-8F9B
+辰:     2 CJK UNIFIED IDEOGRAPH-8FB0
+酉:     2 CJK UNIFIED IDEOGRAPH-9149
 
 C/Cipolla%27s_algorithm-1
-Died in "C/Cipolla%27s_algorithm-1" with "NFC not yet implemented. Sorry." 
+│:     1 BOX DRAWINGS LIGHT VERTICAL
 
 C/Commatizing_numbers
-Died in "C/Commatizing_numbers" with "NFC not yet implemented. Sorry." 
+±:     3 PLUS-MINUS SIGN
 
 C/Continued_fraction
-Died in "C/Continued_fraction" with "NFC not yet implemented. Sorry." 
+π:     4 GREEK SMALL LETTER PI
+√:     2 SQUARE ROOT
+≈:     8 ALMOST EQUAL TO
 
 C/Cumulative_standard_deviation-2
-Died in "C/Cumulative_standard_deviation-2" with "NFC not yet implemented. Sorry." 
+²:     3 SUPERSCRIPT TWO
 
 C/Cycle_detection
-Died in "C/Cycle_detection" with "NFC not yet implemented. Sorry." 
+λ:     6 GREEK SMALL LETTER LAMDA
+μ:     3 GREEK SMALL LETTER MU
 
 D/Determine_if_a_string_has_all_the_same_characters
-Died in "D/Determine_if_a_string_has_all_the_same_characters" with "NFC not yet implemented. Sorry." 
+Ǟ:     3 LATIN CAPITAL LETTER A WITH DIAERESIS AND MACRON
+Δ:     3 GREEK CAPITAL LETTER DELTA
+🇬🇧:     8 REGIONAL INDICATOR SYMBOL LETTER G, REGIONAL INDICATOR SYMBOL LETTER B
+👍:     3 THUMBS UP SIGN
+👨:     3 MAN
 
 D/Determine_if_a_string_has_all_unique_characters
-Died in "D/Determine_if_a_string_has_all_unique_characters" with "NFC not yet implemented. Sorry." 
+Δ:    12 GREEK CAPITAL LETTER DELTA
+Δ̂:     5 GREEK CAPITAL LETTER DELTA, COMBINING CIRCUMFLEX ACCENT
+Λ:     3 GREEK CAPITAL LETTER LAMDA
+δ:     3 GREEK SMALL LETTER DELTA
+👍:     5 THUMBS UP SIGN
+👨:     2 MAN
 
 D/Determine_if_a_string_is_collapsible
-Died in "D/Determine_if_a_string_is_collapsible" with "NFC not yet implemented. Sorry." 
+Α:    72 GREEK CAPITAL LETTER ALPHA
+А:    72 CYRILLIC CAPITAL LETTER A
 
 D/Dinesman%27s_multiple-dwelling_problem-2
-Died in "D/Dinesman%27s_multiple-dwelling_problem-2" with "NFC not yet implemented. Sorry." 
+¿:     1 INVERTED QUESTION MARK
+é:     1 LATIN SMALL LETTER E WITH ACUTE
 
 D/Display_an_outline_as_a_nested_table.0
-Died in "D/Display_an_outline_as_a_nested_table.0" with "NFC not yet implemented. Sorry." 
+¯:     2 MACRON
+ツ:     1 KATAKANA LETTER TU
 
 D/Draw_a_clock
-Died in "D/Draw_a_clock" with "NFC not yet implemented. Sorry." 
+─:    22 BOX DRAWINGS LIGHT HORIZONTAL
+│:     4 BOX DRAWINGS LIGHT VERTICAL
+┌:     6 BOX DRAWINGS LIGHT DOWN AND RIGHT
+┐:     8 BOX DRAWINGS LIGHT DOWN AND LEFT
+└:     7 BOX DRAWINGS LIGHT UP AND RIGHT
+┘:     7 BOX DRAWINGS LIGHT UP AND LEFT
+├:     2 BOX DRAWINGS LIGHT VERTICAL AND RIGHT
+┤:     4 BOX DRAWINGS LIGHT VERTICAL AND LEFT
+╴:     3 BOX DRAWINGS LIGHT LEFT
+╵:     3 BOX DRAWINGS LIGHT UP
+╶:     7 BOX DRAWINGS LIGHT RIGHT
+╷:     3 BOX DRAWINGS LIGHT DOWN
 
 F/Factorial_base_numbers_indexing_permutations_of_a_collection
-Died in "F/Factorial_base_numbers_indexing_permutations_of_a_collection" with "NFC not yet implemented. Sorry." 
+♠:    65 BLACK SPADE SUIT
+♣:    65 BLACK CLUB SUIT
+♥:    65 BLACK HEART SUIT
+♦:    65 BLACK DIAMOND SUIT
 
 F/Factors_of_a_Mersenne_number-1
-Died in "F/Factors_of_a_Mersenne_number-1" with "NFC not yet implemented. Sorry." 
+×:    11 MULTIPLICATION SIGN
 
 F/Feigenbaum_constant_calculation
-Died in "F/Feigenbaum_constant_calculation" with "NFC not yet implemented. Sorry." 
+δ:     3 GREEK SMALL LETTER DELTA
 
 F/File_size_distribution
-Died in "F/File_size_distribution" with "NFC not yet implemented. Sorry." 
+█:   121 FULL BLOCK
+▉:     2 LEFT SEVEN EIGHTHS BLOCK
+▊:     2 LEFT THREE QUARTERS BLOCK
+▋:     1 LEFT FIVE EIGHTHS BLOCK
+▌:     1 LEFT HALF BLOCK
+▍:     1 LEFT THREE EIGHTHS BLOCK
+▎:     1 LEFT ONE QUARTER BLOCK
+▏:     1 LEFT ONE EIGHTH BLOCK
 
 F/Find_URI_in_text
-Died in "F/Find_URI_in_text" with "NFC not yet implemented. Sorry." 
+ä:     1 LATIN SMALL LETTER A WITH DIAERESIS
 
 F/Find_URI_in_text.1
-Died in "F/Find_URI_in_text.1" with "NFC not yet implemented. Sorry." 
+ä:     1 LATIN SMALL LETTER A WITH DIAERESIS
 
 F/First_perfect_square_in_base_N_with_N_unique_digits-1
-Died in "F/First_perfect_square_in_base_N_with_N_unique_digits-1" with "NFC not yet implemented. Sorry." 
+²:    16 SUPERSCRIPT TWO
 
 F/First_perfect_square_in_base_N_with_N_unique_digits-2
-Died in "F/First_perfect_square_in_base_N_with_N_unique_digits-2" with "NFC not yet implemented. Sorry." 
+²:    16 SUPERSCRIPT TWO
 
 F/First_perfect_square_in_base_N_with_N_unique_digits.1
-Died in "F/First_perfect_square_in_base_N_with_N_unique_digits.1" with "NFC not yet implemented. Sorry." 
+²:    16 SUPERSCRIPT TWO
 
 F/French_Republican_calendar
-Died in "F/French_Republican_calendar" with "NFC not yet implemented. Sorry." 
+É:     1 LATIN CAPITAL LETTER E WITH ACUTE
+é:    35 LATIN SMALL LETTER E WITH ACUTE
+ê:     8 LATIN SMALL LETTER E WITH CIRCUMFLEX
+ô:     5 LATIN SMALL LETTER O WITH CIRCUMFLEX
 
 G/GUI_component_interaction
-Died in "G/GUI_component_interaction" with "NFC not yet implemented. Sorry." 
+«:     1 LEFT-POINTING DOUBLE ANGLE QUOTATION MARK
+»:     1 RIGHT-POINTING DOUBLE ANGLE QUOTATION MARK
 
 G/Generate_random_chess_position
-Died in "G/Generate_random_chess_position" with "NFC not yet implemented. Sorry." 
+ø:     2 LATIN SMALL LETTER O WITH STROKE
 
 G/Geohash
-Died in "G/Geohash" with "NFC not yet implemented. Sorry." 
+±:    13 PLUS-MINUS SIGN
+å:     2 LATIN SMALL LETTER A WITH RING ABOVE
 
 H/Heronian_triangles
-Died in "H/Heronian_triangles" with "NFC not yet implemented. Sorry." 
+×:    34 MULTIPLICATION SIGN
 
 H/Horizontal_sundial_calculations
-Died in "H/Horizontal_sundial_calculations" with "NFC not yet implemented. Sorry." 
+°:     4 DEGREE SIGN
+π:     3 GREEK SMALL LETTER PI
 
 I/Idiomatically_determine_all_the_characters_that_can_be_used_for_symbols
-Died in "I/Idiomatically_determine_all_the_characters_that_can_be_used_for_symbols" with "NFC not yet implemented. Sorry." 
+鲜:     3 CJK UNIFIED IDEOGRAPH-9C9C
 
 K/K-means%2B%2B_clustering
-Died in "K/K-means%2B%2B_clustering" with "NFC not yet implemented. Sorry." 
+»:     1 RIGHT-POINTING DOUBLE ANGLE QUOTATION MARK
 
 L/Last_letter-first_letter
-Died in "L/Last_letter-first_letter" with "NFC not yet implemented. Sorry." 
+→:     1 RIGHTWARDS ARROW
 
 L/Launch_rocket_with_countdown_and_acceleration_in_stdout
-Died in "L/Launch_rocket_with_countdown_and_acceleration_in_stdout" with "NFC not yet implemented. Sorry." 
+▔:     1 UPPER ONE EIGHTH BLOCK
 
 L/Law_of_cosines_-_triples
-Died in "L/Law_of_cosines_-_triples" with "NFC not yet implemented. Sorry." 
+°:     6 DEGREE SIGN
 
 L/Length_of_an_arc_between_two_angles
-Died in "L/Length_of_an_arc_between_two_angles" with "NFC not yet implemented. Sorry." 
+π:     5 GREEK SMALL LETTER PI
+τ:     6 GREEK SMALL LETTER TAU
 
 L/Long_primes
-Died in "L/Long_primes" with "NFC not yet implemented. Sorry." 
+≤:    11 LESS-THAN OR EQUAL TO
 
 M/Magnanimous_numbers
-Died in "M/Magnanimous_numbers" with "NFC not yet implemented. Sorry." 
+»:     1 RIGHT-POINTING DOUBLE ANGLE QUOTATION MARK
 
 M/Mastermind
-Died in "M/Mastermind" with "NFC not yet implemented. Sorry." 
+○:     2 WHITE CIRCLE
+●:     2 BLACK CIRCLE
 
 M/Mayan_calendar
-Died in "M/Mayan_calendar" with "NFC not yet implemented. Sorry." 
+’:    38 RIGHT SINGLE QUOTATION MARK
 
 M/Mayan_numerals
-Died in "M/Mayan_numerals" with "NFC not yet implemented. Sorry." 
+Θ:     5 GREEK CAPITAL LETTER THETA
+─:    75 BOX DRAWINGS LIGHT HORIZONTAL
+●:    12 BLACK CIRCLE
 
 M/Mertens_function
-Died in "M/Mertens_function" with "NFC not yet implemented. Sorry." 
+»:     1 RIGHT-POINTING DOUBLE ANGLE QUOTATION MARK
+ö:     3 LATIN SMALL LETTER O WITH DIAERESIS
+μ:     2 GREEK SMALL LETTER MU
 
 M/Metaprogramming
-Died in "M/Metaprogramming" with "NFC not yet implemented. Sorry." 
+…:     6 HORIZONTAL ELLIPSIS
 
 M/Mian-Chowla_sequence
-Died in "M/Mian-Chowla_sequence" with "NFC not yet implemented. Sorry." 
+–:     3 EN DASH
 
 M/Minimal_steps_down_to_1
-Died in "M/Minimal_steps_down_to_1" with "NFC not yet implemented. Sorry." 
+»:     1 RIGHT-POINTING DOUBLE ANGLE QUOTATION MARK
 
 M/Moebius_function
-Died in "M/Moebius_function" with "NFC not yet implemented. Sorry." 
+»:     1 RIGHT-POINTING DOUBLE ANGLE QUOTATION MARK
+ö:     6 LATIN SMALL LETTER O WITH DIAERESIS
+μ:     2 GREEK SMALL LETTER MU
 
 M/Multidimensional_Newton-Raphson_method
-Died in "M/Multidimensional_Newton-Raphson_method" with "NFC not yet implemented. Sorry." 
+Δ:    13 GREEK CAPITAL LETTER DELTA
+ε:     8 GREEK SMALL LETTER EPSILON
 
 N/Names_to_numbers
-Died in "N/Names_to_numbers" with "NFC not yet implemented. Sorry." 
+¢:     2 CENT SIGN
+π:     3 GREEK SMALL LETTER PI
+≅:     3 APPROXIMATELY EQUAL TO
 
 N/Natural_sorting
-Died in "N/Natural_sorting" with "NFC not yet implemented. Sorry." 
+ß:     1 LATIN SMALL LETTER SHARP S
+Ĳ:     1 LATIN CAPITAL LIGATURE IJ
+ſ:     1 LATIN SMALL LETTER LONG S
+ʒ:     2 LATIN SMALL LETTER EZH
 
 N/Nautical_bell-1
-Died in "N/Nautical_bell-1" with "NFC not yet implemented. Sorry." 
+♪:     1 EIGHTH NOTE
+♫:     1 BEAMED EIGHTH NOTES
 
 N/Nautical_bell-2
-Died in "N/Nautical_bell-2" with "NFC not yet implemented. Sorry." 
+♪:    25 EIGHTH NOTE
+♫:    97 BEAMED EIGHTH NOTES
 
 N/Numeric_error_propagation
-Died in "N/Numeric_error_propagation" with "NFC not yet implemented. Sorry." 
+±:     5 PLUS-MINUS SIGN
+σ:     1 GREEK SMALL LETTER SIGMA
 
 N/Numerical_integration_Gauss-Legendre_Quadrature
-Died in "N/Numerical_integration_Gauss-Legendre_Quadrature" with "NFC not yet implemented. Sorry." 
+³:     8 SUPERSCRIPT THREE
+⁺:     8 SUPERSCRIPT PLUS SIGN
+₃:     8 SUBSCRIPT THREE
+₋:     8 SUBSCRIPT MINUS
+∫:     8 INTEGRAL
+≈:     8 ALMOST EQUAL TO
 
 P/Peaceful_chess_queen_armies
-Died in "P/Peaceful_chess_queen_armies" with "NFC not yet implemented. Sorry." 
+×:     1 MULTIPLICATION SIGN
+•:    10 BULLET
+◦:     9 WHITE BULLET
+♕:     1 WHITE CHESS QUEEN
+♛:     1 BLACK CHESS QUEEN
 
 P/Percolation_Bond_percolation
-Died in "P/Percolation_Bond_percolation" with "NFC not yet implemented. Sorry." 
+─:   141 BOX DRAWINGS LIGHT HORIZONTAL
+│:    65 BOX DRAWINGS LIGHT VERTICAL
+├:    14 BOX DRAWINGS LIGHT VERTICAL AND RIGHT
+┤:    14 BOX DRAWINGS LIGHT VERTICAL AND LEFT
+┬:    10 BOX DRAWINGS LIGHT DOWN AND HORIZONTAL
+┴:    10 BOX DRAWINGS LIGHT UP AND HORIZONTAL
+┼:    82 BOX DRAWINGS LIGHT VERTICAL AND HORIZONTAL
+▒:   120 MEDIUM SHADE
 
 P/Percolation_Mean_cluster_density
-Died in "P/Percolation_Mean_cluster_density" with "NFC not yet implemented. Sorry." 
+𝘒:     8 MATHEMATICAL SANS-SERIF ITALIC CAPITAL K
+𝘕:     8 MATHEMATICAL SANS-SERIF ITALIC CAPITAL N
+𝘱:     8 MATHEMATICAL SANS-SERIF ITALIC SMALL P
 
 P/Percolation_Site_percolation
-Died in "P/Percolation_Site_percolation" with "NFC not yet implemented. Sorry." 
+▒:    80 MEDIUM SHADE
 
 P/Permutations_by_swapping-1
-Died in "P/Permutations_by_swapping-1" with "NFC not yet implemented. Sorry." 
+–:     2 EN DASH
 
 P/Pisano_period
-Died in "P/Pisano_period" with "NFC not yet implemented. Sorry." 
+»:     1 RIGHT-POINTING DOUBLE ANGLE QUOTATION MARK
 
 P/Prime_conspiracy
-Died in "P/Prime_conspiracy" with "NFC not yet implemented. Sorry." 
+→:    22 RIGHTWARDS ARROW
 
 P/Prime_conspiracy.1
-Died in "P/Prime_conspiracy.1" with "NFC not yet implemented. Sorry." 
+→:    20 RIGHTWARDS ARROW
 
 P/Problem_of_Apollonius
-Died in "P/Problem_of_Apollonius" with "NFC not yet implemented. Sorry." 
+𝐷:     2 MATHEMATICAL ITALIC CAPITAL D
+𝑀:     5 MATHEMATICAL ITALIC CAPITAL M
+𝑁:     5 MATHEMATICAL ITALIC CAPITAL N
+𝑃:     6 MATHEMATICAL ITALIC CAPITAL P
+𝑄:     6 MATHEMATICAL ITALIC CAPITAL Q
+𝑎:     3 MATHEMATICAL ITALIC SMALL A
+𝑏:     3 MATHEMATICAL ITALIC SMALL B
+𝑐:     2 MATHEMATICAL ITALIC SMALL C
+𝑣:    20 MATHEMATICAL ITALIC SMALL V
+𝑤:    17 MATHEMATICAL ITALIC SMALL W
 
 P/Pseudo-random_numbers_Combined_recursive_generator_MRG32k3a~
-Died in "P/Pseudo-random_numbers_Combined_recursive_generator_MRG32k3a~" with "NFC not yet implemented. Sorry." 
+×:     1 MULTIPLICATION SIGN
 
 R/Ramanujan%27s_constant
-Died in "R/Ramanujan%27s_constant" with "NFC not yet implemented. Sorry." 
+≈:     5 ALMOST EQUAL TO
 
 R/Read_a_file_character_by_character_UTF8
-Died in "R/Read_a_file_character_by_character_UTF8" with "NFC not yet implemented. Sorry." 
+ă:     2 LATIN SMALL LETTER A WITH BREVE
+€:     2 EURO SIGN
+⼥:     2 KANGXI RADICAL WOMAN
 
 R/Read_entire_file-1
-Died in "R/Read_entire_file-1" with "NFC not yet implemented. Sorry." 
+ǿ:     1 LATIN SMALL LETTER O WITH STROKE AND ACUTE
 
 R/Remove_vowels_from_a_string
-Died in "R/Remove_vowels_from_a_string" with "NFC not yet implemented. Sorry." 
+Ö:     1 LATIN CAPITAL LETTER O WITH DIAERESIS
+ß:     4 LATIN SMALL LETTER SHARP S
+á:     2 LATIN SMALL LETTER A WITH ACUTE
+ä:     4 LATIN SMALL LETTER A WITH DIAERESIS
+å:     2 LATIN SMALL LETTER A WITH RING ABOVE
+æ:     4 LATIN SMALL LETTER AE
+ç:     2 LATIN SMALL LETTER C WITH CEDILLA
+é:     4 LATIN SMALL LETTER E WITH ACUTE
+ê:     1 LATIN SMALL LETTER E WITH CIRCUMFLEX
+ð:     6 LATIN SMALL LETTER ETH
+ó:     3 LATIN SMALL LETTER O WITH ACUTE
+ö:     3 LATIN SMALL LETTER O WITH DIAERESIS
+ú:     1 LATIN SMALL LETTER U WITH ACUTE
+ğ:     4 LATIN SMALL LETTER G WITH BREVE
+İ:     1 LATIN CAPITAL LETTER I WITH DOT ABOVE
+ı:     4 LATIN SMALL LETTER DOTLESS I
+œ:     1 LATIN SMALL LIGATURE OE
 
 R/Reverse_a_string
-Died in "R/Reverse_a_string" with "NFC not yet implemented. Sorry." 
+é:     3 LATIN SMALL LETTER E WITH ACUTE
+Α:     2 GREEK CAPITAL LETTER ALPHA
+Ω:     2 GREEK CAPITAL LETTER OMEGA
+ℵ:     2 ALEF SYMBOL
+道:     2 CJK UNIFIED IDEOGRAPH-9053
+駝:     2 CJK UNIFIED IDEOGRAPH-99DD
+駱:     2 CJK UNIFIED IDEOGRAPH-99F1
+🆗:     2 SQUARED OK
+🇬🇧‍:     2 REGIONAL INDICATOR SYMBOL LETTER G, REGIONAL INDICATOR SYMBOL LETTER B, ZERO WIDTH JOINER
+🇸🇧:     2 REGIONAL INDICATOR SYMBOL LETTER S, REGIONAL INDICATOR SYMBOL LETTER B
+🇺🇸:     2 REGIONAL INDICATOR SYMBOL LETTER U, REGIONAL INDICATOR SYMBOL LETTER S
+👨‍👩‍👧‍👦:     2 MAN, ZERO WIDTH JOINER, WOMAN, ZERO WIDTH JOINER, GIRL, ZERO WIDTH JOINER, BOY
+🗺:     2 WORLD MAP
+🤔:     2 THINKING FACE
 
 R/Runge-Kutta_method
-Died in "R/Runge-Kutta_method" with "NFC not yet implemented. Sorry." 
+±:    12 PLUS-MINUS SIGN
 
 S/Separate_the_house_number_from_the_street_name
-Died in "S/Separate_the_house_number_from_the_street_name" with "NFC not yet implemented. Sorry." 
+ë:     2 LATIN SMALL LETTER E WITH DIAERESIS
+–:     2 EN DASH
+’:     6 RIGHT SINGLE QUOTATION MARK
 
 S/Set_of_real_numbers
-Died in "S/Set_of_real_numbers" with "NFC not yet implemented. Sorry." 
+²:     2 SUPERSCRIPT TWO
+π:     4 GREEK SMALL LETTER PI
+ϵ:     2 GREEK LUNATE EPSILON SYMBOL
+∪:    14 UNION
 
 S/Simulated_annealing
-Died in "S/Simulated_annealing" with "NFC not yet implemented. Sorry." 
+Δ:     6 GREEK CAPITAL LETTER DELTA
 
 S/Snake
-Died in "S/Snake" with "NFC not yet implemented. Sorry." 
+╴:     1 BOX DRAWINGS LIGHT LEFT
+╶:     1 BOX DRAWINGS LIGHT RIGHT
+╹:     1 BOX DRAWINGS HEAVY UP
+╻:     1 BOX DRAWINGS HEAVY DOWN
+╼:     1 BOX DRAWINGS LIGHT LEFT AND HEAVY RIGHT
+╽:     1 BOX DRAWINGS LIGHT UP AND HEAVY DOWN
+╾:     1 BOX DRAWINGS HEAVY LEFT AND LIGHT RIGHT
+╿:     1 BOX DRAWINGS HEAVY UP AND LIGHT DOWN
+▲:     1 BLACK UP-POINTING TRIANGLE
+▶:     1 BLACK RIGHT-POINTING TRIANGLE
+▼:     1 BLACK DOWN-POINTING TRIANGLE
+◀:     1 BLACK LEFT-POINTING TRIANGLE
+❇:     1 SPARKLE
 
 S/Solving_coin_problems
-Died in "S/Solving_coin_problems" with "NFC not yet implemented. Sorry." 
+¢:     2 CENT SIGN
 
 S/Sparkline_in_unicode
-Died in "S/Sparkline_in_unicode" with "NFC not yet implemented. Sorry." 
+▁:     4 LOWER ONE EIGHTH BLOCK
+▂:     5 LOWER ONE QUARTER BLOCK
+▃:     5 LOWER THREE EIGHTHS BLOCK
+▄:     5 LOWER HALF BLOCK
+▅:     9 LOWER FIVE EIGHTHS BLOCK
+▆:     5 LOWER THREE QUARTERS BLOCK
+▇:     5 LOWER SEVEN EIGHTHS BLOCK
+█:     4 FULL BLOCK
 
 S/Sparkline_in_unicode.1
-Died in "S/Sparkline_in_unicode.1" with "NFC not yet implemented. Sorry." 
+▁:     4 LOWER ONE EIGHTH BLOCK
+▂:     5 LOWER ONE QUARTER BLOCK
+▃:     5 LOWER THREE EIGHTHS BLOCK
+▄:     5 LOWER HALF BLOCK
+▅:     9 LOWER FIVE EIGHTHS BLOCK
+▆:     5 LOWER THREE QUARTERS BLOCK
+▇:     5 LOWER SEVEN EIGHTHS BLOCK
+█:     4 FULL BLOCK
 
 S/Split_a_character_string_based_on_change_of_character
-Died in "S/Split_a_character_string_based_on_change_of_character" with "NFC not yet implemented. Sorry." 
+n⃗:     9 LATIN SMALL LETTER N, COMBINING RIGHT ARROW ABOVE
+»:     9 RIGHT-POINTING DOUBLE ANGLE QUOTATION MARK
+ℵ:     6 ALEF SYMBOL
+☃:     6 SNOWMAN
+☃̂:     3 SNOWMAN, COMBINING CIRCUMFLEX ACCENT
+☄:     6 COMET
+﻿:     9 ZERO WIDTH NO-BREAK SPACE
+｢:    23 HALFWIDTH LEFT CORNER BRACKET
+｣:    23 HALFWIDTH RIGHT CORNER BRACKET
+🇺🇸:     3 REGIONAL INDICATOR SYMBOL LETTER U, REGIONAL INDICATOR SYMBOL LETTER S
+👨‍👩‍👧‍👦:     3 MAN, ZERO WIDTH JOINER, WOMAN, ZERO WIDTH JOINER, GIRL, ZERO WIDTH JOINER, BOY
+🤔:     3 THINKING FACE
+🤦‍♂️:     3 FACE PALM, ZERO WIDTH JOINER, MALE SIGN, VARIATION SELECTOR-16
 
 S/Square-free_integers
-Died in "S/Square-free_integers" with "NFC not yet implemented. Sorry." 
+─:     2 BOX DRAWINGS LIGHT HORIZONTAL
 
 S/Starting_a_web_browser
-Died in "S/Starting_a_web_browser" with "NFC not yet implemented. Sorry." 
+ë:     1 LATIN SMALL LETTER E WITH DIAERESIS
+–:     1 EN DASH
+’:     3 RIGHT SINGLE QUOTATION MARK
 
 S/Statistics_Normal_distribution
-Died in "S/Statistics_Normal_distribution" with "NFC not yet implemented. Sorry." 
+⎸:    11 LEFT VERTICAL BOX LINE
+█:   710 FULL BLOCK
+▉:     1 LEFT SEVEN EIGHTHS BLOCK
+▊:     3 LEFT THREE QUARTERS BLOCK
+▋:     5 LEFT FIVE EIGHTHS BLOCK
+▌:     6 LEFT HALF BLOCK
+▍:     6 LEFT THREE EIGHTHS BLOCK
+▎:     5 LEFT ONE QUARTER BLOCK
+▏:     6 LEFT ONE EIGHTH BLOCK
 
 S/Stem-and-leaf_plot.0
-Died in "S/Stem-and-leaf_plot.0" with "NFC not yet implemented. Sorry." 
+“:     4 LEFT DOUBLE QUOTATION MARK
+”:     4 RIGHT DOUBLE QUOTATION MARK
 
 S/String_length
-Died in "S/String_length" with "NFC not yet implemented. Sorry." 
+☺:     3 WHITE SMILING FACE
+글:     3 HANGUL SYLLABLE GEUL
+한:     3 HANGUL SYLLABLE HAN
 
 S/Substring_Top_and_tail
-Died in "S/Substring_Top_and_tail" with "NFC not yet implemented. Sorry." 
+n⃗:     1 LATIN SMALL LETTER N, COMBINING RIGHT ARROW ABOVE
+♭:     1 MUSIC FLAT SIGN
+♮:     1 MUSIC NATURAL SIGN
+♯:     1 MUSIC SHARP SIGN
+𝄫:     1 MUSICAL SYMBOL DOUBLE FLAT
 
 S/Successive_prime_differences
-Died in "S/Successive_prime_differences" with "NFC not yet implemented. Sorry." 
+…:     7 HORIZONTAL ELLIPSIS
 
 S/Sunflower_fractal
-Died in "S/Sunflower_fractal" with "NFC not yet implemented. Sorry." 
+π:     2 GREEK SMALL LETTER PI
+φ:     3 GREEK SMALL LETTER PHI
 
 S/System_time
-Died in "S/System_time" with "NFC not yet implemented. Sorry." 
+Č:     1 LATIN CAPITAL LETTER C WITH CARON
 
 T/Terminal_control_Display_an_extended_character
-Died in "T/Terminal_control_Display_an_extended_character" with "NFC not yet implemented. Sorry." 
+￡:     1 FULLWIDTH POUND SIGN
 
 T/Terminal_control_Unicode_output
-Died in "T/Terminal_control_Unicode_output" with "NFC not yet implemented. Sorry." 
+△:     1 WHITE UP-POINTING TRIANGLE
 
 T/Text_Completion
-Died in "T/Text_Completion" with "NFC not yet implemented. Sorry." 
+ø:     1 LATIN SMALL LETTER O WITH STROKE
 
 T/Text_Completion.0
-Died in "T/Text_Completion.0" with "NFC not yet implemented. Sorry." 
+¸:     1 CEDILLA
+Ã:     1 LATIN CAPITAL LETTER A WITH TILDE
+ø:     1 LATIN SMALL LETTER O WITH STROKE
 
 T/Text_between
-Died in "T/Text_between" with "NFC not yet implemented. Sorry." 
+你:     2 CJK UNIFIED IDEOGRAPH-4F60
+嗎:     2 CJK UNIFIED IDEOGRAPH-55CE
+好:     2 CJK UNIFIED IDEOGRAPH-597D
 
 T/Thiele%27s_interpolation_formula
-Died in "T/Thiele%27s_interpolation_formula" with "NFC not yet implemented. Sorry." 
+ρ:    18 GREEK SMALL LETTER RHO
 
 T/Thiele%27s_interpolation_formula.0
-Died in "T/Thiele%27s_interpolation_formula.0" with "NFC not yet implemented. Sorry." 
+ρ:     4 GREEK SMALL LETTER RHO
 
 T/Three_word_location
-Died in "T/Three_word_location" with "NFC not yet implemented. Sorry." 
+é:     2 LATIN SMALL LETTER E WITH ACUTE
 
 T/Tonelli-Shanks_algorithm
-Died in "T/Tonelli-Shanks_algorithm" with "NFC not yet implemented. Sorry." 
+│:     1 BOX DRAWINGS LIGHT VERTICAL
 
 T/Totient_function-1
-Died in "T/Totient_function-1" with "NFC not yet implemented. Sorry." 
+𝜑:    32 MATHEMATICAL ITALIC SMALL PHI
 
 T/Totient_function-2
-Died in "T/Totient_function-2" with "NFC not yet implemented. Sorry." 
+𝜑:    30 MATHEMATICAL ITALIC SMALL PHI
 
 U/UTF-8_encode_and_decode
-Died in "U/UTF-8_encode_and_decode" with "NFC not yet implemented. Sorry." 
+ö:     2 LATIN SMALL LETTER O WITH DIAERESIS
+Ж:     2 CYRILLIC CAPITAL LETTER ZHE
+€:     2 EURO SIGN
+𝄞:     2 MUSICAL SYMBOL G CLEF
 
 U/Unicode_strings
-Died in "U/Unicode_strings" with "NFC not yet implemented. Sorry." 
+À:     1 LATIN CAPITAL LETTER A WITH GRAVE
+à:     2 LATIN SMALL LETTER A WITH GRAVE
+Σ:     1 GREEK CAPITAL LETTER SIGMA
+σ:     1 GREEK SMALL LETTER SIGMA
+ב:     1 HEBREW LETTER BET
+בְ:     1 HEBREW LETTER BET, HEBREW POINT SHEVA
+י:     2 HEBREW LETTER YOD
+ע:     2 HEBREW LETTER AYIN
+עִ:     1 HEBREW LETTER AYIN, HEBREW POINT HIRIQ
+ר:     1 HEBREW LETTER RESH
+רִ:     1 HEBREW LETTER RESH, HEBREW POINT HIRIQ
+ת:     2 HEBREW LETTER TAV
+✈:     1 AIRPLANE
+二:     3 CJK UNIFIED IDEOGRAPH-4E8C
+十:     3 CJK UNIFIED IDEOGRAPH-5341
+四:     3 CJK UNIFIED IDEOGRAPH-56DB
 
 U/Unicode_variable_names
-Died in "U/Unicode_variable_names" with "NFC not yet implemented. Sorry." 
+Δ:    11 GREEK CAPITAL LETTER DELTA
 
 V/Variadic_function
-Died in "V/Variadic_function" with "NFC not yet implemented. Sorry." 
+—:     1 EM DASH
 
 V/Vibrating_rectangles
-Died in "V/Vibrating_rectangles" with "NFC not yet implemented. Sorry." 
+─:     1 BOX DRAWINGS LIGHT HORIZONTAL
+│:     1 BOX DRAWINGS LIGHT VERTICAL
+┌:     1 BOX DRAWINGS LIGHT DOWN AND RIGHT
+┐:     1 BOX DRAWINGS LIGHT DOWN AND LEFT
+└:     1 BOX DRAWINGS LIGHT UP AND RIGHT
+┘:     1 BOX DRAWINGS LIGHT UP AND LEFT
 
 V/Vigen%C3%A8re_cipher_Cryptanalysis
-Died in "V/Vigen%C3%A8re_cipher_Cryptanalysis" with "NFC not yet implemented. Sorry." 
+è:     1 LATIN SMALL LETTER E WITH GRAVE
 
 V/Visualize_a_tree
-Died in "V/Visualize_a_tree" with "NFC not yet implemented. Sorry." 
+─:    23 BOX DRAWINGS LIGHT HORIZONTAL
+│:    23 BOX DRAWINGS LIGHT VERTICAL
+└:    11 BOX DRAWINGS LIGHT UP AND RIGHT
+├:    14 BOX DRAWINGS LIGHT VERTICAL AND RIGHT
 
 W/Welch%27s_t-test-1
-Died in "W/Welch%27s_t-test-1" with "NFC not yet implemented. Sorry." 
+Γ:     1 GREEK CAPITAL LETTER GAMMA
 
 W/Welch%27s_t-test-2
-Died in "W/Welch%27s_t-test-2" with "NFC not yet implemented. Sorry." 
+x̄:     6 LATIN SMALL LETTER X, COMBINING MACRON
+𝒕:     2 MATHEMATICAL BOLD ITALIC SMALL T
 
 W/Welch%27s_t-test-2.0
-Died in "W/Welch%27s_t-test-2.0" with "NFC not yet implemented. Sorry." 
+x̄:     6 LATIN SMALL LETTER X, COMBINING MACRON
+𝒕:     2 MATHEMATICAL BOLD ITALIC SMALL T
 
 X/XML_Input
-Died in "X/XML_Input" with "NFC not yet implemented. Sorry." 
+É:     1 LATIN CAPITAL LETTER E WITH ACUTE
 
 Y/Y_combinator
-Died in "Y/Y_combinator" with "NFC not yet implemented. Sorry." 
+λ:     4 GREEK SMALL LETTER LAMDA
 
 Z/Zebra_puzzle
-Died in "Z/Zebra_puzzle" with "NFC not yet implemented. Sorry." 
+¿:     1 INVERTED QUESTION MARK
+Æ:     1 LATIN CAPITAL LETTER AE
+å:     2 LATIN SMALL LETTER A WITH RING ABOVE
+é:     1 LATIN SMALL LETTER E WITH ACUTE
+ø:     1 LATIN SMALL LETTER O WITH STROKE
+ŋ:     1 LATIN SMALL LETTER ENG
