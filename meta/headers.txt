@@ -3764,6 +3764,7 @@ File: I/Integer_roots-1
 #c# 2018-09-09 >RC
 #p# OK
 #n# the native/slow way, see -2 variant
+#n# cf 'Isqrt__integer_square_root__of_X'
 
 File: I/Integer_roots-2
 #!/usr/local/bin/perl
@@ -3817,6 +3818,7 @@ File: I/Isqrt__integer_square_root__of_X
 #u# http://rosettacode.org/wiki/Isqrt_(integer_square_root)_of_X
 #c# 2020-10-29 <RC
 #p# OK
+#n# cf Integer_roots-1, Integer_roots-2
 
 File: I/Iterated_digits_squaring
 #!/usr/local/bin/perl
