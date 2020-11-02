@@ -1,8 +1,8 @@
 
 This is perl 5, version 32, subversion 0 (v5.32.0) built for darwin-thread-multi-2level
 updating from RC…
-+------------> Perl: Good/Bad [1299/10]
-|+-----------> Smoke testing [1163]
++------------> Perl: Good/Bad [1300/10]
+|+-----------> Smoke testing [1164]
 ||+----------> sKipping validation [142]
 |||+---------> Interactive [58]
 ||||+--------> Touched (modified by me) [411]
@@ -10,8 +10,8 @@ updating from RC…
 ||||||+------> File output [74]
 |||||||+-----> Draft [210]
 ||||||||+----> Ignoring [36]
-|||||||||+---> Void (no local copy) [146]
-||||||||||+--> Un-implemented/reliable [133]
+|||||||||+---> Void (no local copy) [145]
+||||||||||+--> Un-implemented/reliable [132]
 |||||||||||
 GS......... 100_doors-1
 GS......... 100_doors-2
@@ -807,7 +807,7 @@ GS......... Modular_inverse
 .......DXV. Modulinos
 GS..T..D... Moebius_function
 GS......... Monads_List_monad
-.........VU Monads_Maybe_monad
+GS......... Monads_Maybe_monad
 GS......... Monads_Writer_monad
 GS...R..... Monte_Carlo_methods
 GS..T..D... Montgomery_reduction
