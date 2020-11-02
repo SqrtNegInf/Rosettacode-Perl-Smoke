@@ -4872,6 +4872,12 @@ File: M/Monads_List_monad
 #c# 2019-05-11 <RC
 #p# OK
 
+File: M/Monads_Maybe_monad
+#!/usr/local/bin/perl
+#u# http://rosettacode.org/wiki/Monads/Maybe_monad
+#c# 2020-11-01 <RC
+#p# OK
+
 File: M/Monads_Writer_monad
 #!/usr/local/bin/perl
 #u# http://rosettacode.org/wiki/Monads/Writer_monad
