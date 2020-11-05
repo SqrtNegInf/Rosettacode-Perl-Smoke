@@ -1,0 +1,32 @@
+#!/usr/local/bin/perl
+#u# http://rosettacode.org/wiki/Jewels_and_Stones
+#c# 2020-11-04 <RC
+#p# OK
+#n# Alternate using regex
+
+use strict;
+use warnings;
+use feature 'say';
+
+my @res;
+
+sub count_jewels { scalar( () =  $_[0] =~ /[ $_[1] ]/gx ) } # stones, jewels
+
+push @res, "$_ = " . count_jewels( split )for split /\n/, <<END;
+aAAbbbb aA
+aAAbbbb abc
+ZZ z
+END
+
+say my $result = join "\n", @res;
+
+my $ref = <<'EOD';
+aAAbbbb aA = 3
+aAAbbbb abc = 5
+ZZ z = 0
+EOD
+
+use Test::More;
+chomp $ref;
+is ($result, $ref);
+done_testing();
