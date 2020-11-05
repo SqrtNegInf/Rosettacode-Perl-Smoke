@@ -3,7 +3,7 @@
 #c# 2020-11-04 <RC
 #p# OK
 #n# Regex based alternate
-#n# not showing up in git?
+#n# had to temporarily modify .gitignore to save, 'abc*' rule was blocking
 
 use strict;
 use warnings;
