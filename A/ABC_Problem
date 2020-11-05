@@ -2,8 +2,7 @@
 #u# http://rosettacode.org/wiki/ABC_Problem
 #c# 2018-06-30 <RC
 #p# OK
-
-#Recursive solution that can handle characters appearing on different blocks:
+#n# Recursive solution that can handle characters appearing on different blocks:
 
 use warnings;
 use strict;
