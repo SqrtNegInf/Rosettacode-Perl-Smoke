@@ -1,8 +1,8 @@
 
 This is perl 5, version 32, subversion 0 (v5.32.0) built for darwin-thread-multi-2level
 updating from RC…
-+------------> Perl: Good/Bad [1300/10]
-|+-----------> Smoke testing [1164]
++------------> Perl: Good/Bad [1301/10]
+|+-----------> Smoke testing [1165]
 ||+----------> sKipping validation [142]
 |||+---------> Interactive [58]
 ||||+--------> Touched (modified by me) [411]
@@ -10,8 +10,8 @@ updating from RC…
 ||||||+------> File output [74]
 |||||||+-----> Draft [212]
 ||||||||+----> Ignoring [36]
-|||||||||+---> Void (no local copy) [147]
-||||||||||+--> Un-implemented/reliable [134]
+|||||||||+---> Void (no local copy) [149]
+||||||||||+--> Un-implemented/reliable [135]
 |||||||||||
 GS......... 100_doors-1
 GS......... 100_doors-2
@@ -33,6 +33,7 @@ GS......... 99_Bottles_of_Beer
 GS......... 9_billion_names_of_God_the_integer
 GS......... A%2BB
 GS......... ABC_Problem
+GS......... ABC_Problem-2
 GS......... AKS_test_for_primes-1
 GS......... AKS_test_for_primes-2
 GS......... AKS_test_for_primes-3
@@ -531,6 +532,7 @@ GS......... General_FizzBuzz
 GS..T..D... Generalised_floating_point_addition
 .......DXVU Generalised_floating_point_multiplication
 GS...R..... Generate_Chess960_starting_position
+.........VU Generate_JSON
 GS......... Generate_lower_case_ASCII_alphabet
 GS..TR..... Generate_random_chess_position
 GS......... Generator_Exponential
@@ -643,12 +645,12 @@ GS......... Inverted_index
 G.K........ Inverted_syntax
 ........XV. Isqrt_integer_square_root_of_X
 GS......... Iterated_digits_squaring
-GS......... JSON
 GS..T...... Jacobi_symbol
 GS..T..D... Jaro-Winkler_Distance
 GS..T...... Jaro_distance
 GS......... Jensen%27s_Device
 GS..T...... Jewels_and_Stones
+GS......... Jewels_and_Stones-2
 ........XV. JortSort
 GS......... Josephus_problem
 .........VU Joystick_position
@@ -909,6 +911,7 @@ GS......... Parallel_calculations
 ........XVU Parametric_polymorphism
 ........XV. Parametrized_SQL_statement
 GS....FD... Parse_EBNF
+.........V. Parse_JSON
 GS......... Parse_an_IP_Address
 GS.....D... Parse_command-line_arguments
 GS..T...... Parsing_RPN_calculator_algorithm
