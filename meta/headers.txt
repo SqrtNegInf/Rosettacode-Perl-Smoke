@@ -115,6 +115,15 @@ File: A/ABC_Problem
 #u# http://rosettacode.org/wiki/ABC_Problem
 #c# 2018-06-30 <RC
 #p# OK
+#n# Recursive solution that can handle characters appearing on different blocks:
+
+File: A/ABC_Problem-2
+#!/usr/local/bin/perl
+#u# http://rosettacode.org/wiki/ABC_Problem
+#c# 2020-11-04 <RC
+#p# OK
+#n# Regex based alternate
+#n# had to temporarily modify .gitignore to save, 'abc*' rule was blocking
 
 File: A/AKS_test_for_primes-1
 #!/usr/local/bin/perl
@@ -3861,6 +3870,13 @@ File: J/Jewels_and_Stones
 #u# http://rosettacode.org/wiki/Jewels_and_Stones
 #c# 2018-09-06 >RC
 #p# OK
+
+File: J/Jewels_and_Stones-2
+#!/usr/local/bin/perl
+#u# http://rosettacode.org/wiki/Jewels_and_Stones
+#c# 2020-11-04 <RC
+#p# OK
+#n# Alternate using regex
 
 File: J/Josephus_problem
 #!/usr/local/bin/perl
