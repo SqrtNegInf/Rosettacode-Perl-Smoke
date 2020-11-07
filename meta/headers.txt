@@ -320,6 +320,12 @@ File: A/Anagrams_Deranged_anagrams
 #c# 2018-07-13 <RC
 #p# OK
 
+File: A/Anagrams_Deranged_anagrams-2
+#!/usr/local/bin/perl
+#u# http://rosettacode.org/wiki/Anagrams/Deranged_anagrams
+#c# 2020-11-06 <RC
+#p# OK
+
 File: A/Angle_difference_between_two_bearings
 #!/usr/local/bin/perl
 #u# http://rosettacode.org/wiki/Angle_difference_between_two_bearings
@@ -6594,6 +6600,7 @@ File: R/Rosetta_Code_Rank_languages_by_popularity
 #c# 2018-08-21 <RC, 2019-09-11 >RC
 #p# OK
 #n# testing somewhat fragile
+#n# 2020-11-05 Pleased to welcome 'J' to the '1000 club'
 #n# 2020-01-29 Pleased to welcome 'C' to the '1000 club'
 #n# 2020-02-24 'Java' joins the no-longer-quite-so-exclusive club
 
