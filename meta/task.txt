@@ -1,8 +1,8 @@
 
 This is perl 5, version 32, subversion 0 (v5.32.0) built for darwin-thread-multi-2level
 updating from RC…
-+------------> Perl: Good/Bad [1301/10]
-|+-----------> Smoke testing [1165]
++------------> Perl: Good/Bad [1303/10]
+|+-----------> Smoke testing [1167]
 ||+----------> sKipping validation [142]
 |||+---------> Interactive [58]
 ||||+--------> Touched (modified by me) [411]
@@ -10,8 +10,8 @@ updating from RC…
 ||||||+------> File output [74]
 |||||||+-----> Draft [212]
 ||||||||+----> Ignoring [36]
-|||||||||+---> Void (no local copy) [149]
-||||||||||+--> Un-implemented/reliable [135]
+|||||||||+---> Void (no local copy) [147]
+||||||||||+--> Un-implemented/reliable [134]
 |||||||||||
 GS......... 100_doors-1
 GS......... 100_doors-2
@@ -74,6 +74,7 @@ GS......... Amicable_pairs
 GS..T...... Anagrams-1
 GS..T...... Anagrams-2
 GS......... Anagrams_Deranged_anagrams
+GS......... Anagrams_Deranged_anagrams-2
 GS..T...... Angle_difference_between_two_bearings
 GS..T...... Angles_geometric,_normalization_and_conversion
 G.KI....... Animate_a_pendulum
@@ -532,7 +533,6 @@ GS......... General_FizzBuzz
 GS..T..D... Generalised_floating_point_addition
 .......DXVU Generalised_floating_point_multiplication
 GS...R..... Generate_Chess960_starting_position
-.........VU Generate_JSON
 GS......... Generate_lower_case_ASCII_alphabet
 GS..TR..... Generate_random_chess_position
 GS......... Generator_Exponential
@@ -645,6 +645,7 @@ GS......... Inverted_index
 G.K........ Inverted_syntax
 ........XV. Isqrt_integer_square_root_of_X
 GS......... Iterated_digits_squaring
+GS......... JSON
 GS..T...... Jacobi_symbol
 GS..T..D... Jaro-Winkler_Distance
 GS..T...... Jaro_distance
@@ -911,7 +912,6 @@ GS......... Parallel_calculations
 ........XVU Parametric_polymorphism
 ........XV. Parametrized_SQL_statement
 GS....FD... Parse_EBNF
-.........V. Parse_JSON
 GS......... Parse_an_IP_Address
 GS.....D... Parse_command-line_arguments
 GS..T...... Parsing_RPN_calculator_algorithm
@@ -1107,7 +1107,7 @@ GS..T...... Rosetta_Code_Find_unimplemented_tasks
 GS......... Rosetta_Code_Fix_code_tags
 .......D.VU Rosetta_Code_List_authors_of_task_descriptions
 GS..T..D... Rosetta_Code_Rank_languages_by_number_of_users
-!S..T...... Rosetta_Code_Rank_languages_by_popularity
+GS..T...... Rosetta_Code_Rank_languages_by_popularity
 .......D.VU Rosetta_Code_Run_examples
 GS..T..D... Rosetta_Code_Tasks_without_examples
 GS......... Rot-13
@@ -1361,7 +1361,7 @@ GS......... Thue-Morse
 GS...R..... Tic-tac-toe
 G.KI....... Tic-tac-toe-2
 GS.....D... Time-based_One-time_Password_Algorithm
-GS......... Time_a_function
+!S......... Time_a_function
 GS......... Tokenize_a_string
 GS......... Tokenize_a_string_with_escaping
 GS..T...... Tonelli-Shanks_algorithm
