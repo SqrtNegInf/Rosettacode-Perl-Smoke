@@ -40,9 +40,11 @@ $ua->get("$site$list_url")->res->dom->find('cm')->each(sub {
 
 my $result2 = join "\n", @res2;
 
+say $result1; exit;
+
 use Test::More;
-ok $result1 =~ /100 doors: 3\d\d examples/;
-ok $result1 =~ /15 Puzzle Game: [5-9]\d examples/;
+ok $result1 =~ /100 doors: 3\d\d examples/i;
+ok $result1 =~ /15 Puzzle Game: [5-9]\d examples/i;
 is($result1,$result2);
 done_testing();
 
