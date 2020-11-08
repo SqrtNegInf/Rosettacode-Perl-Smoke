@@ -1356,13 +1356,14 @@ File: C/Color_wheel
 #p# OK
 #f# RC file: color_wheel.png
 
-File: C/Colorize_diff_output
+File: C/Colorize_diff_output.0
 #!/usr/local/bin/perl
 #t# skiptest
 #u# http://rosettacode.org/wiki/Colorize_diff_output
 #c# 2020-10-27 <RC
 #p# OK
 #n# need to cook up some input to exercise code, at least minimally...
+#n# task deleted from RC
 
 File: C/Colour_bars_Display
 #!/usr/local/bin/perl
