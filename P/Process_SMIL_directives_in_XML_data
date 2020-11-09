@@ -1,0 +1,80 @@
+#!/usr/local/bin/perl
+#u# http://rosettacode.org/wiki/Process_SMIL_directives_in_XML_data
+#c# 2020-11-08 <RC
+#p# OK
+
+use strict;
+use warnings;
+use feature 'say';
+
+my @res;
+
+BEGIN {
+   package Animatee;
+   use Moo;
+   has [qw(todo begin dur from to)] => ( is => 'rw');
+   $INC{"Animatee.pm"} = 1;
+}
+
+use Animatee;
+use XML::Twig;
+use List::AllUtils 'pairwise';
+
+my $smil = <<'DATA';
+<?xml version="1.0" ?> <smil><X3D><Scene><Viewpoint position="0 0 8" orientation="0 0 1 0" /><PointLight color="1 1 1" location="0 2 0" /><Shape><Box size="2 1 2"><animate attributeName="size" from="2 1 2" to="1 2 1" begin="0s" dur="10s" /></Box><Appearance><Material diffuseColor="0.0 0.6 1.0"><animate attributeName="diffuseColor" from="0.0 0.6 1.0" to="1.0 0.4 0.0" begin="0s" dur="10s" /></Material></Appearance></Shape></Scene></X3D></smil>
+DATA
+
+my %Parents;
+
+my $x = XML::Twig->new->parse($smil);
+
+for my $node ($x->findnodes("//animate"))  {
+
+   my $y = $node->parent;
+   exists($Parents{$y}) ? (die) : ($Parents{my $k = $y->getName} = Animatee->new);
+   for my $animatee ($y->getChildNodes)  {
+      my %h = %{$animatee->atts};
+      $Parents{$k}->todo($h{attributeName});
+      $Parents{$k}->from([ split(/\s+/,$h{from}) ]);
+      $Parents{$k}->to([ split(/\s+/,$h{to}) ]);
+      $Parents{$k}->begin( $h{begin} =~ m/\d+/g);
+      $Parents{$k}->dur  ( $h{dur}   =~ m/\d+/g);
+   }
+}
+
+my $z =  XML::Twig->new->parse($smil =~ s/\<\/?smil\>//gr) or die;
+
+for my $t ( 0, 2, 4 ) {
+   my $clone = $z;
+   while ( my( $k,$v ) = each %Parents) {
+      my @incre = pairwise { ($a-$b)/$v->dur } @{$v->to}, @{$v->from};
+      for my $f ($clone->findnodes("//$k")) {
+         my $c = join (' ', pairwise { $a+$b*$t } @{$v->from}, @incre);
+         $f->set_att($v->todo,$c);
+      }
+      for my $f ($clone->findnodes("//animate")) {
+         $f->delete
+      }
+   }
+   push @res, "when t = $t";
+   push @res, $clone->sprint;
+}
+
+say my $result = join "\n", @res;
+
+my $ref = <<'EOD';
+when t = 0
+<?xml version="1.0"?>
+<X3D><Scene><Viewpoint orientation="0 0 1 0" position="0 0 8"/><PointLight color="1 1 1" location="0 2 0"/><Shape><Box size="2 1 2"></Box><Appearance><Material diffuseColor="0 0.6 1"></Material></Appearance></Shape></Scene></X3D>
+when t = 2
+<?xml version="1.0"?>
+<X3D><Scene><Viewpoint orientation="0 0 1 0" position="0 0 8"/><PointLight color="1 1 1" location="0 2 0"/><Shape><Box size="1.8 1.2 1.8"></Box><Appearance><Material diffuseColor="0.2 0.56 0.8"></Material></Appearance></Shape></Scene></X3D>
+when t = 4
+<?xml version="1.0"?>
+<X3D><Scene><Viewpoint orientation="0 0 1 0" position="0 0 8"/><PointLight color="1 1 1" location="0 2 0"/><Shape><Box size="1.6 1.4 1.6"></Box><Appearance><Material diffuseColor="0.4 0.52 0.6"></Material></Appearance></Shape></Scene></X3D>
+EOD
+
+use Test::More;
+chomp $ref;
+is ($result, $ref);
+done_testing();
