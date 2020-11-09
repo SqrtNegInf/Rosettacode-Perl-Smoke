@@ -1,17 +1,17 @@
 
 This is perl 5, version 32, subversion 0 (v5.32.0) built for darwin-thread-multi-2level
 updating from RC…
-+------------> Perl: Good/Bad [1299/10]
-|+-----------> Smoke testing [1165]
++------------> Perl: Good/Bad [1305/10]
+|+-----------> Smoke testing [1169]
 ||+----------> sKipping validation [141]
 |||+---------> Interactive [58]
-||||+--------> Touched (modified by me) [409]
+||||+--------> Touched (modified by me) [411]
 |||||+-------> Random seed [105]
 ||||||+------> File output [74]
 |||||||+-----> Draft [211]
 ||||||||+----> Ignoring [36]
-|||||||||+---> Void (no local copy) [150]
-||||||||||+--> Un-implemented/reliable [134]
+|||||||||+---> Void (no local copy) [147]
+||||||||||+--> Un-implemented/reliable [133]
 |||||||||||
 GS......... 100_doors-1
 GS......... 100_doors-2
@@ -345,6 +345,7 @@ G.K........ Delegates
 GS......... Delete_a_file
 GS..T...... Deming%27s_Funnel
 GS......... Department_numbers
+GS......... Department_numbers-2
 GS......... Detect_division_by_zero
 GS......... Determinant_and_permanent
 GS..T...... Determine_if_a_string_has_all_the_same_characters
@@ -1016,7 +1017,7 @@ GS......... Priority_queue
 GS......... Priority_queue-2
 GS...R..... Probabilistic_choice
 GS..T...... Problem_of_Apollonius
-.......D.VU Process_SMIL_directives_in_XML_data
+GS.....D... Process_SMIL_directives_in_XML_data
 GS......... Program_name
 G.K........ Program_termination
 .......D.VU Proof
@@ -1103,9 +1104,9 @@ GS..T...... Roman_numerals_Encode-4
 GS......... Roots_of_a_function
 GS......... Roots_of_a_quadratic_function
 GS......... Roots_of_unity
-!S..T...... Rosetta_Code_Count_examples
+GS..T...... Rosetta_Code_Count_examples
 GS..T...... Rosetta_Code_Find_bare_lang_tags
-!S..T...... Rosetta_Code_Find_unimplemented_tasks
+GS..T...... Rosetta_Code_Find_unimplemented_tasks
 GS......... Rosetta_Code_Fix_code_tags
 .......D.VU Rosetta_Code_List_authors_of_task_descriptions
 GS..T..D... Rosetta_Code_Rank_languages_by_number_of_users
@@ -1312,7 +1313,7 @@ GS..T...... Sum_multiples_of_3_and_5-2
 GS......... Sum_of_a_series
 GS......... Sum_of_squares
 GS......... Sum_to_100
-.........V. Summarize_and_say_sequence
+GS..T...... Summarize_and_say_sequence
 GS..T.F.... Sunflower_fractal
 GS......... Super-d_numbers-1
 GS..T...... Super-d_numbers-2
@@ -1388,7 +1389,7 @@ GS......... Truncatable_primes-3
 GS......... Truncate_a_file
 GS....F.... Truth_table
 GS......... Twelve_statements
-.......D.V. Twin_primes
+GS..T..D... Twin_primes
 GS..T..D... Two_sum
 GS..T..D... Type_detection
 GS..T..D... UPC
