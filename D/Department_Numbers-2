@@ -1,0 +1,51 @@
+#!/usr/local/bin/perl
+#u# http://rosettacode.org/wiki/Department_Numbers
+#c# 2020-11-08 <RC
+#p# OK
+
+use strict;
+use warnings;
+use feature 'say';
+
+my @res1;
+my @res2;
+
+# Regex
+
+'246 1234567 1234567' =~
+  /(.).* \s .*?(?!\1)(.).* \s .*(?!\1)(?!\2)(.)
+  (??{$1+$2+$3!=12})
+  (?{ push @res1, "@{^CAPTURE}" })(*FAIL)/x;
+
+my $result1 = join "\n", @res1;
+
+# Glob
+
+push @res2, tr/+/ /r for
+  grep  !/(\d).*\1/ && 12 == eval,
+  glob '{2,4,6}' . '+{1,2,3,4,5,6,7}' x 2;
+
+my $result2 = join "\n", @res2;
+
+my $ref = <<'EOD';
+2 3 7
+2 4 6
+2 6 4
+2 7 3
+4 1 7
+4 2 6
+4 3 5
+4 5 3
+4 6 2
+4 7 1
+6 1 5
+6 2 4
+6 4 2
+6 5 1
+EOD
+
+use Test::More;
+chomp $ref;
+is ($result1, $ref);
+is ($result2, $ref);
+done_testing();
