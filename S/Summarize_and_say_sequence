@@ -1,7 +1,8 @@
 #!/usr/local/bin/perl
-#u# http://rosettacode.org/wiki/Self-referential_sequence
+#u# http://rosettacode.org/wiki/Summarize_and_say_sequence
 #c# 2018-08-18 <>RC
 #p# OK
+#n# 2020-11-08 renamed from 'Self-referential_sequence'
 
 use strict;
 #use warnings; # code as written relies heavily on default actions with uninitialized values
