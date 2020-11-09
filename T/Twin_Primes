@@ -1,9 +1,10 @@
 #!/usr/local/bin/perl
-#u# http://rosettacode.org/wiki/Twin_Prime_Conjecture
+#u# http://rosettacode.org/wiki/Twin_Primes
 #c# 2020-07-27 >RC
 #p# OK
 #n# at least this task motivated me install a new module...
 #n# as should be, same as for Raku for 10**12: 712.40s user 4.91s system 718% cpu 1:39.77 total
+#n# 2020-11-08 renamed from 'Twin_Prime_Conjecture'
 
 use strict;
 use warnings;
