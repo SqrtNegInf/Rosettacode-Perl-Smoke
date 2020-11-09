@@ -1923,6 +1923,12 @@ File: D/Department_Numbers
 #c# 2018-07-28 <RC
 #p# OK
 
+File: D/Department_Numbers-2
+#!/usr/local/bin/perl
+#u# http://rosettacode.org/wiki/Department_Numbers
+#c# 2020-11-08 <RC
+#p# OK
+
 File: D/Detect_division_by_zero
 #!/usr/local/bin/perl
 #u# http://rosettacode.org/wiki/Detect_division_by_zero
@@ -6105,6 +6111,12 @@ File: P/Problem_of_Apollonius
 #c# 2018-09-20 >RC
 #p# OK
 
+File: P/Process_SMIL_directives_in_XML_data
+#!/usr/local/bin/perl
+#u# http://rosettacode.org/wiki/Process_SMIL_directives_in_XML_data
+#c# 2020-11-08 <RC
+#p# OK
+
 File: P/Program_name
 #!/usr/local/bin/perl
 #u# http://rosettacode.org/wiki/Program_name
@@ -6755,12 +6767,6 @@ File: S/Self-describing_numbers
 #!/usr/local/bin/perl
 #u# http://rosettacode.org/wiki/Self-describing_numbers
 #c# 2018-08-18 <RC
-#p# OK
-
-File: S/Self-referential_sequence
-#!/usr/local/bin/perl
-#u# http://rosettacode.org/wiki/Self-referential_sequence
-#c# 2018-08-18 <>RC
 #p# OK
 
 File: S/Semiprime
@@ -7841,6 +7847,13 @@ File: S/Sum_to_100
 #c# 2018-08-12 <RC
 #p# OK
 
+File: S/Summarize_and_say_sequence
+#!/usr/local/bin/perl
+#u# http://rosettacode.org/wiki/Summarize_and_say_sequence
+#c# 2018-08-18 <>RC
+#p# OK
+#n# 2020-11-08 renamed from 'Self-referential_sequence'
+
 File: S/Sunflower_fractal
 #!/usr/local/bin/perl
 #u# http://rosettacode.org/wiki/Sunflower_fractal
@@ -8316,13 +8329,14 @@ File: T/Twelve_statements
 #c# 2018-08-09 <RC
 #p# OK
 
-File: T/Twin_Prime_Conjecture
+File: T/Twin_Primes
 #!/usr/local/bin/perl
-#u# http://rosettacode.org/wiki/Twin_Prime_Conjecture
+#u# http://rosettacode.org/wiki/Twin_Primes
 #c# 2020-07-27 >RC
 #p# OK
 #n# at least this task motivated me install a new module...
 #n# as should be, same as for Raku for 10**12: 712.40s user 4.91s system 718% cpu 1:39.77 total
+#n# 2020-11-08 renamed from 'Twin_Prime_Conjecture'
 
 File: T/Two_Sum
 #!/usr/local/bin/perl
