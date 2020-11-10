@@ -8,7 +8,7 @@ updating from RC…
 ||||+--------> Touched (modified by me) [411]
 |||||+-------> Random seed [105]
 ||||||+------> File output [74]
-|||||||+-----> Draft [211]
+|||||||+-----> Draft [210]
 ||||||||+----> Ignoring [36]
 |||||||||+---> Void (no local copy) [147]
 ||||||||||+--> Un-implemented/reliable [133]
@@ -242,7 +242,7 @@ GS..T...... Cipolla%27s_algorithm-1
 GS..T...... Cipolla%27s_algorithm-2
 GS..T...... Circles_of_given_radius_through_two_points
 GS..T...... Circular_primes
-.......D.VU Cistercian_numerals
+.........VU Cistercian_numerals
 G.K........ Classes
 GS..TR..... Closest-pair_problem
 GS......... Closures_Value_capture
