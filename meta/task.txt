@@ -8,10 +8,10 @@ updating from RC…
 ||||+--------> Touched (modified by me) [411]
 |||||+-------> Random seed [105]
 ||||||+------> File output [74]
-|||||||+-----> Draft [211]
+|||||||+-----> Draft [212]
 ||||||||+----> Ignoring [36]
-|||||||||+---> Void (no local copy) [148]
-||||||||||+--> Un-implemented/reliable [134]
+|||||||||+---> Void (no local copy) [149]
+||||||||||+--> Un-implemented/reliable [135]
 |||||||||||
 GS......... 100_doors-1
 GS......... 100_doors-2
@@ -808,6 +808,7 @@ G.K.T.....U Minimal_steps_down_to_1
 GS..T...... Minimum_positive_multiple_in_base_10_using_only_0_and_1-1
 GS..T...... Minimum_positive_multiple_in_base_10_using_only_0_and_1-2
 GS......... Minimum_positive_multiple_in_base_10_using_only_0_and_1-3
+.......D.VU Minkowski_question-mark_function
 GS......... Modular_arithmetic
 GS..T...... Modular_exponentiation
 GS......... Modular_inverse
