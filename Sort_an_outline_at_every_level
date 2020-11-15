@@ -1,0 +1,190 @@
+#!/usr/local/bin/perl
+#u# http://rosettacode.org/wiki/Sort_an_outline_at_every_level
+#c# 2020-11-14 <RC
+#p# OK
+
+use strict;
+use warnings;
+use feature 'say';
+
+my @res;
+
+for my $test ( split /^(?=#)/m, join '', <DATA> ) {
+  my ( $id, $outline ) = $test =~ /(\V*?\n)(.*)/s;
+  my $sorted = validateandsort( $outline, $id =~ /descend/ );
+  push @res, $test . ('=' x 20) . " answer:\n$sorted";
+}
+
+sub validateandsort {
+  my ($outline, $descend) = @_;
+  $outline =~ /^\h*(?: \t|\t )/m and
+    return("ERROR: mixed tab and space indentation\n");
+  my $adjust = 0;
+  $adjust++ while $outline =~ s/^(\h*)\H.*\n\1\K\h(?=\H)//m
+    or $outline =~ s/^(\h*)(\h)\H.*\n\1\K(?=\H)/$2/m;
+  $adjust and push(@res, "WARNING: adjusting indentation on some lines");
+  return levelsort($outline, $descend);
+}
+
+sub levelsort {     # outline_section, descend_flag
+  my ($section, $descend) = @_;
+  my @parts;
+  while( $section =~ / ((\h*) .*\n) ( (?:\2\h.*\n)* )/gx )
+    {
+    my ($head, $rest) = ($1, $3);
+    push @parts, $head . ( $rest and levelsort($rest, $descend) );
+    }
+  join '', $descend ? reverse sort @parts : sort @parts;
+ }
+
+say my $result = join "\n", @res;
+#exit;
+
+my $ref = <<'EOD';
+# 4 space ascending
+zeta
+    beta
+    gamma
+        lambda
+        kappa
+        mu
+    delta
+alpha
+    theta
+    iota
+    epsilon
+==================== answer:
+alpha
+    epsilon
+    iota
+    theta
+zeta
+    beta
+    delta
+    gamma
+        kappa
+        lambda
+        mu
+
+# 4 space descending
+zeta
+    beta
+    gamma
+        lambda
+        kappa
+        mu
+    delta
+alpha
+    theta
+    iota
+    epsilon
+
+==================== answer:
+zeta
+    gamma
+        mu
+        lambda
+        kappa
+    delta
+    beta
+alpha
+    theta
+    iota
+    epsilon
+
+
+# mixed tab and space
+alpha
+    epsilon
+                  iota
+    theta
+zeta
+    beta
+    delta
+    gamma
+        lambda
+        mu
+==================== answer:
+ERROR: mixed tab and space indentation
+
+WARNING: adjusting indentation on some lines
+# off alignment
+zeta
+    beta
+   gamma
+        lambda
+         kappa
+        mu
+    delta
+alpha
+    theta
+    iota
+    epsilon
+==================== answer:
+alpha
+    epsilon
+    iota
+    theta
+zeta
+    beta
+    delta
+    gamma
+        kappa
+        lambda
+        mu
+
+EOD
+
+use Test::More;
+is ($result, $ref);
+done_testing();
+
+__DATA__
+# 4 space ascending
+zeta
+    beta
+    gamma
+        lambda
+        kappa
+        mu
+    delta
+alpha
+    theta
+    iota
+    epsilon
+# 4 space descending
+zeta
+    beta
+    gamma
+        lambda
+        kappa
+        mu
+    delta
+alpha
+    theta
+    iota
+    epsilon
+
+# mixed tab and space
+alpha
+    epsilon
+	  iota
+    theta
+zeta
+    beta
+    delta
+    gamma
+        lambda
+        mu
+# off alignment
+zeta
+    beta
+   gamma
+        lambda
+         kappa
+        mu
+    delta
+alpha
+    theta
+    iota
+    epsilon
