@@ -1,5 +1,6 @@
 #!/usr/local/bin/perl
 #u# http://rosettacode.org/wiki/Sort_an_outline_at_every_level
+#t# skiptest
 #c# 2020-11-14 <RC
 #p# OK
 
@@ -96,7 +97,7 @@ alpha
 # mixed tab and space
 alpha
     epsilon
-                  iota
+               iota
     theta
 zeta
     beta
