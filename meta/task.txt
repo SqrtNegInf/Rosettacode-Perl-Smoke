@@ -1,17 +1,17 @@
 
 This is perl 5, version 32, subversion 0 (v5.32.0) built for darwin-thread-multi-2level
 updating from RC…
-+------------> Perl: Good/Bad [1304/10]
++------------> Perl: Good/Bad [1306/10]
 |+-----------> Smoke testing [1169]
-||+----------> sKipping validation [141]
+||+----------> sKipping validation [142]
 |||+---------> Interactive [58]
 ||||+--------> Touched (modified by me) [411]
 |||||+-------> Random seed [105]
 ||||||+------> File output [74]
 |||||||+-----> Draft [211]
 ||||||||+----> Ignoring [36]
-|||||||||+---> Void (no local copy) [149]
-||||||||||+--> Un-implemented/reliable [133]
+|||||||||+---> Void (no local copy) [148]
+||||||||||+--> Un-implemented/reliable [132]
 |||||||||||
 GS......... 100_doors-1
 GS......... 100_doors-2
@@ -231,7 +231,7 @@ GS..T...... Chemical_calculator-1
 GS..T...... Chemical_calculator-2
 GS......... Chernick%27s_Carmichael_numbers
 GS..T...... Cheryl%27s_birthday
-.......D.VU Chess_player
+.......D.V. Chess_player
 GS..T...... Chinese_remainder_theorem
 GS......... Chinese_zodiac
 GS......... Cholesky_decomposition
@@ -1217,7 +1217,7 @@ GS......... Sort_a_list_of_object_identifiers-1
 GS......... Sort_a_list_of_object_identifiers-2
 GS......... Sort_an_array_of_composite_structures
 GS......... Sort_an_integer_array
-.........V. Sort_an_outline_at_every_level
+G.K........ Sort_an_outline_at_every_level
 GS......... Sort_disjoint_sublist
 GS..T...... Sort_numbers_lexicographically
 G.K........ Sort_stability
@@ -1367,7 +1367,7 @@ GS......... Thue-Morse
 GS...R..... Tic-tac-toe
 G.KI....... Tic-tac-toe-2
 GS.....D... Time-based_one-time_password_algorithm
-!S......... Time_a_function
+GS......... Time_a_function
 GS......... Tokenize_a_string
 GS......... Tokenize_a_string_with_escaping
 GS..T...... Tonelli-Shanks_algorithm
