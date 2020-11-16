@@ -7238,6 +7238,13 @@ File: S/Sort_an_integer_array
 #c# 2018-08-15 <RC
 #p# OK
 
+File: S/Sort_an_outline_at_every_level
+#!/usr/local/bin/perl
+#u# http://rosettacode.org/wiki/Sort_an_outline_at_every_level
+#t# skiptest
+#c# 2020-11-14 <RC
+#p# OK
+
 File: S/Sort_disjoint_sublist
 #!/usr/local/bin/perl
 #u# http://rosettacode.org/wiki/Sort_disjoint_sublist
