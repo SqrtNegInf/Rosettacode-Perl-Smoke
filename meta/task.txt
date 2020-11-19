@@ -1,7 +1,7 @@
 
 This is perl 5, version 32, subversion 0 (v5.32.0) built for darwin-thread-multi-2level
 updating from RC…
-+------------> Perl: Good/Bad [1307/10]
++------------> Perl: Good/Bad [1306/10]
 |+-----------> Smoke testing [1168]
 ||+----------> sKipping validation [143]
 |||+---------> Interactive [58]
@@ -11,7 +11,7 @@ updating from RC…
 |||||||+-----> Draft [211]
 ||||||||+----> Ignoring [36]
 |||||||||+---> Void (no local copy) [148]
-||||||||||+--> Un-implemented/reliable [132]
+||||||||||+--> Un-implemented/reliable [131]
 |||||||||||
 GS......... 100_doors-1
 GS......... 100_doors-2
@@ -873,7 +873,7 @@ GS......... Null_object
 GS......... Number_names
 GS...R..... Number_reversal_game
 .......D.VU Numbers_with_equal_rises_and_falls
-.......D.VU Numbers_with_prime_digits_whose_sum_is_13
+.......D.V. Numbers_with_prime_digits_whose_sum_is_13
 GS......... Numeric_error_propagation
 GS.....D... Numeric_separator_syntax
 .........VU Numerical_and_alphabetical_suffixes
@@ -1367,7 +1367,7 @@ GS......... Thue-Morse
 GS...R..... Tic-tac-toe
 G.KI....... Tic-tac-toe-2
 GS.....D... Time-based_one-time_password_algorithm
-GS......... Time_a_function
+!S......... Time_a_function
 GS......... Tokenize_a_string
 GS......... Tokenize_a_string_with_escaping
 GS..T...... Tonelli-Shanks_algorithm
