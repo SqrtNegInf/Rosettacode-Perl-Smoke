@@ -1,0 +1,31 @@
+#!/usr/local/bin/perl
+#u# http://rosettacode.org/wiki/Numbers_with_prime_digits_whose_sum_is_13
+#c# 2020-11-18 <RC
+#p# OK
+
+use strict;
+use warnings;
+use feature 'say';
+
+my @queue = my @primedigits = ( 2, 3, 5, 7 );
+my $numbers;
+
+while( my $n = shift @queue ) {
+  if( eval $n == 13 ) {
+    $numbers .= $n =~ tr/+//dr . " ";
+  } elsif( eval $n < 13 ) {
+    push @queue, map "$n+$_", @primedigits;
+  }
+}
+
+say my $result = $numbers =~ s/.{1,80}\K /\n/gr;
+
+my $ref = <<'EOD';
+337 355 373 535 553 733 2227 2272 2335 2353 2533 2722 3235 3253 3325 3352 3523
+3532 5233 5323 5332 7222 22225 22252 22333 22522 23233 23323 23332 25222 32233
+32323 32332 33223 33232 33322 52222 222223 222232 222322 223222 232222 322222
+EOD
+
+use Test::More;
+is ($result, $ref);
+done_testing();
