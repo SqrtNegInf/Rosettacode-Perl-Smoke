@@ -1,0 +1,37 @@
+#!/usr/local/bin/perl
+#u# http://rosettacode.org/wiki/Longest_palindromic_substrings
+#c# 2020-11-18 <RC
+#p# OK
+
+use strict;
+use warnings;
+use feature 'say';
+
+my @res;
+
+sub longestpalindrome
+  {
+  my @best = {"''" => 0};
+  pop =~ /(.+) .? (??{reverse $1}) (?{ $best[length $&]{$&}++ }) (*FAIL)/x;
+  sort keys %{pop @best};
+  }
+
+push @res, "Longest Palindrome For $_ = @{[ longestpalindrome($_) ]}"
+  for qw(babaccd rotator reverse forever several palindrome abaracadabra);
+
+say my $result = join "\n", @res;
+
+my $ref = <<'EOD';
+Longest Palindrome For babaccd = aba bab
+Longest Palindrome For rotator = rotator
+Longest Palindrome For reverse = rever
+Longest Palindrome For forever = rever
+Longest Palindrome For several = eve
+Longest Palindrome For palindrome = ''
+Longest Palindrome For abaracadabra = aba aca ada ara
+EOD
+
+use Test::More;
+chomp $ref;
+is ($result, $ref);
+done_testing();
