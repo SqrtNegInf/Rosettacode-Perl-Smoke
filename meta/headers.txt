@@ -4335,6 +4335,18 @@ File: L/Longest_increasing_subsequence-2
 #c# 2018-08-16 <RC
 #p# OK
 
+File: L/Longest_palindromic_substrings-1
+#!/usr/local/bin/perl
+#u# http://rosettacode.org/wiki/Longest_palindromic_substrings
+#c# 2020-11-18 <RC
+#p# OK
+
+File: L/Longest_palindromic_substrings-2
+#!/usr/local/bin/perl
+#u# http://rosettacode.org/wiki/Longest_palindromic_substrings
+#c# 2020-11-18 <RC
+#p# OK
+
 File: L/Longest_string_challenge
 #!/usr/local/bin/perl
 #u# http://rosettacode.org/wiki/Longest_string_challenge
@@ -5249,6 +5261,12 @@ File: N/Number_reversal_game
 #!/usr/local/bin/perl
 #u# http://rosettacode.org/wiki/Number_reversal_game
 #c# 2018-08-20 <RC
+#p# OK
+
+File: N/Numbers_with_prime_digits_whose_sum_is_13
+#!/usr/local/bin/perl
+#u# http://rosettacode.org/wiki/Numbers_with_prime_digits_whose_sum_is_13
+#c# 2020-11-18 <RC
 #p# OK
 
 File: N/Numeric_error_propagation
@@ -7241,9 +7259,9 @@ File: S/Sort_an_integer_array
 File: S/Sort_an_outline_at_every_level
 #!/usr/local/bin/perl
 #u# http://rosettacode.org/wiki/Sort_an_outline_at_every_level
-#t# skiptest
 #c# 2020-11-14 <RC
 #p# OK
+#n# dropped the 'mixed tab and space', too hard to test
 
 File: S/Sort_disjoint_sublist
 #!/usr/local/bin/perl
