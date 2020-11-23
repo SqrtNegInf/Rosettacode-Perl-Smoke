@@ -8,7 +8,7 @@ updating from RC…
 ||||+--------> Touched (modified by me) [411]
 |||||+-------> Random seed [105]
 ||||||+------> File output [74]
-|||||||+-----> Draft [211]
+|||||||+-----> Draft [210]
 ||||||||+----> Ignoring [37]
 |||||||||+---> Void (no local copy) [146]
 ||||||||||+--> Un-implemented/reliable [131]
@@ -840,7 +840,7 @@ GS......... Multiplicative_order
 GS......... Multisplit
 GS......... Munchausen_numbers
 GS....F.... Munching_squares
-G.K.T.FD... Musical_scale
+G.K.T.F.... Musical_scale
 .........V. Mutex
 GS......... Mutual_recursion
 GS......... N%27th
