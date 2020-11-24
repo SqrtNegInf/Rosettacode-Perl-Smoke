@@ -1,8 +1,8 @@
 
 This is perl 5, version 32, subversion 0 (v5.32.0) built for darwin-thread-multi-2level
 updating from RC…
-+------------> Perl: Good/Bad [1310/10]
-|+-----------> Smoke testing [1172]
++------------> Perl: Good/Bad [1311/10]
+|+-----------> Smoke testing [1173]
 ||+----------> sKipping validation [142]
 |||+---------> Interactive [58]
 ||||+--------> Touched (modified by me) [411]
@@ -10,8 +10,8 @@ updating from RC…
 ||||||+------> File output [74]
 |||||||+-----> Draft [210]
 ||||||||+----> Ignoring [37]
-|||||||||+---> Void (no local copy) [146]
-||||||||||+--> Un-implemented/reliable [131]
+|||||||||+---> Void (no local copy) [145]
+||||||||||+--> Un-implemented/reliable [130]
 |||||||||||
 GS......... 100_doors-1
 GS......... 100_doors-2
@@ -478,7 +478,7 @@ GS.....D... Find_URI_in_text
 GS..T...... Find_common_directory_path
 GS..T...... Find_duplicate_files
 GS.....D... Find_first_and_last_set_bit_of_a_long_integer
-.......D.VU Find_if_a_point_is_within_a_triangle
+GS.....D... Find_if_a_point_is_within_a_triangle
 GS......... Find_largest_left_truncatable_prime_in_a_given_base
 GS......... Find_limit_of_recursion
 GS......... Find_palindromic_numbers_in_both_binary_and_ternary_bases
