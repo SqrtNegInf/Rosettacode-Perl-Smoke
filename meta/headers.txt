@@ -2778,6 +2778,12 @@ File: F/Find_first_and_last_set_bit_of_a_long_integer
 #p# OK
 #n# just testing 'msb' and 'lsb'
 
+File: F/Find_if_a_point_is_within_a_triangle
+#!/usr/local/bin/perl
+#u# http://rosettacode.org/wiki/Find_if_a_point_is_within_a_triangle
+#c# 2020-11-23 <RC
+#p# OK
+
 File: F/Find_largest_left_truncatable_prime_in_a_given_base
 #!/usr/local/bin/perl
 #u# http://rosettacode.org/wiki/Find_largest_left_truncatable_prime_in_a_given_base
