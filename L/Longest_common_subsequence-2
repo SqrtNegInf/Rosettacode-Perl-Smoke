@@ -1,0 +1,23 @@
+#!/usr/local/bin/perl
+#u# http://rosettacode.org/wiki/Longest_common_subsequence
+#c# 2020-11-24 <RC
+#p# OK
+
+use strict;
+use warnings;
+use feature 'say';
+
+sub lcs {
+    my ($c, $d) = @_;
+    for my $len ( reverse 1 .. length($c & $d) ) {
+        "$c\n$d" =~ join '.*', ('(.)') x $len, "\n", map "\\$_", 1 .. $len and
+        return join '', @{^CAPTURE};
+    }
+    return '';
+}
+
+say my $result = 'lcs is ' . lcs('thisisatest', 'testing123testing');
+
+use Test::More;
+is ($result, 'lcs is tsitest');
+done_testing();
