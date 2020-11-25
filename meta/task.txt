@@ -719,7 +719,7 @@ GS..T..D... Logistic_curve_fitting_in_epidemiology
 ........XVU Long_literals,_with_continuations
 GS......... Long_multiplication
 GS..T...... Long_primes
-GS..T...... Long_year%3F
+GS..T...... Long_year
 GS.....D... Longest_common_prefix
 GS......... Longest_common_subsequence
 GS......... Longest_common_substring
@@ -861,7 +861,7 @@ GS..T...... Negative_base_numbers
 GS......... Nested_function
 GS..T...... Nested_templated_data
 GS..T...... Next_highest_int_from_digits
-GS..T...... Nim_Game
+GS..T...... Nim_game
 .......D.VU Nimber_arithmetic
 GS......... Non-continuous_subsequences
 GS......... Non-decimal_radices_Convert
