@@ -4292,9 +4292,9 @@ File: L/Long_primes
 #c# 2018-08-16 >RC, 2018-11-07 <RC
 #p# OK
 
-File: L/Long_year%3F
+File: L/Long_year
 #!/usr/local/bin/perl
-#u# http://rosettacode.org/wiki/Long_year?
+#u# http://rosettacode.org/wiki/Long_year
 #c# 2020-01-10 >RC
 #p# OK
 
