@@ -4322,6 +4322,12 @@ File: L/Longest_common_subsequence
 #c# 2018-08-16 <RC
 #p# OK
 
+File: L/Longest_common_subsequence-2
+#!/usr/local/bin/perl
+#u# http://rosettacode.org/wiki/Longest_common_subsequence
+#c# 2020-11-24 <RC
+#p# OK
+
 File: L/Longest_common_suffix
 #!/usr/local/bin/perl
 #u# http://rosettacode.org/wiki/Longest_common_suffix
