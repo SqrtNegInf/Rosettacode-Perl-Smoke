@@ -1,17 +1,17 @@
 
 This is perl 5, version 32, subversion 0 (v5.32.0) built for darwin-thread-multi-2level
 updating from RC…
-+------------> Perl: Good/Bad [1311/10]
-|+-----------> Smoke testing [1173]
++------------> Perl: Good/Bad [1312/10]
+|+-----------> Smoke testing [1174]
 ||+----------> sKipping validation [142]
 |||+---------> Interactive [58]
 ||||+--------> Touched (modified by me) [411]
 |||||+-------> Random seed [105]
 ||||||+------> File output [74]
-|||||||+-----> Draft [210]
+|||||||+-----> Draft [211]
 ||||||||+----> Ignoring [37]
-|||||||||+---> Void (no local copy) [145]
-||||||||||+--> Un-implemented/reliable [130]
+|||||||||+---> Void (no local copy) [146]
+||||||||||+--> Un-implemented/reliable [131]
 |||||||||||
 GS......... 100_doors-1
 GS......... 100_doors-2
@@ -722,6 +722,7 @@ GS..T...... Long_primes
 GS..T...... Long_year
 GS.....D... Longest_common_prefix
 GS......... Longest_common_subsequence
+GS......... Longest_common_subsequence-2
 GS......... Longest_common_substring
 GS......... Longest_common_substring-2
 GS..T..D... Longest_common_suffix
@@ -1006,6 +1007,7 @@ GS......... Powerful_numbers-1
 GS......... Powerful_numbers-2
 G.K........ Pragmatic_directives
 GS...R..... Price_fraction
+.......D.VU Price_list_behind_API
 .........V. Primality_by_Wilson%27s_theorem
 GS......... Primality_by_trial_division
 GS..T...... Prime_conspiracy
