@@ -8,10 +8,10 @@ updating from RC…
 ||||+--------> Touched (modified by me) [411]
 |||||+-------> Random seed [105]
 ||||||+------> File output [74]
-|||||||+-----> Draft [211]
+|||||||+-----> Draft [212]
 ||||||||+----> Ignoring [37]
-|||||||||+---> Void (no local copy) [146]
-||||||||||+--> Un-implemented/reliable [131]
+|||||||||+---> Void (no local copy) [147]
+||||||||||+--> Un-implemented/reliable [132]
 |||||||||||
 GS......... 100_doors-1
 GS......... 100_doors-2
@@ -1396,6 +1396,7 @@ GS......... Truncate_a_file
 GS....F.... Truth_table
 GS......... Twelve_statements
 GS..T..D... Twin_primes
+.......D.VU Two_bullet_roulette
 GS..T..D... Two_sum
 GS..T..D... Type_detection
 GS..T..D... UPC
