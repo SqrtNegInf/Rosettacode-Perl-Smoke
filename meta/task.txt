@@ -11,7 +11,7 @@ updating from RC…
 |||||||+-----> Draft [212]
 ||||||||+----> Ignoring [37]
 |||||||||+---> Void (no local copy) [147]
-||||||||||+--> Un-implemented/reliable [132]
+||||||||||+--> Un-implemented/reliable [131]
 |||||||||||
 GS......... 100_doors-1
 GS......... 100_doors-2
@@ -24,7 +24,7 @@ GS...RF.... 15_puzzle_game-2
 .......D.VU 15_puzzle_game_in_3D
 .........VU 15_puzzle_solver
 G.KI...D... 16_puzzle_game
-.........VU 2048
+.........V. 2048
 GS..TR..... 21_game
 GS...R..... 24_game
 GS......... 24_game_Solve
