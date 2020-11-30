@@ -1,71 +1,54 @@
 #!/usr/local/bin/perl
 #u# http://rosettacode.org/wiki/Polyspiral
-#c# 2018-11-RC >RC
-#p# BROKEN
+#t# gui
+#c# 2020-11-29 <RC
+#p# OK
 
-use feature 'say';
+#Click Start button to run, then runs continuously.
+#It takes just a little over four minutes to complete a full 360 degree cycle.
+
+use strict;
 use warnings;
-use strict 'vars';
+use Tk;
+use List::Util qw( min );
 
-__END__
+my $size = 500;
+my ($width, $height, $x, $y, $dist);
+my $angleinc = 0;
+my $active = 0;
+my $wait = 1000 / 30;
+my $radian = 90 / atan2 1, 0;
 
-# Sort of an ersatz animation. Write updates to a svg file, most modern viewers will update as the content changes.
+my $mw = MainWindow->new;
+$mw->title( 'Polyspiral' );
+my $c = $mw->Canvas( -width => $size, -height => $size,
+  -relief => 'raised', -borderwidth => 2,
+  )->pack(-fill => 'both', -expand => 1);
+$mw->bind('<Configure>' => sub { $width = $c->width; $height = $c->height;
+  $dist = min($width, $height) ** 2 / 4 } );
+$mw->Button(-text => $_->[0], -command => $_->[1],
+  )->pack(-side => 'right') for
+  [ Exit => sub {$mw->destroy} ],
+  [ 'Start / Pause' => sub { $active ^= 1; step() } ];
 
-use SVG;
-use Time::HiRes;
+MainLoop;
+-M $0 < 0 and exec $0;
 
-use constant tau => 2 * 2 * atan2(1, 0);
-
-my $w = 600;
-my $h = 600;
- 
-for $a (3..33) {
-    my $angle = $a/tau;
-    my $x1 = $w/2;
-    my $y1 = $h/2;
-    my @lines;
- 
-    for (1..144) {
-        my $length = 3 * $_;
-        my ($x2, $y2) = ($x1, $y1) x+x |cis($angle * $_).realsx.round(.01) x*x $length ;
-        push @lines: 'line' => [:x1($x1.clone), :y1($y1.clone), :x2($x2.clone), :y2($y2.clone),
-                                :style("stroke:rgb({hsv2rgb(($_*5 % 360)/360,1,1).join: ','})")];
-        ($x1, $y1) = $x2, $y2;
+sub step {
+  $active or return;
+  my @pts = ($x = $width >> 1, $y = $height >> 1);
+  my $length = 5;
+  my $angle = $angleinc;
+  $angleinc += 0.05 / $radian;
+  while( ($x - $width / 2)**2 + ($y - $height / 2)**2 < $dist && @pts < 300 )
+    {
+    push @pts, $x, $y;
+    $x += $length * cos($angle);
+    $y += $length * sin($angle);
+    $length += 3;
+    $angle += $angleinc;
     }
- 
-    my $fname = "run/polyspiral.svg";
-    $fname.say( SVG.serialize(
-        svg => [
-            width => $w, height => $h, style => 'stroke:rgb(0,0,0)',
-            :rect[:width<100%>, :height<100%>, :fill<black>],
-            |@lines,
-        ],)
-    );
-    close $fname;
-    sleep .15;
+  $c->delete('all');
+  $c->createLine( @pts );
+  $mw->after($wait => \&step);
 }
- 
-# good Perl! but not needed...
-sub hsv2rgb {
-    my($h,$s,$v) = @_;
-    my $c = $v * $s;
-    my $x = $c * (1 - ( abs( (fmod(($h*6),2)) - 1 ) ) );
-    our $m = $v - $c;
-    my @rgb;
-       if ( $h < 1/6 ){ @rgb = scale($c, $x, 0) }
-    elsif ( $h < 2/6 ){ @rgb = scale($x, $c, 0) }
-    elsif ( $h < 3/6 ){ @rgb = scale(0, $c, $x) }
-    elsif ( $h < 4/6 ){ @rgb = scale(0, $x, $c) }
-    elsif ( $h < 5/6 ){ @rgb = scale($x, 0, $c) }
-    else              { @rgb = scale($c, 0, $x) }
-    sub scale { int(255*($_[0]+$m)), int(255*($_[1]+$m)), int(255*($_[2]+$m)) }
-    return \@rgb;
-}
-
-__END__
-
-=={{header|Perl}}==
-{{trans|Perl 6}}
-<lang perl></lang>
-{{out}}
-<pre style="height:35ex"></pre>
