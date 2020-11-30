@@ -67,6 +67,13 @@ File: 0/16_Puzzle_Game
 #c# 2020-01-10 <RC
 #p# OK
 
+File: 0/2048
+#!/usr/local/bin/perl
+#u# http://rosettacode.org/wiki/2048
+#t# gui
+#c# 2020-11-29 <RC
+#p# OK
+
 File: 0/21_Game
 #!/usr/local/bin/perl
 #u# http://rosettacode.org/wiki/21_Game
@@ -5948,6 +5955,13 @@ File: P/Polynomial_synthetic_division
 #p# OK
 
 File: P/Polyspiral
+#!/usr/local/bin/perl
+#u# http://rosettacode.org/wiki/Polyspiral
+#t# gui
+#c# 2020-11-29 <RC
+#p# OK
+
+File: P/Polyspiral.0
 #!/usr/local/bin/perl
 #u# http://rosettacode.org/wiki/Polyspiral
 #c# 2018-11-RC >RC
