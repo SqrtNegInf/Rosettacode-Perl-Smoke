@@ -1,17 +1,17 @@
 
 This is perl 5, version 32, subversion 0 (v5.32.0) built for darwin-thread-multi-2level
 updating from RC…
-+------------> Perl: Good/Bad [1312/10]
++------------> Perl: Good/Bad [1314/9]
 |+-----------> Smoke testing [1174]
-||+----------> sKipping validation [142]
-|||+---------> Interactive [58]
-||||+--------> Touched (modified by me) [411]
+||+----------> sKipping validation [144]
+|||+---------> Interactive [60]
+||||+--------> Touched (modified by me) [410]
 |||||+-------> Random seed [105]
 ||||||+------> File output [74]
-|||||||+-----> Draft [212]
+|||||||+-----> Draft [213]
 ||||||||+----> Ignoring [37]
 |||||||||+---> Void (no local copy) [147]
-||||||||||+--> Un-implemented/reliable [131]
+||||||||||+--> Un-implemented/reliable [130]
 |||||||||||
 GS......... 100_doors-1
 GS......... 100_doors-2
@@ -24,7 +24,7 @@ GS...RF.... 15_puzzle_game-2
 .......D.VU 15_puzzle_game_in_3D
 .........VU 15_puzzle_solver
 G.KI...D... 16_puzzle_game
-.........V. 2048
+G.KI....... 2048
 GS..TR..... 21_game
 GS...R..... 24_game
 GS......... 24_game_Solve
@@ -67,6 +67,7 @@ GS......... Aliquot_sequence_classifications
 .......D.VU Almkvist-Giullera_formula_for_pi
 GS......... Almost_prime-1
 GS......... Almost_prime-2
+.......D.VU Alternade_words
 GS......... Amb-1
 GS......... Amb-2
 GS......... Amb-3
@@ -525,7 +526,7 @@ GS......... Function_prototype
 GS..T...... Functional_coverage_tree
 GS..T...... Fusc_sequence
 G.KI....... GUI_Maximum_window_dimensions
-G.KIT.....U GUI_component_interaction
+G.KIT...... GUI_component_interaction
 .........VU GUI_enabling_disabling_of_controls
 GS..TRF.... Galton_box_animation
 GS......... Gamma_function
@@ -991,7 +992,7 @@ GS......... Polymorphism
 GS......... Polynomial_long_division
 GS..T...... Polynomial_regression
 GS..T..D... Polynomial_synthetic_division
-B...T.....U Polyspiral
+G.KI....... Polyspiral
 GS......... Population_count
 GS......... Power_set-1
 GS......... Power_set-2
