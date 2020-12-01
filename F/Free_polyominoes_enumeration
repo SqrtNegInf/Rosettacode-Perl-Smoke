@@ -1,203 +1,121 @@
 #!/usr/local/bin/perl
 #u# http://rosettacode.org/wiki/Free_polyominoes_enumeration
-#t# inprogress
-#c# 2019-10-xx >RC
+#c# 2020-11-30 <RC
 #p# OK
-
-use Data::Printer;
 
 use strict;
 use warnings;
 use feature 'say';
-#my $result;
-#my @res;
 
-sub translate2origin {
-    my(@poly) = @_;
-    # Finds the min x and y coordiate of a Polyomino.
-#    my $minx = min map { head } $poly;
-#    my $miny = min map { tail } $poly;
-#    poly.map {|p| [p.head-minx, p.tail-miny] }.sort
-}
+my @res;
 
-sub rotate90 { my($x,$y) = @_; [$y, -$x] } 
-sub reflect  { my($x,$y) = @_; [-$x, $y] }
+my @new = "#\n";
 
-# All the plane symmetries of a rectangular region.
-sub rotations_and_reflections {
-    my(@poly) = @_;
-    my @rr;
-    push @rr, @poly;
-    push @rr, rotate90($rr[-1]);
-    push @rr, rotate90($rr[-1]);
-    push @rr, rotate90($rr[-1]);
-    push @rr,  reflect($rr[-1]);
-    push @rr, rotate90($rr[-1]);
-    push @rr, rotate90($rr[-1]);
-    push @rr, rotate90($rr[-1]);
-    @rr;
-}
-
-sub canonical {
-    my(@poly) = @_;
-    map { translate2origin(@$_) } rotations_and_reflections(@poly)
-}
-
-# All four points in Von Neumann neighborhood.
-sub contiguous {
-    my($x,$y) = @_;
-    [[$x-1,$y], [$x+1, $y], [$x, $y-1], [$x, $y+1]]
-}
-
-# Finds all distinct points that can be added to a Polyomino.
-sub new_points {
-    my(@poly) = @_;
-    # var points = Set()
-    #poly.each { points << contiguous(_...)... }
-    #points - poly
-}
-
-sub new_polys {
-    my($polys) = @_;
-    my @can_poly;
-    #var pattern = Set()
-    for my $poly (@$polys) {
-        for my $point (new_points(@$poly)) {
-            my $pl = translate2origin(@$poly, [$point]);
-            next if defined $pl; #pattern.has(pl)
-            push @can_poly, canonical($pl); #.each{ pattern << _ }.min
-        }
+for my $N ( 2 .. 10 )
+  {
+  @new = find( @new );
+  my %allbest;
+  $allbest{best($_)}++ for @new;
+  my @show = @new = sort keys %allbest;
+  push @res, sprintf "rank: %2d  count: %d\n", $N, scalar @show;
+  if( @show <= 12 )
+    {
+    my $fmt = join '', map({ /\n/; '%' . ($+[0] + 1) . 's' } @show), "\n";
+    my $line;
+    grep $_, @show and $line .= sprintf($fmt, map s/(.*)\n// && $1, @show) for 0 .. $N;
+    push(@res,$line);
     }
-#    gather {
-#      new_points(poly).each { |point|
-#        var pl = translate2origin(poly + [point])
-#        next if pattern.has(pl)
-#        take canonical(pl).each{ pattern << _ }.min
-#      }
-#    }...
+  }
+
+sub bare {
+  local $_ = shift;
+  s/^ *\n//gm;
+  s/^ //gm until /^#/m;
+  s/ $//gm until /#$/m;
+  $_;
 }
 
-# Generates polyominoes of rank n recursively.
-sub rank {
-    my($n) = @_;
-    if    ($n == 0) { [[]] }
-    elsif ($n == 1) { [[[0,0]]] }
-    else            { new_polys(rank($n-1)) }
+sub transpose {
+  local $_ = shift;
+  my $t = '';
+  $t .= "\n" while s/^./ $t .= $&; '' /gem;
+  $t;
 }
 
-#say 8.of { rank(_).len }
+sub rotate {
+  local $_ = shift;
+  my $t = '';
+  $t .= "\n" while s/.$/ $t .= $&; '' /gem;
+  $t;
+}
 
-my $n = 4; #5
-say "\nAll free polyominoes of rank $n:";
-say my $result = join "\n\n", text_representation($_) for sort rank($n);
+sub best {
+  my %all = (shift, 1);
+  for my $p (keys %all)
+    {
+    $all{ my $tmp = rotate $p }++;
+    $all{ rotate $tmp }++;
+    }
+  $all{ transpose $_ }++ for keys %all;
+  $all{ s/(.+)/reverse $1/ger }++ for keys %all;        # mirror
+  (sort keys %all)[-1];
+}
+
+sub find {
+  my @before = @_;
+  my %new;
+  for my $p ( @before ) {
+    local $_ = $p;
+    s/^/ /gm;
+    s/\n/ \n/g;
+    my $line = s/\n.*/\n/sr =~ tr/\n/ /cr;
+    $_ = $line . $_ . $line;
+    my $n = -1 + length $line;
+    my $gap = qr/.{$n}/s;
+    $new{ bare "$`#$'" }++ while / (?=#)/g;
+    $new{ bare "$`#$'" }++ while / (?=$gap#)/g;
+    $new{ bare "$`#$'" }++ while /(?<=#) /g;
+    $new{ bare "$`#$'" }++ while /(?<=#$gap) /g;
+  }
+  keys %new;
+}
+
+say my $result = join "\n", @res;
 
 my $ref = <<'EOD';
-1, 1, 1, 2, 5, 12, 35, 108
-####
+rank:  2  count: 1
 
-###
-#
+  ##
 
-###
- #
+rank:  3  count: 2
 
-##
-##
+  ##  ###
+  #      
 
-##
- ##
+rank:  4  count: 5
+
+  ##  ##   ###  ###  ####
+  ##   ##   #   #        
+
+rank:  5  count: 12
+
+   #   ##   ##   ##   ###  ###  ###  ###  ###   ####  ####  #####
+  ###   #    ##   ##   #   #    # #  ##     ##   #    #          
+   #    ##    #   #    #   #                                     
+
+rank:  6  count: 35
+
+rank:  7  count: 108
+
+rank:  8  count: 369
+
+rank:  9  count: 1285
+
+rank: 10  count: 4655
+
 EOD
 
 use Test::More;
-#chomp $ref;
-#is($result, $ref);
-#done_testing();
-
-__END__
-
-sub translate2origin {
-    my($poly) = @_;
-    # Finds the min x and y coordiate of a Polyomino.
-#    my $minx = min map { head } $poly;
-#    my $miny = min map { tail } $poly;
-#    poly.map {|p| [p.head-minx, p.tail-miny] }.sort
-}
-
-sub rotate90 { my($x,$y) = @_; [$y, -$x] } 
-sub reflect  { my($x,$y) = @_; [-$x, $y] }
-
-# All the plane symmetries of a rectangular region.
-sub rotations_and_reflections {
-    my($poly) = @_;
-    gather {
-        take(poly)
-        take(poly.map!{ rotate90(_...) })
-        take(poly.map!{ rotate90(_...) })
-        take(poly.map!{ rotate90(_...) })
-        take(poly.map!{  reflect(_...) })
-        take(poly.map!{ rotate90(_...) })
-        take(poly.map!{ rotate90(_...) })
-        take(poly.map!{ rotate90(_...) })
-    }
-}
-
-sub canonical {
-    my(@poly) = @_;
-    map { translate2origin(@$_) } rotations_and_reflections(@poly)
-}
-
-# All four points in Von Neumann neighborhood.
-sub contiguous {
-    my($x,$y) = @_;
-    [[$x-1,$y], [$x+1, $y], [$x, $y-1], [$x, $y+1]]
-}
-
-# Finds all distinct points that can be added to a Polyomino.
-func new_points(poly) {
-  var points = Set()
-  poly.each { points << contiguous(_...)... }
-  points - poly
-}
-
-func new_polys(polys) {
-  var pattern = Set()
-  polys.map { |poly|
-    gather {
-      new_points(poly).each { |point|
-        var pl = translate2origin(poly + [point])
-        next if pattern.has(pl)
-        take canonical(pl).each{ pattern << _ }.min
-      }
-    }...
-  }
-}
-
-# Generates polyominoes of rank n recursively.
-sub rank {
-    my($n) = @_;
-    if    ($n == 0) { [[]] }
-    elsif ($n == 1) { [[[0,0]]] }
-    else            { new_polys(rank($n-1)) }
-}
-
-# Generates a textual representation of a Polyomino.
-sub text_representation {
-    my($poly) = @_;
-    my %table;
-    for x,y in (poly) { table{[x,y]} = '#' }
-    $maxx = max @poly[x array slice];
-    $maxy = max @poly[y array slice];
-  (0..maxx).map{|x| (0..maxy).map{|y| table{[x,y]} \\ ' ' }.join }
-}
-
-#say 8.of { rank(_).len }
-
-#var n = (ARGV[0] ? ARGV[0].to_i : 5)
-
-__END__
-
-=={{header|Perl}}==
-{{trans|Sidef}}
-<lang perl></lang>
-{{out}}
-<pre></pre>
+chomp $ref;
+is ($result, $ref);
+done_testing();
