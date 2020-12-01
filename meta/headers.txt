@@ -285,6 +285,12 @@ File: A/Almost_prime-2
 #c# 2018-07-11 <RC
 #p# OK
 
+File: A/Alternade_words
+#!/usr/local/bin/perl
+#u# http://rosettacode.org/wiki/Alternade_words
+#c# 2020-11-30 <RC
+#p# OK
+
 File: A/Amb-1
 #!/usr/local/bin/perl
 #u# http://rosettacode.org/wiki/Amb
@@ -3056,8 +3062,7 @@ File: F/Fractran
 File: F/Free_polyominoes_enumeration
 #!/usr/local/bin/perl
 #u# http://rosettacode.org/wiki/Free_polyominoes_enumeration
-#t# inprogress
-#c# 2019-10-xx >RC
+#c# 2020-11-30 <RC
 #p# OK
 
 File: F/French_Republican_calendar
@@ -3125,6 +3130,13 @@ File: G/GUI_component_interaction
 #u# http://rosettacode.org/wiki/GUI_component_interaction
 #t# gui
 #c# 2019-02-04 >RC
+#p# OK
+
+File: G/GUI_enabling_disabling_of_controls
+#!/usr/local/bin/perl
+#u# http://rosettacode.org/wiki/GUI_enabling/disabling_of_controls
+#t# gui
+#c# 2020-11-30 <RC
 #p# OK
 
 File: G/Galton_box_animation
@@ -6339,6 +6351,12 @@ File: R/Range_extraction
 #!/usr/local/bin/perl
 #u# http://rosettacode.org/wiki/Range_extraction
 #c# 2018-08-19 <>RC
+#p# OK
+
+File: R/Range_modifications
+#!/usr/local/bin/perl
+#u# http://rosettacode.org/wiki/Range_modifications
+#c# 2020-11-30 <RC
 #p# OK
 
 File: R/Ranking_methods
