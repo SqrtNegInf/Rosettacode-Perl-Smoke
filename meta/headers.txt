@@ -534,6 +534,14 @@ File: A/Assertions
 #c# 2018-07-14 <RC
 #p# OK
 
+File: A/Assertions_in_design_by_contract
+#!/usr/local/bin/perl
+#u# http://rosettacode.org/wiki/Assertions_in_design_by_contract
+#t# skiptest
+#c# 2020-12-01 <RC
+#p# OK
+#n# need to trap STDERR...
+
 File: A/Associative_array_Creation
 #!/usr/local/bin/perl
 #u# http://rosettacode.org/wiki/Associative_array/Creation
@@ -4842,6 +4850,13 @@ File: M/Metronome
 #!/usr/local/bin/perl
 #u# http://rosettacode.org/wiki/Metronome
 #c# 2018-10-01 >RC
+#p# OK
+
+File: M/Metronome-2
+#!/usr/local/bin/perl
+#u# http://rosettacode.org/wiki/Metronome
+#t# gui
+#c# 2020-12-01 <RC
 #p# OK
 
 File: M/Mian-Chowla_sequence
