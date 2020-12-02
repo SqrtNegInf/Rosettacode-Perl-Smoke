@@ -1,17 +1,17 @@
 
 This is perl 5, version 32, subversion 0 (v5.32.0) built for darwin-thread-multi-2level
 updating from RC…
-+------------> Perl: Good/Bad [1317/9]
++------------> Perl: Good/Bad [1318/9]
 |+-----------> Smoke testing [1177]
-||+----------> sKipping validation [144]
-|||+---------> Interactive [61]
+||+----------> sKipping validation [146]
+|||+---------> Interactive [62]
 ||||+--------> Touched (modified by me) [409]
 |||||+-------> Random seed [105]
 ||||||+------> File output [74]
-|||||||+-----> Draft [213]
+|||||||+-----> Draft [215]
 ||||||||+----> Ignoring [37]
-|||||||||+---> Void (no local copy) [144]
-||||||||||+--> Un-implemented/reliable [126]
+|||||||||+---> Void (no local copy) [145]
+||||||||||+--> Un-implemented/reliable [127]
 |||||||||||
 GS......... 100_doors-1
 GS......... 100_doors-2
@@ -106,7 +106,7 @@ GS......... Array_length
 GS......... Arrays
 G.K.T..D... Aspect_oriented_programming
 GS......... Assertions
-.......DXVU Assertions_in_design_by_contract
+G.K....DX.. Assertions_in_design_by_contract
 GS..T...... Associative_array_Creation
 GS......... Associative_array_Iteration
 GS..T...... Associative_array_Merging
@@ -437,6 +437,7 @@ GS......... Extensible_prime_generator-2
 GS......... Extensible_prime_generator-3
 GS......... Extensible_prime_generator-4
 GS..T..D... External_sort
+.......D.VU Extra_primes
 GS.....D... Extract_file_extension
 GS......... Extreme_floating_point_values
 GS......... FASTA_format
@@ -801,6 +802,7 @@ GS......... Metallic_ratios-2
 GS......... Metaprogramming
 ........XV. Metered_concurrency
 GS..T...... Metronome
+G.KI....... Metronome-2
 GS..T...... Mian-Chowla_sequence
 GS......... Middle_three_digits
 GS......... Miller-Rabin_primality_test-1
@@ -1372,7 +1374,7 @@ GS......... Thue-Morse
 GS...R..... Tic-tac-toe
 G.KI....... Tic-tac-toe-2
 GS.....D... Time-based_one-time_password_algorithm
-GS......... Time_a_function
+!S......... Time_a_function
 GS......... Tokenize_a_string
 GS......... Tokenize_a_string_with_escaping
 GS..T...... Tonelli-Shanks_algorithm
@@ -1407,6 +1409,7 @@ GS......... URL_parser
 .......D.VU URL_shortener
 GS......... UTF-8_encode_and_decode
 .......D.VU Ukkonens_suffix_tree_construction
+.......D.VU Ulam_numbers
 GS....F.... Ulam_spiral_for_primes
 GS...R..... Unbias_a_random_generator
 GS......... Undefined_values
