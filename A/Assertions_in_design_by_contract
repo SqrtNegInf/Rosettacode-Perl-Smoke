@@ -1,0 +1,48 @@
+#!/usr/local/bin/perl
+#u# http://rosettacode.org/wiki/Assertions_in_design_by_contract
+#t# skiptest
+#c# 2020-12-01 <RC
+#p# OK
+#n# need to trap STDERR...
+
+use strict;
+use warnings;
+use feature 'say';
+
+#my @res;
+
+package MessageMultiplier;
+
+use Class::Contract;
+use Test::More tests => 2;
+use Test::Exception;
+
+contract {
+
+   attr 'multiplier' => 'SCALAR';
+   attr 'message'    => 'SCALAR';
+
+   ctor 'new';
+      impl { ( ${self->multiplier}, ${self->message} ) = @_ };
+
+   method 'execute';
+      pre  { ${self->multiplier} > 1 and length ${self->message} > 0 };
+      impl { print ${self->message} x ${self->multiplier} , "\n" };
+};
+
+MessageMultiplier->new(2,'A')->execute;
+dies_ok { MessageMultiplier->new(1,'B')->execute };
+dies_ok { MessageMultiplier->new(3, '')->execute };
+
+#say my $result = join "\n", @res;
+
+my $ref = <<'EOD';
+1..2
+AA
+ok 1
+ok 2
+EOD
+
+#use Test::More;
+#is ($result, $ref);
+#done_testing();
