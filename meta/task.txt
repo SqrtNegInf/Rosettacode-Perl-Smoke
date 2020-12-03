@@ -1,14 +1,14 @@
 
 This is perl 5, version 32, subversion 0 (v5.32.0) built for darwin-thread-multi-2level
 updating from RC…
-+------------> Perl: Good/Bad [1318/9]
++------------> Perl: Good/Bad [1319/9]
 |+-----------> Smoke testing [1177]
 ||+----------> sKipping validation [146]
 |||+---------> Interactive [62]
 ||||+--------> Touched (modified by me) [409]
 |||||+-------> Random seed [105]
 ||||||+------> File output [74]
-|||||||+-----> Draft [215]
+|||||||+-----> Draft [214]
 ||||||||+----> Ignoring [37]
 |||||||||+---> Void (no local copy) [145]
 ||||||||||+--> Un-implemented/reliable [127]
@@ -866,7 +866,7 @@ GS......... Nested_function
 GS..T...... Nested_templated_data
 GS..T...... Next_highest_int_from_digits
 GS..T...... Nim_game
-.......D.VU Nimber_arithmetic
+.........VU Nimber_arithmetic
 GS......... Non-continuous_subsequences
 GS......... Non-decimal_radices_Convert
 GS......... Non-decimal_radices_Input
@@ -1374,7 +1374,7 @@ GS......... Thue-Morse
 GS...R..... Tic-tac-toe
 G.KI....... Tic-tac-toe-2
 GS.....D... Time-based_one-time_password_algorithm
-!S......... Time_a_function
+GS......... Time_a_function
 GS......... Tokenize_a_string
 GS......... Tokenize_a_string_with_escaping
 GS..T...... Tonelli-Shanks_algorithm
