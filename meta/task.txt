@@ -1,14 +1,14 @@
 
 This is perl 5, version 32, subversion 0 (v5.32.0) built for darwin-thread-multi-2level
 updating from RC…
-+------------> Perl: Good/Bad [1319/9]
-|+-----------> Smoke testing [1177]
++------------> Perl: Good/Bad [1320/9]
+|+-----------> Smoke testing [1178]
 ||+----------> sKipping validation [146]
 |||+---------> Interactive [62]
 ||||+--------> Touched (modified by me) [409]
 |||||+-------> Random seed [105]
 ||||||+------> File output [74]
-|||||||+-----> Draft [214]
+|||||||+-----> Draft [215]
 ||||||||+----> Ignoring [37]
 |||||||||+---> Void (no local copy) [145]
 ||||||||||+--> Un-implemented/reliable [127]
@@ -1018,6 +1018,7 @@ GS......... Prime_decomposition-1
 GS......... Prime_decomposition-2
 GS......... Prime_decomposition-3
 B.......... Prime_decomposition-4
+GS.....D... Prime_words
 GS..T...... Primes_-_allocate_descendants_to_their_ancestors
 GS......... Primorial_numbers
 G.K.T..D... Print_debugging_statement
