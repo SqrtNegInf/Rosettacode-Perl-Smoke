@@ -6129,6 +6129,12 @@ File: P/Prime_decomposition-4
 #p# BROKEN
 #n# Math::Pari 'factorint' produces unreliable results? cf 'Count_in_factors-2'
 
+File: P/Prime_words
+#!/usr/local/bin/perl
+#u# http://rosettacode.org/wiki/Prime_words
+#c# 2020-12-04 <RC
+#p# OK
+
 File: P/Primes_-_allocate_descendants_to_their_ancestors
 #!/usr/local/bin/perl
 #u# http://rosettacode.org/wiki/Primes_-_allocate_descendants_to_their_ancestors
