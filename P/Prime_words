@@ -1,0 +1,22 @@
+#!/usr/local/bin/perl
+#u# http://rosettacode.org/wiki/Prime_words
+#c# 2020-12-04 <RC
+#p# OK
+
+
+use strict;
+use warnings;
+use feature 'say';
+
+my $pat = join '', grep +(1 x ord) !~ /^(11+)\1+$/, 'a'..'z', 'A'..'Z';
+@ARGV = 'ref/unixdict.txt';
+say my $result = join('', grep /^[$pat]+$/, <>) =~ tr/\n/ /r =~ s/.{1,71}\K /\n/gr;
+
+my $ref = <<'EOD';
+a aaa age agee ak am ama e egg eke em emma g ga gag gage gam game gamma
+ge gee gem gemma gm k keg m ma mae magma make mamma me meek meg q
+EOD
+
+use Test::More;
+is ($result, $ref);
+done_testing();
