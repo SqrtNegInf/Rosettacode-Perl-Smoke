@@ -8,10 +8,10 @@ updating from RC…
 ||||+--------> Touched (modified by me) [409]
 |||||+-------> Random seed [105]
 ||||||+------> File output [74]
-|||||||+-----> Draft [215]
+|||||||+-----> Draft [217]
 ||||||||+----> Ignoring [37]
-|||||||||+---> Void (no local copy) [145]
-||||||||||+--> Un-implemented/reliable [127]
+|||||||||+---> Void (no local copy) [148]
+||||||||||+--> Un-implemented/reliable [130]
 |||||||||||
 GS......... 100_doors-1
 GS......... 100_doors-2
@@ -34,6 +34,7 @@ GS......... 9_billion_names_of_God_the_integer
 GS......... A%2BB
 GS......... ABC_problem
 GS......... ABC_problem-2
+.......D.VU ABC_words
 GS......... AKS_test_for_primes-1
 GS......... AKS_test_for_primes-2
 GS......... AKS_test_for_primes-3
@@ -213,6 +214,7 @@ GS......... Catalan_numbers-3
 GS......... Catalan_numbers_Pascal%27s_triangle
 GS......... Catamorphism
 .........VU Catmull-Clark_subdivision_surface
+.......D.VU Changable_words
 GS..T...... Chaocipher
 GS...RF.... Chaos_game
 GS..T...... Character_codes-1
@@ -814,7 +816,7 @@ G.K.T.....U Minimal_steps_down_to_1
 GS..T...... Minimum_positive_multiple_in_base_10_using_only_0_and_1-1
 GS..T...... Minimum_positive_multiple_in_base_10_using_only_0_and_1-2
 GS......... Minimum_positive_multiple_in_base_10_using_only_0_and_1-3
-.......D.VU Minkowski_question-mark_function
+.........VU Minkowski_question-mark_function
 GS......... Modular_arithmetic
 GS..T...... Modular_exponentiation
 GS......... Modular_inverse
@@ -892,6 +894,7 @@ GS......... Object_serialization-1
 GS......... Object_serialization-2
 GS......... Odd_word_problem
 GS......... Odd_word_problem-2
+.......D.VU Odd_words
 GS..T...... Old_Russian_measure_of_length
 GS......... Old_lady_swallowed_a_fly
 GS......... One-dimensional_cellular_automata
