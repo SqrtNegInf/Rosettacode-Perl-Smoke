@@ -1,0 +1,60 @@
+#!/usr/local/bin/perl
+#u# http://rosettacode.org/wiki/Changable_words
+#c# 2020-12-06 <RC
+#p# OK
+
+use strict;
+use warnings;
+use feature 'say';
+
+my @res;
+
+my @words;
+@ARGV = 'ref/unixdict.txt';
+
+while( <> )
+  {
+  chomp;
+  length > 11 or next;
+  for my $prev ( @{ $words[length] } )
+    {
+    ($prev ^ $_) =~ tr/\0//c == 1 and push @res, sprintf "%30s <-> %s", $prev, $_;
+    }
+  push @{ $words[length] }, $_;
+  }
+
+say my $result = join "\n", @res;
+
+my $ref = <<'EOD';
+                  aristotelean <-> aristotelian
+                claustrophobia <-> claustrophobic
+                  committeeman <-> committeemen
+                committeewoman <-> committeewomen
+                 complementary <-> complimentary
+                  confirmation <-> conformation
+                 congresswoman <-> congresswomen
+                  councilwoman <-> councilwomen
+                  craftsperson <-> draftsperson
+                  eavesdropped <-> eavesdropper
+                  frontiersman <-> frontiersmen
+                handicraftsman <-> handicraftsmen
+                  incommutable <-> incomputable
+                  installation <-> instillation
+                  kaleidescope <-> kaleidoscope
+                  neuroanatomy <-> neuroanotomy
+                  newspaperman <-> newspapermen
+                  nonagenarian <-> nonogenarian
+                  onomatopoeia <-> onomatopoeic
+                  philanthrope <-> philanthropy
+                  prescription <-> proscription
+                 schizophrenia <-> schizophrenic
+                 shakespearean <-> shakespearian
+                  spectroscope <-> spectroscopy
+                 underclassman <-> underclassmen
+                 upperclassman <-> upperclassmen
+EOD
+
+use Test::More;
+chomp $ref;
+is ($result, $ref);
+done_testing();
