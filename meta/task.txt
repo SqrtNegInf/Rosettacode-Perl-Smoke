@@ -1,17 +1,17 @@
 
 This is perl 5, version 32, subversion 0 (v5.32.0) built for darwin-thread-multi-2level
 updating from RC…
-+------------> Perl: Good/Bad [1320/9]
-|+-----------> Smoke testing [1178]
++------------> Perl: Good/Bad [1323/9]
+|+-----------> Smoke testing [1182]
 ||+----------> sKipping validation [146]
 |||+---------> Interactive [62]
 ||||+--------> Touched (modified by me) [409]
 |||||+-------> Random seed [105]
 ||||||+------> File output [74]
-|||||||+-----> Draft [217]
+|||||||+-----> Draft [219]
 ||||||||+----> Ignoring [37]
-|||||||||+---> Void (no local copy) [148]
-||||||||||+--> Un-implemented/reliable [130]
+|||||||||+---> Void (no local copy) [147]
+||||||||||+--> Un-implemented/reliable [126]
 |||||||||||
 GS......... 100_doors-1
 GS......... 100_doors-2
@@ -34,7 +34,7 @@ GS......... 9_billion_names_of_God_the_integer
 GS......... A%2BB
 GS......... ABC_problem
 GS......... ABC_problem-2
-.......D.VU ABC_words
+GS.....D... ABC_words
 GS......... AKS_test_for_primes-1
 GS......... AKS_test_for_primes-2
 GS......... AKS_test_for_primes-3
@@ -193,6 +193,7 @@ GS..T...... Calculating_the_value_of_e-3
 G.K........ Calculating_the_value_of_e-4
 GS......... Calendar
 G.K........ Calendar_-_for_%22REAL%22_programmers
+.......D.VU Calkin-Wilf_sequence
 GS......... Call_a_foreign-language_function
 G.K........ Call_a_function
 GS..T...... Call_a_function_in_a_shared_library-1
@@ -214,7 +215,7 @@ GS......... Catalan_numbers-3
 GS......... Catalan_numbers_Pascal%27s_triangle
 GS......... Catamorphism
 .........VU Catmull-Clark_subdivision_surface
-.......D.VU Changable_words
+GS.....D... Changable_words
 GS..T...... Chaocipher
 GS...RF.... Chaos_game
 GS..T...... Character_codes-1
@@ -797,6 +798,7 @@ GS..T.F.... Median_filter
 GS..T...... Memory_allocation
 GS......... Memory_layout_of_a_data_structure
 GS......... Menu
+.........V. Merge_and_aggregate_datasets
 GS.....D... Mersenne_primes
 GS..T...... Mertens_function
 GS..T...... Metallic_ratios
@@ -880,7 +882,7 @@ GS......... Nth_root
 GS......... Null_object
 GS......... Number_names
 GS...R..... Number_reversal_game
-.......D.VU Numbers_with_equal_rises_and_falls
+.......D.V. Numbers_with_equal_rises_and_falls
 GS.....D... Numbers_with_prime_digits_whose_sum_is_13
 GS......... Numeric_error_propagation
 GS.....D... Numeric_separator_syntax
@@ -894,7 +896,7 @@ GS......... Object_serialization-1
 GS......... Object_serialization-2
 GS......... Odd_word_problem
 GS......... Odd_word_problem-2
-.......D.VU Odd_words
+GS.....D... Odd_words
 GS..T...... Old_Russian_measure_of_length
 GS......... Old_lady_swallowed_a_fly
 GS......... One-dimensional_cellular_automata
@@ -951,7 +953,7 @@ GS......... Pell%27s_equation
 GS...R..... Penney%27s_game
 GS..T.FD... Penrose_tiling
 GS..T.F.... Pentagram
-.......D.VU Pentomino_tiling
+.......D.V. Pentomino_tiling
 GS..T...... Percentage_difference_between_images-1
 GS......... Percentage_difference_between_images-2
 .......D.VU Perceptron
@@ -1122,7 +1124,7 @@ GS..T...... Rosetta_Code_Find_bare_lang_tags
 GS..T...... Rosetta_Code_Find_unimplemented_tasks
 GS......... Rosetta_Code_Fix_code_tags
 .......D.VU Rosetta_Code_List_authors_of_task_descriptions
-GS..T..D... Rosetta_Code_Rank_languages_by_number_of_users
+!S..T..D... Rosetta_Code_Rank_languages_by_number_of_users
 GS..T...... Rosetta_Code_Rank_languages_by_popularity
 .......D.VU Rosetta_Code_Run_examples
 GS..T..D... Rosetta_Code_Tasks_without_examples
@@ -1477,6 +1479,7 @@ GS..T..D... Word_break_problem
 GS...R..... Word_search
 GS......... Word_wheel
 GS......... Word_wrap
+GS.....D... Words_containing_%22the%22_substring
 GS..T...... World_Cup_group_stage
 GS....F.... Write_entire_file
 GS....F.... Write_float_arrays_to_a_text_file-1
