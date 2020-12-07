@@ -57,42 +57,24 @@ for my $k (sort { $table{$b} <=> $table{$a} } keys %table) {
 
 say $result;
 
-my $ref = <<'EOD';
- 397 C
- 278 Java
- 278 C++
- 266 Python
- 240 JavaScript
- 171 Perl
- 168 PHP
- 139 SQL
- 131 UNIX Shell
- 121 C sharp
- 120 BASIC
- 118 Pascal
- 102 Haskell
-EOD
-
 use Test::More;
-ok $result =~ /17\d Perl/;
+ok $result =~ /1[89]\d Perl/;
 done_testing();
 
 __END__
 
-=={{header|Perl}}==
-<lang perl>
-</lang>
-{{out}}
-<pre> 397 C
- 278 Java
- 278 C++
- 266 Python
- 240 JavaScript
- 171 Perl
- 168 PHP
- 139 SQL
- 131 UNIX Shell
- 121 C sharp
- 120 BASIC
- 118 Pascal
- 102 Haskell</pre>
+As of 2020-12-06:
+
+ 420 C
+ 304 Java
+ 298 C++
+ 295 Python
+ 271 JavaScript
+ 180 Perl       <=== testing this value
+ 180 PHP
+ 156 SQL
+ 144 UNIX Shell
+ 129 C sharp
+ 128 Pascal
+ 125 BASIC
+ 111 Haskell
