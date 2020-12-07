@@ -1,0 +1,77 @@
+#!/usr/local/bin/perl
+#u# http://rosettacode.org/wiki/ABC_words
+#c# 2020-12-06 <RC
+#p# OK
+
+use strict;
+use warnings;
+use feature 'say';
+
+my @res;
+
+@ARGV = 'ref/unixdict.txt';
+push @res, grep /^[^bc]*a[^c]*b.*c/, <>;
+
+say my $result = join '', @res;
+
+my $ref = <<'EOD';
+aback
+abacus
+abc
+abdicate
+abduct
+abeyance
+abject
+abreact
+abscess
+abscissa
+abscissae
+absence
+abstract
+abstracter
+abstractor
+adiabatic
+aerobacter
+aerobic
+albacore
+alberich
+albrecht
+algebraic
+alphabetic
+ambiance
+ambuscade
+aminobenzoic
+anaerobic
+arabic
+athabascan
+auerbach
+diabetic
+diabolic
+drawback
+fabric
+fabricate
+flashback
+halfback
+iambic
+lampblack
+leatherback
+metabolic
+nabisco
+paperback
+parabolic
+playback
+prefabricate
+quarterback
+razorback
+roadblock
+sabbatical
+snapback
+strabismic
+syllabic
+tabernacle
+tablecloth
+EOD
+
+use Test::More;
+is ($result, $ref);
+done_testing();
