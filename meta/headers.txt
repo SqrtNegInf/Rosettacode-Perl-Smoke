@@ -132,6 +132,12 @@ File: A/ABC_Problem-2
 #n# Regex based alternate
 #n# had to temporarily modify .gitignore to save, 'abc*' rule was blocking
 
+File: A/ABC_words
+#!/usr/local/bin/perl
+#u# http://rosettacode.org/wiki/ABC_words
+#c# 2020-12-06 <RC
+#p# OK
+
 File: A/AKS_test_for_primes-1
 #!/usr/local/bin/perl
 #u# http://rosettacode.org/wiki/AKS_test_for_primes
@@ -1129,6 +1135,12 @@ File: C/Catamorphism
 #!/usr/local/bin/perl
 #u# http://rosettacode.org/wiki/Catamorphism
 #c# 2018-07-22 <RC
+#p# OK
+
+File: C/Changable_words
+#!/usr/local/bin/perl
+#u# http://rosettacode.org/wiki/Changable_words
+#c# 2020-12-06 <RC
 #p# OK
 
 File: C/Chaocipher
@@ -5370,6 +5382,12 @@ File: O/Odd_word_problem-2
 #c# 2018-08-20 <RC
 #p# OK
 
+File: O/Odd_words
+#!/usr/local/bin/perl
+#u# http://rosettacode.org/wiki/Odd_words
+#c# 2020-12-06 <RC
+#p# OK
+
 File: O/Old_Russian_measure_of_length
 #!/usr/local/bin/perl
 #u# http://rosettacode.org/wiki/Old_Russian_measure_of_length
@@ -8820,6 +8838,13 @@ File: W/Word_wrap
 #c# 2018-08-03 <RC
 #p# OK
 #n# note double-space after 'face.'
+
+File: W/Words_containing_%22the%22_substring
+#!/usr/local/bin/perl
+#u# http://rosettacode.org/wiki/Words_containing_%22the%22_substring
+#c# 2020-12-06 <RC
+#p# OK
+#n# expanded slightly from RC one-liner...
 
 File: W/World_Cup_group_stage
 #!/usr/local/bin/perl
