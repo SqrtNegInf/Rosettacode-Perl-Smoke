@@ -1,0 +1,58 @@
+#!/usr/local/bin/perl
+#u# http://rosettacode.org/wiki/Words_containing_%22the%22_substring
+#c# 2020-12-06 <RC
+#p# OK
+#n# expanded slightly from RC one-liner...
+
+use strict;
+use warnings;
+use feature 'say';
+
+my @res;
+
+@ARGV = 'ref/unixdict.txt';
+
+while( <> ) {
+    /(\w*the\w*)/ and length($1)>11 and push @res, $_
+}
+
+say my $result = join '', @res;
+
+my $ref = <<'EOD';
+authenticate
+chemotherapy
+chrysanthemum
+clothesbrush
+clotheshorse
+eratosthenes
+featherbedding
+featherbrain
+featherweight
+gaithersburg
+hydrothermal
+lighthearted
+mathematician
+neurasthenic
+nevertheless
+northeastern
+northernmost
+otherworldly
+parasympathetic
+physiotherapist
+physiotherapy
+psychotherapeutic
+psychotherapist
+psychotherapy
+radiotherapy
+southeastern
+southernmost
+theoretician
+weatherbeaten
+weatherproof
+weatherstrip
+weatherstripping
+EOD
+
+use Test::More;
+is ($result, $ref);
+done_testing();
