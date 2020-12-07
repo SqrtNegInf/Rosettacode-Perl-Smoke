@@ -1,0 +1,46 @@
+#!/usr/local/bin/perl
+#u# http://rosettacode.org/wiki/Odd_words
+#c# 2020-12-06 <RC
+#p# OK
+
+use strict;
+use warnings;
+use feature 'say';
+
+my @res;
+
+@ARGV = 'ref/unixdict.txt';
+
+chomp( my @words = <> );
+
+my %dict;
+@dict{ grep length > 4, @words} = ();
+
+for ( @words ) {
+    my $oddword = s/(.).?/$1/gr;
+    exists $dict{$oddword} and push @res, " $_ $oddword";
+}
+
+say my $result = join "\n", @res;
+
+my $ref = <<'EOD';
+ barbarian brain
+ childbear cider
+ corrigenda cried
+ gargantuan grata
+ headdress hades
+ palladian plain
+ propionate point
+ salvation slain
+ siltation slain
+ slingshot sight
+ statuette saute
+ supersede spree
+ supervene spree
+ terminable trial
+EOD
+
+use Test::More;
+chomp $ref;
+is ($result, $ref);
+done_testing();
