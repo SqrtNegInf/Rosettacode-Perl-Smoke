@@ -1,16 +1,16 @@
 
 This is perl 5, version 32, subversion 0 (v5.32.0) built for darwin-thread-multi-2level
 updating from RC…
-+------------> Perl: Good/Bad [1323/9]
-|+-----------> Smoke testing [1182]
++------------> Perl: Good/Bad [1327/9]
+|+-----------> Smoke testing [1185]
 ||+----------> sKipping validation [146]
 |||+---------> Interactive [62]
 ||||+--------> Touched (modified by me) [409]
-|||||+-------> Random seed [105]
+|||||+-------> Random seed [106]
 ||||||+------> File output [74]
 |||||||+-----> Draft [219]
 ||||||||+----> Ignoring [37]
-|||||||||+---> Void (no local copy) [147]
+|||||||||+---> Void (no local copy) [144]
 ||||||||||+--> Un-implemented/reliable [126]
 |||||||||||
 GS......... 100_doors-1
@@ -215,7 +215,7 @@ GS......... Catalan_numbers-3
 GS......... Catalan_numbers_Pascal%27s_triangle
 GS......... Catamorphism
 .........VU Catmull-Clark_subdivision_surface
-GS.....D... Changable_words
+GS.....D... Changeable_words
 GS..T...... Chaocipher
 GS...RF.... Chaos_game
 GS..T...... Character_codes-1
@@ -798,7 +798,7 @@ GS..T.F.... Median_filter
 GS..T...... Memory_allocation
 GS......... Memory_layout_of_a_data_structure
 GS......... Menu
-.........V. Merge_and_aggregate_datasets
+GS......... Merge_and_aggregate_datasets
 GS.....D... Mersenne_primes
 GS..T...... Mertens_function
 GS..T...... Metallic_ratios
@@ -882,7 +882,7 @@ GS......... Nth_root
 GS......... Null_object
 GS......... Number_names
 GS...R..... Number_reversal_game
-.......D.V. Numbers_with_equal_rises_and_falls
+GS.....D... Numbers_with_equal_rises_and_falls
 GS.....D... Numbers_with_prime_digits_whose_sum_is_13
 GS......... Numeric_error_propagation
 GS.....D... Numeric_separator_syntax
@@ -953,7 +953,7 @@ GS......... Pell%27s_equation
 GS...R..... Penney%27s_game
 GS..T.FD... Penrose_tiling
 GS..T.F.... Pentagram
-.......D.V. Pentomino_tiling
+GS...R.D... Pentomino_tiling
 GS..T...... Percentage_difference_between_images-1
 GS......... Percentage_difference_between_images-2
 .......D.VU Perceptron
@@ -1124,7 +1124,7 @@ GS..T...... Rosetta_Code_Find_bare_lang_tags
 GS..T...... Rosetta_Code_Find_unimplemented_tasks
 GS......... Rosetta_Code_Fix_code_tags
 .......D.VU Rosetta_Code_List_authors_of_task_descriptions
-!S..T..D... Rosetta_Code_Rank_languages_by_number_of_users
+GS..T..D... Rosetta_Code_Rank_languages_by_number_of_users
 GS..T...... Rosetta_Code_Rank_languages_by_popularity
 .......D.VU Rosetta_Code_Run_examples
 GS..T..D... Rosetta_Code_Tasks_without_examples
