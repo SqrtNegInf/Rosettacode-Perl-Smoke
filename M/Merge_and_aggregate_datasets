@@ -1,0 +1,64 @@
+#!/usr/local/bin/perl
+#u# http://rosettacode.org/wiki/Merge_and_aggregate_datasets
+#c# 2020-12-06 <RC
+#p# OK
+
+use strict;
+#use warnings;
+use feature 'say';
+
+my @res;
+
+my $fmt = '| %-11s' x 5 . "|";
+
+push @res, sprintf $fmt, qw( PATIENT_ID LASTNAME LAST_VISIT SCORE_SUM SCORE_AVG);
+
+my ($names, $visits) = do { local $/; split /^\n/m, <DATA> };
+my %score;
+for ( $visits =~ /^\d.*/gm ) {
+  my ($id, undef, $score) = split /,/;
+  $score{$id} //= ['', ''];
+  $score and $score{$id}[0]++, $score{$id}[1] += $score;
+}
+
+for ( sort $names =~ /^\d.*/gm ) {
+  my ($id, $name) = split /,/;
+  push @res, sprintf $fmt, $id, $name, ( sort $visits =~ /^$id,(.*?),/gm, '' )[-1],
+    $score{$id}[0]
+      ? ( $score{$id}[1], $score{$id}[1] / $score{$id}[0])
+      : ('', '');
+}
+
+say my $result = join "\n", @res;
+
+my $ref = <<'EOD';
+| PATIENT_ID | LASTNAME   | LAST_VISIT | SCORE_SUM  | SCORE_AVG  |
+| 1001       | Hopper     | 2020-11-19 | 17.4       | 5.8        |
+| 2002       | Gosling    | 2020-10-08 | 6.8        | 6.8        |
+| 3003       | Kemeny     | 2020-11-12 |            |            |
+| 4004       | Wirth      | 2020-11-05 | 15.4       | 7.7        |
+| 5005       | Kurtz      |            |            |            |
+EOD
+
+use Test::More;
+chomp $ref;
+is ($result, $ref);
+done_testing();
+
+__DATA__
+PATIENT_ID,LASTNAME
+1001,Hopper
+4004,Wirth
+3003,Kemeny
+2002,Gosling
+5005,Kurtz
+
+PATIENT_ID,VISIT_DATE,SCORE
+2002,2020-09-10,6.8
+1001,2020-09-17,5.5
+4004,2020-09-24,8.4
+2002,2020-10-08,
+1001,,6.6
+3003,2020-11-12,
+4004,2020-11-05,7.0
+1001,2020-11-19,5.3
