@@ -1137,9 +1137,9 @@ File: C/Catamorphism
 #c# 2018-07-22 <RC
 #p# OK
 
-File: C/Changable_words
+File: C/Changeable_words
 #!/usr/local/bin/perl
-#u# http://rosettacode.org/wiki/Changable_words
+#u# http://rosettacode.org/wiki/Changeable_words
 #c# 2020-12-06 <RC
 #p# OK
 
@@ -4826,6 +4826,12 @@ File: M/Menu
 #p# OK
 #=# RC pipe: 1
 
+File: M/Merge_and_aggregate_datasets
+#!/usr/local/bin/perl
+#u# http://rosettacode.org/wiki/Merge_and_aggregate_datasets
+#c# 2020-12-06 <RC
+#p# OK
+
 File: M/Mersenne_primes
 #!/usr/local/bin/perl
 #u# http://rosettacode.org/wiki/Mersenne_primes
@@ -5321,6 +5327,12 @@ File: N/Number_reversal_game
 #c# 2018-08-20 <RC
 #p# OK
 
+File: N/Numbers_with_equal_rises_and_falls
+#!/usr/local/bin/perl
+#u# http://rosettacode.org/wiki/Numbers_with_equal_rises_and_falls
+#c# 2020-12-06 <RC
+#p# OK
+
 File: N/Numbers_with_prime_digits_whose_sum_is_13
 #!/usr/local/bin/perl
 #u# http://rosettacode.org/wiki/Numbers_with_prime_digits_whose_sum_is_13
@@ -5718,6 +5730,12 @@ File: P/Pentagram
 #c# 2018-11-17 >RC
 #p# OK
 #f# RC file: pentagram.svg
+
+File: P/Pentomino_tiling
+#!/usr/local/bin/perl
+#u# http://rosettacode.org/wiki/Pentomino_tiling
+#c# 2020-12-06 <RC
+#p# OK
 
 File: P/Percentage_difference_between_images-1
 #!/usr/local/bin/perl
