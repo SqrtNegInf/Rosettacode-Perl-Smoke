@@ -4918,8 +4918,7 @@ File: M/Minesweeper_game
 File: M/Minimal_steps_down_to_1
 #!/usr/local/bin/perl
 #u# http://rosettacode.org/wiki/Minimal_steps_down_to_1
-#t# inprogress
-#c# 2019-12-xx >RC
+#c# 2020-12-08 <RC
 #p# OK
 
 File: M/Minimum_positive_multiple_in_base_10_using_only_0_and_1-1
