@@ -276,9 +276,6 @@ M/Metaprogramming
 M/Mian-Chowla_sequence
 –:     3 EN DASH
 
-M/Minimal_steps_down_to_1
-»:     1 RIGHT-POINTING DOUBLE ANGLE QUOTATION MARK
-
 M/Moebius_function
 »:     1 RIGHT-POINTING DOUBLE ANGLE QUOTATION MARK
 ö:     6 LATIN SMALL LETTER O WITH DIAERESIS
