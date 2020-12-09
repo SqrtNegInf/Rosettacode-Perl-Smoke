@@ -47,19 +47,19 @@ print F <<EOP;
 #p# OK
 
 use feature 'say';
-my \$result;
-# my \@res;
+#my \$result;
+#my \@res;
 
 $perl5
 
-say \$result; 
-#say \$result = join "\\n", \@res;
-my \$ref = <<'EOD';
 EOD
 
+say my \$result = join "\\n", \@res;
+my \$ref = <<'EOD';
+
 use Test::More;
-#is (\$result, \$ref);
-#done_testing();
+is (\$result, \$ref);
+done_testing();
 EOP
 
 system "chmod +x $f";
