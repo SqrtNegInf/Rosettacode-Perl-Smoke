@@ -11,7 +11,7 @@ updating from RC…
 |||||||+-----> Draft [219]
 ||||||||+----> Ignoring [37]
 |||||||||+---> Void (no local copy) [144]
-||||||||||+--> Un-implemented/reliable [125]
+||||||||||+--> Un-implemented/reliable [124]
 |||||||||||
 GS......... 100_doors-1
 GS......... 100_doors-2
@@ -614,7 +614,7 @@ GS..T.F.... Hough_transform
 GS......... Huffman_coding
 GS..T...... Humble_numbers
 .........VU Hunt_the_Wumpus
-.......D.VU I%27m_a_software_engineer,_get_me_out_of_here
+.......D.V. I%27m_a_software_engineer,_get_me_out_of_here
 GS......... IBAN
 G.KI...D... IPC_via_named_pipe
 .......D.VU IRC_gateway
