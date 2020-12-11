@@ -8,10 +8,10 @@ updating from RC…
 ||||+--------> Touched (modified by me) [408]
 |||||+-------> Random seed [106]
 ||||||+------> File output [74]
-|||||||+-----> Draft [219]
+|||||||+-----> Draft [220]
 ||||||||+----> Ignoring [37]
-|||||||||+---> Void (no local copy) [144]
-||||||||||+--> Un-implemented/reliable [124]
+|||||||||+---> Void (no local copy) [145]
+||||||||||+--> Un-implemented/reliable [125]
 |||||||||||
 GS......... 100_doors-1
 GS......... 100_doors-2
@@ -1470,6 +1470,7 @@ GS......... Weird_numbers-2
 .......D... Welch%27s_t-test
 GS..T...... Welch%27s_t-test-1
 GS......... Welch%27s_t-test-2
+.......D.VU WiktionaryDumps_to_words
 G.KI....... Window_creation
 G.KI....... Window_creation_X11
 G.KI....... Window_management
