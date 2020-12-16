@@ -2743,6 +2743,12 @@ File: F/Fibonacci_word_fractal
 #p# OK
 #f# RC file: fword.png
 
+File: F/Fibonacci_word_fractal-2
+#!/usr/local/bin/perl
+#u# http://rosettacode.org/wiki/Fibonacci_word/fractal
+#c# 2020-12-11 <RC
+#p# OK
+
 File: F/File_extension_is_in_extensions_list
 #!/usr/local/bin/perl
 #u# http://rosettacode.org/wiki/File_extension_is_in_extensions_list
@@ -2868,6 +2874,13 @@ File: F/Find_the_missing_permutation
 #u# http://rosettacode.org/wiki/Find_the_missing_permutation
 #c# 2018-08-06 <RC
 #p# OK
+
+File: F/Find_the_missing_permutation-2
+#!/usr/local/bin/perl
+#u# http://rosettacode.org/wiki/Find_the_missing_permutation
+#c# 2018-08-06 <RC
+#p# OK
+#n# alternates
 
 File: F/First-class_functions
 #!/usr/local/bin/perl
@@ -7015,7 +7028,6 @@ File: S/Sexy_primes-3
 File: S/Shell_one-liner
 #!/usr/local/bin/perl
 #u# http://rosettacode.org/wiki/Shell_one-liner
-#t# nocode
 #c# 2018-08-17 <RC
 #p# OK
 
