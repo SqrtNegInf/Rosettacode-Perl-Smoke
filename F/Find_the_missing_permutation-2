@@ -1,0 +1,29 @@
+#!/usr/local/bin/perl
+#u# http://rosettacode.org/wiki/Find_the_missing_permutation
+#c# 2018-08-06 <RC
+#p# OK
+#n# alternates
+
+use strict;
+use warnings;
+use feature 'say';
+
+my @perms = <ABCD CABD ACDB DACB BCDA ACBD ADCB CDAB DABC BCAD CADB CDBA CBAD ABDC ADBC BDCA DCBA BACD BADC BDAC CBDA DBCA DCAB>;
+
+my $result1 = eval join '^', map "'$_'", @perms;
+
+#or if you don't like eval...
+$\ ^= $_ for @perms;
+say my $result2 = $\;
+
+#Every permutation has a "reverse", just take all reverses and remove the "normals".
+local $_ = join "\n", @perms;
+my %h = map { $_, '' } reverse =~ /\w+/g;
+delete @h{ /\w+/g };
+my ($result3) = %h;
+
+use Test::More;
+is ($result1, 'DBAC');
+is ($result2, 'DBAC');
+is ($result3, 'DBAC');
+done_testing();
