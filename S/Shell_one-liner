@@ -1,10 +1,7 @@
 #!/usr/local/bin/perl
 #u# http://rosettacode.org/wiki/Shell_one-liner
-#t# nocode
 #c# 2018-08-17 <RC
 #p# OK
 
-# $ perl -e 'print "Hello\n"'
-# Hello
-
-# More information about the many ways of invoking perl can be found in perlrun.
+print my $result = `perl -e 'print "Hello world!\n"'`;
+print "ok 1\n" if $result eq "Hello world!\n";
