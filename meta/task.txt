@@ -1,16 +1,16 @@
 
 This is perl 5, version 32, subversion 0 (v5.32.0) built for darwin-thread-multi-2level
 updating from RC…
-+------------> Perl: Good/Bad [1328/9]
-|+-----------> Smoke testing [1189]
++------------> Perl: Good/Bad [1330/9]
+|+-----------> Smoke testing [1191]
 ||+----------> sKipping validation [144]
 |||+---------> Interactive [62]
-||||+--------> Touched (modified by me) [408]
+||||+--------> Touched (modified by me) [409]
 |||||+-------> Random seed [106]
 ||||||+------> File output [74]
 |||||||+-----> Draft [220]
 ||||||||+----> Ignoring [37]
-|||||||||+---> Void (no local copy) [145]
+|||||||||+---> Void (no local copy) [143]
 ||||||||||+--> Un-implemented/reliable [125]
 |||||||||||
 GS......... 100_doors-1
@@ -65,7 +65,7 @@ GS..T...... Address_of_a_variable
 GS......... Align_columns-1
 GS......... Align_columns-2
 GS......... Aliquot_sequence_classifications
-.......D.VU Almkvist-Giullera_formula_for_pi
+GS..T..D..U Almkvist-Giullera_formula_for_pi
 GS......... Almost_prime-1
 GS......... Almost_prime-2
 GS.....D... Alternade_words
@@ -616,7 +616,7 @@ GS..T.F.... Hough_transform
 GS......... Huffman_coding
 GS..T...... Humble_numbers
 .........VU Hunt_the_Wumpus
-.......D.V. I%27m_a_software_engineer,_get_me_out_of_here
+GS.....D... I%27m_a_software_engineer,_get_me_out_of_here
 GS......... IBAN
 G.KI...D... IPC_via_named_pipe
 .......D.VU IRC_gateway
