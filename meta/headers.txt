@@ -279,6 +279,12 @@ File: A/Aliquot_sequence_classifications
 #c# 2018-07-11 <RC
 #p# OK
 
+File: A/Almkvist-Giullera_formula_for_pi
+#!/usr/local/bin/perl
+#u# http://rosettacode.org/wiki/Almkvist-Giullera_formula_for_pi
+#c# 2020-12-xx >RC
+#p# OK
+
 File: A/Almost_prime-1
 #!/usr/local/bin/perl
 #u# http://rosettacode.org/wiki/Almost_prime
@@ -3682,6 +3688,12 @@ File: H/Humble_numbers
 #c# 2019-09-05 >RC
 #p# OK
 #n# GMPz provides ~ 16x speed-up, GMP ~ 4x
+
+File: I/I%27m_a_software_engineer,_get_me_out_of_here
+#!/usr/local/bin/perl
+#u# http://rosettacode.org/wiki/I%27m_a_software_engineer,_get_me_out_of_here
+#c# 2020-12-09 <RC
+#p# OK
 
 File: I/I.Q._Puzzle
 #!/usr/local/bin/perl
