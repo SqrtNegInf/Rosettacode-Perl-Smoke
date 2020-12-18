@@ -8531,6 +8531,13 @@ File: U/UTF-8_encode_and_decode
 #c# 2018-08-07 <RC
 #p# OK
 
+File: U/Ulam_numbers
+#!/usr/local/bin/perl
+#u# http://rosettacode.org/wiki/Ulam_numbers
+#c# 2020-12-xx >RC
+#p# OK
+#n# slowish @ 40sec for U(10_000)
+
 File: U/Ulam_spiral_for_primes
 #!/usr/local/bin/perl
 #u# http://rosettacode.org/wiki/Ulam_spiral_%28for_primes%29
