@@ -15,7 +15,7 @@ sub ulam {
     state %u     = (1 => 1, 2 => 1);
     state @ulams = <0 1 2>; # 0 a placeholder to shift indexing up one
 
-    return $ulams[$n] if $ulams[$n-1];
+    return $ulams[$n] if $ulams[$n];
 
     $n++;
     my $i = 3;
@@ -40,7 +40,7 @@ if (0) {
         #$u{ $i - $ulams[$_] } and $ulams[$_] != ($i - $ulams[$_]) and $count++ > 2 and last for 0..$#ulams;
             $u{ $i - $ulams[$_] } 
         and $ulams[$_] != $i - $ulams[$_]
-        and $count++ > 2 
+        and $count++ > 2    # 1 works as well, why?
         and last 
             for 0..$#ulams;
 
