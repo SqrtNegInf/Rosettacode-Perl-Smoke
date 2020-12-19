@@ -2752,6 +2752,7 @@ File: F/Fibonacci_word_fractal
 File: F/Fibonacci_word_fractal-2
 #!/usr/local/bin/perl
 #u# http://rosettacode.org/wiki/Fibonacci_word/fractal
+#t# gui
 #c# 2020-12-11 <RC
 #p# OK
 
@@ -6911,6 +6912,13 @@ File: S/Self-describing_numbers
 #u# http://rosettacode.org/wiki/Self-describing_numbers
 #c# 2018-08-18 <RC
 #p# OK
+
+File: S/Self_numbers-1
+#!/usr/local/bin/perl
+#u# http://rosettacode.org/wiki/Self_numbers
+#c# 2020-12-xx >RC
+#p# OK
+#n# Wait a sec... Raku is *faster*?
 
 File: S/Semiprime
 #!/usr/local/bin/perl
