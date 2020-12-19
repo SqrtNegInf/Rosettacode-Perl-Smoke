@@ -1,16 +1,16 @@
 
 This is perl 5, version 32, subversion 0 (v5.32.0) built for darwin-thread-multi-2level
 updating from RC…
-+------------> Perl: Good/Bad [1331/9]
++------------> Perl: Good/Bad [1333/9]
 |+-----------> Smoke testing [1192]
-||+----------> sKipping validation [144]
-|||+---------> Interactive [62]
-||||+--------> Touched (modified by me) [410]
+||+----------> sKipping validation [145]
+|||+---------> Interactive [63]
+||||+--------> Touched (modified by me) [411]
 |||||+-------> Random seed [106]
 ||||||+------> File output [74]
 |||||||+-----> Draft [220]
 ||||||||+----> Ignoring [37]
-|||||||||+---> Void (no local copy) [142]
+|||||||||+---> Void (no local copy) [141]
 ||||||||||+--> Un-implemented/reliable [125]
 |||||||||||
 GS......... 100_doors-1
@@ -473,7 +473,7 @@ GS......... Fibonacci_sequence-2
 GS......... Fibonacci_sequence-3
 GS......... Fibonacci_word
 GS....F.... Fibonacci_word_fractal
-!S......... Fibonacci_word_fractal-2
+G.KI....... Fibonacci_word_fractal-2
 GS......... File_extension_is_in_extensions_list
 GS....F.... File_input_output
 GS......... File_modification_time
@@ -1158,7 +1158,8 @@ G.K........ Secure_temporary_file
 GS..T..D... Selective_file_copy
 GS......... Self-describing_numbers
 .......D.VU Self-hosting_compiler
-.........VU Self_numbers
+..........U Self_numbers
+GS..T...... Self_numbers-1
 GS......... Semiprime
 GS......... Semordnilap
 GS......... Send_an_unknown_method_call
