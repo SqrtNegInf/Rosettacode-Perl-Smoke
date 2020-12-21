@@ -7,7 +7,7 @@ use feature 'say';
 my $result;
 
 use Set::CrossProduct;
-use ntheory qw/forperm forcomb/;
+use ntheory qw/forperm/;
 
 sub four_sq_permute {
     my( $list ) = @_;
