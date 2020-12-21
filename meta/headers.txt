@@ -7659,6 +7659,12 @@ File: S/Square-free_integers
 #c# 2018-08-13 <RC
 #p# OK
 
+File: S/Square_Root_by_Hand
+#!/usr/local/bin/perl
+#u# http://rosettacode.org/wiki/Square_Root_by_Hand
+#c# 2020-12-xx >RC
+#p# OK
+
 File: S/Square_but_not_cube-1
 #!/usr/local/bin/perl
 #u# http://rosettacode.org/wiki/Square_but_not_cube
@@ -8094,6 +8100,18 @@ File: T/Tarjan
 #!/usr/local/bin/perl
 #u# http://rosettacode.org/wiki/Tarjan
 #c# 2018-11-19 >RC, 2020-03-09 <RC
+#p# OK
+
+File: T/Tau_function
+#!/usr/local/bin/perl
+#u# http://rosettacode.org/wiki/Tau_function
+#c# 2020-12-xx >RC
+#p# OK
+
+File: T/Tau_numbers
+#!/usr/local/bin/perl
+#u# http://rosettacode.org/wiki/Tau_function
+#c# 2020-12-xx >RC
 #p# OK
 
 File: T/Taxicab_numbers
