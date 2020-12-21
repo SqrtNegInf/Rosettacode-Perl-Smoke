@@ -1,17 +1,17 @@
 
 This is perl 5, version 32, subversion 0 (v5.32.0) built for darwin-thread-multi-2level
 updating from RC…
-+------------> Perl: Good/Bad [1333/9]
-|+-----------> Smoke testing [1192]
++------------> Perl: Good/Bad [1335/9]
+|+-----------> Smoke testing [1194]
 ||+----------> sKipping validation [145]
 |||+---------> Interactive [63]
-||||+--------> Touched (modified by me) [411]
+||||+--------> Touched (modified by me) [413]
 |||||+-------> Random seed [106]
 ||||||+------> File output [74]
-|||||||+-----> Draft [220]
+|||||||+-----> Draft [224]
 ||||||||+----> Ignoring [37]
-|||||||||+---> Void (no local copy) [141]
-||||||||||+--> Un-implemented/reliable [125]
+|||||||||+---> Void (no local copy) [143]
+||||||||||+--> Un-implemented/reliable [129]
 |||||||||||
 GS......... 100_doors-1
 GS......... 100_doors-2
@@ -1035,6 +1035,7 @@ GS......... Priority_queue-2
 GS...R..... Probabilistic_choice
 GS..T...... Problem_of_Apollonius
 GS.....D... Process_SMIL_directives_in_XML_data
+.......D.VU Product_of_divisors
 GS......... Program_name
 G.K........ Program_termination
 .......D.VU Proof
@@ -1276,7 +1277,7 @@ GS..TR.D... Spoof_game
 GS......... Square-free_integers
 GS..T...... Square_but_not_cube-1
 GS..T...... Square_but_not_cube-2
-.......D.VU Square_root_by_hand
+GS..T..D..U Square_root_by_hand
 GS......... Stable_marriage_problem
 G.K........ Stack
 GS......... Stack_traces
@@ -1329,6 +1330,7 @@ GS......... Sum_digits_of_an_integer
 GS......... Sum_multiples_of_3_and_5-1
 GS..T...... Sum_multiples_of_3_and_5-2
 GS......... Sum_of_a_series
+.......D.VU Sum_of_divisors
 GS......... Sum_of_squares
 GS......... Sum_to_100
 GS..T...... Summarize_and_say_sequence
@@ -1346,6 +1348,8 @@ G.K.....X.. Table_creation_Postal_addresses
 GS....F.... Take_notes_on_the_command_line
 .......D.VU Tamagotchi_emulator
 GS..T...... Tarjan
+GS..T..D..U Tau_function
+.......D.VU Tau_number
 GS......... Taxicab_numbers
 GS..T...... Teacup_rim_text
 GS......... Temperature_conversion
