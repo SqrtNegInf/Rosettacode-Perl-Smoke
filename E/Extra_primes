@@ -1,0 +1,25 @@
+#!/usr/local/bin/perl
+#u# http://rosettacode.org/wiki/Extra_primes
+#c# 2020-12-xx >RC
+#p# OK
+
+use strict;
+use warnings;
+use feature 'say';
+
+use ntheory 'is_prime';
+
+my $n;
+is_prime($_) and /^[2357]+$/ and $n .= sprintf '%-5d', $_ for 1..10000;
+say my $result = $n =~ s/.{1,80}\K /\n/gr;
+
+my $ref = <<'EOD';
+2    3    5    7    23   37   53   73   223  227  233  257  277  337  353  373 
+523  557  577  727  733  757  773  2237 2273 2333 2357 2377 2557 2753 2777 3253
+3257 3323 3373 3527 3533 3557 3727 3733 5227 5233 5237 5273 5323 5333 5527 5557
+5573 5737 7237 7253 7333 7523 7537 7573 7577 7723 7727 7753 7757
+EOD
+
+use Test::More;
+is ($result, $ref);
+done_testing();
