@@ -1,16 +1,16 @@
 
 This is perl 5, version 32, subversion 0 (v5.32.0) built for darwin-thread-multi-2level
 updating from RC…
-+------------> Perl: Good/Bad [1335/9]
-|+-----------> Smoke testing [1194]
++------------> Perl: Good/Bad [1339/9]
+|+-----------> Smoke testing [1198]
 ||+----------> sKipping validation [145]
 |||+---------> Interactive [63]
-||||+--------> Touched (modified by me) [413]
+||||+--------> Touched (modified by me) [417]
 |||||+-------> Random seed [106]
 ||||||+------> File output [74]
 |||||||+-----> Draft [224]
 ||||||||+----> Ignoring [37]
-|||||||||+---> Void (no local copy) [143]
+|||||||||+---> Void (no local copy) [139]
 ||||||||||+--> Un-implemented/reliable [129]
 |||||||||||
 GS......... 100_doors-1
@@ -440,7 +440,7 @@ GS......... Extensible_prime_generator-2
 GS......... Extensible_prime_generator-3
 GS......... Extensible_prime_generator-4
 GS..T..D... External_sort
-.......D.VU Extra_primes
+GS..T..D..U Extra_primes
 GS.....D... Extract_file_extension
 GS......... Extreme_floating_point_values
 GS......... FASTA_format
@@ -922,7 +922,7 @@ GS..T...... Palindrome_dates-1
 GS......... Palindrome_dates-2
 GS......... Palindrome_detection
 .........VU Palindromic_gapful_numbers
-.......D.VU Pancake_numbers
+GS..T..D..U Pancake_numbers
 GS..T...... Pangram_checker
 GS......... Paraffins
 GS......... Parallel_brute_force
@@ -1035,7 +1035,7 @@ GS......... Priority_queue-2
 GS...R..... Probabilistic_choice
 GS..T...... Problem_of_Apollonius
 GS.....D... Process_SMIL_directives_in_XML_data
-.......D.VU Product_of_divisors
+GS..T..D..U Product_of_divisors
 GS......... Program_name
 G.K........ Program_termination
 .......D.VU Proof
@@ -1330,7 +1330,7 @@ GS......... Sum_digits_of_an_integer
 GS......... Sum_multiples_of_3_and_5-1
 GS..T...... Sum_multiples_of_3_and_5-2
 GS......... Sum_of_a_series
-.......D.VU Sum_of_divisors
+GS..T..D..U Sum_of_divisors
 GS......... Sum_of_squares
 GS......... Sum_to_100
 GS..T...... Summarize_and_say_sequence
