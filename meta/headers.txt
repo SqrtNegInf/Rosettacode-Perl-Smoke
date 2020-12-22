@@ -2547,6 +2547,12 @@ File: E/External_sort
 #n# note dual use of 'mysort', via direct call, and passed as a sorting routine for native 'sort' function
 #n# (hence the need for the prototype)
 
+File: E/Extra_primes
+#!/usr/local/bin/perl
+#u# http://rosettacode.org/wiki/Extra_primes
+#c# 2020-12-xx >RC
+#p# OK
+
 File: E/Extract_file_extension
 #!/usr/local/bin/perl
 #u# http://rosettacode.org/wiki/Extract_file_extension
@@ -5564,6 +5570,12 @@ File: P/Palindrome_detection
 #c# 2018-08-11 <RC
 #p# OK
 
+File: P/Pancake_numbers
+#!/usr/local/bin/perl
+#u# http://rosettacode.org/wiki/Pancake_numbers
+#c# 2020-12-xx >RC
+#p# OK
+
 File: P/Pangram_checker
 #!/usr/local/bin/perl
 #u# http://rosettacode.org/wiki/Pangram_checker
@@ -6253,6 +6265,12 @@ File: P/Process_SMIL_directives_in_XML_data
 #!/usr/local/bin/perl
 #u# http://rosettacode.org/wiki/Process_SMIL_directives_in_XML_data
 #c# 2020-11-08 <RC
+#p# OK
+
+File: P/Product_of_divisors
+#!/usr/local/bin/perl
+#u# http://rosettacode.org/wiki/Product_of_divisors
+#c# 2020-12-xx >RC
 #p# OK
 
 File: P/Program_name
@@ -7998,6 +8016,12 @@ File: S/Sum_of_a_series
 #c# 2018-08-12 <RC
 #p# OK
 
+File: S/Sum_of_divisors
+#!/usr/local/bin/perl
+#u# http://rosettacode.org/wiki/Sum_of_divisors
+#c# 2020-12-xx >RC
+#p# OK
+
 File: S/Sum_of_squares
 #!/usr/local/bin/perl
 #u# http://rosettacode.org/wiki/Sum_of_squares
@@ -8110,7 +8134,7 @@ File: T/Tau_function
 
 File: T/Tau_numbers
 #!/usr/local/bin/perl
-#u# http://rosettacode.org/wiki/Tau_function
+#u# http://rosettacode.org/wiki/Tau_numbers
 #c# 2020-12-xx >RC
 #p# OK
 
