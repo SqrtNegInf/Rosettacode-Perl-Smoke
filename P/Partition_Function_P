@@ -1,0 +1,66 @@
+#!/usr/local/bin/perl
+#u# http://rosettacode.org/wiki/Partition_Function_P
+#c# 2020-12-xx >RC
+#p# OK
+#n# Raku is faster
+
+use strict;
+use warnings;
+no warnings qw(recursion);
+use feature 'say';
+
+my $result;
+
+#use ntheory 'partitions'; say partitions(6666);
+
+use bigint try=>"GMP,Pari";
+
+use Memoize;
+memoize('partitionsP');
+memoize('partDiff');
+
+sub partDiffDiff { my($n) = @_; $n%2 != 0 ? ($n+1)/2 : $n+1 }
+ 
+sub partDiff { my($n) = @_; $n<2 ? 1 : partDiff($n-1)+ partDiffDiff($n-1) }
+ 
+sub partitionsP {
+    my($n) = @_;
+    if ($n<2) {
+        return 1;
+    } else {
+        my $psum = 0;
+        for my $i (1..$n) {
+            my $pd = partDiff($i);
+            if ($pd > $n) {
+                last;
+            }
+            if ( (($i-1)%4) < 2 ) {
+                $psum += partitionsP($n-$pd)
+            } else {
+                $psum -= partitionsP($n-$pd)
+            }
+        }
+        $psum
+    }
+}
+ 
+$result .= partitionsP($_) . ' ' for 0..25;
+say $result .= "\n" . partitionsP(6666);
+
+my $ref = <<'END';
+1 1 2 3 5 7 11 15 22 30 42 56 77 101 135 176 231 297 385 490 627 792 1002 1255 1575 1958 
+193655306161707661080005073394486091998480950338405932486880600467114423441282418165863
+END
+
+use Test::More;
+chomp $ref;
+is($result, $ref);
+done_testing();
+
+__END__
+
+=={{header|Perl}}==
+{{libheader|ntheory}}
+<lang perl></lang>
+{{out}}
+<pre></pre>
