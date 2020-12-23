@@ -1,0 +1,84 @@
+#!/usr/local/bin/perl
+#u# http://rosettacode.org/wiki/Two_bullet_roulette
+#c# 2020-12-xx >RC
+#p# OK
+
+use strict;
+no strict 'refs';
+use warnings;
+use feature 'say';
+
+my @res;
+
+srand 123456;
+
+my @cyl;
+my $shots = 6;
+
+sub load  {
+    push @cyl, shift @cyl while $cyl[1];
+    $cyl[1] = 1;
+    push @cyl, shift @cyl
+}
+
+sub spin  { push @cyl, shift @cyl for 0 .. int rand @cyl }
+
+sub fire  { push @cyl, shift @cyl; $cyl[0] }
+
+sub LSLSFSF {
+    @cyl = (0) x $shots;
+    load, spin, load, spin;
+    return 1 if fire;
+    spin;
+    fire
+}
+
+sub LSLSFF {
+    @cyl = (0) x $shots;
+    load, spin, load, spin;
+    fire or fire
+}
+
+sub LLSFSF {
+    @cyl = (0) x $shots;
+    load, load, spin;
+    return 1 if fire;
+    spin;
+    fire
+}
+
+sub LLSFF {
+    @cyl = (0) x $shots;
+    load, load, spin;
+    fire or fire
+}
+
+my $trials = 10000;
+
+for my $ref (<LSLSFSF LSLSFF LLSFSF LLSFF>) {
+    my $total = 0;
+    $total += &$ref for 1..$trials;
+    push @res, sprintf "%7s %.2f%%", $ref, $total / $trials * 100;
+}
+
+say my $result = join "\n", @res;
+
+my $ref = <<'END';
+LSLSFSF 55.04%
+ LSLSFF 58.77%
+ LLSFSF 55.09%
+  LLSFF 50.13%
+END
+
+use Test::More;
+chomp $ref;
+is($result, $ref);
+done_testing;
+
+__END__
+
+=={{header|Perl}}==
+{{trans|Raku}}
+<lang perl></lang>
+{{out}}
+<pre></pre>
