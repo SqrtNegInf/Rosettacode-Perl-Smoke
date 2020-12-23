@@ -3358,6 +3358,13 @@ File: G/Greatest_subsequential_sum-2
 #p# OK
 #n# noodling, not worth RC update
 
+File: G/Greed
+#!/usr/local/bin/perl
+#u# http://rosettacode.org/wiki/Greed
+#t# interactive
+#c# 2020-12-xx >RC
+#p# OK
+
 File: G/Greyscale_bars_Display
 #!/usr/local/bin/perl
 #u# http://rosettacode.org/wiki/Greyscale_bars/Display
@@ -4975,6 +4982,12 @@ File: M/Minimum_positive_multiple_in_base_10_using_only_0_and_1-3
 #p# OK
 #n# no special cases, fastest of 3 versions
 
+File: M/Minkowski_question-mark_function
+#!/usr/local/bin/perl
+#u# http://rosettacode.org/wiki/Minkowski_question-mark_function
+#c# 2020-12-xx >RC
+#p# OK
+
 File: M/Modular_arithmetic
 #!/usr/local/bin/perl
 #u# http://rosettacode.org/wiki/Modular_arithmetic
@@ -5649,6 +5662,13 @@ File: P/Particle_Swarm_Optimization
 #c# 2020-01-20 >RC
 #p# OK
 #n# TIL: wrapping function to coerce output: %{pso()}
+
+File: P/Partition_Function_P
+#!/usr/local/bin/perl
+#u# http://rosettacode.org/wiki/Partition_Function_P
+#c# 2020-12-xx >RC
+#p# OK
+#n# Raku is faster
 
 File: P/Partition_an_integer_X_into_N_primes
 #!/usr/local/bin/perl
@@ -8543,6 +8563,12 @@ File: T/Two_Sum
 #!/usr/local/bin/perl
 #u# http://rosettacode.org/wiki/Two_Sum
 #c# 2018-08-09 <RC, 2019-03-16 >RC
+#p# OK
+
+File: T/Two_bullet_roulette
+#!/usr/local/bin/perl
+#u# http://rosettacode.org/wiki/Two_bullet_roulette
+#c# 2020-12-xx >RC
 #p# OK
 
 File: T/Type_detection
