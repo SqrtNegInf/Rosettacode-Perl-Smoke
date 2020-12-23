@@ -1,0 +1,97 @@
+#!/usr/local/bin/perl
+#u# http://rosettacode.org/wiki/Minkowski_question-mark_function
+#c# 2020-12-xx >RC
+#p# OK
+
+use strict;
+use warnings;
+use feature 'say';
+
+use POSIX qw(floor);
+
+my @res;
+
+my $MAXITER = 50;
+
+sub minkowski {
+    my($x) = @_;
+
+    return floor($x) + minkowski( $x - floor($x) ) if $x > 1 || $x < 0 ;
+
+    my $y = my $p = floor($x);
+    my ($q,$s,$d) = (1,1,1);
+    my $r = $p + 1;
+
+    while () {
+        last if ( $y + ($d /= 2)  == $y ) or
+                ( my $m = $p + $r) <  0   or
+                ( my $n = $q + $s) <  0;
+        $x < $m/$n ? ($r,$s) = ($m, $n) : ($y += $d and ($p,$q) = ($m, $n) );
+    }
+    return $y + $d
+}
+
+sub minkowskiInv {
+    my($x) = @_;
+
+    return floor($x) + minkowskiInv($x - floor($x)) if $x > 1 || $x < 0;
+    return $x if $x == 1 || $x == 0 ;
+
+    my @contFrac = 0;
+    my $i = my $curr = 0 ; my $count = 1;
+
+    while () {
+        $x *= 2;
+        if ($curr == 0) {
+            if ($x < 1) {
+                $count++
+            } else {
+                $i++;
+                push @contFrac, 0;
+                $contFrac[$i-1] = $count;
+                ($count,$curr) = (1,1);
+                $x--;
+            }
+        } else {
+            if ($x > 1) {
+                $count++;
+                $x--;
+            } else {
+                $i++;
+                push @contFrac, 0;
+                @contFrac[$i-1] = $count;
+                ($count,$curr) = (1,0);
+            }
+        }
+        if ($x == floor($x)) { @contFrac[$i] = $count; last }
+        last if $i == $MAXITER;
+    }
+    my $ret = 1 / $contFrac[$i];
+    for (my $j = $i - 1; $j >= 0; $j--) { $ret = $contFrac[$j] + 1/$ret }
+    return 1 / $ret
+}
+
+push @res, sprintf "%19.16f %19.16f", minkowski(0.5*(1 + sqrt(5))), 5/3;
+push @res, sprintf "%19.16f %19.16f", minkowskiInv(-5/9), (sqrt(13)-7)/6;
+push @res, sprintf "%19.16f %19.16f", minkowski(minkowskiInv(0.718281828)), minkowskiInv(minkowski(0.1213141516171819));
+
+say my $result = join "\n", @res;
+
+my $ref = <<'END';
+ 1.6666666666696983  1.6666666666666667
+-0.5657414540893351 -0.5657414540893352
+ 0.7182818280000092  0.1213141516171819
+END
+
+use Test::More;
+chomp $ref;
+is($result, $ref);
+done_testing();
+
+__END__
+
+=={{header|Perl}}==
+{{trans|Raku}}
+<lang perl></lang>
+{{out}}
+<pre></pre>
