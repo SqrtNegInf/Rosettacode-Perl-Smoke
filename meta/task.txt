@@ -1,16 +1,16 @@
 
 This is perl 5, version 32, subversion 0 (v5.32.0) built for darwin-thread-multi-2level
 updating from RC…
-+------------> Perl: Good/Bad [1339/9]
-|+-----------> Smoke testing [1198]
-||+----------> sKipping validation [145]
-|||+---------> Interactive [63]
-||||+--------> Touched (modified by me) [417]
-|||||+-------> Random seed [106]
++------------> Perl: Good/Bad [1343/9]
+|+-----------> Smoke testing [1201]
+||+----------> sKipping validation [146]
+|||+---------> Interactive [64]
+||||+--------> Touched (modified by me) [421]
+|||||+-------> Random seed [108]
 ||||||+------> File output [74]
 |||||||+-----> Draft [224]
 ||||||||+----> Ignoring [37]
-|||||||||+---> Void (no local copy) [139]
+|||||||||+---> Void (no local copy) [135]
 ||||||||||+--> Un-implemented/reliable [129]
 |||||||||||
 GS......... 100_doors-1
@@ -565,7 +565,7 @@ G.K........ Greatest_common_divisor-5
 GS......... Greatest_element_of_a_list
 GS...R..... Greatest_subsequential_sum-1
 GS......... Greatest_subsequential_sum-2
-.......D.VU Greed
+G.KITR.D..U Greed
 GS..T.F.... Greyscale_bars_Display
 GS...R..... Guess_the_number
 GS...R..... Guess_the_number_With_feedback
@@ -820,7 +820,7 @@ GS......... Minimal_steps_down_to_1
 GS..T...... Minimum_positive_multiple_in_base_10_using_only_0_and_1-1
 GS..T...... Minimum_positive_multiple_in_base_10_using_only_0_and_1-2
 GS......... Minimum_positive_multiple_in_base_10_using_only_0_and_1-3
-.........VU Minkowski_question-mark_function
+GS..T.....U Minkowski_question-mark_function
 GS......... Modular_arithmetic
 GS..T...... Modular_exponentiation
 GS......... Modular_inverse
@@ -938,7 +938,7 @@ GS......... Parsing_Shunting-yard_algorithm
 GS......... Partial_function_application
 GS..TR.D... Particle_swarm_optimization
 GS......... Partition_an_integer_x_into_n_primes
-.........VU Partition_function_P
+GS..T.....U Partition_function_P
 GS......... Pascal%27s_triangle-1
 GS......... Pascal%27s_triangle-2
 GS......... Pascal%27s_triangle-3
@@ -1412,7 +1412,7 @@ GS......... Truncate_a_file
 GS....F.... Truth_table
 GS......... Twelve_statements
 GS..T..D... Twin_primes
-.......D.VU Two_bullet_roulette
+GS..TR.D..U Two_bullet_roulette
 GS..T..D... Two_sum
 GS..T..D... Type_detection
 GS..T..D... UPC
