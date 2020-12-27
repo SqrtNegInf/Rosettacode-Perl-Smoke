@@ -1,17 +1,17 @@
 
 This is perl 5, version 32, subversion 0 (v5.32.0) built for darwin-thread-multi-2level
 updating from RC…
-+------------> Perl: Good/Bad [1340/9]
-|+-----------> Smoke testing [1199]
++------------> Perl: Good/Bad [1343/9]
+|+-----------> Smoke testing [1201]
 ||+----------> sKipping validation [146]
 |||+---------> Interactive [64]
 ||||+--------> Touched (modified by me) [421]
 |||||+-------> Random seed [108]
 ||||||+------> File output [74]
-|||||||+-----> Draft [223]
+|||||||+-----> Draft [224]
 ||||||||+----> Ignoring [37]
-|||||||||+---> Void (no local copy) [135]
-||||||||||+--> Un-implemented/reliable [129]
+|||||||||+---> Void (no local copy) [136]
+||||||||||+--> Un-implemented/reliable [130]
 |||||||||||
 GS......... 100_doors-1
 GS......... 100_doors-2
@@ -570,6 +570,8 @@ GS..T.F.... Greyscale_bars_Display
 GS...R..... Guess_the_number
 GS...R..... Guess_the_number_With_feedback
 GS...R..... Guess_the_number_With_feedback_player
+GS......... HTTP
+GS......... HTTPS
 G.K........ HTTPS_Authenticated
 G.K........ HTTPS_Client-authenticated
 GS......... Hailstone_sequence-1
@@ -1126,7 +1128,7 @@ GS..T...... Rosetta_Code_Find_unimplemented_tasks
 GS......... Rosetta_Code_Fix_code_tags
 .......D.VU Rosetta_Code_List_authors_of_task_descriptions
 GS..T..D... Rosetta_Code_Rank_languages_by_number_of_users
-!S..T...... Rosetta_Code_Rank_languages_by_popularity
+GS..T...... Rosetta_Code_Rank_languages_by_popularity
 .......D.VU Rosetta_Code_Run_examples
 GS..T..D... Rosetta_Code_Tasks_without_examples
 GS......... Rot-13
@@ -1465,6 +1467,7 @@ GS......... Visualize_a_tree
 GS..TRF.... Voronoi_diagram
 GS..T...... Walk_a_directory_Non-recursively
 GS..T...... Walk_a_directory_Recursively
+.......D.VU War_Card_Game
 GS......... Water_collected_between_towers
 GS.....D... Waveform_analysis_Doh_ray_me
 .......D.VU Waveform_analysis_Top_and_tail
