@@ -8,7 +8,7 @@ updating from RC…
 ||||+--------> Touched (modified by me) [421]
 |||||+-------> Random seed [108]
 ||||||+------> File output [74]
-|||||||+-----> Draft [224]
+|||||||+-----> Draft [225]
 ||||||||+----> Ignoring [37]
 |||||||||+---> Void (no local copy) [136]
 ||||||||||+--> Un-implemented/reliable [130]
@@ -193,7 +193,7 @@ GS..T...... Calculating_the_value_of_e-3
 G.K........ Calculating_the_value_of_e-4
 GS......... Calendar
 G.K........ Calendar_-_for_%22REAL%22_programmers
-.........VU Calkin-Wilf_sequence
+.......D.VU Calkin-Wilf_sequence
 GS......... Call_a_foreign-language_function
 G.K........ Call_a_function
 GS..T...... Call_a_function_in_a_shared_library-1
