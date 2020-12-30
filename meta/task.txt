@@ -8,10 +8,10 @@ updating from RC…
 ||||+--------> Touched (modified by me) [421]
 |||||+-------> Random seed [108]
 ||||||+------> File output [74]
-|||||||+-----> Draft [225]
+|||||||+-----> Draft [226]
 ||||||||+----> Ignoring [37]
-|||||||||+---> Void (no local copy) [136]
-||||||||||+--> Un-implemented/reliable [130]
+|||||||||+---> Void (no local copy) [137]
+||||||||||+--> Un-implemented/reliable [131]
 |||||||||||
 GS......... 100_doors-1
 GS......... 100_doors-2
@@ -613,6 +613,7 @@ GS......... Horner%27s_rule_for_polynomial_evaluation-3
 GS......... Host_introspection
 GS......... Hostname
 GS..T.F.... Hough_transform
+.......D.VU Hourglass_puzzle
 GS......... Huffman_coding
 GS..T...... Humble_numbers
 .........VU Hunt_the_Wumpus
