@@ -1468,7 +1468,7 @@ GS......... Visualize_a_tree
 GS..TRF.... Voronoi_diagram
 GS..T...... Walk_a_directory_Non-recursively
 GS..T...... Walk_a_directory_Recursively
-.......D.VU War_Card_Game
+.......D.VU War_card_game
 GS......... Water_collected_between_towers
 GS.....D... Waveform_analysis_Doh_ray_me
 .......D.VU Waveform_analysis_Top_and_tail
