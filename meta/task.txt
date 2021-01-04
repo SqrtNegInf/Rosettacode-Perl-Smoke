@@ -8,10 +8,10 @@ updating from RC…
 ||||+--------> Touched (modified by me) [421]
 |||||+-------> Random seed [108]
 ||||||+------> File output [74]
-|||||||+-----> Draft [224]
+|||||||+-----> Draft [225]
 ||||||||+----> Ignoring [37]
-|||||||||+---> Void (no local copy) [137]
-||||||||||+--> Un-implemented/reliable [131]
+|||||||||+---> Void (no local copy) [138]
+||||||||||+--> Un-implemented/reliable [132]
 |||||||||||
 GS......... 100_doors-1
 GS......... 100_doors-2
@@ -494,6 +494,7 @@ GS......... Find_the_intersection_of_two_lines
 GS......... Find_the_last_Sunday_of_each_month
 GS......... Find_the_missing_permutation
 GS......... Find_the_missing_permutation-2
+.......D.VU Find_words_which_odd_letters_are_consonants_and_even_letters_are_vowels_or_vice_versa
 .......D.VU Finite_state_machine
 GS......... First-class_functions
 GS......... First-class_functions_Use_numbers_analogously
