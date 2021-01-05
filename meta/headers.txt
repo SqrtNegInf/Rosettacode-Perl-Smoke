@@ -2895,6 +2895,18 @@ File: F/Find_the_missing_permutation-2
 #p# OK
 #n# alternates
 
+File: F/Find_words_which_odd_letters_are_consonants_and_even_letters_are_vowels_or_vice_versa-1
+#!/usr/local/bin/perl
+#u# http://rosettacode.org/wiki/Find_words_which_odd_letters_are_consonants_and_even_letters_are_vowels_or_vice_versa
+#c# 2021-01-04 <RC
+#p# OK
+
+File: F/Find_words_which_odd_letters_are_consonants_and_even_letters_are_vowels_or_vice_versa-2
+#!/usr/local/bin/perl
+#u# http://rosettacode.org/wiki/Find_words_which_odd_letters_are_consonants_and_even_letters_are_vowels_or_vice_versa
+#c# 2020-12-xx >RC
+#p# OK
+
 File: F/First-class_functions
 #!/usr/local/bin/perl
 #u# http://rosettacode.org/wiki/First-class_functions
