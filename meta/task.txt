@@ -1,16 +1,16 @@
 
 This is perl 5, version 32, subversion 0 (v5.32.0) built for darwin-thread-multi-2level
 updating from RC…
-+------------> Perl: Good/Bad [1343/9]
-|+-----------> Smoke testing [1201]
++------------> Perl: Good/Bad [1345/9]
+|+-----------> Smoke testing [1203]
 ||+----------> sKipping validation [146]
 |||+---------> Interactive [64]
-||||+--------> Touched (modified by me) [421]
+||||+--------> Touched (modified by me) [422]
 |||||+-------> Random seed [108]
 ||||||+------> File output [74]
 |||||||+-----> Draft [225]
 ||||||||+----> Ignoring [37]
-|||||||||+---> Void (no local copy) [138]
+|||||||||+---> Void (no local copy) [137]
 ||||||||||+--> Un-implemented/reliable [132]
 |||||||||||
 GS......... 100_doors-1
@@ -494,7 +494,9 @@ GS......... Find_the_intersection_of_two_lines
 GS......... Find_the_last_Sunday_of_each_month
 GS......... Find_the_missing_permutation
 GS......... Find_the_missing_permutation-2
-.......D.VU Find_words_which_odd_letters_are_consonants_and_even_letters_are_vowels_or_vice_versa
+.......D... Find_words_which_odd_letters_are_consonants_and_even_letters_are_vowels_or_vice_versa
+GS......... Find_words_which_odd_letters_are_consonants_and_even_letters_are_vowels_or_vice_versa-1
+GS..T...... Find_words_which_odd_letters_are_consonants_and_even_letters_are_vowels_or_vice_versa-2
 .......D.VU Finite_state_machine
 GS......... First-class_functions
 GS......... First-class_functions_Use_numbers_analogously
@@ -535,7 +537,7 @@ GS..T...... Fusc_sequence
 G.KI....... GUI_Maximum_window_dimensions
 G.KIT...... GUI_component_interaction
 G.KI....... GUI_enabling_disabling_of_controls
-GS..TRF.... Galton_box_animation
+GS..TRF...U Galton_box_animation
 GS......... Gamma_function
 GS..T...... Gapful_numbers
 GS..T...... Gauss-Jordan_matrix_inversion
