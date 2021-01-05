@@ -1,0 +1,56 @@
+#!/usr/local/bin/perl
+#u# http://rosettacode.org/wiki/Find_words_which_odd_letters_are_consonants_and_even_letters_are_vowels_or_vice_versa
+#c# 2021-01-04 <RC
+#p# OK
+
+use strict;
+use warnings;
+use feature 'say';
+
+my @res;
+
+my $alternatingCount = 0;
+
+open F, '<ref/unixdict.txt';
+
+while (<F>) {
+   (my $Fld1) = split(' ', $_, -1);
+   if ((length($Fld1) >= 10)) { # have an arpropriate length word
+      my $word = $Fld1;
+      my $haveVowel = $word =~ /^[aeiou]/;
+      my $isAlternating = 1;
+      for (my $wPos = 2; $isAlternating && $wPos <= length($word); $wPos++) {
+         my $hadVowel = $haveVowel;
+         $haveVowel = substr($word, ($wPos)-1, 1) =~ /^[aeiou]/;
+         $isAlternating = ($hadVowel && !$haveVowel) || (!$hadVowel && $haveVowel);
+      } # for wPos
+      if ($isAlternating) {
+          push @res, sprintf ' %16s%s', $word, ($alternatingCount % 6 == 5) ? "\n" : '';
+          $alternatingCount += 1;
+      } # if isAlternating
+   }
+}
+
+push @res, sprintf "\n%d words with alternating vowels and consonants found\n", $alternatingCount;
+
+say my $result = join "", @res;
+
+my $ref = <<'EOD';
+       aboriginal       apologetic      bimolecular     borosilicate      calorimeter       capacitate
+       capacitive       capitoline       capitulate       caricature       colatitude       coloratura
+      colorimeter       debilitate       decelerate       decolonize       definitive       degenerate
+       deliberate       demodulate       denominate       denotative       deregulate       desiderata
+      desideratum       dilapidate       diminutive       epigenetic       facilitate      hemosiderin
+       heretofore      hexadecimal       homogenate      inoperative       judicature      latitudinal
+       legitimate       lepidolite       literature       locomotive       manipulate       metabolite
+     nicotinamide       oratorical       paragonite       pejorative       peridotite      peripatetic
+      polarimeter       recitative       recuperate     rehabilitate       rejuvenate       remunerate
+       repetitive       reticulate       savonarola       similitude       solicitude       tananarive
+      telekinesis      teratogenic       topologize       unilateral       unimodular       uninominal
+   verisimilitude
+67 words with alternating vowels and consonants found
+EOD
+
+use Test::More;
+is ($result, $ref);
+done_testing();
