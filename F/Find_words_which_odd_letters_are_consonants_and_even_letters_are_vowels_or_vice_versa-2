@@ -1,0 +1,104 @@
+#!/usr/local/bin/perl
+#u# http://rosettacode.org/wiki/Find_words_which_odd_letters_are_consonants_and_even_letters_are_vowels_or_vice_versa
+#c# 2020-12-xx >RC
+#p# OK
+
+use strict;
+use warnings;
+use feature 'say';
+
+my @res;
+
+my $vowels = 'aeiou';
+my $v = qr/[$vowels]/;
+my $c = qr/[^$vowels]/;
+
+my @words = grep { /.{10,}/ } split "\n", `cat ref/unixdict.txt`;
+
+for (@words) { push @res, $_ if /^ ( ($c$v)+ $c? | ($v$c)+ $v? ) $/ix; }
+
+#/^ ( ($c$v)+ $c? | ($v$c)+ $v? ) $/ix and say for @words;
+
+my $result = join "\n", @res;
+
+my $ref = <<'END';
+aboriginal
+apologetic
+bimolecular
+borosilicate
+calorimeter
+capacitate
+capacitive
+capitoline
+capitulate
+caricature
+colatitude
+coloratura
+colorimeter
+debilitate
+decelerate
+decolonize
+definitive
+degenerate
+deliberate
+demodulate
+denominate
+denotative
+deregulate
+desiderata
+desideratum
+dilapidate
+diminutive
+epigenetic
+facilitate
+hemosiderin
+heretofore
+hexadecimal
+homogenate
+inoperative
+judicature
+latitudinal
+legitimate
+lepidolite
+literature
+locomotive
+manipulate
+metabolite
+nicotinamide
+oratorical
+paragonite
+pejorative
+peridotite
+peripatetic
+polarimeter
+recitative
+recuperate
+rehabilitate
+rejuvenate
+remunerate
+repetitive
+reticulate
+savonarola
+similitude
+solicitude
+tananarive
+telekinesis
+teratogenic
+topologize
+unilateral
+unimodular
+uninominal
+verisimilitude
+END
+
+use Test::More;
+chomp $ref;
+is($result, $ref);
+done_testing();
+
+__END__
+
+=={{header|Perl}}==
+<lang perl></lang>
+{{out}}
+<pre style="height:20ex"></pre>
