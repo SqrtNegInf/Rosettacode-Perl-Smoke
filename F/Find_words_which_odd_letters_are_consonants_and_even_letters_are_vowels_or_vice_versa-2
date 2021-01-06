@@ -10,14 +10,16 @@ use feature 'say';
 my @res;
 
 my $vowels = 'aeiou';
-my $v = qr/[$vowels]/;
+my $v = qr/[ $vowels]/x;
 my $c = qr/[^$vowels]/;
 
-my @words = grep { /.{10,}/ } split "\n", `cat ref/unixdict.txt`;
+my @words = grep { /.{10}/ } split "\n", `cat ref/unixdict.txt`;
 
 for (@words) { push @res, $_ if /^ ( ($c$v)+ $c? | ($v$c)+ $v? ) $/ix; }
 
-#/^ ( ($c$v)+ $c? | ($v$c)+ $v? ) $/ix and say for @words;
+# one of these will go to RC:
+# /^ ( ($c$v)+ $c? | ($v$c)+ $v? ) $/ix and say for grep { /.{10}/ } split "\n", `cat unixdict.txt`;
+# /^ ( ($c$v)+ $c? | ($v$c)+ $v? ) $/ix and say for grep { /.{10}/ } split "\n",  do { (@ARGV, $/) = 'unixdict.txt'; <> };
 
 my $result = join "\n", @res;
 
