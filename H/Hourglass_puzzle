@@ -1,0 +1,50 @@
+#!/usr/local/bin/perl
+#u# http://rosettacode.org/wiki/Hourglass_puzzle
+#c# 2021-01-06 <RC
+#p# OK
+
+use strict;
+use warnings;
+use feature 'say';
+
+my @res;
+
+findinterval( $_, 4, 7 ) for 1 .. 20;
+
+sub findinterval {
+  my ($want, $hour1, $hour2) = @_;
+  local $_ = (('1' | ' ' x $hour1) x $hour2 | ('2' | ' ' x $hour2) x $hour1) x $want;
+  push @res, /(?=\d).{$want}(?=\d)/
+    ? "To get $want minute@{[$want == 1 ? '' : 's'
+      ]}, Start at time $-[0] and End at time $+[0]\n"
+    : "$want is not possible\n";
+}
+
+say my $result = join "", @res;
+
+my $ref = <<'EOD';
+To get 1 minute, Start at time 7 and End at time 8
+To get 2 minutes, Start at time 12 and End at time 14
+To get 3 minutes, Start at time 4 and End at time 7
+To get 4 minutes, Start at time 0 and End at time 4
+To get 5 minutes, Start at time 7 and End at time 12
+To get 6 minutes, Start at time 8 and End at time 14
+To get 7 minutes, Start at time 0 and End at time 7
+To get 8 minutes, Start at time 0 and End at time 8
+To get 9 minutes, Start at time 7 and End at time 16
+To get 10 minutes, Start at time 4 and End at time 14
+To get 11 minutes, Start at time 21 and End at time 32
+To get 12 minutes, Start at time 0 and End at time 12
+To get 13 minutes, Start at time 7 and End at time 20
+To get 14 minutes, Start at time 0 and End at time 14
+To get 15 minutes, Start at time 20 and End at time 35
+To get 16 minutes, Start at time 0 and End at time 16
+To get 17 minutes, Start at time 4 and End at time 21
+To get 18 minutes, Start at time 14 and End at time 32
+To get 19 minutes, Start at time 16 and End at time 35
+To get 20 minutes, Start at time 0 and End at time 20
+EOD
+
+use Test::More;
+is ($result, $ref);
+done_testing();
