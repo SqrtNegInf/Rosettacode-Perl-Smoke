@@ -1719,6 +1719,12 @@ File: C/Count_the_coins
 #p# OK
 #n# memoize is vital to finite run time...
 
+File: C/Count_the_coins_0-1
+#!/usr/local/bin/perl
+#u# http://rosettacode.org/wiki/Count_the_coins/0-1
+#c# 2021-01-06 <RC
+#p# OK
+
 File: C/Cramer%27s_rule
 #!/usr/local/bin/perl
 #u# http://rosettacode.org/wiki/Cramer%27s_rule
@@ -3205,6 +3211,14 @@ File: G/Galton_box_animation
 #i# RC cli: 4 10 
 #f# RC file: galton_box.dat
 
+File: G/Galton_box_animation-2
+#!/usr/local/bin/perl
+#u# http://rosettacode.org/wiki/Galton_box_animation
+#t# interactive
+#c# 2021-01-06 <RC
+#p# OK
+#n# tybalt89's shorter/native version
+
 File: G/Gamma_function
 #!/usr/local/bin/perl
 #u# http://rosettacode.org/wiki/Gamma_function
@@ -3701,6 +3715,12 @@ File: H/Hough_transform
 #c# 2018-09-25 >RC, 2019-09-10 >RC
 #p# OK
 #f# RC file: hough.png
+
+File: H/Hourglass_puzzle
+#!/usr/local/bin/perl
+#u# http://rosettacode.org/wiki/Hourglass_puzzle
+#c# 2021-01-06 <RC
+#p# OK
 
 File: H/Huffman_coding
 #!/usr/local/bin/perl
@@ -4213,6 +4233,12 @@ File: L/Last_letter-first_letter
 #!/usr/local/bin/perl
 #u# http://rosettacode.org/wiki/Last_letter-first_letter
 #c# 2018-08-14 <RC, 2019-03-06 >RC
+#p# OK
+
+File: L/Latin_Squares_in_reduced_form
+#!/usr/local/bin/perl
+#u# http://rosettacode.org/wiki/Latin_Squares_in_reduced_form
+#c# 2021-01-06 <RC
 #p# OK
 
 File: L/Launch_rocket_with_countdown_and_acceleration_in_stdout
@@ -6303,6 +6329,12 @@ File: P/Product_of_divisors
 #!/usr/local/bin/perl
 #u# http://rosettacode.org/wiki/Product_of_divisors
 #c# 2020-12-xx >RC
+#p# OK
+
+File: P/Product_of_divisors-2
+#!/usr/local/bin/perl
+#u# http://rosettacode.org/wiki/Product_of_divisors
+#c# 2021-01-06 <RC
 #p# OK
 
 File: P/Program_name
