@@ -1,17 +1,17 @@
 
 This is perl 5, version 32, subversion 0 (v5.32.0) built for darwin-thread-multi-2level
 updating from RC…
-+------------> Perl: Good/Bad [1345/9]
-|+-----------> Smoke testing [1203]
-||+----------> sKipping validation [146]
-|||+---------> Interactive [64]
++------------> Perl: Good/Bad [1350/9]
+|+-----------> Smoke testing [1207]
+||+----------> sKipping validation [147]
+|||+---------> Interactive [65]
 ||||+--------> Touched (modified by me) [422]
-|||||+-------> Random seed [108]
+|||||+-------> Random seed [109]
 ||||||+------> File output [74]
-|||||||+-----> Draft [225]
+|||||||+-----> Draft [226]
 ||||||||+----> Ignoring [37]
-|||||||||+---> Void (no local copy) [137]
-||||||||||+--> Un-implemented/reliable [132]
+|||||||||+---> Void (no local copy) [135]
+||||||||||+--> Un-implemented/reliable [127]
 |||||||||||
 GS......... 100_doors-1
 GS......... 100_doors-2
@@ -308,6 +308,7 @@ GS......... Count_in_factors-5
 GS......... Count_in_octal
 GS......... Count_occurrences_of_a_substring
 GS......... Count_the_coins
+GS.....D... Count_the_coins_0-1
 GS......... Cramer%27s_rule
 ........X.. Create_DWM_statusbar
 G.K........ Create_a_file
@@ -537,7 +538,8 @@ GS..T...... Fusc_sequence
 G.KI....... GUI_Maximum_window_dimensions
 G.KIT...... GUI_component_interaction
 G.KI....... GUI_enabling_disabling_of_controls
-GS..TRF...U Galton_box_animation
+GS..TRF.... Galton_box_animation
+G.KI.R..... Galton_box_animation-2
 GS......... Gamma_function
 GS..T...... Gapful_numbers
 GS..T...... Gauss-Jordan_matrix_inversion
@@ -616,7 +618,7 @@ GS......... Horner%27s_rule_for_polynomial_evaluation-3
 GS......... Host_introspection
 GS......... Hostname
 GS..T.F.... Hough_transform
-.......D.VU Hourglass_puzzle
+GS.....D... Hourglass_puzzle
 GS......... Huffman_coding
 GS..T...... Humble_numbers
 .........VU Hunt_the_Wumpus
@@ -704,7 +706,7 @@ GS..T...... Largest_number_divisible_by_its_digits-1
 GS..T...... Largest_number_divisible_by_its_digits-2
 GS......... Last_Friday_of_each_month
 GS..TR..... Last_letter-first_letter
-.........VU Latin_Squares_in_reduced_form
+GS......... Latin_Squares_in_reduced_form
 .......D.VU Latin_Squares_in_reduced_form_Randomizing_using_Jacobson_and_Matthews_Technique
 G.KIT..D... Launch_rocket_with_countdown_and_acceleration_in_stdout
 GS..T...... Law_of_cosines_-_triples
@@ -1039,7 +1041,8 @@ GS......... Priority_queue-2
 GS...R..... Probabilistic_choice
 GS..T...... Problem_of_Apollonius
 GS.....D... Process_SMIL_directives_in_XML_data
-GS..T..D..U Product_of_divisors
+GS..T..D... Product_of_divisors
+GS......... Product_of_divisors-2
 GS......... Program_name
 G.K........ Program_termination
 .......D.VU Proof
@@ -1471,7 +1474,7 @@ GS......... Visualize_a_tree
 GS..TRF.... Voronoi_diagram
 GS..T...... Walk_a_directory_Non-recursively
 GS..T...... Walk_a_directory_Recursively
-.......D.VU War_card_game
+.......D.V. War_card_game
 GS......... Water_collected_between_towers
 GS.....D... Waveform_analysis_Doh_ray_me
 .......D.VU Waveform_analysis_Top_and_tail
