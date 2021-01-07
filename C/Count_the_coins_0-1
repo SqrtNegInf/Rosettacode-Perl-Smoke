@@ -1,0 +1,56 @@
+#!/usr/local/bin/perl
+#u# http://rosettacode.org/wiki/Count_the_coins/0-1
+#c# 2021-01-06 <RC
+#p# OK
+
+use strict;
+use warnings;
+use feature 'say';
+
+my @res;
+
+countcoins( 6, [1, 2, 3, 4, 5] );
+countcoins( 6, [1, 1, 2, 3, 3, 4, 5] );
+#countcoins( 40, [1, 2, 3, 4, 5, 5, 5, 5, 15, 15, 10, 10, 10, 10, 25, 100] );
+
+sub countcoins {
+  my ($want, $coins) = @_;
+  push @res, "\nsum $want coins @$coins\n";
+  count($want, [], 0, $coins);
+}
+
+sub count {
+  my ($want, $used, $sum, $have) = @_;
+  if( $sum == $want ) { push @res, "used @$used\n" }
+  elsif( $sum > $want or @$have == 0 ) {}
+  else {
+    my ($thiscoin, @rest) = @$have;
+    count( $want, [@$used, $thiscoin], $sum + $thiscoin, \@rest);
+    count( $want, $used, $sum, \@rest);
+  }
+}
+
+say my $result = join "", @res;
+
+my $ref = <<'EOD';
+
+sum 6 coins 1 2 3 4 5
+used 1 2 3
+used 1 5
+used 2 4
+
+sum 6 coins 1 1 2 3 3 4 5
+used 1 1 4
+used 1 2 3
+used 1 2 3
+used 1 5
+used 1 2 3
+used 1 2 3
+used 1 5
+used 2 4
+used 3 3
+EOD
+
+use Test::More;
+is ($result, $ref);
+done_testing();
