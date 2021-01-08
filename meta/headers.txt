@@ -6102,9 +6102,24 @@ File: P/Polynomial_long_division
 
 File: P/Polynomial_regression
 #!/usr/local/bin/perl
+#u# http://rosettacode.org/wiki/Multiple_regression
+#c# 2021-01-07 >RC
+#p# OK
+#n# replaced existing/buggy implementation
+
+File: P/Polynomial_regression-2
+#!/usr/local/bin/perl
+#u# http://rosettacode.org/wiki/Polynomial_regression
+#c# 2021-01-07 <RC
+#p# OK
+#n# nice alternative method from 'Cnd'
+
+File: P/Polynomial_regression.1
+#!/usr/local/bin/perl
 #u# http://rosettacode.org/wiki/Polynomial_regression
 #c# 2018-08-20 <RC, 2019-02-09 >RC
 #p# OK
+#n# 2021-01-07 'Cnd' notes that this is buggy, despite the sample input given working OK
 
 File: P/Polynomial_synthetic_division
 #!/usr/local/bin/perl
@@ -8880,6 +8895,12 @@ File: W/Walk_a_directory_Recursively
 #c# 2018-08-03 <>RC
 #p# OK
 #n# testing just File::Find
+
+File: W/War_card_game
+#!/usr/local/bin/perl
+#u# http://rosettacode.org/wiki/War_card_game
+#c# 2021-01-07 <RC
+#p# OK
 
 File: W/Water_collected_between_towers
 #!/usr/local/bin/perl
