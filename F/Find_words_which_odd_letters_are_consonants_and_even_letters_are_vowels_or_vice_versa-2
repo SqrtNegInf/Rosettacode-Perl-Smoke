@@ -1,6 +1,6 @@
 #!/usr/local/bin/perl
 #u# http://rosettacode.org/wiki/Find_words_which_odd_letters_are_consonants_and_even_letters_are_vowels_or_vice_versa
-#c# 2020-12-xx >RC
+#c# 2021-01-07 >RC
 #p# OK
 
 use strict;
@@ -17,8 +17,7 @@ my @words = grep { /.{10}/ } split "\n", `cat ref/unixdict.txt`;
 
 for (@words) { push @res, $_ if /^ ( ($c$v)+ $c? | ($v$c)+ $v? ) $/ix; }
 
-# one of these will go to RC:
-# /^ ( ($c$v)+ $c? | ($v$c)+ $v? ) $/ix and say for grep { /.{10}/ } split "\n", `cat unixdict.txt`;
+# this is on RC:
 # /^ ( ($c$v)+ $c? | ($v$c)+ $v? ) $/ix and say for grep { /.{10}/ } split "\n",  do { (@ARGV, $/) = 'unixdict.txt'; <> };
 
 my $result = join "\n", @res;
@@ -97,10 +96,3 @@ use Test::More;
 chomp $ref;
 is($result, $ref);
 done_testing();
-
-__END__
-
-=={{header|Perl}}==
-<lang perl></lang>
-{{out}}
-<pre style="height:20ex"></pre>
