@@ -5,13 +5,13 @@ updating from RC…
 |+-----------> Smoke testing [1209]
 ||+----------> sKipping validation [147]
 |||+---------> Interactive [65]
-||||+--------> Touched (modified by me) [422]
+||||+--------> Touched (modified by me) [421]
 |||||+-------> Random seed [110]
 ||||||+------> File output [74]
-|||||||+-----> Draft [227]
+|||||||+-----> Draft [226]
 ||||||||+----> Ignoring [37]
-|||||||||+---> Void (no local copy) [135]
-||||||||||+--> Un-implemented/reliable [128]
+|||||||||+---> Void (no local copy) [134]
+||||||||||+--> Un-implemented/reliable [124]
 |||||||||||
 GS......... 100_doors-1
 GS......... 100_doors-2
@@ -390,7 +390,6 @@ G.KIT..D... Draw_pixel_2
 GS...R..... Dutch_national_flag_problem
 GS......... Dynamic_variable_names
 GS..T...... EKG_sequence_convergence
-.......D.VU Easter_egg
 GS..T...... Eban_numbers-1
 GS......... Eban_numbers-2
 G.KI....... Echo_server
@@ -1043,7 +1042,7 @@ GS......... Priority_queue-2
 GS...R..... Probabilistic_choice
 GS..T...... Problem_of_Apollonius
 GS.....D... Process_SMIL_directives_in_XML_data
-GS..T..D... Product_of_divisors
+GS.....D... Product_of_divisors
 GS......... Product_of_divisors-2
 GS......... Program_name
 G.K........ Program_termination
@@ -1339,7 +1338,7 @@ GS......... Sum_digits_of_an_integer
 GS......... Sum_multiples_of_3_and_5-1
 GS..T...... Sum_multiples_of_3_and_5-2
 GS......... Sum_of_a_series
-GS..T..D..U Sum_of_divisors
+GS..T..D... Sum_of_divisors
 GS......... Sum_of_squares
 GS......... Sum_to_100
 GS..T...... Summarize_and_say_sequence
@@ -1357,8 +1356,8 @@ G.K.....X.. Table_creation_Postal_addresses
 GS....F.... Take_notes_on_the_command_line
 .......D.VU Tamagotchi_emulator
 GS..T...... Tarjan
-GS..T..D..U Tau_function
-.......D.VU Tau_number
+GS..T..D... Tau_function
+.......D.V. Tau_number
 GS......... Taxicab_numbers
 GS..T...... Teacup_rim_text
 GS......... Temperature_conversion
