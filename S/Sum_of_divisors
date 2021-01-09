@@ -1,6 +1,6 @@
 #!/usr/local/bin/perl
 #u# http://rosettacode.org/wiki/Sum_of_divisors
-#c# 2020-12-xx >RC
+#c# 2021-01-08 >RC
 #p# OK
 
 use strict;
@@ -27,11 +27,3 @@ END
 use Test::More;
 is($result, $ref);
 done_testing();
-
-__END__
-
-=={{header|Perl}}==
-{{libheader|ntheory}}
-<lang perl></lang>
-{{out}}
-<pre></pre>
