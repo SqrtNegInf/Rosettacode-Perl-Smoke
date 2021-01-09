@@ -1,7 +1,8 @@
 #!/usr/local/bin/perl
 #u# http://rosettacode.org/wiki/Product_of_divisors
-#c# 2020-12-xx >RC
+#c# 2020-12-20 NOT ON RC
 #p# OK
+#n# tybalt89 added to RC, so skip this
 
 use strict;
 use warnings;
