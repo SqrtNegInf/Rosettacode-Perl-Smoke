@@ -2910,7 +2910,7 @@ File: F/Find_words_which_odd_letters_are_consonants_and_even_letters_are_vowels_
 File: F/Find_words_which_odd_letters_are_consonants_and_even_letters_are_vowels_or_vice_versa-2
 #!/usr/local/bin/perl
 #u# http://rosettacode.org/wiki/Find_words_which_odd_letters_are_consonants_and_even_letters_are_vowels_or_vice_versa
-#c# 2020-12-xx >RC
+#c# 2021-01-07 >RC
 #p# OK
 
 File: F/First-class_functions
@@ -6343,8 +6343,9 @@ File: P/Process_SMIL_directives_in_XML_data
 File: P/Product_of_divisors
 #!/usr/local/bin/perl
 #u# http://rosettacode.org/wiki/Product_of_divisors
-#c# 2020-12-xx >RC
+#c# 2020-12-20 NOT ON RC
 #p# OK
+#n# tybalt89 added to RC, so skip this
 
 File: P/Product_of_divisors-2
 #!/usr/local/bin/perl
@@ -8098,7 +8099,7 @@ File: S/Sum_of_a_series
 File: S/Sum_of_divisors
 #!/usr/local/bin/perl
 #u# http://rosettacode.org/wiki/Sum_of_divisors
-#c# 2020-12-xx >RC
+#c# 2021-01-08 >RC
 #p# OK
 
 File: S/Sum_of_squares
@@ -8208,13 +8209,13 @@ File: T/Tarjan
 File: T/Tau_function
 #!/usr/local/bin/perl
 #u# http://rosettacode.org/wiki/Tau_function
-#c# 2020-12-xx >RC
+#c# 2021-01-08 >RC
 #p# OK
 
 File: T/Tau_numbers
 #!/usr/local/bin/perl
 #u# http://rosettacode.org/wiki/Tau_numbers
-#c# 2020-12-xx >RC
+#c# 2021-01-08 >RC
 #p# OK
 
 File: T/Taxicab_numbers
