@@ -1,6 +1,6 @@
 #!/usr/local/bin/perl
 #u# http://rosettacode.org/wiki/Partition_Function_P
-#c# 2020-12-xx >RC
+#c# 2021-01-09 >RC
 #p# OK
 #n# Raku is faster
 
@@ -44,6 +44,10 @@ sub partitionsP {
     }
 }
  
+print partitionsP($_) . ' ' for 0..25;
+say "\n" . partitionsP(6666);
+exit;
+
 $result .= partitionsP($_) . ' ' for 0..25;
 say $result .= "\n" . partitionsP(6666);
 
@@ -56,11 +60,3 @@ use Test::More;
 chomp $ref;
 is($result, $ref);
 done_testing();
-
-__END__
-
-=={{header|Perl}}==
-{{libheader|ntheory}}
-<lang perl></lang>
-{{out}}
-<pre></pre>
