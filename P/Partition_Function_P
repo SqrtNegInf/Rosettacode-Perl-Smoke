@@ -43,10 +43,6 @@ sub partitionsP {
         $psum
     }
 }
- 
-print partitionsP($_) . ' ' for 0..25;
-say "\n" . partitionsP(6666);
-exit;
 
 $result .= partitionsP($_) . ' ' for 0..25;
 say $result .= "\n" . partitionsP(6666);
