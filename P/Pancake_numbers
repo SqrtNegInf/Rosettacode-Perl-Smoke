@@ -1,6 +1,6 @@
 #!/usr/local/bin/perl
 #u# http://rosettacode.org/wiki/Pancake_numbers
-#c# 2020-12-xx >RC
+#c# 2021-01-09 >RC
 #p# OK
 
 use strict;
@@ -28,11 +28,3 @@ END
 use Test::More;
 is($result, $ref);
 done_testing();
-
-__END__
-
-=={{header|Perl}}==
-{{trans|Raku}}
-<lang perl></lang>
-{{out}}
-<pre></pre>
