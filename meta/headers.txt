@@ -2556,7 +2556,7 @@ File: E/External_sort
 File: E/Extra_primes
 #!/usr/local/bin/perl
 #u# http://rosettacode.org/wiki/Extra_primes
-#c# 2020-12-xx >RC
+#c# 2021-01-09 >RC
 #p# OK
 
 File: E/Extract_file_extension
@@ -5624,7 +5624,7 @@ File: P/Palindrome_detection
 File: P/Pancake_numbers
 #!/usr/local/bin/perl
 #u# http://rosettacode.org/wiki/Pancake_numbers
-#c# 2020-12-xx >RC
+#c# 2021-01-09 >RC
 #p# OK
 
 File: P/Pangram_checker
@@ -5704,7 +5704,7 @@ File: P/Particle_Swarm_Optimization
 File: P/Partition_Function_P
 #!/usr/local/bin/perl
 #u# http://rosettacode.org/wiki/Partition_Function_P
-#c# 2020-12-xx >RC
+#c# 2021-01-09 >RC
 #p# OK
 #n# Raku is faster
 
