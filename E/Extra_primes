@@ -1,6 +1,6 @@
 #!/usr/local/bin/perl
 #u# http://rosettacode.org/wiki/Extra_primes
-#c# 2020-12-xx >RC
+#c# 2021-01-09 >RC
 #p# OK
 
 use strict;
