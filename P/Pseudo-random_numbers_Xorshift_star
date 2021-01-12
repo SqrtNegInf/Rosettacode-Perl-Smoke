@@ -1,0 +1,62 @@
+#!/usr/local/bin/perl
+#u# http://rosettacode.org/wiki/Pseudo-random_numbers/Xorshift_star
+#c# 2020-12-xx >RC
+#p# OK
+
+use strict;
+use warnings;
+no warnings 'portable';
+use feature 'say';
+use bigint;
+
+my @res;
+
+{
+
+package Xorshift_star;
+
+    our($state);
+
+    sub new { my(undef,undef,$seed) = @_; $state = $seed }
+
+    sub next_int {
+        $state ^= $state >> 12;
+        $state ^= $state << 25 & (2**64 - 1);
+        $state ^= $state >> 27;
+        ($state * 0x2545F4914F6CDD1D) >> 32 & (2**32 - 1)
+    }
+
+}
+
+push @res, 'Seed: 1234567, first five Int values:';
+my $rng = Xorshift_star->new( seed => 1234567 );
+push @res, Xorshift_star->next_int($rng) for 1..5;
+
+my %h;
+push @res, "\nSeed: 987654321, values histogram:";
+$rng = Xorshift_star->new( seed => 987654321 );
+$h{int 5 * Xorshift_star->next_int($rng)/2**32}++ for 1..10_000; #100_000; # in the interest of speed...
+push @res, "$_ $h{$_}" for sort keys %h;
+
+say my $result = join "\n", @res;
+
+my $ref = <<'END';
+Seed: 1234567, first five Int values:
+3540625527
+2750739987
+4037983143
+1993361440
+3809424708
+
+Seed: 987654321, values histogram:
+0 2056
+1 2000
+2 1968
+3 1917
+4 2059
+END
+
+use Test::More;
+chomp $ref;
+is($result, $ref);
+done_testing();
