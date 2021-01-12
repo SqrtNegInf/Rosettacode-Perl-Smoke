@@ -1,0 +1,62 @@
+#!/usr/local/bin/perl
+#u# http://rosettacode.org/wiki/Pseudo-random_numbers/Splitmix64
+#c# 2020-12-xx >RC
+#p# OK
+
+use strict;
+use warnings;
+no warnings 'portable';
+use feature 'say';
+use bigint;
+
+my @res;
+
+{
+
+package splitmix64;
+
+    our($state);
+
+    sub new { my(undef,undef,$seed) = @_; $state = $seed }
+
+    sub next_int {
+        my $next = $state = ($state + 0x9e3779b97f4a7c15) & (2**64 - 1);
+        $next = ($next ^ ($next >> 30)) * 0xbf58476d1ce4e5b9 & (2**64 - 1);
+        $next = ($next ^ ($next >> 27)) * 0x94d049bb133111eb & (2**64 - 1);
+        ($next ^ ($next >> 31)) & (2**64 - 1);
+    }
+
+}
+
+push @res, 'Seed: 1234567, first five Int values:';
+my $rng = splitmix64->new( seed => 1234567 );
+push @res, splitmix64->next_int($rng) for 1..5;
+
+my %h;
+push @res, "\nSeed: 987654321, values histogram:";
+$rng = splitmix64->new( seed => 987654321 );
+$h{int 5 * splitmix64->next_int($rng)/2**64}++ for 1..10_000; #100_000; # in the interest of speed...
+push @res, "$_ $h{$_}" for sort keys %h;
+
+say my $result = join "\n", @res;
+
+my $ref = <<'END';
+Seed: 1234567, first five Int values:
+6457827717110365317
+3203168211198807973
+9817491932198370423
+4593380528125082431
+16408922859458223821
+
+Seed: 987654321, values histogram:
+0 2010
+1 1947
+2 2005
+3 2049
+4 1989
+END
+
+use Test::More;
+chomp $ref;
+is($result, $ref);
+done_testing();
