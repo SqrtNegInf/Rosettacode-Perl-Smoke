@@ -5621,6 +5621,12 @@ File: P/Palindrome_detection
 #c# 2018-08-11 <RC
 #p# OK
 
+File: P/Palindromic_gapful_numbers
+#!/usr/local/bin/perl
+#u# http://rosettacode.org/wiki/Palindromic_gapful_numbers
+#c# 2020-12-xx >RC
+#p# OK
+
 File: P/Pancake_numbers
 #!/usr/local/bin/perl
 #u# http://rosettacode.org/wiki/Pancake_numbers
@@ -6377,6 +6383,24 @@ File: P/Pseudo-random_numbers_Combined_recursive_generator_MRG32k3a~
 #u# http://rosettacode.org/wiki/Pseudo-random_numbers/Combined_recursive_generator_MRG32k3a
 #t# inprogress
 #c# 2020-08-xx >RC
+#p# OK
+
+File: P/Pseudo-random_numbers_PCG32
+#!/usr/local/bin/perl
+#u# http://rosettacode.org/wiki/Pseudo-random_numbers/PCG32
+#c# 2020-12-xx >RC
+#p# OK
+
+File: P/Pseudo-random_numbers_Splitmix64
+#!/usr/local/bin/perl
+#u# http://rosettacode.org/wiki/Pseudo-random_numbers/Splitmix64
+#c# 2020-12-xx >RC
+#p# OK
+
+File: P/Pseudo-random_numbers_Xorshift_star
+#!/usr/local/bin/perl
+#u# http://rosettacode.org/wiki/Pseudo-random_numbers/Xorshift_star
+#c# 2020-12-xx >RC
 #p# OK
 
 File: P/Pseudorandom_Number_Generator_Image
