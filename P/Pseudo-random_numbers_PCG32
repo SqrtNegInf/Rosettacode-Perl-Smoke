@@ -1,0 +1,65 @@
+#!/usr/local/bin/perl
+#u# http://rosettacode.org/wiki/Pseudo-random_numbers/PCG32
+#c# 2020-12-xx >RC
+#p# OK
+
+use strict;
+use warnings;
+use feature 'say';
+use bigint;
+
+my @res;
+
+{
+
+package PCG32;
+
+    our($state,$incr);
+    use constant mask32 => 2**32 - 1;
+    use constant mask64 => 2**64 - 1;
+    use constant const  => 6364136223846793005;
+
+    sub new {
+        my($class, undef, $seed, undef, $iincr) = @_;
+        $seed  //= 1;
+        $iincr //= 2;
+        $incr  = $iincr << 1 | 1 & mask64;
+        $state = (($incr + $seed) * const + $incr) & mask64;
+    }
+
+    sub next_int {
+        my $shift  = ($state >> 18 ^ $state) >> 27 & mask32;
+        my $rotate =  $state >> 59 & mask32;
+        $state     = ($state * const + $incr) & mask64;
+        ($shift >> $rotate) | $shift << (32 - $rotate) & mask32
+    }
+
+}
+
+my $rng = PCG32->new(seed => 42, incr => 54);
+push @res, PCG32->next_int($rng) for 1..5;
+
+my %h;
+$rng = PCG32->new( seed => 987654321, incr => 1 );
+$h{int 5 * PCG32::next_int($rng)/2**32}++ for 1..10_000; #100_000; # in the interest of speed...
+push @res, "$_ $h{$_}" for sort keys %h;
+
+say my $result = join "\n", @res;
+
+my $ref = <<'END';
+2707161783
+2068313097
+3122475824
+2211639955
+3215226955
+0 1989
+1 1989
+2 2022
+3 1995
+4 2005
+END
+
+use Test::More;
+chomp $ref;
+is($result, $ref);
+done_testing();
