@@ -1,16 +1,16 @@
 
 This is perl 5, version 32, subversion 0 (v5.32.0) built for darwin-thread-multi-2level
 updating from RC…
-+------------> Perl: Good/Bad [1352/9]
-|+-----------> Smoke testing [1209]
++------------> Perl: Good/Bad [1356/9]
+|+-----------> Smoke testing [1212]
 ||+----------> sKipping validation [147]
 |||+---------> Interactive [65]
-||||+--------> Touched (modified by me) [421]
+||||+--------> Touched (modified by me) [425]
 |||||+-------> Random seed [110]
 ||||||+------> File output [74]
 |||||||+-----> Draft [226]
 ||||||||+----> Ignoring [37]
-|||||||||+---> Void (no local copy) [134]
+|||||||||+---> Void (no local copy) [130]
 ||||||||||+--> Un-implemented/reliable [124]
 |||||||||||
 GS......... 100_doors-1
@@ -927,7 +927,7 @@ GS......... P-value_correction
 GS..T...... Palindrome_dates-1
 GS......... Palindrome_dates-2
 GS......... Palindrome_detection
-.........VU Palindromic_gapful_numbers
+GS..T.....U Palindromic_gapful_numbers
 GS..T..D..U Pancake_numbers
 GS..T...... Pangram_checker
 GS......... Paraffins
@@ -1049,9 +1049,9 @@ G.K........ Program_termination
 .......D.VU Proof
 GS......... Proper_divisors
 .........VU Pseudo-random_numbers_Combined_recursive_generator_MRG32k3a
-.........VU Pseudo-random_numbers_PCG32
-.......D.VU Pseudo-random_numbers_Splitmix64
-.........VU Pseudo-random_numbers_Xorshift_star
+GS..T.....U Pseudo-random_numbers_PCG32
+GS..T..D..U Pseudo-random_numbers_Splitmix64
+G...T.....U Pseudo-random_numbers_Xorshift_star
 GS..TRFD... Pseudorandom_number_generator_image
 GS....F.... Pythagoras_tree
 GS..T...... Pythagorean_quadruples
