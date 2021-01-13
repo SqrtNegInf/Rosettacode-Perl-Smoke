@@ -368,9 +368,6 @@ P/Problem_of_Apollonius
 𝑣:    20 MATHEMATICAL ITALIC SMALL V
 𝑤:    17 MATHEMATICAL ITALIC SMALL W
 
-P/Pseudo-random_numbers_Combined_recursive_generator_MRG32k3a~
-×:     1 MULTIPLICATION SIGN
-
 R/Ramanujan%27s_constant
 ≈:     5 ALMOST EQUAL TO
 
