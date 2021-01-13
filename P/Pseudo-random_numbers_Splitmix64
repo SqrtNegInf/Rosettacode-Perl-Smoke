@@ -1,19 +1,18 @@
 #!/usr/local/bin/perl
 #u# http://rosettacode.org/wiki/Pseudo-random_numbers/Splitmix64
-#c# 2020-12-xx >RC
+#c# 2021-01-12 >RC
 #p# OK
 
 use strict;
 use warnings;
 no warnings 'portable';
 use feature 'say';
-use bigint;
+#use bigint;
+use Math::AnyNum qw(:overload);
 
 my @res;
 
-{
-
-package splitmix64;
+{ package splitmix64;
 
     our($state);
 
@@ -25,7 +24,6 @@ package splitmix64;
         $next = ($next ^ ($next >> 27)) * 0x94d049bb133111eb & (2**64 - 1);
         ($next ^ ($next >> 31)) & (2**64 - 1);
     }
-
 }
 
 push @res, 'Seed: 1234567, first five Int values:';
@@ -35,7 +33,7 @@ push @res, splitmix64->next_int($rng) for 1..5;
 my %h;
 push @res, "\nSeed: 987654321, values histogram:";
 $rng = splitmix64->new( seed => 987654321 );
-$h{int 5 * splitmix64->next_int($rng)/2**64}++ for 1..10_000; #100_000; # in the interest of speed...
+$h{int 5 * splitmix64->next_int($rng)/2**64}++ for 1..100_000;
 push @res, "$_ $h{$_}" for sort keys %h;
 
 say my $result = join "\n", @res;
@@ -49,11 +47,11 @@ Seed: 1234567, first five Int values:
 16408922859458223821
 
 Seed: 987654321, values histogram:
-0 2010
-1 1947
-2 2005
-3 2049
-4 1989
+0 20027
+1 19892
+2 20073
+3 19978
+4 20030
 END
 
 use Test::More;
