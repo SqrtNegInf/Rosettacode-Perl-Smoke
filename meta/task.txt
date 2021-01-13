@@ -1,17 +1,17 @@
 
 This is perl 5, version 32, subversion 0 (v5.32.0) built for darwin-thread-multi-2level
 updating from RC…
-+------------> Perl: Good/Bad [1356/9]
-|+-----------> Smoke testing [1212]
++------------> Perl: Good/Bad [1357/9]
+|+-----------> Smoke testing [1214]
 ||+----------> sKipping validation [147]
 |||+---------> Interactive [65]
-||||+--------> Touched (modified by me) [425]
+||||+--------> Touched (modified by me) [426]
 |||||+-------> Random seed [110]
 ||||||+------> File output [74]
 |||||||+-----> Draft [226]
 ||||||||+----> Ignoring [37]
-|||||||||+---> Void (no local copy) [130]
-||||||||||+--> Un-implemented/reliable [124]
+|||||||||+---> Void (no local copy) [129]
+||||||||||+--> Un-implemented/reliable [120]
 |||||||||||
 GS......... 100_doors-1
 GS......... 100_doors-2
@@ -1048,10 +1048,10 @@ GS......... Program_name
 G.K........ Program_termination
 .......D.VU Proof
 GS......... Proper_divisors
-.........VU Pseudo-random_numbers_Combined_recursive_generator_MRG32k3a
-GS..T.....U Pseudo-random_numbers_PCG32
-GS..T..D..U Pseudo-random_numbers_Splitmix64
-G...T.....U Pseudo-random_numbers_Xorshift_star
+GS..T...... Pseudo-random_numbers_Combined_recursive_generator_MRG32k3a
+GS..T...... Pseudo-random_numbers_PCG32
+GS..T..D... Pseudo-random_numbers_Splitmix64
+GS..T...... Pseudo-random_numbers_Xorshift_star
 GS..TRFD... Pseudorandom_number_generator_image
 GS....F.... Pythagoras_tree
 GS..T...... Pythagorean_quadruples
