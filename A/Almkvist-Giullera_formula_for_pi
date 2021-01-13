@@ -1,14 +1,13 @@
 #!/usr/local/bin/perl
 #u# http://rosettacode.org/wiki/Almkvist-Giullera_formula_for_pi
-#c# 2020-12-xx >RC
+#c# 2021-01-12 >RC
 #p# OK
 
 use strict;
 use warnings;
-use feature 'say';
-use feature 'state';
+use feature <say state>;
 
-use Math::AnyNum qw(:overload factorial);
+use Math::AnyNum <:overload factorial>;
 
 my @res;
 
@@ -16,19 +15,19 @@ my $Precision = 70;
 
 sub Integral {
     my($n) = @_;
-   int (2**5 * factorial(6*$n) * (532*$n**2 + 126*$n + 9)) / (3*factorial($n)**6)
+    int (2**5 * factorial(6*$n) * (532*$n**2 + 126*$n + 9)) / (3*factorial($n)**6)
 }
 
 sub A_G {
-   my($n) = @_;
-   Integral($n) / (10**(6*$n + 3));
+    my($n) = @_;
+    Integral($n) / (10**(6*$n + 3));
 }
 
 sub Pi {
-   my($n) = @_;
-   local $Math::AnyNum::PREC = 5 * $Precision;
-   state $AGcache = 0;
-   $AGcache += A_G($n);
+    my($n) = @_;
+    local $Math::AnyNum::PREC = 5 * $Precision;
+    state $AGcache = 0;
+    $AGcache += A_G($n);
    Math::AnyNum::pow($AGcache,-0.5)->round(-$Precision)->stringify;
 }
 
@@ -66,12 +65,3 @@ use Test::More;
 chomp $ref;
 is($result, $ref);
 done_testing();
-
-__END__
-
-=={{header|Perl}}==
-{{trans|Raku}}
-{{libheader|Math::AnyNum}}
-<lang perl></lang>
-{{out}}
-<pre></pre>
