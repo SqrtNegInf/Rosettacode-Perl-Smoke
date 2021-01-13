@@ -1,19 +1,18 @@
 #!/usr/local/bin/perl
 #u# http://rosettacode.org/wiki/Pseudo-random_numbers/Xorshift_star
-#c# 2020-12-xx >RC
+#c# 2021-01-12 >RC
 #p# OK
 
 use strict;
 use warnings;
 no warnings 'portable';
 use feature 'say';
-use bigint;
+#use bigint;
+use Math::AnyNum qw(:overload);
 
 my @res;
 
-{
-
-package Xorshift_star;
+{ package Xorshift_star;
 
     our($state);
 
@@ -25,7 +24,6 @@ package Xorshift_star;
         $state ^= $state >> 27;
         ($state * 0x2545F4914F6CDD1D) >> 32 & (2**32 - 1)
     }
-
 }
 
 push @res, 'Seed: 1234567, first five Int values:';
@@ -35,7 +33,7 @@ push @res, Xorshift_star->next_int($rng) for 1..5;
 my %h;
 push @res, "\nSeed: 987654321, values histogram:";
 $rng = Xorshift_star->new( seed => 987654321 );
-$h{int 5 * Xorshift_star->next_int($rng)/2**32}++ for 1..10_000; #100_000; # in the interest of speed...
+$h{int 5 * Xorshift_star->next_int($rng)/2**32}++ for 1..100_000;
 push @res, "$_ $h{$_}" for sort keys %h;
 
 say my $result = join "\n", @res;
@@ -49,11 +47,11 @@ Seed: 1234567, first five Int values:
 3809424708
 
 Seed: 987654321, values histogram:
-0 2056
-1 2000
-2 1968
-3 1917
-4 2059
+0 20103
+1 19922
+2 19937
+3 20031
+4 20007
 END
 
 use Test::More;
