@@ -1,7 +1,7 @@
 #!/usr/local/bin/perl
 #u# http://rosettacode.org/wiki/Greed
 #t# interactive
-#c# 2020-12-xx >RC
+#c# 2021-01-12 >RC
 #p# OK
 
 srand 12345;
@@ -18,7 +18,8 @@ for (1..$h) {
     push @row, int 1 + rand 9 for 1..$w;
     push @board, [@row];
 }
-my $X = int 0.5 + rand $w ; my $Y = 0.5 + rand $h;
+my $X = int 0.5 + rand $w; 
+my $Y = int 0.5 + rand $h;
 $board[$Y][$X] = '@';
 
 my $score = 0;
@@ -71,11 +72,3 @@ while () {
    if ($c eq 'c') { execute( 1, 0) if             $Y < $h } # South
    if ($c eq 'v') { execute( 1, 1) if $X < $w and $Y < $h } # South-East
 }
-
-__END__
-
-=={{header|Perl}}==
-{{trans|Raku}}
-<lang perl></lang>
-{{out}}
-<pre></pre>
