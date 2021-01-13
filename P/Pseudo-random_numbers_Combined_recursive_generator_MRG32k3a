@@ -1,50 +1,47 @@
 #!/usr/local/bin/perl
 #u# http://rosettacode.org/wiki/Pseudo-random_numbers/Combined_recursive_generator_MRG32k3a
-#c# 2020-12-xx >RC
+#c# 2021-01-12 >RC
 #p# OK
 
 use strict;
 use warnings;
 use feature 'say';
-use bigint;
 
 my @res;
 
-my $m1 = 2**32 - 209;
-my $m2 = 2**32 - 22853;
-
-{
-
-package MRG32k3a;
+{ package MRG32k3a;
 
     our(@x1,@x2);
+    our $m1 = 2**32 - 209;
+    our $m2 = 2**32 - 22853;
     our @a1 = <     0 1403580  -810728>;
     our @a2 = <527612       0 -1370589>;
 
-    sub new { my(undef,undef,$seed) = @_; @x1 = @x2 = ($seed, 0, 0) }
+    sub new { @x1 = @x2 = ($_[2], 0, 0) }
 
     sub next_int {
-        unshift @x1, (($a1[0] * $x1[0] + $a1[1] * $x1[1] + $a1[2] * $x1[2]) % $m1); pop @x1;
-        unshift @x2, (($a2[0] * $x2[0] + $a2[1] * $x2[1] + $a2[2] * $x2[2]) % $m2); pop @x2;
+        unshift @x1, ($a1[0] * $x1[0] + $a1[1] * $x1[1] + $a1[2] * $x1[2]) % $m1; pop @x1;
+        unshift @x2, ($a2[0] * $x2[0] + $a2[1] * $x2[1] + $a2[2] * $x2[2]) % $m2; pop @x2;
         ($x1[0] - $x2[0]) % ($m1 + 1)
     }
 
+    sub next_float { next_int() / ($m1 + 1) }
 }
 
-push @res, 'Seed: 1234567, first five Int values:';
+push @res, 'Seed: 1234567, first 5 values:';
 my $rng = MRG32k3a->new( seed => 1234567 );
 push @res, MRG32k3a->next_int($rng) for 1..5;
 
 my %h;
 push @res, "\nSeed: 987654321, values histogram:";
 $rng = MRG32k3a->new( seed => 987654321 );
-$h{int 5 * MRG32k3a->next_int($rng)/($m1+1)}++ for 1..100_000; #100_000; # in the interest of speed...
+$h{int 5 * MRG32k3a->next_float($rng)}++ for 1..100_000;
 push @res, "$_ $h{$_}" for sort keys %h;
 
 say my $result = join "\n", @res;
 
 my $ref = <<'END';
-Seed: 1234567, first five Int values:
+Seed: 1234567, first 5 values:
 1459213977
 2827710106
 4245671317
