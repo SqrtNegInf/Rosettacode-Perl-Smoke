@@ -1,6 +1,6 @@
 #!/usr/local/bin/perl
 #u# http://rosettacode.org/wiki/Ulam_numbers
-#c# 2020-12-xx >RC
+#c# 2021-01-13 >RC
 #p# OK
 #n# slowish @ 40sec for U(10_000)
 
@@ -23,6 +23,7 @@ sub ulam {
     while () {
         my $count = 0;
 
+# this copied literally from Julia, works fine
 if (0) {
         for (0..$#ulams) {
            if ($u{ $i - $ulams[$_] } and $ulams[$_] != ($i - $ulams[$_]) ) {
@@ -36,6 +37,7 @@ if (0) {
             last if @ulams == $n;
         }
 
+# this re-written in two ways based on short-circuiting: traditional obsfuscatory and multi-line
 } else {
         #$u{ $i - $ulams[$_] } and $ulams[$_] != ($i - $ulams[$_]) and $count++ > 2 and last for 0..$#ulams;
             $u{ $i - $ulams[$_] } 
@@ -72,11 +74,3 @@ use Test::More;
 chomp $ref;
 is($result, $ref);
 done_testing();
-
-__END__
-
-=={{header|Perl}}==
-{{trans|Julia}}
-<lang perl></lang>
-{{out}}
-<pre></pre>
