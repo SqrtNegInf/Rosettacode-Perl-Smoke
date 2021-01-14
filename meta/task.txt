@@ -1,17 +1,17 @@
 
 This is perl 5, version 32, subversion 0 (v5.32.0) built for darwin-thread-multi-2level
 updating from RC…
-+------------> Perl: Good/Bad [1357/9]
-|+-----------> Smoke testing [1214]
++------------> Perl: Good/Bad [1358/9]
+|+-----------> Smoke testing [1215]
 ||+----------> sKipping validation [147]
 |||+---------> Interactive [65]
-||||+--------> Touched (modified by me) [426]
+||||+--------> Touched (modified by me) [427]
 |||||+-------> Random seed [110]
 ||||||+------> File output [74]
 |||||||+-----> Draft [226]
 ||||||||+----> Ignoring [37]
-|||||||||+---> Void (no local copy) [129]
-||||||||||+--> Un-implemented/reliable [120]
+|||||||||+---> Void (no local copy) [128]
+||||||||||+--> Un-implemented/reliable [108]
 |||||||||||
 GS......... 100_doors-1
 GS......... 100_doors-2
@@ -65,7 +65,7 @@ GS..T...... Address_of_a_variable
 GS......... Align_columns-1
 GS......... Align_columns-2
 GS......... Aliquot_sequence_classifications
-GS..T..D..U Almkvist-Giullera_formula_for_pi
+GS..T..D... Almkvist-Giullera_formula_for_pi
 GS......... Almost_prime-1
 GS......... Almost_prime-2
 GS.....D... Alternade_words
@@ -441,7 +441,7 @@ GS......... Extensible_prime_generator-2
 GS......... Extensible_prime_generator-3
 GS......... Extensible_prime_generator-4
 GS..T..D... External_sort
-GS..T..D..U Extra_primes
+GS..T..D... Extra_primes
 GS.....D... Extract_file_extension
 GS......... Extreme_floating_point_values
 GS......... FASTA_format
@@ -570,7 +570,7 @@ G.K........ Greatest_common_divisor-5
 GS......... Greatest_element_of_a_list
 GS...R..... Greatest_subsequential_sum-1
 GS......... Greatest_subsequential_sum-2
-G.KITR.D..U Greed
+G.KITR.D... Greed
 GS..T.F.... Greyscale_bars_Display
 GS...R..... Guess_the_number
 GS...R..... Guess_the_number_With_feedback
@@ -826,7 +826,7 @@ GS......... Minimal_steps_down_to_1
 GS..T...... Minimum_positive_multiple_in_base_10_using_only_0_and_1-1
 GS..T...... Minimum_positive_multiple_in_base_10_using_only_0_and_1-2
 GS......... Minimum_positive_multiple_in_base_10_using_only_0_and_1-3
-GS..T.....U Minkowski_question-mark_function
+GS..T...... Minkowski_question-mark_function
 GS......... Modular_arithmetic
 GS..T...... Modular_exponentiation
 GS......... Modular_inverse
@@ -878,7 +878,7 @@ GS......... Nested_function
 GS..T...... Nested_templated_data
 GS..T...... Next_highest_int_from_digits
 GS..T...... Nim_game
-.........VU Nimber_arithmetic
+GS..T...... Nimber_arithmetic
 GS......... Non-continuous_subsequences
 GS......... Non-decimal_radices_Convert
 GS......... Non-decimal_radices_Input
@@ -927,8 +927,8 @@ GS......... P-value_correction
 GS..T...... Palindrome_dates-1
 GS......... Palindrome_dates-2
 GS......... Palindrome_detection
-GS..T.....U Palindromic_gapful_numbers
-GS..T..D..U Pancake_numbers
+GS..T...... Palindromic_gapful_numbers
+GS..T..D... Pancake_numbers
 GS..T...... Pangram_checker
 GS......... Paraffins
 GS......... Parallel_brute_force
@@ -944,7 +944,7 @@ GS......... Parsing_Shunting-yard_algorithm
 GS......... Partial_function_application
 GS..TR.D... Particle_swarm_optimization
 GS......... Partition_an_integer_x_into_n_primes
-GS..T.....U Partition_function_P
+GS..T...... Partition_function_P
 GS......... Pascal%27s_triangle-1
 GS......... Pascal%27s_triangle-2
 GS......... Pascal%27s_triangle-3
@@ -1167,7 +1167,6 @@ G.K........ Secure_temporary_file
 GS..T..D... Selective_file_copy
 GS......... Self-describing_numbers
 .......D.VU Self-hosting_compiler
-..........U Self_numbers
 GS..T...... Self_numbers-1
 GS......... Semiprime
 GS......... Semordnilap
@@ -1285,7 +1284,7 @@ GS..TR.D... Spoof_game
 GS......... Square-free_integers
 GS..T...... Square_but_not_cube-1
 GS..T...... Square_but_not_cube-2
-GS..T..D..U Square_root_by_hand
+GS..T..D... Square_root_by_hand
 GS......... Stable_marriage_problem
 G.K........ Stack
 GS......... Stack_traces
@@ -1420,7 +1419,7 @@ GS......... Truncate_a_file
 GS....F.... Truth_table
 GS......... Twelve_statements
 GS..T..D... Twin_primes
-GS..TR.D..U Two_bullet_roulette
+GS..TR.D... Two_bullet_roulette
 GS..T..D... Two_sum
 GS..T..D... Type_detection
 GS..T...... UPC
@@ -1430,7 +1429,7 @@ GS......... URL_parser
 .......D.VU URL_shortener
 GS......... UTF-8_encode_and_decode
 .......D.VU Ukkonens_suffix_tree_construction
-GS..T..D..U Ulam_numbers
+GS..T..D... Ulam_numbers
 GS....F.... Ulam_spiral_for_primes
 GS...R..... Unbias_a_random_generator
 GS......... Undefined_values
