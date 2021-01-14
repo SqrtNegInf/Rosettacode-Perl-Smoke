@@ -1,6 +1,6 @@
 #!/usr/local/bin/perl
 #u# http://rosettacode.org/wiki/Square_Root_by_Hand
-#c# 2020-12-xx >RC
+#c# 2021-01-13 >RC
 #p# OK
 
 use strict;
@@ -52,10 +52,6 @@ sub SpigotSqrt {
 
 push @res, "The square root of $_ is " . SpigotSqrt $_ for < 25 0.0625 152.2756 >;
 
-#for (< 25 0.0625 152.2756 >) { # 13579.02468
-#   push @res, "The square root of $_ is " . SpigotSqrt $_;
-#}
-
 say my $result = join "\n", @res;
 
 my $ref = <<'END';
@@ -64,17 +60,7 @@ The square root of 0.0625 is 0.25
 The square root of 152.2756 is 12.34
 END
 
-#The square root of 13579.02468 is 116.5290722523782903561833846788464631805119729204989141878325473726703822155976113726101636833624692173...
-
 use Test::More;
 chomp $ref;
 is($result, $ref);
 done_testing();
-
-__END__
-
-=={{header|Perl}}==
-{{trans|Raku}}
-<lang perl></lang>
-{{out}}
-<pre></pre>
