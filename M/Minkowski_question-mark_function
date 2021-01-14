@@ -1,6 +1,6 @@
 #!/usr/local/bin/perl
 #u# http://rosettacode.org/wiki/Minkowski_question-mark_function
-#c# 2020-12-xx >RC
+#c# 2021-01-13 >RC
 #p# OK
 
 use strict;
@@ -87,11 +87,3 @@ use Test::More;
 chomp $ref;
 is($result, $ref);
 done_testing();
-
-__END__
-
-=={{header|Perl}}==
-{{trans|Raku}}
-<lang perl></lang>
-{{out}}
-<pre></pre>
