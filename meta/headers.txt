@@ -282,7 +282,7 @@ File: A/Aliquot_sequence_classifications
 File: A/Almkvist-Giullera_formula_for_pi
 #!/usr/local/bin/perl
 #u# http://rosettacode.org/wiki/Almkvist-Giullera_formula_for_pi
-#c# 2020-12-xx >RC
+#c# 2021-01-12 >RC
 #p# OK
 
 File: A/Almost_prime-1
@@ -2556,7 +2556,7 @@ File: E/External_sort
 File: E/Extra_primes
 #!/usr/local/bin/perl
 #u# http://rosettacode.org/wiki/Extra_primes
-#c# 2021-01-09 >RC
+#c# 2021-01-13 >RC
 #p# OK
 
 File: E/Extract_file_extension
@@ -3388,7 +3388,7 @@ File: G/Greed
 #!/usr/local/bin/perl
 #u# http://rosettacode.org/wiki/Greed
 #t# interactive
-#c# 2020-12-xx >RC
+#c# 2021-01-12 >RC
 #p# OK
 
 File: G/Greyscale_bars_Display
@@ -5023,7 +5023,7 @@ File: M/Minimum_positive_multiple_in_base_10_using_only_0_and_1-3
 File: M/Minkowski_question-mark_function
 #!/usr/local/bin/perl
 #u# http://rosettacode.org/wiki/Minkowski_question-mark_function
-#c# 2020-12-xx >RC
+#c# 2021-01-13 >RC
 #p# OK
 
 File: M/Modular_arithmetic
@@ -5347,6 +5347,12 @@ File: N/Nim_Game
 #=# RC pipe: 3\n-1\n2\n1
 #p# OK
 
+File: N/Nimber_arithmetic
+#!/usr/local/bin/perl
+#u# http://rosettacode.org/wiki/Nimber_arithmetic
+#c# 2021-01-13 >RC
+#p# OK
+
 File: N/Non-continuous_subsequences
 #!/usr/local/bin/perl
 #u# http://rosettacode.org/wiki/Non-continuous_subsequences
@@ -5624,13 +5630,13 @@ File: P/Palindrome_detection
 File: P/Palindromic_gapful_numbers
 #!/usr/local/bin/perl
 #u# http://rosettacode.org/wiki/Palindromic_gapful_numbers
-#c# 2020-12-xx >RC
+#c# 2021-01-12 >RC
 #p# OK
 
 File: P/Pancake_numbers
 #!/usr/local/bin/perl
 #u# http://rosettacode.org/wiki/Pancake_numbers
-#c# 2021-01-09 >RC
+#c# 2021-01-13 >RC
 #p# OK
 
 File: P/Pangram_checker
@@ -5710,9 +5716,9 @@ File: P/Particle_Swarm_Optimization
 File: P/Partition_Function_P
 #!/usr/local/bin/perl
 #u# http://rosettacode.org/wiki/Partition_Function_P
-#c# 2021-01-09 >RC
+#c# 2021-01-13 >RC
 #p# OK
-#n# Raku is faster
+#n# Raku is faster (aside from ntheory)
 
 File: P/Partition_an_integer_X_into_N_primes
 #!/usr/local/bin/perl
@@ -7037,9 +7043,10 @@ File: S/Self-describing_numbers
 File: S/Self_numbers-1
 #!/usr/local/bin/perl
 #u# http://rosettacode.org/wiki/Self_numbers
-#c# 2020-12-xx >RC
+#c# 2021-01-13 >RC
 #p# OK
 #n# Wait a sec... Raku is *faster*?
+#n# pretty inefficient, definitely don't try for 10**8
 
 File: S/Semiprime
 #!/usr/local/bin/perl
@@ -7783,7 +7790,7 @@ File: S/Square-free_integers
 File: S/Square_Root_by_Hand
 #!/usr/local/bin/perl
 #u# http://rosettacode.org/wiki/Square_Root_by_Hand
-#c# 2020-12-xx >RC
+#c# 2021-01-13 >RC
 #p# OK
 
 File: S/Square_but_not_cube-1
@@ -8651,7 +8658,7 @@ File: T/Two_Sum
 File: T/Two_bullet_roulette
 #!/usr/local/bin/perl
 #u# http://rosettacode.org/wiki/Two_bullet_roulette
-#c# 2020-12-xx >RC
+#c# 2021-01-13 >RC
 #p# OK
 
 File: T/Type_detection
@@ -8693,7 +8700,7 @@ File: U/UTF-8_encode_and_decode
 File: U/Ulam_numbers
 #!/usr/local/bin/perl
 #u# http://rosettacode.org/wiki/Ulam_numbers
-#c# 2020-12-xx >RC
+#c# 2021-01-13 >RC
 #p# OK
 #n# slowish @ 40sec for U(10_000)
 
