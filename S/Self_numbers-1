@@ -1,8 +1,9 @@
 #!/usr/local/bin/perl
 #u# http://rosettacode.org/wiki/Self_numbers
-#c# 2020-12-xx >RC
+#c# 2021-01-13 >RC
 #p# OK
 #n# Wait a sec... Raku is *faster*?
+#n# pretty inefficient, definitely don't try for 10**8
 
 use strict;
 use warnings;
@@ -13,7 +14,7 @@ use List::Util qw(max sum);
 my ( $count, $i, $pow, $digits, $offset, $lastSelf, $done, @selfs) 
  = (      0,  1,   10,       1,       9,         0,     0        );
 
-my $final = 1000; #1000;
+my $final = 50;
 
 while () {
    my $isSelf = 1;
@@ -36,11 +37,7 @@ while () {
    $offset = 9 * $digits++
 }
 
-# say "The 100 millionth self number is ", $lastSelf; # 1022727208
-#say $selfs[-1]; exit;
-
 say my $result = "The first 50 self numbers are:\n" . join ' ', @selfs;
-exit;
 
 my $ref = <<'END';
 The first 50 self numbers are:
@@ -51,11 +48,3 @@ use Test::More;
 chomp $ref;
 is($result, $ref);
 done_testing();
-
-__END__
-
-=={{header|Perl}}==
-{{trans|Raku}}
-<lang perl></lang>
-{{out}}
-<pre></pre>
