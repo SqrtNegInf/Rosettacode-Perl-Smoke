@@ -1,10 +1,9 @@
 #!/usr/local/bin/perl
 #u# http://rosettacode.org/wiki/Two_bullet_roulette
-#c# 2020-12-xx >RC
+#c# 2021-01-13 >RC
 #p# OK
 
 use strict;
-no strict 'refs';
 use warnings;
 use feature 'say';
 
@@ -56,6 +55,7 @@ sub LLSFF {
 my $trials = 10000;
 
 for my $ref (<LSLSFSF LSLSFF LLSFSF LLSFF>) {
+    no strict 'refs';
     my $total = 0;
     $total += &$ref for 1..$trials;
     push @res, sprintf "%7s %.2f%%", $ref, $total / $trials * 100;
@@ -74,11 +74,3 @@ use Test::More;
 chomp $ref;
 is($result, $ref);
 done_testing;
-
-__END__
-
-=={{header|Perl}}==
-{{trans|Raku}}
-<lang perl></lang>
-{{out}}
-<pre></pre>
