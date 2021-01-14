@@ -1,8 +1,8 @@
 #!/usr/local/bin/perl
 #u# http://rosettacode.org/wiki/Partition_Function_P
-#c# 2021-01-09 >RC
+#c# 2021-01-13 >RC
 #p# OK
-#n# Raku is faster
+#n# Raku is faster (aside from ntheory)
 
 use strict;
 use warnings;
@@ -11,11 +11,12 @@ use feature 'say';
 
 my $result;
 
-#use ntheory 'partitions'; say partitions(6666);
+#use ntheory 'partitions'; say partitions(6666); # very quick 
 
-use bigint try=>"GMP,Pari";
+#use bigint;
+use Math::AnyNum qw(:overload); # 3x faster than bigint
 
-use Memoize;
+use Memoize; # takes approximately forever without this
 memoize('partitionsP');
 memoize('partDiff');
 
