@@ -3,12 +3,11 @@
 #c# 2018-08-18 <RC
 #p# OK
 
-use feature 'say';
 my $result;
-# my @res;
 
 use strict;
 use warnings;
+use feature 'say';
 
 sub sexpr
 {
@@ -69,10 +68,6 @@ my $s = sexpr(q{
 
 });
 
-# Dump structure
-use Data::Dumper;
-#print Dumper $s;
-
 # Convert back
 say $result = sexpr2txt($s); # ."\n";
 
@@ -87,7 +82,7 @@ $VAR1 = [
           [
             bless( do{\(my $o = 'data')}, 'IDENTIFIER' ),
             [
-              bless( do{\(my $o = '[email protected]#')}, 'IDENTIFIER' ),
+              bless( do{\(my $o = '!@#')}, 'IDENTIFIER' ),
               [
                 bless( do{\(my $o = '4.5')}, 'FLOAT' )
               ],
