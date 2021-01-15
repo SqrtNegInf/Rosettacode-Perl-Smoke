@@ -43,26 +43,6 @@ sub send_email
 
   return 1;}
 
-#send_email
-#   from => 'A. T. Tappman',
-#   to => ['[email protected]', '[email protected]'],
-#   cc => '[email protected]',
-#   subject => 'Important message',
-#   body => 'I yearn for you tragically.',
-#   host => 'smtp.example.com:587',
-#   user => '[email protected]',
-#   password => 'yossarian';
-
-#If the host parameter is omitted, send_email falls back on the SMTP_Hosts defined in Net::Config. Hence, only two arguments are strictly necessary:
-
-#send_email
-#   to => '[email protected]',
-#   user => '[email protected]';
-
-
-#Library: LWP
-# LWP can send email by a POST to a mailto: URL. The message is given as a HTTP request. This is mainly of interest for treating different types of URLs in a common way. LWP sends merely by running the sendmail program, or on MacOS classic by SMTP (to SMTPHOSTS environment variable). For reference, the $ua->post() method does not suit since it constructs a message as MIME "form data".
-
 use strict;
 use LWP::UserAgent;
 use HTTP::Request;
@@ -82,6 +62,6 @@ sub send_email {
   }
 }
 
-send_email('[email protected]', '[email protected]', '',
-           "very important subject",
-           "Body text\n");
+#send_email('john@doe.com', 'jane@doe.com', '',
+#           "very important subject",
+#           "Body text\n");
