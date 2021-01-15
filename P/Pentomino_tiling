@@ -37,9 +37,19 @@ sub topattern {
 }
 
 my %all;
-@all{ " FF\nFF \n F \n", "IIIII\n", "LLLL\nL   \n", "NNN \n  NN\n",
-  "PPP\nPP \n", "TTT\n T \n T \n", "UUU\nU U\n", "VVV\nV  \nV  \n",
-  "WW \n WW\n  W\n", " X \nXXX\n X \n", "YYYY\n Y  \n", "ZZ \n Z \n ZZ\n",
+@all{ 
+ " FF\nFF \n F \n",
+ "IIIII\n",
+ "LLLL\nL   \n",
+ "NNN \n  NN\n",
+ "PPP\nPP \n",
+ "TTT\n T \n T \n",
+ "UUU\nU U\n",
+ "VVV\nV  \nV  \n",
+ "WW \n WW\n  W\n",
+ " X \nXXX\n X \n",
+ "YYYY\n Y  \n",
+ "ZZ \n Z \n ZZ\n",
 } = ();
 @all{map rotate($_), keys %all} = () for 1 .. 3;  # all four rotations
 @all{map s/.+/reverse $&/ger, sort keys %all} = ();    # mirror
