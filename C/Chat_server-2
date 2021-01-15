@@ -17,7 +17,7 @@ my $port = shift // 6666;
 my (%nicks, @users, %data);
 
 my $listen = IO::Socket::INET->new(LocalPort => $port, Listen => 9,
-  Reuse => 1) or die "[email protected] opening socket on port $port";
+  Reuse => 1) or die "$@ opening socket on port $port";
 my $rsel = IO::Select->new($listen);
 my $wsel = IO::Select->new();
 print "ready on $port...\n";
