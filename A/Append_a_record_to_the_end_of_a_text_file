@@ -32,7 +32,7 @@ my $records_to_write = [
             office    => 'Room 1007',
             extension => '(234)555-8917',
             homephone => '(234)555-0077',
-            email     => '[email protected]',
+            email     => 'john@doe.com',
         },
         directory => '/home/jsmith',
         shell     => '/bin/bash',
@@ -47,7 +47,7 @@ my $records_to_write = [
             office    => 'Room 1004',
             extension => '(234)555-8914',
             homephone => '(234)555-0044',
-            email     => '[email protected]',
+            email     => 'jane@doe.com',
         },
         directory => '/home/jdoe',
         shell     => '/bin/bash',
@@ -63,7 +63,7 @@ my $record_to_append = {
         office    => 'Room 1003',
         extension => '(234)555-8913',
         homephone => '(234)555-0033',
-        email     => '[email protected]',
+        email     => 'xyz@doe.com',
     },
     directory => '/home/xyz',
     shell     => '/bin/bash',
@@ -109,15 +109,15 @@ write_records_to_file( [$record_to_append] );
     chomp @lines;
     ok(
         $lines[-1] eq
-'xyz:x:1003:1000:X Yz,Room 1003,(234)555-8913,(234)555-0033,[email protected]:/home/xyz:/bin/bash',
+'xyz:x:1003:1000:X Yz,Room 1003,(234)555-8913,(234)555-0033,xyz@doe.com:/home/xyz:/bin/bash',
         "Appended record: $lines[-1]"
     );
 }
  
-# ok 1 - Appended record: xyz:x:1003:1000:X Yz,Room 1003,(234)555-8913,(234)555-0033,[email protected]:/home/xyz:/bin/bash
+# ok 1 - Appended record: xyz:x:1003:1000:X Yz,Room 1003,(234)555-8913,(234)555-0033,xyz@doe.com:/home/xyz:/bin/bash
 #
 # File contents:
 # 
-# jsmith:x:1001:1000:John Smith,Room 1007,(234)555-8917,(234)555-0077,[email protected]:/home/jsmith:/bin/bash
-# jdoe:x:1002:1000:Jane Doe,Room 1004,(234)555-8914,(234)555-0044,[email protected]:/home/jdoe:/bin/bash
-# xyz:x:1003:1000:X Yz,Room 1003,(234)555-8913,(234)555-0033,[email protected]:/home/xyz:/bin/bash
+# jsmith:x:1001:1000:John Smith,Room 1007,(234)555-8917,(234)555-0077,john@doe.com:/home/jsmith:/bin/bash
+# jdoe:x:1002:1000:Jane Doe,Room 1004,(234)555-8914,(234)555-0044,jane@doe.com:/home/jdoe:/bin/bash
+# xyz:x:1003:1000:X Yz,Room 1003,(234)555-8913,(234)555-0033,xyz@doe.com:/home/xyz:/bin/bash
