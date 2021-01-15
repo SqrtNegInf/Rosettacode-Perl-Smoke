@@ -1,8 +1,7 @@
 #!/usr/local/bin/perl
 #u# http://rosettacode.org/wiki/RCRPG/Perl
-#t# skiptest
 #c# 2018-08-19 <RC
-#p# OK
+#p# BROKEN
 
 # RCRPG/Perl is part of RCRPG. You may find other members of RCRPG at Category:RCRPG.
 # This Perl version of RCRPG implements a text interface.
@@ -86,10 +85,10 @@ sub cmd_west( $ );
 sub cmd_up( $ );
 sub cmd_down( $ );
 sub cmd_attack( $$ );
-sub cmd_name( [email protected] );
-sub cmd_take( [email protected] );
+sub cmd_name( xxx );
+sub cmd_take( xxx );
 sub cmd_equip( $$ );
-sub cmd_drop( [email protected] );
+sub cmd_drop( xxx );
 sub cmd_inventory( $ );
 sub cmd_alias( $$$ );
 sub cmd_help( $$ );
@@ -438,7 +437,7 @@ sub cmd_attack( $$ )
 	}
 }
 
-sub cmd_name( [email protected] )
+sub cmd_name( xxx )
 {
 	my $self = shift;
 	my @args = @_;
@@ -504,7 +503,7 @@ sub move_items( $$@ )
 	return $moved;
 }
 
-sub cmd_take( [email protected] )
+sub cmd_take( xxx )
 {
 	my $self = shift;
 	my @args = @_;
@@ -538,7 +537,7 @@ sub cmd_take( [email protected] )
 
 }
 
-sub cmd_drop ( [email protected] )
+sub cmd_drop ( xxx )
 {
 	my $self = shift;
 	my @args = @_;
