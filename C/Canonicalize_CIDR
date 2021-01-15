@@ -8,7 +8,7 @@ use feature 'say';
 use Socket qw(inet_aton inet_ntoa);
 
 # canonicalize a CIDR block: make sure none of the host bits are set
-# if ([email protected]ARGV) {
+# if (!@ARGV) {
 #   chomp(@ARGV = <>);
 # }
 #
