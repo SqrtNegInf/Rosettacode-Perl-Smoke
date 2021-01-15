@@ -9,7 +9,7 @@ use feature 'say';
 
 #  If control reaches the end of the subprogram, eval returns the value of the last expression evaluated.
 #  If the subprogram uses an explicit return, eval returns the given value.
-#  If the subprogram throws an exception, eval returns undef. The text of the exception is assigned to [email protected]. (When the subprogram terminates without an exception, [email protected] is set to the null string instead.)
+#  If the subprogram throws an exception, eval returns undef. The text of the exception is assigned to $@ (When the subprogram terminates without an exception, $@ is set to the null string instead.)
 
 my ($a, $b) = (-5, 7);
 say $ans = eval 'abs($a * $b)';  # => 35
