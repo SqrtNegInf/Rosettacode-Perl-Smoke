@@ -6474,9 +6474,8 @@ File: Q/Quine
 File: R/RCRPG
 #!/usr/local/bin/perl
 #u# http://rosettacode.org/wiki/RCRPG/Perl
-#t# skiptest
 #c# 2018-08-19 <RC
-#p# OK
+#p# BROKEN
 
 File: R/RIPEMD-160
 #!/usr/local/bin/perl
