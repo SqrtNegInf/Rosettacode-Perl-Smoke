@@ -1,9 +1,9 @@
 
 This is perl 5, version 32, subversion 0 (v5.32.0) built for darwin-thread-multi-2level
 updating from RC…
-+------------> Perl: Good/Bad [1358/9]
++------------> Perl: Good/Bad [1357/10]
 |+-----------> Smoke testing [1215]
-||+----------> sKipping validation [147]
+||+----------> sKipping validation [146]
 |||+---------> Interactive [65]
 ||||+--------> Touched (modified by me) [427]
 |||||+-------> Random seed [110]
@@ -1063,7 +1063,7 @@ GS......... Queue_Usage
 GS......... Quickselect_algorithm
 G.K........ Quine
 .......D.VU Quoting_constructs
-G.K........ RCRPG
+B.......... RCRPG
 GS......... RIPEMD-160
 GS..TR..... RPG_attributes_generator
 GS..T...... RSA_code
