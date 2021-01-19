@@ -1,45 +1,52 @@
 #!/usr/local/bin/perl
 #u# http://rosettacode.org/wiki/Pseudo-random_numbers/Splitmix64
-#c# 2021-01-12 >RC
+#c# 2021-01-12 >RC, 2021-01-18 <RC
 #p# OK
+#n# trizen++
+
+my @res;
 
 use strict;
 use warnings;
 no warnings 'portable';
 use feature 'say';
-#use bigint;
 use Math::AnyNum qw(:overload);
 
-my @res;
+package splitmix64 {
 
-{ package splitmix64;
-
-    our($state);
-
-    sub new { my(undef,undef,$seed) = @_; $state = $seed }
+    sub new {
+        my ($class, %opt) = @_;
+        bless {state => $opt{seed}}, $class;
+    }
 
     sub next_int {
-        my $next = $state = ($state + 0x9e3779b97f4a7c15) & (2**64 - 1);
+        my ($self) = @_;
+        my $next = $self->{state} = ($self->{state} + 0x9e3779b97f4a7c15) & (2**64 - 1);
         $next = ($next ^ ($next >> 30)) * 0xbf58476d1ce4e5b9 & (2**64 - 1);
         $next = ($next ^ ($next >> 27)) * 0x94d049bb133111eb & (2**64 - 1);
         ($next ^ ($next >> 31)) & (2**64 - 1);
     }
+
+    sub next_float {
+        my ($self) = @_;
+        $self->next_int / 2**64;
+    }
 }
 
-push @res, 'Seed: 1234567, first five Int values:';
-my $rng = splitmix64->new( seed => 1234567 );
-push @res, splitmix64->next_int($rng) for 1..5;
+push @res, 'Seed: 1234567, first 5 values:';
+my $rng = splitmix64->new(seed => 1234567);
+push @res, $rng->next_int for 1 .. 5;
 
 my %h;
 push @res, "\nSeed: 987654321, values histogram:";
-$rng = splitmix64->new( seed => 987654321 );
-$h{int 5 * splitmix64->next_int($rng)/2**64}++ for 1..100_000;
+$rng = splitmix64->new(seed => 987654321);
+$h{int 5 * $rng->next_float}++ for 1 .. 100_000;
 push @res, "$_ $h{$_}" for sort keys %h;
 
 say my $result = join "\n", @res;
 
-my $ref = <<'END';
-Seed: 1234567, first five Int values:
+my $ref = <<'EOD';
+Seed: 1234567, first 5 values:
 6457827717110365317
 3203168211198807973
 9817491932198370423
@@ -52,9 +59,9 @@ Seed: 987654321, values histogram:
 2 20073
 3 19978
 4 20030
-END
+EOD
 
 use Test::More;
 chomp $ref;
-is($result, $ref);
+is ($result, $ref);
 done_testing();
