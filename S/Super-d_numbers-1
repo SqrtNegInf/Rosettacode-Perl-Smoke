@@ -2,14 +2,16 @@
 #u# http://rosettacode.org/wiki/Super-d_numbers
 #c# 2019-10-10 NOT ON RC
 #p# OK
-#n# due to the 'bigint' requirement, slower than P6 version
+#n# due to the 'bigint' requirement, slower than Raku version
 #n# 202.732u 0.344s 3:23.32 99.8%
 #n# 167.730u 0.366s 2:48.57 99.7% GMP
+#n#  31.250u 0.990s  :32.46 99.0% Math::AnyNum (and still slower than Raku)
 
 use strict;
 use warnings;
 use feature 'say';
-use bigint try=>"GMP";
+#use bigint try=>"GMP";
+use Math::AnyNum qw(:overload);
 
 my @res;
 
