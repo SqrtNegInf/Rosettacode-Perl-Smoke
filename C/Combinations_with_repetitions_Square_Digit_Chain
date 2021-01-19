@@ -1,14 +1,16 @@
 #!/usr/local/bin/perl
 #u# http://rosettacode.org/wiki/Combinations_with_repetitions_Square_Digit_Chain
-#c# 2019-03-25 >RC
+#c# 2019-03-25 >RC, 2021-01-18 >RC
 #p# OK
 
-use strict;
-#use warnings;
-use feature 'say';
 my @res;
 
+use strict;
+use warnings;
+use feature 'say';
+
 #use bigint; # too durn slow
+use Math::AnyNum qw(:overload);
 
 sub comma { reverse ((reverse shift) =~ s/(.{3})/$1,/gr) =~ s/^,//r }
 
@@ -30,7 +32,7 @@ sub endsWithOne {
     }
 }
 
-my @ks = <7 8 11 14>; # 17>;
+my @ks = <7 8 11 14 17>;
 
 for my $k (@ks) {
     my @sums = <1 0>;
@@ -38,6 +40,7 @@ for my $k (@ks) {
     for my $n (1 .. $k) {
         for my $i (reverse 1 .. $n*81) {
             for my $j (1 .. 9) {
+                no warnings 'uninitialized';
                 last if ($s = $j**2) > $i;
                 $sums[$i] += $sums[$i-$s];
             }
@@ -48,9 +51,6 @@ for my $k (@ks) {
    my $limit = 10**$k - 1;
    push @res, "For k = $k in the range 1 to " . comma $limit;
    push @res, comma($count1) . ' numbers produce 1 and ' . comma($limit-$count1) . " numbers produce 89\n";
-   # to avoid exp. notation for for k = 17
-   #push @res, "For k = $k in the range 1 to " . comma sprintf "%i", $limit;
-   #push @res, comma($count1) . ' numbers produce 1 and ' . comma(sprintf("%i", $limit-$count1)) . " numbers produce 89\n";
 }
 
 say my $result = join "\n", @res;
@@ -67,15 +67,10 @@ For k = 11 in the range 1 to 99,999,999,999
 
 For k = 14 in the range 1 to 99,999,999,999,999
 13,770,853,279,684 numbers produce 1 and 86,229,146,720,315 numbers produce 89
+
+For k = 17 in the range 1 to 99,999,999,999,999,999
+12,024,696,404,768,024 numbers produce 1 and 87,975,303,595,231,975 numbers produce 89
 EOD
-
-# gets it wrong without 'bigint'
-# For k = 17 in the range 1 to 100,000,000,000,000,000
-#1 2,024,696,404,768,024 numbers produce 1 and 87,975,303,595,231,968 numbers produce 89
-
-# correct:
-# For k = 17 in the range 1 to 99,999,999,999,999,999
-# 12,024,696,404,768,024 numbers produce 1 and 87,975,303,595,231,975 numbers produce 89
 
 use Test::More;
 is($result, $ref);
