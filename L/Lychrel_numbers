@@ -56,7 +56,7 @@ sub has_overlap {
     my %h;
     $h{$_}++ for @{$a};
     exists $h{$_} and return 1 for @{$b};
-    return 0;
+    0;
 }
 
 sub set_union {
