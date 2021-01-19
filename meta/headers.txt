@@ -1457,7 +1457,7 @@ File: C/Combinations_with_repetitions-2
 File: C/Combinations_with_repetitions_Square_Digit_Chain
 #!/usr/local/bin/perl
 #u# http://rosettacode.org/wiki/Combinations_with_repetitions_Square_Digit_Chain
-#c# 2019-03-25 >RC
+#c# 2019-03-25 >RC, 2021-01-18 >RC
 #p# OK
 
 File: C/Comma_quibbling-1
@@ -3901,7 +3901,7 @@ File: I/Integer_roots-1
 #u# http://rosettacode.org/wiki/Integer_roots
 #c# 2018-09-09 >RC
 #p# OK
-#n# the native/slow way, see -2 variant
+#n# the native/slow way, see -2 variant (Math::AnyNum doesn't really help here)
 #n# cf 'Isqrt__integer_square_root__of_X'
 
 File: I/Integer_roots-2
@@ -4639,8 +4639,9 @@ File: L/Luhn_test_of_credit_card_numbers
 File: L/Lychrel_numbers
 #!/usr/local/bin/perl
 #u# http://rosettacode.org/wiki/Lychrel_numbers
-#c# 2018-08-17 <RC
+#c# 2018-08-17 <RC, 2021-01-18 >RC
 #p# OK
+#n# main utility of Const::Fast here seems to be the string interpolation of $n_max
 
 File: M/MAC_Vendor_Lookup
 #!/usr/local/bin/perl
@@ -5759,6 +5760,13 @@ File: P/Pascal_matrix_generation
 #p# OK
 
 File: P/Password_generator
+#!/usr/local/bin/perl
+#u# http://rosettacode.org/wiki/Password_generator
+#c# 2018-08-20 <RC, 2021-01-18 >RC
+#p# OK
+#n# was kinda crufty, beautified
+
+File: P/Password_generator.0
 #!/usr/local/bin/perl
 #u# http://rosettacode.org/wiki/Password_generator
 #c# 2018-08-20 <RC
@@ -8164,9 +8172,10 @@ File: S/Super-d_numbers-1
 #u# http://rosettacode.org/wiki/Super-d_numbers
 #c# 2019-10-10 NOT ON RC
 #p# OK
-#n# due to the 'bigint' requirement, slower than P6 version
+#n# due to the 'bigint' requirement, slower than Raku version
 #n# 202.732u 0.344s 3:23.32 99.8%
 #n# 167.730u 0.366s 2:48.57 99.7% GMP
+#n#  31.250u 0.990s  :32.46 99.0% Math::AnyNum (and still slower than Raku)
 
 File: S/Super-d_numbers-2
 #!/usr/local/bin/perl
