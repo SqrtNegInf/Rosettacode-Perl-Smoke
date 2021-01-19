@@ -7,7 +7,7 @@
 use strict;
 use warnings;
 use feature 'say';
-#use bigint;
+#use bigint; # need this for 5 and up
 
 my @res;
 
