@@ -1,68 +1,77 @@
 #!/usr/local/bin/perl
 #u# http://rosettacode.org/wiki/Pseudo-random_numbers/PCG32
-#c# 2021-01-12 >RC
+#c# 2021-01-12 >RC, 2021-01-18 <RC
 #p# OK
+#n# trizen++
+
+my @res;
 
 use strict;
 use warnings;
 use feature 'say';
-#use bigint;
 use Math::AnyNum qw(:overload);
 
-my @res;
+package PCG32 {
 
-{ package PCG32;
-
-    our($state,$incr);
-    use constant mask32 => 2**32 - 1;
-    use constant mask64 => 2**64 - 1;
-    use constant const  => 6364136223846793005;
+    use constant {
+        mask32 => 2**32 - 1,
+        mask64 => 2**64 - 1,
+        const  => 6364136223846793005,
+    };
 
     sub new {
-        my($seed, $iincr) = ($_[2], $_[4]);
-        $seed  //= 1;
-        $iincr //= 2;
-        $incr  = $iincr << 1 | 1 & mask64;
-        $state = (($incr + $seed) * const + $incr) & mask64;
+        my ($class, %opt) = @_;
+        my $seed = $opt{seed} // 1;
+        my $incr = $opt{incr} // 2;
+        $incr = $incr << 1 | 1 & mask64;
+        my $state = (($incr + $seed) * const + $incr) & mask64;
+        bless {incr => $incr, state => $state}, $class;
     }
 
     sub next_int {
+        my ($self) = @_;
+        my $state  = $self->{state};
         my $shift  = ($state >> 18 ^ $state) >> 27 & mask32;
-        my $rotate =  $state >> 59 & mask32;
-        $state     = ($state * const + $incr) & mask64;
-        ($shift >> $rotate) | $shift << (32 - $rotate) & mask32
+        my $rotate = $state >> 59 & mask32;
+        $self->{state} = ($state * const + $self->{incr}) & mask64;
+        ($shift >> $rotate) | $shift << (32 - $rotate) & mask32;
+    }
+
+    sub next_float {
+        my ($self) = @_;
+        $self->next_int / 2**32;
     }
 }
 
-push @res, 'Seed: 1234567, first 5 values:';
+push @res, "Seed: 42, Increment: 54, first 5 values:";
 my $rng = PCG32->new(seed => 42, incr => 54);
-push @res, PCG32->next_int($rng) for 1..5;
+push @res, $rng->next_int for 1 .. 5;
 
+push @res, "\nSeed: 987654321, Increment: 1, values histogram:";
 my %h;
-push @res, "\nSeed: 987654321, values histogram:";
-$rng = PCG32->new( seed => 987654321, incr => 1 );
-$h{int 5 * PCG32->next_int($rng)/2**32}++ for 1..100_000;
+$rng = PCG32->new(seed => 987654321, incr => 1);
+$h{int 5 * $rng->next_float}++ for 1 .. 100_000;
 push @res, "$_ $h{$_}" for sort keys %h;
 
 say my $result = join "\n", @res;
 
-my $ref = <<'END';
-Seed: 1234567, first 5 values:
+my $ref = <<'EOD';
+Seed: 42, Increment: 54, first 5 values:
 2707161783
 2068313097
 3122475824
 2211639955
 3215226955
 
-Seed: 987654321, values histogram:
+Seed: 987654321, Increment: 1, values histogram:
 0 20049
 1 20022
 2 20115
 3 19809
 4 20005
-END
+EOD
 
 use Test::More;
 chomp $ref;
-is($result, $ref);
+is ($result, $ref);
 done_testing();
