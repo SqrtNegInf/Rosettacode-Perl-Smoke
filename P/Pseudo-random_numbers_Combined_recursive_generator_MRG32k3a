@@ -9,7 +9,7 @@ use feature 'say';
 
 my @res;
 
-{ package MRG32k3a;
+package MRG32k3a {
 
     our(@x1,@x2);
     our $m1 = 2**32 - 209;
