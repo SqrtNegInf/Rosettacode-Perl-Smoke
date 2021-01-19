@@ -3,6 +3,7 @@
 #c# 2018-07-15 <>RC
 #p# OK
 #n# as with Perl 6, limit brought down to 2**15 (NB: 6 is faster)
+#n# much faster with Math::AnyNum, but sticking with current limit for testing
 
 use strict;
 use warnings;
@@ -11,7 +12,8 @@ my $result;
 
 # Perl's Math::BigRat core module implements arbitrary-precision rational numbers. The bigrat pragma can be used to turn on transparent BigRat support:
 
-use bigrat;
+#use bigrat;
+use Math::AnyNum qw(:overload);
  
 #foreach my $candidate (2 .. 2**19) {
 foreach my $candidate (2 .. 2**15) {
