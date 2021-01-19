@@ -1,45 +1,54 @@
 #!/usr/local/bin/perl
 #u# http://rosettacode.org/wiki/Pseudo-random_numbers/Xorshift_star
-#c# 2021-01-12 >RC
+#c# 2021-01-12 >RC, 2021-01-18 <RC
 #p# OK
+#n# trizen++
+
+my @res;
 
 use strict;
 use warnings;
 no warnings 'portable';
 use feature 'say';
-#use bigint;
 use Math::AnyNum qw(:overload);
 
-my @res;
+package Xorshift_star {
 
-{ package Xorshift_star;
-
-    our($state);
-
-    sub new { my(undef,undef,$seed) = @_; $state = $seed }
+    sub new {
+        my ($class, %opt) = @_;
+        bless {state => $opt{seed}}, $class;
+    }
 
     sub next_int {
+        my ($self) = @_;
+        my $state = $self->{state};
         $state ^= $state >> 12;
         $state ^= $state << 25 & (2**64 - 1);
         $state ^= $state >> 27;
-        ($state * 0x2545F4914F6CDD1D) >> 32 & (2**32 - 1)
+        $self->{state} = $state;
+        ($state * 0x2545F4914F6CDD1D) >> 32 & (2**32 - 1);
+    }
+
+    sub next_float {
+        my ($self) = @_;
+        $self->next_int / 2**32;
     }
 }
 
-push @res, 'Seed: 1234567, first five Int values:';
-my $rng = Xorshift_star->new( seed => 1234567 );
-push @res, Xorshift_star->next_int($rng) for 1..5;
+push @res, 'Seed: 1234567, first 5 values:';
+my $rng = Xorshift_star->new(seed => 1234567);
+push @res, $rng->next_int for 1 .. 5;
 
 my %h;
 push @res, "\nSeed: 987654321, values histogram:";
-$rng = Xorshift_star->new( seed => 987654321 );
-$h{int 5 * Xorshift_star->next_int($rng)/2**32}++ for 1..100_000;
+$rng = Xorshift_star->new(seed => 987654321);
+$h{int 5 * $rng->next_float}++ for 1 .. 100_000;
 push @res, "$_ $h{$_}" for sort keys %h;
 
 say my $result = join "\n", @res;
 
-my $ref = <<'END';
-Seed: 1234567, first five Int values:
+my $ref = <<'EOD';
+Seed: 1234567, first 5 values:
 3540625527
 2750739987
 4037983143
@@ -52,9 +61,9 @@ Seed: 987654321, values histogram:
 2 19937
 3 20031
 4 20007
-END
+EOD
 
 use Test::More;
 chomp $ref;
-is($result, $ref);
+is ($result, $ref);
 done_testing();
