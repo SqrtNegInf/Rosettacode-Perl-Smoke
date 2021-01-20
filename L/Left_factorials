@@ -9,10 +9,11 @@ use feature 'say';
 my $result;
 
 # By caching the last used factorial and left factorial values, I avoid needless recomputation. By only retaining the most recently used values, instead of all past values, I avoid the need to store twenty thousand enormous numbers.
-# If performance is a concern, this will run over 100x faster by replacing the line "use bigint" with "use Math::GMP qw/:constant/" (after installing that module).
 
 use 5.010;
-use bigint;
+#use bigint;
+#use Math::GMP qw/:constant/;
+use Math::AnyNum qw(:overload);
 
 sub leftfact {
 	my ($n) = @_;
