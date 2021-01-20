@@ -32,10 +32,10 @@ for (my $n=1; $n<=n_max; $n++) {
         @seq_dump = set_union(\@seq_dump, \@seq);
     }
 }
-push @res, "Number of seed Lychrels <= $n_max: "    . scalar     @seed_lychrels;
-push @res, "Seed Lychrels <= $n_max: "              . join ', ', @seed_lychrels;
-push @res, "Number of related Lychrels <= $n_max: " . scalar     @related_lychrels;
-push @res, "Palindromes among seed and related <= $n_max: " .
+push @res, sprintf '%45s %s', "Number of seed Lychrels <= $n_max: ",    scalar     @seed_lychrels;
+push @res, sprintf '%45s %s', "Seed Lychrels <= $n_max: ",              join ', ', @seed_lychrels;
+push @res, sprintf '%45s %s', "Number of related Lychrels <= $n_max: ", scalar     @related_lychrels;
+push @res, sprintf '%45s %s', "Palindromes among seed and related <= $n_max: ",
       join ', ', sort {$a <=> $b} grep { is_palindrome($ARG) } @seed_lychrels, @related_lychrels;
 
 sub lychrel_sequence {
@@ -69,10 +69,10 @@ sub set_union {
 say my $result = join "\n", @res; 
 
 my $ref = <<'EOD';
-Number of seed Lychrels <= 10000: 5
-Seed Lychrels <= 10000: 196, 879, 1997, 7059, 9999
-Number of related Lychrels <= 10000: 244
-Palindromes among seed and related <= 10000: 4994, 8778, 9999
+           Number of seed Lychrels <= 10000:  5
+                     Seed Lychrels <= 10000:  196, 879, 1997, 7059, 9999
+        Number of related Lychrels <= 10000:  244
+Palindromes among seed and related <= 10000:  4994, 8778, 9999
 EOD
 
 use Test::More;
