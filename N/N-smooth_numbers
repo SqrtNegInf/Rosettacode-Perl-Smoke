@@ -13,6 +13,7 @@ use List::Util qw<min>;
 my @res;
 
 #use bigint     # works, but slow
+#use Math::AnyNum qw(:overload); # pretty slow as well
 use Math::GMPz; # this module gives roughly 16x speed-up
 
 sub smooth_numbers {
