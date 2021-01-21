@@ -1,6 +1,6 @@
 #!/usr/local/bin/perl
 #u# http://rosettacode.org/wiki/Pseudo-random_numbers/Combined_recursive_generator_MRG32k3a
-#c# 2021-01-12 >RC
+#c# 2021-01-12 >RC, 2021-01-20 >RC
 #p# OK
 
 use strict;
@@ -11,21 +11,29 @@ my @res;
 
 package MRG32k3a {
 
-    our(@x1,@x2);
-    our $m1 = 2**32 - 209;
-    our $m2 = 2**32 - 22853;
-    our @a1 = <     0 1403580  -810728>;
-    our @a2 = <527612       0 -1370589>;
+    use constant {
+        m1 => 2**32 - 209,
+        m2 => 2**32 - 22853
+    };
 
-    sub new { @x1 = @x2 = ($_[2], 0, 0) }
+    use Const::Fast;
+    const my @a1 => <     0 1403580  -810728>;
+    const my @a2 => <527612       0 -1370589>;
 
-    sub next_int {
-        unshift @x1, ($a1[0] * $x1[0] + $a1[1] * $x1[1] + $a1[2] * $x1[2]) % $m1; pop @x1;
-        unshift @x2, ($a2[0] * $x2[0] + $a2[1] * $x2[1] + $a2[2] * $x2[2]) % $m2; pop @x2;
-        ($x1[0] - $x2[0]) % ($m1 + 1)
+    sub new {
+        my ($class,undef,$seed) = @_;
+        my @x1 = my @x2 = ($seed, 0, 0);
+        bless {x1 => \@x1, x2 => \@x2}, $class;
     }
 
-    sub next_float { next_int() / ($m1 + 1) }
+    sub next_int {
+        my ($class,$self) = @_;
+        unshift @{$$self{x1}}, ($a1[0] * $$self{x1}[0] + $a1[1] * $$self{x1}[1] + $a1[2] * $$self{x1}[2]) % m1; pop @{$$self{x1}};
+        unshift @{$$self{x2}}, ($a2[0] * $$self{x2}[0] + $a2[1] * $$self{x2}[1] + $a2[2] * $$self{x2}[2]) % m2; pop @{$$self{x2}};
+        ($$self{x1}[0] - $$self{x2}[0]) % (m1 + 1)
+    }
+
+    sub next_float { next_int(@_) / (m1 + 1) }
 }
 
 push @res, 'Seed: 1234567, first 5 values:';
