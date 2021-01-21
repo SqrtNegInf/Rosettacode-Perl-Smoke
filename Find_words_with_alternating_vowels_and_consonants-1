@@ -1,5 +1,5 @@
 #!/usr/local/bin/perl
-#u# http://rosettacode.org/wiki/Find_words_which_odd_letters_are_consonants_and_even_letters_are_vowels_or_vice_versa
+#u# http://rosettacode.org/wiki/Find_words_with_alternating_vowels_and_consonants
 #c# 2021-01-04 <RC
 #p# OK
 
