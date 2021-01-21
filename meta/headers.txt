@@ -2902,18 +2902,6 @@ File: F/Find_the_missing_permutation-2
 #p# OK
 #n# alternates
 
-File: F/Find_words_which_odd_letters_are_consonants_and_even_letters_are_vowels_or_vice_versa-1
-#!/usr/local/bin/perl
-#u# http://rosettacode.org/wiki/Find_words_which_odd_letters_are_consonants_and_even_letters_are_vowels_or_vice_versa
-#c# 2021-01-04 <RC
-#p# OK
-
-File: F/Find_words_which_odd_letters_are_consonants_and_even_letters_are_vowels_or_vice_versa-2
-#!/usr/local/bin/perl
-#u# http://rosettacode.org/wiki/Find_words_which_odd_letters_are_consonants_and_even_letters_are_vowels_or_vice_versa
-#c# 2021-01-07 >RC
-#p# OK
-
 File: F/First-class_functions
 #!/usr/local/bin/perl
 #u# http://rosettacode.org/wiki/First-class_functions
@@ -6396,7 +6384,7 @@ File: P/Proper_divisors
 File: P/Pseudo-random_numbers_Combined_recursive_generator_MRG32k3a
 #!/usr/local/bin/perl
 #u# http://rosettacode.org/wiki/Pseudo-random_numbers/Combined_recursive_generator_MRG32k3a
-#c# 2021-01-12 >RC
+#c# 2021-01-12 >RC, 2021-01-20 >RC
 #p# OK
 
 File: P/Pseudo-random_numbers_PCG32
