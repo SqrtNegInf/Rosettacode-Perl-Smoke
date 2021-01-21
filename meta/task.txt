@@ -1,17 +1,17 @@
 
 This is perl 5, version 32, subversion 0 (v5.32.0) built for darwin-thread-multi-2level
 updating from RC…
-+------------> Perl: Good/Bad [1357/10]
-|+-----------> Smoke testing [1215]
++------------> Perl: Good/Bad [1355/10]
+|+-----------> Smoke testing [1213]
 ||+----------> sKipping validation [146]
 |||+---------> Interactive [65]
-||||+--------> Touched (modified by me) [429]
+||||+--------> Touched (modified by me) [428]
 |||||+-------> Random seed [110]
 ||||||+------> File output [74]
-|||||||+-----> Draft [226]
+|||||||+-----> Draft [228]
 ||||||||+----> Ignoring [37]
-|||||||||+---> Void (no local copy) [128]
-||||||||||+--> Un-implemented/reliable [108]
+|||||||||+---> Void (no local copy) [129]
+||||||||||+--> Un-implemented/reliable [109]
 |||||||||||
 GS......... 100_doors-1
 GS......... 100_doors-2
@@ -495,9 +495,9 @@ GS......... Find_the_intersection_of_two_lines
 GS......... Find_the_last_Sunday_of_each_month
 GS......... Find_the_missing_permutation
 GS......... Find_the_missing_permutation-2
-.......D... Find_words_which_odd_letters_are_consonants_and_even_letters_are_vowels_or_vice_versa
-GS......... Find_words_which_odd_letters_are_consonants_and_even_letters_are_vowels_or_vice_versa-1
-GS..T...... Find_words_which_odd_letters_are_consonants_and_even_letters_are_vowels_or_vice_versa-2
+.......D.V. Find_words_with_alternating_vowels_and_consonants
+.......D... Find_words_with_alternating_vowels_and_consonants-1
+.......D... Find_words_with_alternating_vowels_and_consonants-2
 .......D.VU Finite_state_machine
 GS......... First-class_functions
 GS......... First-class_functions_Use_numbers_analogously
@@ -928,7 +928,7 @@ GS..T...... Palindrome_dates-1
 GS......... Palindrome_dates-2
 GS......... Palindrome_detection
 GS..T...... Palindromic_gapful_numbers
-GS..T..D... Pancake_numbers
+GS..T..D..U Pancake_numbers
 GS..T...... Pangram_checker
 GS......... Paraffins
 GS......... Parallel_brute_force
