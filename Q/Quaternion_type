@@ -6,11 +6,11 @@
 use strict;
 use warnings;
 use feature 'say';
+
 my $result;
 
 package Quaternion;
-use List::Util 'reduce';
-use List::MoreUtils 'pairwise';
+use List::AllUtils qw<reduce pairwise>;
 
 sub make {
         my $cls = shift;
