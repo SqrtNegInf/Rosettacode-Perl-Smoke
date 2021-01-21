@@ -13,7 +13,6 @@ my @res;
 
 my $d = join '', <DATA>, (" \n") x 4;
 $d =~ s/.+/ sprintf "%-31s", $& /ge; # padding for single number addressing
-#print $d;
 
 my $w = $d =~ /\n/ ? $+[0] : die;
 sub xy { "(@{[ int $_[0] / $w ]},@{[ $_[0] % $w ]})" }
