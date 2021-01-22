@@ -1,29 +1,55 @@
 #!/usr/local/bin/perl
 #u# http://rosettacode.org/wiki/I%27m_a_software_engineer,_get_me_out_of_here
-#c# 2020-12-09 <RC
+#c# 2020-12-09 <RC, 2021-01-21 >RC
 #p# OK
+#n# some cosmetic-type changes not pushed to RC
 
 use strict;
 use warnings;
 use feature 'say';
 
-use List::Util qw( first );
+use List::Util 'first';
+
+use Data::Printer;
 
 my @res;
 
-my $d = join '', <DATA>, (" \n") x 4;
-$d =~ s/.+/ sprintf "%-31s", $& /ge; # padding for single number addressing
+my $w = 0;
+my $d = join '', <DATA>, " \n" x 4;
+length > $w and $w = length for split "\n", $d;  # dubiously obscure?
+$d =~ s/.+/ sprintf "%-${w}s", $& /ge;           # padding for single number addressing
+$w++;
 
-my $w = $d =~ /\n/ ? $+[0] : die;
-sub xy { "(@{[ int $_[0] / $w ]},@{[ $_[0] % $w ]})" }
-sub fromxy { $_[0] * $w + $_[1] }
+sub   to_xy { my($i) = shift; '(' . join(',', int ($i/$w), $i%$w) . ')' }
+sub from_xy { my($x,$y) = @_; $x * $w + $y }
 
 my @directions = ( 1, -1, -$w-1 .. -$w+1, $w-1 .. $w+1 );
-my $startpos = fromxy 11, 11;
+my $startpos = from_xy 11, 11;
 
 my @nodes;
 push @nodes, $-[0] while $d =~ /\d/g;
 my %dist = map { $_ => alldest($_) } @nodes; # all shortest from-to paths
+#p %dist; exit;
+
+sub alldest {
+    my @queue = shift;
+    my $dd = $d;
+    my %to;
+    while( my $path = shift @queue ) {
+        my $from = (split ' ', $path)[-1];
+        my $steps = substr $dd, $from, 1;
+        next unless ' ' ne $steps;
+        $to{$from} //= $path;
+        next unless $steps;
+        substr $dd, $from, 1, 0;
+        for my $dir ( @directions ) {
+            my $next = $from + $steps * $dir;
+            push @queue, "$path $next" if substr($dd, $next, 1) =~ /\d/;
+            #substr($dd, $next, 1) =~ /\d/ and push @queue, "$path $next";
+        }
+    }
+    return \%to;
+}
 
 my @best;
 $best[ tr/ // ] .= "\t$_\n" for grep $_, map $dist{$startpos}{$_},
@@ -31,47 +57,25 @@ $best[ tr/ // ] .= "\t$_\n" for grep $_, map $dist{$startpos}{$_},
 my $short = first { $best[$_] } 0 .. $#best;
 my $n = $best[$short] =~ tr/\n//;
 push @res, "shortest escape routes ($n) of length $short:\n".
-  $best[$short] =~ s/\d+/ xy $& /ger;
+  $best[$short] =~ s/\d+/ to_xy $& /ger;
 
 push @res, "\nshortest from (21,11) to (1,11):\n\t".
-  $dist{fromxy 21, 11}{fromxy 1, 11} =~ s/\d+/ xy $& /ger, "\n";
+  $dist{from_xy 21, 11}{from_xy 1, 11} =~ s/\d+/ to_xy $& /ger, "\n";
 push @res, "\nshortest from (1,11) to (21,11):\n\t".
-  $dist{fromxy 1, 11}{fromxy 21, 11} =~ s/\d+/ xy $& /ger, "\n";
+  $dist{from_xy 1, 11}{from_xy 21, 11} =~ s/\d+/ to_xy $& /ger, "\n";
 
 @best = ();
 $best[tr/ //] .= "\t$_\n" for sort map { values %$_ } values %dist;
 push @res, "\nlongestshortest paths (length $#best):\n".
-  $best[-1] =~ s/\d+/ xy $& /ger;
+  $best[-1] =~ s/\d+/ to_xy $& /ger;
 
 my @notreach = grep !$dist{$startpos}{$_}, @nodes;
-push @res, "\nnot reached from HQ:\n\t@notreach\n" =~ s/\d+/ xy $& /ger;
+push @res, "\nnot reached from HQ:\n\t@notreach\n" =~ s/\d+/ to_xy $& /ger;
 
 @best = ();
 $best[tr/ //] .= "\t$_\n" for sort values %{ $dist{$startpos} };
 push @res, "\nlongest reinforcement from HQ is $#best for:\n".
-  $best[-1] =~ s/\d+/ xy $& /ger;
-
-sub alldest
-  {
-  my @queue = shift;
-  my $dd = $d;
-  my %to;
-  while( my $path = shift @queue )
-    {
-    my $from = (split ' ', $path)[-1];
-    my $steps = substr $dd, $from, 1;
-    ' ' eq $steps and next;
-    $to{$from} //= $path;
-    $steps or next;
-    substr $dd, $from, 1, 0;
-    for my $dir ( @directions )
-      {
-      my $next = $from + $steps * $dir;
-      (substr $dd, $next, 1) =~ /\d/ and push @queue, "$path $next";
-      }
-    }
-  return \%to;
-  }
+  $best[-1] =~ s/\d+/ to_xy $& /ger;
 
 my $result = join "", @res;
 
