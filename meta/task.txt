@@ -5,7 +5,7 @@ updating from RC…
 |+-----------> Smoke testing [1213]
 ||+----------> sKipping validation [146]
 |||+---------> Interactive [65]
-||||+--------> Touched (modified by me) [428]
+||||+--------> Touched (modified by me) [429]
 |||||+-------> Random seed [110]
 ||||||+------> File output [74]
 |||||||+-----> Draft [228]
@@ -622,7 +622,7 @@ GS.....D... Hourglass_puzzle
 GS......... Huffman_coding
 GS..T...... Humble_numbers
 .........VU Hunt_the_Wumpus
-GS.....D... I%27m_a_software_engineer,_get_me_out_of_here
+GS..T..D... I%27m_a_software_engineer,_get_me_out_of_here
 GS......... IBAN
 G.KI...D... IPC_via_named_pipe
 .......D.VU IRC_gateway
