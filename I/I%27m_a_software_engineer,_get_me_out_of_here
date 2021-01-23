@@ -1,6 +1,6 @@
 #!/usr/local/bin/perl
 #u# http://rosettacode.org/wiki/I%27m_a_software_engineer,_get_me_out_of_here
-#c# 2020-12-09 <RC, 2021-01-21 >RC
+#c# 2020-12-09 <RC, 2021-01-21 >RC, 2021-01-23 >RC
 #p# OK
 #n# some cosmetic-type changes not pushed to RC
 
@@ -9,8 +9,6 @@ use warnings;
 use feature 'say';
 
 use List::Util 'first';
-
-use Data::Printer;
 
 my @res;
 
@@ -28,10 +26,9 @@ my $startpos = from_xy 11, 11;
 
 my @nodes;
 push @nodes, $-[0] while $d =~ /\d/g;
-my %dist = map { $_ => alldest($_) } @nodes; # all shortest from-to paths
-#p %dist; exit;
+my %dist = map { $_ => all_destinations($_) } @nodes; # all shortest from-to paths
 
-sub alldest {
+sub all_destinations {
     my @queue = shift;
     my $dd = $d;
     my %to;
@@ -41,11 +38,10 @@ sub alldest {
         next unless ' ' ne $steps;
         $to{$from} //= $path;
         next unless $steps;
-        substr $dd, $from, 1, 0;
+        substr $dd, $from, 1, '0';
         for my $dir ( @directions ) {
             my $next = $from + $steps * $dir;
             push @queue, "$path $next" if substr($dd, $next, 1) =~ /\d/;
-            #substr($dd, $next, 1) =~ /\d/ and push @queue, "$path $next";
         }
     }
     return \%to;
