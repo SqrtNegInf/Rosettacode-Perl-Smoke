@@ -2902,6 +2902,18 @@ File: F/Find_the_missing_permutation-2
 #p# OK
 #n# alternates
 
+File: F/Find_words_with_alternating_vowels_and_consonants-1
+#!/usr/local/bin/perl
+#u# http://rosettacode.org/wiki/Find_words_with_alternating_vowels_and_consonants
+#c# 2021-01-04 <RC
+#p# OK
+
+File: F/Find_words_with_alternating_vowels_and_consonants-2
+#!/usr/local/bin/perl
+#u# http://rosettacode.org/wiki/Find_words_with_alternating_vowels_and_consonants
+#c# 2021-01-07 >RC
+#p# OK
+
 File: F/First-class_functions
 #!/usr/local/bin/perl
 #u# http://rosettacode.org/wiki/First-class_functions
@@ -3727,7 +3739,7 @@ File: H/Humble_numbers
 File: I/I%27m_a_software_engineer,_get_me_out_of_here
 #!/usr/local/bin/perl
 #u# http://rosettacode.org/wiki/I%27m_a_software_engineer,_get_me_out_of_here
-#c# 2020-12-09 <RC, 2021-01-21 >RC
+#c# 2020-12-09 <RC, 2021-01-21 >RC, 2021-01-23 >RC
 #p# OK
 #n# some cosmetic-type changes not pushed to RC
 
