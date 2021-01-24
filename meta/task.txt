@@ -1,7 +1,7 @@
 
 This is perl 5, version 32, subversion 0 (v5.32.0) built for darwin-thread-multi-2level
 updating from RC…
-+------------> Perl: Good/Bad [1357/10]
++------------> Perl: Good/Bad [1356/10]
 |+-----------> Smoke testing [1215]
 ||+----------> sKipping validation [146]
 |||+---------> Interactive [65]
@@ -57,7 +57,7 @@ GS......... Ackermann_function-4
 GS......... Ackermann_function-5
 ........XV. Active_Directory_Connect
 .........VU Active_Directory_Search_for_a_user
-GS......... Active_object
+!S......... Active_object
 GS......... Add_a_variable_to_a_class_instance_at_runtime
 .......D.VU Addition-chain_exponentiation
 GS..T..D... Addition_chains
