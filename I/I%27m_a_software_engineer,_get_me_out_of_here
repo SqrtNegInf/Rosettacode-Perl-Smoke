@@ -2,6 +2,7 @@
 #u# http://rosettacode.org/wiki/I%27m_a_software_engineer,_get_me_out_of_here
 #c# 2020-12-09 <RC, 2021-01-21 >RC, 2021-01-23 >RC
 #p# OK
+#n# eliminated hard-coded values, some edits for clarity
 #n# some cosmetic-type changes not pushed to RC
 
 use strict;
@@ -13,17 +14,11 @@ use List::Util 'first';
 my @res;
 
 my $w = 0;
-my $d = join '', <DATA>, " \n" x 4;
+my $d = join '', <DATA>;
 length > $w and $w = length for split "\n", $d;  # dubiously obscure?
 $d =~ s/.+/ sprintf "%-${w}s", $& /ge;           # padding for single number addressing
 $w++;
-
-sub   to_xy { my($i) = shift; '(' . join(',', int ($i/$w), $i%$w) . ')' }
-sub from_xy { my($x,$y) = @_; $x * $w + $y }
-
 my @directions = ( 1, -1, -$w-1 .. -$w+1, $w-1 .. $w+1 );
-my $startpos = from_xy 11, 11;
-
 my @nodes;
 push @nodes, $-[0] while $d =~ /\d/g;
 my %dist = map { $_ => all_destinations($_) } @nodes; # all shortest from-to paths
@@ -35,21 +30,26 @@ sub all_destinations {
     while( my $path = shift @queue ) {
         my $from = (split ' ', $path)[-1];
         my $steps = substr $dd, $from, 1;
-        next unless ' ' ne $steps;
+        next if $steps eq ' ';
         $to{$from} //= $path;
-        next unless $steps;
-        substr $dd, $from, 1, '0';
+        next unless $steps ne '0'; # original: $steps or next;
+        substr $dd, $from, 1, '0'; # NB: this is string replacement
         for my $dir ( @directions ) {
             my $next = $from + $steps * $dir;
+            next if $next < 0 or $next > length $dd;
             push @queue, "$path $next" if substr($dd, $next, 1) =~ /\d/;
         }
     }
-    return \%to;
+    \%to;
 }
 
+sub   to_xy { my($i) = shift; '(' . join(',', int ($i/$w), $i%$w) . ')' }   # in prep for EVAL
+sub from_xy { my($x,$y) = @_; $x * $w + $y }
+
+my $startpos = from_xy 11, 11;
+
 my @best;
-$best[ tr/ // ] .= "\t$_\n" for grep $_, map $dist{$startpos}{$_},
-  grep { '0' eq substr $d, $_, 1 } @nodes;
+$best[ tr/ // ] .= "\t$_\n" for grep $_, map $dist{$startpos}{$_}, grep { '0' eq substr $d, $_, 1 } @nodes;
 my $short = first { $best[$_] } 0 .. $#best;
 my $n = $best[$short] =~ tr/\n//;
 push @res, "shortest escape routes ($n) of length $short:\n".
