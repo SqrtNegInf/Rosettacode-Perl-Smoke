@@ -1,8 +1,8 @@
 #!/usr/local/bin/perl
 #u# http://rosettacode.org/wiki/I%27m_a_software_engineer,_get_me_out_of_here
-#c# 2020-12-09 <RC, 2021-01-21 >RC, 2021-01-23 >RC
+#c# 2020-12-09 <RC, 2021-01-21 >RC, 2021-01-24 >RC
 #p# OK
-#n# eliminated hard-coded values, some edits for clarity
+#n# eliminated hard-coded values, 'excess' padding, some further edits for clarity
 #n# some cosmetic-type changes not pushed to RC
 
 use strict;
@@ -18,7 +18,9 @@ my $d = join '', <DATA>;
 length > $w and $w = length for split "\n", $d;  # dubiously obscure?
 $d =~ s/.+/ sprintf "%-${w}s", $& /ge;           # padding for single number addressing
 $w++;
+
 my @directions = ( 1, -1, -$w-1 .. -$w+1, $w-1 .. $w+1 );
+
 my @nodes;
 push @nodes, $-[0] while $d =~ /\d/g;
 my %dist = map { $_ => all_destinations($_) } @nodes; # all shortest from-to paths
