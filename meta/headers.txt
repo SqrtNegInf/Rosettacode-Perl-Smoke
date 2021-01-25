@@ -3739,9 +3739,9 @@ File: H/Humble_numbers
 File: I/I%27m_a_software_engineer,_get_me_out_of_here
 #!/usr/local/bin/perl
 #u# http://rosettacode.org/wiki/I%27m_a_software_engineer,_get_me_out_of_here
-#c# 2020-12-09 <RC, 2021-01-21 >RC, 2021-01-23 >RC
+#c# 2020-12-09 <RC, 2021-01-21 >RC, 2021-01-24 >RC
 #p# OK
-#n# eliminated hard-coded values, some edits for clarity
+#n# eliminated hard-coded values, 'excess' padding, some further edits for clarity
 #n# some cosmetic-type changes not pushed to RC
 
 File: I/I.Q._Puzzle
