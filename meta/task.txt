@@ -1,17 +1,17 @@
 
 This is perl 5, version 32, subversion 0 (v5.32.0) built for darwin-thread-multi-2level
 updating from RC…
-+------------> Perl: Good/Bad [1357/10]
-|+-----------> Smoke testing [1215]
++------------> Perl: Good/Bad [1359/10]
+|+-----------> Smoke testing [1217]
 ||+----------> sKipping validation [146]
 |||+---------> Interactive [65]
 ||||+--------> Touched (modified by me) [430]
-|||||+-------> Random seed [110]
-||||||+------> File output [74]
+|||||+-------> Random seed [111]
+||||||+------> File output [75]
 |||||||+-----> Draft [226]
 ||||||||+----> Ignoring [37]
-|||||||||+---> Void (no local copy) [128]
-||||||||||+--> Un-implemented/reliable [109]
+|||||||||+---> Void (no local copy) [127]
+||||||||||+--> Un-implemented/reliable [108]
 |||||||||||
 GS......... 100_doors-1
 GS......... 100_doors-2
@@ -202,6 +202,7 @@ G.K........ Call_an_object_method
 .........VU Canny_edge_detector
 GS......... Canonicalize_CIDR
 GS..T...... Cantor_set
+GS....F.... Cantor_set-2
 GS..TR.D... Card_shuffles
 GS......... Carmichael_3_strong_pseudoprimes
 GS..T...... Cartesian_product_of_two_or_more_lists-1
@@ -621,7 +622,7 @@ GS..T.F.... Hough_transform
 GS.....D... Hourglass_puzzle
 GS......... Huffman_coding
 GS..T...... Humble_numbers
-.........VU Hunt_the_Wumpus
+GS...R..... Hunt_the_Wumpus
 GS..T..D... I%27m_a_software_engineer,_get_me_out_of_here
 GS......... IBAN
 G.KI...D... IPC_via_named_pipe
