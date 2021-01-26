@@ -1072,6 +1072,15 @@ File: C/Cantor_set
 #p# OK
 #n# subroutines must be nested
 
+File: C/Cantor_set-2
+#!/usr/bin/env perl
+#u# http://rosettacode.org/wiki/Cantor_set
+#c# 2018-11-05 NOT ON RC
+#p# OK
+#f# RC file: cantor-set.png
+#n# graphical version, translated from Raku
+#n# NB: subroutines must be nested
+
 File: C/Card_shuffles
 #!/usr/local/bin/perl
 #u# http://rosettacode.org/wiki/Card_shuffles
@@ -3735,6 +3744,13 @@ File: H/Humble_numbers
 #c# 2019-09-05 >RC
 #p# OK
 #n# GMPz provides ~ 16x speed-up, GMP ~ 4x
+
+File: H/Hunt_the_Wumpus
+#!/usr/local/bin/perl
+#u# http://rosettacode.org/wiki/Hunt_the_Wumpus
+#c# 2021-01-25 <RC
+#p# OK
+#=# RC pipe: sB
 
 File: I/I%27m_a_software_engineer,_get_me_out_of_here
 #!/usr/local/bin/perl
