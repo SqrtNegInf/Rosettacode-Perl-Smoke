@@ -6,11 +6,12 @@
 use strict; 
 use warnings;
 use feature 'say';
+
 my $result;
 
 # Creates a magic scalar whose value is next in the LCG sequence when read.
 
-package LCG;
+package LCG {
 
 use overload '0+'  => \&get;
 
@@ -40,7 +41,7 @@ sub new {
 	}, ref $cls || $cls;
 }
 
-package main;
+}
 
 my $rand = LCG->new;
 
