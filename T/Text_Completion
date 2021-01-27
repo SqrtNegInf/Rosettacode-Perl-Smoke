@@ -8,6 +8,7 @@
 #n# https://github.com/Perl/perl5/issues/18123
 #n# perl5-32: \K not permitted in lookahead/lookbehind in regex; marked by <-- HERE in m/(?<=\K <-- HERE .)./ at Text_Completion line 19.
 #n# The above issue fixed in perl development version, will get to point release eventually, so for now stop testing 
+#n# 2021-01-26 D*mn, 5.32.1 did not fix this
 
 use strict;
 use warnings;
@@ -22,7 +23,8 @@ my @res;
 # Lookbehind longer than 255 not implemented in regex m/(?<=\K\X)\X/ at T/Text_Completion line 16.
 # sub bi_gram { (lc shift) =~ /(?<=\K\X)\X/g }
 
-sub bi_gram { (lc shift) =~ /(?<=\K.)./g }
+sub bi_gram { my $s = lc shift; $s =~ /(?<=\K.)./g }
+#sub bi_gram { (lc shift) =~ /(?<=\K.)./g }
 
 sub score {
     my($phrase, $word) = @_;
