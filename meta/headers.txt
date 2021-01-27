@@ -8409,6 +8409,7 @@ File: T/Text_Completion
 #n# https://github.com/Perl/perl5/issues/18123
 #n# perl5-32: \K not permitted in lookahead/lookbehind in regex; marked by <-- HERE in m/(?<=\K <-- HERE .)./ at Text_Completion line 19.
 #n# The above issue fixed in perl development version, will get to point release eventually, so for now stop testing 
+#n# 2021-01-26 D*mn, 5.32.1 did not fix this
 
 File: T/Text_Completion.0
 #!/usr/local/bin/perl
