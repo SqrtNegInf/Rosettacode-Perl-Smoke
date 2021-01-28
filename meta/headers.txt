@@ -2808,6 +2808,8 @@ File: F/File_size_distribution
 #u# http://rosettacode.org/wiki/File_size_distribution
 #c# 2018-09-28 >RC
 #p# OK
+#n# should update this once a year
+#n# hmmm, why doesn't it agree exactly with the Raku version (total files differ by one)
 
 File: F/Filter
 #!/usr/local/bin/perl
