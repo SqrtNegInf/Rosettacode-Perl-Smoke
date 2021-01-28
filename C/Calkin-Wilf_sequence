@@ -1,0 +1,41 @@
+#!/usr/local/bin/perl
+#u# http://rosettacode.org/wiki/Calkin-Wilf_sequence
+#t# inprogress
+#c# 2021-01-xx >RC
+#p# OK
+
+my @res;
+
+use strict;
+use warnings;
+use feature 'say';
+
+use Math::AnyNum qw(:overload);
+use List::Lazy qw/ lazy_range lazy_list /;
+
+my $calkin_wilf = lazy_list { $_ = 1 / (2*int($_) + (1 - $_) ) } 1;
+
+say 'First twenty terms of the Calkin-Wilf sequence:';
+#printf "%s ", $_ ? $calkin_wilf->next() : 1 for 0..19;
+#print "\n";
+
+push @res, $_ ? $calkin_wilf->next() : 1 for 0..19;
+
+say my $result = join ", ", @res;
+
+my $ref = <<'END';
+1, 1/2, 2, 1/3, 3/2, 2/3, 3, 1/4, 4/3, 3/5, 5/2, 2/5, 5/3, 3/4, 4, 1/5, 5/4, 4/7, 7/3, 3/8
+END
+
+use Test::More;
+chomp $ref;
+is($result, $ref);
+done_testing();
+
+__END__
+
+=={{header|Perl}}==
+{{trans|Raku}}
+<lang perl></lang>
+{{out}}
+<pre></pre>
