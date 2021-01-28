@@ -4,22 +4,23 @@
 #p# OK
 
 use strict;
-#use warnings; # deep recursion is to be expected
+use warnings;
 use feature 'say';
 my $result;
 
 # We'll use closures to implement the infinite lists of coeffficients.
 
 sub continued_fraction {
+    no warnings qw(recursion);
     my ($a, $b, $n) = (@_[0,1], $_[2] // 100);
  
     $a->() + ($n && $b->() / continued_fraction($a, $b, $n-1));
 }
  
 $result .= sprintf "√2  ≈ %.9f\n", continued_fraction do { my $n; sub { $n++ ? 2 : 1 } }, sub { 1 };
-$result .= sprintf "e   ≈ %.9f\n", continued_fraction do { my $n; sub { $n++ || 2 } }, do { my $n; sub { $n++ || 1 } };
+$result .= sprintf "e   ≈ %.9f\n", continued_fraction do { my $n; sub { $n++ or 2 } }, do { my $n; sub { $n++ or 1 } };
 $result .= sprintf "π   ≈ %.9f\n", continued_fraction do { my $n; sub { $n++ ? 6 : 3 } }, do { my $n; sub { (2*$n++ + 1)**2 } }, 1_000;
-$result .= sprintf "π/2 ≈ %.9f\n", continued_fraction do { my $n; sub { 1/($n++ || 1) } }, sub { 1 }, 1_000;
+$result .= sprintf "π/2 ≈ %.9f\n", continued_fraction do { my $n; sub { 1/($n++ or 1) } }, sub { 1 }, 1_000;
 
 say $result; 
 #exit;
