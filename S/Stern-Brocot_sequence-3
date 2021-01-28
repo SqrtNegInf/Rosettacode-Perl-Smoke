@@ -1,0 +1,29 @@
+#!/usr/local/bin/perl
+#u# http://rosettacode.org/wiki/Stern-Brocot_sequence
+#c# 2021-01-28 NOT ON RC
+#p# OK
+
+use strict;
+use warnings;
+use feature 'say';
+use feature 'state';
+
+use List::Lazy 'lazy_list';
+
+my $stern_brocot = lazy_list { state @sb = (1, 1); push @sb, $sb[$_ - 1] + $sb[$_], $sb[$_]; shift @sb } 1;
+
+my @sb;
+push @sb, $stern_brocot->next() for 1..15;
+
+say my $result = 'First fifteen: ' . join ' ', @sb;
+
+use Test::More;
+is ($result, 'First fifteen: 1 1 2 1 3 2 3 1 4 3 5 2 5 3 4');
+done_testing();
+
+__END__
+
+First fifteen: [1 1 2 1 3 2 3 1 4 3 5 2 5 3 4]
+Index of 1-10 first occurrence: [1 3 5 9 11 33 19 21 35 39]
+Index of 100 first occurrence: 1179
+The first 999 consecutive pairs are NOT all coprime!
