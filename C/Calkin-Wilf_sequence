@@ -2,19 +2,22 @@
 #u# http://rosettacode.org/wiki/Calkin-Wilf_sequence
 #c# 2021-01-28 >RC
 #p# OK
-#n# cf Stern-Brocot_sequence
+#n# cf Stern-Brocot_sequence, -1 vs -3
 
 my @res;
 
 use strict;
 use warnings;
 use feature 'say';
+use feature 'state';
 
 use ntheory      'fromdigits';
 use List::Lazy   'lazy_list';
 use Math::AnyNum ':overload';
 
-my $calkin_wilf = lazy_list { $_ = 1 / ( (2 * int $_) + 1 - $_ ) } 1;
+my $calkin_wilf = lazy_list { state @cw = (1); push @cw, 1 / ( (2 * int $cw[0]) + 1 - $cw[0] ); shift @cw };
+
+#my $calkin_wilf = lazy_list { $_ = 1 / ( (2 * int $_) + 1 - $_ ) } 1; # no 1st term
 
 sub r2cf {
   my($num, $den) = @_;
@@ -43,7 +46,8 @@ sub r2cw {
 # say "\n\n83116/51639 is at index: " . r2cw(83116,51639);
 
 my @cw;
-push @cw, $_>1 ? $calkin_wilf->next() : 1 for 1..20;
+push @cw, $calkin_wilf->next() for 1..20;
+#push @cw, $_>1 ? $calkin_wilf->next() : 1 for 1..20;
 push @res, join ', ', @cw;
 push @res, '83116/51639 is at index: ' . r2cw(83116,51639);
 
@@ -58,12 +62,3 @@ use Test::More;
 chomp $ref;
 is($result, $ref);
 done_testing();
-
-__END__
-
-=={{header|Perl}}==
-{{trans|Raku}}
-{{libheader|ntheory}}
-<lang perl></lang>
-{{out}}
-<pre></pre>
