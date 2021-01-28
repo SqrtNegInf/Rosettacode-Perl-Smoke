@@ -3,7 +3,10 @@
 #c# 2018-08-13 <RC, 2018-11-06 <RC
 #p# OK
 
+use strict;
+use warnings;
 use feature 'say';
+
 my $result;
 
 use ntheory qw/gcd vecsum vecfirst/;
