@@ -1,8 +1,8 @@
 #!/usr/local/bin/perl
 #u# http://rosettacode.org/wiki/Calkin-Wilf_sequence
-#t# inprogress
-#c# 2021-01-xx >RC
+#c# 2021-01-28 >RC
 #p# OK
+#n# cf Stern-Brocot_sequence
 
 my @res;
 
@@ -10,21 +10,48 @@ use strict;
 use warnings;
 use feature 'say';
 
-use Math::AnyNum qw(:overload);
-use List::Lazy qw/ lazy_range lazy_list /;
+use ntheory      'fromdigits';
+use List::Lazy   'lazy_list';
+use Math::AnyNum ':overload';
 
-my $calkin_wilf = lazy_list { $_ = 1 / (2*int($_) + (1 - $_) ) } 1;
+my $calkin_wilf = lazy_list { $_ = 1 / ( (2 * int $_) + 1 - $_ ) } 1;
 
-say 'First twenty terms of the Calkin-Wilf sequence:';
-#printf "%s ", $_ ? $calkin_wilf->next() : 1 for 0..19;
-#print "\n";
+sub r2cf {
+  my($num, $den) = @_;
+  my($n, @cf);
+  my $f = sub { return unless $den;
+               my $q = int($num/$den);
+               ($num, $den) = ($den, $num - $q*$den);
+               $q;
+             };
+  push @cf, $n while defined($n = $f->());
+  reverse @cf;
+}
 
-push @res, $_ ? $calkin_wilf->next() : 1 for 0..19;
+sub r2cw {
+    my($num, $den) = @_;
+    my $bits;
+    my @f = r2cf($num, $den);
+    $bits .= ($_%2 ? 0 : 1) x $f[$_] for 0..$#f;
+    fromdigits($bits, 2);
+    #unpack("N", pack("B32", substr("0" x 32 . $bits, -32)))
+}
 
-say my $result = join ", ", @res;
+# on RC
+# say 'First twenty terms of the Calkin-Wilf sequence:';
+# printf "%s ", $_>1 ? $calkin_wilf->next() : 1 for 1..20;
+# say "\n\n83116/51639 is at index: " . r2cw(83116,51639);
+
+my @cw;
+push @cw, $_>1 ? $calkin_wilf->next() : 1 for 1..20;
+push @res, join ', ', @cw;
+push @res, '83116/51639 is at index: ' . r2cw(83116,51639);
+
+say my $result = join "\n", @res;
 
 my $ref = <<'END';
 1, 1/2, 2, 1/3, 3/2, 2/3, 3, 1/4, 4/3, 3/5, 5/2, 2/5, 5/3, 3/4, 4, 1/5, 5/4, 4/7, 7/3, 3/8
+83116/51639 is at index: 123456789
 END
 
 use Test::More;
@@ -36,6 +63,7 @@ __END__
 
 =={{header|Perl}}==
 {{trans|Raku}}
+{{libheader|ntheory}}
 <lang perl></lang>
 {{out}}
 <pre></pre>
