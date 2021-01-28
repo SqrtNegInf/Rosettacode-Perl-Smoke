@@ -23,8 +23,7 @@ my @res;
 # Lookbehind longer than 255 not implemented in regex m/(?<=\K\X)\X/ at T/Text_Completion line 16.
 # sub bi_gram { (lc shift) =~ /(?<=\K\X)\X/g }
 
-sub bi_gram { my $s = lc shift; $s =~ /(?<=\K.)./g }
-#sub bi_gram { (lc shift) =~ /(?<=\K.)./g }
+sub bi_gram { (lc shift) =~ /(?<=\K.)./g }
 
 sub score {
     my($phrase, $word) = @_;
