@@ -1,17 +1,17 @@
 
 This is perl 5, version 32, subversion 1 (v5.32.1) built for darwin-thread-multi-2level
 updating from RC…
-+------------> Perl: Good/Bad [1359/10]
-|+-----------> Smoke testing [1217]
++------------> Perl: Good/Bad [1361/10]
+|+-----------> Smoke testing [1219]
 ||+----------> sKipping validation [146]
 |||+---------> Interactive [65]
-||||+--------> Touched (modified by me) [430]
+||||+--------> Touched (modified by me) [431]
 |||||+-------> Random seed [111]
 ||||||+------> File output [75]
 |||||||+-----> Draft [226]
 ||||||||+----> Ignoring [37]
-|||||||||+---> Void (no local copy) [127]
-||||||||||+--> Un-implemented/reliable [108]
+|||||||||+---> Void (no local copy) [126]
+||||||||||+--> Un-implemented/reliable [107]
 |||||||||||
 GS......... 100_doors-1
 GS......... 100_doors-2
@@ -193,7 +193,7 @@ GS..T...... Calculating_the_value_of_e-3
 G.K........ Calculating_the_value_of_e-4
 GS......... Calendar
 G.K........ Calendar_-_for_%22REAL%22_programmers
-.........VU Calkin-Wilf_sequence
+GS..T...... Calkin-Wilf_sequence
 GS......... Call_a_foreign-language_function
 G.K........ Call_a_function
 GS..T...... Call_a_function_in_a_shared_library-1
@@ -1298,6 +1298,7 @@ GS..TR..... Statistics_Normal_distribution
 GS..T...... Stem-and-leaf_plot
 GS......... Stern-Brocot_sequence-1
 GS......... Stern-Brocot_sequence-2
+GS......... Stern-Brocot_sequence-3
 GS..T...... Stirling_numbers_of_the_first_kind
 GS..T...... Stirling_numbers_of_the_second_kind
 GS..T...... Straddling_checkerboard
