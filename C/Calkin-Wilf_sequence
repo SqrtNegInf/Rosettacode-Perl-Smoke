@@ -8,27 +8,26 @@ my @res;
 
 use strict;
 use warnings;
-use feature 'say';
-use feature 'state';
+use feature <say state>;
 
 use ntheory      'fromdigits';
 use List::Lazy   'lazy_list';
 use Math::AnyNum ':overload';
 
-my $calkin_wilf = lazy_list { state @cw = (1); push @cw, 1 / ( (2 * int $cw[0]) + 1 - $cw[0] ); shift @cw };
+my $calkin_wilf = lazy_list { state @cw = 1; push @cw, 1 / ( (2 * int $cw[0]) + 1 - $cw[0] ); shift @cw };
 
 #my $calkin_wilf = lazy_list { $_ = 1 / ( (2 * int $_) + 1 - $_ ) } 1; # no 1st term
 
 sub r2cf {
-  my($num, $den) = @_;
-  my($n, @cf);
-  my $f = sub { return unless $den;
-               my $q = int($num/$den);
-               ($num, $den) = ($den, $num - $q*$den);
-               $q;
-             };
-  push @cf, $n while defined($n = $f->());
-  reverse @cf;
+    my($num, $den) = @_;
+    my($n, @cf);
+    my $f = sub { return unless $den;
+                my $q = int($num/$den);
+                ($num, $den) = ($den, $num - $q*$den);
+                $q;
+            };
+    push @cf, $n while defined($n = $f->());
+    reverse @cf;
 }
 
 sub r2cw {
@@ -42,7 +41,7 @@ sub r2cw {
 
 # on RC
 # say 'First twenty terms of the Calkin-Wilf sequence:';
-# printf "%s ", $_>1 ? $calkin_wilf->next() : 1 for 1..20;
+# printf "%s ", $calkin_wilf->next() for 1..20;
 # say "\n\n83116/51639 is at index: " . r2cw(83116,51639);
 
 my @cw;
