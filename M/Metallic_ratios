@@ -5,7 +5,7 @@
 
 use strict;
 use warnings;
-use feature qw(say state);
+use feature <say state>;
 
 use Math::AnyNum qw<:overload as_dec>;
 
