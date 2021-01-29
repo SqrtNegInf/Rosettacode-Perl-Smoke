@@ -6,14 +6,14 @@
 use strict;
 use warnings;
 use bigrat;
-use feature 'say';
-use feature 'state';
-no warnings 'recursion';
+use feature <say state>;
+
 use List::Util qw(max);
 
 my @res;
 
 sub Stirling1 {
+    no warnings 'recursion';
     my($n, $k) = @_;
     return 1 unless $n || $k;
     return 0 unless $n && $k;
