@@ -6,8 +6,7 @@
 
 use strict;
 use warnings;
-use feature 'say';
-use feature 'state';
+use feature <say state>;
 
 use Math::AnyNum qw<:overload as_dec lucasU>;
 
