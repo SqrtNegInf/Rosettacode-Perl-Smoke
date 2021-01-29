@@ -5,8 +5,7 @@
 
 use strict;
 use warnings;
-use feature 'say';
-use feature 'state';
+use feature <say state>;
 
 use List::Lazy 'lazy_list';
 
