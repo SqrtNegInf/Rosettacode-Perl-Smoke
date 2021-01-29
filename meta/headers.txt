@@ -1026,6 +1026,13 @@ File: C/Calendar_-_for_%22REAL%22_programmers
 #p# OK
 #n# works, testing is the problem
 
+File: C/Calkin-Wilf_sequence
+#!/usr/local/bin/perl
+#u# http://rosettacode.org/wiki/Calkin-Wilf_sequence
+#c# 2021-01-28 >RC
+#p# OK
+#n# cf Stern-Brocot_sequence, -1 vs -3
+
 File: C/Call_a_foreign-language_function
 #!/usr/local/bin/perl
 #u# http://rosettacode.org/wiki/Call_a_foreign-language_function
@@ -7909,11 +7916,18 @@ File: S/Stern-Brocot_sequence-1
 #u# http://rosettacode.org/wiki/Stern-Brocot_sequence
 #c# 2018-08-13 <RC
 #p# OK
+#n# cf Calkin-Wilf_sequence
 
 File: S/Stern-Brocot_sequence-2
 #!/usr/local/bin/perl
 #u# http://rosettacode.org/wiki/Stern-Brocot_sequence
 #c# 2018-08-13 <RC, 2018-11-06 <RC
+#p# OK
+
+File: S/Stern-Brocot_sequence-3
+#!/usr/local/bin/perl
+#u# http://rosettacode.org/wiki/Stern-Brocot_sequence
+#c# 2021-01-28 NOT ON RC
 #p# OK
 
 File: S/Stirling_numbers_of_the_first_kind
