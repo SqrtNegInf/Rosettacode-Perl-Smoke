@@ -5,15 +5,15 @@
 
 use strict;
 use warnings;
+use feature <say state>;
 use bigint;
-use feature 'say';
-use feature 'state';
-no warnings 'recursion';
+
 use List::Util qw(max);
 
 my @res;
 
 sub Stirling2 {
+    no warnings 'recursion';
     my($n, $k) = @_;
     my $n1 = $n - 1;
     return 1 if     $n1 == $k;
