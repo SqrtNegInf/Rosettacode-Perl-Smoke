@@ -5,8 +5,8 @@
 #p# OK
 
 use strict 'vars';
-use feature 'say';
-use feature 'state';
+use feature <say state>;
+
 use Audio::NoiseGen qw(play amp sine square triangle);
 use Term::ReadKey qw(ReadMode ReadLine);
 
