@@ -3,14 +3,14 @@
 #c# 2018-11-19 >RC, 2020-03-09 <RC
 #p# OK
 
-use feature 'say';
 
 my @res;
 
 use 5.016;
-use feature 'state';
+#use feature <say state>;
+#use experimental qw(lexical_subs);
+
 use List::Util qw(min);
-use experimental qw(lexical_subs);
 
 sub tarjan {
     my (%k) = @_;
