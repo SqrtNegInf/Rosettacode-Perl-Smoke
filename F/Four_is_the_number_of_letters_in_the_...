@@ -4,10 +4,9 @@
 #p# OK
 #n# Thundergnat fixed my bug
 
-use feature 'say';
 use warnings;
 use strict 'vars';
-use feature 'state';
+use feature <say state>;
 
 my $result;
 
