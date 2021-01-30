@@ -1,45 +1,39 @@
 #!/usr/local/bin/perl
 #u# http://rosettacode.org/wiki/Sorting_algorithms/Strand_sort
-#c# 2018-08-15 <RC
+#c# 2018-08-15 <RC, 2021-01-30 >RC
 #p# OK
+#n# removed deprecated given/when construction, tidied
 
 use strict;
 use warnings;
 use feature 'say';
 
-use 5.10.0;    # for given/when
 sub merge {
-        my ($x, $y) = @_;
-        my @out;
-        while (@$x and @$y) {
-                my $t = $x->[-1] <=> $y->[-1];
-                    if ($t == 1)     { unshift @out, pop @$x }
-                    elsif ($t == -1) { unshift @out, pop @$y }
-                    else             { splice @out, 0, 0, pop(@$x), pop(@$y) }
-        }
-        return @$x, @$y, @out
+    my ($x, $y) = @_;
+    my @out;
+    while (@$x and @$y) {
+        my $t = $x->[-1] <=> $y->[-1];
+        if    ($t == 1)  { unshift @out, pop @$x }
+        elsif ($t == -1) { unshift @out, pop @$y }
+        else             { splice @out, 0, 0, pop(@$x), pop(@$y) }
+    }
+    @$x, @$y, @out
 }
 
 sub strand {
-        my $x = shift;
-        my @out = shift @$x // return;
-        if (@$x) {
-                for (-@$x .. -1) {
-                        if ($x->[$_] >= $out[-1]) {
-                                push @out, splice @$x, $_, 1
-                        }
-                }
-        }
-        return @out
+    my $x = shift;
+    my @out = shift @$x // return;
+    for (-@$x .. -1) {
+        push @out, splice @$x, $_, 1 if $x->[$_] >= $out[-1];
+    }
+    @out
 }
 
 sub strand_sort {
-        my @x = @_;
-        my @out;
-        while (my @strand = strand(\@x)) {
-                @out = merge(\@out, \@strand)
-        }
-        @out
+    my @x = @_;
+    my(@out, @strand);
+    @out = merge \@out, \@strand while @strand = strand(\@x);
+    @out
 }
 
 use Test::More;
