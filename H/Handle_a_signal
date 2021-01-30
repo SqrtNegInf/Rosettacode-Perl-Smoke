@@ -3,12 +3,15 @@
 #t# interactive
 #c# 2018-08-12 <RC
 #p# OK
+#n# as written, works with really old Perl
 
-use feature 'say';
 my $result;
 
-# Before version 5.8 sleep requires an integer argument, so we'll spin (There exist more obtuse methods)
+#use strict; # b/c of time-waster loop
+#use warnings; #         "
+#use feature 'say';
 
+# Before version 5.8 sleep requires an integer argument, so we'll spin (There exist more obtuse methods)
 
 my $start = time;  # seconds since epoch
 my $arlm=5;  # every 5 seconds show how we're doing
@@ -24,7 +27,7 @@ $SIG{ALRM} = sub
  
 alarm $arlm;  # trigger ALaRM after we've run  for a while
 
-print " ^C to inerrupt, ^\\ to quit, takes a break at $arlm seconds \n";
+print " ^C to interrupt, ^\\ to quit, takes a break at $arlm seconds \n";
 
 while ( 1 ) {
    for ( $w=11935000; $w--; $w>0 ){}; # spinning is bad, but hey it's only a demo
@@ -33,7 +36,7 @@ while ( 1 ) {
             }
 
 __END__
- ^C to inerrupt, ^\ to quit, takes a break at 5 seconds
+ ^C to interrupt, ^\ to quit, takes a break at 5 seconds
 1
 2
 ^C Running for 1 seconds.
