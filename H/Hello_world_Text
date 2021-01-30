@@ -4,7 +4,7 @@
 #c# 2018-08-12 <RC
 #p# OK
 
-# Works with: Perl version 5.8.8
+# Works with: Perl version 5.8.8 (surely works with Perl 1.0?)
 print "Hello world!\n";
 
 # borrowed a good idea from Perl 6 (note that it's lexically-scoped)
@@ -14,5 +14,5 @@ say 'Hello world!';
 }
 
 # or:
-use 5.010;
-say 'Hello world!';
+#use 5.010;
+#say 'Hello world!';
