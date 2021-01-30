@@ -3,12 +3,13 @@
 #c# 2018-08-08 <RC
 #p# OK
 
-use feature 'say';
 my $result;
 
-use 5.020;
 use strict;
-#use warnings;
+use warnings;
+use feature 'say';
+
+# use 5.020;
 
 #Get a max number from the user
 #say("Please enter the maximum possible multiple. ");
@@ -44,6 +45,7 @@ for(my $i = 1; $i <= $max; $i++)
         #If the int is a factor of max, append it to oBuffer as a string to be printed
         if($i % substr($element, 0, @-) == 0)
         {
+            no warnings 'uninitialized';
             $oBuffer = $oBuffer . substr($element, @+ + 1, length($element));
             #This is essentially setting a flag saying that at least one element is a factor
             $buffer = "";
