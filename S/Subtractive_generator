@@ -3,13 +3,11 @@
 #c# 2018-08-13 <RC
 #p# OK
 
+my @res;
+
 use strict;
 use warnings;
 use feature 'say';
-my @res;
-
-use 5.10.0;
-use strict;
 
 { # bracket state data into a lexical scope
 	my @state;
