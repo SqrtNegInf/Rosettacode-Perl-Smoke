@@ -5,11 +5,14 @@
 #n# to avoid smartmatch, could use Array::Compare;
 #n# merges approach from Sidef (each_cons) and Perl 6/2nd soln (precomputed diffs)
 
-use 5.010;
+my $result;
+
 use strict;
 use warnings;
+use feature 'say';
 no warnings 'experimental::smartmatch';
-my $result;
+
+#use 5.010;
 
 use List::EachCons;
 use ntheory 'primes';
