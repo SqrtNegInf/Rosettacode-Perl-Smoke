@@ -3,12 +3,14 @@
 #c# 2018-11-19 >RC, 2020-03-09 <RC
 #p# OK
 
-
 my @res;
 
-use 5.016;
-#use feature <say state>;
-#use experimental qw(lexical_subs);
+use strict;
+use warnings;
+use feature <say state current_sub>;
+
+#use 5.016;
+#use experimental qw(lexical_subs); # ?
 
 use List::Util qw(min);
 
