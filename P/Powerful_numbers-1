@@ -3,7 +3,12 @@
 #c# 2020-02-21 <RC
 #p# OK
 
-use 5.020;
+use strict;
+use warnings;
+use feature <say current_sub>;
+
+#use 5.020;
+
 use ntheory qw(is_square_free);
 use experimental qw(signatures);
 use Math::AnyNum qw(:overload idiv iroot ipow is_coprime);
