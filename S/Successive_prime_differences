@@ -1,8 +1,8 @@
 #!/usr/local/bin/perl
 #u# http://rosettacode.org/wiki/Successive_prime_differences
-#c# 2019-04-29 >RC
+#c# 2019-04-29 >RC, 2021-01-30 >RC
 #p# OK
-#n# to avoid smartmatch, could use Array::Compare;
+#n# to avoid smartmatch, using Array::Compare (which is a bit slower)
 #n# merges approach from Sidef (each_cons) and Perl 6/2nd soln (precomputed diffs)
 
 my $result;
@@ -10,11 +10,10 @@ my $result;
 use strict;
 use warnings;
 use feature 'say';
-no warnings 'experimental::smartmatch';
-
-#use 5.010;
+#no warnings 'experimental::smartmatch';
 
 use List::EachCons;
+use Array::Compare;
 use ntheory 'primes';
 
 my $limit = 1E6;
@@ -23,13 +22,15 @@ my @intervals = map { $primes[$_] - $primes[$_-1] } 1..$#primes;
 
 print "Groups of successive primes <= $limit\n";
 
+my $c = Array::Compare->new;
 for my $diffs ([2], [1], [2,2], [2,4], [4,2], [6,4,2]) {
     my $n = -1;
-    my @offsets = grep {$_} each_cons @$diffs, @intervals, sub { $n++; $n if @_ ~~ @$diffs };
+    my @offsets = grep {$_} each_cons @$diffs, @intervals, sub { $n++; $n if $c->compare(\@_, \@$diffs) };
+    #my @offsets = grep {$_} each_cons @$diffs, @intervals, sub { $n++; $n if @_ ~~ @$diffs };
     $result .= sprintf "%10s has %5d sets: %15s … %s\n", 
         '(' . join(' ',@$diffs) . ')', 
         scalar @offsets, 
-        #join(' ', @primes[map {$offsets[0]+$_} 0..@$diffs]), # unecessary cleverness
+        #join(' ', @primes[map {$offsets[0]+$_} 0..@$diffs]), # doesn't work?
         join(' ', @primes[$offsets[ 0]..($offsets[ 0]+@$diffs)]),
         join(' ', @primes[$offsets[-1]..($offsets[-1]+@$diffs)]);
 }
