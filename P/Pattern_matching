@@ -5,22 +5,20 @@
 
 srand 123456;
 
+my $result;
+
 use strict;
 use warnings;
 use feature 'say';
-my $result;
 
-# Works with: Perl version 5.010
+#use 5.010;
+#use warnings <FATAL all>;
 
 # Although Perl does not have algebraic data types, it does have a wonderfully flexible regular expression engine, which is powerfully enough to perform the task.
 # However, representing a tree as a string, and repeatedly parsing that string, is truly inefficient way to solve the problem. Someday, someone will write a perl multi-method-dispatch module which is as amazing as perl6's, and then we can copy the perl6 solution here.
 # The $balanced variable matches against either some data, or the empty tree (_), or, using perl's amazing recursive regular expression feature, a non-empty tree.
 # Each of the single letter variables declared right after $balanced, match an instance of $balanced, and if they succeed, store the result into the %+ hash.
 
-use 5.010;
-use strict;
-use warnings <FATAL all>;
- 
 my $balanced = qr{([^<>,]++|<(?-1),(?-1),(?-1),(?-1)>)};
 my ($a, $b, $c, $d, $x, $y, $z) = map +qr((?<$_>$balanced)),
 	'a'..'d', 'x'..'z';
