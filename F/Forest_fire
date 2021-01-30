@@ -3,13 +3,17 @@
 #c# 2018-08-07 <RC
 #p# OK
 
-use strict;
-use warnings;
 srand 123456;
+
 my $result;
 
+use strict;
+use warnings;
+use feature 'say';
+
+# use 5.10.0;
+
 #Requires terminal that understands ANSI escape sequences: 
-use 5.10.0;
 
 #my $w = `tput cols` - 1;
 #my $h = `tput lines` - 1;
