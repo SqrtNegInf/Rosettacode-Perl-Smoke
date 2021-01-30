@@ -4,8 +4,9 @@
 #p# OK
 
 use strict;
-#use warnings;
+use warnings;
 use feature 'say';
+
 my $result;
 
 # Perl uses short-circuit boolean evaluation.
@@ -16,8 +17,8 @@ sub b { $result .= 'B'; return $_[0] }
 # Test-driver
 sub test {
     for my $op ('&&','||') {
+        # for (('1,1', '1,0', '0,1', '0,0')) {  # previously used this to avoid warnings
         for (<1,1 1,0 0,1 0,0>) {
-        # for (('1,1', '1,0', '0,1', '0,0')) {  # no warnings this way
            my ($x,$y) = /(.),(.)/;
            $result .= my $str = "a($x) $op b($y)"; #, ': ';
            eval $str; $result .= "\n"; } }
