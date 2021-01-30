@@ -5,10 +5,15 @@
 
 my @res;
 
-use 5.020;
-use ntheory qw(is_square_free);
+use strict;
+use warnings;
+use feature <say current_sub>;
 use experimental qw(signatures);
+
+use ntheory qw(is_square_free);
 use Math::AnyNum qw(:overload idiv iroot ipow is_coprime);
+
+# use 5.020;
 
 sub powerful_count ($n, $k = 2) {
 
