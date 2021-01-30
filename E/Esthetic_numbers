@@ -5,9 +5,11 @@
 
 my @res;
 
-use 5.020;
+use strict;
 use warnings;
-use experimental qw(signatures);
+use experimental qw(signatures current_sub say);
+
+#use 5.020;
 
 use ntheory qw(fromdigits todigitstring);
 
@@ -57,7 +59,6 @@ for (my @list = between_esthetic(1e8, 1.3e8) ; @list ;) {
 }
 
 say my $result = join "\n", @res;
-#exit;
 
 my $ref = <<'EOD';
 
