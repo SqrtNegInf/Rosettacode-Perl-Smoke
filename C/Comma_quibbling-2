@@ -3,20 +3,24 @@
 #c# 2018-07-23 <RC
 #p# OK
 
+#use 5.01;
+
+use strict;
+use warnings;
 use feature 'say';
-my @result;
+
+my @res;
 my $result;
 
-use 5.01;
 sub comma_quibbling{
   my $last = pop // '';
   return '{'. (@_ ? (join ', ', @_).' and '.$last : $last).'}';
 }
 
-push @result, $_ for map {comma_quibbling(@$_)}
+push @res, $_ for map {comma_quibbling(@$_)}
   [], [qw<ABC>], [<ABC DEF>], [<ABC DEF G H>];
 
-say $result = join "\n", @result;
+say $result = join "\n", @res;
 
 my $ref = <<'END';
 {}
