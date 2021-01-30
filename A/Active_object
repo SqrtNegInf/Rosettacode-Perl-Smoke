@@ -4,11 +4,13 @@
 #p# OK
 #n# timing flaps?
 
+use strict;
+use warnings;
 use feature 'say';
+
 my $result;
 
-use strict;
-use 5.10.0;
+# use 5.10.0;
  
 package Integrator;
 use threads;
