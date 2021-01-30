@@ -5,15 +5,13 @@
 
 srand 123456;
 
-use feature 'say';
 my $result;
 
-
-# The task is probably not to just sort an array. The wikipedia links has a slightly better explanation that leads to the following code:
-
-use warnings;
 use strict;
-use 5.010; # //
+use warnings;
+use feature 'say';
+
+#use 5.010;
  
 use List::Util 'shuffle';
  
