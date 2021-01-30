@@ -3,40 +3,31 @@
 #c# 2018-08-06 <RC
 #p# OK
 
+my $result;
+
 use strict;
 use warnings;
 use feature 'say';
-my $result;
+use experimental 'signatures';
 
-# Functions in Perl 5 don't have argument lists. All arguments are stored in the array @_ anyway, so there is variable arguments by default.
+# use 5.020;
 
 sub print_all {
   foreach (@_) {
     $result .= "$_\n";
   }
 }
-# This function can be called with any number of arguments:
 
 print_all(4, 3, 5, 6, 4, 3);
 print_all(4, 3, 5);
 print_all("Rosetta", "Code", "Is", "Awesome!");
 
-# Since lists are flattened when placed in a list context, you can just pass an array in as an argument and all its elements will become separate arguments:
-
 my @args = ("Rosetta", "Code", "Is", "Awesome!");
 print_all(@args);
-
-# Introduced experimentally in 5.20.0, subroutines can have signatures when the feature is turned on:
-
-# use 5.020;
-use experimental 'signatures';
-# Perl policy states that all bets are off with experimental features—their behavior is subject to change at any time, and they may even be removed completely (this feature will most likely stay in, but expect changes in the future that will break any scripts written using it as it stands in 5.20.1).
-# Functions can be declared with fixed arity:
 
 sub print ($x, $y) {
     say $x, "\n", $y;
 }
-# But this can easily be converted to a variadic function with a slurpy parameter:
 
 sub print_many ($first, $second, @rest) {
     $result .= "First: $first\n"
@@ -45,7 +36,6 @@ sub print_many ($first, $second, @rest) {
        . join("\n", @rest);
     $result .= "\n";
 }
-# It is valid for the @rest array to be empty, so this is also an optional parameter (see Optional parameters).
 
 print_many(4, 3, 5, 6, 4, 3);
 
