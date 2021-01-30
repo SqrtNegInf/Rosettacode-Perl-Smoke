@@ -3,14 +3,13 @@
 #c# 2018-08-19 <RC
 #p# OK
 
-#use strict;
-#use warnings;
-#use feature 'say';
-use 5.10.0;
+my @res;
+
+use strict;
+use warnings;
+use feature 'say';
 
 my($result1,$result2);
-
-#Requires Perl 5.10 or newer for the Defined OR operator (//).
 
 my %irregulars = ( 1 => 'st',
                    2 => 'nd',
