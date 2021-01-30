@@ -2,19 +2,33 @@
 #u# http://rosettacode.org/wiki/CRC-32
 #c# 2018-07-19 <RC
 #p# OK
+#n# kinda lazy solution, added direct calculation out of Digest::Crc32 for comparison
 
-use feature 'say';
 my $result;
 
-use 5.010 ;
 use strict ;
 use warnings ;
+use feature 'say';
+
+sub mycrc {
+    my $poly = 0xEDB88320;
+    my $comp = shift;
+    for (my $cnt = 0; $cnt < 8; $cnt++) { $comp = $comp & 1 ? $poly ^ ($comp >> 1) : $comp >> 1; }
+    $comp;
+}
+
+my $crcx = 0xFFFFFFFF;
+my $str = 'The quick brown fox jumps over the lazy dog';
+foreach (split(//,$str)) { $crcx = (($crcx>>8) & 0x00FFFFFF) ^ mycrc(($crcx ^ ord($_)) & 0xFF); }
+my $resultx = $crcx^0xFFFFFFFF;
+
 use Digest::CRC qw( crc32 ) ;
- 
+
 my $crc = Digest::CRC->new( type => "crc32" ) ;
 $crc->add ( "The quick brown fox jumps over the lazy dog" )  ;
-say $result = "The checksum is " . $crc->hexdigest( ) ;
+say $result = "The checksum is " . $crc->hexdigest() ;
 
 use Test::More;
 is ($result, 'The checksum is 414fa339');
+is ($resultx, 1095738169);
 done_testing();
