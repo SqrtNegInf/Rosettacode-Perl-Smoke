@@ -8,15 +8,16 @@ srand 123456;
 use strict;
 use warnings;
 use feature 'say';
-my $output;
 
-# The program supports "--quiet" option, which makes it suppress all in-game output (useful for batch testing). At the end of a game it displays detailed statistics.
+# not needed?
+#use utf8;
+#use open qw(:encoding(utf-8) :std);
 
-use 5.012;
-use warnings;
-use utf8;
-use open qw(:encoding(utf-8) :std);
+#use 5.012;
+
 use Getopt::Long;
+
+my $output;
 
 package Game {
     use List::Util qw(shuffle first);
