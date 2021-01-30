@@ -3,15 +3,16 @@
 #c# 2018-08-18 <RC
 #p# OK
 
-use feature 'say';
 my $result;
 
+use strict;
+# use warnings; # "our" variable $fruit masks earlier declaration in same scope at S/Scope_modifiers line 37.
+use feature <say state>;
 
 # A name explicitly qualified as belonging to a package with :: (like $Foo::bar; as a special case, for any identifier var and sigil $, $::var is short for $main::var) always refers to a package variable, i.e., a global variable belonging to the given package. So only unqualified names can have context-sensitive interpretations.
 # By default, an unqualified name refers to a package variable in the current package. The current package is whatever you set it to with the last package declaration in the current lexical scope, or main by default. But wherever stricture is in effect, using a name that would be resolved this way is a compile-time error.
 # There are four kinds of declaration that can influence the scoping of a particular variable: our, my, state, and local. our makes a package variable lexically available. Its primary use is to allow easy access to package variables under stricture.
 
-use strict;
 #$x = 1;                   # Compilation error.
 our $y = 2;
 $result .= "$y\n";             # Legal; refers to $main::y.
@@ -37,8 +38,6 @@ our $fruit = 'orange';
 $result .= "$fruit\n";         # Prints "orange"; refers to $Bar::fruit.
                           # The first $fruit is inaccessible.
 # state is like my but creates a variable only once. The variable's value is remembered between visits to the enclosing scope. The state feature is only available in perl 5.9.4 and later, and must be activated with use feature 'state'; or a use demanding a sufficiently recent perl.
-
-use 5.10.0;
 
 sub count_up
 {
