@@ -953,6 +953,7 @@ File: C/CRC-32
 #u# http://rosettacode.org/wiki/CRC-32
 #c# 2018-07-19 <RC
 #p# OK
+#n# kinda lazy solution, added direct calculation out of Digest::Crc32 for comparison
 
 File: C/CSV_data_manipulation-1
 #!/usr/local/bin/perl
@@ -3498,6 +3499,7 @@ File: H/Handle_a_signal
 #t# interactive
 #c# 2018-08-12 <RC
 #p# OK
+#n# as written, works with really old Perl
 
 File: H/Happy_numbers-1
 #!/usr/local/bin/perl
