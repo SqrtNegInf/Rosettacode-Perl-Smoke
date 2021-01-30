@@ -6,15 +6,16 @@
 
 srand 123456;
 
-use feature 'say';
-my $result;
-
-
 use strict;
-use 5.10.0;
- 
+use warnings;
+no warnings 'uninitialized';
+use feature 'say';
 use threads 'yield';
 use threads::shared;
+
+#use 5.10.0;
+
+my $result;
  
 my @a :shared = (100) x 10;
 my $stop :shared = 0;
