@@ -4,11 +4,8 @@
 #c# 2018-07-22 <RC
 #p# OK
 
-#Translation of: Python
-use 5.010;
 use strict;
 use warnings;
- 
 use threads;
 use threads::shared;
  
