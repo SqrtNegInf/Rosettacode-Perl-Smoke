@@ -3,8 +3,13 @@
 #c# 2018-08-07 <RC
 #p# OK
 
-use feature 'say';
 my $result;
+
+use strict;
+use warnings;
+use feature 'say';
+
+use URI::Escape;
 
 sub urlencode {
     my $s = shift;
@@ -14,8 +19,6 @@ sub urlencode {
 }
 
 $result = urlencode('http://foo bar/')."\n";
-
-use URI::Escape;
 
 my $s = 'http://foo/bar/';
 $result .= uri_escape($s) . "\n";
@@ -27,7 +30,6 @@ $result .= uri_escape($s) . "\n";
 #my $s = 'http://foo/bar/';
 #say $s = CGI::escape($s);
 #say $s = CGI::unescape($s);
-
 
 say $result;
 my $ref = <<'EOD';
