@@ -4,9 +4,12 @@
 #p# OK
 #n# tests as 'ok' when run from batch
 
+my $result;
+
+use strict;
+use warnings;
 use feature 'say';
 
-use 5.010;
 if (-t) {
     say $result = "Input comes from tty.";
 }
