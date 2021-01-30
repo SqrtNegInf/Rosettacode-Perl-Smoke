@@ -5,14 +5,17 @@
 #n# memoize is vital to finite run time...
 
 use strict;
-#use warnings;  # deep recursion to be expected
+use warnings;
 use feature 'say';
+
+#use 5.01;
+
 my $result;
 
-use 5.01;
 use Memoize;
  
 sub cc {
+    no warnings 'recursion';
     my $amount = shift;
     return 0 if !@_ || $amount < 0;
     return 1 if $amount == 0;
