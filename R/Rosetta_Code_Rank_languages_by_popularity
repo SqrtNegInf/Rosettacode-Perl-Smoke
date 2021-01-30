@@ -7,7 +7,14 @@
 #n# 2020-01-29 Pleased to welcome 'C' to the '1000 club'
 #n# 2020-02-24 'Java' joins the no-longer-quite-so-exclusive club
 
-use 5.010;
+my @res;
+
+use strict;
+use warnings;
+use feature 'say';
+
+#use 5.010;
+
 use MediaWiki::API;
 
 my $api =
