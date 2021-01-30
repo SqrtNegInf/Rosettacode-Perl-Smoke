@@ -1,0 +1,50 @@
+#!/usr/local/bin/perl
+#u# http://rosettacode.org/wiki/Successive_prime_differences
+#c# 2019-04-29 >RC, 2021-01-30
+#p# OK
+#n# to avoid smartmatch, could use Array::Compare;
+#n# merges approach from Sidef (each_cons) and Perl 6/2nd soln (precomputed diffs)
+
+my $result;
+
+use strict;
+use warnings;
+use feature 'say';
+no warnings 'experimental::smartmatch';
+
+#use 5.010;
+
+use List::EachCons;
+use ntheory 'primes';
+
+my $limit = 1E6;
+my @primes = (2, @{ primes($limit) });
+my @intervals = map { $primes[$_] - $primes[$_-1] } 1..$#primes;
+
+print "Groups of successive primes <= $limit\n";
+
+for my $diffs ([2], [1], [2,2], [2,4], [4,2], [6,4,2]) {
+    my $n = -1;
+    my @offsets = grep {$_} each_cons @$diffs, @intervals, sub { $n++; $n if @_ ~~ @$diffs };
+    $result .= sprintf "%10s has %5d sets: %15s … %s\n", 
+        '(' . join(' ',@$diffs) . ')', 
+        scalar @offsets, 
+        #join(' ', @primes[map {$offsets[0]+$_} 0..@$diffs]), # unecessary cleverness
+        join(' ', @primes[$offsets[ 0]..($offsets[ 0]+@$diffs)]),
+        join(' ', @primes[$offsets[-1]..($offsets[-1]+@$diffs)]);
+}
+
+say $result; 
+
+my $ref = <<'END';
+       (2) has  8169 sets:             3 5 … 999959 999961
+       (1) has     1 sets:             2 3 … 2 3
+     (2 2) has     1 sets:           3 5 7 … 3 5 7
+     (2 4) has  1393 sets:          5 7 11 … 999431 999433 999437
+     (4 2) has  1444 sets:         7 11 13 … 997807 997811 997813
+   (6 4 2) has   306 sets:     31 37 41 43 … 997141 997147 997151 997153
+END
+
+use Test::More;
+is($result, $ref);
+done_testing();
