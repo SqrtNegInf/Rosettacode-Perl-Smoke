@@ -4,8 +4,12 @@
 #c# 2018-08-11 <RC
 #p# OK
 
-use 5.018_002;
+use strict;
 use warnings;
+use feature 'say';
+
+#use 5.018_002;
+
 use LWP;
 
 our $VERSION = 1.000_000;
