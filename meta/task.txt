@@ -2,10 +2,10 @@
 This is perl 5, version 32, subversion 1 (v5.32.1) built for darwin-thread-multi-2level
 updating from RC…
 +------------> Perl: Good/Bad [1361/10]
-|+-----------> Smoke testing [1219]
-||+----------> sKipping validation [146]
+|+-----------> Smoke testing [1220]
+||+----------> sKipping validation [145]
 |||+---------> Interactive [65]
-||||+--------> Touched (modified by me) [431]
+||||+--------> Touched (modified by me) [434]
 |||||+-------> Random seed [111]
 ||||||+------> File output [75]
 |||||||+-----> Draft [226]
@@ -288,7 +288,7 @@ G.K........ Conditional_structures
 GS......... Conjugate_transpose
 ........XVU Constrained_genericity
 GS..TR..... Constrained_random_points_on_a_circle
-GS......... Continued_fraction
+GS..T...... Continued_fraction
 GS......... Continued_fraction_Arithmetic_Construct_from_rational_number
 .......D.VU Continued_fraction_Arithmetic_Gmatrix_ng,_continued_fraction_n
 .......D.VU Continued_fraction_Arithmetic_Gmatrix_ng,_continued_fraction_n1,_continued_fraction_n2
@@ -973,7 +973,7 @@ GS..TR..... Percolation_Site_percolation
 GS......... Perfect_numbers
 GS......... Perfect_shuffle
 GS..T...... Perfect_totient_numbers
-GS......... Perlin_noise
+GS..T...... Perlin_noise
 GS......... Permutation_test
 GS..T...... Permutations
 GS......... Permutations_Derangements-1
@@ -1270,7 +1270,7 @@ GS......... Sorting_algorithms_Selection_sort
 GS......... Sorting_algorithms_Shell_sort
 GS......... Sorting_algorithms_Sleep_sort
 GS......... Sorting_algorithms_Stooge_sort
-GS......... Sorting_algorithms_Strand_sort
+GS..T...... Sorting_algorithms_Strand_sort
 .......DXVU Sorting_algorithms_Tree_sort_on_a_linked_list
 GS......... Soundex
 GS....F.... Sparkline_in_unicode
@@ -1508,7 +1508,7 @@ GS......... XML_DOM_serialization
 GS......... XML_Input
 GS......... XML_Output
 B.......... XML_XPath
-G.K....D... XML_validation
+GS.....D... XML_validation
 GS..T..D... XXXX_redacted
 GS......... Xiaolin_Wu%27s_line_algorithm
 GS......... Y_combinator
