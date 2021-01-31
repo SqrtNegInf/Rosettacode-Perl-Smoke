@@ -1616,8 +1616,9 @@ File: C/Constrained_random_points_on_a_circle.1
 File: C/Continued_fraction
 #!/usr/local/bin/perl
 #u# http://rosettacode.org/wiki/Continued_fraction
-#c# 2018-07-25 <RC
+#c# 2018-07-25 <RC, 2021-01-30 >RC
 #p# OK
+#n# use closures to implement the infinite lists of coeffficients
 
 File: C/Continued_fraction_Arithmetic_Construct_from_rational_number
 #!/usr/local/bin/perl
@@ -5940,6 +5941,21 @@ File: P/Perfect_totient_numbers
 File: P/Perlin_noise
 #!/usr/local/bin/perl
 #u# http://rosettacode.org/wiki/Perlin_noise
+#c# 2018-08-20 <RC, 2021-01-30 >RC
+#p# OK
+#n# little bit nicer with signatures, int replaces floor, clearer formatting
+#n# But...  3rd arg to 'lerp' function not needed?  Compare with 'Perlin_noise.0', where it is excised completely
+
+File: P/Perlin_noise.0
+#!/usr/local/bin/perl
+#u# http://rosettacode.org/wiki/Perlin_noise
+#c# 2018-08-20 <RC
+#p# OK
+#n# 2021-01-30 3rd arg. to 'lerp' function not needed at all?  Simplifies things considerably...
+
+File: P/Perlin_noise.1
+#!/usr/local/bin/perl
+#u# http://rosettacode.org/wiki/Perlin_noise
 #c# 2018-08-20 <RC
 #p# OK
 
@@ -7740,8 +7756,9 @@ File: S/Sorting_algorithms_Stooge_sort
 File: S/Sorting_algorithms_Strand_sort
 #!/usr/local/bin/perl
 #u# http://rosettacode.org/wiki/Sorting_algorithms/Strand_sort
-#c# 2018-08-15 <RC
+#c# 2018-08-15 <RC, 2021-01-30 >RC
 #p# OK
+#n# removed deprecated given/when construction, tidied
 
 File: S/Soundex
 #!/usr/local/bin/perl
@@ -8101,7 +8118,15 @@ File: S/Subtractive_generator
 File: S/Successive_prime_differences
 #!/usr/local/bin/perl
 #u# http://rosettacode.org/wiki/Successive_prime_differences
-#c# 2019-04-29 >RC
+#c# 2019-04-29 >RC, 2021-01-30 >RC
+#p# OK
+#n# to avoid smartmatch, using Array::Compare (which is a bit slower)
+#n# merges approach from Sidef (each_cons) and Perl 6/2nd soln (precomputed diffs)
+
+File: S/Successive_prime_differences.1
+#!/usr/local/bin/perl
+#u# http://rosettacode.org/wiki/Successive_prime_differences
+#c# 2019-04-29 >RC, 2021-01-30
 #p# OK
 #n# to avoid smartmatch, could use Array::Compare;
 #n# merges approach from Sidef (each_cons) and Perl 6/2nd soln (precomputed diffs)
@@ -9178,7 +9203,6 @@ File: X/XML_Output
 File: X/XML_Validation
 #!/usr/local/bin/perl
 #u# http://rosettacode.org/wiki/XML_Validation
-#t# skiptest
 #c# 2018-07-30 <RC
 #p# OK
 
