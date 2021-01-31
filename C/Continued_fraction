@@ -13,7 +13,6 @@ use feature 'say';
 no warnings 'recursion';
 use experimental 'signatures';
 
-# why @_[0,1] ?
 sub continued_fraction ($a, $b, $n = 100) { # without sig: (@_[0,1], $_[2] // 100)
  
     $a->() + ($n and $b->() / continued_fraction($a, $b, $n-1));
