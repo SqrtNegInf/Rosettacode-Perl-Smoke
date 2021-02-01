@@ -4,13 +4,10 @@
 #c# 2021-01-31 <RC
 #p# OK
 
-
 # This is the server. It runs in one of three modes. If it is started with a port number as the argument, it
 # becomes a TCP server listening on that port, and the agent can talk to it over tcp.
 # If it is started on a terminal (perl's -t is true) it sets the terminal to cbreak mode and can be talked to directly.
 # Otherwise it can be run under xinetd.
-
-#!/usr/bin/perl
 
 use strict; # https://rosettacode.org/wiki/Remote_agent
 use warnings;
@@ -142,14 +139,3 @@ eval # here so die when on tty can reset tty back to normal
 $terminal and ReadMode 'restore';
 #warn "final\n";
 #show;
-
-
-
-EOD
-
-say my $result = join "\n", @res;
-my $ref = <<'EOD';
-
-use Test::More;
-is ($result, $ref);
-done_testing();
