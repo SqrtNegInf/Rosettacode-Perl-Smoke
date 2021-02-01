@@ -2934,6 +2934,14 @@ File: F/Find_words_with_alternating_vowels_and_consonants-2
 #c# 2021-01-07 >RC
 #p# OK
 
+File: F/Finite_state_machine
+#!/usr/local/bin/perl
+#u# http://rosettacode.org/wiki/Finite_state_machine
+#c# 2021-01-31 <RC
+#p# OK
+#n# Added a dummy input called "IMPLICIT" that does not actually require input but automatically transitions to next state.
+#=# RC pipe: DEPOSIT\nSELECT\nREMOVE\nQUIT
+
 File: F/First-class_functions
 #!/usr/local/bin/perl
 #u# http://rosettacode.org/wiki/First-class_functions
@@ -5941,17 +5949,10 @@ File: P/Perfect_totient_numbers
 File: P/Perlin_noise
 #!/usr/local/bin/perl
 #u# http://rosettacode.org/wiki/Perlin_noise
-#c# 2018-08-20 <RC, 2021-01-30 >RC
+#c# 2018-08-20 <RC, 2021-01-31 >RC
 #p# OK
 #n# little bit nicer with signatures, int replaces floor, clearer formatting
-#n# But...  3rd arg to 'lerp' function not needed?  Compare with 'Perlin_noise.0', where it is excised completely
-
-File: P/Perlin_noise.0
-#!/usr/local/bin/perl
-#u# http://rosettacode.org/wiki/Perlin_noise
-#c# 2018-08-20 <RC
-#p# OK
-#n# 2021-01-30 3rd arg. to 'lerp' function not needed at all?  Simplifies things considerably...
+#n# for this particular input: permutation doesn't need to be doubled, 'b' parameter to 'lerp' doesn't matter
 
 File: P/Perlin_noise.1
 #!/usr/local/bin/perl
