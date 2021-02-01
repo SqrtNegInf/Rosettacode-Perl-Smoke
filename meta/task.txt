@@ -1,17 +1,17 @@
 
 This is perl 5, version 32, subversion 1 (v5.32.1) built for darwin-thread-multi-2level
 updating from RC…
-+------------> Perl: Good/Bad [1361/10]
-|+-----------> Smoke testing [1220]
++------------> Perl: Good/Bad [1362/10]
+|+-----------> Smoke testing [1221]
 ||+----------> sKipping validation [145]
 |||+---------> Interactive [65]
 ||||+--------> Touched (modified by me) [434]
 |||||+-------> Random seed [111]
 ||||||+------> File output [75]
-|||||||+-----> Draft [226]
+|||||||+-----> Draft [225]
 ||||||||+----> Ignoring [37]
-|||||||||+---> Void (no local copy) [126]
-||||||||||+--> Un-implemented/reliable [107]
+|||||||||+---> Void (no local copy) [125]
+||||||||||+--> Un-implemented/reliable [104]
 |||||||||||
 GS......... 100_doors-1
 GS......... 100_doors-2
@@ -435,7 +435,7 @@ GS..T...... Execute_a_system_command
 GS......... Exponentiation_operator-1
 GS......... Exponentiation_operator-2
 GS......... Exponentiation_order
-.......D.VU Exponentiation_with_infix_operators_in_or_operating_on_the_base
+.........VU Exponentiation_with_infix_operators_in_or_operating_on_the_base
 GS..T...... Extend_your_language
 GS......... Extensible_prime_generator-1
 GS......... Extensible_prime_generator-2
@@ -499,7 +499,7 @@ GS......... Find_the_missing_permutation-2
 .......D... Find_words_with_alternating_vowels_and_consonants
 GS......... Find_words_with_alternating_vowels_and_consonants-1
 GS..T...... Find_words_with_alternating_vowels_and_consonants-2
-.......D.VU Finite_state_machine
+GS.....D... Finite_state_machine
 GS......... First-class_functions
 GS......... First-class_functions_Use_numbers_analogously
 GS......... First_class_environments
@@ -1102,8 +1102,8 @@ GS..T...... Reflection_List_methods
 G.K.T...... Reflection_List_properties
 GS......... Regular_expressions
 .......D.VU Remote_agent_Agent_interface
-.......D.VU Remote_agent_Agent_logic
-.......D.VU Remote_agent_Simulation
+.......D.V. Remote_agent_Agent_logic
+.......D.V. Remote_agent_Simulation
 GS......... Remove_duplicate_elements
 GS....F.... Remove_lines_from_a_file
 GS..T..D... Remove_vowels_from_a_string
