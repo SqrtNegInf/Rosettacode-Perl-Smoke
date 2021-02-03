@@ -21,6 +21,8 @@ struct( x => '$', y => '$',);
 
 use constant pi => 2 * atan2(1, 0);
 
+use enum qw(False True);
+
 my @twelvesteps = map { Point->new( x => sin(pi * $_/6), y => cos(pi * $_/6) ) } 1 .. 12;
 my @foursteps   = map { Point->new( x => sin(pi * $_/2), y => cos(pi * $_/2) ) } 1 ..  4;
 
@@ -36,22 +38,19 @@ sub digits($n, $base, $pad=0) {
 
 sub rotate { my($i,@a) = @_; @a[$i .. @a-1, 0 .. $i-1] }
 
-sub circularsymmetries(@c) { my @d; push @d, join ' ', rotate($_, @c) for 0 .. $#c; @d }
+sub circularsymmetries(@c) { map { join ' ', rotate($_, @c) } 0 .. $#c }
 
 sub addsymmetries($infound, @turns) {
     my @allsym;
     push @allsym, circularsymmetries(@turns);
-    my @turns_neg;
-    push @turns_neg, map { -1 * $_ } @turns;
-    push @allsym, circularsymmetries(@turns_neg);
-    $$infound{$_} = 1 for @allsym;
-    my @x = sort @allsym;
-    return $x[-1];
+    push @allsym, circularsymmetries(map { -1 * $_ } @turns);
+    $$infound{$_} = True for @allsym;
+    (sort @allsym)[-1];
 }
 
 sub isclosedpath($straight, @turns) {
     my $start = Point->new(x=> 0, y =>0);
-    return 0 unless ( sum(@turns) % ($straight ? 4 : 12) ) == 0;
+    return False if sum(@turns) % ($straight ? 4 : 12);
     my ($angl, $point) = (0, $start);
     for my $turn (@turns) {
         $angl  += $turn;
@@ -60,14 +59,13 @@ sub isclosedpath($straight, @turns) {
     approx_eq($point, $start);
 }
 
-
-sub allvalidcircuits($N, $doPrint = 0, $straight = 0) {
+sub allvalidcircuits($N, $doPrint = False, $straight = False) {
     my ( @found, %infound );
     push @res, "\nFor N of ". $N . ' and ' . ($straight ? 'straight' : 'curved') . ' track:';
-    for my $i ($straight ? (0..3**$N - 1) : (0..2**$N - 1)) {
+    for my $i (0 .. ($straight ? 3 : 2)**$N - 1) {
         my @turns = $straight ?
             map { $_ == 0 ?  0 : ($_ == 1 ? -1 : 1) } digits($i,3,$N) :
-            map { $_ == 0 ? -1 : 1 } digits($i,2,$N);
+            map { $_ == 0 ? -1 :                 1  } digits($i,2,$N);
         if (isclosedpath($straight, @turns) && ! exists $infound{join ' ', @turns} ) {
             my $canon = addsymmetries(\%infound, @turns);
             push @found, $canon;
@@ -78,11 +76,13 @@ sub allvalidcircuits($N, $doPrint = 0, $straight = 0) {
     @found
 }
 
-allvalidcircuits($_, 1) for 12, 16, 20; 
+allvalidcircuits($_, True      ) for 12, 16, 20; 
+allvalidcircuits($_, True, True) for  4,  6,  8;
 
 say my $result = join "\n", @res;
 
 my $ref = <<'END';
+
 For N of 12 and curved track:
 1 1 1 1 1 1 1 1 1 1 1 1
 There are 1 unique valid circuits.
@@ -99,17 +99,27 @@ For N of 20 and curved track:
 1 1 1 1 1 -1 1 1 1 -1 1 1 1 1 1 -1 1 1 1 -1
 1 1 1 1 -1 1 1 1 1 -1 1 1 1 1 -1 1 1 1 1 -1
 There are 6 unique valid circuits.
+
+For N of 4 and straight track:
+1 1 1 1
+There are 1 unique valid circuits.
+
+For N of 6 and straight track:
+1 1 0 1 1 0
+There are 1 unique valid circuits.
+
+For N of 8 and straight track:
+1 1 0 0 1 1 0 0
+1 0 1 0 1 0 1 0
+1 1 0 1 0 1 1 -1
+1 1 1 0 -1 -1 -1 0
+1 1 1 1 1 1 1 1
+1 1 1 1 -1 -1 -1 -1
+1 1 1 -1 1 1 1 -1
+There are 7 unique valid circuits.
 END
 
 use Test::More;
+chomp $ref;
 is ($result, $ref);
 done_testing();
-
-__END__
-
-=={{header|Perl}}==
-{{trans|Raku}}
-{{libheader|ntheory}}
-<lang perl></lang>
-{{out}}
-<pre></pre>
