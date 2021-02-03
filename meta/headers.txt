@@ -2081,6 +2081,7 @@ File: D/Dijkstra%27s_algorithm
 #u# http://rosettacode.org/wiki/Dijkstra%27s_algorithm
 #c# 2018-07-28 <RC
 #p# OK
+#n# note: No explicit hashes declared, just refs throughout
 
 File: D/Dinesman%27s_multiple-dwelling_problem-1
 #!/usr/local/bin/perl
@@ -4435,6 +4436,13 @@ File: L/Logistic_Curve_Fitting_in_Epidemiology
 #c# 2020-04-13 >RC
 #p# OK
 
+File: L/Long_literals,_with_continuations
+#!/usr/local/bin/perl
+#u# http://rosettacode.org/wiki/Long_literals,_with_continuations
+#c# 2021-02-02 <RC
+#p# OK
+#n# at least no electrons will have to die for this task, though possibly the program should (not) be executed...
+
 File: L/Long_multiplication
 #!/usr/local/bin/perl
 #u# http://rosettacode.org/wiki/Long_multiplication
@@ -6551,6 +6559,12 @@ File: R/RSA_code
 #!/usr/local/bin/perl
 #u# http://rosettacode.org/wiki/RSA_code
 #c# 2018-10-14 >RC
+#p# OK
+
+File: R/Railway_circuit
+#!/usr/local/bin/perl
+#u# http://rosettacode.org/wiki/Railway_circuit
+#c# 2021-02-02 >RC
 #p# OK
 
 File: R/Ramanujan%27s_constant
