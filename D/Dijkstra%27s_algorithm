@@ -1,6 +1,6 @@
 #!/usr/local/bin/perl
 #u# http://rosettacode.org/wiki/Dijkstra%27s_algorithm
-#c# 2018-07-28 <RC
+#c# 2018-07-28 <RC, 2021-02-02 >RC
 #p# OK
 #n# note: No explicit hashes declared, just refs throughout
 
@@ -35,8 +35,7 @@ sub dijkstra {
     my ($g, $a, $b) = @_;
     for my $v (values %$g) {
         $v->{dist} = 10e7; # arbitrary large value
-        delete $v->{prev};
-        delete $v->{visited};
+        delete @$v{'prev', 'visited'}
     }
     $g->{$a}{dist} = 0;
     my $h = [];
@@ -73,8 +72,8 @@ while ($v) {
     $v = $v->{prev};
 }
 my $path = join '', reverse @$a;
-say $result = "$g->{e}{dist} $path\n";
+say $result = "$g->{e}{dist} $path";
 
 use Test::More;
-is ($result, "26 acde\n");
+is ($result, '26 acde');
 done_testing();
