@@ -1,17 +1,17 @@
 
 This is perl 5, version 32, subversion 1 (v5.32.1) built for darwin-thread-multi-2level
 updating from RC…
-+------------> Perl: Good/Bad [1364/10]
-|+-----------> Smoke testing [1223]
++------------> Perl: Good/Bad [1365/10]
+|+-----------> Smoke testing [1224]
 ||+----------> sKipping validation [145]
 |||+---------> Interactive [65]
-||||+--------> Touched (modified by me) [435]
+||||+--------> Touched (modified by me) [436]
 |||||+-------> Random seed [111]
 ||||||+------> File output [75]
 |||||||+-----> Draft [226]
 ||||||||+----> Ignoring [36]
-|||||||||+---> Void (no local copy) [124]
-||||||||||+--> Un-implemented/reliable [103]
+|||||||||+---> Void (no local copy) [123]
+||||||||||+--> Un-implemented/reliable [102]
 |||||||||||
 GS......... 100_doors-1
 GS......... 100_doors-2
@@ -364,7 +364,7 @@ GS..T...... Determine_if_two_triangles_overlap
 GS......... Dice_game_probabilities
 GS......... Digital_root
 GS......... Digital_root_Multiplicative_digital_root
-GS......... Dijkstra%27s_algorithm
+GS..T...... Dijkstra%27s_algorithm
 GS......... Dinesman%27s_multiple-dwelling_problem-1
 GS......... Dinesman%27s_multiple-dwelling_problem-2
 G.K..R..... Dining_philosophers
@@ -1412,7 +1412,7 @@ GS......... Towers_of_Hanoi
 GS..T...... Trabb_Pardo-Knuth_algorithm
 .......D.VU Transportation_problem
 GS..T...... Tree_datastructures
-.......D.VU Tree_from_nesting_levels
+GS.....D... Tree_from_nesting_levels
 GS......... Tree_traversal
 GS......... Trigonometric_functions
 GS......... Truncatable_primes-1
