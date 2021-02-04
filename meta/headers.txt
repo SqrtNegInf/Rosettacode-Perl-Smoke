@@ -2079,7 +2079,7 @@ File: D/Digital_root_Multiplicative_digital_root
 File: D/Dijkstra%27s_algorithm
 #!/usr/local/bin/perl
 #u# http://rosettacode.org/wiki/Dijkstra%27s_algorithm
-#c# 2018-07-28 <RC
+#c# 2018-07-28 <RC, 2021-02-02 >RC
 #p# OK
 #n# note: No explicit hashes declared, just refs throughout
 
@@ -7528,6 +7528,7 @@ File: S/Solve_a_Hidato_puzzle
 #c# 2018-08-14 <RC
 #p# OK
 #f# RC File: hidato.dat
+#n# be explicit about value of each 'return'
 
 File: S/Solve_a_Holy_Knight%27s_tour
 #!/usr/local/bin/perl
@@ -8677,6 +8678,12 @@ File: T/Tree_datastructures
 #!/usr/local/bin/perl
 #u# http://rosettacode.org/wiki/Tree_datastructures
 #c# 2019-11-08 >RC
+#p# OK
+
+File: T/Tree_from_nesting_levels
+#!/usr/local/bin/perl
+#u# http://rosettacode.org/wiki/Tree_from_nesting_levels
+#c# 2021-02-03 <RC
 #p# OK
 
 File: T/Tree_traversal
