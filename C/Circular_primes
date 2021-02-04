@@ -4,27 +4,29 @@
 #p# OK
 #n# full run: 1888.93s user 21.69s system 77% cpu 41:20.77 total
 
+my @res;
+
 use strict;
 use warnings;
 use feature 'say';
 
-my @res;
-
 use List::Util 'min';
 use ntheory 'is_prime';
+
+use enum qw(False True);
 
 sub rotate { my($i,@a) = @_; join '', @a[$i .. @a-1, 0 .. $i-1] }
 
 sub isCircular {
     my ($n) = @_;
-    return 0 unless is_prime($n);
+    return False unless is_prime($n);
     my @circular = split //, $n;
-    return 0 if min(@circular) < $circular[0];
+    return False if min(@circular) < $circular[0];
     for (1 .. scalar @circular) {
         my $r = join '', rotate($_,@circular);
-        return 0 unless is_prime($r) and $r >= $n;
+        return False unless is_prime($r) and $r >= $n;
     }
-    1
+    True
 }
 
 push @res, "The first 19 circular primes are:";
@@ -41,9 +43,8 @@ for ( my $i = 7, my $count = 0; $count < 4; $i++ ) {
 
 push @res, "\nRepunit testing:";
 
-for (5003, 9887, 15073) { #, 25031, 35317, 49081) {
-    push @res, "R($_): Prime? " . (is_prime 1 x $_ ? 'True' : 'False');
-}
+push @res, "R($_): Prime? " . (is_prime 1 x $_ ? 'True' : 'False')
+    for 5003, 9887, 15073; #, 25031, 35317, 49081;
 
 say my $result = join "\n", @res;
 
