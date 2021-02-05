@@ -2534,6 +2534,12 @@ File: E/Exponentiation_order
 #c# 2018-08-01 <RC
 #p# OK
 
+File: E/Exponentiation_with_infix_operators_in__or_operating_on__the_base
+#!/usr/local/bin/perl
+#u# http://rosettacode.org/wiki/Exponentiation_with_infix_operators_in_(or_operating_on)_the_base
+#c# 2021-02-04 >RC
+#p# OK
+
 File: E/Extend_your_language
 #!/usr/local/bin/perl
 #u# http://rosettacode.org/wiki/Extend_your_language
