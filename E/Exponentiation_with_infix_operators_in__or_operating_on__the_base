@@ -1,0 +1,48 @@
+#!/usr/local/bin/perl
+#u# http://rosettacode.org/wiki/Exponentiation_with_infix_operators_in_(or_operating_on)_the_base
+#c# 2021-02-04 >RC
+#p# OK
+
+my $result; 
+
+use strict;
+use warnings;
+#use feature 'say';
+
+use Sub::Infix;
+ 
+BEGIN { *e = infix { $_[0] ** $_[1] } }; # operator needs to be defined at compile time
+  
+my @eqns = ('1 + -$xOP$p', '1 + (-$x)OP$p', '1 + (-($x)OP$p)', '(1 + -$x)OP$p', '1 + -($xOP$p)');
+
+for my $op ('**', '/e/', '|e|') {
+    for ( [-5, 2], [-5, 3], [5, 2], [5, 3] ) {
+        my( $x, $p, $eqn) = @$_;
+        $result .= sprintf 'x: %2d p: %2d |', $x, $p;
+        $eqn = s/OP/$op/gr and $result .= sprintf '%17s %4d |', $eqn, eval $eqn for @eqns;
+        $result .= "\n";
+    }
+    $result .= "\n";
+}
+
+my $ref = <<'END';
+x: -5 p:  2 |      1 + -$x**$p  -24 |    1 + (-$x)**$p   26 |  1 + (-($x)**$p)  -24 |    (1 + -$x)**$p   36 |    1 + -($x**$p)  -24 |
+x: -5 p:  3 |      1 + -$x**$p  126 |    1 + (-$x)**$p  126 |  1 + (-($x)**$p)  126 |    (1 + -$x)**$p  216 |    1 + -($x**$p)  126 |
+x:  5 p:  2 |      1 + -$x**$p  -24 |    1 + (-$x)**$p   26 |  1 + (-($x)**$p)  -24 |    (1 + -$x)**$p   16 |    1 + -($x**$p)  -24 |
+x:  5 p:  3 |      1 + -$x**$p -124 |    1 + (-$x)**$p -124 |  1 + (-($x)**$p) -124 |    (1 + -$x)**$p  -64 |    1 + -($x**$p) -124 |
+
+x: -5 p:  2 |     1 + -$x/e/$p   26 |   1 + (-$x)/e/$p   26 | 1 + (-($x)/e/$p)   26 |   (1 + -$x)/e/$p   36 |   1 + -($x/e/$p)  -24 |
+x: -5 p:  3 |     1 + -$x/e/$p  126 |   1 + (-$x)/e/$p  126 | 1 + (-($x)/e/$p)  126 |   (1 + -$x)/e/$p  216 |   1 + -($x/e/$p)  126 |
+x:  5 p:  2 |     1 + -$x/e/$p   26 |   1 + (-$x)/e/$p   26 | 1 + (-($x)/e/$p)   26 |   (1 + -$x)/e/$p   16 |   1 + -($x/e/$p)  -24 |
+x:  5 p:  3 |     1 + -$x/e/$p -124 |   1 + (-$x)/e/$p -124 | 1 + (-($x)/e/$p) -124 |   (1 + -$x)/e/$p  -64 |   1 + -($x/e/$p) -124 |
+
+x: -5 p:  2 |     1 + -$x|e|$p   36 |   1 + (-$x)|e|$p   36 | 1 + (-($x)|e|$p)   26 |   (1 + -$x)|e|$p   36 |   1 + -($x|e|$p)  -24 |
+x: -5 p:  3 |     1 + -$x|e|$p  216 |   1 + (-$x)|e|$p  216 | 1 + (-($x)|e|$p)  126 |   (1 + -$x)|e|$p  216 |   1 + -($x|e|$p)  126 |
+x:  5 p:  2 |     1 + -$x|e|$p   16 |   1 + (-$x)|e|$p   16 | 1 + (-($x)|e|$p)   26 |   (1 + -$x)|e|$p   16 |   1 + -($x|e|$p)  -24 |
+x:  5 p:  3 |     1 + -$x|e|$p  -64 |   1 + (-$x)|e|$p  -64 | 1 + (-($x)|e|$p) -124 |   (1 + -$x)|e|$p  -64 |   1 + -($x|e|$p) -124 |
+
+END
+
+use Test::More;
+is($result, $ref);
+done_testing();
