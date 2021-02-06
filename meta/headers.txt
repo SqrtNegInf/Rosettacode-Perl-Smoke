@@ -3356,6 +3356,13 @@ File: G/Gradient_descent
 #c# 2019-11-01 >RC
 #p# OK
 
+File: G/Graph_colouring
+#!/usr/local/bin/perl
+#u# http://rosettacode.org/wiki/Graph_colouring
+#c# 2021-02-04 >RC
+#p# OK
+#n# code fragility in zero-valued node vs Raku...
+
 File: G/Gray_code
 #!/usr/local/bin/perl
 #u# http://rosettacode.org/wiki/Gray_code
@@ -5690,7 +5697,7 @@ File: P/Palindromic_gapful_numbers
 File: P/Pancake_numbers
 #!/usr/local/bin/perl
 #u# http://rosettacode.org/wiki/Pancake_numbers
-#c# 2021-01-13 >RC
+#c# 2021-01-13 >RC, 2021-02-05 >RC
 #p# OK
 
 File: P/Pangram_checker
@@ -6754,6 +6761,20 @@ File: R/Regular_expressions
 #!/usr/local/bin/perl
 #u# http://rosettacode.org/wiki/Regular_expressions
 #c# 2018-08-18 <RC
+#p# OK
+
+File: R/Remote_agent_Agent_logic
+#!/usr/local/bin/perl
+#u# http://rosettacode.org/wiki/Remote_agent/Agent_logic
+#t# interactive
+#c# 2021-01-31 <RC
+#p# OK
+
+File: R/Remote_agent_Simulation
+#!/usr/local/bin/perl
+#u# http://rosettacode.org/wiki/Remote_agent/Simulation
+#t# interactive
+#c# 2021-01-31 <RC
 #p# OK
 
 File: R/Remove_duplicate_elements
