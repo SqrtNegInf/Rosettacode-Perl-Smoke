@@ -11,7 +11,7 @@ use feature 'say';
 
 use constant True => 1;
 
-use List::Util qw(first uniq);
+use List::Util qw(head uniq);
 
 my @res;
 
@@ -37,16 +37,15 @@ sub GraphNodeColor {
         my $color = shift @ColorPool;
         my %TempPool = %NodePool;
 
-        while (my $n = first { $_ } sort keys %TempPool) {
+        while (my $n = head 1, sort keys %TempPool) {
             $NodeColor{$n} = $color;
             delete $TempPool{$n};
             delete $TempPool{$_} for @{$OneMany{$n}} ; # skip neighbors as well
             delete $NodePool{$n};
-            last unless %TempPool;
         }
 
         if ($OneMany{''}) { # islanders use an existing color
-            $NodeColor{$_} = first { $_ } sort values %NodeColor for @{$OneMany{''}};
+            $NodeColor{$_} = head 1, sort values %NodeColor for @{$OneMany{''}};
         }
     }
     %NodeColor
@@ -75,10 +74,11 @@ for my $d (@DATA) {
 }
 
 say my $result = join "\n", @res;
+exit;
 
 my $ref = <<'END';
 Graph  : (1 2), (2 3), (3 1), (4 ), (5 ), (6 )
-Colors :  0-1    1-2    2-0    1-    1-    1-   
+Colors :  0-1    1-2    2-0    0-    0-    0-   
 Nodes  : 6
 Edges  : 6
 Unique : 3
