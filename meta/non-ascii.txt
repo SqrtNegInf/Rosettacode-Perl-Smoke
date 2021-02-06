@@ -324,9 +324,6 @@ N/Numerical_integration_Gauss-Legendre_Quadrature
 ∫:     8 INTEGRAL
 ≈:     8 ALMOST EQUAL TO
 
-P/Pancake_numbers
-»:     1 RIGHT-POINTING DOUBLE ANGLE QUOTATION MARK
-
 P/Peaceful_chess_queen_armies
 ×:     1 MULTIPLICATION SIGN
 •:    10 BULLET
