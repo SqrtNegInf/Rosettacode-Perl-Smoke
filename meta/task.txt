@@ -8,10 +8,10 @@ updating from RC…
 ||||+--------> Touched (modified by me) [437]
 |||||+-------> Random seed [111]
 ||||||+------> File output [75]
-|||||||+-----> Draft [227]
+|||||||+-----> Draft [228]
 ||||||||+----> Ignoring [36]
-|||||||||+---> Void (no local copy) [121]
-||||||||||+--> Un-implemented/reliable [100]
+|||||||||+---> Void (no local copy) [123]
+||||||||||+--> Un-implemented/reliable [102]
 |||||||||||
 GS......... 100_doors-1
 GS......... 100_doors-2
@@ -145,6 +145,7 @@ GS......... Bernoulli_numbers-3
 GS...R..... Best_shuffle-1
 GS...R..... Best_shuffle-2
 GS..T.FD... Bilinear_interpolation
+.........VU Bin_given_limits
 GS......... Binary_digits
 GS......... Binary_search-1
 GS......... Binary_search-2
@@ -1500,6 +1501,7 @@ GS...R..... Word_search
 GS......... Word_wheel
 GS......... Word_wrap
 GS.....D... Words_containing_%22the%22_substring
+.......D.VU Words_from_neighbour_ones
 GS..T...... World_Cup_group_stage
 GS....F.... Write_entire_file
 GS....F.... Write_float_arrays_to_a_text_file-1
