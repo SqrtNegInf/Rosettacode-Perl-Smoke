@@ -1,0 +1,51 @@
+#!/usr/local/bin/perl
+#u# http://rosettacode.org/wiki/Tree_from_nesting_levels
+#c# 2021-02-07 <RC
+#p# OK
+#n# String Eval
+
+my @res;
+
+use strict;
+use warnings;
+use feature 'say';
+use Data::Dump qw(pp);
+
+my @tests = (
+  []
+  ,[1, 2, 4]
+  ,[3, 1, 3, 1]
+  ,[1, 2, 3, 1]
+  ,[3, 2, 1, 3]
+  ,[3, 3, 3, 1, 1, 3, 3, 3]
+);
+
+for my $before ( @tests ) {
+  push @res, 'before => ' . pp $before;
+  local $_ = (pp $before) =~ s/\d+/ '['x($&-1) . $& . ']'x($&-1) /ger;
+  1 while s/\](,\s*)\[/$1/;
+  my $after = eval;
+  push @res, 'after =>  ' . pp $after;
+}
+
+say my $result = join "\n", @res;
+
+my $ref = <<'EOD';
+before => []
+after =>  []
+before => [1, 2, 4]
+after =>  [1, [2, [[4]]]]
+before => [3, 1, 3, 1]
+after =>  [[[3]], 1, [[3]], 1]
+before => [1, 2, 3, 1]
+after =>  [1, [2, [3]], 1]
+before => [3, 2, 1, 3]
+after =>  [[[3], 2], 1, [[3]]]
+before => [3, 3, 3, 1, 1, 3, 3, 3]
+after =>  [[[3, 3, 3]], 1, 1, [[3, 3, 3]]]
+EOD
+
+use Test::More;
+chomp $ref;
+is ($result, $ref);
+done_testing();
