@@ -1,17 +1,17 @@
 
 This is perl 5, version 32, subversion 1 (v5.32.1) built for darwin-thread-multi-2level
 updating from RC…
-+------------> Perl: Good/Bad [1368/10]
-|+-----------> Smoke testing [1225]
++------------> Perl: Good/Bad [1370/10]
+|+-----------> Smoke testing [1227]
 ||+----------> sKipping validation [147]
 |||+---------> Interactive [67]
 ||||+--------> Touched (modified by me) [437]
 |||||+-------> Random seed [111]
 ||||||+------> File output [75]
-|||||||+-----> Draft [228]
+|||||||+-----> Draft [229]
 ||||||||+----> Ignoring [36]
-|||||||||+---> Void (no local copy) [123]
-||||||||||+--> Un-implemented/reliable [102]
+|||||||||+---> Void (no local copy) [124]
+||||||||||+--> Un-implemented/reliable [103]
 |||||||||||
 GS......... 100_doors-1
 GS......... 100_doors-2
@@ -152,6 +152,7 @@ GS......... Binary_search-2
 GS..T...... Binary_strings
 GS..TR..... Bioinformatics_Sequence_mutation
 GS..T...... Bioinformatics_base_count
+.......D.VU Bioinformatics_global_alignment
 GS..T...... Biorhythms
 GS..TR.D... Birthday_problem
 GS......... Bitcoin_address_validation
@@ -1415,6 +1416,8 @@ GS..T...... Trabb_Pardo-Knuth_algorithm
 .......D.VU Transportation_problem
 GS..T...... Tree_datastructures
 GS.....D... Tree_from_nesting_levels
+GS......... Tree_from_nesting_levels-1
+GS......... Tree_from_nesting_levels-2
 GS......... Tree_traversal
 GS......... Trigonometric_functions
 GS......... Truncatable_primes-1
