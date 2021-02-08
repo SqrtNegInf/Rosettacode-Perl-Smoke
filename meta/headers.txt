@@ -8713,6 +8713,20 @@ File: T/Tree_from_nesting_levels
 #c# 2021-02-03 <RC
 #p# OK
 
+File: T/Tree_from_nesting_levels-1
+#!/usr/local/bin/perl
+#u# http://rosettacode.org/wiki/Tree_from_nesting_levels
+#c# 2021-02-07 <RC
+#p# OK
+#n# String Eval
+
+File: T/Tree_from_nesting_levels-2
+#!/usr/local/bin/perl
+#u# http://rosettacode.org/wiki/Tree_from_nesting_levels
+#c# 2021-02-07 <RC
+#p# OK
+#n# Iterative
+
 File: T/Tree_traversal
 #!/usr/local/bin/perl
 #u# http://rosettacode.org/wiki/Tree_traversal
