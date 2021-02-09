@@ -767,6 +767,18 @@ File: B/Bilinear_interpolation
 #p# OK
 #f# RC File: color_wheel_interpolated.png
 
+File: B/Bin_given_limits-1
+#!/usr/local/bin/perl
+#u# http://rosettacode.org/wiki/Bin_given_limits
+#c# 2021-02-08 >RC
+#p# OK
+
+File: B/Bin_given_limits-2
+#!/usr/local/bin/perl
+#u# http://rosettacode.org/wiki/Bin_given_limits
+#c# 2021-02-08 >RC
+#p# OK
+
 File: B/Binary_digits
 #!/usr/local/bin/perl
 #u# http://rosettacode.org/wiki/Binary_digits
@@ -9176,6 +9188,7 @@ File: W/Word_search
 #u# http://rosettacode.org/wiki/Word_search
 #c# 2019-12-19 <RC
 #p# OK
+#n# stick with word source inside git archive
 
 File: W/Word_wheel
 #!/usr/local/bin/perl
