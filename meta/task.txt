@@ -1,16 +1,16 @@
 
 This is perl 5, version 32, subversion 1 (v5.32.1) built for darwin-thread-multi-2level
 updating from RC…
-+------------> Perl: Good/Bad [1370/10]
-|+-----------> Smoke testing [1227]
++------------> Perl: Good/Bad [1371/10]
+|+-----------> Smoke testing [1229]
 ||+----------> sKipping validation [147]
 |||+---------> Interactive [67]
-||||+--------> Touched (modified by me) [437]
+||||+--------> Touched (modified by me) [439]
 |||||+-------> Random seed [111]
 ||||||+------> File output [75]
 |||||||+-----> Draft [229]
 ||||||||+----> Ignoring [36]
-|||||||||+---> Void (no local copy) [124]
+|||||||||+---> Void (no local copy) [123]
 ||||||||||+--> Un-implemented/reliable [103]
 |||||||||||
 GS......... 100_doors-1
@@ -145,7 +145,9 @@ GS......... Bernoulli_numbers-3
 GS...R..... Best_shuffle-1
 GS...R..... Best_shuffle-2
 GS..T.FD... Bilinear_interpolation
-.........VU Bin_given_limits
+..........U Bin_given_limits
+!S..T...... Bin_given_limits-1
+GS..T...... Bin_given_limits-2
 GS......... Binary_digits
 GS......... Binary_search-1
 GS......... Binary_search-2
