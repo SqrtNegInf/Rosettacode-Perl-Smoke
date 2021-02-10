@@ -1,17 +1,17 @@
 
 This is perl 5, version 32, subversion 1 (v5.32.1) built for darwin-thread-multi-2level
 updating from RC…
-+------------> Perl: Good/Bad [1371/10]
++------------> Perl: Good/Bad [1372/10]
 |+-----------> Smoke testing [1229]
 ||+----------> sKipping validation [147]
 |||+---------> Interactive [67]
 ||||+--------> Touched (modified by me) [439]
 |||||+-------> Random seed [111]
 ||||||+------> File output [75]
-|||||||+-----> Draft [229]
+|||||||+-----> Draft [230]
 ||||||||+----> Ignoring [36]
-|||||||||+---> Void (no local copy) [123]
-||||||||||+--> Un-implemented/reliable [103]
+|||||||||+---> Void (no local copy) [126]
+||||||||||+--> Un-implemented/reliable [106]
 |||||||||||
 GS......... 100_doors-1
 GS......... 100_doors-2
@@ -136,7 +136,6 @@ GS...RF.... Barnsley_fern
 GS..T..D... Base58Check_encoding
 GS..T...... Base64_decode_data
 GS.....D... Base64_encode_data
-.......D.VU Basic_p-adic_numbers
 GS..T...... Bell_numbers
 GS......... Benford%27s_law
 GS......... Bernoulli_numbers-1
@@ -146,7 +145,7 @@ GS...R..... Best_shuffle-1
 GS...R..... Best_shuffle-2
 GS..T.FD... Bilinear_interpolation
 ..........U Bin_given_limits
-!S..T...... Bin_given_limits-1
+GS..T...... Bin_given_limits-1
 GS..T...... Bin_given_limits-2
 GS......... Binary_digits
 GS......... Binary_search-1
@@ -406,7 +405,7 @@ GS......... Element-wise_operations
 GS......... Elementary_cellular_automaton
 GS..T...... Elementary_cellular_automaton_Infinite_length
 GS......... Elementary_cellular_automaton_Random_Number_Generator
-GS.....D... Elliptic_Curve_Digital_Signature_Algorithm
+GS......... Elliptic_Curve_Digital_Signature_Algorithm
 GS......... Elliptic_curve_arithmetic
 GS..T...... Emirp_primes
 GS......... Empty_directory
@@ -501,6 +500,7 @@ GS......... Find_the_intersection_of_two_lines
 GS......... Find_the_last_Sunday_of_each_month
 GS......... Find_the_missing_permutation
 GS......... Find_the_missing_permutation-2
+.......D.VU Find_words_which_contains_more_than_3_e_vowels
 .......D... Find_words_with_alternating_vowels_and_consonants
 GS......... Find_words_with_alternating_vowels_and_consonants-1
 GS..T...... Find_words_with_alternating_vowels_and_consonants-2
@@ -929,6 +929,8 @@ GS......... Order_two_numerical_lists
 GS......... Ordered_partitions
 GS......... Ordered_partitions-2
 GS......... Ordered_words
+.........VU P-Adic_numbers,_basic
+.......D.VU P-Adic_square_roots
 GS......... P-value_correction
 GS..T...... Palindrome_dates-1
 GS......... Palindrome_dates-2
@@ -1450,6 +1452,7 @@ GS......... Unicode_variable_names
 GS......... Universal_Turing_machine
 GS......... Unix_ls
 GS..T...... Unprimeable_numbers
+.......D.VU Untouchable_numbers
 G.K....D... Untrusted_environment
 GS......... Update_a_configuration_file
 .........VU Use_another_language_to_call_a_function
