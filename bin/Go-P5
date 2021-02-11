@@ -3,6 +3,8 @@
 
 source $HOME/.profile
 
+rakudobrew switch moar-blead
+
 cd $HOME/perl5/Rosetta-Code
 
 perl -v | head -2
