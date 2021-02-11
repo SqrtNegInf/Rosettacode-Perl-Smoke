@@ -1,14 +1,14 @@
 
 This is perl 5, version 32, subversion 1 (v5.32.1) built for darwin-thread-multi-2level
 updating from RC…
-+------------> Perl: Good/Bad [1372/10]
-|+-----------> Smoke testing [1229]
++------------> Perl: Good/Bad [1373/10]
+|+-----------> Smoke testing [1230]
 ||+----------> sKipping validation [147]
 |||+---------> Interactive [67]
-||||+--------> Touched (modified by me) [439]
+||||+--------> Touched (modified by me) [440]
 |||||+-------> Random seed [111]
 ||||||+------> File output [75]
-|||||||+-----> Draft [230]
+|||||||+-----> Draft [231]
 ||||||||+----> Ignoring [36]
 |||||||||+---> Void (no local copy) [126]
 ||||||||||+--> Un-implemented/reliable [106]
@@ -144,7 +144,6 @@ GS......... Bernoulli_numbers-3
 GS...R..... Best_shuffle-1
 GS...R..... Best_shuffle-2
 GS..T.FD... Bilinear_interpolation
-..........U Bin_given_limits
 GS..T...... Bin_given_limits-1
 GS..T...... Bin_given_limits-2
 GS......... Binary_digits
@@ -500,7 +499,8 @@ GS......... Find_the_intersection_of_two_lines
 GS......... Find_the_last_Sunday_of_each_month
 GS......... Find_the_missing_permutation
 GS......... Find_the_missing_permutation-2
-.......D.VU Find_words_which_contains_more_than_3_e_vowels
+GS..T..D..U Find_words_which_contains_more_than_3_e_vowels
+.......D.VU Find_words_which_first_and_last_three_letters_are_equals
 .......D... Find_words_with_alternating_vowels_and_consonants
 GS......... Find_words_with_alternating_vowels_and_consonants-1
 GS..T...... Find_words_with_alternating_vowels_and_consonants-2
