@@ -1,6 +1,6 @@
 #!/usr/local/bin/perl
 #u# http://rosettacode.org/wiki/Bin_given_limits
-#c# 2021-02-08 >RC
+#c# 2021-02-09 >RC
 #p# OK
 
 use strict;
@@ -39,7 +39,7 @@ my @tests = (
     }
 );
 
-sub bisect_right($x, $low, $high, @array) {
+sub bisect_right ($x, $low, $high, @array) {
     my ($middle);
     while ($low < $high) {
         $middle = ($low + $high) / 2;
@@ -48,9 +48,29 @@ sub bisect_right($x, $low, $high, @array) {
     $low-1
 }
 
+sub bin_it ($lim, $data) {
+    my @bins;
+    ++$bins[ bisect_right($_, 0, @$lim-1, @$lim) ] for @$data;
+    @bins
+}
+
+sub bin_format ($lim, @bins) {
+    my @lim = @$lim;
+    my(@output);
+    push @output, sprintf "[%3d, %3d) => %3d\n", $lim[$_], ($lim[$_+1] == Inf ? 'Inf' : $lim[$_+1]), $bins[$_] for 0..@lim-2;
+    @output
+}
+
+# on RC
+#for (0..$#tests) {
+#    my @lim  = (0, @{$tests[$_]{limits}}, Inf);
+#    say bin_format \@lim, bin_it(\@lim,\@{$tests[$_]{data}});
+#}
+
+# how to do it without the arbitrary task constraints
 for (0..$#tests) {
     my @lim  = (0, @{$tests[$_]{limits}}, Inf);
-    my @bins = 0 x @lim; # not actually needed...
+    my @bins;
     ++$bins[ bisect_right($_, 0, $#lim, @lim) ] for $tests[$_]{data}->@*;
     push @res, sprintf "[%3d, %3d) => %3d\n", $lim[$_], ($lim[$_+1] == Inf ? 'Inf' : $lim[$_+1]), $bins[$_] for 0..@lim-2;
 }
