@@ -1,0 +1,41 @@
+#!/usr/local/bin/perl
+#u# http://rosettacode.org/wiki/Find_words_which_contains_more_than_3_e_vowels
+#c# 2021-02-xx >RC
+#p# OK
+
+my $result = join "\n", grep { y/e// > 3 and not y/aiou// } split "\n", `cat ref/unixdict.txt`;
+
+# HA! Exactly same length as Raku (when similarly obsfuscated):
+#say join"\n",grep{y/e//>3&&!y/aiou//}split"\n",`cat ref/unixdict.txt`;
+#.say for "ref/unixdict.txt".IO.lines.grep:{!/<[aiou]>/&&/e.*e.*e.*e/};
+
+my $ref = <<'END';
+belvedere
+dereference
+elsewhere
+erlenmeyer
+evergreen
+everywhere
+exegete
+freewheel
+nevertheless
+persevere
+preference
+referee
+seventeen
+seventeenth
+telemeter
+tennessee
+END
+
+use Test::More;
+chomp $ref;
+is($result, $ref);
+done_testing();
+
+__END__
+
+=={{header|Perl}}==
+<lang perl></lang>
+{{out}}
+<pre></pre>
