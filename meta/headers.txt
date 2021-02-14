@@ -2947,6 +2947,12 @@ File: F/Find_words_which_contains_more_than_3_e_vowels
 #c# 2021-02-xx >RC
 #p# OK
 
+File: F/Find_words_which_first_and_last_three_letters_are_equals
+#!/usr/local/bin/perl
+#u# http://rosettacode.org/wiki/Find_words_which_first_and_last_three_letters_are_equals
+#c# 2021-02-13 <RC
+#p# OK
+
 File: F/Find_words_with_alternating_vowels_and_consonants-1
 #!/usr/local/bin/perl
 #u# http://rosettacode.org/wiki/Find_words_with_alternating_vowels_and_consonants
