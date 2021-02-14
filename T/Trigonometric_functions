@@ -3,29 +3,34 @@
 #c# 2018-08-09 <RC
 #p# OK
 
-use feature 'say';
-my $result;
+my @res;
 
-# Works with: Perl version 5.8.8
+use strict;
+use warnings;
+use feature 'say';
+
 use Math::Trig;
 
 my $angle_degrees = 45;
 my $angle_radians = pi / 4;
 
-$result .= sin($angle_radians). ' '. sin(deg2rad($angle_degrees)). "\n";
-$result .= cos($angle_radians). ' '. cos(deg2rad($angle_degrees)). "\n";
-$result .= tan($angle_radians). ' '. tan(deg2rad($angle_degrees)). "\n";
-$result .= cot($angle_radians). ' '. cot(deg2rad($angle_degrees)). "\n";
-my $asin = asin(sin($angle_radians));
-$result .= $asin. ' '. rad2deg($asin). "\n";
-my $acos = acos(cos($angle_radians));
-$result .= $acos. ' '. rad2deg($acos). "\n";
-my $atan = atan(tan($angle_radians));
-$result .= $atan. ' '. rad2deg($atan). "\n";
-my $acot = acot(cot($angle_radians));
-$result .= $acot. ' '. rad2deg($acot). "\n";
+push @res, sin($angle_radians). ' ' . sin(deg2rad($angle_degrees));
+push @res, cos($angle_radians). ' ' . cos(deg2rad($angle_degrees));
+push @res, tan($angle_radians). ' ' . tan(deg2rad($angle_degrees));
+push @res, cot($angle_radians). ' ' . cot(deg2rad($angle_degrees));
 
-say $result; 
+my $asin = asin(sin($angle_radians));
+my $acos = acos(cos($angle_radians));
+my $atan = atan(tan($angle_radians));
+my $acot = acot(cot($angle_radians));
+
+push @res, $asin . ' ' . rad2deg($asin);
+push @res, $acos . ' ' . rad2deg($acos);
+push @res, $atan . ' ' . rad2deg($atan);
+push @res, $acot . ' ' . rad2deg($acot);
+
+say my $result = join "\n", @res; 
+
 my $ref = <<'EOD';
 0.707106781186547 0.707106781186547
 0.707106781186548 0.707106781186548
@@ -38,5 +43,6 @@ my $ref = <<'EOD';
 EOD
 
 use Test::More;
+chomp $ref;
 is ($result, $ref);
 done_testing();
