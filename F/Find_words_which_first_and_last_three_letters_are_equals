@@ -1,0 +1,36 @@
+#!/usr/local/bin/perl
+#u# http://rosettacode.org/wiki/Find_words_which_first_and_last_three_letters_are_equals
+#c# 2021-02-13 <RC
+#p# OK
+
+my @res;
+
+use strict;
+use warnings;
+use feature 'say';
+
+# as one-liner 
+# perl -ne '/(?=^(.{3}).*(\1)$)^.{6,}$/&&print' unixdict.txt
+# perl -ne 's/(?=^(.{3}).*(\1)$)^.{6,}$/print/e' unixdict.txt
+
+my @words;
+@ARGV = 'ref/unixdict.txt';
+
+while( <> ) {
+  chomp;
+  length > 7 or next;
+  push @res, $_ if /(?=^(.{3}).*(\1)$)^.{6,}$/;
+}
+
+say my $result = join "\n", @res;
+
+my $ref = <<'EOD';
+antiperspirant
+calendrical
+einstein
+EOD
+
+use Test::More;
+chomp $ref;
+is ($result, $ref);
+done_testing();
