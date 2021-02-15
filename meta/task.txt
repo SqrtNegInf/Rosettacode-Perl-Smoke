@@ -1,7 +1,7 @@
 
 This is perl 5, version 32, subversion 1 (v5.32.1) built for darwin-thread-multi-2level
 updating from RC…
-+------------> Perl: Good/Bad [1374/10]
++------------> Perl: Good/Bad [1373/10]
 |+-----------> Smoke testing [1231]
 ||+----------> sKipping validation [147]
 |||+---------> Interactive [67]
@@ -778,7 +778,7 @@ G.K.T...... Lucky_and_even_lucky_numbers-2
 GS......... Ludic_numbers
 GS......... Luhn_test_of_credit_card_numbers
 GS..T...... Lychrel_numbers
-GS......... MAC_Vendor_Lookup
+!S......... MAC_Vendor_Lookup
 GS..T...... MD4
 GS......... MD5
 GS......... MD5_Implementation
