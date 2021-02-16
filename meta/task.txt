@@ -8,10 +8,10 @@ updating from RC…
 ||||+--------> Touched (modified by me) [440]
 |||||+-------> Random seed [111]
 ||||||+------> File output [75]
-|||||||+-----> Draft [234]
+|||||||+-----> Draft [235]
 ||||||||+----> Ignoring [36]
-|||||||||+---> Void (no local copy) [128]
-||||||||||+--> Un-implemented/reliable [108]
+|||||||||+---> Void (no local copy) [129]
+||||||||||+--> Un-implemented/reliable [109]
 |||||||||||
 GS......... 100_doors-1
 GS......... 100_doors-2
@@ -486,7 +486,6 @@ GS......... File_modification_time
 GS......... File_size
 GS..T...... File_size_distribution
 GS......... Filter
-.......D.VU Filter_words
 GS.....D... Find_URI_in_text
 GS..T...... Find_common_directory_path
 GS..T...... Find_duplicate_files
@@ -501,7 +500,9 @@ GS......... Find_the_intersection_of_two_lines
 GS......... Find_the_last_Sunday_of_each_month
 GS......... Find_the_missing_permutation
 GS......... Find_the_missing_permutation-2
+.......D.VU Find_words_which_contains_all_the_vowels
 GS..T..D..U Find_words_which_contains_more_than_3_e_vowels
+.......D.VU Find_words_which_contains_most_consonants
 GS.....D... Find_words_which_first_and_last_three_letters_are_equals
 .......D... Find_words_with_alternating_vowels_and_consonants
 GS......... Find_words_with_alternating_vowels_and_consonants-1
