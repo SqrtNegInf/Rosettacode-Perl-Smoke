@@ -1,17 +1,17 @@
 
 This is perl 5, version 32, subversion 1 (v5.32.1) built for darwin-thread-multi-2level
 updating from RC…
-+------------> Perl: Good/Bad [1373/10]
++------------> Perl: Good/Bad [1374/10]
 |+-----------> Smoke testing [1231]
-||+----------> sKipping validation [147]
+||+----------> sKipping validation [148]
 |||+---------> Interactive [67]
 ||||+--------> Touched (modified by me) [440]
 |||||+-------> Random seed [111]
 ||||||+------> File output [75]
 |||||||+-----> Draft [235]
 ||||||||+----> Ignoring [36]
-|||||||||+---> Void (no local copy) [129]
-||||||||||+--> Un-implemented/reliable [109]
+|||||||||+---> Void (no local copy) [128]
+||||||||||+--> Un-implemented/reliable [108]
 |||||||||||
 GS......... 100_doors-1
 GS......... 100_doors-2
@@ -321,7 +321,7 @@ G.K........ Create_a_file
 GS......... Create_a_two-dimensional_array_at_runtime
 GS...R..... Create_an_HTML_table
 GS.....D... Create_an_object_Native_demonstration
-........XVU Create_an_object_at_a_given_address
+G.K.....X.. Create_an_object_at_a_given_address
 GS......... Cuban_primes
 GS......... Cumulative_standard_deviation-1
 GS......... Cumulative_standard_deviation-2
