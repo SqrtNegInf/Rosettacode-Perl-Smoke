@@ -1789,6 +1789,13 @@ File: C/Create_an_object_Native_demonstration
 #p# OK
 #n# "Tie::Hash" not allowed while "strict subs" in use
 
+File: C/Create_an_object_at_a_given_address
+#!/usr/local/bin/perl
+#u# http://rosettacode.org/wiki/Create_an_object_at_a_given_address
+#t# skiptest
+#c# 2021-02-18 <RC
+#p# OK
+
 File: C/Cuban_primes
 #!/usr/local/bin/perl
 #u# http://rosettacode.org/wiki/Cuban_primes
