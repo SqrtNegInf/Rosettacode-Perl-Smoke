@@ -1,14 +1,16 @@
 #!/usr/local/bin/perl
+#t# skiptest
 #u# http://rosettacode.org/wiki/MAC_Vendor_Lookup
 #c# 2018-08-17 <RC
 #p# OK
+#n# 2021-02-20 stopped working a couple of days back, let it rest for a while (Raku version not having a problem?)
+
+my $result;
 
 use strict;
 use warnings;
 use feature 'say';
-my $result;
 
-#use 5.018_002;
 use LWP;
 
 our $VERSION = 1.000_000;
