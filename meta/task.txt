@@ -1,17 +1,17 @@
 
 This is perl 5, version 32, subversion 1 (v5.32.1) built for darwin-thread-multi-2level
 updating from RC…
-+------------> Perl: Good/Bad [1374/10]
-|+-----------> Smoke testing [1231]
++------------> Perl: Good/Bad [1378/10]
+|+-----------> Smoke testing [1235]
 ||+----------> sKipping validation [148]
 |||+---------> Interactive [67]
-||||+--------> Touched (modified by me) [440]
-|||||+-------> Random seed [111]
+||||+--------> Touched (modified by me) [439]
+|||||+-------> Random seed [112]
 ||||||+------> File output [75]
-|||||||+-----> Draft [235]
+|||||||+-----> Draft [234]
 ||||||||+----> Ignoring [36]
-|||||||||+---> Void (no local copy) [128]
-||||||||||+--> Un-implemented/reliable [108]
+|||||||||+---> Void (no local copy) [124]
+||||||||||+--> Un-implemented/reliable [102]
 |||||||||||
 GS......... 100_doors-1
 GS......... 100_doors-2
@@ -219,7 +219,7 @@ GS......... Catalan_numbers-3
 GS......... Catalan_numbers_Pascal%27s_triangle
 GS......... Catamorphism
 .........VU Catmull-Clark_subdivision_surface
-.......D.VU Change_e_letters_to_i_in_words
+GS.....D... Change_e_letters_to_i_in_words
 GS.....D... Changeable_words
 GS..T...... Chaocipher
 GS...RF.... Chaos_game
@@ -500,9 +500,9 @@ GS......... Find_the_intersection_of_two_lines
 GS......... Find_the_last_Sunday_of_each_month
 GS......... Find_the_missing_permutation
 GS......... Find_the_missing_permutation-2
-.......D.VU Find_words_which_contains_all_the_vowels
-GS..T..D..U Find_words_which_contains_more_than_3_e_vowels
-.......D.VU Find_words_which_contains_most_consonants
+GS.....D... Find_words_which_contains_all_the_vowels
+GS.....D... Find_words_which_contains_more_than_3_e_vowels
+.......D.V. Find_words_which_contains_most_consonants
 GS.....D... Find_words_which_first_and_last_three_letters_are_equals
 .......D... Find_words_with_alternating_vowels_and_consonants
 GS......... Find_words_with_alternating_vowels_and_consonants-1
@@ -1086,7 +1086,7 @@ GS..TR.D... Random_Latin_squares
 G.K........ Random_number_generator_device
 G.K........ Random_number_generator_included
 GS...R..... Random_numbers
-.......D.VU Random_sentence_from_book
+GS...R.D... Random_sentence_from_book
 GS..T...... Range_consolidation
 GS......... Range_expansion
 GS..T...... Range_extraction
@@ -1456,7 +1456,7 @@ GS......... Unicode_variable_names
 GS......... Universal_Turing_machine
 GS......... Unix_ls
 GS..T...... Unprimeable_numbers
-.......D.VU Untouchable_numbers
+.........VU Untouchable_numbers
 G.K....D... Untrusted_environment
 GS......... Update_a_configuration_file
 .........VU Use_another_language_to_call_a_function
@@ -1513,7 +1513,7 @@ GS...R..... Word_search
 GS......... Word_wheel
 GS......... Word_wrap
 GS.....D... Words_containing_%22the%22_substring
-.......D.VU Words_from_neighbour_ones
+GS.....D... Words_from_neighbour_ones
 GS..T...... World_Cup_group_stage
 GS....F.... Write_entire_file
 GS....F.... Write_float_arrays_to_a_text_file-1
