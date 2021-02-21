@@ -1,0 +1,67 @@
+#!/usr/local/bin/perl
+#u# http://rosettacode.org/wiki/Change_e_letters_to_i_in_words
+#c# 2021-02-20 <RC
+#p# OK
+
+my @res;
+
+use strict;
+use warnings;
+no warnings 'uninitialized';
+use feature 'say';
+
+my $file = do { local (@ARGV, $/) = 'ref/unixdict.txt'; <> };
+my %i = map { tr/i/e/r => sprintf "%30s  %s\n", tr/i/e/r, $_ }
+  grep !/e/, grep 5 <= length, $file =~ /^.*i.*$/gm;
+say my $result = join "", @i{ split ' ', $file };
+
+my $ref = <<'EOD';
+                      analyses  analysis
+                      atlantes  atlantis
+                         basel  basil
+                        bellow  billow
+                         belly  billy
+                         berth  birth
+                         blend  blind
+                         bless  bliss
+                        breton  briton
+                         check  chick
+                        clench  clinch
+                       convect  convict
+                         cress  criss
+                        enfant  infant
+                         faery  fairy
+                         fetch  fitch
+                         fleck  flick
+                       frances  francis
+                       galatea  galatia
+                        harden  hardin
+                       heckman  hickman
+                      jacobean  jacobian
+                        marten  martin
+                         messy  missy
+                        module  moduli
+                         oases  oasis
+                         peggy  piggy
+                     psychoses  psychosis
+                         quell  quill
+                        rabbet  rabbit
+                         ruben  rubin
+                         share  shari
+                         shell  shill
+                         spell  spill
+                         style  styli
+                      synopses  synopsis
+                         taper  tapir
+                         tread  triad
+                        vector  victor
+                         vella  villa
+                        welles  willis
+                         wells  wills
+                         wendy  windy
+                         wrest  wrist
+EOD
+
+use Test::More;
+is ($result, $ref);
+done_testing();
