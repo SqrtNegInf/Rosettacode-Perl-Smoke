@@ -1,0 +1,74 @@
+#!/usr/local/bin/perl
+#u# http://rosettacode.org/wiki/Random_sentence_from_book
+#c# 2021-02-20 <RC
+#p# OK
+
+srand 12456;
+
+my @res;
+
+use strict;
+use warnings;
+use feature 'say';
+
+my $book = do { local (@ARGV, $/) = 'ref/waroftheworlds.txt'; <> };
+my (%one, %two);
+
+s/^.*?START OF THIS\N*\n//s, s/END OF THIS.*//s,
+  tr/a-zA-Z.!?/ /c, tr/ / /s for $book;
+
+my $qr = qr/(\b\w+\b|[.!?])/;
+$one{$1}{$2}++, $two{$1}{$2}{$3}++ while $book =~ /$qr(?= *$qr *$qr)/g;
+
+sub weightedpick {
+  my $href = shift;
+  my @weightedpick = map { ($_) x $href->{$_} } sort keys %$href; # sort needed for stable output / testing
+  $weightedpick[rand @weightedpick];
+}
+
+sub sentence {
+  my @sentence = qw( . ! ? )[rand 3];
+  push @sentence, weightedpick( $one{ $sentence[0] } );
+  push @sentence, weightedpick( $two{ $sentence[-2] }{ $sentence[-1] } )
+    while $sentence[-1] =~ /\w/;
+  shift @sentence;
+  "@sentence\n\n" =~ s/\w\K (?=[st]\b)/'/gr =~ s/ (?=[.!?]\n)//r
+    =~ s/.{60,}?\K /\n/gr;
+}
+
+push @res, sentence() for 1 .. 10;
+
+say my $result = join "", @res;
+
+my $ref = <<'EOD';
+Has the earth from their planet from which I and the night about
+the shipping in the sand pits.
+
+Fancy having one of those vigilant minds even as I passed on
+my temple asserted itself.
+
+We won't keep on doing nothing precipitately.
+
+I said in a tangle of this serenity and the night.
+
+said I the creatures who inhabit this earth.
+
+I looked down upon us!
+
+said the first time I saw that he realised how urgent and unavoidable
+it was as if a hundred too drunk or frightened to drop the portmanteau
+he carried on his utter carelessness of any place along the western
+afterglow.
+
+What would it matter if you would have broken every bone in their
+haste and encumbered with the terminus seemed ill tempered.
+
+It was no longer a master but an animal.
+
+What d ye mean a gun.
+
+EOD
+
+use Test::More;
+is ($result, $ref);
+done_testing();
