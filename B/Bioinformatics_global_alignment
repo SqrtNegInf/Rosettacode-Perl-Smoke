@@ -1,0 +1,112 @@
+#!/usr/local/bin/perl
+#u# http://rosettacode.org/wiki/Bioinformatics/global_alignment
+#t# inprogress
+#c# 2021-02-xx >RC
+#p# OK
+
+use Data::Printer;          # debug only
+use Time::HiRes qw(sleep);  # debug only
+
+my @res;
+
+use strict;
+use warnings;
+use feature 'say';
+
+sub printCounts {
+    my($str) = @_;
+    say $str;
+}
+
+sub shortestCommonSuperstring {
+   my $beta = join '', my @ss = deduplicate(@_);
+   for my $p (permutations @ss) {
+      my @perm = @$p;
+      my $sup = $perm[0];
+      #for @perm.rotor(2 => -1) { sup ~= @_[1].substr: stringCentipede |@_ }
+      $beta = $sup if length($sup) < length $beta;
+   }
+   $beta
+}
+
+printCounts shortestCommonSuperstring $_
+for ( 
+   'TA AAG TA GAA TA',
+   'CATTAGGG ATTAG GGG TA',
+   'AAGAUGGA GGAGCGCAUC AUCGCAAUAAGGA',
+);
+
+
+exit;
+say my $result = join "\n", @res;
+
+my $ref = <<'END';
+Nucleotide counts for 
+TAAGAA
+A: 4 G: 1 T: 1 and total length = 6
+
+Nucleotide counts for 
+CATTAGGG
+A: 2 C: 1 G: 3 T: 2 and total length = 8
+
+Nucleotide counts for 
+AAGAUGGAGCGCAUCGCAAUAAGGA
+A: 10 C: 4 G: 8 U: 3 and total length = 25
+
+Nucleotide counts for 
+CGTAAAAAATTACAACGTCCTTTGGCTATCTCTTAAACTCCTGCTAAATGCTCGTGCTTTCCAATTATGTAAGCGTTCCGAGACGGGGTGGTCGATTCTGAGGACAAAGGTCAAGATGGAGCGCATCGAACGCAATAAGGATCATTTGATGGGACGTTTCGTCGACAAAGTCTTGTTTCGAGAGTAACGGCTACCGTCTTCGATTCTGCTTATAACACTATGTTCTTATGAAATGGATGTTCTGAGTTGGTCAGTCCCAATGTGCGGGGTTTCTTTTAGTACGTCGGGAGTGGTATTATA
+A: 74 C: 57 G: 75 T: 94 and total length = 300
+END
+
+use Test::More;
+chomp $ref;
+is($result, $ref);
+done_testing();
+
+__END__
+
+=={{header|Perl}}==
+{{trans|Raku}}
+{{libheader|ntheory}}
+<lang perl></lang>
+{{out}}
+<pre style="height:20ex"></pre>
+[https://github.com/SqrtNegInf/Rosettacode-Perl5-Smoke/blob/master/ref/XXX XXX]
+
+sub printCounts(\seq) {
+   my %bases = seq.comb.Bag ;
+   @res.push: "\nNucleotide counts for \n" ~ seq; # ~ " :";
+   # say %bases.kv, " and total length = ", %bases.values.sum
+   @res.push: (%bases.keys.sort.map:{"$_: " ~ %bases{$_}}).join(' ') ~ " and total length = " ~ %bases.values.sum;
+}
+
+sub stringCentipede(\s1, \s2) {
+   loop ( my $offset = 0, my \S1 = $ = '' ; ; $offset++ ) {
+      S1 = s1.substr: $offset ;
+      with S1.index(s2.substr(0,1)) -> $p { $offset += $p } else { return False }
+      return s1.chars - $offset if s2.starts-with: s1.substr: $offset
+   }
+}
+
+sub deduplicate {
+   my @sorted = @_.unique.sort: *.chars; # by length   
+   gather while ( my $target = shift @sorted ) {
+      take $target unless @sorted.grep: { .contains: $target }  
+   }
+}
+
+   <ATGAAATGGATGTTCTGAGTTGGTCAGTCCCAATGTGCGGGGTTTCTTTTAGTACGTCGGGAGTGGTATTAT 
+    GGTCGATTCTGAGGACAAAGGTCAAGATGGAGCGCATCGAACGCAATAAGGATCATTTGATGGGACGTTTCGTCGACAAAGT
+    CTATGTTCTTATGAAATGGATGTTCTGAGTTGGTCAGTCCCAATGTGCGGGGTTTCTTTTAGTACGTCGGGAGTGGTATTATA
+    TGCTTTCCAATTATGTAAGCGTTCCGAGACGGGGTGGTCGATTCTGAGGACAAAGGTCAAGATGGAGCGCATC
+    AACGCAATAAGGATCATTTGATGGGACGTTTCGTCGACAAAGTCTTGTTTCGAGAGTAACGGCTACCGTCTT
+    GCGCATCGAACGCAATAAGGATCATTTGATGGGACGTTTCGTCGACAAAGTCTTGTTTCGAGAGTAACGGCTACCGTC
+    CGTTTCGTCGACAAAGTCTTGTTTCGAGAGTAACGGCTACCGTCTTCGATTCTGCTTATAACACTATGTTCT
+    TGCTTTCCAATTATGTAAGCGTTCCGAGACGGGGTGGTCGATTCTGAGGACAAAGGTCAAGATGGAGCGCATC
+    CGTAAAAAATTACAACGTCCTTTGGCTATCTCTTAAACTCCTGCTAAATGCTCGTGC
+    GATGGAGCGCATCGAACGCAATAAGGATCATTTGATGGGACGTTTCGTCGACAAAGTCTTGTTTCGAGAGTAACGGCTACCGTCTTCGATT
+    TTTCCAATTATGTAAGCGTTCCGAGACGGGGTGGTCGATTCTGAGGACAAAGGTCAAGATGGAGCGCATC
+    CTATGTTCTTATGAAATGGATGTTCTGAGTTGGTCAGTCCCAATGTGCGGGGTTTCTTTTAGTACGTCGGGAGTGGTATTATA
+    TCTCTTAAACTCCTGCTAAATGCTCGTGCTTTCCAATTATGTAAGCGTTCCGAGACGGGGTGGTCGATTCTGAGGACAAAGGTCAAGA
+   >,
+);
