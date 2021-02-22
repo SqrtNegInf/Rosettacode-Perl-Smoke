@@ -3,23 +3,23 @@
 #c# 2018-08-20 <RC
 #p# OK
 
+my $result;
+
 use strict;
 use warnings;
 use feature 'say';
-my $result;
 
-# Using a module for divisors[edit]
-# Library: ntheory
+# Using a module for divisors.  Like Pari/GP, divisors(0) = (0,1) and divisors(1) = ()
 use ntheory qw/divisors/;
 sub proper_divisors {
   my $n = shift;
-  # Like Pari/GP, divisors(0) = (0,1) and divisors(1) = ()
   return 1 if $n == 0;
   my @d = divisors($n);
   pop @d;  # divisors are in sorted order, so last entry is the input
   @d;
 }
 $result .= "$_: ". join(" ", proper_divisors($_)) . "\n" for 1..10;
+
 # 1. For the max, we can do a traditional loop.
 my($max,$ind) = (0,0);
 for (1..20000) {
@@ -27,14 +27,16 @@ for (1..20000) {
  ($max,$ind) = ($nd,$_) if $nd > $max;
 }
 $result .=  "$max $ind\n";
+
 # 2. Or we can use List::Util's max with decoration (this exploits its implementation)
 {
-  use List::Util qw/max/;
+  use List::Util 'max';
   no warnings 'numeric';
   $result .= max(map { scalar(proper_divisors($_)) . " $_" } 1..20000) . "\n";
 }
 
 say $result;
+
 my $ref = <<'EOD';
 1: 
 2: 1
@@ -49,7 +51,6 @@ my $ref = <<'EOD';
 79 15120
 79 18480
 EOD
-# Note that the first code will choose the first max, while the second chooses the last.
 
 use Test::More;
 is ($result, $ref);
