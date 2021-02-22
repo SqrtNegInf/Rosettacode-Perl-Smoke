@@ -817,6 +817,13 @@ File: B/Bioinformatics_base_count
 #c# 2019-12-04 >RC
 #p# OK
 
+File: B/Bioinformatics_global_alignment
+#!/usr/local/bin/perl
+#u# http://rosettacode.org/wiki/Bioinformatics/global_alignment
+#t# inprogress
+#c# 2021-02-xx >RC
+#p# OK
+
 File: B/Biorhythms
 #!/usr/local/bin/perl
 #u# http://rosettacode.org/wiki/Biorhythms
@@ -4748,9 +4755,11 @@ File: L/Lychrel_numbers
 
 File: M/MAC_Vendor_Lookup
 #!/usr/local/bin/perl
+#t# skiptest
 #u# http://rosettacode.org/wiki/MAC_Vendor_Lookup
 #c# 2018-08-17 <RC
 #p# OK
+#n# 2021-02-20 stopped working a couple of days back, let it rest for a while (Raku version not having a problem?)
 
 File: M/MD4
 #!/usr/local/bin/perl
@@ -8937,6 +8946,12 @@ File: U/Unprimeable_numbers
 #!/usr/local/bin/perl
 #u# http://rosettacode.org/wiki/Unprimeable_numbers
 #c# 2019-12-06 >RC
+#p# OK
+
+File: U/Untouchable_numbers
+#!/usr/local/bin/perl
+#u# http://rosettacode.org/wiki/Untouchable_numbers
+#c# 2021-02-21 >RC
 #p# OK
 
 File: U/Untrusted_environment
