@@ -601,6 +601,9 @@ U/Unicode_strings
 U/Unicode_variable_names
 Δ:    11 GREEK CAPITAL LETTER DELTA
 
+U/Untouchable_numbers
+≤:     8 LESS-THAN OR EQUAL TO
+
 V/Vibrating_rectangles
 ─:     1 BOX DRAWINGS LIGHT HORIZONTAL
 │:     1 BOX DRAWINGS LIGHT VERTICAL
