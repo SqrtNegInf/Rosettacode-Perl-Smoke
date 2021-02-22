@@ -1,17 +1,17 @@
 
 This is perl 5, version 32, subversion 1 (v5.32.1) built for darwin-thread-multi-2level
 updating from RC…
-+------------> Perl: Good/Bad [1378/10]
++------------> Perl: Good/Bad [1381/10]
 |+-----------> Smoke testing [1235]
-||+----------> sKipping validation [148]
+||+----------> sKipping validation [150]
 |||+---------> Interactive [67]
-||||+--------> Touched (modified by me) [439]
+||||+--------> Touched (modified by me) [441]
 |||||+-------> Random seed [112]
 ||||||+------> File output [75]
 |||||||+-----> Draft [234]
 ||||||||+----> Ignoring [36]
-|||||||||+---> Void (no local copy) [124]
-||||||||||+--> Un-implemented/reliable [102]
+|||||||||+---> Void (no local copy) [122]
+||||||||||+--> Un-implemented/reliable [101]
 |||||||||||
 GS......... 100_doors-1
 GS......... 100_doors-2
@@ -152,7 +152,7 @@ GS......... Binary_search-2
 GS..T...... Binary_strings
 GS..TR..... Bioinformatics_Sequence_mutation
 GS..T...... Bioinformatics_base_count
-.......D.VU Bioinformatics_global_alignment
+G.K.T..D..U Bioinformatics_global_alignment
 GS..T...... Biorhythms
 GS..TR.D... Birthday_problem
 GS......... Bitcoin_address_validation
@@ -779,7 +779,7 @@ G.K.T...... Lucky_and_even_lucky_numbers-2
 GS......... Ludic_numbers
 GS......... Luhn_test_of_credit_card_numbers
 GS..T...... Lychrel_numbers
-!S......... MAC_Vendor_Lookup
+G.K........ MAC_Vendor_Lookup
 GS..T...... MD4
 GS......... MD5
 GS......... MD5_Implementation
@@ -1456,7 +1456,7 @@ GS......... Unicode_variable_names
 GS......... Universal_Turing_machine
 GS......... Unix_ls
 GS..T...... Unprimeable_numbers
-.........VU Untouchable_numbers
+GS..T...... Untouchable_numbers
 G.K....D... Untrusted_environment
 GS......... Update_a_configuration_file
 .........VU Use_another_language_to_call_a_function
