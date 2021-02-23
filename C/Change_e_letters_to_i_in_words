@@ -13,7 +13,7 @@ use feature 'say';
 my $file = do { local (@ARGV, $/) = 'ref/unixdict.txt'; <> };
 my %i = map { tr/i/e/r => sprintf "%30s  %s\n", tr/i/e/r, $_ }
   grep !/e/, grep 5 <= length, $file =~ /^.*i.*$/gm;
-say my $result = join "", @i{ split ' ', $file };
+say my $result = join '', @i{ split ' ', $file };
 
 my $ref = <<'EOD';
                       analyses  analysis
