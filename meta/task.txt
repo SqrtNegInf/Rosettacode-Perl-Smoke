@@ -1,14 +1,14 @@
 
 This is perl 5, version 32, subversion 1 (v5.32.1) built for darwin-thread-multi-2level
 updating from RC…
-+------------> Perl: Good/Bad [1381/10]
-|+-----------> Smoke testing [1235]
++------------> Perl: Good/Bad [1382/10]
+|+-----------> Smoke testing [1236]
 ||+----------> sKipping validation [150]
 |||+---------> Interactive [67]
 ||||+--------> Touched (modified by me) [441]
 |||||+-------> Random seed [112]
 ||||||+------> File output [75]
-|||||||+-----> Draft [234]
+|||||||+-----> Draft [235]
 ||||||||+----> Ignoring [36]
 |||||||||+---> Void (no local copy) [122]
 ||||||||||+--> Un-implemented/reliable [101]
@@ -1161,7 +1161,7 @@ GS......... S-expressions
 GS......... SEDOLs
 GS......... SHA-1
 GS......... SHA-256
-.........VU SHA-256_Merkle_tree
+GS......... SHA-256_Merkle_tree
 ........XV. SOAP
 ........XV. SQL-based_authentication
 GS..T...... Safe_addition
@@ -1313,6 +1313,7 @@ GS......... Stern-Brocot_sequence-3
 GS..T...... Stirling_numbers_of_the_first_kind
 GS..T...... Stirling_numbers_of_the_second_kind
 GS..T...... Straddling_checkerboard
+.......D.VU Strange_numbers
 .......D.VU Strassen%27s_algorithm
 GS..T...... Stream_merge
 GS......... String_append
