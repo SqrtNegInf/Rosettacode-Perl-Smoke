@@ -15,12 +15,12 @@ use enum qw(False True);
 
 sub sieve {
     my($n) = @_;
-    my %s;
-#   ($sum = divisor_sum($_) - $_) <= $n+1 and $s{$sum} = True for 0 .. $n+1;
-    for my $k (0 .. $n+1) {
-        my $sum = divisor_sum($k) - $k;
-        $s{$sum} = True if $sum <= $n+1;
-    }
+    my(%s,$sum);
+    ($sum = divisor_sum($_) - $_) <= $n+1 and $s{$sum} = True for 0 .. $n+1;
+#   for my $k (0 .. $n+1) {
+#       my $sum = divisor_sum($k) - $k;
+#       $s{$sum} = True if $sum <= $n+1;
+#   }
     %s
 }
 
@@ -41,7 +41,6 @@ push @res, "Number of untouchable numbers ≤ $max : $cnt \n\n" .
 
 my($p, $count) = (10, 0);
 my $fmt = "%6d untouchable numbers were found  ≤ %7d\n";
-
 for my $n (@untouchable) {
    $count++;
    if ($n > $p) {
