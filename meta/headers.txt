@@ -104,6 +104,7 @@ File: 0/99_Bottles_of_Beer
 #u# http://rosettacode.org/wiki/99_Bottles_of_Beer
 #c# 2018-07-01 <RC
 #p# OK
+#n# remove cluttery parens, etc
 
 File: 0/9_billion_names_of_God_the_integer
 #!/usr/local/bin/perl
@@ -7103,6 +7104,12 @@ File: S/SHA-256
 #!/usr/local/bin/perl
 #u# http://rosettacode.org/wiki/SHA-256
 #c# 2018-08-18 <RC
+#p# OK
+
+File: S/SHA-256_Merkle_tree
+#!/usr/local/bin/perl
+#u# http://rosettacode.org/wiki/SHA-256_Merkle_tree
+#c# 2021-02-22 <RC
 #p# OK
 
 File: S/Safe_addition
