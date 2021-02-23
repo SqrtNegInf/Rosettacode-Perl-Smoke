@@ -13,11 +13,6 @@ use strict;
 use warnings;
 use feature 'say';
 
-sub printCounts {
-    my($str) = @_;
-    say $str;
-}
-
 sub shortestCommonSuperstring {
    my $beta = join '', my @ss = deduplicate(@_);
    for my $p (permutations @ss) {
