@@ -21,26 +21,26 @@ sub expr
   {
   my $level = shift;
   /\G\h+/gc;
-  /\G\(/gc && want ')', "expected a closing paren", expr(0) or
+  /\G\(/gc && want ')', 'expected a closing paren', expr(0) or
     $level <= 4 && /\Gnot\b/gc && expr(5) or
     /\G (?!(?:and|or|not)\b) (?:\d+|[a-zA-Z]\w*)/gcx or
-    error "expected a primary";
+    error 'expected a primary';
   /\G\h+/gc ? 1 :
     $level <= 2   && /\Gor\b/gc     ? expr(3) :
     $level <= 3   && /\Gand\b/gc    ? expr(4) :
     $level <= 4   && /\G[=<]/gc     ? expr(4.5) :
-    $level == 4.5 && /\G(?=[=<])/gc ? error "non-associative operator" :
+    $level == 4.5 && /\G(?=[=<])/gc ? error 'non-associative operator' :
     $level <= 5   && /\G[+-]/gc     ? expr(6) :
     $level <= 6   && /\G[*\/]/gc    ? expr(7) :
     return 1 while 1;
   }
 
 while( <DATA> ) {
-  push @res, eval { want "\n", "expected end of input", expr(0) } ?
+  push @res, eval { want "\n", 'expected end of input', expr(0) } ?
     " true  $_" : "false  $@";
 }
 
-say my $result = join "", @res;
+say my $result = join '', @res;
 
 my $ref = <<'EOD';
 false  3 + not 5
