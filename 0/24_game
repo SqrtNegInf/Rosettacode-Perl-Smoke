@@ -35,8 +35,8 @@ while (1) {
   $entry =~ s/\s+//g;  # remove all white space
   next if $entry eq '';
  
-  my $given_digits = join "", sort @digits;
-  my $entry_digits = join "", sort grep { /\d/ } split(//, $entry);
+  my $given_digits = join '', sort @digits;
+  my $entry_digits = join '', sort grep { /\d/ } split(//, $entry);
   if ($given_digits ne $entry_digits ||  # not correct digits
       $entry =~ /\d\d/ ||                # combined digits
       $entry =~ m|[-+*/]{2}| ||          # combined operators
