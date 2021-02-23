@@ -2,10 +2,11 @@
 #u# http://rosettacode.org/wiki/99_Bottles_of_Beer
 #c# 2018-07-01 <RC
 #p# OK
+#n# remove cluttery parens, etc
 
 use feature 'say';
  
-my $verse = <<"VERSE";
+my $verse = <<'VERSE';
 100 bottles of beer on the wall
 100 bottles of beer
 Take one down, pass it around
@@ -27,26 +28,22 @@ my $result1;
 
 # Alternatively:
 my $result2;
-for my $n (reverse(0..99))
-{
-    my $bottles = sprintf("%s bottle%s of beer on the wall\n",(($n==0)?"No":$n), (($n==1)?"":"s"));
-    $result2 .= ( (($n==99)?"":"$bottles\n") . 
-	   (($n==0)?"":(substr(${bottles}x2,0,-13) . "\nTake one down, pass it around\n")) );
+for my $n (reverse 0..99) {
+    my $bottles = sprintf "%s bottle%s of beer on the wall\n", ($n==0 ? 'No' : $n), ($n==1 ? '' :'s');
+    $result2 .= ($n==99 ? '' : "$bottles\n") . 
+	   ( $n==0 ? '' : substr($bottles x 2, 0, -13) . "\nTake one down, pass it around\n" );
 }
 
 # Correct grammar and nice spacing in modern perl:
 
-# use 5.10.0;                                                                        
-no warnings;
- 
 my $result3;
 my $num = 99;
 while ($num > 0) {
-    my $s = "s" unless ($num == 1);
+    my $s = 's' unless $num == 1;
     $result3 .= "$num bottle$s of beer on the wall\n$num bottle$s of beer\n";
     $num--;
-    $s = "s" unless ($num == 1); 
-    $num = "No more" if ($num == 0);
+    $s = 's' unless $num == 1; 
+    $num = 'No more' if $num == 0;
     $result3 .= "Take one down, pass it around\n$num bottle$s of beer on the wall\n\n"
 }
  
@@ -69,7 +66,7 @@ do { $result4 .= bottles . wall
          . bottles . qq{\n\n}
    } for reverse 0..99;
 
-#say $result4; exit;
+#say $result4;
 
 my $ref1 = <<EOD;
 99 bottles of beer on the wall
