@@ -10,7 +10,7 @@ use feature 'say';
 my @res;
 
 use utf8;
-binmode STDOUT, ":utf8";
+binmode STDOUT, ':utf8';
 
 sub auto_abbreviate {
     my($string) = @_;
@@ -30,7 +30,7 @@ while ($_ = <$fh>) {
     push @res, auto_abbreviate($_) . '  ' . $_;
 }
 
-say my $result = join "", @res;
+say my $result = join '', @res;
 
 my $ref = <<'END';
 2  Sunday Monday Tuesday Wednesday Thursday Friday Saturday
