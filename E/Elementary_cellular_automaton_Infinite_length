@@ -3,10 +3,11 @@
 #c# 2018-07-31 <>RC
 #p# OK
 
+my $result;
+
 use strict;
 use warnings;
 use feature 'say';
-my $result;
 
 # The edges of a pattern is implicitly repeating. The code will try to lineup output by padding up to 40 spaces to the left, but since the cells keep expanding, that has to end somewhere.
 
@@ -33,7 +34,7 @@ sub evolve {
 	}
 }
  
-evolve(90, "010");
+evolve(90, '010');
 
 say $result; 
 
