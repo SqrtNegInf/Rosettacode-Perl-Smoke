@@ -20,7 +20,7 @@ sub findinterval {
     : "$want is not possible\n";
 }
 
-say my $result = join "", @res;
+say my $result = join '', @res;
 
 my $ref = <<'EOD';
 To get 1 minute, Start at time 7 and End at time 8
