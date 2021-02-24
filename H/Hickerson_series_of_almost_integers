@@ -24,7 +24,7 @@ for my $n ( 1 .. 17 ) {
 	$h *= $n;
 	my $s = $h->copy->bfround(-3)->bstr;
 	$result .= sprintf "h(%2d) = %22s is%s almost an integer.\n",
-		$n, $s, ($s =~ /\.[09]/ ? "" : " NOT");
+		$n, $s, ($s =~ /\.[09]/ ? '' : ' NOT');
 }
 
 say $result; 
