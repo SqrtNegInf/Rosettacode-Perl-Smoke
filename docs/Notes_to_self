@@ -1,3 +1,6 @@
+2021-02-23
+Are there cases where double-quotes cannot be replaced by single? (aside from obvious uses in interpolation, etc)
+
 2021-02-21
 To find the one-liner for table formatting: grep-raku 'print.*n/gr'
 
