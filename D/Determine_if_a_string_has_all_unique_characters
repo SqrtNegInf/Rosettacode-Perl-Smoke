@@ -33,7 +33,7 @@ for my $str (
     push @res, sprintf qq{\n"$str" (length: %d) has }, scalar @S;
 
     if (@S != uniq @S) {
-        $res[-1] .= "duplicated characters:";
+        $res[-1] .= 'duplicated characters:';
         my %P;
         push @{ $P{$S[$_]} }, 1+$_ for 0..$#S;
         for my $k (sort keys %P) {
@@ -43,7 +43,7 @@ for my $str (
         }
 
     } else {
-        $res[-1] .= "no duplicated characters."
+        $res[-1] .= 'no duplicated characters.'
     }
 }
 
