@@ -3,26 +3,26 @@
 #c# 2018-08-12 <RC
 #p# OK
 
+my $result;
+
 use strict;
 use warnings;
 use feature 'say';
-my $result;
 
-# This uses a naive method of just concatenating the new permutation to the end (or prepending to the front) if it is not already in the string. Adding to the end is similar to Python's s_perm1() function.
-
-#Library: ntheory
 use ntheory qw/forperm/;
+
 for my $len (1..8) {
-  my($pre, $post, $t) = ("","");
-  forperm {
-    $t = join "",@_;
-    $post .= $t      unless index($post ,$t) >= 0;
-    $pre = $t . $pre unless index($pre, $t) >= 0;
-  } $len;
-  $result .= sprintf "%2d: %8d %8d\n", $len, length($pre), length($post);
+    my($pre, $post, $t) = ('') x 3;
+    forperm {
+        $t = join '',@_;
+        $post .= $t      unless index($post ,$t) >= 0;
+        $pre = $t . $pre unless index($pre, $t) >= 0;
+    } $len;
+    $result .= sprintf "%2d: %8d %8d\n", $len, length($pre), length($post);
 }
 
 say $result; 
+
 my $ref = <<'EOD';
  1:        1        1
  2:        4        4
@@ -33,6 +33,7 @@ my $ref = <<'EOD';
  7:    10080    13699
  8:    80640   109600
 EOD
+
 # The permutations are generated in lexicographic order, and it seems prepending them leads to smaller strings than adding to the end. These are still quite a bit larger than the heuristic methods.
 
 use Test::More;
