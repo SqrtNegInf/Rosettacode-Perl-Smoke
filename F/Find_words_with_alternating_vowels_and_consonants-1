@@ -33,7 +33,7 @@ while (<F>) {
 
 push @res, sprintf "\n%d words with alternating vowels and consonants found\n", $alternatingCount;
 
-say my $result = join "", @res;
+say my $result = join '', @res;
 
 my $ref = <<'EOD';
        aboriginal       apologetic      bimolecular     borosilicate      calorimeter       capacitate
