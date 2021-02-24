@@ -75,7 +75,7 @@ $best[tr/ //] .= "\t$_\n" for sort values %{ $dist{$startpos} };
 push @res, "\nlongest reinforcement from HQ is $#best for:\n".
   $best[-1] =~ s/\d+/ to_xy $& /ger;
 
-my $result = join "", @res;
+my $result = join '', @res;
 
 my $ref = <<'EOD';
 shortest escape routes (40) of length 4:
