@@ -38,7 +38,7 @@ sub is_prime {
 }
 
 sub mtest {
-	my @bits = split "", sprintf("%b", shift);
+	my @bits = split '', sprintf('%b', shift);
 	my $p = shift;
 	my $sq = 1;
 	while (@bits) {
