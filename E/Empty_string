@@ -10,29 +10,29 @@ my($result,$s);
 
 {
 no warnings  qw(uninitialized);
-if ($s eq "") {    # Test for empty string
+if ($s eq '') {    # Test for empty string
   $result .= "The string is empty\n";
 }
-if ($s ne "") {    # Test for non empty string
+if ($s ne '') {    # Test for non empty string
   $result .= "The string is not empty\n";
 }
 }
 
 #In Perl, an empty string is often used to represent a false value.
 
-$s = "";
+$s = '';
 if ($s) { $result .= "true1\n" }  # false
  
 # to tell if a string is false because it's empty, or it's plain not there (undefined)
 $s = undef;
-if (defined $s) { $result .= "true2\n"} # false; would be true on ""
+if (defined $s) { $result .= "true2\n"} # false; would be true on ''
  
 # though, perl implicitly converts between strings and numbers, so this is also false
-$s = "0";
+$s = '0';
 if ($s) { $result .= "true3\n" } # false; also false on "000", "0.0", "\x0", "0 with text", etc
  
 # but a string that converts to number 0 is not always false, though:
-$s = "0 but true";
+$s = '0 but true';
 if ($s) { $result .= "true4\n" }  # it's true! black magic!
 
 say $result; 
