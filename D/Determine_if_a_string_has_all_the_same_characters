@@ -33,13 +33,13 @@ for my $str (
     push @res, sprintf qq{\n"$str" (length: %d) has }, scalar @S;
     my @U = uniq @S;
     if (1 != @U and @U > 0) {
-        $res[-1] .= "different characters:";
+        $res[-1] .= 'different characters:';
         for my $l (@U) {
             push @res, sprintf "'%s' %s (0x%x) in positions: %s", 
                 $l, charinfo(ord $l)->{'name'}, ord($l), join ', ', map { 1+$_ } grep { $l eq $S[$_] } 0..$#S;
         }
     } else {
-        $res[-1] .= "the same character in all positions."
+        $res[-1] .= 'the same character in all positions.'
     }
 }
 
