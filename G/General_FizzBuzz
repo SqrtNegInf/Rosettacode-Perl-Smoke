@@ -48,7 +48,7 @@ for(my $i = 1; $i <= $max; $i++)
             no warnings 'uninitialized';
             $oBuffer = $oBuffer . substr($element, @+ + 1, length($element));
             #This is essentially setting a flag saying that at least one element is a factor
-            $buffer = "";
+            $buffer = '';
         }
     }
     #If there are any factors for that number, print their words. If not, print the number.
