@@ -3,46 +3,49 @@
 #c# 2018-07-31 <RC
 #p# OK
 
-use feature 'say';
 my $result;
 
-# Translation of: Perl 6
 use strict;
 use warnings;
+use feature 'say';
  
 package Automaton {
+
     sub new {
-	my $class = shift;
-	my $rule = [ reverse split //, sprintf "%08b", shift ];
-	return bless { rule => $rule, cells => [ @_ ] }, $class;
+        my $class = shift;
+        my $rule = [ reverse split //, sprintf "%08b", shift ];
+        return bless { rule => $rule, cells => [ @_ ] }, $class;
     }
+
     sub next {
-	my $this = shift;
-	my @previous = @{$this->{cells}};
-	$this->{cells} = [
-	    @{$this->{rule}}[
-	    map {
-	      4*$previous[($_ - 1) % @previous]
-	    + 2*$previous[$_]
-	    +   $previous[($_ + 1) % @previous]
-	    } 0 .. @previous - 1
-	    ]
-	];
-	return $this;
+        my $this = shift;
+        my @previous = $this->{cells}->@*;
+        #my @previous = @{$this->{cells}};
+        $this->{cells} = [
+            @{$this->{rule}}[
+                map {
+                      4 * $previous[($_ - 1) % @previous]
+                    + 2 * $previous[ $_ ]
+                    +     $previous[($_ + 1) % @previous]
+                } 0 .. @previous - 1
+            ]
+        ];
+        return $this;
     }
+
     use overload
     q{""} => sub {
-	my $this = shift;
-	join '', map { $_ ? '#' : ' ' } @{$this->{cells}}
-    };
+        my $this = shift;
+        join '', map { $_ ? '#' : ' ' } @{$this->{cells}}
+    }
+
 }
  
 my @a = map 0, 1 .. 91; $a[45] = 1;
 my $a = Automaton->new(90, @a);
  
-for (1..40) {
-    $result .= "|$a|\n"; $a->next;
-}
+$result .= "|$a|\n" and $a->next for 1..40;
+
 say $result; 
 
 my $ref = <<'EOD';
