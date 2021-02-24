@@ -26,7 +26,7 @@ while( $state ne 'exit' )
     ($action) = grep $_ eq 'IMPLICIT', my @actions = sort keys %{$fsm{$state}};
     if( not $action )
       {
-      push @res, "Enter " . join(' or ', @actions) . " : ";
+      push @res, 'Enter ' . join(' or ', @actions) . ' : ';
       chomp($action = uc <>);
       }
     }
@@ -35,7 +35,7 @@ while( $state ne 'exit' )
   $state = $fsm{$state}{$action}{next};
   }
 
-say my $result = join "", @res;
+say my $result = join '', @res;
 
 my $ref = <<'EOD';
 in state ready
