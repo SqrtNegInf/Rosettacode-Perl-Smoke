@@ -30,7 +30,7 @@ sub count {
   }
 }
 
-say my $result = join "", @res;
+say my $result = join '', @res;
 
 my $ref = <<'EOD';
 
