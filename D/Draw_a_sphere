@@ -13,7 +13,7 @@ srand 123456;
 use strict;
 use warnings;
 
-open F, ">run/draw_a_sphere.pgm";
+open F, '>run/draw_a_sphere.pgm';
  
 my $x = my $y = 255;
 $x |= 1; # must be odd
@@ -38,7 +38,7 @@ my ($r2) = $r ** 2;
 		$pixel = int($I * $depth);
 	    }
 	    print F $pixel;
-	    print F $y == $r ? "\n" : " ";
+	    print F $y == $r ? "\n" : ' ';
 	}
     }
 }
@@ -61,5 +61,5 @@ package Vector {
 	}
 	return $sum;
     },
-    q{""} => sub { sprintf "Vector:[%s]", join ' ', @{shift()} };
+    q{""} => sub { sprintf 'Vector:[%s]', join ' ', @{shift()} };  # these double-quotes cannot be changes to single-quotes
 }
