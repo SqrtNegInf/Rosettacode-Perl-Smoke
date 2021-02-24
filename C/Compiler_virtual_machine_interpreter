@@ -14,7 +14,7 @@ my @res;
  
 my ($binary, $pc, @stack, @data) = ('', 0);
  
-<DATA> =~ /Strings: (\d+)/ or die "bad header";
+<DATA> =~ /Strings: (\d+)/ or die 'bad header';
 my @strings = map <DATA> =~ tr/\n""//dr =~ s/\\(.)/$1 eq 'n' ? "\n" : $1/ger, 1..$1;
  
 sub value { unpack 'l', substr $binary, ($pc += 4) - 4, 4 }
