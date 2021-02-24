@@ -12,7 +12,7 @@ use feature 'say';
 @ARGV = 'ref/unixdict.txt';
 length > 11 and !/([aeiou]).*\1/ and tr/aeiou// == 5 and push(@res, $_) while <>;
 
-say my $result = join "", @res;
+say my $result = join '', @res;
 
 my $ref = <<'EOD';
 ambidextrous
