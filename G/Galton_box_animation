@@ -17,7 +17,7 @@ use List::AllUtils <pairwise pairs>;
 use utf8;
 binmode STDOUT, ':utf8';
 
-open my $fh, ">run/galton_box.dat" || die;
+open my $fh, '>run/galton_box.dat' || die;
 binmode $fh, ':utf8';
 
 my $peg_lines  = shift || 13;
@@ -83,15 +83,15 @@ sub display_board {
             [@line];
         }
 
-        push @tmpl, out("  " . " "x(2 * $row_count)) for 1..3;
+        push @tmpl, out('  ' . ' 'x(2 * $row_count)) for 1..3;
         my @a = reverse 1..$row_count;
         my @b = 1..$row_count;
         my @pairs = pairwise { ($a, $b) } @a, @b;
         for ( pairs @pairs ) {
             my ( $spaces, $pegs ) = @$_;
-            push @tmpl, out("  " . " "x$spaces . join(' ',($peg) x $pegs) . " "x$spaces);
+            push @tmpl, out('  ' . ' 'x$spaces . join(' ',($peg) x $pegs) . ' 'x$spaces);
         }
-        push @tmpl, out("  " . " "x(2 * $row_count)) for 1..4;
+        push @tmpl, out('  ' . ' 'x(2 * $row_count)) for 1..4;
         @tmpl; 
     };
 
@@ -104,7 +104,7 @@ sub display_board {
         sub printl  { my($foo) = @_; push @output, $foo        }
 
         # make some space above the picture
-        printnl("") for 0..9;
+        printnl('') for 0..9;
 
         # place the coins
         for my $line (0..$#positions) {
@@ -121,22 +121,22 @@ sub display_board {
         my $padding = 0;
         while (any {$_> 0} @stats) {
             $padding++;
-            printl "  ";
+            printl '  ';
             for my $i (0..$#stats) {
                 if ($stats[$i] == 1) {
                         printl "\N{UPPER HALF BLOCK}";
                         $stats[$i]--;
                 } elsif ($stats[$i] <= 0) {
-                        printl " ";
+                        printl ' ';
                         $stats[$i] = 0
                 } else {
                         printl "\N{FULL BLOCK}";
                         $stats[$i]--; $stats[$i]--;
                 }
             }
-            printnl("");
+            printnl('');
         }
-        printnl("") for $padding..(10-1);
+        printnl('') for $padding..(10-1);
     }
 
     #print join('', @output) . "\n";
