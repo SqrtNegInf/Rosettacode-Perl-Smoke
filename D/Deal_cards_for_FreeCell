@@ -22,7 +22,7 @@ sub deal {
     };
  
     my @d;
-    for my $b (split "", "A23456789TJQK") {
+    for my $b (split '', 'A23456789TJQK') {
         push @d, map("$_$b", qw/d c h s/);
     }
  
