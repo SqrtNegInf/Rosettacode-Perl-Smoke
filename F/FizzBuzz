@@ -7,9 +7,9 @@ use feature 'say';
 my $result;
 
 for my $i (1..100) {
-    push @res1, $i % 15 == 0 ? "FizzBuzz"
-      : $i %  3 == 0 ? "Fizz"
-      : $i %  5 == 0 ? "Buzz"
+    push @res1, $i % 15 == 0 ? 'FizzBuzz'
+      : $i %  3 == 0 ? 'Fizz'
+      : $i %  5 == 0 ? 'Buzz'
       : $i;
 }
 say for @res1;
@@ -24,7 +24,7 @@ push @res4, +(Fizz)[$_%3].(Buzz)[$_%5]||$_,$/for 1..1e2;
 $result5 = join "\n", map((Fizz)[$_%3].(Buzz)[$_%5]||$_,1..100);
 
 # Cheating:
-#@a = ("FizzBuzz", 0, 0, "Fizz", 0, "Buzz", "Fizz", 0, 0, "Fizz", "Buzz", 0, "Fizz");
+#@a = ('FizzBuzz', 0, 0, 'Fizz', 0, 'Buzz', 'Fizz', 0, 0, 'Fizz", 'Buzz', 0, 'Fizz');
 #say $a[$_ % 15] || $_ for 1..100;
 
 # as a subroutine:
@@ -32,8 +32,8 @@ sub fizz_buzz {
     join("\n", map {
         sub mult {$_ % shift == 0};
         my @out;
-        if (mult(3)) { push @out, "Fizz"; }
-        if (mult(5)) { push @out, "Buzz"; }
+        if (mult(3)) { push @out, 'Fizz'; }
+        if (mult(5)) { push @out, 'Buzz'; }
         if (!@out) {push @out, $_; }
         join('', @out);
     } (1..100))."\n";
@@ -155,7 +155,7 @@ EOD
 
 use Test::More;
 my $result1 = join "\n", @res1; $result1 .= "\n";
-my $result4 = join "", @res4; 
+my $result4 = join '', @res4; 
 $result5 .= "\n";
 is ($result1, $ref);
 is ($result2, $ref);
