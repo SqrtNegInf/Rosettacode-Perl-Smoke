@@ -8,10 +8,10 @@ updating from RC…
 ||||+--------> Touched (modified by me) [441]
 |||||+-------> Random seed [112]
 ||||||+------> File output [75]
-|||||||+-----> Draft [235]
+|||||||+-----> Draft [237]
 ||||||||+----> Ignoring [36]
-|||||||||+---> Void (no local copy) [122]
-||||||||||+--> Un-implemented/reliable [101]
+|||||||||+---> Void (no local copy) [124]
+||||||||||+--> Un-implemented/reliable [103]
 |||||||||||
 GS......... 100_doors-1
 GS......... 100_doors-2
@@ -490,6 +490,7 @@ GS.....D... Find_URI_in_text
 GS..T...... Find_common_directory_path
 GS..T...... Find_duplicate_files
 GS.....D... Find_first_and_last_set_bit_of_a_long_integer
+.......D.VU Find_first_missing_positive
 GS.....D... Find_if_a_point_is_within_a_triangle
 GS......... Find_largest_left_truncatable_prime_in_a_given_base
 GS......... Find_limit_of_recursion
@@ -1314,6 +1315,7 @@ GS..T...... Stirling_numbers_of_the_first_kind
 GS..T...... Stirling_numbers_of_the_second_kind
 GS..T...... Straddling_checkerboard
 .......D.VU Strange_numbers
+.......D.VU Strange_plus_numbers
 .......D.VU Strassen%27s_algorithm
 GS..T...... Stream_merge
 GS......... String_append
