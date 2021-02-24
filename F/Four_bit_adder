@@ -8,10 +8,10 @@ use warnings;
 use feature 'say';
 my $result;
 
-sub dec2bin { sprintf "%04b", shift }
-sub bin2dec { oct "0b".shift }
+sub dec2bin { sprintf '%04b', shift }
+sub bin2dec { oct '0b'.shift }
 sub bin2bits { reverse split(//, substr(shift,0,shift)); }
-sub bits2bin { join "", map { 0+$_ } reverse @_ }
+sub bits2bin { join '', map { 0+$_ } reverse @_ }
 
 sub bxor {
   my($a, $b) = @_;
