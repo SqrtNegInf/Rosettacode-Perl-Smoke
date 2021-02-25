@@ -6795,6 +6795,14 @@ File: R/Recaman%27s_sequence
 #c# 2018-10-12 >RC
 #p# OK
 
+File: R/Recursive_descent_parser_generator
+#!/usr/local/bin/perl
+#u# http://rosettacode.org/wiki/Recursive_descent_parser_generator
+#t# inprogress
+#c# 2021-02-24 <RC
+#p# OK
+#f# RC file: generatedparser.pl
+
 File: R/Reduced_row_echelon_form
 #!/usr/local/bin/perl
 #u# http://rosettacode.org/wiki/Reduced_row_echelon_form
@@ -8082,6 +8090,13 @@ File: S/Straddling_checkerboard.1
 #c# 2019-04-17 >RC
 #p# OK
 
+File: S/Strange_numbers
+#!/usr/local/bin/perl
+#u# http://rosettacode.org/wiki/Strange_numbers
+#c# 2021-02-24 >RC
+#p# OK
+#n# NB: cannot reverse order of all/any tests
+
 File: S/Stream_Merge
 #!/usr/local/bin/perl
 #u# http://rosettacode.org/wiki/Stream_Merge
@@ -8547,6 +8562,13 @@ File: T/Test_integerness
 #!/usr/local/bin/perl
 #u# http://rosettacode.org/wiki/Test_integerness
 #c# 2018-08-11 <RC
+#p# OK
+
+File: T/Tetris
+#!/usr/local/bin/perl
+#u# http://rosettacode.org/wiki/Tetris
+#t# interactive
+#c# 2021-02-24 <RC
 #p# OK
 
 File: T/Text_Completion
