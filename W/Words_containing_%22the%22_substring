@@ -11,10 +11,7 @@ use feature 'say';
 my @res;
 
 @ARGV = 'ref/unixdict.txt';
-
-while( <> ) {
-    /(\w*the\w*)/ and length($1)>11 and push @res, $_
-}
+/(\w*the\w*)/ and length($1)>11 and push @res, $_ while <>;
 
 say my $result = join '', @res;
 
