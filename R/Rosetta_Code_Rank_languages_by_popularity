@@ -3,17 +3,16 @@
 #c# 2018-08-21 <RC, 2019-09-11 >RC
 #p# OK
 #n# testing somewhat fragile
-#n# 2020-11-05 Pleased to welcome 'J' to the '1000 club'
 #n# 2020-01-29 Pleased to welcome 'C' to the '1000 club'
 #n# 2020-02-24 'Java' joins the no-longer-quite-so-exclusive club
+#n# 2020-11-05 Pleased to welcome 'J' to the club
+#n# 2021-02-24 Please to welcome 'Ruby' AND 'Wren' to the club (on the same day)
 
 my @res;
 
 use strict;
 use warnings;
 use feature 'say';
-
-#use 5.010;
 
 use MediaWiki::API;
 
@@ -58,6 +57,6 @@ for (@sorted_languages) {
 say join "\n", @res;
 
 use Test::More;
-ok @res == 13;
+ok @res == 15;
 #ok @res >= 6 and @res < 10;
 done_testing();
