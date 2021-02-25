@@ -1,13 +1,9 @@
 #!/usr/local/bin/perl
 #u# http://rosettacode.org/wiki/Recursive_descent_parser_generator
-#t# inprogress
 #c# 2021-02-24 <RC
 #p# OK
 #f# RC file: generatedparser.pl
-
-#use feature 'say';
-#my $result;
-#my @res;
+#n# not running the generated code, but verfied it worked by hand
 
 use strict;
 use warnings;
