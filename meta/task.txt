@@ -1,17 +1,17 @@
 
 This is perl 5, version 32, subversion 1 (v5.32.1) built for darwin-thread-multi-2level
 updating from RC…
-+------------> Perl: Good/Bad [1382/10]
-|+-----------> Smoke testing [1236]
-||+----------> sKipping validation [150]
-|||+---------> Interactive [67]
-||||+--------> Touched (modified by me) [441]
++------------> Perl: Good/Bad [1383/10]
+|+-----------> Smoke testing [1237]
+||+----------> sKipping validation [152]
+|||+---------> Interactive [68]
+||||+--------> Touched (modified by me) [442]
 |||||+-------> Random seed [112]
-||||||+------> File output [75]
-|||||||+-----> Draft [237]
+||||||+------> File output [76]
+|||||||+-----> Draft [239]
 ||||||||+----> Ignoring [36]
-|||||||||+---> Void (no local copy) [124]
-||||||||||+--> Un-implemented/reliable [103]
+|||||||||+---> Void (no local copy) [123]
+||||||||||+--> Un-implemented/reliable [102]
 |||||||||||
 GS......... 100_doors-1
 GS......... 100_doors-2
@@ -57,7 +57,7 @@ GS......... Ackermann_function-4
 GS......... Ackermann_function-5
 ........XV. Active_Directory_Connect
 .........VU Active_Directory_Search_for_a_user
-GS......... Active_object
+!S......... Active_object
 GS......... Add_a_variable_to_a_class_instance_at_runtime
 .......D.VU Addition-chain_exponentiation
 GS..T..D... Addition_chains
@@ -275,6 +275,8 @@ GS......... Comma_quibbling-2
 GS......... Command-line_arguments
 GS..T...... Commatizing_numbers
 G.K........ Comments
+.......D.VU Common_list_elements
+.......D.VU Common_sorted_list
 GS..T...... Compare_a_list_of_strings
 .........VU Compare_sorting_algorithms%27_performance
 GS......... Compile-time_calculation
@@ -1107,7 +1109,7 @@ G.KIT..D... Readline_interface
 GS......... Real_constants_and_functions
 GS..T...... Recaman%27s_sequence
 ........XVU Record_sound
-.......D.VU Recursive_descent_parser_generator
+G.K...FD... Recursive_descent_parser_generator
 GS..T...... Reduced_row_echelon_form
 ........XVU Reflection_Get_source
 GS..T...... Reflection_List_methods
@@ -1149,7 +1151,7 @@ GS..T...... Rosetta_Code_Find_unimplemented_tasks
 GS......... Rosetta_Code_Fix_code_tags
 .......D.VU Rosetta_Code_List_authors_of_task_descriptions
 GS..T..D... Rosetta_Code_Rank_languages_by_number_of_users
-GS..T...... Rosetta_Code_Rank_languages_by_popularity
+!S..T...... Rosetta_Code_Rank_languages_by_popularity
 .......D.VU Rosetta_Code_Run_examples
 GS..T..D... Rosetta_Code_Tasks_without_examples
 GS......... Rot-13
@@ -1314,7 +1316,7 @@ GS......... Stern-Brocot_sequence-3
 GS..T...... Stirling_numbers_of_the_first_kind
 GS..T...... Stirling_numbers_of_the_second_kind
 GS..T...... Straddling_checkerboard
-.......D.VU Strange_numbers
+GS..T..D... Strange_numbers
 .......D.VU Strange_plus_numbers
 .......D.VU Strassen%27s_algorithm
 GS..T...... Stream_merge
@@ -1393,7 +1395,7 @@ G.KIT...... Terminal_control_Unicode_output
 GS......... Ternary_logic
 GS......... Test_a_function
 GS......... Test_integerness
-.......D.VU Tetris
+G.KI...D... Tetris
 GS..T..D... Text_between
 G.K.T..D... Text_completion
 GS......... Text_processing_1
