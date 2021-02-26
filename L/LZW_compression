@@ -3,10 +3,11 @@
 #c# 2018-08-14 <RC
 #p# OK
 
+my $result;
+
 use strict;
 use warnings;
 use feature 'say';
-my $result;
 
 # In this version the hashes contain mixed typed data:
 
@@ -18,7 +19,7 @@ sub compress {
     my $dict_size = 256;
     my %dictionary = map {chr $_ => chr $_} 0..$dict_size-1;
 
-    my $w = "";
+    my $w = '';
     my @result;
     foreach my $c (split '', $uncompressed) {
         my $wc = $w . $c;
