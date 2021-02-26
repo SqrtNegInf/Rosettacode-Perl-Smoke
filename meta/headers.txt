@@ -1535,6 +1535,19 @@ File: C/Comments
 #c# 2018-07-24 <RC
 #p# OK
 
+File: C/Common_list_elements
+#!/usr/local/bin/perl
+#u# http://rosettacode.org/wiki/Common_list_elements
+#c# 2021-02-25 >RC
+#p# OK
+
+File: C/Common_sorted_list
+#!/usr/local/bin/perl
+#u# http://rosettacode.org/wiki/Common_list_elements
+#c# 2021-02-25 >RC
+#p# OK
+#n# use hash slice (just to be different from 'Common_list_elements')
+
 File: C/Compare_a_list_of_strings
 #!/usr/local/bin/perl
 #u# http://rosettacode.org/wiki/Compare_a_list_of_strings
@@ -6798,10 +6811,10 @@ File: R/Recaman%27s_sequence
 File: R/Recursive_descent_parser_generator
 #!/usr/local/bin/perl
 #u# http://rosettacode.org/wiki/Recursive_descent_parser_generator
-#t# inprogress
 #c# 2021-02-24 <RC
 #p# OK
 #f# RC file: generatedparser.pl
+#n# not running the generated code, but verfied it worked by hand
 
 File: R/Reduced_row_echelon_form
 #!/usr/local/bin/perl
@@ -7049,9 +7062,10 @@ File: R/Rosetta_Code_Rank_languages_by_popularity
 #c# 2018-08-21 <RC, 2019-09-11 >RC
 #p# OK
 #n# testing somewhat fragile
-#n# 2020-11-05 Pleased to welcome 'J' to the '1000 club'
 #n# 2020-01-29 Pleased to welcome 'C' to the '1000 club'
 #n# 2020-02-24 'Java' joins the no-longer-quite-so-exclusive club
+#n# 2020-11-05 Pleased to welcome 'J' to the club
+#n# 2021-02-24 Please to welcome 'Ruby' AND 'Wren' to the club (on the same day)
 
 File: R/Rosetta_Code_Tasks_without_examples
 #!/usr/local/bin/perl
