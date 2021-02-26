@@ -23,10 +23,10 @@ sub sorttable
   return ($opt{reverse} ? [reverse @result] : \@result);}
 
 #An example of use:
-my $a = [["a", "b", "c"], ["", "q", "z"], ["zap", "zip", "Zot"]];
+my $a = [['a', 'b', 'c'], ['', 'q', 'z'], ['zap', 'zip', 'Zot']];
 foreach (@{sorttable $a, column => 1, reverse => 1})
    {foreach (@$_)
-       {$result .= sprintf "%-5s", $_;}
+       {$result .= sprintf '%-5s', $_;}
     print "\n";}
 
 
