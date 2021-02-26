@@ -78,10 +78,3 @@ END
 use Test::More;
 is($result, $ref);
 done_testing();
-
-__END__
-
-=={{header|Perl}}==
-{{libheader|ntheory}}
-<lang perl></lang>
-{{out}}
