@@ -19,7 +19,7 @@ sub encode {
 
 sub decode {
 	my $table = join '', 'a' .. 'z';
-	join "", map {
+	join '', map {
 		$table =~ s/(.{$_})(.)/$2$1/ or die;
 		$2;
 	} @_;
@@ -29,7 +29,7 @@ for my $test ( <broood bananaaa hiphophiphop> ) {
 	my @encoded = encode($test);
 	$result .= "$test: @encoded\n";
 	my $decoded = decode(@encoded);
-	$result .= "in" x ( $decoded ne $test );
+	$result .= 'in' x ( $decoded ne $test );
 	$result .= "correctly decoded to $decoded\n";
 }
 
