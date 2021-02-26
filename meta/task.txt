@@ -1,17 +1,17 @@
 
 This is perl 5, version 32, subversion 1 (v5.32.1) built for darwin-thread-multi-2level
 updating from RC…
-+------------> Perl: Good/Bad [1383/10]
-|+-----------> Smoke testing [1237]
-||+----------> sKipping validation [152]
++------------> Perl: Good/Bad [1387/10]
+|+-----------> Smoke testing [1240]
+||+----------> sKipping validation [151]
 |||+---------> Interactive [68]
-||||+--------> Touched (modified by me) [442]
+||||+--------> Touched (modified by me) [444]
 |||||+-------> Random seed [112]
 ||||||+------> File output [76]
-|||||||+-----> Draft [239]
+|||||||+-----> Draft [240]
 ||||||||+----> Ignoring [36]
-|||||||||+---> Void (no local copy) [123]
-||||||||||+--> Un-implemented/reliable [102]
+|||||||||+---> Void (no local copy) [122]
+||||||||||+--> Un-implemented/reliable [101]
 |||||||||||
 GS......... 100_doors-1
 GS......... 100_doors-2
@@ -57,7 +57,7 @@ GS......... Ackermann_function-4
 GS......... Ackermann_function-5
 ........XV. Active_Directory_Connect
 .........VU Active_Directory_Search_for_a_user
-!S......... Active_object
+GS......... Active_object
 GS......... Add_a_variable_to_a_class_instance_at_runtime
 .......D.VU Addition-chain_exponentiation
 GS..T..D... Addition_chains
@@ -275,8 +275,8 @@ GS......... Comma_quibbling-2
 GS......... Command-line_arguments
 GS..T...... Commatizing_numbers
 G.K........ Comments
-.......D.VU Common_list_elements
-.......D.VU Common_sorted_list
+GS..T..D... Common_list_elements
+GS..T..D... Common_sorted_list
 GS..T...... Compare_a_list_of_strings
 .........VU Compare_sorting_algorithms%27_performance
 GS......... Compile-time_calculation
@@ -839,6 +839,7 @@ GS..T...... Minimum_positive_multiple_in_base_10_using_only_0_and_1-1
 GS..T...... Minimum_positive_multiple_in_base_10_using_only_0_and_1-2
 GS......... Minimum_positive_multiple_in_base_10_using_only_0_and_1-3
 GS..T...... Minkowski_question-mark_function
+.......D.VU Modified_random_distribution
 GS......... Modular_arithmetic
 GS..T...... Modular_exponentiation
 GS......... Modular_inverse
@@ -1109,7 +1110,7 @@ G.KIT..D... Readline_interface
 GS......... Real_constants_and_functions
 GS..T...... Recaman%27s_sequence
 ........XVU Record_sound
-G.K...FD... Recursive_descent_parser_generator
+GS....FD... Recursive_descent_parser_generator
 GS..T...... Reduced_row_echelon_form
 ........XVU Reflection_Get_source
 GS..T...... Reflection_List_methods
@@ -1151,7 +1152,7 @@ GS..T...... Rosetta_Code_Find_unimplemented_tasks
 GS......... Rosetta_Code_Fix_code_tags
 .......D.VU Rosetta_Code_List_authors_of_task_descriptions
 GS..T..D... Rosetta_Code_Rank_languages_by_number_of_users
-!S..T...... Rosetta_Code_Rank_languages_by_popularity
+GS..T...... Rosetta_Code_Rank_languages_by_popularity
 .......D.VU Rosetta_Code_Run_examples
 GS..T..D... Rosetta_Code_Tasks_without_examples
 GS......... Rot-13
