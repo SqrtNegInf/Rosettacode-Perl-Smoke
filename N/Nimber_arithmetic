@@ -60,7 +60,7 @@ push @res, nim_prod(21508, 42689) . "\n";
 push @res, nim_sum(2150821508215082150821508, 4268942689426894268942689) . "\n"; 
 #push @res, nim_prod(2150821508215082150821508, 4268942689426894268942689); # fastest is 3m30s with Math::AnyNum
 
-say my $result = join "", @res;
+say my $result = join '', @res;
 
 my $ref = <<'END';
  + │  0  1  2  3  4  5  6  7  8  9 10 11 12 13 14 15
