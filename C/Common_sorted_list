@@ -1,0 +1,18 @@
+#!/usr/local/bin/perl
+#u# http://rosettacode.org/wiki/Common_list_elements
+#c# 2021-02-25 >RC
+#p# OK
+#n# use hash slice (just to be different from 'Common_list_elements')
+
+use strict;
+use warnings;
+use feature 'say';
+
+my %c;
+my @input = ([5,1,3,8,9,4,8,7], [3,5,9,8,4], [1,3,7,9], [qw<not all is integer ? is not ! 4.2>]);
+@c{@$_}++ for @input;
+say my $result = join ' ', sort keys %c;
+
+use Test::More;
+is($result, '! 1 3 4 4.2 5 7 8 9 ? all integer is not');
+done_testing();
