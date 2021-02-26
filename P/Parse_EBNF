@@ -18,7 +18,7 @@ my $literal = qr/$h(['"])(.+?)\1/s;
 my ($title, $comment, %productions, %called, $startsymbol, $show, $errpos);
 
 sub node { bless [ @_[1..$#_] ], $_[0] }
-sub err { die "ERROR: ", s/\G\s*\K/<**ERROR @_**>/r, "\n" }
+sub err { die 'ERROR: ', s/\G\s*\K/<**ERROR @_**>/r, "\n" }
 sub want { /$h\Q$_[1]\E/gc ? shift : err "missing '$_[1]' " }
 sub addin { node $_[0] => ref $_[1] eq $_[0] ? @{$_[1]} : $_[1], pop }
 
@@ -26,7 +26,7 @@ for my $case ( split /^-{50}.*\n/m, do { local $/; @ARGV ? <> : <DATA> } )
   {
   $show = $case =~ s/^#show.*//m;
   my ($ebnf, $tests) = map s/^#.*\n//gmr, split /^#test.*\n/m, $case, 2;
-  parse( $ebnf, ($tests // "") =~ /.*\n/g );
+  parse( $ebnf, ($tests // '') =~ /.*\n/g );
   }
 
 sub parse
@@ -38,7 +38,7 @@ sub parse
     print '-' x 75, "\n", s/\s*\z/\n\n/r;
     syntax(); ################################################## parse the EBNF
     print "       title: $title\n     comment: $comment\n";
-    $startsymbol or err "no productions";
+    $startsymbol or err 'no productions';
     print "start symbol: $startsymbol\n";
     for my $key ( sort keys %productions )
       {
