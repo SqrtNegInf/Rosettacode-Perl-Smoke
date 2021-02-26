@@ -10,7 +10,7 @@ use feature 'say';
 my $result;
 
 use utf8;
-binmode STDOUT, ":utf8";
+binmode STDOUT, ':utf8';
 
 use DateTime;
 
@@ -56,13 +56,13 @@ sub bell {
 sub chime {
     my($count) = shift;
 	for (1..int($count/2)) {
-		$result .= "♫ ";
+		$result .= '♫ ';
 		#sleep .25;
-		print "";
+		print '';
 		#sleep .75;
 	}
 	if ($count % 2) {
-	     $result .= "♪";
+	     $result .= '♪';
 	     #sleep 1;
         }
         $result .= "\n";
