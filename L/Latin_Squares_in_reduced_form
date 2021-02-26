@@ -37,7 +37,7 @@ sub perm {
     map { my $f = $_; map "$f$_", perm( $s =~ s/$_//r ) } split //, $s;
 }
 
-say my $result = join "", @res;
+say my $result = join '', @res;
 
 my $ref = <<'EOD';
 order 1 size 1 total 1
