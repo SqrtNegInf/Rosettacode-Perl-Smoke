@@ -95,16 +95,16 @@ BEGIN {
 if( !caller ) {
 	tie my (@prime_list), 'Tie::SieveOfEratosthenes';
 	my $limit = $ARGV[0] || 100;
-	my $line = "";
+	my $line = '';
 	for( my $count = 0; $prime_list[$count] < $limit; ++$count ) {
-		$line .= $prime_list[$count]. ", ";
+		$line .= $prime_list[$count]. ', ';
 		next if length($line) <= 70;
 		if( $line =~ tr/,// > 1 ) {
 			$line =~ s/^(.*,) (.*, )/$2/;
 			$result .= $1. "\n";
 		} else {
 			$result .= $line. "\n";
-			$line = "";
+			$line = '';
 		}
 	}
 	$line =~ s/, \z//;
