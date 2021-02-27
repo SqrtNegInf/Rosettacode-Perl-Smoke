@@ -8111,6 +8111,12 @@ File: S/Strange_numbers
 #p# OK
 #n# NB: cannot reverse order of all/any tests
 
+File: S/Strange_plus_numbers
+#!/usr/local/bin/perl
+#u# http://rosettacode.org/wiki/Strange_plus_numbers
+#c# 2021-02-26 >RC
+#p# OK
+
 File: S/Stream_Merge
 #!/usr/local/bin/perl
 #u# http://rosettacode.org/wiki/Stream_Merge
