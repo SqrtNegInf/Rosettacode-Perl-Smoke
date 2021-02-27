@@ -1,14 +1,14 @@
 
 This is perl 5, version 32, subversion 1 (v5.32.1) built for darwin-thread-multi-2level
 updating from RC…
-+------------> Perl: Good/Bad [1387/10]
-|+-----------> Smoke testing [1240]
++------------> Perl: Good/Bad [1388/10]
+|+-----------> Smoke testing [1241]
 ||+----------> sKipping validation [151]
 |||+---------> Interactive [68]
-||||+--------> Touched (modified by me) [444]
+||||+--------> Touched (modified by me) [445]
 |||||+-------> Random seed [112]
 ||||||+------> File output [76]
-|||||||+-----> Draft [240]
+|||||||+-----> Draft [241]
 ||||||||+----> Ignoring [36]
 |||||||||+---> Void (no local copy) [122]
 ||||||||||+--> Un-implemented/reliable [101]
@@ -939,6 +939,7 @@ GS......... Ordered_words
 .........VU P-Adic_numbers,_basic
 .......D.VU P-Adic_square_roots
 GS......... P-value_correction
+.......D.VU Padovan_sequence
 GS..T...... Palindrome_dates-1
 GS......... Palindrome_dates-2
 GS......... Palindrome_detection
@@ -1318,7 +1319,7 @@ GS..T...... Stirling_numbers_of_the_first_kind
 GS..T...... Stirling_numbers_of_the_second_kind
 GS..T...... Straddling_checkerboard
 GS..T..D... Strange_numbers
-.......D.VU Strange_plus_numbers
+GS..T..D... Strange_plus_numbers
 .......D.VU Strassen%27s_algorithm
 GS..T...... Stream_merge
 GS......... String_append
