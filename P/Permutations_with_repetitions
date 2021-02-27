@@ -7,7 +7,7 @@ use feature 'say';
 my $result;
 
 use Algorithm::Combinatorics qw/tuples_with_repetition/;
-$result .= join(" ", map { "[@$_]" } tuples_with_repetition([qw/A B C/],2)). "\n";
+$result .= join(' ', map { "[@$_]" } tuples_with_repetition([qw/A B C/],2)). "\n";
 
 # Solving the crack problem:
 use Algorithm::Combinatorics qw/tuples_with_repetition/;
@@ -15,7 +15,7 @@ my $iter = tuples_with_repetition([qw/A C K R/], 5);
 my $tries = 0;
 while (my $p = $iter->next) {
   $tries++;
-  if (join("",@$p) eq "CRACK") {
+  if (join('',@$p) eq 'CRACK') {
     $result .= "Found the combination after $tries tries!\n" ;
     last;
   }
