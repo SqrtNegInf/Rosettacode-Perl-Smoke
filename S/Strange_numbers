@@ -17,9 +17,9 @@ sub is_strange {
 }
 
 my($low, $high) = (100, 500);
-my $cnt = my @strange = grep { is_strange($_) } $low+1 .. $high-1;
-say my $result = "Between $low and $high there are $cnt strange numbers:\n" .
-    (sprintf "@{['%5d' x $cnt]}", @strange[0..$cnt-1]) =~ s/(.{80})/$1\n/gr;
+my $n = my @strange = grep { is_strange($_) } $low+1 .. $high-1;
+say my $result = "Between $low and $high there are $n strange numbers:\n" .
+    (sprintf "@{['%5d' x $n]}", @strange[0..$n-1]) =~ s/(.{80})/$1\n/gr;
 
 my $ref = <<'END';
 Between 100 and 500 there are 87 strange numbers:
