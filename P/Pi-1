@@ -24,7 +24,7 @@ sub pistream {
   $f = 10000;
   $c = 14 * (int($digits/4)+2);
   @a = (20000000) x $c;
-  $result = "3.";
+  $result = '3.';
   while (($b = $c -= 14) > 0 && $i < $digits) {
     $d = $e = $d % $f;
     while (--$b > 0) {
@@ -49,10 +49,10 @@ sub pistream {
     $out[$i++] = $d2-$d1*10;
     $out[$i++] = $d3-$d2*10;
     $out[$i++] = $d4-$d3*10;
-    $result .= join "", @out[$i-15 .. $i-15+3] if $i >= 16;
+    $result .= join '', @out[$i-15 .. $i-15+3] if $i >= 16;
   }
   # We've closed the spigot.  Print the remainder without rounding.
-  $result .= join "", @out[$i-15+4 .. $digits-2]; #. "\n";
+  $result .= join '', @out[$i-15+4 .. $digits-2]; #. "\n";
 }
 
 pistream(1001); 
