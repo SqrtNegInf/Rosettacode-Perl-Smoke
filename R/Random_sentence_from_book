@@ -38,7 +38,7 @@ sub sentence {
 
 push @res, sentence() for 1 .. 10;
 
-say my $result = join "", @res;
+say my $result = join '', @res;
 
 my $ref = <<'EOD';
 Has the earth from their planet from which I and the night about
