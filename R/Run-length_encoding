@@ -20,36 +20,36 @@ sub decode {
 # Modified version that can take arbitrary byte strings as input (produces encoded byte strings that are compatible with the C solution):
 
 sub encode {
-    shift =~ s/(.)\1{0,254}/pack("C", length($&)).$1/grse;
+    shift =~ s/(.)\1{0,254}/pack('C', length($&)).$1/grse;
 }
 
 sub decode {
-    shift =~ s/(.)(.)/$2 x unpack("C", $1)/grse;
+    shift =~ s/(.)(.)/$2 x unpack('C', $1)/grse;
 }
 
 # Further modified version that supports compact representation of longer non-repeating substrings, just like the C solution (so should be fully compatible with that solution for both encoding and decoding):
 
 sub encode {
     my $str = shift;
-    my $ret = "";
-    my $nonrep = "";
+    my $ret = '';
+    my $nonrep = '';
     while ($str =~ m/(.)\1{0,127}|\z/gs) {
         my $len = length($&);
         if (length($nonrep) && (length($nonrep) == 127 || $len != 1)) {
-            $ret .= pack("C", 128 + length($nonrep)) . $nonrep;
-            $nonrep = "";
+            $ret .= pack('C', 128 + length($nonrep)) . $nonrep;
+            $nonrep = '';
         }
         if    ($len == 1) { $nonrep .= $1 }
-        elsif ($len > 1)  { $ret .= pack("C", $len) . $1 }
+        elsif ($len > 1)  { $ret .= pack('C', $len) . $1 }
     }
     return $ret;
 }
 
 sub decode {
     my $str = shift;
-    my $ret = "";
+    my $ret = '';
     for (my $i = 0; $i < length($str);) {
-        my $len = unpack("C", substr($str, $i, 1));
+        my $len = unpack('C', substr($str, $i, 1));
         if ($len <= 128) {
             $ret .= substr($str, $i + 1, 1) x $len;
             $i += 2;
@@ -64,7 +64,7 @@ sub decode {
 
 # Demonstration of the third version:
 
-my $str = "XXXXXABCDEFGHIoooooooooooooooooooooooooAAAAAA";
+my $str = 'XXXXXABCDEFGHIoooooooooooooooooooooooooAAAAAA';
 my $enc = encode($str);
 say $result = decode($enc);
 
