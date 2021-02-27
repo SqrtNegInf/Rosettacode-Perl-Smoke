@@ -29,7 +29,7 @@ sub str {
 	# may cause inconsistencies if the element set is modified
 	# later.  In general, a hash key loses its object identity
 	# anyway, so it's not unique to us.
-	"Set{ ".  join(", " => sort map("$_", values %$set)) . " }"
+	"Set{ ".  join(', ' => sort map("$_", values %$set)) . ' }'
 }
 
 sub new {
@@ -109,18 +109,18 @@ $y = Set->new(1, 2, 4, $x); # not the brightest idea
 
 $result .= "set x is: $x\nset y is: $y\n";
 for (1 .. 4, $x) {
-	$result .= "$_ is". ($y->has($_) ? "" : " not") . " in y\n";
+	$result .= "$_ is". ($y->has($_) ? '' : ' not') . " in y\n";
 }
 
-$result .= "union: ". ($x | $y) . "\n";
-$result .= "intersect: ". ($x & $y) . "\n";
-$result .= "z = x - y = ". ($z = $x - $y) . "\n";
-$result .= "y is ". ($x->contains($y) ? "" : "not ") . "a subset of x\n";
-$result .= "z is ". ($x->contains($z) ? "" : "not ") . "a subset of x\n";
-$result .= "z = (x | y) - (x & y) = ". ($z = ($x | $y) - ($x & $y)) . "\n";
-$result .= "w = x ^ y = ". ($w = ($x ^ $y)) . "\n";
-$result .= "w is ". (($w == $z) ? "" : "not ") . "equal to z\n";
-$result .= "w is ". (($w == $x) ? "" : "not ") . "equal to x\n";
+$result .= 'union: '. ($x | $y) . "\n";
+$result .= 'intersect: '. ($x & $y) . "\n";
+$result .= 'z = x - y = '. ($z = $x - $y) . "\n";
+$result .= 'y is '. ($x->contains($y) ? '' : 'not ') . "a subset of x\n";
+$result .= 'z is '. ($x->contains($z) ? '' : 'not ') . "a subset of x\n";
+$result .= 'z = (x | y) - (x & y) = '. ($z = ($x | $y) - ($x & $y)) . "\n";
+$result .= 'w = x ^ y = '. ($w = ($x ^ $y)) . "\n";
+$result .= 'w is '. (($w == $z) ? '' : 'not ') . "equal to z\n";
+$result .= 'w is '. (($w == $x) ? '' : 'not ') . "equal to x\n";
 
 say $result; 
 
