@@ -9,7 +9,7 @@ use feature 'say';
 my $result;
 
 # Using a module[edit]
-use ntheory ":all";
+use ntheory ':all';
 
 # Count derangements using derangement iterator
 sub countderange {
@@ -31,9 +31,9 @@ sub subfactorial2 {
 
 $result .= "Derangements of 4 items:\n";
 forderange { $result .= "@_\n" } 4;
-$result .= sprintf "\n%3s %15s %15s\n","N","List count","!N";
+$result .= sprintf "\n%3s %15s %15s\n",'N','List count','!N';
 $result .= sprintf "%3d %15d %15d %15d\n",$_,countderange($_),subfactorial1($_),subfactorial2($_) for 0..9;
-$result .= sprintf "%3d %15s %s\n",$_,"",subfactorial2($_) for 20,200;
+$result .= sprintf "%3d %15s %s\n",$_,'',subfactorial2($_) for 20,200;
 
 say $result;
 my $ref = <<'EOD';
