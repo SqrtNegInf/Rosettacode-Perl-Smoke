@@ -6,7 +6,7 @@
 use feature 'say';
 
 use utf8;
-binmode STDOUT, ":utf8";
+binmode STDOUT, ':utf8';
 
 # to reverse characters (code points):
 
@@ -15,10 +15,10 @@ $result .="\n";
 
 # to reverse graphemes:
 $string = "Jose\x{301}"; # "José" in NFD
-$result .= join("", reverse $string =~ /\X/g); # becomes "ésoJ"
+$result .= join('', reverse $string =~ /\X/g); # becomes "ésoJ"
 $result .="\n";
 $string = 'ℵΑΩ 駱駝道 🤔 🇸🇧 🇺🇸 🇬🇧‍ 👨‍👩‍👧‍👦🆗🗺';
-$result .= join("", reverse $string =~ /\X/g);
+$result .= join('', reverse $string =~ /\X/g);
 $result .="\n";
 
 say $result;
