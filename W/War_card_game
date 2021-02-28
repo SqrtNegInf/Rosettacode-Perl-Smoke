@@ -28,7 +28,7 @@ $cnt++ while push( @res, ( /(.*)\n(.*)/ && "one: $1\ntwo: $2\n\n" )),
     "$2\n$4" /e; # tie means war
 push @res, "player '" . (/^.{10}/ ? 'one' : 'two') . "' wins in $cnt moves\n";
 
-my $result = join "", @res;
+my $result = join '', @res;
 
 my $ref = <<'EOD';
 one: 2CjC2StDaC8DjS6CtS7S3D4CkD5SaD9DkC4D8C2H7CaH8H6H2D6D
