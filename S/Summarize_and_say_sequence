@@ -12,7 +12,7 @@ my $result;
 sub next_num {
 	my @a;
 	$a[$_]++ for split '', shift;
-	join('', map(exists $a[$_] ? $a[$_].$_ : "", reverse 0 .. 9));
+	join('', map(exists $a[$_] ? $a[$_].$_ : '', reverse 0 .. 9));
 }
 
 my %cache;
