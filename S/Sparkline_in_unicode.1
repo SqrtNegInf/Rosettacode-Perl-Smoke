@@ -7,7 +7,7 @@
 
 use open ':std', ':encoding(utf8)';
 
-binmode(STDOUT, ":utf8");
+binmode(STDOUT, ':utf8');
 
 sub sparkline {
   my $s = shift;
@@ -18,7 +18,7 @@ sub sparkline {
   $result .= sprintf "min: %5f; max %5f\n", $min, $max;
   my @bars = map { chr($_) } 0x2581 .. 0x2588;
   my $div = ($max - $min) / $#bars;
-  $result .= join("", map { $bars[$div ? ($_-$min) / $div : @bars/2] } @n), "\n";
+  $result .= join('', map { $bars[$div ? ($_-$min) / $div : @bars/2] } @n), "\n";
   $result .= "\n";
 }
 
