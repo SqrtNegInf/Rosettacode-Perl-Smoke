@@ -8,7 +8,7 @@ updating from RC…
 ||||+--------> Touched (modified by me) [445]
 |||||+-------> Random seed [112]
 ||||||+------> File output [76]
-|||||||+-----> Draft [241]
+|||||||+-----> Draft [240]
 ||||||||+----> Ignoring [36]
 |||||||||+---> Void (no local copy) [122]
 ||||||||||+--> Un-implemented/reliable [101]
@@ -939,7 +939,7 @@ GS......... Ordered_words
 .........VU P-Adic_numbers,_basic
 .......D.VU P-Adic_square_roots
 GS......... P-value_correction
-.......D.VU Padovan_sequence
+.........VU Padovan_sequence
 GS..T...... Palindrome_dates-1
 GS......... Palindrome_dates-2
 GS......... Palindrome_detection
