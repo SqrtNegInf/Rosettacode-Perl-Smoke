@@ -11,11 +11,11 @@ use ntheory qw/:all/;
 
 my @smith;
 forcomposites {
-  push @smith, $_  if sumdigits($_) == sumdigits(join("",factor($_)));
+  push @smith, $_  if sumdigits($_) == sumdigits(join('',factor($_)));
 } 10000-1;
 $result = scalar(@smith). " Smith numbers below 10000.\n";
 
-say $result .= join " ", @smith;
+say $result .= join ' ', @smith;
 
 my $ref = <<'EOD';
 376 Smith numbers below 10000.
