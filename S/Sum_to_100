@@ -10,7 +10,7 @@ my @res;
 
 my $string = '123456789';
 my $length = length $string;
-my @possible_ops = ("" , '+', '-');
+my @possible_ops = ('' , '+', '-');
 
 {
     my @ops;
@@ -44,7 +44,7 @@ my %count = ( my $max_count = 0 => 0 );
 push @res, 'Show all solutions that sum to 100';
 
 while (my @ops = Next()) {
-    my $expression = "";
+    my $expression = '';
     for my $i (0 .. $length - 1) {
         $expression .= $possible_ops[ $ops[$i] ];
         $expression .= substr $string, $i, 1;
