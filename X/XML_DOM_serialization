@@ -10,7 +10,7 @@ my $result;
 
 #Library: XML::SimpleSimple
 use XML::Simple;
-$result = XMLout( { root => { element => "Some text here" } }, NoAttr => 1, RootName => "" );
+$result = XMLout( { root => { element => 'Some text here' } }, NoAttr => 1, RootName => '' );
 
 
 #Library: XML::DOM::BagOfTricksBagOfTricks
