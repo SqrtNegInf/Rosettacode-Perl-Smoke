@@ -23,7 +23,7 @@ END
 my @f = ([],(map {chomp;['',( split // ),'']} @input),[]);
 
 for (1 .. 10) {
-	$result .= join "", map {"@$_\n"} @f;
+	$result .= join '', map {"@$_\n"} @f;
 	my @a = ([]);
 	for my $y (1 .. $#f-1) {
 		my $r = $f[$y];
