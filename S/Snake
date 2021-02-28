@@ -31,7 +31,7 @@ use constant {
              };
 
 use constant {
-              BG_COLOR  => "on_black",
+              BG_COLOR  => 'on_black',
               SLEEP_SEC => 0.05,
              };
 
@@ -95,7 +95,7 @@ sub display {
 
     print $r, join("\n",
         map {
-            join("",
+            join('',
                 map {
                     my $t = $_->[0];
                     if ($t != FOOD and $t != VOID) {
