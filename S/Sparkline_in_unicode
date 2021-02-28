@@ -11,12 +11,12 @@ use strict;
 my $result;
 
 use open ':std', ':encoding(utf8)';
-#binmode(STDOUT, ":utf8");
+#binmode(STDOUT, ':utf8');
 
 our @sparks=map { chr } 0x2581..0x2588;
 
 sub sparkline(_) {
-    my @n=map {0+$_} grep {length} split /[\s,]+/,shift or return "";
+    my @n=map {0+$_} grep {length} split /[\s,]+/,shift or return '';
     my($min,$max)=($n[0])x2;
     if (@n>1) {
         for (@n[1..$#n]) {
@@ -24,7 +24,7 @@ sub sparkline(_) {
             elsif ($_>$max) { $max=$_ }
         }
     }
-    my $sparkline="";
+    my $sparkline='';
     for(@n) {
         my $height=int( $max==$min ? @sparks/2 : @sparks * ($_-$min)/($max-$min) );
         $height=$#sparks if $height>$#sparks;
