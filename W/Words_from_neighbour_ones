@@ -20,7 +20,7 @@ while( $skew =~ /^(\w)(?=$nextch)/gms )
   $dict{$new} and !$seen{$new}++ and push @res, $new;
   }
 
-say my $result = join "", @res;
+say my $result = join '', @res;
 
 my $ref = <<'EOD';
 applicate
