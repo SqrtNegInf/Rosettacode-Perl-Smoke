@@ -1,37 +1,39 @@
 #!/usr/local/bin/perl
 #u# http://rosettacode.org/wiki/Sort_using_a_custom_comparator
-#c# 2018-08-15 <RC
+#c# 2018-08-15 <RC, 2021-02-28 >RC
 #p# OK
+#n# the Schwartzian was different, but don't think that was intentional (changed so all the results same)
 
-use feature 'say';
 my $result;
 
-# Works with: Perl version 5.8.6
+use strict;
+use warnings;
+use feature 'say';
 
+my @strings = qw/Here are some sample strings to be sorted/;
+
+# with a subroutine:
 sub mycmp { length $b <=> length $a || lc $a cmp lc $b }
-
-my @strings = ("Here", "are", "some", "sample", "strings", "to", "be", "sorted");
 my @sorted = sort mycmp @strings;
 $result .= "@sorted\n";
 
-# Or inline:
-my @strings = qw/here are some sample strings to be sorted/;
-my @sorted = sort {length $b <=> length $a || lc $a cmp lc $b} @strings;
+# inline:
+@sorted = sort {length $b <=> length $a || lc $a cmp lc $b} @strings;
 $result .= "@sorted\n";
 
-# Faster with a Schwartzian transform:
-my @strings = qw/here are some sample strings to be sorted/;
-my @sorted = map  { $_->[0] }
-             sort { $a->[1] <=> $b->[1] || $a->[2] cmp $b->[2] }
+# for large inputs, can be faster with a 'Schwartzian' transform:
+@sorted = map  { $_->[0] }
+             sort { $b->[1] <=> $a->[1] || $a->[2] cmp $b->[2] }
              map  { [ $_, length, lc ] }
              @strings;
 $result .= "@sorted\n";
 
 say $result; 
+
 my $ref = <<'EOD';
 strings sample sorted Here some are be to
-strings sample sorted here some are be to
-be to are here some sample sorted strings
+strings sample sorted Here some are be to
+strings sample sorted Here some are be to
 EOD
 
 use Test::More;
