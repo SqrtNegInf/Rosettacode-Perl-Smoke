@@ -821,8 +821,7 @@ File: B/Bioinformatics_base_count
 File: B/Bioinformatics_global_alignment
 #!/usr/local/bin/perl
 #u# http://rosettacode.org/wiki/Bioinformatics/global_alignment
-#t# inprogress
-#c# 2021-02-xx >RC
+#c# 2021-02-28 <RC
 #p# OK
 
 File: B/Biorhythms
@@ -2909,6 +2908,12 @@ File: F/Find_first_and_last_set_bit_of_a_long_integer
 #c# 2018-08-06 <RC
 #p# OK
 #n# just testing 'msb' and 'lsb'
+
+File: F/Find_first_missing_positive
+#!/usr/local/bin/perl
+#u# http://rosettacode.org/wiki/Find_first_missing_positive
+#c# 2021-02-28 <RC
+#p# OK
 
 File: F/Find_if_a_point_is_within_a_triangle
 #!/usr/local/bin/perl
@@ -7737,8 +7742,9 @@ File: S/Sort_three_variables
 File: S/Sort_using_a_custom_comparator
 #!/usr/local/bin/perl
 #u# http://rosettacode.org/wiki/Sort_using_a_custom_comparator
-#c# 2018-08-15 <RC
+#c# 2018-08-15 <RC, 2021-02-28 >RC
 #p# OK
+#n# the Schwartzian was different, but don't think that was intentional (changed so all the results same)
 
 File: S/Sorting_Algorithms_Circle_Sort
 #!/usr/local/bin/perl
