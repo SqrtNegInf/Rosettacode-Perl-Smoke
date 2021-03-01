@@ -2,16 +2,16 @@
 This is perl 5, version 32, subversion 1 (v5.32.1) built for darwin-thread-multi-2level
 updating from RC…
 +------------> Perl: Good/Bad [1388/10]
-|+-----------> Smoke testing [1241]
-||+----------> sKipping validation [151]
+|+-----------> Smoke testing [1243]
+||+----------> sKipping validation [150]
 |||+---------> Interactive [68]
 ||||+--------> Touched (modified by me) [445]
 |||||+-------> Random seed [112]
 ||||||+------> File output [76]
 |||||||+-----> Draft [240]
 ||||||||+----> Ignoring [36]
-|||||||||+---> Void (no local copy) [122]
-||||||||||+--> Un-implemented/reliable [101]
+|||||||||+---> Void (no local copy) [121]
+||||||||||+--> Un-implemented/reliable [99]
 |||||||||||
 GS......... 100_doors-1
 GS......... 100_doors-2
@@ -152,7 +152,7 @@ GS......... Binary_search-2
 GS..T...... Binary_strings
 GS..TR..... Bioinformatics_Sequence_mutation
 GS..T...... Bioinformatics_base_count
-G.K.T..D..U Bioinformatics_global_alignment
+GS.....D... Bioinformatics_global_alignment
 GS..T...... Biorhythms
 GS..TR.D... Birthday_problem
 GS......... Bitcoin_address_validation
@@ -492,7 +492,7 @@ GS.....D... Find_URI_in_text
 GS..T...... Find_common_directory_path
 GS..T...... Find_duplicate_files
 GS.....D... Find_first_and_last_set_bit_of_a_long_integer
-.......D.VU Find_first_missing_positive
+GS.....D... Find_first_missing_positive
 GS.....D... Find_if_a_point_is_within_a_triangle
 GS......... Find_largest_left_truncatable_prime_in_a_given_base
 GS......... Find_limit_of_recursion
@@ -1263,7 +1263,7 @@ GS......... Sort_disjoint_sublist
 GS..T...... Sort_numbers_lexicographically
 G.K........ Sort_stability
 GS..T...... Sort_three_variables
-GS......... Sort_using_a_custom_comparator
+GS..T...... Sort_using_a_custom_comparator
 GS..T...... Sorting_Algorithms_Circle_Sort
 GS...R..... Sorting_algorithms_Bead_sort
 GS......... Sorting_algorithms_Bogosort
@@ -1414,7 +1414,7 @@ GS......... Thue-Morse
 GS...R..... Tic-tac-toe
 G.KI....... Tic-tac-toe-2
 GS.....D... Time-based_one-time_password_algorithm
-GS......... Time_a_function
+!S......... Time_a_function
 GS......... Tokenize_a_string
 GS......... Tokenize_a_string_with_escaping
 GS..T...... Tonelli-Shanks_algorithm
