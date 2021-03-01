@@ -1,11 +1,7 @@
 #!/usr/local/bin/perl
 #u# http://rosettacode.org/wiki/Bioinformatics/global_alignment
-#t# inprogress
-#c# 2021-02-xx >RC
+#c# 2021-02-28 <RC
 #p# OK
-
-use Data::Printer;          # debug only
-use Time::HiRes qw(sleep);  # debug only
 
 my @res;
 
@@ -13,95 +9,102 @@ use strict;
 use warnings;
 use feature 'say';
 
-sub shortestCommonSuperstring {
-   my $beta = join '', my @ss = deduplicate(@_);
-   for my $p (permutations @ss) {
-      my @perm = @$p;
-      my $sup = $perm[0];
-      #for @perm.rotor(2 => -1) { sup ~= @_[1].substr: stringCentipede |@_ }
-      $beta = $sup if length($sup) < length $beta;
-   }
-   $beta
+use List::Util qw( first uniq );
+
+my @seq = (
+  [ qw( TA AAG TA GAA TA ) ],
+
+  [ qw( CATTAGGG ATTAG GGG TA) ],
+
+  [ qw( AAGAUGGA GGAGCGCAUC AUCGCAAUAAGGA ) ],
+
+  [ qw(
+  ATGAAATGGATGTTCTGAGTTGGTCAGTCCCAATGTGCGGGGTTTCTTTTAGTACGTCGGGAGTGGTATTAT
+  GGTCGATTCTGAGGACAAAGGTCAAGATGGAGCGCATCGAACGCAATAAGGATCATTTGATGGGACGTTTCGTCGACAAAGT
+  CTATGTTCTTATGAAATGGATGTTCTGAGTTGGTCAGTCCCAATGTGCGGGGTTTCTTTTAGTACGTCGGGAGTGGTATTATA
+  TGCTTTCCAATTATGTAAGCGTTCCGAGACGGGGTGGTCGATTCTGAGGACAAAGGTCAAGATGGAGCGCATC
+  AACGCAATAAGGATCATTTGATGGGACGTTTCGTCGACAAAGTCTTGTTTCGAGAGTAACGGCTACCGTCTT
+  GCGCATCGAACGCAATAAGGATCATTTGATGGGACGTTTCGTCGACAAAGTCTTGTTTCGAGAGTAACGGCTACCGTC
+  CGTTTCGTCGACAAAGTCTTGTTTCGAGAGTAACGGCTACCGTCTTCGATTCTGCTTATAACACTATGTTCT
+  TGCTTTCCAATTATGTAAGCGTTCCGAGACGGGGTGGTCGATTCTGAGGACAAAGGTCAAGATGGAGCGCATC
+  CGTAAAAAATTACAACGTCCTTTGGCTATCTCTTAAACTCCTGCTAAATGCTCGTGC
+  GATGGAGCGCATCGAACGCAATAAGGATCATTTGATGGGACGTTTCGTCGACAAAGTCTTGTTTCGAGAGTAACGGCTACCGTCTTCGATT
+  TTTCCAATTATGTAAGCGTTCCGAGACGGGGTGGTCGATTCTGAGGACAAAGGTCAAGATGGAGCGCATC
+  CTATGTTCTTATGAAATGGATGTTCTGAGTTGGTCAGTCCCAATGTGCGGGGTTTCTTTTAGTACGTCGGGAGTGGTATTATA
+  TCTCTTAAACTCCTGCTAAATGCTCGTGCTTTCCAATTATGTAAGCGTTCCGAGACGGGGTGGTCGATTCTGAGGACAAAGGTCAAGA
+  ) ],
+  );
+
+sub removedups { # remove dups and subseqs
+  local $_ = join ' ', sort { length $a <=> length $b } split ' ', shift;
+  1 while s/\b(\w+) (?=.*\1)//;
+  return $_;
 }
 
-printCounts shortestCommonSuperstring $_
-for ( 
-   'TA AAG TA GAA TA',
-   'CATTAGGG ATTAG GGG TA',
-   'AAGAUGGA GGAGCGCAUC AUCGCAAUAAGGA',
-);
+for ( @seq ) {
+  local $_ = removedups join ' ', @$_;
+  my @queue = $_;
+  my @best;
 
+  while( @queue )
+    {
+    local $_ = shift @queue;
+    my @seq = split ' ', $_;
+    my @over;
+    for my $left ( @seq )
+      {
+      for my $right ( @seq )
+        {
+        $left eq $right and next;
+        "$left $right" =~ /(.+) \1/ or next;
+        my $len = length $1;
+        $over[$len] .= "$left $right\n";
+        }
+      }
+    if( @over )
+      {
+      for my $join ( split /\n/, $over[-1] )
+        {
+        my ($left, $right) = split ' ', $join;
+        my @newseq = grep $_ ne $left && $_ ne $right, @seq; # remove used
+        push @queue, removedups "$left $right" =~ s/(.+) (?=\1)//r .
+          join ' ', '', @newseq;
+        }
+      }
+    else
+      {
+      tr/ //d;
+      $best[length] .= "$_\n";
+      next;
+      }
+    }
 
-exit;
-say my $result = join "\n", @res;
+  for ( uniq split /\n/, first {defined} @best ) {
+    push @res, sprintf "\nlength %d - %s\n", length, $_;
+    my %ch;
+    $ch{$_}++ for /./g;
+    #use Data::Dump 'dd'; dd \%ch;
+    my $basecnt; 
+    $basecnt .= "$_ = $ch{$_}, " for sort keys %ch;
+    push @res, $basecnt;
+  }
+}
 
-my $ref = <<'END';
-Nucleotide counts for 
-TAAGAA
-A: 4 G: 1 T: 1 and total length = 6
+say my $result = join '', @res;
 
-Nucleotide counts for 
-CATTAGGG
-A: 2 C: 1 G: 3 T: 2 and total length = 8
+my $ref = <<'EOD';
 
-Nucleotide counts for 
-AAGAUGGAGCGCAUCGCAAUAAGGA
-A: 10 C: 4 G: 8 U: 3 and total length = 25
-
-Nucleotide counts for 
-CGTAAAAAATTACAACGTCCTTTGGCTATCTCTTAAACTCCTGCTAAATGCTCGTGCTTTCCAATTATGTAAGCGTTCCGAGACGGGGTGGTCGATTCTGAGGACAAAGGTCAAGATGGAGCGCATCGAACGCAATAAGGATCATTTGATGGGACGTTTCGTCGACAAAGTCTTGTTTCGAGAGTAACGGCTACCGTCTTCGATTCTGCTTATAACACTATGTTCTTATGAAATGGATGTTCTGAGTTGGTCAGTCCCAATGTGCGGGGTTTCTTTTAGTACGTCGGGAGTGGTATTATA
-A: 74 C: 57 G: 75 T: 94 and total length = 300
-END
+length 6 - TAGAAG
+A = 3, G = 2, T = 1, 
+length 8 - CATTAGGG
+A = 2, C = 1, G = 3, T = 2, 
+length 25 - AAGAUGGAGCGCAUCGCAAUAAGGA
+A = 10, C = 4, G = 8, U = 3, 
+length 300 - CGTAAAAAATTACAACGTCCTTTGGCTATCTCTTAAACTCCTGCTAAATGCTCGTGCTTTCCAATTATGTAAGCGTTCCGAGACGGGGTGGTCGATTCTGAGGACAAAGGTCAAGATGGAGCGCATCGAACGCAATAAGGATCATTTGATGGGACGTTTCGTCGACAAAGTCTTGTTTCGAGAGTAACGGCTACCGTCTTCGATTCTGCTTATAACACTATGTTCTTATGAAATGGATGTTCTGAGTTGGTCAGTCCCAATGTGCGGGGTTTCTTTTAGTACGTCGGGAGTGGTATTATA
+A = 74, C = 57, G = 75, T = 94, 
+EOD
 
 use Test::More;
 chomp $ref;
-is($result, $ref);
+is ($result, $ref);
 done_testing();
-
-__END__
-
-=={{header|Perl}}==
-{{trans|Raku}}
-{{libheader|ntheory}}
-<lang perl></lang>
-{{out}}
-<pre style="height:20ex"></pre>
-[https://github.com/SqrtNegInf/Rosettacode-Perl5-Smoke/blob/master/ref/XXX XXX]
-
-sub printCounts(\seq) {
-   my %bases = seq.comb.Bag ;
-   @res.push: "\nNucleotide counts for \n" ~ seq; # ~ " :";
-   # say %bases.kv, " and total length = ", %bases.values.sum
-   @res.push: (%bases.keys.sort.map:{"$_: " ~ %bases{$_}}).join(' ') ~ " and total length = " ~ %bases.values.sum;
-}
-
-sub stringCentipede(\s1, \s2) {
-   loop ( my $offset = 0, my \S1 = $ = '' ; ; $offset++ ) {
-      S1 = s1.substr: $offset ;
-      with S1.index(s2.substr(0,1)) -> $p { $offset += $p } else { return False }
-      return s1.chars - $offset if s2.starts-with: s1.substr: $offset
-   }
-}
-
-sub deduplicate {
-   my @sorted = @_.unique.sort: *.chars; # by length   
-   gather while ( my $target = shift @sorted ) {
-      take $target unless @sorted.grep: { .contains: $target }  
-   }
-}
-
-   <ATGAAATGGATGTTCTGAGTTGGTCAGTCCCAATGTGCGGGGTTTCTTTTAGTACGTCGGGAGTGGTATTAT 
-    GGTCGATTCTGAGGACAAAGGTCAAGATGGAGCGCATCGAACGCAATAAGGATCATTTGATGGGACGTTTCGTCGACAAAGT
-    CTATGTTCTTATGAAATGGATGTTCTGAGTTGGTCAGTCCCAATGTGCGGGGTTTCTTTTAGTACGTCGGGAGTGGTATTATA
-    TGCTTTCCAATTATGTAAGCGTTCCGAGACGGGGTGGTCGATTCTGAGGACAAAGGTCAAGATGGAGCGCATC
-    AACGCAATAAGGATCATTTGATGGGACGTTTCGTCGACAAAGTCTTGTTTCGAGAGTAACGGCTACCGTCTT
-    GCGCATCGAACGCAATAAGGATCATTTGATGGGACGTTTCGTCGACAAAGTCTTGTTTCGAGAGTAACGGCTACCGTC
-    CGTTTCGTCGACAAAGTCTTGTTTCGAGAGTAACGGCTACCGTCTTCGATTCTGCTTATAACACTATGTTCT
-    TGCTTTCCAATTATGTAAGCGTTCCGAGACGGGGTGGTCGATTCTGAGGACAAAGGTCAAGATGGAGCGCATC
-    CGTAAAAAATTACAACGTCCTTTGGCTATCTCTTAAACTCCTGCTAAATGCTCGTGC
-    GATGGAGCGCATCGAACGCAATAAGGATCATTTGATGGGACGTTTCGTCGACAAAGTCTTGTTTCGAGAGTAACGGCTACCGTCTTCGATT
-    TTTCCAATTATGTAAGCGTTCCGAGACGGGGTGGTCGATTCTGAGGACAAAGGTCAAGATGGAGCGCATC
-    CTATGTTCTTATGAAATGGATGTTCTGAGTTGGTCAGTCCCAATGTGCGGGGTTTCTTTTAGTACGTCGGGAGTGGTATTATA
-    TCTCTTAAACTCCTGCTAAATGCTCGTGCTTTCCAATTATGTAAGCGTTCCGAGACGGGGTGGTCGATTCTGAGGACAAAGGTCAAGA
-   >,
-);
