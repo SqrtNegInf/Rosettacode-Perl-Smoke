@@ -5158,6 +5158,13 @@ File: M/Minkowski_question-mark_function
 #c# 2021-01-13 >RC
 #p# OK
 
+File: M/Modified_random_distribution
+#!/usr/local/bin/perl
+#u# http://rosettacode.org/wiki/Modified_random_distribution
+#c# 2021-03-01 >RC
+#p# OK
+#n# using Perl's quick & dirty 'named parameters' hack
+
 File: M/Modular_arithmetic
 #!/usr/local/bin/perl
 #u# http://rosettacode.org/wiki/Modular_arithmetic
