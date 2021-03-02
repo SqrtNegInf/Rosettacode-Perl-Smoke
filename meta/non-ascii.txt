@@ -279,6 +279,9 @@ M/Metaprogramming
 M/Mian-Chowla_sequence
 –:     3 EN DASH
 
+M/Modified_random_distribution
+■:   662 BLACK SQUARE
+
 M/Moebius_function
 »:     1 RIGHT-POINTING DOUBLE ANGLE QUOTATION MARK
 ö:     6 LATIN SMALL LETTER O WITH DIAERESIS
