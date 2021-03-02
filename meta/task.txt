@@ -1,17 +1,17 @@
 
 This is perl 5, version 32, subversion 1 (v5.32.1) built for darwin-thread-multi-2level
 updating from RC…
-+------------> Perl: Good/Bad [1388/10]
-|+-----------> Smoke testing [1243]
++------------> Perl: Good/Bad [1390/10]
+|+-----------> Smoke testing [1244]
 ||+----------> sKipping validation [150]
 |||+---------> Interactive [68]
-||||+--------> Touched (modified by me) [445]
-|||||+-------> Random seed [112]
+||||+--------> Touched (modified by me) [446]
+|||||+-------> Random seed [113]
 ||||||+------> File output [76]
-|||||||+-----> Draft [240]
+|||||||+-----> Draft [239]
 ||||||||+----> Ignoring [36]
-|||||||||+---> Void (no local copy) [121]
-||||||||||+--> Un-implemented/reliable [99]
+|||||||||+---> Void (no local copy) [120]
+||||||||||+--> Un-implemented/reliable [98]
 |||||||||||
 GS......... 100_doors-1
 GS......... 100_doors-2
@@ -839,7 +839,7 @@ GS..T...... Minimum_positive_multiple_in_base_10_using_only_0_and_1-1
 GS..T...... Minimum_positive_multiple_in_base_10_using_only_0_and_1-2
 GS......... Minimum_positive_multiple_in_base_10_using_only_0_and_1-3
 GS..T...... Minkowski_question-mark_function
-.......D.VU Modified_random_distribution
+GS..TR.D... Modified_random_distribution
 GS......... Modular_arithmetic
 GS..T...... Modular_exponentiation
 GS......... Modular_inverse
@@ -937,7 +937,7 @@ GS......... Ordered_partitions
 GS......... Ordered_partitions-2
 GS......... Ordered_words
 .........VU P-Adic_numbers,_basic
-.......D.VU P-Adic_square_roots
+.........VU P-Adic_square_roots
 GS......... P-value_correction
 .........VU Padovan_sequence
 GS..T...... Palindrome_dates-1
@@ -1414,7 +1414,7 @@ GS......... Thue-Morse
 GS...R..... Tic-tac-toe
 G.KI....... Tic-tac-toe-2
 GS.....D... Time-based_one-time_password_algorithm
-!S......... Time_a_function
+GS......... Time_a_function
 GS......... Tokenize_a_string
 GS......... Tokenize_a_string_with_escaping
 GS..T...... Tonelli-Shanks_algorithm
