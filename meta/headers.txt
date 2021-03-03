@@ -2131,7 +2131,7 @@ File: D/Dijkstra%27s_algorithm
 File: D/Dinesman%27s_multiple-dwelling_problem-1
 #!/usr/local/bin/perl
 #u# http://rosettacode.org/wiki/Dinesman%27s_multiple-dwelling_problem
-#c# 2018-07-28 <RC
+#c# 2018-07-28 <RC, 2021-03-01 >RC
 #p# OK
 
 File: D/Dinesman%27s_multiple-dwelling_problem-2
@@ -5161,7 +5161,7 @@ File: M/Minkowski_question-mark_function
 File: M/Modified_random_distribution
 #!/usr/local/bin/perl
 #u# http://rosettacode.org/wiki/Modified_random_distribution
-#c# 2021-03-01 >RC
+#c# 2021-03-01 >RC, 2021-03-02 >RC
 #p# OK
 #n# using Perl's quick & dirty 'named parameters' hack
 
