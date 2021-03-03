@@ -5,10 +5,10 @@ updating from RC…
 |+-----------> Smoke testing [1244]
 ||+----------> sKipping validation [150]
 |||+---------> Interactive [68]
-||||+--------> Touched (modified by me) [446]
+||||+--------> Touched (modified by me) [447]
 |||||+-------> Random seed [113]
 ||||||+------> File output [76]
-|||||||+-----> Draft [239]
+|||||||+-----> Draft [238]
 ||||||||+----> Ignoring [36]
 |||||||||+---> Void (no local copy) [120]
 ||||||||||+--> Un-implemented/reliable [98]
@@ -371,7 +371,7 @@ GS......... Dice_game_probabilities
 GS......... Digital_root
 GS......... Digital_root_Multiplicative_digital_root
 GS..T...... Dijkstra%27s_algorithm
-GS......... Dinesman%27s_multiple-dwelling_problem-1
+GS..T...... Dinesman%27s_multiple-dwelling_problem-1
 GS......... Dinesman%27s_multiple-dwelling_problem-2
 G.K..R..... Dining_philosophers
 GS......... Discordian_date
@@ -1376,7 +1376,7 @@ GS....F.... Take_notes_on_the_command_line
 .......D.VU Tamagotchi_emulator
 GS..T...... Tarjan
 GS..T..D... Tau_function
-.......D.V. Tau_number
+.........V. Tau_number
 GS......... Taxicab_numbers
 GS..T...... Teacup_rim_text
 GS......... Temperature_conversion
