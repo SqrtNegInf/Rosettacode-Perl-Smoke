@@ -1,12 +1,13 @@
 #!/usr/local/bin/perl
 #u# http://rosettacode.org/wiki/Dinesman%27s_multiple-dwelling_problem
-#c# 2018-07-28 <RC
+#c# 2018-07-28 <RC, 2021-03-01 >RC
 #p# OK
 
-use strict;
-#use warnings; # some format-string defs in %predicates need only one arg
-use feature <state say>;
 my $result;
+
+use strict;
+use warnings;
+use feature <state say>;
 
 # A solution that parses a structured version of the problem text, translates it into a Perl expression, and uses it for a brute-force search:
 
@@ -50,15 +51,16 @@ sub parse_and_solve {
         /$parser/ or die "Cannot parse '$_'\n";
  
         my $pred = $predicates{$+{pred}};
+        { no warnings;
         my $expr = '(' . sprintf($pred->[1], $id->($+{subj}),
                          $pred->[0] eq 'person' ? $id->($+{obj}) : $+{obj}) . ')';
         $expr = '!' . $expr if $+{not};
- 
         push @expressions, $expr;
+        }
     }
  
     my @f = 1..$i;
-    eval 'no warnings "numeric";
+    eval '
           permute {
               $result .= join(", ", pairmap { "$f[$b] $a" } %ids)
                   if ('.join(' && ', @expressions).');
