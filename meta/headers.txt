@@ -5744,6 +5744,12 @@ File: P/P-value_correction.1
 #c# 2018-08-20 <RC, 2018-12-20 <RC,
 #p# OK
 
+File: P/Padovan_sequence
+#!/usr/local/bin/perl
+#u# http://rosettacode.org/wiki/Padovan_sequence
+#c# 2021-03-03 >RC
+#p# OK
+
 File: P/Palindrome_dates-1
 #!/usr/local/bin/perl
 #u# http://rosettacode.org/wiki/Palindrome_dates
