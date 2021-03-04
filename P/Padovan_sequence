@@ -1,0 +1,55 @@
+#!/usr/local/bin/perl
+#u# http://rosettacode.org/wiki/Padovan_sequence
+#c# 2021-03-03 >RC
+#p# OK
+
+my @res;
+
+use strict;
+use warnings;
+use feature <state say>;
+
+use List::Lazy 'lazy_list';
+
+# use at least 6 positions after decimal 
+my $p = 1.324717; #95724474602596;
+my $s = 1.045356; #7932525329623;
+my %rules = (A => 'B', B => 'C', C => 'AB');
+
+my $pad_recur = lazy_list { state @p = (1, 1, 1, 2); push @p, $p[1]+$p[2]; shift @p };
+
+sub pad_floor { state $i; int 1/2 + $p**($i++ - 1) / $s }
+
+my($l, $m, $n) = (10, 20, 32);
+
+my(@pr, @pf);
+push @pr, $pad_recur->next() for 1..$n; push @res, join ' ', @pr[0..$m-1];
+push @pf,  pad_floor($_)     for 1..$n; push @res, join ' ', @pf[0..$m-1];
+
+my @L = 'A';
+push @L, join '', @rules{split '', $L[-1]} for 1..$n;
+push @res, join ' ', @L[0..$l-1];
+
+$pr[$_] == $pf[$_] and $pr[$_] == length $L[$_] or die 'Uh oh...' for 0..$n-1;
+#say '100% agreement among all 3 methods.';
+
+say my $result = join "\n", @res;
+
+my $ref = <<'END';
+1 1 1 2 2 3 4 5 7 9 12 16 21 28 37 49 65 86 114 151
+1 1 1 2 2 3 4 5 7 9 12 16 21 28 37 49 65 86 114 151
+A B C AB BC CAB ABBC BCCAB CABABBC ABBCBCCAB
+END
+
+use Test::More;
+chomp $ref;
+is($result, $ref);
+done_testing();
+
+__END__
+
+=={{header|Perl}}==
+{{trans|Raku}}
+<lang perl></lang>
+{{out}}
+<pre></pre>
