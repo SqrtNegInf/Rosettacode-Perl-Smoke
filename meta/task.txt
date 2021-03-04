@@ -2,16 +2,16 @@
 This is perl 5, version 32, subversion 1 (v5.32.1) built for darwin-thread-multi-2level
 updating from RC…
 +------------> Perl: Good/Bad [1390/10]
-|+-----------> Smoke testing [1244]
+|+-----------> Smoke testing [1245]
 ||+----------> sKipping validation [150]
 |||+---------> Interactive [68]
-||||+--------> Touched (modified by me) [447]
+||||+--------> Touched (modified by me) [448]
 |||||+-------> Random seed [113]
 ||||||+------> File output [76]
-|||||||+-----> Draft [238]
+|||||||+-----> Draft [234]
 ||||||||+----> Ignoring [36]
-|||||||||+---> Void (no local copy) [120]
-||||||||||+--> Un-implemented/reliable [98]
+|||||||||+---> Void (no local copy) [119]
+||||||||||+--> Un-implemented/reliable [97]
 |||||||||||
 GS......... 100_doors-1
 GS......... 100_doors-2
@@ -839,7 +839,7 @@ GS..T...... Minimum_positive_multiple_in_base_10_using_only_0_and_1-1
 GS..T...... Minimum_positive_multiple_in_base_10_using_only_0_and_1-2
 GS......... Minimum_positive_multiple_in_base_10_using_only_0_and_1-3
 GS..T...... Minkowski_question-mark_function
-GS..TR.D... Modified_random_distribution
+GS..TR..... Modified_random_distribution
 GS......... Modular_arithmetic
 GS..T...... Modular_exponentiation
 GS......... Modular_inverse
@@ -939,7 +939,7 @@ GS......... Ordered_words
 .........VU P-Adic_numbers,_basic
 .........VU P-Adic_square_roots
 GS......... P-value_correction
-.........VU Padovan_sequence
+GS..T...... Padovan_sequence
 GS..T...... Palindrome_dates-1
 GS......... Palindrome_dates-2
 GS......... Palindrome_detection
@@ -1087,11 +1087,11 @@ GS..T..D... Railway_circuit
 GS......... Ramanujan%27s_constant
 GS..T...... Ramer-Douglas-Peucker_line_simplification
 GS..T..D... Ramsey%27s_theorem
-GS..TR.D... Random_Latin_squares
+GS..TR..... Random_Latin_squares
 G.K........ Random_number_generator_device
 G.K........ Random_number_generator_included
 GS...R..... Random_numbers
-GS...R.D... Random_sentence_from_book
+GS...R..... Random_sentence_from_book
 GS..T...... Range_consolidation
 GS......... Range_expansion
 GS..T...... Range_extraction
@@ -1414,7 +1414,7 @@ GS......... Thue-Morse
 GS...R..... Tic-tac-toe
 G.KI....... Tic-tac-toe-2
 GS.....D... Time-based_one-time_password_algorithm
-GS......... Time_a_function
+!S......... Time_a_function
 GS......... Tokenize_a_string
 GS......... Tokenize_a_string_with_escaping
 GS..T...... Tonelli-Shanks_algorithm
@@ -1430,7 +1430,7 @@ GS......... Towers_of_Hanoi
 GS..T...... Trabb_Pardo-Knuth_algorithm
 .......D.VU Transportation_problem
 GS..T...... Tree_datastructures
-GS.....D... Tree_from_nesting_levels
+GS......... Tree_from_nesting_levels
 GS......... Tree_from_nesting_levels-1
 GS......... Tree_from_nesting_levels-2
 GS......... Tree_traversal
