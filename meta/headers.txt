@@ -5747,8 +5747,9 @@ File: P/P-value_correction.1
 File: P/Padovan_sequence
 #!/usr/local/bin/perl
 #u# http://rosettacode.org/wiki/Padovan_sequence
-#c# 2021-03-03 >RC
+#c# 2021-03-04 >RC
 #p# OK
+#n# 'pad_floor' simpler, random access; tested to 64th item (slow-ish)
 
 File: P/Palindrome_dates-1
 #!/usr/local/bin/perl
