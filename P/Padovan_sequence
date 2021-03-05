@@ -1,7 +1,8 @@
 #!/usr/local/bin/perl
 #u# http://rosettacode.org/wiki/Padovan_sequence
-#c# 2021-03-03 >RC
+#c# 2021-03-04 >RC
 #p# OK
+#n# 'pad_floor' simpler, random access; tested to 64th item (slow-ish)
 
 my @res;
 
@@ -11,14 +12,15 @@ use feature <state say>;
 
 use List::Lazy 'lazy_list';
 
-# use at least 6 positions after decimal 
-my $p = 1.324717; #95724474602596;
-my $s = 1.045356; #7932525329623;
+# use at least 6 positions after decimal for testing to 32nd item in sequence
+my $p = 1.32471795724474602596;
+my $s = 1.0453567932525329623;
 my %rules = (A => 'B', B => 'C', C => 'AB');
 
 my $pad_recur = lazy_list { state @p = (1, 1, 1, 2); push @p, $p[1]+$p[2]; shift @p };
 
-sub pad_floor { state $i; int 1/2 + $p**($i++ - 1) / $s }
+sub pad_floor { int 1/2 + $p**($_<3 ? 1 : $_-2) / $s }
+#sub pad_floor { state $i; int 1/2 + $p**($i++ - 1) / $s }
 
 my($l, $m, $n) = (10, 20, 32);
 
@@ -30,7 +32,7 @@ my @L = 'A';
 push @L, join '', @rules{split '', $L[-1]} for 1..$n;
 push @res, join ' ', @L[0..$l-1];
 
-$pr[$_] == $pf[$_] and $pr[$_] == length $L[$_] or die 'Uh oh...' for 0..$n-1;
+$pr[$_] == $pf[$_] and $pr[$_] == length $L[$_] or die "Uh oh, for n=$_: $pr[$_] vs $pf[$_] vs " . length $L[$_] for 0..$n-1;
 #say '100% agreement among all 3 methods.';
 
 say my $result = join "\n", @res;
