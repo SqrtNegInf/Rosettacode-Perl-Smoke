@@ -1,7 +1,7 @@
 
 This is perl 5, version 32, subversion 1 (v5.32.1) built for darwin-thread-multi-2level
 updating from RC…
-+------------> Perl: Good/Bad [1390/10]
++------------> Perl: Good/Bad [1391/10]
 |+-----------> Smoke testing [1245]
 ||+----------> sKipping validation [150]
 |||+---------> Interactive [68]
@@ -1414,7 +1414,7 @@ GS......... Thue-Morse
 GS...R..... Tic-tac-toe
 G.KI....... Tic-tac-toe-2
 GS.....D... Time-based_one-time_password_algorithm
-!S......... Time_a_function
+GS......... Time_a_function
 GS......... Tokenize_a_string
 GS......... Tokenize_a_string_with_escaping
 GS..T...... Tonelli-Shanks_algorithm
