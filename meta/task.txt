@@ -11,7 +11,7 @@ updating from RC…
 |||||||+-----> Draft [234]
 ||||||||+----> Ignoring [36]
 |||||||||+---> Void (no local copy) [119]
-||||||||||+--> Un-implemented/reliable [97]
+||||||||||+--> Un-implemented/reliable [96]
 |||||||||||
 GS......... 100_doors-1
 GS......... 100_doors-2
@@ -56,7 +56,7 @@ GS......... Ackermann_function-3
 GS......... Ackermann_function-4
 GS......... Ackermann_function-5
 ........XV. Active_Directory_Connect
-.........VU Active_Directory_Search_for_a_user
+.........V. Active_Directory_Search_for_a_user
 GS......... Active_object
 GS......... Add_a_variable_to_a_class_instance_at_runtime
 .......D.VU Addition-chain_exponentiation
