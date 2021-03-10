@@ -40,7 +40,6 @@ File: 0/15_Puzzle_Game-1
 #t# gui
 #c# 2018-07-01 <RC
 #p# OK
-#n# requires Tk
 
 File: 0/15_Puzzle_Game-2
 #!/usr/local/bin/perl
