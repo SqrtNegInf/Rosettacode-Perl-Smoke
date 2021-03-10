@@ -3,23 +3,14 @@
 #t# gui
 #c# 2018-07-01 <RC
 #p# OK
-#n# requires Tk
 
-# Tk version[edit]
-# Library: Tk
-# Library: Perl/Tk
-# This Tk 15 puzzle implementation also shows the solvability of the current puzzle and the relative difficulty of it.
-# On verbosity shows how the solvability is calculated. The program has some extra feature like font size and color scheme but also the possibility to set the intial board disposition.
-# This program was originally posted by me at perlmonks
-
- 
 use strict;
 use warnings;
  
 use Getopt::Long;
 use List::Util 1.29 <shuffle pairmap first all>;
 use Tk;
-    # 5 options                                 1 label text
+
 my ($verbose,@fixed,$nocolor,$charsize,$extreme,$solvability);
  
 unless (GetOptions (
@@ -71,7 +62,6 @@ if ( $extreme ){ &extreme_perl}
  
 MainLoop;
  
-################################################################################
 sub init_board{
   # tiles from 1 to 15
   for (0..14){
@@ -110,7 +100,7 @@ sub init_board{
           name => 16,      # x and y set by shuffle_board
      };
 }
-################################################################################
+
 sub shuffle_board{
     if ($victorious){
         $victorious=0;
@@ -119,7 +109,7 @@ sub shuffle_board{
     if (@fixed){
           my $index = 0;
  
-          foreach my $tile(@$board[@fixed]){
+          for my $tile(@$board[@fixed]){
                   my $xy = $vic_cond[$index];
                   ($$tile{x},$$tile{y}) = @$xy;
                   $$tile{btn}->grid(-row=>$$xy[0], -column=> $$xy[1]);
@@ -130,7 +120,7 @@ sub shuffle_board{
     }
     else{
         my @valid = shuffle (0..15);
-        foreach my $tile ( @$board ){
+        for my $tile ( @$board ){
             my $xy = $vic_cond[shift @valid];
             ($$tile{x},$$tile{y}) = @$xy;
             $$tile{btn}->grid(-row=>$$xy[0], -column=> $$xy[1]);
@@ -147,7 +137,7 @@ sub shuffle_board{
     # remove the, from now on inutile, 'X' for the empty space
     @appear = grep{$_ ne 'X'} @appear;
     my $permutation;
-    foreach my $num (0..$#appear){
+    for my $num (0..$#appear){
         last if $num == $#appear;
          my $perm;
           $perm += grep {$_ < $appear[$num]} @appear[$num+1..$#appear];
@@ -177,7 +167,7 @@ sub shuffle_board{
     $solvability = "$diff game with permutation parity of [$permutation]\n".
                     "(ctrl-s to shuffle)";
 }
-################################################################################
+
 sub move{
     # original x and y
     my ($ox, $oy) = @_;
@@ -204,9 +194,9 @@ sub move{
     # check for victory if the empty one is at the bottom rigth tile (3,3)
     &check_win if $$empty{x} == 3 and $$empty{y} == 3;
 }
-################################################################################
+
 sub check_win{
-     foreach my $pos (0..$#$board){
+     for my $pos (0..$#$board){
         return unless ( $$board[$pos]->{'x'} == $vic_cond[$pos]->[0] and
                         $$board[$pos]->{'y'} == $vic_cond[$pos]->[1]);
      }
@@ -214,14 +204,14 @@ sub check_win{
      $victorious = 1;
      my @text =  ('Dis','ci','pu','lus','15th','','','at',
                   'P','e','r','l','M','o','n','ks*');
-     foreach my $tile(@$board){
+     for my $tile(@$board){
             $$tile{btn}->configure( -text=> shift @text,
                                     -command=>sub{return});
             $mw->update;
             sleep 1;
      }
 }
-################################################################################
+
 sub check_req_pos{
     my @wanted = @_;
     # fix @wanted: seems GetOptions does not die if more elements are passed
@@ -232,7 +222,7 @@ sub check_req_pos{
     }
     return map {$_-1} @wanted;
 }
-################################################################################
+
 sub extreme_perl {
   $verbose = 0;
   $mw->optionAdd('*font', 'Courier 20 bold');
@@ -251,7 +241,7 @@ sub extreme_perl {
     "split '',\nunpack('V',\n01234567))\n[6,4]",  # 12
     'J','A','P','H'                               # 13..16
   );
-  foreach (0..15){
+  for (0..15){
       $$board[$_]{btn}->configure(-text=> $extreme[$_],
                                  -height => 8,
                                   -width =>  16, ) if $extreme[$_];
@@ -260,5 +250,3 @@ sub extreme_perl {
   @fixed =  <0 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15>;
   $mw->after(5000,\&shuffle_board);#
 }
- 
- 
