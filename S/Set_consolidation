@@ -3,24 +3,19 @@
 #c# 2018-08-17 <RC
 #p# OK
 
-use feature 'say';
 my $result;
 
-# We implement the key data structure, a set of sets, as an array containing references to arrays of scalars.
-
 use strict;
+use warnings;
+use feature 'say';
+
 use English;
-#use Smart::Comments;
 use Data::Dumper;
 
 my @ex1 = consolidate( (['A', 'B'], ['C', 'D']) );
-# ### Example 1: @ex1
 my @ex2 = consolidate( (['A', 'B'], ['B', 'D']) );
-# ### Example 2: @ex2
 my @ex3 = consolidate( (['A', 'B'], ['C', 'D'], ['D', 'B']) );
-### Example 3: @ex3
 my @ex4 = consolidate( (['H', 'I', 'K'], ['A', 'B'], ['C', 'D'], ['D', 'B'], ['F', 'G', 'H']) );
-# ### Example 4: @ex4
 
 $Data::Dumper::Sortkeys = 1;
 $result .= "Example 1:\n"; $result .= Dumper @ex1;
@@ -30,13 +25,12 @@ $result .= "Example 4:\n"; $result .= Dumper @ex4;
 
 sub consolidate {
     scalar(@ARG) >= 2 or return @ARG;
-    my @result = ( shift(@ARG) );
+    my @result = shift(@ARG);
     my @recursion = consolidate(@ARG);
-    foreach my $r (@recursion) {
+    for my $r (@recursion) {
         if (set_intersection($result[0], $r)) {
             $result[0] = [ set_union($result[0], $r) ];
-        }
-        else {
+        } else {
             push @result, $r;
         }
     }
@@ -46,17 +40,16 @@ sub consolidate {
 sub set_union {
     my ($a, $b) = @ARG;
     my %union;
-    foreach my $a_elt (@{$a}) { $union{$a_elt}++; }
-    foreach my $b_elt (@{$b}) { $union{$b_elt}++; }
+    for my $a_elt (@{$a}) { $union{$a_elt}++; }
+    for my $b_elt (@{$b}) { $union{$b_elt}++; }
     return sort keys(%union); # DH added 'sort', stable for testing
 }
 
 sub set_intersection {
     my ($a, $b) = @ARG;
-    my %a_hash;
-    foreach my $a_elt (@{$a}) { $a_hash{$a_elt}++; }
-    my @result;
-    foreach my $b_elt (@{$b}) {
+    my(%a_hash,@result);
+    for my $a_elt (@{$a}) { $a_hash{$a_elt}++; }
+    for my $b_elt (@{$b}) {
         push(@result, $b_elt) if exists($a_hash{$b_elt});
     }
     return @result;
