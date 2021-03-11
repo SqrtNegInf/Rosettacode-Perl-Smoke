@@ -8,10 +8,10 @@ updating from RC…
 ||||+--------> Touched (modified by me) [448]
 |||||+-------> Random seed [113]
 ||||||+------> File output [76]
-|||||||+-----> Draft [234]
+|||||||+-----> Draft [236]
 ||||||||+----> Ignoring [36]
-|||||||||+---> Void (no local copy) [118]
-||||||||||+--> Un-implemented/reliable [96]
+|||||||||+---> Void (no local copy) [121]
+||||||||||+--> Un-implemented/reliable [99]
 |||||||||||
 GS......... 100_doors-1
 GS......... 100_doors-2
@@ -890,6 +890,7 @@ GS..T...... Negative_base_numbers
 GS......... Nested_function
 GS..T...... Nested_templated_data
 GS..T...... Next_highest_int_from_digits
+.......D.VU Nice_primes
 GS..T...... Nim_game
 GS..T...... Nimber_arithmetic
 GS......... Non-continuous_subsequences
@@ -944,7 +945,7 @@ GS..T...... Palindrome_dates-1
 GS......... Palindrome_dates-2
 GS......... Palindrome_detection
 GS..T...... Palindromic_gapful_numbers
-GS..T..D... Pancake_numbers
+GS..T...... Pancake_numbers
 GS..T...... Pangram_checker
 GS......... Paraffins
 GS......... Parallel_brute_force
@@ -1299,6 +1300,7 @@ GS......... Spiral_matrix
 GS..T...... Split_a_character_string_based_on_change_of_character
 GS..TR.D... Spoof_game
 GS......... Square-free_integers
+.......D.VU Square_Form_Factorization
 GS..T...... Square_but_not_cube-1
 GS..T...... Square_but_not_cube-2
 GS..T..D... Square_root_by_hand
@@ -1320,6 +1322,7 @@ GS..T...... Stirling_numbers_of_the_second_kind
 GS..T...... Straddling_checkerboard
 GS..T..D... Strange_numbers
 GS..T..D... Strange_plus_numbers
+.......D.VU Strange_primes
 .......D.VU Strassen%27s_algorithm
 GS..T...... Stream_merge
 GS......... String_append
