@@ -1322,7 +1322,7 @@ GS..T...... Stirling_numbers_of_the_second_kind
 GS..T...... Straddling_checkerboard
 GS..T..D... Strange_numbers
 GS..T..D... Strange_plus_numbers
-.......D.VU Strange_primes
+.......D.VU Strange_unique_prime_triplets
 .......D.VU Strassen%27s_algorithm
 GS..T...... Stream_merge
 GS......... String_append
