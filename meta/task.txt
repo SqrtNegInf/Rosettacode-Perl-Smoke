@@ -8,7 +8,7 @@ updating from RC…
 ||||+--------> Touched (modified by me) [448]
 |||||+-------> Random seed [113]
 ||||||+------> File output [76]
-|||||||+-----> Draft [236]
+|||||||+-----> Draft [235]
 ||||||||+----> Ignoring [36]
 |||||||||+---> Void (no local copy) [121]
 ||||||||||+--> Un-implemented/reliable [99]
@@ -1300,7 +1300,7 @@ GS......... Spiral_matrix
 GS..T...... Split_a_character_string_based_on_change_of_character
 GS..TR.D... Spoof_game
 GS......... Square-free_integers
-.......D.VU Square_Form_Factorization
+.........VU Square_Form_Factorization
 GS..T...... Square_but_not_cube-1
 GS..T...... Square_but_not_cube-2
 GS..T..D... Square_root_by_hand
