@@ -1,0 +1,37 @@
+#!/usr/local/bin/perl
+#u# http://rosettacode.org/wiki/Nice_primes
+#c# 2021-03-14 >RC
+#p# OK
+
+use strict;
+use warnings;
+
+use ntheory 'is_prime';
+use List::Util qw(sum);
+
+sub digital_root {
+    my ($n) = @_;
+    #while( length($n) > 1 ) { $n = sum split //, $n }
+    do { $n = sum split '', $n } until 1 == length $n;
+    $n
+}
+
+my($low,$high,$cnt,@nice_primes) = (500,1000);
+is_prime($_) and is_prime(digital_root($_)) and push @nice_primes, $_ for $low+1 .. $high-1;
+
+$cnt = @nice_primes;
+print "Nice primes between $low and $high (total of $cnt):\n" . 
+(sprintf "@{['%5d' x $cnt]}", @nice_primes[0..$cnt-1]) =~ s/(.{55})/$1\n/gr;
+
+my $result = (sprintf "@{['%5d' x $cnt]}", @nice_primes[0..$cnt-1]) =~ s/(.{55})/$1\n/gr;
+
+# Nice primes between 500 and 1000 (total of 33):
+my $ref = <<'END';
+  509  547  563  569  587  599  601  617  619  641  653
+  659  673  677  691  709  727  743  761  797  821  839
+  853  857  887  907  911  929  941  947  977  983  997
+END
+
+use Test::More;
+is($result, $ref);
+done_testing();
