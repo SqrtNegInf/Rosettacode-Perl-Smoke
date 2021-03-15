@@ -1,14 +1,14 @@
 
 This is perl 5, version 32, subversion 1 (v5.32.1) built for darwin-thread-multi-2level
 updating from RC…
-+------------> Perl: Good/Bad [1392/10]
-|+-----------> Smoke testing [1246]
++------------> Perl: Good/Bad [1394/10]
+|+-----------> Smoke testing [1248]
 ||+----------> sKipping validation [150]
 |||+---------> Interactive [68]
-||||+--------> Touched (modified by me) [448]
+||||+--------> Touched (modified by me) [449]
 |||||+-------> Random seed [113]
 ||||||+------> File output [76]
-|||||||+-----> Draft [235]
+|||||||+-----> Draft [237]
 ||||||||+----> Ignoring [36]
 |||||||||+---> Void (no local copy) [121]
 ||||||||||+--> Un-implemented/reliable [99]
@@ -890,7 +890,7 @@ GS..T...... Negative_base_numbers
 GS......... Nested_function
 GS..T...... Nested_templated_data
 GS..T...... Next_highest_int_from_digits
-.......D.VU Nice_primes
+GS..T..D... Nice_primes
 GS..T...... Nim_game
 GS..T...... Nimber_arithmetic
 GS......... Non-continuous_subsequences
@@ -940,6 +940,7 @@ GS......... Ordered_words
 .........VU P-Adic_numbers,_basic
 .........VU P-Adic_square_roots
 GS......... P-value_correction
+.......D.VU Padovan_n-step_number_sequences
 GS..T...... Padovan_sequence
 GS..T...... Palindrome_dates-1
 GS......... Palindrome_dates-2
@@ -1206,6 +1207,7 @@ GS..T...... Sexy_primes-1
 GS..T...... Sexy_primes-2
 GS..T...... Sexy_primes-3
 GS......... Shell_one-liner
+GS.....D... Shift_list_elements_to_left_by_3
 GS..T...... Shoelace_formula_for_polygonal_area
 GS......... Short-circuit_evaluation
 GS......... Shortest_common_supersequence
