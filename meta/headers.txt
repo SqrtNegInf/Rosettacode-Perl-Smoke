@@ -5484,6 +5484,12 @@ File: N/Next_highest_int_from_digits.0
 #p# OK
 #n# works fine, but doesn't scale well
 
+File: N/Nice_primes
+#!/usr/local/bin/perl
+#u# http://rosettacode.org/wiki/Nice_primes
+#c# 2021-03-14 >RC
+#p# OK
+
 File: N/Nim_Game
 #!/usr/local/bin/perl
 #u# http://rosettacode.org/wiki/Nim_Game
@@ -7386,6 +7392,12 @@ File: S/Shell_one-liner
 #!/usr/local/bin/perl
 #u# http://rosettacode.org/wiki/Shell_one-liner
 #c# 2018-08-17 <RC
+#p# OK
+
+File: S/Shift_list_elements_to_left_by_3
+#!/usr/local/bin/perl
+#u# http://rosettacode.org/wiki/Shift_list_elements_to_left_by_3
+#c# 2021-03-14 <RC
 #p# OK
 
 File: S/Shoelace_formula_for_polygonal_area
