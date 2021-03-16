@@ -1,6 +1,6 @@
 #!/usr/local/bin/perl
 #u# http://rosettacode.org/wiki/Fusc_sequence
-#c# 2019-03-13 >RC
+#c# 2019-03-13 >RC, 2021-03-15 >RC
 #p# OK
 #n# golfing the comma routine: 'r' option to subst. operator, no negative value input
 
@@ -20,7 +20,7 @@ sub stern_diatomic {
   $p;
 }
 
-$result  = "First 61 terms of the Stern-Brocot sequence:\n" . join ' ', map { stern_diatomic($_) } 0..60;
+$result  = "First 61 terms of the Fusc sequence:\n" . join ' ', map { stern_diatomic($_) } 0..60;
 $result .= "\n\nIndex and value for first term longer than any previous:\n";
 
 my $i =  0;
@@ -34,7 +34,7 @@ while ($l < 5) {
 say $result;
 
 my $ref = <<'EOD';
-First 61 terms of the Stern-Brocot sequence:
+First 61 terms of the Fusc sequence:
 0 1 1 2 1 3 2 3 1 4 3 5 2 5 3 4 1 5 4 7 3 8 5 7 2 7 5 8 3 7 4 5 1 6 5 9 4 11 7 10 3 11 8 13 5 12 7 9 2 9 7 12 5 13 8 11 3 10 7 11 4
 
 Index and value for first term longer than any previous:
