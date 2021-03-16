@@ -2946,6 +2946,12 @@ File: F/Find_palindromic_numbers_in_both_binary_and_ternary_bases
 #c# 2018-07-02 <RC
 #p# OK
 
+File: F/Find_prime_numbers_of_the_form_n_n_n%2B2
+#!/usr/local/bin/perl
+#u# http://rosettacode.org/wiki/Find_prime_numbers_of_the_form_n*n*n%2B2
+#c# 2021-03-xx >RC
+#p# OK
+
 File: F/Find_the_intersection_of_a_line_with_a_plane-1
 #!/usr/local/bin/perl
 #u# http://rosettacode.org/wiki/Find_the_intersection_of_a_line_with_a_plane
@@ -3288,7 +3294,7 @@ File: F/Functional_coverage_tree.1
 File: F/Fusc_sequence
 #!/usr/local/bin/perl
 #u# http://rosettacode.org/wiki/Fusc_sequence
-#c# 2019-03-13 >RC
+#c# 2019-03-13 >RC, 2021-03-15 >RC
 #p# OK
 #n# golfing the comma routine: 'r' option to subst. operator, no negative value input
 
