@@ -1,17 +1,17 @@
 
 This is perl 5, version 32, subversion 1 (v5.32.1) built for darwin-thread-multi-2level
 updating from RC…
-+------------> Perl: Good/Bad [1393/10]
++------------> Perl: Good/Bad [1394/10]
 |+-----------> Smoke testing [1248]
 ||+----------> sKipping validation [150]
 |||+---------> Interactive [68]
 ||||+--------> Touched (modified by me) [449]
 |||||+-------> Random seed [113]
 ||||||+------> File output [76]
-|||||||+-----> Draft [237]
+|||||||+-----> Draft [239]
 ||||||||+----> Ignoring [36]
-|||||||||+---> Void (no local copy) [122]
-||||||||||+--> Un-implemented/reliable [100]
+|||||||||+---> Void (no local copy) [124]
+||||||||||+--> Un-implemented/reliable [101]
 |||||||||||
 GS......... 100_doors-1
 GS......... 100_doors-2
@@ -85,6 +85,7 @@ GS......... Anonymous_recursion-1
 GS......... Anonymous_recursion-2
 GS......... Anonymous_recursion-3
 GS......... Anonymous_recursion-4
+.......D.VU Another_formula_for_a_series
 GS......... Anti-primes
 GS....F.... Append_a_record_to_the_end_of_a_text_file
 GS......... Apply_a_callback_to_an_array
@@ -1135,7 +1136,7 @@ GS..T..D... Resistance_calculator
 GS..T..D... Resistance_network_calculator
 GS..T...... Resistor_mesh
 GS......... Respond_to_an_unknown_method_call
-.........VU Retrieve_and_search_chat_history
+.........V. Retrieve_and_search_chat_history
 GS......... Return_multiple_values
 GS..T...... Reverse_a_string
 GS..T..D... Reverse_the_gender_of_a_string
@@ -1295,6 +1296,7 @@ GS..T...... Sorting_algorithms_Strand_sort
 GS......... Soundex
 GS....F.... Sparkline_in_unicode
 G.K........ Special_characters
+.......D.VU Special_factorials
 G.K.T...... Special_variables
 G.K.....X.. Speech_synthesis
 GS..T...... Spelling_of_ordinal_numbers
@@ -1420,7 +1422,7 @@ GS......... Thue-Morse
 GS...R..... Tic-tac-toe
 G.KI....... Tic-tac-toe-2
 GS.....D... Time-based_one-time_password_algorithm
-!S......... Time_a_function
+GS......... Time_a_function
 GS......... Tokenize_a_string
 GS......... Tokenize_a_string_with_escaping
 GS..T...... Tonelli-Shanks_algorithm
