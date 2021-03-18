@@ -8,10 +8,10 @@ updating from RC…
 ||||+--------> Touched (modified by me) [449]
 |||||+-------> Random seed [113]
 ||||||+------> File output [76]
-|||||||+-----> Draft [239]
+|||||||+-----> Draft [237]
 ||||||||+----> Ignoring [36]
-|||||||||+---> Void (no local copy) [124]
-||||||||||+--> Un-implemented/reliable [101]
+|||||||||+---> Void (no local copy) [123]
+||||||||||+--> Un-implemented/reliable [100]
 |||||||||||
 GS......... 100_doors-1
 GS......... 100_doors-2
@@ -85,7 +85,6 @@ GS......... Anonymous_recursion-1
 GS......... Anonymous_recursion-2
 GS......... Anonymous_recursion-3
 GS......... Anonymous_recursion-4
-.......D.VU Another_formula_for_a_series
 GS......... Anti-primes
 GS....F.... Append_a_record_to_the_end_of_a_text_file
 GS......... Apply_a_callback_to_an_array
@@ -1383,7 +1382,7 @@ G.K.....X.. Table_creation_Postal_addresses
 GS....F.... Take_notes_on_the_command_line
 .......D.VU Tamagotchi_emulator
 GS..T...... Tarjan
-GS..T..D... Tau_function
+GS..T...... Tau_function
 .........V. Tau_number
 GS......... Taxicab_numbers
 GS..T...... Teacup_rim_text
