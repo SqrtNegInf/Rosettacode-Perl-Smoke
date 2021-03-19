@@ -2949,8 +2949,10 @@ File: F/Find_palindromic_numbers_in_both_binary_and_ternary_bases
 File: F/Find_prime_numbers_of_the_form_n_n_n%2B2
 #!/usr/local/bin/perl
 #u# http://rosettacode.org/wiki/Find_prime_numbers_of_the_form_n*n*n%2B2
-#c# 2021-03-xx >RC
+#c# 2021-03-18 >RC
 #p# OK
+#n# noodle a bit, task was so minimal...
+#n# NB: no primes for n**(3*i) + 8  where i = 1, 2, 3, ...
 
 File: F/Find_the_intersection_of_a_line_with_a_plane-1
 #!/usr/local/bin/perl
