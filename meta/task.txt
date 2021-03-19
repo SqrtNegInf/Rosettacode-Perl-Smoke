@@ -8,9 +8,9 @@ updating from RC…
 ||||+--------> Touched (modified by me) [449]
 |||||+-------> Random seed [113]
 ||||||+------> File output [76]
-|||||||+-----> Draft [237]
+|||||||+-----> Draft [238]
 ||||||||+----> Ignoring [36]
-|||||||||+---> Void (no local copy) [123]
+|||||||||+---> Void (no local copy) [124]
 ||||||||||+--> Un-implemented/reliable [100]
 |||||||||||
 GS......... 100_doors-1
@@ -316,6 +316,7 @@ GS......... Count_in_octal
 GS......... Count_occurrences_of_a_substring
 GS......... Count_the_coins
 GS.....D... Count_the_coins_0-1
+.......D.VU Cousin_primes
 GS......... Cramer%27s_rule
 ........X.. Create_DWM_statusbar
 G.K........ Create_a_file
@@ -497,7 +498,7 @@ GS.....D... Find_if_a_point_is_within_a_triangle
 GS......... Find_largest_left_truncatable_prime_in_a_given_base
 GS......... Find_limit_of_recursion
 GS......... Find_palindromic_numbers_in_both_binary_and_ternary_bases
-.......D.VU Find_prime_numbers_of_the_form_n*n*n%2B2
+.......D.V. Find_prime_numbers_of_the_form_n*n*n%2B2
 GS..T...... Find_the_intersection_of_a_line_with_a_plane-1
 GS......... Find_the_intersection_of_a_line_with_a_plane-2
 GS......... Find_the_intersection_of_two_lines
