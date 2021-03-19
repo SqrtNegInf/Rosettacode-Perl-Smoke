@@ -1,19 +1,20 @@
 #!/usr/local/bin/perl
 #u# http://rosettacode.org/wiki/Find_prime_numbers_of_the_form_n*n*n%2B2
-#c# 2021-03-xx >RC
+#c# 2021-03-18 >RC
 #p# OK
+#n# noodle a bit, task was so minimal...
+#n# NB: no primes for n**(3*i) + 8  where i = 1, 2, 3, ...
 
 use strict;
 use warnings;
 use feature 'say';
 
-#use ntheory 'is_prime';
 use Math::AnyNum ':all';
 
-my $exp = 3; my $offset = 2;
-my $result = join ' ', grep { is_prime $_ } map { $_**$exp + $offset } 1..199;
+my $result = join ' ', grep { is_prime $_ } map { $_**3 + 2 } grep { 0 != $_%2 } 1..199;
 
 if (0) {
+# output is $table
 say '   ' . sprintf '%4d'x11 , 1 .. 10;
 for my $e (1..10) {
   printf  '%2d ', $e;
@@ -22,7 +23,6 @@ for my $e (1..10) {
   }
   print "\n";
 }
-exit;
 }
 
 my $ref = '3 29 127 24391 91127 250049 274627 328511 357913 571789 1157627 1442899 1860869 2146691 2924209 3581579 5000213 5177719 6751271';
@@ -45,11 +45,3 @@ use Test::More;
 chomp $ref;
 is($result, $ref);
 done_testing();
-
-__END__
-
-=={{header|Perl}}==
-{{libheader|ntheory}}
-<lang perl></lang>
-{{out}}
-<pre>3 29 127 24391 91127 250049 274627 328511 357913 571789 1157627 1442899 1860869 2146691 2924209 3581579 5000213 5177719 6751271</pre>
