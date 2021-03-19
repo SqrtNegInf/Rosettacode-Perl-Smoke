@@ -1,8 +1,8 @@
 #!/usr/local/bin/perl
 #u# http://rosettacode.org/wiki/Retrieve_and_search_chat_history
-#t# inprogress
 #c# 2021-03-17 <RC
 #p# OK
+#n# rather lame, operates on static data (but did use now-commented code to pull the chat history on 1st pass)
 
 my @res;
 
@@ -18,32 +18,33 @@ my @haystack = ();
 my $page = '';
 
 # 10 days before today
-my $begin =  Time::Piece->new - 1 * Time::Piece::ONE_DAY;
-say "         Executed at: ", Time::Piece->new;
-say "Begin searching from: $begin";
+#my $begin =  Time::Piece->new - 1 * Time::Piece::ONE_DAY;
+#say "         Executed at: ", Time::Piece->new;
+#say "Begin searching from: $begin";
 
-for (my $date = $begin ; Time::Piece->new > $date ; $date += Time::Piece::ONE_DAY) { 
-   $page .= HTTP::Tiny->new()->get( 'http://tclers.tk/conferences/tcl/'.$date->strftime('%Y-%m-%d').'.tcl')->{content};
-}
-print $page; exit;
+#for (my $date = $begin ; Time::Piece->new > $date ; $date += Time::Piece::ONE_DAY) { 
+#   $page .= HTTP::Tiny->new()->get( 'http://tclers.tk/conferences/tcl/'.$date->strftime('%Y-%m-%d').'.tcl')->{content};
+#}
+
+$page = do { local(@ARGV, $/) = 'ref/chat_history.txt'; <> };
 
 # process pages
 my @lines = split /\n/, $page;
 for (@lines) { push @haystack, $_ if substr($_, 0, 13) =~ m/^m \d\d\d\d-\d\d-\d\dT/ }
 
 # print the first and last line of the haystack
-say "First and last lines of the haystack:";
-say $haystack[0] and say $haystack[-1];
+#say "First and last lines of the haystack:";
+#say $haystack[0] and say $haystack[-1];
 
-say "Needle: ", $needle;
-say  '-' x 79;
+#say "Needle: ", $needle;
+#say  '-' x 79;
 
 # find and print needle lines
-for (@haystack) { say $_ if (index($_, $needle) != -1) }
-
-exit;
+for (@haystack) { push  @res, $_ if /xcircuit.*tcl/i }
+#for (@haystack) { say $_ if (index($_, $needle) != -1) }
 
 say my $result = join "\n", @res;
+
 my $ref = <<'EOD';
 m 2021-03-18T15:54:25Z ijchain {<user____1> The program is xcircuit by Tim Edwards. It is a custom wish shell running xcircuit.tcl}
 m 2021-03-18T16:08:34Z ijchain {<user____1> The real program is xcircuit.tcl and I could edit that at will. Won't.}
@@ -55,5 +56,6 @@ m 2021-03-18T17:59:07Z stu {I don't remember if xcircuit builds a whole Tcl/Tk o
 EOD
 
 use Test::More;
+chomp $ref;
 is ($result, $ref);
 done_testing();
