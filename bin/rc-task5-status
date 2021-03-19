@@ -149,6 +149,7 @@ my($l) = @_;
     $p =~ s/%C3%B6/oe/;                         # Möbius_function
     $p =~ s/A\*/A_star/;                        # A*_search_algorithm
     $p =~ s/n\*n\*n/n_n_/;                      # Find_prime_numbers_of_the_form_n_n_n%2B2
+    $p =~ s/Erdős/Erdos/;                       # Erdős-primes
     return pfix($p);
 }
 
