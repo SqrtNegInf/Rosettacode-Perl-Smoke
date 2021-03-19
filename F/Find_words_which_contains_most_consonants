@@ -1,0 +1,43 @@
+#!/usr/local/bin/perl
+#u# http://rosettacode.org/wiki/Find_words_which_contains_most_consonants
+#c# 2021-03-19 <RC
+#p# OK
+#n# restricted output, the point is easily made...
+
+my @res;
+
+use strict;
+use warnings;
+use feature 'say';
+
+my @most;
+
+@ARGV = 'ref/unixdict.txt';
+length > 11 and !/([^aeiou]).*\1/ and $most[ tr/aeiou\n//c ] .= $_ while <>;
+$most[$_] and push @res, sprintf "%d Unique consonants, word count: %d\n\n%s\n",
+  $_, $most[ $_ ] =~ tr/\n//, $most[ $_ ] =~ tr/\n/ /r =~ s/.{66}\K /\n/gr
+  for reverse 8 .. $#most;
+  #for reverse 0 .. $#most;
+
+say my $result = join "\n", @res;
+
+my $ref = <<'EOD';
+9 Unique consonants, word count: 1
+
+comprehensible 
+
+8 Unique consonants, word count: 39
+
+administrable anthropology blameworthy bluestocking boustrophedon bricklaying
+chemisorption christendom claustrophobia compensatory comprehensive
+counterexample demonstrable disciplinary discriminable geochemistry
+hypertensive indecipherable indecomposable indiscoverable lexicography
+manslaughter misanthropic mockingbird monkeyflower neuropathology paralinguistic
+pharmacology pitchblende playwriting shipbuilding shortcoming springfield
+stenography stockholder switchblade switchboard switzerland thunderclap
+
+EOD
+
+use Test::More;
+is ($result, $ref);
+done_testing();
