@@ -39,6 +39,9 @@ A/Approximate_Equality
 A/Averages_Mean_angle
 π:     6 GREEK SMALL LETTER PI
 
+A/Averages_Mean_time_of_day
+τ:     3 GREEK SMALL LETTER TAU
+
 B/Bacon_cipher
 ​:     1 ZERO WIDTH SPACE
 ﻿:     1 ZERO WIDTH NO-BREAK SPACE
