@@ -625,6 +625,13 @@ File: A/Averages_Mean_angle
 #c# 2018-07-15 <RC
 #p# OK
 
+File: A/Averages_Mean_time_of_day
+#!/usr/local/bin/perl
+#u# http://rosettacode.org/wiki/Averages/Mean_time_of_day
+#c# 2018-09-18 >RC, 2021-03-19 <RC
+#p# OK
+#n# strange, I modified this task but misplaced my own local copy?
+
 File: A/Averages_Median
 #!/usr/local/bin/perl
 #u# http://rosettacode.org/wiki/Averages/Median
@@ -1571,7 +1578,7 @@ File: C/Compiler_AST_interpreter
 #c# 2018-07-24 <RC
 #p# OK
 
-File: C/Compiler__Verifying_Syntax
+File: C/Compiler_Verifying_Syntax
 #!/usr/local/bin/perl
 #u# http://rosettacode.org/wiki/Compiler/ Verifying_Syntax
 #c# 2019-12-28 <RC, 2020-01-03 <RC, 2020-01-07 <RC
@@ -1785,6 +1792,12 @@ File: C/Count_the_coins_0-1
 #!/usr/local/bin/perl
 #u# http://rosettacode.org/wiki/Count_the_coins/0-1
 #c# 2021-01-06 <RC
+#p# OK
+
+File: C/Cousin_primes
+#!/usr/local/bin/perl
+#u# http://rosettacode.org/wiki/Cousin_primes
+#c# 2021-03-xx >RC
 #p# OK
 
 File: C/Cramer%27s_rule
@@ -2584,7 +2597,7 @@ File: E/Exponentiation_order
 #c# 2018-08-01 <RC
 #p# OK
 
-File: E/Exponentiation_with_infix_operators_in__or_operating_on__the_base
+File: E/Exponentiation_with_infix_operators_in_or_operating_on_the_base
 #!/usr/local/bin/perl
 #u# http://rosettacode.org/wiki/Exponentiation_with_infix_operators_in_(or_operating_on)_the_base
 #c# 2021-02-04 >RC
@@ -3004,6 +3017,13 @@ File: F/Find_words_which_contains_more_than_3_e_vowels
 #u# http://rosettacode.org/wiki/Find_words_which_contains_more_than_3_e_vowels
 #c# 2021-02-20 <RC
 #p# OK
+
+File: F/Find_words_which_contains_most_consonants
+#!/usr/local/bin/perl
+#u# http://rosettacode.org/wiki/Find_words_which_contains_most_consonants
+#c# 2021-03-19 <RC
+#p# OK
+#n# restricted output, the point is easily made...
 
 File: F/Find_words_which_first_and_last_three_letters_are_equals
 #!/usr/local/bin/perl
@@ -3756,7 +3776,7 @@ File: H/History_variables
 #c# 2018-08-12 <RC
 #p# OK
 
-File: H/Hofstadter-Conway__10,000_sequence
+File: H/Hofstadter-Conway_10,000_sequence
 #!/usr/local/bin/perl
 #u# http://rosettacode.org/wiki/Hofstadter-Conway_$10,000_sequence
 #c# 2018-08-12 <RC
@@ -4086,7 +4106,7 @@ File: I/Inverted_syntax
 #c# 2018-08-13 <RC
 #p# OK
 
-File: I/Isqrt__integer_square_root__of_X
+File: I/Isqrt_integer_square_root_of_X
 #!/usr/local/bin/perl
 #u# http://rosettacode.org/wiki/Isqrt_(integer_square_root)_of_X
 #c# 2020-10-29 <RC
@@ -6417,16 +6437,16 @@ File: P/Price_fraction
 #c# 2018-08-20 <RC
 #p# OK
 
+File: P/Primality_by_Wilson%27s_theorem
+#!/usr/local/bin/perl
+#u# http://rosettacode.org/wiki/Primalty_by_Wilson%27s_theorem
+#c# 2020-01-05 >RC
+#p# OK
+
 File: P/Primality_by_trial_division
 #!/usr/local/bin/perl
 #u# http://rosettacode.org/wiki/Primality_by_trial_division
 #c# 2018-08-20 <RC
-#p# OK
-
-File: P/Primalty_by_Wilson%27s_theorem
-#!/usr/local/bin/perl
-#u# http://rosettacode.org/wiki/Primalty_by_Wilson%27s_theorem
-#c# 2020-01-05 >RC
 #p# OK
 
 File: P/Prime_conspiracy
@@ -6970,6 +6990,13 @@ File: R/Respond_to_an_unknown_method_call
 #u# http://rosettacode.org/wiki/Respond_to_an_unknown_method_call
 #c# 2018-08-18 <RC
 #p# OK
+
+File: R/Retrieve_and_search_chat_history
+#!/usr/local/bin/perl
+#u# http://rosettacode.org/wiki/Retrieve_and_search_chat_history
+#c# 2021-03-17 <RC
+#p# OK
+#n# rather lame, operates on static data (but did use now-commented code to pull the chat history on 1st pass)
 
 File: R/Return_multiple_values
 #!/usr/local/bin/perl
@@ -8503,7 +8530,7 @@ File: T/Tau_function
 #c# 2021-01-08 >RC
 #p# OK
 
-File: T/Tau_numbers
+File: T/Tau_number
 #!/usr/local/bin/perl
 #u# http://rosettacode.org/wiki/Tau_numbers
 #c# 2021-01-08 >RC
@@ -9327,6 +9354,12 @@ File: W/Word_count.0
 #!/usr/bin/env perl
 #u# http://rosettacode.org/wiki/Word_count
 #c# 2018-08-07 >RC
+#p# OK
+
+File: W/Word_frequency
+#!/usr/local/bin/perl
+#u# http://rosettacode.org/wiki/Word_frequency
+#c# 2021-03-19 <RC
 #p# OK
 
 File: W/Word_search
