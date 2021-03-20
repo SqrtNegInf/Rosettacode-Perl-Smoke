@@ -1,0 +1,79 @@
+#!/usr/local/bin/perl
+#u# http://rosettacode.org/wiki/Word_frequency
+#c# 2021-03-19 <RC
+#p# OK
+
+my @res;
+
+use strict;
+use warnings;
+use feature 'say';
+
+my $top = 10;
+
+open my $fh, "<", 'ref/word-count.txt';
+(my $text = join '', <$fh>) =~ tr/A-Z/a-z/;
+
+my @matcher = (
+    qr/[a-z]+/,     # simple 7-bit ASCII
+    qr/\w+/,        # word characters with underscore
+    qr/[a-z0-9]+/,  # word characters without underscore
+);
+
+for my $reg (@matcher) {
+    push @res, "\nTop $top using regex: " . $reg; # . "\n";
+    my @matches = $text =~ /$reg/g;
+    my %words;
+    for my $w (@matches) { $words{$w}++ };
+    my $c = 0;
+    for my $w ( sort { $words{$b} <=> $words{$a} } keys %words ) {
+        push @res, sprintf "%-7s %6d", $w, $words{$w};
+        last if ++$c >= $top;
+    }
+}
+
+say my $result = join "\n", @res;
+
+my $ref = <<'EOD';
+
+Top 10 using regex: (?^:[a-z]+)
+the      41089
+of       19949
+and      14942
+a        14608
+to       13951
+in       11214
+he        9648
+was       8621
+that      7924
+it        6661
+
+Top 10 using regex: (?^:\w+)
+the      41036
+of       19946
+and      14940
+a        14589
+to       13939
+in       11204
+he        9645
+was       8619
+that      7922
+it        6659
+
+Top 10 using regex: (?^:[a-z0-9]+)
+the      41089
+of       19949
+and      14942
+a        14608
+to       13951
+in       11214
+he        9648
+was       8621
+that      7924
+it        6661
+EOD
+
+use Test::More;
+chomp $ref;
+is ($result, $ref);
+done_testing();
