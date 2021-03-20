@@ -1,17 +1,17 @@
 
 This is perl 5, version 32, subversion 1 (v5.32.1) built for darwin-thread-multi-2level
 updating from RC…
-+------------> Perl: Good/Bad [1394/10]
-|+-----------> Smoke testing [1248]
++------------> Perl: Good/Bad [1403/10]
+|+-----------> Smoke testing [1257]
 ||+----------> sKipping validation [150]
 |||+---------> Interactive [68]
-||||+--------> Touched (modified by me) [449]
+||||+--------> Touched (modified by me) [454]
 |||||+-------> Random seed [113]
 ||||||+------> File output [76]
-|||||||+-----> Draft [238]
+|||||||+-----> Draft [242]
 ||||||||+----> Ignoring [36]
-|||||||||+---> Void (no local copy) [124]
-||||||||||+--> Un-implemented/reliable [100]
+|||||||||+---> Void (no local copy) [119]
+||||||||||+--> Un-implemented/reliable [104]
 |||||||||||
 GS......... 100_doors-1
 GS......... 100_doors-2
@@ -61,6 +61,7 @@ GS......... Active_object
 GS......... Add_a_variable_to_a_class_instance_at_runtime
 .......D.VU Addition-chain_exponentiation
 GS..T..D... Addition_chains
+.......D.VU Additive_primes
 GS..T...... Address_of_a_variable
 GS......... Align_columns-1
 GS......... Align_columns-2
@@ -119,7 +120,7 @@ G.KIT..D... Audio_frequency_generator
 GS..TR..... Average_loop_length
 GS..T...... Averages_Arithmetic_mean
 GS......... Averages_Mean_angle
-.........V. Averages_Mean_time_of_day
+GS..T...... Averages_Mean_time_of_day
 GS......... Averages_Median
 GS......... Averages_Mode
 GS......... Averages_Pythagorean_means
@@ -281,7 +282,7 @@ GS..T...... Compare_a_list_of_strings
 .........VU Compare_sorting_algorithms%27_performance
 GS......... Compile-time_calculation
 GS......... Compiler_AST_interpreter
-.......D.V. Compiler_Verifying_syntax
+GS.....D... Compiler_Verifying_syntax
 GS......... Compiler_code_generator
 GS......... Compiler_lexical_analyzer-1
 GS......... Compiler_lexical_analyzer-2
@@ -316,7 +317,7 @@ GS......... Count_in_octal
 GS......... Count_occurrences_of_a_substring
 GS......... Count_the_coins
 GS.....D... Count_the_coins_0-1
-.......D.VU Cousin_primes
+GS..T..D..U Cousin_primes
 GS......... Cramer%27s_rule
 ........X.. Create_DWM_statusbar
 G.K........ Create_a_file
@@ -420,6 +421,7 @@ GS......... Entropy_Narcissist
 GS......... Enumerations
 GS......... Environment_variables
 GS......... Equilibrium_index
+.......D.VU Erd%C5%91s-primes
 GS.....D... Esthetic_numbers
 GS......... Ethiopian_multiplication
 GS......... Euler%27s_identity
@@ -442,7 +444,7 @@ GS..T...... Execute_a_system_command
 GS......... Exponentiation_operator-1
 GS......... Exponentiation_operator-2
 GS......... Exponentiation_order
-.........V. Exponentiation_with_infix_operators_in_or_operating_on_the_base
+GS..T...... Exponentiation_with_infix_operators_in_or_operating_on_the_base
 GS..T...... Extend_your_language
 GS......... Extensible_prime_generator-1
 GS......... Extensible_prime_generator-2
@@ -498,7 +500,8 @@ GS.....D... Find_if_a_point_is_within_a_triangle
 GS......... Find_largest_left_truncatable_prime_in_a_given_base
 GS......... Find_limit_of_recursion
 GS......... Find_palindromic_numbers_in_both_binary_and_ternary_bases
-.......D.V. Find_prime_numbers_of_the_form_n*n*n%2B2
+.......D.VU Find_prime_n_for_that_reversed_n_is_also_prime
+.......D.V. Find_prime_numbers_of_the_form_n_n_%2B2
 GS..T...... Find_the_intersection_of_a_line_with_a_plane-1
 GS......... Find_the_intersection_of_a_line_with_a_plane-2
 GS......... Find_the_intersection_of_two_lines
@@ -507,7 +510,7 @@ GS......... Find_the_missing_permutation
 GS......... Find_the_missing_permutation-2
 GS.....D... Find_words_which_contains_all_the_vowels
 GS.....D... Find_words_which_contains_more_than_3_e_vowels
-.......D.V. Find_words_which_contains_most_consonants
+GS.....D... Find_words_which_contains_most_consonants
 GS.....D... Find_words_which_first_and_last_three_letters_are_equals
 .......D... Find_words_with_alternating_vowels_and_consonants
 GS......... Find_words_with_alternating_vowels_and_consonants-1
@@ -618,7 +621,7 @@ GS......... Higher-order_functions
 GS..T.F.... Hilbert_curve-1
 GS..T.F.... Hilbert_curve-2
 GS......... History_variables
-GS......... Hofstadter-Conway__10,000_sequence
+.........V. Hofstadter-Conway__10,000_sequence
 GS......... Hofstadter_Figure-Figure_sequences
 GS......... Hofstadter_Q_sequence-1
 GS......... Hofstadter_Q_sequence-2
@@ -673,7 +676,7 @@ GS..T...... Intersecting_number_wheels
 GS..T...... Introspection
 GS......... Inverted_index
 G.K........ Inverted_syntax
-........XV. Isqrt_integer_square_root_of_X
+GS......X.. Isqrt_integer_square_root_of_X
 GS......... Iterated_digits_squaring
 GS......... JSON
 GS..T...... Jacobi_symbol
@@ -1045,7 +1048,7 @@ GS......... Powerful_numbers-2
 G.K........ Pragmatic_directives
 GS...R..... Price_fraction
 .......D.VU Price_list_behind_API
-.........V. Primality_by_Wilson%27s_theorem
+GS..T...... Primality_by_Wilson%27s_theorem
 GS......... Primality_by_trial_division
 GS..T...... Prime_conspiracy
 GS......... Prime_decomposition-1
@@ -1136,7 +1139,7 @@ GS..T..D... Resistance_calculator
 GS..T..D... Resistance_network_calculator
 GS..T...... Resistor_mesh
 GS......... Respond_to_an_unknown_method_call
-.........V. Retrieve_and_search_chat_history
+GS......... Retrieve_and_search_chat_history
 GS......... Return_multiple_values
 GS..T...... Reverse_a_string
 GS..T..D... Reverse_the_gender_of_a_string
@@ -1245,6 +1248,7 @@ G.K........ Singly-linked_list_Element_insertion
 GS......... Singly-linked_list_Traversal
 GS......... Sleep
 .......D.VU Smallest_enclosing_circle_problem
+.......D.VU Smallest_square_that_begins_with_n
 GS..T...... Smarandache_prime-digital_sequence
 GS......... Smith_numbers
 G.KI...D... Snake
@@ -1384,7 +1388,7 @@ GS....F.... Take_notes_on_the_command_line
 .......D.VU Tamagotchi_emulator
 GS..T...... Tarjan
 GS..T...... Tau_function
-.........V. Tau_number
+GS..T...... Tau_number
 GS......... Taxicab_numbers
 GS..T...... Teacup_rim_text
 GS......... Temperature_conversion
@@ -1523,7 +1527,7 @@ G.KI....... Window_creation_X11
 G.KI....... Window_management
 GS......... Wireworld
 GS..T..D... Word_break_problem
-.........V. Word_frequency
+GS......... Word_frequency
 GS...R..... Word_search
 GS......... Word_wheel
 GS......... Word_wrap
