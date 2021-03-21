@@ -1,17 +1,17 @@
 
 This is perl 5, version 32, subversion 1 (v5.32.1) built for darwin-thread-multi-2level
 updating from RC…
-+------------> Perl: Good/Bad [1403/10]
-|+-----------> Smoke testing [1257]
++------------> Perl: Good/Bad [1405/10]
+|+-----------> Smoke testing [1259]
 ||+----------> sKipping validation [150]
 |||+---------> Interactive [68]
-||||+--------> Touched (modified by me) [454]
+||||+--------> Touched (modified by me) [455]
 |||||+-------> Random seed [113]
 ||||||+------> File output [76]
-|||||||+-----> Draft [242]
-||||||||+----> Ignoring [36]
-|||||||||+---> Void (no local copy) [119]
-||||||||||+--> Un-implemented/reliable [104]
+|||||||+-----> Draft [243]
+||||||||+----> Ignoring [35]
+|||||||||+---> Void (no local copy) [118]
+||||||||||+--> Un-implemented/reliable [105]
 |||||||||||
 GS......... 100_doors-1
 GS......... 100_doors-2
@@ -152,6 +152,7 @@ GS......... Binary_search-1
 GS......... Binary_search-2
 GS..T...... Binary_strings
 GS..TR..... Bioinformatics_Sequence_mutation
+.......D.VU Bioinformatics_Subsequence
 GS..T...... Bioinformatics_base_count
 GS.....D... Bioinformatics_global_alignment
 GS..T...... Biorhythms
@@ -421,7 +422,7 @@ GS......... Entropy_Narcissist
 GS......... Enumerations
 GS......... Environment_variables
 GS......... Equilibrium_index
-.......D.VU Erd%C5%91s-primes
+.......D.VU Erdos-primes
 GS.....D... Esthetic_numbers
 GS......... Ethiopian_multiplication
 GS......... Euler%27s_identity
@@ -501,7 +502,7 @@ GS......... Find_largest_left_truncatable_prime_in_a_given_base
 GS......... Find_limit_of_recursion
 GS......... Find_palindromic_numbers_in_both_binary_and_ternary_bases
 .......D.VU Find_prime_n_for_that_reversed_n_is_also_prime
-.......D.V. Find_prime_numbers_of_the_form_n_n_%2B2
+GS..T..D... Find_prime_numbers_of_the_form_n_n_n%2B2
 GS..T...... Find_the_intersection_of_a_line_with_a_plane-1
 GS......... Find_the_intersection_of_a_line_with_a_plane-2
 GS......... Find_the_intersection_of_two_lines
@@ -621,7 +622,7 @@ GS......... Higher-order_functions
 GS..T.F.... Hilbert_curve-1
 GS..T.F.... Hilbert_curve-2
 GS......... History_variables
-.........V. Hofstadter-Conway__10,000_sequence
+GS......... Hofstadter-Conway_10,000_sequence
 GS......... Hofstadter_Figure-Figure_sequences
 GS......... Hofstadter_Q_sequence-1
 GS......... Hofstadter_Q_sequence-2
@@ -676,7 +677,7 @@ GS..T...... Intersecting_number_wheels
 GS..T...... Introspection
 GS......... Inverted_index
 G.K........ Inverted_syntax
-GS......X.. Isqrt_integer_square_root_of_X
+GS......... Isqrt_integer_square_root_of_X
 GS......... Iterated_digits_squaring
 GS......... JSON
 GS..T...... Jacobi_symbol
