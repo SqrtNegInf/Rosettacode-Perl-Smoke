@@ -173,6 +173,11 @@ D/Draw_a_clock
 ╶:     7 BOX DRAWINGS LIGHT RIGHT
 ╷:     3 BOX DRAWINGS LIGHT DOWN
 
+E/Erdos_primes
+«:     2 LEFT-POINTING DOUBLE ANGLE QUOTATION MARK
+»:     1 RIGHT-POINTING DOUBLE ANGLE QUOTATION MARK
+ő:    12 LATIN SMALL LETTER O WITH DOUBLE ACUTE
+
 F/Factorial_base_numbers_indexing_permutations_of_a_collection
 ♠:    65 BLACK SPADE SUIT
 ♣:    65 BLACK CLUB SUIT
