@@ -2466,6 +2466,13 @@ File: E/Equilibrium_index
 #c# 2018-07-31 <RC
 #p# OK
 
+File: E/Erdos_primes
+#!/usr/local/bin/perl
+#u# http://rosettacode.org/wiki/Erdős-primes
+#t# inprogress
+#c# 2021-03-xx >RC
+#p# OK
+
 File: E/Esthetic_numbers
 #!/usr/local/bin/perl
 #u# http://rosettacode.org/wiki/Esthetic_numbers
