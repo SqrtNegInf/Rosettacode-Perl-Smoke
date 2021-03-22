@@ -1,15 +1,55 @@
 #!/usr/local/bin/perl
 #u# http://rosettacode.org/wiki/Erdős-primes
-#t# inprogress
-#c# 2021-03-xx >RC
+#c# 2021-03-22 >RC
 #p# OK
-
-#use Data::Printer;          # debug only
-#use Time::HiRes qw(sleep);  # debug only
 
 my @res;
 
 use strict;
+use warnings;
+use feature 'say';
+
+use utf8;
+binmode(STDOUT, ':utf8');
+
+use ntheory qw<is_prime factorial>;
+
+sub comma { reverse ((reverse shift) =~ s/(.{3})/$1,/gr) =~ s/^,//r }
+
+sub is_erdos {
+    my($n) = @_; my $k; 
+    return unless is_prime($n);
+    while ($n > factorial($k++)) { return if is_prime $n-factorial($k) }
+    'True'
+}
+
+my(@Erdős,$n);
+do { push @Erdős, comma $n if is_erdos(++$n) } until $n >= 10**6;
+
+@res = 'Erdős primes < ' . comma(my $max = 2500) . ':';
+push @res, join ' ', @Erdős[0..24];  
+push @res, "\nThe Erdős prime #" . @Erdős . ' is ' . $Erdős[-1];
+
+say my $result = join "\n", @res;
+
+my $ref = <<'END';
+Erdős primes < 2,500:
+2 101 211 367 409 419 461 557 673 709 769 937 967 1,009 1,201 1,259 1,709 1,831 1,889 2,141 2,221 2,309 2,351 2,411 2,437
+
+The Erdős prime #7875 is 999,721
+END
+
+use Test::More;
+chomp $ref;
+is($result, $ref);
+done_testing();
+
+
+__END__
+
+=={{header|Perl}}==
+{{libheader|ntheory}}
+<lang perl>use strict;
 use warnings;
 use feature 'say';
 use utf8;
@@ -18,40 +58,21 @@ use ntheory qw<is_prime factorial>;
 
 sub comma { reverse ((reverse shift) =~ s/(.{3})/$1,/gr) =~ s/^,//r }
 
-push @res, 'Erdős primes < ' . comma(my $max = 2500) . ':';
+sub is_erdos {
+    my($n) = @_; my $k; 
+    return unless is_prime($n);
+    while ($n > factorial($k++)) { return if is_prime $n-factorial($k) }
+    'True'
+}
 
-my @Erdős; 
+my(@Erdős,$n);
+do { push @Erdős, comma $n if is_erdos(++$n) } until $n >= 10**6;
 
-push @res, "\nThe 7,875th Erdős prime is: " . comma $Erdős[7874];
-say my $result = join "\n", @res;
-exit;
-
-my $ref = <<'END';
-Erdős primes < 2,500:
+say 'Erdős primes < ' . comma(my $max = 2500) . ':';
+say join ' ', @Erdős[0..24];  
+say "\nThe Erdős prime #" . @Erdős . ' is ' . $Erdős[-1];</lang>
+{{out}}
+<pre>Erdős primes < 2,500:
 2 101 211 367 409 419 461 557 673 709 769 937 967 1,009 1,201 1,259 1,709 1,831 1,889 2,141 2,221 2,309 2,351 2,411 2,437
 
-The 7,875th Erdős prime is: 999,721
-END
-
-use Test::More;
-chomp $ref;
-is($result, $ref);
-done_testing();
-
-__END__
-
-#my @Erdős = ^Inf .grep: { .is-prime and none($_ «-« @factorial[^(@factorial.first: * > $_, :k)]).is-prime }
-
-#push @res, @Erdős[^(@Erdős.first: * > 2500, :k)]».&comma;
-#push @res, "\nThe 7,875th Erdős prime is: " ~ @Erdős[7874].&comma;
-
-
-__END__
-
-=={{header|Perl}}==
-{{trans|Raku}}
-{{libheader|ntheory}}
-<lang perl></lang>
-{{out}}
-<pre style="height:20ex"></pre>
-[https://github.com/SqrtNegInf/Rosettacode-Perl5-Smoke/blob/master/ref/XXX XXX]
+The 7,875th Erdős prime is: 999,721</pre>
