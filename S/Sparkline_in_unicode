@@ -2,33 +2,36 @@
 #u# http://rosettacode.org/wiki/Sparkline_in_unicode
 #c# 2018-08-14 <RC, 2019-02-24 <RC
 #p# OK
-#f# RC file: sparkline.txt
 #n# not incorporated from RC: extreme ranges and multiple output styles
-
-use warnings;
-use strict;
+#n# NB: use of '(_)' function prototype, but actually superfluous
 
 my $result;
 
+use strict;
+use warnings;
+use feature 'say';
+
+use utf8;
 use open ':std', ':encoding(utf8)';
-#binmode(STDOUT, ':utf8');
+#binmode(STDOUT, ':utf8'); # also works
 
-our @sparks=map { chr } 0x2581..0x2588;
+my @sparks = map { chr } 0x2581..0x2588; # 'our' not needed here
 
+#sub sparkline {   # works too
 sub sparkline(_) {
-    my @n=map {0+$_} grep {length} split /[\s,]+/,shift or return '';
-    my($min,$max)=($n[0])x2;
-    if (@n>1) {
+    my @n = map { 0 + $_ } grep {length} split /[\s,]+/,shift or return '';
+    my($min,$max) = ($n[0]) x 2;
+    if (@n > 1) {
         for (@n[1..$#n]) {
-            if    ($_<$min) { $min=$_ }
-            elsif ($_>$max) { $max=$_ }
+            if    ($_ < $min) { $min = $_ }
+            elsif ($_ > $max) { $max = $_ }
         }
     }
-    my $sparkline='';
-    for(@n) {
-        my $height=int( $max==$min ? @sparks/2 : @sparks * ($_-$min)/($max-$min) );
-        $height=$#sparks if $height>$#sparks;
-        $sparkline.=$sparks[$height];
+    my $sparkline = '';
+    for (@n) {
+        my $height = int( $max == $min ? @sparks/2 : @sparks * ($_-$min)/($max-$min) );
+        $height = $#sparks if $height > $#sparks;
+        $sparkline .= $sparks[$height];
     }
     $result .= sprintf "%d values; range %s..%s\n", scalar(@n), $min, $max;
     $result .= $sparkline."\n";
@@ -39,10 +42,7 @@ sparkline('1.5, 0.5 3.5, 2.5 5.5, 4.5 7.5, 6.5');
 sparkline('3 2 1 0 -1 -2 -3 -4 -3 -2 -1 0 1 2 3');
 sparkline('12 12 12 12');
 
-print "$result\n"; 
-
-open F, '>', 'run/sparkline.txt';
-print F $result; 
+say $result;
 
 my $ref = <<'EOD';
 15 values; range 1..8
@@ -54,3 +54,7 @@ my $ref = <<'EOD';
 4 values; range 12..12
 ▅▅▅▅
 EOD
+
+use Test::More;
+is($result, $ref);
+done_testing();
