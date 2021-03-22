@@ -260,6 +260,12 @@ File: A/Addition_chains
 #p# OK
 #n# extra credit is very slow
 
+File: A/Additive_primes
+#!/usr/local/bin/perl
+#u# http://rosettacode.org/wiki/Additive_primes
+#c# 2021-03-21 >RC
+#p# OK
+
 File: A/Address_of_a_variable
 #!/usr/local/bin/perl
 #u# http://rosettacode.org/wiki/Address_of_a_variable
@@ -6504,6 +6510,12 @@ File: P/Primes_-_allocate_descendants_to_their_ancestors
 #!/usr/local/bin/perl
 #u# http://rosettacode.org/wiki/Primes_-_allocate_descendants_to_their_ancestors
 #c# 2018-11-29 >RC
+#p# OK
+
+File: P/Primes_which_sum_of_digits_is_25
+#!/usr/local/bin/perl
+#u# http://rosettacode.org/wiki/Primes_which_sum_of_digits_is_25
+#c# 2021-03-21 >RC
 #p# OK
 
 File: P/Primorial_numbers
