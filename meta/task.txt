@@ -1,17 +1,17 @@
 
 This is perl 5, version 32, subversion 1 (v5.32.1) built for darwin-thread-multi-2level
 updating from RC…
-+------------> Perl: Good/Bad [1405/10]
-|+-----------> Smoke testing [1259]
++------------> Perl: Good/Bad [1407/10]
+|+-----------> Smoke testing [1261]
 ||+----------> sKipping validation [150]
 |||+---------> Interactive [68]
-||||+--------> Touched (modified by me) [455]
+||||+--------> Touched (modified by me) [457]
 |||||+-------> Random seed [113]
 ||||||+------> File output [76]
-|||||||+-----> Draft [243]
+|||||||+-----> Draft [244]
 ||||||||+----> Ignoring [35]
-|||||||||+---> Void (no local copy) [118]
-||||||||||+--> Un-implemented/reliable [105]
+|||||||||+---> Void (no local copy) [117]
+||||||||||+--> Un-implemented/reliable [106]
 |||||||||||
 GS......... 100_doors-1
 GS......... 100_doors-2
@@ -61,7 +61,7 @@ GS......... Active_object
 GS......... Add_a_variable_to_a_class_instance_at_runtime
 .......D.VU Addition-chain_exponentiation
 GS..T..D... Addition_chains
-.......D.VU Additive_primes
+GS..T..D..U Additive_primes
 GS..T...... Address_of_a_variable
 GS......... Align_columns-1
 GS......... Align_columns-2
@@ -1058,6 +1058,7 @@ GS......... Prime_decomposition-3
 B.......... Prime_decomposition-4
 GS.....D... Prime_words
 GS..T...... Primes_-_allocate_descendants_to_their_ancestors
+GS..T..D..U Primes_which_sum_of_digits_is_25
 GS......... Primorial_numbers
 G.K.T..D... Print_debugging_statement
 GS....FDX.. Print_itself
