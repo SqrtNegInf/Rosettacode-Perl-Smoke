@@ -1,0 +1,50 @@
+#!/usr/local/bin/perl
+#u# http://rosettacode.org/wiki/Primes_which_sum_of_digits_is_25
+#c# 2021-03-21 >RC
+#p# OK
+
+use strict;
+use warnings;
+use feature 'say';
+
+use ntheory 'is_prime';
+use List::Util 'sum';
+
+my @res;
+
+my $limit = 5000;
+
+my(@p25);
+is_prime($_) and 25 == sum(split '',$_) and push @p25, $_ for 1..$limit;
+
+say my $result = "@{[scalar @p25]} additive primes < $limit:\n" .
+    (sprintf "@{['%4d' x @p25]}", @p25) =~ s/(.{40})/$1\n/gr;
+
+#say my $result = "{+$_} primes < $limit with digital sum 25:\n{$_».fmt("%" ~ $limit.chars ~ "d").batch(10).join("\n")}",
+#    with ^$limit .grep: { .is-prime and .comb.sum == 25 }
+
+my $ref = <<'END';
+17 primes < 5000 with digital sum 25:
+ 997 1699 1789 1879 1987 2689 2797 2887 3499 3697
+3769 3877 3967 4597 4759 4957 4993
+END
+
+use Primesieve;
+my @big25;
+is_prime($_) and 25 == sum(split '',$_) and push @big25, $_ for generate_primes (10**6, 10**7);
+say $big25[-1];
+say scalar @big25;
+exit;
+
+use Test::More;
+chomp $ref;
+is($result, $ref);
+done_testing();
+
+__END__
+
+=={{header|Perl}}==
+{{libheader|ntheory}}
+<lang perl></lang>
+{{out}}
+<pre></pre>
