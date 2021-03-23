@@ -1,16 +1,16 @@
 
 This is perl 5, version 32, subversion 1 (v5.32.1) built for darwin-thread-multi-2level
 updating from RC…
-+------------> Perl: Good/Bad [1407/10]
-|+-----------> Smoke testing [1261]
-||+----------> sKipping validation [150]
++------------> Perl: Good/Bad [1409/10]
+|+-----------> Smoke testing [1262]
+||+----------> sKipping validation [151]
 |||+---------> Interactive [68]
-||||+--------> Touched (modified by me) [457]
+||||+--------> Touched (modified by me) [459]
 |||||+-------> Random seed [113]
-||||||+------> File output [76]
+||||||+------> File output [75]
 |||||||+-----> Draft [244]
 ||||||||+----> Ignoring [35]
-|||||||||+---> Void (no local copy) [117]
+|||||||||+---> Void (no local copy) [115]
 ||||||||||+--> Un-implemented/reliable [106]
 |||||||||||
 GS......... 100_doors-1
@@ -501,7 +501,7 @@ GS.....D... Find_if_a_point_is_within_a_triangle
 GS......... Find_largest_left_truncatable_prime_in_a_given_base
 GS......... Find_limit_of_recursion
 GS......... Find_palindromic_numbers_in_both_binary_and_ternary_bases
-.......D.VU Find_prime_n_for_that_reversed_n_is_also_prime
+GS..T..D..U Find_prime_n_for_that_reversed_n_is_also_prime
 GS..T..D... Find_prime_numbers_of_the_form_n_n_n%2B2
 GS..T...... Find_the_intersection_of_a_line_with_a_plane-1
 GS......... Find_the_intersection_of_a_line_with_a_plane-2
@@ -946,7 +946,7 @@ GS......... Ordered_words
 .........VU P-Adic_numbers,_basic
 .........VU P-Adic_square_roots
 GS......... P-value_correction
-.........VU Padovan_n-step_number_sequences
+G.K.T.....U Padovan_n-step_number_sequences
 GS..T...... Padovan_sequence
 GS..T...... Palindrome_dates-1
 GS......... Palindrome_dates-2
@@ -1300,7 +1300,7 @@ GS......... Sorting_algorithms_Stooge_sort
 GS..T...... Sorting_algorithms_Strand_sort
 .......DXVU Sorting_algorithms_Tree_sort_on_a_linked_list
 GS......... Soundex
-GS....F.... Sparkline_in_unicode
+GS......... Sparkline_in_unicode
 G.K........ Special_characters
 .......D.VU Special_factorials
 G.K.T...... Special_variables
