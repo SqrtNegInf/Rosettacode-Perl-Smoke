@@ -263,7 +263,7 @@ File: A/Addition_chains
 File: A/Additive_primes
 #!/usr/local/bin/perl
 #u# http://rosettacode.org/wiki/Additive_primes
-#c# 2021-03-21 >RC
+#c# 2021-03-22 >RC
 #p# OK
 
 File: A/Address_of_a_variable
@@ -1803,7 +1803,7 @@ File: C/Count_the_coins_0-1
 File: C/Cousin_primes
 #!/usr/local/bin/perl
 #u# http://rosettacode.org/wiki/Cousin_primes
-#c# 2021-03-xx >RC
+#c# 2021-03-22 >RC
 #p# OK
 
 File: C/Cramer%27s_rule
@@ -2475,8 +2475,7 @@ File: E/Equilibrium_index
 File: E/Erdos_primes
 #!/usr/local/bin/perl
 #u# http://rosettacode.org/wiki/Erdős-primes
-#t# inprogress
-#c# 2021-03-xx >RC
+#c# 2021-03-22 >RC
 #p# OK
 
 File: E/Esthetic_numbers
@@ -2970,6 +2969,12 @@ File: F/Find_palindromic_numbers_in_both_binary_and_ternary_bases
 #!/usr/local/bin/perl
 #u# http://rosettacode.org/wiki/Find_palindromic_numbers_in_both_binary_and_ternary_bases
 #c# 2018-07-02 <RC
+#p# OK
+
+File: F/Find_prime_n_for_that_reversed_n_is_also_prime
+#!/usr/local/bin/perl
+#u# http://rosettacode.org/wiki/Find_prime_n_for_that_reversed_n_is_also_prime
+#c# 2021-03-22 >RC
 #p# OK
 
 File: F/Find_prime_numbers_of_the_form_n_n_n%2B2
@@ -5796,6 +5801,13 @@ File: P/P-value_correction.1
 #c# 2018-08-20 <RC, 2018-12-20 <RC,
 #p# OK
 
+File: P/Padovan_n-step_number_sequences
+#!/usr/local/bin/perl
+#u# http://rosettacode.org/wiki/Padovan_n-step_number_sequences
+#t# inprogress
+#c# 2021-03-xx >RC
+#p# OK
+
 File: P/Padovan_sequence
 #!/usr/local/bin/perl
 #u# http://rosettacode.org/wiki/Padovan_sequence
@@ -6515,7 +6527,7 @@ File: P/Primes_-_allocate_descendants_to_their_ancestors
 File: P/Primes_which_sum_of_digits_is_25
 #!/usr/local/bin/perl
 #u# http://rosettacode.org/wiki/Primes_which_sum_of_digits_is_25
-#c# 2021-03-21 >RC
+#c# 2021-03-22 >RC
 #p# OK
 
 File: P/Primorial_numbers
@@ -7992,8 +8004,8 @@ File: S/Sparkline_in_unicode
 #u# http://rosettacode.org/wiki/Sparkline_in_unicode
 #c# 2018-08-14 <RC, 2019-02-24 <RC
 #p# OK
-#f# RC file: sparkline.txt
 #n# not incorporated from RC: extreme ranges and multiple output styles
+#n# NB: use of '(_)' function prototype, but actually superfluous
 
 File: S/Sparkline_in_unicode.1
 #!/usr/local/bin/perl
