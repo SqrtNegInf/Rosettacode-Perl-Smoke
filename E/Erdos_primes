@@ -24,7 +24,7 @@ sub is_erdos {
 }
 
 my(@Erdős,$n);
-do { push @Erdős, comma $n if is_erdos(++$n) } until $n >= 10**6;
+do { push @Erdős, comma $n if is_erdos(++$n) } until $n >= 1e6; #10**6;
 
 @res = 'Erdős primes < ' . comma(my $max = 2500) . ':';
 push @res, join ' ', @Erdős[0..24];  
