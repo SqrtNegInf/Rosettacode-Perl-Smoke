@@ -174,9 +174,7 @@ D/Draw_a_clock
 ╷:     3 BOX DRAWINGS LIGHT DOWN
 
 E/Erdos_primes
-«:     2 LEFT-POINTING DOUBLE ANGLE QUOTATION MARK
-»:     1 RIGHT-POINTING DOUBLE ANGLE QUOTATION MARK
-ő:    12 LATIN SMALL LETTER O WITH DOUBLE ACUTE
+ő:    19 LATIN SMALL LETTER O WITH DOUBLE ACUTE
 
 F/Factorial_base_numbers_indexing_permutations_of_a_collection
 ♠:    65 BLACK SPADE SUIT
@@ -335,6 +333,10 @@ N/Numerical_integration_Gauss-Legendre_Quadrature
 ∫:     8 INTEGRAL
 ≈:     8 ALMOST EQUAL TO
 
+P/Padovan_n-step_number_sequences
+»:     1 RIGHT-POINTING DOUBLE ANGLE QUOTATION MARK
+…:     1 HORIZONTAL ELLIPSIS
+
 P/Peaceful_chess_queen_armies
 ×:     1 MULTIPLICATION SIGN
 •:    10 BULLET
@@ -371,9 +373,6 @@ P/Prime_conspiracy
 
 P/Prime_conspiracy.1
 →:    20 RIGHTWARDS ARROW
-
-P/Primes_which_sum_of_digits_is_25
-»:     1 RIGHT-POINTING DOUBLE ANGLE QUOTATION MARK
 
 P/Problem_of_Apollonius
 𝐷:     2 MATHEMATICAL ITALIC CAPITAL D
