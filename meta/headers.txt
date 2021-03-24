@@ -2828,7 +2828,7 @@ File: F/Fibonacci_matrix-exponentiation
 File: F/Fibonacci_n-step_number_sequences
 #!/usr/local/bin/perl
 #u# http://rosettacode.org/wiki/Fibonacci_n-step_number_sequences
-#c# 2018-08-03 <RC
+#c# 2018-08-03 <RC, 2021-03-23 >RC
 #p# OK
 
 File: F/Fibonacci_sequence-1
@@ -7692,6 +7692,12 @@ File: S/Sleep
 #c# 2018-08-14 <RC
 #p# OK
 #=# RC pipe: 4\n4000000\n4000000000\n
+
+File: S/Smallest_square_that_begins_with_n
+#!/usr/local/bin/perl
+#u# http://rosettacode.org/wiki/Smallest_square_that_begins_with_n
+#c# 2021-03-23 >RC
+#p# OK
 
 File: S/Smarandache_prime-digital_sequence
 #!/usr/local/bin/perl
