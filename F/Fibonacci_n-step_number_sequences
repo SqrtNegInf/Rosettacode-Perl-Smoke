@@ -2,6 +2,7 @@
 #u# http://rosettacode.org/wiki/Fibonacci_n-step_number_sequences
 #c# 2018-08-03 <RC, 2021-03-23 >RC
 #p# OK
+#n# still has the wart that the limit 20 is embedded in the 'fib' routine
 
 my $result;
 
@@ -9,7 +10,7 @@ use strict;
 use warnings;
 use feature 'say';
 
-use List::Util qw/max sum/;
+use List::Util <max sum>;
 
 sub fib {
     my $n = shift;
