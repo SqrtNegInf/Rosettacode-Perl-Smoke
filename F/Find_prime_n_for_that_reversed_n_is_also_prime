@@ -12,13 +12,13 @@ use List::Util 'max';
 
 sub pp {
     my $format = ('%' . (my $cw = 1+length max @_) . 'd') x @_;
-    my $width  = qr#.{@{[$cw * int 60/$cw]}}#;
+    my $width  = ".{@{[$cw * int 60/$cw]}}"; # no diff vs 'qr'?
     (sprintf($format, @_)) =~ s/($width)/$1\n/gr;
 }
 
 my($limit, @rp) = 500;
 is_prime($_) and is_prime(reverse $_) and push @rp, $_ for 1..$limit;
-say my $result = "@{[scalar @rp]} reversible primes < $limit:\n" . pp(@rp);
+say my $result = @rp . " reversible primes < $limit:\n" . pp(@rp);
 
 my $ref = <<'END';
 34 reversible primes < 500:
@@ -31,27 +31,3 @@ use Test::More;
 chomp $ref;
 is($result, $ref);
 done_testing();
-
-__END__
-
-=={{header|Perl}}==
-{{libheader|ntheory}}
-<lang perl>use strict;
-use warnings;
-use ntheory 'is_prime';
-use List::Util 'max';
-
-sub pp {
-    my $format = ('%' . (my $cw = 1+length max @_) . 'd') x @_;
-    my $width  = qr#.{@{[$cw * int 60/$cw]}}#;
-    (sprintf($format, @_)) =~ s/($width)/$1\n/gr;
-}
-
-my($limit, @rp) = 500;
-is_prime($_) and is_prime(reverse $_) and push @rp, $_ for 1..$limit;
-print "@{[scalar @rp]} reversible primes < $limit:\n" . pp(@rp);</lang>
-{{out}}
-<pre>34 reversible primes < 500:
-   2   3   5   7  11  13  17  31  37  71  73  79  97 101 107
- 113 131 149 151 157 167 179 181 191 199 311 313 337 347 353
- 359 373 383 389</pre>
