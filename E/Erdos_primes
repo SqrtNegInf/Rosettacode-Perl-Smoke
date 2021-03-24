@@ -12,9 +12,10 @@ use feature 'say';
 use utf8;
 binmode(STDOUT, ':utf8');
 
+use List::AllUtils 'before';
 use ntheory qw<is_prime factorial>;
 
-sub comma { reverse ((reverse shift) =~ s/(.{3})/$1,/gr) =~ s/^,//r }
+#sub comma { reverse ((reverse shift) =~ s/(.{3})/$1,/gr) =~ s/^,//r }
 
 sub is_erdos {
     my($n) = @_; my $k; 
@@ -24,55 +25,23 @@ sub is_erdos {
 }
 
 my(@Erdős,$n);
-do { push @Erdős, comma $n if is_erdos(++$n) } until $n >= 1e6; #10**6;
+do { push @Erdős, $n if is_erdos(++$n) } until $n >= 1e6;
 
-@res = 'Erdős primes < ' . comma(my $max = 2500) . ':';
-push @res, join ' ', @Erdős[0..24];  
+@res = 'Erdős primes < ' . (my $max = 2500) . ':';
+push @res, join ' ', before { $_ > 2500 } @Erdős;
 push @res, "\nThe Erdős prime #" . @Erdős . ' is ' . $Erdős[-1];
 
 say my $result = join "\n", @res;
+#exit;
 
 my $ref = <<'END';
-Erdős primes < 2,500:
-2 101 211 367 409 419 461 557 673 709 769 937 967 1,009 1,201 1,259 1,709 1,831 1,889 2,141 2,221 2,309 2,351 2,411 2,437
+Erdős primes < 2500:
+2 101 211 367 409 419 461 557 673 709 769 937 967 1009 1201 1259 1709 1831 1889 2141 2221 2309 2351 2411 2437
 
-The Erdős prime #7875 is 999,721
+The Erdős prime #7875 is 999721
 END
 
 use Test::More;
 chomp $ref;
 is($result, $ref);
 done_testing();
-
-
-__END__
-
-=={{header|Perl}}==
-{{libheader|ntheory}}
-<lang perl>use strict;
-use warnings;
-use feature 'say';
-use utf8;
-binmode(STDOUT, ':utf8');
-use ntheory qw<is_prime factorial>;
-
-sub comma { reverse ((reverse shift) =~ s/(.{3})/$1,/gr) =~ s/^,//r }
-
-sub is_erdos {
-    my($n) = @_; my $k; 
-    return unless is_prime($n);
-    while ($n > factorial($k++)) { return if is_prime $n-factorial($k) }
-    'True'
-}
-
-my(@Erdős,$n);
-do { push @Erdős, comma $n if is_erdos(++$n) } until $n >= 10**6;
-
-say 'Erdős primes < ' . comma(my $max = 2500) . ':';
-say join ' ', @Erdős[0..24];  
-say "\nThe Erdős prime #" . @Erdős . ' is ' . $Erdős[-1];</lang>
-{{out}}
-<pre>Erdős primes < 2,500:
-2 101 211 367 409 419 461 557 673 709 769 937 967 1,009 1,201 1,259 1,709 1,831 1,889 2,141 2,221 2,309 2,351 2,411 2,437
-
-The 7,875th Erdős prime is: 999,721</pre>
