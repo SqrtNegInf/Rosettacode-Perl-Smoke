@@ -1,0 +1,86 @@
+#!/usr/local/bin/perl
+#u# http://rosettacode.org/wiki/Smallest_square_that_begins_with_n
+#c# 2021-03-23 >RC
+#p# OK
+
+my @res;
+
+use strict;
+use warnings;
+use feature 'say';
+
+# low upper bound (otherwise slow)
+if (0) {
+for my $n (1..49) {
+   for my $hay (map { $_** 2 } 1..10**5) {
+      push @res, sprintf "%2d: %3d^2 = %5d", $n, sqrt $hay, $hay and last if $n eq substr $hay, 0, length $n;
+   }
+}
+}
+
+# pseudo-'Inf' upper bound
+use constant Inf => 10e12;
+for my $n (1..49) {
+   do { push @res, sprintf "%2d: %3d^2 = %5d", $n, $_, $_**2 and last if $_**2 =~ /^$n/ } for 1..Inf
+  #do { push @res, sprintf "%2d: %3d^2 = %5d", $n, $_, $_**2 and last if $n eq substr $_**2, 0, length $n } for 1..Inf
+}
+
+say join "\n", @res[0..9, -1];
+my $result = join "\n", @res;
+
+my $ref = <<'END';
+ 1:   1^2 =     1
+ 2:   5^2 =    25
+ 3:   6^2 =    36
+ 4:   2^2 =     4
+ 5:  23^2 =   529
+ 6:   8^2 =    64
+ 7:  27^2 =   729
+ 8:   9^2 =    81
+ 9:   3^2 =     9
+10:  10^2 =   100
+11:  34^2 =  1156
+12:  11^2 =   121
+13:  37^2 =  1369
+14:  12^2 =   144
+15:  39^2 =  1521
+16:   4^2 =    16
+17:  42^2 =  1764
+18:  43^2 =  1849
+19:  14^2 =   196
+20:  45^2 =  2025
+21:  46^2 =  2116
+22:  15^2 =   225
+23:  48^2 =  2304
+24:  49^2 =  2401
+25:   5^2 =    25
+26:  51^2 =  2601
+27:  52^2 =  2704
+28:  17^2 =   289
+29:  54^2 =  2916
+30:  55^2 =  3025
+31:  56^2 =  3136
+32:  18^2 =   324
+33:  58^2 =  3364
+34:  59^2 =  3481
+35: 188^2 = 35344
+36:   6^2 =    36
+37:  61^2 =  3721
+38:  62^2 =  3844
+39:  63^2 =  3969
+40:  20^2 =   400
+41: 203^2 = 41209
+42:  65^2 =  4225
+43:  66^2 =  4356
+44:  21^2 =   441
+45: 213^2 = 45369
+46:  68^2 =  4624
+47:  69^2 =  4761
+48:  22^2 =   484
+49:   7^2 =    49
+END
+
+use Test::More;
+chomp $ref;
+is($result, $ref);
+done_testing();
