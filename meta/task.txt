@@ -422,7 +422,7 @@ GS......... Entropy_Narcissist
 GS......... Enumerations
 GS......... Environment_variables
 GS......... Equilibrium_index
-.......D.V. Erdos-primes
+GS.....D... Erdos-primes
 GS.....D... Esthetic_numbers
 GS......... Ethiopian_multiplication
 GS......... Euler%27s_identity
