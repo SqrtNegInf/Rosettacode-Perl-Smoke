@@ -1,17 +1,17 @@
 
 This is perl 5, version 32, subversion 1 (v5.32.1) built for darwin-thread-multi-2level
 updating from RC…
-+------------> Perl: Good/Bad [1409/10]
-|+-----------> Smoke testing [1262]
++------------> Perl: Good/Bad [1410/10]
+|+-----------> Smoke testing [1263]
 ||+----------> sKipping validation [151]
 |||+---------> Interactive [68]
-||||+--------> Touched (modified by me) [459]
+||||+--------> Touched (modified by me) [461]
 |||||+-------> Random seed [113]
 ||||||+------> File output [75]
 |||||||+-----> Draft [244]
 ||||||||+----> Ignoring [35]
-|||||||||+---> Void (no local copy) [115]
-||||||||||+--> Un-implemented/reliable [106]
+|||||||||+---> Void (no local copy) [114]
+||||||||||+--> Un-implemented/reliable [100]
 |||||||||||
 GS......... 100_doors-1
 GS......... 100_doors-2
@@ -61,7 +61,7 @@ GS......... Active_object
 GS......... Add_a_variable_to_a_class_instance_at_runtime
 .......D.VU Addition-chain_exponentiation
 GS..T..D... Addition_chains
-GS..T..D..U Additive_primes
+GS..T..D... Additive_primes
 GS..T...... Address_of_a_variable
 GS......... Align_columns-1
 GS......... Align_columns-2
@@ -318,7 +318,7 @@ GS......... Count_in_octal
 GS......... Count_occurrences_of_a_substring
 GS......... Count_the_coins
 GS.....D... Count_the_coins_0-1
-GS..T..D..U Cousin_primes
+GS..T..D... Cousin_primes
 GS......... Cramer%27s_rule
 ........X.. Create_DWM_statusbar
 G.K........ Create_a_file
@@ -422,7 +422,7 @@ GS......... Entropy_Narcissist
 GS......... Enumerations
 GS......... Environment_variables
 GS......... Equilibrium_index
-.......D.VU Erdos-primes
+.......D.V. Erdos-primes
 GS.....D... Esthetic_numbers
 GS......... Ethiopian_multiplication
 GS......... Euler%27s_identity
@@ -479,7 +479,7 @@ GS..T...... Feigenbaum_constant_calculation
 GS..T...... Fermat_numbers
 .......D.VU Fibonacci_heap
 GS..T..D... Fibonacci_matrix-exponentiation
-GS......... Fibonacci_n-step_number_sequences
+GS..T...... Fibonacci_n-step_number_sequences
 GS......... Fibonacci_sequence-1
 GS......... Fibonacci_sequence-2
 GS......... Fibonacci_sequence-3
@@ -501,7 +501,7 @@ GS.....D... Find_if_a_point_is_within_a_triangle
 GS......... Find_largest_left_truncatable_prime_in_a_given_base
 GS......... Find_limit_of_recursion
 GS......... Find_palindromic_numbers_in_both_binary_and_ternary_bases
-GS..T..D..U Find_prime_n_for_that_reversed_n_is_also_prime
+GS..T..D... Find_prime_n_for_that_reversed_n_is_also_prime
 GS..T..D... Find_prime_numbers_of_the_form_n_n_n%2B2
 GS..T...... Find_the_intersection_of_a_line_with_a_plane-1
 GS......... Find_the_intersection_of_a_line_with_a_plane-2
@@ -1058,7 +1058,7 @@ GS......... Prime_decomposition-3
 B.......... Prime_decomposition-4
 GS.....D... Prime_words
 GS..T...... Primes_-_allocate_descendants_to_their_ancestors
-GS..T..D..U Primes_which_sum_of_digits_is_25
+GS..T..D... Primes_which_sum_of_digits_is_25
 GS......... Primorial_numbers
 G.K.T..D... Print_debugging_statement
 GS....FDX.. Print_itself
@@ -1250,7 +1250,7 @@ G.K........ Singly-linked_list_Element_insertion
 GS......... Singly-linked_list_Traversal
 GS......... Sleep
 .......D.VU Smallest_enclosing_circle_problem
-.......D.VU Smallest_square_that_begins_with_n
+GS..T..D... Smallest_square_that_begins_with_n
 GS..T...... Smarandache_prime-digital_sequence
 GS......... Smith_numbers
 G.KI...D... Snake
