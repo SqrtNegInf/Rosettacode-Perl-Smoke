@@ -12,7 +12,7 @@ use List::Util 'sum';
 
 my($limit, @p25) = 5000;
 is_prime($_) and 25 == sum(split '',$_) and push @p25, $_ for 1..$limit;
-say my $result = "@{[scalar @p25]} primes < $limit with digital sum 25:\n" . join ' ', @p25;
+say my $result = @p25 . " primes < $limit with digital sum 25:\n" . join ' ', @p25;
 
 my $ref = <<'END';
 17 primes < 5000 with digital sum 25:
@@ -23,21 +23,3 @@ use Test::More;
 chomp $ref;
 is($result, $ref);
 done_testing();
-
-__END__
-
-=={{header|Perl}}==
-{{libheader|ntheory}}
-<lang perl>use strict;
-use warnings;
-use feature 'say';
-use ntheory 'is_prime';
-use List::Util 'sum';
-
-my($limit, @p25) = 5000;
-is_prime($_) and 25 == sum(split '',$_) and push @p25, $_ for 1..$limit;
-say "@{[scalar @p25]} primes < $limit with digital sum 25:\n" . join ' ', @p25;
-</lang>
-{{out}}
-<pre>17 primes < 5000 with digital sum 25:
-997 1699 1789 1879 1987 2689 2797 2887 3499 3697 3769 3877 3967 4597 4759 4957 4993</pre>
