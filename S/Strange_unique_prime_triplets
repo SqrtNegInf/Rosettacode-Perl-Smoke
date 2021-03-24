@@ -1,0 +1,48 @@
+#!/usr/local/bin/perl
+#u# http://rosettacode.org/wiki/Strange_unique_prime_triplets
+#c# 2021-03-24 >RC
+#p# OK
+
+my @res;
+
+use strict;
+use warnings;
+use feature 'say';
+
+use ntheory <primes is_prime>;
+use List::Util 'sum';
+use Algorithm::Combinatorics 'combinations';
+
+# easy-peasy
+for my $n (30, 1000) {
+    my $cnt;
+    is_prime sum @$_ and $cnt++ for combinations( primes($n), 3 );
+    push @res, "Found $cnt strange unique prime triplets up to $n.";
+}
+
+# slightly trickier
+for my $n (30, 1000) {
+    push @res, sprintf "Found %d strange unique prime triplets up to $n.",
+        scalar grep { is_prime sum @$_ } combinations primes($n), 3;
+}
+
+# functional, too obscure for RC?
+push @res, sprintf "Found %d strange unique prime triplets up to $_.",
+    scalar grep { is_prime sum @$_ } combinations primes($_), 3
+        for 30, 1000;
+
+say my $result = join "\n", @res;
+
+my $ref = <<'END';
+Found 42 strange unique prime triplets up to 30.
+Found 241580 strange unique prime triplets up to 1000.
+Found 42 strange unique prime triplets up to 30.
+Found 241580 strange unique prime triplets up to 1000.
+Found 42 strange unique prime triplets up to 30.
+Found 241580 strange unique prime triplets up to 1000.
+END
+
+use Test::More;
+chomp $ref;
+is($result, $ref);
+done_testing();
