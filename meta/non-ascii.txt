@@ -174,7 +174,7 @@ D/Draw_a_clock
 ╷:     3 BOX DRAWINGS LIGHT DOWN
 
 E/Erdos_primes
-ő:    19 LATIN SMALL LETTER O WITH DOUBLE ACUTE
+ő:    10 LATIN SMALL LETTER O WITH DOUBLE ACUTE
 
 F/Factorial_base_numbers_indexing_permutations_of_a_collection
 ♠:    65 BLACK SPADE SUIT
