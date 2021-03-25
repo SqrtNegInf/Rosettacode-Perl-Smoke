@@ -173,7 +173,7 @@ D/Draw_a_clock
 ╶:     7 BOX DRAWINGS LIGHT RIGHT
 ╷:     3 BOX DRAWINGS LIGHT DOWN
 
-E/Erdos_primes
+E/Erdos-primes
 ő:    10 LATIN SMALL LETTER O WITH DOUBLE ACUTE
 
 F/Factorial_base_numbers_indexing_permutations_of_a_collection
@@ -332,10 +332,6 @@ N/Numerical_integration_Gauss-Legendre_Quadrature
 ₋:     8 SUBSCRIPT MINUS
 ∫:     8 INTEGRAL
 ≈:     8 ALMOST EQUAL TO
-
-P/Padovan_n-step_number_sequences
-»:     1 RIGHT-POINTING DOUBLE ANGLE QUOTATION MARK
-…:     1 HORIZONTAL ELLIPSIS
 
 P/Peaceful_chess_queen_armies
 ×:     1 MULTIPLICATION SIGN
