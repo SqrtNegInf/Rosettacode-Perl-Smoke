@@ -19,7 +19,7 @@ for our $N (2..8) {
     my $pad_n = lazy_list { 
         state $n  = 2; 
         state @pn = (1, 1, 1); 
-        push @pn, sum @pn[ grep { $_ >= 0 } $n-$N .. ++$n - 1 ];
+        push @pn, sum @pn[ grep { $_ >= 0 } $n-$N .. $n++ - 1 ];
         $pn[-4] 
     };
 
@@ -44,35 +44,3 @@ use Test::More;
 chomp $ref;
 is($result, $ref);
 done_testing();
-
-__END__
-
-=={{header|Perl}}==
-<lang perl>use strict;
-use warnings;
-use feature <state say>;
-use List::Util 'sum';
-use List::Lazy 'lazy_list';
-
-say 'Padovan N-step sequences; first 25 terms:';
-for our $N (2..8) {
-
-    my $pad_n = lazy_list { 
-        state $n  = 2; 
-        state @pn = (1, 1, 1); 
-        push @pn, sum @pn[ grep { $_ >= 0 } $n-$N .. $n++ - 1 ];
-        $pn[-4] 
-    };
-
-    print "N = $N |";
-    print ' ' . $pad_n->next() for 1..25;
-    print "\n"
-}</lang>
-{{out}}
-<pre>N = 2 | 1 1 1 2 2 3 4 5 7 9 12 16 21 28 37 49 65 86 114 151 200 265 351 465 616
-N = 3 | 1 1 1 2 3 4 6 9 13 19 28 41 60 88 129 189 277 406 595 872 1278 1873 2745 4023 5896
-N = 4 | 1 1 1 2 3 5 7 11 17 26 40 61 94 144 221 339 520 798 1224 1878 2881 4420 6781 10403 15960
-N = 5 | 1 1 1 2 3 5 8 12 19 30 47 74 116 182 286 449 705 1107 1738 2729 4285 6728 10564 16587 26044
-N = 6 | 1 1 1 2 3 5 8 13 20 32 51 81 129 205 326 518 824 1310 2083 3312 5266 8373 13313 21168 33657
-N = 7 | 1 1 1 2 3 5 8 13 21 33 53 85 136 218 349 559 895 1433 2295 3675 5885 9424 15091 24166 38698
-N = 8 | 1 1 1 2 3 5 8 13 21 34 54 87 140 225 362 582 936 1505 2420 3891 6257 10061 16178 26014 41830</pre>
