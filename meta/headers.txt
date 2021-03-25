@@ -2472,7 +2472,7 @@ File: E/Equilibrium_index
 #c# 2018-07-31 <RC
 #p# OK
 
-File: E/Erdos_primes
+File: E/Erdos-primes
 #!/usr/local/bin/perl
 #u# http://rosettacode.org/wiki/Erdős-primes
 #c# 2021-03-22 >RC
@@ -2830,6 +2830,7 @@ File: F/Fibonacci_n-step_number_sequences
 #u# http://rosettacode.org/wiki/Fibonacci_n-step_number_sequences
 #c# 2018-08-03 <RC, 2021-03-23 >RC
 #p# OK
+#n# still has the wart that the limit 20 is embedded in the 'fib' routine
 
 File: F/Fibonacci_sequence-1
 #!/usr/local/bin/perl
@@ -5804,8 +5805,7 @@ File: P/P-value_correction.1
 File: P/Padovan_n-step_number_sequences
 #!/usr/local/bin/perl
 #u# http://rosettacode.org/wiki/Padovan_n-step_number_sequences
-#t# inprogress
-#c# 2021-03-xx >RC
+#c# 2021-03-24 >RC
 #p# OK
 
 File: P/Padovan_sequence
@@ -8224,6 +8224,12 @@ File: S/Strange_plus_numbers
 #!/usr/local/bin/perl
 #u# http://rosettacode.org/wiki/Strange_plus_numbers
 #c# 2021-02-26 >RC
+#p# OK
+
+File: S/Strange_unique_prime_triplets
+#!/usr/local/bin/perl
+#u# http://rosettacode.org/wiki/Strange_unique_prime_triplets
+#c# 2021-03-24 >RC
 #p# OK
 
 File: S/Stream_Merge
