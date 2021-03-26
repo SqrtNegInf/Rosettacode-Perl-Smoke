@@ -1,7 +1,9 @@
 #!/usr/local/bin/perl
 #u# http://rosettacode.org/wiki/RCRPG/Perl
+#t# interactive
 #c# 2018-08-19 <RC
-#p# BROKEN
+#p# OK
+#n# tried a few things, seems OK...
 
 # RCRPG/Perl is part of RCRPG. You may find other members of RCRPG at Category:RCRPG.
 # This Perl version of RCRPG implements a text interface.
