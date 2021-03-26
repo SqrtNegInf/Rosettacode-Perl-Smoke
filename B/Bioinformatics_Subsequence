@@ -1,0 +1,46 @@
+#!/usr/local/bin/perl
+#u# http://rosettacode.org/wiki/Bioinformatics/Subsequence
+#c# 2021-03-25 >RC
+#p# OK
+
+srand 1234567;
+
+my @res;
+
+use strict;
+use warnings;
+use feature 'say';
+
+my @bases = <A C G T>;
+my $basecnt = 160;
+
+my($string,$target);
+$string .= $bases[ int rand @bases ] for 1 .. $basecnt;
+#$target .= $bases[ int rand @bases ] for 1..4;
+$target = 'CCTG';
+
+push @res, "Target: $target";
+push @res, 'Matches at these positions:';
+push @res, pos($string) while $string =~ m/$target/g;
+push @res, ($string =~ s/.{1,40}\K/\n/gr) =~ s/($target)/ >$1< /gr;
+
+#say '' . ($string =~ s/.{1,40}\K/\n/gr) =~ s/($target)/ >$1< /gr;
+#say (($string =~ s/.{1,40}\K/\n/gr) =~ s/($target)/ >$1< /gr);
+
+say my $result = join "\n", @res;
+
+my $ref = <<'END';
+Target: CCTG
+Matches at these positions:
+9
+90
+157
+TTGCC >CCTG< CAAAGTTAATAAGTAAACAATTAAGTGAGTG
+CTCTAGGGTAAGGTGAGGGCGGGAAGGGGAAAAATACCGA
+TGCGAG >CCTG< TAGAGCCGGGCCTCAAATTAAACGAAAAAT
+ATAAGTTTGCTTGGCACGCTGTACTACTTATCC >CCTG< ACT
+END
+
+use Test::More;
+is($result, $ref);
+done_testing();
