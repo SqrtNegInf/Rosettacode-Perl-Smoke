@@ -830,6 +830,12 @@ File: B/Bioinformatics_Sequence_mutation
 #c# 2019-12-04 >RC
 #p# OK
 
+File: B/Bioinformatics_Subsequence
+#!/usr/local/bin/perl
+#u# http://rosettacode.org/wiki/Bioinformatics/Subsequence
+#c# 2021-03-25 >RC
+#p# OK
+
 File: B/Bioinformatics_base_count
 #!/usr/local/bin/perl
 #u# http://rosettacode.org/wiki/Bioinformatics_base_count
@@ -4211,7 +4217,7 @@ File: K/K-means%2B%2B_clustering
 #u# http://rosettacode.org/wiki/K-means%2B%2B_clustering
 #t# inprogress
 #c# 2019-10-07 >RC
-#p# BROKEN
+#p# OK
 
 File: K/Kahan_summation
 #!/usr/local/bin/perl
@@ -6708,8 +6714,10 @@ File: Q/Quine
 File: R/RCRPG
 #!/usr/local/bin/perl
 #u# http://rosettacode.org/wiki/RCRPG/Perl
+#t# interactive
 #c# 2018-08-19 <RC
-#p# BROKEN
+#p# OK
+#n# tried a few things, seems OK...
 
 File: R/RIPEMD-160
 #!/usr/local/bin/perl
