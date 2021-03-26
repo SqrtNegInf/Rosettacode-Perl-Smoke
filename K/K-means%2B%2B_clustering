@@ -2,7 +2,7 @@
 #u# http://rosettacode.org/wiki/K-means%2B%2B_clustering
 #t# inprogress
 #c# 2019-10-07 >RC
-#p# BROKEN
+#p# OK
 
 use Data::Printer;
 use Time::HiRes qw(sleep);
