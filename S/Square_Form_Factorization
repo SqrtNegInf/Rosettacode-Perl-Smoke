@@ -1,0 +1,129 @@
+#!/usr/local/bin/perl
+#u# http://rosettacode.org/wiki/Square_Form_Factorization
+#c# 2021-03-xx >RC
+#p# OK
+#n# 1167.75s user 1.95s system 99% cpu 19:32.37 total
+
+my @res;
+
+use strict;
+use warnings;
+use feature 'say';
+
+use ntheory <is_prime gcd>;
+
+my @multiplier = ( 1, 3, 5, 7, 11, 3*5, 3*7, 3*11, 5*7, 5*11, 7*11, 3*5*7, 3*5*11, 3*7*11, 5*7*11, 3*5*7*11 );
+
+sub sff {
+    my($N) = shift; 
+
+   return 1 if is_prime $N;                    # if n is prime
+   return sqrt $N if sqrt($N) == int sqrt $N;  # if n is a perfect square
+
+   for my $k (@multiplier) { 
+      my $P0 = int sqrt($k*$N);  # P[0]=floor(sqrt(N)
+      my $Q0 = 1 ;               # Q[0]=1
+      my $Q  = $k*$N - $P0**2;   # Q[1]=N-P[0]^2 & Q[i]
+      my $P1 = $P0;              # P[i-1] = P[0]
+      my $Q1 = $Q0;              # Q[i-1] = Q[0] 
+      my $P  = 0;                # P[i]
+      my $Qn = 0;                # $P[$i+1];        
+      my $b  = 0;                # b[i]
+
+#     until (0 == (sqrt($Q))%1) {                   # slower!
+      until (sqrt($Q) == int(sqrt($Q))) {           # until Q[i] is a perfect square
+         $b = int( int(sqrt($k*$N) + $P1 ) / $Q);   # floor(floor(sqrt(N+P[i-1])/Q[i])
+         $P = $b*$Q - $P1;                          # P[i]=b*Q[i]-P[i-1] 
+         $Qn = $Q1 + $b*($P1 - $P);                 # Q[i+1]=Q[i-1]+b(P[i-1]-P[i]) 
+         ($Q1, $Q, $P1) = ($Q, $Qn, $P);
+      } 
+
+      $b  = int( int( sqrt($k*$N)+$P ) / $Q );      # b=floor((floor(sqrt(N)+P[i])/Q[0])
+      $P1 = $b*$Q0 - $P;                            # P[i-1]=b*Q[0]-P[i]
+      $Q  = ( $k*$N - $P1  **2 )/$Q0;               # Q[1]=(N-P[0]^2)/Q[0] & Q[i]
+      $Q1 = $Q0;                                    # Q[i-1] = Q[0]
+
+      while () {
+         $b  = int( int(sqrt($k*$N)+$P1  ) / $Q );  # b=floor(floor(sqrt(N)+P[i-1])/Q[i])
+         $P  = $b*$Q - $P1;                         # P[i]=b*Q[i]-P[i-1]
+         $Qn = $Q1 + $b*($P1 - $P);                 # Q[i+1]=Q[i-1]+b(P[i-1]-P[i])
+         last if $P == $P1  ;                       # until P[i+1]=P[i]
+         ($Q1, $Q, $P1) = ($Q, $Qn, $P);
+      }  
+      for (gcd $N, $P) { return $_ if $_ != 1 and $_ != $N }    
+   }
+   return 0
+}
+
+for my $data ( 
+   11111, 2501, 12851, 13289, 75301, 120787, 967009, 997417,  4558849,  7091569, 13290059, 
+   42854447, 223553581, 2027651281, 11111111111, 100895598169, 1002742628021, 
+   60012462237239,
+   287129523414791,
+   11111111111111111,
+#  384307168202281507,
+#  1000000000000000127,
+#  9007199254740931,
+#  922337203685477563,
+#  314159265358979323,
+#  1152921505680588799,
+#  658812288346769681,
+#  419244183493398773,
+#  1537228672809128917,
+) {
+   my $v = sff($data);
+   if    ($v == 0) { push @res, 'The number ' . $data . ' is not factored.' }
+   elsif ($v == 1) { push @res, 'The number ' . $data . ' is a prime.'      }
+   else            { push @res, "$data = " . join ' * ', sort {$a <=> $b} $v, int $data/int($v) }
+}
+
+say my $result = join "\n", @res;
+
+my $ref = <<'END';
+11111 = 41 * 271
+2501 = 41 * 61
+12851 = 71 * 181
+13289 = 97 * 137
+75301 = 257 * 293
+120787 = 43 * 2809
+967009 = 601 * 1609
+997417 = 257 * 3881
+4558849 = 383 * 11903
+7091569 = 2663 * 2663
+13290059 = 3119 * 4261
+42854447 = 4423 * 9689
+223553581 = 11213 * 19937
+2027651281 = 44021 * 46061
+11111111111 = 21649 * 513239
+100895598169 = 112303 * 898423
+The number 1002742628021 is a prime.
+60012462237239 = 6862753 * 8744663
+287129523414791 = 6059887 * 47381993
+11111111111111111 = 2071723 * 5363222357
+END
+
+my $more = <<'END';
+384307168202281507 = 415718707 * 924440401
+1000000000000000127 = 111756107 * 8948056861
+9007199254740931 = 10624181 * 847801751
+922337203685477563 = 110075821 * 8379108103
+314159265358979323 = 317213509 * 990371647
+1152921505680588799 = 139001459 * 8294312261
+658812288346769681 = 62222119 * 10588072199
+419244183493398773 = 48009977 * 8732438749
+1537228672809128917 = 26675843 * 57626245319
+END
+
+use Test::More;
+chomp $ref;
+is($result, $ref);
+done_testing();
+
+__END__
+
+=={{header|Perl}}==
+{{trans|Raku}}
+{{libheader|ntheory}}
+<lang perl></lang>
+{{out}}
+<pre></pre>
