@@ -1,17 +1,17 @@
 
 This is perl 5, version 32, subversion 1 (v5.32.1) built for darwin-thread-multi-2level
 updating from RC…
-+------------> Perl: Good/Bad [1415/8]
-|+-----------> Smoke testing [1267]
++------------> Perl: Good/Bad [1416/8]
+|+-----------> Smoke testing [1268]
 ||+----------> sKipping validation [151]
 |||+---------> Interactive [69]
-||||+--------> Touched (modified by me) [464]
+||||+--------> Touched (modified by me) [465]
 |||||+-------> Random seed [114]
 ||||||+------> File output [75]
-|||||||+-----> Draft [244]
+|||||||+-----> Draft [245]
 ||||||||+----> Ignoring [35]
 |||||||||+---> Void (no local copy) [111]
-||||||||||+--> Un-implemented/reliable [97]
+||||||||||+--> Un-implemented/reliable [98]
 |||||||||||
 GS......... 100_doors-1
 GS......... 100_doors-2
@@ -896,6 +896,7 @@ GS..T...... Negative_base_numbers
 GS......... Nested_function
 GS..T...... Nested_templated_data
 GS..T...... Next_highest_int_from_digits
+.......D.VU Next_special_primes
 GS..T..D... Nice_primes
 GS..T...... Nim_game
 GS..T...... Nimber_arithmetic
@@ -1311,7 +1312,7 @@ GS......... Spiral_matrix
 GS..T...... Split_a_character_string_based_on_change_of_character
 GS..TR.D... Spoof_game
 GS......... Square-free_integers
-.........VU Square_Form_Factorization
+GS..T.....U Square_Form_Factorization
 GS..T...... Square_but_not_cube-1
 GS..T...... Square_but_not_cube-2
 GS..T..D... Square_root_by_hand
