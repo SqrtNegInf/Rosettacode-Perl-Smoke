@@ -2834,9 +2834,9 @@ File: F/Fibonacci_matrix-exponentiation
 File: F/Fibonacci_n-step_number_sequences
 #!/usr/local/bin/perl
 #u# http://rosettacode.org/wiki/Fibonacci_n-step_number_sequences
-#c# 2018-08-03 <RC, 2021-03-23 >RC
+#c# 2018-08-03 <RC, 2021-03-23 >RC, 2021-03-xx >RC
 #p# OK
-#n# still has the wart that the limit 20 is embedded in the 'fib' routine
+#n# exchanging one wart (hard-coded limit=20) for a slightly better wart (positional args with slurpy in the middle)
 
 File: F/Fibonacci_sequence-1
 #!/usr/local/bin/perl
@@ -8090,6 +8090,13 @@ File: S/Square-free_integers
 #u# http://rosettacode.org/wiki/Square-free_integers
 #c# 2018-08-13 <RC
 #p# OK
+
+File: S/Square_Form_Factorization
+#!/usr/local/bin/perl
+#u# http://rosettacode.org/wiki/Square_Form_Factorization
+#c# 2021-03-xx >RC
+#p# OK
+#n# 1167.75s user 1.95s system 99% cpu 19:32.37 total
 
 File: S/Square_Root_by_Hand
 #!/usr/local/bin/perl
