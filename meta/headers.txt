@@ -2834,9 +2834,9 @@ File: F/Fibonacci_matrix-exponentiation
 File: F/Fibonacci_n-step_number_sequences
 #!/usr/local/bin/perl
 #u# http://rosettacode.org/wiki/Fibonacci_n-step_number_sequences
-#c# 2018-08-03 <RC, 2021-03-23 >RC, 2021-03-xx >RC
+#c# 2018-08-03 <RC, 2021-03-23 >RC, 2021-03-26 >RC
 #p# OK
-#n# exchanging one wart (hard-coded limit=20) for a slightly better wart (positional args with slurpy in the middle)
+#n# exchanging one wart (hard-coded limit=20) for a slightly better wart (positional args, can't do named)
 
 File: F/Fibonacci_sequence-1
 #!/usr/local/bin/perl
