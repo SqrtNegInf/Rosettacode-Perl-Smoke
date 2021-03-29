@@ -562,10 +562,8 @@ File: A/Assertions
 File: A/Assertions_in_design_by_contract
 #!/usr/local/bin/perl
 #u# http://rosettacode.org/wiki/Assertions_in_design_by_contract
-#t# skiptest
 #c# 2020-12-01 <RC
 #p# OK
-#n# need to trap STDERR...
 
 File: A/Associative_array_Creation
 #!/usr/local/bin/perl
@@ -7165,11 +7163,12 @@ File: R/Rosetta_Code_Rank_languages_by_popularity
 #u# http://rosettacode.org/wiki/Rosetta_Code/Rank_languages_by_popularity
 #c# 2018-08-21 <RC, 2019-09-11 >RC
 #p# OK
-#n# testing somewhat fragile
+#n# test needs to be revised every time a new language crosses the 1000-task barrier
 #n# 2020-01-29 Pleased to welcome 'C' to the '1000 club'
 #n# 2020-02-24 'Java' joins the no-longer-quite-so-exclusive club
 #n# 2020-11-05 Pleased to welcome 'J' to the club
 #n# 2021-02-24 Please to welcome 'Ruby' AND 'Wren' to the club (on the same day)
+#n# 2021-03-25 Please to welcome 'C++' to the club (hey, when did Zkl sneak in?)
 
 File: R/Rosetta_Code_Tasks_without_examples
 #!/usr/local/bin/perl
