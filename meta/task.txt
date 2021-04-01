@@ -1,17 +1,17 @@
 
 This is perl 5, version 32, subversion 1 (v5.32.1) built for darwin-thread-multi-2level
 updating from RC…
-+------------> Perl: Good/Bad [1416/8]
-|+-----------> Smoke testing [1269]
++------------> Perl: Good/Bad [1417/8]
+|+-----------> Smoke testing [1270]
 ||+----------> sKipping validation [150]
 |||+---------> Interactive [69]
 ||||+--------> Touched (modified by me) [465]
 |||||+-------> Random seed [114]
 ||||||+------> File output [75]
-|||||||+-----> Draft [249]
+|||||||+-----> Draft [250]
 ||||||||+----> Ignoring [35]
-|||||||||+---> Void (no local copy) [115]
-||||||||||+--> Un-implemented/reliable [102]
+|||||||||+---> Void (no local copy) [116]
+||||||||||+--> Un-implemented/reliable [103]
 |||||||||||
 GS......... 100_doors-1
 GS......... 100_doors-2
@@ -737,6 +737,7 @@ GS......... Leonardo_numbers
 GS......... Letter_frequency
 GS......... Levenshtein_distance-1
 GS......... Levenshtein_distance-2
+GS......... Levenshtein_distance-3
 GS......... Levenshtein_distance_Alignment
 GS..T..D... Line_circle_intersection
 GS......... Linear_congruential_generator
@@ -1062,6 +1063,7 @@ B.......... Prime_decomposition-4
 GS.....D... Prime_words
 GS..T...... Primes_-_allocate_descendants_to_their_ancestors
 GS..T..D... Primes_which_sum_of_digits_is_25
+.......D.VU Primes_with_digits_in_nondecreasing_order
 GS......... Primorial_numbers
 G.K.T..D... Print_debugging_statement
 GS....FDX.. Print_itself
