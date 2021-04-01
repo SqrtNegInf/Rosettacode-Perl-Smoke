@@ -4487,6 +4487,15 @@ File: L/Levenshtein_distance-2
 #c# 2018-08-15 <RC
 #p# OK
 
+File: L/Levenshtein_distance-3
+#!/usr/local/bin/perl
+#u# http://rosettacode.org/wiki/Levenshtein_distance
+#c# 2021-03-31 NOT ON RC
+#p# OK
+#n# from: https://github.com/manwar/perlweeklychallenge-club/blob/master/challenge-096/abigail/perl/ch-2.pl
+#n# https://en.wikipedia.org/wiki/Wagner%E2%80%93Fischer_algorithm
+#n# similar to -2 version, but a little more clearly written
+
 File: L/Levenshtein_distance_Alignment
 #!/usr/local/bin/perl
 #u# http://rosettacode.org/wiki/Levenshtein_distance/Alignment
