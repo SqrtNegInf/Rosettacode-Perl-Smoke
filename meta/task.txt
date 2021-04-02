@@ -8,10 +8,10 @@ updating from RC…
 ||||+--------> Touched (modified by me) [465]
 |||||+-------> Random seed [114]
 ||||||+------> File output [75]
-|||||||+-----> Draft [250]
+|||||||+-----> Draft [251]
 ||||||||+----> Ignoring [35]
-|||||||||+---> Void (no local copy) [116]
-||||||||||+--> Un-implemented/reliable [103]
+|||||||||+---> Void (no local copy) [117]
+||||||||||+--> Un-implemented/reliable [104]
 |||||||||||
 GS......... 100_doors-1
 GS......... 100_doors-2
@@ -548,6 +548,7 @@ GS..T...... Fraction_reduction
 GS......... Fractran
 GS.....D... Free_polyominoes_enumeration
 GS.....D... French_Republican_calendar
+.......D.VU Frobenius_primes
 GS......... Function_composition
 GS......... Function_definition
 GS......... Function_frequency
