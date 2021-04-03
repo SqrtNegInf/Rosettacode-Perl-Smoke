@@ -8211,6 +8211,12 @@ File: S/Stern-Brocot_sequence-3
 #c# 2021-01-28 NOT ON RC
 #p# OK
 
+File: S/Stern-Brocot_sequence-4
+#!/usr/local/bin/perl
+#u# http://rosettacode.org/wiki/Stern-Brocot_sequence
+#c# 2021-04-02 NOT ON RC
+#p# OK
+
 File: S/Stirling_numbers_of_the_first_kind
 #!/usr/local/bin/perl
 #u# http://rosettacode.org/wiki/Stirling_numbers_of_the_first_kind
