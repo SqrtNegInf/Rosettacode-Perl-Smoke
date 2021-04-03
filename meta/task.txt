@@ -2,16 +2,16 @@
 This is perl 5, version 32, subversion 1 (v5.32.1) built for darwin-thread-multi-2level
 updating from RC…
 +------------> Perl: Good/Bad [1417/8]
-|+-----------> Smoke testing [1270]
+|+-----------> Smoke testing [1271]
 ||+----------> sKipping validation [150]
 |||+---------> Interactive [69]
 ||||+--------> Touched (modified by me) [465]
 |||||+-------> Random seed [114]
 ||||||+------> File output [75]
-|||||||+-----> Draft [251]
+|||||||+-----> Draft [254]
 ||||||||+----> Ignoring [35]
-|||||||||+---> Void (no local copy) [117]
-||||||||||+--> Un-implemented/reliable [104]
+|||||||||+---> Void (no local copy) [120]
+||||||||||+--> Un-implemented/reliable [107]
 |||||||||||
 GS......... 100_doors-1
 GS......... 100_doors-2
@@ -294,6 +294,7 @@ G.K..R..... Concurrent_computing-1
 GS......... Concurrent_computing-2
 G.K........ Conditional_structures
 GS......... Conjugate_transpose
+.......D.VU Consecutive_Primes_With_Ascending_Or_Descending_Differences
 ........XVU Constrained_genericity
 GS..TR..... Constrained_random_points_on_a_circle
 GS..T...... Continued_fraction
@@ -548,7 +549,7 @@ GS..T...... Fraction_reduction
 GS......... Fractran
 GS.....D... Free_polyominoes_enumeration
 GS.....D... French_Republican_calendar
-.......D.VU Frobenius_primes
+.......D.VU Frobenius_numbers
 GS......... Function_composition
 GS......... Function_definition
 GS......... Function_frequency
@@ -926,6 +927,7 @@ GS..T...... Numerical_integration_Gauss-Legendre_Quadrature
 .........VU OLE_automation
 GS......... Object_serialization-1
 GS......... Object_serialization-2
+.......D.VU Odd_squarefree_semiprimes
 GS......... Odd_word_problem
 GS......... Odd_word_problem-2
 GS.....D... Odd_words
@@ -1022,6 +1024,7 @@ GS...R..... Pig_the_dice_game
 GS..TR..... Pig_the_dice_game_Player
 GS..T.F.... Pinstripe_Display
 .........VU Pinstripe_Printer
+.......D.VU Piprimes
 GS..T..D... Pisano_period
 GS..T.F.... Plasma_effect
 B.K.......U Play_recorded_sounds
@@ -1336,6 +1339,7 @@ GS..T...... Stem-and-leaf_plot
 GS......... Stern-Brocot_sequence-1
 GS......... Stern-Brocot_sequence-2
 GS......... Stern-Brocot_sequence-3
+GS......... Stern-Brocot_sequence-4
 GS..T...... Stirling_numbers_of_the_first_kind
 GS..T...... Stirling_numbers_of_the_second_kind
 GS..T...... Straddling_checkerboard
@@ -1436,7 +1440,7 @@ GS......... Thue-Morse
 GS...R..... Tic-tac-toe
 G.KI....... Tic-tac-toe-2
 GS.....D... Time-based_one-time_password_algorithm
-GS......... Time_a_function
+!S......... Time_a_function
 GS......... Tokenize_a_string
 GS......... Tokenize_a_string_with_escaping
 GS..T...... Tonelli-Shanks_algorithm
