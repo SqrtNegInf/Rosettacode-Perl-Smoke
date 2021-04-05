@@ -9049,6 +9049,12 @@ File: T/Two_bullet_roulette
 #c# 2021-01-13 >RC
 #p# OK
 
+File: T/Two_identical_strings
+#!/usr/local/bin/perl
+#u# http://rosettacode.org/wiki/Two_identical_strings
+#c# 2021-04-04 <RC
+#p# OK
+
 File: T/Type_detection
 #!/usr/local/bin/perl
 #u# http://rosettacode.org/wiki/Type_detection
