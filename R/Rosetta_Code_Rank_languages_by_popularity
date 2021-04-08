@@ -6,8 +6,9 @@
 #n# 2020-01-29 Pleased to welcome 'C' to the '1000 club'
 #n# 2020-02-24 'Java' joins the no-longer-quite-so-exclusive club
 #n# 2020-11-05 Pleased to welcome 'J' to the club
-#n# 2021-02-24 Please to welcome 'Ruby' AND 'Wren' to the club (on the same day)
-#n# 2021-03-25 Please to welcome 'C++' to the club (hey, when did Zkl sneak in?)
+#n# 2021-02-24 Pleased to welcome 'Ruby' AND 'Wren' to the club (on the same day)
+#n# 2021-03-25 Pleased to welcome 'C++' to the club (hey, when did Zkl sneak in?)
+#n# 2021-04-06 Pleased to welcome 'Nim' to the club
 
 my @res;
 
@@ -58,5 +59,5 @@ for (@sorted_languages) {
 say join "\n", @res;
 
 use Test::More;
-ok @res == 16;
+ok @res == 17;
 done_testing();
