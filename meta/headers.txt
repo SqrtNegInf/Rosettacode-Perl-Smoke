@@ -8045,6 +8045,14 @@ File: S/Special_characters
 #c# 2018-08-14 <RC
 #p# OK
 
+File: S/Special_factorials
+#!/usr/local/bin/perl
+#u# http://rosettacode.org/wiki/Special_factorials
+#c# 2021-04-xx >RC
+#p# OK
+#n# 'rf' has warts, but: (1) hard-coded value leaves lots of head-room, (2) quick enough, (3) I'm too lazy for lazy list
+#n# ef(5) not working
+
 File: S/Special_variables
 #!/usr/local/bin/perl
 #u# http://rosettacode.org/wiki/Special_variables
