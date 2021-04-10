@@ -2,16 +2,16 @@
 This is perl 5, version 32, subversion 1 (v5.32.1) built for darwin-thread-multi-2level
 updating from RC…
 +------------> Perl: Good/Bad [1420/8]
-|+-----------> Smoke testing [1273]
+|+-----------> Smoke testing [1274]
 ||+----------> sKipping validation [150]
 |||+---------> Interactive [69]
-||||+--------> Touched (modified by me) [466]
+||||+--------> Touched (modified by me) [467]
 |||||+-------> Random seed [114]
 ||||||+------> File output [75]
 |||||||+-----> Draft [261]
 ||||||||+----> Ignoring [35]
-|||||||||+---> Void (no local copy) [126]
-||||||||||+--> Un-implemented/reliable [114]
+|||||||||+---> Void (no local copy) [125]
+||||||||||+--> Un-implemented/reliable [112]
 |||||||||||
 GS......... 100_doors-1
 GS......... 100_doors-2
@@ -1176,7 +1176,7 @@ GS..T...... Rosetta_Code_Find_unimplemented_tasks
 GS......... Rosetta_Code_Fix_code_tags
 .......D.VU Rosetta_Code_List_authors_of_task_descriptions
 GS..T...... Rosetta_Code_Rank_languages_by_number_of_users
-GS..T...... Rosetta_Code_Rank_languages_by_popularity
+!S..T...... Rosetta_Code_Rank_languages_by_popularity
 .......D.VU Rosetta_Code_Run_examples
 GS..T..D... Rosetta_Code_Tasks_without_examples
 GS......... Rot-13
@@ -1265,7 +1265,7 @@ G.K........ Singly-linked_list_Element_insertion
 GS......... Singly-linked_list_Traversal
 GS......... Sleep
 .......D.VU Smallest_enclosing_circle_problem
-.......D.VU Smallest_power_of_6_whose_decimal_expansion_contains_n
+GS..T..D... Smallest_power_of_6_whose_decimal_expansion_contains_n
 GS..T..D... Smallest_square_that_begins_with_n
 GS..T...... Smarandache_prime-digital_sequence
 GS......... Smith_numbers
@@ -1319,7 +1319,7 @@ GS......... Soundex
 GS......... Sparkline_in_unicode
 .......D.VU Special_Divisors
 G.K........ Special_characters
-GS..T..D..U Special_factorials
+GS..T..D... Special_factorials
 G.K.T...... Special_variables
 G.K.....X.. Speech_synthesis
 GS..T...... Spelling_of_ordinal_numbers
