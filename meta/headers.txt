@@ -7710,6 +7710,13 @@ File: S/Sleep
 #p# OK
 #=# RC pipe: 4\n4000000\n4000000000\n
 
+File: S/Smallest_power_of_6_whose_decimal_expansion_contains_n
+#!/usr/local/bin/perl
+#u# http://rosettacode.org/wiki/Smallest_power_of_6_whose_decimal_expansion_contains_n
+#c# 2021-04-08 >RC
+#p# OK
+#n# And where 'pi' is in the decimal expansion, the exponent is palindromic, which surely means... something.
+
 File: S/Smallest_square_that_begins_with_n
 #!/usr/local/bin/perl
 #u# http://rosettacode.org/wiki/Smallest_square_that_begins_with_n
@@ -8048,7 +8055,7 @@ File: S/Special_characters
 File: S/Special_factorials
 #!/usr/local/bin/perl
 #u# http://rosettacode.org/wiki/Special_factorials
-#c# 2021-04-xx >RC
+#c# 2021-04-09 >RC
 #p# OK
 #n# 'rf' has warts, but: (1) hard-coded value leaves lots of head-room, (2) quick enough, (3) I'm too lazy for lazy list
 #n# ef(5) not working
