@@ -1,6 +1,6 @@
 #!/usr/local/bin/perl
 #u# http://rosettacode.org/wiki/Special_factorials
-#c# 2021-04-xx >RC
+#c# 2021-04-09 >RC
 #p# OK
 #n# 'rf' has warts, but: (1) hard-coded value leaves lots of head-room, (2) quick enough, (3) I'm too lazy for lazy list
 #n# ef(5) not working
@@ -12,7 +12,6 @@ use warnings;
 use feature qw<signatures say>;
 no warnings qw<experimental::signatures>;
 
-#use Math::Prime::Util::GMP;
 use bigint try => 'GMP';
 use ntheory qw<vecprod vecsum vecreduce vecfirstidx>;
 
@@ -31,8 +30,8 @@ push @res, 'H  : ' . join ' ', map {  H $_ } 0..9;
 push @res, 'af : ' . join ' ', map { af $_ } 0..9;
 push @res, 'ef : ' . join ' ', map { ef $_ } 1..4;
 
-say '5$ has ' . length( ef(5) ) . ' digits';        # just returns 'Inf'
-say '5$ has ' . length(5**4**3**2) . ' digits';     # gets it right: '183231 digits'
+#push @res, '5$ has ' . length( ef(5) ) . ' digits';       # 'ef' just returns 'Inf'
+push @res, '5$ has ' . length(5**4**3**2) . ' digits';     # gets it right: '183231 digits'
 
 push @res, 'rf : ' . join ' ', map { rf $_ } <1 2 6 24 120 720 5040 40320 362880 3628800>;
 push @res, 'rf(119) = ' . rf(119); 
@@ -44,27 +43,12 @@ sf : 1 1 2 12 288 34560 24883200 125411328000 5056584744960000 18349334722510848
 H  : 1 1 4 108 27648 86400000 4031078400000 3319766398771200000 55696437941726556979200000 21577941222941856209168026828800000
 af : 0 1 1 5 19 101 619 4421 35899 326981
 ef : 1 2 9 262144
+5$ has 183231 digits
 rf : 0 2 3 4 5 6 7 8 9 10
 rf(119) = Nope
 END
-# 5$ has 183231 digits
-
 
 use Test::More;
 chomp $ref;
 is($result, $ref);
 done_testing();
-
-__END__
-
-=={{header|Perl}}==
-{{libheader|ntheory}}
-<lang perl>
-</lang>
-{{out}}
-<pre> sf : 1 1 2 12 288 34560 24883200 125411328000 5056584744960000 1834933472251084800000
-H  : 1 1 4 108 27648 86400000 4031078400000 3319766398771200000 55696437941726556979200000 21577941222941856209168026828800000
-af : 0 1 1 5 19 101 619 4421 35899 326981
-ef : 1 2 9 262144
-rf : 0 2 3 4 5 6 7 8 9 10
-rf(119) = -1</pre>
