@@ -1,0 +1,24 @@
+#!/usr/local/bin/perl
+#u# http://rosettacode.org/wiki/Smallest_numbers
+#c# 2021-04-11 >RC
+#p# OK
+
+use strict;
+use warnings;
+use feature 'say';
+
+use List::Util 'first';
+use Math::AnyNum 'ipow';
+
+#sub smallest { for my $k (1..1e4) { return $k if ipow($k,$k) =~ /$_[0]/ } }
+sub smallest { first { ipow($_,$_) =~ /$_[0]/ } 1..1e4 }
+say my $result = join ' ', map { smallest($_) } 0..50;
+
+my $ref = <<'END';
+9 1 3 5 2 4 4 3 7 9 10 11 5 19 22 26 8 17 16 19 9 8 13 7 17 4 17 3 11 18 13 5 23 17 18 7 17 15 9 18 16 17 9 7 12 28 6 23 9 24 23
+END
+
+use Test::More;
+chomp $ref;
+is($result, $ref);
+done_testing();
