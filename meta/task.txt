@@ -8,7 +8,7 @@ updating from RC…
 ||||+--------> Touched (modified by me) [467]
 |||||+-------> Random seed [114]
 ||||||+------> File output [75]
-|||||||+-----> Draft [261]
+|||||||+-----> Draft [260]
 ||||||||+----> Ignoring [35]
 |||||||||+---> Void (no local copy) [125]
 ||||||||||+--> Un-implemented/reliable [112]
@@ -549,7 +549,7 @@ GS....F.... Fractal_tree
 GS..T...... Fraction_reduction
 GS......... Fractran
 GS.....D... Free_polyominoes_enumeration
-GS.....D... French_Republican_calendar
+GS......... French_Republican_calendar
 .......D.VU Frobenius_numbers
 GS......... Function_composition
 GS......... Function_definition
