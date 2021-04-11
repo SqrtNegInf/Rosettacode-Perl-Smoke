@@ -1,0 +1,48 @@
+#!/usr/local/bin/perl
+#u# http://rosettacode.org/wiki/Population_count
+#c# 2021-04-xx >RC  NOT ON RC
+#p# OK
+#n# compare with main routine, here just use state variables
+
+my $result;
+
+use strict;
+use warnings;
+use feature <state say>;
+
+sub population_count { 
+    my $n = shift;
+    die "argument can't be negative" if $n < 0;
+    my $c;
+    for ($c = 0; $n; $n >>= 1) { 
+        $c += $n & 1; 
+    } 
+    $c;
+}
+
+$result .= join ' ', map { population_count(3**$_) } 0 .. 30 - 1;
+$result .= "\n";
+
+sub evil   { state $i = 0; $i++ while 0 != population_count($i) % 2; $i++ }
+sub odious { state $i = 0; $i++ while 0 == population_count($i) % 2; $i++ }
+
+my (@evil, @odious);
+for (1 .. 30) {
+    push @evil,   evil();
+    push @odious, &odious;
+}
+
+$result .= sprintf "Evil  : %s\n", join ' ', @evil;
+$result .= sprintf "Odious: %s\n", join ' ', @odious;
+
+say $result;
+
+my $ref = <<'EOD';
+1 2 2 4 3 6 6 5 6 8 9 13 10 11 14 15 11 14 14 17 17 20 19 22 16 18 24 30 25 25
+Evil  : 0 3 5 6 9 10 12 15 17 18 20 23 24 27 29 30 33 34 36 39 40 43 45 46 48 51 53 54 57 58
+Odious: 1 2 4 7 8 11 13 14 16 19 21 22 25 26 28 31 32 35 37 38 41 42 44 47 49 50 52 55 56 59
+EOD
+
+use Test::More;
+is ($result, $ref);
+done_testing();
