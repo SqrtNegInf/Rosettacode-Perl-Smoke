@@ -6396,6 +6396,13 @@ File: P/Population_count
 #c# 2018-08-20 <RC
 #p# OK
 
+File: P/Population_count-2
+#!/usr/local/bin/perl
+#u# http://rosettacode.org/wiki/Population_count
+#c# 2021-04-xx >RC  NOT ON RC
+#p# OK
+#n# compare with main routine, here just use state variables
+
 File: P/Power_set-1
 #!/usr/local/bin/perl
 #u# http://rosettacode.org/wiki/Power_set
@@ -7710,6 +7717,12 @@ File: S/Sleep
 #c# 2018-08-14 <RC
 #p# OK
 #=# RC pipe: 4\n4000000\n4000000000\n
+
+File: S/Smallest_numbers
+#!/usr/local/bin/perl
+#u# http://rosettacode.org/wiki/Smallest_numbers
+#c# 2021-04-11 >RC
+#p# OK
 
 File: S/Smallest_power_of_6_whose_decimal_expansion_contains_n
 #!/usr/local/bin/perl
