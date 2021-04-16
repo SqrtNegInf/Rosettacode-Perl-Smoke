@@ -1,17 +1,17 @@
 
 This is perl 5, version 32, subversion 1 (v5.32.1) built for darwin-thread-multi-2level
 updating from RC…
-+------------> Perl: Good/Bad [1423/8]
-|+-----------> Smoke testing [1276]
-||+----------> sKipping validation [150]
++------------> Perl: Good/Bad [1430/8]
+|+-----------> Smoke testing [1281]
+||+----------> sKipping validation [152]
 |||+---------> Interactive [69]
-||||+--------> Touched (modified by me) [469]
+||||+--------> Touched (modified by me) [470]
 |||||+-------> Random seed [114]
 ||||||+------> File output [75]
-|||||||+-----> Draft [266]
+|||||||+-----> Draft [267]
 ||||||||+----> Ignoring [35]
-|||||||||+---> Void (no local copy) [130]
-||||||||||+--> Un-implemented/reliable [117]
+|||||||||+---> Void (no local copy) [124]
+||||||||||+--> Un-implemented/reliable [111]
 |||||||||||
 GS......... 100_doors-1
 GS......... 100_doors-2
@@ -383,7 +383,7 @@ G.K..R..... Dining_philosophers
 GS......... Discordian_date
 GS..T...... Display_a_linear_combination
 GS......... Display_an_outline_as_a_nested_table
-.......D.VU Distinct_Palindromes_Within_Decimal_Numbers
+GS.....D... Distinct_Palindromes_Within_Decimal_Numbers
 GS......... Distributed_programming
 GS..T...... Diversity_prediction_theorem
 G.K........ Documentation
@@ -551,7 +551,7 @@ GS..T...... Fraction_reduction
 GS......... Fractran
 GS.....D... Free_polyominoes_enumeration
 GS......... French_Republican_calendar
-.......D.VU Frobenius_numbers
+G.K.T..D..U Frobenius_numbers
 GS......... Function_composition
 GS......... Function_definition
 GS......... Function_frequency
@@ -949,7 +949,7 @@ GS..T...... OpenWebNet_password
 G.K........ Operator_precedence
 GS......... Optional_parameters
 GS.....D... Orbital_elements
-.......D.VU Order_by_pair_comparisons
+G.K....D... Order_by_pair_comparisons
 GS......... Order_disjoint_list_items
 GS......... Order_two_numerical_lists
 GS......... Ordered_partitions
@@ -964,7 +964,7 @@ GS..T...... Palindrome_dates-1
 GS......... Palindrome_dates-2
 GS......... Palindrome_detection
 GS..T...... Palindromic_gapful_numbers
-.......D.VU Palindromic_primes
+GS.....D... Palindromic_primes
 GS..T...... Pancake_numbers
 GS..T...... Pangram_checker
 GS......... Paraffins
@@ -1076,7 +1076,7 @@ B.......... Prime_decomposition-4
 GS.....D... Prime_words
 GS..T...... Primes_-_allocate_descendants_to_their_ancestors
 GS..T..D... Primes_which_sum_of_digits_is_25
-.......D.VU Primes_with_digits_in_nondecreasing_order
+.......D.V. Primes_with_digits_in_nondecreasing_order
 GS......... Primorial_numbers
 G.K.T..D... Print_debugging_statement
 GS....FDX.. Print_itself
@@ -1239,7 +1239,7 @@ GS......... Short-circuit_evaluation
 GS......... Shortest_common_supersequence
 GS..T.F.... Show_ASCII_table-1
 GS..T.F.... Show_ASCII_table-2
-.......D.VU Show_the_decimal_value_of_a_number_of_1s_appended_with_a_3,_then_squared
+GS.....D... Show_the_decimal_value_of_a_number_of_1s_appended_with_a_3,_then_squared
 GS......... Show_the_epoch
 GS..T.FD... Sierpinski_arrowhead_curve
 GS......... Sierpinski_carpet
@@ -1381,7 +1381,7 @@ GS......... Subset_sum_problem-2
 GS......... Substitution_cipher
 GS......... Substring
 GS......... Substring_Top_and_tail
-.......D.VU Substring_primes
+GS.....D... Substring_primes
 GS......... Subtractive_generator
 GS..T...... Successive_prime_differences
 GS......... Sudoku
@@ -1398,9 +1398,10 @@ GS..T...... Sum_multiples_of_3_and_5-2
 GS......... Sum_of_a_series
 GS..T..D... Sum_of_divisors
 GS......... Sum_of_squares
-.......D.VU Sum_of_the_digits_of_n_is_substring_of_n
+GS.....D... Sum_of_the_digits_of_n_is_substring_of_n
 GS......... Sum_to_100
 GS..T...... Summarize_and_say_sequence
+.......D.VU Summarize_primes
 GS..T.F.... Sunflower_fractal
 GS......... Super-d_numbers-1
 GS..T...... Super-d_numbers-2
