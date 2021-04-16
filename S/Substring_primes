@@ -1,0 +1,28 @@
+#!/usr/local/bin/perl
+#u# http://rosettacode.org/wiki/Substring_primes
+#c# 2021-04-15 <RC
+#p# OK
+
+use strict;
+use warnings;
+use feature 'say';
+
+my %prime;
+
+LOOP:
+for (2 .. 500) {
+  my %substrings = ();
+  /.+(?{ $prime{$&} or $substrings{$&}++ })(*FAIL)/;
+  for my $try ( sort { $a <=> $b } keys %substrings ) {
+    $try < 2 and next LOOP;
+    $prime{$try} || (1 x $try) !~ /^(11+)\1+$/ ? $prime{$try}++ : next LOOP;
+  }
+}
+say my $result = sprintf "  %d" x %prime, sort {$a <=> $b} keys %prime;
+
+my $ref = '  2  3  5  7  23  37  53  73  373';
+
+use Test::More;
+chomp $ref;
+is ($result, $ref);
+done_testing();
