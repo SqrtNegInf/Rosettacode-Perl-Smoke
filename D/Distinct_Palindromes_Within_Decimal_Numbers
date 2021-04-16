@@ -1,0 +1,60 @@
+#!/usr/local/bin/perl
+#u# http://rosettacode.org/wiki/Distinct_Palindromes_Within_Decimal_Numbers
+#c# 2021-04-15 <RC
+#p# OK
+
+my @res;
+
+use strict;
+use warnings;
+use feature 'say';
+
+for ( 100 .. 125 ) {
+  my %found;
+  /.+(?{$& eq reverse $& and $found{$&}++})(*FAIL)/;
+  push @res, "$_ => @{[ sort { $a <=> $b } keys %found ]}"
+}
+
+/..+(??{$& == (reverse $&) ? '' : '(*FAIL)' })/ and
+  push @res, "$_ has a palindrome of 2 or more"
+  for ' 9, 169, 12769, 1238769, 123498769, 12346098769, 1234572098769,
+    123456832098769, 12345679432098769, 1234567905432098769,
+    123456790165432098769, 83071934127905179083, 1320267947849490361205695'
+    =~ /\d+/g;
+
+my $result = join "\n", @res;
+
+my $ref = <<'EOD';
+100 => 00 0 1
+101 => 0 1 101
+102 => 0 1 2
+103 => 0 1 3
+104 => 0 1 4
+105 => 0 1 5
+106 => 0 1 6
+107 => 0 1 7
+108 => 0 1 8
+109 => 0 1 9
+110 => 0 1 11
+111 => 1 11 111
+112 => 1 2 11
+113 => 1 3 11
+114 => 1 4 11
+115 => 1 5 11
+116 => 1 6 11
+117 => 1 7 11
+118 => 1 8 11
+119 => 1 9 11
+120 => 0 1 2
+121 => 1 2 121
+122 => 1 2 22
+123 => 1 2 3
+124 => 1 2 4
+125 => 1 2 5
+1320267947849490361205695 has a palindrome of 2 or more
+EOD
+
+use Test::More;
+chomp $ref;
+is ($result, $ref);
+done_testing();
