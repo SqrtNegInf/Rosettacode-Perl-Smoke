@@ -2204,6 +2204,12 @@ File: D/Display_an_outline_as_a_nested_table.0
 #p# BROKEN
 #n# unlikely to work on this anytime soon
 
+File: D/Distinct_Palindromes_Within_Decimal_Numbers
+#!/usr/local/bin/perl
+#u# http://rosettacode.org/wiki/Distinct_Palindromes_Within_Decimal_Numbers
+#c# 2021-04-15 <RC
+#p# OK
+
 File: D/Distributed_programming
 #!/usr/local/bin/perl
 #u# http://rosettacode.org/wiki/Distributed_programming
@@ -3294,6 +3300,13 @@ File: F/French_Republican_calendar
 #!/usr/local/bin/perl
 #u# http://rosettacode.org/wiki/French_Republican_calendar
 #c# 2018-08-07 <RC
+#p# OK
+
+File: F/Frobenius_numbers
+#!/usr/local/bin/perl
+#u# http://rosettacode.org/wiki/xx
+#t# inprogress
+#c# 2021-04-xx >RC
 #p# OK
 
 File: F/Function_composition
@@ -5772,6 +5785,13 @@ File: O/Orbital_elements
 #c# 2018-08-20 <RC
 #p# OK
 
+File: O/Order_by_pair_comparisons
+#!/usr/local/bin/perl
+#u# http://rosettacode.org/wiki/Order_by_pair_comparisons
+#t# inprogress
+#c# 2021-04-15 <RC
+#p# OK
+
 File: O/Order_disjoint_list_items
 #!/usr/local/bin/perl
 #u# http://rosettacode.org/wiki/Order_disjoint_list_items
@@ -5854,6 +5874,12 @@ File: P/Palindromic_gapful_numbers
 #!/usr/local/bin/perl
 #u# http://rosettacode.org/wiki/Palindromic_gapful_numbers
 #c# 2021-01-12 >RC
+#p# OK
+
+File: P/Palindromic_primes
+#!/usr/local/bin/perl
+#u# http://rosettacode.org/wiki/Palindromic_primes
+#c# 2021-04-15 <RC
 #p# OK
 
 File: P/Pancake_numbers
@@ -7524,6 +7550,12 @@ File: S/Show_Ascii_table-2
 #f# RC file: ASCII_wiki.txt
 #n# this is what I uploaded to RC
 
+File: S/Show_the_decimal_value_of_a_number_of_1s_appended_with_a_3,_then_squared
+#!/usr/local/bin/perl
+#u# http://rosettacode.org/wiki/Show_the_(decimal)_value_of_a_number_of_1s_appended_with_a_3,_then_squared
+#c# 2021-04-15 <RC
+#p# OK
+
 File: S/Show_the_epoch
 #!/usr/local/bin/perl
 #u# http://rosettacode.org/wiki/Show_the_epoch
@@ -8426,6 +8458,12 @@ File: S/Substring_Top_and_tail
 #c# 2018-08-13 <RC
 #p# OK
 
+File: S/Substring_primes
+#!/usr/local/bin/perl
+#u# http://rosettacode.org/wiki/Substring_primes
+#c# 2021-04-15 <RC
+#p# OK
+
 File: S/Subtractive_generator
 #!/usr/local/bin/perl
 #u# http://rosettacode.org/wiki/Subtractive_generator
@@ -8525,6 +8563,12 @@ File: S/Sum_of_squares
 #!/usr/local/bin/perl
 #u# http://rosettacode.org/wiki/Sum_of_squares
 #c# 2018-08-12 <RC
+#p# OK
+
+File: S/Sum_of_the_digits_of_n_is_substring_of_n
+#!/usr/local/bin/perl
+#u# http://rosettacode.org/wiki/Sum_of_the_digits_of_n_is_substring_of_n
+#c# 2021-04-15 <RC
 #p# OK
 
 File: S/Sum_to_100
