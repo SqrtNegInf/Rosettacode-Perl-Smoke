@@ -1,0 +1,44 @@
+#!/usr/local/bin/perl
+#u# http://rosettacode.org/wiki/Order_by_pair_comparisons
+#t# inprogress
+#c# 2021-04-15 <RC
+#p# OK
+
+#my $result;
+#my @res;
+
+use strict;
+use warnings;
+use feature 'say';
+
+sub ask {
+  while (1) {
+    print "Compare $a to $b [<,=,>]: ";
+    <STDIN> =~ /[<=>]/ and return +{qw( < -1 = 0 > 1 )}->{$&};
+  }
+}
+
+my @sorted = sort ask qw( violet red green indigo blue yellow orange );
+print "sorted: @sorted\n";
+
+
+my $ref = <<'EOD';
+Compare violet to red [<,=,>]: >
+Compare green to indigo [<,=,>]: <
+Compare blue to yellow [<,=,>]: >
+Compare red to green [<,=,>]: <
+Compare green to violet [<,=,>]: <
+Compare violet to indigo [<,=,>]: ?
+Compare violet to indigo [<,=,>]: >
+Compare yellow to orange [<,=,>]: >
+Compare red to orange [<,=,>]: <
+Compare orange to green [<,=,>]: <
+Compare green to yellow [<,=,>]: >
+Compare green to blue [<,=,>]: <
+Compare indigo to blue [<,=,>]: >
+sorted: red orange yellow green blue indigo violet
+EOD
+
+use Test::More;
+is ($result, $ref);
+done_testing();
