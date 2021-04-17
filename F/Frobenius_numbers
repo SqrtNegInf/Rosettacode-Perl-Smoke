@@ -1,37 +1,26 @@
 #!/usr/local/bin/perl
-#u# http://rosettacode.org/wiki/xx
-#t# inprogress
-#c# 2021-04-xx >RC
+#u# http://rosettacode.org/wiki/Frobenius_numbers
+#c# 2021-04-16 >RC
 #p# OK
-
-use Data::Printer;          # debug only
-use Time::HiRes qw(sleep);  # debug only
 
 use strict;
 use warnings;
 use feature 'say';
 
-my @res;
+use ntheory 'nth_prime';
 
-# code goes here
+my(@F,$n);
 
-say my $result = join "\n", @res;
+do { ++$n and push @F, nth_prime($n) * nth_prime($n+1) - (nth_prime($n) + nth_prime($n+1)) } until $F[-1] >= 10000;
+
+say my $result = "$#F matching numbers:\n" . join ' ', @F[0 .. $#F-1];
+
 my $ref = <<'END';
+25 matching numbers:
+1 7 23 59 119 191 287 395 615 839 1079 1439 1679 1931 2391 3015 3479 3959 4619 5039 5615 6395 7215 8447 9599
 END
 
 use Test::More;
 chomp $ref;
 is($result, $ref);
 done_testing();
-
-__END__
-
-=={{header|Perl}}==
-{{trans|xx}}
-{{libheader|ntheory}}
-<lang perl>
-</lang>
-{{out}}
-<pre style="height:20ex">
-</pre>
-[https://github.com/SqrtNegInf/Rosettacode-Perl5-Smoke/blob/master/ref/xx xx]
