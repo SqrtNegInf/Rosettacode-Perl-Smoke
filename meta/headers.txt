@@ -273,6 +273,12 @@ File: A/Address_of_a_variable
 #p# OK
 #n# learn something every day
 
+File: A/Air_mass
+#!/usr/local/bin/perl
+#u# http://rosettacode.org/wiki/Air_mass
+#c# 2021-04-xx >RC
+#p# OK
+
 File: A/Align_columns-1
 #!/usr/local/bin/perl
 #u# http://rosettacode.org/wiki/Align_columns
@@ -3304,9 +3310,8 @@ File: F/French_Republican_calendar
 
 File: F/Frobenius_numbers
 #!/usr/local/bin/perl
-#u# http://rosettacode.org/wiki/xx
-#t# inprogress
-#c# 2021-04-xx >RC
+#u# http://rosettacode.org/wiki/Frobenius_numbers
+#c# 2021-04-16 >RC
 #p# OK
 
 File: F/Function_composition
@@ -5788,9 +5793,10 @@ File: O/Orbital_elements
 File: O/Order_by_pair_comparisons
 #!/usr/local/bin/perl
 #u# http://rosettacode.org/wiki/Order_by_pair_comparisons
-#t# inprogress
 #c# 2021-04-15 <RC
 #p# OK
+#=# RC pipe: >\n<\n>\n<\n<\n>\n<\n<\n<\n<\n>\n<\n>
+#n# yes, I messed the order, but the code works...
 
 File: O/Order_disjoint_list_items
 #!/usr/local/bin/perl
