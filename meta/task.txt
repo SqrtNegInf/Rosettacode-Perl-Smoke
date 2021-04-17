@@ -2,16 +2,16 @@
 This is perl 5, version 32, subversion 1 (v5.32.1) built for darwin-thread-multi-2level
 updating from RC…
 +------------> Perl: Good/Bad [1430/8]
-|+-----------> Smoke testing [1281]
-||+----------> sKipping validation [152]
+|+-----------> Smoke testing [1284]
+||+----------> sKipping validation [150]
 |||+---------> Interactive [69]
-||||+--------> Touched (modified by me) [470]
+||||+--------> Touched (modified by me) [471]
 |||||+-------> Random seed [114]
 ||||||+------> File output [75]
 |||||||+-----> Draft [267]
 ||||||||+----> Ignoring [35]
-|||||||||+---> Void (no local copy) [124]
-||||||||||+--> Un-implemented/reliable [111]
+|||||||||+---> Void (no local copy) [123]
+||||||||||+--> Un-implemented/reliable [110]
 |||||||||||
 GS......... 100_doors-1
 GS......... 100_doors-2
@@ -63,7 +63,7 @@ GS......... Add_a_variable_to_a_class_instance_at_runtime
 GS..T..D... Addition_chains
 GS..T..D... Additive_primes
 GS..T...... Address_of_a_variable
-.......D.VU Air_mass
+GS..T..D..U Air_mass
 GS......... Align_columns-1
 GS......... Align_columns-2
 GS......... Aliquot_sequence_classifications
@@ -383,7 +383,7 @@ G.K..R..... Dining_philosophers
 GS......... Discordian_date
 GS..T...... Display_a_linear_combination
 GS......... Display_an_outline_as_a_nested_table
-GS.....D... Distinct_Palindromes_Within_Decimal_Numbers
+!S.....D... Distinct_Palindromes_Within_Decimal_Numbers
 GS......... Distributed_programming
 GS..T...... Diversity_prediction_theorem
 G.K........ Documentation
@@ -551,7 +551,7 @@ GS..T...... Fraction_reduction
 GS......... Fractran
 GS.....D... Free_polyominoes_enumeration
 GS......... French_Republican_calendar
-G.K.T..D..U Frobenius_numbers
+GS..T..D... Frobenius_numbers
 GS......... Function_composition
 GS......... Function_definition
 GS......... Function_frequency
@@ -949,7 +949,7 @@ GS..T...... OpenWebNet_password
 G.K........ Operator_precedence
 GS......... Optional_parameters
 GS.....D... Orbital_elements
-G.K....D... Order_by_pair_comparisons
+GS.....D... Order_by_pair_comparisons
 GS......... Order_disjoint_list_items
 GS......... Order_two_numerical_lists
 GS......... Ordered_partitions
