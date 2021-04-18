@@ -30,6 +30,9 @@ A/Abbreviations,_automatic
 ∞:     2 INFINITY
 ╞:     1 BOX DRAWINGS VERTICAL SINGLE AND RIGHT DOUBLE
 
+A/Air_mass
+π:     1 GREEK SMALL LETTER PI
+
 A/Almkvist-Giullera_formula_for_pi
 π:     2 GREEK SMALL LETTER PI
 
