@@ -1863,6 +1863,13 @@ File: C/Cuban_primes
 #p# OK
 #n# note alternative method for adding commas to numbers (limited to natural numbers)
 
+File: C/Cubic_Special_Primes
+#!/usr/local/bin/perl
+#u# http://rosettacode.org/wiki/Cubic_Special_Primes
+#t# inprogress
+#c# 2021-04-xx >RC
+#p# OK
+
 File: C/Cumulative_standard_deviation-1
 #!/usr/local/bin/perl
 #u# http://rosettacode.org/wiki/Cumulative_standard_deviation
@@ -5563,6 +5570,13 @@ File: N/Next_highest_int_from_digits.0
 #p# OK
 #n# works fine, but doesn't scale well
 
+File: N/Next_special_primes
+#!/usr/local/bin/perl
+#u# http://rosettacode.org/wiki/Next_special_primes
+#t# inprogress
+#c# 2021-04-18 >RC
+#p# OK
+
 File: N/Nice_primes
 #!/usr/local/bin/perl
 #u# http://rosettacode.org/wiki/Nice_primes
@@ -5642,6 +5656,12 @@ File: N/Number_reversal_game
 #!/usr/local/bin/perl
 #u# http://rosettacode.org/wiki/Number_reversal_game
 #c# 2018-08-20 <RC
+#p# OK
+
+File: N/Numbers_divisible_by_their_individual_digits,_but_not_by_the_product_of_their_digits.
+#!/usr/local/bin/perl
+#u# http://rosettacode.org/wiki/Numbers_divisible_by_their_individual_digits,_but_not_by_the_product_of_their_digits.
+#c# 2021-04-18 <RC
 #p# OK
 
 File: N/Numbers_with_equal_rises_and_falls
