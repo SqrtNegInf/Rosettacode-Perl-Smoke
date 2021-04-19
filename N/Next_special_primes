@@ -1,0 +1,89 @@
+#!/usr/local/bin/perl
+#u# http://rosettacode.org/wiki/Next_special_primes
+#t# inprogress
+#c# 2021-04-18 >RC
+#p# OK
+
+my @res;
+
+use Data::Printer;          # debug only
+use Time::HiRes qw(sleep);  # debug only
+
+use strict;
+use warnings;
+use feature 'say';
+
+__END__
+
+sub is_special ( ($previous, $gap) ) {
+    state @primes = grep *.is-prime, 2..*;
+    shift @primes while @primes[0] <= $previous + $gap;
+    return ( @primes[0], @primes[0] - $previous );
+}
+
+my @specials = (2, 0), &is-special … *;
+
+my $limit = @specials.first: :k, *.[0] > 1050;
+
+@res1.push: .fmt('%4d') for @specials.head($limit);
+#.say for @res1;
+
+          .put for @specials.head($limit)».kv.map({ (.[1],.[3]).join: ',' }).batch(7)».fmt('%7s');
+@res2.push: $_ for @specials.head($limit)».kv.map({ (.[1],.[3]).join: ',' }).batch(7)».fmt('%7s');
+
+my $ref2 = q:to/END/;
+    2,0     3,1     5,2    11,6    19,8   29,10   41,12
+  59,18   79,20  101,22  127,26  157,30  191,34  227,36
+ 269,42  313,44  359,46  409,50  461,52  521,60  587,66
+ 659,72  733,74  809,76  887,78  967,80 1049,82
+END
+
+my $ref1 = q:to/END/;
+   2    0
+   3    1
+   5    2
+  11    6
+  19    8
+  29   10
+  41   12
+  59   18
+  79   20
+ 101   22
+ 127   26
+ 157   30
+ 191   34
+ 227   36
+ 269   42
+ 313   44
+ 359   46
+ 409   50
+ 461   52
+ 521   60
+ 587   66
+ 659   72
+ 733   74
+ 809   76
+ 887   78
+ 967   80
+1049   82
+END
+
+say my $result = join "\n", @res;
+my $ref = <<'END';
+END
+
+use Test::More;
+chomp $ref;
+is($result, $ref);
+done_testing();
+
+__END__
+
+=={{header|Perl}}==
+{{trans|xx}}
+{{libheader|ntheory}}
+<lang perl>
+</lang>
+{{out}}
+<pre>
+</pre>
