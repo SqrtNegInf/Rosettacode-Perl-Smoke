@@ -1866,8 +1866,7 @@ File: C/Cuban_primes
 File: C/Cubic_Special_Primes
 #!/usr/local/bin/perl
 #u# http://rosettacode.org/wiki/Cubic_Special_Primes
-#t# inprogress
-#c# 2021-04-xx >RC
+#c# 2021-04-19 >RC
 #p# OK
 
 File: C/Cumulative_standard_deviation-1
@@ -5573,7 +5572,6 @@ File: N/Next_highest_int_from_digits.0
 File: N/Next_special_primes
 #!/usr/local/bin/perl
 #u# http://rosettacode.org/wiki/Next_special_primes
-#t# inprogress
 #c# 2021-04-18 >RC
 #p# OK
 
@@ -5718,6 +5716,14 @@ File: O/Object_serialization-2
 #u# http://rosettacode.org/wiki/Object_serialization
 #c# 2018-08-20 <RC
 #p# OK
+
+File: O/Odd_squarefree_semiprimes
+#!/usr/local/bin/perl
+#u# http://rosettacode.org/wiki/Odd_squarefree_semiprimes
+#c# 2021-04-19 <RC
+#p# OK
+#n# interesting technique: "@primes" =~ 
+#n# (also used in 'Nonogram_solver', for other than just table formatting)
 
 File: O/Odd_word_problem
 #!/usr/local/bin/perl
@@ -6745,6 +6751,12 @@ File: Q/QR_decomposition
 #!/usr/local/bin/perl
 #u# http://rosettacode.org/wiki/QR_decomposition
 #c# 2019-02-12 >RC
+#p# OK
+
+File: Q/Quadrat_Special_Primes
+#!/usr/local/bin/perl
+#u# http://rosettacode.org/wiki/Quadrat_Special_Primes
+#c# 2021-04-19 >RC
 #p# OK
 
 File: Q/Quaternion_type
