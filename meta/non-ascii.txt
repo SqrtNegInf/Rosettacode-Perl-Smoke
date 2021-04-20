@@ -128,12 +128,6 @@ C/Continued_fraction
 √:     2 SQUARE ROOT
 ≈:     8 ALMOST EQUAL TO
 
-C/Cubic_Special_Primes
-³:     1 SUPERSCRIPT THREE
-»:     1 RIGHT-POINTING DOUBLE ANGLE QUOTATION MARK
-…:     1 HORIZONTAL ELLIPSIS
-∞:     1 INFINITY
-
 C/Cumulative_standard_deviation-2
 ²:     3 SUPERSCRIPT TWO
 
@@ -324,10 +318,6 @@ N/Nautical_bell-1
 N/Nautical_bell-2
 ♪:    25 EIGHTH NOTE
 ♫:    97 BEAMED EIGHTH NOTES
-
-N/Next_special_primes
-»:     4 RIGHT-POINTING DOUBLE ANGLE QUOTATION MARK
-…:     1 HORIZONTAL ELLIPSIS
 
 N/Nimber_arithmetic
 ─:   109 BOX DRAWINGS LIGHT HORIZONTAL
