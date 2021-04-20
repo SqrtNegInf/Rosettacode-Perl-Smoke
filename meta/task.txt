@@ -1,17 +1,17 @@
 
 This is perl 5, version 32, subversion 1 (v5.32.1) built for darwin-thread-multi-2level
 updating from RC…
-+------------> Perl: Good/Bad [1434/8]
-|+-----------> Smoke testing [1285]
-||+----------> sKipping validation [152]
++------------> Perl: Good/Bad [1436/8]
+|+-----------> Smoke testing [1289]
+||+----------> sKipping validation [150]
 |||+---------> Interactive [69]
-||||+--------> Touched (modified by me) [473]
+||||+--------> Touched (modified by me) [474]
 |||||+-------> Random seed [114]
 ||||||+------> File output [75]
 |||||||+-----> Draft [267]
 ||||||||+----> Ignoring [35]
-|||||||||+---> Void (no local copy) [120]
-||||||||||+--> Un-implemented/reliable [108]
+|||||||||+---> Void (no local copy) [118]
+||||||||||+--> Un-implemented/reliable [104]
 |||||||||||
 GS......... 100_doors-1
 GS......... 100_doors-2
@@ -330,7 +330,7 @@ GS...R..... Create_an_HTML_table
 GS.....D... Create_an_object_Native_demonstration
 G.K.....X.. Create_an_object_at_a_given_address
 GS......... Cuban_primes
-G.K.T..D..U Cubic_Special_Primes
+GS..T..D... Cubic_Special_Primes
 GS......... Cumulative_standard_deviation-1
 GS......... Cumulative_standard_deviation-2
 GS..T...... Currency
@@ -903,7 +903,7 @@ GS..T...... Negative_base_numbers
 GS......... Nested_function
 GS..T...... Nested_templated_data
 GS..T...... Next_highest_int_from_digits
-G.K.T..D..U Next_special_primes
+GS..T..D... Next_special_primes
 GS..T..D... Nice_primes
 GS..T...... Nim_game
 GS..T...... Nimber_arithmetic
@@ -932,7 +932,7 @@ GS..T...... Numerical_integration_Gauss-Legendre_Quadrature
 .........VU OLE_automation
 GS......... Object_serialization-1
 GS......... Object_serialization-2
-.......D.VU Odd_squarefree_semiprimes
+GS.....D... Odd_squarefree_semiprimes
 GS......... Odd_word_problem
 GS......... Odd_word_problem-2
 GS.....D... Odd_words
@@ -1100,7 +1100,7 @@ GS....F.... Pythagoras_tree
 GS..T...... Pythagorean_quadruples
 GS......... Pythagorean_triples
 GS..T...... QR_decomposition
-.......D.VU Quadrat_Special_Primes
+GS..T..D... Quadrat_Special_Primes
 GS......... Quaternion_type
 GS......... Queue_Definition
 GS......... Queue_Usage
