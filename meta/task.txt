@@ -10,7 +10,7 @@ updating from RC…
 ||||||+------> File output [75]
 |||||||+-----> Draft [267]
 ||||||||+----> Ignoring [35]
-|||||||||+---> Void (no local copy) [118]
+|||||||||+---> Void (no local copy) [119]
 ||||||||||+--> Un-implemented/reliable [104]
 |||||||||||
 GS......... 100_doors-1
@@ -309,6 +309,7 @@ GS..T...... Convert_seconds_to_compound_duration-3
 GS..T...... Convex_hull
 GS...R..... Conway%27s_Game_of_Life-1
 G.KI....... Conway%27s_Game_of_Life-2
+.......D.VU Coprimes
 GS......... Copy_a_string
 G.K........ Copy_stdin_to_stdout
 GS......... Count_in_factors-1
@@ -949,7 +950,7 @@ GS..T...... OpenWebNet_password
 G.K........ Operator_precedence
 GS......... Optional_parameters
 GS.....D... Orbital_elements
-GS.....D... Order_by_pair_comparisons
+GS......... Order_by_pair_comparisons
 GS......... Order_disjoint_list_items
 GS......... Order_two_numerical_lists
 GS......... Ordered_partitions
@@ -1072,7 +1073,7 @@ GS......... Prime_decomposition-1
 GS......... Prime_decomposition-2
 GS......... Prime_decomposition-3
 B.......... Prime_decomposition-4
-.......D.VU Prime_triplets
+.......D.V. Prime_triplets
 GS.....D... Prime_words
 GS..T...... Primes_-_allocate_descendants_to_their_ancestors
 GS..T..D... Primes_which_sum_of_digits_is_25
