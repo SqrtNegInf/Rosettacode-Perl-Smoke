@@ -1,8 +1,8 @@
 
 This is perl 5, version 32, subversion 1 (v5.32.1) built for darwin-thread-multi-2level
 updating from RC…
-+------------> Perl: Good/Bad [1436/8]
-|+-----------> Smoke testing [1289]
++------------> Perl: Good/Bad [1437/8]
+|+-----------> Smoke testing [1290]
 ||+----------> sKipping validation [150]
 |||+---------> Interactive [69]
 ||||+--------> Touched (modified by me) [474]
@@ -10,7 +10,7 @@ updating from RC…
 ||||||+------> File output [75]
 |||||||+-----> Draft [267]
 ||||||||+----> Ignoring [35]
-|||||||||+---> Void (no local copy) [119]
+|||||||||+---> Void (no local copy) [118]
 ||||||||||+--> Un-implemented/reliable [104]
 |||||||||||
 GS......... 100_doors-1
@@ -1073,7 +1073,7 @@ GS......... Prime_decomposition-1
 GS......... Prime_decomposition-2
 GS......... Prime_decomposition-3
 B.......... Prime_decomposition-4
-.......D.V. Prime_triplets
+GS.....D... Prime_triplets
 GS.....D... Prime_words
 GS..T...... Primes_-_allocate_descendants_to_their_ancestors
 GS..T..D... Primes_which_sum_of_digits_is_25
