@@ -6591,6 +6591,12 @@ File: P/Prime_decomposition-4
 #p# BROKEN
 #n# Math::Pari 'factorint' produces unreliable results? cf 'Count_in_factors-2'
 
+File: P/Prime_triplets
+#!/usr/local/bin/perl
+#u# http://rosettacode.org/wiki/Prime_triplets
+#c# 2021-04-22 <RC
+#p# OK
+
 File: P/Prime_words
 #!/usr/local/bin/perl
 #u# http://rosettacode.org/wiki/Prime_words
