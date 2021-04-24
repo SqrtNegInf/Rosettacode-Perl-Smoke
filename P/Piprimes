@@ -1,0 +1,33 @@
+#!/usr/local/bin/perl
+#u# http://rosettacode.org/wiki/Piprimes
+#c# 2021-04-23 >RC
+#p# OK
+
+my $result;
+
+use strict;
+use warnings;
+use feature <state say>;
+
+use ntheory 'is_prime';
+
+# no 'state'
+#my $pi = 0;
+#my @pi = map { $pi += is_prime $_ ? 1 : 0 } 1..1e4;
+
+my @pi = map { state $pi = 0; $pi += is_prime $_ ? 1 : 0 } 1..1e4;
+
+do { $result .=  shift(@pi) . ' ' } until $pi[0] >= 22;
+say $result;
+
+# use pre-defined
+#use ntheory <prime_count>;
+#my $pp;
+#do { state $n; print $pp = prime_count(++$n) . ' ' } until $pp  >= 22;
+
+my $ref = '0 1 2 2 3 3 4 4 4 4 5 5 6 6 6 6 7 7 8 8 8 8 9 9 9 9 9 9 10 10 11 11 11 11 11 11 12 12 12 12 13 13 14 14 14 14 15 15 15 15 15 15 16 16 16 16 16 16 17 17 18 18 18 18 18 18 19 19 19 19 20 20 21 21 21 21 21 21 ';
+
+use Test::More;
+chomp $ref;
+is($result, $ref);
+done_testing();
