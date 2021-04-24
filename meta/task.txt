@@ -1,17 +1,17 @@
 
 This is perl 5, version 32, subversion 1 (v5.32.1) built for darwin-thread-multi-2level
 updating from RC…
-+------------> Perl: Good/Bad [1437/8]
-|+-----------> Smoke testing [1290]
++------------> Perl: Good/Bad [1440/8]
+|+-----------> Smoke testing [1294]
 ||+----------> sKipping validation [150]
 |||+---------> Interactive [69]
-||||+--------> Touched (modified by me) [474]
+||||+--------> Touched (modified by me) [477]
 |||||+-------> Random seed [114]
 ||||||+------> File output [75]
 |||||||+-----> Draft [267]
 ||||||||+----> Ignoring [35]
-|||||||||+---> Void (no local copy) [118]
-||||||||||+--> Un-implemented/reliable [104]
+|||||||||+---> Void (no local copy) [114]
+||||||||||+--> Un-implemented/reliable [103]
 |||||||||||
 GS......... 100_doors-1
 GS......... 100_doors-2
@@ -309,7 +309,7 @@ GS..T...... Convert_seconds_to_compound_duration-3
 GS..T...... Convex_hull
 GS...R..... Conway%27s_Game_of_Life-1
 G.KI....... Conway%27s_Game_of_Life-2
-.......D.VU Coprimes
+GS..T..D..U Coprimes
 GS......... Copy_a_string
 G.K........ Copy_stdin_to_stdout
 GS......... Count_in_factors-1
@@ -900,7 +900,7 @@ GS......... Natural_sorting
 G.KIT...... Nautical_bell-1
 GS......... Nautical_bell-2
 GS..T...... Negative_base_numbers
-.......D.VU Neighbour_primes
+GS..T..D... Neighbour_primes
 GS......... Nested_function
 GS..T...... Nested_templated_data
 GS..T...... Next_highest_int_from_digits
@@ -1077,7 +1077,7 @@ GS.....D... Prime_triplets
 GS.....D... Prime_words
 GS..T...... Primes_-_allocate_descendants_to_their_ancestors
 GS..T..D... Primes_which_sum_of_digits_is_25
-.......D.V. Primes_with_digits_in_nondecreasing_order
+GS.....D... Primes_with_digits_in_nondecreasing_order
 GS......... Primorial_numbers
 G.K.T..D... Print_debugging_statement
 GS....FDX.. Print_itself
@@ -1402,7 +1402,7 @@ GS......... Sum_of_squares
 GS.....D... Sum_of_the_digits_of_n_is_substring_of_n
 GS......... Sum_to_100
 GS..T...... Summarize_and_say_sequence
-.......D.VU Summarize_primes
+GS..T..D..U Summarize_primes
 GS..T.F.... Sunflower_fractal
 GS......... Super-d_numbers-1
 GS..T...... Super-d_numbers-2
@@ -1456,7 +1456,7 @@ GS......... Thue-Morse
 GS...R..... Tic-tac-toe
 G.KI....... Tic-tac-toe-2
 GS.....D... Time-based_one-time_password_algorithm
-GS......... Time_a_function
+!S......... Time_a_function
 GS......... Tokenize_a_string
 GS......... Tokenize_a_string_with_escaping
 GS..T...... Tonelli-Shanks_algorithm
