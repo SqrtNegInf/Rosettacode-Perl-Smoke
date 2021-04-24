@@ -1738,6 +1738,12 @@ File: C/Conway%27s_Game_of_Life-2
 #c# 2018-07-25 <RC
 #p# OK
 
+File: C/Coprimes
+#!/usr/local/bin/perl
+#u# http://rosettacode.org/wiki/Coprimes
+#c# 2021-04-23 >RC
+#p# OK
+
 File: C/Copy_a_string
 #!/usr/local/bin/perl
 #u# http://rosettacode.org/wiki/Copy_a_string
@@ -5544,6 +5550,12 @@ File: N/Negative_base_numbers
 #c# 2019-02-09 >RC
 #p# OK
 
+File: N/Neighbour_primes
+#!/usr/local/bin/perl
+#u# http://rosettacode.org/wiki/Neighbour_primes
+#c# 2021-04-23 >RC
+#p# OK
+
 File: N/Nested_function
 #!/usr/local/bin/perl
 #u# http://rosettacode.org/wiki/Nested_function
@@ -6613,6 +6625,12 @@ File: P/Primes_which_sum_of_digits_is_25
 #!/usr/local/bin/perl
 #u# http://rosettacode.org/wiki/Primes_which_sum_of_digits_is_25
 #c# 2021-03-22 >RC
+#p# OK
+
+File: P/Primes_with_digits_in_nondecreasing_order
+#!/usr/local/bin/perl
+#u# http://rosettacode.org/wiki/Primes_with_digits_in_nondecreasing_order
+#c# 2021-04-23 <RC
 #p# OK
 
 File: P/Primorial_numbers
@@ -8628,6 +8646,12 @@ File: S/Summarize_and_say_sequence
 #c# 2018-08-18 <>RC
 #p# OK
 #n# 2020-11-08 renamed from 'Self-referential_sequence'
+
+File: S/Summarize_primes
+#!/usr/local/bin/perl
+#u# http://rosettacode.org/wiki/Summarize_primes
+#c# 2021-04-23 >RC
+#p# OK
 
 File: S/Sunflower_fractal
 #!/usr/local/bin/perl
