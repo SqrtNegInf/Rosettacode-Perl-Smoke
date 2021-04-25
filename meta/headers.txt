@@ -545,6 +545,7 @@ File: A/Array_length
 #c# 2018-07-14 <RC
 #p# OK
 #n# not using 'warnings' as code desmonstrates errors that can occur
+#n# removed a few 'scalar' that weren't required
 
 File: A/Arrays
 #!/usr/local/bin/perl
@@ -4024,7 +4025,7 @@ File: I/Image_noise
 File: I/Imaginary_base_numbers
 #!/usr/local/bin/perl
 #u# http://rosettacode.org/wiki/Imaginary_base_numbers
-#c# 2020-01-31 >RC
+#c# 2020-01-31 >RC, 2021-04-24 >RC
 #p# OK
 
 File: I/Implicit_type_conversion
@@ -4672,7 +4673,7 @@ File: L/Longest_common_subsequence-2
 File: L/Longest_common_suffix
 #!/usr/local/bin/perl
 #u# http://rosettacode.org/wiki/Longest_common_suffix
-#c# 2020-07-25 >RC
+#c# 2020-07-25 >RC, 2021-04-24 >RC
 #p# OK
 #n# sub-optimal display of strings containing blanks
 
@@ -6339,6 +6340,12 @@ File: P/Pinstripe_Display
 #c# 2018-11-15 >RC
 #p# OK
 #f# RC file: pinstripes-bw.png
+
+File: P/Piprimes
+#!/usr/local/bin/perl
+#u# http://rosettacode.org/wiki/Piprimes
+#c# 2021-04-23 >RC
+#p# OK
 
 File: P/Pisano_period
 #!/usr/local/bin/perl
@@ -8153,6 +8160,13 @@ File: S/Sparkline_in_unicode.1
 #c# 2018-08-14 <RC
 #p# OK
 #f# RC file: sparkline.txt
+
+File: S/Special_Divisors
+#!/usr/local/bin/perl
+#u# http://rosettacode.org/wiki/Special_Divisors
+#c# 2021-04-24 >RC
+#p# OK
+#n# two versions, only 1st on RC
 
 File: S/Special_characters
 #!/usr/local/bin/perl
