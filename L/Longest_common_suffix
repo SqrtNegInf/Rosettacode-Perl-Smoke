@@ -1,6 +1,6 @@
 #!/usr/local/bin/perl
 #u# http://rosettacode.org/wiki/Longest_common_suffix
-#c# 2020-07-25 >RC
+#c# 2020-07-25 >RC, 2021-04-24 >RC
 #p# OK
 #n# sub-optimal display of strings containing blanks
 
@@ -13,7 +13,7 @@ my @res;
 # If the strings are known not to contain null-bytes, we can let the regex backtracking engine find the longest common suffix like this:
 
 sub lcs {
-    for (0..$#_) { $_[$_] = join '', reverse split '', $_[$_] }
+    for (0..$#_) { $_[$_] = reverse $_[$_] }
     join '', reverse split '', (join("\0", @_) =~ /^ ([^\0]*) [^\0]* (?:\0 \1 [^\0]*)* $/sx)[0];
 }
 
