@@ -1,6 +1,6 @@
 #!/usr/local/bin/perl
 #u# http://rosettacode.org/wiki/Imaginary_base_numbers
-#c# 2020-01-31 >RC
+#c# 2020-01-31 >RC, 2021-04-24 >RC
 #p# OK
 
 use strict;
@@ -54,7 +54,8 @@ sub base_c {
     my ($im_wh, $im_fr) = split /\./, base_i( ($im/($radix->Im)), -1 * int($radix->Im**2), $precision);
     $_ //= '' for $re_fr, $im_fr;
 
-    my $whole = join '', reverse split '', zip join('', reverse split '', $re_wh), join('', reverse split '', $im_wh);
+    my $whole = reverse zip join('', reverse split '', $re_wh), join('', reverse split '', $im_wh);
+    #my $whole = join '', reverse split '', zip join('', reverse split '', $re_wh), join('', reverse split '', $im_wh);
     my $fraction = zip $im_fr, $re_fr;
     $fraction eq 0 ? "$whole" : "$whole.$fraction"
 }
