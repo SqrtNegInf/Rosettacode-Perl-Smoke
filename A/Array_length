@@ -3,6 +3,7 @@
 #c# 2018-07-14 <RC
 #p# OK
 #n# not using 'warnings' as code desmonstrates errors that can occur
+#n# removed a few 'scalar' that weren't required
 
 use strict;
 #use warnings;
@@ -18,7 +19,7 @@ say 0 +  @array;        #  5
 say '' . @array;        # "5"
 my $elems = @array; # $elems = 5
  
-scalar @{  [1,2,3]  }; # [1,2,3] is a reference which is already a scalar
+say scalar @{  [1,2,3]  }; # [1,2,3] is a reference which is already a scalar
  
 my $array_ref = \@array; # a reference
 scalar @$array_ref;
@@ -37,10 +38,10 @@ takes_a_scalar(@array);
 say length '' . @array; # 1
 say length      @array; # 1
  
-$result .= '0.'. (scalar @array) . 'e' . length(@array) . "\n"; # 0.5e1
+$result .= '0.'. @array . 'e' . length(@array) . "\n"; # 0.5e1
  
 @array = 1..123;
-$result .= '0.'. (scalar @array) . 'e' . length(@array) . "\n"; # 0.123e3
+$result .= '0.'. @array . 'e' . length(@array) . "\n"; # 0.123e3
  
 $result .= 'the length of @array is on the order of ';
 $result .= 10 ** (length( @array )-1); # 100
