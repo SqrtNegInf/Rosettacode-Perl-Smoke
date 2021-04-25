@@ -1,3 +1,6 @@
+2021-04-24
+Sometimes can reduce to just 'reverse', but not always: join '', reverse split '' 
+
 2021-04-11
 RC site still flakey, bail on testing while not around to fiddle with it.
 
