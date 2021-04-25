@@ -1,0 +1,52 @@
+#!/usr/local/bin/perl
+#u# http://rosettacode.org/wiki/Special_Divisors
+#c# 2021-04-24 >RC
+#p# OK
+#n# two versions, only 1st on RC
+
+my $result;
+
+use strict;
+use warnings;
+use feature 'say';
+
+use ntheory 'divisors';
+use List::Util 'all';   # for alternate soln
+
+my @sd;
+for my $n (1..199) {
+    map { next if $_ != int $_ } map { reverse($n) / reverse $_ } divisors $n;
+    #push @sd, sprintf '%3d', $n; # alt print method
+    push @sd, $n;
+}
+
+#say @sd . " matching numbers:\n" . "@sd\n" =~ s/.{1,39}\K\s/\n/gr; # alt print method
+
+say @sd . " matching numbers:\n" .
+    (sprintf "@{['%4d' x @sd]}", @sd) =~ s/(.{40})/$1\n/gr;
+
+# functional-style
+for my $n (1..199) {
+    $result .= "$n " if all { $_ == int $_ } map { reverse($n) / reverse } divisors $n; # reverse acts on $_ by default
+}
+
+my $ref = '1 2 3 4 5 6 7 8 9 11 13 17 19 22 23 26 27 29 31 33 37 39 41 43 44 46 47 53 55 59 61 62 66 67 69 71 73 77 79 82 83 86 88 89 93 97 99 101 103 107 109 113 121 127 131 137 139 143 149 151 157 163 167 169 173 179 181 187 191 193 197 199 ';
+
+use Test::More;
+chomp $ref;
+is($result, $ref);
+done_testing();
+
+__END__
+
+Output for 1st soln:
+
+72 matching numbers:
+   1   2   3   4   5   6   7   8   9  11
+  13  17  19  22  23  26  27  29  31  33
+  37  39  41  43  44  46  47  53  55  59
+  61  62  66  67  69  71  73  77  79  82
+  83  86  88  89  93  97  99 101 103 107
+ 109 113 121 127 131 137 139 143 149 151
+ 157 163 167 169 173 179 181 187 191 193
+ 197 199
