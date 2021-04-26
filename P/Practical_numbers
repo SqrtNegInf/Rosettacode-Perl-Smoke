@@ -1,0 +1,59 @@
+#!/usr/local/bin/perl
+#u# http://rosettacode.org/wiki/Practical_numbers
+#c# 2021-04-25 >RC
+#p# OK
+#n# croaks for large inputs (and huge memory requirements), see Power_sets-* tasks for alternate methods
+
+use strict;
+use warnings;
+use feature 'say';
+
+use enum <False True>;
+
+use ntheory <divisors vecextract>;
+use List::AllUtils <sum uniq firstidx>;
+
+sub proper_divisors {
+  return 1 if 0 == (my $n = shift);
+  my @d = divisors($n);
+  pop @d;
+  @d
+}
+
+sub powerset_sums { uniq map { sum vecextract(\@_,$_) } 1..2**@_-1 }
+
+sub is_practical {
+    my($n) = @_;
+    return True  if $n == 1;
+    return False if 0 != $n % 2;
+    ($n-2 == firstidx { $_ == $n-1 } powerset_sums(proper_divisors($n)) ) ? True : False;
+}
+
+my @pn;
+is_practical($_) and push @pn, $_ for 1..333; 
+my @res = @pn . " matching numbers:\n" .
+    (sprintf "@{['%4d' x @pn]}", @pn) =~ s/(.{40})/$1\n/gr;
+
+push @res, sprintf "%6d is practical? %s", $_, is_practical($_) ? 'True' : 'False' for 666, 6666, 66666; 
+
+say my $result = join "\n", @res;
+
+my $ref = <<'END';
+77 matching numbers:
+   1   2   4   6   8  12  16  18  20  24
+  28  30  32  36  40  42  48  54  56  60
+  64  66  72  78  80  84  88  90  96 100
+ 104 108 112 120 126 128 132 140 144 150
+ 156 160 162 168 176 180 192 196 198 200
+ 204 208 210 216 220 224 228 234 240 252
+ 256 260 264 270 272 276 280 288 294 300
+ 304 306 308 312 320 324 330
+   666 is practical? True
+  6666 is practical? True
+ 66666 is practical? False
+END
+
+use Test::More;
+chomp $ref;
+is($result, $ref);
+done_testing();
