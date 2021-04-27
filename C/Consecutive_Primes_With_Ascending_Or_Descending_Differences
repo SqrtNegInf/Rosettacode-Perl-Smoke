@@ -1,6 +1,6 @@
 #!/usr/local/bin/perl
 #u# http://rosettacode.org/wiki/Consecutive_Primes_With_Ascending_Or_Descending_Differences
-#c# 2021-04-xx >RC
+#c# 2021-04-26 >RC
 #p# OK
 
 use strict;
@@ -15,8 +15,7 @@ my @primes = @{primes( $limit )};
 
 sub runs {
     my($op) = @_;
-    my $run  = 1;
-    my @diff = my $diff = 1;
+    my @diff = my $diff = my $run  = 1;
     push @diff, map {
         my $next = $primes[$_] - $primes[$_ - 1];
         #if (eval "$next $op $diff") { ++$run } else { $run = 1 }           # works, but slow
@@ -54,49 +53,3 @@ use Test::More;
 chomp $ref;
 is($result, $ref);
 done_testing();
-
-__END__
-
-=={{header|Perl}}==
-{{trans|Raku}}
-{{libheader|ntheory}}
-<lang perl>use strict;
-use warnings;
-use feature 'say';
-use ntheory 'primes';
-use List::AllUtils <indexes max>;
-
-my $limit  = 1000000;
-my @primes = @{primes( $limit )};
-
-sub runs {
-    my($op) = @_;
-    my $run  = 1;
-    my @diff = my $diff = 1;
-    push @diff, map {
-        my $next = $primes[$_] - $primes[$_ - 1];
-        if ($op eq '>') { if ($next > $diff) { ++$run } else { $run = 1 } }
-        else            { if ($next < $diff) { ++$run } else { $run = 1 } }
-        $diff = $next;
-        $run
-    } 1 .. $#primes;
-
-    my @prime_run;
-    my $max = max @diff;
-    for my $r ( indexes { $_ == $max } @diff ) {
-        push @prime_run, join ' ', map { $primes[$r - $_] } reverse 0..$max
-    }
-    @prime_run
-}
-
-say   "Longest run(s) of ascending prime gaps up to $limit:\n"  . join "\n", runs('>');
-say "\nLongest run(s) of descending prime gaps up to $limit:\n" . join "\n", runs('<');</lang>
-{{out}}
-<pre>Longest run(s) of ascending prime gaps up to 1000000:
-128981 128983 128987 128993 129001 129011 129023 129037
-402581 402583 402587 402593 402601 402613 402631 402691
-665111 665113 665117 665123 665131 665141 665153 665177
-
-Longest run(s) of descending prime gaps up to 1000000:
-322171 322193 322213 322229 322237 322243 322247 322249
-752207 752251 752263 752273 752281 752287 752291 752293</pre>
