@@ -1666,6 +1666,12 @@ File: C/Conjugate_transpose
 #c# 2018-07-24 <RC
 #p# OK
 
+File: C/Consecutive_Primes_With_Ascending_Or_Descending_Differences
+#!/usr/local/bin/perl
+#u# http://rosettacode.org/wiki/Consecutive_Primes_With_Ascending_Or_Descending_Differences
+#c# 2021-04-xx >RC
+#p# OK
+
 File: C/Constrained_random_points_on_a_circle
 #!/usr/local/bin/perl
 #u# http://rosettacode.org/wiki/Constrained_random_points_on_a_circle
