@@ -11,7 +11,7 @@ updating from RC…
 |||||||+-----> Draft [268]
 ||||||||+----> Ignoring [35]
 |||||||||+---> Void (no local copy) [110]
-||||||||||+--> Un-implemented/reliable [98]
+||||||||||+--> Un-implemented/reliable [97]
 |||||||||||
 GS......... 100_doors-1
 GS......... 100_doors-2
@@ -295,7 +295,7 @@ G.K..R..... Concurrent_computing-1
 GS......... Concurrent_computing-2
 G.K........ Conditional_structures
 GS......... Conjugate_transpose
-GS..T..D..U Consecutive_Primes_With_Ascending_Or_Descending_Differences
+GS..T..D... Consecutive_Primes_With_Ascending_Or_Descending_Differences
 ........XVU Constrained_genericity
 GS..TR..... Constrained_random_points_on_a_circle
 GS..T...... Continued_fraction
