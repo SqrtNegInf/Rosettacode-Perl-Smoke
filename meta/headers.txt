@@ -1669,7 +1669,7 @@ File: C/Conjugate_transpose
 File: C/Consecutive_Primes_With_Ascending_Or_Descending_Differences
 #!/usr/local/bin/perl
 #u# http://rosettacode.org/wiki/Consecutive_Primes_With_Ascending_Or_Descending_Differences
-#c# 2021-04-xx >RC
+#c# 2021-04-26 >RC
 #p# OK
 
 File: C/Constrained_random_points_on_a_circle
