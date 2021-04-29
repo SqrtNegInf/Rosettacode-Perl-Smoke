@@ -8,10 +8,10 @@ updating from RC…
 ||||+--------> Touched (modified by me) [482]
 |||||+-------> Random seed [114]
 ||||||+------> File output [75]
-|||||||+-----> Draft [268]
+|||||||+-----> Draft [269]
 ||||||||+----> Ignoring [35]
-|||||||||+---> Void (no local copy) [110]
-||||||||||+--> Un-implemented/reliable [97]
+|||||||||+---> Void (no local copy) [111]
+||||||||||+--> Un-implemented/reliable [98]
 |||||||||||
 GS......... 100_doors-1
 GS......... 100_doors-2
@@ -309,6 +309,7 @@ GS..T...... Convert_seconds_to_compound_duration-3
 GS..T...... Convex_hull
 GS...R..... Conway%27s_Game_of_Life-1
 G.KI....... Conway%27s_Game_of_Life-2
+.......D.VU Coprime_triplets
 GS..T..D... Coprimes
 GS......... Copy_a_string
 G.K........ Copy_stdin_to_stdout
