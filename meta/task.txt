@@ -1,7 +1,7 @@
 
 This is perl 5, version 32, subversion 1 (v5.32.1) built for darwin-thread-multi-2level
 updating from RC…
-+------------> Perl: Good/Bad [1445/8]
++------------> Perl: Good/Bad [1446/8]
 |+-----------> Smoke testing [1299]
 ||+----------> sKipping validation [150]
 |||+---------> Interactive [69]
@@ -463,7 +463,7 @@ GS..T..D... Extra_primes
 GS.....D... Extract_file_extension
 GS......... Extreme_floating_point_values
 GS......... FASTA_format
-!S..T...... FTP
+GS..T...... FTP
 GS..T...... Faces_from_a_mesh
 GS......... Factorial-1
 GS......... Factorial-2
