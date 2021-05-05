@@ -1,16 +1,16 @@
 
 This is perl 5, version 32, subversion 1 (v5.32.1) built for darwin-thread-multi-2level
 updating from RC…
-+------------> Perl: Good/Bad [1446/8]
-|+-----------> Smoke testing [1299]
++------------> Perl: Good/Bad [1447/8]
+|+-----------> Smoke testing [1300]
 ||+----------> sKipping validation [150]
 |||+---------> Interactive [69]
-||||+--------> Touched (modified by me) [482]
+||||+--------> Touched (modified by me) [483]
 |||||+-------> Random seed [114]
 ||||||+------> File output [75]
 |||||||+-----> Draft [269]
 ||||||||+----> Ignoring [35]
-|||||||||+---> Void (no local copy) [111]
+|||||||||+---> Void (no local copy) [110]
 ||||||||||+--> Un-implemented/reliable [98]
 |||||||||||
 GS......... 100_doors-1
@@ -309,7 +309,7 @@ GS..T...... Convert_seconds_to_compound_duration-3
 GS..T...... Convex_hull
 GS...R..... Conway%27s_Game_of_Life-1
 G.KI....... Conway%27s_Game_of_Life-2
-.......D.VU Coprime_triplets
+GS..T..D..U Coprime_triplets
 GS..T..D... Coprimes
 GS......... Copy_a_string
 G.K........ Copy_stdin_to_stdout
