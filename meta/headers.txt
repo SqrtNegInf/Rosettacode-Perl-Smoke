@@ -1745,6 +1745,12 @@ File: C/Conway%27s_Game_of_Life-2
 #c# 2018-07-25 <RC
 #p# OK
 
+File: C/Coprime_triplets
+#!/usr/local/bin/perl
+#u# http://rosettacode.org/wiki/Coprime_triplets
+#c# 2021-05-xx >RC
+#p# OK
+
 File: C/Coprimes
 #!/usr/local/bin/perl
 #u# http://rosettacode.org/wiki/Coprimes
