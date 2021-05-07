@@ -613,6 +613,15 @@ U/Unicode_strings
 U/Unicode_variable_names
 Δ:    11 GREEK CAPITAL LETTER DELTA
 
+U/Unique_characters
+ä:     2 LATIN SMALL LETTER A WITH DIAERESIS
+ö:     2 LATIN SMALL LETTER O WITH DIAERESIS
+Α:     2 GREEK CAPITAL LETTER ALPHA
+А:     2 CYRILLIC CAPITAL LETTER A
+٥:     2 ARABIC-INDIC DIGIT FIVE
+👨‍👩‍👧‍👧:     2 MAN, ZERO WIDTH JOINER, WOMAN, ZERO WIDTH JOINER, GIRL, ZERO WIDTH JOINER, GIRL
+🤔:     2 THINKING FACE
+
 U/Untouchable_numbers
 ≤:     8 LESS-THAN OR EQUAL TO
 
