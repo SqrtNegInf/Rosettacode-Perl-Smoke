@@ -2,7 +2,7 @@
 This is perl 5, version 32, subversion 1 (v5.32.1) built for darwin-thread-multi-2level
 updating from RC…
 +------------> Perl: Good/Bad [1447/8]
-|+-----------> Smoke testing [1300]
+|+-----------> Smoke testing [1301]
 ||+----------> sKipping validation [150]
 |||+---------> Interactive [69]
 ||||+--------> Touched (modified by me) [483]
@@ -10,8 +10,8 @@ updating from RC…
 ||||||+------> File output [75]
 |||||||+-----> Draft [270]
 ||||||||+----> Ignoring [35]
-|||||||||+---> Void (no local copy) [111]
-||||||||||+--> Un-implemented/reliable [99]
+|||||||||+---> Void (no local copy) [110]
+||||||||||+--> Un-implemented/reliable [97]
 |||||||||||
 GS......... 100_doors-1
 GS......... 100_doors-2
@@ -309,7 +309,7 @@ GS..T...... Convert_seconds_to_compound_duration-3
 GS..T...... Convex_hull
 GS...R..... Conway%27s_Game_of_Life-1
 G.KI....... Conway%27s_Game_of_Life-2
-GS..T..D..U Coprime_triplets
+GS..T..D... Coprime_triplets
 GS..T..D... Coprimes
 GS......... Copy_a_string
 G.K........ Copy_stdin_to_stdout
@@ -1504,7 +1504,7 @@ GS......... Undefined_values
 .......D.VU Unicode_polynomial_equation
 GS......... Unicode_strings
 GS......... Unicode_variable_names
-.......D.VU Unique_characters
+!S.....D... Unique_characters
 .......DXVU Unit_testing
 GS......... Universal_Turing_machine
 GS......... Unix_ls
