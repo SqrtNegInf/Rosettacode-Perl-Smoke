@@ -1748,7 +1748,7 @@ File: C/Conway%27s_Game_of_Life-2
 File: C/Coprime_triplets
 #!/usr/local/bin/perl
 #u# http://rosettacode.org/wiki/Coprime_triplets
-#c# 2021-05-xx >RC
+#c# 2021-05-06 >RC
 #p# OK
 
 File: C/Coprimes
@@ -9309,6 +9309,12 @@ File: U/Unicode_variable_names
 #!/usr/local/bin/perl
 #u# http://rosettacode.org/wiki/Unicode_variable_names
 #c# 2018-08-07 <RC
+#p# OK
+
+File: U/Unique_characters
+#!/usr/local/bin/perl
+#u# http://rosettacode.org/wiki/Unique_characters
+#c# 2021-05-06 <RC
 #p# OK
 
 File: U/Universal_Turing_machine
