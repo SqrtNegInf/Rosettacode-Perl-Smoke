@@ -1,6 +1,6 @@
 #!/usr/local/bin/perl
 #u# http://rosettacode.org/wiki/Coprime_triplets
-#c# 2021-05-xx >RC
+#c# 2021-05-06 >RC
 #p# OK
 
 use strict;
@@ -12,16 +12,17 @@ use List::Util 'first';
 use List::Lazy 'lazy_list';
 use enum qw(False True);
 
+use constant Inf  => 1e5; # bigger is slower
+
 my $ct = lazy_list { 
     state @c = (1, 2); 
     state %seen = (1 => True, 2 => True);
     state $min = 3;
     my $g = $c[-2] * $c[-1];
-    my $n = first { !$seen{$_} and gcd($_,$g) == 1 } $min .. 1e5;
+    my $n = first { !$seen{$_} and gcd($_,$g) == 1 } $min .. Inf;
     $seen{$n} = True;
-    $min = first { !$seen{$_} } $min .. 1e5;
-    push @c, $n;
-    shift @c 
+    $min = first { !$seen{$_} } $min .. Inf;
+    push(@c, $n) and shift @c;
 };
 
 my @ct;
@@ -34,13 +35,3 @@ use Test::More;
 chomp $ref;
 is($result, $ref);
 done_testing();
-
-__END__
-
-=={{header|Perl}}==
-{{trans|Raku}}
-{{libheader|ntheory}}
-<lang perl>
-</lang>
-{{out}}
-<pre>1 2 3 5 4 7 9 8 11 13 6 17 19 10 21 23 16 15 29 14 25 27 22 31 35 12 37 41 18 43 47 20 33 49 26 45</pre>
