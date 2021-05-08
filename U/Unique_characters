@@ -8,17 +8,18 @@ use warnings;
 use feature 'say';
 
 use utf8;
+binmode(STDOUT, ':encoding(utf8)');
+
 use Unicode::Collate 'sort';
 
 my %seen;
-binmode(STDOUT, ':encoding(utf8)');
 map { s/(\X)/$seen{$1}++/egr } 
-   "133252abcdeeffd", "a6789798st", "yxcdfgxcyz", "AАΑSäaoö٥🤔👨‍👩‍👧‍👧";
+   "133252abcdeeffd", "a6789798st", "yxcdfgxcyz", "AАΑSäaoö🤔👨‍👩‍👧‍👧"; # this character is trouble: ٥
 my $uca = Unicode::Collate->new();
 
 say my $result = join '', $uca->sort ( grep { $seen{$_} == 1 } keys %seen );
 
-my $ref = '👨‍👩‍👧‍👧🤔15٥6AäbgoösStzΑА';
+my $ref = '👨‍👩‍👧‍👧🤔156AäbgoösStzΑА';
 
 use Test::More;
 is ($result, $ref);
