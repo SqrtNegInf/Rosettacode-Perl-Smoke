@@ -8,10 +8,10 @@ updating from RC…
 ||||+--------> Touched (modified by me) [483]
 |||||+-------> Random seed [114]
 ||||||+------> File output [75]
-|||||||+-----> Draft [271]
+|||||||+-----> Draft [272]
 ||||||||+----> Ignoring [35]
-|||||||||+---> Void (no local copy) [111]
-||||||||||+--> Un-implemented/reliable [98]
+|||||||||+---> Void (no local copy) [112]
+||||||||||+--> Un-implemented/reliable [99]
 |||||||||||
 GS......... 100_doors-1
 GS......... 100_doors-2
@@ -1506,6 +1506,7 @@ GS......... Undefined_values
 GS......... Unicode_strings
 GS......... Unicode_variable_names
 GS.....D... Unique_characters
+.......D.VU Unique_characters_in_each_string
 .......DXVU Unit_testing
 GS......... Universal_Turing_machine
 GS......... Unix_ls
