@@ -1,0 +1,27 @@
+#!/usr/local/bin/perl
+#u# http://rosettacode.org/wiki/Unique_characters_in_each_string
+#c# 2021-05-10 <RC
+#p# OK
+
+use strict;
+use warnings;
+use feature 'say';
+
+my @strings = ("1a3c52debeffd", "2b6178c97a938stf", "3ycxdb1fgxa2yz");
+
+# as one-liner
+my $chars = join "\n", @strings; # gets modified
+say join ' ', sort grep $chars !~ /$_.*$_/ && @strings == $chars =~ s/$_//g, $chars =~ /./g;
+
+# on RC
+$chars = join "\n", @strings;
+my $result =  "@{[ sort grep
+  $chars !~ /$_.*$_/ &&           # the 'only once in each string' test
+  @strings == $chars =~ s/$_//g,  # the 'in every string' test
+  $chars =~ /./g ]}";
+
+my $ref = '1 2 3 a b c';
+
+use Test::More;
+is ($result, $ref);
+done_testing();
