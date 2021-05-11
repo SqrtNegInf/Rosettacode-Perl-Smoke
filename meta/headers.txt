@@ -9317,6 +9317,12 @@ File: U/Unique_characters
 #c# 2021-05-06 <RC
 #p# OK
 
+File: U/Unique_characters_in_each_string
+#!/usr/local/bin/perl
+#u# http://rosettacode.org/wiki/Unique_characters_in_each_string
+#c# 2021-05-10 <RC
+#p# OK
+
 File: U/Universal_Turing_machine
 #!/usr/local/bin/perl
 #u# http://rosettacode.org/wiki/Universal_Turing_machine
