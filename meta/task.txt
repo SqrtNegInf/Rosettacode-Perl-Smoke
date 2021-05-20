@@ -8,10 +8,10 @@ updating from RC…
 ||||+--------> Touched (modified by me) [483]
 |||||+-------> Random seed [114]
 ||||||+------> File output [75]
-|||||||+-----> Draft [273]
+|||||||+-----> Draft [274]
 ||||||||+----> Ignoring [35]
-|||||||||+---> Void (no local copy) [112]
-||||||||||+--> Un-implemented/reliable [99]
+|||||||||+---> Void (no local copy) [113]
+||||||||||+--> Un-implemented/reliable [101]
 |||||||||||
 GS......... 100_doors-1
 GS......... 100_doors-2
@@ -223,7 +223,7 @@ GS......... Catalan_numbers_Pascal%27s_triangle
 GS......... Catamorphism
 .........VU Catmull-Clark_subdivision_surface
 GS.....D... Change_e_letters_to_i_in_words
-GS.....D... Changeable_words
+GS.....D..U Changeable_words
 GS..T...... Chaocipher
 GS...RF.... Chaos_game
 GS..T...... Character_codes-1
@@ -1401,6 +1401,7 @@ GS......... Sum_multiples_of_3_and_5-1
 GS..T...... Sum_multiples_of_3_and_5-2
 GS......... Sum_of_a_series
 GS..T..D... Sum_of_divisors
+.......D.VU Sum_of_first_n_cubes
 GS......... Sum_of_squares
 GS.....D... Sum_of_the_digits_of_n_is_substring_of_n
 GS......... Sum_to_100
