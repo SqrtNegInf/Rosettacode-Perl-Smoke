@@ -1,17 +1,17 @@
 
 This is perl 5, version 32, subversion 1 (v5.32.1) built for darwin-thread-multi-2level
 updating from RC…
-+------------> Perl: Good/Bad [1449/8]
-|+-----------> Smoke testing [1302]
++------------> Perl: Good/Bad [1452/8]
+|+-----------> Smoke testing [1305]
 ||+----------> sKipping validation [150]
 |||+---------> Interactive [69]
 ||||+--------> Touched (modified by me) [483]
 |||||+-------> Random seed [114]
-||||||+------> File output [75]
+||||||+------> File output [74]
 |||||||+-----> Draft [274]
 ||||||||+----> Ignoring [35]
-|||||||||+---> Void (no local copy) [113]
-||||||||||+--> Un-implemented/reliable [101]
+|||||||||+---> Void (no local copy) [111]
+||||||||||+--> Un-implemented/reliable [98]
 |||||||||||
 GS......... 100_doors-1
 GS......... 100_doors-2
@@ -208,7 +208,7 @@ G.K........ Call_an_object_method
 .........VU Canny_edge_detector
 GS......... Canonicalize_CIDR
 GS..T...... Cantor_set
-GS....F.... Cantor_set-2
+GS......... Cantor_set-2
 GS..TR.D... Card_shuffles
 GS......... Carmichael_3_strong_pseudoprimes
 GS..T...... Cartesian_product_of_two_or_more_lists-1
@@ -223,7 +223,8 @@ GS......... Catalan_numbers_Pascal%27s_triangle
 GS......... Catamorphism
 .........VU Catmull-Clark_subdivision_surface
 GS.....D... Change_e_letters_to_i_in_words
-GS.....D..U Changeable_words
+GS.....D... Changeable_words
+GS......... Changeable_words-2
 GS..T...... Chaocipher
 GS...RF.... Chaos_game
 GS..T...... Character_codes-1
@@ -1401,7 +1402,7 @@ GS......... Sum_multiples_of_3_and_5-1
 GS..T...... Sum_multiples_of_3_and_5-2
 GS......... Sum_of_a_series
 GS..T..D... Sum_of_divisors
-.......D.VU Sum_of_first_n_cubes
+GS.....D... Sum_of_first_n_cubes
 GS......... Sum_of_squares
 GS.....D... Sum_of_the_digits_of_n_is_substring_of_n
 GS......... Sum_to_100
@@ -1481,7 +1482,7 @@ GS......... Tree_from_nesting_levels-1
 GS......... Tree_from_nesting_levels-2
 GS......... Tree_traversal
 GS......... Trigonometric_functions
-.......D.VU Triplet_of_three_numbers
+GS.....D... Triplet_of_three_numbers
 GS......... Truncatable_primes-1
 GS......... Truncatable_primes-2
 GS......... Truncatable_primes-3
