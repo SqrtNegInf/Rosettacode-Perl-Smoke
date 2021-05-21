@@ -1,0 +1,51 @@
+#!/usr/local/bin/perl
+#u# http://rosettacode.org/wiki/Changeable_words
+#c# 2021-05-20 <RC
+#p# OK
+
+my @res;
+
+use strict;
+use warnings;
+use feature 'say';
+
+local $_ = do {local(@ARGV, $/) = 'ref/unixdict.txt'; <> =~ s/^.{0,11}\n//gmr };
+my $count = 0;
+push @res, sprintf "%3d:  %15s  <->  %s", ++$count, $1, $4
+  while /^ ((\N*)\N(\N*)) \n(?=.*^ (\2\N\3) \n)/gmsx;
+
+say my $result = join "\n", @res;
+
+my $ref = <<'EOD';
+  1:     aristotelean  <->  aristotelian
+  2:   claustrophobia  <->  claustrophobic
+  3:     committeeman  <->  committeemen
+  4:   committeewoman  <->  committeewomen
+  5:    complementary  <->  complimentary
+  6:     confirmation  <->  conformation
+  7:    congresswoman  <->  congresswomen
+  8:     councilwoman  <->  councilwomen
+  9:     craftsperson  <->  draftsperson
+ 10:     eavesdropped  <->  eavesdropper
+ 11:     frontiersman  <->  frontiersmen
+ 12:   handicraftsman  <->  handicraftsmen
+ 13:     incommutable  <->  incomputable
+ 14:     installation  <->  instillation
+ 15:     kaleidescope  <->  kaleidoscope
+ 16:     neuroanatomy  <->  neuroanotomy
+ 17:     newspaperman  <->  newspapermen
+ 18:     nonagenarian  <->  nonogenarian
+ 19:     onomatopoeia  <->  onomatopoeic
+ 20:     philanthrope  <->  philanthropy
+ 21:     prescription  <->  proscription
+ 22:    schizophrenia  <->  schizophrenic
+ 23:    shakespearean  <->  shakespearian
+ 24:     spectroscope  <->  spectroscopy
+ 25:    underclassman  <->  underclassmen
+ 26:    upperclassman  <->  upperclassmen
+EOD
+
+use Test::More;
+chomp $ref;
+is ($result, $ref);
+done_testing();
