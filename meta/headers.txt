@@ -1129,13 +1129,10 @@ File: C/Cantor_set
 #n# subroutines must be nested
 
 File: C/Cantor_set-2
-#!/usr/bin/env perl
+#!/usr/local/bin/perl
 #u# http://rosettacode.org/wiki/Cantor_set
-#c# 2018-11-05 NOT ON RC
+#c# 2021-05-20 <RC
 #p# OK
-#f# RC file: cantor-set.png
-#n# graphical version, translated from Raku
-#n# NB: subroutines must be nested
 
 File: C/Card_shuffles
 #!/usr/local/bin/perl
@@ -1219,6 +1216,12 @@ File: C/Changeable_words
 #!/usr/local/bin/perl
 #u# http://rosettacode.org/wiki/Changeable_words
 #c# 2020-12-06 <RC
+#p# OK
+
+File: C/Changeable_words-2
+#!/usr/local/bin/perl
+#u# http://rosettacode.org/wiki/Changeable_words
+#c# 2021-05-20 <RC
 #p# OK
 
 File: C/Chaocipher
@@ -8661,6 +8664,12 @@ File: S/Sum_of_divisors
 #c# 2021-01-08 >RC
 #p# OK
 
+File: S/Sum_of_first_n_cubes
+#!/usr/local/bin/perl
+#u# http://rosettacode.org/wiki/Sum_of_first_n_cubes
+#c# 2021-05-20 <RC
+#p# OK
+
 File: S/Sum_of_squares
 #!/usr/local/bin/perl
 #u# http://rosettacode.org/wiki/Sum_of_squares
@@ -9170,6 +9179,12 @@ File: T/Trigonometric_functions
 #!/usr/local/bin/perl
 #u# http://rosettacode.org/wiki/Trigonometric_functions
 #c# 2018-08-09 <RC
+#p# OK
+
+File: T/Triplet_of_three_numbers
+#!/usr/local/bin/perl
+#u# http://rosettacode.org/wiki/Triplet_of_three_numbers
+#c# 2021-05-20 <RC
 #p# OK
 
 File: T/Truncatable_primes-1
