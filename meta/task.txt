@@ -8,7 +8,7 @@ updating from RC…
 ||||+--------> Touched (modified by me) [483]
 |||||+-------> Random seed [114]
 ||||||+------> File output [74]
-|||||||+-----> Draft [274]
+|||||||+-----> Draft [273]
 ||||||||+----> Ignoring [35]
 |||||||||+---> Void (no local copy) [111]
 ||||||||||+--> Un-implemented/reliable [98]
@@ -1273,7 +1273,7 @@ G.K........ Singly-linked_list_Element_insertion
 .......D.VU Singly-linked_list_Element_removal
 GS......... Singly-linked_list_Traversal
 GS......... Sleep
-.......D.VU Sleeping_Beauty_problem
+.........VU Sleeping_Beauty_problem
 .......D.VU Smallest_enclosing_circle_problem
 GS..T..D... Smallest_numbers
 GS..T..D... Smallest_power_of_6_whose_decimal_expansion_contains_n
