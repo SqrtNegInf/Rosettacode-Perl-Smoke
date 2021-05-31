@@ -2,6 +2,7 @@
 #u# http://rosettacode.org/wiki/Jaro_distance
 #c# 2018-08-14 <RC, 2020-08-09 >RC
 #p# OK
+#n# on RC now called 'Jaro similarity'
 
 use strict;
 use warnings;
