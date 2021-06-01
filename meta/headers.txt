@@ -3343,6 +3343,12 @@ File: F/Frobenius_numbers
 #c# 2021-04-16 >RC
 #p# OK
 
+File: F/Frobenius_numbers-2
+#!/usr/local/bin/perl
+#u# http://rosettacode.org/wiki/Frobenius_numbers
+#c# 2021-05-31 >RC
+#p# OK
+
 File: F/Function_composition
 #!/usr/local/bin/perl
 #u# http://rosettacode.org/wiki/Function_composition
@@ -3706,6 +3712,12 @@ File: H/Happy_numbers-2
 #!/usr/local/bin/perl
 #u# http://rosettacode.org/wiki/Happy_numbers
 #c# 2018-08-12 <RC
+#p# OK
+
+File: H/Harmonic_series
+#!/usr/local/bin/perl
+#u# http://rosettacode.org/wiki/Harmonic_series
+#c# 2021-05-31 >RC
 #p# OK
 
 File: H/Harshad_or_Niven_series
@@ -8747,6 +8759,12 @@ File: S/Sutherland-Hodgman_polygon_clipping
 #c# 2020-01-11 >RC
 #p# OK
 ### xx file: polygon-clipping.svg
+
+File: S/Sylvester%27s_sequence
+#!/usr/local/bin/perl
+#u# http://rosettacode.org/wiki/Sylvester%27s_sequence
+#c# 2021-05-31 >RC
+#p# OK
 
 File: S/Symmetric_difference
 #!/usr/local/bin/perl
