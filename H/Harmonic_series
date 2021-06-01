@@ -1,0 +1,70 @@
+#!/usr/local/bin/perl
+#u# http://rosettacode.org/wiki/Harmonic_series
+#c# 2021-05-31 >RC
+#p# OK
+
+my @res;
+
+use strict;
+use warnings;
+use feature 'say';
+
+use List::AllUtils 'firstidx';
+use Math::AnyNum ':overload';
+
+push @res, "First twenty harmonic numbers as rationals:";
+
+my(@H,$n) = 0;
+do { ++$n and push @H, $H[-1] + 1/$n } until $H[-1] >= 10;
+
+shift @H; $n = 0;
+push @res, sprintf("%18s", $_) for @H[0..19];
+#my $c = 0; printf("%20s", $_) and (not ++$c%5) and print "\n" for @H[0..19]; # on RC
+
+push @res, "\nIndex of first value (zero based):";
+for my $i (1..10) {
+    push @res, sprintf "  greater than %2d: %5s", $i, firstidx { $_ > $i } @H;
+}
+
+say my $result = join "\n", @res;
+
+my $ref = <<'END';
+First twenty harmonic numbers as rationals:
+                 1
+               3/2
+              11/6
+             25/12
+            137/60
+             49/20
+           363/140
+           761/280
+         7129/2520
+         7381/2520
+       83711/27720
+       86021/27720
+    1145993/360360
+    1171733/360360
+    1195757/360360
+    2436559/720720
+ 42142223/12252240
+  14274301/4084080
+275295799/77597520
+ 55835135/15519504
+
+Index of first value (zero based):
+  greater than  1:     1
+  greater than  2:     3
+  greater than  3:    10
+  greater than  4:    30
+  greater than  5:    82
+  greater than  6:   226
+  greater than  7:   615
+  greater than  8:  1673
+  greater than  9:  4549
+  greater than 10: 12366
+END
+
+use Test::More;
+chomp $ref;
+is($result, $ref);
+done_testing();
