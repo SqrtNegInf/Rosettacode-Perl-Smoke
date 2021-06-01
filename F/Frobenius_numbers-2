@@ -1,0 +1,20 @@
+#!/usr/local/bin/perl
+#u# http://rosettacode.org/wiki/Frobenius_numbers
+#c# 2021-05-31 >RC
+#p# OK
+
+use strict;
+use warnings;
+use feature 'say';
+
+use ntheory 'primes';
+use List::MoreUtils qw(slide);
+
+my $limit = 10_000;
+say my $result = join ' ', grep { $_ < $limit } slide { $a * $b - $a - $b } @{primes($limit)};
+
+my $ref = '1 7 23 59 119 191 287 395 615 839 1079 1439 1679 1931 2391 3015 3479 3959 4619 5039 5615 6395 7215 8447 9599';
+
+use Test::More;
+is($result, $ref);
+done_testing();
