@@ -1,0 +1,35 @@
+#!/usr/local/bin/perl
+#u# http://rosettacode.org/wiki/Sylvester%27s_sequence
+#c# 2021-05-31 >RC
+#p# OK
+
+my @res;
+
+use strict;
+use warnings;
+use feature 'say';
+
+use List::Util 'reduce';
+use Math::AnyNum ':overload';
+local $Math::AnyNum::PREC = 845;
+
+my(@S,$sum);
+push @S, 1 + reduce { $a * $b } @S for 0..10;
+shift @S;
+$sum += 1/$_ for @S;
+
+push @res, "First 10 elements of Sylvester's sequence: @S";
+push @res, "\nSum of the reciprocals of first 10 elements: " . float $sum;
+
+say my $result = join "\n", @res;
+
+my $ref = <<'END';
+First 10 elements of Sylvester's sequence: 2 3 7 43 1807 3263443 10650056950807 113423713055421844361000443 12864938683278671740537145998360961546653259485195807 165506647324519964198468195444439180017513152706377497841851388766535868639572406808911988131737645185443
+
+Sum of the reciprocals of first 10 elements: 0.9999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999635
+END
+
+use Test::More;
+chomp $ref;
+is($result, $ref);
+done_testing();
