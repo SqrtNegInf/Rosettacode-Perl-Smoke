@@ -1,17 +1,17 @@
 
 This is perl 5, version 32, subversion 1 (v5.32.1) built for darwin-thread-multi-2level
 updating from RC…
-+------------> Perl: Good/Bad [1454/8]
-|+-----------> Smoke testing [1307]
-||+----------> sKipping validation [150]
++------------> Perl: Good/Bad [1456/8]
+|+-----------> Smoke testing [1308]
+||+----------> sKipping validation [151]
 |||+---------> Interactive [69]
-||||+--------> Touched (modified by me) [485]
+||||+--------> Touched (modified by me) [487]
 |||||+-------> Random seed [114]
 ||||||+------> File output [74]
-|||||||+-----> Draft [278]
+|||||||+-----> Draft [280]
 ||||||||+----> Ignoring [35]
 |||||||||+---> Void (no local copy) [115]
-||||||||||+--> Un-implemented/reliable [101]
+||||||||||+--> Un-implemented/reliable [102]
 |||||||||||
 GS......... 100_doors-1
 GS......... 100_doors-2
@@ -391,6 +391,7 @@ GS.....D... Distinct_Palindromes_Within_Decimal_Numbers
 GS......... Distributed_programming
 GS..T...... Diversity_prediction_theorem
 G.K........ Documentation
+.......D.VU Doomsday_rule
 GS......... Dot_product
 .........VU Doubly-linked_list_Definition
 G.K........ Doubly-linked_list_Element_definition
@@ -639,7 +640,7 @@ GS......... Hofstadter_Q_sequence-1
 GS......... Hofstadter_Q_sequence-2
 GS......... Hofstadter_Q_sequence-3
 GS......... Holidays_related_to_Easter
-.......D.VU Home_primes
+G.K.T..D..U Home_primes
 G.KI.R..... Honeycombs
 GS..T...... Horizontal_sundial_calculations
 GS......... Horner%27s_rule_for_polynomial_evaluation-1
@@ -734,6 +735,7 @@ GS...R..... Langton%27s_ant
 GS......... Largest_int_from_concatenated_ints
 GS..T...... Largest_number_divisible_by_its_digits-1
 GS..T...... Largest_number_divisible_by_its_digits-2
+.......D.VU Largest_proper_divisor_of_n
 GS......... Last_Friday_of_each_month
 GS..TR..... Last_letter-first_letter
 GS......... Latin_Squares_in_reduced_form
@@ -1560,12 +1562,12 @@ GS.....D... Waveform_analysis_Doh_ray_me
 .......D.VU Waveform_analysis_Top_and_tail
 .......DXVU Weather_routing
 GS......... Web_scraping
-.......D.VU Weiferich_primes
 GS..T...... Weird_numbers-1
 GS......... Weird_numbers-2
 .......D... Welch%27s_t-test
 GS..T...... Welch%27s_t-test-1
 GS......... Welch%27s_t-test-2
+GS..T..D... Wieferich_primes
 .......D.VU WiktionaryDumps_to_words
 G.KI....... Window_creation
 G.KI....... Window_creation_X11
