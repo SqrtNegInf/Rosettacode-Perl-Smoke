@@ -3894,6 +3894,14 @@ File: H/Holidays_related_to_Easter
 #c# 2018-08-13 <RC
 #p# OK
 
+File: H/Home_primes
+#!/usr/local/bin/perl
+#u# http://rosettacode.org/wiki/Home_primes
+#t# inprogress
+#c# 2021-06-xx >RC
+#p# OK
+#n# not testing HP49
+
 File: H/Honeycombs
 #!/usr/local/bin/perl
 #u# http://rosettacode.org/wiki/Honeycombs
@@ -9205,6 +9213,9 @@ File: T/Triplet_of_three_numbers
 #u# http://rosettacode.org/wiki/Triplet_of_three_numbers
 #c# 2021-05-20 <RC
 #p# OK
+#n# much faster with 'ntheory' of course:
+#n# 4.53s user 0.07s system 79% cpu 5.774 total
+#n# 0.13s user 0.03s system 93% cpu 0.172 total
 
 File: T/Truncatable_primes-1
 #!/usr/local/bin/perl
@@ -9612,6 +9623,12 @@ File: W/Welch%27s_t-test-2.0
 #c# 2018-08-03 <RC
 #p# OK
 #n# interesting, different modules require different quoting constructions (when not using 'qw')
+
+File: W/Wieferich_primes
+#!/usr/local/bin/perl
+#u# http://rosettacode.org/wiki/Weiferich_primes
+#c# 2021-05-31 >RC
+#p# OK
 
 File: W/Window_creation
 #!/usr/local/bin/perl # do-not-check
