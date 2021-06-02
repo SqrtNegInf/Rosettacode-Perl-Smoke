@@ -9,7 +9,7 @@ use strict;
 use warnings;
 use feature 'say';
 
-my $sum = 0;
+my $sum; # = 0;
 $result .= sprintf "%10d%s", $sum += $_ ** 3, $_ % 5 == 4 && "\n" for 0 .. 49;
 
 say $result;
