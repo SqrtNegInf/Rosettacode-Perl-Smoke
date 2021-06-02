@@ -1,0 +1,80 @@
+#!/usr/local/bin/perl
+#u# http://rosettacode.org/wiki/Home_primes
+#t# inprogress
+#c# 2021-06-xx >RC
+#p# OK
+#n# not testing HP49
+
+use Data::Printer;          # debug only
+use Time::HiRes qw(sleep);  # debug only
+
+my @res;
+
+use strict;
+use warnings;
+use feature 'say';
+
+use ntheory 'factor';
+
+for my $m (2..20, 65) {
+    my (@steps, @factors) = $m;
+    while (1) { 
+        @factors = factor int $steps[-1] =~ s/_//gr;
+        last unless @factors > 1;
+        push @steps, join '_', @factors;
+        my $step = +@steps;
+        say 
+             $step > 1 
+             ?  join ' = ', map { --$step and "HP{$_}($step)" } @steps[0..-2]
+             : ("HP$m")
+             . ' = ' . $steps[-1]; 
+    }
+}
+exit;
+
+#    @steps.push: @factors.join('_') while (@factors = prime-factors @steps[*-1].Int) > 1;
+#
+#    @res.push: ((my $step = +@steps) > 1 ?? (@steps[0..*-2].map( { "HP$_\({--$step})" } ).join: ' = ') !! ("HP$m")) ~
+#      ' = ' ~ @steps[*-1]; #, "  ({(now - $now).fmt("%0.3f")} seconds)";
+#}
+
+say my $result = join "\n", @res;
+
+my $ref = <<'END';
+HP2 = 2
+HP3 = 3
+HP4(2) = HP2_2(1) = 2_11
+HP5 = 5
+HP6(1) = 2_3
+HP7 = 7
+HP8(13) = HP2_2_2(12) = HP2_3_37(11) = HP3_19_41(10) = HP3_3_3_7_13_13(9) = HP3_11123771(8) = HP7_149_317_941(7) = HP229_31219729(6) = HP11_2084656339(5) = HP3_347_911_118189(4) = HP11_613_496501723(3) = HP97_130517_917327(2) = HP53_1832651281459(1) = 3_3_3_11_139_653_3863_5107
+HP9(2) = HP3_3(1) = 3_11
+HP10(4) = HP2_5(3) = HP5_5(2) = HP5_11(1) = 7_73
+HP11 = 11
+HP12(1) = 2_2_3
+HP13 = 13
+HP14(5) = HP2_7(4) = HP3_3_3(3) = HP3_3_37(2) = HP47_71(1) = 13_367
+HP15(4) = HP3_5(3) = HP5_7(2) = HP3_19(1) = 11_29
+HP16(4) = HP2_2_2_2(3) = HP2_11_101(2) = HP3_11_6397(1) = 3_163_6373
+HP17 = 17
+HP18(1) = 2_3_3
+HP19 = 19
+HP20(15) = HP2_2_5(14) = HP3_3_5_5(13) = HP5_11_61(12) = HP11_4651(11) = HP3_3_12739(10) = HP17_194867(9) = HP19_41_22073(8) = HP709_273797(7) = HP3_97_137_17791(6) = HP11_3610337981(5) = HP7_3391_4786213(4) = HP3_3_3_3_7_23_31_1815403(3) = HP13_17_23_655857429041(2) = HP7_7_2688237874641409(1) = 3_31_8308475676071413
+HP65(19) = HP5_13(18) = HP3_3_3_19(17) = HP11_13_233(16) = HP11_101203(15) = HP3_3_23_53629(14) = HP3_3_1523_24247(13) = HP3_3_3_7_47_3732109(12) = HP11_18013_16843763(11) = HP151_740406071813(10) = HP3_13_13_54833_5458223(9) = HP3_3_97_179_373_7523_71411(8) = HP1571_1601_1350675311441(7) = HP3_3_13_33391_143947_279384649(6) = HP11_23_204069263_6417517893491(5) = HP7_11_1756639_83039633268945697(4) = HP29_29_5165653_13503983_12122544283(3) = HP228345060379_1282934064985326977(2) = HP3_3_3_2979253_3030445387_9367290955541(1) = 1381_3211183211_75157763339900357651
+END
+
+use Test::More;
+chomp $ref;
+is($result, $ref);
+done_testing();
+
+__END__
+
+=={{header|Perl}}==
+{{trans|Raku}}
+{{libheader|ntheory}}
+<lang perl>
+</lang>
+{{out}}
+<pre>
+</pre>
