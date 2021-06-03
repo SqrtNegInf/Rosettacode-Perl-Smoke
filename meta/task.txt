@@ -1,17 +1,17 @@
 
 This is perl 5, version 32, subversion 1 (v5.32.1) built for darwin-thread-multi-2level
 updating from RC…
-+------------> Perl: Good/Bad [1456/8]
-|+-----------> Smoke testing [1308]
-||+----------> sKipping validation [151]
++------------> Perl: Good/Bad [1458/8]
+|+-----------> Smoke testing [1311]
+||+----------> sKipping validation [150]
 |||+---------> Interactive [69]
-||||+--------> Touched (modified by me) [487]
+||||+--------> Touched (modified by me) [488]
 |||||+-------> Random seed [114]
 ||||||+------> File output [74]
-|||||||+-----> Draft [280]
+|||||||+-----> Draft [281]
 ||||||||+----> Ignoring [35]
-|||||||||+---> Void (no local copy) [115]
-||||||||||+--> Un-implemented/reliable [102]
+|||||||||+---> Void (no local copy) [114]
+||||||||||+--> Un-implemented/reliable [100]
 |||||||||||
 GS......... 100_doors-1
 GS......... 100_doors-2
@@ -135,6 +135,7 @@ GS...R..... Balanced_brackets-3
 GS......... Balanced_ternary
 GS..T..D... Banker%27s_algorithm
 GS...RF.... Barnsley_fern
+.......D.VU Base-16_representation
 GS..T..D... Base58Check_encoding
 GS..T...... Base64_decode_data
 GS.....D... Base64_encode_data
@@ -391,7 +392,7 @@ GS.....D... Distinct_Palindromes_Within_Decimal_Numbers
 GS......... Distributed_programming
 GS..T...... Diversity_prediction_theorem
 G.K........ Documentation
-.......D.VU Doomsday_rule
+GS.....D... Doomsday_rule
 GS......... Dot_product
 .........VU Doubly-linked_list_Definition
 G.K........ Doubly-linked_list_Element_definition
@@ -640,7 +641,7 @@ GS......... Hofstadter_Q_sequence-1
 GS......... Hofstadter_Q_sequence-2
 GS......... Hofstadter_Q_sequence-3
 GS......... Holidays_related_to_Easter
-G.K.T..D..U Home_primes
+GS..T..D... Home_primes
 G.KI.R..... Honeycombs
 GS..T...... Horizontal_sundial_calculations
 GS......... Horner%27s_rule_for_polynomial_evaluation-1
@@ -735,7 +736,7 @@ GS...R..... Langton%27s_ant
 GS......... Largest_int_from_concatenated_ints
 GS..T...... Largest_number_divisible_by_its_digits-1
 GS..T...... Largest_number_divisible_by_its_digits-2
-.......D.VU Largest_proper_divisor_of_n
+GS..T..D... Largest_proper_divisor_of_n
 GS......... Last_Friday_of_each_month
 GS..TR..... Last_letter-first_letter
 GS......... Latin_Squares_in_reduced_form
