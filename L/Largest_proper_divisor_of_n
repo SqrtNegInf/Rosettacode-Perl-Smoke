@@ -1,0 +1,53 @@
+#!/usr/local/bin/perl
+#u# http://rosettacode.org/wiki/Largest_proper_divisor_of_n
+#c# 2021-06-02 >RC
+#p# OK
+
+my @res;
+
+use strict;
+use warnings;
+use feature 'say';
+
+use ntheory 'divisors';
+use List::AllUtils <max natatime>;
+
+sub proper_divisors {
+    my $n = shift;
+    return 1 if $n == 0;
+    my @d = divisors($n);
+    pop @d;
+    @d;
+}
+
+my @range = 1 .. 100;
+
+push @res, "GPD for $range[0] through $range[-1]:";
+my $iter = natatime 10, @range;
+while( my @batch = $iter->() ) {
+    #printf '%3d', $_ == 1 ? 1 : max proper_divisors($_) for @batch; print  "\n"; # on RC
+    my $out;
+    $out .= sprintf '%3d', $_ == 1 ? 1 : max proper_divisors($_) for @batch;
+    push @res, $out;
+}
+
+say my $result = join "\n", @res;
+
+my $ref = <<'END';
+GPD for 1 through 100:
+  1  1  1  2  1  3  1  4  3  5
+  1  6  1  7  5  8  1  9  1 10
+  7 11  1 12  5 13  9 14  1 15
+  1 16 11 17  7 18  1 19 13 20
+  1 21  1 22 15 23  1 24  7 25
+ 17 26  1 27 11 28 19 29  1 30
+  1 31 21 32 13 33  1 34 23 35
+  1 36  1 37 25 38 11 39  1 40
+ 27 41  1 42 17 43 29 44  1 45
+ 13 46 31 47 19 48  1 49 33 50
+END
+
+use Test::More;
+chomp $ref;
+is($result, $ref);
+done_testing();
