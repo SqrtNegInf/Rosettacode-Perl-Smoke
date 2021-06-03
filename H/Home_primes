@@ -1,12 +1,9 @@
 #!/usr/local/bin/perl
 #u# http://rosettacode.org/wiki/Home_primes
-#t# inprogress
-#c# 2021-06-xx >RC
+#c# 2021-06-02 >RC
 #p# OK
+#n# version on RC just uses 'print' everywhere
 #n# not testing HP49
-
-use Data::Printer;          # debug only
-use Time::HiRes qw(sleep);  # debug only
 
 my @res;
 
@@ -18,27 +15,15 @@ use ntheory 'factor';
 
 for my $m (2..20, 65) {
     my (@steps, @factors) = $m;
-    while (1) { 
-        @factors = factor int $steps[-1] =~ s/_//gr;
-        last unless @factors > 1;
-        push @steps, join '_', @factors;
-        my $step = +@steps;
-        say 
-             $step > 1 
-             ?  join ' = ', map { --$step and "HP{$_}($step)" } @steps[0..-2]
-             : ("HP$m")
-             . ' = ' . $steps[-1]; 
-    }
+    push @steps, join '_', @factors while (@factors = factor $steps[-1] =~ s/_//gr) > 1;
+    my $out;
+    my $step = $#steps;
+    if ($step >= 1) { $out .= 'HP' . $_ . "($step) = " and --$step or last for @steps }
+    else            { $out .= "HP$m = " }
+    push @res, $out . $steps[-1]; 
 }
-exit;
 
-#    @steps.push: @factors.join('_') while (@factors = prime-factors @steps[*-1].Int) > 1;
-#
-#    @res.push: ((my $step = +@steps) > 1 ?? (@steps[0..*-2].map( { "HP$_\({--$step})" } ).join: ' = ') !! ("HP$m")) ~
-#      ' = ' ~ @steps[*-1]; #, "  ({(now - $now).fmt("%0.3f")} seconds)";
-#}
-
-say my $result = join "\n", @res;
+my $result = join "\n", @res;
 
 my $ref = <<'END';
 HP2 = 2
@@ -67,14 +52,3 @@ use Test::More;
 chomp $ref;
 is($result, $ref);
 done_testing();
-
-__END__
-
-=={{header|Perl}}==
-{{trans|Raku}}
-{{libheader|ntheory}}
-<lang perl>
-</lang>
-{{out}}
-<pre>
-</pre>
