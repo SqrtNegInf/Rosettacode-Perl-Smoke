@@ -2274,6 +2274,12 @@ File: D/Documentation
 #c# 2018-07-28 <RC
 #p# OK
 
+File: D/Doomsday_rule
+#!/usr/local/bin/perl
+#u# http://rosettacode.org/wiki/Doomsday_rule
+#c# 2021-06-02 <RC
+#p# OK
+
 File: D/Dot_product
 #!/usr/local/bin/perl
 #u# http://rosettacode.org/wiki/Dot_product
@@ -3897,9 +3903,9 @@ File: H/Holidays_related_to_Easter
 File: H/Home_primes
 #!/usr/local/bin/perl
 #u# http://rosettacode.org/wiki/Home_primes
-#t# inprogress
-#c# 2021-06-xx >RC
+#c# 2021-06-02 >RC
 #p# OK
+#n# version on RC just uses 'print' everywhere
 #n# not testing HP49
 
 File: H/Honeycombs
@@ -4467,6 +4473,12 @@ File: L/Largest_number_divisible_by_its_digits-2
 #p# OK
 #n# this for base 16, see -1 for base 10
 #n# Danaj does speed-up, 'user' numbers go down: 42/68
+
+File: L/Largest_proper_divisor_of_n
+#!/usr/local/bin/perl
+#u# http://rosettacode.org/wiki/Largest_proper_divisor_of_n
+#c# 2021-06-02 >RC
+#p# OK
 
 File: L/Last_Friday_of_each_month
 #!/usr/local/bin/perl
