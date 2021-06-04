@@ -1,17 +1,17 @@
 
 This is perl 5, version 32, subversion 1 (v5.32.1) built for darwin-thread-multi-2level
 updating from RC…
-+------------> Perl: Good/Bad [1458/8]
-|+-----------> Smoke testing [1311]
++------------> Perl: Good/Bad [1460/8]
+|+-----------> Smoke testing [1313]
 ||+----------> sKipping validation [150]
 |||+---------> Interactive [69]
 ||||+--------> Touched (modified by me) [488]
 |||||+-------> Random seed [114]
 ||||||+------> File output [74]
-|||||||+-----> Draft [281]
+|||||||+-----> Draft [280]
 ||||||||+----> Ignoring [35]
-|||||||||+---> Void (no local copy) [114]
-||||||||||+--> Un-implemented/reliable [100]
+|||||||||+---> Void (no local copy) [112]
+||||||||||+--> Un-implemented/reliable [98]
 |||||||||||
 GS......... 100_doors-1
 GS......... 100_doors-2
@@ -135,7 +135,7 @@ GS...R..... Balanced_brackets-3
 GS......... Balanced_ternary
 GS..T..D... Banker%27s_algorithm
 GS...RF.... Barnsley_fern
-.......D.VU Base-16_representation
+GS.....D... Base-16_representation
 GS..T..D... Base58Check_encoding
 GS..T...... Base64_decode_data
 GS.....D... Base64_encode_data
@@ -736,7 +736,7 @@ GS...R..... Langton%27s_ant
 GS......... Largest_int_from_concatenated_ints
 GS..T...... Largest_number_divisible_by_its_digits-1
 GS..T...... Largest_number_divisible_by_its_digits-2
-GS..T..D... Largest_proper_divisor_of_n
+GS..T...... Largest_proper_divisor_of_n
 GS......... Last_Friday_of_each_month
 GS..TR..... Last_letter-first_letter
 GS......... Latin_Squares_in_reduced_form
@@ -779,7 +779,7 @@ GS......... Longest_increasing_subsequence-2
 GS......... Longest_palindromic_substrings-1
 GS......... Longest_palindromic_substrings-2
 GS......... Longest_string_challenge
-.......D.VU Longest_substrings_without_repeating_characters
+GS.....D... Longest_substrings_without_repeating_characters
 GS..T...... Look-and-say_sequence
 GS......... Loop_over_multiple_arrays_simultaneously
 GS...R..... Loops_Break
