@@ -723,6 +723,12 @@ File: B/Barnsley_fern
 #p# OK
 #f# RC file: barnsleyFern.png
 
+File: B/Base-16_representation
+#!/usr/local/bin/perl
+#u# http://rosettacode.org/wiki/Base-16_representation
+#c# 2021-06-03 <RC
+#p# OK
+
 File: B/Base58Check_encoding
 #!/usr/local/bin/perl
 #u# http://rosettacode.org/wiki/Base58Check_encoding
@@ -4753,6 +4759,12 @@ File: L/Longest_string_challenge
 #!/usr/local/bin/perl
 #u# http://rosettacode.org/wiki/Longest_string_challenge
 #c# 2018-08-16 <RC
+#p# OK
+
+File: L/Longest_substrings_without_repeating_characters
+#!/usr/local/bin/perl
+#u# http://rosettacode.org/wiki/Longest_substrings_without_repeating_characters
+#c# 2021-06-03 <RC
 #p# OK
 
 File: L/Look-and-say_sequence
