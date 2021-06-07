@@ -69,7 +69,7 @@ do {
         my @prior = @cand; @cand = ();
         for my $p (@prior) {
             my @n = @black[map { $_+$p } @p8];
-            if (cycles(@n) == 1 and 2 <= sum(blacks(@n)) and sum(blacks(@n)) <= 6 and min(@n[@$w1]) == 0 and min(@n[@$w2]) == 0) {  
+            if (cycles(@n) == 1 and 2 <= sum(blacks(@n)) <= 6 and min(@n[@$w1]) == 0 and min(@n[@$w2]) == 0) {  
                 push @results, $p;
             } else { 
                 push @cand, $p 
