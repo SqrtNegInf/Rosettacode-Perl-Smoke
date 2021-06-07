@@ -1,0 +1,35 @@
+#!/usr/local/bin/perl
+#u# http://rosettacode.org/wiki/Sleeping_Beauty_problem
+#c# 2021-06-06 >RC
+#p# OK
+
+srand 123456;
+
+my @res;
+
+use strict;
+use warnings;
+use feature 'say';
+
+sub sleeping_beauty {
+    my($trials) = @_;
+    my($gotheadsonwaking,$wakenings);
+    $wakenings++ and rand > .5 ? $gotheadsonwaking++ : $wakenings++ for 1..$trials;
+    $wakenings, $gotheadsonwaking/$wakenings
+}
+
+my $trials = 1_000_000;
+push @res, sprintf "Wakenings over $trials experiments: %d\nSleeping Beauty should estimate a credence of: %.3f", 
+    sleeping_beauty($trials);
+
+say my $result = join "\n", @res;
+
+my $ref = <<'END';
+Wakenings over 1000000 experiments: 1499816
+Sleeping Beauty should estimate a credence of: 0.333
+END
+
+use Test::More;
+chomp $ref;
+is($result, $ref);
+done_testing();
