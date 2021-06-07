@@ -1,16 +1,16 @@
 
 This is perl 5, version 32, subversion 1 (v5.32.1) built for darwin-thread-multi-2level
 updating from RC…
-+------------> Perl: Good/Bad [1460/8]
-|+-----------> Smoke testing [1313]
-||+----------> sKipping validation [150]
++------------> Perl: Good/Bad [1463/8]
+|+-----------> Smoke testing [1315]
+||+----------> sKipping validation [151]
 |||+---------> Interactive [69]
-||||+--------> Touched (modified by me) [488]
-|||||+-------> Random seed [114]
+||||+--------> Touched (modified by me) [491]
+|||||+-------> Random seed [116]
 ||||||+------> File output [74]
-|||||||+-----> Draft [281]
+|||||||+-----> Draft [283]
 ||||||||+----> Ignoring [35]
-|||||||||+---> Void (no local copy) [113]
+|||||||||+---> Void (no local copy) [112]
 ||||||||||+--> Un-implemented/reliable [99]
 |||||||||||
 GS......... 100_doors-1
@@ -286,6 +286,7 @@ GS..T...... Compare_a_list_of_strings
 .........VU Compare_sorting_algorithms%27_performance
 GS......... Compile-time_calculation
 GS......... Compiler_AST_interpreter
+.......D.VU Compiler_Simple_file_inclusion_pre_processor
 GS.....D... Compiler_Verifying_syntax
 GS......... Compiler_code_generator
 GS......... Compiler_lexical_analyzer-1
@@ -357,6 +358,7 @@ GS..T..D... Days_between_dates
 GS..T...... De_Bruijn_sequences
 GS...R..... Deal_cards_for_FreeCell
 GS......... Death_Star
+G.K.T..D..U Decimal_-_Hexadecimal_numbers
 GS..T..D... Decimal_floating_point_number_to_binary
 GS..T..D... Decision_tables
 GS..T...... Deconvolution_1D
@@ -1075,7 +1077,7 @@ GS......... Powerful_numbers-2
 GS..T..D... Practical_numbers
 G.K........ Pragmatic_directives
 GS...R..... Price_fraction
-.......D.VU Price_list_behind_API
+GS..TR.D... Price_list_behind_API
 GS..T...... Primality_by_Wilson%27s_theorem
 GS......... Primality_by_trial_division
 GS..T...... Prime_conspiracy
@@ -1280,7 +1282,7 @@ G.K........ Singly-linked_list_Element_insertion
 .......D.VU Singly-linked_list_Element_removal
 GS......... Singly-linked_list_Traversal
 GS......... Sleep
-.........VU Sleeping_Beauty_problem
+GS..TR..... Sleeping_Beauty_problem
 .......D.VU Smallest_enclosing_circle_problem
 GS..T..D... Smallest_numbers
 GS..T..D... Smallest_power_of_6_whose_decimal_expansion_contains_n
