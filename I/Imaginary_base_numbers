@@ -32,7 +32,7 @@ sub base_i {
     my $upper_bound = 1 / (-$radix + 1);
     my $lower_bound = $radix * $upper_bound;
 
-    $value = $num / $radix ** ++$place until $lower_bound <= $value and $value < $upper_bound;
+    $value = $num / $radix ** ++$place until $lower_bound <= $value < $upper_bound;
 
     while (($value or $place > 0) and $place > $precision) {
         my $digit = int $radix * $value - $lower_bound;
