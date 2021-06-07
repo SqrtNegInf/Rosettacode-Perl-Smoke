@@ -1,0 +1,91 @@
+#!/usr/local/bin/perl
+#u# http://rosettacode.org/wiki/Price_list_behind_API
+#c# 2021-06-06 >RC
+#p# OK
+
+srand 123456;
+
+my @res;
+
+use strict;
+use warnings;
+use feature 'say';
+
+use List::Util <min max shuffle>;
+
+sub getPRangeCount {
+    my($min,$max,@prices) = @_;
+    grep { $min <= $_ <= $max } @prices;
+}
+
+sub get5000 {
+   my($min, $max, $n, @prices) = @_;
+   my $count = getPRangeCount($min, $max, @prices);
+   my $delta = ($max - $min) / 2;
+   while ($count != $n and $delta >= 1/2) {
+      $count > $n ? $max -= $delta : ($max += $delta);
+      $count = getPRangeCount($min, $max, @prices);
+      $delta /= 2;
+   }
+   $max, $count
+}
+
+sub getAll5000 {
+   my($min, $max, $n, @prices) = @_;
+   my ( $pmax, $pcount ) = get5000($min, $max, $n, @prices);
+   my @results = [ $min, $pmax, $pcount ];
+   while ($pmax < $max) {
+      my $pmin = $pmax + 1;
+      ( $pmax, $pcount ) = get5000($pmin, $max, $n, @prices);
+      $pcount == 0 and say "Price list from $pmin has too many duplicates.";
+      push @results, [ $pmin, $pmax, $pcount ];
+   } 
+   @results
+} 
+
+my @prices;
+push @prices, int rand 10_000+1 for 1 .. (my $numPrices = shuffle 99_990..100_050);
+
+my $actualMax = max @prices;
+push @res, "Using $numPrices items with prices from 0 to $actualMax:";
+
+my @results = getAll5000(0, $actualMax, 5000, @prices);
+push @res, "Split into " . @results . " bins of approx 5000 elements:";
+
+for my $row (@results) {
+   my ($min,$max,$subtotal) = @$row;
+   $max = $actualMax if $max > $actualMax;
+   push @res, sprintf "  From %6d to %6d with %4d items", $min, $max, $subtotal 
+}
+
+say my $result = join "\n", @res;
+
+my $ref = <<'END';
+Using 100047 items with prices from 0 to 10000:
+Split into 20 bins of approx 5000 elements:
+  From      0 to    496 with 5002 items
+  From    497 to    991 with 4992 items
+  From    992 to   1483 with 4996 items
+  From   1484 to   1988 with 4998 items
+  From   1989 to   2483 with 5002 items
+  From   2484 to   2980 with 5009 items
+  From   2981 to   3482 with 4996 items
+  From   3483 to   3968 with 5000 items
+  From   3969 to   4476 with 4998 items
+  From   4477 to   4989 with 5009 items
+  From   4990 to   5491 with 5005 items
+  From   5492 to   5981 with 5005 items
+  From   5982 to   6483 with 5002 items
+  From   6484 to   6984 with 5005 items
+  From   6985 to   7495 with 4992 items
+  From   7496 to   8004 with 4991 items
+  From   8005 to   8496 with 5000 items
+  From   8497 to   9002 with 5000 items
+  From   9003 to   9514 with 4995 items
+  From   9515 to  10000 with 4850 items
+END
+
+use Test::More;
+chomp $ref;
+is($result, $ref);
+done_testing();
