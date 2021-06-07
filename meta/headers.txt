@@ -2035,6 +2035,13 @@ File: D/Death_Star
 #c# 2018-07-28 <RC
 #p# OK
 
+File: D/Decimal_-_Hexadecimal_numbers
+#!/usr/local/bin/perl
+#u# http://rosettacode.org/wiki/Decimal_-_Hexadecimal_numbers
+#t# inprogress
+#c# 2021-06-xx >RC
+#p# OK
+
 File: D/Decimal_floating_point_number_to_binary
 #!/usr/local/bin/perl
 #u# http://rosettacode.org/wiki/Decimal_floating_point_number_to_binary
@@ -6633,6 +6640,12 @@ File: P/Price_fraction
 #c# 2018-08-20 <RC
 #p# OK
 
+File: P/Price_list_behind_API
+#!/usr/local/bin/perl
+#u# http://rosettacode.org/wiki/Price_list_behind_API
+#c# 2021-06-06 >RC
+#p# OK
+
 File: P/Primality_by_Wilson%27s_theorem
 #!/usr/local/bin/perl
 #u# http://rosettacode.org/wiki/Primalty_by_Wilson%27s_theorem
@@ -7892,6 +7905,12 @@ File: S/Sleep
 #c# 2018-08-14 <RC
 #p# OK
 #=# RC pipe: 4\n4000000\n4000000000\n
+
+File: S/Sleeping_Beauty_problem
+#!/usr/local/bin/perl
+#u# http://rosettacode.org/wiki/Sleeping_Beauty_problem
+#c# 2021-06-06 >RC
+#p# OK
 
 File: S/Smallest_numbers
 #!/usr/local/bin/perl
