@@ -130,7 +130,7 @@ sub _diff { shift() & ~shift() }
 sub has {
 	my ($a, $b) = @_;
 	for (my $i = 0; $i < $#$a; $i += 2) {
-		return 1 if $a->[$i] <= $b && $b <= $a->[$i + 1]
+		return 1 if $a->[$i] <= $b <= $a->[$i + 1]
 	}
 	return 0
 }
