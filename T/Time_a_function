@@ -70,8 +70,8 @@ my $ref = <<'EOD';
 EOD
 
 use Test::More;
-ok 2 <= $f1 && $f1 <= 9;
-ok 0 <= $f2 && $f2 <= 3;
-ok 0.0  <= $t1 && $t1 < 0.02;
-ok 0.01 <  $t2 && $t2 < 0.1;
+ok 2 <= $f1 <= 9;
+ok 0 <= $f2 <= 3;
+ok 0.0  <= $t1 < 0.02;
+ok 0.01 <  $t2 < 0.1;
 done_testing();
