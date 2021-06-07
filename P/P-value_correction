@@ -153,7 +153,7 @@ sub p_adjust {
 	} elsif ($method eq 'bonferroni') {
 		for (my $index = 0; $index < $n; $index++) {
 			my $q = @$pvalues_ref[$index]*$n;
-			if ((0 <= $q) && ($q < 1)) {
+			if (0 <= $q < 1) {
 				$qvalues[$index] = $q;
 			} elsif ($q >= 1) {
 				$qvalues[$index] = 1.0;
