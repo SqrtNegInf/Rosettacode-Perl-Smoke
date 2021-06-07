@@ -39,7 +39,7 @@ sub remove {
   s/^$n-$n,?|,$n-$n\b//                                    # single item
     or s/\b$n(?=-)/$n+1/e                                  # first from range
     or s/-\K$n\b/$n-1/e                                    # last from range
-    or s/\b(\d+)-(\d+)\b(??{$1 < $n && $n < $2 ? '' : 'X'
+    or s/\b(\d+)-(\d+)\b(??{$1 < $n < $2 ? '' : 'X'
       })/$1-@{[$n-1]},@{[$n+1]}-$2/                        # split range
     for $ranges;
   $ranges;
