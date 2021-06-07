@@ -34,7 +34,7 @@ my $g = G(@ints);
 my $h = H(@ints);
  
 $result = sprintf "A=$a\nG=$g\nH=$h\n";
-die "Error" unless $a >= $g and $g >= $h;
+die "Error" unless $a >= $g >= $h;
 
 
 say $result; 
