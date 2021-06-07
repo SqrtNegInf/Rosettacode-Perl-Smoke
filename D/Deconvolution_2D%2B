@@ -45,7 +45,7 @@ sub row {
         my @fc;
         for my $i (0..$#hc) {
             my $window = $gc[$i] - $hc[$i];
-            push(@fc, $window), next if 0 <= $window && $window < $fdim[$i];
+            push(@fc, $window), next if 0 <= $window < $fdim[$i];
         }
         push @row, $#fc == $#hc ? $f [$fc[0]] [$fc[1]] [$fc[2]] : 0;
     }
