@@ -66,7 +66,7 @@ sub pso {
                        + $$p{'phi_p'} * $rand_p * ($bpos[$j][$k] - $y{'pos'}[$j][$k]) 
                        + $$p{'phi_g'} * $rand_g * ($gbpos[$k]    - $y{'pos'}[$j][$k]);
             $pos[$j][$k] = $y{'pos'}[$j][$k] + $vel[$j][$k];
-            $ok = ($y{'min'}[$k] < $pos[$j][$k]) && ($pos[$j][$k] < $y{'max'}[$k]) && $ok;
+            $ok = ($y{'min'}[$k] < $pos[$j][$k] < $y{'max'}[$k]) && $ok;
         }
         next if $ok;
         $pos[$j][$_] = $y{'min'}[$_] + ($y{'max'}[$_] - $y{'min'}[$_]) * rand for 0 .. $d-1;
