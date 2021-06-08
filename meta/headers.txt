@@ -1604,6 +1604,13 @@ File: C/Compiler_AST_interpreter
 #c# 2018-07-24 <RC
 #p# OK
 
+File: C/Compiler_Simple_file_inclusion_pre_processor
+#!/usr/local/bin/perl
+#u# http://rosettacode.org/wiki/Compiler/Simple_file_inclusion_pre_processor
+#c# 2021-06-xx NOT ON RC
+#p# OK
+#n# debatable if worth putting on RC...
+
 File: C/Compiler_Verifying_Syntax
 #!/usr/local/bin/perl
 #u# http://rosettacode.org/wiki/Compiler/ Verifying_Syntax
@@ -2038,8 +2045,7 @@ File: D/Death_Star
 File: D/Decimal_-_Hexadecimal_numbers
 #!/usr/local/bin/perl
 #u# http://rosettacode.org/wiki/Decimal_-_Hexadecimal_numbers
-#t# inprogress
-#c# 2021-06-xx >RC
+#c# 2021-06-06 >RC
 #p# OK
 
 File: D/Decimal_floating_point_number_to_binary
