@@ -1,0 +1,21 @@
+#!/usr/local/bin/perl
+#u# http://rosettacode.org/wiki/Compiler/Simple_file_inclusion_pre_processor
+#c# 2021-06-xx NOT ON RC
+#p# OK
+#n# debatable if worth putting on RC...
+
+use strict;
+use warnings;
+
+our($a,$b,$c);
+require './ref/include1.pl';
+
+$a = 'I have a';
+print my $result = "$a $b $c\n";
+
+my $ref = "I have a bad feeling about this about this Chewy.\n";
+
+use Test::More;
+is($result, $ref);
+done_testing();
+
