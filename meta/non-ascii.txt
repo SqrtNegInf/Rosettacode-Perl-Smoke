@@ -135,9 +135,6 @@ C/Cycle_detection
 λ:     6 GREEK SMALL LETTER LAMDA
 μ:     3 GREEK SMALL LETTER MU
 
-D/Decimal_-_Hexadecimal_numbers
-»:     2 RIGHT-POINTING DOUBLE ANGLE QUOTATION MARK
-
 D/Determine_if_a_string_has_all_the_same_characters
 Ǟ:     3 LATIN CAPITAL LETTER A WITH DIAERESIS AND MACRON
 Δ:     3 GREEK CAPITAL LETTER DELTA
