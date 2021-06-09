@@ -8,7 +8,7 @@ updating from RC…
 ||||+--------> Touched (modified by me) [491]
 |||||+-------> Random seed [116]
 ||||||+------> File output [74]
-|||||||+-----> Draft [283]
+|||||||+-----> Draft [282]
 ||||||||+----> Ignoring [35]
 |||||||||+---> Void (no local copy) [111]
 ||||||||||+--> Un-implemented/reliable [98]
@@ -1578,7 +1578,7 @@ G.KI....... Window_management
 GS......... Wireworld
 GS..T..D... Word_break_problem
 GS......... Word_frequency
-.......D.VU Word_ladder
+.........VU Word_ladder
 GS...R..... Word_search
 GS......... Word_wheel
 GS......... Word_wrap
