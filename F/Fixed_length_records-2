@@ -1,0 +1,42 @@
+#!/usr/local/bin/perl
+#u# http://rosettacode.org/wiki/Fixed_length_records
+#t# inprogress
+#c# 2021-06-14 <RC
+#p# OK
+#n# tybalt89++
+
+# use feature 'say';
+
+#Read with standard <> using $/ set to a ref-to-int to read a fixed block size.
+{
+local ($/, @ARGV) = (\80, 'infile.dat');
+open my $out, '>', 'outfile.dat' or die $!;
+print $out scalar reverse while <>; # can read fixed length too :)
+close $out;
+}
+
+# Slurp and reverse each line in place.
+use Path::Tiny;
+path('outfile.dat')->spew(path('infile.dat')->slurp =~ s/.{80}/reverse $&/gesr);
+
+# Double reverse.
+use Path::Tiny;
+path('outfile.dat')->spew(reverse unpack '(a80)*', reverse path('infile.dat')->slurp);
+
+# Bonus round: convert the sample file to Forth Block format.
+use Path::Tiny;
+path('outfile.dat')->spew(pack '(A64)16', split /\n/, path('sample.txt')->slurp);
+
+#  Bonus Round: convert Forth Block format to plain text format.
+use Path::Tiny;
+path('sample2.txt')->spew(map "$_\n", unpack '(A64)16', path('outfile.dat')->slurp);
+
+__END__
+EOD
+
+say my $result = join "\n", @res;
+my $ref = <<'EOD';
+
+use Test::More;
+is ($result, $ref);
+done_testing();
