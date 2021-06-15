@@ -98,6 +98,13 @@ File: 0/4-rings_or_4-squares_puzzle
 #c# 2018-09-06 >RC
 #p# OK
 
+File: 0/4-rings_or_4-squares_puzzle-2
+#!/usr/local/bin/perl
+#u# http://rosettacode.org/wiki/4-rings_or_4-squares_puzzle
+#c# 2021-06-14 <RC
+#p# OK
+#n# tybalt89++
+
 File: 0/99_Bottles_of_Beer
 #!/usr/local/bin/perl
 #u# http://rosettacode.org/wiki/99_Bottles_of_Beer
@@ -3210,6 +3217,14 @@ File: F/Fixed_length_records
 #c# 2018-11-20 >RC
 #p# OK
 #f# RC file: flr-outfile.dat
+
+File: F/Fixed_length_records-2
+#!/usr/local/bin/perl
+#u# http://rosettacode.org/wiki/Fixed_length_records
+#t# inprogress
+#c# 2021-06-14 <RC
+#p# OK
+#n# tybalt89++
 
 File: F/FizzBuzz
 #!/usr/local/bin/perl
