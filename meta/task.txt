@@ -1,14 +1,14 @@
 
 This is perl 5, version 32, subversion 1 (v5.32.1) built for darwin-thread-multi-2level
 updating from RC…
-+------------> Perl: Good/Bad [1466/8]
++------------> Perl: Good/Bad [1465/8]
 |+-----------> Smoke testing [1318]
 ||+----------> sKipping validation [151]
 |||+---------> Interactive [69]
 ||||+--------> Touched (modified by me) [491]
 |||||+-------> Random seed [116]
 ||||||+------> File output [74]
-|||||||+-----> Draft [283]
+|||||||+-----> Draft [282]
 ||||||||+----> Ignoring [35]
 |||||||||+---> Void (no local copy) [112]
 ||||||||||+--> Un-implemented/reliable [99]
@@ -745,7 +745,7 @@ GS..T...... Largest_proper_divisor_of_n
 GS......... Last_Friday_of_each_month
 GS..TR..... Last_letter-first_letter
 GS......... Latin_Squares_in_reduced_form
-.......D.VU Latin_Squares_in_reduced_form_Randomizing_using_Jacobson_and_Matthews_Technique
+.........VU Latin_Squares_in_reduced_form_Randomizing_using_Jacobson_and_Matthews_Technique
 G.KIT..D... Launch_rocket_with_countdown_and_acceleration_in_stdout
 GS..T...... Law_of_cosines_-_triples
 GS......... Leap_year
@@ -1474,7 +1474,7 @@ GS......... Thue-Morse
 GS...R..... Tic-tac-toe
 G.KI....... Tic-tac-toe-2
 GS.....D... Time-based_one-time_password_algorithm
-GS......... Time_a_function
+!S......... Time_a_function
 GS......... Tokenize_a_string
 GS......... Tokenize_a_string_with_escaping
 GS..T...... Tonelli-Shanks_algorithm
