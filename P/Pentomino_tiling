@@ -32,7 +32,11 @@ sub rotate {
 sub topattern {
   local $_ = shift;
   s/.+/ $& . ' ' x ($size - length $&)/ge;
-  s/^\s+|\s+\z//g;
+  s/^\s+|\s+\z//g;      # on RC
+  #s/^\s+|\s+$//g;      # also works
+  #s/\A\s+|\s+$//g;     #     "
+  #s/\A\s+|\s+\z//g;    #     " 
+  #s/\A\s+|\s+\Z//g;    #     " 
   [ tr/ \nA-Z/.. /r, lc tr/ \n/\0/r, substr $_, 0, 1 ]; # pattern, xor-update
 }
 
