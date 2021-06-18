@@ -1,0 +1,60 @@
+#!/usr/local/bin/perl
+#u# http://rosettacode.org/wiki/Discrete_Fourier_transform
+#c# 2021-06-17 <RC
+#p# OK
+#n# changes not on RC
+
+my @res;
+
+use strict;
+use warnings;
+use feature 'say';
+
+use Math::Complex;
+use constant  PI => 4 * atan2(1, 1);
+use constant EPS => 1e-10;           # not 'ESP' I'd think...
+
+sub dft {
+   my $n = scalar ( my @in = @_ );
+   #return map { # probably clearer?
+   map {
+      my $s=0;
+      for my $k (0 .. $n-1) { $s += $in[$k] * exp(-2*i * PI * $k * $_ / $n) }
+      $_ = $s;
+   } (0 .. $n-1);
+}
+
+sub idft {
+   my $n = scalar ( my @in = @_ );
+   #return map { # probably clearer?
+   map {
+      my $s=0;
+      for my $k (0 .. $n-1) { $s += $in[$k] * exp(2*i * PI * $k * $_ / $n) }
+      my $t = $s/$n;
+      $_ = abs(Im $t) < EPS ? Re($t) : $t  
+   } (0 .. $n-1);
+}
+
+push @res, 'Original sequence                  : '. join ', ', my @series = ( 2, 3, 5, 7, 11 );
+
+#push @res, 'Discrete Fourier transform         : '. join ', ', my @dft = dft @series;
+#my $line;
+$_->display_format('format' => '%.5f') and my $line .= "$_, " for my @dft = dft @series;
+#$line .= sprintf "%.5f+%.5fi, ", Re($_), Im($_) for my @dft = dft @series;
+push @res, 'Discrete Fourier transform         : ' . $line =~ s/, $//r;
+
+push @res, 'Inverse Discrete Fourier Transform : '. join ', ', idft @dft;
+
+say my $result = join "\n", @res;
+
+my $ref = <<'EOD';
+Original sequence                  : 2, 3, 5, 7, 11
+Discrete Fourier transform         : 28.00000, -3.38197+8.78402i, -5.61803+2.80017i, -5.61803-2.80017i, -3.38197-8.78402i
+Inverse Discrete Fourier Transform : 2, 3, 5, 7, 11
+EOD
+#Discrete Fourier transform         : 28, -3.38196601125011+8.78402263494617i,-5.6180339887499+2.80016898574947i, -5.61803398874989-2.80016898574948i, -3.3819660112501-8.78402263494618i
+
+use Test::More;
+chomp $ref;
+is ($result, $ref);
+done_testing();
