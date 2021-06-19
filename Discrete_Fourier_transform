@@ -38,8 +38,8 @@ sub idft {
 push @res, 'Original sequence                  : '. join ', ', my @series = ( 2, 3, 5, 7, 11 );
 
 #push @res, 'Discrete Fourier transform         : '. join ', ', my @dft = dft @series;
-#my $line;
-$_->display_format('format' => '%.5f') and my $line .= "$_, " for my @dft = dft @series;
+my $line;
+$_->display_format('format' => '%.5f') and $line .= "$_, " for my @dft = dft @series;
 #$line .= sprintf "%.5f+%.5fi, ", Re($_), Im($_) for my @dft = dft @series;
 push @res, 'Discrete Fourier transform         : ' . $line =~ s/, $//r;
 
