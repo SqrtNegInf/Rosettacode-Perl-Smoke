@@ -5719,6 +5719,13 @@ File: N/Non-decimal_radices_Output
 #c# 2018-08-20 <RC
 #p# OK
 
+File: N/Non-transitive_dice
+#!/usr/local/bin/perl
+#u# http://rosettacode.org/wiki/Non-transitive_dice
+#c# 2021-06-18 <RC
+#p# OK
+#n# oops, been on RC since Dec 2020
+
 File: N/Nonoblock
 #!/usr/local/bin/perl
 #u# http://rosettacode.org/wiki/Nonoblock
