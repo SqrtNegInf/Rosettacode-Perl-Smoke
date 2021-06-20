@@ -1,0 +1,50 @@
+#!/usr/local/bin/perl
+#u# http://rosettacode.org/wiki/Distribution_of_0_Digits_in_Factorial_Series
+#c# 2021-06-20 >RC
+#p# OK
+
+my @res;
+
+use strict;
+use warnings;
+use feature 'say';
+
+use ntheory qw/factorial/;
+
+for my $n (100, 1000, 10000) {
+    my($sum,$f) = 0;
+    $f = factorial $_ and $sum += ($f =~ tr/0//) / length $f for 1..$n;
+    push @res, sprintf "%5d: %.5f", $n, $sum/$n;
+    #printf "%5d: %.5f\n", $n, $sum/$n;
+}
+
+say my $result = join "\n", @res;
+
+my $ref = <<'END';
+  100: 0.24675
+ 1000: 0.20354
+10000: 0.17300
+END
+
+use Test::More;
+chomp $ref;
+is($result, $ref);
+done_testing();
+
+__END__
+
+=={{header|Perl}}==
+{{libheader|ntheory}}
+<lang perl>use strict;
+use warnings;
+use ntheory qw/factorial/;
+
+for my $n (100, 1000, 10000) {
+    my($sum,$f) = 0;
+    $f = factorial $_ and $sum += ($f =~ tr/0//) / length $f for 1..$n;
+    printf "%5d: %.5f\n", $n, $sum/$n;
+}</lang>
+{{out}}
+<pre>  100: 0.24675
+ 1000: 0.20354
+10000: 0.17300</pre>
