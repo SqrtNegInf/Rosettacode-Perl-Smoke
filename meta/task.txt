@@ -1,8 +1,8 @@
 
 This is perl 5, version 32, subversion 1 (v5.32.1) built for darwin-thread-multi-2level
 updating from RC…
-+------------> Perl: Good/Bad [1466/8]
-|+-----------> Smoke testing [1318]
++------------> Perl: Good/Bad [1467/8]
+|+-----------> Smoke testing [1319]
 ||+----------> sKipping validation [151]
 |||+---------> Interactive [69]
 ||||+--------> Touched (modified by me) [491]
@@ -10,7 +10,7 @@ updating from RC…
 ||||||+------> File output [74]
 |||||||+-----> Draft [282]
 ||||||||+----> Ignoring [35]
-|||||||||+---> Void (no local copy) [112]
+|||||||||+---> Void (no local copy) [111]
 ||||||||||+--> Un-implemented/reliable [97]
 |||||||||||
 GS......... 100_doors-1
@@ -927,7 +927,7 @@ GS......... Non-continuous_subsequences
 GS......... Non-decimal_radices_Convert
 GS......... Non-decimal_radices_Input
 GS......... Non-decimal_radices_Output
-.........V. Non-transitive_dice
+GS......... Non-transitive_dice
 GS..T...... Nonoblock
 GS......... Nonogram_solver
 GS......... Nth_root
