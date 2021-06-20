@@ -16,7 +16,7 @@ use constant EPS => 1e-10;           # not 'ESP' I'd think...
 
 sub dft {
    my $n = scalar ( my @in = @_ );
-   #return map { # probably clearer?
+   #return map { # probably clearer to leave in?
    map {
       my $s=0;
       for my $k (0 .. $n-1) { $s += $in[$k] * exp(-2*i * PI * $k * $_ / $n) }
@@ -26,7 +26,7 @@ sub dft {
 
 sub idft {
    my $n = scalar ( my @in = @_ );
-   #return map { # probably clearer?
+   #return map { # probably clearer to leave in?
    map {
       my $s=0;
       for my $k (0 .. $n-1) { $s += $in[$k] * exp(2*i * PI * $k * $_ / $n) }
