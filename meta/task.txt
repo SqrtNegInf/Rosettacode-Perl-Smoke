@@ -1,8 +1,8 @@
 
 This is perl 5, version 32, subversion 1 (v5.32.1) built for darwin-thread-multi-2level
 updating from RC…
-+------------> Perl: Good/Bad [1467/8]
-|+-----------> Smoke testing [1319]
++------------> Perl: Good/Bad [1468/8]
+|+-----------> Smoke testing [1320]
 ||+----------> sKipping validation [151]
 |||+---------> Interactive [69]
 ||||+--------> Touched (modified by me) [491]
@@ -10,8 +10,8 @@ updating from RC…
 ||||||+------> File output [74]
 |||||||+-----> Draft [282]
 ||||||||+----> Ignoring [35]
-|||||||||+---> Void (no local copy) [111]
-||||||||||+--> Un-implemented/reliable [97]
+|||||||||+---> Void (no local copy) [110]
+||||||||||+--> Un-implemented/reliable [96]
 |||||||||||
 GS......... 100_doors-1
 GS......... 100_doors-2
@@ -359,7 +359,6 @@ GS..T..D... Days_between_dates
 GS..T...... De_Bruijn_sequences
 GS...R..... Deal_cards_for_FreeCell
 GS......... Death_Star
-GS..T..D... Decimal_-_Hexadecimal_numbers
 GS..T..D... Decimal_floating_point_number_to_binary
 GS..T..D... Decision_tables
 GS..T...... Deconvolution_1D
@@ -388,12 +387,12 @@ GS..T...... Dinesman%27s_multiple-dwelling_problem-1
 GS......... Dinesman%27s_multiple-dwelling_problem-2
 G.K..R..... Dining_philosophers
 GS......... Discordian_date
-.......D.V. Discrete_Fourier_transform
+GS.....D... Discrete_Fourier_transform
 GS..T...... Display_a_linear_combination
 GS......... Display_an_outline_as_a_nested_table
 GS.....D... Distinct_Palindromes_Within_Decimal_Numbers
 GS......... Distributed_programming
-.......D.VU Distribution_of_0_Digits_in_Factorial_Series
+GS..T..D... Distribution_of_0_Digits_in_Factorial_Series
 GS..T...... Diversity_prediction_theorem
 G.K........ Documentation
 GS.....D... Doomsday_rule
@@ -938,6 +937,7 @@ GS.....D... Numbers_divisible_by_their_individual_digits,_but_not_by_the_product
 GS..T..D... Numbers_which_binary_and_ternary_digit_sum_are_prime
 GS.....D... Numbers_with_equal_rises_and_falls
 GS.....D... Numbers_with_prime_digits_whose_sum_is_13
+.......D.V. Numbers_with_same_digit_set_in_base_10_and_base_16
 GS......... Numeric_error_propagation
 GS.....D... Numeric_separator_syntax
 .........VU Numerical_and_alphabetical_suffixes
