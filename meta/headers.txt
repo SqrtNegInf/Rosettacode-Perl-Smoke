@@ -2243,6 +2243,13 @@ File: D/Discordian_date
 #p# OK
 #n# cf 'First_power_of_2_that_has_leading_decimal_digits_of_12' method of adding ordinal suffix
 
+File: D/Discrete_Fourier_transform
+#!/usr/local/bin/perl
+#u# http://rosettacode.org/wiki/Discrete_Fourier_transform
+#c# 2021-06-17 <RC
+#p# OK
+#n# changes not on RC
+
 File: D/Display_a_linear_combination
 #!/usr/local/bin/perl
 #u# http://rosettacode.org/wiki/Display_a_linear_combination
@@ -2285,6 +2292,12 @@ File: D/Distributed_programming.1
 #u# http://rosettacode.org/wiki/Distributed_programming
 #t# skiptest
 #c# 2018-07-28 <RC
+#p# OK
+
+File: D/Distribution_of_0_Digits_in_Factorial_Series
+#!/usr/local/bin/perl
+#u# http://rosettacode.org/wiki/Distribution_of_0_Digits_in_Factorial_Series
+#c# 2021-06-20 >RC
 #p# OK
 
 File: D/Diversity_prediction_theorem
