@@ -1,7 +1,7 @@
 
 This is perl 5, version 32, subversion 1 (v5.32.1) built for darwin-thread-multi-2level
 updating from RC…
-+------------> Perl: Good/Bad [1468/8]
++------------> Perl: Good/Bad [1467/8]
 |+-----------> Smoke testing [1320]
 ||+----------> sKipping validation [151]
 |||+---------> Interactive [69]
@@ -345,7 +345,7 @@ GS..T.FD... Curve_that_touches_three_points
 GS......... Cut_a_rectangle
 GS..T..D... Cycle_detection
 GS..T...... Cyclotomic_polynomial
-GS......... DNS_query
+!S......... DNS_query
 GS..T...... Damm_algorithm-1
 GS......... Damm_algorithm-2
 GS.....D... Data_Encryption_Standard
