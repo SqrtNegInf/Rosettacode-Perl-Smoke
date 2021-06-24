@@ -8,10 +8,10 @@ updating from RC…
 ||||+--------> Touched (modified by me) [491]
 |||||+-------> Random seed [116]
 ||||||+------> File output [74]
-|||||||+-----> Draft [282]
+|||||||+-----> Draft [283]
 ||||||||+----> Ignoring [35]
-|||||||||+---> Void (no local copy) [110]
-||||||||||+--> Un-implemented/reliable [96]
+|||||||||+---> Void (no local copy) [113]
+||||||||||+--> Un-implemented/reliable [99]
 |||||||||||
 GS......... 100_doors-1
 GS......... 100_doors-2
@@ -68,7 +68,7 @@ GS..T..D... Air_mass
 GS......... Align_columns-1
 GS......... Align_columns-2
 GS......... Aliquot_sequence_classifications
-GS..T..D... Almkvist-Giullera_formula_for_pi
+GS..T...... Almkvist-Giullera_formula_for_pi
 GS......... Almost_prime-1
 GS......... Almost_prime-2
 GS.....D... Alternade_words
@@ -344,6 +344,7 @@ GS......... Currying
 GS..T.FD... Curve_that_touches_three_points
 GS......... Cut_a_rectangle
 GS..T..D... Cycle_detection
+.......D.VU Cyclops_numbers
 GS..T...... Cyclotomic_polynomial
 !S......... DNS_query
 GS..T...... Damm_algorithm-1
@@ -859,6 +860,7 @@ GS......... Middle_three_digits
 GS......... Miller-Rabin_primality_test-1
 GS......... Miller-Rabin_primality_test-2
 GS..TR..... Mind_boggling_card_trick
+.......D.VU Mine_a_bitcoin
 G.KI....... Minesweeper_game
 GS......... Minimal_steps_down_to_1
 .......D... Minimum_positive_multiple_in_base_10_using_only_0_and_1
@@ -981,6 +983,7 @@ GS......... Palindrome_dates-2
 GS......... Palindrome_detection
 GS..T...... Palindromic_gapful_numbers
 GS.....D... Palindromic_primes
+.......D.VU Palindromic_primes_in_base_16
 GS..T...... Pancake_numbers
 GS..T...... Pangram_checker
 GS......... Paraffins
@@ -1375,7 +1378,7 @@ GS..T...... Straddling_checkerboard
 GS..T..D... Strange_numbers
 GS..T..D... Strange_plus_numbers
 GS..T..D... Strange_unique_prime_triplets
-.......D.VU Strassen%27s_algorithm
+.........VU Strassen%27s_algorithm
 GS..T...... Stream_merge
 GS......... String_append
 GS......... String_case
