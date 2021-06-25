@@ -6,10 +6,6 @@
 use strict;
 use warnings;
 use feature 'say';
-my $result;
-
-
-# Unfortunately IPv6 was only added to Perl 5.14, a relatively new version.
 
 require 5.014;    # Older versions can't resolve IPv6 with just core Socket module
  
@@ -24,7 +20,7 @@ print "$r1[1]\n";
 print "$r2[1]\n";
 
 use Test::More;
-is ($r1[1], '203.178.141.194');
-is ($r2[1], '2001:200:dff:fff1:216:3eff:feb1:44d7');
+is ($r1[1], '210.155.141.200');
+is ($r2[1], '2001:2f0::8800:226:2dff:fe0b:4311');
 done_testing();
 
