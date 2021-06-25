@@ -1,0 +1,23 @@
+#!/usr/local/bin/perl
+#u# http://rosettacode.org/wiki/Numbers_in_base_10_that_are_palindromic_in_bases_2,_4,_and_16
+#c# 2021-06-24 >RC
+#p# OK
+
+use strict;
+use warnings;
+use feature 'say';
+
+use ntheory 'todigitstring';
+
+sub pb { my $s = todigitstring(shift,shift); return $s eq join '', reverse split '', $s }
+
+my $result;
+pb($_,2) and pb($_,4) and pb($_,16) and $result .= "$_ " for 1..25000;
+say $result;
+
+my $ref = '1 3 5 15 17 51 85 255 257 273 771 819 1285 1365 3855 4095 4097 4369 12291 13107 20485 21845 ';
+
+use Test::More;
+chomp $ref;
+is($result, $ref);
+done_testing();
