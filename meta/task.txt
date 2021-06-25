@@ -1,17 +1,17 @@
 
 This is perl 5, version 32, subversion 1 (v5.32.1) built for darwin-thread-multi-2level
 updating from RC…
-+------------> Perl: Good/Bad [1467/8]
-|+-----------> Smoke testing [1320]
++------------> Perl: Good/Bad [1468/8]
+|+-----------> Smoke testing [1321]
 ||+----------> sKipping validation [151]
 |||+---------> Interactive [69]
-||||+--------> Touched (modified by me) [491]
+||||+--------> Touched (modified by me) [492]
 |||||+-------> Random seed [116]
 ||||||+------> File output [74]
-|||||||+-----> Draft [283]
+|||||||+-----> Draft [285]
 ||||||||+----> Ignoring [35]
-|||||||||+---> Void (no local copy) [113]
-||||||||||+--> Un-implemented/reliable [99]
+|||||||||+---> Void (no local copy) [114]
+||||||||||+--> Un-implemented/reliable [100]
 |||||||||||
 GS......... 100_doors-1
 GS......... 100_doors-2
@@ -936,6 +936,8 @@ GS......... Null_object
 GS......... Number_names
 GS...R..... Number_reversal_game
 GS.....D... Numbers_divisible_by_their_individual_digits,_but_not_by_the_product_of_their_digits.
+.......D.VU Numbers_in_base-16_representation_that_cannot_be_written_with_decimal_digits
+GS..T..D... Numbers_in_base_10_that_are_palindromic_in_bases_2,_4,_and_16
 GS..T..D... Numbers_which_binary_and_ternary_digit_sum_are_prime
 GS.....D... Numbers_with_equal_rises_and_falls
 GS.....D... Numbers_with_prime_digits_whose_sum_is_13
