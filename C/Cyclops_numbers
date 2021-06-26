@@ -1,0 +1,74 @@
+#!/usr/local/bin/perl
+#u# http://rosettacode.org/wiki/Cyclops_numbers
+#t# inprogress
+#c# 2021-06-xx >RC
+#p# OK
+#n# I am too lazy right now to make this list lazy
+
+my @res;
+
+use strict;
+use warnings;
+use feature 'say';
+
+use ntheory 'is_prime';
+use List::AllUtils 'firstidx';
+
+sub comma { reverse ((reverse shift) =~ s/(.{3})/$1,/gr) =~ s/^,//r }
+
+my @cyclops = 0;
+for my $exp (0..3) {
+    my @oom = grep { ! /0/ } 10**$exp .. 10**($exp+1)-1;
+    for my $l (@oom) {
+        for my $r (@oom) {
+            push @cyclops, my $c = $l . '0' . $r;
+        }
+    }
+}
+
+my @prime_cyclops = grep { is_prime $_ } @cyclops;
+my @prime_blind   = grep { is_prime $_ =~ s/0//r } @prime_cyclops;
+my @prime_palindr = grep { $_ eq join '', reverse split '', $_ } @prime_cyclops;
+
+my $upto = 50;
+my $over = 10_000_000;
+
+sub table {
+    my($text,@values) = @_;
+    say "\nFirst $upto $text cyclops numbers:\n" .
+        (sprintf "@{['%8d' x $upto]}", @values[0..$upto-1]) =~ s/(.{80})/$1\n/gr;
+    my $i = firstidx { $_ > $over } @values;
+    printf "First $text number > %s: %s at (zero based) index: %s\n", comma($over), comma($values[$i]), comma($i);
+}
+
+table('', @cyclops); exit;
+my $i = firstidx { $_ > $over } @cyclops;
+printf "First cyclops number > %s: %s at (zero based) index: %s\n", comma($over), comma($cyclops[$i]), comma($i);
+
+say table('prime', @prime_cyclops);
+$i = firstidx { $_ > $over } @prime_cyclops;
+printf "First prime cyclops number > %s: %s at (zero based) index: %s\n", comma($over), comma($prime_cyclops[$i]), comma($i);
+
+say table('blind prime', @prime_blind);
+$i = firstidx { $_ > $over } @prime_blind;
+printf "First blind prime cyclops number > %s: %s at (zero based) index: %s\n", comma($over), comma($prime_blind[$i]), comma($i);
+
+say table('palindromic prime', @prime_palindr);
+$i = firstidx { $_ > $over } @prime_palindr;
+printf "First palindromic prime cyclops number > %s: %s at (zero based) index: %s\n", comma($over), comma($prime_palindr[$i]), comma($i);
+
+use Test::More;
+#chomp $ref;
+#is($result, $ref);
+done_testing();
+
+__END__
+
+=={{header|Perl}}==
+{{trans|Raku}}
+{{libheader|ntheory}}
+<lang perl>
+</lang>
+{{out}}
+<pre>
+</pre>
