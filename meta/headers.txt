@@ -1956,6 +1956,14 @@ File: C/Cycle_detection
 #c# 2018-11-26 >RC
 #p# OK
 
+File: C/Cyclops_numbers
+#!/usr/local/bin/perl
+#u# http://rosettacode.org/wiki/Cyclops_numbers
+#t# inprogress
+#c# 2021-06-xx >RC
+#p# OK
+#n# I am too lazy right now to make this list lazy
+
 File: C/Cyclotomic_Polynomial
 #!/usr/local/bin/perl
 #u# http://rosettacode.org/wiki/Cyclotomic_Polynomial
@@ -5783,6 +5791,12 @@ File: N/Numbers_divisible_by_their_individual_digits,_but_not_by_the_product_of_
 #c# 2021-04-18 <RC
 #p# OK
 
+File: N/Numbers_in_base-16_representation_that_cannot_be_written_with_decimal_digits
+#!/usr/local/bin/perl
+#u# http://rosettacode.org/wiki/Numbers_in_base-16_representation_that_cannot_be_written_with_decimal_digits
+#c# 2021-06-25 >RC
+#p# OK
+
 File: N/Numbers_in_base_10_that_are_palindromic_in_bases_2,_4,_and_16
 #!/usr/local/bin/perl
 #u# http://rosettacode.org/wiki/Numbers_in_base_10_that_are_palindromic_in_bases_2,_4,_and_16
@@ -8380,9 +8394,9 @@ File: S/Square-free_integers
 File: S/Square_Form_Factorization
 #!/usr/local/bin/perl
 #u# http://rosettacode.org/wiki/Square_Form_Factorization
-#c# 2021-03-xx >RC
+#c# 2021-06-25 >RC
 #p# OK
-#n# 1167.75s user 1.95s system 99% cpu 19:32.37 total
+#n# full run is slow: 1167.75s user 1.95s system 99% cpu 19:32.37 total
 
 File: S/Square_Root_by_Hand
 #!/usr/local/bin/perl
