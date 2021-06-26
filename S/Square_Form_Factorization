@@ -1,8 +1,8 @@
 #!/usr/local/bin/perl
 #u# http://rosettacode.org/wiki/Square_Form_Factorization
-#c# 2021-03-xx >RC
+#c# 2021-06-25 >RC
 #p# OK
-#n# 1167.75s user 1.95s system 99% cpu 19:32.37 total
+#n# full run is slow: 1167.75s user 1.95s system 99% cpu 19:32.37 total
 
 my @res;
 
@@ -10,9 +10,13 @@ use strict;
 use warnings;
 use feature 'say';
 
-use ntheory <is_prime gcd>;
+use ntheory <is_prime gcd forcomb vecprod>;
 
-my @multiplier = ( 1, 3, 5, 7, 11, 3*5, 3*7, 3*11, 5*7, 5*11, 7*11, 3*5*7, 3*5*11, 3*7*11, 5*7*11, 3*5*7*11 );
+my @multiplier;
+my @p = <3 5 7 11>;
+forcomb { push @multiplier, vecprod @p[@_] } scalar @p;
+
+#my @multiplier = ( 1, 3, 5, 7, 11, 3*5, 3*7, 3*11, 5*7, 5*11, 7*11, 3*5*7, 3*5*11, 3*7*11, 5*7*11, 3*5*7*11 );
 
 sub sff {
     my($N) = shift; 
@@ -22,7 +26,7 @@ sub sff {
 
    for my $k (@multiplier) { 
       my $P0 = int sqrt($k*$N);  # P[0]=floor(sqrt(N)
-      my $Q0 = 1 ;               # Q[0]=1
+      my $Q0 = 1;                # Q[0]=1
       my $Q  = $k*$N - $P0**2;   # Q[1]=N-P[0]^2 & Q[i]
       my $P1 = $P0;              # P[i-1] = P[0]
       my $Q1 = $Q0;              # Q[i-1] = Q[0] 
@@ -40,14 +44,14 @@ sub sff {
 
       $b  = int( int( sqrt($k*$N)+$P ) / $Q );      # b=floor((floor(sqrt(N)+P[i])/Q[0])
       $P1 = $b*$Q0 - $P;                            # P[i-1]=b*Q[0]-P[i]
-      $Q  = ( $k*$N - $P1  **2 )/$Q0;               # Q[1]=(N-P[0]^2)/Q[0] & Q[i]
+      $Q  = ( $k*$N - $P1**2 )/$Q0;                 # Q[1]=(N-P[0]^2)/Q[0] & Q[i]
       $Q1 = $Q0;                                    # Q[i-1] = Q[0]
 
       while () {
          $b  = int( int(sqrt($k*$N)+$P1  ) / $Q );  # b=floor(floor(sqrt(N)+P[i-1])/Q[i])
          $P  = $b*$Q - $P1;                         # P[i]=b*Q[i]-P[i-1]
          $Qn = $Q1 + $b*($P1 - $P);                 # Q[i+1]=Q[i-1]+b(P[i-1]-P[i])
-         last if $P == $P1  ;                       # until P[i+1]=P[i]
+         last if $P == $P1;                         # until P[i+1]=P[i]
          ($Q1, $Q, $P1) = ($Q, $Qn, $P);
       }  
       for (gcd $N, $P) { return $_ if $_ != 1 and $_ != $N }    
@@ -118,12 +122,3 @@ use Test::More;
 chomp $ref;
 is($result, $ref);
 done_testing();
-
-__END__
-
-=={{header|Perl}}==
-{{trans|Raku}}
-{{libheader|ntheory}}
-<lang perl></lang>
-{{out}}
-<pre></pre>
