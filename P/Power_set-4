@@ -3,12 +3,15 @@
 #c# 2018-08-20 <RC
 #p# OK
 
-use feature 'say';
 my $result;
+
+use strict;
+use warnings;
+use feature 'say';
 
 use ntheory "forcomb";
 my @S = qw/a b c/;
-for $k (0..@S) {
+for my $k (0..@S) {
   # Iterate over each $#S+1,$k combination.
   forcomb { $result .= "[@S[@_]]  " } @S,$k;
 }
