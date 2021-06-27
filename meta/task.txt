@@ -1,17 +1,17 @@
 
 This is perl 5, version 32, subversion 1 (v5.32.1) built for darwin-thread-multi-2level
 updating from RC…
-+------------> Perl: Good/Bad [1469/8]
-|+-----------> Smoke testing [1322]
-||+----------> sKipping validation [152]
++------------> Perl: Good/Bad [1470/8]
+|+-----------> Smoke testing [1324]
+||+----------> sKipping validation [151]
 |||+---------> Interactive [69]
-||||+--------> Touched (modified by me) [494]
+||||+--------> Touched (modified by me) [495]
 |||||+-------> Random seed [116]
 ||||||+------> File output [74]
 |||||||+-----> Draft [285]
 ||||||||+----> Ignoring [35]
-|||||||||+---> Void (no local copy) [112]
-||||||||||+--> Un-implemented/reliable [98]
+|||||||||+---> Void (no local copy) [111]
+||||||||||+--> Un-implemented/reliable [96]
 |||||||||||
 GS......... 100_doors-1
 GS......... 100_doors-2
@@ -58,7 +58,7 @@ GS......... Ackermann_function-4
 GS......... Ackermann_function-5
 ........XV. Active_Directory_Connect
 GS......... Active_Directory_Search_for_a_user
-GS......... Active_object
+!S......... Active_object
 GS......... Add_a_variable_to_a_class_instance_at_runtime
 .......D.VU Addition-chain_exponentiation
 GS..T..D... Addition_chains
@@ -344,7 +344,7 @@ GS......... Currying
 GS..T.FD... Curve_that_touches_three_points
 GS......... Cut_a_rectangle
 GS..T..D... Cycle_detection
-G.K.T..D..U Cyclops_numbers
+GS..T..D... Cyclops_numbers
 GS..T...... Cyclotomic_polynomial
 !S......... DNS_query
 GS..T...... Damm_algorithm-1
@@ -985,7 +985,7 @@ GS......... Palindrome_dates-2
 GS......... Palindrome_detection
 GS..T...... Palindromic_gapful_numbers
 GS.....D... Palindromic_primes
-.......D.VU Palindromic_primes_in_base_16
+GS..T..D... Palindromic_primes_in_base_16
 GS..T...... Pancake_numbers
 GS..T...... Pangram_checker
 GS......... Paraffins
@@ -1479,7 +1479,7 @@ GS......... Thue-Morse
 GS...R..... Tic-tac-toe
 G.KI....... Tic-tac-toe-2
 GS.....D... Time-based_one-time_password_algorithm
-!S......... Time_a_function
+GS......... Time_a_function
 GS......... Tokenize_a_string
 GS......... Tokenize_a_string_with_escaping
 GS..T...... Tonelli-Shanks_algorithm
