@@ -1,7 +1,6 @@
 #!/usr/local/bin/perl
 #u# http://rosettacode.org/wiki/Cyclops_numbers
-#t# inprogress
-#c# 2021-06-xx >RC
+#c# 2021-06-26 >RC
 #p# OK
 #n# I am too lazy right now to make this list lazy
 
@@ -21,54 +20,72 @@ for my $exp (0..3) {
     my @oom = grep { ! /0/ } 10**$exp .. 10**($exp+1)-1;
     for my $l (@oom) {
         for my $r (@oom) {
-            push @cyclops, my $c = $l . '0' . $r;
+            push @cyclops, $l . '0' . $r;
         }
     }
 }
 
-my @prime_cyclops = grep { is_prime $_ } @cyclops;
+my @prime_cyclops = grep { is_prime $_           } @cyclops;
 my @prime_blind   = grep { is_prime $_ =~ s/0//r } @prime_cyclops;
-my @prime_palindr = grep { $_ eq join '', reverse split '', $_ } @prime_cyclops;
+my @prime_palindr = grep { $_ eq reverse $_      } @prime_cyclops;
 
 my $upto = 50;
 my $over = 10_000_000;
 
-sub table {
-    my($text,@values) = @_;
-    say "\nFirst $upto $text cyclops numbers:\n" .
+for (
+['', @cyclops],
+['prime', @prime_cyclops],
+['blind prime', @prime_blind],
+['palindromic prime', @prime_palindr]) {
+    my($text,@values) = @$_;
+    push @res, "First $upto $text cyclops numbers:\n" .
         (sprintf "@{['%8d' x $upto]}", @values[0..$upto-1]) =~ s/(.{80})/$1\n/gr;
     my $i = firstidx { $_ > $over } @values;
-    printf "First $text number > %s: %s at (zero based) index: %s\n", comma($over), comma($values[$i]), comma($i);
+    push @res, sprintf "First $text number > %s: %s at (zero based) index: %s\n", map { comma($_) } $over, $values[$i], $i;
 }
 
-table('', @cyclops); exit;
-my $i = firstidx { $_ > $over } @cyclops;
-printf "First cyclops number > %s: %s at (zero based) index: %s\n", comma($over), comma($cyclops[$i]), comma($i);
+say my $result = join "\n", @res;
 
-say table('prime', @prime_cyclops);
-$i = firstidx { $_ > $over } @prime_cyclops;
-printf "First prime cyclops number > %s: %s at (zero based) index: %s\n", comma($over), comma($prime_cyclops[$i]), comma($i);
+my $ref = <<'END';
+First 50  cyclops numbers:
+       0     101     102     103     104     105     106     107     108     109
+     201     202     203     204     205     206     207     208     209     301
+     302     303     304     305     306     307     308     309     401     402
+     403     404     405     406     407     408     409     501     502     503
+     504     505     506     507     508     509     601     602     603     604
 
-say table('blind prime', @prime_blind);
-$i = firstidx { $_ > $over } @prime_blind;
-printf "First blind prime cyclops number > %s: %s at (zero based) index: %s\n", comma($over), comma($prime_blind[$i]), comma($i);
+First  number > 10,000,000: 111,101,111 at (zero based) index: 538,084
 
-say table('palindromic prime', @prime_palindr);
-$i = firstidx { $_ > $over } @prime_palindr;
-printf "First palindromic prime cyclops number > %s: %s at (zero based) index: %s\n", comma($over), comma($prime_palindr[$i]), comma($i);
+First 50 prime cyclops numbers:
+     101     103     107     109     307     401     409     503     509     601
+     607     701     709     809     907   11027   11047   11057   11059   11069
+   11071   11083   11087   11093   12011   12037   12041   12043   12049   12071
+   12073   12097   13033   13037   13043   13049   13063   13093   13099   14011
+   14029   14033   14051   14057   14071   14081   14083   14087   15013   15017
+
+First prime number > 10,000,000: 111,101,129 at (zero based) index: 39,319
+
+First 50 blind prime cyclops numbers:
+     101     103     107     109     307     401     503     509     601     607
+     701     709     809     907   11071   11087   11093   12037   12049   12097
+   13099   14029   14033   14051   14071   14081   14083   14087   15031   15053
+   15083   16057   16063   16067   16069   16097   17021   17033   17041   17047
+   17053   17077   18047   18061   18077   18089   19013   19031   19051   19073
+
+First blind prime number > 10,000,000: 111,101,161 at (zero based) index: 11,393
+
+First 50 palindromic prime cyclops numbers:
+     101   16061   31013   35053   38083   73037   74047   91019   94049 1120211
+ 1150511 1160611 1180811 1190911 1250521 1280821 1360631 1390931 1490941 1520251
+ 1550551 1580851 1630361 1640461 1660661 1670761 1730371 1820281 1880881 1930391
+ 1970791 3140413 3160613 3260623 3310133 3380833 3460643 3470743 3590953 3670763
+ 3680863 3970793 7190917 7250527 7310137 7540457 7630367 7690967 7750577 7820287
+
+First palindromic prime number > 10,000,000: 114,808,411 at (zero based) index: 66
+
+END
 
 use Test::More;
-#chomp $ref;
-#is($result, $ref);
+chomp $ref;
+is($result, $ref);
 done_testing();
-
-__END__
-
-=={{header|Perl}}==
-{{trans|Raku}}
-{{libheader|ntheory}}
-<lang perl>
-</lang>
-{{out}}
-<pre>
-</pre>
