@@ -59,7 +59,8 @@ my @lines = (
 
 for my $line (@lines) {
     push @res, decode_UPC($line)
-     // decode_UPC(join '', reverse split '', $line)
+     #// decode_UPC(join '', reverse split '', $line)
+     // decode_UPC(scalar reverse $line)
      // 'Invalid';
 }
 
