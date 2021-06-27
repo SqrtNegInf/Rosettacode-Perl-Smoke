@@ -1959,8 +1959,7 @@ File: C/Cycle_detection
 File: C/Cyclops_numbers
 #!/usr/local/bin/perl
 #u# http://rosettacode.org/wiki/Cyclops_numbers
-#t# inprogress
-#c# 2021-06-xx >RC
+#c# 2021-06-26 >RC
 #p# OK
 #n# I am too lazy right now to make this list lazy
 
@@ -4121,7 +4120,7 @@ File: I/Image_noise
 File: I/Imaginary_base_numbers
 #!/usr/local/bin/perl
 #u# http://rosettacode.org/wiki/Imaginary_base_numbers
-#c# 2020-01-31 >RC, 2021-04-24 >RC
+#c# 2020-01-31 >RC, 2021-04-24 >RC, 2021-06-26 >RC
 #p# OK
 
 File: I/Implicit_type_conversion
@@ -6060,6 +6059,12 @@ File: P/Palindromic_primes
 #!/usr/local/bin/perl
 #u# http://rosettacode.org/wiki/Palindromic_primes
 #c# 2021-04-15 <RC
+#p# OK
+
+File: P/Palindromic_primes_in_base_16
+#!/usr/local/bin/perl
+#u# http://rosettacode.org/wiki/Palindromic_primes_in_base_16
+#c# 2021-06-26 >RC
 #p# OK
 
 File: P/Pancake_numbers
