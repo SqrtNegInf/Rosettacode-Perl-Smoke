@@ -1,0 +1,56 @@
+#!/usr/local/bin/perl
+#u# http://rosettacode.org/wiki/15_puzzle_solver
+#c# 2021-06-27 NOT ON RC
+#p# OK
+#n# substantially slower than primary version: 240.87s user 0.34s system 99% cpu 4:01.43 total
+
+no strict;
+no warnings;
+use feature 'say';
+
+use enum qw(False True);
+my @Nr = <3 0 0 0 0 1 1 1 1 2 2 2 2 3 3 3>;
+my @Nc = <3 0 1 2 3 0 1 2 3 0 1 2 3 0 1 2>;
+
+my ($n, $m) = (0,0);
+my(@N0, @N2, @N3, @N4);
+
+sub fY {
+   #say "Solution found in $n moves: ", join('', @N3) and exit if $N2[$n] == 0x123456789abcdef0;
+
+   if ($N2[$n] == 0x123456789abcdef0) {
+      say "Solution found in $n moves: ", join '', @N3;
+      my $result = join '', @N3;
+      use Test::More;
+      is $result, 'rrrulddluuuldrurdddrullulurrrddldluurddlulurruldrdrd';
+      done_testing();
+      exit;
+   }
+   $N4[$n] <= $m ? fN() : False;
+}
+
+sub fN {
+   sub common { ++$n; return True if fY(); --$n }
+   if ($N3[$n] ne 'u' and int($N0[$n] / 4) < 3) { fX('d',11, 4,16); &common }
+   if ($N3[$n] ne 'd' and int($N0[$n] / 4) > 0) { fX('u',19,-4,16); &common }
+   if ($N3[$n] ne 'l' and    ($N0[$n] % 4) < 3) { fX('r',14, 1, 4); &common }
+   if ($N3[$n] ne 'r' and    ($N0[$n] % 4) > 0) { fX('l',16,-1, 4); &common }
+   return False;
+}
+
+sub fX {
+    my($d,$gp,$n0p,$n2p) = @_;
+    my $g = ($gp-$N0[$n])*4;
+    my $a = $N2[$n] & (15 << $g);
+    $N0[$n+1] = $N0[$n]+$n0p;
+    $N3[$n+1] = $d;
+    if ($d eq 'd' or $d eq 'r') { $N2[$n+1] = $N2[$n]-$a+($a<<$n2p) }
+    else                        { $N2[$n+1] = $N2[$n]-$a+($a>>$n2p) }
+    if    ($d eq 'd') { $N4[$n+1] = $N4[$n]+($Nr[$a>>$g] <= int($N0[$n]/4) ? 0 : 1) }
+    elsif ($d eq 'u') { $N4[$n+1] = $N4[$n]+($Nr[$a>>$g] >= int($N0[$n]/4) ? 0 : 1) }
+    elsif ($d eq 'r') { $N4[$n+1] = $N4[$n]+($Nc[$a>>$g] <=     $N0[$n]%4  ? 0 : 1) }
+    else              { $N4[$n+1] = $N4[$n]+($Nc[$a>>$g] >=     $N0[$n]%4  ? 0 : 1) }
+}
+
+($N0[0],$N2[0]) = (8,0xfe169b4c0a73d852); # initial state of puzzle
+while () { fY() or ++$m }
