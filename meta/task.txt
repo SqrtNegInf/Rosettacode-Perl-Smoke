@@ -1,17 +1,17 @@
 
 This is perl 5, version 32, subversion 1 (v5.32.1) built for darwin-thread-multi-2level
 updating from RC…
-+------------> Perl: Good/Bad [1470/8]
-|+-----------> Smoke testing [1324]
++------------> Perl: Good/Bad [1473/8]
+|+-----------> Smoke testing [1325]
 ||+----------> sKipping validation [151]
 |||+---------> Interactive [69]
-||||+--------> Touched (modified by me) [495]
+||||+--------> Touched (modified by me) [496]
 |||||+-------> Random seed [116]
 ||||||+------> File output [74]
 |||||||+-----> Draft [285]
 ||||||||+----> Ignoring [35]
-|||||||||+---> Void (no local copy) [111]
-||||||||||+--> Un-implemented/reliable [96]
+|||||||||+---> Void (no local copy) [110]
+||||||||||+--> Un-implemented/reliable [94]
 |||||||||||
 GS......... 100_doors-1
 GS......... 100_doors-2
@@ -22,7 +22,7 @@ GS..TR..... 100_prisoners
 G.KI....... 15_puzzle_game-1
 GS...RF.... 15_puzzle_game-2
 .......D.VU 15_puzzle_game_in_3D
-.........VU 15_puzzle_solver
+GS..T...... 15_puzzle_solver
 G.KI...D... 16_puzzle_game
 G.KI....... 2048
 GS..TR..... 21_game
@@ -58,7 +58,7 @@ GS......... Ackermann_function-4
 GS......... Ackermann_function-5
 ........XV. Active_Directory_Connect
 GS......... Active_Directory_Search_for_a_user
-!S......... Active_object
+GS......... Active_object
 GS......... Add_a_variable_to_a_class_instance_at_runtime
 .......D.VU Addition-chain_exponentiation
 GS..T..D... Addition_chains
@@ -346,7 +346,7 @@ GS......... Cut_a_rectangle
 GS..T..D... Cycle_detection
 GS..T..D... Cyclops_numbers
 GS..T...... Cyclotomic_polynomial
-!S......... DNS_query
+GS......... DNS_query
 GS..T...... Damm_algorithm-1
 GS......... Damm_algorithm-2
 GS.....D... Data_Encryption_Standard
@@ -1586,7 +1586,7 @@ G.KI....... Window_management
 GS......... Wireworld
 GS..T..D... Word_break_problem
 GS......... Word_frequency
-.........VU Word_ladder
+.........V. Word_ladder
 GS...R..... Word_search
 GS......... Word_wheel
 GS......... Word_wrap
