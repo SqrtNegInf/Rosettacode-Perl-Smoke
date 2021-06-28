@@ -59,6 +59,21 @@ File: 0/15_Puzzle_Game-2.0
 #f# RC file: 15_game.dat
 #=# RC pipe: 10\n8\n2\nq\n
 
+File: 0/15_puzzle_solver
+#!/usr/local/bin/perl
+#u# http://rosettacode.org/wiki/15_puzzle_solver
+#c# 2021-06-27 >RC
+#p# OK
+#n# not particularly fast: 144.93s user 0.20s system 98% cpu 2:27.52 total
+#n# wait, what happened? : 204.62s user 0.22s system 99% cpu 3:24.91 total
+
+File: 0/15_puzzle_solver.1
+#!/usr/local/bin/perl
+#u# http://rosettacode.org/wiki/15_puzzle_solver
+#c# 2021-06-27 NOT ON RC
+#p# OK
+#n# substantially slower than primary version: 240.87s user 0.34s system 99% cpu 4:01.43 total
+
 File: 0/16_Puzzle_Game
 #!/usr/local/bin/perl
 #u# http://rosettacode.org/wiki/16_Puzzle_Game
@@ -1976,6 +1991,8 @@ File: D/DNS_query
 #u# http://rosettacode.org/wiki/DNS_query
 #c# 2018-07-28 <RC
 #p# OK
+#n# use 'orange.kame.net', like Raku
+#n# code to display IP* different on RC
 
 File: D/Damm_algorithm-1
 #!/usr/local/bin/perl
