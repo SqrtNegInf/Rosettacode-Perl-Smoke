@@ -1,17 +1,17 @@
 
 This is perl 5, version 32, subversion 1 (v5.32.1) built for darwin-thread-multi-2level
 updating from RC…
-+------------> Perl: Good/Bad [1472/8]
++------------> Perl: Good/Bad [1473/8]
 |+-----------> Smoke testing [1325]
 ||+----------> sKipping validation [151]
 |||+---------> Interactive [69]
 ||||+--------> Touched (modified by me) [496]
 |||||+-------> Random seed [116]
 ||||||+------> File output [74]
-|||||||+-----> Draft [285]
+|||||||+-----> Draft [286]
 ||||||||+----> Ignoring [35]
-|||||||||+---> Void (no local copy) [110]
-||||||||||+--> Un-implemented/reliable [94]
+|||||||||+---> Void (no local copy) [111]
+||||||||||+--> Un-implemented/reliable [95]
 |||||||||||
 GS......... 100_doors-1
 GS......... 100_doors-2
@@ -886,6 +886,7 @@ GS.....D... Most_frequent_k_chars_distance
 G.KI....... Mouse_position-1
 G.KI....... Mouse_position-2
 GS......... Move-to-front_algorithm
+.......D.VU Multi-base_primes
 GS..T...... Multi-dimensional_array
 G.K.T..D..U Multidimensional_Newton-Raphson_method
 GS......... Multifactorial-1
@@ -1479,7 +1480,7 @@ GS......... Thue-Morse
 GS...R..... Tic-tac-toe
 G.KI....... Tic-tac-toe-2
 GS.....D... Time-based_one-time_password_algorithm
-!S......... Time_a_function
+GS......... Time_a_function
 GS......... Tokenize_a_string
 GS......... Tokenize_a_string_with_escaping
 GS..T...... Tonelli-Shanks_algorithm
