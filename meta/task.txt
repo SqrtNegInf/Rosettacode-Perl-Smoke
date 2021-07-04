@@ -1,16 +1,16 @@
 
 This is perl 5, version 32, subversion 1 (v5.32.1) built for darwin-thread-multi-2level
 updating from RC…
-+------------> Perl: Good/Bad [1473/8]
++------------> Perl: Good/Bad [1474/8]
 |+-----------> Smoke testing [1325]
-||+----------> sKipping validation [151]
+||+----------> sKipping validation [152]
 |||+---------> Interactive [69]
-||||+--------> Touched (modified by me) [496]
+||||+--------> Touched (modified by me) [497]
 |||||+-------> Random seed [116]
 ||||||+------> File output [74]
-|||||||+-----> Draft [286]
+|||||||+-----> Draft [285]
 ||||||||+----> Ignoring [35]
-|||||||||+---> Void (no local copy) [111]
+|||||||||+---> Void (no local copy) [110]
 ||||||||||+--> Un-implemented/reliable [95]
 |||||||||||
 GS......... 100_doors-1
@@ -886,7 +886,7 @@ GS.....D... Most_frequent_k_chars_distance
 G.KI....... Mouse_position-1
 G.KI....... Mouse_position-2
 GS......... Move-to-front_algorithm
-.......D.VU Multi-base_primes
+G.K.T..D..U Multi-base_primes
 GS..T...... Multi-dimensional_array
 G.K.T..D..U Multidimensional_Newton-Raphson_method
 GS......... Multifactorial-1
@@ -1054,7 +1054,7 @@ GS..TR..... Pig_the_dice_game_Player
 GS..T.F.... Pinstripe_Display
 .........VU Pinstripe_Printer
 GS..T..D... Piprimes
-GS..T..D... Pisano_period
+GS..T...... Pisano_period
 GS..T.F.... Plasma_effect
 B.K.......U Play_recorded_sounds
 GS..T...... Playfair_cipher
