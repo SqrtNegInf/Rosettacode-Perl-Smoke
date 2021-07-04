@@ -5485,6 +5485,13 @@ File: M/Move-to-front_algorithm
 #c# 2018-08-19 <RC
 #p# OK
 
+File: M/Multi-base_primes
+#!/usr/local/bin/perl
+#u# http://rosettacode.org/wiki/Multi-base_primes
+#t# inprogress
+#c# 2021-06-xx >RC
+#p# OK
+
 File: M/Multi-dimensional_array
 #!/usr/local/bin/perl
 #u# http://rosettacode.org/wiki/Multi-dimensional_array
