@@ -17,13 +17,15 @@ use ntheory qw/fromdigits todigitstring primes/;
 
 my $chars = 3;
 say my $threshold = fromdigits( '1' . 'Z' x $chars, 36);
-#say todigitstring($n, 36);
+
 my @primes = @{primes( $threshold )};
 
 for my $base (2..36) {
     my $n = todigitstring($base-1, $base) x $chars;
     $threshold = fromdigits($n, $base);
-    say "$n:  $threshold"; sleep 1;
+    #say "$n:  $threshold"; sleep 1;
+    @primes[^(@primes.first: * > $threshold, :k)].
+    map { .base($base) => $base };
 }
 
 __END__
