@@ -8,10 +8,10 @@ updating from RC…
 ||||+--------> Touched (modified by me) [497]
 |||||+-------> Random seed [116]
 ||||||+------> File output [74]
-|||||||+-----> Draft [285]
+|||||||+-----> Draft [286]
 ||||||||+----> Ignoring [35]
-|||||||||+---> Void (no local copy) [110]
-||||||||||+--> Un-implemented/reliable [95]
+|||||||||+---> Void (no local copy) [111]
+||||||||||+--> Un-implemented/reliable [96]
 |||||||||||
 GS......... 100_doors-1
 GS......... 100_doors-2
@@ -1094,6 +1094,7 @@ GS......... Prime_decomposition-1
 GS......... Prime_decomposition-2
 GS......... Prime_decomposition-3
 B.......... Prime_decomposition-4
+.......D.VU Prime_numbers_p_which_sum_of_prime_numbers_less_or_equal_to_p_is_prime
 GS.....D... Prime_triplets
 GS.....D... Prime_words
 GS..T...... Primes_-_allocate_descendants_to_their_ancestors
