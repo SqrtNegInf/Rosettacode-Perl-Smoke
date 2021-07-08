@@ -2,15 +2,19 @@
 #u# http://rosettacode.org/wiki/Weiferich_primes
 #c# 2021-05-31 >RC
 #p# OK
+#n# trizen++ 10x faster
 
 use feature 'say';
 
-use ntheory 'is_prime';
-use bignum;
+#use ntheory 'is_prime';
+#use bignum;
+#say my $result = 'Wieferich primes less than 5000: ' . join ', ', grep { is_prime $_ and not ( (2**($_-1) -1) % $_**2 ) } 1..5000;
 
-say my $result = 'Weiferich primes less than 5000: ' . join ', ', grep { is_prime $_ and not ( (2**($_-1) -1) % $_**2 ) } 1..5000;
+use ntheory qw(is_prime powmod);
+ 
+say my $result = 'Wieferich primes less than 5000: ' . join ', ', grep { is_prime($_) and powmod(2, $_-1, $_*$_) == 1 } 1..5000;
 
-my $ref = 'Weiferich primes less than 5000: 1093, 3511';
+my $ref = 'Wieferich primes less than 5000: 1093, 3511';
 
 use Test::More;
 is($result, $ref);
