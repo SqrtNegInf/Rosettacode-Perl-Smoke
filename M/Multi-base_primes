@@ -24,8 +24,8 @@ for my $base (2..36) {
     my $n = todigitstring($base-1, $base) x $chars;
     $threshold = fromdigits($n, $base);
     #say "$n:  $threshold"; sleep 1;
-    @primes[^(@primes.first: * > $threshold, :k)].
-    map { .base($base) => $base };
+    #@primes[^(@primes.first: * > $threshold, :k)].
+    #map { .base($base) => $base };
 }
 
 __END__
