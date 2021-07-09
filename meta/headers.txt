@@ -9762,6 +9762,7 @@ File: W/Wieferich_primes
 #u# http://rosettacode.org/wiki/Weiferich_primes
 #c# 2021-05-31 >RC
 #p# OK
+#n# trizen++ 10x faster
 
 File: W/Window_creation
 #!/usr/local/bin/perl # do-not-check
