@@ -1,0 +1,20 @@
+#!/usr/local/bin/perl
+#u# http://rosettacode.org/wiki/Numbers_n_in_which_number_1_occur_twice
+#c# 2021-07-12 <RC
+#p# OK
+
+use strict;
+use warnings;
+use feature 'say';
+
+my @twoones = grep tr/1// =~ 2, 1 .. 1000;
+say my $result = "@twoones\n" =~ s/.{60}\K /\n/gr;
+
+my $ref = <<'EOD';
+11 101 110 112 113 114 115 116 117 118 119 121 131 141 151 161
+171 181 191 211 311 411 511 611 711 811 911
+EOD
+
+use Test::More;
+is ($result, $ref);
+done_testing();
