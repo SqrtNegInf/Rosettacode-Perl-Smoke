@@ -8,10 +8,10 @@ updating from RC…
 ||||+--------> Touched (modified by me) [497]
 |||||+-------> Random seed [116]
 ||||||+------> File output [74]
-|||||||+-----> Draft [288]
+|||||||+-----> Draft [289]
 ||||||||+----> Ignoring [35]
-|||||||||+---> Void (no local copy) [113]
-||||||||||+--> Un-implemented/reliable [98]
+|||||||||+---> Void (no local copy) [114]
+||||||||||+--> Un-implemented/reliable [99]
 |||||||||||
 GS......... 100_doors-1
 GS......... 100_doors-2
@@ -835,6 +835,7 @@ G.KI....... Matrix_digital_rain
 G.KI....... Matrix_digital_rain-2
 GS..T...... Matrix_multiplication
 GS......... Matrix_transposition
+.......D.VU Maximum_difference_between_adjacent_elements_of_list
 GS......... Maximum_triangle_path_sum
 GS..T..D... Mayan_calendar
 GS..T...... Mayan_numerals
