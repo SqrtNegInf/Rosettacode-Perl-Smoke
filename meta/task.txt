@@ -1,17 +1,17 @@
 
 This is perl 5, version 32, subversion 1 (v5.32.1) built for darwin-thread-multi-2level
 updating from RC…
-+------------> Perl: Good/Bad [1475/8]
-|+-----------> Smoke testing [1326]
++------------> Perl: Good/Bad [1476/8]
+|+-----------> Smoke testing [1327]
 ||+----------> sKipping validation [152]
 |||+---------> Interactive [69]
-||||+--------> Touched (modified by me) [497]
+||||+--------> Touched (modified by me) [498]
 |||||+-------> Random seed [116]
 ||||||+------> File output [74]
-|||||||+-----> Draft [289]
+|||||||+-----> Draft [290]
 ||||||||+----> Ignoring [35]
 |||||||||+---> Void (no local copy) [114]
-||||||||||+--> Un-implemented/reliable [99]
+||||||||||+--> Un-implemented/reliable [100]
 |||||||||||
 GS......... 100_doors-1
 GS......... 100_doors-2
@@ -1425,6 +1425,7 @@ GS......... Sum_multiples_of_3_and_5-1
 GS..T...... Sum_multiples_of_3_and_5-2
 GS......... Sum_of_a_series
 GS..T..D... Sum_of_divisors
+GS..T..D..U Sum_of_elements_below_main_diagonal_of_matrix
 GS.....D... Sum_of_first_n_cubes
 GS......... Sum_of_squares
 GS.....D... Sum_of_the_digits_of_n_is_substring_of_n
