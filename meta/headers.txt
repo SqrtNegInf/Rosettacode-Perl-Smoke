@@ -8824,6 +8824,12 @@ File: S/Sum_of_divisors
 #c# 2021-01-08 >RC
 #p# OK
 
+File: S/Sum_of_elements_below_main_diagonal_of_matrix
+#!/usr/local/bin/perl
+#u# http://rosettacode.org/wiki/Sum_of_elements_below_main_diagonal_of_matrix
+#c# 2021-07-xx >RC
+#p# OK
+
 File: S/Sum_of_first_n_cubes
 #!/usr/local/bin/perl
 #u# http://rosettacode.org/wiki/Sum_of_first_n_cubes
