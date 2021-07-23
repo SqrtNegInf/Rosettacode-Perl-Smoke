@@ -5176,6 +5176,12 @@ File: M/Matrix_transposition
 #c# 2018-08-18 <RC
 #p# OK
 
+File: M/Maximum_difference_between_adjacent_elements_of_list
+#!/usr/local/bin/perl
+#u# http://rosettacode.org/wiki/Maximum_difference_between_adjacent_elements_of_list
+#c# 2021-07-22 <RC
+#p# OK
+
 File: M/Maximum_triangle_path_sum
 #!/usr/local/bin/perl
 #u# http://rosettacode.org/wiki/Maximum_triangle_path_sum
@@ -6791,6 +6797,13 @@ File: P/Prime_decomposition-4
 #c# 2018-08-20 <RC
 #p# BROKEN
 #n# Math::Pari 'factorint' produces unreliable results? cf 'Count_in_factors-2'
+
+File: P/Prime_numbers_which_contain_123
+#!/usr/local/bin/perl
+#u# http://rosettacode.org/wiki/Prime_numbers_which_contain_123
+#c# 2021-07-22 <RC
+#p# OK
+#n# tybalt89++
 
 File: P/Prime_triplets
 #!/usr/local/bin/perl
@@ -8827,7 +8840,7 @@ File: S/Sum_of_divisors
 File: S/Sum_of_elements_below_main_diagonal_of_matrix
 #!/usr/local/bin/perl
 #u# http://rosettacode.org/wiki/Sum_of_elements_below_main_diagonal_of_matrix
-#c# 2021-07-xx >RC
+#c# 2021-07-22 >RC
 #p# OK
 
 File: S/Sum_of_first_n_cubes
