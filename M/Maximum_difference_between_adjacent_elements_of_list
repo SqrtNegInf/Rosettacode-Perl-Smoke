@@ -1,0 +1,32 @@
+#!/usr/local/bin/perl
+#u# http://rosettacode.org/wiki/Maximum_difference_between_adjacent_elements_of_list
+#c# 2021-07-22 <RC
+#p# OK
+
+my @res;
+
+use strict;
+use warnings;
+use feature 'say';
+
+use List::Util qw( reduce max );
+
+my @list = (1,8,2,-3,0,1,1,-2.3,0,5.5,8,6,2,9,11,10,3);
+
+my %diffs;
+reduce { $diffs{ abs $a - $b } .= " $a,$b"; $b } @list;
+my $max = max keys %diffs;
+push @res, "$_ ==> $max" for split ' ', $diffs{ $max };
+
+say my $result = join "\n", @res;
+
+my $ref = <<'EOD';
+1,8 ==> 7
+2,9 ==> 7
+10,3 ==> 7
+EOD
+
+use Test::More;
+chomp $ref;
+is ($result, $ref);
+done_testing();
