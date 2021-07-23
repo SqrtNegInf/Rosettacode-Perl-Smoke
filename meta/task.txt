@@ -1,8 +1,8 @@
 
 This is perl 5, version 32, subversion 1 (v5.32.1) built for darwin-thread-multi-2level
 updating from RC…
-+------------> Perl: Good/Bad [1476/8]
-|+-----------> Smoke testing [1327]
++------------> Perl: Good/Bad [1478/8]
+|+-----------> Smoke testing [1329]
 ||+----------> sKipping validation [152]
 |||+---------> Interactive [69]
 ||||+--------> Touched (modified by me) [498]
@@ -10,8 +10,8 @@ updating from RC…
 ||||||+------> File output [74]
 |||||||+-----> Draft [290]
 ||||||||+----> Ignoring [35]
-|||||||||+---> Void (no local copy) [114]
-||||||||||+--> Un-implemented/reliable [100]
+|||||||||+---> Void (no local copy) [112]
+||||||||||+--> Un-implemented/reliable [97]
 |||||||||||
 GS......... 100_doors-1
 GS......... 100_doors-2
@@ -835,7 +835,7 @@ G.KI....... Matrix_digital_rain
 G.KI....... Matrix_digital_rain-2
 GS..T...... Matrix_multiplication
 GS......... Matrix_transposition
-.......D.VU Maximum_difference_between_adjacent_elements_of_list
+GS.....D... Maximum_difference_between_adjacent_elements_of_list
 GS......... Maximum_triangle_path_sum
 GS..T..D... Mayan_calendar
 GS..T...... Mayan_numerals
@@ -1098,7 +1098,7 @@ GS......... Prime_decomposition-2
 GS......... Prime_decomposition-3
 B.......... Prime_decomposition-4
 .......D.VU Prime_numbers_p_which_sum_of_prime_numbers_less_or_equal_to_p_is_prime
-.......D.VU Prime_numbers_which_contain_123
+GS.....D... Prime_numbers_which_contain_123
 GS.....D... Prime_triplets
 GS.....D... Prime_words
 GS..T...... Primes_-_allocate_descendants_to_their_ancestors
@@ -1425,7 +1425,7 @@ GS......... Sum_multiples_of_3_and_5-1
 GS..T...... Sum_multiples_of_3_and_5-2
 GS......... Sum_of_a_series
 GS..T..D... Sum_of_divisors
-GS..T..D..U Sum_of_elements_below_main_diagonal_of_matrix
+GS..T..D... Sum_of_elements_below_main_diagonal_of_matrix
 GS.....D... Sum_of_first_n_cubes
 GS......... Sum_of_squares
 GS.....D... Sum_of_the_digits_of_n_is_substring_of_n
