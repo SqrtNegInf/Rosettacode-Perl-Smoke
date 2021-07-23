@@ -1,6 +1,6 @@
 #!/usr/local/bin/perl
 #u# http://rosettacode.org/wiki/Sum_of_elements_below_main_diagonal_of_matrix
-#c# 2021-07-22 >RC
+#c# 2021-07-22 NOT ON RC
 #p# OK
 
 use strict;
