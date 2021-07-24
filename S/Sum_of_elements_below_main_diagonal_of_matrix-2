@@ -16,8 +16,8 @@ my $matrix =
   [12,14,17,18,20],
   [7,1,3,9,5]];
 
-my $lowersum = sum map $matrix->[$_]->@[0 .. $_-1], 1 .. $#$matrix;   # DH as postfix de-ref
-#my $lowersum = sum map @{ $matrix->[$_] }[0 .. $_ - 1], 1 .. $#$matrix;
+ my $lowersum = sum map    $matrix->[$_]->@[0 .. $_-1], 1 .. $#$matrix;   # DH as postfix de-ref
+#my $lowersum = sum map @{ $matrix->[$_] } [0 .. $_-1], 1 .. $#$matrix;
 
 print my $result = "lower sum = $lowersum\n";
 
