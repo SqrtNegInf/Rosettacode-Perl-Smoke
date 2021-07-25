@@ -6808,6 +6808,12 @@ File: P/Prime_numbers_which_contain_123
 File: P/Prime_triplets
 #!/usr/local/bin/perl
 #u# http://rosettacode.org/wiki/Prime_triplets
+#c# 2021-07-24 <RC
+#p# OK
+
+File: P/Prime_triplets.1
+#!/usr/local/bin/perl
+#u# http://rosettacode.org/wiki/Prime_triplets
 #c# 2021-04-22 <RC
 #p# OK
 
@@ -6829,7 +6835,19 @@ File: P/Primes_which_sum_of_digits_is_25
 #c# 2021-03-22 >RC
 #p# OK
 
+File: P/Primes_whose_first_and_last_number_is_3
+#!/usr/local/bin/perl
+#u# http://rosettacode.org/wiki/Primes_whose_first_and_last_number_is_3
+#c# 2021-07-24 <RC
+#p# OK
+
 File: P/Primes_with_digits_in_nondecreasing_order
+#!/usr/local/bin/perl
+#u# http://rosettacode.org/wiki/Primes_with_digits_in_nondecreasing_order
+#c# 2021-07-24 <RC
+#p# OK
+
+File: P/Primes_with_digits_in_nondecreasing_order.1
 #!/usr/local/bin/perl
 #u# http://rosettacode.org/wiki/Primes_with_digits_in_nondecreasing_order
 #c# 2021-04-23 <RC
@@ -9374,6 +9392,12 @@ File: T/Trigonometric_functions
 #p# OK
 
 File: T/Triplet_of_three_numbers
+#!/usr/local/bin/perl
+#u# http://rosettacode.org/wiki/Triplet_of_three_numbers
+#c# 2021-05-20 <RC
+#p# OK
+
+File: T/Triplet_of_three_numbers.1
 #!/usr/local/bin/perl
 #u# http://rosettacode.org/wiki/Triplet_of_three_numbers
 #c# 2021-05-20 <RC
