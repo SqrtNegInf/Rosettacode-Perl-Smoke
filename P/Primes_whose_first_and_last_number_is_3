@@ -1,0 +1,27 @@
+#!/usr/local/bin/perl
+#u# http://rosettacode.org/wiki/Primes_whose_first_and_last_number_is_3
+#c# 2021-07-24 <RC
+#p# OK
+
+use strict;
+use warnings;
+
+use ntheory qw( primes );
+
+my @n33 = grep /^3/ && /3$/, @{ primes( 4000 ) };
+my $n33 = grep /^3/ && /3$/, @{ primes( 1_000_000 ) };
+print my $result = @n33 . " under 4000\n\n@n33" =~ s/.{75}\K /\n/gr .
+  "\n\n$n33 under 1000000\n";
+
+my $ref = <<'EOD';
+33 under 4000
+
+3 313 353 373 383 3023 3083 3163 3203 3253 3313 3323 3343 3373 3413 3433 3463
+3533 3583 3593 3613 3623 3643 3673 3733 3793 3803 3823 3833 3853 3863 3923 3943
+
+2251 under 1000000
+EOD
+
+use Test::More;
+is ($result, $ref);
+done_testing();
