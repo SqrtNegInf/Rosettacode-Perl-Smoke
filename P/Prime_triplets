@@ -1,6 +1,6 @@
 #!/usr/local/bin/perl
 #u# http://rosettacode.org/wiki/Prime_triplets
-#c# 2021-04-22 <RC
+#c# 2021-07-24 <RC
 #p# OK
 
 my @res;
@@ -9,13 +9,10 @@ use strict;
 use warnings;
 use feature 'say';
 
-my %cache;
-sub isprime { $cache{$_[0]} //= (1 x $_[0]) =~ /^(11+)\1+$/ ? 0 : 1 }
+use ntheory qw( is_prime twin_primes );
 
-for ( 3 .. 5500 ) {
-    $_ & 1 and isprime($_+6) and isprime($_+2) and isprime($_) and
-        push @res, sprintf "%5d" x 3, $_, $_ + 2, $_ + 6;
-}
+is_prime($_ + 6) and push @res, sprintf "%5d" x 3, $_, $_ + 2, $_ + 6
+  for @{ twin_primes( 5500 ) };
 
 say my $result = join "\n", @res;
 
