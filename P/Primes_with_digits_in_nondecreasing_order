@@ -1,17 +1,14 @@
 #!/usr/local/bin/perl
 #u# http://rosettacode.org/wiki/Primes_with_digits_in_nondecreasing_order
-#c# 2021-04-23 <RC
+#c# 2021-07-24 <RC
 #p# OK
 
 use strict;
 use warnings;
-use feature 'say';
+use ntheory qw( primes );
 
-my @primes = grep {
-  ! /(.)(.)(??{$1 > $2 ? '' : '(*FAIL)'})/ and (1 x $_) !~ /^(11+)\1+$/
-  } 2 .. 999;
-
-say my $result = "@primes\n" =~ s/.{50}\K /\n/gr . "\ncount: " . @primes, "\n";
+my @want = grep ! /(.)(.)(??{$1 > $2 ? '' : '(*FAIL)'})/, @{ primes(1000) };
+print my $result = "@want" =~ s/.{50}\K /\n/gr . "\n\ncount: " . @want . "\n";
 
 my $ref = <<'EOD';
 2 3 5 7 11 13 17 19 23 29 37 47 59 67 79 89 113 127
@@ -23,6 +20,5 @@ count: 50
 EOD
 
 use Test::More;
-chomp $ref;
 is ($result, $ref);
 done_testing();
