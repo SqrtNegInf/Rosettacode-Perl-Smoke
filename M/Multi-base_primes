@@ -1,35 +1,53 @@
 #!/usr/local/bin/perl
 #u# http://rosettacode.org/wiki/Multi-base_primes
 #t# inprogress
-#c# 2021-06-xx >RC
+#c# 2021-07-25 >RC
 #p# OK
 
-use Data::Printer;          # debug only
-use Time::HiRes qw(sleep);  # debug only
-
 my @res;
+
+use Data::Printer;
 
 use strict;
 use warnings;
 use feature 'say';
 
+use List::AllUtils <firstidx max>;
 use ntheory qw/fromdigits todigitstring primes/;
 
-my $chars = 3;
-say my $threshold = fromdigits( '1' . 'Z' x $chars, 36);
+my $chars = 4;
+my $threshold = fromdigits( '1' . 'Z' x $chars, 36);
 
+my %prime_base;
 my @primes = @{primes( $threshold )};
+#say scalar @primes;
 
 for my $base (2..36) {
     my $n = todigitstring($base-1, $base) x $chars;
     $threshold = fromdigits($n, $base);
-    #say "$n:  $threshold"; sleep 1;
+#    say "$n:  $threshold"; 
+    my $i = firstidx { $_ > $threshold } @primes;
+#    say "i: $i";
+    map { push @{$prime_base{ todigitstring($primes[$_],$base) }}, $base } 1..$i;
+    #map { push @{$prime_base{ fromdigits($base,$primes[$_]) }}, $base } 1..$i;
+    #sleep 1;
+
     #@primes[^(@primes.first: * > $threshold, :k)].
     #map { .base($base) => $base };
 }
 
+#p %prime_base;
+#%prime-base.=grep: +*.value.elems > 10;
+for my $m (2 .. 4) {
+#say "$m character strings that are prime in maximum bases: " . 
+    my @foo = grep { $prime_base{$_} == $m  } keys %prime_base; #.max: +*.value.elems).value.elems);
+    p @foo;
+    sleep 10;
+}
+
 __END__
 
+for $chars = 2
 2 3 /  3 8 /  4 15 /  5 24 /  6 35
 
 %prime-base.push: $_ for (2..36).map: -> $base {
