@@ -8,10 +8,10 @@ updating from RC…
 ||||+--------> Touched (modified by me) [497]
 |||||+-------> Random seed [116]
 ||||||+------> File output [74]
-|||||||+-----> Draft [292]
+|||||||+-----> Draft [293]
 ||||||||+----> Ignoring [35]
-|||||||||+---> Void (no local copy) [113]
-||||||||||+--> Un-implemented/reliable [98]
+|||||||||+---> Void (no local copy) [114]
+||||||||||+--> Un-implemented/reliable [99]
 |||||||||||
 GS......... 100_doors-1
 GS......... 100_doors-2
@@ -317,6 +317,7 @@ GS..T..D... Coprime_triplets
 GS..T..D... Coprimes
 GS......... Copy_a_string
 G.K........ Copy_stdin_to_stdout
+.......D.VU Count_how_many_vowels_and_consonants_occur_in_a_string
 GS......... Count_in_factors-1
 B.......... Count_in_factors-2
 GS......... Count_in_factors-3
@@ -1324,7 +1325,7 @@ GS......... Sort_an_outline_at_every_level
 GS......... Sort_disjoint_sublist
 GS..T...... Sort_numbers_lexicographically
 G.K........ Sort_stability
-.......D.VU Sort_the_letters_of_string_in_alphabitical_order
+.......D.VU Sort_the_letters_of_string_in_alphabetical_order
 GS..T...... Sort_three_variables
 GS..T...... Sort_using_a_custom_comparator
 GS..T...... Sorting_Algorithms_Circle_Sort
