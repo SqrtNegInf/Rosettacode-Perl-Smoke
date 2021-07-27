@@ -5495,7 +5495,7 @@ File: M/Multi-base_primes
 #!/usr/local/bin/perl
 #u# http://rosettacode.org/wiki/Multi-base_primes
 #t# inprogress
-#c# 2021-06-xx >RC
+#c# 2021-07-25 >RC
 #p# OK
 
 File: M/Multi-dimensional_array
