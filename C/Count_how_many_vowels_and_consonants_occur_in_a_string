@@ -1,0 +1,40 @@
+#!/usr/local/bin/perl
+#u# http://rosettacode.org/wiki/Count_how_many_vowels_and_consonants_occur_in_a_string
+#c# 2021-07-28 <RC
+#p# OK
+
+my @res;
+
+use strict;
+use warnings;
+use feature 'say';
+
+while( <DATA> )
+  {
+  push @res, "@{[ $- = tr/aeiouAEIOU// ]} vowels @{[ tr/a-zA-Z// - $-
+    ]} consonants in: $_"
+  }
+
+say my $result = join "\n", @res;
+
+my $ref = <<'EOD';
+3 vowels 4 consonants in: test one
+
+3 vowels 4 consonants in: TEST ONE
+
+22 vowels 31 consonants in: Now is the time for all good men to come to the aid of their country.
+
+11 vowels 19 consonants in: Forever Perl Programming Language
+
+EOD
+
+use Test::More;
+chomp $ref;
+is ($result, $ref);
+done_testing();
+
+__DATA__
+test one
+TEST ONE
+Now is the time for all good men to come to the aid of their country.
+Forever Perl Programming Language
