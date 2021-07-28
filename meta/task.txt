@@ -1,8 +1,8 @@
 
 This is perl 5, version 32, subversion 1 (v5.32.1) built for darwin-thread-multi-2level
 updating from RC…
-+------------> Perl: Good/Bad [1480/8]
-|+-----------> Smoke testing [1331]
++------------> Perl: Good/Bad [1481/8]
+|+-----------> Smoke testing [1332]
 ||+----------> sKipping validation [152]
 |||+---------> Interactive [69]
 ||||+--------> Touched (modified by me) [497]
@@ -10,8 +10,8 @@ updating from RC…
 ||||||+------> File output [74]
 |||||||+-----> Draft [293]
 ||||||||+----> Ignoring [35]
-|||||||||+---> Void (no local copy) [114]
-||||||||||+--> Un-implemented/reliable [99]
+|||||||||+---> Void (no local copy) [113]
+||||||||||+--> Un-implemented/reliable [98]
 |||||||||||
 GS......... 100_doors-1
 GS......... 100_doors-2
@@ -1325,7 +1325,7 @@ GS......... Sort_an_outline_at_every_level
 GS......... Sort_disjoint_sublist
 GS..T...... Sort_numbers_lexicographically
 G.K........ Sort_stability
-.......D.VU Sort_the_letters_of_string_in_alphabetical_order
+GS.....D... Sort_the_letters_of_string_in_alphabetical_order
 GS..T...... Sort_three_variables
 GS..T...... Sort_using_a_custom_comparator
 GS..T...... Sorting_Algorithms_Circle_Sort
