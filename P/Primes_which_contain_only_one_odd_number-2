@@ -1,0 +1,30 @@
+#!/usr/local/bin/perl
+#u# http://rosettacode.org/wiki/Primes_which_contain_only_one_odd_number
+#c# 2021-07-28 <RC
+#p# OK
+#n# tybalt89++, this is the version on RC
+
+use strict;
+use warnings;
+use feature 'say';
+
+use ntheory qw( primes );
+
+my @singleodd = grep tr/13579// == 1, @{ primes(1e3) };
+my $million = grep tr/13579// == 1, @{ primes(1e6) };
+say my $result = "found " . @singleodd .
+  "\n\n@singleodd\n\nfound $million in 1000000\n" =~ s/.{60}\K /\n/gr;
+
+my $ref = <<'EOD';
+found 45
+
+3 5 7 23 29 41 43 47 61 67 83 89 223 227 229 241 263 269 281
+283 401 409 421 443 449 461 463 467 487 601 607 641 643 647 661
+683 809 821 823 827 829 863 881 883 887
+
+found 2560 in 1000000
+EOD
+
+use Test::More;
+is ($result, $ref);
+done_testing();
