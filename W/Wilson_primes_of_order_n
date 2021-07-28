@@ -1,0 +1,66 @@
+#!/usr/local/bin/perl
+#u# http://rosettacode.org/wiki/Wilson_primes_of_order_n
+#c# 2021-07-xx >RC
+#p# OK
+
+my @res;
+
+use strict;
+use warnings;
+use feature 'say';
+
+use ntheory <primes factorial>;
+
+my @primes = @{primes( 10500 )};
+
+for my $n (1..11) {
+    push @res, sprintf "%3d: %s", $n, join ' ', grep { $_ >= $n && 0 == (factorial($n-1) * factorial($_-$n) - (-1)**$n) % $_**2 } @primes;
+}
+
+say my $result = join "\n", @res;
+
+my $ref = <<'END';
+  1: 5 13 563
+  2: 2 3 11 107 4931
+  3: 7
+  4: 10429
+  5: 5 7 47
+  6: 11
+  7: 17
+  8: 
+  9: 541
+ 10: 11 1109
+ 11: 17 2713
+END
+
+use Test::More;
+chomp $ref;
+is($result, $ref);
+done_testing();
+
+__END__
+
+=={{header|Perl}}==
+{{libheader|ntheory}}
+<lang perl> use strict;
+use warnings;
+use feature 'say';
+use ntheory <primes factorial>;
+
+my @primes = @{primes( 10500 )};
+
+for my $n (1..11) {
+    push @res, sprintf "%3d: %s", $n, join ' ', grep { $_ >= $n && 0 == (factorial($n-1) * factorial($_-$n) - (-1)**$n) % $_**2 } @primes;
+}</lang>
+{{out}}
+<pre> 1: 5 13 563
+  2: 2 3 11 107 4931
+  3: 7
+  4: 10429
+  5: 5 7 47
+  6: 11
+  7: 17
+  8: 
+  9: 541
+ 10: 11 1109
+ 11: 17 2713</pre>
