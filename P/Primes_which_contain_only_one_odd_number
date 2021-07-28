@@ -1,0 +1,36 @@
+#!/usr/local/bin/perl
+#u# http://rosettacode.org/wiki/Primes_which_contain_only_one_odd_number
+#c# 2021-07-xx >RC
+#p# OK
+
+use strict;
+use warnings;
+use feature 'say';
+
+use ntheory 'is_prime';
+
+say my $result = join(' ', grep { /^[^13579]*.$/ and is_prime $_ } 3..1000) =~ s/.{80}\K /\n/gr;
+
+my $ref = <<'END';
+3 5 7 23 29 41 43 47 61 67 83 89 223 227 229 241 263 269 281 283 401 409 421 443
+449 461 463 467 487 601 607 641 643 647 661 683 809 821 823 827 829 863 881 883 887
+END
+
+use Test::More;
+chomp $ref;
+is($result, $ref);
+done_testing();
+
+__END__
+
+=={{header|Perl}}==
+{{libheader|ntheory}}
+<lang perl>use strict;
+use warnings;
+use feature 'say';
+use ntheory 'is_prime';
+
+say my $result = join(' ', grep { /^[^13579]*.$/ and is_prime $_ } 3..1000) =~ s/.{80}\K /\n/gr;</lang>
+{{out}}
+<pre>3 5 7 23 29 41 43 47 61 67 83 89 223 227 229 241 263 269 281 283 401 409 421 443
+449 461 463 467 487 601 607 641 643 647 661 683 809 821 823 827 829 863 881 883 887</pre>
