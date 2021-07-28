@@ -1,0 +1,67 @@
+#!/usr/local/bin/perl
+#u# http://rosettacode.org/wiki/Sort_the_letters_of_string_in_alphabetical_order
+#c# 2021-07-27 <RC
+#p# OK
+
+my @res;
+
+use strict;
+use warnings;
+use feature 'say';
+
+my @lines = split /\n/, <<END;
+The quick brown fox jumps over the lazy dog, apparently
+Now is the time for all good men to come to the aid of their country.
+END
+
+for ( @lines, 'dcba', 'sort this string' ) {
+  push @res, "\n$_";
+  push @res, builtinsort($_); #     using built in sort
+  push @res, sortstring($_);  # not using built in sort
+  push @res, inplace($_);     # not using built in sort
+}
+
+sub builtinsort { return join '', sort split //, shift; }
+
+sub sortstring { # IBM card sorters forever !! (distribution sort)
+  my @chars;
+  $chars[ord] .= $_ for split //, shift;
+  no warnings; # hehehe
+  return join '', @chars;
+}
+
+sub inplace { # just swap any adjacent pair not in order until none found
+  local $_ = shift;
+  1 while s/(.)(.)(??{$1 le $2 && '(*FAIL)'})/$2$1/g;
+  return $_;
+}
+
+say my $result = join "\n", @res;
+
+my $ref = <<'EOD';
+
+The quick brown fox jumps over the lazy dog, apparently
+         ,Taaabcdeeeefghhijkllmnnoooopppqrrrsttuuvwxyyz
+         ,Taaabcdeeeefghhijkllmnnoooopppqrrrsttuuvwxyyz
+         ,Taaabcdeeeefghhijkllmnnoooopppqrrrsttuuvwxyyz
+
+Now is the time for all good men to come to the aid of their country.
+               .Naaccddeeeeeeffghhhiiiillmmmnnooooooooorrrstttttttuwy
+               .Naaccddeeeeeeffghhhiiiillmmmnnooooooooorrrstttttttuwy
+               .Naaccddeeeeeeffghhhiiiillmmmnnooooooooorrrstttttttuwy
+
+dcba
+abcd
+abcd
+abcd
+
+sort this string
+  ghiinorrsssttt
+  ghiinorrsssttt
+  ghiinorrsssttt
+EOD
+
+use Test::More;
+chomp $ref;
+is ($result, $ref);
+done_testing();
