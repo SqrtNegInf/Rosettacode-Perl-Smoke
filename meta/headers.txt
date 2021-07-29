@@ -1678,6 +1678,12 @@ File: C/Compound_data_type
 #p# OK
 #n# re-write with more up-to-date Perl OO, or Moose?
 
+File: C/Concatenate_two_primes_is_also_prime
+#!/usr/local/bin/perl
+#u# http://rosettacode.org/wiki/Concatenate_two_primes_is_also_prime
+#c# 2021-07-28 <RC
+#p# OK
+
 File: C/Concurrent_computing-1
 #!/usr/local/bin/perl
 #u# http://rosettacode.org/wiki/Concurrent_computing
@@ -1806,6 +1812,12 @@ File: C/Copy_stdin_to_stdout
 #u# http://rosettacode.org/wiki/Copy_stdin_to_stdout
 #t# nocode
 #c# 2018-11-11 <RC
+#p# OK
+
+File: C/Count_how_many_vowels_and_consonants_occur_in_a_string
+#!/usr/local/bin/perl
+#u# http://rosettacode.org/wiki/Count_how_many_vowels_and_consonants_occur_in_a_string
+#c# 2021-07-28 <RC
 #p# OK
 
 File: C/Count_in_factors-1
@@ -5378,7 +5390,7 @@ File: M/Minimum_positive_multiple_in_base_10_using_only_0_and_1-3
 #u# http://rosettacode.org/wiki/Minimum_positive_multiple_in_base_10_using_only_0_and_1
 #c# 2020-03-03 NOT ON RC
 #p# OK
-#n# no special cases, fastest of 3 versions
+#n# no special cases, fastest of 3 versions (a literal translation of Julia entry)
 
 File: M/Minkowski_question-mark_function
 #!/usr/local/bin/perl
@@ -5842,6 +5854,12 @@ File: N/Numbers_which_binary_and_ternary_digit_sum_are_prime
 #!/usr/local/bin/perl
 #u# http://rosettacode.org/wiki/Numbers_which_binary_and_ternary_digit_sum_are_prime
 #c# 2021-04-25 >RC
+#p# OK
+
+File: N/Numbers_which_count_of_divisors_is_prime
+#!/usr/local/bin/perl
+#u# http://rosettacode.org/wiki/Numbers_which_count_of_divisors_is_prime
+#c# 2021-07-28 >RC
 #p# OK
 
 File: N/Numbers_with_equal_rises_and_falls
@@ -6828,6 +6846,19 @@ File: P/Primes_-_allocate_descendants_to_their_ancestors
 #u# http://rosettacode.org/wiki/Primes_-_allocate_descendants_to_their_ancestors
 #c# 2018-11-29 >RC
 #p# OK
+
+File: P/Primes_which_contain_only_one_odd_number-1
+#!/usr/local/bin/perl
+#u# http://rosettacode.org/wiki/Primes_which_contain_only_one_odd_number
+#c# 2021-07-xx NOT ON RC
+#p# OK
+
+File: P/Primes_which_contain_only_one_odd_number-2
+#!/usr/local/bin/perl
+#u# http://rosettacode.org/wiki/Primes_which_contain_only_one_odd_number
+#c# 2021-07-28 <RC
+#p# OK
+#n# tybalt89++, this is the version on RC
 
 File: P/Primes_which_sum_of_digits_is_25
 #!/usr/local/bin/perl
@@ -9825,6 +9856,12 @@ File: W/Wieferich_primes
 #c# 2021-05-31 >RC
 #p# OK
 #n# trizen++ 10x faster
+
+File: W/Wilson_primes_of_order_n
+#!/usr/local/bin/perl
+#u# http://rosettacode.org/wiki/Wilson_primes_of_order_n
+#c# 2021-07-28 >RC
+#p# OK
 
 File: W/Window_creation
 #!/usr/local/bin/perl # do-not-check
