@@ -1,17 +1,17 @@
 
 This is perl 5, version 32, subversion 1 (v5.32.1) built for darwin-thread-multi-2level
 updating from RC…
-+------------> Perl: Good/Bad [1481/8]
-|+-----------> Smoke testing [1332]
++------------> Perl: Good/Bad [1487/8]
+|+-----------> Smoke testing [1338]
 ||+----------> sKipping validation [152]
 |||+---------> Interactive [69]
-||||+--------> Touched (modified by me) [497]
+||||+--------> Touched (modified by me) [499]
 |||||+-------> Random seed [116]
 ||||||+------> File output [74]
-|||||||+-----> Draft [293]
+|||||||+-----> Draft [296]
 ||||||||+----> Ignoring [35]
-|||||||||+---> Void (no local copy) [113]
-||||||||||+--> Un-implemented/reliable [98]
+|||||||||+---> Void (no local copy) [111]
+||||||||||+--> Un-implemented/reliable [96]
 |||||||||||
 GS......... 100_doors-1
 GS......... 100_doors-2
@@ -295,6 +295,7 @@ GS......... Compiler_lexical_analyzer-2
 GS......... Compiler_syntax_analyzer
 GS......... Compiler_virtual_machine_interpreter
 GS......... Compound_data_type
+GS.....D... Concatenate_two_primes_is_also_prime
 G.K..R..... Concurrent_computing-1
 GS......... Concurrent_computing-2
 G.K........ Conditional_structures
@@ -317,7 +318,7 @@ GS..T..D... Coprime_triplets
 GS..T..D... Coprimes
 GS......... Copy_a_string
 G.K........ Copy_stdin_to_stdout
-.......D.VU Count_how_many_vowels_and_consonants_occur_in_a_string
+GS.....D... Count_how_many_vowels_and_consonants_occur_in_a_string
 GS......... Count_in_factors-1
 B.......... Count_in_factors-2
 GS......... Count_in_factors-3
@@ -943,7 +944,7 @@ GS..T..D... Numbers_in_base-16_representation_that_cannot_be_written_with_decima
 GS..T..D... Numbers_in_base_10_that_are_palindromic_in_bases_2,_4,_and_16
 GS.....D... Numbers_n_in_which_number_1_occur_twice
 GS..T..D... Numbers_which_binary_and_ternary_digit_sum_are_prime
-.......D.VU Numbers_which_count_of_divisors_is_prime
+GS..T..D... Numbers_which_count_of_divisors_is_prime
 GS.....D... Numbers_with_equal_rises_and_falls
 GS.....D... Numbers_with_prime_digits_whose_sum_is_13
 .......D.V. Numbers_with_same_digit_set_in_base_10_and_base_16
@@ -1103,6 +1104,9 @@ GS.....D... Prime_numbers_which_contain_123
 GS.....D... Prime_triplets
 GS.....D... Prime_words
 GS..T...... Primes_-_allocate_descendants_to_their_ancestors
+.......D... Primes_which_contain_only_one_odd_number
+GS......... Primes_which_contain_only_one_odd_number-1
+GS......... Primes_which_contain_only_one_odd_number-2
 GS..T..D... Primes_which_sum_of_digits_is_25
 GS.....D... Primes_whose_first_and_last_number_is_3
 GS.....D... Primes_with_digits_in_nondecreasing_order
@@ -1592,6 +1596,7 @@ GS..T...... Welch%27s_t-test-1
 GS......... Welch%27s_t-test-2
 GS..T..D... Wieferich_primes
 .......D.VU WiktionaryDumps_to_words
+GS..T..D... Wilson_primes_of_order_n
 G.KI....... Window_creation
 G.KI....... Window_creation_X11
 G.KI....... Window_management
