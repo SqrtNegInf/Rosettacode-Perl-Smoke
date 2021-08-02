@@ -1,0 +1,67 @@
+#!/usr/local/bin/perl
+#u# http://rosettacode.org/wiki/Almkvist-Giullera_formula_for_pi
+#c# 2021-08-02 <RC
+#p# OK
+
+my @res;
+
+use strict;
+use warnings;
+use feature 'say';
+use Math::AnyNum qw(:overload factorial);
+
+sub almkvist_giullera_integral {
+    my($n) = @_;
+    (32 * (14*$n * (38*$n + 9) + 9) * factorial(6*$n)) / (3*factorial($n)**6);
+}
+
+sub almkvist_giullera {
+    my($n) = @_;
+    almkvist_giullera_integral($n) / (10**(6*$n + 3));
+}
+
+sub almkvist_giullera_pi {
+    my ($prec) = @_;
+
+    local $Math::AnyNum::PREC = 4*($prec+1);
+
+    my $sum = 0;
+    my $target = '';
+
+    for (my $n = 0; ; ++$n) {
+        $sum += almkvist_giullera($n);
+        my $curr = ($sum**-.5)->as_dec;
+        return $target if ($curr eq $target);
+        $target = $curr;
+    }
+}
+
+push @res, 'First 10 integer portions: ';
+push @res, "$_  " . almkvist_giullera_integral($_) for 0..9;
+
+my $precision = 70;
+
+push @res, sprintf("π to %s decimal places is:\n%s\n",
+    $precision, almkvist_giullera_pi($precision));
+
+say my $result = join "\n", @res;
+
+my $ref = <<'EOD';
+First 10 integer portions: 
+0  96
+1  5122560
+2  190722470400
+3  7574824857600000
+4  312546150372456000000
+5  13207874703225491420651520
+6  567273919793089083292259942400
+7  24650600248172987140112763715584000
+8  1080657854354639453670407474439566400000
+9  47701779391594966287470570490839978880000000
+π to 70 decimal places is:
+3.1415926535897932384626433832795028841971693993751058209749445923078164
+EOD
+
+use Test::More;
+is ($result, $ref);
+done_testing();
