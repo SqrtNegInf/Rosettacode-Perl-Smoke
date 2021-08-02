@@ -8,10 +8,10 @@ updating from RC…
 ||||+--------> Touched (modified by me) [499]
 |||||+-------> Random seed [116]
 ||||||+------> File output [74]
-|||||||+-----> Draft [298]
+|||||||+-----> Draft [299]
 ||||||||+----> Ignoring [35]
-|||||||||+---> Void (no local copy) [113]
-||||||||||+--> Un-implemented/reliable [98]
+|||||||||+---> Void (no local copy) [114]
+||||||||||+--> Un-implemented/reliable [99]
 |||||||||||
 GS......... 100_doors-1
 GS......... 100_doors-2
@@ -555,6 +555,7 @@ GS......... Fork
 GS......... Formal_power_series-1
 GS......... Formal_power_series-2
 GS......... Formatted_numeric_output
+.......D.VU Fortunate_numbers
 GS..T...... Forward_difference
 GS......... Four_bit_adder
 GS..T...... Four_is_magic
