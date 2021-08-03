@@ -1,0 +1,9 @@
+#!/usr/local/bin/perl
+#u# http://rosettacode.org/wiki/Reverse_file_lines
+#t# nocode
+#c# 2021-08-03 <RC
+#p# OK
+
+#  as one-liner ..
+#  perl -e 'print reverse <>'
+
