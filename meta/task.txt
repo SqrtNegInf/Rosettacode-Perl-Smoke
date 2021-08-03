@@ -1,17 +1,17 @@
 
 This is perl 5, version 32, subversion 1 (v5.32.1) built for darwin-thread-multi-2level
 updating from RC…
-+------------> Perl: Good/Bad [1487/8]
-|+-----------> Smoke testing [1338]
++------------> Perl: Good/Bad [1489/8]
+|+-----------> Smoke testing [1340]
 ||+----------> sKipping validation [152]
 |||+---------> Interactive [69]
 ||||+--------> Touched (modified by me) [499]
 |||||+-------> Random seed [116]
 ||||||+------> File output [74]
-|||||||+-----> Draft [299]
+|||||||+-----> Draft [300]
 ||||||||+----> Ignoring [35]
-|||||||||+---> Void (no local copy) [114]
-||||||||||+--> Un-implemented/reliable [99]
+|||||||||+---> Void (no local copy) [113]
+||||||||||+--> Un-implemented/reliable [98]
 |||||||||||
 GS......... 100_doors-1
 GS......... 100_doors-2
@@ -68,7 +68,7 @@ GS..T..D... Air_mass
 GS......... Align_columns-1
 GS......... Align_columns-2
 GS......... Aliquot_sequence_classifications
-GS..T...... Almkvist-Giullera_formula_for_pi
+GS......... Almkvist-Giullera_formula_for_pi
 GS......... Almost_prime-1
 GS......... Almost_prime-2
 GS.....D... Alternade_words
@@ -555,7 +555,7 @@ GS......... Fork
 GS......... Formal_power_series-1
 GS......... Formal_power_series-2
 GS......... Formatted_numeric_output
-.......D.VU Fortunate_numbers
+GS..T..D... Fortunate_numbers
 GS..T...... Forward_difference
 GS......... Four_bit_adder
 GS..T...... Four_is_magic
@@ -867,6 +867,7 @@ GS..TR..... Mind_boggling_card_trick
 .......D.VU Mine_a_bitcoin
 G.KI....... Minesweeper_game
 GS......... Minimal_steps_down_to_1
+GS.....D... Minimum_number_of_cells_after,_before,_above_and_below_NxN_squares
 .......D... Minimum_positive_multiple_in_base_10_using_only_0_and_1
 GS..T...... Minimum_positive_multiple_in_base_10_using_only_0_and_1-1
 GS..T...... Minimum_positive_multiple_in_base_10_using_only_0_and_1-2
