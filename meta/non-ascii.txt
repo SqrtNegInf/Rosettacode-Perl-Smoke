@@ -36,6 +36,9 @@ A/Air_mass
 A/Almkvist-Giullera_formula_for_pi
 π:     2 GREEK SMALL LETTER PI
 
+A/Almkvist-Giullera_formula_for_pi.1
+π:     2 GREEK SMALL LETTER PI
+
 A/Approximate_Equality
 ≅:    12 APPROXIMATELY EQUAL TO
 
