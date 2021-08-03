@@ -1,0 +1,38 @@
+#!/usr/local/bin/perl
+#u# http://rosettacode.org/wiki/Minimum_number_of_cells_after,_before,_above_and_below_NxN_squares
+#c# 2021-08-02 <RC
+#p# OK
+
+my @res;
+
+use strict;
+use warnings;
+use feature 'say';
+
+use List::Util qw( max min );
+
+my $N = 10;
+
+for my $row ( 0 .. $N - 1 ) {
+  my @cols = map { min $_, $row, $N-1 - max $_, $row } 0 .. $N-1;
+  push @res, "@cols\n";
+}
+
+say my $result = join '', @res;
+
+my $ref = <<'EOD';
+0 0 0 0 0 0 0 0 0 0
+0 1 1 1 1 1 1 1 1 0
+0 1 2 2 2 2 2 2 1 0
+0 1 2 3 3 3 3 2 1 0
+0 1 2 3 4 4 3 2 1 0
+0 1 2 3 4 4 3 2 1 0
+0 1 2 3 3 3 3 2 1 0
+0 1 2 2 2 2 2 2 1 0
+0 1 1 1 1 1 1 1 1 0
+0 0 0 0 0 0 0 0 0 0
+EOD
+
+use Test::More;
+is ($result, $ref);
+done_testing();
