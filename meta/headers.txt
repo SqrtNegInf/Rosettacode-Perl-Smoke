@@ -322,6 +322,12 @@ File: A/Aliquot_sequence_classifications
 File: A/Almkvist-Giullera_formula_for_pi
 #!/usr/local/bin/perl
 #u# http://rosettacode.org/wiki/Almkvist-Giullera_formula_for_pi
+#c# 2021-08-02 <RC
+#p# OK
+
+File: A/Almkvist-Giullera_formula_for_pi.1
+#!/usr/local/bin/perl
+#u# http://rosettacode.org/wiki/Almkvist-Giullera_formula_for_pi
 #c# 2021-01-12 >RC
 #p# OK
 
@@ -3361,6 +3367,13 @@ File: F/Formatted_numeric_output
 #c# 2018-08-07 <RC
 #p# OK
 
+File: F/Fortunate_numbers
+#!/usr/local/bin/perl
+#u# http://rosettacode.org/wiki/Fortunate_numbers
+#c# 2021-08-02 >RC
+#p# OK
+#n# a little more efficient
+
 File: F/Forward_difference
 #!/usr/local/bin/perl
 #u# http://rosettacode.org/wiki/Forward_difference
@@ -5368,6 +5381,12 @@ File: M/Minimal_steps_down_to_1
 #!/usr/local/bin/perl
 #u# http://rosettacode.org/wiki/Minimal_steps_down_to_1
 #c# 2020-12-08 <RC
+#p# OK
+
+File: M/Minimum_number_of_cells_after,_before,_above_and_below_NxN_squares
+#!/usr/local/bin/perl
+#u# http://rosettacode.org/wiki/Minimum_number_of_cells_after,_before,_above_and_below_NxN_squares
+#c# 2021-08-02 <RC
 #p# OK
 
 File: M/Minimum_positive_multiple_in_base_10_using_only_0_and_1-1
