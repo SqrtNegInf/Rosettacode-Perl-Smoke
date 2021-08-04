@@ -1,6 +1,6 @@
 #!/usr/local/bin/perl
 #u# http://rosettacode.org/wiki/Minimum_number_of_cells_after,_before,_above_and_below_NxN_squares
-#c# 2021-08-02 <RC, 2021-08-xx >RC
+#c# 2021-08-02 <RC, 2021-08-03 >RC
 #p# OK
 
 my @res;
@@ -14,6 +14,7 @@ use List::Util <max min>;
 for my $N (0, 1, 2, 6, 9, 23) {
     my $fmt = ('%' . (1+length int $N/2) . 'd') x $N;
     #my $w = 1 + length(int($N/2));
+    push @res, "$N x $N distance to nearest edge:";
     for my $row ( 0 .. $N-1 ) {
         my @cols = map { min $_, $row, $N-1 - max $_, $row } 0 .. $N-1;
         push @res, sprintf $fmt, @cols;
@@ -25,12 +26,16 @@ for my $N (0, 1, 2, 6, 9, 23) {
 say my $result = join "\n", @res;
 
 my $ref = <<'EOD';
+0 x 0 distance to nearest edge:
 
+1 x 1 distance to nearest edge:
  0
 
+2 x 2 distance to nearest edge:
  0 0
  0 0
 
+6 x 6 distance to nearest edge:
  0 0 0 0 0 0
  0 1 1 1 1 0
  0 1 2 2 1 0
@@ -38,6 +43,7 @@ my $ref = <<'EOD';
  0 1 1 1 1 0
  0 0 0 0 0 0
 
+9 x 9 distance to nearest edge:
  0 0 0 0 0 0 0 0 0
  0 1 1 1 1 1 1 1 0
  0 1 2 2 2 2 2 1 0
@@ -48,6 +54,7 @@ my $ref = <<'EOD';
  0 1 1 1 1 1 1 1 0
  0 0 0 0 0 0 0 0 0
 
+23 x 23 distance to nearest edge:
   0  0  0  0  0  0  0  0  0  0  0  0  0  0  0  0  0  0  0  0  0  0  0
   0  1  1  1  1  1  1  1  1  1  1  1  1  1  1  1  1  1  1  1  1  1  0
   0  1  2  2  2  2  2  2  2  2  2  2  2  2  2  2  2  2  2  2  2  1  0
@@ -78,18 +85,3 @@ use Test::More;
 chomp $ref;
 is ($result, $ref);
 done_testing();
-
-__END__
-
-use strict;
-use warnings;
-use List::Util <max min>;
-
-for my $N (0, 1, 2, 6, 9, 23) {
-    my $fmt = ('%' . (1+length int $N/2) . 'd') x $N . "\n";
-    for my $row ( 0 .. $N-1 ) {
-        my @cols = map { min $_, $row, $N-1 - max $_, $row } 0 .. $N-1;
-        printf $fmt, @cols;
-    }
-    print "\n";
-}
