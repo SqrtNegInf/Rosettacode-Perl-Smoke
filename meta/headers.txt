@@ -5386,7 +5386,7 @@ File: M/Minimal_steps_down_to_1
 File: M/Minimum_number_of_cells_after,_before,_above_and_below_NxN_squares
 #!/usr/local/bin/perl
 #u# http://rosettacode.org/wiki/Minimum_number_of_cells_after,_before,_above_and_below_NxN_squares
-#c# 2021-08-02 <RC
+#c# 2021-08-02 <RC, 2021-08-xx >RC
 #p# OK
 
 File: M/Minimum_positive_multiple_in_base_10_using_only_0_and_1-1
@@ -7420,6 +7420,13 @@ File: R/Reverse_a_string
 #!/usr/local/bin/perl
 #u# http://rosettacode.org/wiki/Reverse_a_string
 #c# 2018-08-18 <RC, 2018-09-08 >RC
+#p# OK
+
+File: R/Reverse_file_lines
+#!/usr/local/bin/perl
+#u# http://rosettacode.org/wiki/Reverse_file_lines
+#t# nocode
+#c# 2021-08-03 <RC
 #p# OK
 
 File: R/Reverse_the_gender_of_a_string
