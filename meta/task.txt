@@ -1,14 +1,14 @@
 
 This is perl 5, version 32, subversion 1 (v5.32.1) built for darwin-thread-multi-2level
 updating from RC…
-+------------> Perl: Good/Bad [1489/8]
-|+-----------> Smoke testing [1340]
-||+----------> sKipping validation [152]
++------------> Perl: Good/Bad [1488/8]
+|+-----------> Smoke testing [1339]
+||+----------> sKipping validation [153]
 |||+---------> Interactive [69]
-||||+--------> Touched (modified by me) [499]
+||||+--------> Touched (modified by me) [500]
 |||||+-------> Random seed [116]
 ||||||+------> File output [74]
-|||||||+-----> Draft [300]
+|||||||+-----> Draft [301]
 ||||||||+----> Ignoring [35]
 |||||||||+---> Void (no local copy) [113]
 ||||||||||+--> Un-implemented/reliable [98]
@@ -58,7 +58,7 @@ GS......... Ackermann_function-4
 GS......... Ackermann_function-5
 ........XV. Active_Directory_Connect
 GS......... Active_Directory_Search_for_a_user
-GS......... Active_object
+!S......... Active_object
 GS......... Add_a_variable_to_a_class_instance_at_runtime
 .......D.VU Addition-chain_exponentiation
 GS..T..D... Addition_chains
@@ -562,7 +562,6 @@ GS..T...... Four_is_magic
 GS..T...... Four_is_the_number_of_letters_in_the_...
 GS....F.... Fractal_tree
 GS..T...... Fraction_reduction
-GS......... Fractran
 GS.....D... Free_polyominoes_enumeration
 GS......... French_Republican_calendar
 GS..T..D... Frobenius_numbers
@@ -867,7 +866,7 @@ GS..TR..... Mind_boggling_card_trick
 .......D.VU Mine_a_bitcoin
 G.KI....... Minesweeper_game
 GS......... Minimal_steps_down_to_1
-GS.....D... Minimum_number_of_cells_after,_before,_above_and_below_NxN_squares
+GS..T..D... Minimum_number_of_cells_after,_before,_above_and_below_NxN_squares
 .......D... Minimum_positive_multiple_in_base_10_using_only_0_and_1
 GS..T...... Minimum_positive_multiple_in_base_10_using_only_0_and_1-1
 GS..T...... Minimum_positive_multiple_in_base_10_using_only_0_and_1-2
@@ -1198,6 +1197,7 @@ GS......... Respond_to_an_unknown_method_call
 GS......... Retrieve_and_search_chat_history
 GS......... Return_multiple_values
 GS..T...... Reverse_a_string
+G.K....D... Reverse_file_lines
 GS..T..D... Reverse_the_gender_of_a_string
 GS......... Reverse_words_in_a_string
 .......D.VU Robots
