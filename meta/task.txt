@@ -393,7 +393,6 @@ GS......... Discordian_date
 GS.....D... Discrete_Fourier_transform
 GS..T...... Display_a_linear_combination
 GS......... Display_an_outline_as_a_nested_table
-.......D.V. Display_the_order_of_the_lines_of_a_file_in_reversed_order
 GS.....D... Distinct_Palindromes_Within_Decimal_Numbers
 GS......... Distributed_programming
 GS..T..D... Distribution_of_0_Digits_in_Factorial_Series
@@ -1200,6 +1199,7 @@ GS......... Retrieve_and_search_chat_history
 GS......... Return_multiple_values
 GS..T...... Reverse_a_string
 GS..T..D... Reverse_the_gender_of_a_string
+.......D.V. Reverse_the_order_of_lines_in_a_text_file_while_preserving_the_contents_of_each_line
 GS......... Reverse_words_in_a_string
 .......D.VU Robots
 GS...R..... Rock-paper-scissors
