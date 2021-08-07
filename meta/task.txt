@@ -1,17 +1,17 @@
 
 This is perl 5, version 32, subversion 1 (v5.32.1) built for darwin-thread-multi-2level
 updating from RC…
-+------------> Perl: Good/Bad [1488/8]
-|+-----------> Smoke testing [1339]
++------------> Perl: Good/Bad [1487/8]
+|+-----------> Smoke testing [1338]
 ||+----------> sKipping validation [152]
 |||+---------> Interactive [69]
 ||||+--------> Touched (modified by me) [500]
 |||||+-------> Random seed [116]
 ||||||+------> File output [74]
-|||||||+-----> Draft [301]
+|||||||+-----> Draft [302]
 ||||||||+----> Ignoring [35]
-|||||||||+---> Void (no local copy) [115]
-||||||||||+--> Un-implemented/reliable [99]
+|||||||||+---> Void (no local copy) [117]
+||||||||||+--> Un-implemented/reliable [100]
 |||||||||||
 GS......... 100_doors-1
 GS......... 100_doors-2
@@ -136,10 +136,10 @@ GS...R..... Balanced_brackets-3
 GS......... Balanced_ternary
 GS..T..D... Banker%27s_algorithm
 GS...RF.... Barnsley_fern
-GS.....D... Base-16_representation
 GS..T..D... Base58Check_encoding
 GS..T...... Base64_decode_data
 GS.....D... Base64_encode_data
+.......D.V. Base_16_numbers_needing_a_to_f
 GS..T...... Bell_numbers
 GS......... Benford%27s_law
 GS......... Bernoulli_numbers-1
@@ -1365,6 +1365,7 @@ GS......... Sparkline_in_unicode
 GS..T..D... Special_Divisors
 G.K........ Special_characters
 GS..T..D... Special_factorials
+.......D.VU Special_neighbor_primes
 G.K.T...... Special_variables
 G.K.....X.. Speech_synthesis
 GS..T...... Spelling_of_ordinal_numbers
