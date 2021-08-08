@@ -8,10 +8,10 @@ updating from RC…
 ||||+--------> Touched (modified by me) [500]
 |||||+-------> Random seed [116]
 ||||||+------> File output [74]
-|||||||+-----> Draft [302]
+|||||||+-----> Draft [303]
 ||||||||+----> Ignoring [35]
-|||||||||+---> Void (no local copy) [117]
-||||||||||+--> Un-implemented/reliable [100]
+|||||||||+---> Void (no local copy) [118]
+||||||||||+--> Un-implemented/reliable [101]
 |||||||||||
 GS......... 100_doors-1
 GS......... 100_doors-2
@@ -1522,6 +1522,7 @@ GS......... Tree_from_nesting_levels-2
 GS......... Tree_traversal
 GS......... Trigonometric_functions
 GS.....D... Triplet_of_three_numbers
+.......D.VU Tropical_algebra_overloading
 GS......... Truncatable_primes-1
 GS......... Truncatable_primes-2
 GS......... Truncatable_primes-3
