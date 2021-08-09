@@ -8,10 +8,10 @@ updating from RC…
 ||||+--------> Touched (modified by me) [500]
 |||||+-------> Random seed [116]
 ||||||+------> File output [74]
-|||||||+-----> Draft [303]
+|||||||+-----> Draft [304]
 ||||||||+----> Ignoring [35]
-|||||||||+---> Void (no local copy) [118]
-||||||||||+--> Un-implemented/reliable [101]
+|||||||||+---> Void (no local copy) [119]
+||||||||||+--> Un-implemented/reliable [102]
 |||||||||||
 GS......... 100_doors-1
 GS......... 100_doors-2
@@ -1494,6 +1494,7 @@ GS..T...... Textonyms
 GS......... The_ISAAC_Cipher
 GS..T...... The_Name_Game
 GS......... The_Twelve_Days_of_Christmas
+.......D.VU The_sieve_of_Sundaram
 GS..T...... Thiele%27s_interpolation_formula
 GS..TR.D... Three_word_location
 GS......... Thue-Morse
