@@ -1,0 +1,48 @@
+#!/usr/local/bin/perl
+#u# http://rosettacode.org/wiki/Special_neighbor_primes
+#c# 2021-08-09 <RC
+#p# OK
+
+use feature 'say';
+#my $result;
+#my @res;
+
+
+#!/usr/bin/perl
+
+use strict; # https://rosettacode.org/wiki/Special_neighbor_primes
+use warnings;
+use ntheory qw( primes is_prime );
+
+my @primes = @{ primes(100) };
+for ( 1 .. $#primes )
+  {
+  is_prime( [email protected] = $primes[$_-1] + $primes[$_] - 1 ) and
+    printf "%2d + %2d - 1 = %3d\n", $primes[$_-1], $primes[$_], [email protected];
+  }
+
+Output:
+ 3 +  5 - 1 =   7
+ 5 +  7 - 1 =  11
+ 7 + 11 - 1 =  17
+11 + 13 - 1 =  23
+13 + 17 - 1 =  29
+19 + 23 - 1 =  41
+29 + 31 - 1 =  59
+31 + 37 - 1 =  67
+41 + 43 - 1 =  83
+43 + 47 - 1 =  89
+61 + 67 - 1 = 127
+67 + 71 - 1 = 137
+73 + 79 - 1 = 151
+
+
+
+EOD
+
+say my $result = join "\n", @res;
+my $ref = <<'EOD';
+
+use Test::More;
+is ($result, $ref);
+done_testing();
