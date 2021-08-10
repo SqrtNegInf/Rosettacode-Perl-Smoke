@@ -8,9 +8,9 @@ updating from RC…
 ||||+--------> Touched (modified by me) [500]
 |||||+-------> Random seed [116]
 ||||||+------> File output [74]
-|||||||+-----> Draft [304]
+|||||||+-----> Draft [305]
 ||||||||+----> Ignoring [35]
-|||||||||+---> Void (no local copy) [119]
+|||||||||+---> Void (no local copy) [120]
 ||||||||||+--> Un-implemented/reliable [102]
 |||||||||||
 GS......... 100_doors-1
@@ -516,6 +516,7 @@ GS.....D... Find_first_missing_positive
 GS.....D... Find_if_a_point_is_within_a_triangle
 GS......... Find_largest_left_truncatable_prime_in_a_given_base
 GS......... Find_limit_of_recursion
+.......D.VU Find_minimum_number_of_coins_that_make_a_given_value
 GS......... Find_palindromic_numbers_in_both_binary_and_ternary_bases
 GS..T..D... Find_prime_n_for_that_reversed_n_is_also_prime
 GS..T..D... Find_prime_numbers_of_the_form_n_n_n%2B2
@@ -1365,7 +1366,7 @@ GS......... Sparkline_in_unicode
 GS..T..D... Special_Divisors
 G.K........ Special_characters
 GS..T..D... Special_factorials
-.......D.VU Special_neighbor_primes
+.......D.V. Special_neighbor_primes
 G.K.T...... Special_variables
 G.K.....X.. Speech_synthesis
 GS..T...... Spelling_of_ordinal_numbers
