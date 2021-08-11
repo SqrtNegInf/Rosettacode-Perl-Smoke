@@ -3,25 +3,24 @@
 #c# 2021-08-09 <RC
 #p# OK
 
-use feature 'say';
-#my $result;
-#my @res;
+my @res;
 
-
-#!/usr/bin/perl
-
-use strict; # https://rosettacode.org/wiki/Special_neighbor_primes
+use strict;
 use warnings;
+use feature 'say';
+
 use ntheory qw( primes is_prime );
 
 my @primes = @{ primes(100) };
-for ( 1 .. $#primes )
-  {
-  is_prime( [email protected] = $primes[$_-1] + $primes[$_] - 1 ) and
-    printf "%2d + %2d - 1 = %3d\n", $primes[$_-1], $primes[$_], [email protected];
-  }
 
-Output:
+for ( 1 .. $#primes ) {
+  is_prime( $@ = $primes[$_-1] + $primes[$_] - 1 ) and
+    push @res, sprintf "%2d + %2d - 1 = %3d", $primes[$_-1], $primes[$_], $@;
+}
+
+say my $result = join "\n", @res;
+
+my $ref = <<'EOD';
  3 +  5 - 1 =   7
  5 +  7 - 1 =  11
  7 + 11 - 1 =  17
@@ -35,14 +34,9 @@ Output:
 61 + 67 - 1 = 127
 67 + 71 - 1 = 137
 73 + 79 - 1 = 151
-
-
-
 EOD
 
-say my $result = join "\n", @res;
-my $ref = <<'EOD';
-
 use Test::More;
+chomp $ref;
 is ($result, $ref);
 done_testing();
