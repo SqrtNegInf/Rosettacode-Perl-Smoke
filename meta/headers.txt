@@ -8471,6 +8471,12 @@ File: S/Special_factorials
 #n# 'rf' has warts, but: (1) hard-coded value leaves lots of head-room, (2) quick enough, (3) I'm too lazy for lazy list
 #n# ef(5) not working
 
+File: S/Special_neighbor_primes
+#!/usr/local/bin/perl
+#u# http://rosettacode.org/wiki/Special_neighbor_primes
+#c# 2021-08-09 <RC
+#p# OK
+
 File: S/Special_variables
 #!/usr/local/bin/perl
 #u# http://rosettacode.org/wiki/Special_variables
