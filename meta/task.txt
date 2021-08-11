@@ -1,14 +1,14 @@
 
 This is perl 5, version 32, subversion 1 (v5.32.1) built for darwin-thread-multi-2level
 updating from RC…
-+------------> Perl: Good/Bad [1487/8]
++------------> Perl: Good/Bad [1486/8]
 |+-----------> Smoke testing [1338]
 ||+----------> sKipping validation [152]
 |||+---------> Interactive [69]
-||||+--------> Touched (modified by me) [500]
+||||+--------> Touched (modified by me) [499]
 |||||+-------> Random seed [116]
 ||||||+------> File output [74]
-|||||||+-----> Draft [305]
+|||||||+-----> Draft [296]
 ||||||||+----> Ignoring [35]
 |||||||||+---> Void (no local copy) [120]
 ||||||||||+--> Un-implemented/reliable [102]
@@ -58,7 +58,7 @@ GS......... Ackermann_function-4
 GS......... Ackermann_function-5
 ........XV. Active_Directory_Connect
 GS......... Active_Directory_Search_for_a_user
-GS......... Active_object
+!S......... Active_object
 GS......... Add_a_variable_to_a_class_instance_at_runtime
 .......D.VU Addition-chain_exponentiation
 GS..T..D... Addition_chains
@@ -154,10 +154,10 @@ GS......... Binary_digits
 GS......... Binary_search-1
 GS......... Binary_search-2
 GS..T...... Binary_strings
+GS.....D... Bioinformatics_Global_alignment
 GS..TR..... Bioinformatics_Sequence_mutation
 GS..TR.D... Bioinformatics_Subsequence
 GS..T...... Bioinformatics_base_count
-GS.....D... Bioinformatics_global_alignment
 GS..T...... Biorhythms
 GS..TR.D... Birthday_problem
 GS......... Bitcoin_address_validation
@@ -300,7 +300,7 @@ G.K..R..... Concurrent_computing-1
 GS......... Concurrent_computing-2
 G.K........ Conditional_structures
 GS......... Conjugate_transpose
-GS..T..D... Consecutive_Primes_With_Ascending_Or_Descending_Differences
+.........V. Consecutive_primes_with_ascending_or_descending_dfferences
 ........XVU Constrained_genericity
 GS..TR..... Constrained_random_points_on_a_circle
 GS..T...... Continued_fraction
@@ -393,9 +393,9 @@ GS......... Discordian_date
 GS.....D... Discrete_Fourier_transform
 GS..T...... Display_a_linear_combination
 GS......... Display_an_outline_as_a_nested_table
-GS.....D... Distinct_Palindromes_Within_Decimal_Numbers
+GS.....D... Distinct_Palindromes_within_decimal_numbers
 GS......... Distributed_programming
-GS..T..D... Distribution_of_0_Digits_in_Factorial_Series
+GS..T..D... Distribution_of_0_Digits_in_factorial_series
 GS..T...... Diversity_prediction_theorem
 G.K........ Documentation
 GS.....D... Doomsday_rule
@@ -513,7 +513,7 @@ GS..T...... Find_common_directory_path
 GS..T...... Find_duplicate_files
 GS.....D... Find_first_and_last_set_bit_of_a_long_integer
 GS.....D... Find_first_missing_positive
-GS.....D... Find_if_a_point_is_within_a_triangle
+GS......... Find_if_a_point_is_within_a_triangle
 GS......... Find_largest_left_truncatable_prime_in_a_given_base
 GS......... Find_limit_of_recursion
 .......D.VU Find_minimum_number_of_coins_that_make_a_given_value
@@ -556,7 +556,7 @@ GS......... Fork
 GS......... Formal_power_series-1
 GS......... Formal_power_series-2
 GS......... Formatted_numeric_output
-GS..T..D... Fortunate_numbers
+GS..T...... Fortunate_numbers
 GS..T...... Forward_difference
 GS......... Four_bit_adder
 GS..T...... Four_is_magic
@@ -703,7 +703,7 @@ GS......... Isqrt_integer_square_root_of_X
 GS......... Iterated_digits_squaring
 GS......... JSON
 GS..T...... Jacobi_symbol
-GS..T..D... Jaro-Winkler_distance
+GS..T...... Jaro-Winkler_distance
 .........V. Jaro_similarity
 GS......... Jensen%27s_Device
 GS..T...... Jewels_and_stones
@@ -948,7 +948,7 @@ GS..T..D... Numbers_in_base_10_that_are_palindromic_in_bases_2,_4,_and_16
 GS.....D... Numbers_n_in_which_number_1_occur_twice
 GS..T..D... Numbers_which_binary_and_ternary_digit_sum_are_prime
 GS..T..D... Numbers_which_count_of_divisors_is_prime
-GS.....D... Numbers_with_equal_rises_and_falls
+GS......... Numbers_with_equal_rises_and_falls
 GS.....D... Numbers_with_prime_digits_whose_sum_is_13
 .......D.V. Numbers_with_same_digit_set_in_base_10_and_base_16
 GS......... Numeric_error_propagation
@@ -1366,7 +1366,7 @@ GS......... Sparkline_in_unicode
 GS..T..D... Special_Divisors
 G.K........ Special_characters
 GS..T..D... Special_factorials
-.......D.V. Special_neighbor_primes
+GS.....D... Special_neighbor_primes
 G.K.T...... Special_variables
 G.K.....X.. Speech_synthesis
 GS..T...... Spelling_of_ordinal_numbers
@@ -1375,9 +1375,9 @@ GS......... Spiral_matrix
 GS..T...... Split_a_character_string_based_on_change_of_character
 GS..TR.D... Spoof_game
 GS......... Square-free_integers
-GS..T...... Square_Form_Factorization
 GS..T...... Square_but_not_cube-1
 GS..T...... Square_but_not_cube-2
+GS..T...... Square_form_factorization
 GS..T..D... Square_root_by_hand
 GS......... Stable_marriage_problem
 G.K........ Stack
@@ -1495,7 +1495,7 @@ GS..T...... Textonyms
 GS......... The_ISAAC_Cipher
 GS..T...... The_Name_Game
 GS......... The_Twelve_Days_of_Christmas
-.......D.VU The_sieve_of_Sundaram
+.........VU The_sieve_of_Sundaram
 GS..T...... Thiele%27s_interpolation_formula
 GS..TR.D... Three_word_location
 GS......... Thue-Morse
@@ -1532,7 +1532,7 @@ GS......... Truncate_a_file
 GS....F.... Truth_table
 GS......... Twelve_statements
 GS..T..D... Twin_primes
-GS..TR.D... Two_bullet_roulette
+GS..TR..... Two_bullet_roulette
 GS.....D... Two_identical_strings
 GS..T..D... Two_sum
 GS..T..D... Type_detection
@@ -1591,7 +1591,7 @@ GS......... Visualize_a_tree
 GS..TRF.... Voronoi_diagram
 GS..T...... Walk_a_directory_Non-recursively
 GS..T...... Walk_a_directory_Recursively
-GS...R.D... War_card_game
+GS...R..... War_card_game
 GS......... Water_collected_between_towers
 GS.....D... Waveform_analysis_Doh_ray_me
 .......D.VU Waveform_analysis_Top_and_tail
@@ -1604,7 +1604,7 @@ GS..T...... Welch%27s_t-test-1
 GS......... Welch%27s_t-test-2
 GS..T..D... Wieferich_primes
 .......D.VU WiktionaryDumps_to_words
-GS..T..D... Wilson_primes_of_order_n
+GS..T...... Wilson_primes_of_order_n
 G.KI....... Window_creation
 G.KI....... Window_creation_X11
 G.KI....... Window_management
