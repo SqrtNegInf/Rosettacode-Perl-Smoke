@@ -1,8 +1,8 @@
 
 This is perl 5, version 32, subversion 1 (v5.32.1) built for darwin-thread-multi-2level
 updating from RC…
-+------------> Perl: Good/Bad [1486/8]
-|+-----------> Smoke testing [1338]
++------------> Perl: Good/Bad [1488/8]
+|+-----------> Smoke testing [1339]
 ||+----------> sKipping validation [152]
 |||+---------> Interactive [69]
 ||||+--------> Touched (modified by me) [499]
@@ -58,7 +58,7 @@ GS......... Ackermann_function-4
 GS......... Ackermann_function-5
 ........XV. Active_Directory_Connect
 GS......... Active_Directory_Search_for_a_user
-!S......... Active_object
+GS......... Active_object
 GS......... Add_a_variable_to_a_class_instance_at_runtime
 .......D.VU Addition-chain_exponentiation
 GS..T..D... Addition_chains
@@ -563,6 +563,7 @@ GS..T...... Four_is_magic
 GS..T...... Four_is_the_number_of_letters_in_the_...
 GS....F.... Fractal_tree
 GS..T...... Fraction_reduction
+GS......... Fractran
 GS.....D... Free_polyominoes_enumeration
 GS......... French_Republican_calendar
 GS..T..D... Frobenius_numbers
