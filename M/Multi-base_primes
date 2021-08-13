@@ -1,7 +1,7 @@
 #!/usr/local/bin/perl
 #u# http://rosettacode.org/wiki/Multi-base_primes
 #t# inprogress
-#c# 2021-07-25 >RC
+#c# 2021-07-xx >RC
 #p# OK
 
 my @res;
@@ -20,20 +20,14 @@ my $threshold = fromdigits( '1' . 'Z' x $chars, 36);
 
 my %prime_base;
 my @primes = @{primes( $threshold )};
-#say scalar @primes;
 
 for my $base (2..36) {
     my $n = todigitstring($base-1, $base) x $chars;
     $threshold = fromdigits($n, $base);
-#    say "$n:  $threshold"; 
     my $i = firstidx { $_ > $threshold } @primes;
+#    say "$n:  $threshold"; 
 #    say "i: $i";
     map { push @{$prime_base{ todigitstring($primes[$_],$base) }}, $base } 1..$i;
-    #map { push @{$prime_base{ fromdigits($base,$primes[$_]) }}, $base } 1..$i;
-    #sleep 1;
-
-    #@primes[^(@primes.first: * > $threshold, :k)].
-    #map { .base($base) => $base };
 }
 
 #p %prime_base;
