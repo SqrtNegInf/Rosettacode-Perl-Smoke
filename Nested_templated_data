@@ -1,0 +1,89 @@
+#!/usr/local/bin/perl
+#u# http://rosettacode.org/wiki/Nested_templated_data
+#c# 2021-08-12 <RC
+#p# OK
+
+use feature 'say';
+#my $result;
+#my @res;
+
+
+Only handles nesting one level deep. Missing data is undef in the data structure, an empty string in the pretty-printer.
+
+sub fulfill {
+    my   @payloads;
+    push @payloads, 'Payload#' . $_ for 0..5;
+    my      @result;
+    push    @result, ref $_ eq 'ARRAY' ? [@payloads[@$_]] : @payloads[$_] for @{@_[0]};
+    return [@result];
+}
+
+sub formatted {
+    my $result;
+    $result .= ref $_ eq 'ARRAY' ? '[ "'. join('", "', @$_) . '" ], ' : qq{"$_"} for @{@_[0]};
+    return '[ ' . $result . " ]\n";
+}
+
+print formatted fulfill( [[1,2], [ 3,4,1], 5] );
+print formatted fulfill( [[1,2], [10,4,1], 5] );
+
+Output:
+[ [ "Payload#1", "Payload#2" ], [ "Payload#3", "Payload#4", "Payload#1" ], "Payload#5" ]
+[ [ "Payload#1", "Payload#2" ], [ "", "Payload#4", "Payload#1" ], "Payload#5" ]
+Arbitrary Nesting[edit]
+#!/usr/bin/perl
+
+use strict; # https://rosettacode.org/wiki/Nested_templated_data
+use warnings;
+use Data::Dump 'dd';
+
+my $t = [
+    [[1, 2],
+     [3, 4, 1], 
+     5]];
+
+my $p = [ map "Payload#$_", 0 .. 6 ];
+dd { 'template' => $t, 'payload' => $p };
+
+my $output = filltemplate( $t, $p );
+dd { 'output' => $output };
+
+sub filltemplate
+  {
+  my ($t, $p) = @_;
+  return ref $t eq 'ARRAY' ? [ map filltemplate($_, $p), @$t ] : $p->[$t];
+  }
+
+Output:
+{
+  payload  => [
+                "Payload#0",
+                "Payload#1",
+                "Payload#2",
+                "Payload#3",
+                "Payload#4",
+                "Payload#5",
+                "Payload#6",
+              ],
+  template => [[[1, 2], [3, 4, 1], 5]],
+}
+{
+  output => [
+    [
+      ["Payload#1", "Payload#2"],
+      ["Payload#3", "Payload#4", "Payload#1"],
+      "Payload#5",
+    ],
+  ],
+}
+
+
+
+EOD
+
+say my $result = join "\n", @res;
+my $ref = <<'EOD';
+
+use Test::More;
+is ($result, $ref);
+done_testing();
