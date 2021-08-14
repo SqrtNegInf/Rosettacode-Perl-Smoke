@@ -8,10 +8,10 @@ updating from RC…
 ||||+--------> Touched (modified by me) [499]
 |||||+-------> Random seed [116]
 ||||||+------> File output [74]
-|||||||+-----> Draft [296]
+|||||||+-----> Draft [297]
 ||||||||+----> Ignoring [35]
-|||||||||+---> Void (no local copy) [120]
-||||||||||+--> Un-implemented/reliable [102]
+|||||||||+---> Void (no local copy) [121]
+||||||||||+--> Un-implemented/reliable [103]
 |||||||||||
 GS......... 100_doors-1
 GS......... 100_doors-2
@@ -890,6 +890,7 @@ GS...R..... Monty_Hall_problem
 .......D.VU Morpion_solitaire
 GS......... Morse_code
 GS.....D... Most_frequent_k_chars_distance
+.......D.VU Motzkin_numbers
 G.KI....... Mouse_position-1
 G.KI....... Mouse_position-2
 GS......... Move-to-front_algorithm
