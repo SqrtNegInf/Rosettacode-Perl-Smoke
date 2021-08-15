@@ -5506,6 +5506,12 @@ File: M/Most_frequent_k_chars_distance
 #c# 2018-08-18 <RC
 #p# OK
 
+File: M/Motzkin_numbers
+#!/usr/local/bin/perl
+#u# http://rosettacode.org/wiki/Motzkin_numbers
+#c# 2021-08-14 <RC
+#p# OK
+
 File: M/Mouse_position-1
 #!/usr/local/bin/perl # do-not-check
 #u# http://rosettacode.org/wiki/Mouse_position
