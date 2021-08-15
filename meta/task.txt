@@ -1,8 +1,8 @@
 
 This is perl 5, version 32, subversion 1 (v5.32.1) built for darwin-thread-multi-2level
 updating from RC…
-+------------> Perl: Good/Bad [1488/8]
-|+-----------> Smoke testing [1339]
++------------> Perl: Good/Bad [1489/8]
+|+-----------> Smoke testing [1340]
 ||+----------> sKipping validation [152]
 |||+---------> Interactive [69]
 ||||+--------> Touched (modified by me) [499]
@@ -656,6 +656,7 @@ GS..T...... Horizontal_sundial_calculations
 GS......... Horner%27s_rule_for_polynomial_evaluation-1
 GS......... Horner%27s_rule_for_polynomial_evaluation-2
 GS......... Horner%27s_rule_for_polynomial_evaluation-3
+.......D.VU Horse_racing
 GS......... Host_introspection
 GS......... Hostname
 GS..T.F.... Hough_transform
@@ -890,7 +891,7 @@ GS...R..... Monty_Hall_problem
 .......D.VU Morpion_solitaire
 GS......... Morse_code
 GS.....D... Most_frequent_k_chars_distance
-.......D.VU Motzkin_numbers
+GS.....D... Motzkin_numbers
 G.KI....... Mouse_position-1
 G.KI....... Mouse_position-2
 GS......... Move-to-front_algorithm
@@ -1617,7 +1618,7 @@ GS......... Word_frequency
 GS...R..... Word_search
 GS......... Word_wheel
 GS......... Word_wrap
-.......D.VU Wordiff
+.........VU Wordiff
 GS.....D... Words_containing_%22the%22_substring
 GS.....D... Words_from_neighbour_ones
 GS..T...... World_Cup_group_stage
