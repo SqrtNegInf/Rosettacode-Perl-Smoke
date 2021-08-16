@@ -8,10 +8,10 @@ updating from RC…
 ||||+--------> Touched (modified by me) [499]
 |||||+-------> Random seed [116]
 ||||||+------> File output [74]
-|||||||+-----> Draft [297]
+|||||||+-----> Draft [298]
 ||||||||+----> Ignoring [35]
-|||||||||+---> Void (no local copy) [121]
-||||||||||+--> Un-implemented/reliable [103]
+|||||||||+---> Void (no local copy) [122]
+||||||||||+--> Un-implemented/reliable [104]
 |||||||||||
 GS......... 100_doors-1
 GS......... 100_doors-2
@@ -36,6 +36,7 @@ GS......... A%2BB
 GS......... ABC_problem
 GS......... ABC_problem-2
 GS.....D... ABC_words
+.......D.VU ADFGVX_cipher
 GS......... AKS_test_for_primes-1
 GS......... AKS_test_for_primes-2
 GS......... AKS_test_for_primes-3
