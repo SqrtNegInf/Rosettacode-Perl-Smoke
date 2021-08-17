@@ -1,0 +1,18 @@
+#!/usr/local/bin/perl
+#u# http://rosettacode.org/wiki/Distinct_power_numbers
+#c# 2021-08-16 <RC
+#p# OK
+
+use strict;
+use warnings;
+use feature 'say';
+
+use List::Util qw( uniq );
+
+say my $result = join ', ', sort { $a <=> $b } +uniq map { my $e = $_; map $_ ** $e, 2 .. 5} 2 .. 5;
+
+my $ref = '4, 8, 9, 16, 25, 27, 32, 64, 81, 125, 243, 256, 625, 1024, 3125';
+
+use Test::More;
+is ($result, $ref);
+done_testing();
