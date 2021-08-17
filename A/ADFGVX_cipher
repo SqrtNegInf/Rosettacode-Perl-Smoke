@@ -1,0 +1,98 @@
+#!/usr/local/bin/perl
+#u# http://rosettacode.org/wiki/ADFGVX_cipher
+#c# 2021-08-16 <RC
+#p# OK
+
+srand 123456;
+
+my @res;
+
+use strict;
+use warnings;
+use feature 'say';
+
+use List::Util qw( shuffle );
+
+my @code = qw( A D F G V X );                      # generate polybius square
+my @pairs = map { my $left = $_; map "$left$_", @code } @code;
+my @letters = shuffle "A" .. 'Z' , 0 .. 9; # randomize polybius
+my %char2pair;
+@char2pair{ @letters } = @pairs;    # map chars to pairs
+my %pair2char = reverse %char2pair; # map pairs to chars
+my $template = <<END;
+  | A D F G V X
+--+------------
+A | x x x x x x
+D | x x x x x x
+F | x x x x x x
+G | x x x x x x
+V | x x x x x x
+X | x x x x x x
+END
+$template =~ s/x/$_/ for @letters;
+push @res, "Polybius square =\n\n$template\n";
+
+my $file = do { local (@ARGV, $/) = 'ref/unixdict.txt'; uc <> };
+my $keysize = 9;
+my ($keyword) = shuffle grep !/(.).*\1/, $file =~ /^\w{$keysize}$/gm;
+my $plaintext = 'ATTACKAT1200AM';
+push @res, "keyword   = $keyword\n\nplaintext = $plaintext\n\n";
+
+my $encoded = encode( $plaintext, $keyword, \%char2pair );
+push @res, "encoded = $encoded\n\n";
+
+my $decoded = decode( $encoded, $keyword, \%pair2char );
+push @res, "decoded = $decoded\n\n";
+
+sub encode
+  {
+  my ($plain, $keyword, $c2p, %hash) = @_;
+  my $len = length $keyword;
+  my $cols = transpose($plain =~ s/./$c2p->{$&}/gr =~ s/.{$len}\K(?=.)/\n/gr);
+  @hash{split //, $keyword} = split ' ', $cols;
+  return join ' ', @hash{sort keys %hash};
+  }
+
+sub decode
+  {
+  my ($encoded, $keyword, $p2c, %hash) = @_;
+  @hash{ sort split //, $keyword } = split ' ', $encoded;
+  return transpose( join "\n", @hash{ split //, $keyword }) =~
+    s/\s+//gr =~ s/../$p2c->{$&}/gr;
+  }
+
+sub transpose
+  {
+  local $_ = shift() =~ s/\s+/\n/gr;
+  my $answer = '';
+  $answer .= ' ' while s/^./ $answer .= $& ; '' /gem;
+  $answer;
+  }
+
+say my $result = join '', @res;
+
+my $ref = <<'EOD';
+Polybius square =
+
+  | A D F G V X
+--+------------
+A | E O K 9 C W
+D | U R F 8 4 S
+F | M T 0 1 Q L
+G | D N 3 5 A Y
+V | J H Z P 2 6
+X | I B G V X 7
+
+keyword   = INSPECTOR
+
+plaintext = ATTACKAT1200AM
+
+encoded = DFF FVF GVVA VAV VFV DGF AGF FFF GDG
+
+decoded = ATTACKAT1200AM
+
+EOD
+
+use Test::More;
+is ($result, $ref);
+done_testing();
