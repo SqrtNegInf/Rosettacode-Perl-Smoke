@@ -160,6 +160,12 @@ File: A/ABC_words
 #c# 2020-12-06 <RC
 #p# OK
 
+File: A/ADFGVX_cipher
+#!/usr/local/bin/perl
+#u# http://rosettacode.org/wiki/ADFGVX_cipher
+#c# 2021-08-16 <RC
+#p# OK
+
 File: A/AKS_test_for_primes-1
 #!/usr/local/bin/perl
 #u# http://rosettacode.org/wiki/AKS_test_for_primes
@@ -2325,6 +2331,12 @@ File: D/Distinct_Palindromes_Within_Decimal_Numbers
 #c# 2021-04-15 <RC
 #p# OK
 #n# skipping entry '100' as the sort output switche between '00 0 1' and '0 00 1'
+
+File: D/Distinct_power_numbers
+#!/usr/local/bin/perl
+#u# http://rosettacode.org/wiki/Distinct_power_numbers
+#c# 2021-08-16 <RC
+#p# OK
 
 File: D/Distributed_programming
 #!/usr/local/bin/perl
