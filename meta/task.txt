@@ -1,17 +1,17 @@
 
 This is perl 5, version 32, subversion 1 (v5.32.1) built for darwin-thread-multi-2level
 updating from RC…
-+------------> Perl: Good/Bad [1489/8]
-|+-----------> Smoke testing [1340]
++------------> Perl: Good/Bad [1491/8]
+|+-----------> Smoke testing [1342]
 ||+----------> sKipping validation [152]
 |||+---------> Interactive [69]
 ||||+--------> Touched (modified by me) [499]
-|||||+-------> Random seed [116]
+|||||+-------> Random seed [117]
 ||||||+------> File output [74]
-|||||||+-----> Draft [298]
+|||||||+-----> Draft [299]
 ||||||||+----> Ignoring [35]
-|||||||||+---> Void (no local copy) [122]
-||||||||||+--> Un-implemented/reliable [104]
+|||||||||+---> Void (no local copy) [121]
+||||||||||+--> Un-implemented/reliable [103]
 |||||||||||
 GS......... 100_doors-1
 GS......... 100_doors-2
@@ -36,7 +36,7 @@ GS......... A%2BB
 GS......... ABC_problem
 GS......... ABC_problem-2
 GS.....D... ABC_words
-.......D.VU ADFGVX_cipher
+GS...R.D... ADFGVX_cipher
 GS......... AKS_test_for_primes-1
 GS......... AKS_test_for_primes-2
 GS......... AKS_test_for_primes-3
@@ -395,6 +395,7 @@ GS.....D... Discrete_Fourier_transform
 GS..T...... Display_a_linear_combination
 GS......... Display_an_outline_as_a_nested_table
 GS.....D... Distinct_Palindromes_within_decimal_numbers
+GS.....D... Distinct_power_numbers
 GS......... Distributed_programming
 GS..T..D... Distribution_of_0_Digits_in_factorial_series
 GS..T...... Diversity_prediction_theorem
