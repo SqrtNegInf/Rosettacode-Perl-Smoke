@@ -6507,6 +6507,12 @@ File: P/Permutations_with_some_identical_elements
 #c# 2019-09-05 >RC
 #p# OK
 
+File: P/Permuted_multiples
+#!/usr/local/bin/perl
+#u# http://rosettacode.org/wiki/Permuted_multiples
+#c# 2021-08-18 <RC
+#p# OK
+
 File: P/Pernicious_numbers
 #!/usr/local/bin/perl
 #u# http://rosettacode.org/wiki/Pernicious_numbers
