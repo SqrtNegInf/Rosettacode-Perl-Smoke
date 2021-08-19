@@ -1,17 +1,17 @@
 
 This is perl 5, version 32, subversion 1 (v5.32.1) built for darwin-thread-multi-2level
 updating from RC…
-+------------> Perl: Good/Bad [1491/8]
-|+-----------> Smoke testing [1342]
++------------> Perl: Good/Bad [1492/8]
+|+-----------> Smoke testing [1343]
 ||+----------> sKipping validation [152]
 |||+---------> Interactive [69]
 ||||+--------> Touched (modified by me) [499]
 |||||+-------> Random seed [117]
 ||||||+------> File output [74]
-|||||||+-----> Draft [300]
+|||||||+-----> Draft [301]
 ||||||||+----> Ignoring [35]
 |||||||||+---> Void (no local copy) [122]
-||||||||||+--> Un-implemented/reliable [104]
+||||||||||+--> Un-implemented/reliable [103]
 |||||||||||
 GS......... 100_doors-1
 GS......... 100_doors-2
@@ -715,6 +715,7 @@ GS......... Jewels_and_stones-2
 ........XV. JortSort
 GS......... Josephus_problem
 .........VU Joystick_position
+.......D.V. Juggler_sequence
 GS....F.... Julia_set
 GS......... Jump_anywhere
 GS..T..D... Just_in_time_processing_on_a_character_stream
@@ -1054,7 +1055,7 @@ GS......... Permutations_by_swapping-1
 GS......... Permutations_by_swapping-2
 GS.....D... Permutations_with_repetitions
 GS..T..D... Permutations_with_some_identical_elements
-.......D.VU Permuted_multiples
+GS.....D... Permuted_multiples
 GS......... Pernicious_numbers
 GS......... Phrase_reversals
 GS......... Pi-1
