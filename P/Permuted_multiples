@@ -1,0 +1,39 @@
+#!/usr/local/bin/perl
+#u# http://rosettacode.org/wiki/Permuted_multiples
+#c# 2021-08-18 <RC
+#p# OK
+
+my @res;
+
+use strict;
+use warnings;
+use feature 'say';
+
+my $n = 3;
+1 while do {
+  length($n += 3) < length 6 * $n and $n = 1 . $n =~ s/./0/gr + 2;
+  my $sorted = join '', sort split //, $n * 6;
+  $sorted ne join '', sort split //, $n * 1 or
+  $sorted ne join '', sort split //, $n * 2 or
+  $sorted ne join '', sort split //, $n * 3 or
+  $sorted ne join '', sort split //, $n * 4 or
+  $sorted ne join '', sort split //, $n * 5
+  };
+push  @res, sprintf " n  %s", $n;
+push  @res, sprintf "%dn  %s", $_ , $n * $_ for 2 .. 6;
+
+say my $result = join "\n", @res;
+
+my $ref = <<'EOD';
+ n  142857
+2n  285714
+3n  428571
+4n  571428
+5n  714285
+6n  857142
+EOD
+
+use Test::More;
+chomp $ref;
+is ($result, $ref);
+done_testing();
