@@ -4379,6 +4379,12 @@ File: J/Josephus_problem
 #c# 2018-08-14 <RC
 #p# OK
 
+File: J/Juggler_sequence
+#!/usr/local/bin/perl
+#u# http://rosettacode.org/wiki/Juggler_sequence
+#c# 2021-08-19 <RC
+#p# OK
+
 File: J/Julia_set
 #!/usr/local/bin/perl
 #u# http://rosettacode.org/wiki/Julia_set
