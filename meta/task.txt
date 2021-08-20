@@ -1,14 +1,14 @@
 
 This is perl 5, version 32, subversion 1 (v5.32.1) built for darwin-thread-multi-2level
 updating from RC…
-+------------> Perl: Good/Bad [1492/8]
++------------> Perl: Good/Bad [1493/8]
 |+-----------> Smoke testing [1343]
 ||+----------> sKipping validation [152]
 |||+---------> Interactive [69]
 ||||+--------> Touched (modified by me) [499]
 |||||+-------> Random seed [117]
 ||||||+------> File output [74]
-|||||||+-----> Draft [301]
+|||||||+-----> Draft [302]
 ||||||||+----> Ignoring [35]
 |||||||||+---> Void (no local copy) [122]
 ||||||||||+--> Un-implemented/reliable [103]
@@ -715,7 +715,7 @@ GS......... Jewels_and_stones-2
 ........XV. JortSort
 GS......... Josephus_problem
 .........VU Joystick_position
-.......D.V. Juggler_sequence
+G......D... Juggler_sequence
 GS....F.... Julia_set
 GS......... Jump_anywhere
 GS..T..D... Just_in_time_processing_on_a_character_stream
@@ -946,6 +946,7 @@ GS..T...... Nonoblock
 GS......... Nonogram_solver
 GS......... Nth_root
 GS......... Null_object
+.......D.V. Number_Triplets_Game
 GS......... Number_names
 GS...R..... Number_reversal_game
 GS.....D... Numbers_divisible_by_their_individual_digits,_but_not_by_the_product_of_their_digits.
