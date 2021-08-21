@@ -2,7 +2,7 @@
 This is perl 5, version 32, subversion 1 (v5.32.1) built for darwin-thread-multi-2level
 updating from RC…
 +------------> Perl: Good/Bad [1493/8]
-|+-----------> Smoke testing [1343]
+|+-----------> Smoke testing [1344]
 ||+----------> sKipping validation [152]
 |||+---------> Interactive [69]
 ||||+--------> Touched (modified by me) [499]
@@ -715,7 +715,7 @@ GS......... Jewels_and_stones-2
 ........XV. JortSort
 GS......... Josephus_problem
 .........VU Joystick_position
-G......D... Juggler_sequence
+GS.....D... Juggler_sequence
 GS....F.... Julia_set
 GS......... Jump_anywhere
 GS..T..D... Just_in_time_processing_on_a_character_stream
