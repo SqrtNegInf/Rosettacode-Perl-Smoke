@@ -5863,6 +5863,13 @@ File: N/Null_object
 #c# 2018-08-20 <RC
 #p# OK
 
+File: N/Number_Triplets_Game
+#!/usr/local/bin/perl
+#t# gui
+#u# http://rosettacode.org/wiki/Number_Triplets_Game
+#c# 2021-08-20 <RC
+#p# OK
+
 File: N/Number_names
 #!/usr/local/bin/perl
 #u# http://rosettacode.org/wiki/Number_names
@@ -8064,6 +8071,13 @@ File: S/Simple_database
 #p# OK
 #f# RC file: simple-db
 #n# lame testing
+
+File: S/Simple_turtle_graphics
+#!/usr/local/bin/perl
+#t# gui
+#u# http://rosettacode.org/wiki/Simple_turtle_graphics
+#c# 2021-08-21 <RC
+#p# OK
 
 File: S/Simple_windowed_application
 #!/usr/local/bin/perl
