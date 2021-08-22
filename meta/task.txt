@@ -1,16 +1,16 @@
 
 This is perl 5, version 32, subversion 1 (v5.32.1) built for darwin-thread-multi-2level
 updating from RC…
-+------------> Perl: Good/Bad [1493/8]
++------------> Perl: Good/Bad [1495/8]
 |+-----------> Smoke testing [1344]
-||+----------> sKipping validation [152]
-|||+---------> Interactive [69]
+||+----------> sKipping validation [154]
+|||+---------> Interactive [71]
 ||||+--------> Touched (modified by me) [499]
 |||||+-------> Random seed [117]
 ||||||+------> File output [74]
-|||||||+-----> Draft [302]
+|||||||+-----> Draft [303]
 ||||||||+----> Ignoring [35]
-|||||||||+---> Void (no local copy) [122]
+|||||||||+---> Void (no local copy) [121]
 ||||||||||+--> Un-implemented/reliable [103]
 |||||||||||
 GS......... 100_doors-1
@@ -428,6 +428,7 @@ GS......... Element-wise_operations
 GS......... Elementary_cellular_automaton
 GS..T...... Elementary_cellular_automaton_Infinite_length
 GS......... Elementary_cellular_automaton_Random_Number_Generator
+.......D.VU Elevator_Game
 GS......... Elliptic_Curve_Digital_Signature_Algorithm
 GS......... Elliptic_curve_arithmetic
 GS..T...... Emirp_primes
@@ -946,7 +947,7 @@ GS..T...... Nonoblock
 GS......... Nonogram_solver
 GS......... Nth_root
 GS......... Null_object
-.......D.V. Number_Triplets_Game
+G.KI...D... Number_Triplets_Game
 GS......... Number_names
 GS...R..... Number_reversal_game
 GS.....D... Numbers_divisible_by_their_individual_digits,_but_not_by_the_product_of_their_digits.
@@ -1303,7 +1304,7 @@ GS......... Sieve_of_Eratosthenes-7
 GS......... Sieve_of_Eratosthenes-8
 GS......... Sieve_of_Eratosthenes-9
 GS....F.... Simple_database
-.......D.VU Simple_turtle_graphics
+G.KI...D... Simple_turtle_graphics
 G.KI....... Simple_windowed_application
 G.KI....... Simulate_input_Keyboard
 .........VU Simulate_input_Mouse
