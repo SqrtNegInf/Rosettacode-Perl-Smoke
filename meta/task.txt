@@ -1,8 +1,8 @@
 
 This is perl 5, version 32, subversion 1 (v5.32.1) built for darwin-thread-multi-2level
 updating from RC…
-+------------> Perl: Good/Bad [1495/8]
-|+-----------> Smoke testing [1344]
++------------> Perl: Good/Bad [1496/8]
+|+-----------> Smoke testing [1345]
 ||+----------> sKipping validation [154]
 |||+---------> Interactive [71]
 ||||+--------> Touched (modified by me) [499]
@@ -10,8 +10,8 @@ updating from RC…
 ||||||+------> File output [74]
 |||||||+-----> Draft [303]
 ||||||||+----> Ignoring [35]
-|||||||||+---> Void (no local copy) [121]
-||||||||||+--> Un-implemented/reliable [103]
+|||||||||+---> Void (no local copy) [120]
+||||||||||+--> Un-implemented/reliable [102]
 |||||||||||
 GS......... 100_doors-1
 GS......... 100_doors-2
@@ -760,7 +760,7 @@ GS..T...... Law_of_cosines_-_triples
 GS......... Leap_year
 GS......... Least_common_multiple
 GS......... Left_factorials
-.........VU Legendre_prime_counting_function
+GS......... Legendre_prime_counting_function
 GS..T..D... Length_of_an_arc_between_two_angles
 GS......... Leonardo_numbers
 GS......... Letter_frequency
