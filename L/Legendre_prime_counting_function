@@ -1,0 +1,55 @@
+#!/usr/local/bin/perl
+#u# http://rosettacode.org/wiki/Legendre_prime_counting_function
+#c# 2021-08-22 <RC
+#p# OK
+
+my @res;
+
+use strict;
+use warnings;
+no warnings qw(recursion);
+use feature 'say';
+use ntheory qw( nth_prime prime_count );
+
+my (%cachephi, %cachepi);
+
+sub phi {
+  return $cachephi{"@_"} //= do {
+    my ($x, $aa) = @_;
+    $aa <= 0 ? $x : phi($x, $aa - 1) - phi(int $x / nth_prime($aa), $aa - 1) 
+  };
+}
+
+sub pi {
+  return $cachepi{$_[0]} //= do {
+    my $n = shift;
+    $n < 2 ? 0 : do{ my $aa = pi(int sqrt $n); phi($n, $aa) + $aa - 1 } 
+  };
+}
+
+#print "e             n   Legendre    ntheory\n",
+#      "-             -   --------    -------\n";
+
+for (1 .. 8) { push @res, sprintf "%d  %12d %10d %10d", $_, 10**$_, pi(10**$_), prime_count(10**$_); }
+
+#e             n   Legendre    ntheory
+#-             -   --------    -------
+
+say my $result = join "\n", @res;
+
+my $ref = <<'EOD';
+1            10          4          4
+2           100         25         25
+3          1000        168        168
+4         10000       1229       1229
+5        100000       9592       9592
+6       1000000      78498      78498
+7      10000000     664579     664579
+8     100000000    5761455    5761455
+EOD
+#9    1000000000   50847534   50847534
+
+use Test::More;
+chomp $ref;
+is ($result, $ref);
+done_testing();
