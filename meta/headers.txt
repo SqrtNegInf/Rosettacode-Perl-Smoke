@@ -8552,7 +8552,7 @@ File: S/Spelling_of_ordinal_numbers
 File: S/Spinning_rod_animation_Text
 #!/usr/local/bin/perl
 #u# http://rosettacode.org/wiki/Spinning_rod_animation/Text
-#c# 2018-10-01 >RC
+#c# 2018-10-01 >RC, 2021-08-22 <RC
 #p# OK
 #f# RC file: spinner.dat
 
