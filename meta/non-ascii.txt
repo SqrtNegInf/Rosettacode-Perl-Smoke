@@ -489,6 +489,16 @@ S/Sparkline_in_unicode.1
 ▇:     5 LOWER SEVEN EIGHTHS BLOCK
 █:     4 FULL BLOCK
 
+S/Spinning_rod_animation_Text
+🌑:     1 NEW MOON SYMBOL
+🌒:     1 WAXING CRESCENT MOON SYMBOL
+🌓:     1 FIRST QUARTER MOON SYMBOL
+🌔:     1 WAXING GIBBOUS MOON SYMBOL
+🌕:     2 FULL MOON SYMBOL
+🌖:     1 WANING GIBBOUS MOON SYMBOL
+🌗:     1 LAST QUARTER MOON SYMBOL
+🌘:     1 WANING CRESCENT MOON SYMBOL
+
 S/Split_a_character_string_based_on_change_of_character
 n⃗:     9 LATIN SMALL LETTER N, COMBINING RIGHT ARROW ABOVE
 »:     9 RIGHT-POINTING DOUBLE ANGLE QUOTATION MARK
