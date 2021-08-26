@@ -8,10 +8,10 @@ updating from RC…
 ||||+--------> Touched (modified by me) [499]
 |||||+-------> Random seed [117]
 ||||||+------> File output [74]
-|||||||+-----> Draft [304]
+|||||||+-----> Draft [305]
 ||||||||+----> Ignoring [35]
-|||||||||+---> Void (no local copy) [121]
-||||||||||+--> Un-implemented/reliable [103]
+|||||||||+---> Void (no local copy) [122]
+||||||||||+--> Un-implemented/reliable [104]
 |||||||||||
 GS......... 100_doors-1
 GS......... 100_doors-2
@@ -1589,6 +1589,7 @@ GS......... Variables
 GS......... Variadic_function
 GS......... Vector
 GS......... Vector_products
+.......D.VU Verhoeff_algorithm
 GS..T...... Verify_distribution_uniformity_Chi-squared_test
 GS..TR..... Verify_distribution_uniformity_Naive
 G.KIT..D... Vibrating_rectangles
