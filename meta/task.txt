@@ -1,8 +1,8 @@
 
 This is perl 5, version 32, subversion 1 (v5.32.1) built for darwin-thread-multi-2level
 updating from RC…
-+------------> Perl: Good/Bad [1496/8]
-|+-----------> Smoke testing [1345]
++------------> Perl: Good/Bad [1497/8]
+|+-----------> Smoke testing [1346]
 ||+----------> sKipping validation [154]
 |||+---------> Interactive [71]
 ||||+--------> Touched (modified by me) [499]
@@ -10,8 +10,8 @@ updating from RC…
 ||||||+------> File output [74]
 |||||||+-----> Draft [305]
 ||||||||+----> Ignoring [35]
-|||||||||+---> Void (no local copy) [122]
-||||||||||+--> Un-implemented/reliable [104]
+|||||||||+---> Void (no local copy) [121]
+||||||||||+--> Un-implemented/reliable [102]
 |||||||||||
 GS......... 100_doors-1
 GS......... 100_doors-2
@@ -592,7 +592,7 @@ GS..T..D... Generalised_floating_point_addition
 GS...R..... Generate_Chess960_starting_position
 GS......... Generate_lower_case_ASCII_alphabet
 GS..TR..... Generate_random_chess_position
-.......D.VU Generate_random_numbers_without_repeating_a_value
+.......D.V. Generate_random_numbers_without_repeating_a_value
 GS......... Generator_Exponential
 GS......... Generic_swap
 GS..T..D... Geohash
@@ -1589,7 +1589,7 @@ GS......... Variables
 GS......... Variadic_function
 GS......... Vector
 GS......... Vector_products
-.......D.VU Verhoeff_algorithm
+GS.....D... Verhoeff_algorithm
 GS..T...... Verify_distribution_uniformity_Chi-squared_test
 GS..TR..... Verify_distribution_uniformity_Naive
 G.KIT..D... Vibrating_rectangles
