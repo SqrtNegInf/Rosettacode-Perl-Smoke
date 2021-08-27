@@ -9814,6 +9814,12 @@ File: V/Vector_products
 #c# 2018-08-06 <RC
 #p# OK
 
+File: V/Verhoeff_algorithm
+#!/usr/local/bin/perl
+#u# http://rosettacode.org/wiki/Verhoeff_algorithm
+#c# 2021-08-26 <RC
+#p# OK
+
 File: V/Verify_distribution_uniformity_Chi-squared_test
 #!/usr/local/bin/perl
 #u# http://rosettacode.org/wiki/Verify_distribution_uniformity/Chi-squared_test
