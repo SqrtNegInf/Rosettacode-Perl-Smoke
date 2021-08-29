@@ -3610,6 +3610,12 @@ File: G/Generate_random_chess_position
 #c# 2019-02-05 >RC
 #p# OK
 
+File: G/Generate_random_numbers_without_repeating_a_value
+#!/usr/local/bin/perl
+#u# http://rosettacode.org/wiki/Generate_random_numbers_without_repeating_a_value
+#c# 2021-08-28 <RC
+#p# OK
+
 File: G/Generator_Exponential
 #!/usr/local/bin/perl
 #u# http://rosettacode.org/wiki/Generator/Exponential
