@@ -1,0 +1,31 @@
+#!/usr/local/bin/perl
+#u# http://rosettacode.org/wiki/Generate_random_numbers_without_repeating_a_value
+#c# 2021-08-28 <RC
+#p# OK
+
+srand 123456;
+
+my @res;
+
+use strict;
+use warnings;
+use feature 'say';
+
+use List::Util qw( shuffle );
+
+push @res, "@{[ shuffle 1 .. 20 ]}" for 1 .. 5;
+
+say my $result = join "\n", @res;
+
+my $ref = <<'EOD';
+8 15 6 10 2 18 16 9 14 3 11 7 20 17 5 1 4 12 13 19
+8 2 3 11 14 18 4 15 1 10 6 7 13 12 5 16 17 9 20 19
+12 3 14 1 10 6 16 4 9 17 7 13 11 8 2 5 15 20 19 18
+11 9 6 20 12 7 16 3 14 17 4 1 8 2 15 10 19 5 13 18
+11 6 12 2 8 18 19 16 7 5 9 15 1 14 4 3 10 17 13 20
+EOD
+
+use Test::More;
+chomp $ref;
+is ($result, $ref);
+done_testing();
