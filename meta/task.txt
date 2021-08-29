@@ -1,16 +1,16 @@
 
 This is perl 5, version 32, subversion 1 (v5.32.1) built for darwin-thread-multi-2level
 updating from RC…
-+------------> Perl: Good/Bad [1497/8]
-|+-----------> Smoke testing [1346]
++------------> Perl: Good/Bad [1498/8]
+|+-----------> Smoke testing [1347]
 ||+----------> sKipping validation [154]
 |||+---------> Interactive [71]
 ||||+--------> Touched (modified by me) [499]
-|||||+-------> Random seed [117]
+|||||+-------> Random seed [118]
 ||||||+------> File output [74]
 |||||||+-----> Draft [305]
 ||||||||+----> Ignoring [35]
-|||||||||+---> Void (no local copy) [121]
+|||||||||+---> Void (no local copy) [120]
 ||||||||||+--> Un-implemented/reliable [102]
 |||||||||||
 GS......... 100_doors-1
@@ -592,7 +592,7 @@ GS..T..D... Generalised_floating_point_addition
 GS...R..... Generate_Chess960_starting_position
 GS......... Generate_lower_case_ASCII_alphabet
 GS..TR..... Generate_random_chess_position
-.......D.V. Generate_random_numbers_without_repeating_a_value
+GS...R.D... Generate_random_numbers_without_repeating_a_value
 GS......... Generator_Exponential
 GS......... Generic_swap
 GS..T..D... Geohash
