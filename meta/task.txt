@@ -1,7 +1,7 @@
 
 This is perl 5, version 32, subversion 1 (v5.32.1) built for darwin-thread-multi-2level
 updating from RC…
-+------------> Perl: Good/Bad [1498/8]
++------------> Perl: Good/Bad [1497/8]
 |+-----------> Smoke testing [1347]
 ||+----------> sKipping validation [154]
 |||+---------> Interactive [71]
@@ -10,8 +10,8 @@ updating from RC…
 ||||||+------> File output [74]
 |||||||+-----> Draft [305]
 ||||||||+----> Ignoring [35]
-|||||||||+---> Void (no local copy) [120]
-||||||||||+--> Un-implemented/reliable [102]
+|||||||||+---> Void (no local copy) [122]
+||||||||||+--> Un-implemented/reliable [104]
 |||||||||||
 GS......... 100_doors-1
 GS......... 100_doors-2
@@ -59,11 +59,11 @@ GS......... Ackermann_function-4
 GS......... Ackermann_function-5
 ........XV. Active_Directory_Connect
 GS......... Active_Directory_Search_for_a_user
-GS......... Active_object
+!S......... Active_object
 GS......... Add_a_variable_to_a_class_instance_at_runtime
 .......D.VU Addition-chain_exponentiation
 GS..T..D... Addition_chains
-GS..T..D... Additive_primes
+GS..T...... Additive_primes
 GS..T...... Address_of_a_variable
 GS..T..D... Air_mass
 GS......... Align_columns-1
@@ -129,6 +129,7 @@ GS......... Averages_Mode
 GS......... Averages_Pythagorean_means
 GS......... Averages_Root_mean_square
 GS......... Averages_Simple_moving_average
+.......D.VU B-spline
 GS......... Babbage_problem
 GS..T.FD... Bacon_cipher
 GS...R..... Balanced_brackets-1
@@ -428,7 +429,7 @@ GS......... Element-wise_operations
 GS......... Elementary_cellular_automaton
 GS..T...... Elementary_cellular_automaton_Infinite_length
 GS......... Elementary_cellular_automaton_Random_Number_Generator
-.......D.VU Elevator_Game
+.......D.VU Elevator_simulation
 GS......... Elliptic_Curve_Digital_Signature_Algorithm
 GS......... Elliptic_curve_arithmetic
 GS..T...... Emirp_primes
@@ -1048,6 +1049,7 @@ GS..TR..... Percolation_Site_percolation
 GS......... Perfect_numbers
 GS......... Perfect_shuffle
 GS..T...... Perfect_totient_numbers
+.......D.VU Peripheral_Drift_Illusion
 GS..T...... Perlin_noise
 GS......... Permutation_test
 GS..T...... Permutations
@@ -1456,7 +1458,7 @@ GS......... Sum_of_squares
 GS.....D... Sum_of_the_digits_of_n_is_substring_of_n
 GS......... Sum_to_100
 GS..T...... Summarize_and_say_sequence
-GS..T..D... Summarize_primes
+GS..T...... Summarize_primes
 GS..T.F.... Sunflower_fractal
 GS......... Super-d_numbers-1
 GS..T...... Super-d_numbers-2
