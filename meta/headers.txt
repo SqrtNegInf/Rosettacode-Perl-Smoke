@@ -8512,6 +8512,12 @@ File: S/Special_Divisors
 #p# OK
 #n# two versions, only 1st on RC
 
+File: S/Special_Pythagorean_Triplet
+#!/usr/local/bin/perl
+#u# http://rosettacode.org/wiki/Special_Pythagorean_Triplet
+#c# 2021-08-xx >RC
+#p# OK
+
 File: S/Special_characters
 #!/usr/local/bin/perl
 #u# http://rosettacode.org/wiki/Special_characters
