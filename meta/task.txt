@@ -1,17 +1,17 @@
 
 This is perl 5, version 32, subversion 1 (v5.32.1) built for darwin-thread-multi-2level
 updating from RC…
-+------------> Perl: Good/Bad [1497/8]
-|+-----------> Smoke testing [1347]
++------------> Perl: Good/Bad [1499/8]
+|+-----------> Smoke testing [1348]
 ||+----------> sKipping validation [154]
 |||+---------> Interactive [71]
-||||+--------> Touched (modified by me) [499]
+||||+--------> Touched (modified by me) [500]
 |||||+-------> Random seed [118]
 ||||||+------> File output [74]
-|||||||+-----> Draft [305]
+|||||||+-----> Draft [306]
 ||||||||+----> Ignoring [35]
 |||||||||+---> Void (no local copy) [122]
-||||||||||+--> Un-implemented/reliable [104]
+||||||||||+--> Un-implemented/reliable [105]
 |||||||||||
 GS......... 100_doors-1
 GS......... 100_doors-2
@@ -59,7 +59,7 @@ GS......... Ackermann_function-4
 GS......... Ackermann_function-5
 ........XV. Active_Directory_Connect
 GS......... Active_Directory_Search_for_a_user
-!S......... Active_object
+GS......... Active_object
 GS......... Add_a_variable_to_a_class_instance_at_runtime
 .......D.VU Addition-chain_exponentiation
 GS..T..D... Addition_chains
@@ -1049,7 +1049,7 @@ GS..TR..... Percolation_Site_percolation
 GS......... Perfect_numbers
 GS......... Perfect_shuffle
 GS..T...... Perfect_totient_numbers
-.......D.VU Peripheral_Drift_Illusion
+.......D.VU Peripheral_drift_illusion
 GS..T...... Perlin_noise
 GS......... Permutation_test
 GS..T...... Permutations
@@ -1379,6 +1379,7 @@ GS..T..D... Special_Divisors
 G.K........ Special_characters
 GS..T..D... Special_factorials
 GS.....D... Special_neighbor_primes
+GS..T..D..U Special_pythagorean_triplet
 G.K.T...... Special_variables
 G.K.....X.. Speech_synthesis
 GS..T...... Spelling_of_ordinal_numbers
