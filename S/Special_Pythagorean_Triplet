@@ -1,0 +1,50 @@
+#!/usr/local/bin/perl
+#u# http://rosettacode.org/wiki/Special_Pythagorean_Triplet
+#c# 2021-08-xx >RC
+#p# OK
+
+my @res;
+
+use strict;
+use warnings;
+use feature 'say';
+
+for my $a (1 .. 998) {
+    my $a2 = $a**2;
+    for my $b ($a+1 .. 999) {
+        my $c = 1000 - $a - $b;
+        last if $c < $b;
+        push @res, "$a² + $b² = $c²\n$a  + $b  + $c = 1000" and last if $a2 + $b**2 == $c**2
+    }
+}
+
+say my $result = join "\n", @res;
+
+my $ref = <<'END';
+200² + 375² = 425²
+200  + 375  + 425 = 1000
+END
+
+use Test::More;
+chomp $ref;
+is($result, $ref);
+done_testing();
+
+__END__
+
+=={{header|Perl}}==
+<lang perl>use strict;
+use warnings;
+use feature 'say';
+
+for my $a (1 .. 998) {
+    my $a2 = $a**2;
+    for my $b ($a+1 .. 999) {
+        my $c = 1000 - $a - $b;
+        last if $c < $b;
+        say "$a² + $b² = $c²\n$a  + $b  + $c = 1000" and last if $a2 + $b**2 == $c**2
+    }
+}</lang>
+{{out}}
+<pre>200² + 375² = 425²
+200  + 375  + 425 = 1000</pre>
