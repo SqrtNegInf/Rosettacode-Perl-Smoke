@@ -489,6 +489,9 @@ S/Sparkline_in_unicode.1
 ▇:     5 LOWER SEVEN EIGHTHS BLOCK
 █:     4 FULL BLOCK
 
+S/Special_Pythagorean_Triplet
+²:    12 SUPERSCRIPT TWO
+
 S/Spinning_rod_animation_Text
 🌑:     1 NEW MOON SYMBOL
 🌒:     1 WAXING CRESCENT MOON SYMBOL
