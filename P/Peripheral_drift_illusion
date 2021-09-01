@@ -1,0 +1,61 @@
+#!/usr/local/bin/perl
+#u# http://rosettacode.org/wiki/Peripheral_drift_illusion
+#t# inprogress
+#c# 2021-08-xx >RC
+#p# OK
+#f# RC file: peripheral-drift-raku.svg
+
+my @res;
+
+use strict;
+use warnings;
+use feature 'say';
+
+use SVG;
+
+__END__
+
+my @blocks = (1..15 X 1..10).map: -> ($X, $Y) {
+    my $r = (($X + $Y) div 2) % 4 * 90;
+    my $x = $X * 75;
+    my $y = $Y * 75;
+    :use['xlink:href' => '#block', 'transform' => "rotate($r,$x,$y) translate($x,$y)"]
+}
+
+my $svg = SVG->new(width=>$xrng+20, height=>$yrng+20);
+#my $points = $svg->get_path(x=>\@X, y=>\@Y, -type=>'polyline');
+#$svg->rect(width=>"100%", height=>"100%", style=>{'fill'=>'black'});
+
+#my $svg = '<svg xmlns="http://www.w3.org/2000/svg" xmlns:svg="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="1200" height="825"><rect width="100%" height="100%" fill="#d3d004" /><defs><g id="block"><polygon points="-25,-25,-25,25,25,25" style="fill:white;stroke:white" /> <polygon points="25,25,25,-25,-25,-25" style="fill:black;stroke:black" /> <rect x="-20" y="-20" width="40" height="40" fill="#3250ff" /></g> </defs>';
+
+'run/peripheral-drift-raku.svg'.IO.spurt: SVG.serialize(
+    svg => [
+        :1200width, :825height,
+        :rect[:width<100%>, :height<100%>, :fill<#d3d004>],
+        :defs[
+            :g[
+                :id<block>,
+                :polygon[:points<-25,-25,-25,25,25,25>, :style<fill:white;stroke:white>],
+                :polygon[:points<25,25,25,-25,-25,-25>, :style<fill:black;stroke:black>],
+                :rect[:x<-20>, :y<-20>, :width<40>, :height<40>, :fill<#3250ff>]
+            ]
+        ],
+        |@blocks,
+    ]
+)
+
+open my $fh, '>', 'run/dragon_curve.svg';
+print $fh  $svg->xmlify(-namespace=>'svg');
+close $fh;
+
+__END__
+
+=={{header|Perl}}==
+{{trans|xx}}
+{{libheader|ntheory}}
+<lang perl>
+</lang>
+{{out}}
+<pre style="height:20ex">
+</pre>
+[https://github.com/SqrtNegInf/Rosettacode-Perl5-Smoke/blob/master/ref/xx xx]
