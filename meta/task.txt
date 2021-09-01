@@ -1,16 +1,16 @@
 
 This is perl 5, version 32, subversion 1 (v5.32.1) built for darwin-thread-multi-2level
 updating from RC…
-+------------> Perl: Good/Bad [1499/8]
++------------> Perl: Good/Bad [1500/8]
 |+-----------> Smoke testing [1348]
-||+----------> sKipping validation [154]
+||+----------> sKipping validation [155]
 |||+---------> Interactive [71]
-||||+--------> Touched (modified by me) [500]
+||||+--------> Touched (modified by me) [501]
 |||||+-------> Random seed [118]
-||||||+------> File output [74]
+||||||+------> File output [75]
 |||||||+-----> Draft [306]
 ||||||||+----> Ignoring [35]
-|||||||||+---> Void (no local copy) [122]
+|||||||||+---> Void (no local copy) [121]
 ||||||||||+--> Un-implemented/reliable [105]
 |||||||||||
 GS......... 100_doors-1
@@ -1049,7 +1049,7 @@ GS..TR..... Percolation_Site_percolation
 GS......... Perfect_numbers
 GS......... Perfect_shuffle
 GS..T...... Perfect_totient_numbers
-.......D.VU Peripheral_drift_illusion
+G.K.T.FD..U Peripheral_drift_illusion
 GS..T...... Perlin_noise
 GS......... Permutation_test
 GS..T...... Permutations
