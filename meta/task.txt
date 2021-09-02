@@ -8,10 +8,10 @@ updating from RC…
 ||||+--------> Touched (modified by me) [501]
 |||||+-------> Random seed [118]
 ||||||+------> File output [75]
-|||||||+-----> Draft [306]
+|||||||+-----> Draft [298]
 ||||||||+----> Ignoring [35]
-|||||||||+---> Void (no local copy) [121]
-||||||||||+--> Un-implemented/reliable [105]
+|||||||||+---> Void (no local copy) [122]
+||||||||||+--> Un-implemented/reliable [106]
 |||||||||||
 GS......... 100_doors-1
 GS......... 100_doors-2
@@ -443,7 +443,7 @@ GS......... Enumerations
 GS......... Environment_variables
 GS......... Equilibrium_index
 GS..T..D... Erdos-primes
-GS.....D... Esthetic_numbers
+GS......... Esthetic_numbers
 GS......... Ethiopian_multiplication
 GS......... Euler%27s_identity
 GS......... Euler%27s_sum_of_powers_conjecture-1
@@ -832,7 +832,7 @@ GS..TR..... Magic_8-ball
 GS..T...... Magic_squares_of_doubly_even_order
 GS..T...... Magic_squares_of_odd_order
 GS..T...... Magic_squares_of_singly_even_order
-GS..T..D... Magnanimous_numbers
+GS..T...... Magnanimous_numbers
 GS..T...... Main_step_of_GOST_28147-89
 GS..T.FD... Make_a_backup_file
 GS......... Make_directory_path
@@ -849,7 +849,7 @@ GS..T...... Matrix_multiplication
 GS......... Matrix_transposition
 GS.....D... Maximum_difference_between_adjacent_elements_of_list
 GS......... Maximum_triangle_path_sum
-GS..T..D... Mayan_calendar
+GS..T...... Mayan_calendar
 GS..T...... Mayan_numerals
 GS...R..... Maze_generation
 GS...R..... Maze_solving
@@ -877,7 +877,6 @@ GS..TR..... Mind_boggling_card_trick
 G.KI....... Minesweeper_game
 GS......... Minimal_steps_down_to_1
 GS..T..D... Minimum_number_of_cells_after,_before,_above_and_below_NxN_squares
-.......D... Minimum_positive_multiple_in_base_10_using_only_0_and_1
 GS..T...... Minimum_positive_multiple_in_base_10_using_only_0_and_1-1
 GS..T...... Minimum_positive_multiple_in_base_10_using_only_0_and_1-2
 GS......... Minimum_positive_multiple_in_base_10_using_only_0_and_1-3
@@ -887,7 +886,7 @@ GS......... Modular_arithmetic
 GS..T...... Modular_exponentiation
 GS......... Modular_inverse
 .......DXV. Modulinos
-GS..T..D... Moebius_function
+GS..T...... Moebius_function
 GS......... Monads_List_monad
 GS......... Monads_Maybe_monad
 GS......... Monads_Writer_monad
@@ -1141,7 +1140,7 @@ G.K........ Program_termination
 GS......... Proper_divisors
 GS..T...... Pseudo-random_numbers_Combined_recursive_generator_MRG32k3a
 GS..T...... Pseudo-random_numbers_PCG32
-GS..T..D... Pseudo-random_numbers_Splitmix64
+GS..T...... Pseudo-random_numbers_Splitmix64
 GS..T...... Pseudo-random_numbers_Xorshift_star
 GS..TRFD... Pseudorandom_number_generator_image
 GS....F.... Pythagoras_tree
@@ -1290,11 +1289,11 @@ GS..T.F.... Show_ASCII_table-1
 GS..T.F.... Show_ASCII_table-2
 GS.....D... Show_the_decimal_value_of_a_number_of_1s_appended_with_a_3,_then_squared
 GS......... Show_the_epoch
-GS..T.FD... Sierpinski_arrowhead_curve
+GS..T.F.... Sierpinski_arrowhead_curve
 GS......... Sierpinski_carpet
 GS..T.FD... Sierpinski_curve
 GS..T.F.... Sierpinski_pentagon
-GS..T.FD... Sierpinski_square_curve
+GS..T.F.... Sierpinski_square_curve
 GS......... Sierpinski_triangle
 G.K.T.F.... Sierpinski_triangle_Graphical
 GS......... Sieve_of_Eratosthenes-1
@@ -1455,6 +1454,7 @@ GS..T..D... Sum_of_divisors
 GS......... Sum_of_elements_below_main_diagonal_of_matrix-1
 GS......... Sum_of_elements_below_main_diagonal_of_matrix-2
 GS.....D... Sum_of_first_n_cubes
+.......D.VU Sum_of_primes_in_odd_positions_is_prime
 GS......... Sum_of_squares
 GS.....D... Sum_of_the_digits_of_n_is_substring_of_n
 GS......... Sum_to_100
@@ -1466,7 +1466,7 @@ GS..T...... Super-d_numbers-2
 GS..T.F.... Superellipse
 GS......... Superpermutation_minimisation
 GS..T...... Sutherland-Hodgman_polygon_clipping
-GS..T..D... Sylvester%27s_sequence
+GS..T...... Sylvester%27s_sequence
 GS......... Symmetric_difference
 GS......... Synchronous_concurrency
 GS......... System_time
