@@ -1,17 +1,17 @@
 
 This is perl 5, version 32, subversion 1 (v5.32.1) built for darwin-thread-multi-2level
 updating from RC…
-+------------> Perl: Good/Bad [1500/8]
-|+-----------> Smoke testing [1348]
++------------> Perl: Good/Bad [1497/8]
+|+-----------> Smoke testing [1344]
 ||+----------> sKipping validation [155]
 |||+---------> Interactive [71]
 ||||+--------> Touched (modified by me) [501]
 |||||+-------> Random seed [118]
 ||||||+------> File output [75]
-|||||||+-----> Draft [298]
+|||||||+-----> Draft [299]
 ||||||||+----> Ignoring [35]
-|||||||||+---> Void (no local copy) [122]
-||||||||||+--> Un-implemented/reliable [106]
+|||||||||+---> Void (no local copy) [126]
+||||||||||+--> Un-implemented/reliable [107]
 |||||||||||
 GS......... 100_doors-1
 GS......... 100_doors-2
@@ -522,7 +522,7 @@ GS......... Find_largest_left_truncatable_prime_in_a_given_base
 GS......... Find_limit_of_recursion
 .......D.VU Find_minimum_number_of_coins_that_make_a_given_value
 GS......... Find_palindromic_numbers_in_both_binary_and_ternary_bases
-GS..T..D... Find_prime_n_for_that_reversed_n_is_also_prime
+.......D.V. Find_prime_n_such_that_reversed_n_is_also_prime
 GS..T..D... Find_prime_numbers_of_the_form_n_n_n%2B2
 GS..T...... Find_the_intersection_of_a_line_with_a_plane-1
 GS......... Find_the_intersection_of_a_line_with_a_plane-2
@@ -530,10 +530,10 @@ GS......... Find_the_intersection_of_two_lines
 GS......... Find_the_last_Sunday_of_each_month
 GS......... Find_the_missing_permutation
 GS......... Find_the_missing_permutation-2
+.......D.V. Find_words_which_contain_the_most_consonants
 GS.....D... Find_words_which_contains_all_the_vowels
 GS.....D... Find_words_which_contains_more_than_3_e_vowels
-GS.....D... Find_words_which_contains_most_consonants
-GS.....D... Find_words_which_first_and_last_three_letters_are_equals
+.......D.V. Find_words_whose_first_and_last_three_letters_are_equal
 .......D... Find_words_with_alternating_vowels_and_consonants
 GS......... Find_words_with_alternating_vowels_and_consonants-1
 GS..T...... Find_words_with_alternating_vowels_and_consonants-2
@@ -954,7 +954,6 @@ GS...R..... Number_reversal_game
 GS.....D... Numbers_divisible_by_their_individual_digits,_but_not_by_the_product_of_their_digits.
 GS..T..D... Numbers_in_base-16_representation_that_cannot_be_written_with_decimal_digits
 GS..T..D... Numbers_in_base_10_that_are_palindromic_in_bases_2,_4,_and_16
-GS.....D... Numbers_n_in_which_number_1_occur_twice
 GS..T..D... Numbers_which_binary_and_ternary_digit_sum_are_prime
 GS..T..D... Numbers_which_count_of_divisors_is_prime
 GS......... Numbers_with_equal_rises_and_falls
@@ -1090,6 +1089,7 @@ GS..T..D... Polynomial_synthetic_division
 G.KI....... Polyspiral
 GS......... Population_count
 GS..T...... Population_count-2
+.......D.V. Positive_decimal_integers_with_the_digit_1_occurring_exactly_twice
 GS......... Power_set-1
 GS......... Power_set-2
 GS......... Power_set-3
@@ -1160,6 +1160,7 @@ GS..TR..... RPG_attributes_generator
 GS..T...... RSA_code
 GS..T..D... Railway_circuit
 GS......... Ramanujan%27s_constant
+.......D.VU Ramanujan_primes
 GS..T...... Ramer-Douglas-Peucker_line_simplification
 GS..T..D... Ramsey%27s_theorem
 GS..TR..... Random_Latin_squares
@@ -1454,7 +1455,7 @@ GS..T..D... Sum_of_divisors
 GS......... Sum_of_elements_below_main_diagonal_of_matrix-1
 GS......... Sum_of_elements_below_main_diagonal_of_matrix-2
 GS.....D... Sum_of_first_n_cubes
-.......D.VU Sum_of_primes_in_odd_positions_is_prime
+G...T..D..U Sum_of_primes_in_odd_positions_is_prime
 GS......... Sum_of_squares
 GS.....D... Sum_of_the_digits_of_n_is_substring_of_n
 GS......... Sum_to_100
