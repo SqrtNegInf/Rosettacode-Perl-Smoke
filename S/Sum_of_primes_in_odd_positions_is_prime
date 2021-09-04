@@ -1,0 +1,56 @@
+#!/usr/local/bin/perl
+#u# http://rosettacode.org/wiki/Sum_of_primes_in_odd_positions_is_prime
+#c# 2021-09-xx >RC
+#p# OK
+
+my @res;
+
+use strict;
+use warnings;
+use feature 'say';
+
+use ntheory 'is_prime';
+
+my($c1, $c2);
+
+my @odd  = grep { 0 != ++$c2 % 2 } grep { is_prime $_ } 2 .. 999;
+my @sums = $odd[0];
+push @sums, $sums[-1] + $_ for @odd[1..$#odd];
+
+my $c = 1;
+for (0..$#sums) { 
+    push @res, sprintf "%6d%6d%6d", $c, $odd[$_], $sums[$_] if is_prime $sums[$_];
+    $c += 2;
+}
+
+say my $result = join "\n", @res;
+
+my $ref = <<'END';
+     1     2     2
+     3     5     7
+    11    31    89
+    27   103   659
+    35   149  1181
+    67   331  5021
+    91   467  9923
+    95   499 10909
+    99   523 11941
+   119   653 17959
+   143   823 26879
+END
+
+use Test::More;
+chomp $ref;
+is($result, $ref);
+done_testing();
+
+__END__
+
+=={{header|Perl}}==
+{{trans|xx}}
+{{libheader|ntheory}}
+<lang perl>
+</lang>
+{{out}}
+<pre>
+</pre>
