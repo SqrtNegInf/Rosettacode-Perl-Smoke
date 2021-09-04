@@ -9019,6 +9019,12 @@ File: S/Sum_of_first_n_cubes
 #c# 2021-05-20 <RC
 #p# OK
 
+File: S/Sum_of_primes_in_odd_positions_is_prime
+#!/usr/local/bin/perl
+#u# http://rosettacode.org/wiki/Sum_of_primes_in_odd_positions_is_prime
+#c# 2021-09-xx >RC
+#p# OK
+
 File: S/Sum_of_squares
 #!/usr/local/bin/perl
 #u# http://rosettacode.org/wiki/Sum_of_squares
