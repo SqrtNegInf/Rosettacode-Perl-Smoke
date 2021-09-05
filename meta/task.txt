@@ -1,17 +1,17 @@
 
 This is perl 5, version 32, subversion 1 (v5.32.1) built for darwin-thread-multi-2level
 updating from RC…
-+------------> Perl: Good/Bad [1497/8]
-|+-----------> Smoke testing [1344]
-||+----------> sKipping validation [155]
++------------> Perl: Good/Bad [1499/8]
+|+-----------> Smoke testing [1346]
+||+----------> sKipping validation [156]
 |||+---------> Interactive [71]
-||||+--------> Touched (modified by me) [501]
+||||+--------> Touched (modified by me) [503]
 |||||+-------> Random seed [118]
 ||||||+------> File output [75]
-|||||||+-----> Draft [299]
+|||||||+-----> Draft [300]
 ||||||||+----> Ignoring [35]
-|||||||||+---> Void (no local copy) [126]
-||||||||||+--> Un-implemented/reliable [107]
+|||||||||+---> Void (no local copy) [125]
+||||||||||+--> Un-implemented/reliable [105]
 |||||||||||
 GS......... 100_doors-1
 GS......... 100_doors-2
@@ -948,9 +948,9 @@ GS..T...... Nonoblock
 GS......... Nonogram_solver
 GS......... Nth_root
 GS......... Null_object
-G.KI...D... Number_Triplets_Game
 GS......... Number_names
 GS...R..... Number_reversal_game
+G.KI...D... Number_triplets_game
 GS.....D... Numbers_divisible_by_their_individual_digits,_but_not_by_the_product_of_their_digits.
 GS..T..D... Numbers_in_base-16_representation_that_cannot_be_written_with_decimal_digits
 GS..T..D... Numbers_in_base_10_that_are_palindromic_in_bases_2,_4,_and_16
@@ -1004,6 +1004,7 @@ GS..T...... Palindromic_gapful_numbers
 GS.....D... Palindromic_primes
 GS..T..D... Palindromic_primes_in_base_16
 GS..T...... Pancake_numbers
+.......D.VU Pandigital_prime
 GS..T...... Pangram_checker
 GS......... Paraffins
 GS......... Parallel_brute_force
@@ -1160,7 +1161,7 @@ GS..TR..... RPG_attributes_generator
 GS..T...... RSA_code
 GS..T..D... Railway_circuit
 GS......... Ramanujan%27s_constant
-.......D.VU Ramanujan_primes
+G.K.T..D..U Ramanujan_primes
 GS..T...... Ramer-Douglas-Peucker_line_simplification
 GS..T..D... Ramsey%27s_theorem
 GS..TR..... Random_Latin_squares
@@ -1379,7 +1380,7 @@ GS..T..D... Special_Divisors
 G.K........ Special_characters
 GS..T..D... Special_factorials
 GS.....D... Special_neighbor_primes
-GS..T..D..U Special_pythagorean_triplet
+GS..T..D... Special_pythagorean_triplet
 G.K.T...... Special_variables
 G.K.....X.. Speech_synthesis
 GS..T...... Spelling_of_ordinal_numbers
@@ -1455,7 +1456,7 @@ GS..T..D... Sum_of_divisors
 GS......... Sum_of_elements_below_main_diagonal_of_matrix-1
 GS......... Sum_of_elements_below_main_diagonal_of_matrix-2
 GS.....D... Sum_of_first_n_cubes
-G...T..D..U Sum_of_primes_in_odd_positions_is_prime
+GS..T..D... Sum_of_primes_in_odd_positions_is_prime
 GS......... Sum_of_squares
 GS.....D... Sum_of_the_digits_of_n_is_substring_of_n
 GS......... Sum_to_100
@@ -1509,7 +1510,7 @@ GS..T...... Textonyms
 GS......... The_ISAAC_Cipher
 GS..T...... The_Name_Game
 GS......... The_Twelve_Days_of_Christmas
-.........VU The_sieve_of_Sundaram
+GS..T...... The_sieve_of_Sundaram
 GS..T...... Thiele%27s_interpolation_formula
 GS..TR.D... Three_word_location
 GS......... Thue-Morse
