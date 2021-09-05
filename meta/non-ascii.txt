@@ -391,6 +391,10 @@ P/Problem_of_Apollonius
 R/Ramanujan%27s_constant
 ≈:     5 ALMOST EQUAL TO
 
+R/Ramanujan_primes
+»:     2 RIGHT-POINTING DOUBLE ANGLE QUOTATION MARK
+×:     3 MULTIPLICATION SIGN
+
 R/Read_a_file_character_by_character_UTF8
 ă:     2 LATIN SMALL LETTER A WITH BREVE
 €:     2 EURO SIGN
@@ -490,7 +494,7 @@ S/Sparkline_in_unicode.1
 █:     4 FULL BLOCK
 
 S/Special_Pythagorean_Triplet
-²:    12 SUPERSCRIPT TWO
+²:     6 SUPERSCRIPT TWO
 
 S/Spinning_rod_animation_Text
 🌑:     1 NEW MOON SYMBOL
