@@ -7188,6 +7188,13 @@ File: R/Ramanujan%27s_constant
 #n# $Math::AnyNum::PREC which is varies at runtine ('use Math::AnyNum qw(pi)' is fixed at startup)
 #n# Translation of: Sidef  -- trizen++
 
+File: R/Ramanujan_primes
+#!/usr/local/bin/perl
+#u# http://rosettacode.org/wiki/Ramanujan_primes
+#t# inprogress
+#c# 2021-09-xx >RC
+#p# OK
+
 File: R/Ramer-Douglas-Peucker_line_simplification
 #!/usr/local/bin/perl
 #u# http://rosettacode.org/wiki/Ramer_Douglas_Peucker_line_simplification
@@ -8523,7 +8530,7 @@ File: S/Special_Divisors
 File: S/Special_Pythagorean_Triplet
 #!/usr/local/bin/perl
 #u# http://rosettacode.org/wiki/Special_Pythagorean_Triplet
-#c# 2021-08-xx >RC
+#c# 2021-09-04 >RC
 #p# OK
 
 File: S/Special_characters
@@ -9022,7 +9029,7 @@ File: S/Sum_of_first_n_cubes
 File: S/Sum_of_primes_in_odd_positions_is_prime
 #!/usr/local/bin/perl
 #u# http://rosettacode.org/wiki/Sum_of_primes_in_odd_positions_is_prime
-#c# 2021-09-xx >RC
+#c# 2021-09-04 >RC
 #p# OK
 
 File: S/Sum_of_squares
@@ -9367,6 +9374,12 @@ File: T/The_Twelve_Days_of_Christmas
 #!/usr/local/bin/perl
 #u# http://rosettacode.org/wiki/The_Twelve_Days_of_Christmas
 #c# 2018-08-10 <RC
+#p# OK
+
+File: T/The_sieve_of_Sundaram
+#!/usr/local/bin/perl
+#u# http://rosettacode.org/wiki/The_sieve_of_Sundaram
+#c# 2021-09-04 >RC
 #p# OK
 
 File: T/Thiele%27s_interpolation_formula
