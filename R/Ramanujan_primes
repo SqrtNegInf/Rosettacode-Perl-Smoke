@@ -9,8 +9,24 @@ use warnings;
 use feature 'say';
 
 use ntheory 'ramanujan_primes';
+use ntheory 'primes';
+
+my $primes = primes( 100_000_000 );
+my @mem;
+sub r_prime { 
+   my $n = shift;
+   int 4*$n * log(4*$n) / log 2;
+   #for my $x (1 + int (1..(4*n × (4*n).log / 2.log))) {
+       #my \y = x div 2;
+       #((@mem[x] //= $primes.count(x)) - (@mem[y] //= $primes.count(y))) < n
+   #}
+}
+
+say r_prime($_) for 1..20;
+exit;
 
 my $rp = ramanujan_primes(1, 245_000);
+
 my $result = "First 100:\n" . 
     (sprintf "@{['%5d' x 100]}", @{$rp}[0..99]) =~ s/(.{80})/$1\n/gr;
 $result .=  "\n\n 1000th: " . $$rp[  999];
@@ -39,9 +55,7 @@ done_testing();
 __END__
 
 my $primes = Math::Primesieve.new;
-
 my @mem;
-
 sub ramanujan_prime (\n) {
    1 + (1..(4×n × (4×n).log / 2.log).floor).first: :end, -> \x {
        my \y = x div 2;
@@ -49,21 +63,20 @@ sub ramanujan_prime (\n) {
    }
 }
 
-push @res, 'First 100:';
-push @res, (1..100).map( &ramanujan_prime ).batch(10)».&comma».fmt("%6s").join: "\n";
-push @res, "\n 1,000th: { 1000.&ramanujan_prime }";
-push @res, "10,000th: {  10000.&ramanujan_prime }";
-
-say my $result = join "\n", @res;
-
-__END__
-
 =={{header|Perl}}==
 {{trans|xx}}
 {{libheader|ntheory}}
 <lang perl>
 </lang>
 {{out}}
-<pre style="height:20ex">
-</pre>
-[https://github.com/SqrtNegInf/Rosettacode-Perl5-Smoke/blob/master/ref/xx xx]
+<pre>First 100:
+    2   11   17   29   41   47   59   67   71   97  101  107  127  149  151  167
+  179  181  227  229  233  239  241  263  269  281  307  311  347  349  367  373
+  401  409  419  431  433  439  461  487  491  503  569  571  587  593  599  601
+  607  641  643  647  653  659  677  719  727  739  751  769  809  821  823  827
+  853  857  881  937  941  947  967  983 1009 1019 1021 1031 1049 1051 1061 1063
+ 1087 1091 1097 1103 1151 1163 1187 1217 1229 1249 1277 1289 1297 1301 1367 1373
+ 1423 1427 1429 1439
+
+ 1000th: 19403
+10000th: 242057</pre>
