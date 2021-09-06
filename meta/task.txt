@@ -2,16 +2,16 @@
 This is perl 5, version 32, subversion 1 (v5.32.1) built for darwin-thread-multi-2level
 updating from RC…
 +------------> Perl: Good/Bad [1499/8]
-|+-----------> Smoke testing [1346]
+|+-----------> Smoke testing [1347]
 ||+----------> sKipping validation [156]
 |||+---------> Interactive [71]
-||||+--------> Touched (modified by me) [503]
+||||+--------> Touched (modified by me) [504]
 |||||+-------> Random seed [118]
 ||||||+------> File output [75]
-|||||||+-----> Draft [300]
+|||||||+-----> Draft [301]
 ||||||||+----> Ignoring [35]
 |||||||||+---> Void (no local copy) [125]
-||||||||||+--> Un-implemented/reliable [105]
+||||||||||+--> Un-implemented/reliable [106]
 |||||||||||
 GS......... 100_doors-1
 GS......... 100_doors-2
@@ -1004,7 +1004,7 @@ GS..T...... Palindromic_gapful_numbers
 GS.....D... Palindromic_primes
 GS..T..D... Palindromic_primes_in_base_16
 GS..T...... Pancake_numbers
-.......D.VU Pandigital_prime
+GS..T..D..U Pandigital_prime
 GS..T...... Pangram_checker
 GS......... Paraffins
 GS......... Parallel_brute_force
@@ -1018,6 +1018,7 @@ GS..T...... Parsing_RPN_calculator_algorithm
 GS..T...... Parsing_RPN_to_infix_conversion
 GS......... Parsing_Shunting-yard_algorithm
 GS......... Partial_function_application
+.......D.VU Particle_fountain
 GS..TR.D... Particle_swarm_optimization
 GS......... Partition_an_integer_x_into_n_primes
 GS..T...... Partition_function_P
@@ -1231,7 +1232,7 @@ GS..T...... Rosetta_Code_Find_unimplemented_tasks
 GS......... Rosetta_Code_Fix_code_tags
 .......D.VU Rosetta_Code_List_authors_of_task_descriptions
 GS..T...... Rosetta_Code_Rank_languages_by_number_of_users
-GS..T...... Rosetta_Code_Rank_languages_by_popularity
+!S..T...... Rosetta_Code_Rank_languages_by_popularity
 .......D.VU Rosetta_Code_Run_examples
 GS..T..D... Rosetta_Code_Tasks_without_examples
 GS......... Rot-13
