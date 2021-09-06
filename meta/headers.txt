@@ -6195,6 +6195,12 @@ File: P/Pancake_numbers
 #c# 2021-01-13 >RC, 2021-02-05 >RC
 #p# OK
 
+File: P/Pandigital_prime
+#!/usr/local/bin/perl
+#u# http://rosettacode.org/wiki/Pandigital_prime
+#c# 2021-09-05 >RC
+#p# OK
+
 File: P/Pangram_checker
 #!/usr/local/bin/perl
 #u# http://rosettacode.org/wiki/Pangram_checker
