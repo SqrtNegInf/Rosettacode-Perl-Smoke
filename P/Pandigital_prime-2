@@ -1,7 +1,8 @@
 #!/usr/local/bin/perl
 #u# http://rosettacode.org/wiki/Pandigital_prime
-#c# 2021-09-05 >RC
+#c# 2021-09-05 NOT ON RC
 #p# OK
+#n# my version
 
 use strict;
 use warnings;
