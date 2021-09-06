@@ -1,0 +1,31 @@
+#!/usr/local/bin/perl
+#u# http://rosettacode.org/wiki/Pandigital_prime
+#c# 2021-09-05 >RC
+#p# OK
+
+use strict;
+use warnings;
+use feature 'say';
+
+use ntheory <is_prime forperm vecmax>;
+
+my @p;
+
+# as one-liner, but less clear (e.g. double use of topic var.)
+# Raku: max (1..9).map: -> $size { |(1..$size).permutations».join.grep(&is-prime) }
+# Perl:       forperm { my $n = join '', map { 1 + $_ } @_; push @p, $n if is_prime($n); } @{[1..$_]} for (4,7)
+# Perl: map { forperm { my $n = join '', map { 1 + $_ } @_; push @p, $n if is_prime($n); } @{[1..$_]} }   (4,7)
+
+#for my $c (1..9) {
+for my $c (4,7) {
+    forperm {
+        my $n = join '', map { 1 + $_ } @_;
+        push @p, $n if is_prime($n); 
+    } @{[1..$c]};
+}
+
+say my $result = vecmax @p;
+
+use Test::More;
+is($result, 7652413);
+done_testing();
