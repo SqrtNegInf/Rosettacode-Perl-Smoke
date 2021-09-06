@@ -1,0 +1,19 @@
+#!/usr/local/bin/perl
+#u# http://rosettacode.org/wiki/Pandigital_prime
+#c# 2021-09-06 <RC
+#p# OK
+#n# munged a bit for testing
+
+use strict;
+use warnings;
+
+use Test::More;
+plan tests => 1;
+use ntheory qw( forperm is_prime );
+
+for my $digits ( reverse 1 .. 9 ) {
+    forperm {
+        my $n = join '', map $digits - $_, @_;
+        is_prime($n) and print "$n\n" and is($n, 7652413) and exit
+    } $digits;
+}
