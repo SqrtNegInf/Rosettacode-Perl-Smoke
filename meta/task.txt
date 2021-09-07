@@ -1,17 +1,17 @@
 
 This is perl 5, version 32, subversion 1 (v5.32.1) built for darwin-thread-multi-2level
 updating from RC…
-+------------> Perl: Good/Bad [1499/8]
-|+-----------> Smoke testing [1347]
-||+----------> sKipping validation [156]
-|||+---------> Interactive [71]
-||||+--------> Touched (modified by me) [504]
++------------> Perl: Good/Bad [1501/8]
+|+-----------> Smoke testing [1348]
+||+----------> sKipping validation [157]
+|||+---------> Interactive [72]
+||||+--------> Touched (modified by me) [503]
 |||||+-------> Random seed [118]
 ||||||+------> File output [75]
 |||||||+-----> Draft [301]
 ||||||||+----> Ignoring [35]
-|||||||||+---> Void (no local copy) [125]
-||||||||||+--> Un-implemented/reliable [106]
+|||||||||+---> Void (no local copy) [124]
+||||||||||+--> Un-implemented/reliable [104]
 |||||||||||
 GS......... 100_doors-1
 GS......... 100_doors-2
@@ -1004,7 +1004,9 @@ GS..T...... Palindromic_gapful_numbers
 GS.....D... Palindromic_primes
 GS..T..D... Palindromic_primes_in_base_16
 GS..T...... Pancake_numbers
-GS..T..D..U Pandigital_prime
+.......D... Pandigital_prime
+GS......... Pandigital_prime-1
+GS......... Pandigital_prime-2
 GS..T...... Pangram_checker
 GS......... Paraffins
 GS......... Parallel_brute_force
@@ -1018,7 +1020,7 @@ GS..T...... Parsing_RPN_calculator_algorithm
 GS..T...... Parsing_RPN_to_infix_conversion
 GS......... Parsing_Shunting-yard_algorithm
 GS......... Partial_function_application
-.......D.VU Particle_fountain
+G.KI...D... Particle_fountain
 GS..TR.D... Particle_swarm_optimization
 GS......... Partition_an_integer_x_into_n_primes
 GS..T...... Partition_function_P
