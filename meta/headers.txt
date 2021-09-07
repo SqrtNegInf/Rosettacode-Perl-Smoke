@@ -6195,11 +6195,19 @@ File: P/Pancake_numbers
 #c# 2021-01-13 >RC, 2021-02-05 >RC
 #p# OK
 
-File: P/Pandigital_prime
+File: P/Pandigital_prime-1
 #!/usr/local/bin/perl
 #u# http://rosettacode.org/wiki/Pandigital_prime
-#c# 2021-09-05 >RC
+#c# 2021-09-06 <RC
 #p# OK
+#n# munged a bit for testing
+
+File: P/Pandigital_prime-2
+#!/usr/local/bin/perl
+#u# http://rosettacode.org/wiki/Pandigital_prime
+#c# 2021-09-05 NOT ON RC
+#p# OK
+#n# my version
 
 File: P/Pangram_checker
 #!/usr/local/bin/perl
@@ -6274,6 +6282,13 @@ File: P/Particle_Swarm_Optimization
 #c# 2020-01-20 >RC
 #p# OK
 #n# TIL: wrapping function to coerce output: %{pso()}
+
+File: P/Particle_fountain
+#!/usr/local/bin/perl
+#t# gui
+#u# http://rosettacode.org/wiki/Particle_fountain
+#c# 2021-09-06 <RC
+#p# OK
 
 File: P/Partition_Function_P
 #!/usr/local/bin/perl
