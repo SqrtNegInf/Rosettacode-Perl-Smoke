@@ -339,7 +339,7 @@ N/Numerical_integration_Gauss-Legendre_Quadrature
 ∫:     8 INTEGRAL
 ≈:     8 ALMOST EQUAL TO
 
-P/Pandigital_prime
+P/Pandigital_prime-2
 »:     1 RIGHT-POINTING DOUBLE ANGLE QUOTATION MARK
 
 P/Peaceful_chess_queen_armies
@@ -395,8 +395,7 @@ R/Ramanujan%27s_constant
 ≈:     5 ALMOST EQUAL TO
 
 R/Ramanujan_primes
-»:     2 RIGHT-POINTING DOUBLE ANGLE QUOTATION MARK
-×:     3 MULTIPLICATION SIGN
+×:     4 MULTIPLICATION SIGN
 
 R/Read_a_file_character_by_character_UTF8
 ă:     2 LATIN SMALL LETTER A WITH BREVE
