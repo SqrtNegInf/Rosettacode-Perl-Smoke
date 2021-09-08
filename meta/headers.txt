@@ -7212,9 +7212,9 @@ File: R/Ramanujan%27s_constant
 File: R/Ramanujan_primes
 #!/usr/local/bin/perl
 #u# http://rosettacode.org/wiki/Ramanujan_primes
-#t# inprogress
-#c# 2021-09-xx >RC
+#c# 2021-09-07 >RC
 #p# OK
+#n# too slow with 10_000th, use ntheory if you want that
 
 File: R/Ramer-Douglas-Peucker_line_simplification
 #!/usr/local/bin/perl
