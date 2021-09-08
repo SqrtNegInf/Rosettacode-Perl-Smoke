@@ -1,16 +1,16 @@
 
 This is perl 5, version 32, subversion 1 (v5.32.1) built for darwin-thread-multi-2level
 updating from RC…
-+------------> Perl: Good/Bad [1501/8]
++------------> Perl: Good/Bad [1500/8]
 |+-----------> Smoke testing [1348]
-||+----------> sKipping validation [157]
+||+----------> sKipping validation [156]
 |||+---------> Interactive [72]
-||||+--------> Touched (modified by me) [503]
+||||+--------> Touched (modified by me) [502]
 |||||+-------> Random seed [118]
 ||||||+------> File output [75]
-|||||||+-----> Draft [301]
+|||||||+-----> Draft [302]
 ||||||||+----> Ignoring [35]
-|||||||||+---> Void (no local copy) [124]
+|||||||||+---> Void (no local copy) [126]
 ||||||||||+--> Un-implemented/reliable [104]
 |||||||||||
 GS......... 100_doors-1
@@ -955,7 +955,7 @@ GS.....D... Numbers_divisible_by_their_individual_digits,_but_not_by_the_product
 GS..T..D... Numbers_in_base-16_representation_that_cannot_be_written_with_decimal_digits
 GS..T..D... Numbers_in_base_10_that_are_palindromic_in_bases_2,_4,_and_16
 GS..T..D... Numbers_which_binary_and_ternary_digit_sum_are_prime
-GS..T..D... Numbers_which_count_of_divisors_is_prime
+.......D.V. Numbers_whose_count_of_divisors_is_prime
 GS......... Numbers_with_equal_rises_and_falls
 GS.....D... Numbers_with_prime_digits_whose_sum_is_13
 .......D.V. Numbers_with_same_digit_set_in_base_10_and_base_16
@@ -1164,7 +1164,7 @@ GS..TR..... RPG_attributes_generator
 GS..T...... RSA_code
 GS..T..D... Railway_circuit
 GS......... Ramanujan%27s_constant
-G.K.T..D..U Ramanujan_primes
+GS..T..D... Ramanujan_primes
 GS..T...... Ramer-Douglas-Peucker_line_simplification
 GS..T..D... Ramsey%27s_theorem
 GS..TR..... Random_Latin_squares
@@ -1256,6 +1256,7 @@ GS..T...... Safe_primes_and_unsafe_primes
 GS..T...... Sailors,_coconuts_and_a_monkey_problem-1
 GS..T...... Sailors,_coconuts_and_a_monkey_problem-2
 GS......... Same_fringe
+.......D.VU Sanitize_user_input
 GS..TR.D... Sattolo_cycle
 GS..T...... Scope_Function_names_and_labels
 GS......... Scope_modifiers
