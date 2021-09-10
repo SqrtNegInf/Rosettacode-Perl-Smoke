@@ -1,0 +1,47 @@
+#!/usr/local/bin/perl
+#u# http://rosettacode.org/wiki/Find_minimum_number_of_coins_that_make_a_given_value
+#c# 2021-09-10 >RC
+#p# OK
+
+my @res;
+
+use strict;
+use warnings;
+use feature 'say';
+
+my @denominations = <200 100 50 20 10 5 2 1>;
+
+sub change {
+    my $n = shift;
+    my @a;
+    push(@a, int $n/$_) and $n %= $_ for @denominations;
+    @a
+}
+
+#my @amounts = change 988;
+#for (0 .. $#amounts) {
+#    push @res, sprintf "%1d * %3d", $amounts[$_], $denominations[$_]
+#}
+
+#my $c;
+#push @res, sprintf "%1d * %3d", $_, $denominations[$c++] for change 988;
+
+push @res, sprintf "%1d * %3d", $_, shift @denominations for change 988;
+
+say my $result = join "\n", @res;
+
+my $ref = <<'END';
+4 * 200
+1 * 100
+1 *  50
+1 *  20
+1 *  10
+1 *   5
+1 *   2
+1 *   1
+END
+
+use Test::More;
+chomp $ref;
+is($result, $ref);
+done_testing();
