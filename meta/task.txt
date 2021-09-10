@@ -8,10 +8,10 @@ updating from RC…
 ||||+--------> Touched (modified by me) [502]
 |||||+-------> Random seed [118]
 ||||||+------> File output [75]
-|||||||+-----> Draft [302]
+|||||||+-----> Draft [303]
 ||||||||+----> Ignoring [35]
-|||||||||+---> Void (no local copy) [127]
-||||||||||+--> Un-implemented/reliable [104]
+|||||||||+---> Void (no local copy) [128]
+||||||||||+--> Un-implemented/reliable [105]
 |||||||||||
 GS......... 100_doors-1
 GS......... 100_doors-2
@@ -1163,6 +1163,7 @@ GS..T...... RSA_code
 GS..T..D... Railway_circuit
 GS......... Ramanujan%27s_constant
 GS..T..D... Ramanujan_primes
+.......D.VU Ramanujan_primes_twins
 GS..T...... Ramer-Douglas-Peucker_line_simplification
 GS..T..D... Ramsey%27s_theorem
 GS..TR..... Random_Latin_squares
