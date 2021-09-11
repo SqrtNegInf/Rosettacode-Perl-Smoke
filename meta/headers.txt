@@ -3116,6 +3116,12 @@ File: F/Find_limit_of_recursion
 #n# stop at 1E6, but could easily go on
 #n# strict and prototype don't get along (and prototype wasn't really doing much for us anyhow)
 
+File: F/Find_minimum_number_of_coins_that_make_a_given_value
+#!/usr/local/bin/perl
+#u# http://rosettacode.org/wiki/Find_minimum_number_of_coins_that_make_a_given_value
+#c# 2021-09-10 >RC
+#p# OK
+
 File: F/Find_palindromic_numbers_in_both_binary_and_ternary_bases
 #!/usr/local/bin/perl
 #u# http://rosettacode.org/wiki/Find_palindromic_numbers_in_both_binary_and_ternary_bases
@@ -9084,6 +9090,7 @@ File: S/Summarize_primes
 #u# http://rosettacode.org/wiki/Summarize_primes
 #c# 2021-04-23 >RC
 #p# OK
+#n# skipping 'Prime_numbers_p_which_sum_of_prime_numbers_less_or_equal_to_p_is_prime' which is a dup of this task
 
 File: S/Sunflower_fractal
 #!/usr/local/bin/perl
