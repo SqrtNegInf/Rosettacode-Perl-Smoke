@@ -1,17 +1,17 @@
 
 This is perl 5, version 32, subversion 1 (v5.32.1) built for darwin-thread-multi-2level
 updating from RC…
-+------------> Perl: Good/Bad [1499/8]
-|+-----------> Smoke testing [1346]
++------------> Perl: Good/Bad [1500/8]
+|+-----------> Smoke testing [1347]
 ||+----------> sKipping validation [156]
 |||+---------> Interactive [72]
-||||+--------> Touched (modified by me) [502]
+||||+--------> Touched (modified by me) [503]
 |||||+-------> Random seed [118]
 ||||||+------> File output [75]
-|||||||+-----> Draft [303]
-||||||||+----> Ignoring [35]
-|||||||||+---> Void (no local copy) [128]
-||||||||||+--> Un-implemented/reliable [105]
+|||||||+-----> Draft [301]
+||||||||+----> Ignoring [36]
+|||||||||+---> Void (no local copy) [127]
+||||||||||+--> Un-implemented/reliable [104]
 |||||||||||
 GS......... 100_doors-1
 GS......... 100_doors-2
@@ -520,7 +520,7 @@ GS.....D... Find_first_missing_positive
 GS......... Find_if_a_point_is_within_a_triangle
 GS......... Find_largest_left_truncatable_prime_in_a_given_base
 GS......... Find_limit_of_recursion
-.......D.VU Find_minimum_number_of_coins_that_make_a_given_value
+GS..T..D... Find_minimum_number_of_coins_that_make_a_given_value
 GS......... Find_palindromic_numbers_in_both_binary_and_ternary_bases
 .......D.V. Find_prime_n_such_that_reversed_n_is_also_prime
 GS..T..D... Find_prime_numbers_of_the_form_n_n_n%2B2
@@ -1117,7 +1117,7 @@ GS......... Prime_decomposition-1
 GS......... Prime_decomposition-2
 GS......... Prime_decomposition-3
 B.......... Prime_decomposition-4
-.......D.VU Prime_numbers_p_which_sum_of_prime_numbers_less_or_equal_to_p_is_prime
+.......DXVU Prime_numbers_p_which_sum_of_prime_numbers_less_or_equal_to_p_is_prime
 GS.....D... Prime_numbers_which_contain_123
 GS.....D... Prime_triplets
 GS.....D... Prime_words
@@ -1163,7 +1163,7 @@ GS..T...... RSA_code
 GS..T..D... Railway_circuit
 GS......... Ramanujan%27s_constant
 GS..T..D... Ramanujan_primes
-.......D.VU Ramanujan_primes_twins
+.........VU Ramanujan_primes_twins
 GS..T...... Ramer-Douglas-Peucker_line_simplification
 GS..T..D... Ramsey%27s_theorem
 GS..TR..... Random_Latin_squares
@@ -1549,7 +1549,7 @@ GS......... Truncatable_primes-3
 GS......... Truncate_a_file
 GS....F.... Truth_table
 GS......... Twelve_statements
-GS..T..D... Twin_primes
+GS..T...... Twin_primes
 GS..TR..... Two_bullet_roulette
 GS.....D... Two_identical_strings
 GS..T..D... Two_sum
