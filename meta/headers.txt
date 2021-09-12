@@ -6207,11 +6207,12 @@ File: P/Pandigital_prime-1
 #c# 2021-09-06 <RC
 #p# OK
 #n# munged a bit for testing
+#n# 2021-09-11 added optional goal, but in non-general fashion (presuming 8-digit answer, otherwise complicates testing)
 
 File: P/Pandigital_prime-2
 #!/usr/local/bin/perl
 #u# http://rosettacode.org/wiki/Pandigital_prime
-#c# 2021-09-05 NOT ON RC
+#c# 2021-09-05, 2021-09-11 NOT ON RC
 #p# OK
 #n# my version
 
