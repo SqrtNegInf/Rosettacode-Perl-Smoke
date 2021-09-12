@@ -1,14 +1,14 @@
 
 This is perl 5, version 32, subversion 1 (v5.32.1) built for darwin-thread-multi-2level
 updating from RC…
-+------------> Perl: Good/Bad [1500/8]
++------------> Perl: Good/Bad [1499/8]
 |+-----------> Smoke testing [1347]
 ||+----------> sKipping validation [156]
 |||+---------> Interactive [72]
 ||||+--------> Touched (modified by me) [503]
 |||||+-------> Random seed [118]
 ||||||+------> File output [75]
-|||||||+-----> Draft [301]
+|||||||+-----> Draft [300]
 ||||||||+----> Ignoring [36]
 |||||||||+---> Void (no local copy) [127]
 ||||||||||+--> Un-implemented/reliable [104]
@@ -512,6 +512,7 @@ GS......... File_modification_time
 GS......... File_size
 GS..T...... File_size_distribution
 GS......... Filter
+.........VU Find_Chess960_starting_position_identifier
 GS.....D... Find_URI_in_text
 GS..T...... Find_common_directory_path
 GS..T...... Find_duplicate_files
@@ -1233,7 +1234,7 @@ GS..T...... Rosetta_Code_Find_unimplemented_tasks
 GS......... Rosetta_Code_Fix_code_tags
 .......D.VU Rosetta_Code_List_authors_of_task_descriptions
 GS..T...... Rosetta_Code_Rank_languages_by_number_of_users
-GS..T...... Rosetta_Code_Rank_languages_by_popularity
+!S..T...... Rosetta_Code_Rank_languages_by_popularity
 .......D.VU Rosetta_Code_Run_examples
 GS..T..D... Rosetta_Code_Tasks_without_examples
 GS......... Rot-13
@@ -1255,7 +1256,6 @@ GS..T...... Safe_primes_and_unsafe_primes
 GS..T...... Sailors,_coconuts_and_a_monkey_problem-1
 GS..T...... Sailors,_coconuts_and_a_monkey_problem-2
 GS......... Same_fringe
-.......D.VU Sanitize_user_input
 GS..TR.D... Sattolo_cycle
 GS..T...... Scope_Function_names_and_labels
 GS......... Scope_modifiers
