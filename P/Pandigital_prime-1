@@ -3,13 +3,21 @@
 #c# 2021-09-06 <RC
 #p# OK
 #n# munged a bit for testing
+#n# 2021-09-11 added optional goal, but in non-general fashion (presuming 8-digit answer, otherwise complicates testing)
 
 use strict;
 use warnings;
 
 use Test::More;
-plan tests => 1;
-use ntheory qw( forperm is_prime );
+plan tests => 2;
+use ntheory qw( forperm is_prime lastfor);
+
+for my $digits ( 8 ) {
+    forperm {
+        my $n = join '', map $digits - $_ - 1 , @_;
+        $n !~ /^0/ and is_prime($n) and print "$n\n" and is($n, 76540231) and lastfor and return
+    } $digits;
+}
 
 for my $digits ( reverse 1 .. 9 ) {
     forperm {
