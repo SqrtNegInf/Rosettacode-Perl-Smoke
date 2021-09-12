@@ -1,6 +1,6 @@
 #!/usr/local/bin/perl
 #u# http://rosettacode.org/wiki/Pandigital_prime
-#c# 2021-09-05 NOT ON RC
+#c# 2021-09-05, 2021-09-11 NOT ON RC
 #p# OK
 #n# my version
 
@@ -24,9 +24,18 @@ for my $c (4,7) {
         push @p, $n if is_prime($n); 
     } @{[1..$c]};
 }
+say my $result1 = vecmax @p;
 
-say my $result = vecmax @p;
+@p = ();
+for my $c (0..7) {
+    forperm {
+        my $n = join '', @_;
+        push @p, $n if $n !~ /^0/ and is_prime($n); 
+    } @{[0..$c]};
+}
+say my $result2 = vecmax @p;
 
 use Test::More;
-is($result, 7652413);
+is($result1,  7652413);
+is($result2, 76540231);
 done_testing();
