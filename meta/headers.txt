@@ -2335,8 +2335,9 @@ File: D/Distinct_Palindromes_Within_Decimal_Numbers
 File: D/Distinct_power_numbers
 #!/usr/local/bin/perl
 #u# http://rosettacode.org/wiki/Distinct_power_numbers
-#c# 2021-08-16 <RC
+#c# 2021-08-16 <RC, 2021-09-12 >RC
 #p# OK
+#n# tiny change, but the superfluousness of the '+' preceding 'uniq' bugged me...
 
 File: D/Distributed_programming
 #!/usr/local/bin/perl
@@ -6207,14 +6208,14 @@ File: P/Pandigital_prime-1
 #c# 2021-09-06 <RC
 #p# OK
 #n# munged a bit for testing
-#n# 2021-09-11 added optional goal, but in non-general fashion (presuming 8-digit answer, otherwise complicates testing)
+#n# 2021-09-11 optional goal in tybalt89's style, but in non-general fashion (presumes 8-digit answer, otherwise complicates testing)
 
 File: P/Pandigital_prime-2
 #!/usr/local/bin/perl
 #u# http://rosettacode.org/wiki/Pandigital_prime
-#c# 2021-09-05, 2021-09-11 NOT ON RC
+#c# 2021-09-05, 2021-09-12 >RC
 #p# OK
-#n# my version
+#n# my version, optional portion of task on RC
 
 File: P/Pangram_checker
 #!/usr/local/bin/perl
@@ -7222,6 +7223,12 @@ File: R/Ramanujan_primes
 #c# 2021-09-07 >RC
 #p# OK
 #n# too slow with 10_000th, use ntheory if you want that
+
+File: R/Ramanujan_primes_twins
+#!/usr/local/bin/perl
+#u# http://rosettacode.org/wiki/Ramanujan_primes/twins
+#c# 2021-09-12 >RC
+#p# OK
 
 File: R/Ramer-Douglas-Peucker_line_simplification
 #!/usr/local/bin/perl
