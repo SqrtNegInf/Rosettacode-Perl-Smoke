@@ -1,0 +1,10 @@
+#!/usr/local/bin/perl
+#u# http://rosettacode.org/wiki/Halt_and_catch_fire
+#t# nocode
+#c# 2021-09-12 >RC
+#p# OK
+#n# all these statements pass 'perl -c' but crash one way or another upon execution
+
+&a;
+1/0;
+die;
