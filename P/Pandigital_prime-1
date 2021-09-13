@@ -3,7 +3,7 @@
 #c# 2021-09-06 <RC
 #p# OK
 #n# munged a bit for testing
-#n# 2021-09-11 added optional goal, but in non-general fashion (presuming 8-digit answer, otherwise complicates testing)
+#n# 2021-09-11 optional goal in tybalt89's style, but in non-general fashion (presumes 8-digit answer, otherwise complicates testing)
 
 use strict;
 use warnings;
