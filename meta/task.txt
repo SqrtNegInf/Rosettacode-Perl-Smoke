@@ -1,17 +1,17 @@
 
 This is perl 5, version 32, subversion 1 (v5.32.1) built for darwin-thread-multi-2level
 updating from RC…
-+------------> Perl: Good/Bad [1499/8]
-|+-----------> Smoke testing [1347]
++------------> Perl: Good/Bad [1500/8]
+|+-----------> Smoke testing [1348]
 ||+----------> sKipping validation [156]
 |||+---------> Interactive [72]
-||||+--------> Touched (modified by me) [503]
+||||+--------> Touched (modified by me) [506]
 |||||+-------> Random seed [118]
 ||||||+------> File output [75]
-|||||||+-----> Draft [300]
+|||||||+-----> Draft [301]
 ||||||||+----> Ignoring [36]
-|||||||||+---> Void (no local copy) [127]
-||||||||||+--> Un-implemented/reliable [104]
+|||||||||+---> Void (no local copy) [128]
+||||||||||+--> Un-implemented/reliable [105]
 |||||||||||
 GS......... 100_doors-1
 GS......... 100_doors-2
@@ -396,7 +396,7 @@ GS.....D... Discrete_Fourier_transform
 GS..T...... Display_a_linear_combination
 GS......... Display_an_outline_as_a_nested_table
 GS.....D... Distinct_Palindromes_within_decimal_numbers
-GS.....D... Distinct_power_numbers
+!S..T..D... Distinct_power_numbers
 GS......... Distributed_programming
 GS..T..D... Distribution_of_0_Digits_in_factorial_series
 GS..T...... Diversity_prediction_theorem
@@ -626,6 +626,7 @@ G.K........ HTTPS_Authenticated
 G.K........ HTTPS_Client-authenticated
 GS......... Hailstone_sequence-1
 GS......... Hailstone_sequence-2
+.........VU Halt_and_catch_fire
 GS..T...... Hamming_numbers
 G.KI....... Handle_a_signal
 GS......... Happy_numbers-1
@@ -1007,7 +1008,7 @@ GS..T..D... Palindromic_primes_in_base_16
 GS..T...... Pancake_numbers
 .......D... Pandigital_prime
 GS......... Pandigital_prime-1
-GS......... Pandigital_prime-2
+GS..T...... Pandigital_prime-2
 GS..T...... Pangram_checker
 GS......... Paraffins
 GS......... Parallel_brute_force
@@ -1164,7 +1165,7 @@ GS..T...... RSA_code
 GS..T..D... Railway_circuit
 GS......... Ramanujan%27s_constant
 GS..T..D... Ramanujan_primes
-.........VU Ramanujan_primes_twins
+GS..T...... Ramanujan_primes_twins
 GS..T...... Ramer-Douglas-Peucker_line_simplification
 GS..T..D... Ramsey%27s_theorem
 GS..TR..... Random_Latin_squares
@@ -1234,7 +1235,7 @@ GS..T...... Rosetta_Code_Find_unimplemented_tasks
 GS......... Rosetta_Code_Fix_code_tags
 .......D.VU Rosetta_Code_List_authors_of_task_descriptions
 GS..T...... Rosetta_Code_Rank_languages_by_number_of_users
-!S..T...... Rosetta_Code_Rank_languages_by_popularity
+GS..T...... Rosetta_Code_Rank_languages_by_popularity
 .......D.VU Rosetta_Code_Run_examples
 GS..T..D... Rosetta_Code_Tasks_without_examples
 GS......... Rot-13
@@ -1573,6 +1574,7 @@ GS.....D... Unique_characters_in_each_string
 .......DXVU Unit_testing
 GS......... Universal_Turing_machine
 GS......... Unix_ls
+.......D.VU Uno_Card_Game
 GS..T...... Unprimeable_numbers
 GS..T...... Untouchable_numbers
 G.K....D... Untrusted_environment
