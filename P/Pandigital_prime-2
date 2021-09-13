@@ -1,8 +1,8 @@
 #!/usr/local/bin/perl
 #u# http://rosettacode.org/wiki/Pandigital_prime
-#c# 2021-09-05, 2021-09-11 NOT ON RC
+#c# 2021-09-05, 2021-09-12 >RC
 #p# OK
-#n# my version
+#n# my version, optional portion of task on RC
 
 use strict;
 use warnings;
@@ -26,6 +26,7 @@ for my $c (4,7) {
 }
 say my $result1 = vecmax @p;
 
+# optional
 @p = ();
 for my $c (0..7) {
     forperm {
