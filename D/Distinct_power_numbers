@@ -10,11 +10,14 @@ use feature 'say';
 
 use List::Util 'uniq';
 
-say my $result = join ', ', sort { $a <=> $b } uniq map { for my $b (2..5) { $b ** $_} } 2 .. 5;
-#say my $result = join ', ', sort { $a <=> $b } uniq map { my $e = $_; map $_ ** $e, 2 .. 5} 2 .. 5;
+say my $result1 = join ', ', sort { $a <=> $b } uniq map { my $e = $_; map $_ ** $e, 2 .. 5} 2 .. 5;
+
+my %h;
+say my $result2 = join ', ', sort { $a <=> $b } grep { $_ if not $h{$_}++ } map { my $e = $_; map $_ ** $e, 2 .. 5} 2 .. 5;
 
 my $ref = '4, 8, 9, 16, 25, 27, 32, 64, 81, 125, 243, 256, 625, 1024, 3125';
 
 use Test::More;
-is ($result, $ref);
+is ($result1, $ref);
+is ($result2, $ref);
 done_testing();
