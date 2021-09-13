@@ -1,0 +1,37 @@
+#!/usr/local/bin/perl
+#u# http://rosettacode.org/wiki/Ramanujan_primes/twins
+#c# 2021-09-12 >RC
+#p# OK
+
+my @res;
+
+use strict;
+use warnings;
+use feature 'say';
+
+use ntheory <ramanujan_primes nth_ramanujan_prime>;
+
+sub comma { reverse ((reverse shift) =~ s/(.{3})/$1,/gr) =~ s/^,//r }
+
+my $rp = ramanujan_primes nth_ramanujan_prime 1_000_000;
+for my $limit (1e5, 1e6) {
+    push @res, sprintf "The %sth Ramanujan prime is %s", comma($limit), comma $rp->[$limit-1];
+    push @res, sprintf  "There are %s twins in the first %s Ramanujan primes.\n", 
+        comma( scalar grep { $rp->[$_+1] == $rp->[$_]+2 } 0 .. $limit-2 ), comma $limit;
+}
+
+say my $result = join "\n", @res;
+
+my $ref = <<'END';
+The 100,000th Ramanujan prime is 2,916,539
+There are 8,732 twins in the first 100,000 Ramanujan primes.
+
+The 1,000,000th Ramanujan prime is 34,072,993
+There are 74,973 twins in the first 1,000,000 Ramanujan primes.
+
+END
+
+use Test::More;
+chomp $ref;
+is($result, $ref);
+done_testing();
