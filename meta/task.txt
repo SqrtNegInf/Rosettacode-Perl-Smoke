@@ -1,17 +1,17 @@
 
 This is perl 5, version 32, subversion 1 (v5.32.1) built for darwin-thread-multi-2level
 updating from RC…
-+------------> Perl: Good/Bad [1500/8]
++------------> Perl: Good/Bad [1502/8]
 |+-----------> Smoke testing [1348]
-||+----------> sKipping validation [156]
+||+----------> sKipping validation [157]
 |||+---------> Interactive [72]
-||||+--------> Touched (modified by me) [506]
+||||+--------> Touched (modified by me) [507]
 |||||+-------> Random seed [118]
 ||||||+------> File output [75]
-|||||||+-----> Draft [301]
+|||||||+-----> Draft [300]
 ||||||||+----> Ignoring [36]
-|||||||||+---> Void (no local copy) [128]
-||||||||||+--> Un-implemented/reliable [105]
+|||||||||+---> Void (no local copy) [129]
+||||||||||+--> Un-implemented/reliable [106]
 |||||||||||
 GS......... 100_doors-1
 GS......... 100_doors-2
@@ -396,7 +396,7 @@ GS.....D... Discrete_Fourier_transform
 GS..T...... Display_a_linear_combination
 GS......... Display_an_outline_as_a_nested_table
 GS.....D... Distinct_Palindromes_within_decimal_numbers
-!S..T..D... Distinct_power_numbers
+GS..T..D... Distinct_power_numbers
 GS......... Distributed_programming
 GS..T..D... Distribution_of_0_Digits_in_factorial_series
 GS..T...... Diversity_prediction_theorem
@@ -626,7 +626,7 @@ G.K........ HTTPS_Authenticated
 G.K........ HTTPS_Client-authenticated
 GS......... Hailstone_sequence-1
 GS......... Hailstone_sequence-2
-.........VU Halt_and_catch_fire
+G.K.T...... Halt_and_catch_fire
 GS..T...... Hamming_numbers
 G.KI....... Handle_a_signal
 GS......... Happy_numbers-1
@@ -720,7 +720,7 @@ GS......... Jewels_and_stones-2
 ........XV. JortSort
 GS......... Josephus_problem
 .........VU Joystick_position
-GS.....D... Juggler_sequence
+GS......... Juggler_sequence
 GS....F.... Julia_set
 GS......... Jump_anywhere
 GS..T..D... Just_in_time_processing_on_a_character_stream
@@ -898,7 +898,7 @@ GS...R..... Monty_Hall_problem
 .......D.VU Morpion_solitaire
 GS......... Morse_code
 GS.....D... Most_frequent_k_chars_distance
-GS.....D... Motzkin_numbers
+GS......... Motzkin_numbers
 G.KI....... Mouse_position-1
 G.KI....... Mouse_position-2
 GS......... Move-to-front_algorithm
@@ -913,6 +913,7 @@ GS..T...... Multiple_regression
 GS......... Multiplication_tables
 GS......... Multiplicative_order
 GS......... Multisplit
+.......D.VU Multiton
 GS......... Munchausen_numbers
 GS....F.... Munching_squares
 G.K.T.F.... Musical_scale
@@ -994,6 +995,7 @@ GS......... Order_two_numerical_lists
 GS......... Ordered_partitions
 GS......... Ordered_partitions-2
 GS......... Ordered_words
+.......D.VU Overloaded_operators
 .........VU P-Adic_numbers,_basic
 .........VU P-Adic_square_roots
 GS......... P-value_correction
@@ -1599,7 +1601,7 @@ GS......... Variables
 GS......... Variadic_function
 GS......... Vector
 GS......... Vector_products
-GS.....D... Verhoeff_algorithm
+GS......... Verhoeff_algorithm
 GS..T...... Verify_distribution_uniformity_Chi-squared_test
 GS..TR..... Verify_distribution_uniformity_Naive
 G.KIT..D... Vibrating_rectangles
