@@ -3821,6 +3821,14 @@ File: H/Hailstone_sequence-3.0
 #p# OK
 #n# obfuscated (and now obsoleted)
 
+File: H/Halt_and_catch_fire
+#!/usr/local/bin/perl
+#u# http://rosettacode.org/wiki/Halt_and_catch_fire
+#t# nocode
+#c# 2021-09-12 >RC
+#p# OK
+#n# all these statements pass 'perl -c' but crash one way or another upon execution
+
 File: H/Hamming_numbers
 #!/usr/local/bin/perl
 #u# http://rosettacode.org/wiki/Hamming_numbers
