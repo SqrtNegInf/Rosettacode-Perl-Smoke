@@ -1,17 +1,17 @@
 
 This is perl 5, version 32, subversion 1 (v5.32.1) built for darwin-thread-multi-2level
 updating from RC…
-+------------> Perl: Good/Bad [1502/8]
-|+-----------> Smoke testing [1348]
++------------> Perl: Good/Bad [1503/8]
+|+-----------> Smoke testing [1349]
 ||+----------> sKipping validation [157]
 |||+---------> Interactive [72]
-||||+--------> Touched (modified by me) [507]
+||||+--------> Touched (modified by me) [508]
 |||||+-------> Random seed [118]
 ||||||+------> File output [75]
 |||||||+-----> Draft [300]
 ||||||||+----> Ignoring [36]
-|||||||||+---> Void (no local copy) [129]
-||||||||||+--> Un-implemented/reliable [106]
+|||||||||+---> Void (no local copy) [128]
+||||||||||+--> Un-implemented/reliable [105]
 |||||||||||
 GS......... 100_doors-1
 GS......... 100_doors-2
@@ -512,7 +512,7 @@ GS......... File_modification_time
 GS......... File_size
 GS..T...... File_size_distribution
 GS......... Filter
-.........VU Find_Chess960_starting_position_identifier
+GS..T...... Find_Chess960_starting_position_identifier
 GS.....D... Find_URI_in_text
 GS..T...... Find_common_directory_path
 GS..T...... Find_duplicate_files
