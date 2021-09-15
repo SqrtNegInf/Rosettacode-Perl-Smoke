@@ -3060,6 +3060,12 @@ File: F/Filter
 #c# 2018-08-04 <RC
 #p# OK
 
+File: F/Find_Chess960_starting_position_identifier
+#!/usr/local/bin/perl
+#u# http://rosettacode.org/wiki/Find_Chess960_starting_position_identifier
+#c# 2021-09-13 >RC
+#p# OK
+
 File: F/Find_URI_in_text
 #!/usr/local/bin/perl
 #u# http://rosettacode.org/wiki/Find_URI_in_text
@@ -5583,7 +5589,7 @@ File: M/Multi-base_primes
 #!/usr/local/bin/perl
 #u# http://rosettacode.org/wiki/Multi-base_primes
 #t# inprogress
-#c# 2021-07-xx >RC
+#c# 2021-09-xx >RC
 #p# OK
 
 File: M/Multi-dimensional_array
