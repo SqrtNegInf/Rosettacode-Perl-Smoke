@@ -1,7 +1,7 @@
 #!/usr/local/bin/perl
 #u# http://rosettacode.org/wiki/Multi-base_primes
 #t# inprogress
-#c# 2021-07-xx >RC
+#c# 2021-09-xx >RC
 #p# OK
 
 my @res;
