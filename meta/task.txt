@@ -8,10 +8,10 @@ updating from RC…
 ||||+--------> Touched (modified by me) [508]
 |||||+-------> Random seed [118]
 ||||||+------> File output [75]
-|||||||+-----> Draft [300]
+|||||||+-----> Draft [301]
 ||||||||+----> Ignoring [36]
-|||||||||+---> Void (no local copy) [128]
-||||||||||+--> Un-implemented/reliable [105]
+|||||||||+---> Void (no local copy) [129]
+||||||||||+--> Un-implemented/reliable [106]
 |||||||||||
 GS......... 100_doors-1
 GS......... 100_doors-2
@@ -697,6 +697,7 @@ GS..T..D... Input_Output_for_lines_of_text
 GS..T..D... Input_Output_for_pairs_of_numbers
 G.K........ Input_loop
 GS......... Integer_comparison
+.......D.VU Integer_long_division
 GS......... Integer_overflow
 .......D... Integer_roots
 GS..T...... Integer_roots-1
