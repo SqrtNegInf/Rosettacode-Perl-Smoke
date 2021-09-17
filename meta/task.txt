@@ -8,10 +8,10 @@ updating from RC…
 ||||+--------> Touched (modified by me) [508]
 |||||+-------> Random seed [118]
 ||||||+------> File output [75]
-|||||||+-----> Draft [301]
+|||||||+-----> Draft [302]
 ||||||||+----> Ignoring [36]
-|||||||||+---> Void (no local copy) [129]
-||||||||||+--> Un-implemented/reliable [106]
+|||||||||+---> Void (no local copy) [130]
+||||||||||+--> Un-implemented/reliable [107]
 |||||||||||
 GS......... 100_doors-1
 GS......... 100_doors-2
@@ -301,6 +301,7 @@ GS.....D... Concatenate_two_primes_is_also_prime
 G.K..R..... Concurrent_computing-1
 GS......... Concurrent_computing-2
 G.K........ Conditional_structures
+.......D.VU Conjugate_a_Latin_Verb
 GS......... Conjugate_transpose
 .........V. Consecutive_primes_with_ascending_or_descending_dfferences
 ........XVU Constrained_genericity
