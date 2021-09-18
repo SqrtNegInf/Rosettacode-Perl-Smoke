@@ -126,6 +126,10 @@ C/Cipolla%27s_algorithm-1
 C/Commatizing_numbers
 ±:     3 PLUS-MINUS SIGN
 
+C/Conjugate_a_Latin_Verb
+ā:    12 LATIN SMALL LETTER A WITH MACRON
+ō:     3 LATIN SMALL LETTER O WITH MACRON
+
 C/Continued_fraction
 π:     4 GREEK SMALL LETTER PI
 √:     2 SQUARE ROOT
