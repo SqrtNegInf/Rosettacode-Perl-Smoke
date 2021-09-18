@@ -1,0 +1,50 @@
+#!/usr/local/bin/perl
+#u# http://rosettacode.org/wiki/Conjugate_a_Latin_Verb
+#c# 2021-09-17 >RC
+#p# OK
+
+my @res;
+
+use strict;
+use warnings;
+use feature 'say';
+
+use utf8;
+binmode STDOUT, ':utf8'; # or get 'Wide-character' warning
+
+sub conjugate {
+    my($verb) = shift;
+    join "\n", map { $verb . $_ } qw<ō ās at āmus ātis ant>;
+}
+
+for my $infinitive ('amāre', 'dare') {
+    push @res, "\nPresent active indicative conjugation of infinitive $infinitive.";
+    my($verb) = $infinitive =~ /^ (\w+) [aā] re $/x;
+    push @res, $verb ? conjugate $verb : "Sorry, don't know how to conjugate $infinitive"
+}
+
+say my $result = join "\n", @res;
+
+my $ref = <<'END';
+
+Present active indicative conjugation of infinitive amāre.
+amō
+amās
+amat
+amāmus
+amātis
+amant
+
+Present active indicative conjugation of infinitive dare.
+dō
+dās
+dat
+dāmus
+dātis
+dant
+END
+
+use Test::More;
+chomp $ref;
+is($result, $ref);
+done_testing();
