@@ -1722,6 +1722,12 @@ File: C/Conditional_structures
 #c# 2018-07-24 <RC
 #p# OK
 
+File: C/Conjugate_a_Latin_Verb
+#!/usr/local/bin/perl
+#u# http://rosettacode.org/wiki/Conjugate_a_Latin_Verb
+#c# 2021-09-17 >RC
+#p# OK
+
 File: C/Conjugate_transpose
 #!/usr/local/bin/perl
 #u# http://rosettacode.org/wiki/Conjugate_transpose
