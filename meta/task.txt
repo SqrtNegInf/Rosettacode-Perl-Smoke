@@ -1,17 +1,17 @@
 
 This is perl 5, version 32, subversion 1 (v5.32.1) built for darwin-thread-multi-2level
 updating from RC…
-+------------> Perl: Good/Bad [1503/8]
-|+-----------> Smoke testing [1349]
++------------> Perl: Good/Bad [1504/8]
+|+-----------> Smoke testing [1350]
 ||+----------> sKipping validation [157]
 |||+---------> Interactive [72]
-||||+--------> Touched (modified by me) [508]
+||||+--------> Touched (modified by me) [509]
 |||||+-------> Random seed [118]
 ||||||+------> File output [75]
 |||||||+-----> Draft [302]
 ||||||||+----> Ignoring [36]
-|||||||||+---> Void (no local copy) [130]
-||||||||||+--> Un-implemented/reliable [107]
+|||||||||+---> Void (no local copy) [129]
+||||||||||+--> Un-implemented/reliable [106]
 |||||||||||
 GS......... 100_doors-1
 GS......... 100_doors-2
@@ -301,7 +301,7 @@ GS.....D... Concatenate_two_primes_is_also_prime
 G.K..R..... Concurrent_computing-1
 GS......... Concurrent_computing-2
 G.K........ Conditional_structures
-.......D.VU Conjugate_a_Latin_Verb
+GS..T..D... Conjugate_a_Latin_Verb
 GS......... Conjugate_transpose
 .........V. Consecutive_primes_with_ascending_or_descending_dfferences
 ........XVU Constrained_genericity
