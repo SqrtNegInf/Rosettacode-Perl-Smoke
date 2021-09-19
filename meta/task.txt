@@ -8,7 +8,7 @@ updating from RC…
 ||||+--------> Touched (modified by me) [509]
 |||||+-------> Random seed [118]
 ||||||+------> File output [75]
-|||||||+-----> Draft [302]
+|||||||+-----> Draft [303]
 ||||||||+----> Ignoring [36]
 |||||||||+---> Void (no local copy) [129]
 ||||||||||+--> Un-implemented/reliable [106]
@@ -1470,7 +1470,7 @@ GS.....D... Sum_of_the_digits_of_n_is_substring_of_n
 GS......... Sum_to_100
 GS..T...... Summarize_and_say_sequence
 GS..T...... Summarize_primes
-GS..T.F.... Sunflower_fractal
+GS..T.FD... Sunflower_fractal
 GS......... Super-d_numbers-1
 GS..T...... Super-d_numbers-2
 GS..T.F.... Superellipse
