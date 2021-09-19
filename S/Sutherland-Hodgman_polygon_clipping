@@ -66,23 +66,3 @@ use Test::More;
 chomp $ref;
 is($result, $ref);
 done_testing();
-
-__END__
-
-# Output an SVG as well as it is easier to visualize
-
-__END__
-use SVG;
-my $outfile = 'run/polygon-clipping.svg'.IO.open(:w);
-$outfile.say: SVG.serialize(
-    svg => [
-        :400width, :400height,
-        :rect[ :400width, :400height, :fill<white> ],
-        :text[ :10x, :20y, "Polygon (blue)" ],
-        :text[ :10x, :35y, "Clip port (green)" ],
-        :text[ :10x, :50y, "Clipped polygon (red)" ],
-        :polyline[ :points(@polygon.join: ','), :style<stroke:blue>,  :fill<blue>,  :opacity<.3> ],
-        :polyline[ :points(   @clip.join: ','), :style<stroke:green>, :fill<green>, :opacity<.3> ],
-        :polyline[ :points(@clipped.join: ','), :style<stroke:red>,   :fill<red>,   :opacity<.5> ],
-    ],
-);
