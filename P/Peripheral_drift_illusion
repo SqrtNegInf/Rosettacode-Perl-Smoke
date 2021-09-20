@@ -2,7 +2,7 @@
 #u# http://rosettacode.org/wiki/Peripheral_drift_illusion
 #c# 2021-09-19 >RC
 #p# OK
-#f# RC file: peripheral-drift-raku.svg
+#f# RC file: peripheral-drift.svg
 
 my @res;
 
