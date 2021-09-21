@@ -1,68 +1,35 @@
 #!/usr/local/bin/perl
 #u# http://rosettacode.org/wiki/Peripheral_drift_illusion
-#c# 2021-09-19 >RC
-#p# OK
-#f# RC file: peripheral-drift.svg
-
-my @res;
+#c# 2021-09-20 NOT ON RC
+#p# BROKEN
+#f# RC file: peripheral-drift-2.svg
+#n# close but not quite, 'defs' not enclosing 'block' group
 
 use strict;
 use warnings;
-use feature 'say';
 
 use SVG;
 
-my $svg_by_hand = qq{<svg xmlns="http://www.w3.org/2000/svg" xmlns:svg="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="1200" height="825"><rect width="100%" height="100%" fill="#d3d004" /><defs><g id="block"><polygon points="-25,-25,-25,25,25,25" fill="white" /><polygon points="25,25,25,-25,-25,-25" fill="black" /> <rect x="-20" y="-20" width="40" height="40" fill="#3250ff" /></g> </defs>'\n"};
-
-my $blocks;
-for my $X (1..15) {
-   for my $Y (1..10) {
-    my $r = int(($X + $Y) / 2) % 4 * 90;
-    my $x = $X * 75;
-    my $y = $Y * 75;
-    my $a = $r > 0 ? "rotate($r,$x,$y) " : '';
-    $svg_by_hand .= qq{<use xlink:href="#block" transform="$a translate($x,$y)" />\n}
-  }
-}
-$svg_by_hand .= '</svg>';
-
-open my $fh, '>', 'run/peripheral-drift.svg';
-print $fh $svg_by_hand;
-close $fh;
-
-__END__
 my $svg = SVG->new(width=>1200, height=>822);
 $svg->rect(width=>"100%", height=>"100%", style=>{'fill'=>"#d3d004"});
 
-#my $tag1 = $svg->group(id => 'blockA', cdata => qq{<polygon points="-25,-25,-25,25,25,25" fill="white" /><polygon points="25,25,25,-25,-25,-25" fill="black" /> <rect x="-20" y="-20" width="40" height="40" fill="#3250ff" />});
-my $tag1 = $svg->group(id => 'blockA', $svg->polygon(points=>"-25,-25,-25,25,25,25", fill=>"white"), $svg->polygon(points=>"25,25,25,-25,-25,-25" fill=>"black"), $svg->rect(x=>"-20", y=>"-20", width=>"40", height=>"40", fill=>"#3250ff"));
+#my $tag = $svg->defs(id => 'first and only');
+#$tag->group(id => 'block');
+my $tag = $svg->group(id => 'block');
+$tag->polygon(points=>"-25,-25,-25,25,25,25", fill=>"white");
+$tag->polygon(points=>"25,25,25,-25,-25,-25", fill=>"black");
+$tag->rect(x=>"-20", y=>"-20", width=>"40", height=>"40", fill=>"#3250ff");
 
-my $tag2;
 for my $X (1..15) {
-   for my $Y (1..10) {
-    my $r = int(($X + $Y) / 2) % 4 * 90;
-    my $x = $X * 75;
-    my $y = $Y * 75;
-    my $a = $r > 0 ? "rotate($r,$x,$y) " : '';
-
-   $tag2 .= $svg->use(
-            x       => 100,
-            y       => 100,
-            width   => 300,
-            height  => 200,
-            '-href' => qq{#blockA transform="$a translate($x,$y)},
-);
+    for my $Y (1..10) {
+        my $r = int(($X + $Y) / 2) % 4 * 90;
+        my $x = $X * 75;
+        my $y = $Y * 75;
+        my $a = $r > 0 ? "rotate($r,$x,$y) " : '';
+        $tag->use( '-href' => qq{#block" transform="$a translate($x,$y)}); # outer quotes get added automatically
   }
 }
 
-open my $fh2, '>', 'run/peripheral-drift-2.svg';
-print $fh2  $svg->xmlify(-namespace=>'svg');
-close $fh2;
-
-__END__
-
-=={{header|Perl}}==
-<lang perl>
-</lang>
-{{out}}
-[https://github.com/SqrtNegInf/Rosettacode-Perl5-Smoke/blob/master/ref/xx xx]
+open my $fh, '>', 'run/peripheral-drift-2.svg';
+print $fh $svg->xmlify(-namespace=>'svg');
+close $fh;
