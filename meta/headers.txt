@@ -3836,7 +3836,6 @@ File: H/Hailstone_sequence-3.0
 File: H/Halt_and_catch_fire
 #!/usr/local/bin/perl
 #u# http://rosettacode.org/wiki/Halt_and_catch_fire
-#t# nocode
 #c# 2021-09-12 >RC
 #p# OK
 #n# all these statements pass 'perl -c' but crash one way or another upon execution
@@ -6514,9 +6513,17 @@ File: P/Perfect_totient_numbers
 File: P/Peripheral_drift_illusion
 #!/usr/local/bin/perl
 #u# http://rosettacode.org/wiki/Peripheral_drift_illusion
-#c# 2021-09-19 >RC
+#c# 2021-09-20 >RC
 #p# OK
-#f# RC file: peripheral-drift-raku.svg
+#f# RC file: peripheral-drift.svg
+
+File: P/Peripheral_drift_illusion-2
+#!/usr/local/bin/perl
+#u# http://rosettacode.org/wiki/Peripheral_drift_illusion
+#c# 2021-09-20 NOT ON RC
+#p# BROKEN
+#f# RC file: peripheral-drift-2.svg
+#n# close but not quite, 'defs' not enclosing 'block' group
 
 File: P/Perlin_noise
 #!/usr/local/bin/perl
