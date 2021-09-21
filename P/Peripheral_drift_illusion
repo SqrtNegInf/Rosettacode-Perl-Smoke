@@ -7,7 +7,7 @@
 use strict;
 use warnings;
 
-my $svg_by_hand = <<'EOD';
+my $svg = <<'EOD';
 <svg xmlns="http://www.w3.org/2000/svg" 
      xmlns:svg="http://www.w3.org/2000/svg" 
      xmlns:xlink="http://www.w3.org/1999/xlink" width="1200" height="825">
@@ -27,11 +27,11 @@ for my $X (1..15) {
     my $x = $X * 75;
     my $y = $Y * 75;
     my $a = $r > 0 ? "rotate($r,$x,$y) " : '';
-    $svg_by_hand .= qq{<use xlink:href="#block" transform="$a translate($x,$y)" />\n}
+    $svg .= qq{<use xlink:href="#block" transform="$a translate($x,$y)" />\n}
   }
 }
-$svg_by_hand .= '</svg>';
+$svg .= '</svg>';
 
 open my $fh, '>', 'run/peripheral-drift.svg';
-print $fh $svg_by_hand;
+print $fh $svg;
 close $fh;
