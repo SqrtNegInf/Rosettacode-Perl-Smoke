@@ -1,17 +1,17 @@
 
 This is perl 5, version 32, subversion 1 (v5.32.1) built for darwin-thread-multi-2level
 updating from RC…
-+------------> Perl: Good/Bad [1504/8]
-|+-----------> Smoke testing [1351]
-||+----------> sKipping validation [156]
++------------> Perl: Good/Bad [1504/9]
+|+-----------> Smoke testing [1352]
+||+----------> sKipping validation [155]
 |||+---------> Interactive [72]
 ||||+--------> Touched (modified by me) [509]
 |||||+-------> Random seed [118]
-||||||+------> File output [75]
+||||||+------> File output [76]
 |||||||+-----> Draft [303]
 ||||||||+----> Ignoring [36]
 |||||||||+---> Void (no local copy) [129]
-||||||||||+--> Un-implemented/reliable [107]
+||||||||||+--> Un-implemented/reliable [105]
 |||||||||||
 GS......... 100_doors-1
 GS......... 100_doors-2
@@ -627,7 +627,7 @@ G.K........ HTTPS_Authenticated
 G.K........ HTTPS_Client-authenticated
 GS......... Hailstone_sequence-1
 GS......... Hailstone_sequence-2
-G.K.T.....U Halt_and_catch_fire
+GS..T...... Halt_and_catch_fire
 GS..T...... Hamming_numbers
 G.KI....... Handle_a_signal
 GS......... Happy_numbers-1
@@ -1057,7 +1057,8 @@ GS..TR..... Percolation_Site_percolation
 GS......... Perfect_numbers
 GS......... Perfect_shuffle
 GS..T...... Perfect_totient_numbers
-GS..T.FD..U Peripheral_drift_illusion
+GS..T.FD... Peripheral_drift_illusion
+B.....F.... Peripheral_drift_illusion-2
 GS..T...... Perlin_noise
 GS......... Permutation_test
 GS..T...... Permutations
