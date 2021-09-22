@@ -1727,6 +1727,7 @@ File: C/Conjugate_a_Latin_Verb
 #u# http://rosettacode.org/wiki/Conjugate_a_Latin_Verb
 #c# 2021-09-17 >RC
 #p# OK
+#n# NB: bare '< >' string quoting doesn't play well with the non-vanilla ASCII
 
 File: C/Conjugate_transpose
 #!/usr/local/bin/perl
@@ -4285,6 +4286,12 @@ File: I/Integer_comparison
 #!/usr/local/bin/perl
 #u# http://rosettacode.org/wiki/Integer_comparison
 #c# 2018-08-13 <RC
+#p# OK
+
+File: I/Integer_long_division
+#!/usr/local/bin/perl
+#u# http://rosettacode.org/wiki/Integer_long_division
+#c# 2021-09-21 >RC
 #p# OK
 
 File: I/Integer_overflow
