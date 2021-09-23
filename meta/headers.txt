@@ -4086,6 +4086,12 @@ File: H/Horner%27s_rule_for_polynomial_evaluation-3
 #c# 2018-08-13 <RC
 #p# OK
 
+File: H/Horse_racing
+#!/usr/local/bin/perl
+#u# http://rosettacode.org/wiki/Horse_racing
+#c# 2021-09-22 >RC
+#p# OK
+
 File: H/Host_introspection
 #!/usr/local/bin/perl
 #u# http://rosettacode.org/wiki/Host_introspection
@@ -4291,8 +4297,9 @@ File: I/Integer_comparison
 File: I/Integer_long_division
 #!/usr/local/bin/perl
 #u# http://rosettacode.org/wiki/Integer_long_division
-#c# 2021-09-21 >RC
+#c# 2021-09-21 >RC, 2021-09-22 >RC
 #p# OK
+#n# cosmetic upgrade
 
 File: I/Integer_overflow
 #!/usr/local/bin/perl
