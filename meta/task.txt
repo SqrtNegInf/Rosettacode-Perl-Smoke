@@ -1,17 +1,17 @@
 
 This is perl 5, version 32, subversion 1 (v5.32.1) built for darwin-thread-multi-2level
 updating from RC…
-+------------> Perl: Good/Bad [1504/9]
-|+-----------> Smoke testing [1353]
++------------> Perl: Good/Bad [1506/9]
+|+-----------> Smoke testing [1354]
 ||+----------> sKipping validation [155]
 |||+---------> Interactive [72]
-||||+--------> Touched (modified by me) [510]
+||||+--------> Touched (modified by me) [511]
 |||||+-------> Random seed [118]
 ||||||+------> File output [76]
 |||||||+-----> Draft [303]
 ||||||||+----> Ignoring [36]
-|||||||||+---> Void (no local copy) [128]
-||||||||||+--> Un-implemented/reliable [104]
+|||||||||+---> Void (no local copy) [127]
+||||||||||+--> Un-implemented/reliable [103]
 |||||||||||
 GS......... 100_doors-1
 GS......... 100_doors-2
@@ -664,7 +664,7 @@ GS..T...... Horizontal_sundial_calculations
 GS......... Horner%27s_rule_for_polynomial_evaluation-1
 GS......... Horner%27s_rule_for_polynomial_evaluation-2
 GS......... Horner%27s_rule_for_polynomial_evaluation-3
-.......D.VU Horse_racing
+GS..T..D... Horse_racing
 GS......... Host_introspection
 GS......... Hostname
 GS..T.F.... Hough_transform
@@ -1526,7 +1526,7 @@ GS......... Thue-Morse
 GS...R..... Tic-tac-toe
 G.KI....... Tic-tac-toe-2
 GS.....D... Time-based_one-time_password_algorithm
-!S......... Time_a_function
+GS......... Time_a_function
 GS......... Tokenize_a_string
 GS......... Tokenize_a_string_with_escaping
 GS..T...... Tonelli-Shanks_algorithm
