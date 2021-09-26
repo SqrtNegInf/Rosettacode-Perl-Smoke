@@ -7011,16 +7011,16 @@ File: P/Primes_which_contain_only_one_odd_number-2
 #p# OK
 #n# tybalt89++, this is the version on RC
 
-File: P/Primes_which_sum_of_digits_is_25
-#!/usr/local/bin/perl
-#u# http://rosettacode.org/wiki/Primes_which_sum_of_digits_is_25
-#c# 2021-03-22 >RC
-#p# OK
-
 File: P/Primes_whose_first_and_last_number_is_3
 #!/usr/local/bin/perl
 #u# http://rosettacode.org/wiki/Primes_whose_first_and_last_number_is_3
 #c# 2021-07-24 <RC
+#p# OK
+
+File: P/Primes_whose_sum_of_digits_is_25
+#!/usr/local/bin/perl
+#u# http://rosettacode.org/wiki/Primes_whose_sum_of_digits_is_25
+#c# 2021-03-22 >RC
 #p# OK
 
 File: P/Primes_with_digits_in_nondecreasing_order
