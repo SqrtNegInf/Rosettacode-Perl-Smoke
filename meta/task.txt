@@ -1,16 +1,16 @@
 
 This is perl 5, version 32, subversion 1 (v5.32.1) built for darwin-thread-multi-2level
 updating from RC…
-+------------> Perl: Good/Bad [1505/9]
-|+-----------> Smoke testing [1353]
++------------> Perl: Good/Bad [1506/9]
+|+-----------> Smoke testing [1354]
 ||+----------> sKipping validation [155]
 |||+---------> Interactive [72]
-||||+--------> Touched (modified by me) [510]
+||||+--------> Touched (modified by me) [511]
 |||||+-------> Random seed [118]
 ||||||+------> File output [76]
 |||||||+-----> Draft [303]
 ||||||||+----> Ignoring [36]
-|||||||||+---> Void (no local copy) [128]
+|||||||||+---> Void (no local copy) [127]
 ||||||||||+--> Un-implemented/reliable [103]
 |||||||||||
 GS......... 100_doors-1
@@ -1131,7 +1131,7 @@ GS.....D... Prime_words
 GS..T...... Primes_-_allocate_descendants_to_their_ancestors
 .......D.V. Primes_which_contain_only_one_odd_digit
 GS.....D... Primes_whose_first_and_last_number_is_3
-.......D.V. Primes_whose_sum_of_digits_is_25
+GS..T..D... Primes_whose_sum_of_digits_is_25
 GS.....D... Primes_with_digits_in_nondecreasing_order
 GS......... Primorial_numbers
 G.K.T..D... Print_debugging_statement
