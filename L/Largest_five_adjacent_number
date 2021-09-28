@@ -1,0 +1,22 @@
+#!/usr/local/bin/perl
+#u# http://rosettacode.org/wiki/Largest_five_adjacent_number
+#t# inprogress
+#c# 2021-09-xx >RC
+#p# OK
+
+srand 123456;
+
+my @res;
+
+use strict;
+use warnings;
+use feature 'say';
+
+$_ = join '', map int rand 10, 1 .. 1e3;
+my @n;
+$n[$1] = $1 while /(?=(\d{5}))/g;
+say my $result = $n[-1];
+
+use Test::More;
+is($result, 99830);
+done_testing();
