@@ -1,10 +1,11 @@
 #!/usr/local/bin/perl
 #u# http://rosettacode.org/wiki/Largest_five_adjacent_number
 #t# inprogress
-#c# 2021-09-xx >RC
+#c# 2021-09-27 <RC
 #p# OK
+#n# this isn't correct solution
 
-srand 123456;
+#srand 123456;
 
 my @res;
 
@@ -12,10 +13,14 @@ use strict;
 use warnings;
 use feature 'say';
 
+# use List::AllUtils 'all';
+# push @a, $n if all { 0 <= ($d[$_] - $d[$_+1]) <= 1 } 0..$#d-1;
+
 $_ = join '', map int rand 10, 1 .. 1e3;
 my @n;
 $n[$1] = $1 while /(?=(\d{5}))/g;
 say my $result = $n[-1];
+exit;
 
 use Test::More;
 is($result, 99830);
