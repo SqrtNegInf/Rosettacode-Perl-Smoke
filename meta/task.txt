@@ -8,9 +8,9 @@ updating from RC…
 ||||+--------> Touched (modified by me) [511]
 |||||+-------> Random seed [118]
 ||||||+------> File output [76]
-|||||||+-----> Draft [303]
+|||||||+-----> Draft [304]
 ||||||||+----> Ignoring [36]
-|||||||||+---> Void (no local copy) [127]
+|||||||||+---> Void (no local copy) [128]
 ||||||||||+--> Un-implemented/reliable [103]
 |||||||||||
 GS......... 100_doors-1
@@ -59,7 +59,7 @@ GS......... Ackermann_function-4
 GS......... Ackermann_function-5
 ........XV. Active_Directory_Connect
 GS......... Active_Directory_Search_for_a_user
-!S......... Active_object
+GS......... Active_object
 GS......... Add_a_variable_to_a_class_instance_at_runtime
 .......D.VU Addition-chain_exponentiation
 GS..T..D... Addition_chains
@@ -753,6 +753,7 @@ GS..T...... LU_decomposition
 GS......... LZW_compression
 GS..T...... Lah_numbers
 GS...R..... Langton%27s_ant
+.......D.V. Largest_five_adjacent_number
 GS......... Largest_int_from_concatenated_ints
 GS..T...... Largest_number_divisible_by_its_digits-1
 GS..T...... Largest_number_divisible_by_its_digits-2
@@ -1088,7 +1089,7 @@ GS..T.F.... Plasma_effect
 B.K.......U Play_recorded_sounds
 GS..T...... Playfair_cipher
 GS...R..... Playing_cards
-GS....F.... Plot_coordinate_pairs
+!S....F.... Plot_coordinate_pairs
 GS......... Pointers_and_references
 GS......... Poker_hand_analyser
 GS......... Polymorphic_copy
