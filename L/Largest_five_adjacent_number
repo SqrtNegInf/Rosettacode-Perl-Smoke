@@ -5,16 +5,19 @@
 
 srand 123456;
 
-my @res;
-
 use strict;
 use warnings;
 use feature 'say';
 
-$_ = join '', map int rand 10, 1 .. 1e3;
 my @n;
+
+$_ = join '', map int rand 10, 1 .. 1e3;
 $n[$1] = $1 while /(?=(\d{5}))/g;
 say my $result = $n[-1];
+
+# or...
+@n[ /(?=(\d{5}))/g ] = ();
+print "$#n\n";
 
 use Test::More;
 is($result, 99830);
