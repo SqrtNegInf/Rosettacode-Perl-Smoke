@@ -1,8 +1,9 @@
 #!/usr/local/bin/perl
 #u# http://rosettacode.org/wiki/Plot_coordinate_pairs
 #c# 2018-08-20 <RC
-#p# OK
+#p# BROKEN
 #f# RC file: qsort-range-10-9.gif
+#n# changes to libraries broke this task
 
 #Library: GD::GraphGraph
 use GD::Graph::points;
