@@ -4619,6 +4619,12 @@ File: L/Langton%27s_ant
 #c# 2018-08-14 <RC
 #p# OK
 
+File: L/Largest_five_adjacent_number
+#!/usr/local/bin/perl
+#u# http://rosettacode.org/wiki/Largest_five_adjacent_number
+#c# 2021-09-27 <RC
+#p# OK
+
 File: L/Largest_int_from_concatenated_ints
 #!/usr/local/bin/perl
 #u# http://rosettacode.org/wiki/Largest_int_from_concatenated_ints
