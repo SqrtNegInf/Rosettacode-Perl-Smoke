@@ -9,16 +9,17 @@ use strict;
 use warnings;
 use feature 'say';
 
-my @n;
+my(@n,@m);
 
 $_ = join '', map int rand 10, 1 .. 1e3;
 $n[$1] = $1 while /(?=(\d{5}))/g;
-say my $result = $n[-1];
+say my $result1 = $n[-1];
 
 # or...
-@n[ /(?=(\d{5}))/g ] = ();
-print "$#n\n";
+@m[ /(?=(\d{5}))/g ] = 1; # also works, in place of '()'
+say my $result2 = $#m;
 
 use Test::More;
-is($result, 99830);
+is($result1, 99830);
+is($result2, 99830);
 done_testing();
