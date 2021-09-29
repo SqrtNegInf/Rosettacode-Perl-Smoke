@@ -1,16 +1,16 @@
 
 This is perl 5, version 32, subversion 1 (v5.32.1) built for darwin-thread-multi-2level
 updating from RC…
-+------------> Perl: Good/Bad [1505/9]
-|+-----------> Smoke testing [1354]
++------------> Perl: Good/Bad [1506/9]
+|+-----------> Smoke testing [1355]
 ||+----------> sKipping validation [155]
 |||+---------> Interactive [72]
 ||||+--------> Touched (modified by me) [511]
-|||||+-------> Random seed [118]
+|||||+-------> Random seed [119]
 ||||||+------> File output [76]
 |||||||+-----> Draft [304]
 ||||||||+----> Ignoring [36]
-|||||||||+---> Void (no local copy) [128]
+|||||||||+---> Void (no local copy) [127]
 ||||||||||+--> Un-implemented/reliable [103]
 |||||||||||
 GS......... 100_doors-1
@@ -753,7 +753,7 @@ GS..T...... LU_decomposition
 GS......... LZW_compression
 GS..T...... Lah_numbers
 GS...R..... Langton%27s_ant
-.......D.V. Largest_five_adjacent_number
+GS...R.D... Largest_five_adjacent_number
 GS......... Largest_int_from_concatenated_ints
 GS..T...... Largest_number_divisible_by_its_digits-1
 GS..T...... Largest_number_divisible_by_its_digits-2
