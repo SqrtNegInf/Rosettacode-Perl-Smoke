@@ -6744,8 +6744,9 @@ File: P/Plot_coordinate_pairs
 #!/usr/local/bin/perl
 #u# http://rosettacode.org/wiki/Plot_coordinate_pairs
 #c# 2018-08-20 <RC
-#p# OK
+#p# BROKEN
 #f# RC file: qsort-range-10-9.gif
+#n# changes to libraries broke this task
 
 File: P/Pointers_and_references
 #!/usr/local/bin/perl
@@ -7597,6 +7598,19 @@ File: R/Rock-paper-scissors
 #u# http://rosettacode.org/wiki/Rock-paper-scissors
 #c# 2018-08-18 <RC
 #p# OK
+
+File: R/Rodrigues%27_rotation_formula
+#!/usr/local/bin/perl
+#u# http://rosettacode.org/wiki/Rodrigues%27_rotation_formula
+#c# 2021-09-29 <RC
+#p# OK
+
+File: R/Rodrigues%27_rotation_formula-2
+#!/usr/local/bin/perl
+#u# http://rosettacode.org/wiki/Rodrigues%27_rotation_formula
+#c# 2021-09-29 NOT ON RC
+#p# OK
+#n# a little more idiomatic
 
 File: R/Roman_numerals_Decode
 #!/usr/local/bin/perl
