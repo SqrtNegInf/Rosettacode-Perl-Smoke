@@ -12,20 +12,24 @@ use feature <say signatures>;
 no warnings 'experimental::signatures';
 
 use Math::Trig;
+use List::Util 'sum';
 
 use constant PI => 2 * atan2(1, 0);
  
 sub norm ( $v ) {
-    ($v->[0]*$v->[0] + $v->[1]*$v->[1] + $v->[2]*$v->[2]) ** 0.5
+    #sqrt $v->[0]*$v->[0] + $v->[1]*$v->[1] + $v->[2]*$v->[2]
+    sqrt sum map { $_*$_ } @$v;
 }
 
 sub normalize ( $v ) {
-    my $length = norm($v);
-    [$v->[0]/$length, $v->[1]/$length, $v->[2]/$length]
+    #my $length = norm($v);
+    #[$v->[0]/$length, $v->[1]/$length, $v->[2]/$length]
+    [map { $_ / norm $v } @$v]
 }
 
 sub dotProduct ( $v1, $v2 ) {
-    $v1->[0]*$v2->[0] + $v1->[1]*$v2->[1] + $v1->[2]*$v2->[2]
+    #$v1->[0]*$v2->[0] + $v1->[1]*$v2->[1] + $v1->[2]*$v2->[2]
+    sum map { $v1->[$_] * $v2->[$_] } 0..$#$v1;
 }
 
 sub crossProduct ( $v1, $v2 ) {
@@ -34,11 +38,12 @@ sub crossProduct ( $v1, $v2 ) {
 }
 
 sub getAngle ( $v1, $v2 ) {
-    acos(dotProduct($v1, $v2) / (norm($v1)*norm($v2)))*180/PI
+    180/PI * acos dotProduct($v1, $v2) / (norm($v1)*norm($v2)) 
 }
 
 sub matrixMultiply ( $matrix, $v ) {
-    [dotProduct($matrix->[0], $v), dotProduct($matrix->[1], $v), dotProduct($matrix->[2], $v)]
+    #[dotProduct($matrix->[0], $v), dotProduct($matrix->[1], $v), dotProduct($matrix->[2], $v)]
+    [ map { dotProduct($_, $v) } @$matrix ]
 }
 
 sub aRotate ( $p, $v, $a ) {
@@ -47,9 +52,9 @@ sub aRotate ( $p, $v, $a ) {
     my $t = 1 - $ca;
     my($x,$y,$z) = @$v;
     my $r = [
-        [$ca + $x*$x*$t, $x*$y*$t - $z*$sa, $x*$z*$t + $y*$sa],
-        [$x*$y*$t + $z*$sa, $ca + $y*$y*$t, $y*$z*$t - $x*$sa],
-        [$z*$x*$t - $y*$sa, $z*$y*$t + $x*$sa, $ca + $z*$z*$t]
+        [     $ca + $x*$x*$t, $x*$y*$t -   $z*$sa, $x*$z*$t +   $y*$sa],
+        [$x*$y*$t +   $z*$sa,      $ca + $y*$y*$t, $y*$z*$t -   $x*$sa],
+        [$z*$x*$t -   $y*$sa, $z*$y*$t +   $x*$sa,      $ca + $z*$z*$t]
     ];
     matrixMultiply($r, $p)
 }
