@@ -7604,13 +7604,14 @@ File: R/Rodrigues%27_rotation_formula
 #u# http://rosettacode.org/wiki/Rodrigues%27_rotation_formula
 #c# 2021-09-29 <RC
 #p# OK
+#n# the original upload (except removed JSON)
 
 File: R/Rodrigues%27_rotation_formula-2
 #!/usr/local/bin/perl
 #u# http://rosettacode.org/wiki/Rodrigues%27_rotation_formula
 #c# 2021-09-29 NOT ON RC
 #p# OK
-#n# a little more idiomatic
+#n# generalized routines, more idiomatic
 
 File: R/Roman_numerals_Decode
 #!/usr/local/bin/perl
