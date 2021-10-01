@@ -2,6 +2,7 @@
 #u# http://rosettacode.org/wiki/Rodrigues%27_rotation_formula
 #c# 2021-09-29 <RC
 #p# OK
+#n# the original upload (except removed JSON)
 
 use strict;
 use warnings;
@@ -10,7 +11,7 @@ use feature 'say';
 #use JSON;
 use Math::Trig;
 
-use constant PI => 2 * atan2(1, 0); #3.14159265358979;
+use constant PI => 3.14159265358979;
  
 sub norm {
     my($v)=@_;
@@ -69,11 +70,8 @@ my $np  = &aRotate($v1, $ncp, $a);
 
 say my $result = join ' ', @$np;
 
-my $ref = <<'EOD';
-2.23222107330823 1.39513817081764 -8.37082902490585
-EOD
+my $ref = '2.23222107330823 1.39513817081764 -8.37082902490585';
 
 use Test::More;
-chomp $ref;
 is ($result, $ref);
 done_testing();
