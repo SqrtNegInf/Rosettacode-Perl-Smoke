@@ -1,5 +1,5 @@
 #!/usr/local/bin/perl
-#u# http://rosettacode.org/wiki/Conjugate_a_Latin_Verb
+#u# http://rosettacode.org/wiki/Conjugate_a_Latin_verb
 #c# 2021-09-17 >RC
 #p# OK
 #n# NB: bare '< >' string quoting doesn't play well with the non-vanilla ASCII
