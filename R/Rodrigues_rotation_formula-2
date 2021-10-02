@@ -1,13 +1,11 @@
 #!/usr/local/bin/perl
-#u# http://rosettacode.org/wiki/Rodrigues%27_rotation_formula
-#c# 2021-09-29 NOT ON RC
+#u# http://rosettacode.org/wiki/Rodrigues%E2%80%99_rotation_formula
+#c# 2021-10-01 >RC
 #p# OK
 #n# generalized routines, more idiomatic
 
 use strict;
 use warnings;
-use feature 'say';
-
 use feature <say signatures>;
 no warnings 'experimental::signatures';
 
@@ -15,15 +13,14 @@ use Math::Trig;
 use List::Util 'sum';
 use constant PI => 2 * atan2(1, 0);
  
-sub norm ( $v ) { sqrt sum map { $_*$_ } @$v }
-sub normalize ( $v ) { [map { $_ / norm $v } @$v] }
-sub dotProduct ( $v1, $v2 ) { sum map { $v1->[$_] * $v2->[$_] } 0..$#$v1 }
-sub getAngle ( $v1, $v2 ) { 180/PI * acos dotProduct($v1, $v2) / (norm($v1)*norm($v2)) }
-sub matrixMultiply ( $matrix, $v ) { [ map { dotProduct($_, $v) } @$matrix ] }
-sub crossProduct ( $v1, $v2 ) {
+sub norm       ($v)       { sqrt sum map { $_*$_ } @$v }
+sub normalize  ($v)       { [ map { $_ / norm $v } @$v ] }
+sub dotProduct ($v1, $v2) { sum map { $v1->[$_] * $v2->[$_] } 0..$#$v1 }
+sub getAngle   ($v1, $v2) { 180/PI * acos dotProduct($v1, $v2) / (norm($v1)*norm($v2)) }
+#sub mvMultiply ($m,  $v)  { [ map { dotProduct($_, $v) } @$m ] }
+sub crossProduct ($v1, $v2) {
 #   [$v1->[1]*$v2->[2] - $v1->[2]*$v2->[1], $v1->[2]*$v2->[0] - $v1->[0]*$v2->[2], $v1->[0]*$v2->[1] - $v1->[1]*$v2->[0]]
-    my(@v1) = @$v1;
-    my(@v2) = @$v2;
+    my @v1 = @$v1; my @v2 = @$v2;
     [$v1[1]*$v2[2] - $v1[2]*$v2[1], $v1[2]*$v2[0] - $v1[0]*$v2[2], $v1[0]*$v2[1] - $v1[1]*$v2[0]]
 }
 
@@ -37,10 +34,10 @@ sub aRotate ( $p, $v, $a ) {
         [$x*$y*$t +   $z*$sa,      $ca + $y*$y*$t, $y*$z*$t -   $x*$sa],
         [$z*$x*$t -   $y*$sa, $z*$y*$t +   $x*$sa,      $ca + $z*$z*$t]
     ];
-    matrixMultiply($r, $p)
+    [ map { dotProduct($_, $p) } @$r ]
 }
  
-my($v1,$v2) = ([5,-6,  4], [8, 5,-30]);
+my($v1,$v2) = ([5, -6, 4], [8, 5,-30]);
 say my $result = join ' ', @{aRotate $v1, normalize(crossProduct $v1, $v2), getAngle $v1, $v2};
 
 my $ref = '2.23222107330823 1.39513817081764 -8.37082902490585';
