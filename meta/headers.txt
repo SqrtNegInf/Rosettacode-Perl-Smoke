@@ -1722,9 +1722,9 @@ File: C/Conditional_structures
 #c# 2018-07-24 <RC
 #p# OK
 
-File: C/Conjugate_a_Latin_Verb
+File: C/Conjugate_a_Latin_verb
 #!/usr/local/bin/perl
-#u# http://rosettacode.org/wiki/Conjugate_a_Latin_Verb
+#u# http://rosettacode.org/wiki/Conjugate_a_Latin_verb
 #c# 2021-09-17 >RC
 #p# OK
 #n# NB: bare '< >' string quoting doesn't play well with the non-vanilla ASCII
@@ -7599,17 +7599,24 @@ File: R/Rock-paper-scissors
 #c# 2018-08-18 <RC
 #p# OK
 
-File: R/Rodrigues%27_rotation_formula
+File: R/Rodrigues%27_rotation_formula-2
 #!/usr/local/bin/perl
-#u# http://rosettacode.org/wiki/Rodrigues%27_rotation_formula
+#u# http://rosettacode.org/wiki/Rodrigues%E2%80%99_rotation_formula
+#c# 2021-09-29 NOT ON RC
+#p# OK
+#n# generalized routines, more idiomatic
+
+File: R/Rodrigues_rotation_formula
+#!/usr/local/bin/perl
+#u# http://rosettacode.org/wiki/Rodrigues%E2%80%99_rotation_formula
 #c# 2021-09-29 <RC
 #p# OK
 #n# the original upload (except removed JSON)
 
-File: R/Rodrigues%27_rotation_formula-2
+File: R/Rodrigues_rotation_formula-2
 #!/usr/local/bin/perl
-#u# http://rosettacode.org/wiki/Rodrigues%27_rotation_formula
-#c# 2021-09-29 NOT ON RC
+#u# http://rosettacode.org/wiki/Rodrigues%E2%80%99_rotation_formula
+#c# 2021-10-01 >RC
 #p# OK
 #n# generalized routines, more idiomatic
 
