@@ -1,16 +1,16 @@
 
 This is perl 5, version 32, subversion 1 (v5.32.1) built for darwin-thread-multi-2level
 updating from RC…
-+------------> Perl: Good/Bad [1506/10]
-|+-----------> Smoke testing [1354]
++------------> Perl: Good/Bad [1509/10]
+|+-----------> Smoke testing [1357]
 ||+----------> sKipping validation [155]
 |||+---------> Interactive [72]
-||||+--------> Touched (modified by me) [511]
+||||+--------> Touched (modified by me) [513]
 |||||+-------> Random seed [119]
 ||||||+------> File output [76]
 |||||||+-----> Draft [305]
 ||||||||+----> Ignoring [36]
-|||||||||+---> Void (no local copy) [128]
+|||||||||+---> Void (no local copy) [126]
 ||||||||||+--> Un-implemented/reliable [103]
 |||||||||||
 GS......... 100_doors-1
@@ -303,7 +303,7 @@ GS......... Concurrent_computing-2
 G.K........ Conditional_structures
 GS..T..D... Conjugate_a_Latin_verb
 GS......... Conjugate_transpose
-.........V. Consecutive_primes_with_ascending_or_descending_dfferences
+GS..T...... Consecutive_primes_with_ascending_or_descending_differences
 ........XVU Constrained_genericity
 GS..TR..... Constrained_random_points_on_a_circle
 GS..T...... Continued_fraction
@@ -1227,7 +1227,8 @@ GS..T..D... Reverse_the_gender_of_a_string
 GS......... Reverse_words_in_a_string
 .......D.VU Robots
 GS...R..... Rock-paper-scissors
-.......D.V. Rodrigues_rotation_formula
+GS.....D... Rodrigues_rotation_formula
+GS..T...... Rodrigues_rotation_formula-2
 GS......... Roman_numerals_Decode
 GS......... Roman_numerals_Encode-1
 GS......... Roman_numerals_Encode-2
