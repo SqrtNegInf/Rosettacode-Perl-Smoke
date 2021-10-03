@@ -7599,13 +7599,6 @@ File: R/Rock-paper-scissors
 #c# 2018-08-18 <RC
 #p# OK
 
-File: R/Rodrigues%27_rotation_formula-2
-#!/usr/local/bin/perl
-#u# http://rosettacode.org/wiki/Rodrigues%E2%80%99_rotation_formula
-#c# 2021-09-29 NOT ON RC
-#p# OK
-#n# generalized routines, more idiomatic
-
 File: R/Rodrigues_rotation_formula
 #!/usr/local/bin/perl
 #u# http://rosettacode.org/wiki/Rodrigues%E2%80%99_rotation_formula
