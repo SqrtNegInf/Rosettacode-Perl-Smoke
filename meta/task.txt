@@ -11,7 +11,7 @@ updating from RC…
 |||||||+-----> Draft [306]
 ||||||||+----> Ignoring [36]
 |||||||||+---> Void (no local copy) [127]
-||||||||||+--> Un-implemented/reliable [104]
+||||||||||+--> Un-implemented/reliable [105]
 |||||||||||
 GS......... 100_doors-1
 GS......... 100_doors-2
@@ -838,7 +838,7 @@ GS..TR..... Magic_8-ball
 GS..T...... Magic_squares_of_doubly_even_order
 GS..T...... Magic_squares_of_odd_order
 GS..T...... Magic_squares_of_singly_even_order
-GS..T...... Magnanimous_numbers
+GS..T.....U Magnanimous_numbers
 GS..T...... Main_step_of_GOST_28147-89
 GS..T.FD... Make_a_backup_file
 GS......... Make_directory_path
