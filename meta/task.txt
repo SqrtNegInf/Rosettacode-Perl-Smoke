@@ -2,8 +2,8 @@
 This is perl 5, version 32, subversion 1 (v5.32.1) built for darwin-thread-multi-2level
 updating from RC…
 +------------> Perl: Good/Bad [1509/10]
-|+-----------> Smoke testing [1357]
-||+----------> sKipping validation [155]
+|+-----------> Smoke testing [1359]
+||+----------> sKipping validation [153]
 |||+---------> Interactive [72]
 ||||+--------> Touched (modified by me) [513]
 |||||+-------> Random seed [119]
@@ -11,7 +11,7 @@ updating from RC…
 |||||||+-----> Draft [306]
 ||||||||+----> Ignoring [36]
 |||||||||+---> Void (no local copy) [127]
-||||||||||+--> Un-implemented/reliable [104]
+||||||||||+--> Un-implemented/reliable [103]
 |||||||||||
 GS......... 100_doors-1
 GS......... 100_doors-2
@@ -906,7 +906,7 @@ GS......... Motzkin_numbers
 G.KI....... Mouse_position-1
 G.KI....... Mouse_position-2
 GS......... Move-to-front_algorithm
-G.K.T..D..U Multi-base_primes
+GS..T..D... Multi-base_primes
 GS..T...... Multi-dimensional_array
 G.K.T..D..U Multidimensional_Newton-Raphson_method
 GS......... Multifactorial-1
@@ -1203,7 +1203,7 @@ GS....FD... Recursive_descent_parser_generator
 GS..T...... Reduced_row_echelon_form
 ........XVU Reflection_Get_source
 GS..T...... Reflection_List_methods
-G.K.T...... Reflection_List_properties
+GS..T...... Reflection_List_properties
 GS......... Regular_expressions
 .......D.VU Remote_agent_Agent_interface
 G.KI...D... Remote_agent_Agent_logic
