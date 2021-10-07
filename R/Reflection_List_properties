@@ -1,12 +1,14 @@
 #!/usr/local/bin/perl
 #u# http://rosettacode.org/wiki/Reflection_List_properties
-#t# skiptest
 #c# 2019-03-28 >RC
 #p# OK
-#n# half-baked at best (and variable hash-order from Dumper prevents any testing)
+#n# half-baked at best
 
-no strict 'refs';
-my $result;
+my @res;
+
+use strict;
+use warnings;
+use feature 'say';
 
 {
      package Point;
@@ -25,32 +27,25 @@ my $result;
 package main;
 
 my $p1 = Point->new(x => 8, y => -5);
-
 my $c1 = Circle->new(r => 4);
 my $c2 = Circle->new(x => 1, y => 2, r => 3);
 
-use Data::Dumper;
-$result .= Dumper $p1;
-$result .= Dumper $c1;
-$result .= Dumper $c2;
+for (sort keys %$p1) { push @res, "$_: " . $$p1{$_} }
+for (sort keys %$c1) { push @res, "$_: " . $$c1{$_} }
+for (sort keys %$c2) { push @res, "$_: " . $$c2{$_} }
 
-print $result; exit;
+say my $result = join "\n", @res;
 
 my $ref = <<'EOD';
-$VAR1 = bless( {
-                 'x' => 8,
-                 'y' => -5
-               }, 'Point' );
-$VAR1 = bless( {
-                 'r' => 4
-               }, 'Circle' );
-$VAR1 = bless( {
-                 'y' => 2,
-                 'r' => 3,
-                 'x' => 1
-               }, 'Circle' );
+x: 8
+y: -5
+r: 4
+r: 3
+x: 1
+y: 2
 EOD
 
 use Test::More;
+chomp $ref;
 is($result,$ref);
 done_testing();
