@@ -5613,9 +5613,10 @@ File: M/Move-to-front_algorithm
 File: M/Multi-base_primes
 #!/usr/local/bin/perl
 #u# http://rosettacode.org/wiki/Multi-base_primes
-#t# inprogress
 #c# 2021-10-06 >RC
 #p# OK
+#n# 5-digit works, but slow; not extendable to base 64
+#n# could just use 'ntheory' functions, but 'vecmax' a bit picky about inputs
 
 File: M/Multi-dimensional_array
 #!/usr/local/bin/perl
@@ -7454,10 +7455,9 @@ File: R/Reflection_List_methods
 File: R/Reflection_List_properties
 #!/usr/local/bin/perl
 #u# http://rosettacode.org/wiki/Reflection_List_properties
-#t# skiptest
 #c# 2019-03-28 >RC
 #p# OK
-#n# half-baked at best (and variable hash-order from Dumper prevents any testing)
+#n# half-baked at best
 
 File: R/Regular_expressions
 #!/usr/local/bin/perl
