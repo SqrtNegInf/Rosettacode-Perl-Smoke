@@ -30,7 +30,8 @@ for my $base (2..36) {
     # map { push @{$prime_base{ todigitstring($primes[$_],$base) }}, $base } 1 .. firstidx { $_ > fromdigits(todigitstring($base-1, $base) x $chars, $base) } @primes
 }
 
-$l = length and $max_bases{$l} = max( $#{$prime_base{$_}}, $max_bases{$l} // 0 ) for keys %prime_base;
+$l = length and $max_bases{$l} = max( $#{$prime_base{$_}}, $max_bases{$l} // 0 ) for keys %prime_base;            # defined-or avoids warning
+#$l = length and $max_bases{$l} = vecmax( ($#{$prime_base{$_}} //0), ($max_bases{$l} //0) ) for keys %prime_base; # defined-or avoids failure
 
 for my $m (1 .. $chars) {
     push @res, sprintf "$m character strings that are prime in maximum bases: %d", 1+$max_bases{$m};
