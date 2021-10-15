@@ -1,6 +1,5 @@
 #!/usr/local/bin/perl
 #u# http://rosettacode.org/wiki/Calculating_the_value_of_e
-#t# skiptest
 #c# 2018-08-23
 #p# OK
 #n# tweak *-3 code to produce the same # of digits as Perl 6, much slower
