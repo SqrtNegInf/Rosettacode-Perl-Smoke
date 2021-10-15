@@ -627,7 +627,6 @@ File: A/Associative_array_Merging
 File: A/Atomic_updates
 #!/usr/local/bin/perl
 #u# http://rosettacode.org/wiki/Atomic_updates
-#t# skiptest
 #c# 2018-07-15 <RC
 #p# OK
 
@@ -1096,7 +1095,6 @@ File: C/Calculating_the_value_of_e-3
 File: C/Calculating_the_value_of_e-4
 #!/usr/local/bin/perl
 #u# http://rosettacode.org/wiki/Calculating_the_value_of_e
-#t# skiptest
 #c# 2018-08-23
 #p# OK
 #n# tweak *-3 code to produce the same # of digits as Perl 6, much slower
@@ -8914,7 +8912,6 @@ File: S/String_length
 File: S/String_matching
 #!/usr/local/bin/perl
 #u# http://rosettacode.org/wiki/String_matching
-#t# nocode
 #c# 2018-08-13 <RC
 #p# OK
 
@@ -9922,7 +9919,7 @@ File: V/Variable_size_Get
 File: V/Variable_size_Set
 #!/usr/local/bin/perl
 #u# http://rosettacode.org/wiki/Variable_size/Set
-#t# skiptest
+#t# nocode
 #c# 2018-08-06 <RC
 #p# OK
 
@@ -10287,7 +10284,7 @@ File: Y/Yahoo_search_interface
 #t# skiptest
 #c# 2018-07-14 <RC
 #p# OK
-#n# code OK, https problem
+#n# code OK, https problem? Error: Can't call method "url" on an undefined value at Y/Yahoo_search_interface line 37.
 
 File: Y/Yellowstone_sequence
 #!/usr/local/bin/perl
