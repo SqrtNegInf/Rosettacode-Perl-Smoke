@@ -1,10 +1,9 @@
 #!/usr/local/bin/perl
 #u# http://rosettacode.org/wiki/Atomic_updates
-#t# skiptest
 #c# 2018-07-15 <RC
 #p# OK
 
-srand 123456;
+#srand 123456; # beside the point
 
 use strict;
 use warnings;
@@ -13,17 +12,17 @@ use feature 'say';
 use threads 'yield';
 use threads::shared;
 
-#use 5.10.0;
-
-my $result;
+my $n = 10;
  
-my @a :shared = (100) x 10;
+my @res :shared;
+my @a :shared = (10*$n) x $n;
 my $stop :shared = 0;
+my $sum_total :shared = 0;
  
 sub pick2 {
-	my $i = int(rand(10));
+	my $i = int(rand($n));
 	my $j;
-	$j = int(rand(10)) until $j != $i;
+	$j = int(rand($n)) until $j != $i;
 	($i, $j)
 }
  
@@ -47,43 +46,28 @@ sub rand_move {
 sub show {
 	lock @a;
 	my $sum = 0;
+    my $line;
 	$sum += $_ for (@a);
-	printf "%4d", $_ for @a;
-	print " total $sum\n";
+	$line .= sprintf "%4d", $_ for @a;
+	push @res, "$line total $sum";
+    $sum_total += $sum;
 }
  
 my $t1 = async { even		until $stop }
 my $t2 = async { rand_move	until $stop }
 my $t3 = async {
-	for (1 .. 10) {
+	for (1 .. $n) {
 		show;
 		sleep(1);
 	}
 	$stop = 1;
+
 };
  
 $t1->join; $t2->join; $t3->join;
 
-
-# say $result; 
-
-my $ref = <<EOD;
-EOD
+say join "\n", @res;
 
 use Test::More;
-#is ($result, $ref);
-#done_testing();
-
-__END__
-
- 100 100 100 100 100 100 100 100 100 100 total 1000
-  95 140   2  71 113 135 178  75  96  95 total 1000
- 100  99 101 100 100 100 100 100 100 100 total 1000
- 209 108  84 138   1  61  90 103 114  92 total 1000
- 304  98   3  75 109   3 102 101 102 103 total 1000
- 117  80 101  84 106 105 102 108 116  81 total 1000
- 292 292   2   1  75  13 230  91   3   1 total 1000
- 100 100 100 100 100 100 100 100 100 100 total 1000
- 154   3 109 154 156 101  55   8 101 159 total 1000
- 165  99 106 144  71 105  52 100  55 103 total 1000
-
+is ($sum_total, 1000*$n);
+done_testing();
