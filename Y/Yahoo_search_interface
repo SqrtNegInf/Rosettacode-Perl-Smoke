@@ -3,7 +3,7 @@
 #t# skiptest
 #c# 2018-07-14 <RC
 #p# OK
-#n# code OK, https problem
+#n# code OK, https problem? Error: Can't call method "url" on an undefined value at Y/Yahoo_search_interface line 37.
 
 use feature 'say';
 my $result;
@@ -55,7 +55,7 @@ sub read_page
 sub new
  {my $invocant = shift;
   my $class = ref($invocant) || $invocant;
-  $mech->get('http://search.yahoo.com/search?p=sqrtneginf' . apply
+  $mech->get('https://search.yahoo.com/search?p=sqrtneginf' . apply
      {s/([^a-zA-Z0-9 ])/sprintf '%%%02X', ord $1/ge;
       s/ /+/g;}
     shift);
