@@ -2,8 +2,8 @@
 This is perl 5, version 32, subversion 1 (v5.32.1) built for darwin-thread-multi-2level
 updating from RC…
 +------------> Perl: Good/Bad [1509/10]
-|+-----------> Smoke testing [1359]
-||+----------> sKipping validation [153]
+|+-----------> Smoke testing [1362]
+||+----------> sKipping validation [150]
 |||+---------> Interactive [72]
 ||||+--------> Touched (modified by me) [513]
 |||||+-------> Random seed [119]
@@ -115,7 +115,7 @@ GS.....DX.. Assertions_in_design_by_contract
 GS..T...... Associative_array_Creation
 GS......... Associative_array_Iteration
 GS..T...... Associative_array_Merging
-G.K..R..... Atomic_updates
+GS...R..... Atomic_updates
 GS..T...... Attractive_numbers
 .......D.VU Audio_alarm
 G.KIT..D... Audio_frequency_generator
@@ -200,7 +200,7 @@ GS......... Caesar_cipher
 GS..T...... Calculating_the_value_of_e-1
 GS......... Calculating_the_value_of_e-2
 GS..T...... Calculating_the_value_of_e-3
-G.K........ Calculating_the_value_of_e-4
+GS......... Calculating_the_value_of_e-4
 GS......... Calendar
 G.K........ Calendar_-_for_%22REAL%22_programmers
 GS..T...... Calkin-Wilf_sequence
@@ -1434,7 +1434,7 @@ GS......... String_comparison
 GS......... String_concatenation
 GS......... String_interpolation_included
 GS......... String_length
-G.K........ String_matching
+GS......... String_matching
 GS......... String_prepend
 GS......... Strip_a_set_of_characters_from_a_string
 GS......... Strip_block_comments
