@@ -8,10 +8,10 @@ updating from RC…
 ||||+--------> Touched (modified by me) [513]
 |||||+-------> Random seed [119]
 ||||||+------> File output [76]
-|||||||+-----> Draft [306]
+|||||||+-----> Draft [307]
 ||||||||+----> Ignoring [36]
-|||||||||+---> Void (no local copy) [127]
-||||||||||+--> Un-implemented/reliable [103]
+|||||||||+---> Void (no local copy) [128]
+||||||||||+--> Un-implemented/reliable [104]
 |||||||||||
 GS......... 100_doors-1
 GS......... 100_doors-2
@@ -1589,6 +1589,7 @@ GS..T...... Untouchable_numbers
 G.K....D... Untrusted_environment
 GS......... Update_a_configuration_file
 .........VU Use_another_language_to_call_a_function
+.......D.VU Useless_instructions
 GS.....D... User_defined_pipe_and_redirection_operators
 G.KI....... User_input_Graphical
 GS......... User_input_Text
