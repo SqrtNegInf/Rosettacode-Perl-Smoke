@@ -1,8 +1,8 @@
 #!/usr/local/bin/perl
 #u# http://rosettacode.org/wiki/Create_a_file
-#t# nocode
 #c# 2018-07-26 <RC
 #p# OK
+#n# cf 'Delete_a_file'
 
 #use File::Spec::Functions qw(catfile rootdir);
 #{ # here
@@ -28,7 +28,12 @@
 #   mkdir "${prefix}docs";
 #   open my $FH, '>', "${prefix}docs/output.txt";
 #}
-#Cleanup
 
+#Cleanup
 #unlink $_ for qw(/docs/output.txt ./docs/output.txt);
 #rmdir  $_ for qw(/docs ./docs);
+
+mkdir 'tmp/create_and_delete';
+qx(touch tmp/create_and_delete/look_ma_a_file);
+
+print "ok 1\n" if -e 'tmp/create_and_delete/look_ma_a_file';
