@@ -1,8 +1,8 @@
 #!/usr/local/bin/perl
 #u# http://rosettacode.org/wiki/Delete_a_file
-#n# nocode
 #c# 2018-07-28 <RC
 #p# OK
+#n# cf 'Create_a_file'
 
 #use File::Spec::Functions qw(catfile rootdir);
 ## here
@@ -21,3 +21,10 @@
 #
 #perl -e 'unlink "/input.txt"'
 #perl -e 'rmdir "/docs"'
+
+die unless -e 'tmp/create_and_delete/look_ma_a_file';
+
+unlink 'tmp/create_and_delete/look_ma_a_file';
+print "ok 1\n" if ! -e 'tmp/create_and_delete/look_ma_a_file';
+rmdir  'tmp/create_and_delete';
+print "ok 2\n" if ! -e 'tmp/create_and_delete';
