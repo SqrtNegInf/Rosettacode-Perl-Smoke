@@ -1917,9 +1917,9 @@ File: C/Cramer%27s_rule
 File: C/Create_a_file
 #!/usr/local/bin/perl
 #u# http://rosettacode.org/wiki/Create_a_file
-#t# nocode
 #c# 2018-07-26 <RC
 #p# OK
+#n# cf 'Delete_a_file'
 
 File: C/Create_a_two-dimensional_array_at_runtime
 #!/usr/local/bin/perl
@@ -2163,9 +2163,9 @@ File: D/Delegates
 File: D/Delete_a_file
 #!/usr/local/bin/perl
 #u# http://rosettacode.org/wiki/Delete_a_file
-#n# nocode
 #c# 2018-07-28 <RC
 #p# OK
+#n# cf 'Create_a_file'
 
 File: D/Deming%27s_Funnel
 #!/usr/local/bin/perl
