@@ -2,11 +2,11 @@
 This is perl 5, version 32, subversion 1 (v5.32.1) built for darwin-thread-multi-2level
 updating from RC…
 +------------> Perl: Good/Bad [1509/10]
-|+-----------> Smoke testing [1363]
-||+----------> sKipping validation [149]
-|||+---------> Interactive [72]
+|+-----------> Smoke testing [1366]
+||+----------> sKipping validation [146]
+|||+---------> Interactive [74]
 ||||+--------> Touched (modified by me) [513]
-|||||+-------> Random seed [119]
+|||||+-------> Random seed [118]
 ||||||+------> File output [76]
 |||||||+-----> Draft [307]
 ||||||||+----> Ignoring [36]
@@ -824,7 +824,7 @@ GS......... Lucas-Lehmer_test-2
 GS......... Lucas-Lehmer_test-3
 GS......... Lucas-Lehmer_test-4
 GS..T...... Lucky_and_even_lucky_numbers-1
-G.K.T...... Lucky_and_even_lucky_numbers-2
+G.KIT...... Lucky_and_even_lucky_numbers-2
 GS......... Ludic_numbers
 GS......... Luhn_test_of_credit_card_numbers
 GS..T...... Lychrel_numbers
@@ -1066,7 +1066,7 @@ GS......... Permutation_test
 GS..T...... Permutations
 GS......... Permutations_Derangements-1
 GS......... Permutations_Derangements-2
-G.K..R..... Permutations_Rank_of_a_permutation
+G.K........ Permutations_Rank_of_a_permutation
 GS......... Permutations_by_swapping-1
 GS......... Permutations_by_swapping-2
 GS.....D... Permutations_with_repetitions
@@ -1136,7 +1136,7 @@ GS.....D... Primes_whose_first_and_last_number_is_3
 GS..T..D... Primes_whose_sum_of_digits_is_25
 GS.....D... Primes_with_digits_in_nondecreasing_order
 GS......... Primorial_numbers
-G.K.T..D... Print_debugging_statement
+GS..T..D... Print_debugging_statement
 GS....FDX.. Print_itself
 GS......... Priority_queue
 GS......... Priority_queue-2
@@ -1310,7 +1310,7 @@ GS..T.FD... Sierpinski_curve
 GS..T.F.... Sierpinski_pentagon
 GS..T.F.... Sierpinski_square_curve
 GS......... Sierpinski_triangle
-G.K.T.F.... Sierpinski_triangle_Graphical
+GS..T.F.... Sierpinski_triangle_Graphical
 GS......... Sieve_of_Eratosthenes-1
 GS......... Sieve_of_Eratosthenes-2
 GS......... Sieve_of_Eratosthenes-3
@@ -1326,8 +1326,8 @@ G.KI....... Simple_windowed_application
 G.KI....... Simulate_input_Keyboard
 .........VU Simulate_input_Mouse
 GS..TR.D... Simulated_annealing
-G.K.T..D... Sine_wave
-G.K........ Singleton
+G.KIT..D... Sine_wave
+GS......... Singleton
 G.K........ Singly-linked_list_Element_definition
 G.K........ Singly-linked_list_Element_insertion
 .......D.VU Singly-linked_list_Element_removal
