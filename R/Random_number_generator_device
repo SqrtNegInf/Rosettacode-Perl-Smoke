@@ -3,6 +3,7 @@
 #t# skiptest
 #c# 2018-08-19 <RC
 #p# OK
+#n# what's desired is a non-reproducible random values, so no testing is possible
 
 # Typically one would use a module as they will work on UNIX, Win32, and other O/S's. Crypt::Random::Seed, for instance, will use Win32 sources, EGD/PRNGD, /dev/u?random, or if none of those exist for some reason, a userspace entropy method.
 
