@@ -4,9 +4,6 @@
 #c# 2018-07-24 <RC
 #p# OK
 
-use feature 'say';
-my $result;
-
 # Works with: Perl version 5
 # if/else[edit]
 if ($expression) {
@@ -57,11 +54,3 @@ $condition or do_something;  # equivalent to  $condition ? $condition : do_somet
 #    when (/rats/)     { print 'input matches rats'; }
 #    default           { do_fallback; }
 #}
-
-say $result; 
-my $ref = <<'EOD';
-EOD
-
-use Test::More;
-#is ($result, $ref);
-#done_testing();
