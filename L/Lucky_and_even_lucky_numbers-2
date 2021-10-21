@@ -1,6 +1,6 @@
 #!/usr/local/bin/perl
 #u# http://rosettacode.org/wiki/Lucky_and_even_lucky_numbers
-#t# skiptest
+#t# interactive
 #c# 2018-09-19 >RC
 #p# OK
 #n# command-line version
