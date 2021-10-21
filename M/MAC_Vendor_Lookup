@@ -4,6 +4,7 @@
 #c# 2018-08-17 <RC
 #p# OK
 #n# 2021-02-20 stopped working a couple of days back, let it rest for a while (Raku version not having a problem?)
+#n# 2021-10-20 module Net::MAC::Vendor failed to install, 'fetch' of https URL failed
 
 my $result;
 
