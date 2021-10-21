@@ -3,41 +3,36 @@
 #t# skiptest
 #c# 2018-08-21 <RC
 #p# OK
-#n# too random...
-
-srand 123456;
+#n# what's desired is a non-reproducible random values, so no testing is possible
 
 use strict;
 use warnings;
 use feature 'say';
-my $result;
 
 # The ntheory module gives us numtoperm and permtonum commands similar to Pari/GP, though in the preferred lexicographic order. Values larger than the native int size are handled as well. The randperm function is useful for random permutations, using a Knuth shuffle and a Chacha/20 CSPRNG supplying randomness. A Macbook takes a bit under 4 seconds to generate 1 million random permutations of 144 objects, or 8 seconds if inserting into a set to ensure uniqueness.
 
 use ntheory qw/:all/;
 
 my $n = 3;
-$result .= "    Iterate Lexicographic rank/unrank of $n objects\n";
+print  "    Iterate Lexicographic rank/unrank of $n objects\n";
 for my $k (0 .. factorial($n)-1) {
   my @perm = numtoperm($n, $k);
   my $rank = permtonum(\@perm);
   die unless $rank == $k;
-  $result .= sprintf "%2d --> [@perm] --> %2d\n", $k, $rank;
+  printf "%2d --> [@perm] --> %2d\n", $k, $rank;
 }
-$result .= "\n";
+print "\n";
+print "    Four 12-object random permutations using ranks\n";
+print join(" ", numtoperm(12,urandomm(factorial(12)))). "\n"  for 1..4;
+print "\n";
+print "    Four 12-object random permutations using randperm\n";
+print join(" ", randperm(12))."\n"  for 1..4;
+print "\n";
+print "    Four 4-object random permutations of 100k objects using randperm\n";
+print join(" ", randperm(100000,4))."\n"  for 1..4;
 
-$result .= "    Four 12-object random permutations using ranks\n";
-$result .= join(" ", numtoperm(12,urandomm(factorial(12)))). "\n"  for 1..4;
-$result .= "\n";
-$result .= "    Four 12-object random permutations using randperm\n";
-$result .= join(" ", randperm(12))."\n"  for 1..4;
-$result .= "\n";
-$result .= "    Four 4-object random permutations of 100k objects using randperm\n";
-$result .= join(" ", randperm(100000,4))."\n"  for 1..4;
+__END__
 
-say $result; exit;
-
-my $ref = <<'EOD';
     Iterate Lexicographic rank/unrank of 3 objects
  0 --> [0 1 2] -->  0
  1 --> [0 2 1] -->  1
@@ -63,8 +58,3 @@ my $ref = <<'EOD';
 52411 13429 4722 77035
 75745 18121 11637 4585
 58581 6160 84966 79191
-EOD
-
-use Test::More;
-is ($result, $ref);
-done_testing();
