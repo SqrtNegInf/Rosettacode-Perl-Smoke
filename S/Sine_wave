@@ -1,6 +1,6 @@
 #!/usr/local/bin/perl
 #u# http://rosettacode.org/wiki/Sine_wave
-#t# skiptest
+#t# interactive
 #c# 2019-09-22 >RC
 #p# OK
 
