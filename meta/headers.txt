@@ -5069,7 +5069,7 @@ File: L/Lucky_and_even_lucky_numbers-1
 File: L/Lucky_and_even_lucky_numbers-2
 #!/usr/local/bin/perl
 #u# http://rosettacode.org/wiki/Lucky_and_even_lucky_numbers
-#t# skiptest
+#t# interactive
 #c# 2018-09-19 >RC
 #p# OK
 #n# command-line version
@@ -5106,6 +5106,7 @@ File: M/MAC_Vendor_Lookup
 #c# 2018-08-17 <RC
 #p# OK
 #n# 2021-02-20 stopped working a couple of days back, let it rest for a while (Raku version not having a problem?)
+#n# 2021-10-20 module Net::MAC::Vendor failed to install, 'fetch' of https URL failed
 
 File: M/MD4
 #!/usr/local/bin/perl
@@ -5699,6 +5700,7 @@ File: M/Musical_scale
 #c# 2019-05-08 >RC
 #p# OK
 #f# RC file: scale.midi
+#n# output sounds correct, but at byte-level differs every run
 
 File: M/Mutual_recursion
 #!/usr/local/bin/perl
@@ -6588,7 +6590,7 @@ File: P/Permutations_Rank_of_a_permutation
 #t# skiptest
 #c# 2018-08-21 <RC
 #p# OK
-#n# too random...
+#n# what's desired is a non-reproducible random values, so no testing is possible
 
 File: P/Permutations_by_swapping-1
 #!/usr/local/bin/perl
@@ -7051,10 +7053,9 @@ File: P/Primorial_numbers
 File: P/Print_debugging_statement
 #!/usr/local/bin/perl
 #u# http://rosettacode.org/wiki/Print_debugging_statement
-#t# skiptest
 #c# 2019-09-07 >RC
 #p# OK
-#n# to test would need to capture STDERR...
+#n# TIMTOWTDI, this seemed cleaner than Test::Output and wrapping with functions
 
 File: P/Print_itself
 #!/usr/local/bin/perl
@@ -7300,6 +7301,7 @@ File: R/Random_number_generator_device
 #t# skiptest
 #c# 2018-08-19 <RC
 #p# OK
+#n# what's desired is a non-reproducible random values, so no testing is possible
 
 File: R/Random_number_generator_included
 #!/usr/local/bin/perl
@@ -8113,7 +8115,6 @@ File: S/Sierpinski_triangle
 File: S/Sierpinski_triangle_Graphical
 #!/usr/local/bin/perl
 #u# http://rosettacode.org/wiki/Sierpinski_triangle/Graphical
-#t# skiptest
 #c# 2018-08-17 <RC, 2018-11-12 >RC
 #p# OK
 #f# RC file: sierpinski_triangle.svg
@@ -8224,14 +8225,13 @@ File: S/Simulated_annealing
 File: S/Sine_wave
 #!/usr/local/bin/perl
 #u# http://rosettacode.org/wiki/Sine_wave
-#t# skiptest
+#t# interactive
 #c# 2019-09-22 >RC
 #p# OK
 
 File: S/Singleton
 #!/usr/local/bin/perl
 #u# http://rosettacode.org/wiki/Singleton
-#t# skiptest
 #c# 2018-08-15 <RC
 #p# OK
 
