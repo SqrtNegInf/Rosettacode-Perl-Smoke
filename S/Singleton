@@ -1,6 +1,5 @@
 #!/usr/local/bin/perl
 #u# http://rosettacode.org/wiki/Singleton
-#t# skiptest
 #c# 2018-08-15 <RC
 #p# OK
 
@@ -33,3 +32,7 @@ printf "name: %s, ref: %s\n", $s1->name, $s1;
 
 my $s2 = Singleton->new;
 printf "name: %s, ref: %s\n", $s2->name, $s2;
+
+use Test::More;
+ok $s1, $s2;
+done_testing();
