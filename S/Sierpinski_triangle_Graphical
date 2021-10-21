@@ -1,6 +1,5 @@
 #!/usr/local/bin/perl
 #u# http://rosettacode.org/wiki/Sierpinski_triangle/Graphical
-#t# skiptest
 #c# 2018-08-17 <RC, 2018-11-12 >RC
 #p# OK
 #f# RC file: sierpinski_triangle.svg
