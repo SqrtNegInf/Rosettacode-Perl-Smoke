@@ -1,17 +1,15 @@
 #!/usr/local/bin/perl
 #u# http://rosettacode.org/wiki/Largest_product_in_a_grid
-#t# inprogress
 #c# 2021-10-xx >RC
 #p# OK
-
-use Data::Printer;          # debug only
-use Time::HiRes qw(sleep);  # debug only
 
 my @res;
 
 use strict;
 use warnings;
 use feature 'say';
+
+use List::AllUtils <max reduce>;
 
 my $input = <<~END;
   08 02 22 97 38 15 00 40 00 75 04 05 07 78 52 12 50 77 91 08
@@ -34,35 +32,36 @@ my $input = <<~END;
   20 69 36 41 72 30 23 88 34 62 99 69 82 67 59 85 74 04 36 16
   20 73 35 29 78 31 90 01 74 31 49 71 48 86 81 16 23 57 05 54
   01 70 54 71 83 51 54 69 16 92 33 48 61 43 52 01 89 19 67 48 
+  01 01 01 01 01 01 01 01 01 01 01 01 01 01 01 01 01 01 01 01  
   END
 
-my @m;
-push @m, [ split /\s/, $_ ] for split "\n", $input;
+my(@m,@mt);
+push @m, [ split /\s+/, s/\b0//gr ] for split "\n", $input;
+for my $j (0..$#{$m[0]}) { push @mt, [ map $_->[$j], @m ] }
 
-
-my @mt;
-for my $j (0..$#{$m[0]}) {
-  push @mt, [ map $_->[$j], @m ];
+sub max_products {
+    my($terms,@m) = @_;
+    my @products;
+    my $columns = 1 + $#{$m[0]};
+    for my $row (@m) {
+        map { push @products, reduce { $a * $b } @$row[ $_ .. $_+$terms-1 ] } 0 .. $columns-$terms;
+    }
+    max @products;
 }
 
-p @mt[-1];
+push @res, "Largest product of $_ adjacent elements: " . max max_products($_,@m), max_products($_,@mt) for 1..6;
 
-__END__
-
-my $terms = 4;
-
-say my $result = "Largest product of $terms adjacent elements: " ~ max flat (^@matrix).map: {
-    @matrix.rotor($terms => -$terms+1).flat»[$_].batch($terms)».reduce(&[×]), # vertical
-    @matrix[$_].rotor($terms => -$terms+1)».reduce(&[×]);                     # horizontal
-}
-
-my $ref = 'Largest product of 4 adjacent elements: 51267216';
-
-use Test;
-is $result, $ref;
+#my $terms = 4;
+#my $result = "Largest product of $terms adjacent elements: " . max max_products($terms,@m), max_products($terms,@mt);
 
 say my $result = join "\n", @res;
 my $ref = <<'END';
+Largest product of 1 adjacent elements: 99
+Largest product of 2 adjacent elements: 9215
+Largest product of 3 adjacent elements: 776776
+Largest product of 4 adjacent elements: 51267216
+Largest product of 5 adjacent elements: 2326829868
+Largest product of 6 adjacent elements: 188210512710
 END
 
 use Test::More;
@@ -76,5 +75,9 @@ __END__
 <lang perl>
 </lang>
 {{out}}
-<pre>
-</pre>
+<pre>Largest product of 1 adjacent elements: 99
+Largest product of 2 adjacent elements: 9215
+Largest product of 3 adjacent elements: 776776
+Largest product of 4 adjacent elements: 51267216
+Largest product of 5 adjacent elements: 2326829868
+Largest product of 6 adjacent elements: 188210512710</pre>
