@@ -2,13 +2,13 @@
 #u# http://rosettacode.org/wiki/Smallest_multiple
 #c# 2021-10-22 <RC
 #p# OK
-#n# with 'ntheory', no need for 'bigint'
+#n# added 200, to show no need for 'use bigint' with 'ntheory'
+
+my $result;
 
 use strict;
 use warnings;
 use feature 'say';
-
-my $result;
 
 use ntheory qw( lcm );
 
