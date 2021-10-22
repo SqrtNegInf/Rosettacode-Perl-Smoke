@@ -1,0 +1,27 @@
+#!/usr/local/bin/perl
+#u# http://rosettacode.org/wiki/Smallest_multiple
+#c# 2021-10-22 <RC
+#p# OK
+#n# with 'ntheory', no need for 'bigint'
+
+use strict;
+use warnings;
+use feature 'say';
+
+my $result;
+
+use ntheory qw( lcm );
+
+$result .= "for $_, it's @{[ lcm(1 .. $_) ]}\n" for 10, 20, 200;
+
+say $result;
+
+my $ref = <<'EOD';
+for 10, it's 2520
+for 20, it's 232792560
+for 200, it's 337293588832926264639465766794841407432394382785157234228847021917234018060677390066992000
+EOD
+
+use Test::More;
+is ($result, $ref);
+done_testing();
