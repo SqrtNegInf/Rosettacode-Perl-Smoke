@@ -8268,6 +8268,13 @@ File: S/Sleeping_Beauty_problem
 #c# 2021-06-06 >RC
 #p# OK
 
+File: S/Smallest_multiple
+#!/usr/local/bin/perl
+#u# http://rosettacode.org/wiki/Smallest_multiple
+#c# 2021-10-xx >RC
+#p# OK
+#n# borrowed code from 'Least_common_multiple'
+
 File: S/Smallest_numbers
 #!/usr/local/bin/perl
 #u# http://rosettacode.org/wiki/Smallest_numbers
