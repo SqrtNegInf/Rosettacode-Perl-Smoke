@@ -1,0 +1,76 @@
+#!/usr/local/bin/perl
+#u# http://rosettacode.org/wiki/Last_list_item
+#c# 2021-10-22 >RC
+#p# OK
+#n# Like Raku, no sorting (it was all rather Perlish to start with)
+
+my @res;
+
+use strict;
+use warnings;
+use feature 'say';
+
+use List::AllUtils <min firstidx>;
+
+push @res, ' Original ' . join ' ', my @list = <6 81 243 14 25 49 123 69 11>;
+
+push @list, get(min @list) + get(min @list) while @list > 1;
+push @res, join ' ', @list;
+
+sub get { 
+    my($min) = @_;
+    splice @list, (firstidx { $min == $_ } @list), 1;
+    push @res, sprintf " %3d", $min;
+    $min;
+}
+
+say my $result = join "\n", @res;
+
+my $ref = <<'END';
+ Original 6 81 243 14 25 49 123 69 11
+   6
+  11
+  14
+  17
+  25
+  31
+  49
+  56
+  69
+  81
+ 105
+ 123
+ 150
+ 228
+ 243
+ 378
+621
+END
+
+my $refx = <<'END';
+ Original [6 81 243 14 25 49 123 69 11]
+   6   11 [81 243 14 25 49 123 69 17]
+  14   17 [81 243 25 49 123 69 31]
+  25   31 [81 243 49 123 69 56]
+  49   56 [81 243 123 69 105]
+  69   81 [243 123 105 150]
+ 105  123 [243 150 228]
+ 150  228 [243 378]
+ 243  378 [621]
+END
+
+use Test::More;
+chomp $ref;
+is($result, $ref);
+done_testing();
+
+__END__
+
+=={{header|Perl}}==
+{{trans|xx}}
+<lang perl>
+</lang>
+{{out}}
+<pre style="height:20ex">
+</pre>
+[https://github.com/SqrtNegInf/Rosettacode-Perl5-Smoke/blob/master/ref/xx xx]
