@@ -1,17 +1,17 @@
 
 This is perl 5, version 32, subversion 1 (v5.32.1) built for darwin-thread-multi-2level
 updating from RC…
-+------------> Perl: Good/Bad [1510/10]
-|+-----------> Smoke testing [1367]
++------------> Perl: Good/Bad [1513/10]
+|+-----------> Smoke testing [1370]
 ||+----------> sKipping validation [146]
 |||+---------> Interactive [74]
-||||+--------> Touched (modified by me) [514]
+||||+--------> Touched (modified by me) [515]
 |||||+-------> Random seed [118]
 ||||||+------> File output [76]
-|||||||+-----> Draft [308]
+|||||||+-----> Draft [309]
 ||||||||+----> Ignoring [36]
 |||||||||+---> Void (no local copy) [128]
-||||||||||+--> Un-implemented/reliable [105]
+||||||||||+--> Un-implemented/reliable [104]
 |||||||||||
 GS......... 100_doors-1
 GS......... 100_doors-2
@@ -758,6 +758,8 @@ GS...R.D... Largest_five_adjacent_number
 GS......... Largest_int_from_concatenated_ints
 GS..T...... Largest_number_divisible_by_its_digits-1
 GS..T...... Largest_number_divisible_by_its_digits-2
+GS.....D... Largest_product_in_a_grid
+GS..T...... Largest_product_in_a_grid-2
 GS..T...... Largest_proper_divisor_of_n
 GS......... Last_Friday_of_each_month
 GS..TR..... Last_letter-first_letter
@@ -1335,7 +1337,8 @@ GS......... Singly-linked_list_Traversal
 GS......... Sleep
 GS..TR..... Sleeping_Beauty_problem
 .......D.VU Smallest_enclosing_circle_problem
-GS..T..D..U Smallest_multiple
+GS.....D... Smallest_multiple
+GS..T...... Smallest_multiple-2
 GS..T..D... Smallest_numbers
 GS..T..D... Smallest_power_of_6_whose_decimal_expansion_contains_n
 GS..T..D... Smallest_square_that_begins_with_n
