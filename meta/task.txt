@@ -1,14 +1,14 @@
 
 This is perl 5, version 32, subversion 1 (v5.32.1) built for darwin-thread-multi-2level
 updating from RC…
-+------------> Perl: Good/Bad [1513/10]
-|+-----------> Smoke testing [1370]
++------------> Perl: Good/Bad [1514/10]
+|+-----------> Smoke testing [1371]
 ||+----------> sKipping validation [146]
 |||+---------> Interactive [74]
-||||+--------> Touched (modified by me) [515]
+||||+--------> Touched (modified by me) [516]
 |||||+-------> Random seed [118]
 ||||||+------> File output [76]
-|||||||+-----> Draft [309]
+|||||||+-----> Draft [310]
 ||||||||+----> Ignoring [36]
 |||||||||+---> Void (no local copy) [128]
 ||||||||||+--> Un-implemented/reliable [104]
@@ -763,6 +763,7 @@ GS..T...... Largest_product_in_a_grid-2
 GS..T...... Largest_proper_divisor_of_n
 GS......... Last_Friday_of_each_month
 GS..TR..... Last_letter-first_letter
+GS..T..D... Last_list_item
 GS......... Latin_Squares_in_reduced_form
 .........VU Latin_Squares_in_reduced_form_Randomizing_using_Jacobson_and_Matthews_Technique
 G.KIT..D... Launch_rocket_with_countdown_and_acceleration_in_stdout
