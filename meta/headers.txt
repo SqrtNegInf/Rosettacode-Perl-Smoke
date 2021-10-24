@@ -4677,6 +4677,13 @@ File: L/Last_letter-first_letter
 #c# 2018-08-14 <RC, 2019-03-06 >RC
 #p# OK
 
+File: L/Last_list_item
+#!/usr/local/bin/perl
+#u# http://rosettacode.org/wiki/Last_list_item
+#c# 2021-10-22 >RC
+#p# OK
+#n# Like Raku, no sorting (it was all rather Perlish to start with)
+
 File: L/Latin_Squares_in_reduced_form
 #!/usr/local/bin/perl
 #u# http://rosettacode.org/wiki/Latin_Squares_in_reduced_form
