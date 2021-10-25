@@ -4,14 +4,15 @@
 #c# 2020-08-22 clean up
 
 use strict;
+use warnings;
 
 open RC, qq{/opt/local/bin/curl -s -N 'http://rosettacode.org/mw/index.php?title=Special:RecentChanges&limit=1000&namespace=0' | };
 
 my $cnt = 0;
 my $new = 'N';
 
-# skip users known to be adding Raku code
-my $not_these_users = 'Petelomax|Chunes|Robbie|CraigD|Chunes|Gerard|Cwt1078|Objeck|Nigel|Palaing|Paddy3118';
+# skip users known to be adding non-Perl code
+my $not_these_users = 'Petelomax|Chunes|Robbie|CraigD|Gerard|Cwt1078|Objeck|Nigel|Palaing|Paddy3118';
 
 my $date;
 while (<RC>) {
@@ -26,6 +27,8 @@ while (<RC>) {
     $title =~ s/_/ /g;
     my($time) = m/[;>](\d\d:\d\d)[&<]/;
     my $line = sprintf "%5s %-15s %-15s %s\n", $time, $date, $user, $title; # the slug
+
+    exit if $title =~ /Last list item/; # stuck on this for some reason...
 
     my $checkpt;
     if (0 == $cnt) {
