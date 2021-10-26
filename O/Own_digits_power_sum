@@ -1,0 +1,86 @@
+#!/usr/local/bin/perl
+#u# http://rosettacode.org/wiki/Own_digits_power_sum
+#t# inprogress
+#c# 2021-10-xx >RC
+#p# OK
+#n# N equal steps not the most efficient; while P::F getting a spurious result?: 194979 
+#n# 3-7:  196.37s user  1.23s system 514% cpu   38.43 total
+#n# 3-8: 2677.35s user 25.43s system 455% cpu 9:52.73 total
+
+my @res;
+
+use strict;
+use warnings;
+use feature 'say';
+
+use List::Util 'sum';
+use Parallel::ForkManager;
+
+my $lo    = 3;
+my $hi    = 7;
+my $cores = 8;
+my $start =      10**($lo-1);
+my $stop  = -1 + 10**$hi;
+my $step  = int(1 + ($stop - $start)/ $cores);
+
+my $pm = Parallel::ForkManager->new($cores);
+use Data::Dumper;
+
+my %rr = ();
+
+RUN:
+for my $i ( 0 .. $cores-1 ) {
+
+$pm -> run_on_finish (
+    sub {
+        my ($pid, $exit_code, $ident, $exit_signal, $core_dump, $ref) = @_;
+        print &Dumper($ref); #sleep  10;
+        return unless defined $ref; # doesn't stop spurious
+        $rr{$ident} = $ref;
+    }
+);
+
+    $pm->start($i) and next RUN;
+    my @values;
+    for my $n ( ($start + $i*$step) .. ($start + ($i+1)*$step) ) {  
+        for my $d ($lo..$hi) {
+            #say $n if $n == sum map { $_**$d } split '', $n; # just display-as-you-go is fine?
+            push @values, $n if $n == sum map { $_**$d } split '', $n;
+        }
+    }
+    $pm->finish(0, \@values)
+}
+
+$pm->wait_all_children;
+
+use Data::Printer;
+#p %rr;
+#for (keys %rr) { p $rr{$_} }
+
+exit;
+
+say my $result = join "\n", sort { $a <=> $b } @res;
+
+my $ref = <<'END';
+END
+
+use Test::More;
+chomp $ref;
+is($result, $ref);
+done_testing();
+
+__END__
+
+# this gives correct results
+for my $d (3..7) {
+    for my $n ( 10**($d-1) .. -1 + 10**$d ) {    
+        say $n unless $n != sum map { $_**$d } split '', $n;
+     }
+}
+
+=={{header|Perl}}==
+<lang perl>
+</lang>
+{{out}}
+<pre>
+</pre>
