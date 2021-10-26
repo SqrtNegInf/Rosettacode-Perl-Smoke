@@ -1,12 +1,12 @@
 #!/usr/local/bin/perl
 #u# http://rosettacode.org/wiki/Own_digits_power_sum
-#c# 2021-10-xx >RC
+#c# 2021-10-25 >RC
 #p# OK
-#n# N equal steps not the most efficient?
-#n# 3-7:  196.37s user  1.23s system 514% cpu   38.43 total
-#n# 3-8: 2677.35s user 25.43s system 455% cpu 9:52.73 total
-
-my @res;
+#n# brute-force approach, only concurrency saves us from certain doom...
+#n# pretty-near pointlesss (cf. combinatorcs version) but TIL how to return values from child processes using P::F
+#n# 3-7:  196.37s user  1.23s system 514% cpu    38.43 total
+#n# 3-8: 2677.35s user 25.43s system 455% cpu  9:52.73 total
+#n# 3-9: 4869.08s user 30.04s system 428% cpu 19:02.17 total
 
 use strict;
 use warnings;
@@ -15,43 +15,37 @@ use feature 'say';
 use List::Util 'sum';
 use Parallel::ForkManager;
 
-my $lo    = 3;
-my $hi    = 7;
-my $cores = 8;
-my $start =      10**($lo-1);
-my $stop  = -1 + 10**$hi;
-my $step  = int(1 + ($stop - $start)/ $cores);
+my %own_dps;
+my($lo,$hi) = (3,7);
+my $cores   = 8;      # configure to match CPU
+
+my $start   = 10**($lo-1);
+my $stop    = 10**$hi - 1;
+my $step    = int(1 + ($stop - $start)/ ($cores+1));
 
 my $pm = Parallel::ForkManager->new($cores);
 
-my %return;
-
 RUN:
-for my $i ( 0 .. $cores-1 ) {
+for my $i ( 0 .. $cores ) {
 
-    $pm -> run_on_finish (
+    $pm->run_on_finish (
         sub {
-            my ($pid, $exit_code, $ident, $exit_signal, $core_dump, $ref) = @_;
-            $return{$ident} = $ref;
+            my ($pid, $exit_code, $ident, $exit_signal, $core_dump, $data_ref) = @_;
+            $own_dps{$ident} = $data_ref;
         }
     );
 
     $pm->start($i) and next RUN;
     my @values;
     for my $n ( ($start + $i*$step) .. ($start + ($i+1)*$step) ) {  
-        for my $d ($lo..$hi) {
-            next unless $d == length($n);
-            push @values, $n if $n == sum map { $_**$d } split '', $n;
-        }
+        push @values, $n if $n == sum map { $_**length($n) } split '', $n;
     }
     $pm->finish(0, \@values)
 }
 
 $pm->wait_all_children;
 
-#say $_ for sort { $a <=> $b } map { @{$_} } values %return;
-
-say my $result = join "\n", sort { $a <=> $b } map { @{$_} } values %rr;
+say my $result = join "\n", sort { $a <=> $b } map { @$_ } values %own_dps;
 
 my $ref = <<'END';
 153
@@ -78,16 +72,9 @@ done_testing();
 
 __END__
 
-# simplest version:
-for my $d (3..7) {
-    for my $n ( 10**($d-1) .. -1 + 10**$d ) {    
+# simplest version, very, very, very, very slow
+for my $d (3..9) {
+    for my $n ( 10**($d-1) .. 10**$d - 1) {    
         say $n unless $n != sum map { $_**$d } split '', $n;
      }
 }
-
-=={{header|Perl}}==
-<lang perl>
-</lang>
-{{out}}
-<pre>
-</pre>
