@@ -6192,6 +6192,16 @@ File: O/Ordered_words
 #c# 2018-08-20 <RC
 #p# OK
 
+File: O/Own_digits_power_sum
+#!/usr/local/bin/perl
+#u# http://rosettacode.org/wiki/Own_digits_power_sum
+#t# inprogress
+#c# 2021-10-xx >RC
+#p# OK
+#n# N equal steps not the most efficient; while P::F getting a spurious result?: 194979 
+#n# 3-7:  196.37s user  1.23s system 514% cpu   38.43 total
+#n# 3-8: 2677.35s user 25.43s system 455% cpu 9:52.73 total
+
 File: P/P-value_correction
 #!/usr/local/bin/perl
 #u# http://rosettacode.org/wiki/P-value_correction
