@@ -1,17 +1,17 @@
 
 This is perl 5, version 32, subversion 1 (v5.32.1) built for darwin-thread-multi-2level
 updating from RC…
-+------------> Perl: Good/Bad [1514/10]
++------------> Perl: Good/Bad [1515/10]
 |+-----------> Smoke testing [1371]
-||+----------> sKipping validation [146]
+||+----------> sKipping validation [147]
 |||+---------> Interactive [74]
-||||+--------> Touched (modified by me) [516]
+||||+--------> Touched (modified by me) [517]
 |||||+-------> Random seed [118]
 ||||||+------> File output [76]
-|||||||+-----> Draft [310]
+|||||||+-----> Draft [311]
 ||||||||+----> Ignoring [36]
 |||||||||+---> Void (no local copy) [128]
-||||||||||+--> Un-implemented/reliable [104]
+||||||||||+--> Un-implemented/reliable [105]
 |||||||||||
 GS......... 100_doors-1
 GS......... 100_doors-2
@@ -1003,6 +1003,7 @@ GS......... Ordered_partitions
 GS......... Ordered_partitions-2
 GS......... Ordered_words
 .......D.VU Overloaded_operators
+G.K.T..D..U Own_digits_power_sum
 .........VU P-Adic_numbers,_basic
 .........VU P-Adic_square_roots
 GS......... P-value_correction
