@@ -1,0 +1,70 @@
+#!/usr/local/bin/perl
+#u# http://rosettacode.org/wiki/Own_digits_power_sum
+#c# 2021-10-26 >RC
+#p# OK
+#n# utilize that fact that all permutations give same DPS, way faster than brute force (3400x)
+#n# 1.39s user 0.06s system 40% cpu 3.596 total
+
+use strict;
+use warnings;
+use feature 'say';
+
+use List::Util 'sum';
+use Algorithm::Combinatorics qw<combinations_with_repetition>;
+
+my @own_dps;
+for my $d (3..9) {
+    my $iter = combinations_with_repetition([0..9], $d);
+    while (my $p = $iter->next) {
+        my $dps = sum map { $_**$d } @$p;
+        next unless $d == length $dps and join('', @$p) == join '', sort split '', $dps;
+        push @own_dps, $dps;
+    }
+}
+
+say my $result = join "\n", sort { $a <=> $b } @own_dps;
+
+my $ref = <<'END';
+153
+370
+371
+407
+1634
+8208
+9474
+54748
+92727
+93084
+548834
+1741725
+4210818
+9800817
+9926315
+24678050
+24678051
+88593477
+146511208
+472335975
+534494836
+912985153
+END
+
+use Test::More;
+chomp $ref;
+is($result, $ref);
+done_testing();
+
+__END__
+
+10..15 (NB: none for 12, 13, 15)
+
+4679307774
+32164049650
+32164049651
+40028394225
+42678290603
+44708635679
+49388550606
+82693916578
+94204591914
+28116440335967
