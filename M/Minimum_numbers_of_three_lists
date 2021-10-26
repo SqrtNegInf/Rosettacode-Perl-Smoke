@@ -1,0 +1,23 @@
+#!/usr/local/bin/perl
+#u# http://rosettacode.org/wiki/Minimum_numbers_of_three_lists
+#c# 2021-10-26 >RC
+#p# OK
+
+my @res;
+
+use strict;
+use warnings;
+use feature 'say';
+use List::Util 'min';
+
+my @lists = ([5,45,23,21,67], [43,22,78,46,38], [9,98,12,98,53]);
+
+for my $i (0 .. $#{ $lists[0] }) {
+    push @res, min map { $lists[$_][$i] } 0..$#lists;
+}
+
+say my $result = join ' ', @res;
+
+use Test::More;
+is($result, '5 22 12 21 38');
+done_testing();
