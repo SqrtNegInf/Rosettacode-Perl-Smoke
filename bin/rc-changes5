@@ -12,7 +12,7 @@ my $cnt = 0;
 my $new = 'N';
 
 # skip users known to be adding non-Perl code
-my $not_these_users = 'Petelomax|Chunes|Robbie|CraigD|Gerard|Cwt1078|Objeck|Nigel|Palaing|Paddy3118';
+my $not_these_users = 'Petelomax|Chunes|Robbie|CraigD|Gerard|Cwt1078|Objeck|Nigel|Palaing|Paddy3118|PureFox|Wherrera|Horst';
 
 my $date;
 while (<RC>) {
@@ -28,9 +28,7 @@ while (<RC>) {
     my($time) = m/[;>](\d\d:\d\d)[&<]/;
     my $line = sprintf "%5s %-15s %-15s %s\n", $time, $date, $user, $title; # the slug
 
-    exit if $title =~ /Last list item/; # stuck on this for some reason...
-
-    my $checkpt;
+    my $checkpt = '';
     if (0 == $cnt) {
         my $file = "$ENV{HOME}/perl5/Rosetta-Code/meta/RC-recent.txt";
         open F, "<$file"; $checkpt = <F>; close F;  # read old check-point
