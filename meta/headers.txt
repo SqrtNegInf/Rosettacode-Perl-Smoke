@@ -5491,6 +5491,12 @@ File: M/Minimum_number_of_cells_after,_before,_above_and_below_NxN_squares
 #c# 2021-08-02 <RC, 2021-08-03 >RC
 #p# OK
 
+File: M/Minimum_numbers_of_three_lists
+#!/usr/local/bin/perl
+#u# http://rosettacode.org/wiki/Minimum_numbers_of_three_lists
+#c# 2021-10-26 >RC
+#p# OK
+
 File: M/Minimum_positive_multiple_in_base_10_using_only_0_and_1-1
 #!/usr/local/bin/perl
 #u# http://rosettacode.org/wiki/Minimum_positive_multiple_in_base_10_using_only_0_and_1
@@ -6195,12 +6201,21 @@ File: O/Ordered_words
 File: O/Own_digits_power_sum
 #!/usr/local/bin/perl
 #u# http://rosettacode.org/wiki/Own_digits_power_sum
-#t# inprogress
-#c# 2021-10-xx >RC
+#c# 2021-10-25 >RC
 #p# OK
-#n# N equal steps not the most efficient; while P::F getting a spurious result?: 194979 
-#n# 3-7:  196.37s user  1.23s system 514% cpu   38.43 total
-#n# 3-8: 2677.35s user 25.43s system 455% cpu 9:52.73 total
+#n# brute-force approach, only concurrency saves us from certain doom...
+#n# pretty-near pointlesss (cf. combinatorcs version) but TIL how to return values from child processes using P::F
+#n# 3-7:  196.37s user  1.23s system 514% cpu    38.43 total
+#n# 3-8: 2677.35s user 25.43s system 455% cpu  9:52.73 total
+#n# 3-9: 4869.08s user 30.04s system 428% cpu 19:02.17 total
+
+File: O/Own_digits_power_sum-2
+#!/usr/local/bin/perl
+#u# http://rosettacode.org/wiki/Own_digits_power_sum
+#c# 2021-10-26 >RC
+#p# OK
+#n# utilize that fact that all combinations give same DPS, way faster than brute force (3400x)
+#n# 1.39s user 0.06s system 40% cpu 3.596 total
 
 File: P/P-value_correction
 #!/usr/local/bin/perl
