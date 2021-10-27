@@ -1,17 +1,17 @@
 
 This is perl 5, version 32, subversion 1 (v5.32.1) built for darwin-thread-multi-2level
 updating from RC…
-+------------> Perl: Good/Bad [1515/10]
-|+-----------> Smoke testing [1371]
-||+----------> sKipping validation [147]
++------------> Perl: Good/Bad [1517/10]
+|+-----------> Smoke testing [1374]
+||+----------> sKipping validation [146]
 |||+---------> Interactive [74]
-||||+--------> Touched (modified by me) [517]
+||||+--------> Touched (modified by me) [519]
 |||||+-------> Random seed [118]
 ||||||+------> File output [76]
-|||||||+-----> Draft [311]
+|||||||+-----> Draft [312]
 ||||||||+----> Ignoring [36]
 |||||||||+---> Void (no local copy) [128]
-||||||||||+--> Un-implemented/reliable [105]
+||||||||||+--> Un-implemented/reliable [104]
 |||||||||||
 GS......... 100_doors-1
 GS......... 100_doors-2
@@ -886,6 +886,7 @@ GS..TR..... Mind_boggling_card_trick
 G.KI....... Minesweeper_game
 GS......... Minimal_steps_down_to_1
 GS..T..D... Minimum_number_of_cells_after,_before,_above_and_below_NxN_squares
+GS..T..D... Minimum_numbers_of_three_lists
 GS..T...... Minimum_positive_multiple_in_base_10_using_only_0_and_1-1
 GS..T...... Minimum_positive_multiple_in_base_10_using_only_0_and_1-2
 GS......... Minimum_positive_multiple_in_base_10_using_only_0_and_1-3
@@ -1003,7 +1004,8 @@ GS......... Ordered_partitions
 GS......... Ordered_partitions-2
 GS......... Ordered_words
 .......D.VU Overloaded_operators
-G.K.T..D..U Own_digits_power_sum
+GS..T..D... Own_digits_power_sum
+GS..T...... Own_digits_power_sum-2
 .........VU P-Adic_numbers,_basic
 .........VU P-Adic_square_roots
 GS......... P-value_correction
