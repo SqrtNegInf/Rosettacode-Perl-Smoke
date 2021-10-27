@@ -2,7 +2,7 @@
 #u# http://rosettacode.org/wiki/Own_digits_power_sum
 #c# 2021-10-26 >RC
 #p# OK
-#n# utilize that fact that all permutations give same DPS, way faster than brute force (3400x)
+#n# utilize that fact that all combinations give same DPS, way faster than brute force (3400x)
 #n# 1.39s user 0.06s system 40% cpu 3.596 total
 
 use strict;
@@ -22,7 +22,8 @@ for my $d (3..9) {
     }
 }
 
-say my $result = join "\n", sort { $a <=> $b } @own_dps;
+print join "\n", sort { $a <=> $b } @own_dps;
+my $result = join "\n", sort { $a <=> $b } @own_dps;
 
 my $ref = <<'END';
 153
