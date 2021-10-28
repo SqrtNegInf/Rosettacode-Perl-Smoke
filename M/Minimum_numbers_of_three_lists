@@ -2,6 +2,7 @@
 #u# http://rosettacode.org/wiki/Minimum_numbers_of_three_lists
 #c# 2021-10-26 >RC
 #p# OK
+#n# no constants
 
 my @res;
 
