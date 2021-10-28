@@ -1,8 +1,8 @@
 
 This is perl 5, version 32, subversion 1 (v5.32.1) built for darwin-thread-multi-2level
 updating from RC…
-+------------> Perl: Good/Bad [1517/10]
-|+-----------> Smoke testing [1374]
++------------> Perl: Good/Bad [1519/10]
+|+-----------> Smoke testing [1376]
 ||+----------> sKipping validation [146]
 |||+---------> Interactive [74]
 ||||+--------> Touched (modified by me) [519]
@@ -890,6 +890,8 @@ GS..T..D... Minimum_numbers_of_three_lists
 GS..T...... Minimum_positive_multiple_in_base_10_using_only_0_and_1-1
 GS..T...... Minimum_positive_multiple_in_base_10_using_only_0_and_1-2
 GS......... Minimum_positive_multiple_in_base_10_using_only_0_and_1-3
+GS.....D... Minimum_primes
+GS......... Minimum_primes-2
 GS..T...... Minkowski_question-mark_function
 GS..TR..... Modified_random_distribution
 GS......... Modular_arithmetic
@@ -1348,7 +1350,7 @@ GS..T..D... Smallest_power_of_6_whose_decimal_expansion_contains_n
 GS..T..D... Smallest_square_that_begins_with_n
 GS..T...... Smarandache_prime-digital_sequence
 GS......... Smith_numbers
-G.KI...D... Snake
+G.KI....... Snake
 GS..TR.D... Snake_and_Ladder
 GS......... Sockets
 GS......... Sokoban
