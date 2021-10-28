@@ -1,0 +1,28 @@
+#!/usr/local/bin/perl
+#u# http://rosettacode.org/wiki/Minimum_primes
+#c# 2021-10-27 NOT ON RC
+#p# OK
+#n# no constants, cf. Minimum_numbers_of_three_lists
+
+my @res;
+
+use strict;
+use warnings;
+use feature 'say';
+
+use List::Util 'max';
+use ntheory 'next_prime';
+
+my @lists = ([5,45,23,21,67], [43,22,78,46,38], [9,98,12,54,53]);
+
+for my $i (0 .. $#{ $lists[0] }) {
+    push @res, next_prime -1 + max map { $lists[$_][$i] } 0..$#lists;
+}
+
+say my $result = "@res";
+
+my $ref = '43 101 79 59 67';
+
+use Test::More;
+is ($result, $ref);
+done_testing();
