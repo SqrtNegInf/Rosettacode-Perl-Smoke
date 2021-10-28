@@ -1,0 +1,40 @@
+#!/usr/local/bin/perl
+#u# http://rosettacode.org/wiki/xx
+#c# 2021-10-xx >RC
+#p# OK
+
+use strict;
+use warnings;
+use feature 'say';
+
+use ntheory <factor vecprod vecmin>;
+
+my @Euclid_Mullin = 2;
+push @Euclid_Mullin, vecmin factor (1 + vecprod @Euclid_Mullin) for 2..16;
+
+say my $result  = "First sixteen: @Euclid_Mullin[0..15]";
+#say    $result .= "Next eleven:   @Euclid_Mullin[16..26]";  # total ~ 5m
+
+my $ref = 'First sixteen: 2 3 7 43 13 53 5 6221671 38709183810571 139 2801 11 17 5471 52662739 23003';
+
+use Test::More;
+is($result, $ref);
+done_testing();
+
+__END__
+
+=={{header|Perl}}==
+{{libheader|ntheory}}
+<lang perl>use strict;
+use warnings;
+use feature 'say';
+use ntheory <factor vecprod vecmin>;
+
+my @Euclid_Mullin = 2;
+push @Euclid_Mullin, vecmin factor (1 + vecprod @Euclid_Mullin) for 2..16+11;
+
+say 'First sixteen: ' . "@Euclid_Mullin[ 0..15]";
+say 'Next eleven:   ' . "@Euclid_Mullin[16..26]";</lang>
+{{out}}
+<pre>First sixteen: 2 3 7 43 13 53 5 6221671 38709183810571 139 2801 11 17 5471 52662739 23003
+Next eleven:   30693651606209 37 1741 1313797957 887 71 7127 109 23 97 159227</pre>
