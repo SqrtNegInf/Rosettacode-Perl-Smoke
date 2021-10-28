@@ -4,9 +4,9 @@
 #p# OK
 #n# brute-force approach, only concurrency saves us from certain doom...
 #n# pretty-near pointlesss (cf. combinatorcs version) but TIL how to return values from child processes using P::F
-#n# 3-7:  196.37s user  1.23s system 514% cpu    38.43 total
-#n# 3-8: 2677.35s user 25.43s system 455% cpu  9:52.73 total
-#n# 3-9: 4869.08s user 30.04s system 428% cpu 19:02.17 total
+#n# 3,7:  196.37s user  1.23s system 514% cpu    38.43 total
+#n# 3,8: 2677.35s user 25.43s system 455% cpu  9:52.73 total
+#n# 3,9: 4869.08s user 30.04s system 428% cpu 19:02.17 total
 
 use strict;
 use warnings;
