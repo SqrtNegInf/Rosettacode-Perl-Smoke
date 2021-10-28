@@ -3,7 +3,9 @@
 #c# 2021-10-26 >RC
 #p# OK
 #n# utilize that fact that all combinations give same DPS, way faster than brute force (3400x)
-#n# 1.39s user 0.06s system 40% cpu 3.596 total
+#n# 3,7:    0.65s user  0.03s system  78% cpu     0.87 total
+#n# 3,8:    0.67s user  0.03s system  75% cpu     0.92 total
+#n# 3,9:    1.35s user  0.04s system  74% cpu     1.87 total
 
 use strict;
 use warnings;
@@ -22,8 +24,7 @@ for my $d (3..9) {
     }
 }
 
-print join "\n", sort { $a <=> $b } @own_dps;
-my $result = join "\n", sort { $a <=> $b } @own_dps;
+say my $result = join "\n", sort { $a <=> $b } @own_dps;
 
 my $ref = <<'END';
 153
