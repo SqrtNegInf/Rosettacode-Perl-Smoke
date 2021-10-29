@@ -1,17 +1,17 @@
 
 This is perl 5, version 32, subversion 1 (v5.32.1) built for darwin-thread-multi-2level
 updating from RC…
-+------------> Perl: Good/Bad [1519/10]
-|+-----------> Smoke testing [1376]
++------------> Perl: Good/Bad [1520/10]
+|+-----------> Smoke testing [1377]
 ||+----------> sKipping validation [146]
 |||+---------> Interactive [74]
-||||+--------> Touched (modified by me) [519]
+||||+--------> Touched (modified by me) [520]
 |||||+-------> Random seed [118]
 ||||||+------> File output [76]
-|||||||+-----> Draft [312]
+|||||||+-----> Draft [313]
 ||||||||+----> Ignoring [36]
-|||||||||+---> Void (no local copy) [128]
-||||||||||+--> Un-implemented/reliable [104]
+|||||||||+---> Void (no local copy) [129]
+||||||||||+--> Un-implemented/reliable [105]
 |||||||||||
 GS......... 100_doors-1
 GS......... 100_doors-2
@@ -286,6 +286,7 @@ G.K........ Comments
 GS..T..D... Common_list_elements
 GS..T..D... Common_sorted_list
 GS..T...... Compare_a_list_of_strings
+.........VU Compare_length_of_two_strings
 .........VU Compare_sorting_algorithms%27_performance
 GS......... Compile-time_calculation
 GS......... Compiler_AST_interpreter
@@ -447,6 +448,7 @@ GS......... Equilibrium_index
 GS..T..D... Erdos-primes
 GS......... Esthetic_numbers
 GS......... Ethiopian_multiplication
+GS..T..D... Euclid-Mullin_sequence
 GS......... Euler%27s_identity
 GS......... Euler%27s_sum_of_powers_conjecture-1
 GS......... Euler%27s_sum_of_powers_conjecture-2
