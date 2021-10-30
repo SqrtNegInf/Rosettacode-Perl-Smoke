@@ -8,7 +8,7 @@ updating from RC…
 ||||+--------> Touched (modified by me) [520]
 |||||+-------> Random seed [118]
 ||||||+------> File output [76]
-|||||||+-----> Draft [313]
+|||||||+-----> Draft [312]
 ||||||||+----> Ignoring [36]
 |||||||||+---> Void (no local copy) [129]
 ||||||||||+--> Un-implemented/reliable [105]
@@ -1477,7 +1477,6 @@ GS......... Sum_multiples_of_3_and_5-1
 GS..T...... Sum_multiples_of_3_and_5-2
 GS......... Sum_of_a_series
 GS..T..D... Sum_of_divisors
-.......D... Sum_of_elements_below_main_diagonal_of_matrix
 GS......... Sum_of_elements_below_main_diagonal_of_matrix-1
 GS......... Sum_of_elements_below_main_diagonal_of_matrix-2
 GS.....D... Sum_of_first_n_cubes
