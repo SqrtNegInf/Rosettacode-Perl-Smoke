@@ -8,10 +8,10 @@ updating from RC…
 ||||+--------> Touched (modified by me) [520]
 |||||+-------> Random seed [118]
 ||||||+------> File output [76]
-|||||||+-----> Draft [312]
+|||||||+-----> Draft [313]
 ||||||||+----> Ignoring [36]
-|||||||||+---> Void (no local copy) [129]
-||||||||||+--> Un-implemented/reliable [105]
+|||||||||+---> Void (no local copy) [130]
+||||||||||+--> Un-implemented/reliable [106]
 |||||||||||
 GS......... 100_doors-1
 GS......... 100_doors-2
@@ -445,6 +445,7 @@ GS......... Entropy_Narcissist
 GS......... Enumerations
 GS......... Environment_variables
 GS......... Equilibrium_index
+.......D.VU Erdos-Woods_numbers
 GS..T..D... Erdos-primes
 GS......... Esthetic_numbers
 GS......... Ethiopian_multiplication
