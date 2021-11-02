@@ -1,0 +1,44 @@
+#!/usr/local/bin/perl
+#u# http://rosettacode.org/wiki/Largest_prime_factor
+#c# 2021-10-xx >RC
+#p# OK
+
+use strict;
+use warnings;
+use feature 'say';
+
+sub f {
+    my($a) = @_;
+    $a%$_ or return $_, f($a/$_) for 2..$a
+}
+
+my $n = 600851475143; 
+say +(f $n)[-2]; # quick way to get scalar context
+say "Largest prime factor of $n is " . (my $result = (f $n)[-2]);
+
+for my $i (0..15) {
+    my $n = -1 + 2**$i;
+    #say "Largest prime factor of $n is " . (f $n)[-2]; # but doesn't work for n=0|1
+    say "Largest prime factor of $n is " . join(' ',f($n)) =~ s/^.* (\d+) $/$1/r;
+}
+
+use Test::More;
+is($result, 6857);
+done_testing();
+
+__END__
+
+=={{header|Perl}}==
+<lang perl>use strict;
+use warnings;
+use feature 'say';
+
+sub f {
+    my($a) = @_;
+    $a%$_ or return $_, f($a/$_) for 2..$a
+}
+#my $n = 600851475143; 
+#say "Largest prime factor of $n is " . (f $n)[-2];
+say +(f 600851475143)[-2];
+{{out}}
+<pre>Largest prime factor of 600851475143 is 6857</pre>
