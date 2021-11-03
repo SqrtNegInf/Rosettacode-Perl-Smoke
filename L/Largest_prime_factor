@@ -35,10 +35,9 @@ use feature 'say';
 
 sub f {
     my($a) = @_;
-    $a%$_ or return $_, f($a/$_) for 2..$a
+    $a % $_ or return $_, f($a/$_) for 2..$a
 }
-#my $n = 600851475143; 
-#say "Largest prime factor of $n is " . (f $n)[-2];
-say +(f 600851475143)[-2];
+
+say +(f 600851475143)[-2]</lang>;
 {{out}}
-<pre>Largest prime factor of 600851475143 is 6857</pre>
+<pre>6857</pre>
