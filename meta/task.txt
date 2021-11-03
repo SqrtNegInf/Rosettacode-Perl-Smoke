@@ -1,17 +1,17 @@
 
 This is perl 5, version 32, subversion 1 (v5.32.1) built for darwin-thread-multi-2level
 updating from RC…
-+------------> Perl: Good/Bad [1520/10]
-|+-----------> Smoke testing [1377]
++------------> Perl: Good/Bad [1521/10]
+|+-----------> Smoke testing [1378]
 ||+----------> sKipping validation [146]
 |||+---------> Interactive [74]
-||||+--------> Touched (modified by me) [520]
+||||+--------> Touched (modified by me) [521]
 |||||+-------> Random seed [118]
 ||||||+------> File output [76]
-|||||||+-----> Draft [313]
+|||||||+-----> Draft [314]
 ||||||||+----> Ignoring [36]
 |||||||||+---> Void (no local copy) [130]
-||||||||||+--> Un-implemented/reliable [106]
+||||||||||+--> Un-implemented/reliable [107]
 |||||||||||
 GS......... 100_doors-1
 GS......... 100_doors-2
@@ -761,6 +761,7 @@ GS...R.D... Largest_five_adjacent_number
 GS......... Largest_int_from_concatenated_ints
 GS..T...... Largest_number_divisible_by_its_digits-1
 GS..T...... Largest_number_divisible_by_its_digits-2
+GS..T..D..U Largest_prime_factor
 GS.....D... Largest_product_in_a_grid
 GS..T...... Largest_product_in_a_grid-2
 GS..T...... Largest_proper_divisor_of_n
