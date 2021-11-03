@@ -1,6 +1,6 @@
 #!/usr/local/bin/perl
 #u# http://rosettacode.org/wiki/Largest_prime_factor
-#c# 2021-10-xx >RC
+#c# 2021-11-02 >RC
 #p# OK
 
 use strict;
@@ -8,8 +8,8 @@ use warnings;
 use feature 'say';
 
 sub f {
-    my($a) = @_;
-    $a%$_ or return $_, f($a/$_) for 2..$a
+    my($n) = @_;
+    $n % $_ or return $_, f($n/$_) for 2..$n
 }
 
 my $n = 600851475143; 
@@ -25,19 +25,3 @@ for my $i (0..15) {
 use Test::More;
 is($result, 6857);
 done_testing();
-
-__END__
-
-=={{header|Perl}}==
-<lang perl>use strict;
-use warnings;
-use feature 'say';
-
-sub f {
-    my($a) = @_;
-    $a % $_ or return $_, f($a/$_) for 2..$a
-}
-
-say +(f 600851475143)[-2]</lang>;
-{{out}}
-<pre>6857</pre>
