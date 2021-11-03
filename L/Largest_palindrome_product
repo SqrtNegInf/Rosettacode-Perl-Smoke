@@ -1,0 +1,48 @@
+#!/usr/local/bin/perl
+#u# http://rosettacode.org/wiki/Largest_palindrome_product
+#c# 2021-11-xx >RC
+#p# OK
+
+my @res;
+
+use strict;
+use warnings;
+use feature 'say';
+
+use ntheory 'divisors';
+
+for my $l (1..5) {
+  LOOP: 
+  for my $p (sort { $b <=> $a } map { $_ . reverse $_ } 10**$l .. 10**($l+1)-1)  {
+    my @f = grep { length == $l+1 } divisors $p; 
+    next unless $#f >= 1 and $p == $f[-1] * $f[-2];
+    my $pair = join ' × ', sort { $a <=> $b } @f[-2,-1];
+    push @res, "Largest palindromic product of two @{[$l + 1]}-digit integers: $pair = $p" and last LOOP;
+  }
+}
+
+say my $result = join "\n", @res;
+
+my $ref = <<'END';
+Largest palindromic product of two 2-digit integers: 91 × 99 = 9009
+Largest palindromic product of two 3-digit integers: 913 × 993 = 906609
+Largest palindromic product of two 4-digit integers: 9901 × 9999 = 99000099
+Largest palindromic product of two 5-digit integers: 99681 × 99979 = 9966006699
+Largest palindromic product of two 6-digit integers: 999001 × 999999 = 999000000999
+END
+#Largest palindromic product of two 7-digit integers: 9997647 × 9998017 = 99956644665999
+
+use Test::More;
+chomp $ref;
+is($result, $ref);
+done_testing();
+
+__END__
+
+=={{header|Perl}}==
+{{libheader|ntheory}}
+<lang perl>
+</lang>
+{{out}}
+<pre>
+</pre>
