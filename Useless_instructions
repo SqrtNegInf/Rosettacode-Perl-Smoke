@@ -1,0 +1,9 @@
+#!/usr/local/bin/perl
+#u# http://rosettacode.org/wiki/Useless_instructions
+#t# nocode
+#c# 2021-11-02 >RC
+#p# OK
+#n# Unask that question!
+
+
+# The mind-set behind the task runs counter to the Perl philosophy of TIMTOWTDI (there's more than one way to do it). Non-orthogonality is considered a feature, not a bug.
