@@ -4650,10 +4650,17 @@ File: L/Largest_number_divisible_by_its_digits-2
 #n# this for base 16, see -1 for base 10
 #n# Danaj does speed-up, 'user' numbers go down: 42/68
 
+File: L/Largest_palindrome_product
+#!/usr/local/bin/perl
+#u# http://rosettacode.org/wiki/Largest_palindrome_product
+#c# 2021-11-03 >RC
+#p# OK
+#n# enormous memory requirements as length goes up
+
 File: L/Largest_prime_factor
 #!/usr/local/bin/perl
 #u# http://rosettacode.org/wiki/Largest_prime_factor
-#c# 2021-10-xx >RC
+#c# 2021-11-02 >RC
 #p# OK
 
 File: L/Largest_product_in_a_grid
