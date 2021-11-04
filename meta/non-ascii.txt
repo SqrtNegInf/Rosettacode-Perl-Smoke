@@ -265,6 +265,9 @@ I/Integer_long_division
 K/K-means%2B%2B_clustering
 »:     1 RIGHT-POINTING DOUBLE ANGLE QUOTATION MARK
 
+L/Largest_palindrome_product
+×:     7 MULTIPLICATION SIGN
+
 L/Last_letter-first_letter
 →:     1 RIGHTWARDS ARROW
 
