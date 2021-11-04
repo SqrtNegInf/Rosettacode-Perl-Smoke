@@ -1,17 +1,17 @@
 
 This is perl 5, version 32, subversion 1 (v5.32.1) built for darwin-thread-multi-2level
 updating from RC…
-+------------> Perl: Good/Bad [1521/10]
-|+-----------> Smoke testing [1378]
++------------> Perl: Good/Bad [1522/10]
+|+-----------> Smoke testing [1379]
 ||+----------> sKipping validation [146]
 |||+---------> Interactive [74]
-||||+--------> Touched (modified by me) [521]
+||||+--------> Touched (modified by me) [522]
 |||||+-------> Random seed [118]
 ||||||+------> File output [76]
-|||||||+-----> Draft [314]
+|||||||+-----> Draft [315]
 ||||||||+----> Ignoring [36]
 |||||||||+---> Void (no local copy) [130]
-||||||||||+--> Un-implemented/reliable [107]
+||||||||||+--> Un-implemented/reliable [105]
 |||||||||||
 GS......... 100_doors-1
 GS......... 100_doors-2
@@ -761,7 +761,8 @@ GS...R.D... Largest_five_adjacent_number
 GS......... Largest_int_from_concatenated_ints
 GS..T...... Largest_number_divisible_by_its_digits-1
 GS..T...... Largest_number_divisible_by_its_digits-2
-GS..T..D..U Largest_prime_factor
+GS..T..D... Largest_palindrome_product
+GS..T..D... Largest_prime_factor
 GS.....D... Largest_product_in_a_grid
 GS..T...... Largest_product_in_a_grid-2
 GS..T...... Largest_proper_divisor_of_n
@@ -1602,7 +1603,7 @@ GS..T...... Untouchable_numbers
 G.K....D... Untrusted_environment
 GS......... Update_a_configuration_file
 .........VU Use_another_language_to_call_a_function
-.......D.VU Useless_instructions
+.......D.V. Useless_instructions
 GS.....D... User_defined_pipe_and_redirection_operators
 G.KI....... User_input_Graphical
 GS......... User_input_Text
