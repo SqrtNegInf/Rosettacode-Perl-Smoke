@@ -1,0 +1,69 @@
+#!/usr/local/bin/perl
+#u# http://rosettacode.org/wiki/Wordiff
+#c# 2021-11-05 NOT ON RC
+#p# OK
+
+my @res;
+
+use strict;
+use warnings;
+use feature 'say';
+
+use Text::Levenshtein 'distance';
+
+#print "What is your name?"; my $name = <STDIN>;
+my $name = 'Number 6';
+push @res, "What is your quest? Never mind that, I will call you '$name'";
+push @res, 'Hey! I am not a number, I am a free man!';
+
+my @starters = grep { length() < 5 } my @words = grep { /^.{2,8}$/ } split "\n", `cat ref/unixdict.txt`;
+
+my(%used,@possibles,$guess);
+my $rounds = 0;
+#my $word = say $starters[ rand $#starters ];
+
+# static for testing
+my $word = 'ago';
+my @guesses = qw<age rage range orange ''>;
+
+while () {
+    push @res, "Word in play: $word";
+    $used{$word} = 1;
+    @possibles = ();
+    for my $w (@words) {
+        next if abs(length($word) - length($w)) > 1;
+        push @possibles, $w if distance($word, $w) == 1 and ! defined $used{$w};
+    }
+
+    #print "Your word? "; $guess = <STDIN>;  chomp $guess;
+    $guess = shift @guesses;
+    last unless grep { $guess eq $_ } @possibles;
+    ++$rounds;
+    $word = $guess;
+}
+
+my $already = defined $used{$guess} ? " '$guess' was already played but" : '';
+
+if (@possibles) { push @res, "\nSorry $name,${already} one of <@possibles> would have continued the game." }
+else            { push @res, "\nGood job $name,${already} there were no possible words to play."          }
+push @res, "You made it through $rounds rounds.";
+
+say my $result = join "\n", @res;
+
+my $ref = <<'END';
+What is your quest? Never mind that, I will call you 'Number 6'
+Hey! I am not a number, I am a free man!
+Word in play: ago
+Word in play: age
+Word in play: rage
+Word in play: range
+Word in play: orange
+
+Good job Number 6, there were no possible words to play.
+You made it through 4 rounds.
+END
+
+use Test::More;
+chomp $ref;
+is($result, $ref);
+done_testing();
