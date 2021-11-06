@@ -2,6 +2,7 @@
 #u# http://rosettacode.org/wiki/Digit_fifth_powers
 #c# 2021-11-xx >RC
 #p# OK
+#n# cf 'Own_digits_power_sum'
 
 my @res;
 
