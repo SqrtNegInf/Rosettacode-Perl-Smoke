@@ -1,17 +1,17 @@
 
 This is perl 5, version 32, subversion 1 (v5.32.1) built for darwin-thread-multi-2level
 updating from RC…
-+------------> Perl: Good/Bad [1522/10]
-|+-----------> Smoke testing [1379]
++------------> Perl: Good/Bad [1525/10]
+|+-----------> Smoke testing [1382]
 ||+----------> sKipping validation [146]
 |||+---------> Interactive [74]
-||||+--------> Touched (modified by me) [522]
+||||+--------> Touched (modified by me) [524]
 |||||+-------> Random seed [118]
 ||||||+------> File output [76]
-|||||||+-----> Draft [315]
+|||||||+-----> Draft [316]
 ||||||||+----> Ignoring [36]
-|||||||||+---> Void (no local copy) [130]
-||||||||||+--> Un-implemented/reliable [105]
+|||||||||+---> Void (no local copy) [129]
+||||||||||+--> Un-implemented/reliable [104]
 |||||||||||
 GS......... 100_doors-1
 GS......... 100_doors-2
@@ -388,6 +388,7 @@ GS..T...... Determine_if_a_string_is_squeezable
 G.K........ Determine_if_only_one_instance_is_running
 GS..T...... Determine_if_two_triangles_overlap
 GS......... Dice_game_probabilities
+GS..T..D... Digit_fifth_powers
 GS......... Digital_root
 GS......... Digital_root_Multiplicative_digital_root
 GS..T...... Dijkstra%27s_algorithm
@@ -1660,7 +1661,8 @@ GS......... Word_frequency
 GS...R..... Word_search
 GS......... Word_wheel
 GS......... Word_wrap
-.........VU Wordiff
+GS..T...... Wordiff
+GS......... Wordiff-2
 GS.....D... Words_containing_%22the%22_substring
 GS.....D... Words_from_neighbour_ones
 GS..T...... World_Cup_group_stage
