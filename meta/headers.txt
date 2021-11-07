@@ -2259,7 +2259,7 @@ File: D/Dice_game_probabilities
 File: D/Digit_fifth_powers
 #!/usr/local/bin/perl
 #u# http://rosettacode.org/wiki/Digit_fifth_powers
-#c# 2021-11-xx >RC
+#c# 2021-11-05 >RC
 #p# OK
 #n# cf 'Own_digits_power_sum'
 
