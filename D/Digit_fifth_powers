@@ -1,6 +1,6 @@
 #!/usr/local/bin/perl
 #u# http://rosettacode.org/wiki/Digit_fifth_powers
-#c# 2021-11-xx >RC
+#c# 2021-11-05 >RC
 #p# OK
 #n# cf 'Own_digits_power_sum'
 
@@ -39,24 +39,3 @@ use Test::More;
 chomp $ref;
 is($result, $ref);
 done_testing();
-
-__END__
-
-=={{header|Perl}}==
-<lang perl>use strict;
-use warnings;
-use feature 'say';
-use List::Util 'sum';
-
-for my $power (3..6) {
-    my @matches;
-    for my $n (2 .. 9**$power * $power) {
-        push @matches, $n if $n == sum map { $_**$power } split '', $n;
-    } 
-    push @res, "\nSum of powers of n**$power: " . join(' + ', @matches) . ' = ' . sum @matches;
-}</lang>
-{{out}}
-<pre>Sum of powers of n**3: 153 + 370 + 371 + 407 = 1301
-Sum of powers of n**4: 1634 + 8208 + 9474 = 19316
-Sum of powers of n**5: 4150 + 4151 + 54748 + 92727 + 93084 + 194979 = 443839
-Sum of powers of n**6: 548834 = 548834</pre>
