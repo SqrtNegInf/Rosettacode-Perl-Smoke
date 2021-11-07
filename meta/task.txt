@@ -8,10 +8,10 @@ updating from RC…
 ||||+--------> Touched (modified by me) [524]
 |||||+-------> Random seed [118]
 ||||||+------> File output [76]
-|||||||+-----> Draft [316]
+|||||||+-----> Draft [317]
 ||||||||+----> Ignoring [36]
-|||||||||+---> Void (no local copy) [129]
-||||||||||+--> Un-implemented/reliable [104]
+|||||||||+---> Void (no local copy) [130]
+||||||||||+--> Un-implemented/reliable [105]
 |||||||||||
 GS......... 100_doors-1
 GS......... 100_doors-2
@@ -380,6 +380,7 @@ GS......... Department_numbers
 GS......... Department_numbers-2
 GS......... Detect_division_by_zero
 GS......... Determinant_and_permanent
+.......D.VU Determine_Sentence_Type
 GS..T...... Determine_if_a_string_has_all_the_same_characters
 GS..T...... Determine_if_a_string_has_all_unique_characters
 GS..T...... Determine_if_a_string_is_collapsible
