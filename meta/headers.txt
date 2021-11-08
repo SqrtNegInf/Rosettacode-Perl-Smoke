@@ -10249,6 +10249,13 @@ File: W/Word_frequency
 #c# 2021-03-19 <RC
 #p# OK
 
+File: W/Word_ladder
+#!/usr/local/bin/perl
+#u# http://rosettacode.org/wiki/Word_ladder
+#c# 2021-11-07 >RC
+#p# OK
+#n# buggy, cannot do girl -> lady
+
 File: W/Word_search
 #!/usr/local/bin/perl
 #u# http://rosettacode.org/wiki/Word_search
