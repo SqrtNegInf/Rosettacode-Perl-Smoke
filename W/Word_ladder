@@ -1,0 +1,101 @@
+#!/usr/local/bin/perl
+#u# http://rosettacode.org/wiki/Word_ladder
+#c# 2021-11-07 >RC
+#p# OK
+#n# buggy, cannot do girl -> lady
+
+use strict;
+use warnings;
+use feature 'say';
+
+use Text::Levenshtein 'distance';
+use List::Util 'any';
+
+my @res;
+
+my @words = split("\n", `cat ref/unixdict.txt`);
+
+sub ladder {
+    my($from,$target) = @_;
+    push @res, 'Does not compute!' and return unless length($from) eq length($target);
+
+    my @w = grep { length == length($from) } @words;
+    push @res, "'$from' is not a word."                 and return unless any { $_ == 0 } distance($from,  @w);
+    push @res, "'$target' is a not word."               and return unless any { $_ == 0 } distance($target,@w);
+    push @res, "'$from' is not adjacent to any word."   and return unless any { $_ == 1 } distance($from,  @w);
+    push @res, "'$target' is not adjacent to any word." and return unless any { $_ == 1 } distance($target,@w);
+
+    my @prev = [$from];
+    my @next;
+    my $match = 0;
+
+    LOOP:
+    while () {
+        @next = ();
+        for my $i (0..$#prev) {
+            my $amend = 0;
+            my $last = $prev[$i][-1];
+            my @d = distance($last, @w);
+            my $togo = distance($last, $target);
+            for my $j (0..$#d) {
+                next unless $d[$j]==1;
+                next if distance($w[$j], $target) > $togo;
+                $d[$j] eq $_ and next for @{$prev[$i]};
+                $amend++;
+                push @next, [@{$prev[$i]},$w[$j]];
+                $match++ if $w[$j] eq $target;
+            }
+            last LOOP unless $amend;
+        }
+        if ($match) {
+            $next[$_][-1] eq $target and push @res, join ' ', @{$next[$_]} for 0...$#next;
+            last LOOP 
+        }
+        @prev = @next;
+    }
+    push @res, "No path between words '$from' and '$target'!" unless $match;
+}
+
+#ladder('ark','quo'); exit;
+
+for (['true', 'false'], ['child','adult'], ['ark', 'quo'], ['conch','zilch'], ['bear', 'peek']) {
+    my($a,$b) = @$_;
+    push @res, "$a -> $b";
+    ladder($a,$b);
+    push @res, '';
+}
+
+say my $result = join "\n", @res;
+
+my $ref = <<'END';
+true -> false
+Does not compute!
+
+child -> adult
+'adult' is not adjacent to any word.
+
+ark -> quo
+No path between words 'ark' and 'quo'!
+
+conch -> zilch
+conch cinch finch filch zilch
+
+bear -> peek
+bear beak peak peek
+bear beer peer peek
+bear pear peak peek
+bear pear peer peek
+END
+
+use Test::More;
+is($result, $ref);
+done_testing();
+
+__END__
+
+=={{header|Perl}}==
+<lang perl>
+</lang>
+{{out}}
+<pre>
+</pre>
