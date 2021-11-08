@@ -1,16 +1,16 @@
 
 This is perl 5, version 32, subversion 1 (v5.32.1) built for darwin-thread-multi-2level
 updating from RC…
-+------------> Perl: Good/Bad [1525/10]
-|+-----------> Smoke testing [1382]
++------------> Perl: Good/Bad [1526/10]
+|+-----------> Smoke testing [1383]
 ||+----------> sKipping validation [146]
 |||+---------> Interactive [74]
-||||+--------> Touched (modified by me) [524]
+||||+--------> Touched (modified by me) [525]
 |||||+-------> Random seed [118]
 ||||||+------> File output [76]
-|||||||+-----> Draft [317]
+|||||||+-----> Draft [316]
 ||||||||+----> Ignoring [36]
-|||||||||+---> Void (no local copy) [130]
+|||||||||+---> Void (no local copy) [129]
 ||||||||||+--> Un-implemented/reliable [105]
 |||||||||||
 GS......... 100_doors-1
@@ -380,7 +380,6 @@ GS......... Department_numbers
 GS......... Department_numbers-2
 GS......... Detect_division_by_zero
 GS......... Determinant_and_permanent
-.......D.VU Determine_Sentence_Type
 GS..T...... Determine_if_a_string_has_all_the_same_characters
 GS..T...... Determine_if_a_string_has_all_unique_characters
 GS..T...... Determine_if_a_string_is_collapsible
@@ -388,6 +387,7 @@ GS......... Determine_if_a_string_is_numeric
 GS..T...... Determine_if_a_string_is_squeezable
 G.K........ Determine_if_only_one_instance_is_running
 GS..T...... Determine_if_two_triangles_overlap
+.........VU Determine_sentence_type
 GS......... Dice_game_probabilities
 GS..T..D... Digit_fifth_powers
 GS......... Digital_root
@@ -1658,7 +1658,7 @@ G.KI....... Window_management
 GS......... Wireworld
 GS..T..D... Word_break_problem
 GS......... Word_frequency
-.........V. Word_ladder
+GS..T...... Word_ladder
 GS...R..... Word_search
 GS......... Word_wheel
 GS......... Word_wrap
