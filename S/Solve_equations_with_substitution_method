@@ -1,0 +1,36 @@
+#!/usr/local/bin/perl
+#u# http://rosettacode.org/wiki/Solve_equations_with_substitution_method
+#c# 2021-11-xx >RC
+#p# OK
+
+my @res;
+
+use strict;
+use warnings;
+use feature 'say';
+
+sub solve {
+    my($a1, $b1, $c1, $a2, $b2, $c2) = @_;
+
+    my $X = ( $b2 * $c1  -  $b1 * $c2 )
+          / ( $b2 * $a1  -  $b1 * $a2 );
+ 
+    my $Y = ( $a1 * $X  -  $c1 ) / -$b1;
+ 
+    return $X, $Y;
+}
+
+say my $result = join ' ', solve( (3,1,-1), (2,-3,-19) );
+
+use Test::More;
+is($result, '-2 5');
+done_testing();
+
+__END__
+
+=={{header|Perl}}==
+{{trans|xx}}
+<lang perl>
+</lang>
+{{out}}
+<pre>-2 5</pre>
