@@ -1,0 +1,86 @@
+#!/usr/local/bin/perl
+#u# http://rosettacode.org/wiki/Determine_sentence_type
+#c# 2021-11-xx >RC
+#p# OK
+#n# put a reasonable & readable if/elseif/else version on RC
+
+my @res;
+
+use strict;
+use warnings;
+use feature 'say';
+
+use Lingua::Sentence;
+
+my $para1 = <<'PARA';
+hi there, how are you today? I'd like to present to you the washing machine 
+9001. You have been nominated to win one of these! Just make sure you don't 
+break it
+PARA
+
+my $para2 = <<'PARA';
+Just because there are punctuation characters like "?", "!" or especially "." 
+present, it doesn't necessarily mean you have reached the end of a sentence, 
+does it Mr. Magoo? The syntax highlighting here for Raku isn't the best.
+PARA
+
+my $splitter = Lingua::Sentence->new("en");
+for my $text ($para1, $para2) {
+  for my $s (split /\n/, $splitter->split( $text =~ s/\n//gr ) ) {
+    push @res, "$s| " . ($_ eq '!' ? 'E' : $_ eq '?' ? 'Q' : $_ eq '.' ? 'S' : 'N') for substr $s, -1, 1; # use 'for' like Raku's 'given'
+  }
+}
+
+say my $result = join "\n", @res;
+
+my $ref = <<'END';
+hi there, how are you today?| Q
+I'd like to present to you the washing machine 9001.| S
+You have been nominated to win one of these!| E
+Just make sure you don't break it| N
+Just because there are punctuation characters like "?", "!" or especially "." present, it doesn't necessarily mean you have reached the end of a sentence, does it Mr. Magoo?| Q
+The syntax highlighting here for Raku isn't the best.| S
+END
+
+use Test::More;
+chomp $ref;
+is($result, $ref);
+done_testing();
+
+__END__
+
+=={{header|Perl}}==
+<lang perl>use strict;
+use warnings;
+use feature 'say';
+use Lingua::Sentence;
+
+my $para1 = <<'PARA';
+hi there, how are you today? I'd like to present to you the washing machine 
+9001. You have been nominated to win one of these! Just make sure you don't 
+break it
+PARA
+
+my $para2 = <<'PARA';
+Just because there are punctuation characters like "?", "!" or especially "." 
+present, it doesn't necessarily mean you have reached the end of a sentence, 
+does it Mr. Magoo? The syntax highlighting here for Raku isn't the best.
+PARA
+
+my $splitter = Lingua::Sentence->new("en");
+for my $text ($para1, $para2) {
+  for my $s (split /\n/, $splitter->split( $text =~ s/\n//gr ) {
+    print "$s| ";
+    if    ($s =~ /!$/)  { say 'E' }
+    elsif ($s =~ /\?$/) { say 'Q' }
+    elsif ($s =~ /\.$/) { say 'S' }
+    else                { say 'N' }
+  }
+}</lang>
+{{out}}
+<pre>hi there, how are you today?| Q
+I'd like to present to you the washing machine 9001.| S
+You have been nominated to win one of these!| E
+Just make sure you don't break it.| S
+Just because there are punctuation characters like "?", "!" or especially "." present, it doesn't necessarily mean you have reached the end of a sentence, does it Mr. Magoo?| Q
+The syntax highlighting here for Raku isn't the best.| S</pre>
