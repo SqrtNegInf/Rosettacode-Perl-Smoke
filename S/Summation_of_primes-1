@@ -1,0 +1,16 @@
+#!/usr/local/bin/perl
+#u# http://rosettacode.org/wiki/Summation_of_primes
+#c# 2021-11-08 <RC
+#p# OK
+
+use strict;
+use warnings;
+
+use ntheory qw( primes );
+use List::Util qw( sum );
+
+print my $result =sum( @{ primes( 2e6 ) } ), "\n";
+
+use Test::More;
+is ($result, 142913828922);
+done_testing();
