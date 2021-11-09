@@ -1,17 +1,17 @@
 
 This is perl 5, version 32, subversion 1 (v5.32.1) built for darwin-thread-multi-2level
 updating from RC…
-+------------> Perl: Good/Bad [1526/10]
-|+-----------> Smoke testing [1383]
++------------> Perl: Good/Bad [1530/10]
+|+-----------> Smoke testing [1389]
 ||+----------> sKipping validation [146]
 |||+---------> Interactive [74]
-||||+--------> Touched (modified by me) [525]
+||||+--------> Touched (modified by me) [527]
 |||||+-------> Random seed [118]
 ||||||+------> File output [76]
-|||||||+-----> Draft [316]
+|||||||+-----> Draft [320]
 ||||||||+----> Ignoring [36]
-|||||||||+---> Void (no local copy) [129]
-||||||||||+--> Un-implemented/reliable [105]
+|||||||||+---> Void (no local copy) [130]
+||||||||||+--> Un-implemented/reliable [109]
 |||||||||||
 GS......... 100_doors-1
 GS......... 100_doors-2
@@ -387,7 +387,7 @@ GS......... Determine_if_a_string_is_numeric
 GS..T...... Determine_if_a_string_is_squeezable
 G.K........ Determine_if_only_one_instance_is_running
 GS..T...... Determine_if_two_triangles_overlap
-.........VU Determine_sentence_type
+GS..T.....U Determine_sentence_type
 GS......... Dice_game_probabilities
 GS..T..D... Digit_fifth_powers
 GS......... Digital_root
@@ -628,7 +628,7 @@ GS...R..... Guess_the_number
 GS...R..... Guess_the_number_With_feedback
 GS...R..... Guess_the_number_With_feedback_player
 GS......... HTTP
-GS......... HTTPS
+!S......... HTTPS
 G.K........ HTTPS_Authenticated
 G.K........ HTTPS_Client-authenticated
 GS......... Hailstone_sequence-1
@@ -719,6 +719,7 @@ G.K........ Inverted_syntax
 GS......... Isqrt_integer_square_root_of_X
 GS......... Iterated_digits_squaring
 GS......... JSON
+.......D.VU Jaccard_index
 GS..T...... Jacobi_symbol
 GS..T...... Jaro-Winkler_distance
 .........V. Jaro_similarity
@@ -845,6 +846,7 @@ GS......... MD5_Implementation
 .........VU Machine_code
 GS......... Mad_Libs
 GS..TR..... Magic_8-ball
+.......D.VU Magic_constant
 GS..T...... Magic_squares_of_doubly_even_order
 GS..T...... Magic_squares_of_odd_order
 GS..T...... Magic_squares_of_singly_even_order
@@ -1366,6 +1368,7 @@ GS....F.... Solve_a_Holy_Knight%27s_tour
 GS......... Solve_a_Hopido_puzzle
 GS......... Solve_a_Numbrix_puzzle
 .......D.VU Solve_a_Rubik%27s_Cube
+GS..T..D..U Solve_equations_with_substitution_method
 GS......... Solve_the_no_connection_puzzle
 .......D.V. Solve_triangle_solitare_puzzle
 GS..T.FD... Solving_coin_problems
@@ -1485,12 +1488,15 @@ GS..T..D... Sum_of_divisors
 GS......... Sum_of_elements_below_main_diagonal_of_matrix-1
 GS......... Sum_of_elements_below_main_diagonal_of_matrix-2
 GS.....D... Sum_of_first_n_cubes
-GS..T..D... Sum_of_primes_in_odd_positions_is_prime
+GS..T..D..U Sum_of_primes_in_odd_positions_is_prime
 GS......... Sum_of_squares
 GS.....D... Sum_of_the_digits_of_n_is_substring_of_n
 GS......... Sum_to_100
 GS..T...... Summarize_and_say_sequence
 GS..T...... Summarize_primes
+.......D... Summation_of_primes
+GS......... Summation_of_primes-1
+GS......... Summation_of_primes-2
 GS..T.FD... Sunflower_fractal
 GS......... Super-d_numbers-1
 GS..T...... Super-d_numbers-2
@@ -1643,7 +1649,7 @@ GS......... Water_collected_between_towers
 GS.....D... Waveform_analysis_Doh_ray_me
 .......D.VU Waveform_analysis_Top_and_tail
 .......DXVU Weather_routing
-GS......... Web_scraping
+!S......... Web_scraping
 GS..T...... Weird_numbers-1
 GS......... Weird_numbers-2
 .......D... Welch%27s_t-test
@@ -1658,7 +1664,9 @@ G.KI....... Window_management
 GS......... Wireworld
 GS..T..D... Word_break_problem
 GS......... Word_frequency
-GS..T...... Word_ladder
+GS......... Word_ladder-1
+GS..T...... Word_ladder-2
+GS......... Word_ladder-3
 GS...R..... Word_search
 GS......... Word_wheel
 GS......... Word_wrap
