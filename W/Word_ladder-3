@@ -1,8 +1,9 @@
 #!/usr/local/bin/perl
 #u# http://rosettacode.org/wiki/Word_ladder
-#c# 2021-11-07 >RC
+#c# 2021-11-07 NOT ON RC
 #p# OK
-#n# buggy, cannot do girl -> lady
+#n# bails quicker, finds multiple routes
+#n# but slow & buggy, cannot do girl -> lady
 
 use strict;
 use warnings;
@@ -26,8 +27,7 @@ sub ladder {
     push @res, "'$target' is not adjacent to any word." and return unless any { $_ == 1 } distance($target,@w);
 
     my @prev = [$from];
-    my @next;
-    my $match = 0;
+    my(@next,$match);
 
     LOOP:
     while () {
@@ -47,20 +47,17 @@ sub ladder {
             }
             last LOOP unless $amend;
         }
-        if ($match) {
-            $next[$_][-1] eq $target and push @res, join ' ', @{$next[$_]} for 0...$#next;
-            last LOOP 
-        }
+        last LOOP if $match;
         @prev = @next;
     }
-    push @res, "No path between words '$from' and '$target'!" unless $match;
-}
 
-#ladder('ark','quo'); exit;
+    if ($match) { $next[$_][-1] eq $target and push @res, "@{$next[$_]}" for 0..$#next }
+    else        { push @res, "No path between words '$from' and '$target'!"             }
+}
 
 for (['true', 'false'], ['child','adult'], ['ark', 'quo'], ['conch','zilch'], ['bear', 'peek']) {
     my($a,$b) = @$_;
-    push @res, "$a -> $b";
+    push @res, "$a -> $b"; 
     ladder($a,$b);
     push @res, '';
 }
@@ -90,12 +87,3 @@ END
 use Test::More;
 is($result, $ref);
 done_testing();
-
-__END__
-
-=={{header|Perl}}==
-<lang perl>
-</lang>
-{{out}}
-<pre>
-</pre>
