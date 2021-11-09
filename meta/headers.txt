@@ -2250,6 +2250,13 @@ File: D/Determine_if_two_triangles_overlap.1
 #c# 2019-02-05 <RC
 #p# OK
 
+File: D/Determine_sentence_type
+#!/usr/local/bin/perl
+#u# http://rosettacode.org/wiki/Determine_sentence_type
+#c# 2021-11-xx >RC
+#p# OK
+#n# put a reasonable & readable if/elseif/else version on RC
+
 File: D/Dice_game_probabilities
 #!/usr/local/bin/perl
 #u# http://rosettacode.org/wiki/Dice_game_probabilities
@@ -8462,6 +8469,12 @@ File: S/Solve_a_Numbrix_puzzle
 #c# 2018-08-05 <RC
 #p# OK
 
+File: S/Solve_equations_with_substitution_method
+#!/usr/local/bin/perl
+#u# http://rosettacode.org/wiki/Solve_equations_with_substitution_method
+#c# 2021-11-xx >RC
+#p# OK
+
 File: S/Solve_the_no_connection_puzzle
 #!/usr/local/bin/perl
 #u# http://rosettacode.org/wiki/Solve_the_no_connection_puzzle
@@ -9260,6 +9273,19 @@ File: S/Summarize_primes
 #c# 2021-04-23 >RC
 #p# OK
 #n# skipping 'Prime_numbers_p_which_sum_of_prime_numbers_less_or_equal_to_p_is_prime' which is a dup of this task
+
+File: S/Summation_of_primes-1
+#!/usr/local/bin/perl
+#u# http://rosettacode.org/wiki/Summation_of_primes
+#c# 2021-11-08 <RC
+#p# OK
+
+File: S/Summation_of_primes-2
+#!/usr/local/bin/perl
+#u# http://rosettacode.org/wiki/Summation_of_primes
+#c# 2021-11-08 NOT ON RC
+#p# OK
+#n# my version, FWIW
 
 File: S/Sunflower_fractal
 #!/usr/local/bin/perl
@@ -10249,12 +10275,27 @@ File: W/Word_frequency
 #c# 2021-03-19 <RC
 #p# OK
 
-File: W/Word_ladder
+File: W/Word_ladder-1
 #!/usr/local/bin/perl
 #u# http://rosettacode.org/wiki/Word_ladder
-#c# 2021-11-07 >RC
+#c# 2021-11-08 <RC
 #p# OK
-#n# buggy, cannot do girl -> lady
+#n# original version: Robbie - Translation of: C++
+
+File: W/Word_ladder-2
+#!/usr/local/bin/perl
+#u# http://rosettacode.org/wiki/Word_ladder
+#c# 2021-11-08 >RC
+#p# OK
+#n# idiomatification of -1 version (Robbie / translation of C++)
+
+File: W/Word_ladder-3
+#!/usr/local/bin/perl
+#u# http://rosettacode.org/wiki/Word_ladder
+#c# 2021-11-07 NOT ON RC
+#p# OK
+#n# bails quicker, finds multiple routes
+#n# but slow & buggy, cannot do girl -> lady
 
 File: W/Word_search
 #!/usr/local/bin/perl
