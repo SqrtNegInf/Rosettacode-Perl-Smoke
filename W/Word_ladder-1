@@ -1,0 +1,126 @@
+#!/usr/local/bin/perl
+#u# http://rosettacode.org/wiki/Word_ladder
+#c# 2021-11-08 <RC
+#p# OK
+#n# original version: Robbie - Translation of: C++
+
+my @res;
+
+use strict;
+use warnings;
+use feature 'say';
+
+my %dict;
+
+open my $handle, '<', 'ref/unixdict.txt';
+while (my $word = <$handle>) {
+    chomp($word);
+    my $len = length $word;
+    if (exists $dict{$len}) {
+        push @{ $dict{ $len } }, $word;
+    } else {
+        my @words = ( $word );
+        $dict{$len} = \@words;
+    }
+}
+close $handle;
+
+sub distance {
+    my $w1 = shift;
+    my $w2 = shift;
+
+    my $dist = 0;
+    for my $i (0 .. length($w1) - 1) {
+        my $c1 = substr($w1, $i, 1);
+        my $c2 = substr($w2, $i, 1);
+        if (not ($c1 eq $c2)) {
+            $dist++;
+        }
+    }
+    return $dist;
+}
+
+sub contains {
+    my $aref = shift;
+    my $needle = shift;
+
+    for my $v (@$aref) {
+        if ($v eq $needle) {
+            return 1;
+        }
+    }
+
+    return 0;
+}
+
+sub word_ladder {
+    my $fw = shift;
+    my $tw = shift;
+
+    if (exists $dict{length $fw}) {
+        my @poss = @{ $dict{length $fw} };
+        my @queue = ([$fw]);
+        while (scalar @queue > 0) {
+            my $curr_ref = shift @queue;
+            my $last = $curr_ref->[-1];
+
+            my @next;
+            for my $word (@poss) {
+                if (distance($last, $word) == 1) {
+                    push @next, $word;
+                }
+            }
+
+            if (contains(\@next, $tw)) {
+                push @$curr_ref, $tw;
+                push @res, join ' -> ', @$curr_ref;
+                return;
+            }
+
+            for my $word (@next) {
+                for my $i (0 .. scalar @poss - 1) {
+                    if ($word eq $poss[$i]) {
+                        splice @poss, $i, 1;
+                        last;
+                    }
+                }
+            }
+
+            for my $word (@next) {
+                my @temp = @$curr_ref;
+                push @temp, $word;
+
+                push @queue, \@temp;
+            }
+        }
+    }
+
+    push @res, "Cannot change $fw into $tw";
+}
+
+word_ladder('boy', 'man');
+word_ladder('girl', 'lady');
+word_ladder('john', 'jane');
+word_ladder('child', 'adult');
+#word_ladder('cat', 'dog');
+#word_ladder('lead', 'gold');
+#word_ladder('white', 'black');
+#word_ladder('bubble', 'tickle');
+
+say my $result = join "\n", @res;
+
+my $ref = <<'EOD';
+boy -> bay -> ban -> man
+girl -> gill -> gall -> gale -> gaze -> laze -> lazy -> lady
+john -> cohn -> conn -> cone -> cane -> jane
+Cannot change child into adult
+EOD
+#lead -> load -> goad -> gold
+#white -> whine -> chine -> chink -> clink -> blink -> blank -> black
+#cat -> cot -> cog -> dog
+#bubble -> babble -> gabble -> garble -> gargle -> gaggle -> giggle -> jiggle -> jingle -> tingle -> tinkle -> tickle
+
+use Test::More;
+chomp $ref;
+is ($result, $ref);
+done_testing();
