@@ -1,0 +1,19 @@
+#!/usr/local/bin/perl
+#u# http://rosettacode.org/wiki/Summation_of_primes
+#c# 2021-11-08 NOT ON RC
+#p# OK
+#n# my version, FWIW
+
+use strict;
+use warnings;
+use feature 'say';
+
+use ntheory 'is_prime';
+
+my $sum;
+is_prime($_) and $sum += $_ for 2..2e6;
+say $sum;
+
+use Test::More;
+is($sum, 142913828922);
+done_testing();
