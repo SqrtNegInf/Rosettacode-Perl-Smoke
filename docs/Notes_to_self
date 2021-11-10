@@ -1,3 +1,10 @@
+2021-11-08
+At this point failures in all tasks using LWP, new recently:
+HTTPS
+Web_scraping
+
+Probably has to do with OpenSSL versions, but attempts to update IO::Socket::SSL fail, just gobbles memory
+
 2021-04-24
 Sometimes can reduce to just 'reverse', but not always: join '', reverse split '' 
 
