@@ -262,6 +262,10 @@ I/Integer_long_division
 8̅:    18 DIGIT EIGHT, COMBINING OVERLINE
 9̅:    16 DIGIT NINE, COMBINING OVERLINE
 
+J/Jaccard_index
+∩:     2 INTERSECTION
+∪:     3 UNION
+
 K/K-means%2B%2B_clustering
 »:     1 RIGHT-POINTING DOUBLE ANGLE QUOTATION MARK
 
