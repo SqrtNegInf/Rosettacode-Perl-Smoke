@@ -1,7 +1,8 @@
 #!/usr/local/bin/perl
 #u# http://rosettacode.org/wiki/Web_scraping
 #c# 2018-07-31 <RC
-#p# OK
+#p# BROKEN
+#n# is it LWP::UserAgent??
 
 use feature 'say';
 my $result;
