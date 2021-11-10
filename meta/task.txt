@@ -1,17 +1,17 @@
 
 This is perl 5, version 32, subversion 1 (v5.32.1) built for darwin-thread-multi-2level
 updating from RC…
-+------------> Perl: Good/Bad [1530/10]
++------------> Perl: Good/Bad [1532/10]
 |+-----------> Smoke testing [1389]
-||+----------> sKipping validation [146]
+||+----------> sKipping validation [147]
 |||+---------> Interactive [74]
-||||+--------> Touched (modified by me) [527]
+||||+--------> Touched (modified by me) [529]
 |||||+-------> Random seed [118]
 ||||||+------> File output [76]
-|||||||+-----> Draft [320]
+|||||||+-----> Draft [321]
 ||||||||+----> Ignoring [36]
-|||||||||+---> Void (no local copy) [130]
-||||||||||+--> Un-implemented/reliable [109]
+|||||||||+---> Void (no local copy) [129]
+||||||||||+--> Un-implemented/reliable [108]
 |||||||||||
 GS......... 100_doors-1
 GS......... 100_doors-2
@@ -387,7 +387,7 @@ GS......... Determine_if_a_string_is_numeric
 GS..T...... Determine_if_a_string_is_squeezable
 G.K........ Determine_if_only_one_instance_is_running
 GS..T...... Determine_if_two_triangles_overlap
-GS..T.....U Determine_sentence_type
+GS..T...... Determine_sentence_type
 GS......... Dice_game_probabilities
 GS..T..D... Digit_fifth_powers
 GS......... Digital_root
@@ -719,7 +719,7 @@ G.K........ Inverted_syntax
 GS......... Isqrt_integer_square_root_of_X
 GS......... Iterated_digits_squaring
 GS......... JSON
-.......D.VU Jaccard_index
+G.K.T..D..U Jaccard_index
 GS..T...... Jacobi_symbol
 GS..T...... Jaro-Winkler_distance
 .........V. Jaro_similarity
@@ -1112,6 +1112,7 @@ GS......... Pointers_and_references
 GS......... Poker_hand_analyser
 GS......... Polymorphic_copy
 GS......... Polymorphism
+G...T..D..U Polynomial_derivative
 GS......... Polynomial_long_division
 GS..T...... Polynomial_regression
 GS......... Polynomial_regression-2
@@ -1488,7 +1489,7 @@ GS..T..D... Sum_of_divisors
 GS......... Sum_of_elements_below_main_diagonal_of_matrix-1
 GS......... Sum_of_elements_below_main_diagonal_of_matrix-2
 GS.....D... Sum_of_first_n_cubes
-GS..T..D..U Sum_of_primes_in_odd_positions_is_prime
+GS..T..D... Sum_of_primes_in_odd_positions_is_prime
 GS......... Sum_of_squares
 GS.....D... Sum_of_the_digits_of_n_is_substring_of_n
 GS......... Sum_to_100
