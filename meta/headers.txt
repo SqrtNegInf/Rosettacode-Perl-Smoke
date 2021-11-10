@@ -2253,7 +2253,7 @@ File: D/Determine_if_two_triangles_overlap.1
 File: D/Determine_sentence_type
 #!/usr/local/bin/perl
 #u# http://rosettacode.org/wiki/Determine_sentence_type
-#c# 2021-11-xx >RC
+#c# 2021-11-08 >RC
 #p# OK
 #n# put a reasonable & readable if/elseif/else version on RC
 
@@ -4397,6 +4397,13 @@ File: J/JSON
 #!/usr/local/bin/perl
 #u# http://rosettacode.org/wiki/JSON
 #c# 2018-08-14 <RC
+#p# OK
+
+File: J/Jaccard_index
+#!/usr/local/bin/perl
+#u# http://rosettacode.org/wiki/Jaccard_index
+#t# inprogress
+#c# 2021-11-xx >RC
 #p# OK
 
 File: J/Jacobi_symbol
@@ -6868,6 +6875,12 @@ File: P/Polymorphism
 #!/usr/local/bin/perl
 #u# http://rosettacode.org/wiki/Polymorphism
 #c# 2018-08-20 <RC
+#p# OK
+
+File: P/Polynomial_derivative
+#!/usr/local/bin/perl
+#u# http://rosettacode.org/wiki/Polynomial_derivative
+#c# 2021-11-xx >RC
 #p# OK
 
 File: P/Polynomial_long_division
