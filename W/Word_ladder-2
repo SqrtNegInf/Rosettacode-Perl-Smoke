@@ -13,7 +13,7 @@ use feature 'say';
 my %dict;
 open my $handle, '<', 'ref/unixdict.txt';
 #while (chomp(my $word = <$handle>)) { # warning on eof read
-while (my $word = <$handle>) { # warning on eof read
+while (my $word = <$handle>) {
     chomp $word;
     my $l = length $word;
     if ($dict{$l}) { push @{ $dict{$l} },    $word   }
@@ -23,9 +23,9 @@ close $handle;
 
 sub distance {
     my($w1,$w2) = @_;
-    my $dist;
-    substr($w1, $_, 1) ne substr($w2, $_, 1) and $dist++ for 0 .. length($w1) - 1;
-    return $dist // 0;
+    my $d;
+    substr($w1, $_, 1) eq substr($w2, $_, 1) or $d++ for 0 .. length($w1) - 1;
+    return $d // 0;
 }
 
 sub contains {
@@ -38,11 +38,11 @@ sub word_ladder {
     my($fw,$tw) = @_;
     say 'Nothing like that in dictionary.' and return unless $dict{length $fw};
 
-    my @poss = @{ $dict{length $fw} };
+    my @poss  = @{ $dict{length $fw} };
     my @queue = [$fw];
     while (@queue) {
         my $curr_ref = shift @queue;
-        my $last = $curr_ref->[-1];
+        my $last     = $curr_ref->[-1];
 
         my @next;
         distance($last, $_) == 1 and push @next, $_ for @poss;
@@ -57,7 +57,8 @@ sub word_ladder {
     push @res, "Cannot change $fw into $tw";
 }
 
-word_ladder(@$_) for ['boy', 'man'], ['girl','lady'], ['john','jane'], ['child','adult'];
+word_ladder(split) for 'boy man', 'girl lady', 'john jane', 'child adult';
+#word_ladder(@$_) for ['boy', 'man'], ['girl', 'lady'], ['john', 'jane'], ['child', 'adult'];
 
 say my $result = join "\n", @res;
 
