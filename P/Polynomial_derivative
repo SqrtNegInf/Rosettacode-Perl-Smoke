@@ -16,20 +16,18 @@ sub pp {
     my(@p) = @_;
     return '0' unless @p;
     my @f = $p[0];
-    for (grep { $p[$_] != 0 } 1 .. $#p) {
-        push @f, ($p[$_] != 1 and $p[$_]) . 'x' . ($_ != 1 and (qw<⁰ ¹ ² ³ ⁴ ⁵ ⁶ ⁷ ⁸ ⁹>)[$_]);
-        #push @f, ($p[$_] != 1 ? $p[$_] : '') . 'x' . ($_ != 1 ? (qw<⁰ ¹ ² ³ ⁴ ⁵ ⁶ ⁷ ⁸ ⁹>)[$_] : ''); # don't use ternary if one-sided
-    }
-    return ( join('+', reverse @f) =~ s/-1x/-x/gr ) =~ s/\+-/-/gr;   
+   #push @f, ($p[$_] != 1 ? $p[$_] : '') . 'x' . ($_ != 1 ? (qw<⁰ ¹ ² ³ ⁴ ⁵ ⁶ ⁷ ⁸ ⁹>)[$_] : '') # don't use ternary if one-sided
+    push @f, ($p[$_] != 1 and $p[$_]).'x'.($_ != 1 and (qw<⁰ ¹ ² ³ ⁴ ⁵ ⁶ ⁷ ⁸ ⁹>)[$_]) 
+        for grep { $p[$_] != 0 } 1 .. $#p;
+    ( join('+', reverse @f) =~ s/-1x/-x/gr ) =~ s/\+-/-/gr # less clear without parens
 }
 
 for ([5], [4,-3], [-1,3,-2,1], [-1,6,5], [1,1,0,-1,-1]) {
     my @poly = @$_;
-    push @res, 'Polynomial: ' . join(', ', @poly) . ' ==> ' . pp(@poly);
+    push @res, 'Polynomial: ' . join(', ', @poly) . ' ==> ' . pp @poly;
     $poly[$_] *= $_ for 0 .. $#poly;
     shift @poly;
-    push @res, 'Derivative: ' . (@poly ? join', ', @poly : 0) . ' ==> ' . pp(@poly);
-    push @res, '';
+    push @res, 'Derivative: ' . (@poly ? join', ', @poly : 0) . ' ==> ' . pp(@poly) . "\n";
 }
 
 say my $result = join "\n", @res;
@@ -58,25 +56,41 @@ done_testing();
 __END__
 
 =={{header|Perl}}==
-<lang perl>for ([5], [4,-3], [-1,3,-2,1], [-1,6,5], [1,1,0,-1,-1]) {
+<lang perl>use strict;
+use warnings;
+use feature 'say';
+use utf8;
+binmode(STDOUT, ':utf8');
+
+sub pp { 
+    my(@p) = @_;
+    return '0' unless @p;
+    my @f = $p[0];
+    for (grep { $p[$_] != 0 } 1 .. $#p) {
+        push @f, ($p[$_] != 1 and $p[$_]).'x'.($_ != 1 and (qw<⁰ ¹ ² ³ ⁴ ⁵ ⁶ ⁷ ⁸ ⁹>)[$_]);
+    }
+    ( join('+', reverse @f) =~ s/-1x/-x/gr ) =~ s/\+-/-/gr
+}
+
+for ([5], [4,-3], [-1,3,-2,1], [-1,6,5], [1,1,0,-1,-1]) {
     my @poly = @$_;
-    say 'Polynomial: ' . join ', ', @poly;
+    say 'Polynomial: ' . join(', ', @poly) . ' ==> ' . pp @poly;
     $poly[$_] *= $_ for 0 .. $#poly;
     shift @poly;
-    say 'Derivative: ' . (@poly ? join', ', @poly : 0) . "\n";
+    say 'Derivative: ' . (@poly ? join', ', @poly : 0) . ' ==> ' . pp(@poly) . "\n";
 }</lang>
 {{out}}
-<pre>Polynomial: 5
-Derivative: 0
+<pre>Polynomial: 5 ==> 5
+Derivative: 0 ==> 0
 
-Polynomial: 4, -3
-Derivative: -3
+Polynomial: 4, -3 ==> -3x+4
+Derivative: -3 ==> -3
 
-Polynomial: -1, 3, -2, 1
-Derivative: 3, -4, 3
+Polynomial: -1, 3, -2, 1 ==> x³-2x²+3x-1
+Derivative: 3, -4, 3 ==> 3x²-4x+3
 
-Polynomial: -1, 6, 5
-Derivative: 6, 10
+Polynomial: -1, 6, 5 ==> 5x²+6x-1
+Derivative: 6, 10 ==> 10x+6
 
-Polynomial: 1, 1, 0, -1, -1
-Derivative: 1, 0, -3, -4</pre>
+Polynomial: 1, 1, 0, -1, -1 ==> -x⁴-x³+x+1
+Derivative: 1, 0, -3, -4 ==> -4x³-3x²+1</pre>
