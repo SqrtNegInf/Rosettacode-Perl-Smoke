@@ -14,7 +14,7 @@ binmode(STDOUT, ':utf8');
 
 sub pp { 
     my(@p) = @_;
-    return '0' unless @p;
+    return 0 unless @p;
     my @f = $p[0];
    #push @f, ($p[$_] != 1 ? $p[$_] : '') . 'x' . ($_ != 1 ? (qw<⁰ ¹ ² ³ ⁴ ⁵ ⁶ ⁷ ⁸ ⁹>)[$_] : '') # don't use ternary if one-sided
     push @f, ($p[$_] != 1 and $p[$_]).'x'.($_ != 1 and (qw<⁰ ¹ ² ³ ⁴ ⁵ ⁶ ⁷ ⁸ ⁹>)[$_]) 
@@ -64,7 +64,7 @@ binmode(STDOUT, ':utf8');
 
 sub pp { 
     my(@p) = @_;
-    return '0' unless @p;
+    return 0 unless @p;
     my @f = $p[0];
     for (grep { $p[$_] != 0 } 1 .. $#p) {
         push @f, ($p[$_] != 1 and $p[$_]).'x'.($_ != 1 and (qw<⁰ ¹ ² ³ ⁴ ⁵ ⁶ ⁷ ⁸ ⁹>)[$_]);
