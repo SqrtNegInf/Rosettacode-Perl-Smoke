@@ -470,6 +470,12 @@ File: A/Append_a_record_to_the_end_of_a_text_file
 #f# RC file: passwd.txt
 #r# RC prep: rm -f run/passwd.txt
 
+File: A/Append_numbers_at_same_position_in_strings
+#!/usr/local/bin/perl
+#u# http://rosettacode.org/wiki/Append_numbers_at_same_position_in_strings
+#c# 2021-11-10 >RC
+#p# OK
+
 File: A/Apply_a_callback_to_an_array
 #!/usr/local/bin/perl
 #u# http://rosettacode.org/wiki/Apply_a_callback_to_an_array
@@ -2058,6 +2064,13 @@ File: D/Date_manipulation
 #!/usr/local/bin/perl
 #u# http://rosettacode.org/wiki/Date_manipulation
 #c# 2018-07-28 <RC
+#p# OK
+
+File: D/Dating_agency
+#!/usr/local/bin/perl
+#u# http://rosettacode.org/wiki/Dating_agency
+#t# inprogress
+#c# 2021-11-xx >RC
 #p# OK
 
 File: D/Day_of_the_week-1
@@ -3816,7 +3829,8 @@ File: H/HTTPS
 #!/usr/local/bin/perl
 #u# http://rosettacode.org/wiki/HTTPS
 #c# 2018-08-11 <RC
-#p# OK
+#p# BROKEN
+#n# is it LWP::UserAgent??
 
 File: H/HTTPS_Authenticated
 #!/usr/local/bin/perl
@@ -6880,7 +6894,7 @@ File: P/Polymorphism
 File: P/Polynomial_derivative
 #!/usr/local/bin/perl
 #u# http://rosettacode.org/wiki/Polynomial_derivative
-#c# 2021-11-xx >RC
+#c# 2021-11-10 >RC
 #p# OK
 
 File: P/Polynomial_long_division
@@ -10185,7 +10199,8 @@ File: W/Web_scraping
 #!/usr/local/bin/perl
 #u# http://rosettacode.org/wiki/Web_scraping
 #c# 2018-07-31 <RC
-#p# OK
+#p# BROKEN
+#n# is it LWP::UserAgent??
 
 File: W/Weird_numbers-1
 #!/usr/local/bin/perl
