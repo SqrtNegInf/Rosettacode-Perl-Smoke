@@ -1,17 +1,17 @@
 
 This is perl 5, version 32, subversion 1 (v5.32.1) built for darwin-thread-multi-2level
 updating from RC…
-+------------> Perl: Good/Bad [1532/10]
++------------> Perl: Good/Bad [1534/12]
 |+-----------> Smoke testing [1389]
-||+----------> sKipping validation [147]
+||+----------> sKipping validation [148]
 |||+---------> Interactive [74]
-||||+--------> Touched (modified by me) [529]
+||||+--------> Touched (modified by me) [531]
 |||||+-------> Random seed [118]
 ||||||+------> File output [76]
-|||||||+-----> Draft [321]
+|||||||+-----> Draft [324]
 ||||||||+----> Ignoring [36]
-|||||||||+---> Void (no local copy) [129]
-||||||||||+--> Un-implemented/reliable [108]
+|||||||||+---> Void (no local copy) [130]
+||||||||||+--> Un-implemented/reliable [109]
 |||||||||||
 GS......... 100_doors-1
 GS......... 100_doors-2
@@ -91,6 +91,7 @@ GS......... Anonymous_recursion-3
 GS......... Anonymous_recursion-4
 GS......... Anti-primes
 GS....F.... Append_a_record_to_the_end_of_a_text_file
+GS..T..D... Append_numbers_at_same_position_in_strings
 GS......... Apply_a_callback_to_an_array
 GS..T...... Apply_a_digital_filter_direct_form_II_transposed
 GS..T...... Approximate_equality
@@ -359,6 +360,7 @@ GS......... Damm_algorithm-2
 GS.....D... Data_Encryption_Standard
 GS......... Date_format
 GS......... Date_manipulation
+G.K.T..D..U Dating_agency
 GS......... Day_of_the_week-1
 GS......... Day_of_the_week-2
 GS......... Day_of_the_week-3
@@ -628,7 +630,7 @@ GS...R..... Guess_the_number
 GS...R..... Guess_the_number_With_feedback
 GS...R..... Guess_the_number_With_feedback_player
 GS......... HTTP
-!S......... HTTPS
+B.......... HTTPS
 G.K........ HTTPS_Authenticated
 G.K........ HTTPS_Client-authenticated
 GS......... Hailstone_sequence-1
@@ -652,6 +654,7 @@ G.K........ Hello_world_Text
 G.K........ Hello_world_Web_server
 GS..T...... Here_document
 GS......... Heronian_triangles
+.......D.VU Hex_words
 .......D.VU Hexapawn
 GS......... Hickerson_series_of_almost_integers
 GS......... Higher-order_functions
@@ -1112,7 +1115,7 @@ GS......... Pointers_and_references
 GS......... Poker_hand_analyser
 GS......... Polymorphic_copy
 GS......... Polymorphism
-G...T..D..U Polynomial_derivative
+GS..T..D... Polynomial_derivative
 GS......... Polynomial_long_division
 GS..T...... Polynomial_regression
 GS......... Polynomial_regression-2
@@ -1650,7 +1653,7 @@ GS......... Water_collected_between_towers
 GS.....D... Waveform_analysis_Doh_ray_me
 .......D.VU Waveform_analysis_Top_and_tail
 .......DXVU Weather_routing
-!S......... Web_scraping
+B.......... Web_scraping
 GS..T...... Weird_numbers-1
 GS......... Weird_numbers-2
 .......D... Welch%27s_t-test
