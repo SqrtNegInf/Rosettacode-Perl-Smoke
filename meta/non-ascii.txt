@@ -142,6 +142,9 @@ C/Cycle_detection
 λ:     6 GREEK SMALL LETTER LAMDA
 μ:     3 GREEK SMALL LETTER MU
 
+D/Dating_agency
+»:     2 RIGHT-POINTING DOUBLE ANGLE QUOTATION MARK
+
 D/Determine_if_a_string_has_all_the_same_characters
 Ǟ:     3 LATIN CAPITAL LETTER A WITH DIAERESIS AND MACRON
 Δ:     3 GREEK CAPITAL LETTER DELTA
@@ -395,6 +398,18 @@ P/Permutations_by_swapping-1
 
 P/Pisano_period
 »:     1 RIGHT-POINTING DOUBLE ANGLE QUOTATION MARK
+
+P/Polynomial_derivative
+²:    11 SUPERSCRIPT TWO
+³:     9 SUPERSCRIPT THREE
+¹:     3 SUPERSCRIPT ONE
+⁰:     3 SUPERSCRIPT ZERO
+⁴:     5 SUPERSCRIPT FOUR
+⁵:     3 SUPERSCRIPT FIVE
+⁶:     3 SUPERSCRIPT SIX
+⁷:     3 SUPERSCRIPT SEVEN
+⁸:     3 SUPERSCRIPT EIGHT
+⁹:     3 SUPERSCRIPT NINE
 
 P/Prime_conspiracy
 →:    22 RIGHTWARDS ARROW
