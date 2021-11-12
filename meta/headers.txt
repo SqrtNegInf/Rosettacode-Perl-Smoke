@@ -3991,6 +3991,12 @@ File: H/Heronian_triangles
 #c# 2018-08-12 <RC
 #p# OK
 
+File: H/Hex_words
+#!/usr/local/bin/perl
+#u# http://rosettacode.org/wiki/Hex_words
+#c# 2021-11-11 <RC
+#p# OK
+
 File: H/Hickerson_series_of_almost_integers
 #!/usr/local/bin/perl
 #u# http://rosettacode.org/wiki/Hickerson_series_of_almost_integers
@@ -4416,8 +4422,7 @@ File: J/JSON
 File: J/Jaccard_index
 #!/usr/local/bin/perl
 #u# http://rosettacode.org/wiki/Jaccard_index
-#t# inprogress
-#c# 2021-11-xx >RC
+#c# 2021-11-11 <RC
 #p# OK
 
 File: J/Jacobi_symbol
@@ -6894,7 +6899,7 @@ File: P/Polymorphism
 File: P/Polynomial_derivative
 #!/usr/local/bin/perl
 #u# http://rosettacode.org/wiki/Polynomial_derivative
-#c# 2021-11-10 >RC
+#c# 2021-11-10 >RC, 2021-11-11 >RC
 #p# OK
 
 File: P/Polynomial_long_division
