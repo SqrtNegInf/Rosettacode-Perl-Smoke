@@ -1,17 +1,17 @@
 
 This is perl 5, version 32, subversion 1 (v5.32.1) built for darwin-thread-multi-2level
 updating from RC…
-+------------> Perl: Good/Bad [1534/12]
-|+-----------> Smoke testing [1389]
-||+----------> sKipping validation [148]
++------------> Perl: Good/Bad [1535/12]
+|+-----------> Smoke testing [1391]
+||+----------> sKipping validation [147]
 |||+---------> Interactive [74]
-||||+--------> Touched (modified by me) [531]
+||||+--------> Touched (modified by me) [530]
 |||||+-------> Random seed [118]
 ||||||+------> File output [76]
 |||||||+-----> Draft [324]
 ||||||||+----> Ignoring [36]
-|||||||||+---> Void (no local copy) [130]
-||||||||||+--> Un-implemented/reliable [109]
+|||||||||+---> Void (no local copy) [129]
+||||||||||+--> Un-implemented/reliable [106]
 |||||||||||
 GS......... 100_doors-1
 GS......... 100_doors-2
@@ -654,7 +654,7 @@ G.K........ Hello_world_Text
 G.K........ Hello_world_Web_server
 GS..T...... Here_document
 GS......... Heronian_triangles
-.......D.VU Hex_words
+GS.....D... Hex_words
 .......D.VU Hexapawn
 GS......... Hickerson_series_of_almost_integers
 GS......... Higher-order_functions
@@ -722,7 +722,7 @@ G.K........ Inverted_syntax
 GS......... Isqrt_integer_square_root_of_X
 GS......... Iterated_digits_squaring
 GS......... JSON
-G.K.T..D..U Jaccard_index
+GS.....D... Jaccard_index
 GS..T...... Jacobi_symbol
 GS..T...... Jaro-Winkler_distance
 .........V. Jaro_similarity
@@ -849,7 +849,7 @@ GS......... MD5_Implementation
 .........VU Machine_code
 GS......... Mad_Libs
 GS..TR..... Magic_8-ball
-.......D.VU Magic_constant
+.......D.V. Magic_constant
 GS..T...... Magic_squares_of_doubly_even_order
 GS..T...... Magic_squares_of_odd_order
 GS..T...... Magic_squares_of_singly_even_order
