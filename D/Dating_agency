@@ -28,6 +28,9 @@ __END__
 
 use Digest::SHA1::Native;
 
+my %laddies = < Adam Bob Chuck David Ed Fred George Hugh Ian Jim Ken Larry Mike
+                Ned Oscar Peter Quincy Ray Sam Tom Uriah Victor Waylon Yogi Zach >.map: -> $name {
+
 my %ladies = < Alice Beth Cecilia Donna Eunice Fran Genevieve Holly Irene Josephine Kathlene Loralie Margaret
                Nancy Odelle Pamela Quinci Rhonda Stephanie Theresa Ursula Victoria Wren Yasmine Zoey >.map: -> $name {
     $name => {
@@ -35,6 +38,8 @@ my %ladies = < Alice Beth Cecilia Donna Eunice Fran Genevieve Holly Irene Joseph
         lovable => :16(sha1-hex($name).substr(*-4))
     }
 }
+
+my %taylors = < Elizabeth Swift Schilling >.map: -> $name {
 
 my %sailors = < Ahab Brutus Popeye >.map: -> $name {
     $name => {
