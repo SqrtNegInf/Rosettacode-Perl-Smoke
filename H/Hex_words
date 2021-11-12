@@ -1,0 +1,74 @@
+#!/usr/local/bin/perl
+#u# http://rosettacode.org/wiki/Hex_words
+#c# 2021-11-11 <RC
+#p# OK
+
+my @res;
+
+use strict;
+use warnings;
+use feature 'say';
+use List::AllUtils qw( nsort_by uniq );
+
+sub root {
+  local $_ = shift;
+  $_ = eval while s/\B/+/g;
+  return $_;
+}
+
+my @bydecimal = grep +(uniq /[a-f]/g)[3],
+  my @byroot = map { sprintf "%10s %10d %3d\n", $_, hex $_, root hex $_
+  } do { local(@ARGV, $/) = 'ref/unixdict.txt'; <> =~ /^[a-f]{4,}$/gm };
+
+push @res, +(nsort_by { (split ' ')[2] } @byroot);
+push @res, "total count = @{[ scalar @byroot ]} and @{[ scalar @bydecimal ]} have at least 4 distinct digits\n";
+push @res, reverse nsort_by { (split ' ')[1] } @bydecimal;
+
+say  my $result = join '', @res;
+
+my $ref = <<'EOD';
+     ababa     703162   1
+      abbe      43966   1
+      dada      56026   1
+      deaf      57007   1
+    decade   14600926   1
+      cede      52958   2
+      feed      65261   2
+      abed      44013   3
+     added     712173   3
+      bade      47838   3
+     beebe     782014   4
+     decca     912586   4
+      dade      56030   5
+      bead      48813   6
+    deface   14613198   6
+      babe      47806   7
+      fade      64222   7
+      dead      57005   8
+    efface   15727310   8
+    facade   16435934   8
+    accede   11325150   9
+      beef      48879   9
+      cafe      51966   9
+     dacca     896202   9
+      deed      57069   9
+      face      64206   9
+total count = 26 and 13 have at least 4 distinct digits
+    facade   16435934   8
+    efface   15727310   8
+    deface   14613198   6
+    decade   14600926   1
+    accede   11325150   9
+     decca     912586   4
+      fade      64222   7
+      face      64206   9
+      deaf      57007   1
+      cafe      51966   9
+      bead      48813   6
+      bade      47838   3
+      abed      44013   3
+EOD
+
+use Test::More;
+is ($result, $ref);
+done_testing();
