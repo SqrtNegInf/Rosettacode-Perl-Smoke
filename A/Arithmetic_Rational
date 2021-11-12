@@ -24,7 +24,8 @@ foreach my $candidate (2 .. 2**15) {
         }
     }
     if ($sum->denominator() == 1) {
-        $result .= sprintf "Sum of reciprocal factors of $candidate = $sum exactly ". ($sum == 1 ? 'perfect!' : ''). "\n";
+        #$result .= sprintf "Sum of reciprocal factors of $candidate = $sum exactly ". ($sum == 1 ? 'perfect!' : ''). "\n";
+        $result .= sprintf "Sum of reciprocal factors of $candidate = $sum exactly ". ($sum == 1 and 'perfect!'). "\n";
     }
 }
 
