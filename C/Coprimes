@@ -11,7 +11,8 @@ use feature 'say';
 
 use  ntheory 'gcd';
 
-push @res, sprintf "%7s %s", (gcd(@$_) == 1 ? 'Coprime' : ''), join ', ', @$_ 
+#push @res, sprintf "%7s %s", (gcd(@$_) == 1 ? 'Coprime' : ''), join ', ', @$_ 
+push @res, sprintf "%7s %s", (1 == gcd @$_ and 'Coprime'), join ', ', @$_ 
      for [21,15], [17,23], [36,12], [18,29], [60,15], [21,22,25,31,143];
 
 say my $result = join "\n", @res;
