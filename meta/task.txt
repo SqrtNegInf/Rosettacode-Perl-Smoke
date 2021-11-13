@@ -1,8 +1,8 @@
 
 This is perl 5, version 32, subversion 1 (v5.32.1) built for darwin-thread-multi-2level
 updating from RC…
-+------------> Perl: Good/Bad [1535/12]
-|+-----------> Smoke testing [1391]
++------------> Perl: Good/Bad [1536/12]
+|+-----------> Smoke testing [1392]
 ||+----------> sKipping validation [147]
 |||+---------> Interactive [74]
 ||||+--------> Touched (modified by me) [530]
@@ -10,8 +10,8 @@ updating from RC…
 ||||||+------> File output [76]
 |||||||+-----> Draft [324]
 ||||||||+----> Ignoring [36]
-|||||||||+---> Void (no local copy) [129]
-||||||||||+--> Un-implemented/reliable [106]
+|||||||||+---> Void (no local copy) [128]
+||||||||||+--> Un-implemented/reliable [105]
 |||||||||||
 GS......... 100_doors-1
 GS......... 100_doors-2
@@ -849,7 +849,7 @@ GS......... MD5_Implementation
 .........VU Machine_code
 GS......... Mad_Libs
 GS..TR..... Magic_8-ball
-.......D.V. Magic_constant
+GS.....D... Magic_constant
 GS..T...... Magic_squares_of_doubly_even_order
 GS..T...... Magic_squares_of_odd_order
 GS..T...... Magic_squares_of_singly_even_order
@@ -1372,7 +1372,7 @@ GS....F.... Solve_a_Holy_Knight%27s_tour
 GS......... Solve_a_Hopido_puzzle
 GS......... Solve_a_Numbrix_puzzle
 .......D.VU Solve_a_Rubik%27s_Cube
-GS..T..D..U Solve_equations_with_substitution_method
+GS..T..D... Solve_equations_with_substitution_method
 GS......... Solve_the_no_connection_puzzle
 .......D.V. Solve_triangle_solitare_puzzle
 GS..T.FD... Solving_coin_problems
