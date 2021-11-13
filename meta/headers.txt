@@ -5221,6 +5221,12 @@ File: M/Magic_8-Ball
 #p# OK
 #=# RC pipe: who\nwhat\nwhen\nwhere\n\n
 
+File: M/Magic_constant
+#!/usr/local/bin/perl
+#u# http://rosettacode.org/wiki/Magic_constant
+#c# 2021-11-11 <RC
+#p# OK
+
 File: M/Magic_squares_Perl
 #!/usr/local/bin/perl
 #u# http://rosettacode.org/wiki/Magic_squares/Perl
@@ -8504,7 +8510,7 @@ File: S/Solve_a_Numbrix_puzzle
 File: S/Solve_equations_with_substitution_method
 #!/usr/local/bin/perl
 #u# http://rosettacode.org/wiki/Solve_equations_with_substitution_method
-#c# 2021-11-xx >RC
+#c# 2021-11-12 >RC
 #p# OK
 
 File: S/Solve_the_no_connection_puzzle
