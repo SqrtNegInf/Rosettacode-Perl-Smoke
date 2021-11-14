@@ -1,11 +1,8 @@
 #!/usr/local/bin/perl
 #u# http://rosettacode.org/wiki/Dating_agency
-#t# inprogress
-#c# 2021-11-xx >RC
+#c# 2021-11-xx NOT ON RC
 #p# OK
-
-use Data::Printer;          # debug only
-use Time::HiRes qw(sleep);  # debug only
+#n# replicates Raku version
 
 my @res;
 
@@ -13,73 +10,63 @@ use strict;
 use warnings;
 use feature 'say';
 
-# code goes here
+use Digest::SHA qw(sha1_hex);
+use List::Util <max head>;
+
+my(%ladies,%sailors);
+for my $name ( qw( Alice Beth Cecilia Donna Eunice Fran Genevieve Holly Irene Josephine Kathlene Loralie Margaret
+                   Nancy Odelle Pamela Quinci Rhonda Stephanie Theresa Ursula Victoria Wren Yasmine Zoey ) ) {
+    $ladies{$name}{loves}   = hex substr sha1_hex($name),  0, 4;
+    $ladies{$name}{lovable} = hex substr sha1_hex($name), -4, 4;
+}
+
+for my $name ( < Ahab Brutus Popeye > ) {
+    $sailors{$name}{loves}   = hex substr sha1_hex($name),  0, 4;
+    $sailors{$name}{lovable} = hex substr sha1_hex($name), -4, 4;
+}
+
+for my $sailor (sort keys %sailors) {
+    push @res, sprintf "%6s will like: %s", $sailor, join ', ', my @likes = 
+      head 10, sort {
+         abs $sailors{$sailor}{loves} - $ladies{$a}{loves} 
+        <=>
+         abs $sailors{$sailor}{loves} - $ladies{$b}{loves} 
+      } keys %ladies;
+
+    push @res, sprintf "     Is liked by: %s", join ', ',  my @liked = 
+      head 10, sort {
+         abs $sailors{$sailor}{lovable} - $ladies{$a}{lovable} 
+        <=>
+         abs $sailors{$sailor}{lovable} - $ladies{$b}{lovable} 
+      } keys %ladies;
+
+    my %matches;
+    @liked = reverse @liked;
+    @likes = reverse @likes;
+    for my $i (1..@liked) { $matches{$liked[$i-1]}  = $i }
+    for my $i (1..@likes) { $matches{$likes[$i-1]} += $i }
+    my $max = 0;
+    $matches{$_} < $max or $max = $matches{$_} for keys %matches;
+    push @res, 'Best match(s): ' . join ', ', sort grep { $matches{$_} == $max } keys %matches;
+    push @res, '';
+}
 
 say my $result = join "\n", @res;
+
 my $ref = <<'END';
-END
-
-use Test::More;
-chomp $ref;
-is($result, $ref);
-done_testing();
-
-__END__
-
-use Digest::SHA1::Native;
-
-my %laddies = < Adam Bob Chuck David Ed Fred George Hugh Ian Jim Ken Larry Mike
-                Ned Oscar Peter Quincy Ray Sam Tom Uriah Victor Will Yogi Zach >.map: -> $name {
-
-my %ladies = < Alice Beth Cecilia Donna Eunice Fran Genevieve Holly Irene Josephine Kathlene Loralie Margaret
-               Nancy Odelle Pamela Quinci Rhonda Stephanie Theresa Ursula Victoria Wren Yasmine Zoey >.map: -> $name {
-    $name => {
-        loves   => :16(sha1-hex($name).substr(0,4)),
-        lovable => :16(sha1-hex($name).substr(*-4))
-    }
-}
-
-my %taylors = < Elizabeth Swift Rip >.map: -> $name {
-
-my %sailors = < Ahab Brutus Popeye >.map: -> $name {
-    $name => {
-        loves   => :16(sha1-hex($name).substr(0,4)),
-        lovable => :16(sha1-hex($name).substr(*-4))
-    }
-}
-
-for %sailors.sort( *.key ) -> $sailor {
-    @res.push: sprintf("%6s will like: ", $sailor.key) ~
-               join ', ', my @likes = %ladies.sort( { abs $sailor.value.<loves> - .value.<loves> } ).head(10)».key;
-    @res.push: '     Is liked by: ' ~
-               join ', ',  my @liked = %ladies.sort( { abs $sailor.value.<lovable> - .value.<lovable> } ).head(10)».key;
-    my %matches;
-    for @liked.reverse Z, (1..10) { %matches{.[0]} += .[1] };
-    for @likes.reverse Z, (1..10) { %matches{.[0]} += .[1] };
-    @res.push: 'Best match: ' ~ %matches.max( *.value ).key;
-    @res.push: '';
-}
-
-my $ref = q:to/END/;
   Ahab will like: Eunice, Ursula, Irene, Holly, Fran, Genevieve, Zoey, Donna, Cecilia, Alice
      Is liked by: Nancy, Theresa, Victoria, Genevieve, Alice, Rhonda, Kathlene, Odelle, Eunice, Pamela
-Best match: Genevieve
+Best match(s): Eunice, Genevieve
 
 Brutus will like: Beth, Nancy, Quinci, Odelle, Josephine, Kathlene, Theresa, Rhonda, Wren, Margaret
      Is liked by: Yasmine, Margaret, Loralie, Holly, Wren, Fran, Quinci, Eunice, Alice, Victoria
-Best match: Quinci
+Best match(s): Quinci
 
 Popeye will like: Loralie, Theresa, Stephanie, Yasmine, Alice, Cecilia, Donna, Zoey, Nancy, Genevieve
      Is liked by: Loralie, Margaret, Holly, Wren, Yasmine, Fran, Quinci, Eunice, Alice, Victoria
-Best match: Loralie
+Best match(s): Loralie
 END
 
-=={{header|Perl}}==
-{{trans|xx}}
-{{libheader|ntheory}}
-<lang perl>
-</lang>
-{{out}}
-<pre style="height:20ex">
-</pre>
-[https://github.com/SqrtNegInf/Rosettacode-Perl5-Smoke/blob/master/ref/xx xx]
+use Test::More;
+is($result, $ref);
+done_testing();
