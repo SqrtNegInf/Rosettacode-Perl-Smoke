@@ -1,0 +1,38 @@
+#!/usr/local/bin/perl
+#u# http://rosettacode.org/wiki/Magic_constant
+#c# 2021-11-12 NOT ON RC
+#p# OK
+#n# DRY, even though calculation is trivial (and follow task offset with '3' being 1st)
+
+my @res;
+
+use strict;
+use warnings;
+use feature 'say';
+
+#this route adds complexity, not the way to go
+#my $MC = lazy_list { state $i = 3; state @mc = (); push @mc, (1 + $i**2) * $i / 2; $i++; shift @mc };
+#say $MC->next() for 0..19; exit;
+
+sub magic_constant {
+    my($n) = @_;
+    (1 + (2+$n)**2) * (2+$n) / 2; 
+}
+
+my $line  = 'First twenty:';
+   $line .= ' ' . magic_constant($_) for 1..20;
+@res = $line;
+
+push @res, 'Thousandth: ' .  magic_constant 1000;
+
+say my $result = join "\n", @res;
+
+my $ref = <<'END';
+First twenty: 15 34 65 111 175 260 369 505 671 870 1105 1379 1695 2056 2465 2925 3439 4010 4641 5335
+Thousandth: 503006505
+END
+
+use Test::More;
+chomp $ref;
+is($result, $ref);
+done_testing();
