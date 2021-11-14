@@ -1,0 +1,64 @@
+#!/usr/local/bin/perl
+#u# http://rosettacode.org/wiki/Dating_agency
+#c# 2021-11-13 >RC
+#p# OK
+#n# tweaked from Raku version
+
+my @res;
+
+use strict;
+use warnings;
+use feature 'say';
+
+use Digest::SHA qw(sha1_hex);
+use List::Util <max head>;
+
+my(%laddies,%taylors);
+
+for my $name ( qw( Adam Bob Conrad Drew Eddie Fred George Harry Ian Jake Ken Larry Mike
+                   Ned Oscar Peter Quincy Richard Sam Tom Uriah Victor Will Yogi Zach ) ) { 
+    $laddies{$name}{loves}   = hex substr sha1_hex($name),  0, 4;
+    $laddies{$name}{lovable} = hex substr sha1_hex($name), -4, 4;
+}
+
+for my $name ( < Elizabeth Swift Rip > ) {
+    $taylors{$name}{loves}   = hex substr sha1_hex($name),  0, 4;
+    $taylors{$name}{lovable} = hex substr sha1_hex($name), -4, 4;
+}
+
+sub rank_by {
+   my($subk,$k,$t,$l) = @_;
+   sort { abs $$t{$k}{$subk} - $$l{$a}{$subk} <=> abs $$t{$k}{$subk} - $$l{$b}{$subk} } keys %$l;
+}
+
+for my $taylor (sort keys %taylors) {
+    push @res, sprintf "%9s will like: %s", $taylor, join ', ', my @likes = head 10, rank_by('loves',  $taylor, \%taylors, \%laddies);
+    push @res, sprintf "        Is liked by: %s",    join ', ', my @liked = head 10, rank_by('lovable',$taylor, \%taylors, \%laddies);
+
+    my($max,%matches) = 0;
+    $matches{$liked[$_]}  = @liked-$_ for reverse 0..$#liked;
+    $matches{$likes[$_]} += @likes-$_ for reverse 0..$#likes;
+    $matches{$_} < $max or $max = $matches{$_} for keys %matches;
+    push @res, 'Best match(s): ' . join ', ', sort grep { $matches{$_} == $max } keys %matches;
+    push @res, '';
+}
+
+say my $result = join "\n", @res;
+
+my $ref = <<'END';
+Elizabeth will like: Adam, Conrad, Ian, Jake, Larry, Bob, Drew, Quincy, Mike, Victor
+        Is liked by: Ian, Mike, Uriah, Jake, Tom, Richard, Drew, George, Victor, Larry
+Best match(s): Ian
+
+      Rip will like: Jake, Larry, Bob, Drew, Quincy, Mike, Adam, Conrad, Ian, Victor
+        Is liked by: Ned, Will, Eddie, Oscar, Quincy, Conrad, George, Richard, Jake, Uriah
+Best match(s): Jake, Quincy
+
+    Swift will like: Ken, Oscar, Zach, Ned, Sam, Tom, Will, Yogi, Fred, Uriah
+        Is liked by: Ken, Adam, Yogi, Sam, Larry, Victor, Drew, Bob, Tom, Ian
+Best match(s): Ken
+END
+
+use Test::More;
+is($result, $ref);
+done_testing();
