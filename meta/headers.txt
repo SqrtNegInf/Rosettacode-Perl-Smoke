@@ -2066,12 +2066,19 @@ File: D/Date_manipulation
 #c# 2018-07-28 <RC
 #p# OK
 
-File: D/Dating_agency
+File: D/Dating_agency-1
 #!/usr/local/bin/perl
 #u# http://rosettacode.org/wiki/Dating_agency
-#t# inprogress
-#c# 2021-11-xx >RC
+#c# 2021-11-xx NOT ON RC
 #p# OK
+#n# replicates Raku version
+
+File: D/Dating_agency-2
+#!/usr/local/bin/perl
+#u# http://rosettacode.org/wiki/Dating_agency
+#c# 2021-11-13 >RC
+#p# OK
+#n# tweaked from Raku version
 
 File: D/Day_of_the_week-1
 #!/usr/local/bin/perl
@@ -5226,6 +5233,13 @@ File: M/Magic_constant
 #u# http://rosettacode.org/wiki/Magic_constant
 #c# 2021-11-11 <RC
 #p# OK
+
+File: M/Magic_constant-2
+#!/usr/local/bin/perl
+#u# http://rosettacode.org/wiki/Magic_constant
+#c# 2021-11-12 NOT ON RC
+#p# OK
+#n# DRY, even though calculation is trivial (and follow task offset with '3' being 1st)
 
 File: M/Magic_squares_Perl
 #!/usr/local/bin/perl
