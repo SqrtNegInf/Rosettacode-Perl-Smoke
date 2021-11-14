@@ -1,9 +1,9 @@
 
 This is perl 5, version 32, subversion 1 (v5.32.1) built for darwin-thread-multi-2level
 updating from RC…
-+------------> Perl: Good/Bad [1536/12]
-|+-----------> Smoke testing [1392]
-||+----------> sKipping validation [147]
++------------> Perl: Good/Bad [1538/12]
+|+-----------> Smoke testing [1395]
+||+----------> sKipping validation [146]
 |||+---------> Interactive [74]
 ||||+--------> Touched (modified by me) [530]
 |||||+-------> Random seed [118]
@@ -11,7 +11,7 @@ updating from RC…
 |||||||+-----> Draft [324]
 ||||||||+----> Ignoring [36]
 |||||||||+---> Void (no local copy) [128]
-||||||||||+--> Un-implemented/reliable [105]
+||||||||||+--> Un-implemented/reliable [104]
 |||||||||||
 GS......... 100_doors-1
 GS......... 100_doors-2
@@ -360,7 +360,9 @@ GS......... Damm_algorithm-2
 GS.....D... Data_Encryption_Standard
 GS......... Date_format
 GS......... Date_manipulation
-G.K.T..D..U Dating_agency
+.......D... Dating_agency
+GS......... Dating_agency-1
+GS..T...... Dating_agency-2
 GS......... Day_of_the_week-1
 GS......... Day_of_the_week-2
 GS......... Day_of_the_week-3
@@ -850,6 +852,7 @@ GS......... MD5_Implementation
 GS......... Mad_Libs
 GS..TR..... Magic_8-ball
 GS.....D... Magic_constant
+GS......... Magic_constant-2
 GS..T...... Magic_squares_of_doubly_even_order
 GS..T...... Magic_squares_of_odd_order
 GS..T...... Magic_squares_of_singly_even_order
