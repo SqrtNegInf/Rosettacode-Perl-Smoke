@@ -2,9 +2,7 @@
 #u# http://rosettacode.org/wiki/Round-robin_tournament_schedule
 #c# 2021-11-14 NOT ON RC
 #p# OK
-#n# doesn't handle odd number of players
-
-my @res;
+#n# handles even and odd
 
 use strict;
 use warnings;
@@ -12,21 +10,28 @@ use feature 'say';
 
 use List::AllUtils 'pairwise';
 
-my @players = 1..12;
-my $half    = int +@players / 2;
-my $round;
+sub rr {
+    my($n) = @_;
+    my @players = 1..$n;
+    my $half    = int +@players / 2;
+    my($round,@pairings);
+    my $stop = 2;
+    $n%2 != 0 and $half++ and $stop-- and @players = (0, @players); # handles byes
 
-while () {
-    my @a =         @players[    0 ..   $half-1]; 
-    my @b = reverse @players[$half .. $#players];
-    push @res, sprintf "Round %2d: %s\n", ++$round, join ' ', pairwise { sprintf "(%2d vs %-2d)", $a, $b } @a, @b;
-    push @players, splice @players, 1, @players-2;
-    last if $players[1] == 2;
+    while () {
+        my @a =         @players[    0 ..   $half-1]; 
+        my @b = reverse @players[$half .. $#players];
+        push @pairings, sprintf "Round %2d: %s\n", ++$round, join ' ', pairwise { sprintf "(%2d vs %-2d)", $a, $b } @a, @b;
+        push @players, splice @players, 1, @players-2;
+        last if $players[1] == $stop;
+    }
+    @pairings;
 }
 
-say my $result = join '', @res;
+say my $result1 = join '', rr(12);
+say my $result2 = join '', rr(7);
 
-my $ref = <<'END';
+my $ref1 = <<'END';
 Round  1: ( 1 vs 12) ( 2 vs 11) ( 3 vs 10) ( 4 vs 9 ) ( 5 vs 8 ) ( 6 vs 7 )
 Round  2: ( 1 vs 11) (12 vs 10) ( 2 vs 9 ) ( 3 vs 8 ) ( 4 vs 7 ) ( 5 vs 6 )
 Round  3: ( 1 vs 10) (11 vs 9 ) (12 vs 8 ) ( 2 vs 7 ) ( 3 vs 6 ) ( 4 vs 5 )
@@ -40,6 +45,17 @@ Round 10: ( 1 vs 3 ) ( 4 vs 2 ) ( 5 vs 12) ( 6 vs 11) ( 7 vs 10) ( 8 vs 9 )
 Round 11: ( 1 vs 2 ) ( 3 vs 12) ( 4 vs 11) ( 5 vs 10) ( 6 vs 9 ) ( 7 vs 8 )
 END
 
+my $ref2 = <<'END';
+Round  1: ( 0 vs 7 ) ( 1 vs 6 ) ( 2 vs 5 ) ( 3 vs 4 )
+Round  2: ( 0 vs 6 ) ( 7 vs 5 ) ( 1 vs 4 ) ( 2 vs 3 )
+Round  3: ( 0 vs 5 ) ( 6 vs 4 ) ( 7 vs 3 ) ( 1 vs 2 )
+Round  4: ( 0 vs 4 ) ( 5 vs 3 ) ( 6 vs 2 ) ( 7 vs 1 )
+Round  5: ( 0 vs 3 ) ( 4 vs 2 ) ( 5 vs 1 ) ( 6 vs 7 )
+Round  6: ( 0 vs 2 ) ( 3 vs 1 ) ( 4 vs 7 ) ( 5 vs 6 )
+Round  7: ( 0 vs 1 ) ( 2 vs 7 ) ( 3 vs 6 ) ( 4 vs 5 )
+END
+
 use Test::More;
-is($result, $ref);
+is($result1, $ref1);
+is($result2, $ref2);
 done_testing();
