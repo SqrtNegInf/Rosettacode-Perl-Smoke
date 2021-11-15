@@ -2,7 +2,7 @@
 #u# http://rosettacode.org/wiki/Round-robin_tournament_schedule
 #c# 2021-11-14 <RC
 #p# OK
-#n# Tybalt89's version
+#n# Tybalt89's original version commented; generalized a bit (but still doesn't handle odd number of teams)
 
 my @res;
 
@@ -10,10 +10,17 @@ use strict;
 use warnings;
 use feature 'say';
 
-my @teams = 1 .. 12;
-for (1 .. 11) {
-    @teams[0,11,1..10] = @teams;
-    push @res, sprintf 'Round %2d:' . '%4d vs %2d'x6 . "\n", $_, @teams[ map { $_, 11-$_} 0..5 ];
+#my @teams = 1 .. 12;
+#for (1 .. 11) {
+#    @teams[0,11,1..10] = @teams;
+#    push @res, sprintf 'Round %2d:' . '%4d vs %2d'x6 . "\n", $_, @teams[ map { $_, 11-$_} 0..5 ];
+#}
+
+my $n = 12;
+my @teams = 1 .. $n;
+for (1 .. $n-1) {
+    @teams[0,$n-1,1..$n-2] = @teams;
+    push @res, sprintf 'Round %2d:' . '%4d vs %2d'x($n/2) . "\n", $_, @teams[ map { $_, $n-1-$_} 0..($n/2)-1 ];
 }
 
 say my $result = join '', @res;
