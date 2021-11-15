@@ -1,17 +1,17 @@
 
 This is perl 5, version 32, subversion 1 (v5.32.1) built for darwin-thread-multi-2level
 updating from RC…
-+------------> Perl: Good/Bad [1538/12]
-|+-----------> Smoke testing [1395]
++------------> Perl: Good/Bad [1541/12]
+|+-----------> Smoke testing [1398]
 ||+----------> sKipping validation [146]
 |||+---------> Interactive [74]
-||||+--------> Touched (modified by me) [530]
+||||+--------> Touched (modified by me) [531]
 |||||+-------> Random seed [118]
-||||||+------> File output [76]
-|||||||+-----> Draft [324]
+||||||+------> File output [77]
+|||||||+-----> Draft [325]
 ||||||||+----> Ignoring [36]
-|||||||||+---> Void (no local copy) [128]
-||||||||||+--> Un-implemented/reliable [104]
+|||||||||+---> Void (no local copy) [127]
+||||||||||+--> Un-implemented/reliable [103]
 |||||||||||
 GS......... 100_doors-1
 GS......... 100_doors-2
@@ -130,7 +130,7 @@ GS......... Averages_Mode
 GS......... Averages_Pythagorean_means
 GS......... Averages_Root_mean_square
 GS......... Averages_Simple_moving_average
-.......D.VU B-spline
+GS..T.FD... B-spline
 GS......... Babbage_problem
 GS..T.FD... Bacon_cipher
 GS...R..... Balanced_brackets-1
@@ -1272,6 +1272,8 @@ GS..T...... Rosetta_Code_Rank_languages_by_popularity
 .......D.VU Rosetta_Code_Run_examples
 GS..T..D... Rosetta_Code_Tasks_without_examples
 GS......... Rot-13
+GS.....D... Round-robin_tournament_schedule
+GS......... Round-robin_tournament_schedule-2
 GS......... Run-length_encoding
 .......D.VU Run_as_a_daemon_or_service
 GS......... Runge-Kutta_method
