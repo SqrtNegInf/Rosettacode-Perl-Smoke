@@ -712,6 +712,13 @@ File: A/Averages_Simple_moving_average
 #c# 2018-07-15 <RC
 #p# OK
 
+File: B/B-spline
+#!/usr/local/bin/perl
+#u# http://rosettacode.org/wiki/B-spline
+#c# 2021-11-14 >RC
+#p# OK
+#f# RC file: b-spline.png
+
 File: B/Babbage_problem
 #!/usr/local/bin/perl
 #u# http://rosettacode.org/wiki/Babbage_problem
@@ -7881,6 +7888,20 @@ File: R/Rot-13
 #u# http://rosettacode.org/wiki/Rot-13
 #c# 2018-08-17 <RC
 #p# OK
+
+File: R/Round-robin_tournament_schedule
+#!/usr/local/bin/perl
+#u# http://rosettacode.org/wiki/Round-robin_tournament_schedule
+#c# 2021-11-14 NOT ON RC
+#p# OK
+#n# doesn't handle odd number of players
+
+File: R/Round-robin_tournament_schedule-2
+#!/usr/local/bin/perl
+#u# http://rosettacode.org/wiki/Round-robin_tournament_schedule
+#c# 2021-11-14 <RC
+#p# OK
+#n# Tybalt89's version
 
 File: R/Run-length_encoding
 #!/usr/local/bin/perl
