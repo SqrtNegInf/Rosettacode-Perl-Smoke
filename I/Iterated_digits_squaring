@@ -2,10 +2,9 @@
 #u# http://rosettacode.org/wiki/Iterated_digits_squaring
 #c# 2018-08-13 <RC
 #p# OK
+#n# reduced limit to expedite testing (in pure Perl it's slow, and that will never change)
 
 use feature 'say';
-
-# Translation of: perl6
 
 use warnings;
 use strict;
@@ -27,12 +26,13 @@ sub sum {
    $sum;
 }
 
-for (1 .. 100_000_000) {
+for (1 .. 1_000_000) {
    ++$cnt if Euler92( $_ ) == 89;
 }
 
 say $cnt;
 
 use Test::More;
-is ($cnt, 85744333);
+is ($cnt, 856929);
+#is ($cnt, 85744333);
 done_testing();
