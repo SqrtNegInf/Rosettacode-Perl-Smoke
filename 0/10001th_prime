@@ -1,0 +1,30 @@
+#!/usr/local/bin/perl
+#u# http://rosettacode.org/wiki/10001th_prime
+#c# 2021-11-16 >RC
+#p# OK
+
+use strict;
+use warnings;
+use feature 'say';
+
+use ntheory 'nth_prime';
+
+say my $result = nth_prime(10001);
+
+# or without library, do it super-slowly
+my($n,$c) = (1,0);
+
+if (0) {
+while () {
+    $c++ if (1 x ++$n) !~ /^(11+)\1+$/;
+    $c == 10_001 and say $n and last;
+}
+}
+
+# for reduced clarity (not on RC)
+while () { (1 x ++$n) !~ /^(11+)\1+$/ and ++$c == 101 and say $n and last }
+
+use Test::More;
+is($result, 104743);
+is($n     ,    547);
+done_testing();
