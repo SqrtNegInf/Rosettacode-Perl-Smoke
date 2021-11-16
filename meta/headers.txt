@@ -4426,6 +4426,7 @@ File: I/Iterated_digits_squaring
 #u# http://rosettacode.org/wiki/Iterated_digits_squaring
 #c# 2018-08-13 <RC
 #p# OK
+#n# reduced limit to expedite testing (in pure Perl it's slow, and that will never change)
 
 File: J/JSON
 #!/usr/local/bin/perl
@@ -7892,16 +7893,16 @@ File: R/Rot-13
 File: R/Round-robin_tournament_schedule
 #!/usr/local/bin/perl
 #u# http://rosettacode.org/wiki/Round-robin_tournament_schedule
-#c# 2021-11-14 NOT ON RC
+#c# 2021-11-14, 2021-11-15 >RC
 #p# OK
-#n# doesn't handle odd number of players
+#n# handles even and odd
 
 File: R/Round-robin_tournament_schedule-2
 #!/usr/local/bin/perl
 #u# http://rosettacode.org/wiki/Round-robin_tournament_schedule
 #c# 2021-11-14 <RC
 #p# OK
-#n# Tybalt89's version
+#n# Tybalt89's original version commented; generalized a bit (but still doesn't handle odd number of teams)
 
 File: R/Run-length_encoding
 #!/usr/local/bin/perl
@@ -10218,9 +10219,8 @@ File: W/Walk_a_directory_Non-recursively
 File: W/Walk_a_directory_Recursively
 #!/usr/local/bin/perl
 #u# http://rosettacode.org/wiki/Walk_a_directory/Recursively
-#c# 2018-08-03 <>RC
+#c# 2018-08-03 <>RC, 2021-11-15 <RC
 #p# OK
-#n# testing just File::Find
 
 File: W/War_card_game
 #!/usr/local/bin/perl
