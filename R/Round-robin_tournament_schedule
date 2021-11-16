@@ -8,7 +8,7 @@ use strict;
 use warnings;
 use feature 'say';
 
-use List::AllUtils <pairwise none>;
+use List::AllUtils <pairwise all>;
 
 sub rr {
     my($n) = @_;
@@ -21,13 +21,14 @@ sub rr {
         my @b = reverse @players[$half .. $#players];
         push @pairings, sprintf "Round %2d: %s\n", ++$round, join ' ', pairwise { sprintf "%3d vs %2d", $a, $b } @a, @b;
         push @players, splice @players, 1, @players-2;
-        last if none { $players[$_-1] > $players[$_] } 1..$#players;
+        last if all { $players[$_-1] < $players[$_] } 1..$#players; # compare with Raku's [<]
     }
     @pairings;
 }
 
-say my $result1 = join '', rr(12);
-say my $result2 = join '', map { s/0 vs /Bye: /r } rr(7);
+say my $result1 = join '', rr 12;
+say my $result2 = join '', map { s/0 vs /Bye: /r } rr 7;
+#print my $result2 = s/0 vs /Bye: /r for rr 7;
 
 my $ref1 = <<'END';
 Round  1:   1 vs 12   2 vs 11   3 vs 10   4 vs  9   5 vs  8   6 vs  7
