@@ -10,10 +10,10 @@ use feature 'say';
 
 use List::AllUtils <pairwise all>;
 
-sub rr {
+sub round_robin {
     my($n) = @_;
     my($round,@pairings);
-    my @players = ($n%2 != 0 ? 0 : 1) .. $n;
+    my @players = (1,0)[$n%2] .. $n;
     my $half    = +@players / 2;
 
     while () {
@@ -23,12 +23,12 @@ sub rr {
         push @players, splice @players, 1, @players-2;
         last if all { $players[$_-1] < $players[$_] } 1..$#players; # compare with Raku's [<]
     }
-    @pairings;
+    @pairings
 }
 
-say my $result1 = join '', rr 12;
-say my $result2 = join '', map { s/0 vs /Bye: /r } rr 7;
-#print my $result2 = s/0 vs /Bye: /r for rr 7;
+say my $result1 = join '', round_robin 12;
+say my $result2 = join '', map { s/0 vs /Bye: /r } round_robin 7;
+#print my $result2 = s/0 vs /Bye: /r for round_robin 7;
 
 my $ref1 = <<'END';
 Round  1:   1 vs 12   2 vs 11   3 vs 10   4 vs  9   5 vs  8   6 vs  7
