@@ -1,3 +1,6 @@
+2021-11-15
+Speed jump in testing will be due to lowered limit in 'Iterated_digits_squaring', not any special Perl magic...
+
 2021-11-08
 At this point failures in all tasks using LWP, new recently:
 HTTPS
