@@ -1,0 +1,55 @@
+#!/usr/local/bin/perl
+#u# http://rosettacode.org/wiki/Long_stairs
+#c# 2021-11-16 <RC
+#p# OK
+#n# Tybalt89's version
+
+my @res;
+
+srand 123456;
+
+use strict;
+use warnings;
+use feature 'say';
+
+my $sumseconds = my $sumsizes = my $runs = 0;
+for ( 1 .. 1000 ) {
+  $runs++;
+  my $behind = 0;
+  my $ahead =  100;
+  my $seconds = 0;
+  while( $ahead  > 0 )
+    {
+    rand() <= ($ahead / ($behind + $ahead)) ? $ahead++ : $behind++ for 1 .. 5;
+    $behind++; # one step up
+    $ahead--;
+    $seconds++;
+    $_ == 1 and 600 <= $seconds <= 609 and
+      push @res, "step $seconds: $behind behind, $ahead ahead\n";
+    }
+  $sumsizes += $behind;
+  $sumseconds += $seconds;
+}
+
+push @res, sprintf "\naverage stair length %d average seconds %d\n", $sumsizes / $runs, $sumseconds / $runs;
+
+say my $result = join '', @res;
+
+my $ref = <<'EOD';
+step 600: 2078 behind, 1022 ahead
+step 601: 2083 behind, 1022 ahead
+step 602: 2087 behind, 1023 ahead
+step 603: 2089 behind, 1026 ahead
+step 604: 2094 behind, 1026 ahead
+step 605: 2098 behind, 1027 ahead
+step 606: 2104 behind, 1026 ahead
+step 607: 2109 behind, 1026 ahead
+step 608: 2112 behind, 1028 ahead
+step 609: 2115 behind, 1030 ahead
+
+average stair length 15443 average seconds 3068
+EOD
+
+use Test::More;
+is ($result, $ref);
+done_testing();
