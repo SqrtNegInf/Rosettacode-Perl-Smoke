@@ -1,0 +1,62 @@
+#!/usr/local/bin/perl
+#u# http://rosettacode.org/wiki/Long_stairs
+#c# 2021-11-15 NOT ON RC
+#p# OK
+#n# minimal changes from Raku
+
+my @res;
+
+srand 123456;
+
+use strict;
+use warnings;
+use feature 'say';
+
+my ($trials, $t_total, $s_total) = 1000;
+
+push @res, 'Seconds  steps behind  steps ahead';
+
+for my $t (0..$trials-1) {
+    my $stairs   = 100;
+    my $location = 0;
+    my $seconds  = 0;
+
+    while () {
+        ++$seconds;
+        ++$location;
+        last if $location > $stairs;
+        for (1..5) {
+            ++$location if (int 1 + rand $stairs) <= $location;
+            ++$stairs;
+        }
+       #push @res, "  $seconds        $location         @{[$stairs-$location]}" if !$t and $seconds > 599 and $seconds < 610
+        push @res, "  $seconds        $location         @{[$stairs-$location]}" if !$t and $seconds == 600 .. $seconds == 609 # flip-flop
+    }
+
+    $t_total += $seconds;
+    $s_total += $stairs;
+}
+
+push @res, "Average seconds: @{[$t_total/$trials]},  Average steps: @{[$s_total/$trials]}";
+
+say my $result = join "\n", @res;
+
+my $ref = <<'END';
+Seconds  steps behind  steps ahead
+  600        2175         925
+  601        2180         925
+  602        2185         925
+  603        2191         924
+  604        2194         926
+  605        2199         926
+  606        2200         930
+  607        2203         932
+  608        2208         932
+  609        2214         931
+Average seconds: 2917.875,  Average steps: 14684.375
+END
+
+use Test::More;
+chomp $ref;
+is($result, $ref);
+done_testing();
