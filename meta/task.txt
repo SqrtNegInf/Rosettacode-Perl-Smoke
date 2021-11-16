@@ -5,13 +5,13 @@ updating from RC…
 |+-----------> Smoke testing [1398]
 ||+----------> sKipping validation [146]
 |||+---------> Interactive [74]
-||||+--------> Touched (modified by me) [531]
+||||+--------> Touched (modified by me) [532]
 |||||+-------> Random seed [118]
 ||||||+------> File output [77]
-|||||||+-----> Draft [325]
+|||||||+-----> Draft [326]
 ||||||||+----> Ignoring [36]
-|||||||||+---> Void (no local copy) [127]
-||||||||||+--> Un-implemented/reliable [103]
+|||||||||+---> Void (no local copy) [128]
+||||||||||+--> Un-implemented/reliable [104]
 |||||||||||
 GS......... 100_doors-1
 GS......... 100_doors-2
@@ -805,6 +805,7 @@ GS..T..D... Logistic_curve_fitting_in_epidemiology
 GS......... Long_literals,_with_continuations
 GS......... Long_multiplication
 GS..T...... Long_primes
+.......D.VU Long_stairs
 GS..T...... Long_year
 GS.....D... Longest_common_prefix
 GS......... Longest_common_subsequence
@@ -1272,7 +1273,7 @@ GS..T...... Rosetta_Code_Rank_languages_by_popularity
 .......D.VU Rosetta_Code_Run_examples
 GS..T..D... Rosetta_Code_Tasks_without_examples
 GS......... Rot-13
-GS.....D... Round-robin_tournament_schedule
+GS..T..D... Round-robin_tournament_schedule
 GS......... Round-robin_tournament_schedule-2
 GS......... Run-length_encoding
 .......D.VU Run_as_a_daemon_or_service
