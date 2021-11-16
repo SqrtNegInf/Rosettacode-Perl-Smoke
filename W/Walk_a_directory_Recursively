@@ -1,13 +1,13 @@
 #!/usr/local/bin/perl
 #u# http://rosettacode.org/wiki/Walk_a_directory/Recursively
-#c# 2018-08-03 <>RC
+#c# 2018-08-03 <>RC, 2021-11-15 <RC
 #p# OK
-#n# testing just File::Find
 
 use strict;
 use warnings;
 use feature 'say';
-my $result;
+
+my($result1,$result2,$result3);
 
 # Use the File::Find module from CPAN:
 
@@ -15,7 +15,7 @@ my $result;
 use File::Find qw(find);
 my $dir      = 'ref/test';
 my $pattern  = 'txt';
-my $callback = sub { $result .= $File::Find::name. "\n" if /$pattern/ };
+my $callback = sub { $result1 .= $File::Find::name. "\n" if /$pattern/ };
 find $callback, $dir;
 
 #Or if you need maximum performance and are on a 'nix system, open a pipe to the GNU find program:
@@ -28,17 +28,19 @@ sub find_files {
 
     local $/ = "\0";
     open my $pipe, "find $dir -iname $test -print0 |" or die "find: $!.\n";
-    while (<$pipe>) { print "$_\n"; }  # Here you could do something else with each file path, other than simply printing it.
+    while (<$pipe>) { chop $_; $result2 .= "$_\n"; }
     close $pipe;
 }
 
-say $result; say '';
-
 find_files('ref/test', '*txt');
-# find_files('.', '*.mp3');
 
+# 2021-11-15 Tybalt89 adds:
+use Path::Tiny;
+path('ref/test')->visit( sub {/\.txt$/ and $result3 .= "$_\n"}, {recurse => 1} );
 
-my $ref = <<'EOD';
+say $result1;
+
+my $ref1 = <<'EOD';
 ref/test/not-in-kansas.txt
 ref/test/reverse_words.txt
 ref/test/sample.txt
@@ -46,6 +48,16 @@ ref/test/dir1/not-in-kansas.txt
 ref/test/dir2/sample.txt
 EOD
 
+my $ref2 = <<'EOD';
+ref/test/dir1/not-in-kansas.txt
+ref/test/dir2/sample.txt
+ref/test/not-in-kansas.txt
+ref/test/reverse_words.txt
+ref/test/sample.txt
+EOD
+
 use Test::More;
-is ($result, $ref);
+is ($result1, $ref1);
+is ($result2, $ref2);
+is ($result3, $ref1);
 done_testing();
