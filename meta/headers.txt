@@ -1,3 +1,10 @@
+File: 0/10001th_prime
+#!/usr/local/bin/perl
+#u# http://rosettacode.org/wiki/10001th_prime
+#c# 2021-11-16 >RC
+#p# OK
+#n# regex soln is slow, but under 3 hours!  7814.72s user 99.83s system 80% cpu 2:43:15.98 total
+
 File: 0/100_doors-1
 #!/usr/local/bin/perl
 #u# http://rosettacode.org/wiki/100_doors
@@ -4952,6 +4959,20 @@ File: L/Long_primes
 #u# http://rosettacode.org/wiki/Long_primes
 #c# 2018-08-16 >RC, 2018-11-07 <RC
 #p# OK
+
+File: L/Long_stairs
+#!/usr/local/bin/perl
+#u# http://rosettacode.org/wiki/Long_stairs
+#c# 2021-11-15 NOT ON RC
+#p# OK
+#n# minimal changes from Raku
+
+File: L/Long_stairs-2
+#!/usr/local/bin/perl
+#u# http://rosettacode.org/wiki/Long_stairs
+#c# 2021-11-16 <RC
+#p# OK
+#n# Tybalt89's version
 
 File: L/Long_year
 #!/usr/local/bin/perl
