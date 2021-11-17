@@ -1,18 +1,19 @@
 
 This is perl 5, version 32, subversion 1 (v5.32.1) built for darwin-thread-multi-2level
 updating from RC…
-+------------> Perl: Good/Bad [1541/12]
-|+-----------> Smoke testing [1398]
++------------> Perl: Good/Bad [1544/12]
+|+-----------> Smoke testing [1401]
 ||+----------> sKipping validation [146]
 |||+---------> Interactive [74]
-||||+--------> Touched (modified by me) [532]
-|||||+-------> Random seed [118]
+||||+--------> Touched (modified by me) [533]
+|||||+-------> Random seed [120]
 ||||||+------> File output [77]
-|||||||+-----> Draft [326]
+|||||||+-----> Draft [327]
 ||||||||+----> Ignoring [36]
-|||||||||+---> Void (no local copy) [128]
-||||||||||+--> Un-implemented/reliable [104]
+|||||||||+---> Void (no local copy) [127]
+||||||||||+--> Un-implemented/reliable [103]
 |||||||||||
+GS..T..D... 10001th_prime
 GS......... 100_doors-1
 GS......... 100_doors-2
 GS......... 100_doors-3
@@ -805,7 +806,8 @@ GS..T..D... Logistic_curve_fitting_in_epidemiology
 GS......... Long_literals,_with_continuations
 GS......... Long_multiplication
 GS..T...... Long_primes
-.......D.VU Long_stairs
+GS...R.D... Long_stairs
+GS...R..... Long_stairs-2
 GS..T...... Long_year
 GS.....D... Longest_common_prefix
 GS......... Longest_common_subsequence
