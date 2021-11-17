@@ -39,7 +39,7 @@ $result .= "Pi(10,000) = $s\n";
 # While this is extremely clever and often used for Code golf, it should never be used for real work (it is extremely slow and uses lots of memory).
 
 sub isprime2 {
-  ('1' x shift) !~ /^1?$|^(11+?)\1+$/
+  ('1' x shift) !~ /^1?$|^(11+)\1+$/
 }
 $result .= join(', ', grep(isprime2($_), 0..39)). "\n";
 
