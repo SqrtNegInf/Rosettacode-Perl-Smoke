@@ -8,9 +8,9 @@ updating from RC…
 ||||+--------> Touched (modified by me) [533]
 |||||+-------> Random seed [120]
 ||||||+------> File output [77]
-|||||||+-----> Draft [327]
+|||||||+-----> Draft [328]
 ||||||||+----> Ignoring [36]
-|||||||||+---> Void (no local copy) [127]
+|||||||||+---> Void (no local copy) [128]
 ||||||||||+--> Un-implemented/reliable [103]
 |||||||||||
 GS..T..D... 10001th_prime
@@ -411,6 +411,7 @@ GS......... Distributed_programming
 GS..T..D... Distribution_of_0_Digits_in_factorial_series
 GS..T...... Diversity_prediction_theorem
 G.K........ Documentation
+.......D.V. Dominoes
 GS.....D... Doomsday_rule
 GS......... Dot_product
 .........VU Doubly-linked_list_Definition
