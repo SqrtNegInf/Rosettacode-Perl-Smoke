@@ -1,0 +1,115 @@
+#!/usr/local/bin/perl
+#u# http://rosettacode.org/wiki/Dominoes
+#t# skiptest
+#c# 2021-11-17 <RC
+#p# OK
+
+my $result;
+
+use strict;
+use warnings;
+use feature 'say';
+
+my $gap = qr/(.{15}) (.{15})/s;
+
+my $grid = <<END;
+0 5 1 3 2 2 3 1
+
+0 5 5 0 5 2 4 6
+
+4 3 0 3 6 6 2 0
+
+0 6 2 3 5 1 2 6
+
+1 1 3 0 0 2 4 5
+
+2 1 4 3 3 4 6 6
+
+6 4 5 1 5 4 1 4
+END
+eval { find( 0, 0, $grid ) };
+
+$grid = <<END;
+0 0 0 1 1 1 0 2
+
+1 2 2 2 0 3 1 3
+
+2 3 3 3 0 4 1 4
+
+2 4 3 4 4 4 0 5
+
+1 5 2 5 3 5 4 5
+
+5 5 0 6 1 6 2 6
+
+3 6 4 6 5 6 6 6
+END
+eval { find( 0, 0, $grid ) };
+
+sub find {
+  my ($x, $y, $try) = @_;
+  if( $x > $y ) {
+    $x = 0;
+    if( ++$y > 6 ) { # solved
+      print "\nfound:\n\n", $grid | $try;
+      die;
+    }
+  }
+  while ( $try =~ /(?=(?|$x$gap$y|$y$gap$x))/g ) { # vertical
+    my $new = $try;
+    substr $new, $-[0], 33, " $1+$2 ";
+    find( $x + 1, $y, $new );
+  }
+  while ( $try =~ /(?=$x $y|$y $x)/g ) { # horizontal
+    my $new = $try;
+    substr $new, $-[0], 3, ' + ';
+    find( $x + 1, $y, $new );
+  }
+}
+
+#say my $result = join "\n", @res;
+
+__END__
+my $refx = <<'EOD';
+
+found:
+
+0+5 1+3 2 2+3 1
+        +     +
+0 5+5 0 5 2+4 6
++     +        
+4 3 0 3 6+6 2 0
+  + +       + +
+0 6 2 3+5 1 2 6
++         +    
+1 1 3 0+0 2 4 5
+  + +       + +
+2 1 4 3+3 4 6 6
++         +    
+6 4+5 1+5 4 1+4
+
+EOD
+
+my $ref = <<'EOD';
+
+found:
+
+0+0 0+1 1+1 0+2
+
+1 2+2 2 0+3 1+3
++     +        
+2 3+3 3 0 4 1+4
+        + +    
+2+4 3+4 4 4 0+5
+
+1 5 2+5 3+5 4+5
++ +            
+5 5 0+6 1+6 2 6
+            + +
+3+6 4+6 5+6 6 6
+
+EOD
+
+use Test::More;
+is ($result, $ref);
+done_testing();
