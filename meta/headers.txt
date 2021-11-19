@@ -1650,6 +1650,12 @@ File: C/Compare_a_list_of_strings
 #p# OK
 #n# had a bug: \1 replaces $1
 
+File: C/Compare_length_of_two_strings
+#!/usr/local/bin/perl
+#u# http://rosettacode.org/wiki/Compare_length_of_two_strings
+#c# 2021-11-18 <RC
+#p# OK
+
 File: C/Compile-time_calculation
 #!/usr/local/bin/perl
 #u# http://rosettacode.org/wiki/Compile-time_calculation
@@ -2425,6 +2431,13 @@ File: D/Documentation
 #u# http://rosettacode.org/wiki/Documentation
 #t# nocode
 #c# 2018-07-28 <RC
+#p# OK
+
+File: D/Dominoes
+#!/usr/local/bin/perl
+#u# http://rosettacode.org/wiki/Dominoes
+#t# skiptest
+#c# 2021-11-17 <RC
 #p# OK
 
 File: D/Doomsday_rule
@@ -4795,6 +4808,13 @@ File: L/Least_common_multiple
 #u# http://rosettacode.org/wiki/Least_common_multiple
 #c# 2018-08-15 <RC
 #p# OK
+
+File: L/Least_square
+#!/usr/local/bin/perl
+#u# http://rosettacode.org/wiki/Least_square
+#c# 2021-11-18 <RC
+#p# OK
+#n# Lordy, the mind of Calmosoft: let's get trivial!  Anyways, goof around a bit...
 
 File: L/Left_factorials
 #!/usr/local/bin/perl
@@ -10076,6 +10096,14 @@ File: U/Update_a_configuration_file
 #u# http://rosettacode.org/wiki/Update_a_configuration_file
 #c# 2018-08-07 <RC
 #p# OK
+
+File: U/Useless_instructions
+#!/usr/local/bin/perl
+#u# http://rosettacode.org/wiki/Useless_instructions
+#t# nocode
+#c# 2021-11-02 >RC
+#p# OK
+#n# Unask that question!
 
 File: U/User_defined_pipe_and_redirection_operators
 #!/usr/local/bin/perl
