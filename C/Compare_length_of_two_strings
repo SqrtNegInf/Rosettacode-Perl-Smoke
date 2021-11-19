@@ -1,0 +1,37 @@
+#!/usr/local/bin/perl
+#u# http://rosettacode.org/wiki/Compare_length_of_two_strings
+#c# 2021-11-18 <RC
+#p# OK
+
+my @res;
+
+use strict;
+use warnings;
+use feature 'say';
+
+for ( 'shorter thelonger', 'abcd 123456789 abcdef 1234567' )
+  {
+  push @res, "\nfor strings => $_";
+  push @res, sprintf "length %d: %s", length(), $_
+    for sort { length $b <=> length $a } split;
+  }
+
+say my $result = join "\n", @res;
+
+my $ref = <<'EOD';
+
+for strings => shorter thelonger
+length 9: thelonger
+length 7: shorter
+
+for strings => abcd 123456789 abcdef 1234567
+length 9: 123456789
+length 7: 1234567
+length 6: abcdef
+length 4: abcd
+EOD
+
+use Test::More;
+chomp $ref;
+is ($result, $ref);
+done_testing();
