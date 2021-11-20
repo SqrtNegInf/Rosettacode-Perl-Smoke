@@ -1,16 +1,15 @@
 
 This is perl 5, version 32, subversion 1 (v5.32.1) built for darwin-thread-multi-2level
-updating from RC…
-+------------> Perl: Good/Bad [1547/12]
-|+-----------> Smoke testing [1402]
++------------> Perl: Good/Bad [1549/12]
+|+-----------> Smoke testing [1403]
 ||+----------> sKipping validation [148]
 |||+---------> Interactive [74]
 ||||+--------> Touched (modified by me) [534]
-|||||+-------> Random seed [120]
+|||||+-------> Random seed [121]
 ||||||+------> File output [77]
 |||||||+-----> Draft [329]
 ||||||||+----> Ignoring [36]
-|||||||||+---> Void (no local copy) [126]
+|||||||||+---> Void (no local copy) [124]
 ||||||||||+--> Un-implemented/reliable [101]
 |||||||||||
 GS..T..D... 10001th_prime
@@ -288,7 +287,7 @@ G.K........ Comments
 GS..T..D... Common_list_elements
 GS..T..D... Common_sorted_list
 GS..T...... Compare_a_list_of_strings
-.........V. Compare_length_of_two_strings
+GS......... Compare_length_of_two_strings
 .........VU Compare_sorting_algorithms%27_performance
 GS......... Compile-time_calculation
 GS......... Compiler_AST_interpreter
@@ -925,7 +924,7 @@ GS......... Monads_Writer_monad
 GS...R..... Monte_Carlo_methods
 GS..T..D... Montgomery_reduction
 GS...R..... Monty_Hall_problem
-.......D.VU Morpion_solitaire
+G....R.D..U Morpion_solitaire
 GS......... Morse_code
 GS.....D... Most_frequent_k_chars_distance
 GS......... Motzkin_numbers
