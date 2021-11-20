@@ -1,0 +1,113 @@
+#!/usr/local/bin/perl
+#u# http://rosettacode.org/wiki/Morpion_solitaire
+#c# 2021-11-19 <RC
+#p# OK
+
+srand 123456;
+
+my @res;
+
+use strict;
+use warnings;
+use feature 'say';
+
+use List::Util qw( none );
+
+local $_ = <<END;
+.............XXXX.............
+.............X..X.............
+.............X..X.............
+..........XXXX..XXXX..........
+..........X........X..........
+..........X........X..........
+..........XXXX..XXXX..........
+.............X..X.............
+.............X..X.............
+.............XXXX.............
+END
+$_ = tr/X/ /r . $_ . tr/X/ /r; # expand to 30x30
+tr/./ /; # and convert dots to spaces
+
+my @moves;
+my %used;
+my $count = 0;
+while( 1 )
+  {
+#	print s/\A(?: +\n)*|(?:^ +\n)*\z//gmr, "count $count\n"; # uncomment for each step
+  tr/O/X/;
+  my @try; # find valid moves
+  for my $i ( 0, 29 .. 31 )
+    {
+    my $gap = qr/.{$i}/s;
+    while( / (?=$gap(X)$gap(X)$gap(X)$gap(X))/g ) # add to top
+      {
+      my $cand = join ' ', map $-[$_], 0 .. 4;
+      none { $used{$_} } $cand =~ /(?=\b(\d+ \d+)\b)/g and push @try, $cand;
+      }
+    while( /X(?=$gap(.)$gap(.)$gap(.)$gap(.))/g ) # add inside/bottom downward
+      {
+      "$1$2$3$4" =~ tr/X// == 3 or next;
+      my $cand = join ' ', map $-[$_], 0 .. 4;
+      none { $used{$_} } $cand =~ /(?=\b(\d+ \d+)\b)/g and push @try, $cand;
+      }
+    }
+  @try ? $count++ : last;
+  my $pick = $try[rand @try]; #pick one valid move
+  push @moves, $pick;
+  for my $pos (split ' ', $pick)
+    {
+    substr $_, $pos, 1, 'O';
+    }
+  $used{$1} = 1 while $pick =~ /(?=\b(\d+ \d+)\b)/g;
+  }
+push @res, join(' ', map s/ .* /->/r =~ s!\d+! ($& % 31).','.int $& / 31 !ger, @moves)
+  =~ s/.{60}\K /\n/gr, "\n";
+tr/O/X/;
+push @res, $_. "move count: $count\n";
+
+#exit;
+
+say my $result = join '', @res;
+my $ref = <<'EOD';
+15,10->19,14 13,15->13,19 10,12->10,16 15,16->19,16 9,13->13,13
+10,16->14,16 16,13->20,13 10,15->14,19 19,12->19,16 9,13->13,17
+14,10->10,14 19,15->15,19 13,9->13,13 12,10->16,10 12,19->16,19
+16,9->16,13 16,16->16,20 13,9->9,13 13,9->17,13 10,12->14,16
+12,13->12,17 16,9->12,13 20,13->16,17 13,13->9,17 9,15->13,15
+13,11->17,11
+                              
+                              
+                              
+                              
+                              
+                              
+                              
+                              
+                              
+             X  X             
+            XXXXX             
+           X XXXXX            
+          X XX  XX X          
+         XXXXX  XXXXX         
+          X X      X          
+         XXXXX    XX          
+          XXXXXXXXXX          
+         X  XX  XX            
+             X  X             
+            XXXXX             
+                X             
+                              
+                              
+                              
+                              
+                              
+                              
+                              
+                              
+                              
+move count: 26
+EOD
+
+use Test::More;
+is ($result, $ref);
+done_testing();
