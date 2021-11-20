@@ -4698,6 +4698,12 @@ File: L/Langton%27s_ant
 #c# 2018-08-14 <RC
 #p# OK
 
+File: L/Largest_difference_between_adjacent_primes
+#!/usr/local/bin/perl
+#u# http://rosettacode.org/wiki/Largest_difference_between_adjacent_primes
+#c# 2021-11-19 >RC
+#p# OK
+
 File: L/Largest_five_adjacent_number
 #!/usr/local/bin/perl
 #u# http://rosettacode.org/wiki/Largest_five_adjacent_number
@@ -5735,6 +5741,12 @@ File: M/Monty_Hall_problem
 #!/usr/local/bin/perl
 #u# http://rosettacode.org/wiki/Monty_Hall_problem
 #c# 2018-08-18 <RC
+#p# OK
+
+File: M/Morpion_solitaire
+#!/usr/local/bin/perl
+#u# http://rosettacode.org/wiki/Morpion_solitaire
+#c# 2021-11-19 <RC
 #p# OK
 
 File: M/Morse_code
