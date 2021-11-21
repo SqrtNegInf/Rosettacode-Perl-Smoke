@@ -1,15 +1,16 @@
 
 This is perl 5, version 32, subversion 1 (v5.32.1) built for darwin-thread-multi-2level
-+------------> Perl: Good/Bad [1549/12]
-|+-----------> Smoke testing [1403]
+updating from RC…
++------------> Perl: Good/Bad [1550/12]
+|+-----------> Smoke testing [1405]
 ||+----------> sKipping validation [148]
 |||+---------> Interactive [74]
-||||+--------> Touched (modified by me) [534]
+||||+--------> Touched (modified by me) [535]
 |||||+-------> Random seed [121]
 ||||||+------> File output [77]
-|||||||+-----> Draft [329]
+|||||||+-----> Draft [331]
 ||||||||+----> Ignoring [36]
-|||||||||+---> Void (no local copy) [124]
+|||||||||+---> Void (no local copy) [125]
 ||||||||||+--> Un-implemented/reliable [101]
 |||||||||||
 GS..T..D... 10001th_prime
@@ -429,6 +430,7 @@ G.KIT..D... Draw_pixel_2
 GS...R..... Dutch_national_flag_problem
 GS......... Dynamic_variable_names
 GS..T...... EKG_sequence_convergence
+.......D.VU Earliest_difference_between_prime_gaps
 GS..T...... Eban_numbers-1
 GS......... Eban_numbers-2
 G.KI....... Echo_server
@@ -766,6 +768,7 @@ GS..T...... LU_decomposition
 GS......... LZW_compression
 GS..T...... Lah_numbers
 GS...R..... Langton%27s_ant
+GS..T..D... Largest_difference_between_adjacent_primes
 GS...R.D... Largest_five_adjacent_number
 GS......... Largest_int_from_concatenated_ints
 GS..T...... Largest_number_divisible_by_its_digits-1
@@ -924,7 +927,7 @@ GS......... Monads_Writer_monad
 GS...R..... Monte_Carlo_methods
 GS..T..D... Montgomery_reduction
 GS...R..... Monty_Hall_problem
-G....R.D..U Morpion_solitaire
+GS...R.D... Morpion_solitaire
 GS......... Morse_code
 GS.....D... Most_frequent_k_chars_distance
 GS......... Motzkin_numbers
