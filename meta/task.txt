@@ -8,10 +8,10 @@ updating from RC…
 ||||+--------> Touched (modified by me) [535]
 |||||+-------> Random seed [121]
 ||||||+------> File output [77]
-|||||||+-----> Draft [331]
+|||||||+-----> Draft [332]
 ||||||||+----> Ignoring [36]
-|||||||||+---> Void (no local copy) [125]
-||||||||||+--> Un-implemented/reliable [101]
+|||||||||+---> Void (no local copy) [126]
+||||||||||+--> Un-implemented/reliable [100]
 |||||||||||
 GS..T..D... 10001th_prime
 GS......... 100_doors-1
@@ -430,7 +430,7 @@ G.KIT..D... Draw_pixel_2
 GS...R..... Dutch_national_flag_problem
 GS......... Dynamic_variable_names
 GS..T...... EKG_sequence_convergence
-.......D.VU Earliest_difference_between_prime_gaps
+.......D.V. Earliest_difference_between_prime_gaps
 GS..T...... Eban_numbers-1
 GS......... Eban_numbers-2
 G.KI....... Echo_server
@@ -528,6 +528,7 @@ GS..T...... File_size_distribution
 GS......... Filter
 GS..T...... Find_Chess960_starting_position_identifier
 GS.....D... Find_URI_in_text
+GS.....D... Find_adjacents_primes_which_difference_is_square_integer
 GS..T...... Find_common_directory_path
 GS..T...... Find_duplicate_files
 GS.....D... Find_first_and_last_set_bit_of_a_long_integer
@@ -539,6 +540,7 @@ GS..T..D... Find_minimum_number_of_coins_that_make_a_given_value
 GS......... Find_palindromic_numbers_in_both_binary_and_ternary_bases
 .......D.V. Find_prime_n_such_that_reversed_n_is_also_prime
 GS..T..D... Find_prime_numbers_of_the_form_n_n_n%2B2
+.......D.V. Find_square_difference
 GS..T...... Find_the_intersection_of_a_line_with_a_plane-1
 GS......... Find_the_intersection_of_a_line_with_a_plane-2
 GS......... Find_the_intersection_of_two_lines
@@ -787,7 +789,6 @@ G.KIT..D... Launch_rocket_with_countdown_and_acceleration_in_stdout
 GS..T...... Law_of_cosines_-_triples
 GS......... Leap_year
 GS......... Least_common_multiple
-GS.....D... Least_square
 GS......... Left_factorials
 GS......... Legendre_prime_counting_function
 GS..T..D... Length_of_an_arc_between_two_angles
