@@ -1,0 +1,54 @@
+#!/usr/local/bin/perl
+#u# http://rosettacode.org/wiki/Find_adjacents_primes_which_difference_is_square_integer
+#c# 2021-11-21 <RC
+#p# OK
+
+my @res;
+
+use strict;
+use warnings;
+use feature 'say';
+
+use ntheory qw( primes is_square );
+
+my $primeref = primes( 1e6 );
+for my $i (1 .. $#$primeref ) {
+  (my $diff = $primeref->[$i] - $primeref->[$i - 1]) > 36 or next;
+  is_square($diff) and push @res, "$primeref->[$i + 1] - $primeref->[$i - 1] = $diff";
+}
+
+say my $result = join "\n", @res;
+
+my $ref = <<'EOD';
+89759 - 89689 = 64
+107449 - 107377 = 64
+288649 - 288583 = 64
+368029 - 367957 = 64
+381169 - 381103 = 64
+396871 - 396733 = 100
+400837 - 400759 = 64
+445433 - 445363 = 64
+623209 - 623107 = 64
+625777 - 625699 = 64
+637073 - 637003 = 64
+710779 - 710713 = 64
+725293 - 725209 = 64
+779489 - 779413 = 64
+801949 - 801883 = 64
+803819 - 803749 = 64
+821747 - 821677 = 64
+832591 - 832519 = 64
+838351 - 838249 = 100
+844847 - 844777 = 64
+883877 - 883807 = 64
+912173 - 912103 = 64
+919519 - 919447 = 64
+954829 - 954763 = 64
+981889 - 981823 = 64
+997879 - 997813 = 64
+EOD
+
+use Test::More;
+chomp $ref;
+is ($result, $ref);
+done_testing();
