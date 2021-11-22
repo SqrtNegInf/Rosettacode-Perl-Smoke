@@ -3150,6 +3150,12 @@ File: F/Find_URI_in_text.1
 #u# http://rosettacode.org/wiki/Find_URI_in_text
 #p# BROKEN
 
+File: F/Find_adjacents_primes_which_difference_is_square_integer
+#!/usr/local/bin/perl
+#u# http://rosettacode.org/wiki/Find_adjacents_primes_which_difference_is_square_integer
+#c# 2021-11-21 <RC
+#p# OK
+
 File: F/Find_common_directory_path
 #!/usr/local/bin/perl
 #u# http://rosettacode.org/wiki/Find_common_directory_path
