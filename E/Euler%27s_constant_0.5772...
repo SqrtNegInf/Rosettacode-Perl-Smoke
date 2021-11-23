@@ -1,0 +1,16 @@
+#!/usr/local/bin/perl
+#u# http://rosettacode.org/wiki/Euler%27s_constant_0.5772...
+#c# 2021-11-22 <RC
+#p# OK
+
+use strict;
+use warnings;
+use feature 'say';
+
+use List::Util qw( sum );
+
+say my $result = sum( map 1 / $_, 1 .. 1e6) - log 1e6;
+
+use Test::More;
+is ($result, 0.577216164900715);
+done_testing();
