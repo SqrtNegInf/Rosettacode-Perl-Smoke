@@ -1,0 +1,47 @@
+#!/usr/local/bin/perl
+#u# http://rosettacode.org/wiki/Earliest_difference_between_prime_gaps
+#c# 2021-11-21 <RC
+#p# OK
+
+my @res;
+
+use strict;
+use warnings;
+use feature 'say';
+
+use ntheory qw( primes );
+
+my @gaps;
+my $primeref = primes( 1e9 );
+for my $i ( 2 .. $#$primeref ) {
+    my $diff = $primeref->[$i] - $primeref->[$i - 1];
+    $gaps[ $diff >> 1 ] //= $primeref->[$i - 1];
+}
+
+my %first;
+for my $i ( 1 .. $#gaps ) {
+    defined $gaps[$i] && defined $gaps[$i-1] or next;
+    my $diff = abs $gaps[$i] - $gaps[$i-1];
+    for my $m ( map 10 ** $_, 1 .. 10 ) {
+        $diff > $m and !$first{$m}++ and
+           push @res, "above $m gap @{[$i * 2 - 2 ]} abs( $gaps[$i-1] - $gaps[$i] )";
+    }
+}
+
+say my $result = join "\n", @res;
+
+my $ref = <<'EOD';
+above 10 gap 4 abs( 7 - 23 )
+above 100 gap 14 abs( 113 - 1831 )
+above 1000 gap 14 abs( 113 - 1831 )
+above 10000 gap 36 abs( 9551 - 30593 )
+above 100000 gap 70 abs( 173359 - 31397 )
+above 1000000 gap 100 abs( 396733 - 1444309 )
+above 10000000 gap 148 abs( 2010733 - 13626257 )
+above 100000000 gap 198 abs( 46006769 - 378043979 )
+EOD
+
+use Test::More;
+chomp $ref;
+is ($result, $ref);
+done_testing();
