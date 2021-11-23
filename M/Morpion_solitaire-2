@@ -1,0 +1,107 @@
+#!/usr/local/bin/perl
+#u# http://rosettacode.org/wiki/Morpion_solitaire
+#c# 2021-11-19 <RC
+#p# OK
+
+srand 123456;
+
+use strict;
+use warnings;
+use feature 'say';
+
+use List::Util qw( none );
+ 
+local $_ = <<END;
+.............XXXX.............
+.............X..X.............
+.............X..X.............
+..........XXXX..XXXX..........
+..........X........X..........
+..........X........X..........
+..........XXXX..XXXX..........
+.............X..X.............
+.............X..X.............
+.............XXXX.............
+END
+$_ = tr/X./ /r . tr/./ /r . tr/X./ /r; # expand to 30x30 and spaces
+ 
+my @moves;
+my %used;
+my $count = 0;
+while( 1 ) {
+  my @try; # valid moves
+  for my $i ( 1, 30 .. 32 ) { # directions 1 - 30 / 31 | 32 \
+    my $combined =           tr/X \n/A\0/r |
+      (substr $_, $i)     =~ tr/X \n/B\0/r |
+      (substr $_, 2 * $i) =~ tr/X \n/D\0/r |
+      (substr $_, 3 * $i) =~ tr/X \n/H\0/r |
+      (substr $_, 4 * $i) =~ tr/X \n/P\0/r;
+    while( $combined =~ /[OW\[\]\^]/g ) { # exactly four Xs and one space
+      my $cand = join ' ', map $-[0] + $_ * $i, 0 .. 4;
+      none { $used{$_} } $cand =~ /(?=\b(\d+ \d+)\b)/g and push @try, $cand;
+    }
+  }
+  @try ? $count++ : last;
+  my $pick = $try[rand @try]; #pick one valid move
+  push @moves, $pick;
+  for my $pos (split ' ', $pick) {
+    substr $_, $pos, 1, 'X';
+  }
+  @used{ $pick =~ /(?=\b(\d+ \d+)\b)/g } = (1) x 4;
+}
+
+my $result = join(' ', map s/ .* /->/r =~ s!\d+! ($& % 31).','.int $& / 31 !ger, @moves) =~ s/.{60}\K /\n/gr . "\n";
+$result  .= $_;  # "move count: $count\n";
+say $result;
+
+my $ref = <<'EOD';
+15,10->19,14 10,12->10,16 16,9->16,13 15,13->19,13 13,10->17,10
+16,16->20,16 10,16->14,16 10,15->14,19 13,10->13,14 16,12->20,16
+13,19->17,19 14,10->10,14 19,15->15,19 9,13->13,13 16,9->12,13
+13,14->13,18 10,12->14,16 12,12->12,16 16,15->16,19 9,13->13,17
+19,13->19,17 14,12->10,16 16,12->12,16 13,13->17,17 13,12->17,12
+14,10->14,14 13,12->17,16 14,13->10,17 18,9->14,13 13,10->17,14
+11,14->15,14 17,10->17,14 16,13->12,17 9,15->13,15 15,12->15,16
+13,11->17,11 10,13->14,17 14,15->14,19 11,12->15,16 11,13->11,17
+9,15->13,19 16,14->12,18 11,17->15,17 16,14->20,14 17,15->13,19
+16,10->20,14 16,14->20,18 18,12->18,16 15,17->19,17 14,16->18,20
+19,14->15,18 17,15->17,19 15,16->15,20 11,18->15,18 9,12->13,12
+19,12->15,16 16,15->20,15 12,10->16,14 18,17->14,21 20,14->20,18
+17,14->21,18
+                              
+                              
+                              
+                              
+                              
+                              
+                              
+                              
+                              
+                X X           
+            XXXXXX            
+             XXXXX            
+         XXXXXXXXXXX          
+         XXXXXXXXXXX          
+          XXXXXXXXXXX         
+         XXXXXXXXXXXX         
+          XXXXXXXXXXX         
+          XXXXXXXXXXX         
+           XXXXXXX  XX        
+             XXXXX            
+               X  X           
+              X               
+                              
+                              
+                              
+                              
+                              
+                              
+                              
+                              
+
+EOD
+
+use Test::More;
+chomp $ref;
+is ($result, $ref);
+done_testing();
