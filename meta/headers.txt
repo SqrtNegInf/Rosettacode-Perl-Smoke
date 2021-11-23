@@ -2547,6 +2547,12 @@ File: E/EKG_sequence_convergence
 #c# 2018-10-24 >RC
 #p# OK
 
+File: E/Earliest_difference_between_prime_gaps
+#!/usr/local/bin/perl
+#u# http://rosettacode.org/wiki/Earliest_difference_between_prime_gaps
+#c# 2021-11-21 <RC
+#p# OK
+
 File: E/Eban_numbers-1
 #!/usr/local/bin/perl
 #u# http://rosettacode.org/wiki/Eban_numbers
@@ -2711,6 +2717,12 @@ File: E/Euclid-Mullin_sequence
 #!/usr/local/bin/perl
 #u# http://rosettacode.org/wiki/Euclid-Mullin_sequence
 #c# 2021-10-28 >RC
+#p# OK
+
+File: E/Euler%27s_constant_0.5772...
+#!/usr/local/bin/perl
+#u# http://rosettacode.org/wiki/Euler%27s_constant_0.5772...
+#c# 2021-11-22 <RC
 #p# OK
 
 File: E/Euler%27s_identity
@@ -5750,6 +5762,12 @@ File: M/Monty_Hall_problem
 #p# OK
 
 File: M/Morpion_solitaire
+#!/usr/local/bin/perl
+#u# http://rosettacode.org/wiki/Morpion_solitaire
+#c# 2021-11-19 <RC
+#p# OK
+
+File: M/Morpion_solitaire-2
 #!/usr/local/bin/perl
 #u# http://rosettacode.org/wiki/Morpion_solitaire
 #c# 2021-11-19 <RC
