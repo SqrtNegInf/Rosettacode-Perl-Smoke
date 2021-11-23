@@ -1,14 +1,14 @@
 
 This is perl 5, version 32, subversion 1 (v5.32.1) built for darwin-thread-multi-2level
 updating from RC…
-+------------> Perl: Good/Bad [1550/12]
-|+-----------> Smoke testing [1405]
++------------> Perl: Good/Bad [1553/12]
+|+-----------> Smoke testing [1408]
 ||+----------> sKipping validation [148]
 |||+---------> Interactive [74]
 ||||+--------> Touched (modified by me) [535]
-|||||+-------> Random seed [121]
+|||||+-------> Random seed [122]
 ||||||+------> File output [77]
-|||||||+-----> Draft [332]
+|||||||+-----> Draft [333]
 ||||||||+----> Ignoring [36]
 |||||||||+---> Void (no local copy) [126]
 ||||||||||+--> Un-implemented/reliable [100]
@@ -430,7 +430,7 @@ G.KIT..D... Draw_pixel_2
 GS...R..... Dutch_national_flag_problem
 GS......... Dynamic_variable_names
 GS..T...... EKG_sequence_convergence
-.......D.V. Earliest_difference_between_prime_gaps
+GS.....D... Earliest_difference_between_prime_gaps
 GS..T...... Eban_numbers-1
 GS......... Eban_numbers-2
 G.KI....... Echo_server
@@ -459,6 +459,7 @@ GS..T..D... Erdos-primes
 GS......... Esthetic_numbers
 GS......... Ethiopian_multiplication
 GS..T..D... Euclid-Mullin_sequence
+GS......... Euler%27s_constant_0.5772...
 GS......... Euler%27s_identity
 GS......... Euler%27s_sum_of_powers_conjecture-1
 GS......... Euler%27s_sum_of_powers_conjecture-2
@@ -907,6 +908,7 @@ GS......... Miller-Rabin_primality_test-2
 GS..TR..... Mind_boggling_card_trick
 .......D.VU Mine_a_bitcoin
 G.KI....... Minesweeper_game
+.......D.V. Minimal_numbers_of_three_lists_at_same_position
 GS......... Minimal_steps_down_to_1
 GS..T..D... Minimum_number_of_cells_after,_before,_above_and_below_NxN_squares
 GS..T..D... Minimum_numbers_of_three_lists
@@ -929,6 +931,7 @@ GS...R..... Monte_Carlo_methods
 GS..T..D... Montgomery_reduction
 GS...R..... Monty_Hall_problem
 GS...R.D... Morpion_solitaire
+GS...R..... Morpion_solitaire-2
 GS......... Morse_code
 GS.....D... Most_frequent_k_chars_distance
 GS......... Motzkin_numbers
