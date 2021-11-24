@@ -8,10 +8,10 @@ updating from RC…
 ||||+--------> Touched (modified by me) [535]
 |||||+-------> Random seed [122]
 ||||||+------> File output [77]
-|||||||+-----> Draft [333]
+|||||||+-----> Draft [335]
 ||||||||+----> Ignoring [36]
-|||||||||+---> Void (no local copy) [126]
-||||||||||+--> Un-implemented/reliable [100]
+|||||||||+---> Void (no local copy) [128]
+||||||||||+--> Un-implemented/reliable [103]
 |||||||||||
 GS..T..D... 10001th_prime
 GS......... 100_doors-1
@@ -211,6 +211,7 @@ G.K........ Call_a_function
 GS..T...... Call_a_function_in_a_shared_library-1
 GS..T...... Call_a_function_in_a_shared_library-2
 G.K........ Call_an_object_method
+.......D.VU Camel_Case_and_Snake_Case
 .........VU Canny_edge_detector
 GS......... Canonicalize_CIDR
 GS..T...... Cantor_set
@@ -908,7 +909,6 @@ GS......... Miller-Rabin_primality_test-2
 GS..TR..... Mind_boggling_card_trick
 .......D.VU Mine_a_bitcoin
 G.KI....... Minesweeper_game
-.......D.V. Minimal_numbers_of_three_lists_at_same_position
 GS......... Minimal_steps_down_to_1
 GS..T..D... Minimum_number_of_cells_after,_before,_above_and_below_NxN_squares
 GS..T..D... Minimum_numbers_of_three_lists
@@ -993,6 +993,7 @@ G.KI...D... Number_triplets_game
 GS.....D... Numbers_divisible_by_their_individual_digits,_but_not_by_the_product_of_their_digits.
 GS..T..D... Numbers_in_base-16_representation_that_cannot_be_written_with_decimal_digits
 GS..T..D... Numbers_in_base_10_that_are_palindromic_in_bases_2,_4,_and_16
+.......D.VU Numbers_which_are_not_the_sum_of_distinct_squares
 GS..T..D... Numbers_which_binary_and_ternary_digit_sum_are_prime
 .......D.V. Numbers_whose_count_of_divisors_is_prime
 GS......... Numbers_with_equal_rises_and_falls
@@ -1008,6 +1009,7 @@ GS..T...... Numerical_integration_Gauss-Legendre_Quadrature
 .........VU OLE_automation
 GS......... Object_serialization-1
 GS......... Object_serialization-2
+.......D.VU Odd_and_square_numbers
 GS.....D... Odd_squarefree_semiprimes
 GS......... Odd_word_problem
 GS......... Odd_word_problem-2
