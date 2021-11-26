@@ -1,107 +1,41 @@
 #!/usr/local/bin/perl
 #u# http://rosettacode.org/wiki/Rare_numbers
-#t# toodamnslow
-#c# 2019-09-xx >RC
+#c# 2021-11-25 <RC
 #p# OK
-#n# 12 min to find 5, even if parallel execution added, getting just the even values would take nearly 10 hours
-#n# can SPVM help?
+
+my @res;
 
 use strict;
 use warnings;
 use feature 'say';
 
-use ntheory qw(is_power);
+use integer;
 
-$| = 1;
-my @res;
-
-for (my $n = 1000; $n < 2.06E9; $n += 2) { # just test even > 1000
-
-    my $x = substr $n, 0, 1;
-    next unless $x eq 2 || $x eq 4 || $x eq 6 || $x eq 8;
-
-#    if ($n > 1000) {
-        my $q = substr $n, -1, 1;
-        next if $q == 1 || $q == 4 || $q == 6 || $q == 9;
-
-        my $a = substr $n,  0, 1;
-        my $z = $a - $q;
-        next unless $z == 0 || $z == 1 || $z == 4 || $z == 5 || $z == 6;
-
-        my $b = substr $n,  1, 1;
-        my $p = substr $n, -2, 1;
-
-# 716.552u 1.043s 12:00.57 99.5%
-if (1) {
-        if ($a eq '2') {
-            next unless ($b == 0 && $p == 0 && $q == 2) or
-                        ($b == 8 && $p == 8 && $q == 2);
-        } elsif ($a eq '4') {
-            next unless ($b == 0 && $p == 0 && $q == 0);
-        } elsif ($a eq '6') {
-            next unless ($b == 2 && $p == 7 && $q == 0) or
-                        ($b == 9 && $p == 8 && $q == 5);
-        } else {
-            next unless ($b == 6 && $p == 5 && $q == 7) or
-                        ($b == 7 && $p == 7 && $q == 8);
-        }
-# 869.923u 1.852s 14:36.53 99.4%
-} else {
-        if ($a eq '2') {
-            next if $q != 2 or $b != $p;
-        } elsif ($a eq '4') {
-            next unless $q == 0;
-            next unless 0 == $b-$p;
-        } elsif ($a eq '6') {
-            next unless $q == 0 || $q == 5;
-            next unless 0 != $b-$p;
-        } else {
-            next unless $q == 2 || $q == 3 || $q == 7 || $q == 8;
-            if ($q == 2) { next unless 9 == $b + $p }
-        }
-}
-#    }
-
-    my $r = join '', reverse split '', $n;
-    next if $n <= $r;
-
-    next unless is_power($n+$r, 2) and is_power($n-$r, 2);
-
-    # possibly redundant?
-    #my $dr = $n;
-    #do { my $drn; $drn += $_ for split '', $dr; $dr = $drn; } until $dr < 10;
-    #next unless $dr == 2 || $dr == 5 || $dr == 8 || $dr == 9;
-
-say '===================';
-say `date`;
-say "GOT IT: $n";
-    push @res, $n;
-}
+my $count = 0;
+my @squares;
+for my $large ( 0 .. 1e3 )
+  {
+  my $largesquared = $squares[$large] = $large ** 2;
+  for my $small ( 0 .. $large - 1 )
+    {
+    my $n = $largesquared + $squares[$small];
+    2 * $large * $small == reverse $n or next;
+    push @res, sprintf "%12s %s", $n, scalar reverse $n;
+    $n == reverse $n and die "oops!"; # palindrome check
+    ++$count >= 5 and exit;
+    }
+  }
 
 say my $result = join "\n", @res;
-
-#65
-my $ref = <<'END';
-621770
-281089082
-2022652202
-2042832002
-END
-
-my $refextra =<<'END';
-868591084757
-872546974178
-872568754178
-END
+my $ref = <<'EOD';
+          65 56
+      621770 077126
+EOD
+#   281089082 280980182
+#  2022652202 2022562202
+#  2042832002 2002382402
 
 use Test::More;
 chomp $ref;
-is($result, $ref);
+is ($result, $ref);
 done_testing();
-
-__END__
-
-=={{header|Perl}}==
-<lang perl></lang>
-{{out}}
-<pre</pre>
