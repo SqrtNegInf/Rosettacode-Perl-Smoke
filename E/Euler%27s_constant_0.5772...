@@ -7,10 +7,20 @@ use strict;
 use warnings;
 use feature 'say';
 
+#use bignum;
 use List::Util qw( sum );
 
-say my $result = sum( map 1 / $_, 1 .. 1e6) - log 1e6;
+my $m = 1*10**6;
+say my $result = sum( map 1 / $_, 1 .. $m) - log $m;
+
+use Math::AnyNum qw(EulerGamma);
+say EulerGamma;
 
 use Test::More;
 is ($result, 0.577216164900715);
 done_testing();
+
+# 0.577216164900715 1*10**6 
+# 0.57721616490144952727317876508240243103481393  1*10**6 + bignum
+# 0.5772157649015295272731787567624024310443832922 5*10**6 + bignum
+# 0.57721566490153286060651209008240243104215933594 EulerGamma
