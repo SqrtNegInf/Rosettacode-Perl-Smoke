@@ -7589,11 +7589,8 @@ File: R/Ranking_methods
 File: R/Rare_numbers
 #!/usr/local/bin/perl
 #u# http://rosettacode.org/wiki/Rare_numbers
-#t# toodamnslow
-#c# 2019-09-xx >RC
+#c# 2021-11-25 <RC
 #p# OK
-#n# 12 min to find 5, even if parallel execution added, getting just the even values would take nearly 10 hours
-#n# can SPVM help?
 
 File: R/Rate_counter
 #!/usr/local/bin/perl
