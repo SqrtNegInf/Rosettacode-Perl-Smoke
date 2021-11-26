@@ -1,17 +1,17 @@
 
 This is perl 5, version 32, subversion 1 (v5.32.1) built for darwin-thread-multi-2level
 updating from RC…
-+------------> Perl: Good/Bad [1552/12]
-|+-----------> Smoke testing [1408]
-||+----------> sKipping validation [148]
++------------> Perl: Good/Bad [1553/12]
+|+-----------> Smoke testing [1409]
+||+----------> sKipping validation [147]
 |||+---------> Interactive [74]
-||||+--------> Touched (modified by me) [535]
+||||+--------> Touched (modified by me) [534]
 |||||+-------> Random seed [122]
 ||||||+------> File output [77]
 |||||||+-----> Draft [336]
 ||||||||+----> Ignoring [36]
 |||||||||+---> Void (no local copy) [129]
-||||||||||+--> Un-implemented/reliable [103]
+||||||||||+--> Un-implemented/reliable [100]
 |||||||||||
 GS..T..D... 10001th_prime
 GS......... 100_doors-1
@@ -60,7 +60,7 @@ GS......... Ackermann_function-4
 GS......... Ackermann_function-5
 ........XV. Active_Directory_Connect
 GS......... Active_Directory_Search_for_a_user
-!S......... Active_object
+GS......... Active_object
 GS......... Add_a_variable_to_a_class_instance_at_runtime
 .......D.VU Addition-chain_exponentiation
 GS..T..D... Addition_chains
@@ -211,7 +211,7 @@ G.K........ Call_a_function
 GS..T...... Call_a_function_in_a_shared_library-1
 GS..T...... Call_a_function_in_a_shared_library-2
 G.K........ Call_an_object_method
-.......D.VU Camel_case_and_snake_case
+.......D.V. Camel_case_and_snake_case
 .........VU Canny_edge_detector
 GS......... Canonicalize_CIDR
 GS..T...... Cantor_set
@@ -1222,7 +1222,7 @@ GS......... Range_expansion
 GS..T...... Range_extraction
 GS.....D... Range_modifications
 GS..T...... Ranking_methods
-G.K.T.....U Rare_numbers
+GS......... Rare_numbers
 .......D.VU Raster_bars
 GS......... Rate_counter
 GS......... Ray-casting_algorithm
@@ -1677,7 +1677,7 @@ GS......... Weird_numbers-2
 .......D... Welch%27s_t-test
 GS..T...... Welch%27s_t-test-1
 GS......... Welch%27s_t-test-2
-.......D.VU What_weekdays_will_Christmas_and_New_Year
+.......D.V. What_weekdays_will_Christmas_and_New_Year
 GS..T..D... Wieferich_primes
 .......D.VU WiktionaryDumps_to_words
 GS..T...... Wilson_primes_of_order_n
