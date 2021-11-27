@@ -1,0 +1,167 @@
+#!/usr/local/bin/perl
+#u# http://rosettacode.org/wiki/Zeckendorf_arithmetic
+#c# 2021-11-26 <RC
+#p# OK
+
+my @res;
+
+use strict; # https://rosettacode.org/wiki/Zeckendorf_arithmetic
+use warnings;
+use feature 'say';
+
+for ( split /\n/, <<END ) # test cases
+  1 + 1
+  10 + 10
+  10100 + 1010
+  10100 - 1010
+  10100 * 1010
+  100010 * 100101
+  10100 / 1010
+  101000 / 1000
+  100001000001 / 100010
+  100001000001 / 100101
+END
+  {
+  my ($left, $op, $right) = split;
+  my ($x, $y) = map Zeckendorf->new($_), $left, $right;
+  my $answer =
+    $op eq '+' ? $x + $y :
+    $op eq '-' ? $x - $y :
+    $op eq '*' ? $x * $y :
+    $op eq '/' ? $x / $y :
+    die "bad op <$op>";
+  push @res, sprintf "%12s %s %-9s => %12s  in Zeckendorf", $x, $op, $y, $answer;
+  push @res, sprintf "%12d %s %-9d => %12d  in decimal\n",
+    $x->asdecimal, $op, $y->asdecimal, $answer->asdecimal;
+  }
+
+package Zeckendorf;
+use overload qw("" zstring + zadd - zsub ++ zinc -- zdec * zmul / zdiv ge zge);
+
+sub new
+  {
+  my ($class, $value) = @_;
+  bless \$value, ref $class || $class;
+  }
+
+sub zinc
+  {
+  my ($self, $other, $swap) = @_;
+  local $_ = $$self;
+  s/0$/1/ or s/(?:^|0)1$/10/;
+  1 while s/(?:^|0)11/100/;
+  $_[0] = $self->new( s/^0+\B//r );
+  }
+
+sub zdec
+  {
+  my ($self, $other, $swap) = @_;
+  local $_ = $$self;
+  1 while s/100(?=0*$)/011/;
+  s/1$/0/ or s/10$/01/;
+  $_[0] = $self->new( s/^0+\B//r );
+  }
+
+sub zstring { ${ shift() } }
+
+sub zadd
+  {
+  my ($self, $other, $swap) = @_;
+  my ($x, $y) = map $self->new($$_), $self, $other; # copy
+  ++$x, $y-- while $$y ne 0;
+  return $x;
+  }
+
+sub zsub
+  {
+  my ($self, $other, $swap) = @_;
+  my ($x, $y) = map $self->new($$_), $self, $other; # copy
+  --$x, $y-- while $$y ne 0;
+  return $x;
+  }
+
+sub zmul
+  {
+  my ($self, $other, $swap) = @_;
+  my ($x, $y) = map $self->new($$_), $self, $other; # copy
+  my $product = Zeckendorf->new(0);
+  $product = $product + $x, --$y while "$y" ne 0;
+  return $product;
+  }
+
+sub zdiv
+  {
+  my ($self, $other, $swap) = @_;
+  my ($x, $y) = map $self->new($$_), $self, $other; # copy
+  my $quotient = Zeckendorf->new(0);
+  ++$quotient, $x = $x - $y while $x ge $y;
+  return $quotient;
+  }
+
+sub zge
+  {
+  my ($self, $other, $swap) = @_;
+  my $l = length( $$self | $$other );
+  0 x ($l - length $$self) . $$self ge 0 x ($l - length $$other) . $$other;
+  }
+
+sub asdecimal
+  {
+  my ($self) = @_;
+  my $n = 0;
+  my $aa = my $bb = 1;
+  for ( reverse split //, $$self )
+    {
+    $n += $bb * $_;
+    ($aa, $bb) = ($bb, $aa + $bb);
+    }
+  return $n;
+  }
+
+sub fromdecimal
+  {
+  my ($self, $value) = @_;
+  my $z = $self->new(0);
+  ++$z for 1 .. $value;
+  return $z;
+  }
+
+say my $result = join "\n", @res;
+
+my $ref = <<'EOD';
+           1 + 1         =>           10  in Zeckendorf
+           1 + 1         =>            2  in decimal
+
+          10 + 10        =>          101  in Zeckendorf
+           2 + 2         =>            4  in decimal
+
+       10100 + 1010      =>       101000  in Zeckendorf
+          11 + 7         =>           18  in decimal
+
+       10100 - 1010      =>          101  in Zeckendorf
+          11 - 7         =>            4  in decimal
+
+       10100 * 1010      =>    101000001  in Zeckendorf
+          11 * 7         =>           77  in decimal
+
+      100010 * 100101    => 100001000001  in Zeckendorf
+          15 * 17        =>          255  in decimal
+
+       10100 / 1010      =>            1  in Zeckendorf
+          11 / 7         =>            1  in decimal
+
+      101000 / 1000      =>          100  in Zeckendorf
+          18 / 5         =>            3  in decimal
+
+100001000001 / 100010    =>       100101  in Zeckendorf
+         255 / 15        =>           17  in decimal
+
+100001000001 / 100101    =>       100010  in Zeckendorf
+         255 / 17        =>           15  in decimal
+
+EOD
+
+use Test::More;
+chomp $ref;
+is ($result, $ref);
+done_testing();
