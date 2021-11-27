@@ -1,17 +1,17 @@
 
 This is perl 5, version 32, subversion 1 (v5.32.1) built for darwin-thread-multi-2level
 updating from RC…
-+------------> Perl: Good/Bad [1553/12]
-|+-----------> Smoke testing [1409]
++------------> Perl: Good/Bad [1556/12]
+|+-----------> Smoke testing [1412]
 ||+----------> sKipping validation [147]
 |||+---------> Interactive [74]
 ||||+--------> Touched (modified by me) [534]
 |||||+-------> Random seed [122]
 ||||||+------> File output [77]
-|||||||+-----> Draft [336]
+|||||||+-----> Draft [337]
 ||||||||+----> Ignoring [36]
-|||||||||+---> Void (no local copy) [129]
-||||||||||+--> Un-implemented/reliable [100]
+|||||||||+---> Void (no local copy) [127]
+||||||||||+--> Un-implemented/reliable [99]
 |||||||||||
 GS..T..D... 10001th_prime
 GS......... 100_doors-1
@@ -211,7 +211,7 @@ G.K........ Call_a_function
 GS..T...... Call_a_function_in_a_shared_library-1
 GS..T...... Call_a_function_in_a_shared_library-2
 G.K........ Call_an_object_method
-.......D.V. Camel_case_and_snake_case
+GS.....D... Camel_case_and_snake_case
 .........VU Canny_edge_detector
 GS......... Canonicalize_CIDR
 GS..T...... Cantor_set
@@ -262,7 +262,7 @@ GS..T...... Cipolla%27s_algorithm-1
 GS..T...... Cipolla%27s_algorithm-2
 GS..T...... Circles_of_given_radius_through_two_points
 GS..T...... Circular_primes
-.........VU Cistercian_numerals
+.........V. Cistercian_numerals
 G.K........ Classes
 GS..TR..... Closest-pair_problem
 GS......... Closures_Value_capture
@@ -1009,7 +1009,7 @@ GS..T...... Numerical_integration_Gauss-Legendre_Quadrature
 .........VU OLE_automation
 GS......... Object_serialization-1
 GS......... Object_serialization-2
-.......D.V. Odd_and_square_numbers
+GS.....D... Odd_and_square_numbers
 GS.....D... Odd_squarefree_semiprimes
 GS......... Odd_word_problem
 GS......... Odd_word_problem-2
@@ -1311,6 +1311,7 @@ GS......... Scope_modifiers
 GS......... Search_a_list
 GS......... Search_a_list_of_records
 G.K........ Secure_temporary_file
+.......D.VU Segmentation_fault_protection
 GS..T..D... Selective_file_copy
 GS......... Self-describing_numbers
 .......D.VU Self-hosting_compiler
@@ -1677,7 +1678,7 @@ GS......... Weird_numbers-2
 .......D... Welch%27s_t-test
 GS..T...... Welch%27s_t-test-1
 GS......... Welch%27s_t-test-2
-.......D.V. What_weekdays_will_Christmas_and_New_Year
+GS.....D... What_weekdays_will_Christmas_and_New_Year
 GS..T..D... Wieferich_primes
 .......D.VU WiktionaryDumps_to_words
 GS..T...... Wilson_primes_of_order_n
@@ -1715,7 +1716,7 @@ G.K........ Yahoo_search_interface
 GS..T.F.... Yellowstone_sequence
 GS....F.... Yin_and_yang
 GS......... Zebra_puzzle
-.........VU Zeckendorf_arithmetic
+.........V. Zeckendorf_arithmetic
 GS......... Zeckendorf_number_representation
 GS......... Zero_to_the_zero_power
 GS..T...... Zhang-Suen_thinning_algorithm
