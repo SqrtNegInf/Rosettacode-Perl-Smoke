@@ -5,7 +5,7 @@
 
 my @res;
 
-use strict; # https://rosettacode.org/wiki/Zeckendorf_arithmetic
+use strict;
 use warnings;
 use feature 'say';
 
