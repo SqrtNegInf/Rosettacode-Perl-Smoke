@@ -1,8 +1,8 @@
 
 This is perl 5, version 32, subversion 1 (v5.32.1) built for darwin-thread-multi-2level
 updating from RC…
-+------------> Perl: Good/Bad [1556/12]
-|+-----------> Smoke testing [1412]
++------------> Perl: Good/Bad [1558/12]
+|+-----------> Smoke testing [1414]
 ||+----------> sKipping validation [147]
 |||+---------> Interactive [74]
 ||||+--------> Touched (modified by me) [534]
@@ -10,7 +10,7 @@ updating from RC…
 ||||||+------> File output [77]
 |||||||+-----> Draft [337]
 ||||||||+----> Ignoring [36]
-|||||||||+---> Void (no local copy) [127]
+|||||||||+---> Void (no local copy) [125]
 ||||||||||+--> Un-implemented/reliable [99]
 |||||||||||
 GS..T..D... 10001th_prime
@@ -262,7 +262,7 @@ GS..T...... Cipolla%27s_algorithm-1
 GS..T...... Cipolla%27s_algorithm-2
 GS..T...... Circles_of_given_radius_through_two_points
 GS..T...... Circular_primes
-.........V. Cistercian_numerals
+GS......... Cistercian_numerals
 G.K........ Classes
 GS..TR..... Closest-pair_problem
 GS......... Closures_Value_capture
@@ -1716,7 +1716,7 @@ G.K........ Yahoo_search_interface
 GS..T.F.... Yellowstone_sequence
 GS....F.... Yin_and_yang
 GS......... Zebra_puzzle
-.........V. Zeckendorf_arithmetic
+GS......... Zeckendorf_arithmetic
 GS......... Zeckendorf_number_representation
 GS......... Zero_to_the_zero_power
 GS..T...... Zhang-Suen_thinning_algorithm
