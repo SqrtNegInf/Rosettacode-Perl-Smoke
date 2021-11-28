@@ -1487,6 +1487,12 @@ File: C/Circular_primes
 #p# OK
 #n# full run: 1888.93s user 21.69s system 77% cpu 41:20.77 total
 
+File: C/Cistercian_numerals
+#!/usr/local/bin/perl
+#u# http://rosettacode.org/wiki/Cistercian_numerals
+#c# 2021-11-26 <RC
+#p# OK
+
 File: C/Classes
 #!/usr/local/bin/perl
 #u# http://rosettacode.org/wiki/Classes
@@ -10643,6 +10649,12 @@ File: Z/Zebra_puzzle
 #c# 2018-07-11 <RC
 #p# OK
 #n# minor changes not on RC
+
+File: Z/Zeckendorf_arithmetic
+#!/usr/local/bin/perl
+#u# http://rosettacode.org/wiki/Zeckendorf_arithmetic
+#c# 2021-11-26 <RC
+#p# OK
 
 File: Z/Zeckendorf_number_representation
 #!/usr/local/bin/perl
