@@ -1,7 +1,7 @@
 
 This is perl 5, version 32, subversion 1 (v5.32.1) built for darwin-thread-multi-2level
 updating from RC…
-+------------> Perl: Good/Bad [1558/12]
++------------> Perl: Good/Bad [1559/12]
 |+-----------> Smoke testing [1414]
 ||+----------> sKipping validation [147]
 |||+---------> Interactive [74]
@@ -10,8 +10,8 @@ updating from RC…
 ||||||+------> File output [77]
 |||||||+-----> Draft [337]
 ||||||||+----> Ignoring [36]
-|||||||||+---> Void (no local copy) [125]
-||||||||||+--> Un-implemented/reliable [99]
+|||||||||+---> Void (no local copy) [124]
+||||||||||+--> Un-implemented/reliable [98]
 |||||||||||
 GS..T..D... 10001th_prime
 GS......... 100_doors-1
@@ -1001,7 +1001,7 @@ GS.....D... Numbers_with_prime_digits_whose_sum_is_13
 .......D.V. Numbers_with_same_digit_set_in_base_10_and_base_16
 GS......... Numeric_error_propagation
 GS.....D... Numeric_separator_syntax
-.........VU Numerical_and_alphabetical_suffixes
+GS......... Numerical_and_alphabetical_suffixes
 GS..T...... Numerical_integration
 GS..T..D... Numerical_integration_Adaptive_Simpson%27s_method
 GS..T...... Numerical_integration_Gauss-Legendre_Quadrature
@@ -1224,7 +1224,7 @@ GS.....D... Range_modifications
 GS..T...... Ranking_methods
 GS......... Rare_numbers
 .......D.VU Raster_bars
-GS......... Rate_counter
+G.......... Rate_counter
 GS......... Ray-casting_algorithm
 GS......... Read_a_configuration_file
 GS......... Read_a_file_character_by_character_UTF8
