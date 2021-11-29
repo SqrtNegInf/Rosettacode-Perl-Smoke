@@ -6225,6 +6225,12 @@ File: N/Numerical_Integration
 #p# OK
 #n#  1326.250u 2.188s 22:12.39 99.7% - all 4 to slow to run daily, just doing first two
 
+File: N/Numerical_and_alphabetical_suffixes
+#!/usr/local/bin/perl
+#u# http://rosettacode.org/wiki/Numerical_and_alphabetical_suffixes
+#c# 2021-11-28 <RC
+#p# OK
+
 File: N/Numerical_integration_Adaptive_Simpson%27s_method
 #!/usr/local/bin/perl
 #u# http://rosettacode.org/wiki/Numerical_integration/Adaptive_Simpson%27s_method
