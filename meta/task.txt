@@ -2,13 +2,13 @@
 This is perl 5, version 32, subversion 1 (v5.32.1) built for darwin-thread-multi-2level
 updating from RC…
 +------------> Perl: Good/Bad [1559/12]
-|+-----------> Smoke testing [1414]
+|+-----------> Smoke testing [1415]
 ||+----------> sKipping validation [147]
 |||+---------> Interactive [74]
 ||||+--------> Touched (modified by me) [534]
 |||||+-------> Random seed [122]
 ||||||+------> File output [77]
-|||||||+-----> Draft [337]
+|||||||+-----> Draft [336]
 ||||||||+----> Ignoring [36]
 |||||||||+---> Void (no local copy) [124]
 ||||||||||+--> Un-implemented/reliable [98]
@@ -1095,7 +1095,7 @@ GS..TR..... Percolation_Site_percolation
 GS......... Perfect_numbers
 GS......... Perfect_shuffle
 GS..T...... Perfect_totient_numbers
-GS..T.FD... Peripheral_drift_illusion
+GS..T.F.... Peripheral_drift_illusion
 B.....F.... Peripheral_drift_illusion-2
 GS..T...... Perlin_noise
 GS......... Permutation_test
@@ -1224,7 +1224,7 @@ GS.....D... Range_modifications
 GS..T...... Ranking_methods
 GS......... Rare_numbers
 .......D.VU Raster_bars
-G.......... Rate_counter
+GS......... Rate_counter
 GS......... Ray-casting_algorithm
 GS......... Read_a_configuration_file
 GS......... Read_a_file_character_by_character_UTF8
