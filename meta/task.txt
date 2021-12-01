@@ -11,7 +11,7 @@ updating from RC…
 |||||||+-----> Draft [336]
 ||||||||+----> Ignoring [36]
 |||||||||+---> Void (no local copy) [124]
-||||||||||+--> Un-implemented/reliable [98]
+||||||||||+--> Un-implemented/reliable [97]
 |||||||||||
 GS..T..D... 10001th_prime
 GS......... 100_doors-1
@@ -664,7 +664,7 @@ G.K........ Hello_world_Web_server
 GS..T...... Here_document
 GS......... Heronian_triangles
 GS.....D... Hex_words
-.......D.VU Hexapawn
+.......D.V. Hexapawn
 GS......... Hickerson_series_of_almost_integers
 GS......... Higher-order_functions
 GS..T.F.... Hilbert_curve-1
