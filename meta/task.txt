@@ -1,17 +1,17 @@
 
 This is perl 5, version 32, subversion 1 (v5.32.1) built for darwin-thread-multi-2level
 updating from RC…
-+------------> Perl: Good/Bad [1559/12]
++------------> Perl: Good/Bad [1560/12]
 |+-----------> Smoke testing [1415]
-||+----------> sKipping validation [147]
-|||+---------> Interactive [74]
+||+----------> sKipping validation [149]
+|||+---------> Interactive [75]
 ||||+--------> Touched (modified by me) [534]
 |||||+-------> Random seed [122]
 ||||||+------> File output [77]
 |||||||+-----> Draft [336]
 ||||||||+----> Ignoring [36]
-|||||||||+---> Void (no local copy) [124]
-||||||||||+--> Un-implemented/reliable [97]
+|||||||||+---> Void (no local copy) [122]
+||||||||||+--> Un-implemented/reliable [96]
 |||||||||||
 GS..T..D... 10001th_prime
 GS......... 100_doors-1
@@ -620,7 +620,7 @@ GS..T..D... Geohash
 GS......... Get_system_command_output
 GS..T..D... Getting_the_number_of_decimals
 G.K........ Globally_replace_text_in_several_files
-.........VU Go_Fish
+G.K........ Go_Fish
 GS..T..D... Gradient_descent
 GS..T...... Graph_colouring
 GS......... Gray_code
@@ -664,7 +664,7 @@ G.K........ Hello_world_Web_server
 GS..T...... Here_document
 GS......... Heronian_triangles
 GS.....D... Hex_words
-.......D.V. Hexapawn
+G.KI...D... Hexapawn
 GS......... Hickerson_series_of_almost_integers
 GS......... Higher-order_functions
 GS..T.F.... Hilbert_curve-1
@@ -1575,7 +1575,7 @@ GS......... Thue-Morse
 GS...R..... Tic-tac-toe
 G.KI....... Tic-tac-toe-2
 GS.....D... Time-based_one-time_password_algorithm
-GS......... Time_a_function
+!S......... Time_a_function
 GS......... Tokenize_a_string
 GS......... Tokenize_a_string_with_escaping
 GS..T...... Tonelli-Shanks_algorithm
