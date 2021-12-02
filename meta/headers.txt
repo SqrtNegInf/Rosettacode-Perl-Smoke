@@ -3769,6 +3769,13 @@ File: G/Globally_replace_text_in_several_files
 #c# 2018-08-11 <RC
 #p# OK
 
+File: G/Go_Fish
+#!/usr/local/bin/perl
+#u# http://rosettacode.org/wiki/Go_Fish
+#t# skiptest
+#c# 2021-12-01 <RC
+#p# OK
+
 File: G/Gradient_descent
 #!/usr/local/bin/perl
 #u# http://rosettacode.org/wiki/Gradient_descent
@@ -4060,6 +4067,14 @@ File: H/Hex_words
 #u# http://rosettacode.org/wiki/Hex_words
 #c# 2021-11-11 <RC
 #p# OK
+
+File: H/Hexapawn
+#!/usr/local/bin/perl
+#u# http://rosettacode.org/wiki/Hexapawn
+#t# gui
+#c# 2021-11-30 <RC
+#p# OK
+# Plays in a Tk GUI. Has both trainer capability and variable size boards.
 
 File: H/Hickerson_series_of_almost_integers
 #!/usr/local/bin/perl
