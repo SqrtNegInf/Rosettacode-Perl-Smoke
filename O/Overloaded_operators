@@ -1,0 +1,85 @@
+#!/usr/local/bin/perl
+#u# http://rosettacode.org/wiki/Overloaded_operators
+#c# 2021-12-02 <RC
+#p# OK
+#n# See 'perldoc overload' for perl's overload capabilities. This example defines a class(package)
+#n# that represent non-negative numbers as a string of 1's and overloads the basic math operators
+#n# so that they can be used on members of that class(package). Also see 'Zeckendorf arithmetic' where overloading
+#n# is used on Zeckendorf numbers.
+
+my @res;
+
+use strict;
+use warnings;
+use feature 'say';
+
+my $x = Ones->new( 15 );
+my $y = Ones->new( 4 );
+
+my $z = $x + $y;
+push @res, "$x + $y = $z";
+$z = $x - $y;
+push @res, "$x - $y = $z";
+$z = $x * $y;
+push @res, "$x * $y = $z";
+$z = $x / $y;
+push @res, "$x / $y = $z";
+
+package Ones;
+use overload qw("" asstring + add - subtract * multiply / divide);
+
+sub new
+  {
+  my ( $class, $value ) = @_;
+  bless \('1' x $value), ref $class || $class;
+  }
+
+sub asstring
+  {
+  my ($self, $other, $swap) = @_;
+  $$self;
+  }
+
+sub asdecimal
+  {
+  my ($self, $other, $swap) = @_;
+  length $$self;
+  }
+
+sub add
+  {
+  my ($self, $other, $swap) = @_;
+  bless \($$self . $$other), ref $self;
+  }
+
+sub subtract
+  {
+  my ($self, $other, $swap) = @_;
+  bless \($$self =~ s/$$other//r), ref $self;
+  }
+
+sub multiply
+  {
+  my ($self, $other, $swap) = @_;
+  bless \($$self =~ s/1/$$other/gr), ref $self;
+  }
+
+sub divide
+  {
+  my ($self, $other, $swap) = @_;
+  $self->new( $$self =~ s/$$other/$$other/g );
+  }
+
+say my $result = join "\n", @res;
+
+my $ref = <<'EOD';
+111111111111111 + 1111 = 1111111111111111111
+111111111111111 - 1111 = 11111111111
+111111111111111 * 1111 = 111111111111111111111111111111111111111111111111111111111111
+111111111111111 / 1111 = 111
+EOD
+
+use Test::More;
+chomp $ref;
+is ($result, $ref);
+done_testing();
