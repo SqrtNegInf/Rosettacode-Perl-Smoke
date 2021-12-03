@@ -1,8 +1,8 @@
 
 This is perl 5, version 32, subversion 1 (v5.32.1) built for darwin-thread-multi-2level
 updating from RC…
-+------------> Perl: Good/Bad [1560/12]
-|+-----------> Smoke testing [1415]
++------------> Perl: Good/Bad [1562/12]
+|+-----------> Smoke testing [1416]
 ||+----------> sKipping validation [149]
 |||+---------> Interactive [75]
 ||||+--------> Touched (modified by me) [534]
@@ -10,8 +10,8 @@ updating from RC…
 ||||||+------> File output [77]
 |||||||+-----> Draft [336]
 ||||||||+----> Ignoring [36]
-|||||||||+---> Void (no local copy) [122]
-||||||||||+--> Un-implemented/reliable [96]
+|||||||||+---> Void (no local copy) [121]
+||||||||||+--> Un-implemented/reliable [95]
 |||||||||||
 GS..T..D... 10001th_prime
 GS......... 100_doors-1
@@ -1033,7 +1033,7 @@ GS......... Order_two_numerical_lists
 GS......... Ordered_partitions
 GS......... Ordered_partitions-2
 GS......... Ordered_words
-.......D.VU Overloaded_operators
+GS.....D... Overloaded_operators
 GS..T..D... Own_digits_power_sum
 GS..T...... Own_digits_power_sum-2
 .........VU P-Adic_numbers,_basic
@@ -1575,7 +1575,7 @@ GS......... Thue-Morse
 GS...R..... Tic-tac-toe
 G.KI....... Tic-tac-toe-2
 GS.....D... Time-based_one-time_password_algorithm
-!S......... Time_a_function
+GS......... Time_a_function
 GS......... Tokenize_a_string
 GS......... Tokenize_a_string_with_escaping
 GS..T...... Tonelli-Shanks_algorithm
