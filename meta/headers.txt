@@ -6415,6 +6415,16 @@ File: O/Ordered_words
 #c# 2018-08-20 <RC
 #p# OK
 
+File: O/Overloaded_operators
+#!/usr/local/bin/perl
+#u# http://rosettacode.org/wiki/Overloaded_operators
+#c# 2021-12-02 <RC
+#p# OK
+#n# See 'perldoc overload' for perl's overload capabilities. This example defines a class(package)
+#n# that represent non-negative numbers as a string of 1's and overloads the basic math operators
+#n# so that they can be used on members of that class(package). Also see 'Zeckendorf arithmetic' where overloading
+#n# is used on Zeckendorf numbers.
+
 File: O/Own_digits_power_sum
 #!/usr/local/bin/perl
 #u# http://rosettacode.org/wiki/Own_digits_power_sum
