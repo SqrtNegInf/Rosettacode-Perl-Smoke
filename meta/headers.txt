@@ -2786,6 +2786,20 @@ File: E/Evolutionary_algorithm
 #c# 2018-08-01 <RC
 #p# OK
 
+File: E/Exactly_three_adjacent_3_in_lists-1
+#!/usr/local/bin/perl
+#u# http://rosettacode.org/wiki/Exactly_three_adjacent_3_in_lists
+#c# 2021-12-07 <RC
+#p# OK
+#n# brings up to parity with Raku version; upgrade not on RC
+
+File: E/Exactly_three_adjacent_3_in_lists-2
+#!/usr/local/bin/perl
+#u# http://rosettacode.org/wiki/Exactly_three_adjacent_3_in_lists
+#c# 2021-12-xx >RC
+#p# OK
+#n# testing as with Raku version, but adding 0x0 case for chuckles
+
 File: E/Exceptions
 #!/usr/local/bin/perl
 #u# http://rosettacode.org/wiki/Exceptions
