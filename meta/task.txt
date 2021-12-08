@@ -1,17 +1,17 @@
 
 This is perl 5, version 32, subversion 1 (v5.32.1) built for darwin-thread-multi-2level
 updating from RC…
-+------------> Perl: Good/Bad [1562/12]
-|+-----------> Smoke testing [1416]
++------------> Perl: Good/Bad [1564/12]
+|+-----------> Smoke testing [1418]
 ||+----------> sKipping validation [149]
 |||+---------> Interactive [75]
-||||+--------> Touched (modified by me) [534]
+||||+--------> Touched (modified by me) [535]
 |||||+-------> Random seed [122]
 ||||||+------> File output [77]
-|||||||+-----> Draft [336]
+|||||||+-----> Draft [338]
 ||||||||+----> Ignoring [36]
-|||||||||+---> Void (no local copy) [121]
-||||||||||+--> Un-implemented/reliable [95]
+|||||||||+---> Void (no local copy) [122]
+||||||||||+--> Un-implemented/reliable [96]
 |||||||||||
 GS..T..D... 10001th_prime
 GS......... 100_doors-1
@@ -469,6 +469,9 @@ GS......... Evaluate_binomial_coefficients
 GS......... Even_or_odd
 GS......... Events
 GS...R..... Evolutionary_algorithm
+.......D... Exactly_three_adjacent_3_in_lists
+GS......... Exactly_three_adjacent_3_in_lists-1
+GS..T...... Exactly_three_adjacent_3_in_lists-2
 GS......... Exceptions
 GS......... Exceptions_Catch_an_exception_thrown_in_a_nested_call
 GS......... Executable_library
@@ -1699,6 +1702,7 @@ GS......... Wordiff-2
 GS.....D... Words_containing_%22the%22_substring
 GS.....D... Words_from_neighbour_ones
 GS..T...... World_Cup_group_stage
+.......D.VU Worthwhile_task_shaving
 GS....F.... Write_entire_file
 GS....F.... Write_float_arrays_to_a_text_file-1
 GS....F.... Write_float_arrays_to_a_text_file-2
