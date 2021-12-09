@@ -1,16 +1,16 @@
 
 This is perl 5, version 32, subversion 1 (v5.32.1) built for darwin-thread-multi-2level
 updating from RC…
-+------------> Perl: Good/Bad [1564/12]
-|+-----------> Smoke testing [1418]
++------------> Perl: Good/Bad [1563/12]
+|+-----------> Smoke testing [1417]
 ||+----------> sKipping validation [149]
 |||+---------> Interactive [75]
-||||+--------> Touched (modified by me) [535]
+||||+--------> Touched (modified by me) [536]
 |||||+-------> Random seed [122]
 ||||||+------> File output [77]
 |||||||+-----> Draft [338]
 ||||||||+----> Ignoring [36]
-|||||||||+---> Void (no local copy) [122]
+|||||||||+---> Void (no local copy) [123]
 ||||||||||+--> Un-implemented/reliable [96]
 |||||||||||
 GS..T..D... 10001th_prime
@@ -470,7 +470,7 @@ GS......... Even_or_odd
 GS......... Events
 GS...R..... Evolutionary_algorithm
 .......D... Exactly_three_adjacent_3_in_lists
-GS......... Exactly_three_adjacent_3_in_lists-1
+GS..T...... Exactly_three_adjacent_3_in_lists-1
 GS..T...... Exactly_three_adjacent_3_in_lists-2
 GS......... Exceptions
 GS......... Exceptions_Catch_an_exception_thrown_in_a_nested_call
@@ -533,7 +533,7 @@ GS..T...... File_size_distribution
 GS......... Filter
 GS..T...... Find_Chess960_starting_position_identifier
 GS.....D... Find_URI_in_text
-GS.....D... Find_adjacents_primes_which_difference_is_square_integer
+.......D.V. Find_adjacent_primes_which_differ_by_a_square_integer
 GS..T...... Find_common_directory_path
 GS..T...... Find_duplicate_files
 GS.....D... Find_first_and_last_set_bit_of_a_long_integer
