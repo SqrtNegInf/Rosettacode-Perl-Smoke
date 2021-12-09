@@ -1,8 +1,9 @@
 #!/usr/local/bin/perl
 #u# http://rosettacode.org/wiki/Exactly_three_adjacent_3_in_lists
-#c# 2021-12-07 <RC
+#c# 2021-12-07 <>RC, 2021-12-08 >RC
 #p# OK
-#n# brings up to parity with Raku version; upgrade not on RC
+#n# Tybalt89's initial version upgraded almost to parity with Raku (see also *-2 for fully general one)
+#n# oops, fixed bug: $i-1 == grep ...
 
 my @res;
 
@@ -10,7 +11,7 @@ use strict;
 use warnings;
 use feature 'say';
 
-#use List::Util 'all'; # added clarity, but not required
+#use List::Util 'all'; # adds clarity, but not required
 
 my @lists = (
   [ <9 3 3 3 2 1 7 8 5> ],
@@ -19,15 +20,15 @@ my @lists = (
   [ <1 2 3 4 5 6 7 8 9> ], 
   [ <4 6 8 7 2 3 3 3 1> ], 
   [ <4 6 8 7 2 0 0 3 3> ], 
+  [ <0 3 0 3 3 0 0 0 0> ], 
 );
 
-my $target       = 3;
-my $repetitions  = 3;
+my $i = 3;
 
 for my $ref ( @lists ) {
-    my @n = grep $ref->[$_] == $target, 0 .. $#$ref;
-    push @res, "@$ref => " . (@n == $repetitions && (grep { $n[$_-1]+1 == $n[$_] } 1..$repetitions-1) ? 'true' : 'false');
-    #push @res, "@$ref => " . (@n == $repetitions && (all { $n[$_-1]+1 == $n[$_] } 1..$repetitions-1) ? 'true' : 'false');
+    my @n = grep $ref->[$_] == $i, 0 .. $#$ref;
+    push @res, "@$ref => " . (@n == $i && ($i-1 == grep $n[$_-1]+1 == $n[$_], 1..$i-1) ? 'true' : 'false');
+    #push @res, "@$ref => " . (@n == $i && (all { $n[$_-1]+1 == $n[$_] } 1..$i-1) ? 'true' : 'false');
 }
 
 say my $result = join "\n", @res;
@@ -39,6 +40,7 @@ my $ref = <<'EOD';
 1 2 3 4 5 6 7 8 9 => false
 4 6 8 7 2 3 3 3 1 => true
 4 6 8 7 2 0 0 3 3 => false
+0 3 0 3 3 0 0 0 0 => false
 EOD
 
 use Test::More;
