@@ -1,0 +1,52 @@
+#!/usr/local/bin/perl
+#u# http://rosettacode.org/wiki/xx
+#c# 2021-11-xx >RC
+#p# OK
+#n# revisions to task possible/probable?
+
+my @res;
+
+use strict;
+use warnings;
+use feature 'say';
+
+use ntheory qw<is_prime prime_iterator>;
+
+sub sg_iterator {
+    my $p  = shift // 2;
+    my $it = prime_iterator($p);
+    return sub {
+        do { $p = $it->() } while not is_prime(2*$p+1);
+        $p;
+    };
+}
+
+my($upto, @sg) = 50;
+my $sgit = sg_iterator();
+push @sg, $sgit->() for 1 .. $upto;
+
+say my $result = "First $upto terms:\n" .
+    (sprintf "@{['%5d' x $upto]}", @sg) =~ s/(.{50})/$1\n/gr;
+
+my $ref = <<'END';
+First 50 terms:
+    2    3    5   11   23   29   41   53   83   89
+  113  131  173  179  191  233  239  251  281  293
+  359  419  431  443  491  509  593  641  653  659
+  683  719  743  761  809  911  953 1013 1019 1031
+ 1049 1103 1223 1229 1289 1409 1439 1451 1481 1499
+END
+
+use Test::More;
+is($result, $ref);
+done_testing();
+
+__END__
+
+=={{header|Perl}}==
+{{libheader|ntheory}}
+<lang perl>
+</lang>
+{{out}}
+<pre>
+</pre>
