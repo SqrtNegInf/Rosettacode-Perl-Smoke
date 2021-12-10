@@ -1,6 +1,6 @@
 #!/usr/local/bin/perl
 #u# http://rosettacode.org/wiki/Palindromic_primes
-#c# 2021-04-15 <RC
+#c# 2021-04-15 <RC, 2021-12-10 >RC
 #p# OK
 
 my @res;
@@ -11,30 +11,9 @@ use feature 'say';
 
 $_ == reverse and (1 x $_ ) !~ /^(11+)\1+$/ and push @res, $_ for 2 .. 1e3;
 
-say my $result = join "\n", @res;
+say my $result = join ' ', @res;
 
-my $ref = <<'EOD';
-2
-3
-5
-7
-11
-101
-131
-151
-181
-191
-313
-353
-373
-383
-727
-757
-787
-797
-919
-929
-EOD
+my $ref = '2 3 5 7 11 101 131 151 181 191 313 353 373 383 727 757 787 797 919 929';
 
 use Test::More;
 chomp $ref;
