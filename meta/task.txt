@@ -8,10 +8,10 @@ updating from RC…
 ||||+--------> Touched (modified by me) [536]
 |||||+-------> Random seed [122]
 ||||||+------> File output [77]
-|||||||+-----> Draft [338]
-||||||||+----> Ignoring [36]
-|||||||||+---> Void (no local copy) [123]
-||||||||||+--> Un-implemented/reliable [96]
+|||||||+-----> Draft [340]
+||||||||+----> Ignoring [37]
+|||||||||+---> Void (no local copy) [125]
+||||||||||+--> Un-implemented/reliable [98]
 |||||||||||
 GS..T..D... 10001th_prime
 GS......... 100_doors-1
@@ -266,6 +266,7 @@ GS......... Cistercian_numerals
 G.K........ Classes
 GS..TR..... Closest-pair_problem
 GS......... Closures_Value_capture
+.......DXVU Code_Golf:_Code_Golf
 G.K.T..D... Code_segment_unload
 GS......... Collections
 G.KIT...... Color_of_a_screen_pixel
@@ -1303,6 +1304,7 @@ GS......... SHA-256_Merkle_tree
 ........XV. SOAP
 ........XV. SQL-based_authentication
 GS..T...... Safe_addition
+.......D.VU Safe_and_Sophie_Germain_primes
 .......D.V. Safe_mode
 GS..T...... Safe_primes_and_unsafe_primes
 GS..T...... Sailors,_coconuts_and_a_monkey_problem-1
