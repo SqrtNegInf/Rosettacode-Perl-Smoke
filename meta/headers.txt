@@ -2797,7 +2797,7 @@ File: E/Exactly_three_adjacent_3_in_lists-1
 File: E/Exactly_three_adjacent_3_in_lists-2
 #!/usr/local/bin/perl
 #u# http://rosettacode.org/wiki/Exactly_three_adjacent_3_in_lists
-#c# 2021-12-xx >RC
+#c# 2021-12-09 >RC
 #p# OK
 #n# testing as with Raku version, but adding 0x0 case for the degeneracy of it
 #n# tweaked penultimate list to test for '3 x 3 3' case handled by '$n-1 == grep'
