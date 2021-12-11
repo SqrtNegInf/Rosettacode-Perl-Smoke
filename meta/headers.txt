@@ -2651,6 +2651,7 @@ File: E/Emirp_primes
 #u# http://rosettacode.org/wiki/Emirp_primes
 #c# 2018-07-31 <RC, 2019-02-09 >RC
 #p# OK
+#n# not palindromic, a different prime when reversed
 
 File: E/Empty_directory
 #!/usr/local/bin/perl
@@ -6519,7 +6520,7 @@ File: P/Palindromic_gapful_numbers
 File: P/Palindromic_primes
 #!/usr/local/bin/perl
 #u# http://rosettacode.org/wiki/Palindromic_primes
-#c# 2021-04-15 <RC
+#c# 2021-04-15 <RC, 2021-12-10 >RC
 #p# OK
 
 File: P/Palindromic_primes_in_base_16
@@ -6527,6 +6528,16 @@ File: P/Palindromic_primes_in_base_16
 #u# http://rosettacode.org/wiki/Palindromic_primes_in_base_16
 #c# 2021-06-26 >RC
 #p# OK
+
+File: P/Palindromic_primes_of_distinct_two_digits
+#!/usr/local/bin/perl
+#u# http://rosettacode.org/wiki/Palindromic_primes_of_distinct_two_digits
+#c# 2021-12-10 NOT ON RC
+#p# OK
+#n# a(ba){1,} : why not 7/1, 7/6?  Just need to scan more candidates, or is there a Profound Mathematical Reason?
+#n# or in degenerate case of a=b, one digit, for lengths: 19, 23, 317, 1031 (which are themselves primes) [A004023]
+#n# to-do: instead of listing, build table of generator-pair frequencies
+#n# essentially 'undulating primes', so related to: A032758 A059758 A242541
 
 File: P/Pancake_numbers
 #!/usr/local/bin/perl
@@ -8102,6 +8113,13 @@ File: S/Safe_addition
 #u# http://rosettacode.org/wiki/Safe_addition
 #c# 2019-03-18 >RC
 #p# OK
+
+File: S/Safe_and_Sophie_Germain_primes
+#!/usr/local/bin/perl
+#u# http://rosettacode.org/wiki/xx
+#c# 2021-11-xx >RC
+#p# OK
+#n# revisions to task possible/probable?
 
 File: S/Safe_primes_and_unsafe_primes
 #!/usr/local/bin/perl
