@@ -2,6 +2,7 @@
 #u# http://rosettacode.org/wiki/Emirp_primes
 #c# 2018-07-31 <RC, 2019-02-09 >RC
 #p# OK
+#n# not palindromic, a different prime when reversed
 
 use strict;
 use feature 'say';
