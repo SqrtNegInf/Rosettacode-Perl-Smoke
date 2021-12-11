@@ -5,13 +5,13 @@ updating from RC…
 |+-----------> Smoke testing [1417]
 ||+----------> sKipping validation [149]
 |||+---------> Interactive [75]
-||||+--------> Touched (modified by me) [536]
+||||+--------> Touched (modified by me) [538]
 |||||+-------> Random seed [122]
 ||||||+------> File output [77]
-|||||||+-----> Draft [340]
+|||||||+-----> Draft [341]
 ||||||||+----> Ignoring [37]
-|||||||||+---> Void (no local copy) [125]
-||||||||||+--> Un-implemented/reliable [98]
+|||||||||+---> Void (no local copy) [126]
+||||||||||+--> Un-implemented/reliable [99]
 |||||||||||
 GS..T..D... 10001th_prime
 GS......... 100_doors-1
@@ -62,6 +62,7 @@ GS......... Ackermann_function-5
 GS......... Active_Directory_Search_for_a_user
 GS......... Active_object
 GS......... Add_a_variable_to_a_class_instance_at_runtime
+.......D.VU Add_and_sort_square_numbers_in_ascending_order_from_three_lists
 .......D.VU Addition-chain_exponentiation
 GS..T..D... Addition_chains
 GS..T...... Additive_primes
@@ -370,6 +371,7 @@ GS......... Day_of_the_week-1
 GS......... Day_of_the_week-2
 GS......... Day_of_the_week-3
 GS......... Day_of_the_week-4
+.......D.V. Day_of_the_week_of_Christmas_and_New_Year
 GS..T..D... Days_between_dates
 GS..T...... De_Bruijn_sequences
 GS...R..... Deal_cards_for_FreeCell
@@ -1049,7 +1051,7 @@ GS..T...... Palindrome_dates-1
 GS......... Palindrome_dates-2
 GS......... Palindrome_detection
 GS..T...... Palindromic_gapful_numbers
-GS.....D... Palindromic_primes
+GS..T..D... Palindromic_primes
 GS..T..D... Palindromic_primes_in_base_16
 GS..T...... Pancake_numbers
 .......D... Pandigital_prime
@@ -1304,7 +1306,7 @@ GS......... SHA-256_Merkle_tree
 ........XV. SOAP
 ........XV. SQL-based_authentication
 GS..T...... Safe_addition
-.......D.VU Safe_and_Sophie_Germain_primes
+GS..T..D..U Safe_and_Sophie_Germain_primes
 .......D.V. Safe_mode
 GS..T...... Safe_primes_and_unsafe_primes
 GS..T...... Sailors,_coconuts_and_a_monkey_problem-1
@@ -1683,7 +1685,6 @@ GS......... Weird_numbers-2
 .......D... Welch%27s_t-test
 GS..T...... Welch%27s_t-test-1
 GS......... Welch%27s_t-test-2
-GS.....D... What_weekdays_will_Christmas_and_New_Year
 GS..T..D... Wieferich_primes
 .......D.VU WiktionaryDumps_to_words
 GS..T...... Wilson_primes_of_order_n
