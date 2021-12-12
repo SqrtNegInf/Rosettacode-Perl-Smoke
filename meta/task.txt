@@ -1,17 +1,17 @@
 
 This is perl 5, version 32, subversion 1 (v5.32.1) built for darwin-thread-multi-2level
 updating from RC…
-+------------> Perl: Good/Bad [1563/12]
-|+-----------> Smoke testing [1417]
++------------> Perl: Good/Bad [1566/12]
+|+-----------> Smoke testing [1420]
 ||+----------> sKipping validation [149]
 |||+---------> Interactive [75]
-||||+--------> Touched (modified by me) [538]
+||||+--------> Touched (modified by me) [537]
 |||||+-------> Random seed [122]
 ||||||+------> File output [77]
 |||||||+-----> Draft [341]
 ||||||||+----> Ignoring [37]
-|||||||||+---> Void (no local copy) [126]
-||||||||||+--> Un-implemented/reliable [99]
+|||||||||+---> Void (no local copy) [124]
+||||||||||+--> Un-implemented/reliable [97]
 |||||||||||
 GS..T..D... 10001th_prime
 GS......... 100_doors-1
@@ -62,7 +62,7 @@ GS......... Ackermann_function-5
 GS......... Active_Directory_Search_for_a_user
 GS......... Active_object
 GS......... Add_a_variable_to_a_class_instance_at_runtime
-.......D.VU Add_and_sort_square_numbers_in_ascending_order_from_three_lists
+GS.....D... Add_and_sort_square_numbers_in_ascending_order_from_three_lists
 .......D.VU Addition-chain_exponentiation
 GS..T..D... Addition_chains
 GS..T...... Additive_primes
@@ -371,7 +371,7 @@ GS......... Day_of_the_week-1
 GS......... Day_of_the_week-2
 GS......... Day_of_the_week-3
 GS......... Day_of_the_week-4
-.......D.V. Day_of_the_week_of_Christmas_and_New_Year
+GS.....D... Day_of_the_week_of_Christmas_and_New_Year
 GS..T..D... Days_between_dates
 GS..T...... De_Bruijn_sequences
 GS...R..... Deal_cards_for_FreeCell
@@ -1306,7 +1306,8 @@ GS......... SHA-256_Merkle_tree
 ........XV. SOAP
 ........XV. SQL-based_authentication
 GS..T...... Safe_addition
-GS..T..D..U Safe_and_Sophie_Germain_primes
+GS.....D... Safe_and_Sophie_Germain_primes
+GS......... Safe_and_Sophie_Germain_primes-2
 .......D.V. Safe_mode
 GS..T...... Safe_primes_and_unsafe_primes
 GS..T...... Sailors,_coconuts_and_a_monkey_problem-1
