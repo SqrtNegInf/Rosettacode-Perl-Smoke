@@ -1,8 +1,7 @@
 #!/usr/local/bin/perl
-#u# http://rosettacode.org/wiki/xx
-#c# 2021-11-xx >RC
+#u# http://rosettacode.org/wiki/Safe_and_Sophie_Germain_primes
+#c# 2021-12-09 NOT ON RC
 #p# OK
-#n# revisions to task possible/probable?
 
 my @res;
 
@@ -40,13 +39,3 @@ END
 use Test::More;
 is($result, $ref);
 done_testing();
-
-__END__
-
-=={{header|Perl}}==
-{{libheader|ntheory}}
-<lang perl>
-</lang>
-{{out}}
-<pre>
-</pre>
