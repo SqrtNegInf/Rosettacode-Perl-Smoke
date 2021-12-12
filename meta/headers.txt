@@ -288,6 +288,12 @@ File: A/Add_a_variable_to_a_class_instance_at_runtime
 #c# 2018-07-11 <RC
 #p# OK
 
+File: A/Add_and_sort_square_numbers_in_ascending_order_from_three_lists
+#!/usr/local/bin/perl
+#u# http://rosettacode.org/wiki/Add_and_sort_square_numbers_in_ascending_order_from_three_lists
+#c# 2021-12-10 <RC
+#p# OK
+
 File: A/Addition_chains
 #!/usr/local/bin/perl
 #u# http://rosettacode.org/wiki/Addition_chains
@@ -2134,6 +2140,12 @@ File: D/Day_of_the_week-4
 #!/usr/local/bin/perl
 #u# http://rosettacode.org/wiki/Day_of_the_week
 #c# 2018-07-28 <RC
+#p# OK
+
+File: D/Day_of_the_week_of_Christmas_and_New_Year
+#!/usr/local/bin/perl
+#u# http://rosettacode.org/wiki/Day_of_the_week_of_Christmas_and_New_Year
+#c# 2021-11-26 <RC
 #p# OK
 
 File: D/Days_between_dates
@@ -6529,15 +6541,17 @@ File: P/Palindromic_primes_in_base_16
 #c# 2021-06-26 >RC
 #p# OK
 
-File: P/Palindromic_primes_of_distinct_two_digits
+File: P/Palindromic_primes_with_alternating_digits
 #!/usr/local/bin/perl
-#u# http://rosettacode.org/wiki/Palindromic_primes_of_distinct_two_digits
+#u# http://rosettacode.org/wiki/Palindromic_primes_with_alternating_digits
 #c# 2021-12-10 NOT ON RC
 #p# OK
-#n# a(ba){1,} : why not 7/1, 7/6?  Just need to scan more candidates, or is there a Profound Mathematical Reason?
-#n# or in degenerate case of a=b, one digit, for lengths: 19, 23, 317, 1031 (which are themselves primes) [A004023]
+#n# essentially 'smoothly undulating palindromic primes': a(ba){1,}, 
+#n# http://www.worldofnumbers.com/undulat.htm
+#n# So related to huge number of OEIS entries: A032758 A059758 A242541
+#n# or in degenerate case of a=b, one digit, for lengths: 19, 23, 317, 1031 (the repunit primes, as per A004023)
+#n# b=0 only once, never 3/4, 7/1, 7/6: 
 #n# to-do: instead of listing, build table of generator-pair frequencies
-#n# essentially 'undulating primes', so related to: A032758 A059758 A242541
 
 File: P/Pancake_numbers
 #!/usr/local/bin/perl
@@ -8116,10 +8130,16 @@ File: S/Safe_addition
 
 File: S/Safe_and_Sophie_Germain_primes
 #!/usr/local/bin/perl
-#u# http://rosettacode.org/wiki/xx
-#c# 2021-11-xx >RC
+#u# http://rosettacode.org/wiki/Safe_and_Sophie_Germain_primes
+#c# 2021-12-09 NOT ON RC
 #p# OK
-#n# revisions to task possible/probable?
+
+File: S/Safe_and_Sophie_Germain_primes-2
+#!/usr/local/bin/perl
+#u# http://rosettacode.org/wiki/Safe_and_Sophie_Germain_primes
+#c# 2021-12-10 <RC
+#p# OK
+#n# PITA construction for testing!
 
 File: S/Safe_primes_and_unsafe_primes
 #!/usr/local/bin/perl
@@ -10445,12 +10465,6 @@ File: W/Welch%27s_t-test-2.0
 #c# 2018-08-03 <RC
 #p# OK
 #n# interesting, different modules require different quoting constructions (when not using 'qw')
-
-File: W/What_weekdays_will_Christmas_and_New_Year
-#!/usr/local/bin/perl
-#u# http://rosettacode.org/wiki/What_weekdays_will_Christmas_and_New_Year
-#c# 2021-11-26 <RC
-#p# OK
 
 File: W/Wieferich_primes
 #!/usr/local/bin/perl
