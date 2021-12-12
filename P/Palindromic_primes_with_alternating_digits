@@ -1,38 +1,50 @@
 #!/usr/local/bin/perl
-#u# http://rosettacode.org/wiki/Palindromic_primes_of_distinct_two_digits
+#u# http://rosettacode.org/wiki/Palindromic_primes_with_alternating_digits
 #c# 2021-12-10 NOT ON RC
 #p# OK
-#n# a(ba){1,} : why not 7/1, 7/6?  Just need to scan more candidates, or is there a Profound Mathematical Reason?
-#n# or in degenerate case of a=b, one digit, for lengths: 19, 23, 317, 1031 (which are themselves primes) [A004023]
+#n# essentially 'smoothly undulating palindromic primes': a(ba){1,}, 
+#n# http://www.worldofnumbers.com/undulat.htm
+#n# So related to huge number of OEIS entries: A032758 A059758 A242541
+#n# or in degenerate case of a=b, one digit, for lengths: 19, 23, 317, 1031 (the repunit primes, as per A004023)
+#n# b=0 only once, never 3/4, 7/1, 7/6: 
 #n# to-do: instead of listing, build table of generator-pair frequencies
-#n# essentially 'undulating primes', so related to: A032758 A059758 A242541
 
+$| = 1;
 my @res;
 
 use strict;
 use warnings;
 use feature 'say';
 
-$| = 1;
-
-use Math::Prime::Util qw/is_prime/;
+use Math::Prime::Util 'is_prime';
+#use Math::AnyNum 'is_prime';       # faster with smallest primes
 
 my $lo = 2; my $hi = 8;
 #my $lo = 2; my $hi = 10_000;
 
-push @res, '3 1 0';
+#print "101 \n";
+#push @res, '3 1 0';
+
+my @digits = 0..9; 
+my $zero;
 
 for my $d ($lo..$hi) {
     my @pr = ();
     for my $a (<1 3 7 9>) {
-        for my $b (1..9) {
+        for my $b (@digits) {
+            next if "$a$b" eq '34' or "$a$b" eq '71' or "$a$b" eq '76';
             my $p = $a . "$b$a" x ($d-1);
+#           print "$p " if is_prime $p;
             push @pr, [$a, $b] if is_prime $p
         }
     }
+#print "\n";
+    $zero = shift @digits unless defined $zero;
     printf "%d %s\n", 1+2*($d-1), join ' ', @{$pr[$_]} for 0..$#pr;
     push @res, sprintf "%d %s", 1+2*($d-1), join ' ', @{$pr[$_]} for 0..$#pr;
 }
+
+#print "\n" and exit;
 
 exit unless $hi == 8;
 my $result = join "\n", @res;
