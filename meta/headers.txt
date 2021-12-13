@@ -6546,7 +6546,7 @@ File: P/Palindromic_primes_with_alternating_digits
 #u# http://rosettacode.org/wiki/Palindromic_primes_with_alternating_digits
 #c# 2021-12-10 NOT ON RC
 #p# OK
-#n# essentially 'smoothly undulating palindromic primes': a(ba){1,}, 
+#n# essentially 'smoothly undulating palindromic primes': a(ba){1,}, (but allowing a == b)
 #n# http://www.worldofnumbers.com/undulat.htm
 #n# So related to huge number of OEIS entries: A032758 A059758 A242541
 #n# or in degenerate case of a=b, one digit, for lengths: 19, 23, 317, 1031 (the repunit primes, as per A004023)
