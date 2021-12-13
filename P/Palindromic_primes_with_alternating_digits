@@ -2,12 +2,29 @@
 #u# http://rosettacode.org/wiki/Palindromic_primes_with_alternating_digits
 #c# 2021-12-10 NOT ON RC
 #p# OK
-#n# essentially 'smoothly undulating palindromic primes': a(ba){1,}, 
+#n# essentially 'smoothly undulating palindromic primes': a(ba){1,}, (but allowing a == b)
 #n# http://www.worldofnumbers.com/undulat.htm
 #n# So related to huge number of OEIS entries: A032758 A059758 A242541
 #n# or in degenerate case of a=b, one digit, for lengths: 19, 23, 317, 1031 (the repunit primes, as per A004023)
 #n# b=0 only once, never 3/4, 7/1, 7/6: 
 #n# to-do: instead of listing, build table of generator-pair frequencies
+
+# (12*10**46499-21)/99
+# (15*10**44653-51)/99
+# (18*10**66657-81)/99 .
+# (31*10**43869-13)/99
+# (38*10**91997-83)/99 .
+# (72*10**53847-27)/99 .
+# (75*10**41657-57)/99
+# (75*10**72941-57)/99 .
+# (79*10**51663-97)/99 .
+# (79*10**66447-97)/99 .
+# (94*10**92981-49)/99 !
+# (98*10**52931-89)/99 .
+# (98*10**88595-89)/99 .
+
+# from A193419:
+# say (3 + 4*(((18*(10**$_))-81)/99)).comb.Bag for <3 5 77 163 1479 3657 4573 8315>;
 
 $| = 1;
 my @res;
@@ -21,9 +38,6 @@ use Math::Prime::Util 'is_prime';
 
 my $lo = 2; my $hi = 8;
 #my $lo = 2; my $hi = 10_000;
-
-#print "101 \n";
-#push @res, '3 1 0';
 
 my @digits = 0..9; 
 my $zero;
@@ -95,3 +109,19 @@ use Test::More;
 chomp $ref;
 is ($result, $ref);
 done_testing();
+
+__END__
+
+18181 wins a prize for appearing in 80+ OEIS entries (strobogrammatic, really?)
+
+A193419:
+  727 = 4*  181 + 3
+72727 = 4*18181 + 3
+
+101 131 151 181 191 313 353 373 383 727 757 787 797 919 929
+18181 32323 35353 72727 74747 78787 94949 95959
+1212121 1616161
+323232323 383838383 727272727 919191919 929292929 979797979 989898989
+12121212121 14141414141 32323232323 91919191919
+151515151515151 383838383838383 737373737373737
+
