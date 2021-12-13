@@ -7,7 +7,6 @@
 #n# So related to huge number of OEIS entries: A032758 A059758 A242541
 #n# or in degenerate case of a=b, one digit, for lengths: 19, 23, 317, 1031 (the repunit primes, as per A004023)
 #n# b=0 only once, never 3/4, 7/1, 7/6: 
-#n# to-do: instead of listing, build table of generator-pair frequencies
 
 # (12*10**46499-21)/99
 # (15*10**44653-51)/99
@@ -36,8 +35,8 @@ use feature 'say';
 use Math::Prime::Util 'is_prime';
 #use Math::AnyNum 'is_prime';       # faster with smallest primes
 
-my $lo = 2; my $hi = 8;
-#my $lo = 2; my $hi = 10_000;
+#my $lo = 2; my $hi = 8;
+my $lo = 2; my $hi = 500;
 
 my @digits = 0..9; 
 my $zero;
