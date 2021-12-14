@@ -6550,8 +6550,8 @@ File: P/Palindromic_primes_with_alternating_digits
 #n# http://www.worldofnumbers.com/undulat.htm
 #n# So related to huge number of OEIS entries: A032758 A059758 A242541
 #n# or in degenerate case of a=b, one digit, for lengths: 19, 23, 317, 1031 (the repunit primes, as per A004023)
-#n# b=0 only once, never 3/4, 7/1, 7/6: 
-#n# to-do: instead of listing, build table of generator-pair frequencies
+#n# b=0 only once, never a=7, b=6 (proved) but 3/4, 7/1?
+#n# 3 .. 1501: 61.69s user 0.21s system 99% cpu 1:02.38 total
 
 File: P/Pancake_numbers
 #!/usr/local/bin/perl
@@ -7763,6 +7763,12 @@ File: R/Reduced_row_echelon_form
 #!/usr/local/bin/perl
 #u# http://rosettacode.org/wiki/Reduced_row_echelon_form
 #c# 2018-08-19 <>RC
+#p# OK
+
+File: R/Reflection_Get_source
+#!/usr/local/bin/perl
+#u# http://rosettacode.org/wiki/Reflection/Get_source
+#c# 2021-12-13 <RC
 #p# OK
 
 File: R/Reflection_List_methods
