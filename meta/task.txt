@@ -1,14 +1,14 @@
 
 This is perl 5, version 32, subversion 1 (v5.32.1) built for darwin-thread-multi-2level
 updating from RC…
-+------------> Perl: Good/Bad [1566/12]
-|+-----------> Smoke testing [1420]
++------------> Perl: Good/Bad [1567/12]
+|+-----------> Smoke testing [1421]
 ||+----------> sKipping validation [149]
 |||+---------> Interactive [75]
 ||||+--------> Touched (modified by me) [537]
 |||||+-------> Random seed [122]
 ||||||+------> File output [77]
-|||||||+-----> Draft [341]
+|||||||+-----> Draft [342]
 ||||||||+----> Ignoring [37]
 |||||||||+---> Void (no local copy) [124]
 ||||||||||+--> Un-implemented/reliable [97]
@@ -1244,7 +1244,7 @@ GS..T...... Recaman%27s_sequence
 ........XVU Record_sound
 GS....FD... Recursive_descent_parser_generator
 GS..T...... Reduced_row_echelon_form
-........XVU Reflection_Get_source
+GS......X.. Reflection_Get_source
 GS..T...... Reflection_List_methods
 GS..T...... Reflection_List_properties
 GS......... Regular_expressions
@@ -1313,6 +1313,7 @@ GS..T...... Safe_primes_and_unsafe_primes
 GS..T...... Sailors,_coconuts_and_a_monkey_problem-1
 GS..T...... Sailors,_coconuts_and_a_monkey_problem-2
 GS......... Same_fringe
+.......D.VU Sanitize_user_input
 GS..TR.D... Sattolo_cycle
 GS..T...... Scope_Function_names_and_labels
 GS......... Scope_modifiers
