@@ -1,0 +1,18 @@
+#!/usr/local/bin/perl
+#u# http://rosettacode.org/wiki/Reflection/Get_source
+#c# 2021-12-13 <RC
+#p# OK
+
+use strict;
+use warnings;
+use feature 'say';
+
+use Class::Inspector;
+
+say my $result = Class::Inspector->resolved_filename( 'IO::Socket::INET' ), "\n";
+
+my $ref = '/usr/local/lib/perl5/site_perl/5.32.1/darwin-thread-multi-2level/IO/Socket/INET.pm';
+
+use Test::More;
+is ($result, $ref);
+done_testing();
