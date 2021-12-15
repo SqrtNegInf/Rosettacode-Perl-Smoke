@@ -11,7 +11,7 @@ updating from RC…
 |||||||+-----> Draft [342]
 ||||||||+----> Ignoring [37]
 |||||||||+---> Void (no local copy) [124]
-||||||||||+--> Un-implemented/reliable [97]
+||||||||||+--> Un-implemented/reliable [96]
 |||||||||||
 GS..T..D... 10001th_prime
 GS......... 100_doors-1
@@ -1244,7 +1244,7 @@ GS..T...... Recaman%27s_sequence
 ........XVU Record_sound
 GS....FD... Recursive_descent_parser_generator
 GS..T...... Reduced_row_echelon_form
-GS......X.. Reflection_Get_source
+GS......... Reflection_Get_source
 GS..T...... Reflection_List_methods
 GS..T...... Reflection_List_properties
 GS......... Regular_expressions
@@ -1688,7 +1688,7 @@ GS......... Weird_numbers-2
 GS..T...... Welch%27s_t-test-1
 GS......... Welch%27s_t-test-2
 GS..T..D... Wieferich_primes
-.......D.VU WiktionaryDumps_to_words
+.......DXV. WiktionaryDumps_to_words
 GS..T...... Wilson_primes_of_order_n
 G.KI....... Window_creation
 G.KI....... Window_creation_X11
