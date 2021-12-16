@@ -1,0 +1,51 @@
+#!/usr/local/bin/perl
+#u# http://rosettacode.org/wiki/Multiton
+#c# 2021-12-15 <RC
+#p# OK
+
+my @res;
+
+use strict;
+use warnings;
+use feature 'say';
+
+#BEGIN {
+   package MultitonDemo ;
+   use Moo;
+   with 'Role::Multiton';
+   has [qw(attribute)] => ( is => 'rw');
+   $INC{"MultitonDemo.pm"} = 1;
+#}
+
+use MultitonDemo;
+
+# "We create several instances and compare them to see if multiton is in effect.\n";
+# "\n";
+# "Instance   Constructor  Attribute\n";   
+# "\n";
+# "0            multiton       0\n";
+# "1            multiton       1\n";
+# "2            multiton       0\n";
+# "3              new          0\n";
+# "4              new          0\n";
+
+my $inst0 = MultitonDemo->multiton (attribute => 0); 
+my $inst1 = MultitonDemo->multiton (attribute => 1);
+my $inst2 = MultitonDemo->multiton (attribute => 0); 
+my $inst3 = MultitonDemo->new      (attribute => 0);
+my $inst4 = MultitonDemo->new      (attribute => 0);
+
+if ($inst0 eq $inst1) { push @res, "Instance0 and Instance1 share the same object\n" };
+if ($inst1 eq $inst2) { push @res, "Instance1 and Instance2 share the same object\n" }; 
+if ($inst0 eq $inst2) { push @res, "Instance0 and Instance2 share the same object\n" }; 
+if ($inst0 eq $inst3) { push @res, "Instance0 and Instance3 share the same object\n" }; 
+if ($inst3 eq $inst4) { push @res, "Instance3 and Instance4 share the same object\n" };
+
+say my $result = join '', @res;
+
+my $ref = 'Instance0 and Instance2 share the same object';
+
+use Test::More;
+chomp $result;
+is ($result, $ref);
+done_testing();
