@@ -30,13 +30,13 @@ while ($_ = <DATA>) {
 }
 
 } else {
-#my $l1 = 3; my $l2 = 15;
-my $l1 = 3; my $l2 = 1501;
+#my $m1 = 3; my $m2 = 15;
+my $m1 = 3; my $m2 = 1501;
 
 my @digits = 0..9; 
 my $zero;
 
-for my $d (($l1+1)/2..($l2+1)/2) {
+for my $d (($m1+1)/2..($m2+1)/2) {
     my @pr = ();
     for my $a (<1 3 7 9>) {
         for my $b (@digits) {
@@ -74,7 +74,7 @@ print "\n";
 
 exit;
 
-#exit unless $l1 == 3 and $l2 == 15;
+#exit unless $m1 == 3 and $m2 == 15;
 my $result = join "\n", @res;
 
 my $ref = <<'EOD';
