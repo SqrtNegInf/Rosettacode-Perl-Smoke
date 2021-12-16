@@ -1,8 +1,8 @@
 
 This is perl 5, version 32, subversion 1 (v5.32.1) built for darwin-thread-multi-2level
 updating from RC…
-+------------> Perl: Good/Bad [1567/12]
-|+-----------> Smoke testing [1421]
++------------> Perl: Good/Bad [1568/12]
+|+-----------> Smoke testing [1422]
 ||+----------> sKipping validation [149]
 |||+---------> Interactive [75]
 ||||+--------> Touched (modified by me) [537]
@@ -10,8 +10,8 @@ updating from RC…
 ||||||+------> File output [77]
 |||||||+-----> Draft [342]
 ||||||||+----> Ignoring [37]
-|||||||||+---> Void (no local copy) [124]
-||||||||||+--> Un-implemented/reliable [96]
+|||||||||+---> Void (no local copy) [123]
+||||||||||+--> Un-implemented/reliable [95]
 |||||||||||
 GS..T..D... 10001th_prime
 GS......... 100_doors-1
@@ -955,7 +955,7 @@ GS..T...... Multiple_regression
 GS......... Multiplication_tables
 GS......... Multiplicative_order
 GS......... Multisplit
-.......D.VU Multiton
+GS.....D... Multiton
 GS......... Munchausen_numbers
 GS....F.... Munching_squares
 G.K.T.F.... Musical_scale
