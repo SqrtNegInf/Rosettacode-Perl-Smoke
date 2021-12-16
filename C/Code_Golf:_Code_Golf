@@ -1,0 +1,46 @@
+#!/usr/local/bin/perl
+#u# http://rosettacode.org/wiki/Code_Golf:_Code_Golf
+#c# 2021-12-16 <RC
+#p# OK
+
+my @res;
+
+use strict;
+use warnings;
+use feature 'say';
+
+binmode STDOUT, ":encoding(UTF-8)";
+
+# 17 bytes
+push @res, 'Code Golf';
+
+# 35 bytes
+push @res, pack'H*','436F646520476F6C66';
+
+#Actually just for storage purpose it is possible (just not always) to store the bytes string as an UTF string.
+
+my $string = "\x{436F}\x{6465} \x{476F}\x{6C66}";
+say "'$string' is an UTF string with length = ".length($string);
+
+my ( $bytes, $offset ) =  '', 0 ;
+for ( map { ord $_ } split //, $string ) {
+   my @ar = ();
+   while ( $_ > 0 ) { unshift @ar, $_ & 0xff and $_ >>= 8 }
+   for ( @ar ) { vec( $bytes, $offset++, 8 ) = $_ }
+}
+
+push @res, "Extract to bytes '$bytes' with length = " . length($bytes);
+
+say my $result = join "\n", @res;
+
+my $ref = <<'EOD';
+Code Golf
+Code Golf
+Extract to bytes 'Code Golf' with length = 9
+EOD
+#'䍯摥 䝯汦' is an UTF string with length = 5
+
+use Test::More;
+chomp $ref;
+is ($result, $ref);
+done_testing();
