@@ -5941,6 +5941,12 @@ File: M/Multisplit
 #c# 2018-08-19 <RC
 #p# OK
 
+File: M/Multiton
+#!/usr/local/bin/perl
+#u# http://rosettacode.org/wiki/Multiton
+#c# 2021-12-15 <RC
+#p# OK
+
 File: M/Munchausen_numbers
 #!/usr/local/bin/perl
 #u# http://rosettacode.org/wiki/Munchausen_numbers
