@@ -1,0 +1,41 @@
+#!/usr/local/bin/perl
+#u# http://rosettacode.org/wiki/Find_squares_n_where_n%2B1_is_prime
+#c# 2021-11-xx >RC
+#p# OK
+
+my @res;
+
+use strict;
+use warnings;
+use feature 'say';
+
+use ntheory 'is_prime';
+
+#my $n; do { print $n**2 . ' ' if is_prime 1 + ++$n**2 } until $n > int sqrt 1000;
+#my $n; while (++$n < int sqrt 1000) { push @res, $n**2 if is_prime 1 + $n**2 }
+#push @res, $_**2 for grep { is_prime 1 + $_**2 } 1 .. int sqrt 1000;
+#for (1 .. int sqrt 1000) { push @res, $_**2 if is_prime 1 + $_**2 }
+#push @res, map $_**2, grep is_prime 1 + $_**2, 1.. int sqrt 1000;
+#push @res, $_**2 for grep is_prime 1 + $_**2, 1 .. int sqrt 1000;
+#is_prime 1 + $_**2 and push @res, $_**2 for 1 .. int sqrt 1000;
+ is_prime 1+$_**2&&push@res,$_**2for 1..31;                      # go with the golf!
+
+# or dispensing with the module
+# (1 x (1+$_**2)) !~ /^(11+)\1+$/ and print $_**2 . ' ' for 1..31;
+
+say my $result = join ' ', @res;
+
+my $ref = '1 4 16 36 100 196 256 400 576 676';
+
+use Test::More;
+chomp $ref;
+is($result, $ref);
+done_testing();
+
+__END__
+
+=={{header|Perl}}==
+{{libheader|ntheory}}
+<lang perl>print $_**2 . ' ' for grep { is_prime(1 + $_**2) } 1 .. int sqrt 1000;</lang>
+{{out}}
+<pre>1 4 16 36 100 196 256 400 576 676</pre>
