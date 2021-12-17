@@ -123,6 +123,12 @@ C/Chinese_zodiac
 C/Cipolla%27s_algorithm-1
 │:     1 BOX DRAWINGS LIGHT VERTICAL
 
+C/Code_Golf:_Code_Golf
+䍯:     1 CJK UNIFIED IDEOGRAPH-436F
+䝯:     1 CJK UNIFIED IDEOGRAPH-476F
+摥:     1 CJK UNIFIED IDEOGRAPH-6465
+汦:     1 CJK UNIFIED IDEOGRAPH-6C66
+
 C/Commatizing_numbers
 ±:     3 PLUS-MINUS SIGN
 
