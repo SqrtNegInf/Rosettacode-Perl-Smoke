@@ -1518,6 +1518,12 @@ File: C/Closures_Value_capture
 #c# 2018-07-23 <RC
 #p# OK
 
+File: C/Code_Golf:_Code_Golf
+#!/usr/local/bin/perl
+#u# http://rosettacode.org/wiki/Code_Golf:_Code_Golf
+#c# 2021-12-16 <RC
+#p# OK
+
 File: C/Code_segment_unload
 #!/usr/local/bin/perl
 #u# http://rosettacode.org/wiki/Code_segment_unload
@@ -3279,6 +3285,18 @@ File: F/Find_prime_numbers_of_the_form_n_n_n%2B2
 #p# OK
 #n# noodle a bit, task was so minimal...
 #n# NB: no primes for n**(3*i) + 8  where i = 1, 2, 3, ...
+
+File: F/Find_squares_n_where_n%2B1_is_prime
+#!/usr/local/bin/perl
+#u# http://rosettacode.org/wiki/Find_squares_n_where_n%2B1_is_prime
+#c# 2021-12-xx NOT ON RC
+#p# OK
+
+File: F/Find_squares_n_where_n%2B1_is_prime-2
+#!/usr/local/bin/perl
+#u# http://rosettacode.org/wiki/Find_squares_n_where_n%2B1_is_prime
+#c# 2021-12-16 <RC
+#p# OK
 
 File: F/Find_the_intersection_of_a_line_with_a_plane-1
 #!/usr/local/bin/perl
