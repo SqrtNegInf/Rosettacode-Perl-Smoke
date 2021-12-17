@@ -1,17 +1,17 @@
 
 This is perl 5, version 32, subversion 1 (v5.32.1) built for darwin-thread-multi-2level
 updating from RC…
-+------------> Perl: Good/Bad [1568/12]
-|+-----------> Smoke testing [1422]
++------------> Perl: Good/Bad [1571/12]
+|+-----------> Smoke testing [1425]
 ||+----------> sKipping validation [149]
 |||+---------> Interactive [75]
 ||||+--------> Touched (modified by me) [537]
 |||||+-------> Random seed [122]
 ||||||+------> File output [77]
-|||||||+-----> Draft [342]
+|||||||+-----> Draft [343]
 ||||||||+----> Ignoring [37]
-|||||||||+---> Void (no local copy) [123]
-||||||||||+--> Un-implemented/reliable [95]
+|||||||||+---> Void (no local copy) [122]
+||||||||||+--> Un-implemented/reliable [94]
 |||||||||||
 GS..T..D... 10001th_prime
 GS......... 100_doors-1
@@ -267,7 +267,7 @@ GS......... Cistercian_numerals
 G.K........ Classes
 GS..TR..... Closest-pair_problem
 GS......... Closures_Value_capture
-.......DXVU Code_Golf:_Code_Golf
+GS.....DX.. Code_Golf:_Code_Golf
 G.K.T..D... Code_segment_unload
 GS......... Collections
 G.KIT...... Color_of_a_screen_pixel
@@ -549,6 +549,8 @@ GS......... Find_palindromic_numbers_in_both_binary_and_ternary_bases
 .......D.V. Find_prime_n_such_that_reversed_n_is_also_prime
 GS..T..D... Find_prime_numbers_of_the_form_n_n_n%2B2
 .......D.V. Find_square_difference
+GS.....D... Find_squares_n_where_n%2B1_is_prime
+GS......... Find_squares_n_where_n%2B1_is_prime-2
 GS..T...... Find_the_intersection_of_a_line_with_a_plane-1
 GS......... Find_the_intersection_of_a_line_with_a_plane-2
 GS......... Find_the_intersection_of_two_lines
