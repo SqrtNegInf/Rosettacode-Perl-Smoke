@@ -1,0 +1,83 @@
+#!/usr/local/bin/perl
+#u# http://rosettacode.org/wiki/Run_as_a_daemon_or_service
+#t# interactive
+#c# 2021-12-17 <RC
+#p# OK
+#n# tested once by hand, went fine
+
+#my @res;
+
+# First off, start with a standalone script and let's call it "count.pl"
+use strict;
+use warnings;
+use feature 'say';
+
+use IO::Handle;
+use File::Temp qw/ tempfile tempdir /;
+
+my ($fh, $tempfile) = tempfile();
+my $count = 0;
+
+open $fh, '>', $tempfile or die;
+
+print "\n\nOutput goes to $tempfile\n";
+
+while (1) {
+   sleep 1;
+   print $fh "Sheep number ",$count++," just leaped over the fence ..\n";
+   $fh->flush();
+}
+
+#Make sure it works and then we can control/run it in daemon mode with another script
+use warnings;
+use strict;
+
+use Daemon::Control;
+
+exit Daemon::Control->new(
+   name       => 'Counter daemon',
+   program    => 'count.pl',
+   pid_file   => '/tmp/counter.pid',
+)->run;
+
+#say my $result = join "\n", @res;
+
+my $ref = <<'EOD';
+./daemon.pl status
+Counter daemon                                            [Not Running]
+./daemon.pl start
+Counter daemon                                                [Started]
+
+Output goes to /tmp/5wHmHKu4fN
+
+./daemon.pl status
+Counter daemon                                                [Running]
+tail -3 /tmp/5wHmHKu4fN
+Sheep number 76 just leaped over the fence ..
+Sheep number 77 just leaped over the fence ..
+Sheep number 78 just leaped over the fence ..
+cat /tmp/counter.pid
+32178
+./daemon.pl restart
+Counter daemon                                                [Stopped]
+Counter daemon                                                [Started]
+
+Output goes to /tmp/ttTTS4oGY_
+
+tail -3 /tmp/ttTTS4oGY_
+Sheep number 32 just leaped over the fence ..
+Sheep number 33 just leaped over the fence ..
+Sheep number 34 just leaped over the fence ..
+cat /tmp/counter.pid
+32188
+./daemon.pl stop
+Counter daemon                                                [Stopped]
+./daemon.pl status
+Counter daemon                                            [Not Running]
+cat /tmp/counter.pid
+cat: /tmp/counter.pid: No such file or directory
+EOD
+
+#use Test::More;
+#is ($result, $ref);
+#done_testing();
