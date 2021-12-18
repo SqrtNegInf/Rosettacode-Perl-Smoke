@@ -1,7 +1,8 @@
 #!/usr/local/bin/perl
 #u# http://rosettacode.org/wiki/Find_squares_n_where_n%2B1_is_prime
-#c# 2021-12-xx NOT ON RC
+#c# 2021-12-17 >RC
 #p# OK
+#n# put a print-to-STDOUT version of this on RC
 
 my @res;
 
@@ -11,18 +12,19 @@ use feature 'say';
 
 use ntheory <is_prime is_square primes>;
 
-#my $n; is_prime $_ and $n = sqrt $_-1 and $n == int $n and push @res, $_-1 for 1..1000; # backwards approach is verbose
-#my $n; do { push @res, $n**2 if is_prime 1 + ++$n**2 } until $n > int sqrt 1000;        # do/until
-#my $n; while (++$n < int sqrt 1000) { push @res, $n**2 if is_prime 1 + $n**2 }          # while
-#push @res, $_**2 for grep { is_prime 1 + $_**2 } 1 .. int sqrt 1000;                    # for/grep
-#for (1 .. int sqrt 1000) { push @res, $_**2 if is_prime 1 + $_**2 }                     # for/if
-#push @res, map $_**2, grep is_prime 1 + $_**2, 1.. int sqrt 1000;                       # map/grep
-#push @res, $_**2 for grep is_prime 1 + $_**2, 1 .. int sqrt 1000;                       # for/grep, alternate syntax
-#is_prime 1 + $_**2 and push @res, $_**2 for 1 .. int sqrt 1000;                         # and short-circuit / for
-#(1 x (1+$_**2)) !~ /^(11+)\1+$/ and push @res, $_**2 for 1..31;                         # dispensing with the module
-#@res = grep is_square($_), map $_ - 1, @{ primes(1000) };                               # grep/map (tybalt89: super clean, 2 module calls)
-#is_prime(1+$_**2)&&push@res,$_**2for(1..31);                                            # drats, no-spaces not the shortest 
- is_prime 1+$_**2&&push@res,$_**2for 1..31;                                              # golf, FTW
+#my $n; while () { push @res, $n**2 if is_prime 1 + ++$n**2; last if $n > int sqrt 1000 } # while/last
+#my $n; is_prime $_ and $n = sqrt $_-1 and $n == int $n and push @res, $_-1 for 1..1000;  # backwards approach is verbose
+#my $n; do { push @res, $n**2 if is_prime 1 + ++$n**2 } until $n > int sqrt 1000;         # do/until
+#my $n; while (++$n < int sqrt 1000) { push @res, $n**2 if is_prime 1 + $n**2 }           # while
+#push @res, $_**2 for grep { is_prime 1 + $_**2 } 1 .. int sqrt 1000;                     # for/grep
+#for (1 .. int sqrt 1000) { push @res, $_**2 if is_prime 1 + $_**2 }                      # for/if
+#push @res, map $_**2, grep is_prime 1 + $_**2, 1.. int sqrt 1000;                        # map/grep
+#push @res, $_**2 for grep is_prime 1 + $_**2, 1 .. int sqrt 1000;                        # for/grep, alternate syntax
+#is_prime 1 + $_**2 and push @res, $_**2 for 1 .. int sqrt 1000;                          # and short-circuit / for
+#(1 x (1+$_**2)) !~ /^(11+)\1+$/ and push @res, $_**2 for 1..31;                          # dispensing with the module
+#@res = grep is_square($_), map $_ - 1, @{ primes(1000) };                                # grep/map (tybalt89: super clean, 2 module calls)
+#is_prime(1+$_**2)&&push@res,$_**2for(1..31);                                             # drats, no-spaces not the shortest 
+ is_prime 1+$_**2&&push@res,$_**2for 1..31;                                               # golf, FTW
 
 say my $result = join ' ', @res;
 
