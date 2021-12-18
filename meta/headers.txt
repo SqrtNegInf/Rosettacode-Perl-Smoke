@@ -3289,8 +3289,9 @@ File: F/Find_prime_numbers_of_the_form_n_n_n%2B2
 File: F/Find_squares_n_where_n%2B1_is_prime
 #!/usr/local/bin/perl
 #u# http://rosettacode.org/wiki/Find_squares_n_where_n%2B1_is_prime
-#c# 2021-12-xx NOT ON RC
+#c# 2021-12-17 >RC
 #p# OK
+#n# put a print-to-STDOUT version of this on RC
 
 File: F/Find_squares_n_where_n%2B1_is_prime-2
 #!/usr/local/bin/perl
@@ -8103,6 +8104,14 @@ File: R/Run-length_encoding
 #u# http://rosettacode.org/wiki/Run-length_encoding
 #c# 2018-08-18 <RC
 #p# OK
+
+File: R/Run_as_a_daemon_or_service
+#!/usr/local/bin/perl
+#u# http://rosettacode.org/wiki/Run_as_a_daemon_or_service
+#t# interactive
+#c# 2021-12-17 <RC
+#p# OK
+#n# tested once by hand, went fine
 
 File: R/Runge-Kutta_method
 #!/usr/local/bin/perl
