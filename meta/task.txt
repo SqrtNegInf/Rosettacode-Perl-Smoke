@@ -1,14 +1,14 @@
 
 This is perl 5, version 32, subversion 1 (v5.32.1) built for darwin-thread-multi-2level
 updating from RC…
-+------------> Perl: Good/Bad [1571/12]
-|+-----------> Smoke testing [1425]
++------------> Perl: Good/Bad [1573/12]
+|+-----------> Smoke testing [1426]
 ||+----------> sKipping validation [150]
 |||+---------> Interactive [76]
 ||||+--------> Touched (modified by me) [538]
 |||||+-------> Random seed [122]
 ||||||+------> File output [77]
-|||||||+-----> Draft [343]
+|||||||+-----> Draft [344]
 ||||||||+----> Ignoring [36]
 |||||||||+---> Void (no local copy) [121]
 ||||||||||+--> Un-implemented/reliable [93]
@@ -414,6 +414,7 @@ GS..T..D... Distinct_power_numbers
 GS......... Distributed_programming
 GS..T..D... Distribution_of_0_Digits_in_factorial_series
 GS..T...... Diversity_prediction_theorem
+.......D.VU Divide_a_rectangle_into_a_number_of_unequal_triangles
 G.K........ Documentation
 G.K....D... Dominoes
 GS.....D... Doomsday_rule
@@ -1541,7 +1542,7 @@ GS..T...... Sylvester%27s_sequence
 GS......... Symmetric_difference
 GS......... Synchronous_concurrency
 GS......... System_time
-.......DXVU Table_creation
+GS.....DX.. Table_creation
 G.K.....X.. Table_creation_Postal_addresses
 GS....F.... Take_notes_on_the_command_line
 .......D.VU Tamagotchi_emulator
@@ -1586,7 +1587,7 @@ GS......... Thue-Morse
 GS...R..... Tic-tac-toe
 G.KI....... Tic-tac-toe-2
 GS.....D... Time-based_one-time_password_algorithm
-!S......... Time_a_function
+GS......... Time_a_function
 GS......... Tokenize_a_string
 GS......... Tokenize_a_string_with_escaping
 GS..T...... Tonelli-Shanks_algorithm
