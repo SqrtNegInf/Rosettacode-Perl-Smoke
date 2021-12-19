@@ -14,6 +14,7 @@ use ntheory <is_prime is_square primes>;
 
 #my $n; while () { push @res, $n**2 if is_prime 1 + ++$n**2; last if $n > int sqrt 1000 } # while/last
 #my $n; is_prime $_ and $n = sqrt $_-1 and $n == int $n and push @res, $_-1 for 1..1000;  # backwards approach is verbose
+#my $n; do { push @res, $n**2 if is_prime 1 + ++$n**2 } while $n <= int sqrt 1000;        # do/while
 #my $n; do { push @res, $n**2 if is_prime 1 + ++$n**2 } until $n > int sqrt 1000;         # do/until
 #my $n; while (++$n < int sqrt 1000) { push @res, $n**2 if is_prime 1 + $n**2 }           # while
 #push @res, $_**2 for grep { is_prime 1 + $_**2 } 1 .. int sqrt 1000;                     # for/grep
