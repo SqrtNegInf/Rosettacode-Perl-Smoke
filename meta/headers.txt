@@ -9647,6 +9647,12 @@ File: S/System_time
 #c# 2018-08-11 <RC
 #p# OK
 
+File: T/Table_creation
+#!/usr/local/bin/perl
+#u# http://rosettacode.org/wiki/Table_creation
+#c# 2021-12-18 <RC
+#p# OK
+
 File: T/Table_creation_Postal_addresses
 #!/usr/local/bin/perl
 #t# skiptest;
