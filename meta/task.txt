@@ -1,17 +1,17 @@
 
 This is perl 5, version 32, subversion 1 (v5.32.1) built for darwin-thread-multi-2level
 updating from RC…
-+------------> Perl: Good/Bad [1572/12]
-|+-----------> Smoke testing [1425]
++------------> Perl: Good/Bad [1573/12]
+|+-----------> Smoke testing [1426]
 ||+----------> sKipping validation [150]
 |||+---------> Interactive [76]
 ||||+--------> Touched (modified by me) [538]
 |||||+-------> Random seed [122]
 ||||||+------> File output [77]
-|||||||+-----> Draft [344]
+|||||||+-----> Draft [345]
 ||||||||+----> Ignoring [36]
 |||||||||+---> Void (no local copy) [122]
-||||||||||+--> Un-implemented/reliable [93]
+||||||||||+--> Un-implemented/reliable [94]
 |||||||||||
 GS..T..D... 10001th_prime
 GS......... 100_doors-1
@@ -268,7 +268,7 @@ GS..TR..... Closest-pair_problem
 GS......... Closures_Value_capture
 GS.....D... Code_Golf:_Code_Golf
 G.K.T..D... Code_segment_unload
-.......D.V. Collect_and_sort_square_numbers_in_ascending_order_from_three_lists
+GS.....D... Collect_and_sort_square_numbers_in_ascending_order_from_three_lists
 GS......... Collections
 G.KIT...... Color_of_a_screen_pixel
 GS..T...... Color_quantization
@@ -1343,6 +1343,7 @@ GS......... Set
 GS......... Set_consolidation
 GS......... Set_of_real_numbers
 GS...R..... Set_puzzle
+.......D.VU Set_right-adjacent_bits
 GS...R..... Seven-sided_dice_from_five-sided_dice
 GS..T...... Sexy_primes-1
 GS..T...... Sexy_primes-2
