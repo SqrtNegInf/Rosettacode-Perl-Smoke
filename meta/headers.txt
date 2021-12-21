@@ -288,12 +288,6 @@ File: A/Add_a_variable_to_a_class_instance_at_runtime
 #c# 2018-07-11 <RC
 #p# OK
 
-File: A/Add_and_sort_square_numbers_in_ascending_order_from_three_lists
-#!/usr/local/bin/perl
-#u# http://rosettacode.org/wiki/Add_and_sort_square_numbers_in_ascending_order_from_three_lists
-#c# 2021-12-10 <RC
-#p# OK
-
 File: A/Addition_chains
 #!/usr/local/bin/perl
 #u# http://rosettacode.org/wiki/Addition_chains
@@ -1529,6 +1523,12 @@ File: C/Code_segment_unload
 #u# http://rosettacode.org/wiki/Code_segment_unload
 #t# nocode
 #c# 2019-09-30 >RC
+#p# OK
+
+File: C/Collect_and_sort_square_numbers_in_ascending_order_from_three_lists
+#!/usr/local/bin/perl
+#u# http://rosettacode.org/wiki/Collect_and_sort_square_numbers_in_ascending_order_from_three_lists
+#c# 2021-12-10 <RC
 #p# OK
 
 File: C/Collections
