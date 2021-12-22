@@ -8,10 +8,10 @@ updating from RC…
 ||||+--------> Touched (modified by me) [538]
 |||||+-------> Random seed [122]
 ||||||+------> File output [77]
-|||||||+-----> Draft [345]
+|||||||+-----> Draft [347]
 ||||||||+----> Ignoring [36]
-|||||||||+---> Void (no local copy) [122]
-||||||||||+--> Un-implemented/reliable [94]
+|||||||||+---> Void (no local copy) [124]
+||||||||||+--> Un-implemented/reliable [95]
 |||||||||||
 GS..T..D... 10001th_prime
 GS......... 100_doors-1
@@ -1343,7 +1343,7 @@ GS......... Set
 GS......... Set_consolidation
 GS......... Set_of_real_numbers
 GS...R..... Set_puzzle
-.......D.VU Set_right-adjacent_bits
+.......D.V. Set_right-adjacent_bits
 GS...R..... Seven-sided_dice_from_five-sided_dice
 GS..T...... Sexy_primes-1
 GS..T...... Sexy_primes-2
@@ -1471,6 +1471,7 @@ GS..T.FD... Starting_a_web_browser
 GS......... State_name_puzzle
 GS...R..... Statistics_Basic
 GS..TR..... Statistics_Normal_distribution
+.......D.VU Steady_Squares
 GS..T...... Stem-and-leaf_plot
 GS......... Stern-Brocot_sequence-1
 GS......... Stern-Brocot_sequence-2
@@ -1525,6 +1526,7 @@ GS......... Sum_of_elements_below_main_diagonal_of_matrix-1
 GS......... Sum_of_elements_below_main_diagonal_of_matrix-2
 GS.....D... Sum_of_first_n_cubes
 GS..T..D... Sum_of_primes_in_odd_positions_is_prime
+.......D.VU Sum_of_square_and_cube_digits_of_an_integer_are_primes
 GS......... Sum_of_squares
 GS.....D... Sum_of_the_digits_of_n_is_substring_of_n
 GS......... Sum_to_100
