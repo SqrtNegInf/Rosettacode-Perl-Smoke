@@ -1,0 +1,30 @@
+#!/usr/local/bin/perl
+#u# http://rosettacode.org/wiki/Steady_Squares
+#c# 2021-12-22 <RC
+#p# OK
+
+my @res;
+
+use strict;
+use warnings;
+use feature 'say';
+
+($_ ** 2) =~ /$_$/ and push @res, sprintf "%5d  %d", $_, $_ ** 2 for 1 .. 10000;
+
+say my $result = join "\n", @res;
+
+my $ref = <<'EOD';
+    1  1
+    5  25
+    6  36
+   25  625
+   76  5776
+  376  141376
+  625  390625
+ 9376  87909376
+EOD
+
+use Test::More;
+chomp $ref;
+is ($result, $ref);
+done_testing();
