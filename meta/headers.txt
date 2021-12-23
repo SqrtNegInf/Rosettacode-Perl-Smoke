@@ -8366,6 +8366,12 @@ File: S/Set_puzzle
 #c# 2018-08-17 <RC
 #p# OK
 
+File: S/Set_right-adjacent_bits
+#!/usr/local/bin/perl
+#u# http://rosettacode.org/wiki/Set_right-adjacent_bits
+#c# 2021-12-21 <RC
+#p# OK
+
 File: S/Seven-sided_dice_from_five-sided_dice
 #!/usr/local/bin/perl
 #u# http://rosettacode.org/wiki/Seven-sided_dice_from_five-sided_dice
@@ -9190,6 +9196,12 @@ File: S/Statistics_Normal_distribution
 #c# 2018-09-16 >RC
 #p# OK
 
+File: S/Steady_Squares
+#!/usr/local/bin/perl
+#u# http://rosettacode.org/wiki/Steady_Squares
+#c# 2021-12-22 <RC
+#p# OK
+
 File: S/Stem-and-leaf_plot
 #!/usr/local/bin/perl
 #u# http://rosettacode.org/wiki/Stem-and-leaf_plot
@@ -9530,6 +9542,12 @@ File: S/Sum_of_primes_in_odd_positions_is_prime
 #!/usr/local/bin/perl
 #u# http://rosettacode.org/wiki/Sum_of_primes_in_odd_positions_is_prime
 #c# 2021-09-04 >RC
+#p# OK
+
+File: S/Sum_of_square_and_cube_digits_of_an_integer_are_primes
+#!/usr/local/bin/perl
+#u# http://rosettacode.org/wiki/Sum_of_square_and_cube_digits_of_an_integer_are_primes
+#c# 2021-12-22 <RC
 #p# OK
 
 File: S/Sum_of_squares
