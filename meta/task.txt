@@ -1,17 +1,17 @@
 
 This is perl 5, version 32, subversion 1 (v5.32.1) built for darwin-thread-multi-2level
 updating from RC…
-+------------> Perl: Good/Bad [1576/12]
++------------> Perl: Good/Bad [1575/12]
 |+-----------> Smoke testing [1429]
 ||+----------> sKipping validation [150]
 |||+---------> Interactive [76]
 ||||+--------> Touched (modified by me) [538]
 |||||+-------> Random seed [122]
 ||||||+------> File output [77]
-|||||||+-----> Draft [347]
+|||||||+-----> Draft [348]
 ||||||||+----> Ignoring [36]
-|||||||||+---> Void (no local copy) [121]
-||||||||||+--> Un-implemented/reliable [93]
+|||||||||+---> Void (no local copy) [122]
+||||||||||+--> Un-implemented/reliable [94]
 |||||||||||
 GS..T..D... 10001th_prime
 GS......... 100_doors-1
@@ -405,6 +405,7 @@ GS..T...... Dijkstra%27s_algorithm
 GS..T...... Dinesman%27s_multiple-dwelling_problem-1
 GS......... Dinesman%27s_multiple-dwelling_problem-2
 G.K..R..... Dining_philosophers
+.......D.VU Diophantine_linear_system_solving
 GS......... Discordian_date
 GS.....D... Discrete_Fourier_transform
 GS..T...... Display_a_linear_combination
@@ -1292,7 +1293,7 @@ GS......... Rosetta_Code_Fix_code_tags
 GS..T...... Rosetta_Code_Rank_languages_by_number_of_users
 GS..T...... Rosetta_Code_Rank_languages_by_popularity
 .......D.VU Rosetta_Code_Run_examples
-GS..T..D... Rosetta_Code_Tasks_without_examples
+!S..T..D... Rosetta_Code_Tasks_without_examples
 GS......... Rot-13
 GS..T..D... Round-robin_tournament_schedule
 GS......... Round-robin_tournament_schedule-2
