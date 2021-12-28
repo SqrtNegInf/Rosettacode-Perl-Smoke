@@ -958,6 +958,13 @@ File: B/Bitmap_Flood_fill
 #p# OK
 #f# RC file: filledcircle2.jpg
 
+File: B/Bitmap_PPM_conversion_through_a_pipe
+#!/usr/local/bin/perl
+#u# http://rosettacode.org/wiki/Bitmap/PPM_conversion_through_a_pipe
+#c# 2021-12-25 <RC
+#p# OK
+#f# RC file: pipe_image.jpg
+
 File: B/Bitmap_Read_a_PPM_file
 #!/usr/local/bin/perl
 #u# http://rosettacode.org/wiki/Bitmap/Read_a_PPM_file
@@ -976,6 +983,13 @@ $img->set_color(255, 255, 255, 255);
 $img->draw_line(0,0, $img->width,$img->height);
 $img->image_set_format("png");
 $img->save("run/bitmap_read.png");
+File: B/Bitmap_Read_an_image_through_a_pipe
+#!/usr/local/bin/perl
+#u# http://rosettacode.org/wiki/Bitmap/Read_an_image_through_a_pipe
+#c# 2021-12-26 <RC
+#p# OK
+#f# RC file: Lenna50.ppm
+
 File: B/Bitmap_Write_a_PPM_file
 #!/usr/local/bin/perl
 #u# http://rosettacode.org/wiki/Bitmap/Write_a_PPM_file
