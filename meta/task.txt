@@ -1,17 +1,17 @@
 
 This is perl 5, version 32, subversion 1 (v5.32.1) built for darwin-thread-multi-2level
 updating from RC…
-+------------> Perl: Good/Bad [1575/12]
-|+-----------> Smoke testing [1429]
++------------> Perl: Good/Bad [1577/12]
+|+-----------> Smoke testing [1431]
 ||+----------> sKipping validation [150]
 |||+---------> Interactive [76]
 ||||+--------> Touched (modified by me) [538]
 |||||+-------> Random seed [122]
-||||||+------> File output [77]
+||||||+------> File output [79]
 |||||||+-----> Draft [348]
 ||||||||+----> Ignoring [36]
-|||||||||+---> Void (no local copy) [122]
-||||||||||+--> Un-implemented/reliable [93]
+|||||||||+---> Void (no local copy) [120]
+||||||||||+--> Un-implemented/reliable [92]
 |||||||||||
 GS..T..D... 10001th_prime
 GS......... 100_doors-1
@@ -173,9 +173,9 @@ GS....F.... Bitmap_Bresenham%27s_line_algorithm
 GS....F.... Bitmap_Flood_fill
 .........VU Bitmap_Histogram
 .........VU Bitmap_Midpoint_circle_algorithm
-.........V. Bitmap_PPM_conversion_through_a_pipe
+GS....F.... Bitmap_PPM_conversion_through_a_pipe
 GS....F.... Bitmap_Read_a_PPM_file
-.........VU Bitmap_Read_an_image_through_a_pipe
+GS....F.... Bitmap_Read_an_image_through_a_pipe
 GS..T.F.... Bitmap_Write_a_PPM_file
 GS....F.... Bitwise_IO
 GS......... Bitwise_operations
