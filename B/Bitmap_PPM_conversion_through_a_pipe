@@ -1,0 +1,21 @@
+#!/usr/local/bin/perl
+#u# http://rosettacode.org/wiki/Bitmap/PPM_conversion_through_a_pipe
+#c# 2021-12-25 <RC
+#p# OK
+#f# RC file: pipe_image.jpg
+
+use strict;
+use warnings;
+
+use Imager;
+use Imager::Test 'test_image_raw'; 
+
+my $img = test_image_raw();
+my $IO  = Imager::io_new_bufchain();
+Imager::i_writeppm_wiol($img, $IO) or die;
+my $raw = Imager::io_slurp($IO) or die;
+
+open my $fh, '|-', '/opt/local/bin/convert - -compress none run/pipe_image.jpg' or die;
+binmode $fh;
+syswrite $fh, $raw or die;
+close $fh;
