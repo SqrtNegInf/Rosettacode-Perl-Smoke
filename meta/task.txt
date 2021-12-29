@@ -8,10 +8,10 @@ updating from RC…
 ||||+--------> Touched (modified by me) [538]
 |||||+-------> Random seed [122]
 ||||||+------> File output [79]
-|||||||+-----> Draft [348]
+|||||||+-----> Draft [347]
 ||||||||+----> Ignoring [36]
-|||||||||+---> Void (no local copy) [120]
-||||||||||+--> Un-implemented/reliable [92]
+|||||||||+---> Void (no local copy) [119]
+||||||||||+--> Un-implemented/reliable [91]
 |||||||||||
 GS..T..D... 10001th_prime
 GS......... 100_doors-1
@@ -917,7 +917,6 @@ GS......... Middle_three_digits
 GS......... Miller-Rabin_primality_test-1
 GS......... Miller-Rabin_primality_test-2
 GS..TR..... Mind_boggling_card_trick
-.......D.VU Mine_a_bitcoin
 G.KI....... Minesweeper_game
 GS......... Minimal_steps_down_to_1
 GS..T..D... Minimum_number_of_cells_after,_before,_above_and_below_NxN_squares
