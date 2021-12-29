@@ -3,6 +3,7 @@
 #c# 2019-05-02 >RC
 #p# OK
 #n# testing is pretty weak, only one task (100 doors)
+#n# 2021-12-28 fixed some trivial diff in output...
 
 use strict;
 use warnings;
@@ -46,7 +47,7 @@ my $ref = <<'END';
 <dd></dd></dl>
 <p>Answer the question: &#160; what state are the doors in after the last pass? &#160; Which are open, which are closed?
 </p><p><br />
-<b><a href="/wiki/Rosetta_Code:Extra_credit" title="Rosetta Code:Extra credit">Alternate</a>:</b>
+<b><a href="/wiki/Rosetta_Code:Extra_credit" title="Rosetta Code:Extra credit">Alternate</a>:</b> 
 As noted in this page's &#160; <a href="/wiki/Talk:100_doors" title="Talk:100 doors">discussion page</a>, &#160; the only doors that remain open are those whose numbers are perfect squares.
 </p><p>Opening only those doors is an &#160; <a href="/wiki/Rosetta_Code:Optimization" title="Rosetta Code:Optimization">optimization</a> &#160; that may also be expressed;
 however, as should be obvious, this defeats the intent of comparing implementations across programming languages.
