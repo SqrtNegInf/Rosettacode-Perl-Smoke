@@ -1,11 +1,11 @@
 
 This is perl 5, version 32, subversion 1 (v5.32.1) built for darwin-thread-multi-2level
 updating from RC…
-+------------> Perl: Good/Bad [1577/12]
++------------> Perl: Good/Bad [1578/12]
 |+-----------> Smoke testing [1431]
 ||+----------> sKipping validation [150]
 |||+---------> Interactive [76]
-||||+--------> Touched (modified by me) [538]
+||||+--------> Touched (modified by me) [539]
 |||||+-------> Random seed [122]
 ||||||+------> File output [79]
 |||||||+-----> Draft [347]
@@ -1146,7 +1146,7 @@ GS..T...... Polynomial_regression
 GS......... Polynomial_regression-2
 GS..T..D... Polynomial_synthetic_division
 G.KI....... Polyspiral
-GS......... Population_count
+GS..T...... Population_count
 GS..T...... Population_count-2
 .......D.V. Positive_decimal_integers_with_the_digit_1_occurring_exactly_twice
 GS......... Power_set-1
@@ -1292,7 +1292,7 @@ GS......... Rosetta_Code_Fix_code_tags
 GS..T...... Rosetta_Code_Rank_languages_by_number_of_users
 GS..T...... Rosetta_Code_Rank_languages_by_popularity
 .......D.VU Rosetta_Code_Run_examples
-!S..T..D... Rosetta_Code_Tasks_without_examples
+GS..T..D... Rosetta_Code_Tasks_without_examples
 GS......... Rot-13
 GS..T..D... Round-robin_tournament_schedule
 GS......... Round-robin_tournament_schedule-2
