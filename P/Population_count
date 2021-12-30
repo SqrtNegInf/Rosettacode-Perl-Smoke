@@ -1,75 +1,71 @@
 #!/usr/local/bin/perl
 #u# http://rosettacode.org/wiki/Population_count
-#c# 2018-08-20 <RC
+#c# 2018-08-20 <RC, 2021-12-29 >RC
 #p# OK
+#n# emulate infinite lists with closures
 
-use feature 'say';
-my $result;
-
-# Translation of: Perl 6
-# We'll emulate infinite lists with closures.
+my @res;
 
 use strict;
 use warnings;
+use feature 'say';
 
-sub population_count { 
-    my $n = shift;
-    die "argument can't be negative" if $n < 0;
-    my $c;
-    for ($c = 0; $n; $n >>= 1) { 
-        $c += $n & 1; 
-    } 
-    $c;
-}
-
-$result .= join ' ', map { population_count(3**$_) } 0 .. 30 - 1;
-$result .= "\n";
 sub evil {
     my $i = 0;
     sub { $i++ while population_count($i) % 2; $i++ }
 }
+
 sub odious {
     my $i = 0;
     sub { $i++ until population_count($i) % 2; $i++ }
 }
 
-my ($evil, $odious) = (evil, odious);
-my (@evil, @odious);
-for (1 .. 30) {
-    push @evil, $evil->();
-    push @odious, $odious->();
+sub population_count {
+    my $n = shift;
+    my $c;
+    for ($c = 0; $n; $n >>= 1) { $c += $n & 1 }
+    $c
 }
 
-$result .= sprintf "Evil  : %s\n", join ' ', @evil;
-$result .= sprintf "Odious: %s\n", join ' ', @odious;
+push @res, join ' ', map { population_count 3**$_ } 0 .. 30 - 1;
 
+my (@evil, @odious);
+my ($evil, $odious) = (evil, odious);
+push( @evil, $evil->() ), push @odious, $odious->() for 1 .. 30;
 
+push @res, "Evil   @evil";
+push @res, "Odious @odious";
 
 #A faster population count can be done with pack/unpack:
-$result .= unpack("%b*",pack "J*", 1234567) . "\n"; # J = UV
+push @res, unpack("%b*",pack "J*", 1234567); # J = UV
 
 # Various modules can also perform a population count, with the first of these being faster than the pack/unpack builtins. The first three easily support bigints, the last will with some adjustment.
-#use ntheory qw/hammingweight/;
-#say hammingweight(1234567);
-#
-#use Math::GMPz qw/Rmpz_popcount/;
-#say Rmpz_popcount(Math::GMPz->new(1234567));
-#
-#use Math::BigInt;
-#say 0 + (Math::BigInt->new(1234567)->as_bin() =~ tr/1//);
-#
-#use Bit::Vector;
-#say Bit::Vector->new_Dec(64,1234567)->Norm;
+use ntheory qw/hammingweight/;
+push @res, hammingweight(1234567);
 
+use Math::GMPz qw/Rmpz_popcount/;
+push @res, Rmpz_popcount(Math::GMPz->new(1234567));
 
-say $result; 
+use Math::BigInt;
+push @res, 0 + (Math::BigInt->new(1234567)->as_bin() =~ tr/1//);
+
+use Bit::Vector;
+push @res, Bit::Vector->new_Dec(64,1234567)->Norm;
+
+say my $result = join "\n", @res;
+
 my $ref = <<'EOD';
 1 2 2 4 3 6 6 5 6 8 9 13 10 11 14 15 11 14 14 17 17 20 19 22 16 18 24 30 25 25
-Evil  : 0 3 5 6 9 10 12 15 17 18 20 23 24 27 29 30 33 34 36 39 40 43 45 46 48 51 53 54 57 58
-Odious: 1 2 4 7 8 11 13 14 16 19 21 22 25 26 28 31 32 35 37 38 41 42 44 47 49 50 52 55 56 59
+Evil   0 3 5 6 9 10 12 15 17 18 20 23 24 27 29 30 33 34 36 39 40 43 45 46 48 51 53 54 57 58
+Odious 1 2 4 7 8 11 13 14 16 19 21 22 25 26 28 31 32 35 37 38 41 42 44 47 49 50 52 55 56 59
+11
+11
+11
+11
 11
 EOD
 
 use Test::More;
+chomp $ref;
 is ($result, $ref);
 done_testing();
