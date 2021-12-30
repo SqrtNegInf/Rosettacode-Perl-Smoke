@@ -7185,8 +7185,9 @@ File: P/Polyspiral.0
 File: P/Population_count
 #!/usr/local/bin/perl
 #u# http://rosettacode.org/wiki/Population_count
-#c# 2018-08-20 <RC
+#c# 2018-08-20 <RC, 2021-12-29 >RC
 #p# OK
+#n# emulate infinite lists with closures
 
 File: P/Population_count-2
 #!/usr/local/bin/perl
@@ -8092,6 +8093,7 @@ File: R/Rosetta_Code_Tasks_without_examples
 #c# 2019-05-02 >RC
 #p# OK
 #n# testing is pretty weak, only one task (100 doors)
+#n# 2021-12-28 fixed some trivial diff in output...
 
 File: R/Rot-13
 #!/usr/local/bin/perl
