@@ -1,0 +1,39 @@
+#!/usr/local/bin/perl
+#u# http://rosettacode.org/wiki/Pseudo-random_numbers/Middle-square_method
+#c# 2022-01-02 <RC
+#p# OK
+#n# terrible algorithm, many seeds lead to cycles or hit a fixed value
+
+my @res;
+
+use strict;
+use warnings;
+use feature <say state>;
+
+sub msq {
+    state $seed = 675248;
+    $seed = int($seed**2 / 1000) % 1000000;
+}
+
+push @res, msq() for 1..5;
+say my $result = join ' ', @res;
+
+my $ref = '959861 333139 981593 524817 432883';
+
+use Test::More;
+chomp $ref;
+is($result, $ref);
+done_testing();
+
+__END__
+
+Tybalt's version:
+
+sub msq
+  {
+  use feature qw( state );
+  state $seed = 675248;
+  $seed = sprintf "%06d", $seed ** 2 / 1000 % 1e6;
+  }
+
+print msq, "\n" for 1 .. 5;
