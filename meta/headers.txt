@@ -197,6 +197,12 @@ File: A/ASCII_art_diagram_converter
 #c# 2020-07-21 <RC
 #p# OK
 
+File: A/A_star_search_algorithm
+#!/usr/local/bin/perl
+#u# http://rosettacode.org/wiki/A*_search_algorithm
+#c# 2022-01-07 <RC
+#p# OK
+
 File: A/Abbreviations,_automatic
 #!/usr/local/bin/perl
 #u# http://rosettacode.org/wiki/Abbreviations,_automatic
@@ -10472,6 +10478,12 @@ File: V/Visualize_a_tree
 #!/usr/local/bin/perl
 #u# http://rosettacode.org/wiki/Visualize_a_tree
 #c# 2018-08-06 <RC
+#p# OK
+
+File: V/Vogel%27s_approximation_method
+#!/usr/local/bin/perl
+#u# http://rosettacode.org/wiki/Vogel%27s_approximation_method
+#c# 2022-01-07 <RC
 #p# OK
 
 File: V/Voronoi_diagram
