@@ -1,8 +1,8 @@
 
 This is perl 5, version 32, subversion 1 (v5.32.1) built for darwin-thread-multi-2level
 updating from RC…
-+------------> Perl: Good/Bad [1579/12]
-|+-----------> Smoke testing [1432]
++------------> Perl: Good/Bad [1580/12]
+|+-----------> Smoke testing [1434]
 ||+----------> sKipping validation [150]
 |||+---------> Interactive [76]
 ||||+--------> Touched (modified by me) [539]
@@ -10,8 +10,8 @@ updating from RC…
 ||||||+------> File output [79]
 |||||||+-----> Draft [346]
 ||||||||+----> Ignoring [36]
-|||||||||+---> Void (no local copy) [119]
-||||||||||+--> Un-implemented/reliable [91]
+|||||||||+---> Void (no local copy) [117]
+||||||||||+--> Un-implemented/reliable [89]
 |||||||||||
 GS..T..D... 10001th_prime
 GS......... 100_doors-1
@@ -43,7 +43,7 @@ GS......... AKS_test_for_primes-2
 GS......... AKS_test_for_primes-3
 GS......... ASCII_art_diagram_converter
 .........VU AVL_tree
-.......D.VU A_star_search_algorithm
+GS.....D... A_star_search_algorithm
 GS..T...... Abbreviations,_automatic
 GS..T...... Abbreviations,_easy
 GS..T...... Abbreviations,_simple
@@ -1293,7 +1293,7 @@ GS......... Rosetta_Code_Fix_code_tags
 GS..T...... Rosetta_Code_Rank_languages_by_number_of_users
 GS..T...... Rosetta_Code_Rank_languages_by_popularity
 .......D.VU Rosetta_Code_Run_examples
-GS..T..D... Rosetta_Code_Tasks_without_examples
+!S..T..D... Rosetta_Code_Tasks_without_examples
 GS......... Rot-13
 GS..T..D... Round-robin_tournament_schedule
 GS......... Round-robin_tournament_schedule-2
@@ -1679,7 +1679,7 @@ G.KIT...... Video_display_modes
 GS..T...... Vigen%C3%A8re_cipher
 GS..T...... Vigen%C3%A8re_cipher_Cryptanalysis
 GS......... Visualize_a_tree
-.........VU Vogel%27s_approximation_method
+GS......... Vogel%27s_approximation_method
 GS..TRF.... Voronoi_diagram
 GS..T...... Walk_a_directory_Non-recursively
 GS..T...... Walk_a_directory_Recursively
