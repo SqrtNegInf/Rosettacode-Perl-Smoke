@@ -8,7 +8,7 @@ updating from RC…
 ||||+--------> Touched (modified by me) [539]
 |||||+-------> Random seed [122]
 ||||||+------> File output [79]
-|||||||+-----> Draft [346]
+|||||||+-----> Draft [345]
 ||||||||+----> Ignoring [36]
 |||||||||+---> Void (no local copy) [117]
 ||||||||||+--> Un-implemented/reliable [89]
@@ -1093,7 +1093,7 @@ GS......... Pell%27s_equation
 GS...R..... Penney%27s_game
 GS..T.FD... Penrose_tiling
 GS..T.F.... Pentagram
-GS...R.D... Pentomino_tiling
+GS...R..... Pentomino_tiling
 GS..T...... Percentage_difference_between_images-1
 GS......... Percentage_difference_between_images-2
 .......D.VU Perceptron
