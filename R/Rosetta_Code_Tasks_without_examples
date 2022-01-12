@@ -4,6 +4,7 @@
 #p# OK
 #n# testing is pretty weak, only one task (100 doors)
 #n# 2021-12-28 fixed some trivial diff in output...
+#n# 2022-01-12 flapping on white-space issue?
 
 use strict;
 use warnings;
