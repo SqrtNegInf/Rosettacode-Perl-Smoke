@@ -1,17 +1,17 @@
 
 This is perl 5, version 32, subversion 1 (v5.32.1) built for darwin-thread-multi-2level
 updating from RC…
-+------------> Perl: Good/Bad [1581/12]
++------------> Perl: Good/Bad [1580/12]
 |+-----------> Smoke testing [1434]
 ||+----------> sKipping validation [150]
 |||+---------> Interactive [76]
 ||||+--------> Touched (modified by me) [539]
 |||||+-------> Random seed [122]
 ||||||+------> File output [79]
-|||||||+-----> Draft [345]
+|||||||+-----> Draft [347]
 ||||||||+----> Ignoring [36]
-|||||||||+---> Void (no local copy) [117]
-||||||||||+--> Un-implemented/reliable [89]
+|||||||||+---> Void (no local copy) [119]
+||||||||||+--> Un-implemented/reliable [91]
 |||||||||||
 GS..T..D... 10001th_prime
 GS......... 100_doors-1
@@ -349,6 +349,7 @@ G.K.....X.. Create_an_object_at_a_given_address
 .......D.VU Create_your_own_text_control_codes
 GS......... Cuban_primes
 GS..T..D... Cubic_Special_Primes
+.......D.VU Cullen_and_Woodall_numbers
 GS......... Cumulative_standard_deviation-1
 GS......... Cumulative_standard_deviation-2
 GS..T...... Currency
@@ -1293,7 +1294,7 @@ GS......... Rosetta_Code_Fix_code_tags
 GS..T...... Rosetta_Code_Rank_languages_by_number_of_users
 GS..T...... Rosetta_Code_Rank_languages_by_popularity
 .......D.VU Rosetta_Code_Run_examples
-GS..T..D... Rosetta_Code_Tasks_without_examples
+!S..T..D... Rosetta_Code_Tasks_without_examples
 GS......... Rot-13
 GS..T..D... Round-robin_tournament_schedule
 GS......... Round-robin_tournament_schedule-2
@@ -1391,6 +1392,7 @@ GS..TR..... Sleeping_Beauty_problem
 .......D.VU Smallest_enclosing_circle_problem
 GS.....D... Smallest_multiple
 GS..T...... Smallest_multiple-2
+.......D.VU Smallest_number_k_such_that_k%2B2%5Em_is_composite_for_all_m_less_than_k
 GS..T..D... Smallest_numbers
 GS..T..D... Smallest_power_of_6_whose_decimal_expansion_contains_n
 GS..T..D... Smallest_square_that_begins_with_n
