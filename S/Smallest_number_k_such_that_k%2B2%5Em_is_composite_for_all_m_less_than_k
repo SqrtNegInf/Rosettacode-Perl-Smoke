@@ -1,0 +1,39 @@
+#!/usr/local/bin/perl
+#u# http://rosettacode.org/wiki/Smallest_number_k_such_that_k%2B2%5Em_is_composite_for_all_m_less_than_k
+#c# 2022-01-12 >RC
+#p# OK
+
+use strict;
+use warnings;
+use feature 'say';
+
+use bigint;
+use ntheory 'is_prime';
+use constant Inf => 1e10;
+
+my $result;
+
+my $cnt;
+LOOP: for my $k (2..Inf) {
+    next unless 1 == $k % 2;
+    for my $m (1..$k-1) {
+        next LOOP if is_prime $k + (1<<$m)
+    }
+    $result .= "$k ";
+    last if ++$cnt == 5;
+}
+
+say $result;
+
+use Test::More;
+is($result, '773 2131 2491 4471 5101 ');
+done_testing();
+
+__END__
+
+=={{header|Perl}}==
+{{libheader|ntheory}}
+<lang perl>
+</lang>
+{{out}}
+<pre>773 2131 2491 4471 5101</pre>
