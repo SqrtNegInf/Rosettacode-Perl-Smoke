@@ -141,6 +141,10 @@ C/Continued_fraction
 √:     2 SQUARE ROOT
 ≈:     8 ALMOST EQUAL TO
 
+C/Cullen_and_Woodall_numbers
+×:     6 MULTIPLICATION SIGN
+∞:     2 INFINITY
+
 C/Cumulative_standard_deviation-2
 ²:     3 SUPERSCRIPT TWO
 
