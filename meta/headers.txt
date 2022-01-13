@@ -2031,6 +2031,13 @@ File: C/Cubic_Special_Primes
 #c# 2021-04-19 >RC
 #p# OK
 
+File: C/Cullen_and_Woodall_numbers
+#!/usr/local/bin/perl
+#u# http://rosettacode.org/wiki/Cullen_and_Woodall_numbers
+#t# inprogress
+#c# 2022-01-xx >RC
+#p# OK
+
 File: C/Cumulative_standard_deviation-1
 #!/usr/local/bin/perl
 #u# http://rosettacode.org/wiki/Cumulative_standard_deviation
@@ -2486,9 +2493,9 @@ File: D/Documentation
 File: D/Dominoes
 #!/usr/local/bin/perl
 #u# http://rosettacode.org/wiki/Dominoes
-#t# skiptest
 #c# 2021-11-17 <RC
 #p# OK
+#n# just testing one initial configuration
 
 File: D/Doomsday_rule
 #!/usr/local/bin/perl
@@ -8107,6 +8114,7 @@ File: R/Rosetta_Code_Tasks_without_examples
 #p# OK
 #n# testing is pretty weak, only one task (100 doors)
 #n# 2021-12-28 fixed some trivial diff in output...
+#n# 2022-01-12 flapping on white-space issue?
 
 File: R/Rot-13
 #!/usr/local/bin/perl
@@ -8702,6 +8710,13 @@ File: S/Smallest_multiple-2
 #c# 2021-10-22 >RC
 #p# OK
 #n# borrowed code from 'Least_common_multiple'
+
+File: S/Smallest_number_k_such_that_k%2B2%5Em_is_composite_for_all_m_less_than_k
+#!/usr/local/bin/perl
+#u# http://rosettacode.org/wiki/Smallest_number_k_such_that_k%2B2%5Em_is_composite_for_all_m_less_than_k
+#c# 2022-01-12 >RC
+#p# OK
+#n# Math::AnyNum also needs 'use bigint'
 
 File: S/Smallest_numbers
 #!/usr/local/bin/perl
