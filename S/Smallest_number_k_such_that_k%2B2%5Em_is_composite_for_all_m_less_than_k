@@ -2,7 +2,6 @@
 #u# http://rosettacode.org/wiki/Smallest_number_k_such_that_k%2B2%5Em_is_composite_for_all_m_less_than_k
 #c# 2022-01-12 >RC
 #p# OK
-#n# Math::AnyNum also needs 'use bigint'
 
 use strict;
 use warnings;
@@ -10,13 +9,13 @@ use feature 'say';
 
 use bigint;
 use ntheory 'is_prime';
-use constant Inf => 1e10;
+#use Math::AnyNum 'is_prime'; # also needs 'use bigint'
 
 my $result;
 
-my $cnt;
-LOOP: for my $k (2..Inf) {
-    next unless 1 == $k % 2;
+my($k,$cnt) = (1,0);
+LOOP: while (1) {
+    next unless 1 == ++$k % 2;
     for my $m (1..$k-1) {
         #next LOOP if is_prime $k + (1<<$m) # cleverer, but not faster
         next LOOP if is_prime $k + 2**$m
@@ -24,6 +23,14 @@ LOOP: for my $k (2..Inf) {
     $result .= "$k ";
     last if ++$cnt == 5;
 }
+
+# slightly terser version
+#my($k,$cnt) = (1,0);
+#LOOP: while (1) {
+#    next if 0 == ++$k % 2;
+#    is_prime($k + 2**$_) and next LOOP for 1..$k-1;
+#    $result .= "$k " and ++$cnt == 5 and last;
+#}
 
 say $result;
 
