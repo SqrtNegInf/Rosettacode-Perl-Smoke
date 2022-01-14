@@ -2,13 +2,13 @@
 This is perl 5, version 32, subversion 1 (v5.32.1) built for darwin-thread-multi-2level
 updating from RC…
 +------------> Perl: Good/Bad [1583/12]
-|+-----------> Smoke testing [1436]
+|+-----------> Smoke testing [1437]
 ||+----------> sKipping validation [150]
 |||+---------> Interactive [76]
-||||+--------> Touched (modified by me) [541]
+||||+--------> Touched (modified by me) [542]
 |||||+-------> Random seed [122]
 ||||||+------> File output [79]
-|||||||+-----> Draft [347]
+|||||||+-----> Draft [348]
 ||||||||+----> Ignoring [36]
 |||||||||+---> Void (no local copy) [117]
 ||||||||||+--> Un-implemented/reliable [90]
@@ -1294,7 +1294,7 @@ GS......... Rosetta_Code_Fix_code_tags
 GS..T...... Rosetta_Code_Rank_languages_by_number_of_users
 GS..T...... Rosetta_Code_Rank_languages_by_popularity
 .......D.VU Rosetta_Code_Run_examples
-GS..T..D... Rosetta_Code_Tasks_without_examples
+!S..T..D... Rosetta_Code_Tasks_without_examples
 GS......... Rot-13
 GS..T..D... Round-robin_tournament_schedule
 GS......... Round-robin_tournament_schedule-2
@@ -1636,6 +1636,7 @@ GS......... UTF-8_encode_and_decode
 .........VU Ukkonens_suffix_tree_construction
 GS..T..D... Ulam_numbers
 GS....F.... Ulam_spiral_for_primes
+GS..T..D... Ultra_useful_primes
 GS...R..... Unbias_a_random_generator
 GS......... Undefined_values
 .......D.VU Unicode_polynomial_equation
