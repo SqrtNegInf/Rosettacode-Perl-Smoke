@@ -8716,7 +8716,6 @@ File: S/Smallest_number_k_such_that_k%2B2%5Em_is_composite_for_all_m_less_than_k
 #u# http://rosettacode.org/wiki/Smallest_number_k_such_that_k%2B2%5Em_is_composite_for_all_m_less_than_k
 #c# 2022-01-12 >RC
 #p# OK
-#n# Math::AnyNum also needs 'use bigint'
 
 File: S/Smallest_numbers
 #!/usr/local/bin/perl
@@ -10266,6 +10265,13 @@ File: U/Ulam_spiral_for_primes
 #c# 2018-08-07 <RC
 #p# OK
 #f# RC file: ulam.png
+
+File: U/Ultra_useful_primes
+#!/usr/local/bin/perl
+#u# http://rosettacode.org/wiki/Ultra_useful_primes
+#c# 2022-01-13 >RC
+#p# OK
+#n# pre-calc of primes not useful, span too large for '..' iterator
 
 File: U/Unbias_a_random_generator
 #!/usr/local/bin/perl
