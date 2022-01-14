@@ -1,0 +1,60 @@
+#!/usr/local/bin/perl
+#u# http://rosettacode.org/wiki/Ultra_useful_primes
+#c# 2022-01-13 >RC
+#p# OK
+#n# pre-calc of primes not useful, span too large for '..' iterator
+
+my @res;
+
+use strict;
+use warnings;
+use feature 'say';
+
+use bigint;
+use ntheory 'is_prime';
+
+sub useful {
+    my @n = @_;
+    my @u;
+    for my $n (@n) {
+        my $p = 2**(2**$n);
+        LOOP: for (my $k = 1; $k < $p; $k += 2) {
+            is_prime($p-$k) and push @u, $k and last LOOP;
+       }
+    }
+    @u;
+}
+
+say my $result = join ' ', useful 1..13; 
+
+my $ref = '1 3 5 15 5 59 159 189 569 105 1557 2549 2439';
+
+use Test::More;
+chomp $ref;
+is($result, $ref);
+done_testing();
+
+__END__
+
+=={{header|Perl}}==
+{{libheader|ntheory}}
+<lang perl> use strict;
+use warnings;
+use bigint;
+use ntheory 'is_prime';
+
+sub useful {
+    my @n = @_;
+    my @u;
+    for my $n (@n) {
+        my $p = 2**(2**$n);
+        LOOP: for (my $k = 1; $k < $p; $k += 2) {
+            is_prime($p-$k) and push @u, $k and last LOOP;
+       }
+    }
+    @u;
+}
+
+say join ' ', useful 1..13;</lang>
+{{out}}
+<pre>1 3 5 15 5 59 159 189 569 105 1557 2549 2439</pre>
