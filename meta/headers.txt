@@ -10098,6 +10098,13 @@ File: T/Trabb_Pardo-Knuth_algorithm
 #c# 2018-08-09 <>RC
 #p# OK
 
+File: T/Transportation_problem
+#!/usr/local/bin/perl
+#u# http://rosettacode.org/wiki/Transportation_problem
+#c# 2022-01-13 >RC
+#p# OK
+#n# trivial mod of 'Vogel%27s_approximation_method'
+
 File: T/Tree_datastructures
 #!/usr/local/bin/perl
 #u# http://rosettacode.org/wiki/Tree_datastructures
