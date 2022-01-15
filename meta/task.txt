@@ -1,17 +1,17 @@
 
 This is perl 5, version 32, subversion 1 (v5.32.1) built for darwin-thread-multi-2level
 updating from RC…
-+------------> Perl: Good/Bad [1583/12]
-|+-----------> Smoke testing [1437]
++------------> Perl: Good/Bad [1584/12]
+|+-----------> Smoke testing [1438]
 ||+----------> sKipping validation [150]
 |||+---------> Interactive [76]
-||||+--------> Touched (modified by me) [542]
+||||+--------> Touched (modified by me) [543]
 |||||+-------> Random seed [122]
 ||||||+------> File output [79]
 |||||||+-----> Draft [348]
 ||||||||+----> Ignoring [36]
-|||||||||+---> Void (no local copy) [117]
-||||||||||+--> Un-implemented/reliable [90]
+|||||||||+---> Void (no local copy) [116]
+||||||||||+--> Un-implemented/reliable [89]
 |||||||||||
 GS..T..D... 10001th_prime
 GS......... 100_doors-1
@@ -1607,7 +1607,7 @@ GS..T...... Totient_function-1
 GS..T...... Totient_function-2
 GS......... Towers_of_Hanoi
 GS..T...... Trabb_Pardo-Knuth_algorithm
-.......D.VU Transportation_problem
+GS..T..D... Transportation_problem
 GS..T...... Tree_datastructures
 GS......... Tree_from_nesting_levels
 GS......... Tree_from_nesting_levels-1
