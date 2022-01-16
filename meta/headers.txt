@@ -1038,8 +1038,9 @@ File: B/Brace_expansion
 File: B/Brazilian_numbers
 #!/usr/local/bin/perl
 #u# http://rosettacode.org/wiki/Brazilian_numbers
-#c# 2019-09-03 >RC
+#c# 2019-09-03 >RC, 2022-01-15 >RC
 #p# OK
+#n# on RC only: simplified how output produced
 
 File: B/Break_OO_privacy
 #!/usr/local/bin/perl
@@ -2034,8 +2035,7 @@ File: C/Cubic_Special_Primes
 File: C/Cullen_and_Woodall_numbers
 #!/usr/local/bin/perl
 #u# http://rosettacode.org/wiki/Cullen_and_Woodall_numbers
-#t# inprogress
-#c# 2022-01-xx >RC
+#c# 2022-01-15 >RC
 #p# OK
 
 File: C/Cumulative_standard_deviation-1
@@ -8114,7 +8114,8 @@ File: R/Rosetta_Code_Tasks_without_examples
 #p# OK
 #n# testing is pretty weak, only one task (100 doors)
 #n# 2021-12-28 fixed some trivial diff in output...
-#n# 2022-01-12 flapping on white-space issue?
+#n# 2022-01-12 Q: flapping on white-space issue?
+#n# 2022-01-14 A: yes, so strip offending blank to consistently pass test
 
 File: R/Rot-13
 #!/usr/local/bin/perl
