@@ -1,19 +1,21 @@
 #!/usr/local/bin/perl
 #u# http://rosettacode.org/wiki/Brazilian_numbers
-#c# 2019-09-03 >RC
+#c# 2019-09-03 >RC, 2022-01-15 >RC
 #p# OK
+#n# on RC only: simplified how output produced
 
 use strict;
 use warnings;
 use feature 'say';
 
 use ntheory qw<is_prime>;
+use constant Inf  => 1e10;
 
 my @res;
 
 sub is_Brazilian {
     my($n) = @_;
-    return 1 if $n > 6 && 0 == $n%2;
+    return 1 if $n > 6 and 0 == $n%2;
     LOOP: for (my $base = 2; $base < $n - 1; ++$base) {
         my $digit;
         my $nn = $n;
@@ -28,23 +30,22 @@ sub is_Brazilian {
             }
         }
     }
+    #return ''; # this is implicit, can be omitted (but less clear?)
 }
 
-my $upto = 20;
-use constant Inf  => 1e10;
-
+my($upto,$n,$b) = (20,0,'');
 push @res, "First $upto Brazilian numbers:";
-my $n = 0; my $b = '';
+#do { $n < $upto ? (is_Brazilian($_) and ++$n and $b .= "$_ ") : last } for 1 .. Inf; # also works
 $b .= do { $n < $upto ? (is_Brazilian($_) and ++$n and "$_ ") : last } for 1 .. Inf;
 push @res, $b . "\n";
 
+($n,$b) = (0,'');
 push @res, "First $upto odd Brazilian numbers:";
-$n = 0; $b = '';
 $b .= do { $n < $upto ? (!!($_%2) and is_Brazilian($_) and ++$n and "$_ ") : last } for 1 .. Inf;
 push @res, $b . "\n";
 
+($n,$b) = (0,'');
 push @res, "First $upto prime Brazilian numbers:";
-$n = 0; $b = '';
 $b .= do { $n < $upto ? (!!is_prime($_) and is_Brazilian($_) and ++$n and "$_ ") : last } for 1 .. Inf;
 push @res, $b;
 
