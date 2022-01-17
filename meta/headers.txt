@@ -3044,6 +3044,13 @@ File: F/Factorions
 #c# 2019-09-09 >RC
 #p# OK
 
+File: F/Factorions-2
+#!/usr/local/bin/perl
+#u# http://rosettacode.org/wiki/Factorions
+#c# 2022-01-16 <RC
+#p# OK
+#n# Trizen++ (translation of Sidef)
+
 File: F/Factors_of_a_Mersenne_number-1
 #!/usr/local/bin/perl
 #u# http://rosettacode.org/wiki/Factors_of_a_Mersenne_number
