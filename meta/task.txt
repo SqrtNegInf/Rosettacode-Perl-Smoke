@@ -1,8 +1,8 @@
 
 This is perl 5, version 32, subversion 1 (v5.32.1) built for darwin-thread-multi-2level
 updating from RC…
-+------------> Perl: Good/Bad [1585/12]
-|+-----------> Smoke testing [1439]
++------------> Perl: Good/Bad [1586/12]
+|+-----------> Smoke testing [1440]
 ||+----------> sKipping validation [149]
 |||+---------> Interactive [76]
 ||||+--------> Touched (modified by me) [543]
@@ -509,6 +509,7 @@ GS......... Factorial-3
 GS......... Factorial-4
 GS..TR..... Factorial_base_numbers_indexing_permutations_of_a_collection
 GS..T...... Factorions
+GS......... Factorions-2
 GS......... Factors_of_a_Mersenne_number-1
 GS......... Factors_of_a_Mersenne_number-2
 GS......... Factors_of_an_integer-1
