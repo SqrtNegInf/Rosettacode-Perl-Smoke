@@ -1,7 +1,7 @@
 
 This is perl 5, version 32, subversion 1 (v5.32.1) built for darwin-thread-multi-2level
 updating from RC…
-+------------> Perl: Good/Bad [1585/12]
++------------> Perl: Good/Bad [1586/12]
 |+-----------> Smoke testing [1440]
 ||+----------> sKipping validation [149]
 |||+---------> Interactive [76]
@@ -1292,7 +1292,7 @@ GS..T...... Rosetta_Code_Find_bare_lang_tags
 GS..T...... Rosetta_Code_Find_unimplemented_tasks
 GS......... Rosetta_Code_Fix_code_tags
 .......D.VU Rosetta_Code_List_authors_of_task_descriptions
-!S..T...... Rosetta_Code_Rank_languages_by_number_of_users
+GS..T...... Rosetta_Code_Rank_languages_by_number_of_users
 GS..T...... Rosetta_Code_Rank_languages_by_popularity
 .......D.VU Rosetta_Code_Run_examples
 GS..T..D... Rosetta_Code_Tasks_without_examples
