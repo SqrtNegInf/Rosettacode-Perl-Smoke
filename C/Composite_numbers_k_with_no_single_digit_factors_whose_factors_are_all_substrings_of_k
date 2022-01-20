@@ -1,9 +1,8 @@
 #!/usr/local/bin/perl
 #u# http://rosettacode.org/wiki/Composite_numbers_k_with_no_single_digit_factors_whose_factors_are_all_substrings_of_k
-#c# 2022-01-xx >RC
+#c# 2022-01-19 >RC
 #p# OK
-
-my @res;
+#n# faster version, efficiency due to short-circuiting on test of factors
 
 use strict;
 use warnings;
@@ -11,42 +10,21 @@ use feature 'say';
 
 use ntheory qw<is_prime factor gcd>;
 
-my $cnt;
-LOOP: for my $k (2..1E10) {
-    next if 1 < gcd($k,210) or is_prime $k;
+my($values,$cnt);
+LOOP: for (my $k = 11; $k < 1E10; $k += 2) {
+    next if 1 < gcd($k,2*3*5*7) or is_prime $k;
     map { next if index($k, $_) < 0 } factor $k;
-    push @res, $k;
-    last LOOP if ++$cnt == 10;
+    $values .= sprintf "%10d", $k;
+    last LOOP if ++$cnt == 20;
 }
 
-my $ref = <<'END';
-15317
-59177
-83731
-119911
-183347
-192413
-1819231
-2111317
-2237411
-3129361
-END
-#5526173  11610313  13436683  13731373  13737841  13831103 15813251 17692313 19173071 28118827
+say my $result = $values =~ s/.{1,100}\K/\n/gr;
 
-say my $result = join "\n", @res;
+my $ref = <<'END';
+     15317     59177     83731    119911    183347    192413   1819231   2111317   2237411   3129361
+   5526173  11610313  13436683  13731373  13737841  13831103  15813251  17692313  19173071  28118827
+END
 
 use Test::More;
-chomp $ref;
 is($result, $ref);
 done_testing();
-
-__END__
-
-=={{header|Perl}}==
-{{trans|xx}}
-{{libheader|ntheory}}
-<lang perl>
-</lang>
-{{out}}
-<pre>
-</pre>
