@@ -1,0 +1,32 @@
+#!/usr/local/bin/perl
+#u# http://rosettacode.org/wiki/Composite_numbers_k_with_no_single_digit_factors_whose_factors_are_all_substrings_of_k
+#c# 2022-01-xx NOT ON RC
+#p# OK
+#n# slower version, more library calls and fewer magic numbers
+
+use strict;
+use warnings;
+use feature 'say';
+
+use constant Inf => 1e10;
+use ntheory qw<is_prime factor gcd vecany>;
+
+my $max = 20;
+my $ww = 10 * (my $w = 10);
+
+my $values;
+LOOP: for (my $k = 11; $k < Inf; $k += 2) {
+    next if 1 < gcd($k,2*3*5*7) or is_prime $k or vecany { index($k, $_) < 0 } factor $k;
+    $values .= sprintf "%${w}d", $k;
+    last LOOP if length($values) == $w*$max;
+}
+say my $result = $values =~ s/.{1,$ww}\K/\n/gr;
+
+my $ref = <<'END';
+     15317     59177     83731    119911    183347    192413   1819231   2111317   2237411   3129361
+   5526173  11610313  13436683  13731373  13737841  13831103  15813251  17692313  19173071  28118827
+END
+
+use Test::More;
+is($result, $ref);
+done_testing();
