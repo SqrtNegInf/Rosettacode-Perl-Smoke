@@ -1,0 +1,26 @@
+#!/usr/local/bin/perl
+#u# http://rosettacode.org/wiki/First_9_Prime_Fibonacci_Number
+#c# 2022-01-19 <RC
+#p# OK
+#n# starting with Fib(13) requires 'use bigint'
+
+use strict;
+use warnings;
+use feature 'say';
+
+use bigint;
+use ntheory qw( is_prime );
+
+my @first;
+my $x = my $y = 1;
+while( @first < 13 ) {
+    ($x, $y) = ($x + $y, $x);
+    is_prime( $x ) and push @first, $x;
+}
+say my $result = "@first";
+
+my $ref = '2 3 5 13 89 233 1597 28657 514229 433494437 2971215073 99194853094755497 1066340417491710595814572169';
+
+use Test::More;
+is ($result, $ref);
+done_testing();
