@@ -1,17 +1,17 @@
 
 This is perl 5, version 32, subversion 1 (v5.32.1) built for darwin-thread-multi-2level
 updating from RC…
-+------------> Perl: Good/Bad [1587/12]
-|+-----------> Smoke testing [1441]
++------------> Perl: Good/Bad [1589/12]
+|+-----------> Smoke testing [1443]
 ||+----------> sKipping validation [149]
 |||+---------> Interactive [76]
 ||||+--------> Touched (modified by me) [544]
 |||||+-------> Random seed [122]
 ||||||+------> File output [79]
 |||||||+-----> Draft [350]
-||||||||+----> Ignoring [36]
-|||||||||+---> Void (no local copy) [117]
-||||||||||+--> Un-implemented/reliable [90]
+||||||||+----> Ignoring [37]
+|||||||||+---> Void (no local copy) [116]
+||||||||||+--> Un-implemented/reliable [87]
 |||||||||||
 GS..T..D... 10001th_prime
 GS......... 100_doors-1
@@ -212,7 +212,7 @@ GS..T...... Call_a_function_in_a_shared_library-1
 GS..T...... Call_a_function_in_a_shared_library-2
 G.K........ Call_an_object_method
 GS.....D... Camel_case_and_snake_case
-.........VU Canny_edge_detector
+........XV. Canny_edge_detector
 GS......... Canonicalize_CIDR
 GS..T...... Cantor_set
 GS......... Cantor_set-2
@@ -302,7 +302,8 @@ GS......... Compiler_lexical_analyzer-1
 GS......... Compiler_lexical_analyzer-2
 GS......... Compiler_syntax_analyzer
 GS......... Compiler_virtual_machine_interpreter
-GS..T..D..U Composite_numbers_k_with_no_single_digit_factors_whose_factors_are_all_substrings_of_k
+GS..T..D... Composite_numbers_k_with_no_single_digit_factors_whose_factors_are_all_substrings_of_k
+GS......... Composite_numbers_k_with_no_single_digit_factors_whose_factors_are_all_substrings_of_k-2
 GS......... Compound_data_type
 GS.....D... Concatenate_two_primes_is_also_prime
 G.K..R..... Concurrent_computing-1
@@ -572,7 +573,7 @@ GS..T...... Find_words_with_alternating_vowels_and_consonants-2
 GS.....D... Finite_state_machine
 GS......... First-class_functions
 GS......... First-class_functions_Use_numbers_analogously
-.......D.VU First_9_Prime_Fibonacci_Number
+GS.....D... First_9_Prime_Fibonacci_Number
 GS......... First_class_environments
 GS..T...... First_perfect_square_in_base_n_with_n_unique_digits-1
 GS..T...... First_perfect_square_in_base_n_with_n_unique_digits-2
