@@ -1761,8 +1761,16 @@ File: C/Compiler_virtual_machine_interpreter
 File: C/Composite_numbers_k_with_no_single_digit_factors_whose_factors_are_all_substrings_of_k
 #!/usr/local/bin/perl
 #u# http://rosettacode.org/wiki/Composite_numbers_k_with_no_single_digit_factors_whose_factors_are_all_substrings_of_k
-#c# 2022-01-xx >RC
+#c# 2022-01-19 >RC
 #p# OK
+#n# faster version, efficiency due to short-circuiting on test of factors
+
+File: C/Composite_numbers_k_with_no_single_digit_factors_whose_factors_are_all_substrings_of_k-2
+#!/usr/local/bin/perl
+#u# http://rosettacode.org/wiki/Composite_numbers_k_with_no_single_digit_factors_whose_factors_are_all_substrings_of_k
+#c# 2022-01-xx NOT ON RC
+#p# OK
+#n# slower version, more library calls and fewer magic numbers
 
 File: C/Compound_data_type
 #!/usr/local/bin/perl
@@ -3434,6 +3442,13 @@ File: F/First-class_functions_Use_numbers_analogously
 #u# http://rosettacode.org/wiki/First-class_functions/Use_numbers_analogously
 #c# 2018-08-06 <RC
 #p# OK
+
+File: F/First_9_Prime_Fibonacci_Number
+#!/usr/local/bin/perl
+#u# http://rosettacode.org/wiki/First_9_Prime_Fibonacci_Number
+#c# 2022-01-19 <RC
+#p# OK
+#n# starting with Fib(13) requires 'use bigint'
 
 File: F/First_class_environments
 #!/usr/local/bin/perl
