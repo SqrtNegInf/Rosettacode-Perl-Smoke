@@ -1,14 +1,14 @@
 
 This is perl 5, version 32, subversion 1 (v5.32.1) built for darwin-thread-multi-2level
 updating from RC…
-+------------> Perl: Good/Bad [1589/12]
-|+-----------> Smoke testing [1443]
++------------> Perl: Good/Bad [1590/12]
+|+-----------> Smoke testing [1444]
 ||+----------> sKipping validation [149]
 |||+---------> Interactive [76]
-||||+--------> Touched (modified by me) [544]
+||||+--------> Touched (modified by me) [545]
 |||||+-------> Random seed [122]
 ||||||+------> File output [79]
-|||||||+-----> Draft [350]
+|||||||+-----> Draft [351]
 ||||||||+----> Ignoring [37]
 |||||||||+---> Void (no local copy) [116]
 ||||||||||+--> Un-implemented/reliable [87]
@@ -1536,6 +1536,7 @@ GS..T..D... Sum_of_primes_in_odd_positions_is_prime
 GS.....D... Sum_of_square_and_cube_digits_of_an_integer_are_primes
 GS......... Sum_of_squares
 GS.....D... Sum_of_the_digits_of_n_is_substring_of_n
+GS..T..D... Sum_of_two_adjacent_numbers_are_primes
 GS......... Sum_to_100
 GS..T...... Summarize_and_say_sequence
 GS..T...... Summarize_primes
