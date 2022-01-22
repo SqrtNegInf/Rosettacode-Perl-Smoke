@@ -24,7 +24,7 @@ so an answer of 12+12 when given 1, 2, 2, and 1 would not be allowed.
 EOF
  
 my $try = 1;
-while (1) {
+while () {
   my @digits = map { 1+int(rand(9)) } 1..4;
   say "\nYour four digits: ", join(" ", @digits);
   print "Expression (try ", $try++, "): ";
