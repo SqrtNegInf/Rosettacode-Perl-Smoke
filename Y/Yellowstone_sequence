@@ -28,7 +28,7 @@ sub yellowstone {
     my @s = (1, 2, 3);
     my @used = (1) x 4;
     my $min  = 3;
-    while (1) {
+    while () {
         my $index = first { not defined $used[$_] and gcd($_,$s[-2]) != 1 and gcd($_,$s[-1]) == 1 } $min .. Inf;
         $used[$index] = 1;
         $min = (first { not defined $used[$_] } 0..@used-1) || @used-1;
