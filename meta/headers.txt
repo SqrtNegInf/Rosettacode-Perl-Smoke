@@ -9634,6 +9634,12 @@ File: S/Sum_of_the_digits_of_n_is_substring_of_n
 #c# 2021-04-15 <RC
 #p# OK
 
+File: S/Sum_of_two_adjacent_numbers_are_primes
+#!/usr/local/bin/perl
+#u# http://rosettacode.org/wiki/Sum_of_two_adjacent_numbers_are_primes
+#c# 2022-01-21 >RC
+#p# OK
+
 File: S/Sum_to_100
 #!/usr/local/bin/perl
 #u# http://rosettacode.org/wiki/Sum_to_100
