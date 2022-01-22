@@ -17,7 +17,7 @@ sub stream {
     my ($next, $safe, $prod, $cons, $z, $x) = @_;
     $x = $x->();
     sub {
-        while (1) {
+        while () {
             my $y = $next->($z);
             if ($safe->($z, $y)) {
                 $z = $prod->($z, $y);
