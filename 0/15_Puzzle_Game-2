@@ -30,7 +30,7 @@ for (1 .. $ARGV[0] || 1000) {
   $e                              =     [ $new->[0],   $new->[1] ];
 }
 
-while (1) {
+while () {
     #print +(join ' ', map { $_ == 16 ? '  ' : sprintf '%02s', $_ } @{$tbl[$_]}), "\n" for 0..3;
     for (0..3) {
         print $fh (join ' ', map { $_ == 16 ? '  ' : sprintf '%02s',$_ } @{$tbl[$_]}), "\n" 
