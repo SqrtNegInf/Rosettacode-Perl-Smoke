@@ -1,0 +1,117 @@
+#!/usr/local/bin/perl
+#u# http://rosettacode.org/wiki/Minimum_multiple_of_m_where_digital_sum_equals_m
+#c# 2022-01-xx >RC
+#p# OK
+#n# OEIS:A131382 - Minimal number m such that Sum_digits(n*m)=n
+#n# limit testing, about 90s for 1..70
+
+my @res;
+
+use strict;
+use warnings;
+use feature 'say';
+
+use List::Util 'sum';
+
+sub min_mult_dsum {
+    my($n) = @_;
+    my $c;
+    #"$n: " . first { $n == sum split '', $_*$n } 1..1E6;                           # high limit slows every iteration
+    #() until $n == sum split '', ++$c*$n ; return sprintf "%2d: %d", $n, $c        # it works, but no...
+    #$n == sum split '', ++$c*$n and return sprintf "%2d: %d", $n, $c while ()      # nope
+    while () { return sprintf "%2d: %d", $n, $c if $n == sum split '', $n * ++$c } 
+}
+
+push @res, min_mult_dsum $_ for 1..40;
+
+say my $result = join "\n", @res;
+
+my $ref = <<'END';
+ 1: 1
+ 2: 1
+ 3: 1
+ 4: 1
+ 5: 1
+ 6: 1
+ 7: 1
+ 8: 1
+ 9: 1
+10: 19
+11: 19
+12: 4
+13: 19
+14: 19
+15: 13
+16: 28
+17: 28
+18: 11
+19: 46
+20: 199
+21: 19
+22: 109
+23: 73
+24: 37
+25: 199
+26: 73
+27: 37
+28: 271
+29: 172
+30: 1333
+31: 289
+32: 559
+33: 1303
+34: 847
+35: 1657
+36: 833
+37: 1027
+38: 1576
+39: 1282
+40: 17497
+END
+
+my $ref_extra = <<'END';
+41: 4339
+42: 2119
+43: 2323
+44: 10909
+45: 11111
+46: 12826
+47: 14617
+48: 14581
+49: 16102
+50: 199999
+51: 17449
+52: 38269
+53: 56413
+54: 37037
+55: 1108909
+56: 142498
+57: 103507
+58: 154981
+59: 150661
+60: 1333333
+61: 163918
+62: 322579
+63: 315873
+64: 937342
+65: 1076923
+66: 1030303
+67: 880597
+68: 1469116
+69: 1157971
+70: 12842857
+END
+
+use Test::More;
+chomp $ref;
+is($result, $ref);
+done_testing();
+
+__END__
+
+=={{header|Perl}}==
+<lang perl>
+</lang>
+{{out}}
+<pre>
+</pre>
