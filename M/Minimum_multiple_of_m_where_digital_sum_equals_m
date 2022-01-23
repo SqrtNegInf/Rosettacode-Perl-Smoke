@@ -3,7 +3,7 @@
 #c# 2022-01-xx >RC
 #p# OK
 #n# OEIS:A131382 - Minimal number m such that Sum_digits(n*m)=n
-#n# limit testing, about 90s for 1..70
+#n# slower than Tybalt's version, limit testing, about 90s for 1..70
 
 my @res;
 
