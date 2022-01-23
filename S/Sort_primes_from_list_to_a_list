@@ -1,0 +1,22 @@
+#!/usr/local/bin/perl
+#u# http://rosettacode.org/wiki/Sort_primes_from_list_to_a_list
+#c# 2022-01-22 <RC
+#p# OK
+#n# pretty much of duplicate of 'Sort_an_integer_array'
+
+use strict;
+use warnings;
+use feature 'say';
+
+use ntheory 'is_prime';
+
+# Tybalt's version:
+use List::AllUtils qw( nsort_by );
+say my $result1 = "@{[ nsort_by {$_} grep is_prime($_), 2,43,81,122,63,13,7,95,103 ]}";
+
+say my $result2 = join ' ', sort { $a <=> $b } grep { is_prime $_  } <2 43 81 122 63 13 7 95 103>;
+
+use Test::More;
+is($result1, '2 7 13 43 103');
+is($result2, '2 7 13 43 103');
+done_testing();
