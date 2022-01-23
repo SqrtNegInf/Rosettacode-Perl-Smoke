@@ -5767,6 +5767,14 @@ File: M/Minimal_steps_down_to_1
 #c# 2020-12-08 <RC
 #p# OK
 
+File: M/Minimum_multiple_of_m_where_digital_sum_equals_m
+#!/usr/local/bin/perl
+#u# http://rosettacode.org/wiki/Minimum_multiple_of_m_where_digital_sum_equals_m
+#c# 2022-01-xx >RC
+#p# OK
+#n# OEIS:A131382 - Minimal number m such that Sum_digits(n*m)=n
+#n# limit testing, about 90s for 1..70
+
 File: M/Minimum_number_of_cells_after,_before,_above_and_below_NxN_squares
 #!/usr/local/bin/perl
 #u# http://rosettacode.org/wiki/Minimum_number_of_cells_after,_before,_above_and_below_NxN_squares
@@ -6628,8 +6636,8 @@ File: P/Palindromic_primes_with_alternating_digits
 #p# OK
 #n# essentially 'smoothly undulating palindromic primes': a(ba){1,}, (but allowing a == b)
 #n# http://www.worldofnumbers.com/undulat.htm
-#n# So related to huge number of OEIS entries: A032758 A059758 A242541
-#n# or in degenerate case of a=b, one digit, for lengths: 19, 23, 317, 1031 (the repunit primes, as per A004023)
+#n# So related to huge number of OEIS entries: OEIS:A032758 OEIS:A059758 OEIS:A242541
+#n# or in degenerate case of a=b, one digit, for lengths: 19, 23, 317, 1031 (the repunit primes, as per OEIS:A004023)
 #n# b=0 only once, never a=7, b=6 (proved) but 3/4, 7/1?
 #n# 3 .. 1501: 61.69s user 0.21s system 99% cpu 1:02.38 total
 
@@ -8197,6 +8205,13 @@ File: R/Runtime_evaluation_In_an_environment
 #c# 2018-08-18 <RC
 #p# OK
 
+File: R/Ruth-Aaron_numbers
+#!/usr/local/bin/perl
+#u# http://rosettacode.org/wiki/xx
+#t# inprogress
+#c# 2022-01-xx >RC
+#p# OK
+
 File: S/S-Expressions
 #!/usr/local/bin/perl
 #u# http://rosettacode.org/wiki/S-Expressions
@@ -8900,6 +8915,13 @@ File: S/Sort_numbers_lexicographically
 #u# http://rosettacode.org/wiki/Sort_numbers_lexicographically
 #c# 2018-08-30 >RC
 #p# OK
+
+File: S/Sort_primes_from_list_to_a_list
+#!/usr/local/bin/perl
+#u# http://rosettacode.org/wiki/Sort_primes_from_list_to_a_list
+#c# 2022-01-22 <RC
+#p# OK
+#n# pretty much of duplicate of 'Sort_an_integer_array'
 
 File: S/Sort_stability
 #!/usr/local/bin/perl
