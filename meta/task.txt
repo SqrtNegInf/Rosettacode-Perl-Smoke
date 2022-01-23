@@ -1,17 +1,17 @@
 
 This is perl 5, version 32, subversion 1 (v5.32.1) built for darwin-thread-multi-2level
 updating from RC…
-+------------> Perl: Good/Bad [1590/12]
-|+-----------> Smoke testing [1444]
-||+----------> sKipping validation [149]
++------------> Perl: Good/Bad [1593/12]
+|+-----------> Smoke testing [1446]
+||+----------> sKipping validation [150]
 |||+---------> Interactive [76]
-||||+--------> Touched (modified by me) [545]
+||||+--------> Touched (modified by me) [547]
 |||||+-------> Random seed [122]
 ||||||+------> File output [79]
-|||||||+-----> Draft [351]
+|||||||+-----> Draft [354]
 ||||||||+----> Ignoring [37]
 |||||||||+---> Void (no local copy) [116]
-||||||||||+--> Un-implemented/reliable [87]
+||||||||||+--> Un-implemented/reliable [88]
 |||||||||||
 GS..T..D... 10001th_prime
 GS......... 100_doors-1
@@ -924,6 +924,7 @@ GS......... Miller-Rabin_primality_test-2
 GS..TR..... Mind_boggling_card_trick
 G.KI....... Minesweeper_game
 GS......... Minimal_steps_down_to_1
+GS..T..D..U Minimum_multiple_of_m_where_digital_sum_equals_m
 GS..T..D... Minimum_number_of_cells_after,_before,_above_and_below_NxN_squares
 GS..T..D... Minimum_numbers_of_three_lists
 GS..T...... Minimum_positive_multiple_in_base_10_using_only_0_and_1-1
@@ -1307,6 +1308,7 @@ G.KI...D... Run_as_a_daemon_or_service
 GS......... Runge-Kutta_method
 GS......... Runtime_evaluation
 GS......... Runtime_evaluation_In_an_environment
+G.K.T..D... Ruth-Aaron_numbers
 GS......... S-expressions
 GS......... SEDOLs
 GS......... SHA-1
@@ -1422,6 +1424,7 @@ GS......... Sort_an_integer_array
 GS......... Sort_an_outline_at_every_level
 GS......... Sort_disjoint_sublist
 GS..T...... Sort_numbers_lexicographically
+GS.....D... Sort_primes_from_list_to_a_list
 G.K........ Sort_stability
 GS.....D... Sort_the_letters_of_string_in_alphabetical_order
 GS..T...... Sort_three_variables
