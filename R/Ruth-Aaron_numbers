@@ -1,37 +1,47 @@
 #!/usr/local/bin/perl
-#u# http://rosettacode.org/wiki/xx
-#t# inprogress
-#c# 2022-01-xx >RC
+#u# http://rosettacode.org/wiki/Ruth-Aaron_numbers
+#c# 2022-01-22 <RC
 #p# OK
-
-use Data::Printer;          # debug only
-use Time::HiRes qw(sleep);  # debug only
-
-my @res;
 
 use strict;
 use warnings;
 use feature 'say';
 
-# code goes here
+use ntheory qw<factor vecsum>;
+use List::AllUtils qw( uniq );
 
-say my $result = join "\n", @res;
+my $n = 1;
+my @answers;
+while( @answers < 30 ) {
+    vecsum(factor($n)) == vecsum(factor($n+1)) and push @answers, $n;
+    $n++;
+}
+my $result = "factors:\n\n@answers\n\n" =~ s/.{60}\K /\n/gr;
+ 
+$n = 1;
+@answers = ();
+while( @answers < 30 ) {
+    vecsum(uniq factor($n)) == vecsum(uniq factor($n+1)) and push @answers, $n;
+    $n++;
+}
+$result .= "divisors:\n\n@answers\n" =~ s/.{60}\K /\n/gr;
+
+say $result;
+
 my $ref = <<'END';
+factors:
+
+5 8 15 77 125 714 948 1330 1520 1862 2491 3248 4185 4191 5405
+5560 5959 6867 8280 8463 10647 12351 14587 16932 17080 18490
+20450 24895 26642 26649
+
+divisors:
+
+5 24 49 77 104 153 369 492 714 1682 2107 2299 2600 2783 5405
+6556 6811 8855 9800 12726 13775 18655 21183 24024 24432 24880
+25839 26642 35456 40081
 END
 
 use Test::More;
-chomp $ref;
 is($result, $ref);
 done_testing();
-
-__END__
-
-=={{header|Perl}}==
-{{trans|xx}}
-{{libheader|ntheory}}
-<lang perl>
-</lang>
-{{out}}
-<pre style="height:20ex">
-</pre>
-[https://github.com/SqrtNegInf/Rosettacode-Perl5-Smoke/blob/master/ref/xx xx]
