@@ -1,4 +1,7 @@
 2022-01-22
+Look for OEIS citations in the Raku RC code, not here
+
+2022-01-21
 'while (1)' === 'while ()', about usage split 50/50 in code
 
 2022-01-17
