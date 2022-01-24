@@ -5773,7 +5773,13 @@ File: M/Minimum_multiple_of_m_where_digital_sum_equals_m
 #c# 2022-01-xx >RC
 #p# OK
 #n# OEIS:A131382 - Minimal number m such that Sum_digits(n*m)=n
-#n# limit testing, about 90s for 1..70
+#n# slower than Tybalt's version, limit testing, about 90s for 1..70
+
+File: M/Minimum_multiple_of_m_where_digital_sum_equals_m-2
+#!/usr/local/bin/perl
+#u# http://rosettacode.org/wiki/Minimum_multiple_of_m_where_digital_sum_equals_m
+#c# 2022-01-22 <RC
+#p# OK
 
 File: M/Minimum_number_of_cells_after,_before,_above_and_below_NxN_squares
 #!/usr/local/bin/perl
@@ -8207,9 +8213,8 @@ File: R/Runtime_evaluation_In_an_environment
 
 File: R/Ruth-Aaron_numbers
 #!/usr/local/bin/perl
-#u# http://rosettacode.org/wiki/xx
-#t# inprogress
-#c# 2022-01-xx >RC
+#u# http://rosettacode.org/wiki/Ruth-Aaron_numbers
+#c# 2022-01-22 <RC
 #p# OK
 
 File: S/S-Expressions
