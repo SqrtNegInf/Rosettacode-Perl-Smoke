@@ -1,16 +1,16 @@
 
 This is perl 5, version 32, subversion 1 (v5.32.1) built for darwin-thread-multi-2level
 updating from RC…
-+------------> Perl: Good/Bad [1593/12]
-|+-----------> Smoke testing [1446]
-||+----------> sKipping validation [150]
++------------> Perl: Good/Bad [1594/12]
+|+-----------> Smoke testing [1448]
+||+----------> sKipping validation [149]
 |||+---------> Interactive [76]
-||||+--------> Touched (modified by me) [547]
+||||+--------> Touched (modified by me) [546]
 |||||+-------> Random seed [122]
 ||||||+------> File output [79]
-|||||||+-----> Draft [354]
+|||||||+-----> Draft [355]
 ||||||||+----> Ignoring [37]
-|||||||||+---> Void (no local copy) [116]
+|||||||||+---> Void (no local copy) [117]
 ||||||||||+--> Un-implemented/reliable [88]
 |||||||||||
 GS..T..D... 10001th_prime
@@ -924,7 +924,8 @@ GS......... Miller-Rabin_primality_test-2
 GS..TR..... Mind_boggling_card_trick
 G.KI....... Minesweeper_game
 GS......... Minimal_steps_down_to_1
-GS..T..D..U Minimum_multiple_of_m_where_digital_sum_equals_m
+GS..T..D... Minimum_multiple_of_m_where_digital_sum_equals_m
+GS......... Minimum_multiple_of_m_where_digital_sum_equals_m-2
 GS..T..D... Minimum_number_of_cells_after,_before,_above_and_below_NxN_squares
 GS..T..D... Minimum_numbers_of_three_lists
 GS..T...... Minimum_positive_multiple_in_base_10_using_only_0_and_1-1
@@ -1269,6 +1270,7 @@ GS......... Rename_a_file
 GS......... Rep-string
 GS......... Repeat
 GS......... Repeat_a_string
+.......D.VU Repunit_primes
 GS..T..D... Resistance_calculator
 GS..T..D... Resistance_network_calculator
 GS..T...... Resistor_mesh
@@ -1308,7 +1310,7 @@ G.KI...D... Run_as_a_daemon_or_service
 GS......... Runge-Kutta_method
 GS......... Runtime_evaluation
 GS......... Runtime_evaluation_In_an_environment
-G.K.T..D... Ruth-Aaron_numbers
+GS.....D... Ruth-Aaron_numbers
 GS......... S-expressions
 GS......... SEDOLs
 GS......... SHA-1
