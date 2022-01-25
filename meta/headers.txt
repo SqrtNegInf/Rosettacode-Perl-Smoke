@@ -7951,6 +7951,12 @@ File: R/Repeat_a_string
 #c# 2018-08-18 <RC
 #p# OK
 
+File: R/Repunit_primes
+#!/usr/local/bin/perl
+#u# http://rosettacode.org/wiki/Repunit_primes
+#c# 2022-01-24 >RC
+#p# OK
+
 File: R/Resistance_Calculator
 #!/usr/local/bin/perl
 #u# http://rosettacode.org/wiki/Resistance_Calculator
