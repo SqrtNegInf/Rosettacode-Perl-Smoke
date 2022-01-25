@@ -1,0 +1,67 @@
+#!/usr/local/bin/perl
+#u# http://rosettacode.org/wiki/Repunit_primes
+#c# 2022-01-24 >RC
+#p# OK
+
+my @res;
+
+use strict;
+use warnings;
+use feature 'say';
+
+use ntheory <is_prime fromdigits>;
+
+my $limit = 1000; # 2700;
+
+print "Repunit prime digits (up to $limit) in:\n";
+
+for my $base (2..16) {
+    push @res, sprintf "Base %2d: %s", $base, join ' ', grep { is_prime $_ and is_prime fromdigits(('1'x$_), $base) and " $_" } 1..$limit;
+}
+
+say my $result = join "\n", @res;
+
+my $ref = <<'END';
+Base  2: 2 3 5 7 13 17 19 31 61 89 107 127 521 607
+Base  3: 3 7 13 71 103 541
+Base  4: 2
+Base  5: 3 7 11 13 47 127 149 181 619 929
+Base  6: 2 3 7 29 71 127 271 509
+Base  7: 5 13 131 149
+Base  8: 3
+Base  9: 
+Base 10: 2 19 23 317
+Base 11: 17 19 73 139 907
+Base 12: 2 3 5 19 97 109 317 353 701
+Base 13: 5 7 137 283 883 991
+Base 14: 3 7 19 31 41
+Base 15: 3 43 73 487
+Base 16: 2
+END
+
+#Base 17: 3 5 7 11 47 71 419
+#Base 18: 2
+
+my $ref_2700 = <<'END';
+Repunit prime digits (up to 2700) in:
+Base  2: 2 3 5 7 13 17 19 31 61 89 107 127 521 607 1279 2203 2281
+Base  3: 3 7 13 71 103 541 1091 1367 1627
+Base  4: 2
+Base  5: 3 7 11 13 47 127 149 181 619 929
+Base  6: 2 3 7 29 71 127 271 509 1049
+Base  7: 5 13 131 149 1699
+Base  8: 3
+Base  9: 
+Base 10: 2 19 23 317 1031
+Base 11: 17 19 73 139 907 1907 2029
+Base 12: 2 3 5 19 97 109 317 353 701
+Base 13: 5 7 137 283 883 991 1021 1193
+Base 14: 3 7 19 31 41 2687
+Base 15: 3 43 73 487 2579
+Base 16: 2
+END
+
+use Test::More;
+chomp $ref;
+is($result, $ref);
+done_testing();
