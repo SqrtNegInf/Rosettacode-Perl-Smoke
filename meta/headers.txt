@@ -7956,6 +7956,7 @@ File: R/Repunit_primes
 #u# http://rosettacode.org/wiki/Repunit_primes
 #c# 2022-01-24 >RC
 #p# OK
+#n# calculate through base 18 just to show that 16 isn't a special limit
 
 File: R/Resistance_Calculator
 #!/usr/local/bin/perl
