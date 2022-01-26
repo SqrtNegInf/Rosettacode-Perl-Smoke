@@ -1,7 +1,6 @@
 #!/usr/local/bin/perl
 #u# http://rosettacode.org/wiki/Divide_a_rectangle_into_a_number_of_unequal_triangles
-#t# inprogress
-#c# 2022-01-xx >RC
+#c# 2022-01-26 >RC
 #p# OK
 
 my @res;
@@ -15,62 +14,47 @@ use List::Util 'sum';
 
 sub UnequalDivider {
    my($L,$H,$N) = @_;
-   die unless $N > 2;
 
+   die unless $N > 2;
    return (0,$H), (0,0), ((2/5)*$L,$H), ($L,0), ($L,$H) if $N == 3;
 
-    my @primes = @{primes( 10*$N )}[0..$N-1];
+    my @primes = @{primes( 10*$N )}[0..$N-1]; # replace guesstimate value?
     my @base   = @primes[   0 ..   $N/2-1];
     my @roof   = @primes[$N/2 .. $#primes];
-    my ($bTotal,$rTotal)     = (   sum(@base),   sum(@roof) );
+    my (  $bTotal,  $rTotal) = (   sum(@base),   sum(@roof) );
     my ($bPartial,$rPartial) = ( shift(@base), shift(@roof) );
     my @vertices = ([0,$H], [0,0], [($rPartial/$rTotal)*$L,$H]);
 
     for (0 .. @base) {
-        push @vertices, (($bPartial/$bTotal)*$L, 0);
+        push @vertices, [$bPartial/$bTotal*$L,0];
         if (@base == 1) {
-                   0 == $N%2 ? push(@vertices, ([$L,$H], [$L,0]))
-                             : push(@vertices, ([$L*(1-$roof[-1]/$rTotal),$H], [$L,0], [$L,$H]));
-            return @vertices;
+            0 == $N%2 ? return @vertices, ([$L,$H], [$L,0])
+                      : return @vertices, ([$L*(1-$roof[-1]/$rTotal),$H], [$L,0], [$L,$H]);
         } 
         ($bPartial) += shift @base;
         ($rPartial) += shift @roof;
-        push @vertices, (($rPartial/$rTotal)*$L, $H);
+        push @vertices, [$rPartial/$rTotal*$L,$H];
    }
 }
 
-use Data::Printer;
-my @foo = UnequalDivider(1000,500,7); 
-p @foo;
-exit;
-#push @res, $_ for UnequalDivider(1000,500,7).rotor( 3 => -2 );
+
+my @V = UnequalDivider(1000,500,7); 
+push @res, sprintf( '(%.3f %.3f) 'x3, @{$V[$_]}, @{$V[++$_]}, @{$V[++$_]} ) =~ s/\.000//gr for 0 .. @V-3; # sneaky sub-scripting
+#say sprintf( '(%.3f %.3f) 'x3, @{$V[$_]}, @{$V[++$_]}, @{$V[++$_]} ) =~ s/\.000//gr for 0 .. $#V - 2;    # on RC
 
 say my $result = join "\n", @res;
 
 my $ref = <<'END';
-my $ref = q:to/END/;
-((0 500) (0 0) (145.833333 500))
-((0 0) (145.833333 500) (200 0))
-((145.833333 500) (200 0) (375 500))
-((200 0) (375 500) (500 0))
-((375 500) (500 0) (645.833333 500))
-((500 0) (645.833333 500) (1000 0))
-((645.833333 500) (1000 0) (1000 500))
+(0 500) (0 0) (145.833 500) 
+(0 0) (145.833 500) (200 0) 
+(145.833 500) (200 0) (375 500) 
+(200 0) (375 500) (500 0) 
+(375 500) (500 0) (645.833 500) 
+(500 0) (645.833 500) (1000 0) 
+(645.833 500) (1000 0) (1000 500) 
 END
 
 use Test::More;
 chomp $ref;
 is($result, $ref);
 done_testing();
-
-__END__
-
-=={{header|Perl}}==
-{{trans|Raku}}
-{{libheader|ntheory}}
-<lang perl>
-</lang>
-{{out}}
-<pre>
-</pre>
-[https://github.com/SqrtNegInf/Rosettacode-Perl5-Smoke/blob/master/ref/xx xx]
