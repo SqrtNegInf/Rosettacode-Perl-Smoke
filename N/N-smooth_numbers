@@ -58,7 +58,7 @@ for my $n_smooth (0..9) {
 }
 
 $start = 30000; $cnt = 20;
-for my $n_smooth (95..97) { # (503, 509, 521) {
+for my $n_smooth (95..97) { # 95th to 97th primes: 503, 509, 521
     push @res, "\n${start}th through @{[$start+$cnt-1]}th $primes[$n_smooth]-smooth numbers:";
     my $s = smooth_numbers(@primes[0..$n_smooth]);
     my(@Sm,$c);
