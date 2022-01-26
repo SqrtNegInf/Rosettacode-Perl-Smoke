@@ -2,6 +2,7 @@
 #u# http://rosettacode.org/wiki/Repunit_primes
 #c# 2022-01-24 >RC
 #p# OK
+#n# calculate through base 18 just to show that 16 isn't a special limit
 
 my @res;
 
@@ -15,7 +16,7 @@ my $limit = 1000; # 2700;
 
 print "Repunit prime digits (up to $limit) in:\n";
 
-for my $base (2..16) {
+for my $base (2..18) {
     push @res, sprintf "Base %2d: %s", $base, join ' ', grep { is_prime $_ and is_prime fromdigits(('1'x$_), $base) and " $_" } 1..$limit;
 }
 
@@ -37,10 +38,9 @@ Base 13: 5 7 137 283 883 991
 Base 14: 3 7 19 31 41
 Base 15: 3 43 73 487
 Base 16: 2
+Base 17: 3 5 7 11 47 71 419
+Base 18: 2
 END
-
-#Base 17: 3 5 7 11 47 71 419
-#Base 18: 2
 
 my $ref_2700 = <<'END';
 Repunit prime digits (up to 2700) in:
