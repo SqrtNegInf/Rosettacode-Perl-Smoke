@@ -2497,6 +2497,12 @@ File: D/Diversity_prediction_theorem
 #c# 2018-09-28 >RC
 #p# OK
 
+File: D/Divide_a_rectangle_into_a_number_of_unequal_triangles
+#!/usr/local/bin/perl
+#u# http://rosettacode.org/wiki/Divide_a_rectangle_into_a_number_of_unequal_triangles
+#c# 2022-01-26 >RC
+#p# OK
+
 File: D/Documentation
 #!/usr/local/bin/perl
 #u# http://rosettacode.org/wiki/Documentation
