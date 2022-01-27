@@ -1,17 +1,17 @@
 
 This is perl 5, version 32, subversion 1 (v5.32.1) built for darwin-thread-multi-2level
 updating from RC…
-+------------> Perl: Good/Bad [1595/12]
-|+-----------> Smoke testing [1449]
++------------> Perl: Good/Bad [1596/12]
+|+-----------> Smoke testing [1450]
 ||+----------> sKipping validation [149]
 |||+---------> Interactive [76]
-||||+--------> Touched (modified by me) [547]
+||||+--------> Touched (modified by me) [548]
 |||||+-------> Random seed [122]
 ||||||+------> File output [79]
 |||||||+-----> Draft [356]
 ||||||||+----> Ignoring [37]
-|||||||||+---> Void (no local copy) [117]
-||||||||||+--> Un-implemented/reliable [88]
+|||||||||+---> Void (no local copy) [116]
+||||||||||+--> Un-implemented/reliable [87]
 |||||||||||
 GS..T..D... 10001th_prime
 GS......... 100_doors-1
@@ -418,7 +418,7 @@ GS..T..D... Distinct_power_numbers
 GS......... Distributed_programming
 GS..T..D... Distribution_of_0_Digits_in_factorial_series
 GS..T...... Diversity_prediction_theorem
-.......D.VU Divide_a_rectangle_into_a_number_of_unequal_triangles
+GS..T..D... Divide_a_rectangle_into_a_number_of_unequal_triangles
 G.K........ Documentation
 GS.....D... Dominoes
 GS.....D... Doomsday_rule
