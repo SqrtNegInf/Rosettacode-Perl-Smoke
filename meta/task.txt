@@ -11,7 +11,7 @@ updating from RC…
 |||||||+-----> Draft [356]
 ||||||||+----> Ignoring [37]
 |||||||||+---> Void (no local copy) [116]
-||||||||||+--> Un-implemented/reliable [87]
+||||||||||+--> Un-implemented/reliable [86]
 |||||||||||
 GS..T..D... 10001th_prime
 GS......... 100_doors-1
@@ -1334,7 +1334,7 @@ GS......... Scope_modifiers
 GS......... Search_a_list
 GS......... Search_a_list_of_records
 G.K........ Secure_temporary_file
-.......D.VU Segmentation_fault_protection
+.......D.V. Segmentation_fault_protection
 GS..T..D... Selective_file_copy
 GS......... Self-describing_numbers
 .......D.VU Self-hosting_compiler
