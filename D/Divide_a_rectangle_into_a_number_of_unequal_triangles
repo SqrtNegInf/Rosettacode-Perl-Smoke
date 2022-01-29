@@ -1,60 +1,68 @@
 #!/usr/local/bin/perl
 #u# http://rosettacode.org/wiki/Divide_a_rectangle_into_a_number_of_unequal_triangles
-#c# 2022-01-26 >RC
+#c# 2022-01-26 >RC, 2022-01-28 <RC
 #p# OK
 
 my @res;
 
+srand 123456;
+
 use strict;
 use warnings;
 use feature 'say';
-
-use ntheory 'primes';
 use List::Util 'sum';
 
 sub UnequalDivider {
-   my($L,$H,$N) = @_;
+    my($L,$H,$N) = @_;
+    die unless $N > 2;
+    return (0,$H), (0,0), ((2/5)*$L,$H), ($L,0), ($L,$H) if $N == 3;
 
-   die unless $N > 2;
-   return (0,$H), (0,0), ((2/5)*$L,$H), ($L,0), ($L,$H) if $N == 3;
+    my ($fail,%unique,%ratios,@base,@roof,$bTotal,$rTotal);
 
-    my @primes = @{primes( 10*$N )}[0..$N-1]; # replace guesstimate value?
-    my @base   = @primes[   0 ..   $N/2-1];
-    my @roof   = @primes[$N/2 .. $#primes];
-    my (  $bTotal,  $rTotal) = (   sum(@base),   sum(@roof) );
-    my ($bPartial,$rPartial) = ( shift(@base), shift(@roof) );
-    my @vertices = ([0,$H], [0,0], [($rPartial/$rTotal)*$L,$H]);
+    do { 
+        $fail   = 0;
+        %unique =  %ratios = () ;
+        ++$unique{int(rand 2*$N) + 1} while keys %unique < $N;
+        my @segments      = sort keys %unique;                   # 'sort' for repeatable testing
+        @base             = @segments[   0 ..     $N/2-1];
+        @roof             = @segments[$N/2 .. $#segments];
+        ($bTotal,$rTotal) = (  sum(@base),  sum(@roof)  );
+        ++$ratios{$_/$bTotal} for (@base);
+        for (@roof) { if ( exists($ratios{$_/$rTotal}) ) { $fail = 1 && last } }
+   } until ( $fail == 0 );
+
+   my ($bPartial,$rPartial) = ( shift(@base), shift(@roof) ); 
+   my @vertices = ([0,$H], [0,0], [($rPartial/$rTotal)*$L,$H]);
 
     for (0 .. @base) {
         push @vertices, [$bPartial/$bTotal*$L,0];
         if (@base == 1) {
             0 == $N%2 ? return @vertices, ([$L,$H], [$L,0])
                       : return @vertices, ([$L*(1-$roof[-1]/$rTotal),$H], [$L,0], [$L,$H]);
-        } 
+        }
         ($bPartial) += shift @base;
         ($rPartial) += shift @roof;
         push @vertices, [$rPartial/$rTotal*$L,$H];
    }
 }
 
-
-my @V = UnequalDivider(1000,500,7); 
+my @V = UnequalDivider(1000,500,7);
 push @res, sprintf( '(%.3f %.3f) 'x3, @{$V[$_]}, @{$V[++$_]}, @{$V[++$_]} ) =~ s/\.000//gr for 0 .. @V-3; # sneaky sub-scripting
-#say sprintf( '(%.3f %.3f) 'x3, @{$V[$_]}, @{$V[++$_]}, @{$V[++$_]} ) =~ s/\.000//gr for 0 .. $#V - 2;    # on RC
+#say sprintf( '(%.3f %.3f) 'x3, @{$V[$_]}, @{$V[++$_]}, @{$V[++$_]} ) =~ s/\.000//gr for 0 .. @V-3;
 
 say my $result = join "\n", @res;
 
-my $ref = <<'END';
-(0 500) (0 0) (145.833 500) 
-(0 0) (145.833 500) (200 0) 
-(145.833 500) (200 0) (375 500) 
-(200 0) (375 500) (500 0) 
-(375 500) (500 0) (645.833 500) 
-(500 0) (645.833 500) (1000 0) 
-(645.833 500) (1000 0) (1000 500) 
-END
+my $ref = <<'EOD';
+(0 500) (0 0) (142.857 500) 
+(0 0) (142.857 500) (40 0) 
+(142.857 500) (40 0) (333.333 500) 
+(40 0) (333.333 500) (440 0) 
+(333.333 500) (440 0) (571.429 500) 
+(440 0) (571.429 500) (1000 0) 
+(571.429 500) (1000 0) (1000 500) 
+EOD
 
 use Test::More;
 chomp $ref;
-is($result, $ref);
+is ($result, $ref);
 done_testing();
