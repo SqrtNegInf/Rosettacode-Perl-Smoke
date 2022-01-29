@@ -2500,7 +2500,7 @@ File: D/Diversity_prediction_theorem
 File: D/Divide_a_rectangle_into_a_number_of_unequal_triangles
 #!/usr/local/bin/perl
 #u# http://rosettacode.org/wiki/Divide_a_rectangle_into_a_number_of_unequal_triangles
-#c# 2022-01-26 >RC
+#c# 2022-01-26 >RC, 2022-01-28 <RC
 #p# OK
 
 File: D/Documentation
@@ -3674,6 +3674,7 @@ File: F/Free_polyominoes_enumeration
 #u# http://rosettacode.org/wiki/Free_polyominoes_enumeration
 #c# 2020-11-30 <RC
 #p# OK
+#n# OEIS:A000105
 
 File: F/French_Republican_calendar
 #!/usr/local/bin/perl
