@@ -2,6 +2,7 @@
 #u# http://rosettacode.org/wiki/Free_polyominoes_enumeration
 #c# 2020-11-30 <RC
 #p# OK
+#n# OEIS:A000105
 
 use strict;
 use warnings;
