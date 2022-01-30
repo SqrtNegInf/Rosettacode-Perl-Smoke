@@ -7,11 +7,13 @@ rakudobrew switch moar-blead
 
 cd $HOME/perl5/Rosetta-Code
 
+echo ' '
 perl -v | head -2
 
 rm -f run/*
 bin/rc-p5 [0A-Z]/*
 
+echo ' '
 bin/rc-stats5 2
 
 # keep tabs on status
@@ -23,6 +25,7 @@ diff task.txt~ task.txt
 cd ..
 
 # see how slow the usual suspects are
+echo ' '
 bin/rc-timings5 bench/last | sort -r -n > meta/timings.txt
 head -10 meta/timings.txt
 
@@ -30,7 +33,11 @@ head -10 meta/timings.txt
 /usr/local/pbin/grep-paragraph -H '#u# http' [0-Z]/* | /usr/local/pbin/grep-paragraph -v ReadMe.md - > meta/headers.txt
 
 # find non-ASCII
+echo ' '
 bin/rc-non-ascii [0A-Z]/* > meta/non-ascii.txt
 
 # push changes to github
+echo ' '
+echo 'boring...'
+echo ' '
 bin/Task5-git
