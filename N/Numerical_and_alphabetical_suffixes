@@ -1,6 +1,6 @@
 #!/usr/local/bin/perl
 #u# http://rosettacode.org/wiki/Numerical_and_alphabetical_suffixes
-#c# 2021-11-28 <RC
+#c# 2022-01-31 <RC
 #p# OK
 
 my @res;
@@ -23,7 +23,7 @@ sub suffix
       PAIRs?            (?{       2 })
     | SCO(re?)?         (?{      20 })
     | DOZ(e(ns?)?)?     (?{      12 })
-    |	GREATGR(o(ss?)?)? (?{    1728 }) # must be before GRoss
+    | GREATGR(o(ss?)?)? (?{    1728 }) # must be before GRoss
     | GR(o(ss?)?)?      (?{     144 })
     | GOOGOLs?          (?{ 10**100 })
     | [kmgtpezyxwvu]i?  (?{ eval $suffix{ lc $& } })
@@ -33,7 +33,6 @@ sub suffix
     /gix;
   return $value =~ s/(\..*)|\B(?=(\d\d\d)+(?!\d))/$1 || ','/ger;
   }
-
 
 say my $result = join "\n", @res;
 
@@ -55,11 +54,9 @@ results = -33,394.1949381044  2e+23
 
 numbers = 9!   9!!   9!!!   9!!!!   9!!!!!   9!!!!!!   9!!!!!!!   9!!!!!!!!   9!!!!!!!!!
 results = 362,880  945  162  45  36  27  18  9  9
-
 EOD
 
 use Test::More;
-chomp $ref;
 is ($result, $ref);
 done_testing();
 
