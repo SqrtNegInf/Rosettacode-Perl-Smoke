@@ -1,7 +1,8 @@
 #!/usr/bin/env perl
 #u# http://rosettacode.org/wiki/Worthwhile_task_shaving
-#c# 2022-02-xx >RC
+#c# 2022-02-07 >RC, 2022-02-08 >RC
 #m# P5: OK
+#n# column widths adjustable, woo-hoo
 
 use strict;
 use warnings;
@@ -10,54 +11,78 @@ no warnings 'experimental::smartmatch';
 
 my @res;
 
-my @shaved  = <1 5 30 60 300 1800 3600 21600 86400>;
+use constant CW => '%-11s'; # set column width
+
+#                            <   seconds   >  <minutes>                 < hours >
+my @shaved = map { 60 * $_ } 1/60, 1/12, 1/2, 1, 5, 30, map { 60 * $_ } 1, 6, 24; 
+#my @shaved = <1 5 30 60 300 1800 3600 21600 86400>;
+
 my @columns = (' 1 Second', ' 5 Seconds', '30 Seconds', ' 1 Minute', ' 5 Minutes', '30 Minutes', ' 1 Hour', ' 6 Hours', ' 1 Day');
 my $diy     = 365.25;
-my @freq    = (50*$diy, 5*$diy, $diy, $diy/7, 12, 1);
+my @freq    = ((map { $diy * $_ } 50, 5, 1, 1/7), 12, 1);
+#my @freq    = (50*$diy, 5*$diy, $diy, $diy/7, 12, 1);
 my $week    = 7 * (my $day = 24 * (my $hour = 60 * (my $minute = 60)));
 my $month   = (my $year = $day * $diy) / 12;
 my $mult    = 5;
 
 sub fmt {
     my($t, $interval) = @_;
-    sprintf '%-12s ', (sprintf '%2d', int $t) . ' ' . $interval . ($t == 1 ? '' : 's')
+    sprintf CW.' ', (sprintf '%2d', int $t) . ' ' . $interval . ($t > 1 and 's') # Raku trick fails: 's' if $t > 1
 }
 
 push @res, ' ' x 34 . 'How Often You Do the Task';
-push @res, sprintf "%-12s | @{[' %-12s'x6]}", <Shaved-off 50/Day 5/Day Daily Weekly Monthly Yearly>;
-push @res, '-' x 93;
+push @res, '';
+push @res, sprintf  CW.' | '.(' '.CW)x6, <Shaved-off 50/Day 5/Day Daily Weekly Monthly Yearly>;
+push @res, '';
 
 for my $y (0..8) {
-   my $l = sprintf "%-12s | ", $columns[$y];
+   my $row = sprintf CW.' | ', $columns[$y];
    for my $x (0..5) {
       given ($freq[$x] * $shaved[$y] * $mult) {
-         when ($_ < $minute) { $l .= fmt $_,         "Second" } 
-         when ($_ < $hour  ) { $l .= fmt $_/$minute, "Minute" } 
-         when ($_ < $day   ) { $l .= fmt $_/$hour,   "Hour"   } 
-         when ($_ < 14*$day) { $l .= fmt $_/$day,    "Day"    } 
-         when ($_ < 9*$week) { $l .= fmt $_/$week,   "Week"   }
-         when ($_ < $year  ) { $l .= fmt $_/$month,  "Month"  }
-         default             { $l .= '   n/a       '          }
+         when ($_ < $minute) { $row .= fmt $_,         "Second" } 
+         when ($_ < $hour  ) { $row .= fmt $_/$minute, "Minute" } 
+         when ($_ < $day   ) { $row .= fmt $_/$hour,   "Hour"   } 
+         when ($_ < 14*$day) { $row .= fmt $_/$day,    "Day"    } 
+         when ($_ < 9*$week) { $row .= fmt $_/$week,   "Week"   }
+         when ($_ < $year  ) { $row .= fmt $_/$month,  "Month"  }
+         default             { $row .= ' ' . sprintf CW, ' '    }
       }
    }
-   push @res, $l;
+   push @res, $row;
 }
 
 say my $result = join "\n", @res;
 
 my $ref = <<END;
                                   How Often You Do the Task
+
+Shaved-off  |  50/Day      5/Day       Daily       Weekly      Monthly     Yearly     
+
+ 1 Second   |  1 Days      2 Hours    30 Minutes   4 Minutes   1 Minute    5 Seconds  
+ 5 Seconds  |  5 Days     12 Hours     2 Hours    21 Minutes   5 Minutes  25 Seconds  
+30 Seconds  |  4 Weeks     3 Days     15 Hours     2 Hours    30 Minutes   2 Minutes  
+ 1 Minute   |  2 Months    6 Days      1 Days      4 Hours     1 Hour      5 Minutes  
+ 5 Minutes  | 10 Months    4 Weeks     6 Days     21 Hours     5 Hours    25 Minutes  
+30 Minutes  |              6 Months    5 Weeks     5 Days      1 Days      2 Hours    
+ 1 Hour     |                          2 Months   10 Days      2 Days      5 Hours    
+ 6 Hours    |                                      2 Months    2 Weeks     1 Days     
+ 1 Day      |                                      8 Months    8 Weeks     5 Days     
+END
+
+my $ref_12 = <<END;
+                                  How Often You Do the Task
+
 Shaved-off   |  50/Day       5/Day        Daily        Weekly       Monthly      Yearly      
----------------------------------------------------------------------------------------------
+
  1 Second    |  1 Days       2 Hours     30 Minutes    4 Minutes    1 Minute     5 Seconds   
  5 Seconds   |  5 Days      12 Hours      2 Hours     21 Minutes    5 Minutes   25 Seconds   
 30 Seconds   |  4 Weeks      3 Days      15 Hours      2 Hours     30 Minutes    2 Minutes   
  1 Minute    |  2 Months     6 Days       1 Days       4 Hours      1 Hour       5 Minutes   
  5 Minutes   | 10 Months     4 Weeks      6 Days      21 Hours      5 Hours     25 Minutes   
-30 Minutes   |    n/a        6 Months     5 Weeks      5 Days       1 Days       2 Hours     
- 1 Hour      |    n/a          n/a        2 Months    10 Days       2 Days       5 Hours     
- 6 Hours     |    n/a          n/a          n/a        2 Months     2 Weeks      1 Days      
- 1 Day       |    n/a          n/a          n/a        8 Months     8 Weeks      5 Days      
+30 Minutes   |               6 Months     5 Weeks      5 Days       1 Days       2 Hours     
+ 1 Hour      |                            2 Months    10 Days       2 Days       5 Hours     
+ 6 Hours     |                                         2 Months     2 Weeks      1 Days      
+ 1 Day       |                                         8 Months     8 Weeks      5 Days      
 END
 
 use Test::More;
