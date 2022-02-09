@@ -10815,6 +10815,13 @@ File: W/World_Cup_group_stage
 #c# 2018-09-20 >RC
 #p# OK
 
+File: W/Worthwhile_task_shaving
+#!/usr/bin/env perl
+#u# http://rosettacode.org/wiki/Worthwhile_task_shaving
+#c# 2022-02-07 >RC, 2022-02-08 >RC
+#m# P5: OK
+#n# column widths adjustable, woo-hoo
+
 File: W/Write_entire_file
 #!/usr/local/bin/perl
 #u# http://rosettacode.org/wiki/Write_entire_file
