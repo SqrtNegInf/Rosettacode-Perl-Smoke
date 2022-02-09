@@ -1,17 +1,17 @@
 
 This is perl 5, version 32, subversion 1 (v5.32.1) built for darwin-thread-multi-2level
 updating from RC…
-+------------> Perl: Good/Bad [1596/12]
-|+-----------> Smoke testing [1450]
++------------> Perl: Good/Bad [1596/13]
+|+-----------> Smoke testing [1451]
 ||+----------> sKipping validation [149]
 |||+---------> Interactive [76]
-||||+--------> Touched (modified by me) [548]
+||||+--------> Touched (modified by me) [549]
 |||||+-------> Random seed [123]
 ||||||+------> File output [79]
 |||||||+-----> Draft [356]
 ||||||||+----> Ignoring [37]
-|||||||||+---> Void (no local copy) [116]
-||||||||||+--> Un-implemented/reliable [86]
+|||||||||+---> Void (no local copy) [115]
+||||||||||+--> Un-implemented/reliable [85]
 |||||||||||
 GS..T..D... 10001th_prime
 GS......... 100_doors-1
@@ -1728,7 +1728,7 @@ GS......... Wordiff-2
 GS.....D... Words_containing_%22the%22_substring
 GS.....D... Words_from_neighbour_ones
 GS..T...... World_Cup_group_stage
-.......D.VU Worthwhile_task_shaving
+BS..T..D... Worthwhile_task_shaving
 GS....F.... Write_entire_file
 GS....F.... Write_float_arrays_to_a_text_file-1
 GS....F.... Write_float_arrays_to_a_text_file-2
