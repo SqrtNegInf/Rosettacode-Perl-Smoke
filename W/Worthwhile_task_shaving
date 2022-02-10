@@ -2,7 +2,7 @@
 #u# http://rosettacode.org/wiki/Worthwhile_task_shaving
 #c# 2022-02-07 >RC, 2022-02-08 >RC
 #m# P5: OK
-#n# column widths adjustable, woo-hoo
+#n# column widths adjustable, woo-hoo (found all the 12's annoying, conflating formatting and time-intervals)
 
 use strict;
 use warnings;
@@ -13,7 +13,7 @@ my @res;
 
 use constant CW => '%-11s'; # set column width
 
-#                            <   seconds   >  <minutes>                 < hours >
+#            (     scale  -->    seconds   )  (minutes) (     scale -->   hours )
 my @shaved = map { 60 * $_ } 1/60, 1/12, 1/2, 1, 5, 30, map { 60 * $_ } 1, 6, 24; 
 #my @shaved = <1 5 30 60 300 1800 3600 21600 86400>;
 
