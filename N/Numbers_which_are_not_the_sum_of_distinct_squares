@@ -1,0 +1,56 @@
+#!/usr/local/bin/perl
+#u# http://rosettacode.org/wiki/Numbers_which_are_not_the_sum_of_distinct_squares
+#t# inprogress
+#c# 2022-02-xx >RC
+#p# OK
+
+my @res;
+
+use strict;
+use warnings;
+use feature 'say';
+
+use Algorithm::Combinatorics qw/combinations/;
+use List::Util 'sum';
+
+my %found;
+
+my $m = 22;
+my @sq = map { $_**2 } 1..22;
+
+my $t;
+LOOP:
+while () {
+    $t++;
+    print  "T: $t  ==> ";
+    for (combinations( [0..$m-1], $t)) { 
+        $found{$_}++ for sum @sq[@$_]; 
+       # push @{$ways{sum @sq[@$_]}}, [@sq[@$_]] # debug
+    }
+    my $run=0; my  $prev = 0; my  $base = -1; my  $max = -1; my  $maxb = -1;
+    for (sort { $a <=> $b } keys %found) {
+        if ($_ == $prev+1) { $run++; $prev = $_ }
+        else               { $max=$run and $maxb=$base if $run > $max; $run = 0; $base = $_; $prev=$_ }
+    }
+    say "Run of $max from $maxb";
+    #last LOOP if $max > 129 and $max > $maxb;
+    last LOOP if $t > 7;    
+}
+    for (1..500) { print "$_ " unless defined $found{$_} }
+
+__END__
+say my $result = join "\n", @res;
+my $ref = '2 3 6 7 8 11 12 15 18 19 22 23 24 27 28 31 32 33 43 44 47 48 60 67 72 76 92 96 108 112 128';
+
+use Test::More;
+chomp $ref;
+is($result, $ref);
+done_testing();
+
+__END__
+
+=={{header|Perl}}==
+<lang perl>
+</lang>
+{{out}}
+<pre>2 3 6 7 8 11 12 15 18 19 22 23 24 27 28 31 32 33 43 44 47 48 60 67 72 76 92 96 108 112 128</pre>
