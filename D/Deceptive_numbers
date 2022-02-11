@@ -1,0 +1,43 @@
+#!/usr/local/bin/perl
+#u# http://rosettacode.org/wiki/Deceptive_numbers
+#c# 2022-02-10 >RC
+#p# OK
+
+my @res;
+
+use strict;
+use warnings;
+use feature 'say';
+use Math::AnyNum qw(imod is_prime);
+
+my($x,@D) = 2;
+while ($x++) {
+    push @D, $x if 1 == $x%2 and !is_prime $x and 0 == imod(1x($x-1),$x);
+    last if 25 == @D
+}
+
+say my $result = join ' ', @D;
+
+my $ref = '91 259 451 481 703 1729 2821 2981 3367 4141 4187 5461 6533 6541 6601 7471 7777 8149 8401 8911 10001 11111 12403 13981 14701';
+
+use Test::More;
+chomp $ref;
+is($result, $ref);
+done_testing();
+
+__END__
+
+=={{header|Perl}}==
+<lang perl>use strict;
+use warnings;
+use feature 'say';
+use Math::AnyNum qw(imod is_prime);
+
+my($x,@D) = 2;
+while ($x++) {
+    push @D, $x if 1 == $x%2 and !is_prime $x and 0 == imod(1x($x-1),$x);
+    last if 25 == @D
+}
+say join ' ', @D;</lang>
+{{out}}
+<pre>91 259 451 481 703 1729 2821 2981 3367 4141 4187 5461 6533 6541 6601 7471 7777 8149 8401 8911 10001 11111 12403 13981 14701</pre>
