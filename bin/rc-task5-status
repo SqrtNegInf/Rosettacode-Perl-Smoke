@@ -203,6 +203,7 @@ Parametrized_SQL_statement
 Prime_numbers_p_which_sum_of_prime_numbers_less_or_equal_to_p_is_prime
 Print_itself
 Record_sound
+Sanitize_user_input
 SOAP
 SQL-based_authentication
 Sorting_algorithms/Tree_sort_on_a_linked_list
