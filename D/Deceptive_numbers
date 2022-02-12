@@ -12,7 +12,10 @@ use Math::AnyNum qw(imod is_prime);
 
 my($x,@D) = 2;
 while ($x++) {
-    push @D, $x if 1 == $x%2 and !is_prime $x and 0 == imod(1x($x-1),$x);
+    push @D, $x if $x%2 and !is_prime $x and !imod(1x($x-1),$x);              # less clarity but fewer chars
+   #push @D, $x if 1 == $x%2 and !is_prime $x and 0 == imod(1x($x-1),$x);     # on RC
+   #push @D, $x if 1 == $x%2 and not is_prime($x) and not imod(1x($x-1),$x);  # most readable
+   #push @D, $x unless not $x%2 or is_prime($x) or imod(1x($x-1),$x);         # flip the script
     last if 25 == @D
 }
 
@@ -24,20 +27,3 @@ use Test::More;
 chomp $ref;
 is($result, $ref);
 done_testing();
-
-__END__
-
-=={{header|Perl}}==
-<lang perl>use strict;
-use warnings;
-use feature 'say';
-use Math::AnyNum qw(imod is_prime);
-
-my($x,@D) = 2;
-while ($x++) {
-    push @D, $x if 1 == $x%2 and !is_prime $x and 0 == imod(1x($x-1),$x);
-    last if 25 == @D
-}
-say join ' ', @D;</lang>
-{{out}}
-<pre>91 259 451 481 703 1729 2821 2981 3367 4141 4187 5461 6533 6541 6601 7471 7777 8149 8401 8911 10001 11111 12403 13981 14701</pre>
