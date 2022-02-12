@@ -1,15 +1,16 @@
 
 This is perl 5, version 32, subversion 1 (v5.32.1) built for darwin-thread-multi-2level
-+------------> Perl: Good/Bad [1595/13]
-|+-----------> Smoke testing [1451]
-||+----------> sKipping validation [149]
+updating from RC…
++------------> Perl: Good/Bad [1598/13]
+|+-----------> Smoke testing [1452]
+||+----------> sKipping validation [150]
 |||+---------> Interactive [76]
-||||+--------> Touched (modified by me) [549]
+||||+--------> Touched (modified by me) [551]
 |||||+-------> Random seed [123]
 ||||||+------> File output [79]
-|||||||+-----> Draft [357]
-||||||||+----> Ignoring [37]
-|||||||||+---> Void (no local copy) [116]
+|||||||+-----> Draft [358]
+||||||||+----> Ignoring [38]
+|||||||||+---> Void (no local copy) [115]
 ||||||||||+--> Un-implemented/reliable [86]
 |||||||||||
 GS..T..D... 10001th_prime
@@ -378,6 +379,7 @@ GS..T..D... Days_between_dates
 GS..T...... De_Bruijn_sequences
 GS...R..... Deal_cards_for_FreeCell
 GS......... Death_Star
+GS..T..D... Deceptive_numbers
 GS..T..D... Decimal_floating_point_number_to_binary
 GS..T..D... Decision_tables
 GS..T...... Deconvolution_1D
@@ -1009,7 +1011,7 @@ G.KI...D... Number_triplets_game
 GS.....D... Numbers_divisible_by_their_individual_digits,_but_not_by_the_product_of_their_digits.
 GS..T..D... Numbers_in_base-16_representation_that_cannot_be_written_with_decimal_digits
 GS..T..D... Numbers_in_base_10_that_are_palindromic_in_bases_2,_4,_and_16
-.......D.VU Numbers_which_are_not_the_sum_of_distinct_squares
+G.K.T..D..U Numbers_which_are_not_the_sum_of_distinct_squares
 GS..T..D... Numbers_which_binary_and_ternary_digit_sum_are_prime
 .......D.V. Numbers_whose_count_of_divisors_is_prime
 GS......... Numbers_with_equal_rises_and_falls
@@ -1327,7 +1329,7 @@ GS..T...... Safe_primes_and_unsafe_primes
 GS..T...... Sailors,_coconuts_and_a_monkey_problem-1
 GS..T...... Sailors,_coconuts_and_a_monkey_problem-2
 GS......... Same_fringe
-.......D.VU Sanitize_user_input
+.......DXVU Sanitize_user_input
 GS..TR.D... Sattolo_cycle
 GS..T...... Scope_Function_names_and_labels
 GS......... Scope_modifiers
@@ -1604,7 +1606,7 @@ GS......... Thue-Morse
 GS...R..... Tic-tac-toe
 G.KI....... Tic-tac-toe-2
 GS.....D... Time-based_one-time_password_algorithm
-!S......... Time_a_function
+GS......... Time_a_function
 GS......... Tokenize_a_string
 GS......... Tokenize_a_string_with_escaping
 GS..T...... Tonelli-Shanks_algorithm
