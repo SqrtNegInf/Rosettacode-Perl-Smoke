@@ -2219,6 +2219,12 @@ File: D/Death_Star
 #c# 2018-07-28 <RC
 #p# OK
 
+File: D/Deceptive_numbers
+#!/usr/local/bin/perl
+#u# http://rosettacode.org/wiki/Deceptive_numbers
+#c# 2022-02-10 >RC
+#p# OK
+
 File: D/Decimal_-_Hexadecimal_numbers
 #!/usr/local/bin/perl
 #u# http://rosettacode.org/wiki/Decimal_-_Hexadecimal_numbers
@@ -6325,6 +6331,13 @@ File: N/Numbers_n_in_which_number_1_occur_twice
 #!/usr/local/bin/perl
 #u# http://rosettacode.org/wiki/Numbers_n_in_which_number_1_occur_twice
 #c# 2021-07-12 <RC
+#p# OK
+
+File: N/Numbers_which_are_not_the_sum_of_distinct_squares
+#!/usr/local/bin/perl
+#u# http://rosettacode.org/wiki/Numbers_which_are_not_the_sum_of_distinct_squares
+#t# inprogress
+#c# 2022-02-xx >RC
 #p# OK
 
 File: N/Numbers_which_binary_and_ternary_digit_sum_are_prime
