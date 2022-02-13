@@ -2224,6 +2224,7 @@ File: D/Deceptive_numbers
 #u# http://rosettacode.org/wiki/Deceptive_numbers
 #c# 2022-02-10 >RC
 #p# OK
+#n# additional modulo testing just slows this down (cf Raku)
 
 File: D/Decimal_-_Hexadecimal_numbers
 #!/usr/local/bin/perl
