@@ -8,10 +8,10 @@ updating from RC…
 ||||+--------> Touched (modified by me) [551]
 |||||+-------> Random seed [123]
 ||||||+------> File output [79]
-|||||||+-----> Draft [358]
+|||||||+-----> Draft [360]
 ||||||||+----> Ignoring [38]
-|||||||||+---> Void (no local copy) [115]
-||||||||||+--> Un-implemented/reliable [86]
+|||||||||+---> Void (no local copy) [117]
+||||||||||+--> Un-implemented/reliable [88]
 |||||||||||
 GS..T..D... 10001th_prime
 GS......... 100_doors-1
@@ -357,6 +357,7 @@ GS......... Cumulative_standard_deviation-2
 GS..T...... Currency
 GS......... Currying
 GS..T.FD... Curve_that_touches_three_points
+.......D.VU Curzon_numbers
 GS......... Cut_a_rectangle
 GS..T..D... Cycle_detection
 GS..T..D... Cyclops_numbers
@@ -410,6 +411,7 @@ GS..T...... Dinesman%27s_multiple-dwelling_problem-1
 GS......... Dinesman%27s_multiple-dwelling_problem-2
 G.K..R..... Dining_philosophers
 .......D.VU Diophantine_linear_system_solving
+.......D.VU Disarium_numbers
 GS......... Discordian_date
 GS.....D... Discrete_Fourier_transform
 GS..T...... Display_a_linear_combination
