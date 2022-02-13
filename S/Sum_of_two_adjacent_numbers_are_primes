@@ -9,7 +9,7 @@ use strict;
 use warnings;
 use feature 'say';
 
-use ntheory 'is_prime';
+use ntheory <is_prime nth_prime>;
 
 # on RC:
 #my($n,$c);
@@ -19,10 +19,15 @@ use ntheory 'is_prime';
 #is_prime(1 + 2*++$n) and printf "%2d + %2d = %2d\n", $n, $n+1, 1+2*$n and $c++ while $c < 20;
 
 my(@n,$n);
-while () { is_prime(1 + 2*++$n) and push(@n,$n) and @n == 20 and last }
+while (@n < 20) { is_prime(1 + 2*++$n) and push(@n,$n) }
 push @res, sprintf "%2d + %2d = %2d", $_, $_+1, 2*$_+1 for @n;
 
 say my $result = join "\n", @res;
+
+# extra credit
+my $hi = 1 + (my $lo = int((my $nth = nth_prime(1+10e6))/2) ); 
+say my $result2 = "$lo + $hi = $nth";
+my $ref2 = '89712345 + 89712346 = 179424691';
 
 my $ref = <<'END';
  1 +  2 =  3
@@ -50,4 +55,5 @@ END
 use Test::More;
 chomp $ref;
 is($result, $ref);
+is($result2, $ref2);
 done_testing();
