@@ -144,6 +144,11 @@ C/Continued_fraction
 C/Cumulative_standard_deviation-2
 ²:     3 SUPERSCRIPT TWO
 
+C/Curzon_numbers
+»:     1 RIGHT-POINTING DOUBLE ANGLE QUOTATION MARK
+×:     2 MULTIPLICATION SIGN
+∞:     1 INFINITY
+
 C/Cycle_detection
 λ:     6 GREEK SMALL LETTER LAMDA
 μ:     3 GREEK SMALL LETTER MU
