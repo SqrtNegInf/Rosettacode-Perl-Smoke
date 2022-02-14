@@ -1,17 +1,17 @@
 
 This is perl 5, version 32, subversion 1 (v5.32.1) built for darwin-thread-multi-2level
 updating from RC…
-+------------> Perl: Good/Bad [1598/13]
-|+-----------> Smoke testing [1452]
-||+----------> sKipping validation [150]
++------------> Perl: Good/Bad [1600/13]
+|+-----------> Smoke testing [1453]
+||+----------> sKipping validation [151]
 |||+---------> Interactive [76]
-||||+--------> Touched (modified by me) [551]
+||||+--------> Touched (modified by me) [553]
 |||||+-------> Random seed [123]
 ||||||+------> File output [79]
 |||||||+-----> Draft [360]
 ||||||||+----> Ignoring [38]
-|||||||||+---> Void (no local copy) [117]
-||||||||||+--> Un-implemented/reliable [88]
+|||||||||+---> Void (no local copy) [115]
+||||||||||+--> Un-implemented/reliable [87]
 |||||||||||
 GS..T..D... 10001th_prime
 GS......... 100_doors-1
@@ -350,14 +350,14 @@ GS.....D... Create_an_object_Native_demonstration
 G.K.....X.. Create_an_object_at_a_given_address
 .......D.VU Create_your_own_text_control_codes
 GS......... Cuban_primes
-GS..T..D... Cubic_Special_Primes
+GS..T..D... Cubic_special_primes
 GS..T..D... Cullen_and_Woodall_numbers
 GS......... Cumulative_standard_deviation-1
 GS......... Cumulative_standard_deviation-2
 GS..T...... Currency
 GS......... Currying
 GS..T.FD... Curve_that_touches_three_points
-.......D.VU Curzon_numbers
+G.K.T..D..U Curzon_numbers
 GS......... Cut_a_rectangle
 GS..T..D... Cycle_detection
 GS..T..D... Cyclops_numbers
@@ -411,15 +411,15 @@ GS..T...... Dinesman%27s_multiple-dwelling_problem-1
 GS......... Dinesman%27s_multiple-dwelling_problem-2
 G.K..R..... Dining_philosophers
 .......D.VU Diophantine_linear_system_solving
-.......D.VU Disarium_numbers
+GS..T..D... Disarium_numbers
 GS......... Discordian_date
 GS.....D... Discrete_Fourier_transform
 GS..T...... Display_a_linear_combination
 GS......... Display_an_outline_as_a_nested_table
-GS.....D... Distinct_Palindromes_within_decimal_numbers
+GS.....D... Distinct_palindromes_within_decimal_numbers
 GS..T..D... Distinct_power_numbers
 GS......... Distributed_programming
-GS..T..D... Distribution_of_0_Digits_in_factorial_series
+GS..T..D... Distribution_of_0_digits_in_factorial_series
 GS..T...... Diversity_prediction_theorem
 GS..TR.D... Divide_a_rectangle_into_a_number_of_unequal_triangles
 G.K........ Documentation
@@ -576,7 +576,7 @@ GS..T...... Find_words_with_alternating_vowels_and_consonants-2
 GS.....D... Finite_state_machine
 GS......... First-class_functions
 GS......... First-class_functions_Use_numbers_analogously
-GS.....D... First_9_Prime_Fibonacci_Number
+GS.....D... First_9_prime_Fibonacci_number
 GS......... First_class_environments
 GS..T...... First_perfect_square_in_base_n_with_n_unique_digits-1
 GS..T...... First_perfect_square_in_base_n_with_n_unique_digits-2
@@ -1216,7 +1216,7 @@ GS....F.... Pythagoras_tree
 GS..T...... Pythagorean_quadruples
 GS......... Pythagorean_triples
 GS..T...... QR_decomposition
-GS..T..D... Quadrat_Special_Primes
+GS..T..D... Quadrat_special_primes
 GS......... Quaternion_type
 GS......... Queue_Definition
 GS......... Queue_Usage
@@ -1462,8 +1462,8 @@ GS..T...... Sorting_algorithms_Strand_sort
 .......DXVU Sorting_algorithms_Tree_sort_on_a_linked_list
 GS......... Soundex
 GS......... Sparkline_in_unicode
-GS..T..D... Special_Divisors
 G.K........ Special_characters
+GS..T..D... Special_divisors
 GS..T..D... Special_factorials
 GS.....D... Special_neighbor_primes
 GS..T..D... Special_pythagorean_triplet
@@ -1488,7 +1488,7 @@ GS..T.FD... Starting_a_web_browser
 GS......... State_name_puzzle
 GS...R..... Statistics_Basic
 GS..TR..... Statistics_Normal_distribution
-GS.....D... Steady_Squares
+GS.....D... Steady_squares
 GS..T...... Stem-and-leaf_plot
 GS......... Stern-Brocot_sequence-1
 GS......... Stern-Brocot_sequence-2
