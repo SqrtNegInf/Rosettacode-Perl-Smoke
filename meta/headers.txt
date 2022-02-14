@@ -2085,6 +2085,14 @@ File: C/Curve_that_touches_three_points
 #f# RC file: curve-3-points.svg
 #n# taking the piss...
 
+File: C/Curzon_numbers
+#!/usr/local/bin/perl
+#u# http://rosettacode.org/wiki/Curzon_numbers
+#t# inprogress
+#c# 2022-02-xx >RC
+#p# OK
+#n# Generalized Curzon numbers are those where the positive integer n, using a base integer k, satisfy the condition that kn + 1 is evenly divisible by k × n + 1.
+
 File: C/Cut_a_rectangle
 #!/usr/local/bin/perl
 #u# http://rosettacode.org/wiki/Cut_a_rectangle
@@ -2426,6 +2434,13 @@ File: D/Dining_philosophers
 #t# skiptest
 #c# 2018-07-28 <RC
 #p# OK
+
+File: D/Disarium_numbers
+#!/usr/local/bin/perl
+#u# http://rosettacode.org/wiki/Disarium_numbers
+#c# 2022-02-13 >RC
+#p# OK
+#n# oodles faster than Raku, but still had to give up on #20: 12157692622039623539
 
 File: D/Discordian_date
 #!/usr/local/bin/perl
