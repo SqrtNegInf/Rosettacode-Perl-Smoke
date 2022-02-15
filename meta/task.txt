@@ -2,8 +2,8 @@
 This is perl 5, version 32, subversion 1 (v5.32.1) built for darwin-thread-multi-2level
 updating from RC…
 +------------> Perl: Good/Bad [1600/13]
-|+-----------> Smoke testing [1453]
-||+----------> sKipping validation [151]
+|+-----------> Smoke testing [1454]
+||+----------> sKipping validation [150]
 |||+---------> Interactive [76]
 ||||+--------> Touched (modified by me) [553]
 |||||+-------> Random seed [123]
@@ -11,7 +11,7 @@ updating from RC…
 |||||||+-----> Draft [360]
 ||||||||+----> Ignoring [38]
 |||||||||+---> Void (no local copy) [115]
-||||||||||+--> Un-implemented/reliable [87]
+||||||||||+--> Un-implemented/reliable [86]
 |||||||||||
 GS..T..D... 10001th_prime
 GS......... 100_doors-1
@@ -357,7 +357,7 @@ GS......... Cumulative_standard_deviation-2
 GS..T...... Currency
 GS......... Currying
 GS..T.FD... Curve_that_touches_three_points
-G.K.T..D..U Curzon_numbers
+GS..T..D... Curzon_numbers
 GS......... Cut_a_rectangle
 GS..T..D... Cycle_detection
 GS..T..D... Cyclops_numbers
