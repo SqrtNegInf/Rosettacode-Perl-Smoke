@@ -2088,10 +2088,8 @@ File: C/Curve_that_touches_three_points
 File: C/Curzon_numbers
 #!/usr/local/bin/perl
 #u# http://rosettacode.org/wiki/Curzon_numbers
-#t# inprogress
-#c# 2022-02-xx >RC
+#c# 2022-02-14 >RC
 #p# OK
-#n# Generalized Curzon numbers are those where the positive integer n, using a base integer k, satisfy the condition that kn + 1 is evenly divisible by k × n + 1.
 
 File: C/Cut_a_rectangle
 #!/usr/local/bin/perl
