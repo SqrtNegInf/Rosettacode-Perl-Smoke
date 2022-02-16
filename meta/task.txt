@@ -8,10 +8,10 @@ updating from RC…
 ||||+--------> Touched (modified by me) [553]
 |||||+-------> Random seed [123]
 ||||||+------> File output [79]
-|||||||+-----> Draft [360]
+|||||||+-----> Draft [361]
 ||||||||+----> Ignoring [38]
-|||||||||+---> Void (no local copy) [115]
-||||||||||+--> Un-implemented/reliable [86]
+|||||||||+---> Void (no local copy) [116]
+||||||||||+--> Un-implemented/reliable [87]
 |||||||||||
 GS..T..D... 10001th_prime
 GS......... 100_doors-1
@@ -1729,6 +1729,7 @@ GS......... Word_wheel
 GS......... Word_wrap
 GS..T...... Wordiff
 GS......... Wordiff-2
+.......D.VU Wordle_comparison
 GS.....D... Words_containing_%22the%22_substring
 GS.....D... Words_from_neighbour_ones
 GS..T...... World_Cup_group_stage
