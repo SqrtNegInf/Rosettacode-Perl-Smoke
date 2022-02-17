@@ -3,7 +3,7 @@
 
 source $HOME/.profile
 
-rakudobrew switch moar-blead
+rakubrew switch moar-blead
 
 cd $HOME/perl5/Rosetta-Code
 
