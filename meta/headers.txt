@@ -10823,6 +10823,12 @@ File: W/Wordiff-2
 #c# 2021-11-05 NOT ON RC
 #p# OK
 
+File: W/Wordle_comparison
+#!/usr/local/bin/perl
+#u# http://rosettacode.org/wiki/Wordle_comparison
+#c# 2022-02-16 <RC
+#p# OK
+
 File: W/Words_containing_%22the%22_substring
 #!/usr/local/bin/perl
 #u# http://rosettacode.org/wiki/Words_containing_%22the%22_substring
