@@ -1,0 +1,35 @@
+#!/usr/local/bin/perl
+#u# http://rosettacode.org/wiki/Wordle_comparison
+#c# 2022-02-16 <RC
+#p# OK
+
+my @res;
+
+use strict;
+use warnings;
+use feature 'say';
+
+for my $test ( ["ALLOW", "LOLLY"], ["BULLY", "LOLLY"], ["ROBIN", "ALERT"],
+  ["ROBIN", "SONIC"], ["ROBIN", "ROBIN"])
+  {
+  local $_ = join "\n", @$test;
+  1 while s/([ -~])(.*\n(??{$` =~ tr!!.!cr}))\1/\0$2\0/;
+  1 while s/([ -~])(.*\n.*?)\1/\01$2\01/;
+  push @res, "@$test => @{[ qw( green yellow grey )
+    [map ord, split //, s/.*\n//r =~ tr/\0\1/\2/cr] ]}";
+  }
+
+say my $result = join "\n", @res;
+
+my $ref = <<'EOD';
+ALLOW LOLLY => yellow yellow green grey grey
+BULLY LOLLY => grey grey green green green
+ROBIN ALERT => grey grey grey yellow grey
+ROBIN SONIC => grey green yellow green grey
+ROBIN ROBIN => green green green green green
+EOD
+
+use Test::More;
+chomp $ref;
+is ($result, $ref);
+done_testing();
