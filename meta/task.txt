@@ -1,14 +1,14 @@
 
 This is perl 5, version 32, subversion 1 (v5.32.1) built for darwin-thread-multi-2level
 updating from RC…
-+------------> Perl: Good/Bad [1600/13]
-|+-----------> Smoke testing [1454]
++------------> Perl: Good/Bad [1601/13]
+|+-----------> Smoke testing [1455]
 ||+----------> sKipping validation [150]
 |||+---------> Interactive [76]
 ||||+--------> Touched (modified by me) [553]
 |||||+-------> Random seed [123]
 ||||||+------> File output [79]
-|||||||+-----> Draft [361]
+|||||||+-----> Draft [362]
 ||||||||+----> Ignoring [38]
 |||||||||+---> Void (no local copy) [116]
 ||||||||||+--> Un-implemented/reliable [87]
@@ -1337,6 +1337,7 @@ GS..T...... Scope_Function_names_and_labels
 GS......... Scope_modifiers
 GS......... Search_a_list
 GS......... Search_a_list_of_records
+.......D.VU Search_in_paragraph%27s_text
 G.K........ Secure_temporary_file
 .......D.V. Segmentation_fault_protection
 GS..T..D... Selective_file_copy
@@ -1729,7 +1730,7 @@ GS......... Word_wheel
 GS......... Word_wrap
 GS..T...... Wordiff
 GS......... Wordiff-2
-.......D.VU Wordle_comparison
+GS.....D... Wordle_comparison
 GS.....D... Words_containing_%22the%22_substring
 GS.....D... Words_from_neighbour_ones
 GS..T...... World_Cup_group_stage
