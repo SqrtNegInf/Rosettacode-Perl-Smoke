@@ -1,0 +1,65 @@
+#!/usr/local/bin/perl
+#u# http://rosettacode.org/wiki/Matrix_with_two_diagonals
+#c# 2022-02-xx NOT ON RC
+#p# OK
+#n# make identity matrix, then fill in anti-diagonal (2 variations) and a both-at-once version
+
+my @res;
+
+use strict;
+use warnings;
+use feature 'say';
+
+sub both_diag {
+    my($n) = @_;
+    my @a = map { [ (0) x $_, 1, (0) x ($n-1 - $_) ] } 0..$n-1;
+    map { $a[$_][$n-$_-1] = 1 } 0..$n-1;
+    @a
+}
+
+sub both_diag1 {
+    my($n) = shift() - 1;
+    my @a = map { [ (0) x $_, 1, (0) x ($n - $_) ] } 0..$n;
+    splice( @{$a[$_]}, $n - $_, 1, 1 ) for 0..$n;
+    @a
+}
+
+sub both_diag2 {
+    my($n) = shift() - 1;
+    my @a = map { [ (0) x ($n+1) ] } 0..$n;
+    map { ($a[$_][$_], $a[$_][$n-$_]) = (1, 1) } 0..$n; # wish we could assign to a dis-contiguous slice...
+    @a
+}
+
+push @res, join ' ', @$_ for both_diag(4);
+push @res, '';
+push @res, join ' ', @$_ for both_diag1(5);
+push @res, '';
+push @res, join ' ', @$_ for both_diag2(6);
+
+say my $result = join "\n", @res;
+
+my $ref = <<'END';
+1 0 0 1
+0 1 1 0
+0 1 1 0
+1 0 0 1
+
+1 0 0 0 1
+0 1 0 1 0
+0 0 1 0 0
+0 1 0 1 0
+1 0 0 0 1
+
+1 0 0 0 0 1
+0 1 0 0 1 0
+0 0 1 1 0 0
+0 0 1 1 0 0
+0 1 0 0 1 0
+1 0 0 0 0 1
+END
+
+use Test::More;
+chomp $ref;
+is($result, $ref);
+done_testing();
