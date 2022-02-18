@@ -1,0 +1,65 @@
+#!/usr/local/bin/perl
+#u# http://rosettacode.org/wiki/Identity_matrix
+#c# 2018-08-13 <RC
+#p# OK
+
+use strict;
+use warnings;
+use feature 'say';
+my $result;
+
+sub identity_matrix {
+    my $n = shift;
+    map {
+      my $i = $_;
+      [ map { ($_ == $i) - 0 } 1 .. $n ]
+    } 1 .. $n;
+}
+
+# alternative 
+sub matrix_ident { 
+    my($n) = @_; 
+    map { [ (0) x $_, 1, (0) x ($n-1 - $_) ] } 0..$n-1
+}
+
+@ARGV = (4, 5, 6) unless @ARGV;
+
+for (@ARGV) {
+  my @id = matrix_ident $_;
+  #my @id = identity_matrix $_;
+  $result .= "$_:\n";
+  for (my $i=0; $i<@id; ++$i) {
+    $result .= join(' ', @{$id[$i]}). "\n";
+  }
+  $result .= "\n";
+}
+
+say $result;
+
+my $ref = <<'EOD';
+4:
+1 0 0 0
+0 1 0 0
+0 0 1 0
+0 0 0 1
+
+5:
+1 0 0 0 0
+0 1 0 0 0
+0 0 1 0 0
+0 0 0 1 0
+0 0 0 0 1
+
+6:
+1 0 0 0 0 0
+0 1 0 0 0 0
+0 0 1 0 0 0
+0 0 0 1 0 0
+0 0 0 0 1 0
+0 0 0 0 0 1
+
+EOD
+
+use Test::More;
+is ($result, $ref);
+done_testing();
