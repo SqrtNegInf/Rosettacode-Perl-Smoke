@@ -4436,6 +4436,12 @@ File: I/Identity_matrix
 #c# 2018-08-13 <RC
 #p# OK
 
+File: I/Identity_matrix.1
+#!/usr/local/bin/perl
+#u# http://rosettacode.org/wiki/Identity_matrix
+#c# 2018-08-13 <RC
+#p# OK
+
 File: I/Idiomatically_determine_all_the_characters_that_can_be_used_for_symbols
 #!/usr/local/bin/perl
 #u# http://rosettacode.org/wiki/Idiomatically_determine_all_the_characters_that_can_be_used_for_symbols
@@ -5611,6 +5617,27 @@ File: M/Matrix_transposition
 #u# http://rosettacode.org/wiki/Matrix_transposition
 #c# 2018-08-18 <RC
 #p# OK
+
+File: M/Matrix_with_two_diagonals-1
+#!/usr/local/bin/perl
+#u# http://rosettacode.org/wiki/Matrix_with_two_diagonals
+#c# 2022-02-xx NOT ON RC
+#p# OK
+#n# make identity matrix, then fill in anti-diagonal (2 variations) and a both-at-once version
+
+File: M/Matrix_with_two_diagonals-2
+#!/usr/local/bin/perl
+#u# http://rosettacode.org/wiki/Matrix_with_two_diagonals
+#c# 2022-02-xx NOT ON RC
+#p# OK
+#n# enhance identity matrix by reversing and or'ing as you go
+
+File: M/Matrix_with_two_diagonals-3
+#!/usr/local/bin/perl
+#u# http://rosettacode.org/wiki/Matrix_with_two_diagonals
+#c# 2022-02-17 <RC
+#p# OK
+#n# tybalt89's version
 
 File: M/Maximum_difference_between_adjacent_elements_of_list
 #!/usr/local/bin/perl
