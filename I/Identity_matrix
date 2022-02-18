@@ -3,40 +3,26 @@
 #c# 2018-08-13 <RC
 #p# OK
 
+my @res;
+
 use strict;
 use warnings;
 use feature 'say';
-my $result;
 
-sub identity_matrix {
-    my $n = shift;
-    map {
-      my $i = $_;
-      [ map { ($_ == $i) - 0 } 1 .. $n ]
-    } 1 .. $n;
+sub identity_matrix { 
+    my($n) = shift() - 1; 
+    map { [ (0) x $_, 1, (0) x ($n - $_) ] } 0..$n
 }
 
-# alternative 
-sub matrix_ident { 
-    my($n) = @_; 
-    map { [ (0) x $_, 1, (0) x ($n-1 - $_) ] } 0..$n-1
+for (<4 5 6>) {
+  push @res, "\n$_:";
+  push @res, join ' ', @$_ for identity_matrix $_;
 }
 
-@ARGV = (4, 5, 6) unless @ARGV;
-
-for (@ARGV) {
-  my @id = matrix_ident $_;
-  #my @id = identity_matrix $_;
-  $result .= "$_:\n";
-  for (my $i=0; $i<@id; ++$i) {
-    $result .= join(' ', @{$id[$i]}). "\n";
-  }
-  $result .= "\n";
-}
-
-say $result;
+say my $result = join "\n", @res;
 
 my $ref = <<'EOD';
+
 4:
 1 0 0 0
 0 1 0 0
@@ -57,9 +43,9 @@ my $ref = <<'EOD';
 0 0 0 1 0 0
 0 0 0 0 1 0
 0 0 0 0 0 1
-
 EOD
 
 use Test::More;
+chomp $ref;
 is ($result, $ref);
 done_testing();
