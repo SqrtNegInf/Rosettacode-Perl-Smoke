@@ -1,0 +1,45 @@
+#!/usr/local/bin/perl
+#u# http://rosettacode.org/wiki/Matrix_with_two_diagonals
+#c# 2022-02-xx NOT ON RC
+#p# OK
+#n# enhance identity matrix by reversing and or'ing as you go
+
+my @res;
+
+use strict;
+use warnings;
+use feature 'say';
+
+sub both_diag {
+    my($n) = shift() - 1;
+    my @a;
+    for (0..$n) { 
+        my @rr = reverse my @r = ( (0) x $_, 1, (0) x ($n-$_) );
+        push @a, [ map { $r[$_] or $rr[$_] } 0..$n ]
+    }
+    @a;
+}
+
+push @res, join ' ', @$_ for both_diag(4);
+push @res, '';
+push @res, join ' ', @$_ for both_diag(5);
+
+say my $result = join "\n", @res;
+
+my $ref = <<'END';
+1 0 0 1
+0 1 1 0
+0 1 1 0
+1 0 0 1
+
+1 0 0 0 1
+0 1 0 1 0
+0 0 1 0 0
+0 1 0 1 0
+1 0 0 0 1
+END
+
+use Test::More;
+chomp $ref;
+is($result, $ref);
+done_testing();
