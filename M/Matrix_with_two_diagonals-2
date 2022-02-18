@@ -1,6 +1,6 @@
 #!/usr/local/bin/perl
 #u# http://rosettacode.org/wiki/Matrix_with_two_diagonals
-#c# 2022-02-xx NOT ON RC
+#c# 2022-02-17 >RC
 #p# OK
 #n# enhance identity matrix by reversing and or'ing as you go
 
