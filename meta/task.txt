@@ -1,8 +1,8 @@
 
 This is perl 5, version 32, subversion 1 (v5.32.1) built for darwin-thread-multi-2level
 updating from RC…
-+------------> Perl: Good/Bad [1601/13]
-|+-----------> Smoke testing [1455]
++------------> Perl: Good/Bad [1604/13]
+|+-----------> Smoke testing [1458]
 ||+----------> sKipping validation [150]
 |||+---------> Interactive [76]
 ||||+--------> Touched (modified by me) [553]
@@ -900,6 +900,10 @@ G.KI....... Matrix_digital_rain
 G.KI....... Matrix_digital_rain-2
 GS..T...... Matrix_multiplication
 GS......... Matrix_transposition
+.......D... Matrix_with_two_diagonals
+GS......... Matrix_with_two_diagonals-1
+GS......... Matrix_with_two_diagonals-2
+GS......... Matrix_with_two_diagonals-3
 GS.....D... Maximum_difference_between_adjacent_elements_of_list
 GS......... Maximum_triangle_path_sum
 GS..T...... Mayan_calendar
@@ -1390,7 +1394,7 @@ GS......... Sieve_of_Eratosthenes-7
 GS......... Sieve_of_Eratosthenes-8
 GS......... Sieve_of_Eratosthenes-9
 GS....F.... Simple_database
-G.KI...D... Simple_turtle_graphics
+G.KI....... Simple_turtle_graphics
 G.KI....... Simple_windowed_application
 G.KI....... Simulate_input_Keyboard
 .........VU Simulate_input_Mouse
