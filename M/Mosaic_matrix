@@ -1,0 +1,40 @@
+#!/usr/local/bin/perl
+#u# http://rosettacode.org/wiki/Mosaic_matrix
+#c# 2022-02-18 >RC
+#p# OK
+
+my @res;
+
+use strict;
+use warnings;
+use feature 'say';
+
+my $n = 5;
+
+if (0) {
+
+my @r1 = map { $_%2 ? 1 : 0 } 1..$n;
+my @r2 = map { $_   ? 0 : 1 } @r1;
+my @a  = map { $_%2 ? [@r1] : [@r2] } 1..$n;
+push @res, join ' ', @$_ for @a;
+
+} else {
+
+push @res, join ' ', @$_ for map { $_%2 ? [map { $_%2 ? 1 : 0 } 1..$n] : [map { $_%2 ? 0 : 1 } 1..$n] } 1..$n;
+
+}
+
+say my $result = join "\n", @res;
+
+my $ref = <<'END';
+1 0 1 0 1
+0 1 0 1 0
+1 0 1 0 1
+0 1 0 1 0
+1 0 1 0 1
+END
+
+use Test::More;
+chomp $ref;
+is($result, $ref);
+done_testing();
