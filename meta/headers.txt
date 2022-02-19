@@ -5628,7 +5628,7 @@ File: M/Matrix_with_two_diagonals-1
 File: M/Matrix_with_two_diagonals-2
 #!/usr/local/bin/perl
 #u# http://rosettacode.org/wiki/Matrix_with_two_diagonals
-#c# 2022-02-xx NOT ON RC
+#c# 2022-02-17 >RC
 #p# OK
 #n# enhance identity matrix by reversing and or'ing as you go
 
@@ -5637,7 +5637,8 @@ File: M/Matrix_with_two_diagonals-3
 #u# http://rosettacode.org/wiki/Matrix_with_two_diagonals
 #c# 2022-02-17 <RC
 #p# OK
-#n# tybalt89's version
+#n# mangling tybalt89's version here, which technically meet the task requirements ('draws a square matrix'...)
+#n# But "c'mon man!", this was not matrix, in the same way a picture of an egg is not nutritious!
 
 File: M/Maximum_difference_between_adjacent_elements_of_list
 #!/usr/local/bin/perl
@@ -5977,6 +5978,12 @@ File: M/Morse_code
 #c# 2019-01-22
 #p# OK
 #n# not on RC, no sound...
+
+File: M/Mosaic_matrix
+#!/usr/local/bin/perl
+#u# http://rosettacode.org/wiki/Mosaic_matrix
+#c# 2022-02-18 >RC
+#p# OK
 
 File: M/Most_frequent_k_chars_distance
 #!/usr/local/bin/perl
