@@ -3662,6 +3662,13 @@ File: F/Four_is_the_number_of_letters_in_the_...
 #p# OK
 #n# Thundergnat fixed my bug
 
+File: F/Four_sides_of_square
+#!/usr/local/bin/perl
+#u# http://rosettacode.org/wiki/Four_sides_of_square
+#c# 2022-02-xx >RC
+#p# OK
+#n# doesn't work for n=1
+
 File: F/Fractal_tree
 #!/usr/local/bin/perl
 #u# http://rosettacode.org/wiki/Fractal_tree
@@ -8095,6 +8102,13 @@ File: R/Reverse_words_in_a_string
 #u# http://rosettacode.org/wiki/Reverse_words_in_a_string
 #c# 2018-08-18 <RC
 #p# OK
+
+File: R/Rhonda_numbers
+#!/usr/local/bin/perl
+#u# http://rosettacode.org/wiki/Rhonda_numbers
+#c# 2022-02-19 >RC
+#p# OK
+#n# I owe it all to 'ntheory'...
 
 File: R/Rock-paper-scissors
 #!/usr/local/bin/perl
