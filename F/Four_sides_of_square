@@ -1,0 +1,37 @@
+#!/usr/local/bin/perl
+#u# http://rosettacode.org/wiki/Four_sides_of_square
+#c# 2022-02-xx >RC
+#p# OK
+#n# doesn't work for n=1
+
+use strict;
+use warnings;
+use feature 'say';
+
+my $n = 5;
+my @a = ([(1)x$n], (map { [1, (0)x($n-2), 1] } 0..$n-3), [(1)x$n]);
+say join ' ', @$_ for @a;
+
+my $result;
+$result .= join(' ', @$_)  . "\n" for @a;
+
+my $ref = <<'END';
+1 1 1 1 1
+1 0 0 0 1
+1 0 0 0 1
+1 0 0 0 1
+1 1 1 1 1
+END
+
+use Test::More;
+is($result, $ref);
+done_testing();
+
+__END__
+
+=={{header|Perl}}==
+<lang perl>
+</lang>
+{{out}}
+<pre>
+</pre>
