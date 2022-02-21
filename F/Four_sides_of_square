@@ -1,6 +1,6 @@
 #!/usr/local/bin/perl
 #u# http://rosettacode.org/wiki/Four_sides_of_square
-#c# 2022-02-xx >RC
+#c# 2022-02-20 >RC
 #p# OK
 #n# doesn't work for n=1
 
@@ -9,8 +9,7 @@ use warnings;
 use feature 'say';
 
 my $n = 5;
-my @a = ([(1)x$n], (map { [1, (0)x($n-2), 1] } 0..$n-3), [(1)x$n]);
-say join ' ', @$_ for @a;
+say join ' ', @$_ for my @a = ([(1)x$n], (map { [1, (0)x($n-2), 1] } 0..$n-3), [(1)x$n]);
 
 my $result;
 $result .= join(' ', @$_)  . "\n" for @a;
@@ -26,12 +25,3 @@ END
 use Test::More;
 is($result, $ref);
 done_testing();
-
-__END__
-
-=={{header|Perl}}==
-<lang perl>
-</lang>
-{{out}}
-<pre>
-</pre>
