@@ -11,6 +11,7 @@
 #n# 2021-04-06 Pleased to welcome 'Nim' to the club
 #n# 2021-04-09 Pleased to welcome 'Haskell' to the club
 #n# 2021-09-07 Pleased to welcome 'Mathematica' to the club
+#n# 2022-02-20 Pleased to welcome 'FreeBASIC' to the club (BASIC shambles onward, 50 years later...)
 
 my @res;
 
@@ -61,5 +62,5 @@ for (@sorted_languages) {
 say join "\n", @res;
 
 use Test::More;
-ok @res == 19;
+ok @res == 20;
 done_testing();
