@@ -1,17 +1,17 @@
 
 This is perl 5, version 32, subversion 1 (v5.32.1) built for darwin-thread-multi-2level
 updating from RC…
-+------------> Perl: Good/Bad [1607/13]
++------------> Perl: Good/Bad [1606/13]
 |+-----------> Smoke testing [1461]
 ||+----------> sKipping validation [150]
 |||+---------> Interactive [76]
 ||||+--------> Touched (modified by me) [557]
 |||||+-------> Random seed [123]
 ||||||+------> File output [79]
-|||||||+-----> Draft [364]
+|||||||+-----> Draft [365]
 ||||||||+----> Ignoring [39]
-|||||||||+---> Void (no local copy) [115]
-||||||||||+--> Un-implemented/reliable [86]
+|||||||||+---> Void (no local copy) [116]
+||||||||||+--> Un-implemented/reliable [87]
 |||||||||||
 GS..T..D... 10001th_prime
 GS......... 100_doors-1
@@ -60,7 +60,7 @@ GS......... Ackermann_function-4
 GS......... Ackermann_function-5
 ........XV. Active_Directory_Connect
 GS......... Active_Directory_Search_for_a_user
-GS......... Active_object
+!S......... Active_object
 GS......... Add_a_variable_to_a_class_instance_at_runtime
 .......D.VU Addition-chain_exponentiation
 GS..T..D... Addition_chains
@@ -273,6 +273,7 @@ GS......... Collections
 G.KIT...... Color_of_a_screen_pixel
 GS..T...... Color_quantization
 GS....F.... Color_wheel
+.......D.VU Colorful_numbers
 GS....F.... Colour_bars_Display
 GS....F.... Colour_pinstripe_Display
 .........VU Colour_pinstripe_Printer
