@@ -1,17 +1,17 @@
 
 This is perl 5, version 32, subversion 1 (v5.32.1) built for darwin-thread-multi-2level
 updating from RC…
-+------------> Perl: Good/Bad [1606/13]
++------------> Perl: Good/Bad [1607/13]
 |+-----------> Smoke testing [1461]
 ||+----------> sKipping validation [150]
 |||+---------> Interactive [76]
 ||||+--------> Touched (modified by me) [557]
 |||||+-------> Random seed [123]
 ||||||+------> File output [79]
-|||||||+-----> Draft [365]
+|||||||+-----> Draft [366]
 ||||||||+----> Ignoring [39]
-|||||||||+---> Void (no local copy) [116]
-||||||||||+--> Un-implemented/reliable [87]
+|||||||||+---> Void (no local copy) [117]
+||||||||||+--> Un-implemented/reliable [88]
 |||||||||||
 GS..T..D... 10001th_prime
 GS......... 100_doors-1
@@ -60,7 +60,7 @@ GS......... Ackermann_function-4
 GS......... Ackermann_function-5
 ........XV. Active_Directory_Connect
 GS......... Active_Directory_Search_for_a_user
-!S......... Active_object
+GS......... Active_object
 GS......... Add_a_variable_to_a_class_instance_at_runtime
 .......D.VU Addition-chain_exponentiation
 GS..T..D... Addition_chains
@@ -188,6 +188,7 @@ GS......... Brace_expansion
 .......D.VU Brace_expansion_using_ranges
 GS..T...... Brazilian_numbers
 GS......... Break_OO_privacy
+.......D.VU Brilliant_numbers
 GS..TRF.... Brownian_tree
 GS...R..... Bulls_and_cows
 GS...R..... Bulls_and_cows_Player
@@ -1004,7 +1005,7 @@ GS..T...... Next_highest_int_from_digits
 GS..T..D... Next_special_primes
 GS..T..D... Nice_primes
 GS..T...... Nim_game
-GS..T...... Nimber_arithmetic
+GS..T..D... Nimber_arithmetic
 GS......... Non-continuous_subsequences
 GS......... Non-decimal_radices_Convert
 GS......... Non-decimal_radices_Input
@@ -1344,7 +1345,7 @@ GS..T...... Scope_Function_names_and_labels
 GS......... Scope_modifiers
 GS......... Search_a_list
 GS......... Search_a_list_of_records
-.......DXVU Search_in_paragraph%27s_text
+........XVU Search_in_paragraph%27s_text
 G.K........ Secure_temporary_file
 .......D.V. Segmentation_fault_protection
 GS..T..D... Selective_file_copy
