@@ -8,10 +8,10 @@ updating from RC…
 ||||+--------> Touched (modified by me) [557]
 |||||+-------> Random seed [123]
 ||||||+------> File output [79]
-|||||||+-----> Draft [368]
+|||||||+-----> Draft [369]
 ||||||||+----> Ignoring [39]
-|||||||||+---> Void (no local copy) [119]
-||||||||||+--> Un-implemented/reliable [90]
+|||||||||+---> Void (no local copy) [120]
+||||||||||+--> Un-implemented/reliable [91]
 |||||||||||
 GS..T..D... 10001th_prime
 GS......... 100_doors-1
@@ -757,6 +757,7 @@ GS......... Iterated_digits_squaring
 GS......... JSON
 GS.....D... Jaccard_index
 GS..T...... Jacobi_symbol
+.......D.VU Jacobsthal_numbers
 GS..T...... Jaro-Winkler_distance
 .........V. Jaro_similarity
 GS......... Jensen%27s_Device
