@@ -35,7 +35,8 @@ my @möebius;
 push @möebius, μ($_) for 1 .. (my $upto = 199);
 
 say my $result = "Möbius sequence - First $upto terms:\n" .
-    (' 'x4 . sprintf "@{['%4d' x $upto]}", @möebius) =~ s/(.{80})/$1\n/gr;
+    (' 'x4 . sprintf "@{['%4d' x $upto]}", @möebius) =~ s/.{80}\K/\n/gr;
+   #(' 'x4 . sprintf "@{['%4d' x $upto]}", @möebius) =~ s/(.{80})/$1\n/gr;
 
 my $ref = <<'END';
 Möbius sequence - First 199 terms:
