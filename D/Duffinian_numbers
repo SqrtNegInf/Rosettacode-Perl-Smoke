@@ -1,0 +1,75 @@
+#!/usr/local/bin/perl
+#u# http://rosettacode.org/wiki/Duffinian_numbers
+#c# 2022-02-27 >RC
+#p# OK
+#n# nb: adaptive table-maker (works for strings/integers)
+
+my @res;
+
+use strict;
+use warnings;
+use feature <say state>;
+
+use List::Util 'max';
+use ntheory qw<divisor_sum is_prime gcd>;
+
+sub table { my $t = shift() * (my $c = 1 + max map {length} @_); ( sprintf( ('%'.$c.'s')x@_, @_) ) =~ s/.{1,$t}\K/\n/gr }
+
+sub duffinian {
+    my($n) = @_;
+    state $c = 1; state @D;
+    do { push @D, $c if ! is_prime ++$c and 1 == gcd($c,divisor_sum($c)) } until @D > $n;
+    $D[$n];
+}
+
+push @res, "First 50 Duffinian numbers:";
+push @res, table 10, map { duffinian $_-1 } 1..50;
+
+if (0) {
+my(@d3,@triples) = (4, 8); my $n = 2;
+while (++$n) {
+    push @d3, duffinian($n);
+    push @triples, '('.join(', ',@d3).')' if $d3[1] == 1+$d3[0] and $d3[2] == 2+$d3[0];
+    last if @triples == 39;
+    shift @d3;
+}
+}
+
+my(@d3,@triples) = (4, 8, 9); my $n = 3;
+while (@triples < 39) {
+    push @triples, '('.join(', ',@d3).')' if $d3[1] == 1+$d3[0] and $d3[2] == 2+$d3[0];
+    shift @d3 and push @d3, duffinian ++$n;
+}
+
+push @res, 'First 39 Duffinian triplets:';
+push @res, table 3, @triples;
+
+say my $result = join "\n", @res;
+
+my $ref = <<'END';
+First 50 Duffinian numbers:
+   4   8   9  16  21  25  27  32  35  36
+  39  49  50  55  57  63  64  65  75  77
+  81  85  93  98 100 111 115 119 121 125
+ 128 129 133 143 144 155 161 169 171 175
+ 183 185 187 189 201 203 205 209 215 217
+
+First 39 Duffinian triplets:
+             (63, 64, 65)          (323, 324, 325)          (511, 512, 513)
+          (721, 722, 723)          (899, 900, 901)       (1443, 1444, 1445)
+       (2303, 2304, 2305)       (2449, 2450, 2451)       (3599, 3600, 3601)
+       (3871, 3872, 3873)       (5183, 5184, 5185)       (5617, 5618, 5619)
+       (6049, 6050, 6051)       (6399, 6400, 6401)       (8449, 8450, 8451)
+    (10081, 10082, 10083)    (10403, 10404, 10405)    (11663, 11664, 11665)
+    (12481, 12482, 12483)    (13447, 13448, 13449)    (13777, 13778, 13779)
+    (15841, 15842, 15843)    (17423, 17424, 17425)    (19043, 19044, 19045)
+    (26911, 26912, 26913)    (30275, 30276, 30277)    (36863, 36864, 36865)
+    (42631, 42632, 42633)    (46655, 46656, 46657)    (47523, 47524, 47525)
+    (53137, 53138, 53139)    (58563, 58564, 58565)    (72961, 72962, 72963)
+    (76175, 76176, 76177)    (79523, 79524, 79525)    (84099, 84100, 84101)
+    (86527, 86528, 86529)    (94177, 94178, 94179) (108899, 108900, 108901)
+END
+
+use Test::More;
+is($result, $ref);
+done_testing();
