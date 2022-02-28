@@ -2626,6 +2626,13 @@ File: D/Draw_pixel_2
 #c# 2018-11-10 >RC
 #p# OK
 
+File: D/Duffinian_numbers
+#!/usr/local/bin/perl
+#u# http://rosettacode.org/wiki/Duffinian_numbers
+#c# 2022-02-27 >RC
+#p# OK
+#n# nb: adaptive table-maker (works for strings/integers)
+
 File: D/Dutch_national_flag_problem
 #!/usr/local/bin/perl
 #u# http://rosettacode.org/wiki/Dutch_national_flag_problem
@@ -3040,6 +3047,14 @@ File: F/FTP.1
 #u# http://rosettacode.org/wiki/FTP
 #c# 2018-07-31 <RC
 #p# OK
+
+File: F/Face_sums_with_primes
+#!/usr/local/bin/perl
+#u# http://rosettacode.org/wiki/xx
+#t# inprogress
+#c# 2022-02-19 NOT ON RC
+#p# OK
+#n# https://fivethirtyeight.com/features/can-you-prime-the-cube/
 
 File: F/Faces_from_a_mesh
 #!/usr/local/bin/perl
@@ -4653,6 +4668,13 @@ File: J/Jacobi_symbol
 #u# http://rosettacode.org/wiki/Jacobi_symbol
 #c# 2020-01-08 >RC
 #p# OK
+
+File: J/Jacobsthal_numbers
+#!/usr/local/bin/perl
+#u# http://rosettacode.org/wiki/Jacobsthal_numbers
+#c# 2022-02-26 >RC
+#p# OK
+#n# nb: adaptive integer table-maker
 
 File: J/Jaro-Winkler_Distance
 #!/usr/local/bin/perl
@@ -6394,6 +6416,8 @@ File: N/Numbers_which_are_not_the_sum_of_distinct_squares
 #t# inprogress
 #c# 2022-02-xx >RC
 #p# OK
+#n# no magic numbers, and just one 'high' limit
+#n# trying to be just a little different...
 
 File: N/Numbers_which_binary_and_ternary_digit_sum_are_prime
 #!/usr/local/bin/perl
