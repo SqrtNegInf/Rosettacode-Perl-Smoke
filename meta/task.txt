@@ -1,17 +1,17 @@
 
 This is perl 5, version 32, subversion 1 (v5.32.1) built for darwin-thread-multi-2level
 updating from RC…
-+------------> Perl: Good/Bad [1607/13]
-|+-----------> Smoke testing [1461]
++------------> Perl: Good/Bad [1609/13]
+|+-----------> Smoke testing [1463]
 ||+----------> sKipping validation [150]
 |||+---------> Interactive [76]
-||||+--------> Touched (modified by me) [557]
+||||+--------> Touched (modified by me) [559]
 |||||+-------> Random seed [123]
 ||||||+------> File output [79]
 |||||||+-----> Draft [369]
 ||||||||+----> Ignoring [39]
-|||||||||+---> Void (no local copy) [120]
-||||||||||+--> Un-implemented/reliable [91]
+|||||||||+---> Void (no local copy) [118]
+||||||||||+--> Un-implemented/reliable [89]
 |||||||||||
 GS..T..D... 10001th_prime
 GS......... 100_doors-1
@@ -442,7 +442,7 @@ G.KIT...... Draw_a_pixel
 G.KI....... Draw_a_rotating_cube
 GS...RF.... Draw_a_sphere
 G.KIT..D... Draw_pixel_2
-.......D.VU Duffinian_numbers
+GS..T..D... Duffinian_numbers
 GS...R..... Dutch_national_flag_problem
 GS......... Dynamic_variable_names
 GS..T...... EKG_sequence_convergence
@@ -757,7 +757,7 @@ GS......... Iterated_digits_squaring
 GS......... JSON
 GS.....D... Jaccard_index
 GS..T...... Jacobi_symbol
-.......D.VU Jacobsthal_numbers
+GS..T..D... Jacobsthal_numbers
 GS..T...... Jaro-Winkler_distance
 .........V. Jaro_similarity
 GS......... Jensen%27s_Device
