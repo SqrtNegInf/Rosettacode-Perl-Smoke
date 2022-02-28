@@ -3,6 +3,8 @@
 #t# inprogress
 #c# 2022-02-xx >RC
 #p# OK
+#n# no magic numbers, and just one 'high' limit
+#n# trying to be just a little different...
 
 my @res;
 
@@ -10,33 +12,33 @@ use strict;
 use warnings;
 use feature 'say';
 
-use Algorithm::Combinatorics qw/combinations/;
-use List::Util 'sum';
+use List::Util <sum max>;
+use Algorithm::Combinatorics 'combinations';
 
-my %found; # %ways;
-
-my $m = 22;  # way more than we need
+my $m = 20;  # way more than we need
 my @sq = map { $_**2 } 1..$m;
 
-my $t;
-LOOP:
-while () {
-    $t++;
-    print  "T: $t  ==> ";
+my %found;
+
+my($t,$maxb);
+LOOP: while (++$t) {
+    #print  "T: $t  ==> ";
     for (combinations( [0..$m-1], $t)) { 
         $found{$_}++ for sum @sq[@$_]; 
-       # push @{$ways{sum @sq[@$_]}}, [@sq[@$_]] # debug
     }
-    my $run=0; my  $prev = 0; my  $base = -1; my  $max = -1; my  $maxb = -1;
+    my($run, $prev) = (0,   0); 
+    my($base, $max) = (-1, -1);
     for (sort { $a <=> $b } keys %found) {
         if ($_ == $prev+1) { $run++; $prev = $_ }
         else               { $max=$run and $maxb=$base if $run > $max; $run = 0; $base = $_; $prev=$_ }
     }
     say "Run of $max from $maxb";
-    #last LOOP if $max > 129 and $max > $maxb;
-    last LOOP if $t > 7;    
+#    last LOOP if ($maxb+$max) > 400;
+#for (1.. $maxb) { print "$_ " unless defined $found{$_} and $_ > 400}
+#    print "\n";
+    #say "   $max > $maxb";
+    last LOOP if $t > 7;
 }
-    for (1..500) { print "$_ " unless defined $found{$_} }
 
 __END__
 
