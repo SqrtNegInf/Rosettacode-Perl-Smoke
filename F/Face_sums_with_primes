@@ -1,0 +1,57 @@
+#!/usr/local/bin/perl
+#u# http://rosettacode.org/wiki/xx
+#t# inprogress
+#c# 2022-02-19 NOT ON RC
+#p# OK
+#n# https://fivethirtyeight.com/features/can-you-prime-the-cube/
+
+$| = 1;
+
+my @res;
+
+use strict;
+use warnings;
+use feature 'say';
+
+use ntheory <is_prime primes>;
+use List::AllUtils <max sum uniqnum>;
+use Algorithm::Combinatorics qw(combinations permutations);;
+
+my @primes = @{ primes(200) };
+
+my @faces    = ([0, 1, 2, 3], [0, 3, 7, 4], [0, 4, 5, 1], [1, 2, 6, 5], [2, 3, 7, 6], [4, 5, 6, 7]);
+my $vertices = 1 + max map { max @$_ } @faces;
+my @perms    = permutations( [0..7] );
+
+my %seen;
+for ($vertices+1..$vertices+20) {
+    for my $candidates ( combinations([@primes[0..$_]], $vertices) ) {
+        face_sums(@$candidates) unless $seen{ join ' ', sort { $a <=> $b } @$candidates }++;
+    }
+}
+
+sub face_sums {
+    my(@primes_to_test) = @_;
+    for my $p (@perms)  {
+        my @bar = @primes_to_test[@$p];
+        next unless 1 == uniqnum map { sum @bar[@$_] } @faces;
+        say sum(@bar[0,1,2,3]) . ": @bar";
+        return;
+    }
+}
+
+__END__
+use Test::More;
+chomp $ref;
+is($result, $ref);
+done_testing();
+
+__END__
+
+=={{header|Perl}}==
+{{libheader|ntheory}}
+<lang perl>
+</lang>
+{{out}}
+<pre>
+</pre>
