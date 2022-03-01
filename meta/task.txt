@@ -1,17 +1,17 @@
 
 This is perl 5, version 32, subversion 1 (v5.32.1) built for darwin-thread-multi-2level
 updating from RC…
-+------------> Perl: Good/Bad [1609/13]
-|+-----------> Smoke testing [1463]
++------------> Perl: Good/Bad [1612/13]
+|+-----------> Smoke testing [1466]
 ||+----------> sKipping validation [150]
 |||+---------> Interactive [76]
-||||+--------> Touched (modified by me) [559]
+||||+--------> Touched (modified by me) [561]
 |||||+-------> Random seed [123]
 ||||||+------> File output [79]
-|||||||+-----> Draft [369]
+|||||||+-----> Draft [370]
 ||||||||+----> Ignoring [39]
-|||||||||+---> Void (no local copy) [118]
-||||||||||+--> Un-implemented/reliable [89]
+|||||||||+---> Void (no local copy) [116]
+||||||||||+--> Un-implemented/reliable [88]
 |||||||||||
 GS..T..D... 10001th_prime
 GS......... 100_doors-1
@@ -189,7 +189,7 @@ GS......... Brace_expansion
 .......D.VU Brace_expansion_using_ranges
 GS..T...... Brazilian_numbers
 GS......... Break_OO_privacy
-.......D.VU Brilliant_numbers
+GS..T..D... Brilliant_numbers
 GS..TRF.... Brownian_tree
 GS...R..... Bulls_and_cows
 GS...R..... Bulls_and_cows_Player
@@ -275,7 +275,7 @@ GS......... Collections
 G.KIT...... Color_of_a_screen_pixel
 GS..T...... Color_quantization
 GS....F.... Color_wheel
-.......D.VU Colorful_numbers
+GS..T..D... Colorful_numbers
 GS....F.... Colour_bars_Display
 GS....F.... Colour_pinstripe_Display
 .........VU Colour_pinstripe_Printer
@@ -469,6 +469,7 @@ GS......... Entropy
 GS......... Entropy_Narcissist
 GS......... Enumerations
 GS......... Environment_variables
+.......D.VU Equal_prime_and_composite_sums
 GS......... Equilibrium_index
 .......D.VU Erdos-Woods_numbers
 GS..T..D... Erdos-primes
@@ -573,7 +574,7 @@ GS......... Find_the_missing_permutation-2
 .......D.V. Find_words_which_contain_the_most_consonants
 GS.....D... Find_words_which_contains_all_the_vowels
 GS.....D... Find_words_which_contains_more_than_3_e_vowels
-.......D.V. Find_words_whose_first_and_last_three_letters_are_equal
+GS.....D... Find_words_whose_first_and_last_three_letters_are_equal
 .......D... Find_words_with_alternating_vowels_and_consonants
 GS......... Find_words_with_alternating_vowels_and_consonants-1
 GS..T...... Find_words_with_alternating_vowels_and_consonants-2
