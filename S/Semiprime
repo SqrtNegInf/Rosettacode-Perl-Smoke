@@ -2,23 +2,23 @@
 #u# http://rosettacode.org/wiki/Semiprime
 #c# 2018-08-18 <RC
 #p# OK
+#n# additional testing
 
 use feature 'say';
 my $result;
 
-# Library: ntheory
-# With late versions of the ntheory module, we can use is_semiprime to get answers for 64-bit numbers in single microseconds.
+# with 'ntheory', we can use 'is_semiprime' to get answers for 64-bit numbers in microseconds
+use ntheory 'is_semiprime';
+$result .= join(" ",grep { is_semiprime($_) } @$_)."\n"
+    for [1..100], [1675..1681], [2,4,99,100,1679,5030,32768,1234567,9876543,900660121];
 
-use ntheory "is_semiprime";
-for ([1..100], [1675..1681], [2,4,99,100,1679,5030,32768,1234567,9876543,900660121]) {
-  $result .= join(" ",grep { is_semiprime($_) } @$_)."\n";
-}
+# One can also use factor in scalar context, which gives the number of factors (like bigomega in Pari/GP and PrimeOmega in Mathematica). 
+# This skips some optimizations but at these small sizes it doesn't matter.
+use ntheory "factor";
+$result .= join(" ", grep { scalar factor($_) == 2 } 1..100),"\n";
+$result .= "\n";
 
-# One can also use factor in scalar context, which gives the number of factors (like bigomega in Pari/GP and PrimeOmega in Mathematica). This skips some optimizations but at these small sizes it doesn't matter.
-# use ntheory "factor";
-# print join(" ", grep { scalar factor($_) == 2 } 1..100),"\n";
 # While is_semiprime is the fastest way, we can do some of its pre-tests by hand, such as:
-
 use ntheory qw/factor is_prime trial_factor/;
 sub issemi {
   my $n = shift;
@@ -29,13 +29,23 @@ sub issemi {
   2 == factor($n);
 }
 
-say $result; 
+$result .= join(" ",grep { issemi($_) } @$_)."\n"
+    for [1..100], [1675..1681], [2,4,99,100,1679,5030,32768,1234567,9876543,900660121];
+
+say $result;
+
 my $ref = <<'EOD';
 4 6 9 10 14 15 21 22 25 26 33 34 35 38 39 46 49 51 55 57 58 62 65 69 74 77 82 85 86 87 91 93 94 95
 1678 1679 1681
 4 1679 1234567 900660121
+4 6 9 10 14 15 21 22 25 26 33 34 35 38 39 46 49 51 55 57 58 62 65 69 74 77 82 85 86 87 91 93 94 95
+4 6 9 10 14 15 21 22 25 26 33 34 35 38 39 46 49 51 55 57 58 62 65 69 74 77 82 85 86 87 91 93 94 95
+1678 1679 1681
+4 1679 1234567 900660121
+
 EOD
 
 use Test::More;
+chomp $ref;
 is ($result, $ref);
 done_testing();
