@@ -55,6 +55,11 @@ B/Bacon_cipher
 B/Box_the_compass
 °:    34 DEGREE SIGN
 
+B/Brilliant_numbers
+ʰ:     2 MODIFIER LETTER SMALL H
+ˢ:     1 MODIFIER LETTER SMALL S
+ᵗ:     3 MODIFIER LETTER SMALL T
+
 B/Burrows-Wheeler_transform
 ɐ:     2 LATIN SMALL LETTER TURNED A
 ɟ:     2 LATIN SMALL LETTER DOTLESS J WITH STROKE
