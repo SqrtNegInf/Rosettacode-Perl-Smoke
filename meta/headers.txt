@@ -1048,6 +1048,13 @@ File: B/Break_OO_privacy
 #c# 2018-07-17 <RC
 #p# OK
 
+File: B/Brilliant_numbers
+#!/usr/local/bin/perl
+#u# http://rosettacode.org/wiki/Brilliant_numbers
+#c# 2022-02-28 >RC
+#p# OK
+#n# full run:  859.47s user 102.31s system 74% cpu 21:32.74 total
+
 File: B/Brownian_tree
 #!/usr/local/bin/perl
 #u# http://rosettacode.org/wiki/Brownian_tree
@@ -1578,6 +1585,12 @@ File: C/Color_wheel
 #c# 2018-07-23 <RC
 #p# OK
 #f# RC file: color_wheel.png
+
+File: C/Colorful_numbers
+#!/usr/local/bin/perl
+#u# http://rosettacode.org/wiki/Colorful_numbers
+#c# 2022-02-28 >RC
+#p# OK
 
 File: C/Colorize_diff_output.0
 #!/usr/local/bin/perl
@@ -3446,9 +3459,9 @@ File: F/Find_words_which_contains_most_consonants
 #p# OK
 #n# restricted output, the point is easily made...
 
-File: F/Find_words_which_first_and_last_three_letters_are_equals
+File: F/Find_words_whose_first_and_last_three_letters_are_equal
 #!/usr/local/bin/perl
-#u# http://rosettacode.org/wiki/Find_words_which_first_and_last_three_letters_are_equals
+#u# http://rosettacode.org/wiki/Find_words_whose_first_and_last_three_letters_are_equal
 #c# 2021-02-13 <RC
 #p# OK
 
@@ -8478,6 +8491,7 @@ File: S/Semiprime
 #u# http://rosettacode.org/wiki/Semiprime
 #c# 2018-08-18 <RC
 #p# OK
+#n# additional testing
 
 File: S/Semordnilap
 #!/usr/local/bin/perl
