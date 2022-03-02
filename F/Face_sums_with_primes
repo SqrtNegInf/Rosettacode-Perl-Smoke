@@ -24,7 +24,7 @@ my $vertices = 1 + max map { max @$_ } @faces;
 my @perms    = permutations( [0..7] );
 
 my %seen;
-for ($vertices+18..$vertices+25) {
+for ($vertices+8..$vertices+25) {
     for my $candidates ( combinations([@primes[0..$_]], $vertices) ) {
         face_sums(@$candidates) unless $seen{ join ' ', sort { $a <=> $b } @$candidates }++;
     }
