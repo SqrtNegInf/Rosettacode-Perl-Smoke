@@ -1,0 +1,46 @@
+#!/usr/local/bin/perl
+#u# http://rosettacode.org/wiki/Bitmap/Midpoint_circle_algorithm
+#c# 2022-03-01 <RC
+#p# OK
+
+use strict;
+use warnings;
+use feature 'say';
+
+use Algorithm::Line::Bresenham 'circle';
+
+my @points;
+my @circle = circle((10) x 3);
+
+for (@circle) { $points[$_->[0]][$_->[1]] = '#' }
+
+say my $result = join "\n", map { join '', map { $_ || ' ' } @$_ } @points;
+
+my $ref = <<'EOD';
+       #######
+     ##       ##
+    #           #
+   #             #
+  #               #
+ #                 #
+ #                 #
+#                   #
+#                   #
+#                   #
+#                   #
+#                   #
+#                   #
+#                   #
+ #                 #
+ #                 #
+  #               #
+   #             #
+    #           #
+     ##       ##
+       #######
+EOD
+
+use Test::More;
+chomp $ref;
+is ($result, $ref);
+done_testing();
