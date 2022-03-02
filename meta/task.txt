@@ -1,8 +1,8 @@
 
 This is perl 5, version 32, subversion 1 (v5.32.1) built for darwin-thread-multi-2level
 updating from RC…
-+------------> Perl: Good/Bad [1612/13]
-|+-----------> Smoke testing [1466]
++------------> Perl: Good/Bad [1613/13]
+|+-----------> Smoke testing [1467]
 ||+----------> sKipping validation [150]
 |||+---------> Interactive [76]
 ||||+--------> Touched (modified by me) [561]
@@ -10,8 +10,8 @@ updating from RC…
 ||||||+------> File output [79]
 |||||||+-----> Draft [370]
 ||||||||+----> Ignoring [39]
-|||||||||+---> Void (no local copy) [116]
-||||||||||+--> Un-implemented/reliable [88]
+|||||||||+---> Void (no local copy) [115]
+||||||||||+--> Un-implemented/reliable [87]
 |||||||||||
 GS..T..D... 10001th_prime
 GS......... 100_doors-1
@@ -173,7 +173,7 @@ GS....F.... Bitmap
 GS....F.... Bitmap_Bresenham%27s_line_algorithm
 GS....F.... Bitmap_Flood_fill
 .........VU Bitmap_Histogram
-.........VU Bitmap_Midpoint_circle_algorithm
+GS......... Bitmap_Midpoint_circle_algorithm
 GS....F.... Bitmap_PPM_conversion_through_a_pipe
 GS....F.... Bitmap_Read_a_PPM_file
 GS....F.... Bitmap_Read_an_image_through_a_pipe
