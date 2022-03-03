@@ -25,7 +25,7 @@ for my $k (<2 4 6 8 10>) {
     my @C = curzon($k,1000); 
     push @res, "\nFirst $upto Curzon numbers using a base of $k:\n" .
     (sprintf "@{['%5d' x $upto]}", @C[0..$upto-1]) =~ s/(.{125})/$1\n/gr;
-    push @res, "Thousandth: " . $C[-1];
+    push @res, 'Thousandth: ' . $C[-1];
 }
 
 say my $result = join "\n", @res;
