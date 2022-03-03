@@ -1,17 +1,17 @@
 
 This is perl 5, version 32, subversion 1 (v5.32.1) built for darwin-thread-multi-2level
 updating from RC…
-+------------> Perl: Good/Bad [1613/13]
-|+-----------> Smoke testing [1467]
-||+----------> sKipping validation [150]
++------------> Perl: Good/Bad [1616/13]
+|+-----------> Smoke testing [1469]
+||+----------> sKipping validation [151]
 |||+---------> Interactive [76]
-||||+--------> Touched (modified by me) [561]
+||||+--------> Touched (modified by me) [564]
 |||||+-------> Random seed [123]
 ||||||+------> File output [79]
 |||||||+-----> Draft [370]
 ||||||||+----> Ignoring [39]
-|||||||||+---> Void (no local copy) [115]
-||||||||||+--> Un-implemented/reliable [87]
+|||||||||+---> Void (no local copy) [113]
+||||||||||+--> Un-implemented/reliable [86]
 |||||||||||
 GS..T..D... 10001th_prime
 GS......... 100_doors-1
@@ -53,7 +53,7 @@ GS...R..... Abelian_sandpile_model
 GS..T...... Abundant,_deficient_and_perfect_number_classifications
 GS..T...... Abundant_odd_numbers
 GS..T...... Accumulator_factory
-.......D.VU Achilles_numbers
+G.K.T..D..U Achilles_numbers
 GS......... Ackermann_function-1
 GS......... Ackermann_function-2
 GS......... Ackermann_function-3
@@ -361,6 +361,7 @@ GS..T...... Currency
 GS......... Currying
 GS..T.FD... Curve_that_touches_three_points
 GS..T..D... Curzon_numbers
+GS..T...... Curzon_numbers-1
 GS......... Cut_a_rectangle
 GS..T..D... Cycle_detection
 GS..T..D... Cyclops_numbers
@@ -469,7 +470,7 @@ GS......... Entropy
 GS......... Entropy_Narcissist
 GS......... Enumerations
 GS......... Environment_variables
-.......D.VU Equal_prime_and_composite_sums
+GS..T..D... Equal_prime_and_composite_sums
 GS......... Equilibrium_index
 .......D.VU Erdos-Woods_numbers
 GS..T..D... Erdos-primes
