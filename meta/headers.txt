@@ -245,6 +245,13 @@ File: A/Accumulator_factory
 #c# 2018-07-07 <>RC
 #p# OK
 
+File: A/Achilles_numbers
+#!/usr/local/bin/perl
+#u# http://rosettacode.org/wiki/Achilles_numbers
+#t# inprogress
+#c# 2022-02-xx >RC
+#p# OK
+
 File: A/Ackermann_function-1
 #!/usr/local/bin/perl
 #u# http://rosettacode.org/wiki/Ackermann_function
@@ -2110,6 +2117,13 @@ File: C/Curzon_numbers
 #c# 2022-02-14 >RC
 #p# OK
 
+File: C/Curzon_numbers-1
+#!/usr/local/bin/perl
+#u# http://rosettacode.org/wiki/Curzon_numbers
+#c# 2022-02-14 >RC
+#p# OK
+#n# just a formatting experiment
+
 File: C/Cut_a_rectangle
 #!/usr/local/bin/perl
 #u# http://rosettacode.org/wiki/Cut_a_rectangle
@@ -2812,6 +2826,14 @@ File: E/Environment_variables
 #u# http://rosettacode.org/wiki/Environment_variables
 #c# 2018-07-31 <RC
 #p# OK
+
+File: E/Equal_prime_and_composite_sums
+#!/usr/local/bin/perl
+#u# http://rosettacode.org/wiki/Equal_prime_and_composite_sums
+#c# 2022-03-02 >RC
+#p# OK
+#n# full run a little slow: 69.84s user 0.30s system 82% cpu 1:25.31 total
+#n# next sum is waaaaaaay out of reach: 13,113,506,646,374,409,451,778 (as per A294174)
 
 File: E/Equilibrium_index
 #!/usr/local/bin/perl
