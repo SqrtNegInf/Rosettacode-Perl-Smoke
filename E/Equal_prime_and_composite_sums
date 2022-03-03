@@ -1,0 +1,59 @@
+#!/usr/local/bin/perl
+#u# http://rosettacode.org/wiki/Equal_prime_and_composite_sums
+#c# 2022-03-02 >RC
+#p# OK
+#n# full run a little slow: 69.84s user 0.30s system 82% cpu 1:25.31 total
+#n# next sum is waaaaaaay out of reach: 13,113,506,646,374,409,451,778 (as per A294174)
+
+my @res;
+
+use strict;
+use warnings;
+use feature <say state>;
+
+use ntheory <is_prime next_prime>;
+
+sub comma  { reverse ((reverse shift) =~ s/(.{3})/$1,/gr) =~ s/^,//r }
+sub suffix { my($d) = $_[0] =~ /(.)$/; $d == 1 ? 'st' : $d == 2 ? 'nd' : $d == 3 ? 'rd' : 'th' }
+
+sub prime_sum {
+    state $s = state $p = 2; state $i = 1;
+    if ($i < (my $n = shift) ) { do { $s += $p = next_prime($p) } until ++$i == $n }
+    $s 
+}
+
+sub composite_sum {
+    state $s = state $c = 4; state $i = 1; 
+    if ($i < (my $n = shift) ) { do { 1 until ! is_prime(++$c); $s += $c } until ++$i == $n }
+    $s 
+}
+
+my $ci++; # = 1;
+for my $pi (1 .. 119_000) {
+    next if prime_sum($pi) < composite_sum($ci);
+    push @res, sprintf( "%20s - %11s prime sum, %12s composite sum",
+        comma(prime_sum $pi), comma($pi).suffix($pi), comma($ci).suffix($ci))
+        and next if prime_sum($pi) == composite_sum($ci);
+    $ci++;
+    redo;
+}
+
+say my $result = join "\n", @res;
+
+my $ref = <<'END';
+                  10 -         3rd prime sum,          2nd composite sum
+               1,988 -        33rd prime sum,         51st composite sum
+              14,697 -        80th prime sum,        147th composite sum
+              83,292 -       175th prime sum,        361st composite sum
+           1,503,397 -       660th prime sum,      1,582nd composite sum
+          18,859,052 -     2,143rd prime sum,      5,699th composite sum
+          93,952,013 -     4,556th prime sum,     12,821st composite sum
+      89,171,409,882 -   118,785th prime sum,    403,341st composite sum
+END
+#  9,646,383,703,961 - 1,131,142nd prime sum,  4,229,425th composite sum
+#209,456,854,921,713 - 5,012,372nd prime sum, 19,786,181st composite sum
+
+use Test::More;
+chomp $ref;
+is($result, $ref);
+done_testing();
