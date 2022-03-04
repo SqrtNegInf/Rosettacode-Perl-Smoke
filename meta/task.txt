@@ -2,8 +2,8 @@
 This is perl 5, version 32, subversion 1 (v5.32.1) built for darwin-thread-multi-2level
 updating from RC…
 +------------> Perl: Good/Bad [1616/13]
-|+-----------> Smoke testing [1469]
-||+----------> sKipping validation [151]
+|+-----------> Smoke testing [1471]
+||+----------> sKipping validation [150]
 |||+---------> Interactive [76]
 ||||+--------> Touched (modified by me) [564]
 |||||+-------> Random seed [123]
@@ -11,7 +11,7 @@ updating from RC…
 |||||||+-----> Draft [370]
 ||||||||+----> Ignoring [39]
 |||||||||+---> Void (no local copy) [113]
-||||||||||+--> Un-implemented/reliable [86]
+||||||||||+--> Un-implemented/reliable [85]
 |||||||||||
 GS..T..D... 10001th_prime
 GS......... 100_doors-1
@@ -53,7 +53,8 @@ GS...R..... Abelian_sandpile_model
 GS..T...... Abundant,_deficient_and_perfect_number_classifications
 GS..T...... Abundant_odd_numbers
 GS..T...... Accumulator_factory
-G.K.T..D..U Achilles_numbers
+GS..T..D... Achilles_numbers
+GS......... Achilles_numbers-1
 GS......... Ackermann_function-1
 GS......... Ackermann_function-2
 GS......... Ackermann_function-3
@@ -1258,7 +1259,7 @@ GS.....D... Range_modifications
 GS..T...... Ranking_methods
 GS......... Rare_numbers
 .......D.VU Raster_bars
-GS......... Rate_counter
+!S......... Rate_counter
 GS......... Ray-casting_algorithm
 GS......... Read_a_configuration_file
 GS......... Read_a_file_character_by_character_UTF8
