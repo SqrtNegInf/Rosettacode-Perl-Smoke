@@ -248,9 +248,15 @@ File: A/Accumulator_factory
 File: A/Achilles_numbers
 #!/usr/local/bin/perl
 #u# http://rosettacode.org/wiki/Achilles_numbers
-#t# inprogress
-#c# 2022-02-xx >RC
+#c# 2022-02-02 >RC
 #p# OK
+
+File: A/Achilles_numbers-1
+#!/usr/local/bin/perl
+#u# http://rosettacode.org/wiki/Achilles_numbers
+#c# 2022-03-03 <RC
+#p# OK
+#n# Hkdtam's version, translated from Wren
 
 File: A/Ackermann_function-1
 #!/usr/local/bin/perl
