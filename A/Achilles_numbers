@@ -1,7 +1,6 @@
 #!/usr/local/bin/perl
 #u# http://rosettacode.org/wiki/Achilles_numbers
-#t# inprogress
-#c# 2022-02-xx >RC
+#c# 2022-02-02 >RC
 #p# OK
 
 my @res;
@@ -11,11 +10,14 @@ use warnings;
 use feature <say current_sub>;
 
 use List::AllUtils <max head uniqint>;
-use experimental 'signatures';
 use ntheory <is_square_free is_power euler_phi>;
+
+use experimental 'signatures';
 use Math::AnyNum <:overload idiv iroot ipow is_coprime>;
 
 sub table { my $t = shift() * (my $c = 1 + length max @_); ( sprintf( ('%'.$c.'d')x@_, @_) ) =~ s/.{1,$t}\K/\n/gr }
+
+#sub ispowerful { 0 + vecall { $_->[1] > 1 } factor_exp(shift); } # too slow
 
 sub powerful_numbers ($n, $k = 2) {
     my @powerful;
@@ -31,31 +33,18 @@ sub powerful_numbers ($n, $k = 2) {
 
 my(@P,@Ac,%Ac,@S);
 
-push @P, powerful_numbers(10**9, $_) for 2..9;
-@P = uniqint sort {$a <=> $b} @P;
-shift @P;
+@P = uniqint @P, powerful_numbers(10**9, $_) for 2..9; shift @P;
+!is_power($_) and push @Ac, $_ and $Ac{$_}++ for @P;
+$Ac{euler_phi $_} and push @S, $_ for @Ac;
 
-for my $n (@P) { 
-    next if is_power($n);
-    push @Ac, $n;
-}
-
-push @res, 'First 50 Achilles numbers:';
-push @res, table 10, head 50, @Ac;
-
-$Ac{$_}++ for @Ac;
-$Ac{euler_phi($_)} and push @S, $_ for @Ac;
-
-push @res, 'First 30 strong Achilles numbers:';
-push @res, table 10, head 30, @S; 
-
+push @res, "First 50 Achilles numbers:\n" .        table 10, head 50, @Ac;
+push @res, "First 30 strong Achilles numbers:\n" . table 10, head 30, @S; 
 push @res, 'Number of Achilles numbers with:';
 for my $l (2..9) {
     my $c;
     $l == length and ++$c for @Ac;
     push @res, "$l digits: $c";
 }
-
 
 say my $result = join "\n", @res;
 
@@ -87,40 +76,3 @@ use Test::More;
 chomp $ref;
 is($result, $ref);
 done_testing();
-
-__END__
-my $achilles = powerful(10**9).hyper(:500batch).grep( {
-    my $f = .&prime-factors.Bag;
-    (+$f.keys > 1) && (1 == [gcd] $f.values) && (.sqrt.Int² !== $_)
-} ).classify: { .chars }
- 
-my \𝜑 = 0, |(1..*).hyper.map: -> \t { t × [×] t.&prime-factors.squish.map: { 1 - 1/$_ } }
- 
-my %as = Set.new: flat $achilles.values».list;
- 
-my $strong = lazy (flat $achilles.sort».value».list».sort).grep: { ?%as{𝜑[$_]} };
- 
-@res.push: (flat $achilles.sort».value».list».sort)[^50].batch(10)».fmt("%4d").join("\n");
- 
-@res.push: "\nFirst 30 strong Achilles numbers:";
-@res.push:   $strong[^30].batch(10)».fmt("%5d").join("\n");
- 
-@res.push: "\nNumber of Achilles numbers with:";
-@res.push: "$_ digits: " ~ +$achilles{$_} // 0 for 2..9;
-
-
-my $ref = <<'END';
-First 50 Achilles numbers:
-
-END
-
-__END__
-
-=={{header|Perl}}==
-{{trans|xx}}
-{{libheader|ntheory}}
-<lang perl>
-</lang>
-{{out}}
-<pre>
-</pre>
