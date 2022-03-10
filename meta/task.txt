@@ -1,14 +1,14 @@
 
 This is perl 5, version 32, subversion 1 (v5.32.1) built for darwin-thread-multi-2level
 updating from RC…
-+------------> Perl: Good/Bad [1616/13]
++------------> Perl: Good/Bad [1617/13]
 |+-----------> Smoke testing [1471]
 ||+----------> sKipping validation [150]
 |||+---------> Interactive [76]
 ||||+--------> Touched (modified by me) [564]
 |||||+-------> Random seed [123]
 ||||||+------> File output [79]
-|||||||+-----> Draft [372]
+|||||||+-----> Draft [371]
 ||||||||+----> Ignoring [39]
 |||||||||+---> Void (no local copy) [115]
 ||||||||||+--> Un-implemented/reliable [87]
@@ -113,7 +113,7 @@ GS......... Arithmetic_evaluation
 GS......... Array_concatenation
 GS......... Array_length
 GS......... Arrays
-.......D.VU Ascending_primes
+.........VU Ascending_primes
 G.K.T..D... Aspect_oriented_programming
 GS......... Assertions
 GS.....DX.. Assertions_in_design_by_contract
@@ -1625,7 +1625,7 @@ GS......... Thue-Morse
 GS...R..... Tic-tac-toe
 G.KI....... Tic-tac-toe-2
 GS.....D... Time-based_one-time_password_algorithm
-!S......... Time_a_function
+GS......... Time_a_function
 GS......... Tokenize_a_string
 GS......... Tokenize_a_string_with_escaping
 GS..T...... Tonelli-Shanks_algorithm
