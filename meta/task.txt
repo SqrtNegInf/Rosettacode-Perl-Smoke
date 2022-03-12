@@ -1,5 +1,6 @@
 
 This is perl 5, version 32, subversion 1 (v5.32.1) built for darwin-thread-multi-2level
+updating from RC…
 +------------> Perl: Good/Bad [1617/13]
 |+-----------> Smoke testing [1471]
 ||+----------> sKipping validation [150]
@@ -7,10 +8,10 @@ This is perl 5, version 32, subversion 1 (v5.32.1) built for darwin-thread-multi
 ||||+--------> Touched (modified by me) [564]
 |||||+-------> Random seed [123]
 ||||||+------> File output [79]
-|||||||+-----> Draft [371]
+|||||||+-----> Draft [373]
 ||||||||+----> Ignoring [39]
-|||||||||+---> Void (no local copy) [115]
-||||||||||+--> Un-implemented/reliable [87]
+|||||||||+---> Void (no local copy) [117]
+||||||||||+--> Un-implemented/reliable [89]
 |||||||||||
 GS..T..D... 10001th_prime
 GS......... 100_doors-1
@@ -28,6 +29,7 @@ G.KI....... 2048
 GS..TR..... 21_game
 GS...R..... 24_game
 GS......... 24_game_Solve
+.......D.VU 3d_turtle_graphics
 GS..T...... 4-rings_or_4-squares_puzzle
 GS......... 4-rings_or_4-squares_puzzle-2
 GS......... 99_bottles_of_beer
@@ -1722,6 +1724,7 @@ GS......... Water_collected_between_towers
 GS.....D... Waveform_analysis_Doh_ray_me
 .......D.VU Waveform_analysis_Top_and_tail
 .......DXVU Weather_routing
+.......D.VU WebGL_rotating_F
 B.......... Web_scraping
 GS..T...... Weird_numbers-1
 GS......... Weird_numbers-2
