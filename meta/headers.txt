@@ -619,6 +619,12 @@ File: A/Arrays
 #c# 2018-07-14 <RC
 #p# OK
 
+File: A/Ascending_primes
+#!/usr/local/bin/perl
+#u# http://rosettacode.org/wiki/Ascending_primes
+#c# 2022-03-12 <RC
+#p# OK
+
 File: A/Aspect_Oriented_Programming
 #!/usr/local/bin/perl
 #u# http://rosettacode.org/wiki/Aspect_Oriented_Programming
