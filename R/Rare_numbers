@@ -1,6 +1,6 @@
 #!/usr/local/bin/perl
 #u# http://rosettacode.org/wiki/Rare_numbers
-#c# 2021-11-25 <RC
+#c# 2021-11-25 <RC, 2022-03-15 <RC
 #p# OK
 
 my @res;
@@ -15,7 +15,8 @@ my $count = 0;
 my @squares;
 for my $large ( 0 .. 1e3 )
   {
-  my $largesquared = $squares[$large] = $large ** 2;
+  my $largesquared = $squares[$large] = $large * $large; # faster?
+  #my $largesquared = $squares[$large] = $large ** 2;
   for my $small ( 0 .. $large - 1 )
     {
     my $n = $largesquared + $squares[$small];
