@@ -1,14 +1,11 @@
 #!/usr/local/bin/perl
 #u# http://rosettacode.org/wiki/Text_Completion
-#t# skiptest
 #c# 2020-08-22 >RC
 #p# OK
 #n# too much work to handle extended grapheme clusters, Text::Dice can do it...
-#n# known bug, fix pending:
-#n# https://github.com/Perl/perl5/issues/18123
-#n# perl5-32: \K not permitted in lookahead/lookbehind in regex; marked by <-- HERE in m/(?<=\K <-- HERE .)./ at Text_Completion line 19.
-#n# The above issue fixed in perl development version, will get to point release eventually, so for now stop testing 
-#n# 2021-01-26 D*mn, 5.32.1 did not fix this
+#n# too slow, do a simpler version, then update RC
+
+my @res;
 
 use strict;
 use warnings;
@@ -16,14 +13,20 @@ use feature 'say';
 
 use Path::Tiny;
 use List::Util 'head';
+use Text::Ngrams;
 
-my @res;
+# too bad, stopped working with 5.30?
+#sub bi_gram { (lc shift) =~ /(?<=\K.)./g }
 
-# Can't handle Unicode
-# Lookbehind longer than 255 not implemented in regex m/(?<=\K\X)\X/ at T/Text_Completion line 16.
-# sub bi_gram { (lc shift) =~ /(?<=\K\X)\X/g }
-
-sub bi_gram { (lc shift) =~ /(?<=\K.)./g }
+sub bi_gram {
+    my $line = shift;
+    my $ng = Text::Ngrams->new( windowsize => 2 );
+    $ng->process_text($line);
+    my %ngrams = $ng->get_ngrams( n => 2, normalize => 1 );
+    my @ng;
+    for my $k (keys %ngrams) { push @ng, lc $k =~ s/ //r }
+    @ng;
+}
 
 sub score {
     my($phrase, $word) = @_;
@@ -57,8 +60,8 @@ say my $result = join "\n", @res;
 my $ref = <<'END';
 
 complition:
+0.778 competition
 0.778 completion
-0.737 competition
 0.737 composition
 0.706 coalition
 0.700 incompletion
@@ -73,8 +76,8 @@ inconsqual:
 0.588 continual
 0.571 squall
 0.556 conceptual
-0.556 continuant
 0.556 inconstant
+0.556 instinctual
 END
 
 use Test::More;
