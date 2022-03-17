@@ -7933,7 +7933,7 @@ File: R/Ranking_methods
 File: R/Rare_numbers
 #!/usr/local/bin/perl
 #u# http://rosettacode.org/wiki/Rare_numbers
-#c# 2021-11-25 <RC
+#c# 2021-11-25 <RC, 2022-03-15 <RC
 #p# OK
 
 File: R/Rate_counter
