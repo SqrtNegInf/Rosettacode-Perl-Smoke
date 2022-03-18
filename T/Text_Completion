@@ -1,9 +1,8 @@
 #!/usr/local/bin/perl
 #u# http://rosettacode.org/wiki/Text_Completion
-#c# 2020-08-22 >RC
+#c# 2020-08-22 >RC, 2022-03-17 >RC
 #p# OK
 #n# too much work to handle extended grapheme clusters, Text::Dice can do it...
-#n# too slow, do a simpler version, then update RC
 
 my @res;
 
@@ -12,20 +11,14 @@ use warnings;
 use feature 'say';
 
 use Path::Tiny;
-use List::Util 'head';
-use Text::Ngrams;
+use List::Util <uniq head>;
 
 # too bad, stopped working with 5.30?
 #sub bi_gram { (lc shift) =~ /(?<=\K.)./g }
 
 sub bi_gram {
-    my $line = shift;
-    my $ng = Text::Ngrams->new( windowsize => 2 );
-    $ng->process_text($line);
-    my %ngrams = $ng->get_ngrams( n => 2, normalize => 1 );
-    my @ng;
-    for my $k (keys %ngrams) { push @ng, lc $k =~ s/ //r }
-    @ng;
+    my $line = lc shift;
+    uniq map { substr $line,$_,2 } 0..length($line)-2;
 }
 
 sub score {
