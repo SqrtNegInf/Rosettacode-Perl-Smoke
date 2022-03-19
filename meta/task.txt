@@ -1685,6 +1685,7 @@ GS..T...... Unprimeable_numbers
 GS..T...... Untouchable_numbers
 G.K....D... Untrusted_environment
 GS......... Update_a_configuration_file
+.......D.VU Use_a_REST_API
 .........VU Use_another_language_to_call_a_function
 G.K.T..D... Useless_instructions
 GS.....D... User_defined_pipe_and_redirection_operators
@@ -1692,7 +1693,6 @@ G.KI....... User_input_Graphical
 GS......... User_input_Text
 ........X.. Using_a_Speech_engine_to_highlight_words
 .......D.VU Using_a_speech_engine_to_highlight_words
-.......D.VU Using_the_Meetup.com_API
 .......D.VU VList
 GS......... Validate_International_Securities_Identification_Number
 GS......... Vampire_number-1
