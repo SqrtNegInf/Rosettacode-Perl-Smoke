@@ -1091,8 +1091,9 @@ GS..T...... Pangram_checker
 GS......... Paraffins
 GS......... Parallel_brute_force
 GS......... Parallel_calculations
+.........V. Parameterized_SQL_statement
 ........XVU Parametric_polymorphism
-........XV. Parametrized_SQL_statement
+........X.. Parametrized_SQL_statement
 GS....FD... Parse_EBNF
 GS......... Parse_an_IP_Address
 GS.....D... Parse_command-line_arguments
