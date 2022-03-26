@@ -1,7 +1,7 @@
 
 This is perl 5, version 32, subversion 1 (v5.32.1) built for darwin-thread-multi-2level
 updating from RC…
-+------------> Perl: Good/Bad [1617/13]
++------------> Perl: Good/Bad [1618/13]
 |+-----------> Smoke testing [1473]
 ||+----------> sKipping validation [149]
 |||+---------> Interactive [76]
@@ -1201,7 +1201,8 @@ GS......... Prime_decomposition-1
 GS......... Prime_decomposition-2
 GS......... Prime_decomposition-3
 B.......... Prime_decomposition-4
-.......DXV. Prime_numbers_p_which_sum_of_prime_numbers_less_or_equal_to_p_is_prime
+.......D.V. Prime_numbers_p_for_which_the_sum_of_primes_less_than_or_equal_to_p_is_prime
+........X.. Prime_numbers_p_which_sum_of_prime_numbers_less_or_equal_to_p_is_prime
 GS.....D... Prime_numbers_which_contain_123
 GS.....D... Prime_triplets
 GS.....D... Prime_words
@@ -1627,7 +1628,7 @@ GS......... Thue-Morse
 GS...R..... Tic-tac-toe
 G.KI....... Tic-tac-toe-2
 GS.....D... Time-based_one-time_password_algorithm
-!S......... Time_a_function
+GS......... Time_a_function
 GS......... Tokenize_a_string
 GS......... Tokenize_a_string_with_escaping
 GS..T...... Tonelli-Shanks_algorithm
