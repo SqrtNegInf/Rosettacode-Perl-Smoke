@@ -1,8 +1,8 @@
 
 This is perl 5, version 32, subversion 1 (v5.32.1) built for darwin-thread-multi-2level
 updating from RC…
-+------------> Perl: Good/Bad [1618/13]
-|+-----------> Smoke testing [1473]
++------------> Perl: Good/Bad [1619/13]
+|+-----------> Smoke testing [1474]
 ||+----------> sKipping validation [149]
 |||+---------> Interactive [76]
 ||||+--------> Touched (modified by me) [564]
@@ -399,6 +399,7 @@ GS......... Delete_a_file
 GS..T...... Deming%27s_Funnel
 GS......... Department_numbers
 GS......... Department_numbers-2
+GS......... Descending_primes
 GS......... Detect_division_by_zero
 GS......... Determinant_and_permanent
 GS..T...... Determine_if_a_string_has_all_the_same_characters
