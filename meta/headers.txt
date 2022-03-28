@@ -624,6 +624,7 @@ File: A/Ascending_primes
 #u# http://rosettacode.org/wiki/Ascending_primes
 #c# 2022-03-12 <RC
 #p# OK
+#n# cf D/Descending_primes
 
 File: A/Aspect_Oriented_Programming
 #!/usr/local/bin/perl
@@ -2353,6 +2354,13 @@ File: D/Department_Numbers-2
 #u# http://rosettacode.org/wiki/Department_Numbers
 #c# 2020-11-08 <RC
 #p# OK
+
+File: D/Descending_primes
+#!/usr/local/bin/perl
+#u# http://rosettacode.org/wiki/Descending_primes
+#c# 2022-03-27 <RC
+#p# OK
+#n# cf A/Ascending_primes
 
 File: D/Detect_division_by_zero
 #!/usr/local/bin/perl
