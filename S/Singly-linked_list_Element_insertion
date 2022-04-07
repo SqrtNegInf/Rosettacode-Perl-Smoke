@@ -1,13 +1,25 @@
 #!/usr/local/bin/perl
 #u# http://rosettacode.org/wiki/Singly-linked_list/Element_insertion
-#t# nocode
 #c# 2018-08-16 <RC
 #p# OK
+#n# the linked-list code works fine, but too lazy to format it nicely for testing
+
+use strict;
+use warnings;
+use feature 'say';
 
 # If you don't really need the constant-time insertion property of singly linked lists, just use an array. You can traverse and splice it any way.
 
+my $A = 42;
+my $B = 47;
+my $C = 99;
 my @l  = ($A, $B);
 push @l, $C, splice @l, 1;
+say my $result = "@l";
+
+use Test::More;
+is ($result, '42 99 47');
+done_testing();
 
 # However, if you really need a linked list, or all you got is an algorithm in a foreign language, you can use references to accomplish the translation.
 
@@ -19,25 +31,28 @@ sub insert_after {
 }
 
 my %B = (
-    data => 3,
+    data => 42,
     next => undef, # not a circular list
 );
 my %A = (
-    data => 1,
+    data => 47,
     next => \%B,
 );
 my %C = (
-    data => 2,
+    data => 99,
 );
-insert_after \%A, \%C;
+
+#insert_after \%A, \%C;
+
 
 # Note that you don't have to name your new nodes. The following works just as well:
-insert_after \%A, { data => 2 };
+insert_after \%A, { data => 88 };
+#use DDP; p %A;
 
 # Note the curly braces instead of round parentheses.
 # It is straightforward to extend the function to take an arbitrary number of list nodes to insert:
 
-sub insert_after {
+sub insert_many_after {
   my $node = $_[0];
   my $next = $node->{next};
   shift;
@@ -53,6 +68,8 @@ sub insert_after {
 my %list = ( data => 'A' );
 insert_after \%list, { data => 'B' }, { data => 'C' };
 
+#use DDP; p %list;
+
 # List handling is simplified if the variables themselves contain references. For example:
 my $list2;
 
@@ -64,3 +81,5 @@ insert_after $list2, { data => 'A2' }, { data => 'A3' };
 
 # append new nodes ('A2a', 'A2b') after the second element (which now is 'A2')
 insert_after $list2->{next}, { data => 'A2a' }, { data => 'A2b' };
+
+#use DDP; p $list2;
