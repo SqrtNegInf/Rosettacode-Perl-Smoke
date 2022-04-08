@@ -8899,9 +8899,16 @@ File: S/Singly-linked_list_Element_definition
 File: S/Singly-linked_list_Element_insertion
 #!/usr/local/bin/perl
 #u# http://rosettacode.org/wiki/Singly-linked_list/Element_insertion
-#t# nocode
 #c# 2018-08-16 <RC
 #p# OK
+#n# the linked-list code works fine, but too lazy to format it nicely for testing
+
+File: S/Singly-linked_list_Element_removal
+#!/usr/bin/env perl
+#u# http://rosettacode.org/wiki/Singly-linked_list/Element_removal
+#c# 2022-xx-xx NOT ON RC
+#p# OK
+#n# ~/PWC/071/2/e-chorba.pl
 
 File: S/Singly-linked_list_Traversal
 #!/usr/local/bin/perl
