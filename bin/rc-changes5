@@ -18,7 +18,8 @@ my $date;
 while (<RC>) {
     ($date) = m#<h4>(\d+ \S+) 20\d\d</h4># if m/<h4>/;
 
-    next unless /Perl|SqrtNegInf|Trizen|Tybalt|Hkdtam/i;  # always want these
+    next unless /Perl|SqrtNegInf|Tybalt|Hkdtam/i;  # always want these
+    #next unless /Perl|SqrtNegInf|Trizen|Tybalt|Hkdtam/i;  # always want these
     next if     /Raku/;                                   # hey, you got your own repository...
     my($user) = m#Special:Contributions/(.*?)"#;
     next if $user =~ /$not_these_users/i;
