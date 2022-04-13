@@ -7560,6 +7560,13 @@ File: P/Prime_numbers_which_contain_123
 #p# OK
 #n# tybalt89++
 
+File: P/Prime_triangle
+#!/usr/local/bin/perl
+#u# http://rosettacode.org/wiki/Prime_triangle
+#t# inprogress
+#c# 2022-04-xx >RC
+#p# OK
+
 File: P/Prime_triplets
 #!/usr/local/bin/perl
 #u# http://rosettacode.org/wiki/Prime_triplets
