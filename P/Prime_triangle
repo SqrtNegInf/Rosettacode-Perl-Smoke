@@ -1,0 +1,52 @@
+#!/usr/local/bin/perl
+#u# http://rosettacode.org/wiki/Prime_triangle
+#t# inprogress
+#c# 2022-04-xx >RC
+#p# OK
+
+use Data::Printer;          # debug only
+use Time::HiRes qw(sleep);  # debug only
+
+my @res;
+
+use strict;
+use warnings;
+use feature 'say';
+
+# code goes here
+
+say my $result = join "\n", @res;
+my $ref = <<'END';
+END
+
+use Test::More;
+chomp $ref;
+is($result, $ref);
+done_testing();
+
+__END__
+
+=={{header|Perl}}==
+{{trans|Raku}}
+{{libheader|ntheory}}
+<lang perl>
+</lang>
+{{out}}
+<pre>1 2
+1 2 3
+1 2 3 4
+1 4 3 2 5
+1 4 3 2 5 6
+1 4 3 2 5 6 7
+1 2 3 4 7 6 5 8
+1 2 3 4 7 6 5 8 9
+1 2 3 4 7 6 5 8 9 10
+1 6 5 8 3 10 7 4 9 2 11
+1 6 5 8 3 10 7 4 9 2 11 12
+1 4 3 2 5 8 9 10 7 12 11 6 13
+1 4 3 2 11 8 9 10 13 6 7 12 5 14
+1 2 3 8 5 12 11 6 7 10 13 4 9 14 15
+1 2 3 8 5 12 11 6 7 10 13 4 9 14 15 16
+1 2 9 4 7 10 13 6 5 14 3 16 15 8 11 12 17
+
+1 1 1 1 1 2 4 7 24 80 216 648 1304 3392 13808 59448</pre>
