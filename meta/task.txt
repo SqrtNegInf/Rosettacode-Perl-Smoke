@@ -1,7 +1,7 @@
 
 This is perl 5, version 32, subversion 1 (v5.32.1) built for darwin-thread-multi-2level
 updating from RC…
-+------------> Perl: Good/Bad [1622/13]
++------------> Perl: Good/Bad [1621/13]
 |+-----------> Smoke testing [1477]
 ||+----------> sKipping validation [149]
 |||+---------> Interactive [76]
@@ -552,7 +552,7 @@ GS......... File_extension_is_in_extensions_list
 GS....F.... File_input_output
 GS......... File_modification_time
 GS......... File_size
-GS..T...... File_size_distribution
+!S..T...... File_size_distribution
 GS......... Filter
 GS..T...... Find_Chess960_starting_position_identifier
 GS.....D... Find_URI_in_text
