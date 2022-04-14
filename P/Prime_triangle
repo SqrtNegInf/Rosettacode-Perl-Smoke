@@ -13,9 +13,58 @@ use strict;
 use warnings;
 use feature 'say';
 
-# code goes here
+use ntheory 'is_prime';
+use Algorithm::Combinatorics qw(permutations);
 
-say my $result = join "\n", @res;
+say '1 2';
+
+my @count = (0, 0, 1);
+
+for my $n (3..6) { # ..17
+    my @even = grep { 0 == $_ % 2 } 2..$n-1;
+    my @odd  = grep { 1 == $_ % 2 } 3..$n-1;
+    for my $e (@even) {
+        my $e = permutations 1..$e;
+        use DDP; p @{$e};
+    }
+}
+
+__END__
+
+my @count = (0, 0, 1);
+
+say '1 2';
+ 
+for my $n (3..6) { # ..17
+    my @even = grep { 0 == $_ % 2 } 2..$n-1;
+    my @odd  = grep { 1 == $_ % 2 } 3..$n-1;
+    for my $e (@even) {
+        my @e = permutations $e;
+        next if $e[0] == 8 or $e[0] == 14;
+        my $nope = 0;
+        for my $o (@odd) {
+            my @o = permutations $o;
+            next unless is_prime ($e[0] + $o[0]);
+            my @list;
+            #for (@list = (flat (roundrobin(@e, @o)), $n)).rotor(2 => -1) { # ???
+                $nope++ and last unless is_prime(sum @$_);
+            }
+            unless $nope {
+                say '1 ' . join ' ', @list unless $count[$n];
+                #$lock.protect({ @count[$n]++ }); # ???
+            }
+            $nope = 0;
+        }
+    }
+}
+
+
+shift @count;
+shift @count;
+say "\n" . my $result = join ' ',  @count; # [2..*].join: ' ';
+
+#say my $result = join "\n", @res;
+
 my $ref = <<'END';
 END
 
