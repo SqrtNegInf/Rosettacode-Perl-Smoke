@@ -24,8 +24,8 @@ for my $n (3..6) { # ..17
     my @even = grep { 0 == $_ % 2 } 2..$n-1;
     my @odd  = grep { 1 == $_ % 2 } 3..$n-1;
     for my $e (@even) {
-        my $e = permutations 1..$e;
-        use DDP; p @{$e};
+        my @e = permutations [1..$e];
+        use DDP; p @e;
     }
 }
 
