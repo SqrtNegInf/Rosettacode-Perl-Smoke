@@ -8,7 +8,7 @@ updating from RC…
 ||||+--------> Touched (modified by me) [565]
 |||||+-------> Random seed [123]
 ||||||+------> File output [79]
-|||||||+-----> Draft [376]
+|||||||+-----> Draft [375]
 ||||||||+----> Ignoring [39]
 |||||||||+---> Void (no local copy) [116]
 ||||||||||+--> Un-implemented/reliable [91]
@@ -1705,7 +1705,7 @@ GS......... Vampire_number-2
 GS..T...... Van_Eck_sequence
 GS......... Van_der_Corput_sequence
 GS......... Variable-length_quantity
-.......D.VU Variable_declaration_reset
+.........VU Variable_declaration_reset
 GS..T...... Variable_size_Get
 G.K........ Variable_size_Set
 GS......... Variables
