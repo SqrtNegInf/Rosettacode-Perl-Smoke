@@ -8,7 +8,7 @@ updating from RC…
 ||||+--------> Touched (modified by me) [565]
 |||||+-------> Random seed [123]
 ||||||+------> File output [79]
-|||||||+-----> Draft [375]
+|||||||+-----> Draft [347]
 ||||||||+----> Ignoring [39]
 |||||||||+---> Void (no local copy) [116]
 ||||||||||+--> Un-implemented/reliable [91]
@@ -54,7 +54,7 @@ GS...R..... Abelian_sandpile_model
 GS..T...... Abundant,_deficient_and_perfect_number_classifications
 GS..T...... Abundant_odd_numbers
 GS..T...... Accumulator_factory
-GS..T..D... Achilles_numbers
+GS..T...... Achilles_numbers
 GS......... Achilles_numbers-1
 GS......... Ackermann_function-1
 GS......... Ackermann_function-2
@@ -192,7 +192,7 @@ GS......... Brace_expansion
 .......D.VU Brace_expansion_using_ranges
 GS..T...... Brazilian_numbers
 GS......... Break_OO_privacy
-GS..T..D... Brilliant_numbers
+GS..T...... Brilliant_numbers
 GS..TRF.... Brownian_tree
 GS...R..... Bulls_and_cows
 GS...R..... Bulls_and_cows_Player
@@ -278,7 +278,7 @@ GS......... Collections
 G.KIT...... Color_of_a_screen_pixel
 GS..T...... Color_quantization
 GS....F.... Color_wheel
-GS..T..D... Colorful_numbers
+GS..T...... Colorful_numbers
 GS....F.... Colour_bars_Display
 GS....F.... Colour_pinstripe_Display
 .........VU Colour_pinstripe_Printer
@@ -308,7 +308,7 @@ GS......... Compiler_lexical_analyzer-1
 GS......... Compiler_lexical_analyzer-2
 GS......... Compiler_syntax_analyzer
 GS......... Compiler_virtual_machine_interpreter
-GS..T..D... Composite_numbers_k_with_no_single_digit_factors_whose_factors_are_all_substrings_of_k
+GS..T...... Composite_numbers_k_with_no_single_digit_factors_whose_factors_are_all_substrings_of_k
 GS......... Composite_numbers_k_with_no_single_digit_factors_whose_factors_are_all_substrings_of_k-2
 GS......... Compound_data_type
 GS.....D... Concatenate_two_primes_is_also_prime
@@ -357,17 +357,17 @@ G.K.....X.. Create_an_object_at_a_given_address
 .......D.VU Create_your_own_text_control_codes
 GS......... Cuban_primes
 GS..T..D... Cubic_special_primes
-GS..T..D... Cullen_and_Woodall_numbers
+GS..T...... Cullen_and_Woodall_numbers
 GS......... Cumulative_standard_deviation-1
 GS......... Cumulative_standard_deviation-2
 GS..T...... Currency
 GS......... Currying
 GS..T.FD... Curve_that_touches_three_points
-GS..T..D... Curzon_numbers
+GS..T...... Curzon_numbers
 GS..T...... Curzon_numbers-1
 GS......... Cut_a_rectangle
 GS..T..D... Cycle_detection
-GS..T..D... Cyclops_numbers
+GS..T...... Cyclops_numbers
 GS..T...... Cyclotomic_polynomial
 GS......... DNS_query
 GS..T...... Damm_algorithm-1
@@ -387,7 +387,7 @@ GS..T..D... Days_between_dates
 GS..T...... De_Bruijn_sequences
 GS...R..... Deal_cards_for_FreeCell
 GS......... Death_Star
-GS..T..D... Deceptive_numbers
+GS..T...... Deceptive_numbers
 GS..T..D... Decimal_floating_point_number_to_binary
 GS..T..D... Decision_tables
 GS..T...... Deconvolution_1D
@@ -419,7 +419,7 @@ GS..T...... Dinesman%27s_multiple-dwelling_problem-1
 GS......... Dinesman%27s_multiple-dwelling_problem-2
 G.K..R..... Dining_philosophers
 .......D.VU Diophantine_linear_system_solving
-GS..T..D... Disarium_numbers
+GS..T...... Disarium_numbers
 GS......... Discordian_date
 GS.....D... Discrete_Fourier_transform
 GS..T...... Display_a_linear_combination
@@ -447,11 +447,11 @@ G.KIT...... Draw_a_pixel
 G.KI....... Draw_a_rotating_cube
 GS...RF.... Draw_a_sphere
 G.KIT..D... Draw_pixel_2
-GS..T..D... Duffinian_numbers
+GS..T...... Duffinian_numbers
 GS...R..... Dutch_national_flag_problem
 GS......... Dynamic_variable_names
 GS..T...... EKG_sequence_convergence
-GS.....D... Earliest_difference_between_prime_gaps
+GS......... Earliest_difference_between_prime_gaps
 GS..T...... Eban_numbers-1
 GS......... Eban_numbers-2
 G.KI....... Echo_server
@@ -474,7 +474,7 @@ GS......... Entropy
 GS......... Entropy_Narcissist
 GS......... Enumerations
 GS......... Environment_variables
-GS..T..D... Equal_prime_and_composite_sums
+GS..T...... Equal_prime_and_composite_sums
 GS......... Equilibrium_index
 .......D.VU Erdoes-Selfridge_categorization_of_primes
 .......D.VU Erdos-Woods_numbers
@@ -679,7 +679,7 @@ GS..T...... Hamming_numbers
 G.KI....... Handle_a_signal
 GS......... Happy_numbers-1
 GS......... Happy_numbers-2
-GS..T..D... Harmonic_series
+GS..T...... Harmonic_series
 GS......... Harshad_or_Niven_series
 GS......... Hash_from_two_arrays
 GS......... Hash_join
@@ -706,7 +706,7 @@ GS......... Hofstadter_Q_sequence-1
 GS......... Hofstadter_Q_sequence-2
 GS......... Hofstadter_Q_sequence-3
 GS......... Holidays_related_to_Easter
-GS..T..D... Home_primes
+GS..T...... Home_primes
 G.KI.R..... Honeycombs
 GS..T...... Horizontal_sundial_calculations
 GS......... Horner%27s_rule_for_polynomial_evaluation-1
@@ -764,7 +764,7 @@ GS......... Iterated_digits_squaring
 GS......... JSON
 GS.....D... Jaccard_index
 GS..T...... Jacobi_symbol
-GS..T..D... Jacobsthal_numbers
+GS..T...... Jacobsthal_numbers
 GS..T...... Jaro-Winkler_distance
 .........V. Jaro_similarity
 GS......... Jensen%27s_Device
@@ -893,7 +893,7 @@ GS......... MD5_Implementation
 .........VU Machine_code
 GS......... Mad_Libs
 GS..TR..... Magic_8-ball
-GS.....D... Magic_constant
+GS......... Magic_constant
 GS......... Magic_constant-2
 GS..T...... Magic_squares_of_doubly_even_order
 GS..T...... Magic_squares_of_odd_order
@@ -945,7 +945,7 @@ GS......... Miller-Rabin_primality_test-2
 GS..TR..... Mind_boggling_card_trick
 G.KI....... Minesweeper_game
 GS......... Minimal_steps_down_to_1
-GS..T..D... Minimum_multiple_of_m_where_digital_sum_equals_m
+GS..T...... Minimum_multiple_of_m_where_digital_sum_equals_m
 GS......... Minimum_multiple_of_m_where_digital_sum_equals_m-2
 GS..T..D... Minimum_number_of_cells_after,_before,_above_and_below_NxN_squares
 GS..T..D... Minimum_numbers_of_three_lists
@@ -976,7 +976,7 @@ GS......... Motzkin_numbers
 G.KI....... Mouse_position-1
 G.KI....... Mouse_position-2
 GS......... Move-to-front_algorithm
-GS..T..D... Multi-base_primes
+GS..T...... Multi-base_primes
 GS..T...... Multi-dimensional_array
 G.K.T..D..U Multidimensional_Newton-Raphson_method
 GS......... Multifactorial-1
@@ -1031,7 +1031,7 @@ G.KI...D... Number_triplets_game
 GS.....D... Numbers_divisible_by_their_individual_digits,_but_not_by_the_product_of_their_digits.
 GS..T..D... Numbers_in_base-16_representation_that_cannot_be_written_with_decimal_digits
 GS..T..D... Numbers_in_base_10_that_are_palindromic_in_bases_2,_4,_and_16
-G.K.T..D..U Numbers_which_are_not_the_sum_of_distinct_squares
+G.K.T.....U Numbers_which_are_not_the_sum_of_distinct_squares
 GS..T..D... Numbers_which_binary_and_ternary_digit_sum_are_prime
 .......D.V. Numbers_whose_count_of_divisors_is_prime
 GS......... Numbers_with_equal_rises_and_falls
@@ -1103,7 +1103,7 @@ GS..T...... Parsing_RPN_calculator_algorithm
 GS..T...... Parsing_RPN_to_infix_conversion
 GS......... Parsing_Shunting-yard_algorithm
 GS......... Partial_function_application
-G.KI...D... Particle_fountain
+G.KI....... Particle_fountain
 GS..TR.D... Particle_swarm_optimization
 GS......... Partition_an_integer_x_into_n_primes
 GS..T...... Partition_function_P
@@ -1120,7 +1120,7 @@ GS...R..... Pattern_matching
 GS..T...... Peaceful_chess_queen_armies
 GS..T.F.... Peano_curve
 GS......... Pell%27s_equation
-.......D.VU Pell_numbers
+.........VU Pell_numbers
 GS...R..... Penney%27s_game
 GS..T.FD... Penrose_tiling
 GS..T.F.... Pentagram
@@ -1244,7 +1244,7 @@ GS......... Queue_Definition
 GS......... Queue_Usage
 GS......... Quickselect_algorithm
 G.K........ Quine
-.......D.VU Quoting_constructs
+.........VU Quoting_constructs
 G.KI....... RCRPG
 GS......... RIPEMD-160
 GS..TR..... RPG_attributes_generator
@@ -1296,7 +1296,7 @@ GS......... Rename_a_file
 GS......... Rep-string
 GS......... Repeat
 GS......... Repeat_a_string
-GS..T..D... Repunit_primes
+GS..T...... Repunit_primes
 GS..T..D... Resistance_calculator
 GS..T..D... Resistance_network_calculator
 GS..T...... Resistor_mesh
@@ -1307,7 +1307,7 @@ GS..T...... Reverse_a_string
 GS..T..D... Reverse_the_gender_of_a_string
 .......D.V. Reverse_the_order_of_lines_in_a_text_file_while_preserving_the_contents_of_each_line
 GS......... Reverse_words_in_a_string
-GS..T..D... Rhonda_numbers
+GS..T...... Rhonda_numbers
 .......D.VU Robots
 GS...R..... Rock-paper-scissors
 GS.....D... Rodrigues_rotation_formula
@@ -1337,7 +1337,7 @@ G.KI...D... Run_as_a_daemon_or_service
 GS......... Runge-Kutta_method
 GS......... Runtime_evaluation
 GS......... Runtime_evaluation_In_an_environment
-GS.....D... Ruth-Aaron_numbers
+GS......... Ruth-Aaron_numbers
 GS......... S-expressions
 GS......... SEDOLs
 GS......... SHA-1
@@ -1428,7 +1428,7 @@ GS..TR..... Sleeping_Beauty_problem
 .......D.VU Smallest_enclosing_circle_problem
 GS.....D... Smallest_multiple
 GS..T...... Smallest_multiple-2
-GS..T..D... Smallest_number_k_such_that_k%2B2%5Em_is_composite_for_all_m_less_than_k
+GS..T...... Smallest_number_k_such_that_k%2B2%5Em_is_composite_for_all_m_less_than_k
 GS..T..D... Smallest_numbers
 GS..T..D... Smallest_power_of_6_whose_decimal_expansion_contains_n
 GS..T..D... Smallest_square_that_begins_with_n
@@ -1674,7 +1674,7 @@ GS......... UTF-8_encode_and_decode
 .........VU Ukkonens_suffix_tree_construction
 GS..T..D... Ulam_numbers
 GS....F.... Ulam_spiral_for_primes
-GS..T..D... Ultra_useful_primes
+GS..T...... Ultra_useful_primes
 GS...R..... Unbias_a_random_generator
 GS......... Undefined_values
 .......D.VU Unicode_polynomial_equation
@@ -1737,7 +1737,7 @@ GS......... Weird_numbers-2
 .......D... Welch%27s_t-test
 GS..T...... Welch%27s_t-test-1
 GS......... Welch%27s_t-test-2
-GS..T..D... Wieferich_primes
+GS..T...... Wieferich_primes
 .......DXV. WiktionaryDumps_to_words
 GS..T...... Wilson_primes_of_order_n
 G.KI....... Window_creation
