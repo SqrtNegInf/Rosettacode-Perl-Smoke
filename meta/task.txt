@@ -8,10 +8,10 @@ updating from RC…
 ||||+--------> Touched (modified by me) [565]
 |||||+-------> Random seed [123]
 ||||||+------> File output [79]
-|||||||+-----> Draft [347]
+|||||||+-----> Draft [348]
 ||||||||+----> Ignoring [39]
-|||||||||+---> Void (no local copy) [116]
-||||||||||+--> Un-implemented/reliable [91]
+|||||||||+---> Void (no local copy) [117]
+||||||||||+--> Un-implemented/reliable [92]
 |||||||||||
 GS..T..D... 10001th_prime
 GS......... 100_doors-1
@@ -367,6 +367,7 @@ GS..T...... Curzon_numbers
 GS..T...... Curzon_numbers-1
 GS......... Cut_a_rectangle
 GS..T..D... Cycle_detection
+.......D.VU Cycles_of_a_permutation
 GS..T...... Cyclops_numbers
 GS..T...... Cyclotomic_polynomial
 GS......... DNS_query
