@@ -8,10 +8,10 @@ updating from RC…
 ||||+--------> Touched (modified by me) [565]
 |||||+-------> Random seed [123]
 ||||||+------> File output [79]
-|||||||+-----> Draft [348]
+|||||||+-----> Draft [347]
 ||||||||+----> Ignoring [39]
-|||||||||+---> Void (no local copy) [117]
-||||||||||+--> Un-implemented/reliable [92]
+|||||||||+---> Void (no local copy) [118]
+||||||||||+--> Un-implemented/reliable [93]
 |||||||||||
 GS..T..D... 10001th_prime
 GS......... 100_doors-1
@@ -477,7 +477,7 @@ GS......... Enumerations
 GS......... Environment_variables
 GS..T...... Equal_prime_and_composite_sums
 GS......... Equilibrium_index
-.......D.VU Erdoes-Selfridge_categorization_of_primes
+.........VU Erdoes-Selfridge_categorization_of_primes
 .......D.VU Erdos-Woods_numbers
 GS..T..D... Erdos-primes
 GS......... Esthetic_numbers
@@ -996,6 +996,7 @@ G.K.T.F.... Musical_scale
 GS......... Mutual_recursion
 GS......... N%27th
 GS..T..D... N-body_problem
+.......D.VU N-queens_minimum_and_knights_and_bishops
 GS..T...... N-queens_problem
 GS..T...... N-smooth_numbers
 GS..T..D... NYSIIS
@@ -1207,7 +1208,7 @@ B.......... Prime_decomposition-4
 .......D.V. Prime_numbers_p_for_which_the_sum_of_primes_less_than_or_equal_to_p_is_prime
 ........X.. Prime_numbers_p_which_sum_of_prime_numbers_less_or_equal_to_p_is_prime
 GS.....D... Prime_numbers_which_contain_123
-G.K.T..D..U Prime_triangle
+G.K.T.....U Prime_triangle
 GS.....D... Prime_triplets
 GS.....D... Prime_words
 GS..T...... Primes_-_allocate_descendants_to_their_ancestors
