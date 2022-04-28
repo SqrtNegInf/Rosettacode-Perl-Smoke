@@ -14,6 +14,7 @@ use warnings;
 use feature 'say';
 
 use ntheory 'is_prime';
+use List::AllUtils qw(zip natatime);
 use Algorithm::Combinatorics qw(permutations);
 
 say '1 2';
@@ -26,6 +27,7 @@ for my $n (3..6) { # ..17
     for my $e (@even) {
         my @e = permutations [1..$e];
         use DDP; p @e;
+        # natatime 2, zip @e, @o
     }
 }
 
