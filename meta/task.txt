@@ -1,7 +1,7 @@
 
 This is perl 5, version 32, subversion 1 (v5.32.1) built for darwin-thread-multi-2level
 updating from RC…
-+------------> Perl: Good/Bad [1621/13]
++------------> Perl: Good/Bad [1622/13]
 |+-----------> Smoke testing [1477]
 ||+----------> sKipping validation [149]
 |||+---------> Interactive [76]
@@ -10,8 +10,8 @@ updating from RC…
 ||||||+------> File output [79]
 |||||||+-----> Draft [347]
 ||||||||+----> Ignoring [39]
-|||||||||+---> Void (no local copy) [118]
-||||||||||+--> Un-implemented/reliable [93]
+|||||||||+---> Void (no local copy) [119]
+||||||||||+--> Un-implemented/reliable [94]
 |||||||||||
 GS..T..D... 10001th_prime
 GS......... 100_doors-1
@@ -518,7 +518,7 @@ GS..T..D... Extra_primes
 GS.....D... Extract_file_extension
 GS......... Extreme_floating_point_values
 GS......... FASTA_format
-!S..T...... FTP
+GS..T...... FTP
 GS..T...... Faces_from_a_mesh
 GS......... Factorial-1
 GS......... Factorial-2
@@ -652,6 +652,7 @@ GS......... Get_system_command_output
 GS..T..D... Getting_the_number_of_decimals
 G.K........ Globally_replace_text_in_several_files
 G.K........ Go_Fish
+.........VU Goldbach%27s_comet
 GS..T..D... Gradient_descent
 GS..T...... Graph_colouring
 GS......... Gray_code
