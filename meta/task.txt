@@ -8,10 +8,10 @@ updating from RC…
 ||||+--------> Touched (modified by me) [565]
 |||||+-------> Random seed [123]
 ||||||+------> File output [79]
-|||||||+-----> Draft [347]
+|||||||+-----> Draft [348]
 ||||||||+----> Ignoring [39]
-|||||||||+---> Void (no local copy) [119]
-||||||||||+--> Un-implemented/reliable [94]
+|||||||||+---> Void (no local copy) [120]
+||||||||||+--> Un-implemented/reliable [95]
 |||||||||||
 GS..T..D... 10001th_prime
 GS......... 100_doors-1
@@ -137,6 +137,7 @@ GS......... Averages_Root_mean_square
 GS......... Averages_Simple_moving_average
 GS..T.FD... B-spline
 GS......... Babbage_problem
+.......D.VU Babylonian_spiral
 GS..T.FD... Bacon_cipher
 GS...R..... Balanced_brackets-1
 GS...R..... Balanced_brackets-2
