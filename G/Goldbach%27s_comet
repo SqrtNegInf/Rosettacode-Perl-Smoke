@@ -1,0 +1,67 @@
+#!/usr/local/bin/perl
+#u# http://rosettacode.org/wiki/Goldbach%27s_comet
+#c# 2022-05-15 >RC
+#p# OK
+
+my @res;
+
+use strict;
+use warnings;
+use feature 'say';
+
+use SVG;
+use List::Util <min max>;
+use ntheory 'is_prime';
+
+sub table { my $t = shift() * (my $c = 1 + max map {length} @_); ( sprintf( ('%'.$c.'s')x@_, @_) ) =~ s/.{1,$t}\K/\n/gr }
+
+sub G {
+    my($n) = @_;
+    scalar grep { is_prime($_) and is_prime($n - $_) } 2 .. $n/2;
+}
+
+my(@x,@y); 
+@x = map 2 * $_ + 4, 0..99;
+push @y, G($_) for @x;
+
+push @res, table 10, @y;
+push @res, sprintf "G $_ : %d", G($_) for 1e6;
+
+say my $result = join "\n", @res;
+
+my $ref = <<'END';
+  1  1  1  2  1  2  2  2  2  3
+  3  3  2  3  2  4  4  2  3  4
+  3  4  5  4  3  5  3  4  6  3
+  5  6  2  5  6  5  5  7  4  5
+  8  5  4  9  4  5  7  3  6  8
+  5  6  8  6  7 10  6  6 12  4
+  5 10  3  7  9  6  5  8  7  8
+ 11  6  5 12  4  8 11  5  8 10
+  5  6 13  9  6 11  7  7 14  6
+  8 13  5  8 11  7  9 13  8  9
+
+G 1000000 : 5402
+END
+
+push @x, $_    for 100..2000;
+push @y, G($_) for 100..2000;
+my ($xrng, $yrng) = ( max(@x) - min(@x),  max(@y) - min(@y));
+my ($xt,   $yt)   = (-min(@x) + 10,      -min(@y) + 10);
+my $svg = SVG->new(width=>$xrng+20, height=>$yrng+20);
+my $points = $svg->get_path(x=>\@x, y=>\@y, -type=>'polygon');
+$svg->rect(width=>"100%", height=>"100%", style=>{'fill'=>'black'});
+$svg->polyline(%$points, style=>{'stroke'=>'orange', 'stroke-width'=>1}, transform=>"translate($xt,$yt)");
+
+open my $fh, '>', 'run/goldbachs-comet.svg';
+print $fh  $svg->xmlify(-namespace=>'svg');
+close $fh;
+
+use Test::More;
+chomp $ref;
+is($result, $ref);
+done_testing();
+
+__END__
+
+[https://github.com/SqrtNegInf/Rosettacode-Perl5-Smoke/blob/master/ref/xx xx]
