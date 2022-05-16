@@ -1,17 +1,17 @@
 
 This is perl 5, version 32, subversion 1 (v5.32.1) built for darwin-thread-multi-2level
 updating from RC…
-+------------> Perl: Good/Bad [1622/13]
-|+-----------> Smoke testing [1477]
++------------> Perl: Good/Bad [1624/12]
+|+-----------> Smoke testing [1479]
 ||+----------> sKipping validation [149]
 |||+---------> Interactive [76]
-||||+--------> Touched (modified by me) [565]
+||||+--------> Touched (modified by me) [567]
 |||||+-------> Random seed [123]
-||||||+------> File output [79]
+||||||+------> File output [80]
 |||||||+-----> Draft [348]
 ||||||||+----> Ignoring [39]
-|||||||||+---> Void (no local copy) [120]
-||||||||||+--> Un-implemented/reliable [95]
+|||||||||+---> Void (no local copy) [119]
+||||||||||+--> Un-implemented/reliable [94]
 |||||||||||
 GS..T..D... 10001th_prime
 GS......... 100_doors-1
@@ -653,7 +653,7 @@ GS......... Get_system_command_output
 GS..T..D... Getting_the_number_of_decimals
 G.K........ Globally_replace_text_in_several_files
 G.K........ Go_Fish
-.........VU Goldbach%27s_comet
+GS..T.F.... Goldbach%27s_comet
 GS..T..D... Gradient_descent
 GS..T...... Graph_colouring
 GS......... Gray_code
@@ -1170,7 +1170,7 @@ GS..T.F.... Plasma_effect
 B.K.......U Play_recorded_sounds
 GS..T...... Playfair_cipher
 GS...R..... Playing_cards
-B.....F.... Plot_coordinate_pairs
+GS..T.F.... Plot_coordinate_pairs
 GS......... Pointers_and_references
 GS......... Poker_hand_analyser
 GS......... Polymorphic_copy
