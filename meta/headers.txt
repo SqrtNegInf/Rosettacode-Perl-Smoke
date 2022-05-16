@@ -3990,6 +3990,14 @@ File: G/Go_Fish
 #c# 2021-12-01 <RC
 #p# OK
 
+File: G/Goldbach%27s_comet
+#!/usr/local/bin/perl
+#u# http://rosettacode.org/wiki/Goldbach%27s_comet
+#c# 2022-05-15 >RC
+#p# OK
+#f# RC file: goldbachs-comet.png
+#n# testing text output and image file
+
 File: G/Gradient_descent
 #!/usr/local/bin/perl
 #u# http://rosettacode.org/wiki/Gradient_descent
@@ -7316,10 +7324,10 @@ File: P/Playing_cards
 File: P/Plot_coordinate_pairs
 #!/usr/local/bin/perl
 #u# http://rosettacode.org/wiki/Plot_coordinate_pairs
-#c# 2018-08-20 <RC
-#p# BROKEN
-#f# RC file: qsort-range-10-9.gif
-#n# changes to libraries broke this task
+#c# 2018-08-20 <RC, 2022-05-15 >RC
+#p# OK
+#f# RC file: qsort-range-10-9.png
+#n# GD::* works with 'png' (defaulted to 'gif', which was not supported)
 
 File: P/Pointers_and_references
 #!/usr/local/bin/perl
