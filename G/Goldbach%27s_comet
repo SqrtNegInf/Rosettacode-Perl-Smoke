@@ -2,6 +2,8 @@
 #u# http://rosettacode.org/wiki/Goldbach%27s_comet
 #c# 2022-05-15 >RC
 #p# OK
+#f# RC file: goldbachs-comet.png
+#n# testing text output and image file
 
 my @res;
 
@@ -20,12 +22,29 @@ sub G {
     scalar grep { is_prime($_) and is_prime($n - $_) } 2 .. $n/2;
 }
 
-my(@x,@y); 
-@x = map 2 * $_ + 4, 0..99;
-push @y, G($_) for @x;
+my @y; 
+push @y, G(2*$_ + 4) for my @x = 0..1999;
 
-push @res, table 10, @y;
+# text
+push @res, table 10, @y[0..99];
 push @res, sprintf "G $_ : %d", G($_) for 1e6;
+
+# graph
+my @data = ( \@x, \@y);
+my $graph = GD::Graph::bars->new(1200, 400);
+$graph->set(
+    title          => q/Goldbach's Comet/,
+    y_max_value    => 170,
+    x_tick_number  => 10,
+    r_margin       => 10,
+    dclrs          => [ 'blue' ],
+) or die $graph->error;
+my $gd = $graph->plot(\@data) or die $graph->error;
+
+open my $fh, '>', 'run/goldbachs-comet.png';
+binmode $fh;
+print $fh $gd->png();
+close $fh;
 
 say my $result = join "\n", @res;
 
@@ -44,30 +63,7 @@ my $ref = <<'END';
 G 1000000 : 5402
 END
 
-#push @x, $_    for 100..2000;
-push @y, G($_) for 100..2000;
-
-my @data = ( [0..1999], \@y);
-my $graph = GD::Graph::bars->new(1200, 400);
-$graph->set(
-    title          => q[Goldbach's Comet],
-    y_max_value    => 100,
-    x_tick_number  => 10,
-    r_margin       => 10,
-    dclrs          => [ 'blue' ],
-) or die $graph->error;
-my $gd = $graph->plot(\@data) or die $graph->error;
-
-open my $fh, '>', 'run/goldbachs-comet.png';
-binmode $fh;
-print $fh $gd->png();
-close $fh;
-
 use Test::More;
 chomp $ref;
 is($result, $ref);
 done_testing();
-
-__END__
-
-[https://github.com/SqrtNegInf/Rosettacode-Perl5-Smoke/blob/master/ref/xx xx]
