@@ -14,58 +14,46 @@ use warnings;
 use feature 'say';
 
 use ntheory 'is_prime';
-use List::AllUtils qw(zip natatime);
+use List::AllUtils qw(zip sum natatime);
 use Algorithm::Combinatorics qw(permutations);
 
 say '1 2';
 
 my @count = (0, 0, 1);
 
-for my $n (3..6) { # ..17
-    my @even = grep { 0 == $_ % 2 } 2..$n-1;
-    my @odd  = grep { 1 == $_ % 2 } 3..$n-1;
-    for my $e (@even) {
-        my @e = permutations [1..$e];
-        use DDP; p @e;
-        # natatime 2, zip @e, @o
-    }
-}
-
-__END__
-
-my @count = (0, 0, 1);
-
-say '1 2';
- 
-for my $n (3..6) { # ..17
-    my @even = grep { 0 == $_ % 2 } 2..$n-1;
-    my @odd  = grep { 1 == $_ % 2 } 3..$n-1;
-    for my $e (@even) {
-        my @e = permutations $e;
-        next if $e[0] == 8 or $e[0] == 14;
+for my $n (3..10) { # ..17
+    my @even_nums = grep { 0 == $_ % 2 } 2..$n-1;
+    my @odd_nums  = grep { 1 == $_ % 2 } 3..$n-1;
+    for my $e (permutations [@even_nums]) {
+#say 'e'; p @$e; #sleep 1;
+        next if $$e[0] == 8 or $$e[0] == 14;
         my $nope = 0;
-        for my $o (@odd) {
-            my @o = permutations $o;
-            next unless is_prime ($e[0] + $o[0]);
+        for my $o (permutations [@odd_nums]) {
+#say 'o'; p @$o; #sleep 1;
+            next unless is_prime($$e[0] + $$o[0]);
+#next;
             my @list;
-            #for (@list = (flat (roundrobin(@e, @o)), $n)).rotor(2 => -1) { # ???
+            my $it = natatime($n, zip @$e, @$o);
+            while (my $rr = $it->()) { say "rr: $rr" ;  push @list, $rr }
+say 'list' ; p @list; sleep 3;
+            for (@list) {
                 $nope++ and last unless is_prime(sum @$_);
             }
-            unless $nope {
-                say '1 ' . join ' ', @list unless $count[$n];
-                #$lock.protect({ @count[$n]++ }); # ???
+            unless ($nope) {
+                #say '1 ' . join ' ', @list unless $count[$n];
+say "count[$n]";
+                $count[$n]++;
             }
             $nope = 0;
         }
     }
 }
 
-
 shift @count;
 shift @count;
-say "\n" . my $result = join ' ',  @count; # [2..*].join: ' ';
+say "\n" . join ' ',  @count; # [2..*].join: ' ';
 
-#say my $result = join "\n", @res;
+__END__
 
 my $ref = <<'END';
 END
@@ -74,8 +62,6 @@ use Test::More;
 chomp $ref;
 is($result, $ref);
 done_testing();
-
-__END__
 
 =={{header|Perl}}==
 {{trans|Raku}}
