@@ -34,4 +34,4 @@ __END__
 {{out}}
 <pre style="height:20ex">
 </pre>
-[https://github.com/SqrtNegInf/Rosettacode-Perl5-Smoke/blob/master/ref/xx xx]
+[https://github.com/SqrtNegInf/Rosettacode-Perl-Smoke/blob/master/ref/xx xx]
