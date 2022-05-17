@@ -1,5 +1,5 @@
 #!/usr/local/bin/perl
-#u# http://rosettacode.org/wiki/Multiple_regression
+#u# http://rosettacode.org/wiki/Polynomial_regression
 #c# 2021-01-07 >RC
 #p# OK
 #n# replaced existing/buggy implementation
