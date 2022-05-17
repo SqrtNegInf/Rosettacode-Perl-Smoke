@@ -7368,7 +7368,7 @@ File: P/Polynomial_long_division
 
 File: P/Polynomial_regression
 #!/usr/local/bin/perl
-#u# http://rosettacode.org/wiki/Multiple_regression
+#u# http://rosettacode.org/wiki/Polynomial_regression
 #c# 2021-01-07 >RC
 #p# OK
 #n# replaced existing/buggy implementation
