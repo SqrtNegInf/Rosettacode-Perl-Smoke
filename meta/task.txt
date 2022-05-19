@@ -2,8 +2,8 @@
 This is perl 5, version 32, subversion 1 (v5.32.1) built for darwin-thread-multi-2level
 updating from RC…
 +------------> Perl: Good/Bad [1624/12]
-|+-----------> Smoke testing [1479]
-||+----------> sKipping validation [149]
+|+-----------> Smoke testing [1480]
+||+----------> sKipping validation [148]
 |||+---------> Interactive [76]
 ||||+--------> Touched (modified by me) [567]
 |||||+-------> Random seed [123]
@@ -11,7 +11,7 @@ updating from RC…
 |||||||+-----> Draft [348]
 ||||||||+----> Ignoring [39]
 |||||||||+---> Void (no local copy) [119]
-||||||||||+--> Un-implemented/reliable [94]
+||||||||||+--> Un-implemented/reliable [93]
 |||||||||||
 GS..T..D... 10001th_prime
 GS......... 100_doors-1
@@ -1210,7 +1210,7 @@ B.......... Prime_decomposition-4
 .......D.V. Prime_numbers_p_for_which_the_sum_of_primes_less_than_or_equal_to_p_is_prime
 ........X.. Prime_numbers_p_which_sum_of_prime_numbers_less_or_equal_to_p_is_prime
 GS.....D... Prime_numbers_which_contain_123
-G.K.T.....U Prime_triangle
+GS..T...... Prime_triangle
 GS.....D... Prime_triplets
 GS.....D... Prime_words
 GS..T...... Primes_-_allocate_descendants_to_their_ancestors
