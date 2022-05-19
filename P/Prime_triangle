@@ -1,11 +1,8 @@
 #!/usr/local/bin/perl
 #u# http://rosettacode.org/wiki/Prime_triangle
-#t# inprogress
-#c# 2022-04-xx >RC
+#c# 2022-05-18 >RC
 #p# OK
-
-use Data::Printer;          # debug only
-use Time::HiRes qw(sleep);  # debug only
+#n# limit testing for speed
 
 my @res;
 
@@ -14,34 +11,32 @@ use warnings;
 use feature 'say';
 
 use ntheory 'is_prime';
-use List::AllUtils qw(zip sum natatime);
+use List::MoreUtils qw(slideatatime);
+use List::AllUtils qw(zip sum);
 use Algorithm::Combinatorics qw(permutations);
 
-say '1 2';
+#say '1 2';
 
 my @count = (0, 0, 1);
 
-for my $n (3..10) { # ..17
+for my $n (3..14) { # ..17
     my @even_nums = grep { 0 == $_ % 2 } 2..$n-1;
     my @odd_nums  = grep { 1 == $_ % 2 } 3..$n-1;
     for my $e (permutations [@even_nums]) {
-#say 'e'; p @$e; #sleep 1;
         next if $$e[0] == 8 or $$e[0] == 14;
         my $nope = 0;
         for my $o (permutations [@odd_nums]) {
-#say 'o'; p @$o; #sleep 1;
-            next unless is_prime($$e[0] + $$o[0]);
-#next;
-            my @list;
-            my $it = natatime($n, zip @$e, @$o);
-            while (my $rr = $it->()) { say "rr: $rr" ;  push @list, $rr }
-say 'list' ; p @list; sleep 3;
-            for (@list) {
-                $nope++ and last unless is_prime(sum @$_);
+            next if defined $$o[0] and ! is_prime($$e[0] + $$o[0]);
+            my @list = zip @$e, @$o;
+            pop @list if ! defined $list[-1];
+            push @list, $n;
+            my $it = slideatatime(1, 2, @list);
+            while ( my @rr = $it->() ) {
+                last unless defined $rr[1];
+                $nope++ and last unless is_prime($rr[0]+$rr[1]);
             }
             unless ($nope) {
                 #say '1 ' . join ' ', @list unless $count[$n];
-say "count[$n]";
                 $count[$n]++;
             }
             $nope = 0;
@@ -49,41 +44,9 @@ say "count[$n]";
     }
 }
 
-shift @count;
-shift @count;
-say "\n" . join ' ',  @count; # [2..*].join: ' ';
-
-__END__
-
-my $ref = <<'END';
-END
+say my $result = join ' ', @count[2..$#count];
+my $ref = '1 1 1 1 1 2 4 7 24 80 216 648 1304';
 
 use Test::More;
-chomp $ref;
 is($result, $ref);
 done_testing();
-
-=={{header|Perl}}==
-{{trans|Raku}}
-{{libheader|ntheory}}
-<lang perl>
-</lang>
-{{out}}
-<pre>1 2
-1 2 3
-1 2 3 4
-1 4 3 2 5
-1 4 3 2 5 6
-1 4 3 2 5 6 7
-1 2 3 4 7 6 5 8
-1 2 3 4 7 6 5 8 9
-1 2 3 4 7 6 5 8 9 10
-1 6 5 8 3 10 7 4 9 2 11
-1 6 5 8 3 10 7 4 9 2 11 12
-1 4 3 2 5 8 9 10 7 12 11 6 13
-1 4 3 2 11 8 9 10 13 6 7 12 5 14
-1 2 3 8 5 12 11 6 7 10 13 4 9 14 15
-1 2 3 8 5 12 11 6 7 10 13 4 9 14 15 16
-1 2 9 4 7 10 13 6 5 14 3 16 15 8 11 12 17
-
-1 1 1 1 1 2 4 7 24 80 216 648 1304 3392 13808 59448</pre>
