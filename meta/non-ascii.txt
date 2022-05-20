@@ -383,6 +383,9 @@ P/Peaceful_chess_queen_armies
 ♕:     1 WHITE CHESS QUEEN
 ♛:     1 BLACK CHESS QUEEN
 
+P/Pell_numbers
+√:     2 SQUARE ROOT
+
 P/Percolation_Bond_percolation
 ─:   141 BOX DRAWINGS LIGHT HORIZONTAL
 │:    65 BOX DRAWINGS LIGHT VERTICAL
