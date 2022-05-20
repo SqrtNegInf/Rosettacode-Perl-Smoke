@@ -11,8 +11,7 @@ use warnings;
 use feature 'say';
 
 use ntheory 'is_prime';
-use List::MoreUtils qw(slideatatime);
-use List::AllUtils qw(zip sum);
+use List::MoreUtils qw(zip slideatatime);
 use Algorithm::Combinatorics qw(permutations);
 
 #say '1 2';
@@ -26,10 +25,9 @@ for my $n (3..14) { # ..17
         next if $$e[0] == 8 or $$e[0] == 14;
         my $nope = 0;
         for my $o (permutations [@odd_nums]) {
-            next if defined $$o[0] and ! is_prime($$e[0] + $$o[0]);
-            my @list = zip @$e, @$o;
-            pop @list if ! defined $list[-1];
-            push @list, $n;
+            next if defined $$o[0] and not is_prime($$e[0] + $$o[0]);
+            my @list = (zip(@$e, @$o), $n);
+            splice @list, -2, -1 if not defined $list[-2];
             my $it = slideatatime(1, 2, @list);
             while ( my @rr = $it->() ) {
                 last unless defined $rr[1];
