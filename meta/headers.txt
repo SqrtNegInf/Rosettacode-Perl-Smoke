@@ -7028,6 +7028,12 @@ File: P/Pell%27s_equation
 #c# 2019-02-03 <RC
 #p# OK
 
+File: P/Pell_numbers
+#!/usr/local/bin/perl
+#u# http://rosettacode.org/wiki/Pell_numbers
+#c# 2022-05-19 >RC
+#p# OK
+
 File: P/Penney%27s_game
 #!/usr/local/bin/perl
 #u# http://rosettacode.org/wiki/Penney%27s_game
