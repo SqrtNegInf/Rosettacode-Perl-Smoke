@@ -1,17 +1,17 @@
 
 This is perl 5, version 32, subversion 1 (v5.32.1) built for darwin-thread-multi-2level
 updating from RC…
-+------------> Perl: Good/Bad [1624/12]
-|+-----------> Smoke testing [1480]
++------------> Perl: Good/Bad [1625/12]
+|+-----------> Smoke testing [1481]
 ||+----------> sKipping validation [148]
 |||+---------> Interactive [76]
-||||+--------> Touched (modified by me) [567]
+||||+--------> Touched (modified by me) [568]
 |||||+-------> Random seed [123]
 ||||||+------> File output [80]
 |||||||+-----> Draft [348]
 ||||||||+----> Ignoring [39]
-|||||||||+---> Void (no local copy) [119]
-||||||||||+--> Un-implemented/reliable [93]
+|||||||||+---> Void (no local copy) [118]
+||||||||||+--> Un-implemented/reliable [92]
 |||||||||||
 GS..T..D... 10001th_prime
 GS......... 100_doors-1
@@ -1124,7 +1124,7 @@ GS...R..... Pattern_matching
 GS..T...... Peaceful_chess_queen_armies
 GS..T.F.... Peano_curve
 GS......... Pell%27s_equation
-.........VU Pell_numbers
+GS..T...... Pell_numbers
 GS...R..... Penney%27s_game
 GS..T.FD... Penrose_tiling
 GS..T.F.... Pentagram
