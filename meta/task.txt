@@ -10,8 +10,8 @@ updating from RC…
 ||||||+------> File output [80]
 |||||||+-----> Draft [348]
 ||||||||+----> Ignoring [39]
-|||||||||+---> Void (no local copy) [118]
-||||||||||+--> Un-implemented/reliable [92]
+|||||||||+---> Void (no local copy) [119]
+||||||||||+--> Un-implemented/reliable [93]
 |||||||||||
 GS..T..D... 10001th_prime
 GS......... 100_doors-1
@@ -807,6 +807,7 @@ GS..T...... LU_decomposition
 GS......... LZW_compression
 GS..T...... Lah_numbers
 GS...R..... Langton%27s_ant
+.........VU Lantern_Problem
 GS..T..D... Largest_difference_between_adjacent_primes
 GS...R.D... Largest_five_adjacent_number
 GS......... Largest_int_from_concatenated_ints
