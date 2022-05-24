@@ -2,45 +2,36 @@
 #u# http://rosettacode.org/wiki/System_time
 #c# 2018-08-11 <RC
 #p# OK
+#n# better attribution for output; never really figured out testing for this...
 
 use feature 'say';
 
-# Simple localtime use in scalar context.
-print scalar localtime, "\n";
-# Output:
-# Thu Jan 24 11:23:30 2008
+# simple localtime use in scalar context
+say 'A: ' . scalar localtime;
 
-# localtime use in array context.
+# localtime use in array context
 ($sec, $min, $hour, $mday, $mon, $year, $wday, $yday, $isdst) = localtime;
-printf("%04d-%02d-%02d %02d:%02d:%02d\n", $year + 1900, $mon + 1, $mday, $hour, $min, $sec);
+printf("B: %04d-%02d-%02d %02d:%02d:%02d\n", $year + 1900, $mon + 1, $mday, $hour, $min, $sec);
 
-# Output:
-# 2008-01-24 11:23:30
+# localtime use in array context with POSIX strftime
+use POSIX qw(strftime);
+say 'C: ' . strftime "%a %b %e %H:%M:%S %Y", localtime;
 
-# The same using DateTime:
+# using DateTime
 use DateTime;
 my $dt = DateTime->now;
 my $d = $dt->ymd;
 my $t = $dt->hms;
-print "$d $t\n";
-# Output:
-# 2010-03-29 19:46:26
+say "D: $d $t";
+say 'E: ' . $dt->iso8601();
+say 'F: ' . $dt->year_with_christian_era();
+say 'G: ' . $dt->year_with_secular_era();
 
-# localtime use in array context with POSIX strftime:
-use POSIX qw(strftime);
-
-$now_string = strftime "%a %b %e %H:%M:%S %Y", localtime;
-print "$now_string\n";
-# Output (with cs_CZ.UTF-8 locale):
-# Čt led 24 11:23:30 2008
-#Using the DateTime module:
-my $dt = DateTime->now;
-say $dt->iso8601();
-say $dt->year_with_christian_era();
-say $dt->year_with_secular_era();
-# etc.Unix epoch:
-print time . "\n";
+# Unix epoch
+say 'H: ' . time;
 
 use Test::More;
-ok(time > 1534019523, 'epoch');
+ok (strftime('%a %b %e %H:%M:%S %Y', localtime) =~ /202\d/);
+ok ($dt->iso8601() =~ /202\d/);
+ok (time > 1653300000);
 done_testing();
