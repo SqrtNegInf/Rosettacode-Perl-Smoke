@@ -10,8 +10,8 @@ updating from RC…
 ||||||+------> File output [80]
 |||||||+-----> Draft [348]
 ||||||||+----> Ignoring [39]
-|||||||||+---> Void (no local copy) [119]
-||||||||||+--> Un-implemented/reliable [93]
+|||||||||+---> Void (no local copy) [120]
+||||||||||+--> Un-implemented/reliable [94]
 |||||||||||
 GS..T..D... 10001th_prime
 GS......... 100_doors-1
@@ -302,6 +302,7 @@ GS......... Compare_length_of_two_strings
 .........VU Compare_sorting_algorithms%27_performance
 GS......... Compile-time_calculation
 GS......... Compiler_AST_interpreter
+.........VU Compiler_Preprocessor
 GS.....D..U Compiler_Simple_file_inclusion_pre_processor
 GS.....D... Compiler_Verifying_syntax
 GS......... Compiler_code_generator
@@ -807,7 +808,6 @@ GS..T...... LU_decomposition
 GS......... LZW_compression
 GS..T...... Lah_numbers
 GS...R..... Langton%27s_ant
-.........VU Lantern_Problem
 GS..T..D... Largest_difference_between_adjacent_primes
 GS...R.D... Largest_five_adjacent_number
 GS......... Largest_int_from_concatenated_ints
@@ -1449,6 +1449,7 @@ GS......... Solve_a_Hopido_puzzle
 GS......... Solve_a_Numbrix_puzzle
 .......D.VU Solve_a_Rubik%27s_Cube
 GS..T..D... Solve_equations_with_substitution_method
+.........VU Solve_hanging_lantern_problem
 GS......... Solve_the_no_connection_puzzle
 .......D.V. Solve_triangle_solitare_puzzle
 GS..T.FD... Solving_coin_problems
