@@ -26,8 +26,8 @@ for my $n (3..14) { # ..17
         my $nope = 0;
         for my $o (permutations [@odd_nums]) {
             next if defined $$o[0] and not is_prime($$e[0] + $$o[0]);
-            my @list = (zip(@$e, @$o), $n);
-            splice @list, -2, -1 if not defined $list[-2];
+            my @list = (zip(@$e, @$o), $n);                 # 'zip' makes a list with a gap if more evens than odds
+            splice @list, -2, -1 if not defined $list[-2];  # in which case splice out 'undef' in penultimate position 
             my $it = slideatatime(1, 2, @list);
             while ( my @rr = $it->() ) {
                 last unless defined $rr[1];
