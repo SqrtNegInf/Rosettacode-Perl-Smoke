@@ -614,9 +614,6 @@ S/Sunflower_fractal
 π:     2 GREEK SMALL LETTER PI
 φ:     3 GREEK SMALL LETTER PHI
 
-S/System_time
-Č:     1 LATIN CAPITAL LETTER C WITH CARON
-
 T/Terminal_control_Display_an_extended_character
 ￡:     1 FULLWIDTH POUND SIGN
 
