@@ -1,7 +1,8 @@
 #!/usr/local/bin/perl
-#u# http://rosettacode.org/wiki/Pattern_matching
+#u# http://rosettacode.org/wiki/Algebraic_data_types
 #c# 2018-07-08 <RC
 #p# OK
+#n# 2022-05-24 was 'Pattern_matching'
 
 srand 123456;
 
