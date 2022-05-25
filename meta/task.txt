@@ -1,16 +1,16 @@
 
 This is perl 5, version 32, subversion 1 (v5.32.1) built for darwin-thread-multi-2level
 updating from RC…
-+------------> Perl: Good/Bad [1625/12]
-|+-----------> Smoke testing [1481]
++------------> Perl: Good/Bad [1624/12]
+|+-----------> Smoke testing [1480]
 ||+----------> sKipping validation [148]
 |||+---------> Interactive [76]
 ||||+--------> Touched (modified by me) [568]
-|||||+-------> Random seed [123]
+|||||+-------> Random seed [122]
 ||||||+------> File output [80]
 |||||||+-----> Draft [348]
 ||||||||+----> Ignoring [39]
-|||||||||+---> Void (no local copy) [120]
+|||||||||+---> Void (no local copy) [121]
 ||||||||||+--> Un-implemented/reliable [94]
 |||||||||||
 GS..T..D... 10001th_prime
@@ -70,6 +70,7 @@ GS..T..D... Addition_chains
 GS..T...... Additive_primes
 GS..T...... Address_of_a_variable
 GS..T..D... Air_mass
+.........V. Algebraic_data_types
 GS......... Align_columns-1
 GS......... Align_columns-2
 GS......... Aliquot_sequence_classifications
@@ -1121,7 +1122,6 @@ GS..T...... Password_generator
 GS..T...... Pathological_floating_point_problems-1
 GS..T...... Pathological_floating_point_problems-2
 GS......... Pathological_floating_point_problems-3
-GS...R..... Pattern_matching
 GS..T...... Peaceful_chess_queen_armies
 GS..T.F.... Peano_curve
 GS......... Pell%27s_equation
