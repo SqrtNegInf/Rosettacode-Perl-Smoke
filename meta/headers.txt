@@ -333,6 +333,13 @@ File: A/Air_mass
 #c# 2021-04-17 >RC
 #p# OK
 
+File: A/Algebraic_data_types
+#!/usr/local/bin/perl
+#u# http://rosettacode.org/wiki/Algebraic_data_types
+#c# 2018-07-08 <RC
+#p# OK
+#n# 2022-05-24 was 'Pattern_matching'
+
 File: A/Align_columns-1
 #!/usr/local/bin/perl
 #u# http://rosettacode.org/wiki/Align_columns
@@ -6994,12 +7001,6 @@ File: P/Pathological_floating_point_problems-3
 #c# 2018-08-24 
 #p# OK
 #n# demonstrating that 'bigrat' can be used to solve all three problems
-
-File: P/Pattern_matching
-#!/usr/local/bin/perl
-#u# http://rosettacode.org/wiki/Pattern_matching
-#c# 2018-07-08 <RC
-#p# OK
 
 File: P/Peaceful_chess_queen_armies
 #!/usr/local/bin/perl
