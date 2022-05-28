@@ -27,7 +27,7 @@ push @res, "First 100 brilliant numbers:\n" . table 10, head 100, @Br;
 
 for my $oom (1..6) {
     my $key = firstidx { $_ > 10**$oom } @Br;
-    push @res, sprintf "First >= %13s is position %9s in the series: %13s", comma(10**$oom), comma($key), comma $Br[$key];
+    push @res, sprintf "First >= %13s is position %9s in the series: %13s", map { comma $_ } 10**$oom, $key, $Br[$key];
 }
 
 say my $result = join "\n", @res;
