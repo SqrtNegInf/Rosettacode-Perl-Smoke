@@ -35,7 +35,8 @@ sub next_greatest_integer {
 say 'Next largest integer able to be made from these digits, or zero if no larger exists:';
 
 for (0, 9, 12, 21, 12453, 738440, 45072010, 95322020, 9589776899767587796600, 3345333) {
-    push @res, sprintf "%30s  ->  %s", comma($_), comma next_greatest_integer $_;
+    #push @res, sprintf "%30s  ->  %s", comma($_), comma next_greatest_integer $_;
+    push @res, sprintf "%30s  ->  %s", map { comma($_) } $_, next_greatest_integer $_; # clearer?
 }
 
 say my $result = join "\n", @res;
