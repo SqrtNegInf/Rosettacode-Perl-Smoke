@@ -2868,6 +2868,12 @@ File: E/Equilibrium_index
 #c# 2018-07-31 <RC
 #p# OK
 
+File: E/Erdos-Selfridge_categorization_of_primes
+#!/usr/local/bin/perl
+#u# http://rosettacode.org/wiki/Erdös-Selfridge_categorization_of_primes
+#c# 2022-05-27 >RC
+#p# OK
+
 File: E/Erdos-primes
 #!/usr/local/bin/perl
 #u# http://rosettacode.org/wiki/Erdős-primes
@@ -9067,6 +9073,12 @@ File: S/Solve_equations_with_substitution_method
 #!/usr/local/bin/perl
 #u# http://rosettacode.org/wiki/Solve_equations_with_substitution_method
 #c# 2021-11-12 >RC
+#p# OK
+
+File: S/Solve_hanging_lantern_problem
+#!/usr/local/bin/perl
+#u# http://rosettacode.org/wiki/Solve_hanging_lantern_problem
+#c# 2022-05-27 <RC
 #p# OK
 
 File: S/Solve_the_no_connection_puzzle
