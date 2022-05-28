@@ -194,6 +194,9 @@ D/Draw_a_clock
 ╶:     7 BOX DRAWINGS LIGHT RIGHT
 ╷:     3 BOX DRAWINGS LIGHT DOWN
 
+E/Erdos-Selfridge_categorization_of_primes
+ö:     5 LATIN SMALL LETTER O WITH DIAERESIS
+
 E/Erdos-primes
 ő:    10 LATIN SMALL LETTER O WITH DOUBLE ACUTE
 
