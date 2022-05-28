@@ -1,17 +1,17 @@
 
 This is perl 5, version 32, subversion 1 (v5.32.1) built for darwin-thread-multi-2level
 updating from RC…
-+------------> Perl: Good/Bad [1625/12]
-|+-----------> Smoke testing [1481]
++------------> Perl: Good/Bad [1626/12]
+|+-----------> Smoke testing [1482]
 ||+----------> sKipping validation [148]
 |||+---------> Interactive [76]
 ||||+--------> Touched (modified by me) [568]
 |||||+-------> Random seed [123]
 ||||||+------> File output [80]
-|||||||+-----> Draft [348]
+|||||||+-----> Draft [349]
 ||||||||+----> Ignoring [39]
-|||||||||+---> Void (no local copy) [120]
-||||||||||+--> Un-implemented/reliable [94]
+|||||||||+---> Void (no local copy) [119]
+||||||||||+--> Un-implemented/reliable [92]
 |||||||||||
 GS..T..D... 10001th_prime
 GS......... 100_doors-1
@@ -303,7 +303,7 @@ GS......... Compare_length_of_two_strings
 .........VU Compare_sorting_algorithms%27_performance
 GS......... Compile-time_calculation
 GS......... Compiler_AST_interpreter
-.........VU Compiler_Preprocessor
+.......D.VU Compiler_Preprocessor
 GS.....D..U Compiler_Simple_file_inclusion_pre_processor
 GS.....D... Compiler_Verifying_syntax
 GS......... Compiler_code_generator
@@ -480,7 +480,7 @@ GS......... Enumerations
 GS......... Environment_variables
 GS..T...... Equal_prime_and_composite_sums
 GS......... Equilibrium_index
-.........VU Erdoes-Selfridge_categorization_of_primes
+.........V. Erdoes-Selfridge_categorization_of_primes
 .......D.VU Erdos-Woods_numbers
 GS..T..D... Erdos-primes
 GS......... Esthetic_numbers
@@ -1449,7 +1449,7 @@ GS......... Solve_a_Hopido_puzzle
 GS......... Solve_a_Numbrix_puzzle
 .......D.VU Solve_a_Rubik%27s_Cube
 GS..T..D... Solve_equations_with_substitution_method
-.........VU Solve_hanging_lantern_problem
+GS......... Solve_hanging_lantern_problem
 GS......... Solve_the_no_connection_puzzle
 .......D.V. Solve_triangle_solitare_puzzle
 GS..T.FD... Solving_coin_problems
