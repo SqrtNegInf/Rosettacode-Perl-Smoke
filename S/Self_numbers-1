@@ -1,8 +1,7 @@
 #!/usr/local/bin/perl
 #u# http://rosettacode.org/wiki/Self_numbers
-#c# 2021-01-13 >RC
+#c# 2021-01-13 >RC,  2022-05-28 >RC
 #p# OK
-#n# Wait a sec... Raku is *faster*?
 #n# pretty inefficient, definitely don't try for 10**8
 
 use strict;
@@ -11,8 +10,8 @@ use feature 'say';
 
 use List::Util qw(max sum);
 
-my ( $count, $i, $pow, $digits, $offset, $lastSelf, $done, @selfs) 
- = (      0,  1,   10,       1,       9,         0,     0        );
+my ($i, $pow, $digits, $offset, $lastSelf, @selfs) 
+ = ( 1,   10,       1,       9,         0,       );
 
 my $final = 50;
 
@@ -21,20 +20,17 @@ while () {
    my $sum = my $start = sum split //, max(($i-$offset), 0);
    for ( my $j = $start; $j < $i; $j++ ) {
       if ($j+$sum == $i) { $isSelf = 0 ; last }
-      ($j+1)%10 != 0 ? $sum++ : ( $sum = sum split '', ($j+1) );
+      ($j+1)%10 != 0 ? $sum++ : ( $sum = sum split '', $j+1);
    }
 
    if ($isSelf) {
-      $count++;
-      $lastSelf = $i;
-      push @selfs, $i;
+      push @selfs, $lastSelf = $i;
       last if @selfs == $final;
    }
 
-   $i++;
-   next unless $i%$pow == 0;
-   $pow *= 10;
-   $offset = 9 * $digits++
+   next unless ++$i % $pow == 0;
+   $pow    *= 10;
+   $offset  =  9 * $digits++
 }
 
 say my $result = "The first 50 self numbers are:\n" . join ' ', @selfs;
