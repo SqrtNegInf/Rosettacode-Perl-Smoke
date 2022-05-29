@@ -8558,9 +8558,8 @@ File: S/Self-describing_numbers
 File: S/Self_numbers-1
 #!/usr/local/bin/perl
 #u# http://rosettacode.org/wiki/Self_numbers
-#c# 2021-01-13 >RC
+#c# 2021-01-13 >RC,  2022-05-28 >RC
 #p# OK
-#n# Wait a sec... Raku is *faster*?
 #n# pretty inefficient, definitely don't try for 10**8
 
 File: S/Semiprime
