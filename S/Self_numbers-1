@@ -19,7 +19,8 @@ while () {
    my $isSelf = 1;
    my $sum = my $start = sum split //, max(($i-$offset), 0);
    for ( my $j = $start; $j < $i; $j++ ) {
-      if ($j+$sum == $i) { $isSelf = 0 ; last }
+      ($isSelf *= 0) and last if $j+$sum == $i; # silly dodge to avoid warning 'should be =='
+      #if ($j+$sum == $i) { $isSelf = 0 ; last }
       ($j+1)%10 != 0 ? $sum++ : ( $sum = sum split '', $j+1);
    }
 
