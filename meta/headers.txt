@@ -2149,6 +2149,7 @@ File: C/Cut_a_rectangle
 #u# http://rosettacode.org/wiki/Cut_a_rectangle
 #c# 2018-07-26 <RC
 #p# OK
+#n# 2022-05-29 minor improvements, NOT ON RC
 
 File: C/Cycle_detection
 #!/usr/local/bin/perl
