@@ -2,132 +2,105 @@
 #u# http://rosettacode.org/wiki/Cut_a_rectangle
 #c# 2018-07-26 <RC
 #p# OK
+#n# 2022-05-29 minor improvements, NOT ON RC
+
+my $result;
 
 use strict;
 use warnings;
 use feature 'say';
-my $result;
 
-#Translation of: C
-
-use strict;
-use warnings;
-my @grid = 0;
- 
 my ($w, $h, $len);
-my $cnt = 0;
- 
+my $cnt  = 0;
+my @grid = 0;
 my @next;
-my @dir = ([0, -1], [-1, 0], [0, 1], [1, 0]);
+
+my @dir = ([0, -1], [-1, 0], [0, 1], [1, 0]); # faster if global
  
 sub walk {
     my ($y, $x) = @_;
- 
-    if (!$y || $y == $h || !$x || $x == $w) {
-	$cnt += 2;
-	return;
-    }
+	($cnt += 2 and return) if !$y or $y == $h or !$x or $x == $w;
  
     my $t = $y * ($w + 1) + $x;
     $grid[$_]++ for $t, $len - $t;
- 
     for my $i (0 .. 3) {
-	if (!$grid[$t + $next[$i]]) {
-	    walk($y + $dir[$i]->[0], $x + $dir[$i]->[1]);
-	}
+	    walk($y + $dir[$i]->[0], $x + $dir[$i]->[1]) if not $grid[ $t + $next[$i] ]
     }
  
     $grid[$_]-- for $t, $len - $t;
 }
  
 sub solve {
-    my ($hh, $ww, $recur) = @_;
-    my ($t, $cx, $cy, $x);
+    my ($hh, $ww, $recurse) = @_;
+    my $t;
     ($h, $w) = ($hh, $ww);
+    ($t, $w, $h) = ($w, $h, $w) if $h & 1;
+    return  0 if $h == 1;
+    return  1 if $w == 1;
+    return $h if $w == 2;
+    return $w if $h == 2;
  
-    if ($h & 1) { ($t, $w, $h) = ($w, $h, $w); }
-    if ($h & 1) { return 0; }
-    if ($w == 1) { return 1; }
-    if ($w == 2) { return $h; }
-    if ($h == 2) { return $w; }
- 
-    {
-	use integer;
-	($cy, $cx) = ($h / 2, $w / 2);
-    }
- 
+    my($cy, $cx) = (int($h/2), int($w/2));
+    #{ use integer; ($cy, $cx) = ($h / 2, $w / 2) } # cute
     $len = ($h + 1) * ($w + 1);
     @grid = ();
     $grid[$len--] = 0;
- 
     @next = (-1, -$w - 1, 1, $w + 1);
  
-    if ($recur) { $cnt = 0; }
-    for ($x = $cx + 1; $x < $w; $x++) {
-	$t = $cy * ($w + 1) + $x;
-	@grid[$t, $len - $t] = (1, 1);
-	walk($cy - 1, $x);
+    $cnt = 0 if $recurse;
+    for (my $x = $cx + 1; $x < $w; $x++) {
+	    $t = $cy * ($w + 1) + $x;
+        $grid[$_] = 1 for $t, $len - $t;
+	    walk($cy - 1, $x);
     }
+ 
     $cnt++;
- 
-    if ($h == $w) {
-	$cnt *= 2;
-    } elsif (!($w & 1) && $recur) {
-	solve($w, $h);
-    }
- 
-    return $cnt;
+    if    ( $h == $w                ) { $cnt *= 2     }
+    elsif ( $recurse and not $w & 1 ) { solve($w, $h) }
+    $cnt
 }
  
-sub MAIN {
-    #$result .= "ok\n";
-    my ($y, $x);
-    #for my $y (1 .. 10) { # DH - slow
-    for my $y (1 .. 9) {
-	for my $x (1 .. $y) {
-	    if (!($x & 1) || !($y & 1)) {
-		$result .= sprintf("%d x %d: %d\n", $y, $x, solve($y, $x, 1));
-	    }
+for my $y (1 .. 9) {
+    for my $x (1 .. $y) {
+		$result .= sprintf "%d × %d: %d\n", $y, $x, solve $y, $x, 1 unless $x & 1 and $y & 1
 	}
-    }
+}
 
 say $result; 
+
 my $ref = <<'EOD';
-2 x 1: 1
-2 x 2: 2
-3 x 2: 3
-4 x 1: 1
-4 x 2: 4
-4 x 3: 9
-4 x 4: 22
-5 x 2: 5
-5 x 4: 39
-6 x 1: 1
-6 x 2: 6
-6 x 3: 23
-6 x 4: 90
-6 x 5: 263
-6 x 6: 1018
-7 x 2: 7
-7 x 4: 151
-7 x 6: 2947
-8 x 1: 1
-8 x 2: 8
-8 x 3: 53
-8 x 4: 340
-8 x 5: 1675
-8 x 6: 11174
-8 x 7: 55939
-8 x 8: 369050
-9 x 2: 9
-9 x 4: 553
-9 x 6: 31721
-9 x 8: 1812667
+2 × 1: 1
+2 × 2: 2
+3 × 2: 3
+4 × 1: 1
+4 × 2: 4
+4 × 3: 9
+4 × 4: 22
+5 × 2: 5
+5 × 4: 39
+6 × 1: 1
+6 × 2: 6
+6 × 3: 23
+6 × 4: 90
+6 × 5: 263
+6 × 6: 1018
+7 × 2: 7
+7 × 4: 151
+7 × 6: 2947
+8 × 1: 1
+8 × 2: 8
+8 × 3: 53
+8 × 4: 340
+8 × 5: 1675
+8 × 6: 11174
+8 × 7: 55939
+8 × 8: 369050
+9 × 2: 9
+9 × 4: 553
+9 × 6: 31721
+9 × 8: 1812667
 EOD
 
 use Test::More;
 is ($result, $ref);
 done_testing();
-}
- 
-MAIN();
