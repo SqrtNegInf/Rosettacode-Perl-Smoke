@@ -4236,6 +4236,13 @@ File: H/Haversine_formula
 #c# 2018-08-12 <RC, 2020-05-18 <RC
 #p# OK
 
+File: H/Haversine_formula-2
+#!/usr/local/bin/perl
+#u# http://rosettacode.org/wiki/Haversine_formula
+#c# 2022-05-31 <RC
+#p# OK
+#n# Math::Trig is part of the Perl core distribution
+
 File: H/Hello_world_Graphical
 #!/usr/local/bin/perl
 #u# http://rosettacode.org/wiki/Hello_world/Graphical
@@ -8549,6 +8556,12 @@ File: S/Selective_File_Copy
 #c# 2018-09-18 >RC
 #p# OK
 #n# ref/sfc.dat not same as for Perl 6, pseudo-'Bit' in place of 'Int'
+
+File: S/Selectively_replace_multiple_instances_of_a_character_within_a_string
+#!/usr/local/bin/perl
+#u# http://rosettacode.org/wiki/Selectively_replace_multiple_instances_of_a_character_within_a_string
+#c# 2022-05-31 >RC
+#p# OK
 
 File: S/Self-describing_numbers
 #!/usr/local/bin/perl
