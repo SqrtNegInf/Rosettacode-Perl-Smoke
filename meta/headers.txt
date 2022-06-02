@@ -762,7 +762,14 @@ File: B/B-spline
 File: B/Babbage_problem
 #!/usr/local/bin/perl
 #u# http://rosettacode.org/wiki/Babbage_problem
-#c# 2018-07-15 <RC
+#c# 2018-07-15 <RC, 2022-06-01 <RC
+#p# OK
+
+File: B/Babylonian_spiral
+#!/usr/local/bin/perl
+#u# http://rosettacode.org/wiki/Babylonian_spiral
+#t# inprogress
+#c# 2022-06-xx >RC
 #p# OK
 
 File: B/Bacon_cipher
