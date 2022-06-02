@@ -1,6 +1,6 @@
 #!/usr/local/bin/perl
 #u# http://rosettacode.org/wiki/Babbage_problem
-#c# 2018-07-15 <RC
+#c# 2018-07-15 <RC, 2022-06-01 <RC
 #p# OK
 
 use strict;
@@ -13,9 +13,9 @@ use warnings ;
  
 my $current = 0 ;
 while ( ($current ** 2 ) % 1000000  != 269696 ) {
-   $current++ ;
+   $current += 2;
 }
-say $result = sprintf "The square of $current is " . ($current * $current) . " !\n" ;
+say $result = sprintf "The square of $current is " . $current**2 . " !\n" ;
 
 my $ref = <<EOD;
 The square of 25264 is 638269696 !
