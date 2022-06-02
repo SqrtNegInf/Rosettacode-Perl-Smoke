@@ -1,10 +1,10 @@
 #!/usr/local/bin/perl
 #u# http://rosettacode.org/wiki/Babylonian_spiral
-#t# inprogress
-#c# 2022-06-xx >RC
+#c# 2022-06-02 >RC
 #p# OK
-
-my @res;
+#n# NB: In Raku, '%' does just what is wanted, but here we have to do all the steps manually
+#n# 'Memoize' does not help on 'comparer', and only a little faster using a hash to avoid the 'sort'
+#n# We're gonna need a bigger algorithm for SVG (upgrade to new implementation by thundergnat++) 
 
 use strict;
 use warnings;
@@ -14,14 +14,13 @@ use constant TAU => 2 * 2 * atan2(1, 0);
 
 sub B_spiral {
     my($nsteps) = @_;
-    my @squares; 
-    push @squares, $_**2 for 0..$nsteps;
+    my @squares = map $_**2, 0..$nsteps+1;
     my @dxys = ([0, 0], [0, 1]);
     my $dsq  = 1;
 
     for (1 .. $nsteps-2) {
         my ($x,$y) = @{$dxys[-1]};
-        our $theta  = atan2($y,$x);
+        our $theta = atan2 $y, $x;
         my @candidates;
 
         until (@candidates) {
@@ -31,7 +30,7 @@ sub B_spiral {
                 next if $a > $dsq/2;
 	            for my $j ( reverse 0 .. 1 + int sqrt $dsq ) {
                     my $b = $squares[$j];
-                    next if ($a + $b ) < $dsq;
+                    next if ($a + $b) < $dsq;
                     if ($dsq == $a + $b) {
                         push @candidates, ( [$i, $j], [-$i, $j], [$i, -$j], [-$i, -$j],
                                             [$j, $i], [-$j, $i], [$j, -$i], [-$j, -$i] );
@@ -41,7 +40,7 @@ sub B_spiral {
         }
 
         sub comparer {
-            my $i = ($theta - atan2($_[1], $_[0])); 
+            my $i = $theta - atan2 $_[1], $_[0]; 
             my $z = $i - int($i / TAU) * TAU;
             $z < 0 ? TAU + $z : $z;
         }
@@ -52,65 +51,18 @@ sub B_spiral {
     map { state($x,$y); $x += $$_[0]; $y += $$_[1]; [$x,$y] } @dxys;
 }
 
-#say "The first 40 Babylonian spiral points are:\n";
-push @res, sprintf "(%3d,%4d)", @$_ for B_spiral(40);
-
-say my $result = join "\n", @res;
+say "The first 40 Babylonian spiral points are:";
+my @points = B_spiral(40);
+say my $result = join(' ', map { sprintf "(%3d,%4d)", @$_ } @points) =~ s/.{1,88}\K/\n/gr;
 
 my $ref = <<'END';
-(  0,   0)
-(  0,   1)
-(  1,   2)
-(  3,   2)
-(  5,   1)
-(  7,  -1)
-(  7,  -4)
-(  6,  -7)
-(  4, -10)
-(  0, -10)
-( -4,  -9)
-( -7,  -6)
-( -9,  -2)
-( -9,   3)
-( -8,   8)
-( -6,  13)
-( -2,  17)
-(  3,  20)
-(  9,  20)
-( 15,  19)
-( 21,  17)
-( 26,  13)
-( 29,   7)
-( 29,   0)
-( 28,  -7)
-( 24, -13)
-( 17, -15)
-( 10, -12)
-(  4,  -7)
-(  4,   1)
-(  5,   9)
-(  7,  17)
-( 13,  23)
-( 21,  26)
-( 28,  21)
-( 32,  13)
-( 32,   4)
-( 31,  -5)
-( 29, -14)
-( 24, -22)
+(  0,   0) (  0,   1) (  1,   2) (  3,   2) (  5,   1) (  7,  -1) (  7,  -4) (  6,  -7) 
+(  4, -10) (  0, -10) ( -4,  -9) ( -7,  -6) ( -9,  -2) ( -9,   3) ( -8,   8) ( -6,  13) 
+( -2,  17) (  3,  20) (  9,  20) ( 15,  19) ( 21,  17) ( 26,  13) ( 29,   7) ( 29,   0) 
+( 28,  -7) ( 24, -13) ( 17, -15) ( 10, -12) (  4,  -7) (  4,   1) (  5,   9) (  7,  17) 
+( 13,  23) ( 21,  26) ( 28,  21) ( 32,  13) ( 32,   4) ( 31,  -5) ( 29, -14) ( 24, -22)
 END
 
 use Test::More;
-chomp $ref;
 is($result, $ref);
 done_testing();
-
-__END__
-
-=={{header|Perl}}==
-{{trans|Raku}}
-<lang perl>
-</lang>
-{{out}}
-<pre>
-</pre>
