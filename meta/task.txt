@@ -1,16 +1,16 @@
 
 This is perl 5, version 32, subversion 1 (v5.32.1) built for darwin-thread-multi-2level
 updating from RC…
-+------------> Perl: Good/Bad [1629/12]
++------------> Perl: Good/Bad [1630/12]
 |+-----------> Smoke testing [1485]
-||+----------> sKipping validation [148]
+||+----------> sKipping validation [149]
 |||+---------> Interactive [76]
-||||+--------> Touched (modified by me) [570]
+||||+--------> Touched (modified by me) [571]
 |||||+-------> Random seed [123]
 ||||||+------> File output [80]
 |||||||+-----> Draft [350]
 ||||||||+----> Ignoring [39]
-|||||||||+---> Void (no local copy) [118]
+|||||||||+---> Void (no local copy) [117]
 ||||||||||+--> Un-implemented/reliable [92]
 |||||||||||
 GS..T..D... 10001th_prime
@@ -138,7 +138,7 @@ GS......... Averages_Root_mean_square
 GS......... Averages_Simple_moving_average
 GS..T.FD... B-spline
 GS......... Babbage_problem
-.......D.VU Babylonian_spiral
+G.K.T..D..U Babylonian_spiral
 GS..T.FD... Bacon_cipher
 GS...R..... Balanced_brackets-1
 GS...R..... Balanced_brackets-2
