@@ -768,9 +768,11 @@ File: B/Babbage_problem
 File: B/Babylonian_spiral
 #!/usr/local/bin/perl
 #u# http://rosettacode.org/wiki/Babylonian_spiral
-#t# inprogress
-#c# 2022-06-xx >RC
+#c# 2022-06-02 >RC
 #p# OK
+#n# NB: In Raku, '%' does just what is wanted, but here we have to do all the steps manually
+#n# 'Memoize' does not help on 'comparer', and only a little faster using a hash to avoid the 'sort'
+#n# We're gonna need a bigger algorithm for SVG (upgrade to new implementation by thundergnat++) 
 
 File: B/Bacon_cipher
 #!/usr/local/bin/perl 
