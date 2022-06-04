@@ -3,19 +3,12 @@
 #c# 2018-07-23 <RC
 #p# OK
 
+my $result;
+
 use strict;
 use warnings;
 use feature 'say';
-my $result;
 
-
-# Although perl can handle arbitrarily large numbers using Math::BigInt and Math::BigFloat, it's
-# native integers and floats are limited to what the computer's native types can handle.
-# As with the perl6 code, some special handling was done for those values which would have overflowed the native floating point type.
-
-use strict;
-use warnings;
- 
 showoff( "Permutations", \&P, "P", 1 .. 12 );
 showoff( "Combinations", \&C, "C", map $_*10, 1..6 );
 showoff( "Permutations", \&P_big, "P", 5, 50, 500, 1000, 5000, 15000 );
@@ -41,8 +34,7 @@ sub P_big {
 	my ($n, $k) = @_;
 	my $x = 0;
 	$x += log($_) for $n - $k + 1 .. $n ;
-	$x;
-	#eshow($x); # DH change
+	eshow($x);
 }
  
 sub C {
@@ -62,15 +54,10 @@ sub C_big {
 sub eshow {
 	my ($x) = @_;
 	my $e = int( $x / log(10) );
-	$result .= sprintf "%.8Fe%+d\n", exp($x - $e * log(10)), $e;
+	sprintf "%.8Fe%+d", exp($x - $e * log(10)), $e;
 }
- 
-# Since the output is almost the same as perl6's, and this is only a Draft RosettaCode task, I'm not going to bother including the output of the program.
-
-
 
 say $result; 
-
 
 my $ref = <<'EOD';
 
@@ -97,12 +84,12 @@ A sample of Combinations from 10 to 60
 60 C 20 = 4.1918445058055e+15
 
 A sample of Permutations from 5 to 15000
-5 P 1 = 1.6094379124341
-50 P 16 = 59.8969394095753
-500 P 166 = 1000.58460827532
-1000 P 333 = 2237.59675936876
-5000 P 1666 = 13875.0004182389
-15000 P 5000 = 47133.8812112797
+5 P 1 = 5.00000000e+0
+50 P 16 = 1.03017325e+26
+500 P 166 = 3.53487492e+434
+1000 P 333 = 5.96932629e+971
+5000 P 1666 = 6.85674576e+6025
+15000 P 5000 = 9.64985399e+20469
 
 A sample of Combinations from 100 to 1000
 100 C 33 = 2.94692427022544e+26
