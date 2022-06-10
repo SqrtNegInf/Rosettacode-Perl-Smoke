@@ -10,14 +10,23 @@ use feature 'say';
 sub lcs {
     my ($c, $d) = @_;
     for my $len ( reverse 1 .. length($c & $d) ) {
-        "$c\n$d" =~ join '.*', ('(.)') x $len, "\n", map "\\$_", 1 .. $len and
-        return join '', @{^CAPTURE};
+        "$c\n$d" =~ join '.*', ('(.)') x $len, "\n", map "\\$_", 1 .. $len and return join '', @{^CAPTURE}
     }
-    return '';
+    # fall through, nothing in common
 }
 
-say my $result = 'lcs is ' . lcs('thisisatest', 'testing123testing');
+sub lcs_too_terse {
+    my ($c, $d) = @_;
+    "$c\n$d" =~ join '.*', ('(.)') x $_, "\n", map "\\$_", 1 .. $_ and return join '', @{^CAPTURE} for reverse 1 .. length($c & $d);
+    #  doubling-up on topic var:     ^ 'for'          ^ 'map'   ^ 'for'
+}
+
+say my $result1 = lcs('thisisatest', 'testing123testing');
+    my $result2 = lcs('abcdefghi', 'xyz');
+    my $result3 = lcs_too_terse('thisisatest', 'testing123testing');
 
 use Test::More;
-is ($result, 'lcs is tsitest');
+is ($result1, 'tsitest');
+is ($result2, '');
+is ($result3, 'tsitest');
 done_testing();
