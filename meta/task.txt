@@ -8,7 +8,7 @@ updating from RC…
 ||||+--------> Touched (modified by me) [571]
 |||||+-------> Random seed [123]
 ||||||+------> File output [80]
-|||||||+-----> Draft [350]
+|||||||+-----> Draft [349]
 ||||||||+----> Ignoring [39]
 |||||||||+---> Void (no local copy) [117]
 ||||||||||+--> Un-implemented/reliable [91]
@@ -1369,7 +1369,7 @@ GS......... Search_a_list_of_records
 G.K........ Secure_temporary_file
 .......D.V. Segmentation_fault_protection
 GS..T..D... Selective_file_copy
-GS..T..D... Selectively_replace_multiple_instances_of_a_character_within_a_string
+GS..T...... Selectively_replace_multiple_instances_of_a_character_within_a_string
 GS......... Self-describing_numbers
 .......D.VU Self-hosting_compiler
 GS..T...... Self_numbers-1
