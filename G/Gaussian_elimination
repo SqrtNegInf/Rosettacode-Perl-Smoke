@@ -4,9 +4,11 @@
 #p# OK
 #n# library overloads operators and disables Test::More?
 
-use strict;
-use feature 'say';
 my $result;
+
+use strict;
+use warnings;
+use feature 'say';
 
 use Math::Matrix;
 
@@ -30,5 +32,5 @@ my $ref = <<'EOD';
 EOD
 
 #use Test::More;
-print "ok 1\n" if 34 == length $result;
-print "ok 2\n" if $result =~ /\s+1\.0+\s+1\.0+\s+2.0+/;
+say 'ok 1' if 34 == length $result;
+say 'ok 2' if $result =~ /\s+1\.0+\s+1\.0+\s+2.0+/;
