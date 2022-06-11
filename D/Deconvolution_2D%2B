@@ -59,7 +59,7 @@ sub rref {
   @m or return;
   my ($lead, $rows, $cols) = (0, scalar @m, scalar $m[0]->@*);
 
-  foreach my $r (0 .. $rows - 1) {
+  for my $r (0 .. $rows - 1) {
      $lead < $cols or return;
       my $i = $r;
 
@@ -71,13 +71,13 @@ sub rref {
 
       @m[$i, $r] = @m[$r, $i];
       my $lv = $m[$r][$lead];
-      $_ /= $lv foreach $m[$r]->@*;
+      $_ /= $lv for $m[$r]->@*;
 
       my @mr = $m[$r]->@*;
-      foreach my $i (0 .. $rows - 1) {
+      for my $i (0 .. $rows - 1) {
           $i == $r and next;
-          ($lv, my $n) = ($m[$i][$lead], -1);
-          $_ -= $lv * $mr[++$n] foreach $m[$i]->@* 
+          my($lv, $n) = ($m[$i][$lead], -1);
+          $_ -= $lv * $mr[++$n] for $m[$i]->@* 
       }
       ++$lead;
     }
@@ -174,7 +174,7 @@ my @ff = deconvolve_N( \@g, \@h );
 # for display
 my $d = shape(@g);
 say "${d}D array:";
-say "h =";
+say 'h =';
 pretty_print(0, @h);
 say "\nff =";
 pretty_print(0, @ff);
