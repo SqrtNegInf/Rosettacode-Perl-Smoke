@@ -1,53 +1,49 @@
 #!/usr/local/bin/perl
 #u# http://rosettacode.org/wiki/Closest-pair_problem
-#c# 2018-07-23 <>RC
+#c# 2018-07-23 <>RC, 2022-06-11 >RC
 #p# OK
+#n# the divide & conquer technique is about 100x faster than the brute-force algorithm
+
+srand 123456;
+
+my $result;
 
 use strict;
 use warnings;
 use feature 'say';
-my $result;
 
-srand 123456;
 use POSIX qw(ceil);
-
-# The divide & conquer technique is about 100x faster than the brute-force algorithm
+use constant Inf => 1e12;
  
-sub dist
-{
-    my ( $a, $b) = @_;
-    return sqrt( ($a->[0] - $b->[0])**2 +
-                 ($a->[1] - $b->[1])**2 );
+sub dist {
+    my ($a, $b) = @_;
+    return sqrt(($a->[0] - $b->[0])**2 +
+                ($a->[1] - $b->[1])**2)
 }
  
-sub closest_pair_simple
-{
-    my $ra = shift;
-    my @arr = @$ra;
-    my $inf = 1e600;
-    return $inf if scalar(@arr) < 2;
-    my ( $a, $b, $d ) = ($arr[0], $arr[1], dist($arr[0], $arr[1]));
+sub closest_pair_simple {
+    my @arr = @{ shift @_ };
+    my ( $a, $b, $d ) = ( $arr[0], $arr[1], dist($arr[0], $arr[1]) );
     while( @arr ) {
-	my $p = pop @arr;
-	foreach my $l (@arr) {
-	    my $t = dist($p, $l);
-	    ($a, $b, $d) = ($p, $l, $t) if $t < $d;	    
-	}
+	    my $p = pop @arr;
+	    foreach my $l (@arr) {
+	        my $t = dist($p, $l);
+	        ($a, $b, $d) = ($p, $l, $t) if $t < $d;	    
+	    }
     }
-    return ($a, $b, $d);
+    $a, $b, $d
 }
  
-sub closest_pair
-{
-    my $r = shift;
-    my @ax = sort { $a->[0] <=> $b->[0] } @$r;
-    my @ay = sort { $a->[1] <=> $b->[1] } @$r;
-    return closest_pair_real(\@ax, \@ay);
+sub closest_pair {
+    my @r = @{ shift @_ };
+    my @ax = sort { $a->[0] <=> $b->[0] } @r;
+    my @ay = sort { $a->[1] <=> $b->[1] } @r;
+    closest_pair_real(\@ax, \@ay)
 }
  
-sub closest_pair_real
-{
+sub closest_pair_real {
     my ($rx, $ry) = @_;
+    my(@yR, @yL);
     my @xP = @$rx;
     my @yP = @$ry;
     my $N = @xP;
@@ -55,69 +51,53 @@ sub closest_pair_real
  
     my $inf = 1e600;
     my $midx = ceil($N/2)-1;
- 
-    my @PL = @xP[0 .. $midx];
+    my @PL = @xP[      0 .. $midx];
     my @PR = @xP[$midx+1 .. $N-1];
- 
     my $xm = ${$xP[$midx]}[0];
  
-    my @yR = ();
-    my @yL = ();
     foreach my $p (@yP) {
-	if ( ${$p}[0] <= $xm ) {
-	    push @yR, $p;
-	} else {
-	    push @yL, $p;
-	}
+	    if ( ${$p}[0] <= $xm ) {
+	        push @yR, $p;
+	    } else {
+	        push @yL, $p;
+	    }
     }
  
     my ($al, $bl, $dL) = closest_pair_real(\@PL, \@yR);
     my ($ar, $br, $dR) = closest_pair_real(\@PR, \@yL);
+	my ( $w1, $w2, $closest ) = $dR > $dL ? ($al, $bl, $dL) : ($ar, $br, $dR);
  
-    my ($m1, $m2, $dmin) = ($al, $bl, $dL);
-    ($m1, $m2, $dmin) = ($ar, $br, $dR) if $dR < $dL;
- 
-    my @yS = ();
+    my @yS;
     foreach my $p (@yP) {
-	push @yS, $p if abs($xm - ${$p}[0]) < $dmin;
+	    push @yS, $p if abs($xm - ${$p}[0]) < $closest;
     }
  
-    if ( @yS ) {
-	my ( $w1, $w2, $closest ) = ($m1, $m2, $dmin);
-	foreach my $i (0 .. ($#yS - 1)) {
- 
+	foreach my $i (0 .. $#yS-1) {
 	    my $k = $i + 1;
-	    while ( ($k <= $#yS) && ( (${$yS[$k]}[1] - ${$yS[$i]}[1]) < $dmin) ) {
-		my $d = dist($yS[$k], $yS[$i]);
-		($w1, $w2, $closest) = ($yS[$k], $yS[$i], $d) if $d < $closest;
-		$k++;
+	    while ( $k <= $#yS and (${$yS[$k]}[1] - ${$yS[$i]}[1]) < $closest) {
+		    my $d = dist($yS[$k], $yS[$i]);
+		    ($w1, $w2, $closest) = ($yS[$k], $yS[$i], $d) if $d < $closest;
+		    $k++;
 	    }
  
 	}
-	return ($w1, $w2, $closest);
+	$w1, $w2, $closest
+}
  
-    } else {
-	return ($m1, $m2, $dmin);
-    } 
+my @points;
+foreach my $i (1..5000) {
+    push @points, [rand(20)-10, rand(20)-10];
 }
  
  
- 
-my @points = ();
-my $N = 5000;
- 
-foreach my $i (1..$N) {
-    push @points, [rand(20)-10.0, rand(20)-10.0];
-}
- 
- 
-my ($a, $b, $d) = closest_pair_simple(\@points);
+my($a, $b, $d) = closest_pair_simple(\@points);
 $result .= "$d\n";
  
-my ($a1, $b1, $d1) = closest_pair(\@points);
+my($a1, $b1, $d1) = closest_pair(\@points);
 $result .= "$d1\n";
 
 say $result; 
+
 my $ref = <<'EOD';
 0.00259321833704879
 0.00259321833704879
