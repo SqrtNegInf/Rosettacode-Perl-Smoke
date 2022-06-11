@@ -1573,8 +1573,9 @@ File: C/Classes
 File: C/Closest-pair_problem
 #!/usr/local/bin/perl
 #u# http://rosettacode.org/wiki/Closest-pair_problem
-#c# 2018-07-23 <>RC
+#c# 2018-07-23 <>RC, 2022-06-11 >RC
 #p# OK
+#n# the divide & conquer technique is about 100x faster than the brute-force algorithm
 
 File: C/Closures_Value_capture
 #!/usr/local/bin/perl
