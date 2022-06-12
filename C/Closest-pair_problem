@@ -15,7 +15,7 @@ use feature 'say';
 use POSIX qw(ceil);
 
 sub dist_alt {
-   our (@a, @b); (local *a, *b) = (shift, shift);
+   our (@a, @b); (*a, *b) = (shift, shift);
    return sqrt(($a[0] - $b[0])**2 +
                ($a[1] - $b[1])**2)
 }
@@ -73,10 +73,8 @@ sub closest_pair_real {
 
 my @points;
 push @points, [rand(20)-10, rand(20)-10] for 1..5000;
-
-for ( [closest_pair_simple(\@points)], [closest_pair(\@points)] ) {
-    $result .= sprintf "%.8f between (%.5f, %.5f), (%.5f, %.5f)\n", $_->[2], @{$$_[0]}, @{$$_[1]}
-}
+$result .= sprintf "%.8f between (%.5f, %.5f), (%.5f, %.5f)\n", $_->[2], @{$$_[0]}, @{$$_[1]} for
+    [closest_pair_simple(\@points)], [closest_pair(\@points)];
 
 say $result; 
 
