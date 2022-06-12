@@ -9,8 +9,8 @@ my $result;
 my @list = ( 1, 2, 3, 4 );
 
 my ( $sum, $prod ) = ( 0, 1 );
-$sum  += $_ foreach @list;
-$prod *= $_ foreach @list;
+$sum  += $_ for @list;
+$prod *= $_ for @list;
 $result = "Sum: $sum\nProduct: $prod\n";
 # Or using the List::Util module:
 
