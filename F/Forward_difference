@@ -10,7 +10,7 @@ my $result;
 
 sub dif {
   my @s = @_;
-  map { $s[$_+1] - $s[$_] } 0 .. $#s-1
+  map { $s[$_+1] - $s[$_] } 0 .. @s-1 #$#s-1
 }
 
 # obsoleted
