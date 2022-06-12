@@ -10,7 +10,7 @@ my $result;
 
 sub sum_of_squares1 {
   my $sum = 0;
-  $sum += $_**2 foreach @_;
+  $sum += $_**2 for @_;
   return $sum;
 }
 
