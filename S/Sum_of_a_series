@@ -9,7 +9,7 @@ use feature 'say';
 my $result;
 
 my $sum = 0;
-$sum += 1 / $_ ** 2 foreach 1..1000;
+$sum += 1 / $_ ** 2 for 1..1000;
 $result .= "$sum\n";
 
 #or
