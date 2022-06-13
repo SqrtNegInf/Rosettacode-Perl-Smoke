@@ -1,7 +1,7 @@
 
 This is perl 5, version 32, subversion 1 (v5.32.1) built for darwin-thread-multi-2level
 updating from RC…
-+------------> Perl: Good/Bad [1630/12]
++------------> Perl: Good/Bad [1629/12]
 |+-----------> Smoke testing [1486]
 ||+----------> sKipping validation [148]
 |||+---------> Interactive [76]
@@ -613,7 +613,7 @@ GS......... Formal_power_series-1
 GS......... Formal_power_series-2
 GS......... Formatted_numeric_output
 GS..T...... Fortunate_numbers
-GS..T...... Forward_difference
+!S..T...... Forward_difference
 GS......... Four_bit_adder
 GS..T...... Four_is_magic
 GS..T...... Four_is_the_number_of_letters_in_the_...
