@@ -1421,7 +1421,7 @@ File: C/Chat_server-2
 File: C/Chebyshev_coefficients
 #!/usr/local/bin/perl
 #u# http://rosettacode.org/wiki/Chebyshev_coefficients
-#c# 2018-07-22 <RC
+#c# 2018-07-22 <RC, 2022-06-13 >RC
 #p# OK
 
 File: C/Check_Machin-like_formulas
