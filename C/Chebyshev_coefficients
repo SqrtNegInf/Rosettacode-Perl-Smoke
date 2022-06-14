@@ -1,12 +1,13 @@
 #!/usr/local/bin/perl
 #u# http://rosettacode.org/wiki/Chebyshev_coefficients
-#c# 2018-07-22 <RC
+#c# 2018-07-22 <RC, 2022-06-13 >RC
 #p# OK
+
+my @res;
 
 use strict;
 use warnings;
 use feature 'say';
-my $result;
 
 use constant PI => 2 * atan2(1, 0);
  
@@ -24,22 +25,24 @@ sub chebft {
   @c;
 }
  
-$result .= sprintf "$_\n" for chebft(sub{cos($_[0])}, 0, 1, 10);
+push @res, sprintf '%+13.7e', $_ for chebft(sub{cos($_[0])}, 0, 1, 10);
 
-say $result; 
+say my $result = join "\n", @res; 
+
 my $ref = <<'EOD';
-1.64716947539031
--0.232299371615172
--0.0537151146220477
-0.00245823526698163
-0.000282119057433938
--7.72222915566001e-06
--5.89855645105608e-07
-1.15214274787334e-08
-6.59629917354465e-10
--1.00219943455215e-11
++1.6471695e+00
+-2.3229937e-01
+-5.3715115e-02
++2.4582353e-03
++2.8211906e-04
+-7.7222292e-06
+-5.8985565e-07
++1.1521427e-08
++6.5962992e-10
+-1.0021994e-11
 EOD
 
 use Test::More;
+chomp $ref;
 is ($result, $ref);
 done_testing();
