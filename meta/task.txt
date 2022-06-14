@@ -1,11 +1,10 @@
 
 This is perl 5, version 32, subversion 1 (v5.32.1) built for darwin-thread-multi-2level
-updating from RC…
-+------------> Perl: Good/Bad [1629/12]
++------------> Perl: Good/Bad [1630/12]
 |+-----------> Smoke testing [1486]
 ||+----------> sKipping validation [148]
 |||+---------> Interactive [76]
-||||+--------> Touched (modified by me) [571]
+||||+--------> Touched (modified by me) [572]
 |||||+-------> Random seed [123]
 ||||||+------> File output [80]
 |||||||+-----> Draft [349]
@@ -246,7 +245,7 @@ GS..T...... Character_codes-2
 GS......... Character_codes-3
 G.KI....... Chat_server
 G.KI....... Chat_server-2
-GS.....D... Chebyshev_coefficients
+GS..T..D... Chebyshev_coefficients
 GS......... Check_Machin-like_formulas
 GS......... Check_input_device_is_a_terminal
 G.K........ Check_output_device_is_a_terminal
@@ -613,7 +612,7 @@ GS......... Formal_power_series-1
 GS......... Formal_power_series-2
 GS......... Formatted_numeric_output
 GS..T...... Fortunate_numbers
-!S..T...... Forward_difference
+GS..T...... Forward_difference
 GS......... Four_bit_adder
 GS..T...... Four_is_magic
 GS..T...... Four_is_the_number_of_letters_in_the_...
