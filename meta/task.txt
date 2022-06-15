@@ -1,5 +1,6 @@
 
 This is perl 5, version 32, subversion 1 (v5.32.1) built for darwin-thread-multi-2level
+updating from RC…
 +------------> Perl: Good/Bad [1630/12]
 |+-----------> Smoke testing [1486]
 ||+----------> sKipping validation [148]
@@ -7,10 +8,10 @@ This is perl 5, version 32, subversion 1 (v5.32.1) built for darwin-thread-multi
 ||||+--------> Touched (modified by me) [572]
 |||||+-------> Random seed [123]
 ||||||+------> File output [80]
-|||||||+-----> Draft [349]
+|||||||+-----> Draft [351]
 ||||||||+----> Ignoring [39]
-|||||||||+---> Void (no local copy) [117]
-||||||||||+--> Un-implemented/reliable [91]
+|||||||||+---> Void (no local copy) [119]
+||||||||||+--> Un-implemented/reliable [93]
 |||||||||||
 GS..T..D... 10001th_prime
 GS......... 100_doors-1
@@ -111,6 +112,7 @@ GS......... Arithmetic_Integer
 GS..T...... Arithmetic_Rational
 GS.....D... Arithmetic_coding_As_a_generalized_change_of_radix
 GS......... Arithmetic_evaluation
+.......D.VU Arithmetic_numbers
 GS......... Array_concatenation
 GS......... Array_length
 GS......... Arrays
@@ -1285,6 +1287,7 @@ GS......... Real_constants_and_functions
 GS..T...... Recaman%27s_sequence
 ........XVU Record_sound
 GS....FD... Recursive_descent_parser_generator
+.......D.VU Red_black_tree_sort
 GS..T...... Reduced_row_echelon_form
 GS......... Reflection_Get_source
 GS..T...... Reflection_List_methods
