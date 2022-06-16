@@ -8,7 +8,7 @@ updating from RC…
 ||||+--------> Touched (modified by me) [572]
 |||||+-------> Random seed [123]
 ||||||+------> File output [80]
-|||||||+-----> Draft [351]
+|||||||+-----> Draft [350]
 ||||||||+----> Ignoring [39]
 |||||||||+---> Void (no local copy) [119]
 ||||||||||+--> Un-implemented/reliable [93]
@@ -112,7 +112,7 @@ GS......... Arithmetic_Integer
 GS..T...... Arithmetic_Rational
 GS.....D... Arithmetic_coding_As_a_generalized_change_of_radix
 GS......... Arithmetic_evaluation
-.......D.VU Arithmetic_numbers
+.........VU Arithmetic_numbers
 GS......... Array_concatenation
 GS......... Array_length
 GS......... Arrays
