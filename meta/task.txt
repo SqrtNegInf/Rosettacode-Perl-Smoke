@@ -8,7 +8,7 @@ updating from RC…
 ||||+--------> Touched (modified by me) [572]
 |||||+-------> Random seed [123]
 ||||||+------> File output [80]
-|||||||+-----> Draft [352]
+|||||||+-----> Draft [353]
 ||||||||+----> Ignoring [39]
 |||||||||+---> Void (no local copy) [122]
 ||||||||||+--> Un-implemented/reliable [96]
@@ -1455,7 +1455,7 @@ GS......... Solve_a_Hopido_puzzle
 GS......... Solve_a_Numbrix_puzzle
 .......D.VU Solve_a_Rubik%27s_Cube
 GS..T..D... Solve_equations_with_substitution_method
-GS......... Solve_hanging_lantern_problem
+GS.....D... Solve_hanging_lantern_problem
 GS......... Solve_the_no_connection_puzzle
 .......D.V. Solve_triangle_solitare_puzzle
 GS..T.FD... Solving_coin_problems
