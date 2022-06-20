@@ -606,6 +606,12 @@ File: A/Arithmetic_evaluation
 #p# OK
 #n# doesn't handle as many expressions types as the Perl 6 version
 
+File: A/Arithmetic_numbers
+#!/usr/local/bin/perl
+#u# http://rosettacode.org/wiki/Arithmetic_numbers
+#c# 2022-06-19 >RC
+#p# OK
+
 File: A/Array_concatenation
 #!/usr/local/bin/perl
 #u# http://rosettacode.org/wiki/Array_concatenation
