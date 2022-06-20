@@ -1,14 +1,14 @@
 
 This is perl 5, version 32, subversion 1 (v5.32.1) built for darwin-thread-multi-2level
 updating from RC…
-+------------> Perl: Good/Bad [1630/12]
-|+-----------> Smoke testing [1486]
++------------> Perl: Good/Bad [1631/12]
+|+-----------> Smoke testing [1487]
 ||+----------> sKipping validation [148]
 |||+---------> Interactive [76]
-||||+--------> Touched (modified by me) [572]
+||||+--------> Touched (modified by me) [573]
 |||||+-------> Random seed [123]
 ||||||+------> File output [80]
-|||||||+-----> Draft [353]
+|||||||+-----> Draft [354]
 ||||||||+----> Ignoring [39]
 |||||||||+---> Void (no local copy) [122]
 ||||||||||+--> Un-implemented/reliable [96]
@@ -112,7 +112,7 @@ GS......... Arithmetic_Integer
 GS..T...... Arithmetic_Rational
 GS.....D... Arithmetic_coding_As_a_generalized_change_of_radix
 GS......... Arithmetic_evaluation
-.........VU Arithmetic_numbers
+GS..T...... Arithmetic_numbers
 GS......... Array_concatenation
 GS......... Array_length
 GS......... Arrays
@@ -128,6 +128,7 @@ GS..T...... Attractive_numbers
 .......D.VU Audio_alarm
 G.KIT..D... Audio_frequency_generator
 .......D.VU Audio_overlap_loop
+.......D.VU Autogram_checker
 GS..TR..... Average_loop_length
 GS..T...... Averages_Arithmetic_mean
 GS......... Averages_Mean_angle
