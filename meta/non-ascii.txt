@@ -42,6 +42,9 @@ A/Almkvist-Giullera_formula_for_pi.1
 A/Approximate_Equality
 ≅:    12 APPROXIMATELY EQUAL TO
 
+A/Arithmetic_numbers
+≤:     5 LESS-THAN OR EQUAL TO
+
 A/Averages_Mean_angle
 π:     6 GREEK SMALL LETTER PI
 
