@@ -4694,6 +4694,7 @@ File: I/Integer_overflow
 #u# http://rosettacode.org/wiki/Integer_overflow
 #c# 2018-08-13 <RC
 #p# OK
+#n# can of course get correct results with 'bigint' pragma
 
 File: I/Integer_roots-1
 #!/usr/local/bin/perl
@@ -7153,6 +7154,13 @@ File: P/Perfect_totient_numbers
 #c# 2018-12-07 >RC
 #p# OK
 #n# RC version tweaked by Trizen, but essentially the same
+
+File: P/Periodic_table
+#!/usr/local/bin/perl
+#u# http://rosettacode.org/wiki/Periodic_table
+#c# 2022-06-20 >RC
+#p# OK
+#n# count in base 18, advance and retard as needed
 
 File: P/Peripheral_drift_illusion
 #!/usr/local/bin/perl
