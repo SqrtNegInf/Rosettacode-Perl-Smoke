@@ -2,13 +2,12 @@
 #u# http://rosettacode.org/wiki/Integer_overflow
 #c# 2018-08-13 <RC
 #p# OK
+#n# can of course get correct results with 'bigint' pragma
 
 use strict;
 use warnings;
 use feature 'say';
 my $result;
-
-# Using Perl 5.18 on 64-bit Linux with use integer:
 
 use integer;
 
@@ -32,3 +31,13 @@ EOD
 use Test::More;
 is ($result, $ref);
 done_testing();
+
+__END__
+
+Correct results:
+
+9223372036854775808
+10000000000000000000
+-18446744073709551614
+9223372037000250000
+9223372036854775808
