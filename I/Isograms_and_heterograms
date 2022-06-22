@@ -1,0 +1,111 @@
+#!/usr/local/bin/perl
+#u# http://rosettacode.org/wiki/Isograms_and_heterograms
+#c# 2022-06-21 >RC
+#p# OK
+
+my @res;
+
+use strict;
+use warnings;
+use feature 'say';
+
+use Path::Tiny;
+use List::Util 'uniq';
+
+my(@heterogram, %isogram);
+my @words = map { lc } path('ref/unixdict.txt')->slurp =~ /^[A-z]{2,}$/gm;
+
+for my $w (@words) {
+    my %l;
+    $l{$_}++ for split '', $w;
+    next unless 1 == scalar (my @x = uniq values %l);
+    if ($x[0] == 1) { push @heterogram,        $w if length $w > 10 }
+    else            { push @{$isogram{$x[0]}}, $w                   }
+}
+
+for my $n (reverse sort keys %isogram) {
+    my @i = sort { length $b <=> length $a } @{$isogram{$n}};
+    push @res, scalar @i . " $n-isograms:\n" . join("\n", @i) . "\n";
+}
+
+push @res, scalar(@heterogram) . " heterograms with more than 10 characters:\n" . join "\n", sort { length $b <=> length $a } @heterogram;
+
+my $result = join "\n", @res;
+
+my $ref = <<'END';
+2 3-isograms:
+aaa
+iii
+
+31 2-isograms:
+beriberi
+bilabial
+caucasus
+couscous
+teammate
+appall
+emmett
+hannah
+murmur
+tartar
+testes
+anna
+coco
+dada
+deed
+dodo
+gogo
+isis
+juju
+lulu
+mimi
+noon
+otto
+papa
+peep
+poop
+teet
+tete
+toot
+tutu
+ii
+
+32 heterograms with more than 10 characters:
+ambidextrous
+bluestocking
+exclusionary
+incomputable
+lexicography
+loudspeaking
+malnourished
+atmospheric
+blameworthy
+centrifugal
+christendom
+consumptive
+countervail
+countryside
+countrywide
+disturbance
+documentary
+earthmoving
+exculpatory
+geophysical
+inscrutable
+misanthrope
+problematic
+selfadjoint
+stenography
+sulfonamide
+switchblade
+switchboard
+switzerland
+thunderclap
+valedictory
+voluntarism
+END
+
+use Test::More;
+chomp $ref;
+is($result, $ref);
+done_testing();
