@@ -1,0 +1,45 @@
+#!/usr/local/bin/perl
+#u# http://rosettacode.org/wiki/Variable_declaration_reset
+#c# 2022-06-21 >RC
+#p# OK
+
+my @res;
+
+use feature <say state>;
+
+my @s = <1 2 2 3 4 4 5>;
+
+# 'wrong' way
+{
+    for ($i = 0; $i < 7; $i++) {
+        $curr = $s[$i];
+        if ($i > 1 and $curr == $prev) { push @res, $i }
+        $prev = $curr;
+    }
+}
+
+# 'right' way
+{
+    use strict;
+    use warnings;
+    for (my $i = 0; $i < 7; $i++) {
+        my $curr = $s[$i];
+        state $prev;
+        if ($i > 1 and $curr == $prev) { push @res, $i }
+        $prev = $curr;
+    }
+}
+
+say my $result = join "\n", @res;
+
+my $ref = <<'END';
+2
+5
+2
+5
+END
+
+use Test::More;
+chomp $ref;
+is($result, $ref);
+done_testing();
