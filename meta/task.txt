@@ -1,17 +1,17 @@
 
 This is perl 5, version 32, subversion 1 (v5.32.1) built for darwin-thread-multi-2level
 updating from RC…
-+------------> Perl: Good/Bad [1631/12]
-|+-----------> Smoke testing [1488]
++------------> Perl: Good/Bad [1634/12]
+|+-----------> Smoke testing [1490]
 ||+----------> sKipping validation [148]
 |||+---------> Interactive [76]
-||||+--------> Touched (modified by me) [574]
+||||+--------> Touched (modified by me) [576]
 |||||+-------> Random seed [123]
 ||||||+------> File output [80]
 |||||||+-----> Draft [354]
 ||||||||+----> Ignoring [39]
-|||||||||+---> Void (no local copy) [121]
-||||||||||+--> Un-implemented/reliable [95]
+|||||||||+---> Void (no local copy) [119]
+||||||||||+--> Un-implemented/reliable [93]
 |||||||||||
 GS..T..D... 10001th_prime
 GS......... 100_doors-1
@@ -766,7 +766,7 @@ GS..T...... Intersecting_number_wheels
 GS..T...... Introspection
 GS......... Inverted_index
 G.K........ Inverted_syntax
-.......D.VU Isograms_and_heterograms
+GS..T..D... Isograms_and_heterograms
 GS......... Isqrt_integer_square_root_of_X
 GS......... Iterated_digits_squaring
 .......D.VU Iterators
@@ -1644,7 +1644,7 @@ GS......... Thue-Morse
 GS...R..... Tic-tac-toe
 G.KI....... Tic-tac-toe-2
 GS.....D... Time-based_one-time_password_algorithm
-!S......... Time_a_function
+GS......... Time_a_function
 GS......... Tokenize_a_string
 GS......... Tokenize_a_string_with_escaping
 GS..T...... Tonelli-Shanks_algorithm
@@ -1719,7 +1719,7 @@ GS......... Vampire_number-2
 GS..T...... Van_Eck_sequence
 GS......... Van_der_Corput_sequence
 GS......... Variable-length_quantity
-.........VU Variable_declaration_reset
+GS..T...... Variable_declaration_reset
 GS..T...... Variable_size_Get
 G.K........ Variable_size_Set
 GS......... Variables
