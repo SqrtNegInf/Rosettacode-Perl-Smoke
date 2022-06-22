@@ -4751,6 +4751,12 @@ File: I/Inverted_syntax
 #c# 2018-08-13 <RC
 #p# OK
 
+File: I/Isograms_and_heterograms
+#!/usr/local/bin/perl
+#u# http://rosettacode.org/wiki/Isograms_and_heterograms
+#c# 2022-06-21 >RC
+#p# OK
+
 File: I/Isqrt_integer_square_root_of_X
 #!/usr/local/bin/perl
 #u# http://rosettacode.org/wiki/Isqrt_(integer_square_root)_of_X
@@ -4982,6 +4988,13 @@ File: K/Kosaraju
 #p# OK
 
 File: K/Kronecker_product
+#!/usr/local/bin/perl
+#u# http://rosettacode.org/wiki/Kronecker_product
+#c# 2018-08-14 <RC, 2022-06-21 <RC
+#p# OK
+#n# changes by E. Chorba, apropos PWC #168
+
+File: K/Kronecker_product.1
 #!/usr/local/bin/perl
 #u# http://rosettacode.org/wiki/Kronecker_product
 #c# 2018-08-14 <RC
@@ -10734,6 +10747,12 @@ File: V/Variable-length_quantity
 #!/usr/local/bin/perl
 #u# http://rosettacode.org/wiki/Variable-length_quantity
 #c# 2018-08-06 <RC
+#p# OK
+
+File: V/Variable_declaration_reset
+#!/usr/local/bin/perl
+#u# http://rosettacode.org/wiki/Variable_declaration_reset
+#c# 2022-06-21 >RC
 #p# OK
 
 File: V/Variable_size_Get
