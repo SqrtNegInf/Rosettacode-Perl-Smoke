@@ -8,12 +8,12 @@
 
 use strict;
 use warnings;
-use feature <say state>;
+use feature qw{ say signatures state };
+no warnings qw<experimental::signatures>;
 
 use constant TAU => 2 * 2 * atan2(1, 0);
 
-sub B_spiral {
-    my($nsteps) = @_;
+sub B_spiral ($nsteps) {
     my @squares = map $_**2, 0..$nsteps+1;
     my @dxys = ([0, 0], [0, 1]);
     my $dsq  = 1;
