@@ -7,12 +7,13 @@
 my @res;
 
 use strict;
-use warnings; no warnings 'uninitialized';
-use feature 'say';
+use warnings; 
+use feature <say signatures>;
+no warnings qw<uninitialized experimental::signatures>;
 
 use List::Util <sum head>;
 
-sub divmod { int $_[0]/$_[1], $_[0]%$_[1] }
+sub divmod ($v, $r) { int $v/$r, $v%$r }
 
 my $x = 2 * (my $b = 18);
 my(@offset,@span,$cnt);  
