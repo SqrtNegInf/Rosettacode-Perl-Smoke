@@ -8,12 +8,12 @@ my @res;
 
 use strict;
 use warnings;
-use feature 'say';
+use feature qw{ say signatures };
+no warnings qw<experimental::signatures>;
 
 use PDL;
 
-sub kron {
-    my ($x, $y) = @_;
+sub kron ($x, $y) {
 
     return $x->dummy(0)
              ->dummy(0)
