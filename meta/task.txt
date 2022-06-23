@@ -1,8 +1,8 @@
 
 This is perl 5, version 32, subversion 1 (v5.32.1) built for darwin-thread-multi-2level
 updating from RC…
-+------------> Perl: Good/Bad [1634/12]
-|+-----------> Smoke testing [1490]
++------------> Perl: Good/Bad [1633/12]
+|+-----------> Smoke testing [1489]
 ||+----------> sKipping validation [148]
 |||+---------> Interactive [76]
 ||||+--------> Touched (modified by me) [576]
@@ -10,7 +10,7 @@ updating from RC…
 ||||||+------> File output [80]
 |||||||+-----> Draft [354]
 ||||||||+----> Ignoring [39]
-|||||||||+---> Void (no local copy) [119]
+|||||||||+---> Void (no local copy) [120]
 ||||||||||+--> Un-implemented/reliable [93]
 |||||||||||
 GS..T..D... 10001th_prime
@@ -761,7 +761,7 @@ GS..T...... Integer_roots-1
 GS......... Integer_roots-2
 G.KI....... Integer_sequence
 .......D.V. Interactive_help
-GS......... Interactive_programming
+.........V. Interactive_programming_repl
 GS..T...... Intersecting_number_wheels
 GS..T...... Introspection
 GS......... Inverted_index
