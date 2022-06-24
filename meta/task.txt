@@ -1,17 +1,17 @@
 
 This is perl 5, version 32, subversion 1 (v5.32.1) built for darwin-thread-multi-2level
 updating from RC…
-+------------> Perl: Good/Bad [1633/12]
-|+-----------> Smoke testing [1489]
++------------> Perl: Good/Bad [1634/12]
+|+-----------> Smoke testing [1490]
 ||+----------> sKipping validation [148]
 |||+---------> Interactive [76]
 ||||+--------> Touched (modified by me) [576]
 |||||+-------> Random seed [123]
 ||||||+------> File output [80]
-|||||||+-----> Draft [354]
+|||||||+-----> Draft [355]
 ||||||||+----> Ignoring [39]
 |||||||||+---> Void (no local copy) [120]
-||||||||||+--> Un-implemented/reliable [93]
+||||||||||+--> Un-implemented/reliable [94]
 |||||||||||
 GS..T..D... 10001th_prime
 GS......... 100_doors-1
@@ -82,6 +82,7 @@ GS......... Amb-1
 GS......... Amb-2
 GS......... Amb-3
 GS......... Amicable_pairs
+.......D.VU Anadromes
 GS..T...... Anagrams-1
 GS..T...... Anagrams-2
 GS......... Anagrams_Deranged_anagrams
@@ -761,7 +762,7 @@ GS..T...... Integer_roots-1
 GS......... Integer_roots-2
 G.KI....... Integer_sequence
 .......D.V. Interactive_help
-.........V. Interactive_programming_repl
+GS......... Interactive_programming_repl
 GS..T...... Intersecting_number_wheels
 GS..T...... Introspection
 GS......... Inverted_index
