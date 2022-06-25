@@ -412,6 +412,12 @@ File: A/Amicable_pairs
 #c# 2018-07-13 <RC
 #p# OK
 
+File: A/Anadromes
+#!/usr/local/bin/perl
+#u# http://rosettacode.org/wiki/Anadromes
+#c# 2022-06-24 >RC
+#p# OK
+
 File: A/Anagrams-1
 #!/usr/local/bin/perl
 #u# http://rosettacode.org/wiki/Anagrams
