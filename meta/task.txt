@@ -1,11 +1,11 @@
 
 This is perl 5, version 32, subversion 1 (v5.32.1) built for darwin-thread-multi-2level
 updating from RC…
-+------------> Perl: Good/Bad [1634/12]
-|+-----------> Smoke testing [1490]
++------------> Perl: Good/Bad [1635/12]
+|+-----------> Smoke testing [1491]
 ||+----------> sKipping validation [148]
 |||+---------> Interactive [76]
-||||+--------> Touched (modified by me) [576]
+||||+--------> Touched (modified by me) [577]
 |||||+-------> Random seed [123]
 ||||||+------> File output [80]
 |||||||+-----> Draft [355]
@@ -82,7 +82,7 @@ GS......... Amb-1
 GS......... Amb-2
 GS......... Amb-3
 GS......... Amicable_pairs
-.......D.VU Anadromes
+GS..T..D... Anadromes
 GS..T...... Anagrams-1
 GS..T...... Anagrams-2
 GS......... Anagrams_Deranged_anagrams
@@ -505,6 +505,7 @@ GS......... Exceptions
 GS......... Exceptions_Catch_an_exception_thrown_in_a_nested_call
 GS......... Executable_library
 B.......... Execute_Brainfuck
+.........VU Execute_Computer_Zero
 GS..T..D... Execute_CopyPasta_Language
 GS......... Execute_HQ9%2B
 ........XV. Execute_SNUSP
