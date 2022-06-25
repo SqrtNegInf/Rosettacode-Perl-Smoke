@@ -1,0 +1,47 @@
+#!/usr/local/bin/perl
+#u# http://rosettacode.org/wiki/Anadromes
+#c# 2022-06-24 >RC
+#p# OK
+
+my @res;
+
+use strict;
+use warnings;
+use feature 'say';
+
+my(%W,%A);
+for my $w ( grep { /[A-z\-]{7,}/ } split "\n", do { local( @ARGV, $/ ) = ( 'ref/words.txt' ); <> } ) {
+    my $r = reverse $w;
+    $W{$r} ? $A{$r} = sprintf "%10s ↔ %s", $r, $w : ($W{$w} = $w);  # parens required
+    #if ($W{$r}) { $A{$r} = sprintf "%10s ↔ %s", $r, $w }
+    #else        { $W{$w} = $w                          }
+}
+
+push @res, $A{$_} for sort keys %A;
+
+say my $result = join "\n", @res;
+
+my $ref = <<'END';
+   amaroid ↔ diorama
+   degener ↔ reneged
+   deifier ↔ reified
+   deliver ↔ reviled
+   dessert ↔ tressed
+  desserts ↔ stressed
+   deviler ↔ relived
+  dioramas ↔ samaroid
+   gateman ↔ nametag
+   leveler ↔ relevel
+   pat-pat ↔ tap-tap
+  redrawer ↔ rewarder
+   reknits ↔ stinker
+   relever ↔ reveler
+   reliver ↔ reviler
+   revotes ↔ setover
+   sallets ↔ stellas
+END
+
+use Test::More;
+chomp $ref;
+is($result, $ref);
+done_testing();
