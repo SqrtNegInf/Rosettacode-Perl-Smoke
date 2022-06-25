@@ -39,6 +39,9 @@ A/Almkvist-Giullera_formula_for_pi
 A/Almkvist-Giullera_formula_for_pi.1
 π:     2 GREEK SMALL LETTER PI
 
+A/Anadromes
+↔:    19 LEFT RIGHT ARROW
+
 A/Approximate_Equality
 ≅:    12 APPROXIMATELY EQUAL TO
 
