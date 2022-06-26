@@ -8,7 +8,8 @@ my $result;
 
 # Don't waste brain cells calculating names, not worth the effort. Code is probably shorter, faster, and easier to read this way.
 
-use utf8;
+#use utf8;
+use feature 'unicode_strings';
  
 my @names = (
 	"North",
