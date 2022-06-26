@@ -8,8 +8,6 @@ use warnings;
 use feature 'say';
 my $result;
 
-#sub Pi () { 3.1415926535897932384626433832795028842 }
-
 use utf8;
 use constant π => 2 * atan2(1, 0);
  
