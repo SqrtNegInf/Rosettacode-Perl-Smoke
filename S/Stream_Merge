@@ -3,6 +3,7 @@
 #c# 2018-08-13 <RC, 2019-11-20 >RC
 #p# OK
 #n# did force install on ::XS module, and discovered spacing problems with 'N_streams' (words all ran together)
+#n# 2022-06-26 with v5.36, situation unchanged
 
 use strict;
 use warnings;
