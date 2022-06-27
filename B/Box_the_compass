@@ -3,13 +3,13 @@
 #c# 2018-07-17 <RC
 #p# OK
 
-use feature 'say';
 my $result;
 
-# Don't waste brain cells calculating names, not worth the effort. Code is probably shorter, faster, and easier to read this way.
-
-#use utf8;
-use feature 'unicode_strings';
+use v5.36;
+#use strict;
+#use warnings;
+##use utf8;
+#use feature 'unicode_strings';
  
 my @names = (
 	"North",
