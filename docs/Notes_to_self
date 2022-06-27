@@ -1,3 +1,16 @@
+2022-06-26
+Upgraded to perl5.36.0, and the usual chaos ensues...
+
+Module install failures, and the fixes:
+DateTime didn't mark Sub::Identify as a dependent; dealing with that, things are fine.
+sudo cpanm --force Heap::Simple::XS 
+
+fails, run with perl5.32.1:
+S/Sine_wave (Audio::NoiseGen / Audio::PortAudio)
+
+Not part of RC or PWC:
+sudo cpanm --force Data::Locations
+
 2022-03-17
 Had fooled myself into thinking the \K would eventually work with 'look-behind', 
 but upon Reading the Fine Manual more closely...
