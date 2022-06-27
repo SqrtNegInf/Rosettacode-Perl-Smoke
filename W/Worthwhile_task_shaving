@@ -4,10 +4,9 @@
 #m# P5: OK
 #n# column widths adjustable, woo-hoo (found all the 12's annoying, conflating formatting and time-intervals)
 
-use strict;
-use warnings;
-use feature <say switch>;
-no warnings 'experimental::smartmatch';
+use v5.36;
+use feature 'switch';
+no warnings 'experimental';
 
 my @res;
 
