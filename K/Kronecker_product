@@ -1,4 +1,4 @@
-#!/usr/local/bin/perl
+#!/usr/local/bin/perl5.32.1
 #u# http://rosettacode.org/wiki/Kronecker_product
 #c# 2018-08-14 <RC, 2022-06-21 <RC
 #p# OK
