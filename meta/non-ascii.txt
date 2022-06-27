@@ -54,6 +54,10 @@ A/Averages_Mean_angle
 A/Averages_Mean_time_of_day
 τ:     3 GREEK SMALL LETTER TAU
 
+A/Averages_Mean_time_of_day-2
+Θ:     2 GREEK CAPITAL LETTER THETA
+τ:     3 GREEK SMALL LETTER TAU
+
 B/Bacon_cipher
 ​:     1 ZERO WIDTH SPACE
 ﻿:     1 ZERO WIDTH NO-BREAK SPACE
