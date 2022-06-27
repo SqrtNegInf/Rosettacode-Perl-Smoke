@@ -1,4 +1,4 @@
-#!/usr/local/bin/perl
+#!/usr/local/bin/perl5.32.1
 #u# http://rosettacode.org/wiki/Determinant_and_permanent
 #c# 2018-08-18 <RC
 #p# OK
