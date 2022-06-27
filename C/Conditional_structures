@@ -1,56 +1,62 @@
 #!/usr/local/bin/perl
 #u# http://rosettacode.org/wiki/Conditional_structures
-#t# nocode
 #c# 2018-07-24 <RC
 #p# OK
+#n# all pretty bogus, but it runs without errors
 
-# Works with: Perl version 5
-# if/else[edit]
+use v5.36;
+
+my ($expression, $expression1, $expression2);
+my ($variable, $value_for_true, $value_for_false, $condition1, $condition2, $input);
+
 if ($expression) {
-    do_something;
+    ...;
 }
+
 # postfix conditional
-do_something if $expression;
+say 'hi' if $expression;
+
 if ($expression) {
-    do_something;
+    say  'woof'
+} else {
+    say  'foof'
 }
-else {
-    do_fallback;
-}
+
 if ($expression1) {
-    do_something;
+    say 'glorp'
 }
 elsif ($expression2) {
-    do_something_different;
+    say 'florp'
 }
 else {
-    do_fallback;
+    say 'snorp'
 }
-# unless[edit]
+
 # unless behaves like if, only logically negated.
 # You can use it wherever you can use if. An unless block can have elsif and else blocks, but there is no elsunless.
 
-#ternary operator[edit]
 # The ternary operator is used as an expression within a statement, rather than as a control flow structure containing one or more statements. It is frequently used in assignment, or sometimes for passing function call arguments that vary depending on some condition.
 
 $variable = $expression ? $value_for_true : $value_for_false;
 
-# logical operators[edit]
-$condition and do_something;  # equivalent to  $condition ? do_something : $condition
-$condition or do_something;  # equivalent to  $condition ? $condition : do_something
+# logical operators
+$condition1 and $condition2 and say 'boo';  # equivalent to  $condition ? ... : $condition
+$condition1 or $condition2 or say 'foo';  # equivalent to  $condition ? $condition : ...
 # && and || have the same semantics as and and or, respectively, but their precedence is much higher, making them better for conditional expressions than control flow.
 
-# switch[edit]
-# At first there was no switch structure in Perl, although there were plenty ways to emulate it. In Perl 5.8, an experimental switch/case/else structure was introduced. Perl 5.10 replaced this with the given/when/default structure borrowed from Perl 6.
+# switch
+# At first there was no switch structure in Perl, although there were plenty ways to emulate it. 
+# In Perl 5.8, an experimental switch/case/else structure was introduced. 
+# Perl 5.10 replaced this with the given/when/default structure borrowed from Perl 6.
+# With v5.36 it is turned 'off' by default, but you can still use it if desired
 
-# Works with: Perl version 5.10
-
-# DH going away?
-#use feature "switch";
-# given ($input) {
-#    when (0)          { print 'input == 0'; }
-#    when ('coffee')   { print 'input equal coffee'; }
-#    when ([1..9])     { print 'input between 1 and 9'; }
-#    when (/rats/)     { print 'input matches rats'; }
-#    default           { do_fallback; }
-#}
+use feature 'switch';
+no warnings 'experimental';
+$input = '42';
+given ($input) {
+    when (0)          { print 'input == 0' }
+    when ([1..9])     { print 'input between 1 and 9' }
+    when ('coffee')   { print 'input equal coffee' }
+    when (/rats/)     { print 'input matches rats' }
+    default           { say 'hey' }
+}
