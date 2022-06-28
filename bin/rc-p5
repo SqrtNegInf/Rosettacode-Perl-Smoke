@@ -32,9 +32,6 @@ mkdir "bench/$dir"  if ! -e "bench/$dir";
 unlink "bench/last" if   -e "bench/last";
 system qq{cd bench; symlink $dir last};
 
-$exe  = 'perl';
-#$exe  = "$ENV{'HOME'}/localperl/bin/perl";
-
 system "date";
 
 my $skip = 'interactive|gui|toodamnslow|skiptest|inprogress|nocode|forever|broken';
@@ -44,7 +41,7 @@ for my $prog (@ARGV) {
     next if $prog =~ /\.(pl|[0-9])$/;
     next if $prog =~ m#/lib# || $prog =~ /^Temp-/;
     @status = `head -12 $prog`;
-    next unless $status[0] =~ m#(env |bin/)perl\b#;
+    next unless $status[0] =~ m#(env |bin/)perl#;
     next if grep { /^#t#.*($skip)/ } @status;
     next if grep { /^#p#.*BROKEN/i } @status;
 
@@ -74,6 +71,7 @@ for my $prog (@ARGV) {
 
 for my $prog (@P_one_at_a_time) {
     my $run = $prog;
+    my $exe  = 'perl';
     (my $pbase = $prog) =~ s/^..//;
     $run .= " $Prun{$prog}" if defined $Prun{$prog};
 
@@ -89,6 +87,7 @@ for my $prog (@Programs) {
     $pm->start and next RUN;
 
     my $run = $prog;
+    my $exe = 'perl';
     (my $pbase = $prog) =~ s/^..//;
     $run .= " $Prun{$prog}" if defined $Prun{$prog};
 
@@ -106,7 +105,7 @@ for my $prog (@Programs) {
         printf E "real\t%.3f\nuser\t%.3f\nsys\t%.3f\n", 0.01+$r1-$r0, $u1-$u0, $s1-$s0;
         close E;
     } else {
-        my $line1 = `head -1 $task`;
+        my $line1 = `head -1 $prog`;
         $exe = '/usr/local/bin/perl5.32.1' if $line1 =~ /perl5/;
         system "bin/rc-runone '$exe $run' > $task.out 2> $task.err";
     }
