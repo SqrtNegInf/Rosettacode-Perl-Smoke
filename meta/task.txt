@@ -1,6 +1,6 @@
 
 This is perl 5, version 36, subversion 0 (v5.36.0) built for darwin-thread-multi-2level
-+------------> Perl: Good/Bad [1623/12]
++------------> Perl: Good/Bad [1634/14]
 |+-----------> Smoke testing [1493]
 ||+----------> sKipping validation [147]
 |||+---------> Interactive [76]
@@ -160,7 +160,7 @@ GS......... Bernoulli_numbers-2
 GS......... Bernoulli_numbers-3
 GS...R..... Best_shuffle-1
 GS...R..... Best_shuffle-2
-!S..T.FD... Bilinear_interpolation
+GS..T.FD... Bilinear_interpolation
 GS..T...... Bin_given_limits-1
 GS..T...... Bin_given_limits-2
 GS......... Binary_digits
@@ -215,10 +215,10 @@ GS..T...... Calculating_the_value_of_e-3
 GS......... Calculating_the_value_of_e-4
 GS......... Calendar
 G.K........ Calendar_-_for_%22REAL%22_programmers
-!S..T...... Calkin-Wilf_sequence
-!S......... Call_a_foreign-language_function
+GS..T...... Calkin-Wilf_sequence
+BS......... Call_a_foreign-language_function
 G.K........ Call_a_function
-!S..T...... Call_a_function_in_a_shared_library-1
+BS..T...... Call_a_function_in_a_shared_library-1
 GS..T...... Call_a_function_in_a_shared_library-2
 G.K........ Call_an_object_method
 GS.....D... Camel_case_and_snake_case
@@ -337,7 +337,7 @@ GS..T...... Convert_seconds_to_compound_duration-3
 GS..T...... Convex_hull
 GS...R..... Conway%27s_Game_of_Life-1
 G.KI....... Conway%27s_Game_of_Life-2
-!S..T..D... Coprime_triplets
+GS..T..D... Coprime_triplets
 GS..T..D... Coprimes
 GS......... Copy_a_string
 G.K........ Copy_stdin_to_stdout
@@ -1091,8 +1091,8 @@ GS..T...... Own_digits_power_sum-2
 .........VU P-Adic_numbers,_basic
 .........VU P-Adic_square_roots
 GS......... P-value_correction
-!S..T...... Padovan_n-step_number_sequences
-!S..T...... Padovan_sequence
+GS..T...... Padovan_n-step_number_sequences
+GS..T...... Padovan_sequence
 GS..T...... Palindrome_dates-1
 GS......... Palindrome_dates-2
 GS......... Palindrome_detection
@@ -1133,7 +1133,7 @@ GS......... Pathological_floating_point_problems-3
 GS..T...... Peaceful_chess_queen_armies
 GS..T.F.... Peano_curve
 GS......... Pell%27s_equation
-!S..T...... Pell_numbers
+GS..T...... Pell_numbers
 GS...R..... Penney%27s_game
 GS..T.FD... Penrose_tiling
 GS..T.F.... Pentagram
@@ -1188,7 +1188,7 @@ GS......... Polymorphism
 GS..T..D... Polynomial_derivative
 GS......... Polynomial_long_division
 GS..T...... Polynomial_regression
-!S......... Polynomial_regression-2
+GS......... Polynomial_regression-2
 GS..T..D... Polynomial_synthetic_division
 G.KI....... Polyspiral
 GS..T...... Population_count
@@ -1296,7 +1296,7 @@ GS..T...... Recaman%27s_sequence
 GS....FD... Recursive_descent_parser_generator
 .......D.VU Red_black_tree_sort
 GS..T...... Reduced_row_echelon_form
-!S......... Reflection_Get_source
+GS......... Reflection_Get_source
 GS..T...... Reflection_List_methods
 GS..T...... Reflection_List_properties
 GS......... Regular_expressions
@@ -1532,7 +1532,7 @@ GS.....D... Steady_squares
 GS..T...... Stem-and-leaf_plot
 GS......... Stern-Brocot_sequence-1
 GS......... Stern-Brocot_sequence-2
-!S......... Stern-Brocot_sequence-3
+GS......... Stern-Brocot_sequence-3
 GS......... Stern-Brocot_sequence-4
 GS..T...... Stirling_numbers_of_the_first_kind
 GS..T...... Stirling_numbers_of_the_second_kind
@@ -1636,7 +1636,7 @@ GS..T..D... Text_completion
 GS......... Text_processing_1
 GS......... Text_processing_2
 GS......... Text_processing_Max_licenses_in_use
-!S.....D... Text_to_HTML
+GS.....D... Text_to_HTML
 GS..T...... Textonyms
 GS......... The_ISAAC_Cipher
 GS..T...... The_Name_Game
@@ -1664,7 +1664,7 @@ GS......... Towers_of_Hanoi
 GS..T...... Trabb_Pardo-Knuth_algorithm
 .......D.VU Transliterate_English_text_using_the_Greek_alphabet
 GS..T..D... Transportation_problem
-!S..T...... Tree_datastructures
+GS..T...... Tree_datastructures
 GS......... Tree_from_nesting_levels
 GS......... Tree_from_nesting_levels-1
 GS......... Tree_from_nesting_levels-2
