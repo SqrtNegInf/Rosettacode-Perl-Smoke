@@ -2,6 +2,7 @@
 #u# http://rosettacode.org/wiki/Reflection/Get_source
 #c# 2021-12-13 <RC
 #p# OK
+#n# do'h, tied to Perl release
 
 use strict;
 use warnings;
@@ -11,7 +12,7 @@ use Class::Inspector;
 
 say my $result = Class::Inspector->resolved_filename( 'IO::Socket::INET' ), "\n";
 
-my $ref = '/usr/local/lib/perl5/site_perl/5.32.1/darwin-thread-multi-2level/IO/Socket/INET.pm';
+my $ref = '/usr/local/lib/perl5/site_perl/5.36.0/darwin-thread-multi-2level/IO/Socket/INET.pm';
 
 use Test::More;
 is ($result, $ref);
