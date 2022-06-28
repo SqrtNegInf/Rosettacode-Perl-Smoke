@@ -1,7 +1,8 @@
 #!/usr/local/bin/perl
 #u# http://rosettacode.org/wiki/Call_a_function_in_a_shared_library
 #c# 2019-09-24 >RC
-#p# OK
+#p# BROKEN
+#n# busted until I can fix my v5.36 issues
 
 use strict;
 use warnings;
