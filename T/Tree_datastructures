@@ -3,14 +3,14 @@
 #c# 2019-11-08 >RC
 #p# OK
 
+my @res;
+
 use strict;
 use warnings;
 use feature 'say';
 
 use JSON;
 use Data::Printer;
-
-my @res;
 
 my $trees = <<~END;
     RosettaCode
@@ -34,7 +34,7 @@ my $level = '  ';
 sub nested_to_indent { shift =~ s#^($level*)# (length($1)/length $level) . ' ' #egmr }  # no 'zero' level, but OK for round-trip
 sub indent_to_nested { shift =~ s#^(\d+)\s*# $level x $1 #egmr }
 
-say my $indent = nested_to_indent $trees;
+    my $indent = nested_to_indent $trees;
     my $nest   = indent_to_nested $indent;
 
 # Import outline paragraph into native data structure
@@ -67,35 +67,35 @@ say my $result = join "\n", @res;
 
 my $ref = <<'END';
 Native data structure:
-\ [
+[
     [0] "RosettaCode",
     [1] [
-        [0] "encourages",
-        [1] [
-            [0] "code",
+            [0] "encourages",
             [1] [
-                [0] "diversity",
-                [1] "comparison"
-            ]
+                    [0] "code",
+                    [1] [
+                            [0] "diversity",
+                            [1] "comparison"
+                        ]
+                ],
+            [2] "discourages",
+            [3] [
+                    [0] "golfing",
+                    [1] "trolling",
+                    [2] "emphasising execution speed"
+                ]
         ],
-        [2] "discourages",
-        [3] [
-            [0] "golfing",
-            [1] "trolling",
-            [2] "emphasising execution speed"
-        ]
-    ],
     [2] "code-golf.io",
     [3] [
-        [0] "encourages",
-        [1] [
-            [0] "golfing"
-        ],
-        [2] "discourages",
-        [3] [
-            [0] "comparison"
+            [0] "encourages",
+            [1] [
+                    [0] "golfing"
+                ],
+            [2] "discourages",
+            [3] [
+                    [0] "comparison"
+                ]
         ]
-    ]
 ]
 
 JSON:
