@@ -1241,8 +1241,9 @@ File: C/Call_a_foreign-language_function
 #!/usr/local/bin/perl
 #u# http://rosettacode.org/wiki/Call_a_foreign-language_function
 #c# 2018-07-21 <RC
-#p# OK
+#p# BROKEN
 #n# only catch one output
+#n# busted until I can fix my v5.36 issues
 
 File: C/Call_a_function
 #!/usr/local/bin/perl
@@ -1255,7 +1256,8 @@ File: C/Call_a_function_in_a_shared_library-1
 #!/usr/local/bin/perl
 #u# http://rosettacode.org/wiki/Call_a_function_in_a_shared_library
 #c# 2019-09-24 >RC
-#p# OK
+#p# BROKEN
+#n# busted until I can fix my v5.36 issues
 
 File: C/Call_a_function_in_a_shared_library-2
 #!/usr/local/bin/perl
@@ -5010,7 +5012,7 @@ File: K/Kronecker_product
 #n# changes by E. Chorba, apropos PWC #168
 
 File: K/Kronecker_product.1
-#!/usr/local/bin/perl
+#!/usr/local/bin/perl5.32.1
 #u# http://rosettacode.org/wiki/Kronecker_product
 #c# 2018-08-14 <RC
 #p# OK
@@ -8127,6 +8129,7 @@ File: R/Reflection_Get_source
 #u# http://rosettacode.org/wiki/Reflection/Get_source
 #c# 2021-12-13 <RC
 #p# OK
+#n# do'h, tied to Perl release
 
 File: R/Reflection_List_methods
 #!/usr/local/bin/perl
