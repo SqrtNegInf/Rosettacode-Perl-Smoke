@@ -12,7 +12,7 @@ use Class::Inspector;
 
 say my $result = Class::Inspector->resolved_filename( 'IO::Socket::INET' ), "\n";
 
-my $ref = '/usr/local/lib/perl5/site_perl/5.36.0/darwin-thread-multi-2level/IO/Socket/INET.pm';
+my $ref = '/usr/local/lib/perl5/5.36.0/darwin-thread-multi-2level/IO/Socket/INET.pm';
 
 use Test::More;
 is ($result, $ref);
