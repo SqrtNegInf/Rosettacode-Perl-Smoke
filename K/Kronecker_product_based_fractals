@@ -1,4 +1,4 @@
-#!/usr/local/bin/perl5.32.1
+#!/usr/local/bin/perl
 #u# http://rosettacode.org/wiki/Kronecker_product_based_fractals
 #t# graphical
 #c# 2018-11-02 >RC
