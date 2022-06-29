@@ -1,9 +1,8 @@
 #!/usr/local/bin/perl
 #u# http://rosettacode.org/wiki/Call_a_foreign-language_function
 #c# 2018-07-21 <RC
-#p# BROKEN
+#p# OK
 #n# only catch one output
-#n# busted until I can fix my v5.36 issues
 
 use strict;
 use warnings;
