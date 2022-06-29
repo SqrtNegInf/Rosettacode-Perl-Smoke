@@ -1,4 +1,4 @@
-#!/usr/local/bin/perl do-not-check
+#!/usr/local/bin/perl # do-not-check
 #u# http://rosettacode.org/wiki/Metaprogramming
 #c# 2018-08-18 <RC
 #p# OK
