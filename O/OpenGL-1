@@ -1,4 +1,4 @@
-#!/usr/local/bin/perl do-not-check
+#!/usr/local/bin/perl # do-not-check
 #u# http://rosettacode.org/wiki/OpenGL
 #t# gui
 #c# 2018-08-20 <RC
