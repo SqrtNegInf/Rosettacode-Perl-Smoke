@@ -1,4 +1,4 @@
-#!/usr/local/bin/perl5.32.1
+#!/usr/local/bin/perl
 #u# http://rosettacode.org/wiki/Bitmap/Write_a_PPM_file
 #c# 2018-07-18 <RC, 2018-11-02 >RC
 #p# OK
