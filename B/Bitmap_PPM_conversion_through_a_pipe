@@ -1,4 +1,4 @@
-#!/usr/local/bin/perl5.32.1
+#!/usr/local/bin/perl
 #u# http://rosettacode.org/wiki/Bitmap/PPM_conversion_through_a_pipe
 #c# 2021-12-25 <RC
 #p# OK
