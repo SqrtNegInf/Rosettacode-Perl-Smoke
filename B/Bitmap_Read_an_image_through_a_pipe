@@ -1,4 +1,4 @@
-#!/usr/local/bin/perl5.32.1
+#!/usr/local/bin/perl
 #u# http://rosettacode.org/wiki/Bitmap/Read_an_image_through_a_pipe
 #c# 2021-12-26 <RC
 #p# OK
