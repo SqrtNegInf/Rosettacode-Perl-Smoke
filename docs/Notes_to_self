@@ -1,4 +1,5 @@
 2022-06-28
+Tracked Inline failure down to Storable.pm version issues (I think).
 On the bright side...  No problems task-code Perl errors with the update.
 
 Fixed problems in source:
@@ -7,7 +8,6 @@ Fixed problems in source:
 
 2022-06-27
 For the time being, run tasks using PDL and Imager modules with Perl 5.32.1
-Wedged: Can either have PDL/Imager or Inline, not both (!?)
 
 2022-06-26
 Upgraded to perl5.36.0, and the usual chaos ensues...
