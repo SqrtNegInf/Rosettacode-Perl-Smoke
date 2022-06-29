@@ -1,7 +1,7 @@
 #!/usr/local/bin/perl
 #u# http://rosettacode.org/wiki/Juggler_sequence
 #c# 2021-08-19 <RC
-#p# OK
+#p# BROKEN
 
 my @res;
 
