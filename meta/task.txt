@@ -1,7 +1,6 @@
 
 This is perl 5, version 36, subversion 0 (v5.36.0) built for darwin-thread-multi-2level
-updating from RC…
-+------------> Perl: Good/Bad [1612/13]
++------------> Perl: Good/Bad [1634/12]
 |+-----------> Smoke testing [1493]
 ||+----------> sKipping validation [147]
 |||+---------> Interactive [76]
@@ -62,7 +61,7 @@ GS......... Ackermann_function-3
 GS......... Ackermann_function-4
 GS......... Ackermann_function-5
 ........XV. Active_Directory_Connect
-GS......... Active_Directory_Search_for_a_user
+!S......... Active_Directory_Search_for_a_user
 GS......... Active_object
 GS......... Add_a_variable_to_a_class_instance_at_runtime
 .......D.VU Addition-chain_exponentiation
@@ -140,7 +139,7 @@ GS......... Averages_Mode
 GS......... Averages_Pythagorean_means
 GS......... Averages_Root_mean_square
 GS......... Averages_Simple_moving_average
-!S..T.FD... B-spline
+GS..T.FD... B-spline
 GS......... Babbage_problem
 GS..T..D... Babylonian_spiral
 GS..T.FD... Bacon_cipher
@@ -161,7 +160,7 @@ GS......... Bernoulli_numbers-2
 GS......... Bernoulli_numbers-3
 GS...R..... Best_shuffle-1
 GS...R..... Best_shuffle-2
-!S..T.FD... Bilinear_interpolation
+GS..T.FD... Bilinear_interpolation
 GS..T...... Bin_given_limits-1
 GS..T...... Bin_given_limits-2
 GS......... Binary_digits
@@ -185,7 +184,7 @@ GS....F.... Bitmap_Flood_fill
 GS......... Bitmap_Midpoint_circle_algorithm
 GS....F.... Bitmap_PPM_conversion_through_a_pipe
 GS....F.... Bitmap_Read_a_PPM_file
-!S....F.... Bitmap_Read_an_image_through_a_pipe
+GS....F.... Bitmap_Read_an_image_through_a_pipe
 GS..T.F.... Bitmap_Write_a_PPM_file
 GS....F.... Bitwise_IO
 GS......... Bitwise_operations
@@ -216,7 +215,7 @@ GS..T...... Calculating_the_value_of_e-3
 GS......... Calculating_the_value_of_e-4
 GS......... Calendar
 G.K........ Calendar_-_for_%22REAL%22_programmers
-!S..T...... Calkin-Wilf_sequence
+GS..T...... Calkin-Wilf_sequence
 GS......... Call_a_foreign-language_function
 G.K........ Call_a_function
 GS..T...... Call_a_function_in_a_shared_library-1
@@ -282,7 +281,7 @@ G.K.T..D... Code_segment_unload
 GS.....D... Collect_and_sort_square_numbers_in_ascending_order_from_three_lists
 GS......... Collections
 G.KIT...... Color_of_a_screen_pixel
-!S..T...... Color_quantization
+GS..T...... Color_quantization
 GS....F.... Color_wheel
 GS..T...... Colorful_numbers
 GS....F.... Colour_bars_Display
@@ -338,7 +337,7 @@ GS..T...... Convert_seconds_to_compound_duration-3
 GS..T...... Convex_hull
 GS...R..... Conway%27s_Game_of_Life-1
 G.KI....... Conway%27s_Game_of_Life-2
-!S..T..D... Coprime_triplets
+GS..T..D... Coprime_triplets
 GS..T..D... Coprimes
 GS......... Copy_a_string
 G.K........ Copy_stdin_to_stdout
@@ -410,7 +409,7 @@ GS......... Department_numbers
 GS......... Department_numbers-2
 GS......... Descending_primes
 GS......... Detect_division_by_zero
-!S......... Determinant_and_permanent
+GS......... Determinant_and_permanent
 GS..T...... Determine_if_a_string_has_all_the_same_characters
 GS..T...... Determine_if_a_string_has_all_unique_characters
 GS..T...... Determine_if_a_string_is_collapsible
@@ -472,7 +471,7 @@ GS......... Elementary_cellular_automaton
 GS..T...... Elementary_cellular_automaton_Infinite_length
 GS......... Elementary_cellular_automaton_Random_Number_Generator
 .......D.VU Elevator_simulation
-!S......... Elliptic_Curve_Digital_Signature_Algorithm
+GS......... Elliptic_Curve_Digital_Signature_Algorithm
 GS......... Elliptic_curve_arithmetic
 GS..T...... Emirp_primes
 GS......... Empty_directory
@@ -661,7 +660,7 @@ GS......... Get_system_command_output
 GS..T..D... Getting_the_number_of_decimals
 G.K........ Globally_replace_text_in_several_files
 G.K........ Go_Fish
-!S..T.F.... Goldbach%27s_comet
+GS..T.F.... Goldbach%27s_comet
 GS..T..D... Gradient_descent
 GS..T...... Graph_colouring
 GS......... Gray_code
@@ -727,7 +726,7 @@ GS......... Horner%27s_rule_for_polynomial_evaluation-3
 GS..T..D... Horse_racing
 GS......... Host_introspection
 GS......... Hostname
-!S..T.F.... Hough_transform
+GS..T.F.... Hough_transform
 GS.....D... Hourglass_puzzle
 GS......... Huffman_coding
 GS..T...... Humble_numbers
@@ -742,7 +741,7 @@ GS......... I_before_E_except_after_C-2
 GS......... Identity_matrix
 GS..T...... Idiomatically_determine_all_the_characters_that_can_be_used_for_symbols
 GS..T...... Idiomatically_determine_all_the_lowercase_and_uppercase_letters
-!S..T.F.... Image_convolution
+GS..T.F.... Image_convolution
 G.KIT...... Image_noise
 GS..T...... Imaginary_base_numbers
 G.K.T..D... Implicit_type_conversion
@@ -786,7 +785,7 @@ GS......... Jewels_and_stones-2
 ........XV. JortSort
 GS......... Josephus_problem
 .........VU Joystick_position
-BS......... Juggler_sequence
+GS......... Juggler_sequence
 GS....F.... Julia_set
 GS......... Jump_anywhere
 GS..T..D... Just_in_time_processing_on_a_character_stream
@@ -811,7 +810,7 @@ GS...R..... Knuth_shuffle
 GS..T.F.... Koch_curve
 GS..T...... Kolakoski_sequence
 GS..T...... Kosaraju
-!S......... Kronecker_product
+GS......... Kronecker_product
 GS..T.F.... Kronecker_product_based_fractals
 GS..T...... LU_decomposition
 GS......... LZW_compression
@@ -939,7 +938,7 @@ GS...R..... Maze_generation
 GS...R..... Maze_solving
 GS..T...... McNuggets_problem
 GS......... McNuggets_problem-2
-!S..T.F.... Median_filter
+GS..T.F.... Median_filter
 GS..T...... Memory_allocation
 GS......... Memory_layout_of_a_data_structure
 GS......... Menu
@@ -1092,8 +1091,8 @@ GS..T...... Own_digits_power_sum-2
 .........VU P-Adic_numbers,_basic
 .........VU P-Adic_square_roots
 GS......... P-value_correction
-!S..T...... Padovan_n-step_number_sequences
-!S..T...... Padovan_sequence
+GS..T...... Padovan_n-step_number_sequences
+GS..T...... Padovan_sequence
 GS..T...... Palindrome_dates-1
 GS......... Palindrome_dates-2
 GS......... Palindrome_detection
@@ -1134,13 +1133,13 @@ GS......... Pathological_floating_point_problems-3
 GS..T...... Peaceful_chess_queen_armies
 GS..T.F.... Peano_curve
 GS......... Pell%27s_equation
-!S..T...... Pell_numbers
+GS..T...... Pell_numbers
 GS...R..... Penney%27s_game
 GS..T.FD... Penrose_tiling
 GS..T.F.... Pentagram
 GS...R..... Pentomino_tiling
 GS..T...... Percentage_difference_between_images-1
-!S......... Percentage_difference_between_images-2
+GS......... Percentage_difference_between_images-2
 .......D.VU Perceptron
 GS..TR..... Percolation_Bond_percolation
 GS..TR..... Percolation_Mean_cluster_density
@@ -1181,7 +1180,7 @@ GS..T.F.... Plasma_effect
 B.K.......U Play_recorded_sounds
 GS..T...... Playfair_cipher
 GS...R..... Playing_cards
-!S..T.F.... Plot_coordinate_pairs
+GS..T.F.... Plot_coordinate_pairs
 GS......... Pointers_and_references
 GS......... Poker_hand_analyser
 GS......... Polymorphic_copy
@@ -1189,7 +1188,7 @@ GS......... Polymorphism
 GS..T..D... Polynomial_derivative
 GS......... Polynomial_long_division
 GS..T...... Polynomial_regression
-!S......... Polynomial_regression-2
+GS......... Polynomial_regression-2
 GS..T..D... Polynomial_synthetic_division
 G.KI....... Polyspiral
 GS..T...... Population_count
@@ -1252,7 +1251,7 @@ GS..TRFD... Pseudorandom_number_generator_image
 GS....F.... Pythagoras_tree
 GS..T...... Pythagorean_quadruples
 GS......... Pythagorean_triples
-!S..T...... QR_decomposition
+GS..T...... QR_decomposition
 GS..T..D... Quadrat_special_primes
 GS......... Quaternion_type
 GS......... Queue_Definition
@@ -1342,7 +1341,7 @@ GS..T...... Rosetta_Code_Find_unimplemented_tasks
 GS......... Rosetta_Code_Fix_code_tags
 .......D.VU Rosetta_Code_List_authors_of_task_descriptions
 GS..T...... Rosetta_Code_Rank_languages_by_number_of_users
-GS..T...... Rosetta_Code_Rank_languages_by_popularity
+!S..T...... Rosetta_Code_Rank_languages_by_popularity
 .......D.VU Rosetta_Code_Run_examples
 GS..T..D... Rosetta_Code_Tasks_without_examples
 GS......... Rot-13
@@ -1533,7 +1532,7 @@ GS.....D... Steady_squares
 GS..T...... Stem-and-leaf_plot
 GS......... Stern-Brocot_sequence-1
 GS......... Stern-Brocot_sequence-2
-!S......... Stern-Brocot_sequence-3
+GS......... Stern-Brocot_sequence-3
 GS......... Stern-Brocot_sequence-4
 GS..T...... Stirling_numbers_of_the_first_kind
 GS..T...... Stirling_numbers_of_the_second_kind
@@ -1692,7 +1691,7 @@ GS......... URL_parser
 GS......... UTF-8_encode_and_decode
 .........VU Ukkonens_suffix_tree_construction
 GS..T..D... Ulam_numbers
-!S....F.... Ulam_spiral_for_primes
+GS....F.... Ulam_spiral_for_primes
 GS..T...... Ultra_useful_primes
 GS...R..... Unbias_a_random_generator
 GS......... Undefined_values
@@ -1792,7 +1791,7 @@ GS..T..D... XXXX_redacted
 GS......... Xiaolin_Wu%27s_line_algorithm
 GS......... Y_combinator
 G.K........ Yahoo_search_interface
-!S..T.F.... Yellowstone_sequence
+GS..T.F.... Yellowstone_sequence
 GS....F.... Yin_and_yang
 GS......... Zebra_puzzle
 GS......... Zeckendorf_arithmetic
