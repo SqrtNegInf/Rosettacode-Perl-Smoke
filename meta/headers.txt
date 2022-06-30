@@ -554,7 +554,7 @@ File: A/Arbitrary-precision_integers_included-2
 #p# OK
 
 File: A/Archimedean_spiral
-#!/usr/bin/env perl
+#!/usr/bin/env perl5.32.1
 #u# http://rosettacode.org/wiki/Archimedean_spiral
 #c# 2018-08-02 >RC
 #t# graphical
@@ -831,7 +831,7 @@ File: B/Banker%27s_algorithm
 #p# OK
 
 File: B/Barnsley_fern
-#!/usr/bin/env perl
+#!/usr/bin/env perl5.32.1
 #u# http://rosettacode.org/wiki/Barnsley_fern
 #c# 2018-07-13 <RC
 #p# OK
@@ -1028,7 +1028,7 @@ File: B/Bitmap_Midpoint_circle_algorithm
 #p# OK
 
 File: B/Bitmap_PPM_conversion_through_a_pipe
-#!/usr/local/bin/perl
+#!/usr/local/bin/perl5.32.1
 #u# http://rosettacode.org/wiki/Bitmap/PPM_conversion_through_a_pipe
 #c# 2021-12-25 <RC
 #p# OK
@@ -1053,14 +1053,14 @@ $img->draw_line(0,0, $img->width,$img->height);
 $img->image_set_format("png");
 $img->save("run/bitmap_read.png");
 File: B/Bitmap_Read_an_image_through_a_pipe
-#!/usr/local/bin/perl
+#!/usr/local/bin/perl5.32.1
 #u# http://rosettacode.org/wiki/Bitmap/Read_an_image_through_a_pipe
 #c# 2021-12-26 <RC
 #p# OK
 #f# RC file: Lenna50.ppm
 
 File: B/Bitmap_Write_a_PPM_file
-#!/usr/local/bin/perl
+#!/usr/local/bin/perl5.32.1
 #u# http://rosettacode.org/wiki/Bitmap/Write_a_PPM_file
 #c# 2018-07-18 <RC, 2018-11-02 >RC
 #p# OK
@@ -1392,7 +1392,7 @@ File: C/Chaocipher
 #p# OK
 
 File: C/Chaos_game
-#!/usr/local/bin/perl
+#!/usr/local/bin/perl5.32.1
 #u# http://rosettacode.org/wiki/Chaos_game
 #c# 2018-07-22 <RC
 #p# OK
@@ -1644,13 +1644,13 @@ File: C/Color_of_a_screen_pixel
 #n# for MacOS... sporadic failures (as with P6 version)
 
 File: C/Color_quantization
-#!/usr/local/bin/perl
+#!/usr/local/bin/perl5.32.1
 #u# http://rosettacode.org/wiki/Color_quantization
 #c# 2019-10-14 >RC
 #p# OK
 
 File: C/Color_wheel
-#!/usr/local/bin/perl
+#!/usr/local/bin/perl5.32.1
 #u# http://rosettacode.org/wiki/Color_wheel
 #c# 2018-07-23 <RC
 #p# OK
@@ -4502,7 +4502,7 @@ File: H/Hostname
 #p# OK
 
 File: H/Hough_transform
-#!/usr/local/bin/perl
+#!/usr/local/bin/perl5.32.1
 #u# http://rosettacode.org/wiki/Hough_transform
 #c# 2018-09-25 >RC, 2019-09-10 >RC
 #p# OK
@@ -4853,10 +4853,10 @@ File: J/Juggler_sequence
 #!/usr/local/bin/perl
 #u# http://rosettacode.org/wiki/Juggler_sequence
 #c# 2021-08-19 <RC
-#p# BROKEN
+#p# OK
 
 File: J/Julia_set
-#!/usr/local/bin/perl
+#!/usr/local/bin/perl5.32.1
 #u# http://rosettacode.org/wiki/Julia_set
 #c# 2018-08-14 <RC
 #p# OK
@@ -5016,7 +5016,7 @@ File: K/Kronecker_product.1
 #p# OK
 
 File: K/Kronecker_product_based_fractals
-#!/usr/local/bin/perl
+#!/usr/local/bin/perl5.32.1
 #u# http://rosettacode.org/wiki/Kronecker_product_based_fractals
 #t# graphical
 #c# 2018-11-02 >RC
@@ -5871,7 +5871,7 @@ File: M/McNuggets_Problem.1
 #p# OK
 
 File: M/Median_filter
-#!/usr/local/bin/perl
+#!/usr/local/bin/perl5.32.1
 #u# http://rosettacode.org/wiki/Median_filter
 #c# 2019-10-12 >RC
 #p# OK
@@ -7135,7 +7135,7 @@ File: P/Percentage_difference_between_images-1
 #p# OK
 
 File: P/Percentage_difference_between_images-2
-#!/usr/local/bin/perl
+#!/usr/local/bin/perl5.32.1
 #u# http://rosettacode.org/wiki/Percentage_difference_between_images
 #c# 2018-12-08 <RC
 #p# OK
@@ -7345,7 +7345,7 @@ File: P/Pig_the_dice_game_Player
 #p# OK
 
 File: P/Pinstripe_Display
-#!/usr/local/bin/perl
+#!/usr/local/bin/perl5.32.1
 #u# http://rosettacode.org/wiki/Pinstripe/Display
 #c# 2018-11-15 >RC
 #p# OK
@@ -7366,14 +7366,14 @@ File: P/Pisano_period
 #n# table hack, like Raku: ».fmt/batch/join
 
 File: P/Plasma_effect
-#!/usr/local/bin/perl
+#!/usr/local/bin/perl5.32.1
 #u# http://rosettacode.org/wiki/Plasma_effect
 #c# 2018-11-05 <>RC
 #p# OK
 #f# RC file: plasma.png
 
 File: P/Plasma_effect.1
-#!/usr/local/bin/perl
+#!/usr/local/bin/perl5.32.1
 #n# NOT CURRENT, NOT SMOKE-TESTED
 #u# http://rosettacode.org/wiki/Plasma_effect
 #c# 2018-11-05 >RC
@@ -7401,7 +7401,7 @@ File: P/Playing_cards
 #p# OK
 
 File: P/Plot_coordinate_pairs
-#!/usr/local/bin/perl
+#!/usr/local/bin/perl5.32.1
 #u# http://rosettacode.org/wiki/Plot_coordinate_pairs
 #c# 2018-08-20 <RC, 2022-05-15 >RC
 #p# OK
@@ -7842,7 +7842,7 @@ File: P/Pseudorandom_Number_Generator_Image
 #f# RC file: PNG-image500.png
 
 File: P/Pythagoras_tree
-#!/usr/local/bin/perl
+#!/usr/local/bin/perl5.32.1
 #u# http://rosettacode.org/wiki/Pythagoras_tree
 #c# 2018-08-20 <RC
 #p# OK
@@ -10615,7 +10615,7 @@ File: U/Ulam_numbers
 #n# slowish @ 40sec for U(10_000)
 
 File: U/Ulam_spiral_for_primes
-#!/usr/local/bin/perl
+#!/usr/local/bin/perl5.32.1
 #u# http://rosettacode.org/wiki/Ulam_spiral_%28for_primes%29
 #c# 2018-08-07 <RC
 #p# OK
@@ -10869,7 +10869,7 @@ File: V/Vogel%27s_approximation_method
 #p# OK
 
 File: V/Voronoi_diagram
-#!/usr/local/bin/perl
+#!/usr/local/bin/perl5.32.1
 #u# http://rosettacode.org/wiki/Voronoi_diagram
 #c# 2018-11-27 >RC
 #p# OK
