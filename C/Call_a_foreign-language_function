@@ -4,11 +4,14 @@
 #p# OK
 #n# only catch one output
 
+my $result;
+
 use strict;
 use warnings;
 use feature 'say';
-my $result;
 
+no lib '/usr/local/lib/perl5/site_perl/5.32.1';
+no lib '/usr/local/lib/perl5/site_perl/5.32.0';
 
 # Perl code calls a C function c_dup() passing a string 'Hello' as an argument, which gets transparently converted to a C string, the c_dup() function makes a copy of that string using strdup() function, stores pointer to the copy in the copy variable and returns it. The returned char pointer gets converted transparently to a Perl string value and gets returned to the calling Perl code which prints it. Then the Perl code calls a C function c_free() to free the allocated memory. Both of the C functions are defined inline in the Perl program and are automatically compiled (only once, unless they change) and linked at runtime. Here is the entire program:
 
