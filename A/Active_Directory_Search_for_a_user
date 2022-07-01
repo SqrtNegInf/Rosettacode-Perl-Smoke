@@ -1,7 +1,7 @@
 #!/usr/local/bin/perl
 #u# http://rosettacode.org/wiki/Active_Directory/Search_for_a_user
 #c# 2021-03-07 <RC
-#p# OK
+#p# BROKEN
 
 my @res;
 
