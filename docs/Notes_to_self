@@ -1,8 +1,11 @@
-2022-06-28
-Tracked Inline failure down to Storable.pm version issues (I think).
-On the bright side...  No problems task-code Perl errors with the update.
+2022-06-30
+TIL 'no lib', very useful for the dependency issues I've been going round-and-round with.
+RC mostly OK, many PWC tasks to work through still.
 
-Fixed problems in source:
+2022-06-28
+On the bright side...  No problems RC task Perl-code errors with the update.
+
+Fixed problems in source (see more in 'Perl_upgrade' directory):
 /usr/local/lib/perl5/site_perl/5.36.0/List/Lazy.pm
 /usr/local/lib/perl5/5.36.0/Symbol.pm
 
