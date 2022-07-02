@@ -292,7 +292,7 @@ File: A/Active_Directory_Search_for_a_user
 #!/usr/local/bin/perl
 #u# http://rosettacode.org/wiki/Active_Directory/Search_for_a_user
 #c# 2021-03-07 <RC
-#p# OK
+#p# BROKEN
 
 File: A/Active_object
 #!/usr/local/bin/perl
@@ -702,7 +702,7 @@ File: A/AudioAlarm
 #p# OK
 
 File: A/Audio_frequency_generator
-#!/usr/local/bin/perl
+#!/usr/local/bin/perl5.32.1
 #u# http://rosettacode.org/wiki/Audio_frequency_generator
 #t# interactive
 #c# 2019-09-22 >RC
@@ -4026,6 +4026,13 @@ File: G/Getting_the_number_of_decimals
 #u# http://rosettacode.org/wiki/Getting_the_number_of_decimals
 #c# 2020-08-16 >RC
 #p# OK
+
+File: G/Giuga_numbers
+#!/usr/local/bin/perl
+#u# http://rosettacode.org/wiki/Giuga_numbers
+#c# 2022-07-01 <RC
+#p# OK
+#n# OEIS:A007850
 
 File: G/Globally_replace_text_in_several_files
 #!/usr/local/bin/perl
