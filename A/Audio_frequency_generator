@@ -1,4 +1,4 @@
-#!/usr/local/bin/perl
+#!/usr/local/bin/perl5.32.1
 #u# http://rosettacode.org/wiki/Audio_frequency_generator
 #t# interactive
 #c# 2019-09-22 >RC
