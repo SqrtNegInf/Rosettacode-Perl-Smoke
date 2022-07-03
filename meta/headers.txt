@@ -2207,6 +2207,7 @@ File: C/Cyclotomic_Polynomial
 #c# 2020-01-30 >RC, 2020-01-31 <RC
 #p# OK
 #n# post in haste, repent at leisure (kudos to trizen++ for cleaning up my mess)
+#n# over 50x slower with v5.36? Now takes 30m for '<=4' (compare to old 'full' run) Do one fewer term in 2nd part...
 #n# 2219.698u 4.298s 37:06.13 99.9% for '<= 9' in 2nd part
 
 File: D/DNS_query
@@ -8426,6 +8427,7 @@ File: R/Rosetta_Code_Rank_languages_by_popularity
 #n# 2021-04-09 Pleased to welcome 'Haskell' to the club
 #n# 2021-09-07 Pleased to welcome 'Mathematica' to the club
 #n# 2022-02-20 Pleased to welcome 'FreeBASIC' to the club (BASIC shambles onward, 50 years later...)
+#n# 2022-07-01 Pleased to welcome 'Sidef' to the club
 
 File: R/Rosetta_Code_Tasks_without_examples
 #!/usr/local/bin/perl
