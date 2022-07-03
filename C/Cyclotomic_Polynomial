@@ -3,6 +3,7 @@
 #c# 2020-01-30 >RC, 2020-01-31 <RC
 #p# OK
 #n# post in haste, repent at leisure (kudos to trizen++ for cleaning up my mess)
+#n# over 50x slower with v5.36? Now takes 30m for '<=4' (compare to old 'full' run) Do one fewer term in 2nd part...
 #n# 2219.698u 4.298s 37:06.13 99.9% for '<= 9' in 2nd part
 
 use feature 'say';
@@ -20,10 +21,11 @@ push @res, "$_: " . $it->() for 1 .. 30;
 push @res, "\nSmallest cyclotomic polynomial with n or -n as a coefficient:";
 $it = cyclo_poly_iterate(1);
 
-for (my ($n, $k) = (1, 1) ; $n <= 4 ; ++$k) {
+for (my ($n, $k) = (1, 1) ; $n <= 3 ; ++$k) {
     my $poly = $it->();
     while (my $c = first { abs($_) == $n } $poly->coeff) {
         push @res, "CP $k has coefficient with magnitude = $n";
+        say "CP $k has coefficient with magnitude = $n";
         $n++;
     }
 }
@@ -67,8 +69,8 @@ Smallest cyclotomic polynomial with n or -n as a coefficient:
 CP 1 has coefficient with magnitude = 1
 CP 105 has coefficient with magnitude = 2
 CP 385 has coefficient with magnitude = 3
-CP 1365 has coefficient with magnitude = 4
 EOD
+#CP 1365 has coefficient with magnitude = 4
 #CP 1785 has coefficient with magnitude = 5
 #CP 2805 has coefficient with magnitude = 6
 #CP 3135 has coefficient with magnitude = 7
