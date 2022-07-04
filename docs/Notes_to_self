@@ -1,8 +1,11 @@
+2022-07-03
+Giving up on Gtk3/SDL/Qt tasks (pretty much had already, now explicit)
+
 2022-07-01
 'C/Cyclotomic_Polynomial' hung (or just ran very slow?)
 
 2022-06-30
-TIL 'no lib', very useful for the dependency issues I've been going round-and-round with.
+TIL: 'no lib', very useful for the dependency issues I've been going round-and-round with.
 RC mostly OK, many PWC tasks to work through still.
 
 2022-06-28
