@@ -585,6 +585,13 @@ File: A/Arithmetic_Complex
 #c# 2018-07-15 <RC
 #p# OK
 
+File: A/Arithmetic_Derivative
+#!/usr/local/bin/perl
+#u# http://rosettacode.org/wiki/Arithmetic_Derivative
+#c# 2022-07-03 >RC
+#p# OK
+#n# gotta love J: {{ +/y%q:1>.|y }}"0
+
 File: A/Arithmetic_Integer
 #!/usr/local/bin/perl
 #u# http://rosettacode.org/wiki/Arithmetic/Integer
@@ -4033,7 +4040,6 @@ File: G/Giuga_numbers
 #u# http://rosettacode.org/wiki/Giuga_numbers
 #c# 2022-07-01 <RC
 #p# OK
-#n# OEIS:A007850
 
 File: G/Globally_replace_text_in_several_files
 #!/usr/local/bin/perl
