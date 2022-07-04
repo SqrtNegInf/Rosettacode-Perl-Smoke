@@ -1,17 +1,17 @@
 
 This is perl 5, version 36, subversion 0 (v5.36.0) built for darwin-thread-multi-2level
 updating from RC…
-+------------> Perl: Good/Bad [1636/13]
-|+-----------> Smoke testing [1493]
++------------> Perl: Good/Bad [1637/13]
+|+-----------> Smoke testing [1494]
 ||+----------> sKipping validation [147]
 |||+---------> Interactive [76]
-||||+--------> Touched (modified by me) [578]
+||||+--------> Touched (modified by me) [579]
 |||||+-------> Random seed [123]
 ||||||+------> File output [80]
 |||||||+-----> Draft [359]
 ||||||||+----> Ignoring [39]
-|||||||||+---> Void (no local copy) [123]
-||||||||||+--> Un-implemented/reliable [97]
+|||||||||+---> Void (no local copy) [122]
+||||||||||+--> Un-implemented/reliable [96]
 |||||||||||
 GS..T..D... 10001th_prime
 GS......... 100_doors-1
@@ -109,7 +109,7 @@ GS......... Arithmetic-geometric_mean
 GS......... Arithmetic-geometric_mean_Calculate_Pi-1
 GS......... Arithmetic-geometric_mean_Calculate_Pi-2
 GS......... Arithmetic_Complex
-.......D.VU Arithmetic_Derivative
+GS..T..D... Arithmetic_Derivative
 GS......... Arithmetic_Integer
 GS..T...... Arithmetic_Rational
 GS.....D... Arithmetic_coding_As_a_generalized_change_of_radix
