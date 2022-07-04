@@ -2,7 +2,6 @@
 #u# http://rosettacode.org/wiki/Giuga_numbers
 #c# 2022-07-01 <RC
 #p# OK
-#n# OEIS:A007850
 
 my @res;
 
@@ -13,14 +12,24 @@ use feature 'say';
 use ntheory qw( factor forcomposites );
 use List::Util qw( all );
 
+# Tybalt89++
 forcomposites {
     my $n = $_;
     all { ($n / $_ - 1) % $_ == 0 } factor $n and push @res, $n;
 } 4, 67000;
 
+# following Raku, a little faster than the above
+for my $n (map { 6 * $_ } 1..11167) {
+    push @res, $n if all { ($n / $_ - 1) % $_ == 0 } factor $n
+}
+
 say my $result = join "\n", @res;
 
 my $ref = <<'EOD';
+30
+858
+1722
+66198
 30
 858
 1722
