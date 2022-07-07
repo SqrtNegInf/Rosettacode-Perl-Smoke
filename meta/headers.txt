@@ -6323,6 +6323,14 @@ File: N/N-body_problem
 #n# cycle through 1 Neptunian year
 #n# todo: show time-steps when planets complete annual orbits
 
+File: N/N-queens_minimum_and_knights_and_bishops
+#!/usr/local/bin/perl
+#u# http://rosettacode.org/wiki/N-queens_minimum_and_knights_and_bishops
+#t# inprogress
+#c# 2022-07-xx >RC
+#p# OK
+#n# where can we use the new true/false here?
+
 File: N/N-queens_problem
 #!/usr/local/bin/perl
 #u# http://rosettacode.org/wiki/N-queens_problem
