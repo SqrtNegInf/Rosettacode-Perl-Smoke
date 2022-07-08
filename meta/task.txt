@@ -1,17 +1,17 @@
 
 This is perl 5, version 36, subversion 0 (v5.36.0) built for darwin-thread-multi-2level
 updating from RC…
-+------------> Perl: Good/Bad [1638/13]
++------------> Perl: Good/Bad [1639/13]
 |+-----------> Smoke testing [1494]
-||+----------> sKipping validation [148]
+||+----------> sKipping validation [149]
 |||+---------> Interactive [76]
-||||+--------> Touched (modified by me) [580]
+||||+--------> Touched (modified by me) [581]
 |||||+-------> Random seed [123]
 ||||||+------> File output [80]
-|||||||+-----> Draft [360]
+|||||||+-----> Draft [362]
 ||||||||+----> Ignoring [39]
-|||||||||+---> Void (no local copy) [122]
-||||||||||+--> Un-implemented/reliable [97]
+|||||||||+---> Void (no local copy) [123]
+||||||||||+--> Un-implemented/reliable [99]
 |||||||||||
 GS..T..D... 10001th_prime
 GS......... 100_doors-1
@@ -131,7 +131,7 @@ GS..T...... Attractive_numbers
 .......D.VU Audio_alarm
 G.KIT..D... Audio_frequency_generator
 .......D.VU Audio_overlap_loop
-.......D.VU Autogram_checker
+G.K.T..D..U Autogram_checker
 GS..TR..... Average_loop_length
 GS..T...... Averages_Arithmetic_mean
 GS......... Averages_Mean_angle
@@ -196,6 +196,7 @@ GS......... Bitwise_operations
 .......D.VU Boids
 GS......... Boolean_values
 GS......... Box_the_compass
+.......D.VU Boyer-Moore_string_search
 GS......... Brace_expansion
 .......D.VU Brace_expansion_using_ranges
 GS..T...... Brazilian_numbers
@@ -810,6 +811,7 @@ GS......... Knapsack_problem_Unbounded
 GS...R..... Knight%27s_tour
 GS...R..... Knuth%27s_algorithm_S
 GS......... Knuth%27s_power_tree
+.......D.VU Knuth-Morris-Pratt_string_search
 GS...R..... Knuth_shuffle
 GS..T.F.... Koch_curve
 GS..T...... Kolakoski_sequence
