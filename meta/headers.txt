@@ -715,6 +715,14 @@ File: A/Audio_frequency_generator
 #c# 2019-09-22 >RC
 #p# OK
 
+File: A/Autogram_checker
+#!/usr/local/bin/perl
+#u# http://rosettacode.org/wiki/Autogram_checker
+#t# inprogress
+#c# 2022-07-xx >RC
+#p# OK
+#n# fancy 5.36 features: less boiler-plate, sub. sigantures, n-at-a-time iteration (aka for_list) boolean (?)
+
 File: A/Average_loop_length
 #!/usr/bin/env perl
 #u# http://rosettacode.org/wiki/Average_loop_length
