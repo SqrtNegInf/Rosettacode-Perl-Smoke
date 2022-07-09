@@ -50,7 +50,6 @@ A/Arithmetic_numbers
 
 A/Autogram_checker
 »:     3 RIGHT-POINTING DOUBLE ANGLE QUOTATION MARK
-×:     1 MULTIPLICATION SIGN
 
 A/Averages_Mean_angle
 π:     6 GREEK SMALL LETTER PI
