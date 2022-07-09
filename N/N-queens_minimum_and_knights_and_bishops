@@ -6,7 +6,9 @@
 #n# where can we use the new true/false here?
 
 use v5.36;
-#builtin::true; builtin::false;
+use builtin 'true', 'false';
+no warnings 'experimental::for_list', 'experimental::builtin';
+
 use Data::Printer;          # debug only
 
 my @res;
@@ -20,12 +22,12 @@ my %names  = ( 'Q' => 'Queens', 'B' => 'Bishops', 'K' =>'Knights');
 sub isAttacked($piece, $row, $col) {
     if ($piece eq 'Q') { 
         for (0...$n-1) { return 1 if $board[$_][$col] || $board[$row][$_] }
-        return 1 if $diag1Lookup[$diag1[$row][$col]] || 
+        return true if $diag1Lookup[$diag1[$row][$col]] || 
                     $diag2Lookup[$diag2[$row][$col]]
     } elsif ($piece eq 'B') {
-        return 1 if $diag1Lookup[$diag1[$row][$col]] || $diag2Lookup[$diag2[$$row][$col]]
+        return true if $diag1Lookup[$diag1[$row][$col]] || $diag2Lookup[$diag2[$$row][$col]]
     } else { # 'K'
-        return 1 if (
+        return true if (
             $board[$row][$col] or 
             $row+2 < $n && $col-1 >= 0 && $board[$row+2][$col-1] or
             $row-2 >= 0 && $col-1 >= 0 && $board[$row-2][$col-1] or
@@ -37,7 +39,7 @@ sub isAttacked($piece, $row, $col) {
             $row-1 >= 0 && $col-2 >= 0 && $board[$row-1][$col-2]
         )
    }
-   return 0
+   false
 }
 
 sub attacks($piece, $row, $col, $trow, $tcol) {
@@ -57,21 +59,59 @@ sub storeLayout($piece) {
     }
 }
 
-# move placePiece here
+sub placePiece($piece, $countSoFar, $maxCount) {
+   return if $countSoFar >= $minCount; 
+   my ($allAttacked,$ti,$tj) = (true,0,0);
+   for my($i,$j) (@board) {  #!!! FAKE
+   #for my($i,$j) (^$n X ^$n) {  #!!! cross-op
+      unless (isAttacked($piece, $i, $j)) {
+         ($allAttacked,$ti,$tj) = (false,$i,$j) and last
+      }
+      last unless $allAttacked 
+   }
+   if ($allAttacked) {
+      $minCount = $countSoFar;
+      storeLayout($piece);
+      return
+   }
+   if ($countSoFar <= $maxCount) {
+      my ($si,$sj) = ($ti,$tj);
+      if ($piece eq 'K') {
+         $si -= 2; $si = 0 if $si < 0; 
+         $sj -= 2; $sj = 0 if $sj < 0; 
+      }
+      for my ($i,$j) (@board) { # FAKE
+      #for my ($i,$j) (($si..^$n) X ($sj..^$n) { #!!!! cross-op
+         unless (isAttacked($piece, $i, $j)) {
+            if (($i == $ti && $j == $tj) || attacks($piece, $i, $j, $ti, $tj)) {
+               $board[$i][$j] = true; 
+               unless ($piece eq 'K') {
+	          ($diag1Lookup[$diag1[$i][$j]], $diag2Lookup[$diag2[$i][$j]]) = (true,true);
+               };
+               placePiece($piece, $countSoFar+1, $maxCount);
+               $board[$i][$j] = false; 
+               unless ($piece eq 'K') {
+                  ($diag1Lookup[$diag1[$i][$j]],$diag2Lookup[$diag2[$i][$j]]) = (false,false);
+               }
+            }
+	 }
+      }
+   }
+}
 
 
 for my $piece (@pieces) {
    push @res, $names{$piece} . "\n=======\n";
    for ($n = 1 ; ; $n++) {
-      @board = map { [ (0) x $n ] } 1..$n;
+      @board = map { [ (false) x $n ] } 1..$n;
       unless ($piece eq 'K') {
           @diag2 = reverse @diag1 = map { $_ .. $n+$_-1 } 0..$n-1;
-	      @diag2Lookup = @diag1Lookup = [ (0) x 2*$n-1 ]
+	      @diag2Lookup = @diag1Lookup = [ (false) x 2*$n-1 ]
       }
       $minCount = 2**31 - 1;
       my $nSQ   = $n**2;
       for my $maxCount (1..$nSQ) {
-         #placePiece($piece, 0, $maxCount);
+         placePiece($piece, 0, $maxCount);
          last if $minCount <= $nSQ 
       }
       push @res, sprintf("%2d x %-2d : %d", $n, $n, $minCount);
@@ -83,45 +123,6 @@ for my $piece (@pieces) {
 }
 
 __END__
-
-sub placePiece($piece, $countSoFar, $maxCount) {
-   return if $countSoFar >= $minCount; 
-   my ($allAttacked,$ti,$tj) = true,0,0;
-   for ^$n X ^$n -> ($i,$j) { 
-      unless isAttacked($piece, $i, $j) {
-         ($allAttacked,$ti,$tj) = 0,$i,$j andthen last
-      }
-      last unless $allAttacked 
-   }
-   if $allAttacked {
-      $minCount = $countSoFar;
-      storeLayout($piece);
-      return
-   }
-   if countSoFar <= maxCount {
-      my ($si,$sj) = $ti,$tj;
-      if piece eq 'K' {
-         ($si,$sj) >>-=>> 2;
-         $si = 0 if $si < 0; 
-         $sj = 0 if $sj < 0; 
-      }
-      for ($si..^$n) X ($sj..^$n) -> ($i,$j) {
-         unless isAttacked($piece, $i, $j) {
-            if ($i == $ti && $j == $tj) || attacks($piece, $i, $j, $ti, $tj) {
-               @board[i][j] = 1; 
-               unless $piece eq 'K' {
-	          (@diag1Lookup[@diag1[$i;$j]],@diag2Lookup[@diag2[$i;$j]])=1 xx *               
-               }
-               placePiece($piece, $countSoFar+1, $maxCount);
-               @board[$i][$j] = 0; 
-               unless $piece eq 'K' {
-                  (@diag1Lookup[@diag1[$i;$j]],@diag2Lookup[@diag2[$i;$j]])=0 xx *
-               }
-            }
-	 }
-      }
-   }
-}
 
 say my $result = join "\n", @res;
 
