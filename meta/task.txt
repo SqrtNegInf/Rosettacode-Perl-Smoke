@@ -8,10 +8,10 @@ updating from RC…
 ||||+--------> Touched (modified by me) [581]
 |||||+-------> Random seed [123]
 ||||||+------> File output [80]
-|||||||+-----> Draft [362]
+|||||||+-----> Draft [363]
 ||||||||+----> Ignoring [39]
-|||||||||+---> Void (no local copy) [123]
-||||||||||+--> Un-implemented/reliable [99]
+|||||||||+---> Void (no local copy) [124]
+||||||||||+--> Un-implemented/reliable [100]
 |||||||||||
 GS..T..D... 10001th_prime
 GS......... 100_doors-1
@@ -1751,6 +1751,7 @@ GS..T...... Walk_a_directory_Non-recursively
 GS..T...... Walk_a_directory_Recursively
 GS...R..... War_card_game
 GS......... Water_collected_between_towers
+.......D.VU Wave_Function_Collapse
 GS.....D... Waveform_analysis_Doh_ray_me
 .......D.VU Waveform_analysis_Top_and_tail
 .......DXVU Weather_routing
