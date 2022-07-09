@@ -6,27 +6,26 @@
 
 my @res;
 
-use strict;
-use warnings;
-use feature 'say';
+use v5.36;
+use builtin 'true', 'false';
+no warnings 'experimental::builtin';
 
 use List::Util 'min';
 use ntheory 'is_prime';
-
-use enum qw(False True);
+#use enum qw(False True);
 
 sub rotate { my($i,@a) = @_; join '', @a[$i .. @a-1, 0 .. $i-1] }
 
 sub isCircular {
     my ($n) = @_;
-    return False unless is_prime($n);
+    return false unless is_prime($n);
     my @circular = split //, $n;
-    return False if min(@circular) < $circular[0];
+    return false if min(@circular) < $circular[0];
     for (1 .. scalar @circular) {
         my $r = join '', rotate($_,@circular);
-        return False unless is_prime($r) and $r >= $n;
+        return false unless is_prime($r) and $r >= $n;
     }
-    True
+    true
 }
 
 push @res, "The first 19 circular primes are:";
