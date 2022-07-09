@@ -13,6 +13,7 @@ use v5.36;
 no warnings 'experimental::for_list';
 
 use Sub::Util 'subname';
+use List::Util 'sum';
 use Text::Wrap;
 $Text::Wrap::columns = 100;
 
@@ -44,6 +45,20 @@ for my($filter, $text) (@tests) {
 
     push @res, wrap('', '', $text);
     push @res, "Filtering out " .  subname( $filter ) =~ s/main:://r . "\n";
+
+    # Semi-bogus and somewhat fragile names to numbers conversion.
+    my $str = lc $text;
+    for my($word, $number) (%nums) { $str =~ s/ \b $word \b /$number/gx }
+    $str =~ s/ (\d)\s(and|-)\s(\d) /$0 $1/gx;
+    $str =~ s/ \b(\d \d)\s(\d \d) \b / $0 * 100 + $1/egx;
+    $str =~ s/ ( [\d+\s]* \d+ ) /sum $0.split ' ', $0/egx;
+
+    # Build a hash of claimed characters.
+    #my %claim = flat $str.lc.match(:g, /\d+ <ws> ['comma'|'apostrophe'|'hyphen'|.]/)».split(' ')»[1,0]».pairup;
+    #for <comma , hyphen - apostrophe '> -> $word, $symbol { %claim{$symbol} = %claim{$word}:delete if %claim{$word} }
+    push  @res, "\nClaimed character counts:\n" . wrap; #, %claim.sort( ~*.key ).map( { sprintf "%s\(%d)", .key, .value } ).join: ' ';
+
+    push @res, '=' x 100;
 }
 
 say my $result = join "\n", @res;
@@ -66,18 +81,6 @@ __END__
 {{out}}
 <pre style="height:20ex">
 </pre>
-
-    # Semi-bogus and somewhat fragile names to numbers conversion.
-    my $str = $text.lc;
-    for %nums.kv -> $word, $number { $str ~~ s:g/ <|w> $word <|w> /$number/ }
-    $str ~~ s:g/ (\d)<ws>['and'|'-']<ws>(\d)  /$0 $1/;
-    $str ~~ s:g/ <|w>(\d ** 2)<ws>(\d ** 2) <|w> /{ $0 × 100 + $1}/;
-    $str ~~ s:g/ ( [\d+<ws>]* \d+ ) /{[+] $0.split: ' '}/;
-
-    # Build a hash of claimed characters.
-    my %claim = flat $str.lc.match(:g, /\d+ <ws> ['comma'|'apostrophe'|'hyphen'|.]/)».split(' ')»[1,0]».pairup;
-    for <comma , hyphen - apostrophe '> -> $word, $symbol { %claim{$symbol} = %claim{$word}:delete if %claim{$word} }
-    @res.push: "\nClaimed character counts:\n" ~ wrap-text :100width, %claim.sort( ~*.key ).map( { sprintf "%s\(%d)", .key, .value } ).join: ' ';
 
     # And of the actual character counts.
     my %count = &filter($text).lc.comb.Bag.hash;
