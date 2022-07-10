@@ -5758,6 +5758,13 @@ File: M/Map_range
 #c# 2018-08-18 <RC
 #p# OK
 
+File: M/Marching_squares
+#!/usr/local/bin/perl
+#u# http://rosettacode.org/wiki/Marching_squares
+#c# 2022-07-xx >RC
+#p# OK
+#n# sub-optimal: repeating the compass points
+
 File: M/Markov_chain_text_generator
 #!/usr/local/bin/perl
 #u# http://rosettacode.org/wiki/Markov_chain_text_generator
