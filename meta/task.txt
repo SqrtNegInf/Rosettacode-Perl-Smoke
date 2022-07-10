@@ -1,16 +1,16 @@
 
 This is perl 5, version 36, subversion 0 (v5.36.0) built for darwin-thread-multi-2level
 updating from RC…
-+------------> Perl: Good/Bad [1639/13]
-|+-----------> Smoke testing [1494]
++------------> Perl: Good/Bad [1640/13]
+|+-----------> Smoke testing [1495]
 ||+----------> sKipping validation [149]
 |||+---------> Interactive [76]
-||||+--------> Touched (modified by me) [581]
+||||+--------> Touched (modified by me) [582]
 |||||+-------> Random seed [123]
 ||||||+------> File output [80]
 |||||||+-----> Draft [363]
 ||||||||+----> Ignoring [39]
-|||||||||+---> Void (no local copy) [124]
+|||||||||+---> Void (no local copy) [123]
 ||||||||||+--> Un-implemented/reliable [100]
 |||||||||||
 GS..T..D... 10001th_prime
@@ -923,7 +923,7 @@ GS......... Make_directory_path
 GS......... Man_or_boy_test
 GS......... Mandelbrot_set
 GS......... Map_range
-.......D.VU Marching_squares
+GS..T..D..U Marching_squares
 GS..TR.D... Markov_chain_text_generator
 GS..TR..... Mastermind
 GS......... Matrix-exponentiation_operator
