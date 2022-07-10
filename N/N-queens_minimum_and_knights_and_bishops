@@ -59,11 +59,13 @@ sub storeLayout($piece) {
     }
 }
 
+sub X ($a,$b)       { my @c; for my $aa (0..$a)  { for my $bb (0..$b)  { push @c, $aa, $bb } } @c }
+sub Xr($a,$b,$c,$d) { my @c; for my $ab ($a..$b) { for my $cd ($c..$d) { push @c, $ab, $cd } } @c }
+
 sub placePiece($piece, $countSoFar, $maxCount) {
    return if $countSoFar >= $minCount; 
    my ($allAttacked,$ti,$tj) = (true,0,0);
-   for my($i,$j) (@board) {  #!!! FAKE
-   #for my($i,$j) (^$n X ^$n) {  #!!! cross-op
+   for my($i,$j) (X $n $n) {
       unless (isAttacked($piece, $i, $j)) {
          ($allAttacked,$ti,$tj) = (false,$i,$j) and last
       }
@@ -80,8 +82,7 @@ sub placePiece($piece, $countSoFar, $maxCount) {
          $si -= 2; $si = 0 if $si < 0; 
          $sj -= 2; $sj = 0 if $sj < 0; 
       }
-      for my ($i,$j) (@board) { # FAKE
-      #for my ($i,$j) (($si..^$n) X ($sj..^$n) { #!!!! cross-op
+      for my ($i,$j) (Xr $si,$n-1,$sj,$n-1) {
          unless (isAttacked($piece, $i, $j)) {
             if (($i == $ti && $j == $tj) || attacks($piece, $i, $j, $ti, $tj)) {
                $board[$i][$j] = true; 
