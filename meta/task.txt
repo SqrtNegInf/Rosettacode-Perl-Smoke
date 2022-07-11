@@ -2,16 +2,16 @@
 This is perl 5, version 36, subversion 0 (v5.36.0) built for darwin-thread-multi-2level
 updating from RC…
 +------------> Perl: Good/Bad [1640/13]
-|+-----------> Smoke testing [1495]
-||+----------> sKipping validation [149]
+|+-----------> Smoke testing [1496]
+||+----------> sKipping validation [148]
 |||+---------> Interactive [76]
 ||||+--------> Touched (modified by me) [582]
 |||||+-------> Random seed [123]
 ||||||+------> File output [80]
-|||||||+-----> Draft [363]
+|||||||+-----> Draft [364]
 ||||||||+----> Ignoring [39]
-|||||||||+---> Void (no local copy) [123]
-||||||||||+--> Un-implemented/reliable [100]
+|||||||||+---> Void (no local copy) [125]
+||||||||||+--> Un-implemented/reliable [101]
 |||||||||||
 GS..T..D... 10001th_prime
 GS......... 100_doors-1
@@ -362,6 +362,7 @@ GS......... Create_a_file
 ........XVU Create_a_file_on_magnetic_tape
 GS......... Create_a_two-dimensional_array_at_runtime
 GS...R..... Create_an_HTML_table
+.......D.VU Create_an_executable_for_a_program_in_an_interpreted_language
 GS.....D... Create_an_object_Native_demonstration
 G.K.....X.. Create_an_object_at_a_given_address
 .......D.VU Create_your_own_text_control_codes
@@ -923,7 +924,7 @@ GS......... Make_directory_path
 GS......... Man_or_boy_test
 GS......... Mandelbrot_set
 GS......... Map_range
-GS..T..D..U Marching_squares
+GS..T..D... Marching_squares
 GS..TR.D... Markov_chain_text_generator
 GS..TR..... Mastermind
 GS......... Matrix-exponentiation_operator
@@ -1014,7 +1015,7 @@ G.K.T.F.... Musical_scale
 GS......... Mutual_recursion
 GS......... N%27th
 GS..T..D... N-body_problem
-G.K.T..D..U N-queens_minimum_and_knights_and_bishops
+GS..T..D..U N-queens_minimum_and_knights_and_bishops
 GS..T...... N-queens_problem
 GS..T...... N-smooth_numbers
 GS..T..D... NYSIIS
@@ -1572,6 +1573,7 @@ GS......... Substring_Top_and_tail
 GS.....D... Substring_primes
 GS......... Subtractive_generator
 GS..T...... Successive_prime_differences
+.........VU Sudan_function
 GS......... Sudoku
 GS.....D... Suffix_tree
 GS..T...... Suffixation_of_decimal_numbers
