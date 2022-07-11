@@ -5761,7 +5761,7 @@ File: M/Map_range
 File: M/Marching_squares
 #!/usr/local/bin/perl
 #u# http://rosettacode.org/wiki/Marching_squares
-#c# 2022-07-xx >RC
+#c# 2022-07-10 >RC
 #p# OK
 #n# sub-optimal: repeating the compass points
 
@@ -6341,10 +6341,10 @@ File: N/N-body_problem
 File: N/N-queens_minimum_and_knights_and_bishops
 #!/usr/local/bin/perl
 #u# http://rosettacode.org/wiki/N-queens_minimum_and_knights_and_bishops
-#t# inprogress
 #c# 2022-07-xx >RC
 #p# OK
-#n# where can we use the new true/false here?
+#n# Where can we use the new true/false? [everywhere!]
+#n# full run of 10x10: 7029.33s user 13.57s system 99% cpu 1:57:30.63 total
 
 File: N/N-queens_problem
 #!/usr/local/bin/perl
