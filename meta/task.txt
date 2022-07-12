@@ -1,8 +1,8 @@
 
 This is perl 5, version 36, subversion 0 (v5.36.0) built for darwin-thread-multi-2level
 updating from RC…
-+------------> Perl: Good/Bad [1640/13]
-|+-----------> Smoke testing [1496]
++------------> Perl: Good/Bad [1640/14]
+|+-----------> Smoke testing [1497]
 ||+----------> sKipping validation [148]
 |||+---------> Interactive [76]
 ||||+--------> Touched (modified by me) [582]
@@ -10,8 +10,8 @@ updating from RC…
 ||||||+------> File output [80]
 |||||||+-----> Draft [364]
 ||||||||+----> Ignoring [39]
-|||||||||+---> Void (no local copy) [125]
-||||||||||+--> Un-implemented/reliable [101]
+|||||||||+---> Void (no local copy) [124]
+||||||||||+--> Un-implemented/reliable [100]
 |||||||||||
 GS..T..D... 10001th_prime
 GS......... 100_doors-1
@@ -1015,7 +1015,7 @@ G.K.T.F.... Musical_scale
 GS......... Mutual_recursion
 GS......... N%27th
 GS..T..D... N-body_problem
-GS..T..D..U N-queens_minimum_and_knights_and_bishops
+GS..T..D... N-queens_minimum_and_knights_and_bishops
 GS..T...... N-queens_problem
 GS..T...... N-smooth_numbers
 GS..T..D... NYSIIS
@@ -1573,7 +1573,7 @@ GS......... Substring_Top_and_tail
 GS.....D... Substring_primes
 GS......... Subtractive_generator
 GS..T...... Successive_prime_differences
-.........VU Sudan_function
+BS........U Sudan_function
 GS......... Sudoku
 GS.....D... Suffix_tree
 GS..T...... Suffixation_of_decimal_numbers
