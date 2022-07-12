@@ -1,6 +1,6 @@
 #!/usr/local/bin/perl
 #u# http://rosettacode.org/wiki/N-queens_minimum_and_knights_and_bishops
-#c# 2022-07-xx >RC
+#c# 2022-07-11 >RC
 #p# OK
 #n# Where can we use the new true/false? [everywhere!]
 #n# full run of 10x10: 7029.33s user 13.57s system 99% cpu 1:57:30.63 total
@@ -93,7 +93,6 @@ sub place_piece($piece, $so_far, $max) {
 }
 
 my @Pieces = <Q B K>;
-#my %Limits = ( 'Q' =>   10,     'B' =>    10,     'K' =>    10   );
 my %Limits = ( 'Q' =>    7,     'B' =>     7,     'K' =>    6    );
 my %Names  = ( 'Q' => 'Queens', 'B' => 'Bishops', 'K' =>'Knights');
 
@@ -186,13 +185,3 @@ use Test::More;
 chomp $ref;
 is($result, $ref);
 done_testing();
-
-__END__
-
-=={{header|Perl}}==
-{{trans|Raku}}
-<lang perl>
-</lang>
-{{out}}
-<pre>
-</pre>
