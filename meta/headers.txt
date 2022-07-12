@@ -6341,7 +6341,7 @@ File: N/N-body_problem
 File: N/N-queens_minimum_and_knights_and_bishops
 #!/usr/local/bin/perl
 #u# http://rosettacode.org/wiki/N-queens_minimum_and_knights_and_bishops
-#c# 2022-07-xx >RC
+#c# 2022-07-11 >RC
 #p# OK
 #n# Where can we use the new true/false? [everywhere!]
 #n# full run of 10x10: 7029.33s user 13.57s system 99% cpu 1:57:30.63 total
