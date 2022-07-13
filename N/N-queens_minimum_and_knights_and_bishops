@@ -6,8 +6,8 @@
 #n# full run of 10x10: 7029.33s user 13.57s system 99% cpu 1:57:30.63 total
 
 use v5.36;
+use experimental <builtin for_list>;
 use builtin 'true', 'false';
-no warnings 'experimental::for_list', 'experimental::builtin';
 
 my @res;
 
