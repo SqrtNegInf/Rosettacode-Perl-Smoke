@@ -1,0 +1,192 @@
+#!/usr/local/bin/perl5.32.1
+#u# http://rosettacode.org/wiki/N-queens_minimum_and_knights_and_bishops
+#c# 2022-07-11 >RC
+#p# OK
+#n# essentially same code as main, but works with older Perls, getting boolean capability via enum or module
+
+use strict;
+use warnings;
+use feature <say signatures>;
+no warnings 'experimental::signatures';
+
+use enum qw<false true>;
+#use boolean; # by Ingy döt Net
+
+my @res;
+
+my(@B, @D1, @D2, @D1x, @D2x, $N, $Min, $Layout);  # ugh, use leading upcase as a flag
+
+sub is_attacked($piece, $r, $c) {
+    if ($piece eq 'Q') { 
+        for (0..$N-1) { return true if $B[$_][$c] or $B[$r][$_] }
+        return true if $D1x[ $D1[$r][$c] ] or 
+                       $D2x[ $D2[$r][$c] ]
+    } elsif ($piece eq 'B') {
+        return true if $D1x[ $D1[$r][$c] ] or $D2x[ $D2[$r][$c] ]
+    } else { # 'K'
+        return true if (
+            $B[$r][$c] or 
+            $r+2 < $N and $c-1 >= 0 and $B[$r+2][$c-1] or
+            $r-2 >= 0 and $c-1 >= 0 and $B[$r-2][$c-1] or
+            $r+2 < $N and $c+1 < $N and $B[$r+2][$c+1] or
+            $r-2 >= 0 and $c+1 < $N and $B[$r-2][$c+1] or
+            $r+1 < $N and $c+2 < $N and $B[$r+1][$c+2] or
+            $r-1 >= 0 and $c+2 < $N and $B[$r-1][$c+2] or
+            $r+1 < $N and $c-2 >= 0 and $B[$r+1][$c-2] or
+            $r-1 >= 0 and $c-2 >= 0 and $B[$r-1][$c-2]
+        )
+   }
+   false
+}
+
+sub attacks($piece, $r, $c, $tr, $tc) {
+    if    ($piece eq 'Q') { $r==$tr or $c==$tc or abs($r - $tr)==abs($c - $tc) } 
+    elsif ($piece eq 'B') { abs($r - $tr) == abs($c - $tc) }
+    else                  { 
+        my ($rd, $cd) = (abs($tr - $r), abs($tc - $c));
+        ($rd == 1 and $cd == 2) or ($rd == 2 and $cd == 1)
+    }
+}
+
+sub store_layout($piece) {
+    $Layout = '';
+    for (@B) {
+        map { $Layout .= $_ ?  $piece.' ' : '. ' } @$_;
+        $Layout .=  "\n";
+    }
+}
+
+sub place_piece($piece, $so_far, $max) {
+    return if $so_far >= $Min; 
+    my ($all_attacked,$ti,$tj) = (true,0,0);
+    LOOP:
+    for my $i (0..$N-1) {
+      for my $j (0..$N-1) {
+        unless (is_attacked($piece, $i, $j)) {
+            ($all_attacked,$ti,$tj) = (false,$i,$j) and last LOOP
+        }
+        last LOOP unless $all_attacked 
+      }
+    }
+    if ($all_attacked) {
+        $Min = $so_far;
+        store_layout($piece);
+    } elsif ($so_far <= $max) {
+        my($si,$sj) = ($ti,$tj);
+        if ($piece eq 'K') {
+            $si -= 2; $si = 0 if $si < 0; 
+            $sj -= 2; $sj = 0 if $sj < 0; 
+        }
+        for my $i ($si .. $N-1) {
+          for my $j ($sj .. $N-1) {
+            unless (is_attacked($piece, $i, $j)) {
+                if (($i == $ti and $j == $tj) or attacks($piece, $i, $j, $ti, $tj)) {
+                    $B[$i][$j] = true; 
+                    unless ($piece eq 'K') {
+	                    ($D1x[ $D1[$i][$j] ], $D2x[ $D2[$i][$j] ]) = (true,true);
+                    };
+                    place_piece($piece, $so_far+1, $max);
+                    $B[$i][$j] = false; 
+                    unless ($piece eq 'K') {
+                        ($D1x[ $D1[$i][$j] ], $D2x[ $D2[$i][$j] ]) = (false,false);
+                    }
+                }
+	        }
+         }
+       }
+     }
+}
+
+my @Pieces = <Q B K>;
+my %Limits = ( 'Q' =>    7,     'B' =>     7,     'K' =>    6    );
+my %Names  = ( 'Q' => 'Queens', 'B' => 'Bishops', 'K' =>'Knights');
+
+for my $piece (@Pieces) {
+    push @res, $Names{$piece} . "\n=======\n";
+    for ($N = 1 ; ; $N++) {
+        @B = map { [ (false) x $N ] } 1..$N;
+        unless ($piece eq 'K') {
+            @D2 = reverse @D1 = map { [$_ .. $N+$_-1] } 0..$N-1;
+	        @D2x = @D1x = (false) x ((2*$N)-1);
+        }
+        $Min = 2**31 - 1;
+        my $nSQ   = $N**2;
+        for my $max (1..$nSQ) {
+            place_piece($piece, 0, $max);
+            last if $Min <= $nSQ 
+        }
+        push @res, sprintf("%2d x %-2d : %d", $N, $N, $Min);
+        if ($N == $Limits{$piece}) {
+            push @res, sprintf "\n%s on a %d x %d board:", $Names{$piece}, $N, $N;
+            push @res, $Layout and last
+        }
+    }
+}
+
+my $result = join "\n", @res;
+
+my $ref = <<'END';
+Queens
+=======
+
+ 1 x 1  : 1
+ 2 x 2  : 1
+ 3 x 3  : 1
+ 4 x 4  : 3
+ 5 x 5  : 3
+ 6 x 6  : 4
+ 7 x 7  : 4
+
+Queens on a 7 x 7 board:
+. Q . . . . . 
+. . . . . Q . 
+. . . . . . . 
+Q . . . . . . 
+. . . . Q . . 
+. . . . . . . 
+. . . . . . . 
+
+Bishops
+=======
+
+ 1 x 1  : 1
+ 2 x 2  : 2
+ 3 x 3  : 3
+ 4 x 4  : 4
+ 5 x 5  : 5
+ 6 x 6  : 6
+ 7 x 7  : 7
+
+Bishops on a 7 x 7 board:
+. . . . . B . 
+. . B . . . . 
+. . B . B . . 
+. . . . . . B 
+. . . B . . . 
+. . . B . . . 
+. . . . . . . 
+
+Knights
+=======
+
+ 1 x 1  : 1
+ 2 x 2  : 4
+ 3 x 3  : 4
+ 4 x 4  : 4
+ 5 x 5  : 5
+ 6 x 6  : 8
+
+Knights on a 6 x 6 board:
+K . . . . K 
+. . . . . . 
+. . K K . . 
+. . K K . . 
+. . . . . . 
+K . . . . K 
+
+END
+
+use Test::More;
+chomp $ref;
+is($result, $ref);
+done_testing();
