@@ -6346,6 +6346,13 @@ File: N/N-queens_minimum_and_knights_and_bishops
 #n# Where can we use the new true/false? [everywhere!]
 #n# full run of 10x10: 7029.33s user 13.57s system 99% cpu 1:57:30.63 total
 
+File: N/N-queens_minimum_and_knights_and_bishops.1
+#!/usr/local/bin/perl5.32.1
+#u# http://rosettacode.org/wiki/N-queens_minimum_and_knights_and_bishops
+#c# 2022-07-11 >RC
+#p# OK
+#n# essentially same code as main, but works with older Perls, getting boolean capability via enum or module
+
 File: N/N-queens_problem
 #!/usr/local/bin/perl
 #u# http://rosettacode.org/wiki/N-queens_problem
@@ -9873,6 +9880,13 @@ File: S/Successive_prime_differences.1
 #p# OK
 #n# to avoid smartmatch, could use Array::Compare;
 #n# merges approach from Sidef (each_cons) and Perl 6/2nd soln (precomputed diffs)
+
+File: S/Sudan_function
+#!/usr/local/bin/perl
+#u# http://rosettacode.org/wiki/Sudan_function
+#c# 2022-07-12 >RC
+#p# OK
+#n# 3 ways of doing the same thing (with totally gratuitous cross-calls)
 
 File: S/Sudoku
 #!/usr/local/bin/perl
