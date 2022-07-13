@@ -1,17 +1,17 @@
 
 This is perl 5, version 36, subversion 0 (v5.36.0) built for darwin-thread-multi-2level
 updating from RC…
-+------------> Perl: Good/Bad [1640/14]
++------------> Perl: Good/Bad [1641/13]
 |+-----------> Smoke testing [1497]
 ||+----------> sKipping validation [148]
 |||+---------> Interactive [76]
-||||+--------> Touched (modified by me) [582]
+||||+--------> Touched (modified by me) [583]
 |||||+-------> Random seed [123]
 ||||||+------> File output [80]
-|||||||+-----> Draft [364]
+|||||||+-----> Draft [366]
 ||||||||+----> Ignoring [39]
-|||||||||+---> Void (no local copy) [124]
-||||||||||+--> Un-implemented/reliable [100]
+|||||||||+---> Void (no local copy) [126]
+||||||||||+--> Un-implemented/reliable [101]
 |||||||||||
 GS..T..D... 10001th_prime
 GS......... 100_doors-1
@@ -166,6 +166,7 @@ GS...R..... Best_shuffle-2
 GS..T.FD... Bilinear_interpolation
 GS..T...... Bin_given_limits-1
 GS..T...... Bin_given_limits-2
+.......D.VU Binary-Coded_Decimal
 GS......... Binary_digits
 GS......... Binary_search-1
 GS......... Binary_search-2
@@ -667,6 +668,7 @@ GS.....D... Giuga_numbers
 G.K........ Globally_replace_text_in_several_files
 G.K........ Go_Fish
 GS..T.F.... Goldbach%27s_comet
+.......D.VU Gotchas
 GS..T..D... Gradient_descent
 GS..T...... Graph_colouring
 GS......... Gray_code
@@ -1573,7 +1575,7 @@ GS......... Substring_Top_and_tail
 GS.....D... Substring_primes
 GS......... Subtractive_generator
 GS..T...... Successive_prime_differences
-BS........U Sudan_function
+GS..T...... Sudan_function
 GS......... Sudoku
 GS.....D... Suffix_tree
 GS..T...... Suffixation_of_decimal_numbers
