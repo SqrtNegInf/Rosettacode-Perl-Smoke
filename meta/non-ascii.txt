@@ -356,6 +356,9 @@ M/Multidimensional_Newton-Raphson_method
 Δ:    13 GREEK CAPITAL LETTER DELTA
 ε:     8 GREEK SMALL LETTER EPSILON
 
+N/N-queens_minimum_and_knights_and_bishops.1
+ö:     1 LATIN SMALL LETTER O WITH DIAERESIS
+
 N/Names_to_numbers
 ¢:     2 CENT SIGN
 π:     3 GREEK SMALL LETTER PI
