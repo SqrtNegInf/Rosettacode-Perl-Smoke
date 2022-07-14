@@ -332,6 +332,7 @@ File: A/Air_mass
 #u# http://rosettacode.org/wiki/Air_mass
 #c# 2021-04-17 >RC
 #p# OK
+#n# some tweaks, not on RC
 
 File: A/Algebraic_data_types
 #!/usr/local/bin/perl
@@ -3682,9 +3683,9 @@ File: F/Fixed_length_records
 File: F/Fixed_length_records-2
 #!/usr/local/bin/perl
 #u# http://rosettacode.org/wiki/Fixed_length_records
-#t# inprogress
 #c# 2021-06-14 <RC
 #p# OK
+#f# RC file: flr-outfile-2.dat
 #n# tybalt89++
 
 File: F/FizzBuzz
@@ -5301,13 +5302,6 @@ File: L/List_rooted_trees
 #c# 2020-01-22 >RC
 #p# OK
 
-File: L/List_rooted_trees-1~
-#!/usr/local/bin/perl
-#u# http://rosettacode.org/wiki/List_rooted_trees
-#t# inprogress
-#c# 2020-01-xx >RC
-#p# BROKEN
-
 File: L/Literals_Floating_point
 #!/usr/local/bin/perl
 #u# http://rosettacode.org/wiki/Literals/Floating_point
@@ -6599,11 +6593,10 @@ File: N/Numbers_n_in_which_number_1_occur_twice
 File: N/Numbers_which_are_not_the_sum_of_distinct_squares
 #!/usr/local/bin/perl
 #u# http://rosettacode.org/wiki/Numbers_which_are_not_the_sum_of_distinct_squares
-#t# inprogress
-#c# 2022-02-xx >RC
+#c# 2022-07-13 NOT ON RC
 #p# OK
-#n# no magic numbers, and just one 'high' limit
-#n# trying to be just a little different...
+#n# Trying to be just a little different, by progressively increasing the number of squared terms used to sum
+#n# currently with bogus termination condition, need to fix that and maybe ready for RC
 
 File: N/Numbers_which_binary_and_ternary_digit_sum_are_prime
 #!/usr/local/bin/perl
@@ -9886,7 +9879,7 @@ File: S/Sudan_function
 #u# http://rosettacode.org/wiki/Sudan_function
 #c# 2022-07-12 >RC
 #p# OK
-#n# 3 ways of doing the same thing (with totally gratuitous cross-calls)
+#n# 3 ways of doing the same thing (with totally gratuitous cross-calls, oh what a tangled web we weave...)
 
 File: S/Sudoku
 #!/usr/local/bin/perl
