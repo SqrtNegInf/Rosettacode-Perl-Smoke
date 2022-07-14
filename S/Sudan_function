@@ -2,7 +2,7 @@
 #u# http://rosettacode.org/wiki/Sudan_function
 #c# 2022-07-12 >RC
 #p# OK
-#n# 3 ways of doing the same thing (with totally gratuitous cross-calls)
+#n# 3 ways of doing the same thing (with totally gratuitous cross-calls, oh what a tangled web we weave...)
 
 my @res;
 
