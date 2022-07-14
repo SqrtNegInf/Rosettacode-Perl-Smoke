@@ -2,21 +2,19 @@
 #u# http://rosettacode.org/wiki/Air_mass
 #c# 2021-04-17 >RC
 #p# OK
+#n# some tweaks, not on RC
 
 my @res;
 
-use strict;
-use warnings;
-use feature <say signatures>;
-no warnings 'experimental::signatures';
+use v5.36;
 
 use List::Util 'max';
 
-use constant PI  => 2*atan2(1,0);   # π
-use constant DEG => PI/180;         # degrees to radians
-use constant RE  => 6371000;        # Earth radius in meters
+use constant Pi  => 2*atan2(1,0);   # π
+use constant Deg => Pi/180;         # degrees to radians
+use constant R_e => 6371000;        # Earth radius in meters
 use constant dd  => 0.001;          # integrate in this fraction of the distance already covered
-use constant FIN => 10000000;       # integrate only to a height of 10000km, effectively infinity
+use constant Inf => 10E6;           # integrate only to a height of 1000km, effectively infinity
 
 # Density of air as a function of height above sea level
 sub rho ( $a ) {
@@ -27,16 +25,16 @@ sub height ( $a, $z, $d ) {
     # a = altitude of observer
     # z = zenith angle (in degrees)
     # d = distance along line of sight
-    my $AA = RE + $a;
-    my $HH = sqrt $AA**2 + $d**2 - 2 * $d * $AA * cos( (180-$z)*DEG );
-    $HH - RE;
+    my $AA = R_e + $a;
+    my $HH = sqrt $AA**2 + $d**2 - 2 * $d * $AA * cos( (180-$z)*Deg );
+    $HH - R_e;
 }
 
 # Integrates density along the line of sight
 sub column_density ( $a, $z ) {
     my $sum = 0;
     my $d   = 0;
-    while ($d < FIN) {
+    while ($d < Inf) {
         my $delta = max(dd, dd * $d);  # Adaptive step size to avoid it taking forever
         $sum += rho(height($a, $z, $d + $delta/2))*$delta;
         $d   += $delta;
