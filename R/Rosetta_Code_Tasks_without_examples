@@ -61,5 +61,6 @@ however, as should be obvious, this defeats the intent of comparing implementati
 END
 
 use Test::More;
-is($result, $ref);
+#is($result, $ref);
+is(($result =~ s/\s//gr), ($ref =~ s/\s//gr));
 done_testing();
