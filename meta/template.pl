@@ -22,6 +22,7 @@ END
 use Test::More;
 chomp $ref;
 is($result, $ref);
+#is(($result =~ s/\s//gr), ($ref =~ s/\s//gr));
 done_testing();
 
 __END__
