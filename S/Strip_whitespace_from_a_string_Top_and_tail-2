@@ -1,0 +1,17 @@
+#!/usr/local/bin/perl
+#u# http://rosettacode.org/wiki/Strip_whitespace_from_a_string/Top_and_tail
+#c# 2022-07-14
+#p# OK
+#n# simple demonstration/test of new 5.36 feature
+
+use v5.36;
+use experimental 'builtin';
+#use builtin 'trim';
+
+say my $trim1 = builtin::trim '       this is a string      ';
+say my $trim2 = builtin::trim "\t this is a string \n";
+
+use Test::More;
+is ($trim1, 'this is a string');
+is ($trim2, 'this is a string');
+done_testing();
