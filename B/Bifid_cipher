@@ -1,0 +1,95 @@
+#!/usr/bin/env perl
+#u# http://rosettacode.org/wiki/Bifid_cipher
+#c# 2022-07-xx >RC
+#p# OK
+
+my @res;
+
+use v5.36;
+use builtin <indexed floor>;
+use experimental qw(builtin for_list);
+
+use List::Util 'max';
+
+sub table ($c, @V) { my $t = $c * (my $w = 2 + length max map { length } @V); ( sprintf( ('%'.$w.'s')x@V, @V) ) =~ s/.{1,$t}\K/\n/gr }
+
+sub polybius ($text) {
+    my %p;
+    my $n = floor sqrt length $text;
+    for my($k,$v) (indexed split '', $text) {
+        $p{$v} = join ' ', $k%$n, int $k/$n
+    }
+    %p;
+}
+
+sub encrypt ($message, %poly) {
+    my(%i, @c1, @c2, $encrypted);
+    for my($k,$v) (%poly) { $i{$v} = $k }
+    for (split '', $message) {
+        for my($a,$b) (split ' ', $poly{$_}) { push @c1, $a; push @c2, $b } 
+    }
+    for my($a,$b) (@c2, @c1) { $encrypted .= $i{"$b $a"} } 
+    $encrypted
+}
+
+sub decrypt ($message, %poly) {
+    my($decrypted, $l, %i, @c) = ('', length($message));
+    for my($k,$v) (%poly) { $i{$v} = $k }
+    for (split '', $message) {
+        for my($a,$b) (split ' ', $poly{$_}) { unshift @c, $a, $b }
+    }    
+    for (0..$l-1) { substr $decrypted, 0, 0, $i{ "$c[$_] $c[$_+$l]" } } 
+    $decrypted;
+}
+
+for my($polybius,$message) (join('','A'..'Z') =~ s/J//r,'ATTACKATDAWN', 'BGWKZQPNDSIOAXEFCLUMTHYVR','FLEEATONCE') {
+#(flat '_', '.', 'A'..'Z', 'a'..'z', 0..9).pick(*).join, 'The invasion will start on the first of January 2023.'.subst(/' '/, '_', :g)
+
+    my %Ptable = polybius $polybius;
+    push @res, "\nUsing polybius:\n" . table 5, split '', $polybius; 
+    push @res, 'Message   : ' .  $message;
+    push @res, 'Encrypted : ' .  (my $encrypted = encrypt $message, %Ptable);
+    push @res, 'Decrypted : ' .  decrypt $encrypted, %Ptable;
+}
+
+say my $result = join "\n", @res;
+
+my $ref = <<'END';
+
+Using polybius:
+  A  B  C  D  E
+  F  G  H  I  K
+  L  M  N  O  P
+  Q  R  S  T  U
+  V  W  X  Y  Z
+
+Message   : ATTACKATDAWN
+Encrypted : DQBDAXDQPDQH
+Decrypted : ATTACKATDAWN
+
+Using polybius:
+  B  G  W  K  Z
+  Q  P  N  D  S
+  I  O  A  X  E
+  F  C  L  U  M
+  T  H  Y  V  R
+
+Message   : FLEEATONCE
+Encrypted : UAEOLWRINS
+Decrypted : FLEEATONCE
+END
+
+use Test::More;
+chomp $ref;
+is($result, $ref);
+#is(($result =~ s/\s//gr), ($ref =~ s/\s//gr));
+done_testing();
+
+__END__
+
+=={{header|Perl}}==
+<lang perl>
+</lang>
+{{out}}
+<pre>
+</pre>
