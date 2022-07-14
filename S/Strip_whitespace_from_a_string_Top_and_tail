@@ -8,10 +8,9 @@ my $result;
 
 sub ltrim { shift =~ s/^\s+//r }
 sub rtrim { shift =~ s/\s+$//r }
-sub trim { ltrim rtrim shift }
+sub trim  { ltrim rtrim shift  }
 
-# Usage:
-my $p = "       this is a string      ";
+my $p = "   \t   this is a string      ";
 $result .= "'". $p. "'\n";
 $result .= "'". trim($p). "'\n";
 $result .= "'". ltrim($p). "'\n";
@@ -19,10 +18,10 @@ $result .= "'". rtrim($p). "'\n";
 
 say $result; 
 my $ref = <<'EOD';
-'       this is a string      '
+'   	   this is a string      '
 'this is a string'
 'this is a string      '
-'       this is a string'
+'   	   this is a string'
 EOD
 
 use Test::More;
