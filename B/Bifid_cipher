@@ -22,31 +22,34 @@ sub polybius ($text) {
     %p;
 }
 
-sub encrypt ($message, %poly) {
-    my(%i, @c1, @c2, $encrypted);
-    for my($k,$v) (%poly) { $i{$v} = $k }
-    for (split '', $message) {
-        for my($a,$b) (split ' ', $poly{$_}) { push @c1, $a; push @c2, $b } 
+sub encrypt ($text, %P) {
+    my(%I, @c1, @c2, $encrypted);
+    for my($k,$v) (%P) { $I{$v} = $k }
+    for (split '', $text =~ s/\s//gr) {
+        for my($i,$j) (split ' ', $P{$_}) { push @c1, $i; push @c2, $j } 
     }
-    for my($a,$b) (@c2, @c1) { $encrypted .= $i{"$b $a"} } 
+    #map { for my($i,$j) (split ' ', $P{$_}) { push @c1, $i; push @c2, $j } } split '', $text; # a bit opaque
+    for my($j,$i) (@c2, @c1) { $encrypted .= $I{"$i $j"} } 
     $encrypted
 }
 
-sub decrypt ($message, %poly) {
-    my($decrypted, $l, %i, @c) = ('', length($message));
-    for my($k,$v) (%poly) { $i{$v} = $k }
-    for (split '', $message) {
-        for my($a,$b) (split ' ', $poly{$_}) { unshift @c, $a, $b }
+sub decrypt ($text, %P) {
+    my($decrypted, $l, %I, @c) = ('', length($text));
+    for my($k,$v) (%P) { $I{$v} = $k }
+    for (split '', $text) {
+        for my($i,$j) (split ' ', $P{$_}) { unshift @c, $i, $j }
     }    
-    for (0..$l-1) { substr $decrypted, 0, 0, $i{ "$c[$_] $c[$_+$l]" } } 
+    substr $decrypted, 0, 0, $I{ "$c[$_] $c[$_+$l]" } for 0 .. $l-1;
     $decrypted;
 }
 
-for my($polybius,$message) (join('','A'..'Z') =~ s/J//r,'ATTACKATDAWN', 'BGWKZQPNDSIOAXEFCLUMTHYVR','FLEEATONCE') {
-#(flat '_', '.', 'A'..'Z', 'a'..'z', 0..9).pick(*).join, 'The invasion will start on the first of January 2023.'.subst(/' '/, '_', :g)
-
+for my($polybius,$message) (
+  join('','A'..'Z') =~ s/J//r,                 'ATTACK AT DAWN', 
+  'BGWKZQPNDSIOAXEFCLUMTHYVR',                 'FLEE AT ONCE',
+  join('','_.', 'A'..'Z', 'a'..'z', '0'..'9'), 'The_invasion_will_start_on_the_first_of_January_2023.',
+  ) {
     my %Ptable = polybius $polybius;
-    push @res, "\nUsing polybius:\n" . table 5, split '', $polybius; 
+    push @res, "\nUsing polybius:\n" . table sqrt length $polybius, split '', $polybius; 
     push @res, 'Message   : ' .  $message;
     push @res, 'Encrypted : ' .  (my $encrypted = encrypt $message, %Ptable);
     push @res, 'Decrypted : ' .  decrypt $encrypted, %Ptable;
@@ -63,7 +66,7 @@ Using polybius:
   Q  R  S  T  U
   V  W  X  Y  Z
 
-Message   : ATTACKATDAWN
+Message   : ATTACK AT DAWN
 Encrypted : DQBDAXDQPDQH
 Decrypted : ATTACKATDAWN
 
@@ -74,15 +77,28 @@ Using polybius:
   F  C  L  U  M
   T  H  Y  V  R
 
-Message   : FLEEATONCE
+Message   : FLEE AT ONCE
 Encrypted : UAEOLWRINS
 Decrypted : FLEEATONCE
+
+Using polybius:
+  _  .  A  B  C  D  E  F
+  G  H  I  J  K  L  M  N
+  O  P  Q  R  S  T  U  V
+  W  X  Y  Z  a  b  c  d
+  e  f  g  h  i  j  k  l
+  m  n  o  p  q  r  s  t
+  u  v  w  x  y  z  0  1
+  2  3  4  5  6  7  8  9
+
+Message   : The_invasion_will_start_on_the_first_of_January_2023.
+Encrypted : SejxqrEierbmrDiCjrDeJsbu89DWCHkgGS9E6tAG5_Ks2PBfCq_uH
+Decrypted : The_invasion_will_start_on_the_first_of_January_2023.
 END
 
 use Test::More;
 chomp $ref;
 is($result, $ref);
-#is(($result =~ s/\s//gr), ($ref =~ s/\s//gr));
 done_testing();
 
 __END__
