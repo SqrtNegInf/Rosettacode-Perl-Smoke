@@ -1,17 +1,17 @@
 
 This is perl 5, version 36, subversion 0 (v5.36.0) built for darwin-thread-multi-2level
 updating from RC…
-+------------> Perl: Good/Bad [1641/13]
-|+-----------> Smoke testing [1499]
++------------> Perl: Good/Bad [1643/13]
+|+-----------> Smoke testing [1501]
 ||+----------> sKipping validation [146]
 |||+---------> Interactive [76]
-||||+--------> Touched (modified by me) [582]
+||||+--------> Touched (modified by me) [583]
 |||||+-------> Random seed [123]
 ||||||+------> File output [81]
 |||||||+-----> Draft [367]
 ||||||||+----> Ignoring [39]
-|||||||||+---> Void (no local copy) [127]
-||||||||||+--> Un-implemented/reliable [102]
+|||||||||+---> Void (no local copy) [126]
+||||||||||+--> Un-implemented/reliable [101]
 |||||||||||
 GS..T..D... 10001th_prime
 GS......... 100_doors-1
@@ -163,7 +163,7 @@ GS......... Bernoulli_numbers-2
 GS......... Bernoulli_numbers-3
 GS...R..... Best_shuffle-1
 GS...R..... Best_shuffle-2
-.......D.VU Bifid_cipher
+GS..T..D... Bifid_cipher
 GS..T.FD... Bilinear_interpolation
 GS..T...... Bin_given_limits-1
 GS..T...... Bin_given_limits-2
@@ -1565,6 +1565,7 @@ GS......... Strip_block_comments
 GS......... Strip_comments_from_a_string
 GS...R..... Strip_control_codes_and_extended_characters_from_a_string
 GS......... Strip_whitespace_from_a_string_Top_and_tail
+GS......... Strip_whitespace_from_a_string_Top_and_tail-2
 GS..T...... Strong_and_weak_primes
 GS......... Subleq
 .......D... Subset_sum_problem
