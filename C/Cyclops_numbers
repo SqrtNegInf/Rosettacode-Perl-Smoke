@@ -11,7 +11,7 @@ use warnings;
 use feature 'say';
 
 use ntheory 'is_prime';
-use List::AllUtils 'firstidx';
+#use List::AllUtils 'firstidx';
 
 sub comma { reverse ((reverse shift) =~ s/(.{3})/$1,/gr) =~ s/^,//r }
 
@@ -40,7 +40,8 @@ for (
     my($text,@values) = @$_;
     push @res, "First $upto $text cyclops numbers:\n" .
         (sprintf "@{['%8d' x $upto]}", @values[0..$upto-1]) =~ s/(.{80})/$1\n/gr;
-    my $i = firstidx { $_ > $over } @values;
+   #my $i = firstidx { $_ > $over } @values;
+    my($i) = grep { $values[$_] > $over } 0..$#values;
     push @res, sprintf "First $text number > %s: %s at (zero based) index: %s\n", map { comma($_) } $over, $values[$i], $i;
 }
 
