@@ -1,6 +1,6 @@
 #!/usr/bin/env perl
 #u# http://rosettacode.org/wiki/Bifid_cipher
-#c# 2022-07-xx >RC
+#c# 2022-07-14 >RC
 #p# OK
 
 my @res;
@@ -22,7 +22,8 @@ sub polybius ($text) {
     %p;
 }
 
-sub encrypt ($text, %P) {
+# not used: two 1-D arrays less good than one 2-D array
+sub xxcrypt ($text, %P) {
     my(%I, @c1, @c2, $encrypted);
     for my($k,$v) (%P) { $I{$v} = $k }
     for (split '', $text =~ s/\s//gr) {
@@ -33,12 +34,24 @@ sub encrypt ($text, %P) {
     $encrypted
 }
 
+sub encrypt ($text, %P) {
+    my(%I, @c, $encrypted);
+    for my($k,$v) (%P) { $I{$v} = $k }
+    for my ($n,$char) (indexed split '', ($text =~ s/\s//gr)) {
+       #for my($i,$j) (split ' ', $P{$char}) { ($c[0][$n], $c[1][$n]) = ($i, $j) }
+        for my($m,$i) (indexed split ' ', $P{$char}) { $c[$m][$n] = $i }
+    }
+    for my($i,$j) ($c[1]->@*, $c[0]->@*) { $encrypted .= $I{"$j $i"} }
+    $encrypted
+}
+
 sub decrypt ($text, %P) {
     my($decrypted, $l, %I, @c) = ('', length($text));
     for my($k,$v) (%P) { $I{$v} = $k }
     for (split '', $text) {
         for my($i,$j) (split ' ', $P{$_}) { unshift @c, $i, $j }
     }    
+   #map { for my ($i,$j) (split ' ', $P{$_}) { unshift @c, $i, $j } } split '', $text; # prob less clear
     substr $decrypted, 0, 0, $I{ "$c[$_] $c[$_+$l]" } for 0 .. $l-1;
     $decrypted;
 }
@@ -100,12 +113,3 @@ use Test::More;
 chomp $ref;
 is($result, $ref);
 done_testing();
-
-__END__
-
-=={{header|Perl}}==
-<lang perl>
-</lang>
-{{out}}
-<pre>
-</pre>
