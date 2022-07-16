@@ -1,0 +1,50 @@
+#!/usr/local/bin/perl
+#u# http://rosettacode.org/wiki/Gotchas
+#t# inprogress
+#c# 2022-xx-xx >RC
+#p# OK
+
+my @res;
+
+use strict;
+use warnings;
+use feature 'say';
+
+sub array1 { return @{ [ 1, 2, 3 ] } }
+sub list1  { return qw{ 1 2 3 }      }
+
+# both print '3', but why exactly?
+say scalar array1();
+say scalar list1();
+#say join ' ', array1();
+#say join ' ', list1();
+
+sub array2 { return @{ [ 3, 2, 1 ] } }
+sub list2  { return qw{ 3 2 1 }   }
+
+say scalar array2(); # prints '3', number of elements in array
+say scalar list2();  # prints '1', last item in list
+
+exit;
+
+say my $result = join "\n", @res;
+my $ref = <<'END';
+END
+
+use Test::More;
+chomp $ref;
+is($result, $ref);
+#is(($result =~ s/\s//gr), ($ref =~ s/\s//gr));
+done_testing();
+
+__END__
+
+=={{header|Perl}}==
+{{trans|xx}}
+{{libheader|ntheory}}
+<lang perl>
+</lang>
+{{out}}
+<pre style="height:20ex">
+</pre>
+[https://github.com/SqrtNegInf/Rosettacode-Perl-Smoke/blob/master/ref/xx xx]
