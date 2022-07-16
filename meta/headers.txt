@@ -923,7 +923,7 @@ File: B/Best_shuffle-2
 File: B/Bifid_cipher
 #!/usr/bin/env perl
 #u# http://rosettacode.org/wiki/Bifid_cipher
-#c# 2022-07-xx >RC
+#c# 2022-07-14 >RC
 #p# OK
 
 File: B/Bilinear_interpolation
@@ -4077,6 +4077,13 @@ File: G/Goldbach%27s_comet
 #p# OK
 #f# RC file: goldbachs-comet.png
 #n# testing text output and image file
+
+File: G/Gotchas
+#!/usr/local/bin/perl
+#u# http://rosettacode.org/wiki/Gotchas
+#t# inprogress
+#c# 2022-xx-xx >RC
+#p# OK
 
 File: G/Gradient_descent
 #!/usr/local/bin/perl
