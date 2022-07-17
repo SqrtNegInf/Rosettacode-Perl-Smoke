@@ -4081,8 +4081,7 @@ File: G/Goldbach%27s_comet
 File: G/Gotchas
 #!/usr/local/bin/perl
 #u# http://rosettacode.org/wiki/Gotchas
-#t# inprogress
-#c# 2022-xx-xx >RC
+#c# 2022-07-16 >RC
 #p# OK
 
 File: G/Gradient_descent
