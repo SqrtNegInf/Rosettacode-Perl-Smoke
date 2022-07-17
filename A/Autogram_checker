@@ -49,10 +49,14 @@ for my($filter, $text) (@tests) {
 
     # Semi-bogus and somewhat fragile names to numbers conversion.
     my $str = lc $text;
-    for my($word, $number) (%nums) { $str =~ s/ \b $word \b /$number/gx }
-    $str =~ s/ (\d)\s(and|-)\s(\d) /$0 $1/gx;
-    $str =~ s/ \b(\d \d)\s(\d \d) \b / $0 * 100 + $1/egx;
-    $str =~ s/ ( [\d+\s]* \d+ ) /sum $0.split ' ', $0/egx;
+say $str;
+    for my($word, $number) (%nums) { $str =~ s/ \b $word \b /$number/gix }
+say $str;
+#    $str =~ s/ (\d+)\s(and|-)\s(\d) /$0 $1/gix;
+#    $str =~ s/ \b(\d \d)\s(\d \d) \b / $0 * 100 + $1/egix;
+    $str =~ s/(\d0)-(\d)/$1 + $2/gxe;
+say $str;  exit; sleep 100;
+    $str =~ s/ ( [\d+\s]* \d+ ) /sum $0.split ' ', $0/egix;
 
     # Build a hash of claimed characters.
     #my %claim = flat $str.lc.match(:g, /\d+ <ws> ['comma'|'apostrophe'|'hyphen'|.]/)».split(' ')»[1,0]».pairup;
