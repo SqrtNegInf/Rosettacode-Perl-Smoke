@@ -1,60 +1,62 @@
 #!/usr/local/bin/perl
 #u# http://rosettacode.org/wiki/Permutations/Rank_of_a_permutation
-#t# skiptest
 #c# 2018-08-21 <RC
 #p# OK
-#n# what's desired is a non-reproducible random values, so no testing is possible
+#n# 2022-07-18 use 'srand' from 'ntheory' module for testing
+
+my @res;
 
 use strict;
 use warnings;
 use feature 'say';
 
-# The ntheory module gives us numtoperm and permtonum commands similar to Pari/GP, though in the preferred lexicographic order. Values larger than the native int size are handled as well. The randperm function is useful for random permutations, using a Knuth shuffle and a Chacha/20 CSPRNG supplying randomness. A Macbook takes a bit under 4 seconds to generate 1 million random permutations of 144 objects, or 8 seconds if inserting into a set to ensure uniqueness.
+use ntheory <numtoperm permtonum factorial randperm urandomm :rand>;
 
-use ntheory qw/:all/;
+srand 123456;
 
 my $n = 3;
-print  "    Iterate Lexicographic rank/unrank of $n objects\n";
+push @res, "Iterate Lexicographic rank/unrank of $n objects";
 for my $k (0 .. factorial($n)-1) {
-  my @perm = numtoperm($n, $k);
-  my $rank = permtonum(\@perm);
-  die unless $rank == $k;
-  printf "%2d --> [@perm] --> %2d\n", $k, $rank;
+    my @perm = numtoperm($n, $k);
+    my $rank = permtonum(\@perm);
+    die unless $rank == $k;
+    push @res, sprintf "%2d --> [@perm] --> %2d", $k, $rank;
 }
-print "\n";
-print "    Four 12-object random permutations using ranks\n";
-print join(" ", numtoperm(12,urandomm(factorial(12)))). "\n"  for 1..4;
-print "\n";
-print "    Four 12-object random permutations using randperm\n";
-print join(" ", randperm(12))."\n"  for 1..4;
-print "\n";
-print "    Four 4-object random permutations of 100k objects using randperm\n";
-print join(" ", randperm(100000,4))."\n"  for 1..4;
+push @res, 'Four 12-object random permutations using ranks';
+push @res, join(' ', numtoperm(12,urandomm(factorial(12)))) for 1..4;
+push @res, 'Four 12-object random permutations using randperm';
+push @res, join(' ', randperm(12)) for 1..4;
+push @res, 'Four 4-object random permutations of 100k objects using randperm';
+push @res, join(' ', randperm(100000,4)) for 1..4;
 
-__END__
+say my $result = join "\n", @res;
 
-    Iterate Lexicographic rank/unrank of 3 objects
+my $ref = <<'END';
+Iterate Lexicographic rank/unrank of 3 objects
  0 --> [0 1 2] -->  0
  1 --> [0 2 1] -->  1
  2 --> [1 0 2] -->  2
  3 --> [1 2 0] -->  3
  4 --> [2 0 1] -->  4
  5 --> [2 1 0] -->  5
+Four 12-object random permutations using ranks
+6 7 9 8 1 3 10 11 2 5 0 4
+1 6 10 3 2 5 4 11 0 7 9 8
+7 11 4 8 1 6 10 2 0 5 9 3
+5 6 10 2 8 0 11 9 4 1 7 3
+Four 12-object random permutations using randperm
+8 10 1 5 2 0 11 9 4 6 7 3
+1 2 10 9 3 5 6 4 8 7 11 0
+11 2 4 10 7 8 0 3 6 5 9 1
+8 4 2 0 11 7 6 9 3 5 1 10
+Four 4-object random permutations of 100k objects using randperm
+29291 10002 67551 5346
+87338 59858 20565 64085
+66450 22014 99883 47205
+68961 14988 98363 14877
+END
 
-    Four 12-object random permutations using ranks
-0 6 1 4 2 5 3 7 8 9 11 10
-4 2 8 6 0 3 9 10 7 11 5 1
-6 1 7 2 4 5 3 0 11 10 8 9
-0 2 3 9 10 1 4 7 11 8 6 5
-
-    Four 12-object random permutations using randperm
-1 7 5 6 2 9 0 3 10 11 4 8
-6 11 7 2 5 4 0 9 3 8 1 10
-1 9 6 11 10 8 4 0 2 3 5 7
-10 0 1 8 7 4 5 6 11 3 9 2
-
-    Four 4-object random permutations of 100k objects using randperm
-67547 49846 1014 48163
-52411 13429 4722 77035
-75745 18121 11637 4585
-58581 6160 84966 79191
+use Test::More;
+chomp $ref;
+is($result, $ref);
+done_testing();
