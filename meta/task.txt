@@ -2,16 +2,16 @@
 This is perl 5, version 36, subversion 0 (v5.36.0) built for darwin-thread-multi-2level
 updating from RC…
 +------------> Perl: Good/Bad [1644/13]
-|+-----------> Smoke testing [1502]
-||+----------> sKipping validation [146]
+|+-----------> Smoke testing [1504]
+||+----------> sKipping validation [144]
 |||+---------> Interactive [76]
 ||||+--------> Touched (modified by me) [584]
-|||||+-------> Random seed [123]
+|||||+-------> Random seed [124]
 ||||||+------> File output [81]
 |||||||+-----> Draft [368]
 ||||||||+----> Ignoring [39]
 |||||||||+---> Void (no local copy) [126]
-||||||||||+--> Un-implemented/reliable [101]
+||||||||||+--> Un-implemented/reliable [100]
 |||||||||||
 GS..T..D... 10001th_prime
 GS......... 100_doors-1
@@ -131,7 +131,7 @@ GS..T...... Attractive_numbers
 .......D.VU Audio_alarm
 G.KIT..D... Audio_frequency_generator
 .......D.VU Audio_overlap_loop
-G.K.T..D..U Autogram_checker
+GS..T..D... Autogram_checker
 GS..TR..... Average_loop_length
 GS..T...... Averages_Arithmetic_mean
 GS......... Averages_Mean_angle
@@ -1166,7 +1166,7 @@ GS......... Permutation_test
 GS..T...... Permutations
 GS......... Permutations_Derangements-1
 GS......... Permutations_Derangements-2
-G.K........ Permutations_Rank_of_a_permutation
+GS...R..... Permutations_Rank_of_a_permutation
 GS......... Permutations_by_swapping-1
 GS......... Permutations_by_swapping-2
 GS.....D... Permutations_with_repetitions
