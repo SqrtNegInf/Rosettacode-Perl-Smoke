@@ -48,9 +48,6 @@ A/Approximate_Equality
 A/Arithmetic_numbers
 ≤:     5 LESS-THAN OR EQUAL TO
 
-A/Autogram_checker
-»:     3 RIGHT-POINTING DOUBLE ANGLE QUOTATION MARK
-
 A/Averages_Mean_angle
 π:     6 GREEK SMALL LETTER PI
 
