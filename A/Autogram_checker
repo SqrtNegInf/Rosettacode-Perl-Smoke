@@ -12,8 +12,6 @@ use experimental <builtin for_list>;
 
 use Sub::Util 'subname';
 use List::Util 'sum';
-use Text::Wrap;
-$Text::Wrap::columns = 101;
 
 my %nums = (
 'zero' => 0, 'single' => 1, 'one' => 1, 'two' => 2, 'three' => 3, 'four' => 4, 'five' => 5, 'six' => 6, 
@@ -35,8 +33,7 @@ my @tests = (
 );
 
 sub punctuation ($text) { $text =~ s/\W//grx }
-
-push @res, '=' x 101;
+sub wrap { (shift) =~ s/(.{96}.*?\s)/$1\n/gr }
 
 for my($filter, $text) (@tests) {
     my(%Claim, %Actual, $count_claim, $count_actual);
@@ -44,16 +41,15 @@ for my($filter, $text) (@tests) {
     my $str = my $filtered = my $original = lc $text;
     $str =~ s/\!/exclamation/g;
 
-    push @res, wrap('', '', $text);
+    push @res, wrap $text;
     my $filter_func = $filter ? subname( $filter ) =~ s/main:://r : '';
     push @res, "\nNOT filtering out punctuation" unless $filter_func;
 
-    $str =~ s/\bone ([a-z])[,.]\b/one $1's,/g;
+    $str =~ s/\b one ([a-z]) [,.] \b/one $1's,/gx;
     for my($word, $number) (%nums) { $str =~ s/ \b $word \b /$number/gix }
     $str =~ s/(\d0)[ \-](\d)/$1 + $2/gxe;
     $str =~ s/\b1 100 and (\d+)\b/100 + $1/e;
-    $str =~ s/(\d+) ([a-z])'?s/ $Claim{$2} = $1/ge;
-    $str =~ s/and (\d+) ([a-z])/$Claim{$2} = $1/e;
+    $str =~ s/(\d+) ([a-z])['s,.]*\b/ $Claim{$2} = $1/ge;  # 'x' modifier blows things up here?
 
     $filtered = &$filter($original) if $filter;
     $Actual{$_} = () = $filtered =~ /$_/g for keys %Claim;
@@ -69,8 +65,8 @@ for my($filter, $text) (@tests) {
         }
     }
 
-    push @res, "\nClaimed character counts:\n" . wrap('', '', $count_claim );
-    push @res, "\nActual character counts:\n"  . wrap('','',  $count_actual);
+    push @res, "\nClaimed character counts:\n" . wrap $count_claim;
+    push @res, "\nActual character counts:\n"  . wrap $count_actual;
 
     push @res, "\nAutogram? " . (my $AG = $count_claim eq $count_actual ? 'True' : 'False');
     push @res,   "Autogram? " . ($AG and $1 == $original =~ tr/a-z// ? 'True' : 'False') . ' (with added sentence length condition)'
@@ -81,88 +77,87 @@ for my($filter, $text) (@tests) {
 my $result = join "\n", @res;
 
 my $ref = <<'END';
-=====================================================================================================
-This sentence employs two a's, two c's, two d's, twenty-eight e's, five f's, three g's, eight h's,
-eleven i's, three l's, two m's, thirteen n's, nine o's, two p's, five r's, twenty-five s's,
-twenty-three t's, six v's, ten w's, two x's, five y's, and one z.
+This sentence employs two a's, two c's, two d's, twenty-eight e's, five f's, three g's, eight h's, 
+eleven i's, three l's, two m's, thirteen n's, nine o's, two p's, five r's, twenty-five s's, twenty-three 
+t's, six v's, ten w's, two x's, five y's, and one z.
 
 Claimed character counts:
-a(2) c(2) d(2) e(28) f(5) g(3) h(8) i(11) l(3) m(2) n(13) o(9) p(2) r(5) s(25) t(23) v(6) w(10) x(2)
+a(2) c(2) d(2) e(28) f(5) g(3) h(8) i(11) l(3) m(2) n(13) o(9) p(2) r(5) s(25) t(23) v(6) w(10) x(2) 
 y(5) z(1) 
 
 Actual character counts:
-a(2) c(2) d(2) e(28) f(5) g(3) h(8) i(11) l(3) m(2) n(13) o(9) p(2) r(5) s(25) t(23) v(6) w(10) x(2)
+a(2) c(2) d(2) e(28) f(5) g(3) h(8) i(11) l(3) m(2) n(13) o(9) p(2) r(5) s(25) t(23) v(6) w(10) x(2) 
 y(5) z(1) 
 
 Autogram? True
 
 =====================================================================================================
-This sentence employs two a's, two c's, two d's, twenty eight e's, five f's, three g's, eight h's,
-eleven i's, three l's, two m's, thirteen n's, nine o's, two p's, five r's, twenty five s's, twenty
+This sentence employs two a's, two c's, two d's, twenty eight e's, five f's, three g's, eight h's, 
+eleven i's, three l's, two m's, thirteen n's, nine o's, two p's, five r's, twenty five s's, twenty 
 three t's, six v's, ten w's, two x's, five y's, and one z.
 
 Claimed character counts:
-a(2) c(2) d(2) e(28) f(5) g(3) h(8) i(11) l(3) m(2) n(13) o(9) p(2) r(5) s(25) t(23) v(6) w(10) x(2)
+a(2) c(2) d(2) e(28) f(5) g(3) h(8) i(11) l(3) m(2) n(13) o(9) p(2) r(5) s(25) t(23) v(6) w(10) x(2) 
 y(5) z(1) 
 
 Actual character counts:
-a(2) c(2) d(2) e(28) f(5) g(3) h(8) i(11) l(3) m(2) n(13) o(9) p(2) r(5) s(25) t(23) v(6) w(10) x(2)
+a(2) c(2) d(2) e(28) f(5) g(3) h(8) i(11) l(3) m(2) n(13) o(9) p(2) r(5) s(25) t(23) v(6) w(10) x(2) 
 y(5) z(1) 
 
 Autogram? True
 
 =====================================================================================================
-Only the fool would take trouble to verify that his sentence was composed of ten a's, three b's,
-four c's, four d's, forty-six e's, sixteen f's, four g's, thirteen h's, fifteen i's, two k's, nine
-l's, four m's, twenty-five n's, twenty-four o's, five p's, sixteen r's, forty-one s's, thirty-seven
-t's, ten u's, eight v's, eight w's, four x's, eleven y's, twenty-seven commas, twenty-three
-apostrophes, seven hyphens and, last but not least, a single !
+Only the fool would take trouble to verify that his sentence was composed of ten a's, three b's, 
+four c's, four d's, forty-six e's, sixteen f's, four g's, thirteen h's, fifteen i's, two k's, nine 
+l's, four m's, twenty-five n's, twenty-four o's, five p's, sixteen r's, forty-one s's, thirty-seven 
+t's, ten u's, eight v's, eight w's, four x's, eleven y's, twenty-seven commas, twenty-three apostrophes, 
+seven hyphens and, last but not least, a single !
 
 NOT filtering out punctuation
 
 Claimed character counts:
-a(10) b(3) c(4) d(4) e(46) f(16) g(4) h(13) i(15) k(2) l(9) m(4) n(25) o(24) p(5) r(16) s(41) t(37)
+a(10) b(3) c(4) d(4) e(46) f(16) g(4) h(13) i(15) k(2) l(9) m(4) n(25) o(24) p(5) r(16) s(41) t(37) 
 u(10) v(8) w(8) x(4) y(11) '(23) ,(27) !(1) -(7) 
 
 Actual character counts:
-a(10) b(3) c(4) d(4) e(46) f(16) g(4) h(13) i(15) k(2) l(9) m(4) n(25) o(24) p(5) r(16) s(41) t(37)
+a(10) b(3) c(4) d(4) e(46) f(16) g(4) h(13) i(15) k(2) l(9) m(4) n(25) o(24) p(5) r(16) s(41) t(37) 
 u(10) v(8) w(8) x(4) y(11) '(23) ,(27) !(1) -(7) 
 
 Autogram? True
 
 =====================================================================================================
-This pangram contains four as, one b, two cs, one d, thirty es, six fs, five gs, seven hs, eleven
-is, one j, one k, two ls, two ms, eighteen ns, fifteen os, two ps, one q, five rs, twenty-seven ss,
+This pangram contains four as, one b, two cs, one d, thirty es, six fs, five gs, seven hs, eleven 
+is, one j, one k, two ls, two ms, eighteen ns, fifteen os, two ps, one q, five rs, twenty-seven ss, 
 eighteen ts, two us, seven vs, eight ws, two xs, three ys, & one z.
 
 Claimed character counts:
-a(4) c(2) e(30) f(6) g(5) h(7) i(11) l(2) m(2) n(18) o(15) p(2) r(5) s(27) t(18) u(2) v(7) w(8) x(2)
-y(3) 
+a(4) b(1) c(2) d(1) e(30) f(6) g(5) h(7) i(11) j(1) k(1) l(2) m(2) n(18) o(15) p(2) q(1) r(5) s(27) 
+t(18) u(2) v(7) w(8) x(2) y(3) z(1) 
 
 Actual character counts:
-a(4) c(2) e(30) f(6) g(5) h(7) i(11) l(2) m(2) n(18) o(15) p(2) r(5) s(27) t(18) u(2) v(7) w(8) x(2)
-y(3) 
+a(4) b(1) c(2) d(1) e(30) f(6) g(5) h(7) i(11) j(1) k(1) l(2) m(2) n(18) o(15) p(2) q(1) r(5) s(27) 
+t(18) u(2) v(7) w(8) x(2) y(3) z(1) 
 
 Autogram? True
 
 =====================================================================================================
-This sentence contains one hundred and ninety-seven letters: four a's, one b, three c's, five d's,
-thirty-four e's, seven f's, one g, six h's, twelve i's, three l's, twenty-six n's, ten o's, ten r's,
+This sentence contains one hundred and ninety-seven letters: four a's, one b, three c's, five d's, 
+thirty-four e's, seven f's, one g, six h's, twelve i's, three l's, twenty-six n's, ten o's, ten r's, 
 twenty-nine s's, nineteen t's, six u's, seven v's, four w's, four x's, five y's, and one z.
 
 Claimed character counts:
-a(4) c(3) d(5) e(34) f(7) h(6) i(12) l(3) n(26) o(10) r(10) s(29) t(19) u(6) v(7) w(4) x(4) y(5)
-z(1) 
+a(4) b(1) c(3) d(5) e(34) f(7) g(1) h(6) i(12) l(3) n(26) o(10) r(10) s(29) t(19) u(6) v(7) w(4) 
+x(4) y(5) z(1) 
 
 Actual character counts:
-a(4) c(3) d(5) e(34) f(7) h(6) i(12) l(3) n(26) o(10) r(10) s(29) t(19) u(6) v(7) w(4) x(4) y(5)
-z(1) 
+a(4) b(1) c(3) d(5) e(34) f(7) g(1) h(6) i(12) l(3) n(26) o(10) r(10) s(29) t(19) u(6) v(7) w(4) 
+x(4) y(5) z(1) 
 
 Autogram? True
 Autogram? True (with added sentence length condition)
 
 =====================================================================================================
-Thirteen e's, five f's, two g's, five h's, eight i's, two l's, three n's, six o's, six r's, twenty
+Thirteen e's, five f's, two g's, five h's, eight i's, two l's, three n's, six o's, six r's, twenty 
 s's, twelve t's, three u's, four v's, six w's, four x's, two y's.
 
 Claimed character counts:
@@ -174,7 +169,7 @@ e(13) f(5) g(2) h(5) i(8) l(2) n(3) o(6) r(6) s(20) t(12) u(3) v(4) w(6) x(4) y(
 Autogram? True
 
 =====================================================================================================
-Fifteen e's, seven f's, four g's, six h's, eight i's, four n's, five o's, six r's, eighteen s's,
+Fifteen e's, seven f's, four g's, six h's, eight i's, four n's, five o's, six r's, eighteen s's, 
 eight t's, four u's, three v's, two w's, three x's.
 
 NOT filtering out punctuation
@@ -188,8 +183,8 @@ e(15) f(7) g(4) h(6) i(8) n(4) o(5) r(6) s(18) t(8) u(4) v(3) w(2) x(3) '(14) ,(
 Autogram? False
 
 =====================================================================================================
-Sixteen e's, five f's, three g's, six h's, nine i's, five n's, four o's, six r's, eighteen s's,
-eight t's, three u's, three v's, two w's, four z's.
+Sixteen e's, five f's, three g's, six h's, nine i's, five n's, four o's, six r's, eighteen s's, eight 
+t's, three u's, three v's, two w's, four z's.
 
 Claimed character counts:
 e(16) f(5) g(3) h(6) i(9) n(5) o(4) r(6) s(18) t(8) u(3) v(3) w(2) z(4) 
@@ -206,12 +201,3 @@ use Test::More;
 chomp $ref;
 is($result, $ref);
 done_testing();
-
-__END__
-
-=={{header|Perl}}==
-<lang perl>
-</lang>
-{{out}}
-<pre style="height:20ex">
-</pre>
