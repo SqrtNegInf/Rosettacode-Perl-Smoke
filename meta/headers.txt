@@ -10322,6 +10322,7 @@ File: T/Text_processing_2
 #u# http://rosettacode.org/wiki/Text_processing/2
 #c# 2018-08-11 <RC
 #p# OK
+#n# original curly coddling was odd
 
 File: T/Text_processing_Max_licenses_in_use
 #!/usr/local/bin/perl
@@ -10507,6 +10508,12 @@ File: T/Trabb_Pardo-Knuth_algorithm
 #!/usr/local/bin/perl
 #u# http://rosettacode.org/wiki/Trabb_Pardo%E2%80%93Knuth_algorithm
 #c# 2018-08-09 <>RC
+#p# OK
+
+File: T/Transliterate_English_text_using_the_Greek_alphabet
+#!/usr/local/bin/perl
+#u# http://rosettacode.org/wiki/Transliterate_English_text_using_the_Greek_alphabet
+#c# 2022-07-xx >RC
 #p# OK
 
 File: T/Transportation_problem
