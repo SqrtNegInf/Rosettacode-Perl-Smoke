@@ -2,13 +2,18 @@
 #u# http://rosettacode.org/wiki/Text_processing/2
 #c# 2018-08-11 <RC
 #p# OK
+#n# original curly coddling was odd
 
-use strict;
-use warnings;
-use feature 'say';
 my @res;
 
-use List::MoreUtils 'natatime';
+use v5.36;
+use experimental 'for_list';
+
+#use strict;
+#use warnings;
+#use feature 'say';
+
+#use List::MoreUtils 'natatime';
 use constant FIELDS => 49;
 
 binmode STDIN, ':crlf';
@@ -17,20 +22,26 @@ binmode STDIN, ':crlf';
 
 my ($line, $good_records, %dates) = (0, 0);
 open F, '<', 'ref/text-proc.txt';
-while ($_ = <F>)
-   {++$line;
+while ($_ = <F>) {
+    ++$line;
     my @fs = split /\s+/;
     @fs == FIELDS or die "$line: Bad number of fields.\n";
-    for (shift @fs)
-       {/\d{4}-\d{2}-\d{2}/ or die "$line: Bad date format.\n";
-        ++$dates{$_};}
-    my $iterator = natatime 2, @fs;
+    for (shift @fs) {
+        /\d{4}-\d{2}-\d{2}/ or die "$line: Bad date format.\n";
+        ++$dates{$_};
+    }
+
     my $all_flags_okay = 1;
-    while ( my ($val, $flag) = $iterator->() )
-       {$val =~ /\d+\.\d+/ or die "$line: Bad value format.\n";
-        $flag =~ /\A-?\d+/ or die "$line: Bad flag format.\n";
-        $flag < 1 and $all_flags_okay = 0;}
-    $all_flags_okay and ++$good_records;}
+    #my $iterator = natatime 2, @fs;
+    #while ( my ($val, $flag) = $iterator->() )
+    for my ($val, $flag) (@fs) {
+        $val  =~ /\d+\.\d+/ or die "$line: Bad value format.\n";
+        $flag =~ /\A-?\d+/  or die "$line: Bad flag format.\n";
+        $flag < 1 and $all_flags_okay = 0;
+    }
+
+    $all_flags_okay and ++$good_records;
+}
 
 push @res, "Good records: $good_records\n".
    "Repeated timestamps:\n";
