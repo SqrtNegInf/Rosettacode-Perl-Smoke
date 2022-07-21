@@ -10513,7 +10513,7 @@ File: T/Trabb_Pardo-Knuth_algorithm
 File: T/Transliterate_English_text_using_the_Greek_alphabet
 #!/usr/local/bin/perl
 #u# http://rosettacode.org/wiki/Transliterate_English_text_using_the_Greek_alphabet
-#c# 2022-07-xx >RC
+#c# 2022-07-19 >RC
 #p# OK
 
 File: T/Transportation_problem
