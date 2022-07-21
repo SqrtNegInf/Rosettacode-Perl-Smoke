@@ -1,0 +1,136 @@
+#!/usr/local/bin/perl
+#u# http://rosettacode.org/wiki/Wasteful,_equidigital_and_frugal_numbers
+#t# inprogress
+#c# 2022-xx-xx >RC
+#p# OK
+
+# 30.21s user 0.42s system 78% cpu 38.913 total
+
+my @res;
+
+use v5.36;
+use experimental 'for_list';
+
+use ntheory 'factor';
+use List::Util <sum max min pairmap>;
+
+sub table ($c, @V) { my $t = $c * (my $w = 6); ( sprintf( ('%'.$w.'d')x@V, @V) ) =~ s/.{1,$t}\K/\n/gr }
+#sub table ($c, @V) { my $t = $c * (my $w = 2 + length max @V); ( sprintf( ('%'.$w.'d')x@V, @V) ) =~ s/.{1,$t}\K/\n/gr }
+
+sub bag (@v) { my %h; $h{$_}++ for @v; %h }
+
+sub base ($n, $b = 10) {
+   my ($m, @D) = ('', 0..9, 'a'..'z');
+   while ( $n ) {
+      $m .= $D[ $n%$b ];
+      $n  = int $n/$b;
+   }
+   reverse $m;
+}
+
+for my $base (10, 11) {
+    push @res, "In base $base:";
+    my(@F,@E,@W,$n);
+    do {
+        my %F = bag factor(++$n);
+        my $s = sum pairmap { length(base($a,$base)) + ($b > 1 ? length(base($b,$base)) : 0) } %F;
+        if (   $n  > 1 && length(base($n,$base))  > $s) { push @F, $n }
+        elsif ($n == 1 || length(base($n,$base)) == $s) { push @E, $n }
+        else                                            { push @W, $n }
+    } until 1000 < min (scalar @F, scalar @E, scalar @W);
+    
+    my $totals;
+    for my ($type, $values) ('Wasteful', \@W, 'Equidigital', \@E, 'Frugal', \@F) {
+        push @res, "\n$type numbers:"; 
+        push @res, table 10, @$values[0..49]; 
+        push @res, "1,000th: $$values[999]";
+        $totals .= sprintf "%11s: %d\n", $type, scalar grep { $_ < 10000 } @$values
+    }
+    push @res, "\nOf the positive integers up to ten thousand:\n$totals";
+}
+
+my $result = join "\n", @res;
+
+my $ref = <<'END';
+In base 10:
+
+Wasteful numbers:
+     4     6     8     9    12    18    20    22    24    26
+    28    30    33    34    36    38    39    40    42    44
+    45    46    48    50    51    52    54    55    56    57
+    58    60    62    63    65    66    68    69    70    72
+    74    75    76    77    78    80    82    84    85    86
+
+1,000th: 1586
+
+Equidigital numbers:
+     1     2     3     5     7    10    11    13    14    15
+    16    17    19    21    23    25    27    29    31    32
+    35    37    41    43    47    49    53    59    61    64
+    67    71    73    79    81    83    89    97   101   103
+   105   106   107   109   111   112   113   115   118   119
+
+1,000th: 2765
+
+Frugal numbers:
+   125   128   243   256   343   512   625   729  1024  1029
+  1215  1250  1280  1331  1369  1458  1536  1681  1701  1715
+  1792  1849  1875  2048  2187  2197  2209  2401  2560  2809
+  3125  3481  3584  3645  3721  4096  4374  4375  4489  4802
+  4913  5041  5103  5329  6241  6250  6561  6859  6889  7203
+
+1,000th: 160801
+
+Of the positive integers up to ten thousand:
+   Wasteful: 7709
+Equidigital: 2236
+     Frugal: 54
+
+In base 11:
+
+Wasteful numbers:
+     4     6     8     9    10    12    18    20    22    24
+    26    28    30    33    34    36    38    39    40    42
+    44    45    46    48    50    51    52    54    55    56
+    57    58    60    62    63    65    66    68    69    70
+    72    74    75    76    77    78    80    82    84    85
+
+1,000th: 1364
+
+Equidigital numbers:
+     1     2     3     5     7    11    13    14    15    16
+    17    19    21    23    25    27    29    31    32    35
+    37    41    43    47    49    53    59    61    64    67
+    71    73    79    81    83    89    97   101   103   107
+   109   113   121   122   123   127   129   131   133   134
+
+1,000th: 2823
+
+Frugal numbers:
+   125   128   243   256   343   512   625   729  1024  1331
+  1369  1458  1536  1681  1701  1715  1792  1849  1875  2048
+  2187  2197  2209  2401  2560  2809  3072  3125  3481  3584
+  3645  3721  4096  4374  4375  4489  4802  4913  5041  5103
+  5120  5329  6241  6250  6561  6859  6889  7168  7203  7921
+
+1,000th: 222784
+
+Of the positive integers up to ten thousand:
+   Wasteful: 7478
+Equidigital: 2468
+     Frugal: 53
+END
+
+use Test::More;
+is(($result =~ s/\s//gr), ($ref =~ s/\s//gr));
+done_testing();
+
+__END__
+
+=={{header|Perl}}==
+{{libheader|ntheory}}
+<lang perl>
+</lang>
+{{out}}
+<pre style="height:20ex">
+</pre>
