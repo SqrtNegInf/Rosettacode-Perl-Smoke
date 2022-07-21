@@ -1,6 +1,6 @@
 #!/usr/local/bin/perl
 #u# http://rosettacode.org/wiki/Transliterate_English_text_using_the_Greek_alphabet
-#c# 2022-07-xx >RC
+#c# 2022-07-19 >RC
 #p# OK
 
 my @res;
@@ -13,7 +13,7 @@ binmode(STDOUT, ':utf8');
 
 sub to_Greek ($string) {
     my %pre  = qw<Ph F ck k ee h J I rh r oo w ph f ch χ th θ ps ψ Ch Χ Th Θ Ps Ψ kh χ 's ' 'ς '>;
-    my %post = split //, 'aαbβdδeεfφgγhηiιjιkκlλmμnνoοpπqκrρsσtτuυvβwωxξyυzζAΑBΒDΔEΕFΦGΓHΗIΙLΛMΜNΝOΟPΠQΚRΡSΣTΤUΥWΩXΞZΖ';
+    my %post = split '', 'aαbβdδeεfφgγhηiιjιkκlλmμnνoοpπqκrρsσtτuυvβwωxξyυzζAΑBΒDΔEΕFΦGΓHΗIΙLΛMΜNΝOΟPΠQΚRΡSΣTΤUΥWΩXΞZΖ';
 
     for my ($k,$v) (%pre, %post) { $string =~ s/$k/$v/g } 
     $string
@@ -30,7 +30,9 @@ for (@tests) {
     push @res, to_Greek($_);
     push @res, '';
 }
-    
+
+say my $result = join "\n", @res;
+
 my $ref = <<'END';
 The quick brown fox jumped over the lazy dog.
 Θε κυικ βροων φοξ ιυμπεδ οβερ θε λαζυ δογ.
@@ -42,17 +44,6 @@ As I answered it, I cheerfully glimpsed that the July sun caused a fragment of b
 Ασ Ι ανσωερεδ ιτ, Ι χηρφυλλυ γλιμψεδ θατ θε Ιυλυ συν cαυσεδ α φραγμεντ οφ βλακ πινε ωαξ το ωζε ον θε βελβετ κυιλτ λαυινγ ιν μυ πατιο.
 END
 
-say my $result = join "\n", @res;
-
 use Test::More;
 is($result, $ref);
 done_testing();
-
-__END__
-
-=={{header|Perl}}==
-<lang perl>
-</lang>
-{{out}}
-<pre>
-</pre>
