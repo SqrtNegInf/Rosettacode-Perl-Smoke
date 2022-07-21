@@ -2,31 +2,34 @@
 #u# http://rosettacode.org/wiki/Ordered_Partitions
 #c# 2018-08-20 <RC
 #p# OK
+#n# translation of Raku solution, recursive
+
+# The set of ordered partitions is not returned in lexicographical order
+# itself; but it's supposed to be a set so that's hopefully okay. (One could
+# sort the output before printing, but (unlike in Raku) Perl's built-in sort
+# routine cannot meaningfully compare arrays without being passed a custom
+# comparator to do that, which is a little messy and thus omitted here.)
+
+my($result1,$result2);
 
 use strict;
 use warnings;
 use feature 'say';
-my($result1,$result2);
 
-# Recursive solution.
-# Translation of: Perl 6
-
-use List::Util 1.33 qw(sum pairmap);
+use List::Util <sum pairmap>;
 
 sub partition {
     my @mask = @_;
     my $last = sum @mask or return [map {[]} 0..$#mask];
 
-    return pairmap {
+    pairmap {
         $b ? do {
             local $mask[$a] = $b - 1;
             map { push @{$_->[$a]}, $last; $_ }
                 partition(@mask);
         } : ()
-    } %mask[0..$#mask];
+    } %mask[0..$#mask];  # 2022-07-21 TIL
 }
-
-# Input & Output handling:
 
 $result1 .= "(" . join(', ', map { "{".join(', ', @$_)."}" } @$_) . ")\n"
     for partition( (2, 0, 2) );
@@ -60,4 +63,3 @@ is ($result1, $ref1);
 is ($result2, $ref2);
 done_testing();
 
-# The set of ordered partitions is not returned in lexicographical order itself; but it's supposed to be a set so that's hopefully okay. (One could sort the output before printing, but (unlike in Perl 6) Perl's built-in sort routine cannot meaningfully compare arrays without being passed a custom comparator to do that, which is a little messy and thus omitted here.)
