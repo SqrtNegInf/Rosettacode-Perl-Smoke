@@ -22,16 +22,17 @@ use Test::More;
 #done_testing();
 EOD
 
-$task = shift || die;
+$task = shift || die 'Task?';
+$lang = shift || 'sidef';
 
 (my $tname = $task) =~ s#/#_#g;
 $tname =~ s#'#_#g;
 $tname =~ s#\$#_#g;
 
-$taskdir = "$ENV{HOME}/perl6/Rosetta-Code/thundergnat/rc-run/rc/perl/$tname";
+$taskdir = "$ENV{HOME}/perl6/rc-run/rc/$lang/$tname";
 
-chdir "$ENV{HOME}/perl6/Rosetta-Code/thundergnat/rc-run";
-system "perl6 RC-run.p6 --lang=perl $task";
+chdir "$ENV{HOME}/perl6/rc-run";
+system "perl6 RC-mine.p6 --lang=$lang $task";
 
 chdir "$ENV{HOME}/perl5/Rosetta-Code";
 
