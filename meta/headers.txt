@@ -6821,6 +6821,7 @@ File: O/Ordered_Partitions-2
 #u# http://rosettacode.org/wiki/Ordered_Partitions
 #c# 2018-08-20 <RC
 #p# OK
+#n# translation of Raku solution, recursive
 
 File: O/Ordered_words
 #!/usr/local/bin/perl
@@ -10962,6 +10963,13 @@ File: W/War_card_game
 #u# http://rosettacode.org/wiki/War_card_game
 #c# 2021-01-07 <RC
 #p# OK
+
+File: W/Wasteful,_equidigital_and_frugal_numbers
+#!/usr/local/bin/perl
+#u# http://rosettacode.org/wiki/Wasteful,_equidigital_and_frugal_numbers
+#c# 2022-07-21 >RC
+#p# OK
+#n# 'todigitstring' is much faster than pure-Perl version
 
 File: W/Water_collected_between_towers
 #!/usr/local/bin/perl
