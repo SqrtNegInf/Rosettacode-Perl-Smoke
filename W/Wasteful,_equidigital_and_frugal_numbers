@@ -17,8 +17,7 @@ sub table ($c, @V) { my $t = $c * (my $w = 6); ( sprintf( ('%'.$w.'d')x@V, @V) )
 sub bag (@v) { my %h; $h{$_}++ for @v; %h }
 
 for my $base (10, 11) {
-    push @res, "In base $base:";
-    my(@F,@E,@W,$n);
+    my(@F,@E,@W,$n,$totals);
     do {
         my %F = bag factor ++$n;
         my $s = sum pairmap { length(todigitstring($a,$base)) + ($b > 1 ? length(todigitstring($b,$base)) : 0) } %F;
@@ -26,19 +25,20 @@ for my $base (10, 11) {
         if    ($n == 1 or $l == $s) { push @E, $n }
         elsif (           $l <  $s) { push @W, $n }
         else                        { push @F, $n }
-    } until 1000 < min scalar @F, scalar @E, scalar @W;
+    } until 10000 < min scalar @F, scalar @E, scalar @W;
     
-    my $totals;
+    push @res, "In base $base:";
     for my ($type, $values) ('Wasteful', \@W, 'Equidigital', \@E, 'Frugal', \@F) {
         push @res, "\n$type numbers:"; 
         push @res, table 10, @$values[0..49]; 
-        push @res, "1,000th: $$values[999]";
-        $totals .= sprintf "%11s: %d\n", $type, scalar grep { $_ < 10000 } @$values
+        push @res, "10,000th: $$values[9999]";
+        $totals .= sprintf "%11s: %d\n", $type, scalar grep { $_ < 1_000_000 } @$values
     }
     push @res, "\nOf the positive integers up to ten thousand:\n$totals";
 }
 
-my $result = join "\n", @res;
+say my $result = join "\n", @res;
+exit;
 
 my $ref = <<'END';
 In base 10:
