@@ -28,7 +28,9 @@ sub partition {
             map { push @{$_->[$a]}, $last; $_ }
                 partition(@mask);
         } : ()
-    } %mask[0..$#mask];  # 2022-07-21 TIL
+    } %mask[0..$#mask];     # 2022-07-21 TIL a quirk of 'pairmap'
+   #} %{mask[0..$#mask]};   # OK (weird, no sigil on 'mask')
+   #} %{@mask[0..$#mask]};  # NO
 }
 
 $result1 .= "(" . join(', ', map { "{".join(', ', @$_)."}" } @$_) . ")\n"
