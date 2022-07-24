@@ -3421,6 +3421,7 @@ File: F/Find_Chess960_starting_position_identifier
 #u# http://rosettacode.org/wiki/Find_Chess960_starting_position_identifier
 #c# 2021-09-13 >RC
 #p# OK
+#n# 2022-07-23 new tests
 
 File: F/Find_URI_in_text
 #!/usr/local/bin/perl
