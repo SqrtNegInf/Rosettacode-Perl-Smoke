@@ -10,8 +10,8 @@ updating from RC…
 ||||||+------> File output [81]
 |||||||+-----> Draft [368]
 ||||||||+----> Ignoring [39]
-|||||||||+---> Void (no local copy) [124]
-||||||||||+--> Un-implemented/reliable [98]
+|||||||||+---> Void (no local copy) [125]
+||||||||||+--> Un-implemented/reliable [99]
 |||||||||||
 GS..T..D... 10001th_prime
 GS......... 100_doors-1
@@ -1691,6 +1691,7 @@ GS......... Truncate_a_file
 GS....F.... Truth_table
 GS......... Twelve_statements
 GS..T...... Twin_primes
+.........VU Two%27s_Complement
 GS..TR..... Two_bullet_roulette
 GS.....D... Two_identical_strings
 GS..T..D... Two_sum
