@@ -3419,9 +3419,8 @@ File: F/Filter
 File: F/Find_Chess960_starting_position_identifier
 #!/usr/local/bin/perl
 #u# http://rosettacode.org/wiki/Find_Chess960_starting_position_identifier
-#c# 2021-09-13 >RC
+#c# 2021-09-13 >RC, 2022-07-24 >RC
 #p# OK
-#n# 2022-07-23 new tests
 
 File: F/Find_URI_in_text
 #!/usr/local/bin/perl
@@ -3981,6 +3980,13 @@ File: G/Gaussian_elimination
 #c# 2018-08-08 <RC
 #p# OK
 #n# library overloads operators and disables Test::More?
+
+File: G/Gaussian_primes
+#!/usr/local/bin/perl
+#u# http://rosettacode.org/wiki/xx
+#t# inprogress
+#c# 2022-xx-xx >RC
+#p# OK
 
 File: G/General_FizzBuzz
 #!/usr/local/bin/perl
