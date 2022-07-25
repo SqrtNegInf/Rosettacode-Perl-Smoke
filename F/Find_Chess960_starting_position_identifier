@@ -1,25 +1,20 @@
 #!/usr/local/bin/perl
 #u# http://rosettacode.org/wiki/Find_Chess960_starting_position_identifier
-#c# 2021-09-13 >RC
+#c# 2021-09-13 >RC, 2022-07-24 >RC
 #p# OK
-#n# 2022-07-23 new tests
 
 my @res;
 
-use strict;
-use warnings;
-use feature 'say';
-
+use v5.36;
 use List::AllUtils 'indexes';
 
-sub sp_id {
-    my $setup = shift // 'RNBQKBNR';
+sub sp_id ($setup) {
 
-    8 == length $setup                          or die 'Illegal position: should have exactly eight pieces';
-    1 == @{[ $setup =~ /$_/g ]}                 or die "Illegal position: should have exactly one $_"        for <K Q>;
-    2 == @{[ $setup =~ /$_/g ]}                 or die "Illegal position: should have exactly two $_\'s"     for <B N R>;
-    $setup =~ m/R .* K .* R/x                   or die 'Illegal position: King not between rooks.';
-    index($setup,'B')%2 != rindex($setup,'B')%2 or die 'Illegal position: Bishops not on opposite colors.';
+    8 == length $setup                          or return 'Illegal position: should have exactly eight pieces';
+    1 == @{[ $setup =~ /$_/g ]}                 or return "Illegal position: should have exactly one $_"        for <K Q>;
+    2 == @{[ $setup =~ /$_/g ]}                 or return "Illegal position: should have exactly two $_\'s"     for <B N R>;
+    $setup =~ m/R .* K .* R/x                   or return 'Illegal position: King not between rooks.';
+    index($setup,'B')%2 != rindex($setup,'B')%2 or return 'Illegal position: Bishops not on opposite colors.';
 
     my @knights = indexes { 'N' eq $_ } split '', $setup =~ s/[QB]//gr;
     my $knight  = indexes { join('', @knights) eq $_ } <01 02 03 04 12 13 14 23 24 34>; # combinations(5,2)
@@ -33,7 +28,7 @@ sub sp_id {
     int 4*(4*(6*$knight + $queen)+$dark)+$light;
 }
 
-push @res, "$_ " . sp_id($_) for <QNRBBNKR RNBQKBNR RQNBBKRN RNQBBKRN>; 
+push @res, "$_ " . sp_id($_) for <QNRBBNKR RNBQKBNR RQNBBKRN RNQBBKRN QNBRBNKR>; 
 
 say my $result = join "\n", @res;
 
@@ -42,6 +37,7 @@ QNRBBNKR 105
 RNBQKBNR 518
 RQNBBKRN 601
 RNQBBKRN 617
+QNBRBNKR Illegal position: Bishops not on opposite colors.
 END
 
 use Test::More;
