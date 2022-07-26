@@ -4,6 +4,14 @@ Already set up [Perl 6 smoke testing](https://github.com/SqrtNegInf/Rosettacode-
 
 How hard can it be?  :-)
 
+## 2022 / v5.36
+
+All caught up with backlog (happened some time back in 2020?) and now using v5.36 for testing 
+(except for a few cases where PDL required, because I cannot get it to  work on my creaky old macOS).
+
+Mostly keeping up with new tasks as they appear on Rosetta-Code.  Sort of.  As an experiment, adding
+new tasks with v5.36 as a requirement.  No one has complained so far.  Gotta move forward...
+
 ## Timeline 
 
 Worked through the backlog of existing tasks, and now adding missing ones, where it makes sense.
