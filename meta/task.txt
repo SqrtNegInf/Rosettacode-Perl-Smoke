@@ -2,16 +2,16 @@
 This is perl 5, version 36, subversion 0 (v5.36.0) built for darwin-thread-multi-2level
 updating from RC…
 +------------> Perl: Good/Bad [1647/13]
-|+-----------> Smoke testing [1506]
-||+----------> sKipping validation [145]
+|+-----------> Smoke testing [1507]
+||+----------> sKipping validation [144]
 |||+---------> Interactive [76]
-||||+--------> Touched (modified by me) [587]
+||||+--------> Touched (modified by me) [586]
 |||||+-------> Random seed [124]
 ||||||+------> File output [81]
 |||||||+-----> Draft [369]
 ||||||||+----> Ignoring [39]
 |||||||||+---> Void (no local copy) [125]
-||||||||||+--> Un-implemented/reliable [100]
+||||||||||+--> Un-implemented/reliable [99]
 |||||||||||
 GS..T..D... 10001th_prime
 GS......... 100_doors-1
@@ -652,7 +652,7 @@ GS......... Gamma_function
 GS..T...... Gapful_numbers
 GS..T...... Gauss-Jordan_matrix_inversion
 GS......... Gaussian_elimination
-G.K.T..D..U Gaussian_primes
+GS.....D... Gaussian_primes
 GS......... General_FizzBuzz
 GS..T..D... Generalised_floating_point_addition
 .......DXVU Generalised_floating_point_multiplication
