@@ -2,15 +2,17 @@
 #u# http://rosettacode.org/wiki/Gaussian_primes
 #c# 2022-07-25 <RC
 #p# OK
+#n# nicer table than RC
 
-use strict;
-use warnings;
-use feature 'say';
+use v5.36;
 
 use ntheory qw( is_prime );
 
+sub table ($c, @V) { my $t = $c * (my $w = 7); ( sprintf( ('%'.$w.'s')x@V, @V) ) =~ s/.{1,$t}\K/\n/gr }
+
 my ($plot, @primes) = gaussianprimes(10);
-say my $result = "Primes within 10\n" . join(',  ', @primes) =~ s/.{94}\K  /\n/gr;
+say my $result = "Primes within 10\n" . table(15, @primes);
+#my $result = "Primes within 10\n" . join(',  ', @primes) =~ s/.{94}\K  /\n/gr;
 ($plot, undef) = gaussianprimes(50);
 my $plot50 = "Plot within 50\n$plot";
 
@@ -23,7 +25,7 @@ sub gaussianprimes {
         for my $B ( -$limit .. $limit ) {
             my $norm = $A**2 + $B**2;
             is_prime( $norm ) or ($norm - 3) % 4 == 0 or next;
-            push @primes,	"$A ${B}i";
+            push @primes, sprintf("%2d%2di", $A, $B) =~ s/(\d) (\d)/$1+$2/r;
             substr $plot, ($B + $size + 1) * (2 * $size + 2) + $A + $size + 1, 1, 'X';
         }
     }
@@ -31,6 +33,17 @@ sub gaussianprimes {
 }
 
 my $ref1 = <<'EOD';
+Primes within 10
+  -9-4i  -9+4i  -8-5i  -8-3i  -8+3i  -8+5i  -7-2i  -7+2i  -6-5i  -6-1i  -6+1i  -6+5i  -5-8i  -5-6i  -5-4i
+  -5-2i  -5+2i  -5+4i  -5+6i  -5+8i  -4-9i  -4-5i  -4-1i  -4+1i  -4+5i  -4+9i  -3-8i  -3-2i  -3+2i  -3+8i
+  -2-7i  -2-5i  -2-3i  -2-1i  -2+1i  -2+3i  -2+5i  -2+7i  -1-6i  -1-4i  -1-2i  -1-1i  -1+1i  -1+2i  -1+4i
+  -1+6i   1-6i   1-4i   1-2i   1-1i   1+1i   1+2i   1+4i   1+6i   2-7i   2-5i   2-3i   2-1i   2+1i   2+3i
+   2+5i   2+7i   3-8i   3-2i   3+2i   3+8i   4-9i   4-5i   4-1i   4+1i   4+5i   4+9i   5-8i   5-6i   5-4i
+   5-2i   5+2i   5+4i   5+6i   5+8i   6-5i   6-1i   6+1i   6+5i   7-2i   7+2i   8-5i   8-3i   8+3i   8+5i
+   9-4i   9+4i
+EOD
+
+my $refx = <<'EOD';
 Primes within 10
 -9 -4i,  -9 4i,  -8 -5i,  -8 -3i,  -8 3i,  -8 5i,  -7 -2i,  -7 2i,  -6 -5i,  -6 -1i,  -6 1i,  -6 5i,
 -5 -8i,  -5 -6i,  -5 -4i,  -5 -2i,  -5 2i,  -5 4i,  -5 6i,  -5 8i,  -4 -9i,  -4 -5i,  -4 -1i,  -4 1i,
@@ -147,7 +160,6 @@ Plot within 50
 EOD
 
 use Test::More;
-chomp $ref1;
 is ($result, $ref1);
 is(($plot50 =~ s/\s//gr), ($ref2 =~ s/\s//gr));
 done_testing();
