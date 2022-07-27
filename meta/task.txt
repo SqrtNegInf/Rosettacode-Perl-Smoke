@@ -5,7 +5,7 @@ updating from RC…
 |+-----------> Smoke testing [1507]
 ||+----------> sKipping validation [144]
 |||+---------> Interactive [76]
-||||+--------> Touched (modified by me) [586]
+||||+--------> Touched (modified by me) [587]
 |||||+-------> Random seed [124]
 ||||||+------> File output [81]
 |||||||+-----> Draft [369]
@@ -652,7 +652,7 @@ GS......... Gamma_function
 GS..T...... Gapful_numbers
 GS..T...... Gauss-Jordan_matrix_inversion
 GS......... Gaussian_elimination
-GS.....D... Gaussian_primes
+GS..T..D... Gaussian_primes
 GS......... General_FizzBuzz
 GS..T..D... Generalised_floating_point_addition
 .......DXVU Generalised_floating_point_multiplication
