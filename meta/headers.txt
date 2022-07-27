@@ -3984,9 +3984,9 @@ File: G/Gaussian_elimination
 File: G/Gaussian_primes
 #!/usr/local/bin/perl
 #u# http://rosettacode.org/wiki/Gaussian_primes
-#c# 2022-07-25 <RC
+#c# 2022-07-25 <RC, 2022-07-26 >RC
 #p# OK
-#n# nicer table than RC
+#n# fixed as per thundergnat's++ note
 
 File: G/General_FizzBuzz
 #!/usr/local/bin/perl
