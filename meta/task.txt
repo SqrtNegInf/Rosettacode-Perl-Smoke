@@ -909,7 +909,7 @@ G.KIT...... Lucky_and_even_lucky_numbers-2
 GS......... Ludic_numbers
 GS......... Luhn_test_of_credit_card_numbers
 GS..T...... Lychrel_numbers
-G.K........ MAC_Vendor_Lookup
+G.K........ MAC_vendor_lookup
 GS..T...... MD4
 GS......... MD5
 GS......... MD5_Implementation
