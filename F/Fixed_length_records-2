@@ -2,7 +2,7 @@
 #u# http://rosettacode.org/wiki/Fixed_length_records
 #c# 2021-06-14 <RC
 #p# OK
-#f# RC file: flr-outfile.dat
+#f# RC file: flr-outfile-2.dat
 #n# tybalt89++
 
 #Read with standard <> using $/ set to a ref-to-int to read a fixed block size.
