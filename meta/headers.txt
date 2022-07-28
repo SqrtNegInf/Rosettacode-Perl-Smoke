@@ -3691,7 +3691,7 @@ File: F/Fixed_length_records-2
 #u# http://rosettacode.org/wiki/Fixed_length_records
 #c# 2021-06-14 <RC
 #p# OK
-#f# RC file: flr-outfile.dat
+#f# RC file: flr-outfile-2.dat
 #n# tybalt89++
 
 File: F/FizzBuzz
