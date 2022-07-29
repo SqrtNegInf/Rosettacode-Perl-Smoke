@@ -6,7 +6,7 @@
 
 use v5.36;
 
-use ntheory qw( is_prime );
+use ntheory 'is_prime';
 
 my ($plot, @primes) = gaussianprimes(10);
 say my $result = "Primes within 10\n" . join(',  ', @primes) =~ s/.{94}\K  /\n/gr;
@@ -22,8 +22,8 @@ sub gaussianprimes {
         for my $B ( -$limit .. $limit ) {
             my $norm = $A**2 + $B**2;
             if (is_prime( $norm ) 
-            or ( $A==0 && is_prime(abs $B) && (abs($B)-3)%4 == 0)           # may have zero-component fore...
-            or ( $B==0 && is_prime(abs $A) && (abs($A)-3)%4 == 0) ) {       #  ...or aft
+            or ($A==0 && is_prime(abs $B) && (abs($B)-3)%4 == 0)      # may have zero-component fore (real part)...
+            or ($B==0 && is_prime(abs $A) && (abs($A)-3)%4 == 0) ) {  #  ...or aft ('i' part)
                 push @primes, sprintf("%2d%2di", $A, $B) =~ s/ (\di)/+$1/r;
                 substr $plot, ($B + $size + 1) * (2 * $size + 2) + $A + $size + 1, 1, 'X';
             }
