@@ -1,16 +1,16 @@
 
 This is perl 5, version 36, subversion 0 (v5.36.0) built for darwin-thread-multi-2level
 updating from RC…
-+------------> Perl: Good/Bad [1647/13]
-|+-----------> Smoke testing [1507]
++------------> Perl: Good/Bad [1648/13]
+|+-----------> Smoke testing [1508]
 ||+----------> sKipping validation [144]
 |||+---------> Interactive [76]
-||||+--------> Touched (modified by me) [587]
-|||||+-------> Random seed [124]
+||||+--------> Touched (modified by me) [588]
+|||||+-------> Random seed [125]
 ||||||+------> File output [81]
 |||||||+-----> Draft [369]
 ||||||||+----> Ignoring [39]
-|||||||||+---> Void (no local copy) [125]
+|||||||||+---> Void (no local copy) [124]
 ||||||||||+--> Un-implemented/reliable [99]
 |||||||||||
 GS..T..D... 10001th_prime
@@ -1760,7 +1760,7 @@ GS..T...... Walk_a_directory_Recursively
 GS...R..... War_card_game
 GS..T..D... Wasteful,_equidigital_and_frugal_numbers
 GS......... Water_collected_between_towers
-.......D.VU Wave_function_collapse
+GS..TR.D..U Wave_function_collapse
 GS.....D... Waveform_analysis_Doh_ray_me
 .......D.VU Waveform_analysis_Top_and_tail
 .......DXVU Weather_routing
