@@ -10984,6 +10984,12 @@ File: W/Water_collected_between_towers
 #c# 2018-08-03 <RC
 #p# OK
 
+File: W/Wave_function_collapse
+#!/usr/local/bin/perl
+#u# http://rosettacode.org/wiki/Wave_function_collapse
+#c# 2022-xx-xx >RC
+#p# OK
+
 File: W/Waveform_analysis_Doh_ray_me
 #!/usr/local/bin/perl
 #u# http://rosettacode.org/wiki/Waveform_analysis/Doh_ray_me
