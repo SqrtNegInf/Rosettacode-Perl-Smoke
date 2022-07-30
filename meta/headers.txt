@@ -10987,8 +10987,9 @@ File: W/Water_collected_between_towers
 File: W/Wave_function_collapse
 #!/usr/local/bin/perl
 #u# http://rosettacode.org/wiki/Wave_function_collapse
-#c# 2022-xx-xx >RC
+#c# 2022-07-29 >RC
 #p# OK
+#n# using '@' sigil where possible, not seeing the pattern of what allowed/dis-allowed
 
 File: W/Waveform_analysis_Doh_ray_me
 #!/usr/local/bin/perl
