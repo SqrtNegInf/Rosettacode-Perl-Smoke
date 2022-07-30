@@ -11,7 +11,7 @@ updating from RC…
 |||||||+-----> Draft [369]
 ||||||||+----> Ignoring [39]
 |||||||||+---> Void (no local copy) [124]
-||||||||||+--> Un-implemented/reliable [99]
+||||||||||+--> Un-implemented/reliable [98]
 |||||||||||
 GS..T..D... 10001th_prime
 GS......... 100_doors-1
@@ -1760,7 +1760,7 @@ GS..T...... Walk_a_directory_Recursively
 GS...R..... War_card_game
 GS..T..D... Wasteful,_equidigital_and_frugal_numbers
 GS......... Water_collected_between_towers
-GS..TR.D..U Wave_function_collapse
+GS..TR.D... Wave_function_collapse
 GS.....D... Waveform_analysis_Doh_ray_me
 .......D.VU Waveform_analysis_Top_and_tail
 .......DXVU Weather_routing
