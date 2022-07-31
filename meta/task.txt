@@ -8,9 +8,9 @@ updating from RC…
 ||||+--------> Touched (modified by me) [588]
 |||||+-------> Random seed [125]
 ||||||+------> File output [81]
-|||||||+-----> Draft [369]
+|||||||+-----> Draft [370]
 ||||||||+----> Ignoring [39]
-|||||||||+---> Void (no local copy) [124]
+|||||||||+---> Void (no local copy) [125]
 ||||||||||+--> Un-implemented/reliable [98]
 |||||||||||
 GS..T..D... 10001th_prime
@@ -1110,6 +1110,7 @@ GS......... Palindrome_detection
 GS..T...... Palindromic_gapful_numbers
 GS..T..D... Palindromic_primes
 GS..T..D... Palindromic_primes_in_base_16
+.......D.V. Pan_base_non-primes
 GS..T...... Pancake_numbers
 .......D... Pandigital_prime
 GS......... Pandigital_prime-1
