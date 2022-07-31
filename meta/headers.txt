@@ -10091,7 +10091,7 @@ File: S/Super-d_numbers-2
 File: S/Superellipse
 #!/usr/local/bin/perl
 #u# http://rosettacode.org/wiki/Superellipse
-#c# 2018-11-17 >RC
+#c# 2018-11-17 >RC, 2022-07-30 >RC
 #p# OK
 #f# RC file: superellipse.svg
 
