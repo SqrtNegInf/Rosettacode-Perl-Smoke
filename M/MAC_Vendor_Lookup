@@ -1,10 +1,10 @@
 #!/usr/local/bin/perl
-#t# skiptest
 #u# http://rosettacode.org/wiki/MAC_Vendor_Lookup
-#c# 2018-08-17 <RC
+#c# 2018-08-17 <RC, 2022-07-31 <RC
 #p# OK
 #n# 2021-02-20 stopped working a couple of days back, let it rest for a while (Raku version not having a problem?)
 #n# 2021-10-20 module Net::MAC::Vendor failed to install, 'fetch' of https URL failed
+#n# 2022-07-31 hey, it works again and Net::MAC::Vendor installed too (but is it actually still a dependency here?)
 
 my $result;
 
@@ -14,11 +14,19 @@ use feature 'say';
 
 use LWP;
 
-our $VERSION = 1.000_000;
-
 my $ua = LWP::UserAgent->new;
 
-my @macs = (
+no warnings 'qw';
+my @macs = qw(
+    FC-A1-3EFC:FB:FB:01:FA:21 00,0d,4b
+    Rhubarb                   00-14-22-01-23-45
+    10:dd:b1                  D4:F4:6F:C9:EF:8D
+    FC-A1-3E                  88:53:2E:67:07:BE
+    23:45:67                  FC:FB:FB:01:FA:21
+    BC:5F:F4
+);
+
+my @macs_xxx = (
     'FC-A1-3EFC:FB:FB:01:FA:21', '00,0d,4b',
     'Rhubarb',                   '00-14-22-01-23-45',
     '10:dd:b1',                  'D4:F4:6F:C9:EF:8D',
