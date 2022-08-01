@@ -5630,12 +5630,12 @@ File: L/Lychrel_numbers
 
 File: M/MAC_Vendor_Lookup
 #!/usr/local/bin/perl
-#t# skiptest
 #u# http://rosettacode.org/wiki/MAC_Vendor_Lookup
-#c# 2018-08-17 <RC
+#c# 2018-08-17 <RC, 2022-07-31 <RC
 #p# OK
 #n# 2021-02-20 stopped working a couple of days back, let it rest for a while (Raku version not having a problem?)
 #n# 2021-10-20 module Net::MAC::Vendor failed to install, 'fetch' of https URL failed
+#n# 2022-07-31 hey, it works again and Net::MAC::Vendor installed too (but is it actually still a dependency here?)
 
 File: M/MD4
 #!/usr/local/bin/perl
@@ -10091,7 +10091,7 @@ File: S/Super-d_numbers-2
 File: S/Superellipse
 #!/usr/local/bin/perl
 #u# http://rosettacode.org/wiki/Superellipse
-#c# 2018-11-17 >RC, 2022-07-30 >RC
+#c# 2018-11-17 >RC, 2022-07-31 >RC
 #p# OK
 #f# RC file: superellipse.svg
 
