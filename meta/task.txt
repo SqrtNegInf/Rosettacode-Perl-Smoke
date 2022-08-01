@@ -2,8 +2,8 @@
 This is perl 5, version 36, subversion 0 (v5.36.0) built for darwin-thread-multi-2level
 updating from RC…
 +------------> Perl: Good/Bad [1648/13]
-|+-----------> Smoke testing [1508]
-||+----------> sKipping validation [144]
+|+-----------> Smoke testing [1509]
+||+----------> sKipping validation [143]
 |||+---------> Interactive [76]
 ||||+--------> Touched (modified by me) [588]
 |||||+-------> Random seed [125]
@@ -11,7 +11,7 @@ updating from RC…
 |||||||+-----> Draft [370]
 ||||||||+----> Ignoring [39]
 |||||||||+---> Void (no local copy) [125]
-||||||||||+--> Un-implemented/reliable [98]
+||||||||||+--> Un-implemented/reliable [99]
 |||||||||||
 GS..T..D... 10001th_prime
 GS......... 100_doors-1
@@ -909,7 +909,7 @@ G.KIT...... Lucky_and_even_lucky_numbers-2
 GS......... Ludic_numbers
 GS......... Luhn_test_of_credit_card_numbers
 GS..T...... Lychrel_numbers
-G.K........ MAC_vendor_lookup
+GS......... MAC_vendor_lookup
 GS..T...... MD4
 GS......... MD5
 GS......... MD5_Implementation
@@ -1110,7 +1110,7 @@ GS......... Palindrome_detection
 GS..T...... Palindromic_gapful_numbers
 GS..T..D... Palindromic_primes
 GS..T..D... Palindromic_primes_in_base_16
-.......D.V. Pan_base_non-primes
+.......D.VU Pan_base_non-primes
 GS..T...... Pancake_numbers
 .......D... Pandigital_prime
 GS......... Pandigital_prime-1
