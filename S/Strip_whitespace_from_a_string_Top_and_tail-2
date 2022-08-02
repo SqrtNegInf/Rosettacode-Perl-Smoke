@@ -5,11 +5,12 @@
 #n# simple demonstration/test of new 5.36 feature
 
 use v5.36;
-use experimental 'builtin';
+#use experimental 'builtin';
 #use builtin 'trim';
+use builtins;
 
 say my $trim1 = builtin::trim '       this is a string      ';
-say my $trim2 = builtin::trim "\t this is a string \n";
+say my $trim2 =          trim "\t this is a string \n";
 
 use Test::More;
 is ($trim1, 'this is a string');
