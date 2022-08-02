@@ -8753,8 +8753,9 @@ File: S/Sequence_of_non-squares
 File: S/Sequence_of_primes_by_trial_division
 #!/usr/local/bin/perl
 #u# http://rosettacode.org/wiki/Sequence_of_primes_by_trial_division
-#c# 2018-08-18 <RC
+#c# 2018-08-18 <RC, 2022-08-01 >RC
 #p# OK
+#n# 'builtin' booleans not worth it, 'enum' is fine
 
 File: S/Sequence_of_primorial_primes
 #!/usr/local/bin/perl
