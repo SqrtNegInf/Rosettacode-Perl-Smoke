@@ -5,7 +5,7 @@ updating from RC…
 |+-----------> Smoke testing [1509]
 ||+----------> sKipping validation [143]
 |||+---------> Interactive [76]
-||||+--------> Touched (modified by me) [588]
+||||+--------> Touched (modified by me) [589]
 |||||+-------> Random seed [125]
 ||||||+------> File output [81]
 |||||||+-----> Draft [370]
@@ -1403,7 +1403,7 @@ GS..T...... Sequence:_nth_number_with_exactly_n_divisors
 GS..T...... Sequence:_smallest_number_greater_than_previous_term_with_exactly_n_divisors
 GS..T...... Sequence:_smallest_number_with_exactly_n_divisors
 GS......... Sequence_of_non-squares
-GS......... Sequence_of_primes_by_trial_division
+GS..T...... Sequence_of_primes_by_trial_division
 GS......... Sequence_of_primorial_primes
 GS......... Set
 GS......... Set_consolidation
