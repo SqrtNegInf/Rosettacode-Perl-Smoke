@@ -1,31 +1,31 @@
 #!/usr/local/bin/perl
 #u# http://rosettacode.org/wiki/Sequence_of_primes_by_trial_division
-#c# 2018-08-18 <RC
+#c# 2018-08-18 <RC, 2022-08-01 >RC
 #p# OK
+#n# 'builtin' booleans not worth it, 'enum' is fine
 
-use feature 'say';
-my $result;
+use v5.36;
+use enum <false true>;
 
-sub isprime {
-  my $n = shift;
-  return ($n >= 2) if $n < 4;
-  return unless $n % 2 && $n % 3;
-  my $sqrtn = int(sqrt($n));
-  for (my $i = 5; $i <= $sqrtn; $i += 6) {
-    return unless $n % $i && $n % ($i+2);
-  }
-  1;
+sub isprime ($n) {
+    return $n > 1 if $n < 4;                            # i.e. 2 or 3
+    return false unless $n % 2 and $n % 3;
+    for (my $i = 5; $i <= int sqrt $n; $i += 6) {
+        return false unless $n % $i and $n % ($i+2);
+    }
+    true
 }
 
-$result .= join(" ", grep { isprime($_) } 0 .. 100 ). "\n";
-$result .= join(" ", grep { isprime($_) } 12345678 .. 12345678+100 ). "\n";
+say my $result = 
+    join(' ', grep { isprime $_ } 0 .. 100 ) . "\n" .
+    join ' ', grep { isprime $_ } 12345678 .. 12345678+100;
 
-say $result; 
 my $ref = <<'EOD';
 2 3 5 7 11 13 17 19 23 29 31 37 41 43 47 53 59 61 67 71 73 79 83 89 97
 12345701 12345709 12345713 12345727 12345731 12345743 12345769
 EOD
 
 use Test::More;
+chomp $ref;
 is ($result, $ref);
 done_testing();
