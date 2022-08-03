@@ -6945,6 +6945,13 @@ File: P/Palindromic_primes_with_alternating_digits
 #n# b=0 only once, never a=7, b=6 (proved) but 3/4, 7/1?
 #n# 3 .. 1501: 61.69s user 0.21s system 99% cpu 1:02.38 total
 
+File: P/Pan_base_non-primes
+#!/usr/local/bin/perl
+#u# http://rosettacode.org/wiki/Pan_base_non-primes
+#t# inprogress
+#c# 2022-xx-xx >RC
+#p# OK
+
 File: P/Pancake_numbers
 #!/usr/local/bin/perl
 #u# http://rosettacode.org/wiki/Pancake_numbers
