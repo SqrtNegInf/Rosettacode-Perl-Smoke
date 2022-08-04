@@ -5,7 +5,7 @@ updating from RC…
 |+-----------> Smoke testing [1509]
 ||+----------> sKipping validation [144]
 |||+---------> Interactive [76]
-||||+--------> Touched (modified by me) [590]
+||||+--------> Touched (modified by me) [591]
 |||||+-------> Random seed [125]
 ||||||+------> File output [81]
 |||||||+-----> Draft [370]
@@ -1158,7 +1158,7 @@ GS..TR..... Percolation_Mean_cluster_density
 GS...R..... Percolation_Mean_run_density
 GS..TR..... Percolation_Site_percolation
 GS......... Perfect_numbers
-GS......... Perfect_shuffle
+GS..T...... Perfect_shuffle
 GS..T...... Perfect_totient_numbers
 GS..T...... Periodic_table
 GS..T.F.... Peripheral_drift_illusion
