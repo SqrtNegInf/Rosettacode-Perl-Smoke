@@ -1,26 +1,24 @@
 #!/usr/local/bin/perl
 #u# http://rosettacode.org/wiki/Narcissistic_decimal_number
-#c# 2018-08-19 <RC
+#c# 2018-08-19 <RC, 2022-08-04 >RC
 #p# OK
 
-use feature 'say';
+use v5.36;
 
-# Simple version using a naive predicate. About 15 seconds.
-
-sub is_narcissistic {
-  my $n = shift;
-  my($k,$sum) = (length($n),0);
-  $sum += $_**$k for split(//,$n);
-  $n == $sum;
-}
-my $i = 0;
-for (1..25) {
-  $i++ while !is_narcissistic($i);
-  $result .= $i++ . ' ';
+sub is_narcissistic ($n) {
+    my($k, $sum) = (length $n, 0);
+    $sum += $_**$k for split '', $n;
+    $n == $sum;
 }
 
-say $result; 
+my ($i,@N) = 0;
+while (@N < 25) { 
+    $i++ while not is_narcissistic $i;
+    push @N, $i++;
+}
+
+say my $result = join ' ', @N;
 
 use Test::More;
-is ($result, '0 1 2 3 4 5 6 7 8 9 153 370 371 407 1634 8208 9474 54748 92727 93084 548834 1741725 4210818 9800817 9926315 ');
+is ($result, '0 1 2 3 4 5 6 7 8 9 153 370 371 407 1634 8208 9474 54748 92727 93084 548834 1741725 4210818 9800817 9926315');
 done_testing();
