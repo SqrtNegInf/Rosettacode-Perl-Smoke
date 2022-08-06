@@ -6416,7 +6416,7 @@ File: N/Naming_conventions
 File: N/Narcissistic_decimal_number
 #!/usr/local/bin/perl
 #u# http://rosettacode.org/wiki/Narcissistic_decimal_number
-#c# 2018-08-19 <RC
+#c# 2018-08-19 <RC, 2022-08-04 >RC
 #p# OK
 
 File: N/Native_shebang
