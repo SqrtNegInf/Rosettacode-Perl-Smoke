@@ -29,7 +29,8 @@ sub tangent {
 }
 
 sub graham_scan {
-    our @coords; local *coords = shift;
+    #our @coords; local *coords = shift;
+    my @coords = @{ shift() };
     my @sp = sort { $a->y <=> $b->y or $a->x <=> $b->x } map { Point->new( x => $_->[0], y => $_->[1] ) } @coords;
 
     # need at least 3 points to make a hull
