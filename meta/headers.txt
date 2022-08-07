@@ -5758,6 +5758,7 @@ File: M/Man_or_boy_test
 #u# http://rosettacode.org/wiki/Man_or_boy_test
 #c# 2018-08-18 <RC
 #p# OK
+#n# really gobbles memory for larger values of k
 
 File: M/Mandelbrot_set
 #!/usr/local/bin/perl
