@@ -43,3 +43,8 @@ sub roll ($n) { 1+int rand($n) }
 #==== text wrap
 
 sub wrap { (shift) =~ s/(.{80}.*?\s)/$1\n/gr }
+
+#==== sum of list
+
+sub sum (@a) { my $s; map { $s += $_ } @a; $s }
+
