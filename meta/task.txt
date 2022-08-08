@@ -8,7 +8,7 @@ updating from RC…
 ||||+--------> Touched (modified by me) [592]
 |||||+-------> Random seed [125]
 ||||||+------> File output [81]
-|||||||+-----> Draft [370]
+|||||||+-----> Draft [369]
 ||||||||+----> Ignoring [39]
 |||||||||+---> Void (no local copy) [124]
 ||||||||||+--> Un-implemented/reliable [99]
@@ -446,7 +446,7 @@ GS..T..D... Distribution_of_0_digits_in_factorial_series
 GS..T...... Diversity_prediction_theorem
 GS..TR.D... Divide_a_rectangle_into_a_number_of_unequal_triangles
 G.K........ Documentation
-GS.....D... Dominoes
+GS......... Dominoes
 GS.....D... Doomsday_rule
 GS......... Dot_product
 .........VU Doubly-linked_list_Definition
