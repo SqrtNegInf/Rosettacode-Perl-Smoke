@@ -8,7 +8,7 @@ updating from RC…
 ||||+--------> Touched (modified by me) [592]
 |||||+-------> Random seed [125]
 ||||||+------> File output [81]
-|||||||+-----> Draft [369]
+|||||||+-----> Draft [370]
 ||||||||+----> Ignoring [39]
 |||||||||+---> Void (no local copy) [124]
 ||||||||||+--> Un-implemented/reliable [99]
@@ -1652,7 +1652,7 @@ GS......... Text_processing_2
 GS......... Text_processing_Max_licenses_in_use
 GS.....D... Text_to_HTML
 GS..T...... Textonyms
-GS......... The_ISAAC_cipher
+GS.....D... The_ISAAC_cipher
 GS..T...... The_Name_Game
 GS......... The_Twelve_Days_of_Christmas
 GS..T...... The_sieve_of_Sundaram
