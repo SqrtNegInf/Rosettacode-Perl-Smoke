@@ -8,10 +8,10 @@ updating from RC…
 ||||+--------> Touched (modified by me) [592]
 |||||+-------> Random seed [125]
 ||||||+------> File output [81]
-|||||||+-----> Draft [370]
+|||||||+-----> Draft [371]
 ||||||||+----> Ignoring [39]
-|||||||||+---> Void (no local copy) [124]
-||||||||||+--> Un-implemented/reliable [99]
+|||||||||+---> Void (no local copy) [125]
+||||||||||+--> Un-implemented/reliable [100]
 |||||||||||
 GS..T..D... 10001th_prime
 GS......... 100_doors-1
@@ -491,6 +491,7 @@ GS......... Enumerations
 GS......... Environment_variables
 GS..T...... Equal_prime_and_composite_sums
 GS......... Equilibrium_index
+.......D.VU Erdos-Nicolas_numbers
 GS..T...... Erdos-Selfridge_categorization_of_primes
 .......D.VU Erdos-Woods_numbers
 GS..T..D... Erdos-primes
