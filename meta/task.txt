@@ -8,10 +8,10 @@ updating from RC…
 ||||+--------> Touched (modified by me) [592]
 |||||+-------> Random seed [125]
 ||||||+------> File output [81]
-|||||||+-----> Draft [371]
+|||||||+-----> Draft [372]
 ||||||||+----> Ignoring [39]
-|||||||||+---> Void (no local copy) [125]
-||||||||||+--> Un-implemented/reliable [100]
+|||||||||+---> Void (no local copy) [126]
+||||||||||+--> Un-implemented/reliable [101]
 |||||||||||
 GS..T..D... 10001th_prime
 GS......... 100_doors-1
@@ -541,6 +541,7 @@ GS......... Factorial-2
 GS......... Factorial-3
 GS......... Factorial-4
 GS..TR..... Factorial_base_numbers_indexing_permutations_of_a_collection
+.......D.VU Factorial_primes
 GS..T...... Factorions
 GS......... Factorions-2
 GS......... Factors_of_a_Mersenne_number-1
