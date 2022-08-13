@@ -68,9 +68,7 @@ sub matrix_zero  ($n) { map { [ (0) x $n ] } 0..$n-1 }
 sub matrix_ident ($n) { map { [ (0) x $_, 1, (0) x ($n-1 - $_) ] } 0..$n-1 }
 
 sub mmult ($a, $b) {
-# our @a; local *a = shift;
-# our @b; local *b = shift;
-  my @a = @{$a};
+  my @a = @{$a}; # was typeglob manipulation: our @a; local *a = shift;
   my @b = @{$b};
   my @p;
   my $rows = @a;
