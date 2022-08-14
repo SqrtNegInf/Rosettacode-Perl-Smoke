@@ -8,10 +8,10 @@ updating from RC…
 ||||+--------> Touched (modified by me) [592]
 |||||+-------> Random seed [125]
 ||||||+------> File output [81]
-|||||||+-----> Draft [372]
+|||||||+-----> Draft [373]
 ||||||||+----> Ignoring [39]
-|||||||||+---> Void (no local copy) [126]
-||||||||||+--> Un-implemented/reliable [101]
+|||||||||+---> Void (no local copy) [127]
+||||||||||+--> Un-implemented/reliable [102]
 |||||||||||
 GS..T..D... 10001th_prime
 GS......... 100_doors-1
@@ -1243,6 +1243,7 @@ GS.....D... Primes_whose_first_and_last_number_is_3
 GS..T..D... Primes_whose_sum_of_digits_is_25
 GS.....D... Primes_with_digits_in_nondecreasing_order
 GS......... Primorial_numbers
+.......D.VU Primorial_primes
 GS..T..D... Print_debugging_statement
 GS....FDX.. Print_itself
 GS......... Priority_queue
