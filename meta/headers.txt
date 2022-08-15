@@ -8778,6 +8778,13 @@ File: S/Sequence_of_primorial_primes
 #c# 2018-08-18 <RC
 #p# OK
 
+File: S/Sequence_of_primorial_primes-2
+#!/usr/local/bin/perl
+#u# http://rosettacode.org/wiki/Sequence_of_primorial_primes
+#c# 2022-08-14 NOT ON RC
+#p# OK
+#n# not too much different than main version...
+
 File: S/Set
 #!/usr/local/bin/perl
 #u# http://rosettacode.org/wiki/Set
