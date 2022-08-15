@@ -1,0 +1,25 @@
+#!/usr/local/bin/perl
+#u# http://rosettacode.org/wiki/Sequence_of_primorial_primes
+#c# 2022-08-14 NOT ON RC
+#p# OK
+#n# not too much different than main version...
+
+my @res;
+
+use v5.36;
+
+use bigint;
+use ntheory <is_prime nth_prime>;
+
+my ($max,$p,$i) = (20,1,0);
+
+while () { 
+    $p *= nth_prime(++$i);
+    (push @res, $i and @res == $max and last) if is_prime($p-1) or is_prime($p+1);
+}
+
+say my $result = join ' ', @res; 
+
+use Test::More;
+is ($result, '1 2 3 4 5 6 11 13 24 66 68 75 167 171 172 287 310 352 384 457');
+done_testing();
