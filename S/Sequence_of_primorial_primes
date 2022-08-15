@@ -3,19 +3,21 @@
 #c# 2018-08-18 <RC
 #p# OK
 
-use feature 'say';
 my $result;
 
-# Library: ntheory
+use strict;
+use warnings;
+use feature 'say';
 
-use ntheory ":all";
+use ntheory <pn_primorial is_prime>;
+
 my $i = 0;
 for (1..1e6) { 
-  my $n = pn_primorial($_);
-  if (is_prime($n-1) || is_prime($n+1)) {
-    $result .= "$_ ";
-    last if ++$i >= 20;
-  }
+    my $n = pn_primorial($_);
+    if (is_prime($n-1) or is_prime($n+1)) {
+        $result .= "$_ ";
+        last if ++$i >= 20;
+    }
 }
 
 say $result; 
