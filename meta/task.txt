@@ -8,10 +8,10 @@ updating from RC…
 ||||+--------> Touched (modified by me) [592]
 |||||+-------> Random seed [125]
 ||||||+------> File output [81]
-|||||||+-----> Draft [372]
+|||||||+-----> Draft [374]
 ||||||||+----> Ignoring [39]
-|||||||||+---> Void (no local copy) [126]
-||||||||||+--> Un-implemented/reliable [101]
+|||||||||+---> Void (no local copy) [128]
+||||||||||+--> Un-implemented/reliable [103]
 |||||||||||
 GS..T..D... 10001th_prime
 GS......... 100_doors-1
@@ -557,6 +557,7 @@ GS......... Faulhaber%27s_formula
 GS......... Faulhaber%27s_triangle
 GS..T...... Feigenbaum_constant_calculation
 GS..T...... Fermat_numbers
+.......D.VU Fermat_pseudoprimes
 .......D.VU Fibonacci_heap
 GS..T..D... Fibonacci_matrix-exponentiation
 GS..T...... Fibonacci_n-step_number_sequences
@@ -1611,6 +1612,7 @@ GS..T...... Summarize_primes
 GS......... Summation_of_primes-1
 GS......... Summation_of_primes-2
 GS..T.FD... Sunflower_fractal
+.......D.VU Super-Poulet_numbers
 GS......... Super-d_numbers-1
 GS..T...... Super-d_numbers-2
 GS..T.F.... Superellipse
