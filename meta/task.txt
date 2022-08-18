@@ -8,10 +8,10 @@ updating from RC…
 ||||+--------> Touched (modified by me) [592]
 |||||+-------> Random seed [125]
 ||||||+------> File output [81]
-|||||||+-----> Draft [374]
+|||||||+-----> Draft [376]
 ||||||||+----> Ignoring [39]
-|||||||||+---> Void (no local copy) [128]
-||||||||||+--> Un-implemented/reliable [103]
+|||||||||+---> Void (no local copy) [130]
+||||||||||+--> Un-implemented/reliable [105]
 |||||||||||
 GS..T..D... 10001th_prime
 GS......... 100_doors-1
@@ -485,6 +485,7 @@ GS......... Empty_directory
 G.K........ Empty_program
 GS......... Empty_string
 GS......... Enforced_immutability
+.......D.VU Engel_expansion
 GS......... Entropy
 GS......... Entropy_Narcissist
 GS......... Enumerations
@@ -812,6 +813,7 @@ G.KI....... Keyboard_input_Flush_the_keyboard_buffer
 G.KI....... Keyboard_input_Keypress_check
 G.KI....... Keyboard_input_Obtain_a_Y_or_N_response
 G.KIT...... Keyboard_macros
+.......D.VU Klarner-Rado_sequence
 GS..T...... Knapsack_problem_0-1
 GS......... Knapsack_problem_Bounded
 GS......... Knapsack_problem_Continuous
