@@ -8,10 +8,10 @@ updating from RC…
 ||||+--------> Touched (modified by me) [592]
 |||||+-------> Random seed [125]
 ||||||+------> File output [81]
-|||||||+-----> Draft [376]
+|||||||+-----> Draft [378]
 ||||||||+----> Ignoring [39]
-|||||||||+---> Void (no local copy) [130]
-||||||||||+--> Un-implemented/reliable [105]
+|||||||||+---> Void (no local copy) [132]
+||||||||||+--> Un-implemented/reliable [107]
 |||||||||||
 GS..T..D... 10001th_prime
 GS......... 100_doors-1
@@ -1109,6 +1109,7 @@ GS..T...... Own_digits_power_sum-2
 GS......... P-value_correction
 GS..T...... Padovan_n-step_number_sequences
 GS..T...... Padovan_sequence
+.......D.VU Pairs_with_common_factors
 GS..T...... Palindrome_dates-1
 GS......... Palindrome_dates-2
 GS......... Palindrome_detection
@@ -1340,6 +1341,7 @@ GS..T..D... Reverse_the_gender_of_a_string
 .......D.V. Reverse_the_order_of_lines_in_a_text_file_while_preserving_the_contents_of_each_line
 GS......... Reverse_words_in_a_string
 GS..T...... Rhonda_numbers
+.......D.VU Riordan_numbers
 .......D.VU Robots
 GS...R..... Rock-paper-scissors
 GS.....D... Rodrigues_rotation_formula
