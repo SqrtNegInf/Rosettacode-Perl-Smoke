@@ -8,10 +8,10 @@ updating from RC…
 ||||+--------> Touched (modified by me) [592]
 |||||+-------> Random seed [125]
 ||||||+------> File output [81]
-|||||||+-----> Draft [378]
+|||||||+-----> Draft [380]
 ||||||||+----> Ignoring [39]
-|||||||||+---> Void (no local copy) [132]
-||||||||||+--> Un-implemented/reliable [107]
+|||||||||+---> Void (no local copy) [134]
+||||||||||+--> Un-implemented/reliable [109]
 |||||||||||
 GS..T..D... 10001th_prime
 GS......... 100_doors-1
@@ -1154,6 +1154,7 @@ GS......... Pell%27s_equation
 GS..T...... Pell_numbers
 GS...R..... Penney%27s_game
 GS..T.FD... Penrose_tiling
+.......D.VU Penta-power_prime_seeds
 GS..T.F.... Pentagram
 GS...R..... Pentomino_tiling
 GS..T...... Percentage_difference_between_images-1
@@ -1270,6 +1271,7 @@ GS....F.... Pythagoras_tree
 GS..T...... Pythagorean_quadruples
 GS......... Pythagorean_triples
 GS..T...... QR_decomposition
+.......D.VU Quad-power_prime_seeds
 GS..T..D... Quadrat_special_primes
 GS......... Quaternion_type
 GS......... Queue_Definition
