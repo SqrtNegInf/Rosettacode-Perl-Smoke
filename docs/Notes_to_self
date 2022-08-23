@@ -1,3 +1,6 @@
+2022-08-22
+Need to start playing catch-up...
+
 2022-08-06
 When found, dispense with typeglobs like 'our @a; local *a = $a' in favor of '@a = @{ }' (e.g. L/LU_decomposition)
 
