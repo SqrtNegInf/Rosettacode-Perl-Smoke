@@ -1,21 +1,23 @@
 #!/usr/local/bin/perl
 #u# http://rosettacode.org/wiki/Rosetta_Code/Count_examples
-#c# 2018-08-21 <RC, 2019-04-12 >RC
+#c# 2018-08-21 <RC, 2019-04-12 >RC, 2022-08-xx >RC
 #p# OK
 #n# replaced non-working LWP::Simple version with HTTP::Tiny
 #n# Mojo version: 'return' doesn't quit the anon. sub, so 'last' instead (thus 'no warnings')
 #n# should start using 'mediawiki-query' like P6...
 
+my (@res1,@res2);
+
 use strict;
 use warnings;
 use feature 'say';
-my (@res1,@res2);
 
-my $site = "http://rosettacode.org";
-my $list_url = "/mw/api.php?action=query&list=categorymembers&cmtitle=Category:Programming_Tasks&cmlimit=10&format=xml";
+my $site = "https://rosettacode.org";
+my $list_url = "/w/api.php?action=query&list=categorymembers&cmtitle=Category:Programming_Tasks&cmlimit=10&format=xml";
 
 use HTTP::Tiny;
 my $response = HTTP::Tiny->new->get("$site$list_url");
+$DB::single = 1;
 
 for ($response->{content} =~ /cm.*?title="(.*?)"/g) {
     (my $slug = $_) =~ tr/ /_/;
@@ -40,24 +42,18 @@ $ua->get("$site$list_url")->res->dom->find('cm')->each(sub {
 
 my $result2 = join "\n", @res2;
 
-say $result1; exit;
+say $result1;
 
 use Test::More;
 ok $result1 =~ /100 doors: 3\d\d examples/i;
-ok $result1 =~ /15 Puzzle Game: [5-9]\d examples/i;
+ok $result1 =~ /15 Puzzle Game: [7-9]\d examples/i;
 is($result1,$result2);
 done_testing();
 
 __END__
 
-2020-07-27
-100 doors: 305 examples
-100 prisoners: 41 examples
-15 Puzzle Game: 66 examples
-2048: 49 examples
-21 Game: 20 examples
-24 game: 95 examples
-24 game/Solve: 58 examples
-4-rings or 4-squares puzzle: 53 examples
-9 billion names of God the integer: 56 examples
-99 Bottles of Beer: 310 examples
+2022-08-25
+100 doors: 335 examples
+100 prisoners: 78 examples
+15 puzzle game: 78 examples
+15 puzzle solver: 25 examples
