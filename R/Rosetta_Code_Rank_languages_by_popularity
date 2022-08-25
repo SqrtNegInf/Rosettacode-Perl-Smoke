@@ -23,7 +23,7 @@ use feature 'say';
 use MediaWiki::API;
 
 my $api =
-  MediaWiki::API->new( { api_url => 'http://rosettacode.org/mw/api.php' } );
+  MediaWiki::API->new( { api_url => 'https://rosettacode.org/w/api.php' } );
 
 my @languages;
 my $gcmcontinue;
