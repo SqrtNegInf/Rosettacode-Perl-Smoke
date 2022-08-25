@@ -26,7 +26,7 @@ my @tasks = $html =~ m#<li><a href="/wiki/(.*?)"#g;
 
 # download tasks, and extract task descriptions
 for my $title (@tasks) {
-    my $html = $ua->request( HTTP::Request->new( GET => "http://rosettacode.org/wiki/$title" ))->content;
+    my $html = $ua->request( HTTP::Request->new( GET => "https://rosettacode.org/wiki/$title" ))->content;
     my($task_at_hand) = $html =~ m#using any language you may know.</div>(.*?)<div id="toc"#s;
     $result = "$title\n$task_at_hand\n\n";
     last; # DH stop after one
