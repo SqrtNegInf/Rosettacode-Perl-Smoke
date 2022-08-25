@@ -4,7 +4,7 @@
 
 $template = <<'EOD';
 #!/usr/local/bin/perl
-#u# http://rosettacode.org/wiki/X-task-X
+#u# https://rosettacode.org/wiki/X-task-X
 #c# X-date-X <RC
 #p# OK
 
