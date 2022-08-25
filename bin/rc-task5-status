@@ -17,12 +17,12 @@ if (.95 < -M "Category:Programming_Tasks" || ! -e "Category:Programming_Tasks") 
     system <<~'END';
         mv Category:Programming_Tasks Category:Programming_Tasks~
         mv Category:Draft_Programming_Tasks Category:Draft_Programming_Tasks~
-        mv Reports:Tasks_not_implemented_in_Perl Reports:Tasks_not_implemented_in_Perl~
-        /opt/local/bin/curl -s -O http://rosettacode.org/wiki/Category:Programming_Tasks
-        /opt/local/bin/curl -s -O http://rosettacode.org/wiki/Category:Draft_Programming_Tasks
-        /opt/local/bin/curl -s -O http://rosettacode.org/wiki/Reports:Tasks_not_implemented_in_Perl
+        /opt/local/bin/curl -s -O https://rosettacode.org/wiki/Category:Programming_Tasks
+        /opt/local/bin/curl -s -O https://rosettacode.org/wiki/Category:Draft_Programming_Tasks
         END
 }
+        #mv Reports:Tasks_not_implemented_in_Perl Reports:Tasks_not_implemented_in_Perl~
+        #/opt/local/bin/curl -s -O https://rosettacode.org/wiki/Reports:Tasks_not_implemented_in_Perl
 
 ## characterize RC tasks
 
