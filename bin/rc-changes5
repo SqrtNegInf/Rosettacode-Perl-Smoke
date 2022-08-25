@@ -6,7 +6,7 @@
 use strict;
 use warnings;
 
-open RC, qq{/opt/local/bin/curl -s -N 'http://rosettacode.org/mw/index.php?title=Special:RecentChanges&limit=1000&namespace=0' | };
+open RC, qq{/opt/local/bin/curl -s -N 'https://rosettacode.org/mw/index.php?title=Special:RecentChanges&limit=1000&namespace=0' | };
 
 my $cnt = 0;
 my $new = 'N';
