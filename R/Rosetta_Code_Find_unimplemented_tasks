@@ -1,6 +1,6 @@
 #!/usr/local/bin/perl
 #u# http://rosettacode.org/wiki/Rosetta_Code/Find_unimplemented_tasks
-#c# 2018-08-21 <RC, 2019-05-02 >RC
+#c# 2018-08-21 <RC, 2019-05-02 >RC, 2022-08-xx >RC
 #p# OK
 
 use feature 'say';
@@ -14,7 +14,7 @@ sub get { $ua->request( HTTP::Request->new( GET => shift))->content }
 
 sub tasks {
     my($category) = shift;
-    my $fmt = 'http://www.rosettacode.org/mw/api.php?' .
+    my $fmt = 'http://www.rosettacode.org/w/api.php?' .
               'action=query&generator=categorymembers&gcmtitle=Category:%s&gcmlimit=500&format=json&rawcontinue=';
     my @tasks;
     my $json = get(sprintf $fmt, $category);
