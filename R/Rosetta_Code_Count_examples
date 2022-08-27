@@ -17,7 +17,6 @@ my $list_url = "/w/api.php?action=query&list=categorymembers&cmtitle=Category:Pr
 
 use HTTP::Tiny;
 my $response = HTTP::Tiny->new->get("$site$list_url");
-$DB::single = 1;
 
 for ($response->{content} =~ /cm.*?title="(.*?)"/g) {
     (my $slug = $_) =~ tr/ /_/;
