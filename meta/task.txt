@@ -2,10 +2,10 @@
 This is perl 5, version 36, subversion 0 (v5.36.0) built for darwin-thread-multi-2level
 updating from RC…
 +------------> Perl: Good/Bad [409/1]
-|+-----------> Smoke testing [383]
-||+----------> sKipping validation [26]
-|||+---------> Interactive [14]
-||||+--------> Touched (modified by me) [173]
+|+-----------> Smoke testing [382]
+||+----------> sKipping validation [27]
+|||+---------> Interactive [15]
+||||+--------> Touched (modified by me) [172]
 |||||+-------> Random seed [35]
 ||||||+------> File output [22]
 |||||||+-----> Draft [199]
@@ -361,7 +361,6 @@ GS..T..D... Digit_fifth_powers
 GS.....D... Discrete_Fourier_transform
 GS.....D... Distinct_palindromes_within_decimal_numbers
 GS..T..D... Distinct_power_numbers
-GS..T..D... Distribution_of_0_digits_in_factorial_series
 GS..TR.D... Divide_a_rectangle_into_a_number_of_unequal_triangles
 GS.....D... Doomsday_rule
 ..........U Doubly-linked_list_Definition
@@ -503,6 +502,7 @@ GS..T..D... Neighbour_primes
 GS..T..D... Next_special_primes
 GS..T..D... Nice_primes
 GS..T..D... Nimber_arithmetic
+G.KI...D... Number_triplets_game
 ..........U Numbers_which_are_not_the_sum_of_distinct_squares
 ........X.. OLE_Automation
 ..........U OLE_automation
