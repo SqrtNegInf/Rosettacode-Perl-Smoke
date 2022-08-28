@@ -662,7 +662,7 @@ T/Three_word_location
 é:     2 LATIN SMALL LETTER E WITH ACUTE
 
 T/Tonelli-Shanks_algorithm
-│:     1 BOX DRAWINGS LIGHT VERTICAL
+│:     2 BOX DRAWINGS LIGHT VERTICAL
 
 T/Totient_function-1
 𝜑:    32 MATHEMATICAL ITALIC SMALL PHI
