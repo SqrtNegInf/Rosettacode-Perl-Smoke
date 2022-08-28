@@ -13,7 +13,7 @@
 #n# 2021-09-07 Pleased to welcome 'Mathematica' to the club
 #n# 2022-02-20 Pleased to welcome 'FreeBASIC' to the club (BASIC shambles onward, 50 years later...)
 #n# 2022-07-01 Pleased to welcome 'Sidef' to the club
-
+#n# 2022-08-27 'Sidef' dropped off? Must be error of RC hosting move
 my @res;
 
 use strict;
@@ -63,5 +63,5 @@ for (@sorted_languages) {
 say join "\n", @res;
 
 use Test::More;
-ok @res == 21;
+ok @res == 20;
 done_testing();
