@@ -2,18 +2,17 @@
 #u# http://rosettacode.org/wiki/Tonelli-Shanks_algorithm
 #c# 2018-09-21 >RC
 #p# OK
+#n# 2022-08-27 tried to get largest value to calculate, no go
 
-use strict;
-use warnings;
-use feature 'say';
 my $result;
+
+use v5.36;
 
 use bigint;
 use ntheory qw(is_prime powmod kronecker);
 
 #  Legendre operator (n│p) -- this works, but can use 'kronecker' too
-sub Legendre {
-    my($n,$p) = @_;
+sub Legendre ($n,$p) {
     return -1 unless $p != 2 && is_prime($p);
     my $x = powmod($n, int(($p-1)/2), $p );
     if    ($x==0) { return  0 }
@@ -21,8 +20,7 @@ sub Legendre {
     else          { return -1 }
 }
  
-sub tonelli_shanks {
-    my($n,$p) = @_;
+sub tonelli_shanks ($n,$p) {
     return if kronecker($n,$p) <= 0;
     #return if Legendre($n,$p) <= 0;
     my $Q = $p - 1;
@@ -30,11 +28,13 @@ sub tonelli_shanks {
     $Q >>= 1 and $S++ while 0 == $Q%2;
     return powmod($n,int(($p+1)/4), $p) if $S == 1;
 
-    my $c;
-    for $n (2..$p) {
-        next if kronecker($n,$p) >= 0;
+#   my $c = ((2..p).first: (*│p) < 0).expmod($Q, p); Raku 
+    my ($nn,$c) = (1);
+    #for my $nn (2..$p) { # re-wrote to avoid exceeded limit error
+    while (++$nn <= $p) {
+        next if kronecker($nn,$p) >= 0;
         #next if Legendre($n,$p) >= 0;
-        $c = powmod($n, $Q, $p);
+        $c = powmod($nn, $Q, $p);
         last;
     }
 
@@ -66,8 +66,8 @@ my @tests = (
     (44402, 100049),
     (665820697, 1000000009),
     (881398088036, 1000000000039),
+#    (41660815127637347468140745042827704103445750172002, 100000000000000000000000000000000000000000000000577),
 );
-#   (41660815127637347468140745042827704103445750172002, 100000000000000000000000000000000000000000000000577) # no go...
  
 while (@tests) {
     my $n = shift @tests;
@@ -79,6 +79,7 @@ while (@tests) {
         $result .= sprintf "Roots of %d are (%d, %d) mod %d\n", $n, $t, $p-$t, $p;
     }
 }
+
 say $result;
 
 my $ref = <<'END';
