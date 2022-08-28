@@ -8491,6 +8491,8 @@ File: R/Rosetta_Code_Rank_languages_by_popularity
 #n# 2021-09-07 Pleased to welcome 'Mathematica' to the club
 #n# 2022-02-20 Pleased to welcome 'FreeBASIC' to the club (BASIC shambles onward, 50 years later...)
 #n# 2022-07-01 Pleased to welcome 'Sidef' to the club
+#n# 2022-08-27 'Sidef' dropped off? Must be error of RC hosting move
+my @res;
 
 File: R/Rosetta_Code_Tasks_without_examples
 #!/usr/local/bin/perl
@@ -10477,6 +10479,7 @@ File: T/Tonelli-Shanks_algorithm
 #u# http://rosettacode.org/wiki/Tonelli-Shanks_algorithm
 #c# 2018-09-21 >RC
 #p# OK
+#n# 2022-08-27 tried to get largest value to calculate, no go
 
 File: T/Top_rank_per_group
 #!/usr/local/bin/perl
