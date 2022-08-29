@@ -31,7 +31,6 @@ my $perl5 = `curl -s -o - 'https://rosettacode.org/wiki/$w' | tee _download.html
 die "No text!" if $perl5 =~ /currently no text/i;
 
 $perl5 =~ s/^Perl\s*\[edit\]//;
-$perl5 =~ s/Works with/# Works with/ms;
 $perl5 =~ s/\xA0//g;
 $perl5 =~ s/PerlÂ/Perl /g;
 $perl5 =~ s/\n\s+\n/\n\n/g;
