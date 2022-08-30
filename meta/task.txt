@@ -1,8 +1,8 @@
 
 This is perl 5, version 36, subversion 0 (v5.36.0) built for darwin-thread-multi-2level
 updating from RC…
-+------------> Perl: Good/Bad [409/1]
-|+-----------> Smoke testing [382]
++------------> Perl: Good/Bad [410/1]
+|+-----------> Smoke testing [383]
 ||+----------> sKipping validation [27]
 |||+---------> Interactive [15]
 ||||+--------> Touched (modified by me) [172]
@@ -10,7 +10,7 @@ updating from RC…
 ||||||+------> File output [22]
 |||||||+-----> Draft [199]
 ||||||||+----> Ignoring [39]
-|||||||||+---> Void (no local copy) [56]
+|||||||||+---> Void (no local copy) [55]
 ||||||||||+--> Un-implemented/reliable [109]
 |||||||||||
 GS..T..D... 10001th_prime
@@ -503,6 +503,7 @@ GS..T..D... Next_special_primes
 GS..T..D... Nice_primes
 GS..T..D... Nimber_arithmetic
 G.KI...D... Number_triplets_game
+GS.....D... Numbers_divisible_by_their_individual_digits,_but_not_by_the_product_of_their_digits.
 ..........U Numbers_which_are_not_the_sum_of_distinct_squares
 ........X.. OLE_Automation
 ..........U OLE_automation
@@ -560,7 +561,6 @@ G.KI...D... Number_triplets_game
 ..........U Uno_card_game
 ..........U Use_a_REST_API
 ..........U Use_another_language_to_call_a_function
-.......D.V. User_talk:Gerard_Schildberger
 ........X.. Using_a_Speech_engine_to_highlight_words
 ..........U Using_a_speech_engine_to_highlight_words
 ..........U VList
