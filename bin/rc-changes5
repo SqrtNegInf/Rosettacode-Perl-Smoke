@@ -2,11 +2,12 @@
 ## recent Perl 5 updates on RosettaCode
 #c# 2018-06-30 initial
 #c# 2020-08-22 clean up
+#c# 2022-08-29 copied changes from Raku's 'rc-get', back in business
 
 use strict;
 use warnings;
 
-open RC, qq{/opt/local/bin/curl -s -N 'https://rosettacode.org/mw/index.php?title=Special:RecentChanges&limit=1000&namespace=0' | };
+open RC, qq{/opt/local/bin/curl -s -N 'https://rosettacode.org/w/index.php?title=Special:RecentChanges&days=7&from=&limit=500&namespace=0' |};
 
 my $cnt = 0;
 my $new = 'N';
@@ -16,18 +17,19 @@ my $not_these_users = 'Shuisman|Rdm|Petelomax|Chunes|Robbie|CraigD|Gerard|Cwt107
 
 my $date;
 while (<RC>) {
-    ($date) = m#<h4>(\d+ \S+) 20\d\d</h4># if m/<h4>/;
+    next unless /table data-mw-revid/;
 
     next unless /Perl|SqrtNegInf|Tybalt|Hkdtam/i;  # always want these
-    #next unless /Perl|SqrtNegInf|Trizen|Tybalt|Hkdtam/i;  # always want these
-    next if     /Raku/;                                   # hey, you got your own repository...
+    next if     /Raku|Perl.6/;                     # hey, you got your own repository...
     my($user) = m#Special:Contributions/(.*?)"#;
     next if $user =~ /$not_these_users/i;
 
-    my($title) = /mw-changeslist-title/ ? /mw-changeslist-title">(.*?)</ : /index.php.title=(.*?)&/;
+    my($title,$comment) = /autocomment.*?title="(.*?)".*?span>\s*(.*?)<.span>/; # kludgey way to extract
     $title =~ s/_/ /g;
-    my($time) = m/[;>](\d\d:\d\d)[&<]/;
-    my $line = sprintf "%5s %-15s %-15s %s\n", $time, $date, $user, $title; # the slug
+    $comment =~ s/&#039;/'/g;
+    $comment =~ s/\-&gt;/->/g;
+    my($mon,$day,$hr,$min) = m#data-mw-ts="20\d\d(\d\d)(\d\d)(\d\d)(\d\d)#;
+    my $line = sprintf "%02d-%d %d:%d  %-18s %s (%s)\n", $mon, $day, $hr, $min, $user, $title, $comment; # the slug
 
     my $checkpt = '';
     if (0 == $cnt) {
