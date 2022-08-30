@@ -3,18 +3,17 @@
 #c# 2018-11-13 >RC
 #p# OK
 
-use feature 'say';
-use warnings;
-use strict;
+use v5.36;
 
 my @res;
 
 use Math::Cartesian::Product;
 
-sub deconvolve {
-    #our @g; local *g = shift;
+sub deconvolve($g,$f) {
     #our @f; local *f = shift;
-    our (@g, @f); (*g, *f) = (shift, shift);
+    #my (@g, @f); (*g, *f) = (shift, shift);
+    my @g = @{$g};
+    my @f = @{$f};
     my(@m,@d);
 
     my $h = 1 + @g - @f;
@@ -30,11 +29,11 @@ sub deconvolve {
     @d;
 }
 
-sub convolve { 
-    #our @f; local *f = shift;
-    #our @h; local *h = shift;
-    our @f; *f = shift;
-    our @h; *h = shift;
+sub convolve($f,$h) { 
+    #our @f; local *f = shift; our @h; local *h = shift;
+    #our @f; *f = shift;       our @h; *h = shift;
+    my @f = @{$f};
+    my @h = @{$h};
     my @i;
     for my $x (cartesian {@_} [0..$#f], [0..$#h]) {
         push @i, @$x[0]+@$x[1];
@@ -47,8 +46,9 @@ sub convolve {
     @g;
 }
 
-sub rref {
-  our @m; local *m = shift;
+sub rref($m) {
+  #our @m; local *m = shift;
+  my @m = @{$m};
   @m or return;
   my ($lead, $rows, $cols) = (0, scalar(@m), scalar(@{$m[0]}));
 
@@ -80,8 +80,8 @@ my @h = <-8 -9 -3 -1 -6 7>;
 my @f = <-3 -6 -1 8 -6 3 -1 -9 -9 3 -2 5 2 -2 -7 -1>;
 
 push @res, '  conv(f,h) = g = ' . join ' ', my @g = convolve(\@f, \@h);
-push @res, 'deconv(g,f) = h = ' . join ' ', deconvolve(\@g, \@f);
-push @res, 'deconv(g,h) = f = ' . join ' ', deconvolve(\@g, \@h);
+push @res, 'deconv(g,f) = h = ' . join ' ',       deconvolve(\@g, \@f);
+push @res, 'deconv(g,h) = f = ' . join ' ',       deconvolve(\@g, \@h);
 
 say my $result = join "\n", @res;
 
