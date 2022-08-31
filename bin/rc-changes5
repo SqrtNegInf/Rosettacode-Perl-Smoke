@@ -15,7 +15,6 @@ my $new = 'N';
 # skip users known to be adding non-Perl code
 my $not_these_users = 'Shuisman|Rdm|Petelomax|Chunes|Robbie|CraigD|Gerard|Cwt1078|Objeck|Nigel|Palaing|Paddy3118|PureFox|Wherrera|Horst|Hout|Chemo';
 
-my $date;
 while (<RC>) {
     next unless /table data-mw-revid/;
 
@@ -25,7 +24,8 @@ while (<RC>) {
     next if $user =~ /$not_these_users/i;
 
     my($title,$comment) = /autocomment.*?title="(.*?)".*?span>\s*(.*?)<.span>/; # kludgey way to extract
-    $title =~ s/_/ /g;
+    $title   =~ s/_/ /g;
+    $title   =~ s/&#039;/'/g;
     $comment =~ s/&#039;/'/g;
     $comment =~ s/\-&gt;/->/g;
     my($mon,$day,$hr,$min) = m#data-mw-ts="20\d\d(\d\d)(\d\d)(\d\d)(\d\d)#;
