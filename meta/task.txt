@@ -424,7 +424,6 @@ GS.....D... Hex_words
 G.KI...D... Hexapawn
 GS..T..D... Horse_racing
 GS.....D... Hourglass_puzzle
-GS..T..D... I%27m_a_software_engineer,_get_me_out_of_here
 G.KI...D... IPC_via_named_pipe
 .......D.VU IRC_gateway
 G.K.T..D... Implicit_type_conversion
@@ -504,6 +503,7 @@ GS..T..D... Nice_primes
 GS..T..D... Nimber_arithmetic
 G.KI...D... Number_triplets_game
 GS.....D... Numbers_divisible_by_their_individual_digits,_but_not_by_the_product_of_their_digits.
+GS..T..D... Numbers_in_base_10_that_are_palindromic_in_bases_2,_4,_and_16
 ..........U Numbers_which_are_not_the_sum_of_distinct_squares
 ........X.. OLE_Automation
 ..........U OLE_automation
