@@ -4,31 +4,24 @@
 #p# OK
 #n# not using Perl 6 data, floating point...
 
-use strict;
-use warnings;
-use feature 'say';
 my $result;
 
-# For most applications involving extensive matrix arithmetic, using the CPAN module called "PDL" (that stands for "Perl Data Language") would probably be the easiest and most efficient approach. That said, here's an implementation of matrix multiplication in plain Perl.
+use v5.36;
 
-sub mmult
- {
-  our @a; local *a = shift;
-  our @b; local *b = shift;
-  my @p = [];
-  my $rows = @a;
-  my $cols = @{ $b[0] };
-  my $n = @b - 1;
-  for (my $r = 0 ; $r < $rows ; ++$r)
-     {
-      for (my $c = 0 ; $c < $cols ; ++$c)
-         {
-          $p[$r][$c] += $a[$r][$_] * $b[$_][$c]
-           foreach 0 .. $n;
-         }
-     }
-  return [@p];
- }
+sub mmult ($a,$b) {
+    my @a = @{$a};
+    my @b = @{$b};
+    my @p = [];
+    my $rows = @a;
+    my $cols = @{ $b[0] };
+    my $n = @b - 1;
+    for (my $r = 0 ; $r < $rows ; ++$r) {
+        for (my $c = 0 ; $c < $cols ; ++$c) {
+            $p[$r][$c] += $a[$r][$_] * $b[$_][$c] for 0 .. $n;
+        }
+    }
+    [@p];
+}
 
 # This function takes two references to arrays of arrays and returns the product as a reference to a new anonymous array of arrays.
 
