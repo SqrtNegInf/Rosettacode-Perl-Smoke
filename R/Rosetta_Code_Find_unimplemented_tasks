@@ -3,6 +3,8 @@
 #c# 2018-08-21 <RC, 2019-05-02 >RC, 2022-08-xx >RC
 #p# OK
 
+my @res;
+
 use feature 'say';
 use LWP::UserAgent;
 
@@ -27,9 +29,9 @@ sub tasks {
 }
 
 my %language = map {$_, 1} tasks shift || 'perl';
-$language{$_} or $result .= "$_\n" foreach tasks('Programming_Tasks'), tasks('Draft_Programming_Tasks');
+$language{$_} or push @res, $_ for tasks('Programming_Tasks'), tasks('Draft_Programming_Tasks');
 
-#say $result;
+say my $result = join "\n", @res;
 
 use Test::More;
 ok $result =~ /Weather.routing/i; # nobody implements this one
