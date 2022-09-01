@@ -4,17 +4,14 @@
 #p# OK
 #=# RC pipe: n\nn\ny\n
 
-use strict;
-use warnings;
-use feature 'say';
+use v5.36;
+
 my $result;
 
-sub decide { 
-    our(@q,%a);
-    local *q = shift;
-    local *a = shift;
-    my $bit;
-    my $cnt = 1;
+sub decide($q,$a) { 
+    my @q = @{$q};
+    my %a = %{$a};
+    my($cnt,$bit) = (1,0);
     for my $prompt (@q) {
         print "$prompt: "; 
         $bit += $cnt if <> =~ /y/i;
@@ -35,6 +32,7 @@ my @queries = (
     'A red light is flashing',             
     'Printer does not print',              
 ); 
+
 my %answers = (
     0b00100000 => 'Check the power cable',                
     0b10100000 => 'Check the printer-computer cable',     
