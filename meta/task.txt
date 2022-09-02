@@ -1,11 +1,11 @@
 
 This is perl 5, version 36, subversion 0 (v5.36.0) built for darwin-thread-multi-2level
 updating from RC…
-+------------> Perl: Good/Bad [410/1]
-|+-----------> Smoke testing [383]
++------------> Perl: Good/Bad [411/1]
+|+-----------> Smoke testing [384]
 ||+----------> sKipping validation [27]
 |||+---------> Interactive [15]
-||||+--------> Touched (modified by me) [172]
+||||+--------> Touched (modified by me) [173]
 |||||+-------> Random seed [35]
 ||||||+------> File output [22]
 |||||||+-----> Draft [199]
@@ -244,6 +244,7 @@ GS.....D... Change_e_letters_to_i_in_words
 GS.....D... Changeable_words
 GS......... Changeable_words-2
 GS..T...... Chaocipher
+GS..T...... Chaocipher-2
 GS...RF.... Chaos_game
 GS..T...... Character_codes-1
 GS..T...... Character_codes-2
