@@ -1,13 +1,14 @@
 #!/usr/local/bin/perl
 ## recent Perl 5 updates on RosettaCode
-#c# 2018-06-30 initial
-#c# 2020-08-22 clean up
-#c# 2022-08-29 copied changes from Raku's 'rc-get', back in business
+#n# 2018-06-30 initial
+#n# 2020-08-22 clean up
+#n# 2022-08-29 copied changes from Raku's 'rc-get', back in business
+#n# 2022-09-01 drats, now defaulting to 'collapsible' listing, which breaks reading on 'data-mw-revid' tag
 
 use strict;
 use warnings;
 
-open RC, qq{/opt/local/bin/curl -s -N 'https://rosettacode.org/w/index.php?title=Special:RecentChanges&days=7&from=&limit=500&namespace=0' |};
+open RC, qq{/opt/local/bin/curl -s -N --netrc 'https://rosettacode.org/w/index.php?title=Special:RecentChanges&days=7&from=&limit=1000&namespace=0' |};
 
 my $cnt = 0;
 my $new = 'N';
@@ -16,9 +17,14 @@ my $new = 'N';
 my $not_these_users = 'Shuisman|Rdm|Petelomax|Chunes|Robbie|CraigD|Gerard|Cwt1078|Objeck|Nigel|Palaing|Paddy3118|PureFox|Wherrera|Horst|Hout|Chemo';
 
 while (<RC>) {
-    next unless /table data-mw-revid/;
+    #next unless /table data-mw-revid/;
+    next if /Purefox/i;
+    next if /syntax highlighting/i;
+    next unless /autocomment/i;
 
-    next unless /Perl|SqrtNegInf|Tybalt|Hkdtam/i;  # always want these
+$DB::single = 1 ; #if /cipher/;
+
+    next unless /Perl\b|SqrtNegInf|Tybalt|Hkdtam/i;  # generally want these
     next if     /Raku|Perl.6/;                     # hey, you got your own repository...
     my($user) = m#Special:Contributions/(.*?)"#;
     next if $user =~ /$not_these_users/i;
@@ -36,7 +42,8 @@ while (<RC>) {
         my $file = "$ENV{HOME}/perl5/Rosetta-Code/meta/RC-recent.txt";
         open F, "<$file"; $checkpt = <F>; close F;  # read old check-point
         exit if $line eq $checkpt;                  # no changes, bail
-        open F, ">$file"; print F $line; close F;   # save new check-point
+        die $line;
+#       open F, ">$file"; print F $line; close F;   # save new check-point
     } 
 
     $new = ' ' if $line eq $checkpt;    # stop marking as 'new'
