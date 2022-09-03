@@ -11,16 +11,19 @@ my(%P);
 
 print `perl -v | head -2`; 
 
+# https://rosettacode.org/w/index.php?title=Category:Programming_Tasks&pagefrom=Make+directory+path#mw-pages
+
 # update only once a day
 if (.95 < -M "Category:Programming_Tasks" || ! -e "Category:Programming_Tasks") {
     print "updating from RC…\n";
     system <<~'END';
-        mv Category:Programming_Tasks Category:Programming_Tasks~
-        mv Category:Draft_Programming_Tasks Category:Draft_Programming_Tasks~
-        /opt/local/bin/curl -s -O https://rosettacode.org/wiki/Category:Programming_Tasks
-        /opt/local/bin/curl -s -O https://rosettacode.org/wiki/Category:Draft_Programming_Tasks
+        R/Rosetta_Code_Find_unimplemented_tasks | grep -v '^ok' | grep -v '^1..1$' > Reports:Tasks_not_implemented_in_Perl
         END
 }
+        #mv Category:Programming_Tasks Category:Programming_Tasks~
+        #mv Category:Draft_Programming_Tasks Category:Draft_Programming_Tasks~
+        #/opt/local/bin/curl -s -O https://rosettacode.org/wiki/Category:Programming_Tasks
+        #/opt/local/bin/curl -s -O https://rosettacode.org/wiki/Category:Draft_Programming_Tasks
         #mv Reports:Tasks_not_implemented_in_Perl Reports:Tasks_not_implemented_in_Perl~
         #/opt/local/bin/curl -s -O https://rosettacode.org/wiki/Reports:Tasks_not_implemented_in_Perl
 
