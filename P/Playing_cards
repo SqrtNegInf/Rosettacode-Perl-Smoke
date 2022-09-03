@@ -2,6 +2,7 @@
 #u# http://rosettacode.org/wiki/Playing_cards
 #c# 2018-08-21 <RC
 #p# OK
+#n# no straight-up replacement for typeglob here
 
 srand 123456;
 
@@ -12,54 +13,51 @@ my $result;
 
 package Playing_Card_Deck;
 
-@Playing_Card_Deck::suits = qw
-   [Diamonds Clubs Hearts Spades];
-@Playing_Card_Deck::pips = qw
-   [Two Three Four Five Six Seven Eight Nine Ten Jack King Queen Ace];
-
 # I choose to fully qualify these names rather than declare them
 # with "our" to keep them from escaping into the scope of other
 # packages in the same file. Another possible solution is to use
 # "our" or "my", but to enclose this entire package in a bare block.
+@Playing_Card_Deck::suits = qw [Diamonds Clubs Hearts Spades];
+@Playing_Card_Deck::pips  = qw [Two Three Four Five Six Seven Eight Nine Ten Jack King Queen Ace];
 
-sub new
 # Creates a new deck-object. The cards are initially neatly ordered.
- {my $invocant = shift;
-  my $class = ref($invocant) || $invocant;
-  my @cards = ();
-  foreach my $suit (@Playing_Card_Deck::suits)
-     {foreach my $pip (@Playing_Card_Deck::pips)
-         {push(@cards, {suit => $suit, pip => $pip});}}
-  return bless([@cards], $class);}
+sub new {
+    my $invocant = shift;
+    my $class = ref($invocant) || $invocant;
+    my @cards; # = ();
+    for my $suit (@Playing_Card_Deck::suits) {
+        for my $pip (@Playing_Card_Deck::pips) {
+            push @cards, {suit => $suit, pip => $pip}
+        } 
+    }
+  return bless([@cards], $class);
+}
 
-sub deal
-# Removes the top card of the given deck and returns it as a hash
-# with the keys "suit" and "pip".
- {return %{ shift( @{shift(@_)} ) };}
+# Removes the top card of the given deck and returns it as a hash with the keys "suit" and "pip".
+sub deal { %{ shift( @{shift(@_)} ) } }
 
-sub shuffle
-# Randomly permutes the cards in the deck. It uses the algorithm
-# described at:
-# http://en.wikipedia.org/wiki/Fisher-Yates_shuffle#The_modern_algorithm
- {our @deck; local *deck = shift;
-    # @deck is now an alias of the invocant's referent.
-  for (my $n = $#deck ; $n ; --$n)
-     {my $k = int rand($n + 1);
-      @deck[$k, $n] = @deck[$n, $k] if $k != $n;}}
+# Randomly permutes the cards in the deck.
+# algorithm described at: http://en.wikipedia.org/wiki/Fisher-Yates_shuffle#The_modern_algorithm
+sub shuffle {
+    our @deck; local *deck = shift; # @deck is now an alias of the invocant's referent.
+    for (my $n = $#deck ; $n ; --$n) {
+        my $k = int rand($n + 1);
+        @deck[$k, $n] = @deck[$n, $k] if $k != $n;
+    }
+}
 
-sub print_cards
 # Prints out a description of every card in the deck, in order.
- {$result .= "$_->{pip} of $_->{suit}\n" foreach @{shift(@_)};}
+sub print_cards {$result .= "$_->{pip} of $_->{suit}\n" for @{shift(@_)} }
 
-#Some examples of use:
+# create a new deck, shuffle it, remove the top card, print out that card's name in all caps, and then prints the rest of the deck.
 my $deck = new Playing_Card_Deck;
 $deck->shuffle;
 my %card = $deck->deal;
 $result .= uc("$card{pip} OF $card{suit}\n");
 $deck->print_cards;
-# This creates a new deck, shuffles it, removes the top card, prints out that card's name in all caps, and then prints the rest of the deck.
 
 say $result; 
+
 my $ref = <<'EOD';
 TWO OF HEARTS
 Five of Hearts
