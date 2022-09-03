@@ -28,26 +28,28 @@ sub new {
     };
 }
 
-package main;
+#package main;
 
 sub dotx {
-    our @a ; *a = shift; our @b ; *b = shift; my($s);
+   #our @a ; *a = shift; our @b ; *b = shift; 
+    my @a = @{ shift() }; my @b = @{ shift() };
+    my $s;
     $s +=  $a[$_]*$b[$_] for 0..$#a;
     $s;
-} 
+}
 
-sub dot { my $v; $v    += $_[0][$_]*$_[1][$_] for 0..@{$_[0]}-1; $v }
-sub vd  { my @v; $v[$_] = $_[0][$_]-$_[1][$_] for 0..@{$_[0]}-1; @v }
+sub dot { my $v; $v    += $_[0][$_]*$_[1][$_] for 0..@{$_[0]}-1;  $v }
+sub vd  { my @v; $v[$_] = $_[0][$_]-$_[1][$_] for 0..@{$_[0]}-1;  @v }
 sub vs  { my @v; $v[$_] = $_[0][$_]+$_[1][$_] for 0..@{$_[0]}-1; \@v }
 sub vp  { my @v; $v[$_] = $_[0][$_]*$_[1][$_] for 0..@{$_[0]}-1; \@v }
 
 sub line_plane_intersection {
     my($L, $P) = @_;
 
-    my $cos = dot($L->{u}, $P->{n}); # cosine between normal & ray
+    my $cos = dot($L->{u}, $P->{n});     # cosine between normal & ray
     return 'Vectors are orthoganol; no intersection or line within plane' if $cos == 0;
 
-    my @W = vd($L->{P0},$P->{V0});      # difference between P0 and V0
+    my @W = vd($L->{P0},$P->{V0});       # difference between P0 and V0
     my $SI = -dot($P->{n}, \@W) / $cos;  # line segment where it intersets the plane
 
     vs(\@W,vs($P->{V0},vp($L->{u},[($SI)x3])));
