@@ -13,7 +13,10 @@ use List::Util qw(any);
 
 srand 123456;
 
-#By default, plays classic Mastermind using letters in place of colors. ( 4 chosen from 6, no repeats, 10 guess limit. ) Pass in parameters to modify the game. Enter a string of --length (default 4) letters with or without spaces. Guesses accept lower or upper case.
+# By default, plays classic Mastermind using letters in place of colors. (
+# 4 chosen from 6, no repeats, 10 guess limit. ) Pass in parameters to modify
+# the game. Enter a string of --length (default 4) letters with or without
+# spaces. Guesses accept lower or upper case.
 
 #print 'Enter pool size, puzzle size, attempts allowed: '; ($pool,$length,$tries) = split /\s+/, <>;
 my $length =  4; # if $length eq '' or $length < 3 or $length > 11;
@@ -40,8 +43,10 @@ while () {
 }
  
 sub score {
-    our @puzzle; local *puzzle = shift;
-    our @guess; local *guess  = shift;
+   #our @puzzle; local *puzzle = shift;
+   #our @guess; local *guess  = shift;
+    my @puzzle = @{ shift() };
+    my @guess  = @{ shift() };
     my @score;
     for my $i (0..$length-1) {
         if    (     $puzzle[$i] eq $guess[$i]) { push @score, $black }
