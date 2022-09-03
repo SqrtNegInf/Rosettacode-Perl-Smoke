@@ -17,7 +17,7 @@ print `perl -v | head -2`;
 if (.95 < -M "Category:Programming_Tasks" || ! -e "Category:Programming_Tasks") {
     print "updating from RC…\n";
     system <<~'END';
-        R/Rosetta_Code_Find_unimplemented_tasks | grep -v '^ok' | grep -v '^1..1$' > Reports:Tasks_not_implemented_in_Perl
+        ../R/Rosetta_Code_Find_unimplemented_tasks | grep -v '^ok' | grep -v '^1..1$' > Reports:Tasks_not_implemented_in_Perl
         END
 }
         #mv Category:Programming_Tasks Category:Programming_Tasks~
