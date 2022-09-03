@@ -1322,6 +1322,7 @@ File: C/Card_shuffles
 #u# http://rosettacode.org/wiki/Card_shuffles
 #c# 2018-08-28 >RC
 #p# OK
+#n# v5.36 and a few tweaks
 
 File: C/Carmichael_3_strong_pseudoprimes
 #!/usr/local/bin/perl
@@ -7476,6 +7477,7 @@ File: P/Playing_cards
 #u# http://rosettacode.org/wiki/Playing_cards
 #c# 2018-08-21 <RC
 #p# OK
+#n# no straight-up replacement for typeglob here
 
 File: P/Plot_coordinate_pairs
 #!/usr/local/bin/perl5.32.1
