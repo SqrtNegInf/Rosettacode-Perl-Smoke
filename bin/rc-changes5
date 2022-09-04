@@ -18,7 +18,6 @@ my $not_these_users = 'Shuisman|Rdm|Petelomax|Chunes|Robbie|CraigD|Gerard|Cwt107
 
 while (<RC>) {
     #next unless /table data-mw-revid/;
-    next if /Purefox/i;
     next if /syntax highlighting/i;
     next unless /autocomment/i;
 
