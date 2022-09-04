@@ -35,4 +35,6 @@ __END__
 {{out}}
 <pre style="height:20ex">
 </pre>
+[[File:xx|300px|thumb|right]]
+# or
 [https://github.com/SqrtNegInf/Rosettacode-Perl-Smoke/blob/master/ref/xx xx]
