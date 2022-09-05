@@ -1,0 +1,8 @@
+#!/bin/sh
+## Rosettacode tasks unimplemented in either Perl 5 or Perl 6
+#  2022-09-03
+
+echo "Perl5"
+echo "	Perl6"
+comm -3 ~/perl5/Rosetta-Code/meta/Reports:Tasks_not_implemented_in_Perl \
+        ~/perl6/Rosetta-Code/meta/Reports:Tasks_not_implemented_in_Raku
