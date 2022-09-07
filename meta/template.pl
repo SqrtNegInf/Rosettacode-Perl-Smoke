@@ -30,8 +30,8 @@ __END__
 =={{header|Perl}}==
 {{trans|xx}}
 {{libheader|ntheory}}
-<lang perl>
-</lang>
+<syntaxhighlight lang="perl" line>
+</syntaxhighlight>
 {{out}}
 <pre style="height:20ex">
 </pre>
