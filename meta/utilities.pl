@@ -19,6 +19,7 @@ sub bag (@v) { my %h; $h{$_}++ for @v; %h }
 
 #==== column aligned tables
 
+# variable columns
 use v5.36;
 use List::Util 'max';
 sub table1 ($c, @V) { my $t = $c * (my $w = 2 + length max @V); ( sprintf( ('%'.$w.'d')x@V, @V) ) =~ s/.{1,$t}\K/\n/gr }
@@ -26,8 +27,11 @@ sub table1 ($c, @V) { my $t = $c * (my $w = 2 + length max @V); ( sprintf( ('%'.
 # fixed columns (doesn't need v5.36)
 sub table2 { my $t = 10 * (my $c = 1 + length max @_); ( sprintf( ('%'.$c.'d')x@_, @_) ) =~ s/.{1,$t}\K/\n/gr }
 
-# fixed widths
+# fixed widths (here '6')
 sub table3 ($c, @V) { my $t = $c * (my $w = 6); ( sprintf( ('%'.$w.'d')x@V, @V) ) =~ s/.{1,$t}\K/\n/gr }
+
+# variable strings (above all assume numeric)
+sub table ($c, @V) { my $t = $c * (my $w = 2 + max map { length } @V); ( sprintf( ('%'.$w.'s')x@V, @V) ) =~ s/.{1,$t}\K/\n/gr }
 
 # see 'M/Moebius_function' for table with 1st-row indent
 
