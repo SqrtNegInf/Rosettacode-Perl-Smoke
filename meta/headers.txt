@@ -7187,6 +7187,12 @@ File: P/Penrose_tiling
 #p# OK
 #f# RC file: penrose_tiling.svg
 
+File: P/Penta-power_prime_seeds
+#!/usr/local/bin/perl
+#u# http://rosettacode.org/wiki/Penta-power_prime_seeds
+#c# 2022-09-06 >RC
+#p# OK
+
 File: P/Pentagram
 #!/usr/local/bin/perl
 #u# http://rosettacode.org/wiki/Pentagram
@@ -7943,6 +7949,12 @@ File: Q/QR_decomposition
 #!/usr/local/bin/perl5.32.1
 #u# http://rosettacode.org/wiki/QR_decomposition
 #c# 2019-02-12 >RC
+#p# OK
+
+File: Q/Quad-power_primes_seeds
+#!/usr/local/bin/perl
+#u# http://rosettacode.org/wiki/Penta-power_prime_seeds
+#c# 2022-09-06 >RC
 #p# OK
 
 File: Q/Quadrat_Special_Primes
