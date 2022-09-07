@@ -1,0 +1,44 @@
+#!/usr/local/bin/perl
+#u# http://rosettacode.org/wiki/Penta-power_prime_seeds
+#c# 2022-09-06 >RC
+#p# OK
+
+my @res;
+
+use v5.36;
+
+use bigint;
+use ntheory 'is_prime';
+use List::Util 'max';
+
+sub comma { reverse ((reverse shift) =~ s/(.{3})/$1,/gr) =~ s/^,//r }
+
+sub table ($c, @V) { my $t = $c * (my $w = 2 + max map { length } @V); ( sprintf( ('%'.$w.'s')x@V, @V) ) =~ s/.{1,$t}\K/\n/gr }
+
+my($n,@qpps);
+while (@qpps < 50) {
+    my $k = 1 + ++$n;
+    push @qpps, comma $n if
+    is_prime($n    + $k) and
+    is_prime($n**2 + $k) and
+    is_prime($n**3 + $k) and
+    is_prime($n**4 + $k);
+}
+
+push @res, 'First fifty quad-power prime seeds:';
+push @res, table(10,@qpps);
+
+say my $result = join "\n", @res;
+
+my $ref = <<'END';
+First fifty quad-power prime seeds:
+        1        2        5        6       69      131      426    1,665    2,129    2,696
+    5,250    7,929    9,689   13,545   14,154   14,286   16,434   19,760   25,739   27,809
+   29,631   36,821   41,819   46,619   48,321   59,030   60,500   61,955   62,321   73,610
+   77,685   79,646   80,535   82,655   85,251   86,996   91,014   96,566   97,739  105,939
+  108,240  108,681  119,754  122,436  123,164  126,489  140,636  150,480  153,179  163,070
+END
+
+use Test::More;
+is($result, $ref);
+done_testing();
