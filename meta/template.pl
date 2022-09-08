@@ -9,9 +9,8 @@ use Time::HiRes qw(sleep);  # debug only
 
 my @res;
 
-use strict;
-use warnings;
-use feature 'say';
+use v5.36;
+#use strict; use warnings; use feature 'say';
 
 # code goes here
 
