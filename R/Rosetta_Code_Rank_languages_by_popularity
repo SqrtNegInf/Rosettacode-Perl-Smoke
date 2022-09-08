@@ -1,6 +1,6 @@
 #!/usr/local/bin/perl
 #u# http://rosettacode.org/wiki/Rosetta_Code/Rank_languages_by_popularity
-#c# 2018-08-21 <RC, 2019-09-11 >RC
+#c# 2018-08-21 <RC, 2019-09-11 >RC, 2022-09-07 >RC
 #p# OK
 #n# test needs to be revised every time a new language crosses the 1000-task barrier
 #n# 2020-01-29 Pleased to welcome 'C' to the '1000 club'
