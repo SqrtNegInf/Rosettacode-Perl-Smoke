@@ -7192,6 +7192,7 @@ File: P/Penta-power_prime_seeds
 #u# http://rosettacode.org/wiki/Penta-power_prime_seeds
 #c# 2022-09-06 >RC
 #p# OK
+#n# slowish, limit testing
 
 File: P/Pentagram
 #!/usr/local/bin/perl
@@ -8465,7 +8466,7 @@ File: R/Roots_of_unity
 File: R/Rosetta_Code_Count_examples
 #!/usr/local/bin/perl
 #u# http://rosettacode.org/wiki/Rosetta_Code/Count_examples
-#c# 2018-08-21 <RC, 2019-04-12 >RC, 2022-08-xx >RC
+#c# 2018-08-21 <RC, 2019-04-12 >RC, 2022-09-07 >RC
 #p# OK
 #n# replaced non-working LWP::Simple version with HTTP::Tiny
 #n# Mojo version: 'return' doesn't quit the anon. sub, so 'last' instead (thus 'no warnings')
@@ -8480,7 +8481,7 @@ File: R/Rosetta_Code_Find_bare_lang_tags
 File: R/Rosetta_Code_Find_unimplemented_tasks
 #!/usr/local/bin/perl
 #u# http://rosettacode.org/wiki/Rosetta_Code/Find_unimplemented_tasks
-#c# 2018-08-21 <RC, 2019-05-02 >RC, 2022-08-xx >RC
+#c# 2018-08-21 <RC, 2019-05-02 >RC, 2022-09-07 >RC
 #p# OK
 
 File: R/Rosetta_Code_Fix_code_tags
@@ -8498,7 +8499,7 @@ File: R/Rosetta_Code_Rank_languages_by_number_of_users
 File: R/Rosetta_Code_Rank_languages_by_popularity
 #!/usr/local/bin/perl
 #u# http://rosettacode.org/wiki/Rosetta_Code/Rank_languages_by_popularity
-#c# 2018-08-21 <RC, 2019-09-11 >RC
+#c# 2018-08-21 <RC, 2019-09-11 >RC, 2022-09-07 >RC
 #p# OK
 #n# test needs to be revised every time a new language crosses the 1000-task barrier
 #n# 2020-01-29 Pleased to welcome 'C' to the '1000 club'
