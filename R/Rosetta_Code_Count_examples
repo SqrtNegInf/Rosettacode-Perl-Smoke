@@ -1,6 +1,6 @@
 #!/usr/local/bin/perl
 #u# http://rosettacode.org/wiki/Rosetta_Code/Count_examples
-#c# 2018-08-21 <RC, 2019-04-12 >RC, 2022-08-xx >RC
+#c# 2018-08-21 <RC, 2019-04-12 >RC, 2022-09-07 >RC
 #p# OK
 #n# replaced non-working LWP::Simple version with HTTP::Tiny
 #n# Mojo version: 'return' doesn't quit the anon. sub, so 'last' instead (thus 'no warnings')
