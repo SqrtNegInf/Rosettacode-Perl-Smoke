@@ -3235,6 +3235,12 @@ File: F/Factorial_base_numbers_indexing_permutations_of_a_collection
 #p# OK
 #n# just me, or was this just PITA task?
 
+File: F/Factorial_primes
+#!/usr/local/bin/perl
+#u# http://rosettacode.org/wiki/Factorial_primes
+#c# 2022-09-08 >RC
+#p# OK
+
 File: F/Factorions
 #!/usr/local/bin/perl
 #u# http://rosettacode.org/wiki/Factorions
@@ -3329,6 +3335,12 @@ File: F/Fermat_numbers
 #!/usr/local/bin/perl
 #u# http://rosettacode.org/wiki/Fermat_numbers
 #c# 2019-09-03 >RC
+#p# OK
+
+File: F/Fermat_pseudoprimes
+#!/usr/local/bin/perl
+#u# http://rosettacode.org/wiki/Fermat_pseudoprimes
+#c# 2022-09-08 >RC
 #p# OK
 
 File: F/Fibonacci_matrix-exponentiation
@@ -6900,6 +6912,12 @@ File: P/Padovan_sequence
 #c# 2021-03-04 >RC
 #p# OK
 #n# 'pad_floor' simpler, random access; tested to 64th item (slow-ish)
+
+File: P/Pairs_with_common_factors
+#!/usr/local/bin/perl
+#u# http://rosettacode.org/wiki/Pairs_with_common_factors
+#c# 2022-09-08 >RC
+#p# OK
 
 File: P/Palindrome_dates-1
 #!/usr/local/bin/perl
