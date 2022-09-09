@@ -4,24 +4,20 @@
 #p# OK
 #n# https://wikivisually.com/wiki/Modular_exponentiation -  Applied Cryptography by Bruce Schneier (this version not on RC)
 
-use strict;
-use warnings;
-use feature 'say';
+use v5.36;
 
 use bigint;
 
-sub expmod {
-    my($a, $b, $n) = @_;
+sub expmod ($a, $b, $n) {
     my $c = 1;
     do {
         ($c *= $a) %= $n if $b % 2;
         ($a *= $a) %= $n;
     } while ($b = int $b/2);
-    $c;
+    $c
 }
 
-sub expmod_via_bruce {
-    my($base, $exponent, $modulus) = @_;
+sub expmod_via_bruce ($base, $exponent, $modulus) {
     my $result;
     return 0 if $modulus == 1;
     $result = 1;
@@ -31,7 +27,7 @@ sub expmod_via_bruce {
         $exponent >>= 1;
         $base = ($base * $base) % $modulus;
     }
-    return $result;
+    $result
 }
 
 my $a = 2988348162058574136915891421498819466320163312926952423791023078876139;
@@ -43,7 +39,8 @@ say my $result3 = $a->bmodpow($b, $m);
 say "Note that 'bmodpow' modifies the base: \$a = $a";
 
 use Test::More;
-is ($result1, 1527229998585248450016808958343740453059);
-is ($result2, 1527229998585248450016808958343740453059);
-is ($result3, 1527229998585248450016808958343740453059);
+my $ans = 1527229998585248450016808958343740453059;
+is ($result1, $ans);
+is ($result2, $ans);
+is ($result3, $ans);
 done_testing();
