@@ -1,16 +1,16 @@
 
 This is perl 5, version 36, subversion 0 (v5.36.0) built for darwin-thread-multi-2level
 updating from RC…
-+------------> Perl: Good/Bad [411/1]
-|+-----------> Smoke testing [384]
++------------> Perl: Good/Bad [413/1]
+|+-----------> Smoke testing [386]
 ||+----------> sKipping validation [27]
 |||+---------> Interactive [15]
-||||+--------> Touched (modified by me) [173]
+||||+--------> Touched (modified by me) [175]
 |||||+-------> Random seed [35]
 ||||||+------> File output [22]
 |||||||+-----> Draft [199]
 ||||||||+----> Ignoring [39]
-|||||||||+---> Void (no local copy) [55]
+|||||||||+---> Void (no local copy) [53]
 ||||||||||+--> Un-implemented/reliable []
 |||||||||||
 GS..T..D... 10001th_prime
@@ -380,8 +380,8 @@ GS..T..D... Execute_CopyPasta_Language
 GS..T..D... External_sort
 GS..T..D... Extra_primes
 GS.....D... Extract_file_extension
-.......D.V. Factorial_primes
-.......D.V. Fermat_pseudoprimes
+GS..T..D... Factorial_primes
+GS..T..D... Fermat_pseudoprimes
 .......D.V. Fibonacci_heap
 GS..T..D... Fibonacci_matrix-exponentiation
 GS.....D... Find_URI_in_text
