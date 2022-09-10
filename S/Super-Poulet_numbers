@@ -13,8 +13,11 @@ use ntheory <is_prime divisors powmod>;
 
 sub comma { reverse ((reverse shift) =~ s/(.{3})/$1,/gr) =~ s/^,//r }
 
-my @poulet = grep { !is_prime($_) && (1 == powmod 2, $_ - 1, $_) } 2 .. 1.1e7;
-my @super_poulet = grep { all { 2 == powmod 2, $_, $_ } grep { $_ > 1 } divisors $_ } @poulet;
+# not on RC!
+my @super_poulet = grep {all {2 == powmod 2, $_, $_} grep {$_>1} divisors $_} grep {!is_prime($_) && (1 == powmod 2, $_ - 1, $_) } 2..1.1e7;
+
+#my @poulet = grep { !is_prime($_) && (1 == powmod 2, $_ - 1, $_) } 2 .. 1.1e7;
+#my @super_poulet = grep { all { 2 == powmod 2, $_, $_ } grep { $_ > 1 } divisors $_ } @poulet;
 
 push @res, "First 20 super-Poulet numbers:\n" . join ' ', @super_poulet[0..19];
 
