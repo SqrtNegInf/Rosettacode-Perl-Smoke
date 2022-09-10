@@ -3343,6 +3343,13 @@ File: F/Fermat_pseudoprimes
 #c# 2022-09-08 >RC
 #p# OK
 
+File: F/Fermat_pseudoprimes-2
+#!/usr/local/bin/perl
+#u# http://rosettacode.org/wiki/Fermat_pseudoprimes
+#c# 2022-09-08 >RC
+#p# OK
+#n# compare with use of 'expmod' in primary version of task
+
 File: F/Fibonacci_matrix-exponentiation
 #!/usr/local/bin/perl
 #u# http://rosettacode.org/wiki/Fibonacci_matrix-exponentiation
@@ -8401,6 +8408,12 @@ File: R/Rhonda_numbers
 #p# OK
 #n# I owe it all to 'ntheory'...
 
+File: R/Riordan_numbers
+#!/usr/local/bin/perl
+#u# http://rosettacode.org/wiki/Riordan_numbers
+#c# 2022-09-09 >RC
+#p# OK
+
 File: R/Rock-paper-scissors
 #!/usr/local/bin/perl
 #u# http://rosettacode.org/wiki/Rock-paper-scissors
@@ -10133,6 +10146,12 @@ File: S/Sunflower_fractal
 #p# OK
 #f# RC file: sunflower.svg
 #n# much less slapdash...
+
+File: S/Super-Poulet_numbers
+#!/usr/local/bin/perl
+#u# http://rosettacode.org/wiki/Super-Poulet_numbers
+#c# 2022-09-09 >RC
+#p# OK
 
 File: S/Super-d_numbers-1
 #!/usr/local/bin/perl
