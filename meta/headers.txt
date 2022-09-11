@@ -8411,7 +8411,7 @@ File: R/Rhonda_numbers
 File: R/Riordan_numbers
 #!/usr/local/bin/perl
 #u# http://rosettacode.org/wiki/Riordan_numbers
-#c# 2022-09-09 >RC
+#c# 2022-09-10 >RC
 #p# OK
 
 File: R/Rock-paper-scissors
