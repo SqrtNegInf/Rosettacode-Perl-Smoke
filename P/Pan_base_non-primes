@@ -13,10 +13,10 @@ use strict;
 use warnings;
 use feature 'say';
 
-#use Base::Any;
-#use List::Divvy;
+use ntheory <fromdigits todigitstring is_prime>;
+use List::Util 'none';
 
-my @np;
+my @np = <4 6 8 9>;
 
 #my @np = 4,6,8,9, |lazy (11..*).grep( -> $n { ($n.substr(*-1) eq '0') || (1 < [gcd] $n.comb».Int) || none (2..$n).map: { try "$n".&from-base($_).is-prime } } );
 
