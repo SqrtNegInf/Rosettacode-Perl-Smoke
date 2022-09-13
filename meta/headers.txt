@@ -6981,8 +6981,7 @@ File: P/Palindromic_primes_with_alternating_digits
 File: P/Pan_base_non-primes
 #!/usr/local/bin/perl
 #u# http://rosettacode.org/wiki/Pan_base_non-primes
-#t# inprogress
-#c# 2022-xx-xx >RC
+#c# 2022-09-12 >RC
 #p# OK
 
 File: P/Pancake_numbers
