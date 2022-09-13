@@ -1,6 +1,5 @@
 #!/usr/local/bin/perl
 #u# http://rosettacode.org/wiki/Klarner-Rado_sequence
-#t# inprogress
 #c# 2022-09-13 >RC
 #p# OK
 
@@ -12,35 +11,47 @@ use List::Util <max min>;
 sub table ($c, @V) { my $t = $c * (my $w = 2 + length max @V); ( sprintf( ('%'.$w.'d')x@V, @V) ) =~ s/.{1,$t}\K/\n/gr }
 
 sub Klarner_Rado ($n) {
-    my @n = 1..$n;
-    our @klarner_rado = 1;
-    my @next = x2(), x3();
-
+    state @klarner_rado = 1;
+    state @next = ( x2(), x3() );
     while () {
         push @klarner_rado, my $min = min @next;
         $next[0] = x2() if $next[0] == $min;
         $next[1] = x3() if $next[1] == $min;
-        last if +@klarner_rado > max @n;
+            last if @klarner_rado == $n;
     }
 
     sub x2 { state $i = 0; $klarner_rado[$i++] * 2 + 1 }
     sub x3 { state $i = 0; $klarner_rado[$i++] * 3 + 1 }
 
-    @klarner_rado[@n]
+    @klarner_rado; #[@n]
 }
 
 push @res, "First 100 elements of Klarner-Rado sequence:";
-push @res, table Klarner_Rado(100);
+push @res, table 10, Klarner_Rado(100);
 push @res, '';
+
 #push @res, (($_».Int».&ordinal».tc »~» ' element: ').List Z~ |(List.new: (Klarner_Rado ($_ »-» 1))».&comma)
 #    given $(1e0, 1e1, 1e2, 1e3, 1e4, 1e5, 1e6)).join: "\n";
 
+#say table 10, Klarner_Rado(101..999); exit;
+#say (Klarner_Rado(100..999)) [-1]; exit;
+#my @foo = Klarner_Rado(100..999); say $foo[999]; exit;
 
 say my $result = join "\n", @res;
-exit;
 
 my $ref = <<'END';
 First 100 elements of Klarner-Rado sequence:
+    1    3    4    7    9   10   13   15   19   21
+   22   27   28   31   39   40   43   45   46   55
+   57   58   63   64   67   79   81   82   85   87
+   91   93   94  111  115  117  118  121  127  129
+  130  135  136  139  159  163  165  166  171  172
+  175  183  187  189  190  193  202  223  231  235
+  237  238  243  244  247  255  256  259  261  262
+  271  273  274  279  280  283  319  327  331  333
+  334  343  345  346  351  352  355  364  367  375
+  379  381  382  387  388  391  405  406  409  418
+
 END
 
 my $xef = <<'END';
@@ -54,7 +65,7 @@ One millionth element: 54,381,285
 END
 
 use Test::More;
-chomp $ref;
+#chomp $ref;
 is($result, $ref);
 #is(($result =~ s/\s//gr), ($ref =~ s/\s//gr));
 done_testing();
