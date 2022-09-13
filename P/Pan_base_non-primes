@@ -21,7 +21,7 @@ for my $n (11..$max) {
 
 push @res, "First 50 pan-base composites:\n"                        . table 10, @np[0..49];
 push @res, "First 20 odd pan-base composites:\n"                    . table 10, (grep { 0 !=  $_ % 2 } @np)[0..19];
-push @res, "Count of pan-base composites up to and including $max:" . (1 + (my $f = firstidx { $max <= $_ } @np));
+push @res, "Count of pan-base composites up to and including $max: ". (1 + (my $f = firstidx { $max <= $_ } @np));
 push @res, "Percent odd  up to and including $max: "                . sprintf '%.3f', 100 * scalar(grep { 0 != $_ % 2 } @np[0..$f]) / $f;
 push @res, "Percent even up to and including $max: "                . sprintf '%.3f', 100 * scalar(grep { 0 == $_ % 2 } @np[0..$f]) / $f;
 
