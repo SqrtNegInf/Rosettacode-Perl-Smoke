@@ -388,10 +388,6 @@ N/Numerical_integration_Gauss-Legendre_Quadrature
 ∫:     8 INTEGRAL
 ≈:     8 ALMOST EQUAL TO
 
-P/Pan_base_non-primes
-»:     3 RIGHT-POINTING DOUBLE ANGLE QUOTATION MARK
-×:     2 MULTIPLICATION SIGN
-
 P/Pandigital_prime-2
 »:     1 RIGHT-POINTING DOUBLE ANGLE QUOTATION MARK
 
