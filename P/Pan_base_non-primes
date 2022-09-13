@@ -16,7 +16,7 @@ my @np = <4 6 8 9>;
 my $max = 2500;
 
 for my $n (11..$max) {
-    push @np, $n unless max map { max(split '',$n) < $_ and is_prime fromdigits($n,$_) } 2..$n;
+    push @np, $n unless max grep { max(split '',$n) < $_ and is_prime fromdigits($n,$_) } 2..$n;
 } 
 
 push @res, "First 50 pan-base composites:\n"                        . table 10, @np[0..49];
