@@ -1,0 +1,70 @@
+#!/usr/local/bin/perl
+#u# http://rosettacode.org/wiki/Klarner-Rado_sequence
+#t# inprogress
+#c# 2022-09-13 >RC
+#p# OK
+
+my @res;
+
+use v5.36;
+use List::Util <max min>;
+
+sub table ($c, @V) { my $t = $c * (my $w = 2 + length max @V); ( sprintf( ('%'.$w.'d')x@V, @V) ) =~ s/.{1,$t}\K/\n/gr }
+
+sub Klarner_Rado ($n) {
+    my @n = 1..$n;
+    our @klarner_rado = 1;
+    my @next = x2(), x3();
+
+    while () {
+        push @klarner_rado, my $min = min @next;
+        $next[0] = x2() if $next[0] == $min;
+        $next[1] = x3() if $next[1] == $min;
+        last if +@klarner_rado > max @n;
+    }
+
+    sub x2 { state $i = 0; $klarner_rado[$i++] * 2 + 1 }
+    sub x3 { state $i = 0; $klarner_rado[$i++] * 3 + 1 }
+
+    @klarner_rado[@n]
+}
+
+push @res, "First 100 elements of Klarner-Rado sequence:";
+push @res, table Klarner_Rado(100);
+push @res, '';
+#push @res, (($_».Int».&ordinal».tc »~» ' element: ').List Z~ |(List.new: (Klarner_Rado ($_ »-» 1))».&comma)
+#    given $(1e0, 1e1, 1e2, 1e3, 1e4, 1e5, 1e6)).join: "\n";
+
+
+say my $result = join "\n", @res;
+exit;
+
+my $ref = <<'END';
+First 100 elements of Klarner-Rado sequence:
+END
+
+my $xef = <<'END';
+First element: 1
+Tenth element: 21
+One hundredth element: 418
+One thousandth element: 8,487
+Ten thousandth element: 157,653
+One hundred thousandth element: 2,911,581
+One millionth element: 54,381,285
+END
+
+use Test::More;
+chomp $ref;
+is($result, $ref);
+#is(($result =~ s/\s//gr), ($ref =~ s/\s//gr));
+done_testing();
+
+__END__
+
+=={{header|Perl}}==
+{{trans|Raku}}
+<syntaxhighlight lang="perl" line>
+</syntaxhighlight>
+{{out}}
+<pre>
+</pre>
