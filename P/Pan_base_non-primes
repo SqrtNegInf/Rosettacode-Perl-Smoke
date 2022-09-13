@@ -1,6 +1,6 @@
 #!/usr/local/bin/perl
 #u# http://rosettacode.org/wiki/Pan_base_non-primes
-#c# 2022-09-12 >RC
+#c# 2022-09-13 >RC
 #p# OK
 
 my @res;
@@ -21,9 +21,9 @@ for my $n (11..$max) {
 
 push @res, "First 50 pan-base composites:\n"                        . table 10, @np[0..49];
 push @res, "First 20 odd pan-base composites:\n"                    . table 10, (grep { 0 !=  $_ % 2 } @np)[0..19];
-push @res, "Count of pan-base composites up to and including $max: ". (1 + (my $f = firstidx { $max <= $_ } @np));
-push @res, "Percent odd  up to and including $max: "                . sprintf '%.3f', 100 * scalar(grep { 0 != $_ % 2 } @np[0..$f]) / $f;
-push @res, "Percent even up to and including $max: "                . sprintf '%.3f', 100 * scalar(grep { 0 == $_ % 2 } @np[0..$f]) / $f;
+push @res, "Count of pan-base composites up to and including $max: ". (my $f = 1 + firstidx { $max <= $_ } @np);
+push @res, "Percent odd  up to and including $max: "                . sprintf '%.3f', 100 * (grep { 0 != $_ % 2 } @np[0..$f-1]) / $f;
+push @res, "Percent even up to and including $max: "                . sprintf '%.3f', 100 * (grep { 0 == $_ % 2 } @np[0..$f-1]) / $f;
 
 say my $result = join "\n", @res;
 
@@ -40,8 +40,8 @@ First 20 odd pan-base composites:
   143  165  169  187  231  253  273  275  297  299
 
 Count of pan-base composites up to and including 2500: 953
-Percent odd  up to and including 2500: 16.912
-Percent even up to and including 2500: 83.193
+Percent odd  up to and including 2500: 16.894
+Percent even up to and including 2500: 83.106
 END
 
 use Test::More;
