@@ -5001,6 +5001,12 @@ File: K/Keyboard_macros
 #c# 2019-05-06 >RC
 #p# OK
 
+File: K/Klarner-Rado_sequence
+#!/usr/local/bin/perl
+#u# http://rosettacode.org/wiki/Klarner-Rado_sequence
+#c# 2022-09-13 >RC
+#p# OK
+
 File: K/Knapsack_problem_0-1
 #!/usr/local/bin/perl
 #u# http://rosettacode.org/wiki/Knapsack_problem/0-1
@@ -6981,7 +6987,7 @@ File: P/Palindromic_primes_with_alternating_digits
 File: P/Pan_base_non-primes
 #!/usr/local/bin/perl
 #u# http://rosettacode.org/wiki/Pan_base_non-primes
-#c# 2022-09-12 >RC
+#c# 2022-09-13 >RC
 #p# OK
 
 File: P/Pancake_numbers
