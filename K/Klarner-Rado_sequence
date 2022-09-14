@@ -8,34 +8,32 @@ my @res;
 use v5.36;
 use List::Util <max min>;
 
+sub comma { reverse ((reverse shift) =~ s/(.{3})/$1,/gr) =~ s/^,//r }
 sub table ($c, @V) { my $t = $c * (my $w = 2 + length max @V); ( sprintf( ('%'.$w.'d')x@V, @V) ) =~ s/.{1,$t}\K/\n/gr }
 
+# generate terms up to 'n', as needed
 sub Klarner_Rado ($n) {
     state @klarner_rado = 1;
     state @next = ( x2(), x3() );
-    while () {
+
+    return @klarner_rado if +@klarner_rado >= $n; # no additional terms required
+
+    until (@klarner_rado == $n) {
         push @klarner_rado, my $min = min @next;
         $next[0] = x2() if $next[0] == $min;
         $next[1] = x3() if $next[1] == $min;
-            last if @klarner_rado == $n;
     }
 
     sub x2 { state $i = 0; $klarner_rado[$i++] * 2 + 1 }
     sub x3 { state $i = 0; $klarner_rado[$i++] * 3 + 1 }
 
-    @klarner_rado; #[@n]
+    @klarner_rado
 }
 
 push @res, "First 100 elements of Klarner-Rado sequence:";
 push @res, table 10, Klarner_Rado(100);
-push @res, '';
-
-#push @res, (($_».Int».&ordinal».tc »~» ' element: ').List Z~ |(List.new: (Klarner_Rado ($_ »-» 1))».&comma)
-#    given $(1e0, 1e1, 1e2, 1e3, 1e4, 1e5, 1e6)).join: "\n";
-
-#say table 10, Klarner_Rado(101..999); exit;
-#say (Klarner_Rado(100..999)) [-1]; exit;
-#my @foo = Klarner_Rado(100..999); say $foo[999]; exit;
+push @res, 'Terms by powers of 10:';
+push @res, sprintf "%10s = %s", comma($_), comma( (Klarner_Rado $_)[$_-1] ) for map { 10**$_ } 0..6; 
 
 say my $result = join "\n", @res;
 
@@ -52,30 +50,17 @@ First 100 elements of Klarner-Rado sequence:
   334  343  345  346  351  352  355  364  367  375
   379  381  382  387  388  391  405  406  409  418
 
-END
-
-my $xef = <<'END';
-First element: 1
-Tenth element: 21
-One hundredth element: 418
-One thousandth element: 8,487
-Ten thousandth element: 157,653
-One hundred thousandth element: 2,911,581
-One millionth element: 54,381,285
+Terms by powers of 10:
+         1 = 1
+        10 = 21
+       100 = 418
+     1,000 = 8,487
+    10,000 = 157,653
+   100,000 = 2,911,581
+ 1,000,000 = 54,381,285
 END
 
 use Test::More;
-#chomp $ref;
+chomp $ref;
 is($result, $ref);
-#is(($result =~ s/\s//gr), ($ref =~ s/\s//gr));
 done_testing();
-
-__END__
-
-=={{header|Perl}}==
-{{trans|Raku}}
-<syntaxhighlight lang="perl" line>
-</syntaxhighlight>
-{{out}}
-<pre>
-</pre>
