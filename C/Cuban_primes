@@ -22,8 +22,6 @@ sub cuban_primes {
             return @primes if @primes >= $n;
         }
     }
-
-    #return @primes;
 }
 
 sub commify { scalar reverse join ',', unpack '(A3)*', reverse shift }
