@@ -12,7 +12,7 @@ use enum qw(False True);
 use List::AllUtils <firstidx sum>;
 
 sub proper_divisors ($n) {
-  return True unless $n;
+  return 1 if $n == 0;
   my @d = divisors($n);
   pop @d;
   @d;
