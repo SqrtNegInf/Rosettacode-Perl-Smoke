@@ -18,7 +18,7 @@ sub proper_divisors ($n) {
   @d;
 }
 
-sub is_EN ($n) {
+sub is_Erdos_Nicolas ($n) {
     my @divisors = proper_divisors($n);
     return False unless sum(@divisors) > $n;
     my $sum;
@@ -28,7 +28,7 @@ sub is_EN ($n) {
 
 my($n,$count) = (2,0);
 until ($count == 8) {
-    next unless 0 == ++$n % 2 and my $key = is_EN $n;
+    next unless 0 == ++$n % 2 and my $key = is_Erdos_Nicolas $n;
     push @res, sprintf "%8d == sum of its first %3d divisors", $n, $key;
     $count++
 }
