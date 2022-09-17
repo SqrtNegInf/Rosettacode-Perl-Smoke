@@ -9265,6 +9265,12 @@ File: S/Sokoban
 #c# 2018-08-14 <RC
 #p# OK
 
+File: S/Soloway%27s_recurring_rainfall
+#!/usr/local/bin/perl
+#u# https://rosettacode.org/wiki/Soloway%27s_recurring_rainfall
+#c# 2022-09-16 >RC
+#p# OK
+
 File: S/Solve_a_Hidato_puzzle
 #!/usr/local/bin/perl
 #u# http://rosettacode.org/wiki/Solve_a_Hidato_puzzle
@@ -11060,6 +11066,12 @@ File: V/Voronoi_diagram
 #c# 2018-11-27 >RC
 #p# OK
 #f# RC file: voronoi-Euclidean.png
+
+File: W/Wagstaff_primes
+#!/usr/local/bin/perl
+#u# https://rosettacode.org/wiki/Wagstaff_primes
+#c# 2022-09-16 >RC
+#p# OK
 
 File: W/Walk_a_directory_Non-recursively
 #!/usr/local/bin/perl
