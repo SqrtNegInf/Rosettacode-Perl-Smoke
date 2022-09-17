@@ -1,0 +1,134 @@
+#!/usr/local/bin/perl
+#u# http://rosettacode.org/wiki/Boyer-Moore_string_search
+#t# inprogress
+#c# 2022-xx-xx >RC
+#p# OK
+
+use Data::Printer;          # debug only
+use Time::HiRes qw(sleep);  # debug only
+
+my @res;
+
+use v5.36;
+
+use List::Util <max zip>;
+
+sub suffixes ($m,@pat) {
+###loop (my ($i,$f,$g,@suff)=$m-2, 0, $m-1, (0 x $m-1),$m; $i >= 0; --$i) 
+   my($f,$g) = (0, $m-1);
+   my @suff = (0) x($m-1); push @suff, $m;
+#say $f; say $g; p @suff;  exit;
+   for (my $i = $m-2; $i >= 0; --$i) {
+      if ($i > $g and $suff[$i + $m - 1 - $f] < $i - $g) {
+         $suff[$i] = $suff[$i + $m - 1 - $f]
+      } else {
+	     $g = $i if $i < $g;
+         $f = $i;
+	     while ($g >= 0 and $pat[$g] eq $pat[$g + $m - 1 - $f]) { $g-- }
+         $suff[$i] = $f - $g
+      }
+   }
+   return @suff;
+}
+
+sub preBmGs ($m,@pat) {
+   my @suff = suffixes($m,@pat);
+#p @suff;  exit;
+   my @bmGs = ($m) x $m; 
+#p @bmGs;  exit;
+
+   for my $k (reverse 0..$m-1) {
+      if ($suff[$k] == $k + 1) {
+         for (my $j=0; $j < $m-1-$k; $j++) { $bmGs[$k]=$m-1-$k if $bmGs[$j] == $m }
+      }
+   }
+   for (0..$m-1) { $bmGs[$m - 1 - $suff[$_]] = $m - 1 - $_ }
+   return @bmGs;
+}
+
+sub BM ($txt,$pat) {
+    my @txt = split '', $txt;
+    my @pat = split '', $pat;
+    my ($m, $n, $j)    = (length($pat), length($txt), 0);
+#say "$m : $n : $j"; exit;
+$DB::single = 1;
+####my (@bmGs, %bmBc) := preBmGs($m,@pat), hash @pat Z=> ( m-1 ... 1 );
+    my @bmGs = preBmGs($m,@pat); 
+p @bmGs; exit;
+    my (%bmBc) = zip \@pat, (reverse 1..$m-1);
+p %bmBc; exit;
+
+    my @foo;
+    while ($j <= $n - $m) {
+        my $i;
+        for ($i = $m - 1; $i >= 0 and $pat[$i] eq $txt[$i + $j]; ) { $i-- }
+        if ($i < 0) {
+	        push @foo, $j;
+            $j += $bmGs[0]
+        } else {
+            $j += max $bmGs[$i], ($bmBc{$txt[$i + $j]} // $m)-$m+$i
+        }
+   }
+   return @foo;
+}
+
+my @texts = [
+   "GCTAGCTCTACGAGTCTA",
+   "GGCTATAATGCGTA",
+   "there would have been a time for such a word",
+   "needle need noodle needle",
+#   "BharôtভাৰতBharôtভারতIndiaBhāratભારતBhāratभारतBhārataಭಾರತBhāratभारतBhāratamഭാരതംBhāratभारतBhāratभारतBharôtôଭାରତBhāratਭਾਰਤBhāratamभारतम्Bārataபாரதம்BhāratamഭാരതംBhāratadēsamభారతదేశం",
+   "InhisbookseriesTheArtofComputerProgrammingpublishedbyAddisonWesleyDKnuthusesanimaginarycomputertheMIXanditsassociatedmachinecodeandassemblylanguagestoillustratetheconceptsandalgorithmsastheyarepresented",
+   "Nearby farms grew a half acre of alfalfa on the dairy's behalf, with bales of all that alfalfa exchanged for milk.",
+];
+
+my @pats = <TCTA TAATAAA word needle put and alfalfa>;
+#my @pats = [ "TCTA", "TAATAAA", "word", "needle", "ഭാരതം", "put", "and", "alfalfa"];
+
+push @res, "text$_ = $texts[$_]" for 0..$#texts;
+push @res, '';
+
+for (0.. $#pats) {
+   my $j = $_ < 6 ? $_ : $_-1 ; # for searching text5 twice
+   push @res, "Found '$pats[$_]' in text$j at indices " . BM($texts[$j],$pats[$_]); #BM split('',$texts[$j], split('',$pats[$_]);
+}
+
+say my $result = join "\n", @res;
+
+my $ref = <<'END';
+text0 = GCTAGCTCTACGAGTCTA
+text1 = GGCTATAATGCGTA
+text2 = there would have been a time for such a word
+text3 = needle need noodle needle
+text4 = BharôtভাৰতBharôtভারতIndiaBhāratભારતBhāratभारतBhārataಭಾರತBhāratभारतBhāratamഭാരതംBhāratभारतBhāratभारतBharôtôଭାରତBhāratਭਾਰਤBhāratamभारतम्Bārataபாரதம்BhāratamഭാരതംBhāratadēsamభారతదేశం
+text5 = InhisbookseriesTheArtofComputerProgrammingpublishedbyAddisonWesleyDKnuthusesanimaginarycomputertheMIXanditsassociatedmachinecodeandassemblylanguagestoillustratetheconceptsandalgorithmsastheyarepresented
+text6 = Nearby farms grew a half acre of alfalfa on the dairy's behalf, with bales of all that alfalfa exchanged for milk.
+
+Found 'TCTA' in 'text0' at indices 6 14
+Found 'TAATAAA' in 'text1' at indices
+Found 'word' in 'text2' at indices 40
+Found 'needle' in 'text3' at indices 0 19
+Found 'ഭാരതം' in 'text4' at indices 68 138
+Found 'put' in 'text5' at indices 26 90
+Found 'and' in 'text5' at indices 101 128 171
+Found 'alfalfa' in 'text6' at indices 33 87
+END
+
+use Test::More;
+chomp $ref;
+is($result, $ref);
+#is(($result =~ s/\s//gr), ($ref =~ s/\s//gr));
+done_testing();
+
+__END__
+
+=={{header|Perl}}==
+{{trans|Raku}}
+<syntaxhighlight lang="perl" line>
+</syntaxhighlight>
+{{out}}
+<pre style="height:20ex">
+</pre>
+[[File:xx|300px|thumb|right]]
+# or
+[https://github.com/SqrtNegInf/Rosettacode-Perl-Smoke/blob/master/ref/xx xx]
