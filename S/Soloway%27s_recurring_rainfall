@@ -1,0 +1,48 @@
+#!/usr/local/bin/perl
+#u# https://rosettacode.org/wiki/Soloway%27s_recurring_rainfall
+#c# 2022-09-16 >RC
+#p# OK
+
+my @res;
+
+use strict; 
+use warnings; 
+use feature 'say';
+
+use Scalar::Util qw(looks_like_number);
+
+my ($periods, $accumulation, $rainfall);
+
+my @inputs = <a 1.1 2.0 .3e1 999999>;
+
+sub so_far { push @res, sprintf "Average rainfall %.2f units over %d time periods.", ($accumulation / $periods) || 0, $periods }
+
+while () {
+    while () {
+        #$rainfall = prompt 'Integer units of rainfall in this time period? (999999 to finalize and exit)>: ';
+        $rainfall = shift @inputs;
+        last if looks_like_number($rainfall) and $rainfall and $rainfall == int $rainfall;
+        push @res, 'Invalid input, try again.';
+    }
+    last if $rainfall == 999999;
+    $periods++;
+    $accumulation += $rainfall;
+    so_far;
+}
+
+so_far;
+
+say my $result = join "\n", @res;
+
+my $ref = <<'END';
+Invalid input, try again.
+Invalid input, try again.
+Average rainfall 2.00 units over 1 time periods.
+Average rainfall 2.50 units over 2 time periods.
+Average rainfall 2.50 units over 2 time periods.
+END
+
+use Test::More;
+chomp $ref;
+is($result, $ref);
+done_testing();
