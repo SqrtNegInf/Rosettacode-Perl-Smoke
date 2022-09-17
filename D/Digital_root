@@ -23,7 +23,7 @@ sub base ($n, $b) {
    reverse $result || 0;
 }
  
-sub digital-root ($n, $b) {
+sub digital_root ($n, $b) {
    my $inbase = base($n, $b);
    my $additive_persistance = 0;
    while( length($inbase) > 1 ) {
@@ -46,7 +46,7 @@ for my $base (@bases) {
     for my $num (@numbers) {
         my $inbase = base($num, $base);
         $inbase = 'BIG' if length($inbase) > 25;
-        push @res, sprintf $fmt, $inbase, $base, digital-root $num, $base;
+        push @res, sprintf $fmt, $inbase, $base, digital_root $num, $base;
     }
     push @res, '';
 }
