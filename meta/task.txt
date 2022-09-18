@@ -1,16 +1,16 @@
 
 This is perl 5, version 36, subversion 0 (v5.36.0) built for darwin-thread-multi-2level
 updating from RC…
-+------------> Perl: Good/Bad [416/1]
-|+-----------> Smoke testing [389]
-||+----------> sKipping validation [27]
++------------> Perl: Good/Bad [418/1]
+|+-----------> Smoke testing [390]
+||+----------> sKipping validation [28]
 |||+---------> Interactive [15]
-||||+--------> Touched (modified by me) [178]
+||||+--------> Touched (modified by me) [180]
 |||||+-------> Random seed [35]
 ||||||+------> File output [22]
 |||||||+-----> Draft [199]
 ||||||||+----> Ignoring [39]
-|||||||||+---> Void (no local copy) [51]
+|||||||||+---> Void (no local copy) [49]
 ||||||||||+--> Un-implemented/reliable []
 |||||||||||
 GS..T..D... 10001th_prime
@@ -198,7 +198,7 @@ GS......... Bitwise_operations
 .......D.V. Boids
 GS......... Boolean_values
 GS......... Box_the_compass
-.......D.V. Boyer-Moore_string_search
+G.K.T..D... Boyer-Moore_string_search
 GS......... Brace_expansion
 .......D.V. Brace_expansion_using_ranges
 GS..T...... Brazilian_numbers
@@ -367,7 +367,7 @@ GS.....D... Doomsday_rule
 .......D.V. Doubly-linked_list_Element_removal
 G.KIT..D... Draw_pixel_2
 .......D.V. Elevator_simulation
-.......D.V. Engel_expansion
+GS..T..D... Engel_expansion
 GS..T..D... Erdos-Nicolas_numbers
 .......D.V. Erdos-Woods_numbers
 GS..T..D... Erdos-primes
