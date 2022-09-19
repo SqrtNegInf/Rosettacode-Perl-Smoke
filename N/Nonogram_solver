@@ -1,6 +1,6 @@
 #!/usr/local/bin/perl
 #u# http://rosettacode.org/wiki/Nonogram_solver
-#c# 2019-04-02 <RC
+#c# 2019-04-02 <RC, 2019-05-16 >RC, 2020-01-25 >RC
 #p# OK
 #n# move external file to DATA handle
 
