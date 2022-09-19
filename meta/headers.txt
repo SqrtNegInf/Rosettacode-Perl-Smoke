@@ -2912,7 +2912,7 @@ File: E/Engel_expansion
 #p# OK
 #n# works quickly for most, slows down for highest-precision; π and sqrt(2) both have >200 terms, are omitted from daily testing:
 #n#     447.62s user 2.39s system 99% cpu 7:30.88 total
-#n# the version on RC has extra code to condense output
+#n# the version on RC uses 'abbr' to condense output from high-precision values
 
 File: E/Entropy
 #!/usr/local/bin/perl
@@ -6605,7 +6605,7 @@ File: N/Nonoblock
 File: N/Nonogram_solver
 #!/usr/local/bin/perl
 #u# http://rosettacode.org/wiki/Nonogram_solver
-#c# 2019-04-02 <RC
+#c# 2019-04-02 <RC, 2019-05-16 >RC, 2020-01-25 >RC
 #p# OK
 #n# move external file to DATA handle
 
