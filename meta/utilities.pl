@@ -52,3 +52,7 @@ sub wrap { (shift) =~ s/(.{80}.*?\s)/$1\n/gr }
 
 sub sum (@a) { my $s; map { $s += $_ } @a; $s }
 
+#==== elide middle of something long
+
+sub abbr ($d) { my $l = length $d; $l < 41 ? $d : substr($d,0,20) . '..' . substr($d,-20) . " ($l digits)" }
+sub abbr ($d,$w) { my $l = length $d; $l < $w+1 ? $d : substr($d,0,$w/2) . '..' . substr($d,-$w/2) . " ($l digits)" }
