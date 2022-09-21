@@ -1,16 +1,16 @@
 
 This is perl 5, version 36, subversion 0 (v5.36.0) built for darwin-thread-multi-2level
 updating from RC…
-+------------> Perl: Good/Bad [418/1]
-|+-----------> Smoke testing [390]
-||+----------> sKipping validation [28]
++------------> Perl: Good/Bad [419/1]
+|+-----------> Smoke testing [392]
+||+----------> sKipping validation [27]
 |||+---------> Interactive [15]
-||||+--------> Touched (modified by me) [180]
+||||+--------> Touched (modified by me) [181]
 |||||+-------> Random seed [35]
 ||||||+------> File output [22]
 |||||||+-----> Draft [199]
 ||||||||+----> Ignoring [39]
-|||||||||+---> Void (no local copy) [49]
+|||||||||+---> Void (no local copy) [48]
 ||||||||||+--> Un-implemented/reliable []
 |||||||||||
 GS..T..D... 10001th_prime
@@ -198,7 +198,7 @@ GS......... Bitwise_operations
 .......D.V. Boids
 GS......... Boolean_values
 GS......... Box_the_compass
-G.K.T..D... Boyer-Moore_string_search
+GS..T..D... Boyer-Moore_string_search
 GS......... Brace_expansion
 .......D.V. Brace_expansion_using_ranges
 GS..T...... Brazilian_numbers
@@ -442,7 +442,7 @@ GS.....D... Jaccard_index
 GS..T..D... Just_in_time_processing_on_a_character_stream
 GS..T..D... Kahan_summation
 GS..T..D... Klarner-Rado_sequence
-.......D.V. Knuth-Morris-Pratt_string_search
+GS..T..D... Knuth-Morris-Pratt_string_search
 GS..T..D... Largest_difference_between_adjacent_primes
 GS...R.D... Largest_five_adjacent_number
 GS..T..D... Largest_palindrome_product
