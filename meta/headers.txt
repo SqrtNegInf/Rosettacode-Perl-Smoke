@@ -1117,8 +1117,7 @@ File: B/Box_the_compass
 File: B/Boyer-Moore_string_search
 #!/usr/local/bin/perl
 #u# http://rosettacode.org/wiki/Boyer-Moore_string_search
-#t# inprogress
-#c# 2022-xx-xx >RC
+#c# 2022-09-19 >RC
 #p# OK
 
 File: B/Brace_expansion
@@ -5070,6 +5069,12 @@ File: K/Knuth%27s_power_tree
 #!/usr/local/bin/perl
 #u# http://rosettacode.org/wiki/Knuth%27s_power_tree
 #c# 2018-08-14 <RC
+#p# OK
+
+File: K/Knuth-Morris-Pratt_string_search
+#!/usr/local/bin/perl
+#u# http://rosettacode.org/wiki/Knuth-Morris-Pratt_string_search
+#c# 2022-09-20 >RC
 #p# OK
 
 File: K/Knuth_shuffle
