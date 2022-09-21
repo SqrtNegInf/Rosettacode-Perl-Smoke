@@ -29,7 +29,7 @@ sub preBmGs ($m,@pat) {
    my @suff = suffixes($m,@pat);
    my @bmGs = ($m) x $m; 
 
-   for my $k (reverse 0..$m-1) {
+   for my $k (reverse 0..$m-2) {
       if ($suff[$k] == $k + 1) {
          for (my $j=0; $j < $m-1-$k; $j++) { $bmGs[$k]=$m-1-$k if $bmGs[$j] == $m }
       }
@@ -49,8 +49,8 @@ sub BM ($txt,$pat) {
 
     my @I;
     while ($j <= $n - $m) {
-        my $i;              # compare with Raku, which doesn't need this separate declaration
-        for ($i = $m - 1; $i >= 0 and $pat[$i] eq $txt[$i + $j]; ) { $i-- }
+        my $i = $m - 1;              # compare with Raku, which doesn't need this separate declaration
+        for (; $i >= 0 and $pat[$i] eq $txt[$i + $j]; ) { $i-- }
         if ($i < 0) {
 	        push @I, $j;
             $j += $bmGs[0]
