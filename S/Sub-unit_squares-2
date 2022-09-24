@@ -1,0 +1,41 @@
+#!/usr/local/bin/perl
+#u# https://rosettacode.org/wiki/Sub-unit_squares
+#c# 2022-09-23 >RC
+#p# OK
+#n# like J
+#n# 8th term is slow:  987.38s user 2.62s system 99% cpu 16:33.37 total
+my @res;
+
+use v5.36;
+use ntheory 'is_square';
+
+my($u,$c) = (0); # in order to quiet warning on $u**2 1st pass
+
+LOOP:
+while () {
+    my $n = join '', map { ++$_ } split '', $u**2;
+    $u += 5;
+    next unless is_square($n);
+    next if $n =~ /0/;  # need for > 7 
+    push @res, $n; 
+    last LOOP if ++$c == 7;
+}
+
+say my $result = join "\n", @res;
+
+my $ref = <<'END';
+1
+36
+3136
+24336
+5973136
+71526293136
+318723477136
+END
+# 54_697_349_106_126_736 # false match if 0's not blocked
+#264_779_654_424_693_136 # 8th term
+
+use Test::More;
+chomp $ref;
+is($result, $ref);
+done_testing();
