@@ -9950,6 +9950,23 @@ File: S/Strong_and_weak_primes
 #c# 2018-12-05 >RC
 #p# OK
 
+File: S/Sub-unit_squares-1
+#!/usr/local/bin/perl
+#u# https://rosettacode.org/wiki/Sub-unit_squares
+#c# 2022-09-23 >RC
+#p# OK
+#n# like Raku, but without the laziness
+#n# 8th term is slow:  854.23s user 2.16s system 99% cpu 14:18.84 total
+
+File: S/Sub-unit_squares-2
+#!/usr/local/bin/perl
+#u# https://rosettacode.org/wiki/Sub-unit_squares
+#c# 2022-09-23 >RC
+#p# OK
+#n# like J
+#n# 8th term is slow:  987.38s user 2.62s system 99% cpu 16:33.37 total
+my @res;
+
 File: S/Subleq
 #!/usr/local/bin/perl
 #u# http://rosettacode.org/wiki/Subleq
