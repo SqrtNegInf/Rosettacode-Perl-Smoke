@@ -4541,6 +4541,12 @@ File: H/Home_primes
 #n# version on RC just uses 'print' everywhere
 #n# not testing HP49
 
+File: H/Honaker_primes
+#!/usr/local/bin/perl
+#u# https://rosettacode.org/wiki/Honaker_primes
+#c# 2022-09-24 >RC
+#p# OK
+
 File: H/Honeycombs
 #!/usr/local/bin/perl
 #u# http://rosettacode.org/wiki/Honeycombs
@@ -9966,6 +9972,15 @@ File: S/Sub-unit_squares-2
 #n# like J
 #n# 8th term is slow:  987.38s user 2.62s system 99% cpu 16:33.37 total
 my @res;
+
+File: S/Sub-unit_squares-3
+#!/usr/local/bin/perl
+#u# https://rosettacode.org/wiki/Sub-unit_squares
+#c# 2022-09-23 NOT ON RC
+#p# OK
+#n# like J, but even a little more so (and slightly skeezy)
+#n# 8th term is slow:  488.51s user 0.87s system 99% cpu 8:09.53 total
+#n# (but roughly twice the speed of -1)
 
 File: S/Subleq
 #!/usr/local/bin/perl
