@@ -13,15 +13,16 @@ sub U ($n) { $n>1 ? (2*$n)**2 : 1 }
 sub L ($n) { $n**2 }
 sub R ($n) { 1 x $n }
 
-my($l,$u,$c) = (-1,0,0);
+my($l,$u,$c) = (-1); # wart
 LOOP:
 while (++$u) {
+   #next if index(U($u),0) >= 0; # not really much faster
     next if U($u) =~ /0/;
     my $chars = length U($u);
     while ($l++) {
         next if U($u) - L($l)  > R($chars);
         last if U($u) - L($l)  < R($chars);
-        push @res, U($u); # if U($u) - L($l) == R($chars);
+        push @res, U($u); # if U($u) - L($l) == R($chars); # logically implied
         last LOOP if ++$c == 7;
     }
 }
@@ -43,32 +44,3 @@ use Test::More;
 chomp $ref;
 is($result, $ref);
 done_testing();
-
-__END__
-
-=={{header|Perl}}==
-{{trans|Raku}}
-<syntaxhighlight lang="perl" line>use v5.36;
-
-sub U ($n) { $n>1 ? (2*$n)**2 : 1 }
-sub L ($n) { $n**2 }
-sub R ($n) { 1 x $n }
-
-my($l,$u,$c) = (-1,0,0);
-while (++$u) {
-    next if U($u) =~ /0/;
-    my $chars = length U($u);
-    while ($l++) {
-        next if U($u) - L($l) > R($chars);
-        last if U($u) - L($l) < R($chars);
-        say U($u) and ++$c == 7 and exit
-    }
-}</syntaxhighlight>
-{{out}}
-<pre>1
-36
-3136
-24336
-5973136
-71526293136
-318723477136</pre>
