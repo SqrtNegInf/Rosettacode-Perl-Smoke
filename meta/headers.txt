@@ -7822,6 +7822,12 @@ File: P/Prime_words
 #c# 2020-12-04 <RC
 #p# OK
 
+File: P/Primes:_n*2^m+1
+#!/usr/local/bin/perl
+#u# http://rosettacode.org/wiki/Primes:_n*2^m+1
+#c# 2022-09-25 >RC
+#p# OK
+
 File: P/Primes_-_allocate_descendants_to_their_ancestors
 #!/usr/local/bin/perl
 #u# http://rosettacode.org/wiki/Primes_-_allocate_descendants_to_their_ancestors
@@ -9115,8 +9121,7 @@ File: S/Sieve_of_Eratosthenes-9
 
 File: S/Sieve_of_Pritchard
 #!/usr/local/bin/perl
-#u# http://rosettacode.org/wiki/xx
-#t# inprogress
+#u# http://rosettacode.org/wiki/Sieve_of_Pritchard
 #c# 2022-xx-xx >RC
 #p# OK
 
