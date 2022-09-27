@@ -9122,8 +9122,9 @@ File: S/Sieve_of_Eratosthenes-9
 File: S/Sieve_of_Pritchard
 #!/usr/local/bin/perl
 #u# http://rosettacode.org/wiki/Sieve_of_Pritchard
-#c# 2022-xx-xx >RC
+#c# 2022-09-26 >RC
 #p# OK
+#n# calculate 1e6 primes, show first 34 (<150)
 
 File: S/Simple_database
 #!/usr/local/bin/perl
