@@ -1,0 +1,22 @@
+#!/usr/local/bin/perl
+#u# http://rosettacode.org/wiki/Harshad_or_Niven_series
+#c# 2018-08-12 <RC
+#p# OK
+
+use v5.36;
+
+use List::Util 'sum';
+
+my($i,@harshads);
+do { push @harshads, $i if ++$i % sum(split //, $i) == 0 } until $harshads[-1] > 1000;
+say my $result = join(' ', @harshads[0..19]) . "\nThe first Harshad number greater than 1000 is $harshads[-1]!";
+
+my $ref = <<'EOD';
+1 2 3 4 5 6 7 8 9 10 12 18 20 21 24 27 30 36 40 42
+The first Harshad number greater than 1000 is 1002!
+EOD
+
+use Test::More;
+chomp $ref;
+is ($result, $ref);
+done_testing();
