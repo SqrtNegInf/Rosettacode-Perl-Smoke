@@ -3,6 +3,7 @@
 #c# 2020-08-22 >RC, 2022-03-17 >RC
 #p# OK
 #n# too much work to handle extended grapheme clusters, Text::Dice can do it...
+#n# 2022-09-28 corrected spelling to  'sorensen' (cf 'S/Sorensen–Dice_coefficient')
 
 my @res;
 
@@ -30,7 +31,7 @@ sub score {
     2 * (grep { $count{$_} > 1 } keys %count) / (@match + @$word);
 }
 
-sub sorenson {
+sub sorensen {
     my($dict,$word,$cutoff) = @_; $cutoff //= 0.55;
     my(%matches,$s);
 
@@ -43,7 +44,7 @@ my %dict = map { $_ => [ bi_gram($_) ] } path('ref/unixdict.txt')->slurp =~ /.{3
 for my $word (<complition inconsqual>) { # Sørenson>) {
     my(%scored,@ranked); 
 
-    %scored = sorenson(\%dict,$word);
+    %scored = sorensen(\%dict,$word);
     push @ranked, sprintf "%.3f $_", $scored{$_} for sort { $scored{$b} <=> $scored{$a} || $a cmp $b } keys %scored;
     push @res, "\n$word:\n" . join("\n", head 10, @ranked);
 }
