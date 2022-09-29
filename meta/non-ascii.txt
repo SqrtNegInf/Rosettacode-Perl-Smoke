@@ -680,6 +680,7 @@ T/Terminal_control_Unicode_output
 
 T/Text_Completion
 ø:     1 LATIN SMALL LETTER O WITH STROKE
+–:     1 EN DASH
 
 T/Text_Completion.0
 ¸:     1 CEDILLA
