@@ -4341,6 +4341,13 @@ File: H/Harmonic_series
 File: H/Harshad_or_Niven_series
 #!/usr/local/bin/perl
 #u# http://rosettacode.org/wiki/Harshad_or_Niven_series
+#c# 2018-08-12 <RC,  2022-09-28 >RC
+#p# OK
+#n# see -2 for total re-write
+
+File: H/Harshad_or_Niven_series-2
+#!/usr/local/bin/perl
+#u# http://rosettacode.org/wiki/Harshad_or_Niven_series
 #c# 2018-08-12 <RC
 #p# OK
 
@@ -4732,6 +4739,12 @@ File: I/Include_a_file
 #u# http://rosettacode.org/wiki/Include_a_file
 #t# nocode
 #c# 2018-08-13 <RC
+#p# OK
+
+File: I/Inconsummate_numbers_in_base_10
+#!/usr/local/bin/perl
+#u# https://rosettacode.org/wiki/Inconsummate_numbers_in_base_10
+#c# 2022-09-28 >RC
 #p# OK
 
 File: I/Increasing_gaps_between_consecutive_Niven_numbers
@@ -10471,6 +10484,7 @@ File: T/Text_Completion
 #c# 2020-08-22 >RC, 2022-03-17 >RC
 #p# OK
 #n# too much work to handle extended grapheme clusters, Text::Dice can do it...
+#n# 2022-09-28 corrected spelling to  'sorensen' (cf 'S/Sorensen–Dice_coefficient')
 
 File: T/Text_Completion.0
 #!/usr/local/bin/perl
