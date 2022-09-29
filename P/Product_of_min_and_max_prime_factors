@@ -1,0 +1,37 @@
+#!/usr/local/bin/perl
+#u# https://rosettacode.org/wiki/Product_of_min_and_max_prime_factors
+#c# 2022-09-29 >RC
+#p# OK
+
+use v5.36;
+
+use ntheory 'factor';
+use List::Util <min max>;
+
+sub table ($c, @V) { my $t = $c * (my $w = 2 + length max @V); ( sprintf( ('%'.$w.'d')x@V, @V) ) =~ s/.{1,$t}\K/\n/gr }
+
+my @p = 1;
+for (2..100) {
+    #my @f = factor($_); push @p, min(@f)*max(@f);
+    my @f = sort { $a <=> $b} factor($_); push @p, $f[0]*$f[-1];
+}
+
+say my $result = "Product of smallest and greatest prime factors of n for 1 to 100:\n" . table 10, @p;
+
+my $ref = <<'END';
+Product of smallest and greatest prime factors of n for 1 to 100:
+     1     4     9     4    25     6    49     4     9    10
+   121     6   169    14    15     4   289     6   361    10
+    21    22   529     6    25    26     9    14   841    10
+   961     4    33    34    35     6  1369    38    39    10
+  1681    14  1849    22    15    46  2209     6    49    10
+    51    26  2809     6    55    14    57    58  3481    10
+  3721    62    21     4    65    22  4489    34    69    14
+  5041     6  5329    74    15    38    77    26  6241    10
+     9    82  6889    14    85    86    87    22  7921    10
+    91    46    93    94    95     6  9409    14    33    10
+END
+
+use Test::More;
+is($result, $ref);
+done_testing();
