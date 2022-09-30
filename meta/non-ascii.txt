@@ -62,6 +62,9 @@ B/Bacon_cipher
 ​:     1 ZERO WIDTH SPACE
 ﻿:     1 ZERO WIDTH NO-BREAK SPACE
 
+B/Boustrophedon_transform
+…:     6 HORIZONTAL ELLIPSIS
+
 B/Box_the_compass
 °:    34 DEGREE SIGN
 
