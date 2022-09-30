@@ -1,0 +1,92 @@
+#!/usr/local/bin/perl
+#u# https://rosettacode.org/wiki/Boustrophedon_transform
+#t# inprogress
+#c# 2022-xx-xx >RC
+#p# OK
+
+use Data::Printer;          # debug only
+
+my @res;
+
+use v5.36;
+use List::Util <sum head>;
+#use List::Util 'sum';
+
+sub abbr ($d) { my $l = length $d; $l < 41 ? $d : substr($d,0,20) . '..' . substr($d,-20) . " ($l digits)" }
+#sub abbr ($d,$w) { my $l = length $d; $l < $w+1 ? $d : substr($d,0,$w/2) . '..' . substr($d,-$w/2) . " ($l digits)" }
+
+sub boustrophedon_transform (@seq) { 
+
+    my @bx = my @bt = $seq[0];
+    my $c;
+    for (1..$#seq) {  
+        if (0) {
+            $c++;
+            @bx = reverse map { sum head($_+1, $seq[$c], @bx) } 0..$c;
+        } else { 
+            my @temp = ($seq[++$c], @bx);
+            @bx = reverse map { sum @temp[0..$_] } 0..$c;
+        }            
+        push @bt, $bx[0];
+    }
+    p @bt; exit;
+
+}
+
+#my @seq = (1, (0) x 7);
+#my @seq = (1, (1) x 7);
+my @seq = <2 3 5 7 11 13 17 19>;
+boustrophedon_transform (@seq);
+exit;
+
+# 1 0 0 0 0  0  0   0    0    0 
+# 1 1 1 2 5 16 61 272 1385 7936 50521 353792 2702765 22368256 199360981
+
+# 1 1 1 1 1  1  1   1    1    1 
+# 1 2 4 9 24 77 294 1309 6664 38177 243034 1701909 13001604 107601977 959021574
+
+# 2 3  5  7  11  13   17   19    23     29
+# 2 5 13 35 103 345 1325 5911 30067 172237 1096319 7677155 58648421 485377457 4326008691
+
+say my $result = join "\n", @res;
+my $ref = <<'END';
+1 followed by 0's A000111:
+1 1 1 2 5 16 61 272 1385 7936 50521 353792 2702765 22368256 199360981
+1000th term: 61065678604283283233…63588348134248415232 (2369 digits)
+
+All-1's           A000667:
+1 2 4 9 24 77 294 1309 6664 38177 243034 1701909 13001604 107601977 959021574
+1000th term: 29375506567920455903…86575529609495110509 (2370 digits)
+
+(-1)^n             A062162:
+1 0 0 1 0 5 10 61 280 1665 10470 73621 561660 4650425 41441530
+1000th term: 12694307397830194676…15354198638855512941 (2369 digits)
+
+Primes             A000747:
+2 5 13 35 103 345 1325 5911 30067 172237 1096319 7677155 58648421 485377457 4326008691
+1000th term: 13250869953362054385…82450325540640498987 (2371 digits)
+
+Fibbonaccis        A000744:
+1 2 5 14 42 144 563 2526 12877 73778 469616 3288428 25121097 207902202 1852961189
+1000th term: 56757474139659741321…66135597559209657242 (2370 digits)
+
+Factorials         A230960:
+1 2 5 17 73 381 2347 16701 134993 1222873 12279251 135425553 1627809401 21183890469 296773827547
+1000th term: 13714256926920345740…19230014799151339821 (2566 digits)
+END
+
+use Test::More;
+chomp $ref;
+is($result, $ref);
+#is(($result =~ s/\s//gr), ($ref =~ s/\s//gr));
+done_testing();
+
+__END__
+
+=={{header|Perl}}==
+{{trans|Raku}}
+<syntaxhighlight lang="perl" line>
+</syntaxhighlight>
+{{out}}
+<pre>
+</pre>
