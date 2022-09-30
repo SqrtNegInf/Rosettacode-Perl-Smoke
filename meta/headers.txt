@@ -1108,6 +1108,13 @@ File: B/Boolean_values
 #c# 2018-07-17 <RC
 #p# OK
 
+File: B/Boustrophedon_transform
+#!/usr/local/bin/perl
+#u# https://rosettacode.org/wiki/Boustrophedon_transform
+#t# inprogress
+#c# 2022-xx-xx >RC
+#p# OK
+
 File: B/Box_the_compass
 #!/usr/local/bin/perl
 #u# http://rosettacode.org/wiki/Box_the_compass
@@ -6757,6 +6764,13 @@ File: N/Numerical_integration_Gauss-Legendre_Quadrature
 #c# 2018-10-08 >RC
 #p# OK
 
+File: O/O%27Halloran_numbers
+#!/usr/local/bin/perl
+#u# https://rosettacode.org/wiki/O%27Halloran_numbers
+#c# 2022-09-29 >RC
+#p# OK
+#n# short-circuits keep it from being slow no matter how high the threshold
+
 File: O/Object_serialization-1
 #!/usr/local/bin/perl
 #u# http://rosettacode.org/wiki/Object_serialization
@@ -7947,6 +7961,12 @@ File: P/Product_of_divisors-2
 #!/usr/local/bin/perl
 #u# http://rosettacode.org/wiki/Product_of_divisors
 #c# 2021-01-06 <RC
+#p# OK
+
+File: P/Product_of_min_and_max_prime_factors
+#!/usr/local/bin/perl
+#u# https://rosettacode.org/wiki/Product_of_min_and_max_prime_factors
+#c# 2022-09-29 >RC
 #p# OK
 
 File: P/Program_name
