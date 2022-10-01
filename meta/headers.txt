@@ -1111,9 +1111,9 @@ File: B/Boolean_values
 File: B/Boustrophedon_transform
 #!/usr/local/bin/perl
 #u# https://rosettacode.org/wiki/Boustrophedon_transform
-#t# inprogress
-#c# 2022-xx-xx >RC
+#c# 2022-09-30 >RC
 #p# OK
+#n# to keep things quick, doing 100th term, not 1000th
 
 File: B/Box_the_compass
 #!/usr/local/bin/perl
