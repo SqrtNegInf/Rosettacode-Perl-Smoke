@@ -6703,6 +6703,13 @@ File: N/Numbers_which_are_not_the_sum_of_distinct_squares
 #n# Trying to be just a little different, by progressively increasing the number of squared terms used to sum
 #n# currently with bogus termination condition, need to fix that and maybe ready for RC
 
+File: N/Numbers_which_are_the_cube_roots_of_the_product_of_their_proper_divisors
+#!/usr/local/bin/perl
+#u# http://rosettacode.org/wiki/xx
+#t# inprogress
+#c# 2022-xx-xx >RC
+#p# OK
+
 File: N/Numbers_which_binary_and_ternary_digit_sum_are_prime
 #!/usr/local/bin/perl
 #u# http://rosettacode.org/wiki/Numbers_which_binary_and_ternary_digit_sum_are_prime
