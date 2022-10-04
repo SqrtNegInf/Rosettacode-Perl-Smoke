@@ -1,0 +1,40 @@
+#!/usr/local/bin/perl
+#u# http://rosettacode.org/wiki/Numbers_which_are_the_cube_roots_of_the_product_of_their_proper_divisors
+#c# 2022-10-03 >RC
+#p# OK
+
+use v5.36;
+use ntheory 'divisors';
+use List::Util <max product>;
+
+sub table ($c, @V) { my $t = $c * (my $w = 2 + length max @V); ( sprintf( ('%'.$w.'d')x@V, @V) ) =~ s/.{1,$t}\K/\n/gr }
+sub proper_divisors ($n) { my @d = divisors($n); pop @d; @d }
+
+sub is_N ($n) {
+    state @N = 1;
+    state $p = 1;
+    do { push @N, $p if ++$p**3 == product proper_divisors($p); } until $N[$n];
+    $N[$n-1]
+}
+
+my @res = table 10, map { is_N $_ } 1..50;
+push @res, sprintf "%5d %d", $_, is_N $_ for 500, 5000, 50000; 
+
+say my $result= join "\n", @res;
+
+my $ref = <<'END';
+    1   24   30   40   42   54   56   66   70   78
+   88  102  104  105  110  114  128  130  135  136
+  138  152  154  165  170  174  182  184  186  189
+  190  195  222  230  231  232  238  246  248  250
+  255  258  266  273  282  285  286  290  296  297
+
+  500 2526
+ 5000 23118
+50000 223735
+END
+
+use Test::More;
+chomp $ref;
+is($result, $ref);
+done_testing();
