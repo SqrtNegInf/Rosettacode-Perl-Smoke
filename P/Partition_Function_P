@@ -3,18 +3,21 @@
 #c# 2021-01-13 >RC
 #p# OK
 #n# Raku is faster (aside from ntheory)
+#n# old-school technique for avoiding 'Deep recursion' warnings (is there a better way?)
 
 use strict;
-use warnings;
-no warnings qw(recursion);
+#use warnings;
+#no warnings qw(recursion);
 use feature 'say';
 
 my $result;
+local $SIG{__WARN__} = sub { };
 
 #use ntheory 'partitions'; say partitions(6666); # very quick 
 
 #use bigint;
 use Math::AnyNum qw(:overload); # 3x faster than bigint
+
 
 use Memoize; # takes approximately forever without this
 memoize('partitionsP');
