@@ -15,7 +15,7 @@ use Socket qw(getaddrinfo getnameinfo);
 my ($err, @res) = getaddrinfo("orange.kame.net", 0,
                 { protocol=>Socket::IPPROTO_TCP } );
 die "getaddrinfo error: $err" if $err;
- 
+
 my @r1 = getnameinfo($res[0]->{addr}, Socket::NI_NUMERICHOST);
 my @r2 = getnameinfo($res[1]->{addr}, Socket::NI_NUMERICHOST);
 print "$r1[1]\n";
