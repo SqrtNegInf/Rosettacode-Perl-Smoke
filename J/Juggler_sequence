@@ -2,6 +2,7 @@
 #u# http://rosettacode.org/wiki/Juggler_sequence
 #c# 2021-08-19 <RC
 #p# OK
+#n# GMP is vital here (no diff with Math::GMPz)
 
 my @res;
 
@@ -13,11 +14,9 @@ use Math::BigInt lib => 'GMP';
 
 #print "       n  l(n) i(n)  h(n) or d(n)\n";
 ##print " -------  ---- ----  ------------\n";
-for my $i ( 20 .. 39,
-  113, 173, 193, 2183, 11229, 15065, 15845, 30817,
-  48443, 275485, 1267909, 2264915, #  5812827,
-#  7110201  # tried my luck, luck takes about 94 seconds
-  ) {
+for my $i ( 20 .. 39, 113, 173, 193, 2183, 11229, 15065, 15845, 30817, 48443, 275485, 1267909, 2264915,
+          # 5812827, 7110201  # about 9min when included
+) {
     my $max = my $n = Math::BigInt->new($i);
     my $at = my $count = 0;
     while( $n > 1 ) {
@@ -32,9 +31,6 @@ for my $i ( 20 .. 39,
         push @res, sprintf "%8d  %4d  %3d  d(n) = %d digits", $i, $count, $at, length $max;
     }
 }
-
-#       n  l(n) i(n)  h(n) or d(n)
-# -------  ---- ----  ------------
 
 say my $result = join "\n", @res;
 
