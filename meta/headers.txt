@@ -2105,6 +2105,7 @@ File: C/Count_the_coins
 #c# 2018-07-26 <RC
 #p# OK
 #n# memoize is vital to finite run time...
+#n# when run at terminal 'Deep recursion' warnings (not see in cronjob)
 
 File: C/Count_the_coins_0-1
 #!/usr/local/bin/perl
@@ -4969,6 +4970,7 @@ File: J/Juggler_sequence
 #u# http://rosettacode.org/wiki/Juggler_sequence
 #c# 2021-08-19 <RC
 #p# OK
+#n# GMP is vital here (no diff with Math::GMPz)
 
 File: J/Julia_set
 #!/usr/local/bin/perl5.32.1
@@ -7171,6 +7173,7 @@ File: P/Partition_Function_P
 #c# 2021-01-13 >RC
 #p# OK
 #n# Raku is faster (aside from ntheory)
+#n# old-school technique for avoiding 'Deep recursion' warnings (is there a better way?)
 
 File: P/Partition_an_integer_X_into_N_primes
 #!/usr/local/bin/perl
