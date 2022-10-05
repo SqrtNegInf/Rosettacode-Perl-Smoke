@@ -3,6 +3,7 @@
 #c# 2018-07-26 <RC
 #p# OK
 #n# memoize is vital to finite run time...
+#n# when run at terminal 'Deep recursion' warnings (not see in cronjob)
 
 use strict;
 use warnings;
