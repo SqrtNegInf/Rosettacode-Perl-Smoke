@@ -6,17 +6,16 @@
 #n# when run at terminal 'Deep recursion' warnings (not see in cronjob)
 
 use strict;
-use warnings;
+#use warnings;
 use feature 'say';
 
-#use 5.01;
-
 my $result;
+local $SIG{__WARN__} = sub { };
 
 use Memoize;
  
 sub cc {
-    no warnings 'recursion';
+#   no warnings 'recursion';
     my $amount = shift;
     return 0 if !@_ || $amount < 0;
     return 1 if $amount == 0;
