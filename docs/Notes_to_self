@@ -1,5 +1,8 @@
 2022-10-04
 Mass-update of modules, see what shakes out...
+Probably bid 'Gtk3' goodbye, not worth fixing
+Surprise! 'imlib2' was installed with 'brew', not Macports 
+(later does not have 'imlib2-config', which Image::Imlib2 wants; hard-code needed info in 'Build.PL')
 
 2022-10-03
 'R/Rate_counter' again??
