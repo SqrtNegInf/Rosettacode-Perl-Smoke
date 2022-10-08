@@ -10847,11 +10847,10 @@ File: T/Twin_Primes
 #n# as should be, same as for Raku for 10**12: 712.40s user 4.91s system 718% cpu 1:39.77 total
 #n# 2020-11-08 renamed from 'Twin_Prime_Conjecture'
 
-File: T/Two%27_complement
+File: T/Two%27s_complement
 #!/usr/local/bin/perl
-#u# http://rosettacode.org/wiki/Two%27_complement
-#t# inprogress
-#c# 2022-xx-xx >RC
+#u# https://rosettacode.org/wiki/Two%27s_complement
+#c# 2022-10-07 <RC
 #p# OK
 
 File: T/Two_Sum
