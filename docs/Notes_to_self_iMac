@@ -1,0 +1,18 @@
+2022-10-06
+QR_decomposition        - PDL::LinearAlgebra not installing
+Solving_coin_problems   - need 'maxima', waiting on a 'port' update for 'sbcl'
+
+2022-10-05
+Resolved two tasks:
+Bilinear_interpolation              - surpress warnings, results were always OK
+Bitmap_Read_an_image_through_a_pipe - just small pixel-level diffs, image eye-balls as same, so copy to 'ref'
+
+2022-10-04
+Bailing on Gtk3 tasks. SDL needs modules installed.
+Otherwise just 4 tasks still with issues.
+
+2022-10-03
+Putting extensive notes on the process in with the main iMac migration doc.
+
+2022-10-01
+Started work on getting smoke-testing on new iMac/Monterey.
