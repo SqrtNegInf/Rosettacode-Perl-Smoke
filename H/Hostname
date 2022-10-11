@@ -2,6 +2,7 @@
 #u# http://rosettacode.org/wiki/Hostname
 #c# 2018-08-13 <RC
 #p# OK
+#n# on iMac: different name obviously, so adjust testing (don't hard-code)
 
 use feature 'say';
 my $result;
