@@ -6,12 +6,13 @@
 use feature 'say';
 my $result;
 
-# Works with: Perl version 5.8.6
-#Library: Sys::HostnameHostname
 use Sys::Hostname;
 
 say $name = hostname;
 
+my $line = `uname -a`;
+my($ref) = $line =~ /Darwin (\S+)/;
+
 use Test::More;
-is ($name, 'Mac-Pro.local');
+is ($name, $ref);
 done_testing();
