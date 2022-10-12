@@ -11,8 +11,7 @@ use Sys::Hostname;
 
 say $name = hostname;
 
-my $line = `uname -a`;
-my($ref) = $line =~ /Darwin (\S+)/;
+my($ref) = `uname -a` =~ /Darwin (\S+)/;
 
 use Test::More;
 is ($name, $ref);
