@@ -1,3 +1,16 @@
+2022-10-12
+And actually start making commits from iMac.
+
+2022-10-11
+Started merging changes, including variant code and output, e.g.
+  H/Hostname - each host has a unique name, funny that...
+  J/Juggler_sequence - do more terms, since iMac faster
+  B/Bitmap_Read_an_image_through_a_pipe - use host-specific output: Lenna50-iMac.home.ppm
+
+2022-10-09
+Pretty kludgey way to accomodate need for older Perl on Mac Pro:
+cd /usr/local/bin; ln -s perl perl5.32.1
+
 2022-10-06
 QR_decomposition        - PDL::LinearAlgebra not installing
 Solving_coin_problems   - need 'maxima', waiting on a 'port' update for 'sbcl'
