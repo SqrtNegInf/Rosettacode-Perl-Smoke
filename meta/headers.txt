@@ -4972,6 +4972,8 @@ File: J/Juggler_sequence
 #c# 2021-08-19 <RC
 #p# OK
 #n# GMP is vital here (no diff with Math::GMPz)
+#n# on MacPro: adding 5812827 and 7110201  results in ~9min run-time
+#n# different test inputs for MacPro and iMac
 
 File: J/Julia_set
 #!/usr/local/bin/perl5.32.1
