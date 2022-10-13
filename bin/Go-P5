@@ -11,7 +11,7 @@ echo ' '
 perl -v | head -2
 
 rm -f run/*
-bin/rc-p5 [0A-Z]/*
+bin/rc-p5 [0-Z]/*
 
 echo ' '
 bin/rc-stats5 2
@@ -34,7 +34,7 @@ head -10 meta/timings.txt
 
 # find non-ASCII
 echo ' '
-bin/rc-non-ascii [0A-Z]/* > meta/non-ascii.txt
+bin/rc-non-ascii [0-Z]/* > meta/non-ascii.txt
 
 # push changes to github
 echo ' '

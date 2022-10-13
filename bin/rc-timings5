@@ -1,4 +1,4 @@
-#!/usr/bin/env perl6
+#!/usr/bin/env raku
 ## task run-times as real (wall-clock) and user + system (total CPU)
 #  2019-01-11
 

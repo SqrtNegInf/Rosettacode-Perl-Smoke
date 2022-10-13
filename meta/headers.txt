@@ -4610,6 +4610,7 @@ File: H/Hostname
 #u# http://rosettacode.org/wiki/Hostname
 #c# 2018-08-13 <RC
 #p# OK
+#n# on iMac: different name obviously, so adjust testing (don't hard-code)
 
 File: H/Hough_transform
 #!/usr/local/bin/perl5.32.1
@@ -4971,6 +4972,8 @@ File: J/Juggler_sequence
 #c# 2021-08-19 <RC
 #p# OK
 #n# GMP is vital here (no diff with Math::GMPz)
+#n# on MacPro: adding 5812827 and 7110201  results in ~9min run-time
+#n# different test inputs for MacPro and iMac
 
 File: J/Julia_set
 #!/usr/local/bin/perl5.32.1
@@ -7324,6 +7327,7 @@ File: P/Percentage_difference_between_images-2
 #u# http://rosettacode.org/wiki/Percentage_difference_between_images
 #c# 2018-12-08 <RC
 #p# OK
+#n# on iMac: result is different, adjust testing
 
 File: P/Percolation_Bond_percolation
 #!/usr/local/bin/perl

@@ -3,6 +3,8 @@
 #c# 2021-08-19 <RC
 #p# OK
 #n# GMP is vital here (no diff with Math::GMPz)
+#n# on MacPro: adding 5812827 and 7110201  results in ~9min run-time
+#n# different test inputs for MacPro and iMac
 
 my @res;
 
@@ -12,11 +14,14 @@ use feature 'say';
 
 use Math::BigInt lib => 'GMP';
 
+my($host) = `uname -a` =~ /Darwin (\S+)/;
+
+my @values = (20 .. 39, 113, 173, 193, 2183, 11229, 15065, 15845, 30817, 48443, 275485, 1267909, 2264915);
+push @values, 5812827 if $host =~ /^iMac/;
+
 #print "       n  l(n) i(n)  h(n) or d(n)\n";
 ##print " -------  ---- ----  ------------\n";
-for my $i ( 20 .. 39, 113, 173, 193, 2183, 11229, 15065, 15845, 30817, 48443, 275485, 1267909, 2264915,
-          # 5812827, 7110201  # about 9min when included
-) {
+for my $i (@values) {
     my $max = my $n = Math::BigInt->new($i);
     my $at = my $count = 0;
     while( $n > 1 ) {
@@ -68,8 +73,10 @@ my $ref = <<'EOD';
  1267909   151   99  d(n) = 1952329 digits
  2264915   149   89  d(n) = 2855584 digits
 EOD
- #5812827   135   67  d(n) = 7996276 digits
- #7110201   205  119  d(n) = 89981517 digits
+
+$ref .= ' 5812827   135   67  d(n) = 7996276 digits' if $host =~ /^iMac/;
+
+#7110201   205  119  d(n) = 89981517 digits
 
 use Test::More;
 chomp $ref;

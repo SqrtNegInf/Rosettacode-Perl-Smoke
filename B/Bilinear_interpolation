@@ -10,6 +10,7 @@ use strict;
 use warnings;
 
 use GD;
+local $SIG{__WARN__} = sub { };
 
 my $image = GD::Image->newFromPng('ref/color_wheel.png');
 
