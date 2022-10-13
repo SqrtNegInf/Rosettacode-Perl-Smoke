@@ -2,6 +2,7 @@
 #u# http://rosettacode.org/wiki/Unix/ls
 #c# 2018-08-07 <RC
 #p# OK
+#n# on iMac: does not read from dir in sorted order
 
 use feature 'say';
 my $result;
@@ -16,8 +17,8 @@ closedir $handle;
 #print "$_\n" for glob '*';
 #print "$_\n" for glob '* .*';  # If you want to include dot files
 
+say $result = join "\n", sort { $a cmp $b } split "\n", $result; 
 
-say $result; 
 my $ref = <<'EOD';
 .
 ..
@@ -30,5 +31,6 @@ sample.txt
 EOD
 
 use Test::More;
+chomp $ref;
 is ($result, $ref);
 done_testing();
