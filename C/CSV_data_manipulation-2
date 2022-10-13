@@ -1,15 +1,14 @@
 #!/usr/local/bin/perl
 #u# http://rosettacode.org/wiki/CSV_data_manipulation
-#t# skiptest
 #c# 2018-07-19 <RC
 #p# OK
-#n# beyond stated scope of task
+#n# goes beyond stated scope of task
 
-use feature 'say';
-my $result;
+my @res;
 
 use warnings;
 use strict;
+use feature 'say';
 
 use Text::CSV;
 use List::Util 'sum';
@@ -17,7 +16,7 @@ use List::Util 'sum';
 my $csv = 'Text::CSV'->new({eol => "\n"})
           or die 'Cannot use CSV: ' . 'Text::CSV'->error_diag;
 
-my $file = shift;
+my $file = 'ref/csv-manipulation.csv';
 my @rows;
 open my $FH, '<', $file or die "Cannot open $file: $!";
 my @header = @{ $csv->getline($FH) };
@@ -31,12 +30,19 @@ $csv->eof or $csv->error_diag;
 #
 
 # Print the output.
-$csv->print(*STDOUT, $_) for \@header, @rows;
+push @res, join ',', @$_ for \@header, @rows;
+#$csv->print(*STDOUT, $_) for \@header, @rows;
 
-say $result;
+say my $result = join "\n", @res;
+
 my $ref = <<'END';
+C1,C2,C3,C4,C5
+1,5,9,13,17
+2,6,10,14,18
+3,7,11,15,19
+4,8,12,16,20
 END
 
 use Test::More;
-#is ($result, $ref);
-#done_testing();
+is ($result, $ref);
+done_testing();
