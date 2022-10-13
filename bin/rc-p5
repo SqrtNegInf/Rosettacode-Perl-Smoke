@@ -62,6 +62,8 @@ for my $prog (@ARGV) {
     $difftest = `grep 'RC.file' $prog`; chomp $difftest; 
     $difftest =~ s/^.*RC.file:\s+//; 
     $difftest =~ s/\s+$//;
+    my($host) = `uname -a` =~ /Darwin (\S+)/;
+    $difftest =~ s/HOST/$host/;
 
     if (defined $Solo{$prog}) { push @P_one_at_a_time, $prog } else { push @Programs, $prog }
     $Ppre{$prog} =  $precmd if $precmd ne '';
