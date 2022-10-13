@@ -19,7 +19,7 @@ bin/rc-stats5 2
 # keep tabs on status
 cd meta
 mv task.txt task.txt~
-#/usr/local/pbin/rotate_log -d logs -b -r -f task.txt
+#~/bin/rotate_log -d logs -b -r -f task.txt
 ../bin/rc-task5-status > task.txt
 diff task.txt~ task.txt
 cd ..
@@ -30,7 +30,7 @@ bin/rc-timings5 bench/last | sort -r -n > meta/timings.txt
 head -10 meta/timings.txt
 
 # combine task headers for easy grep
-/usr/local/pbin/grep-paragraph -H '#u# http' [0-Z]/* | /usr/local/pbin/grep-paragraph -v ReadMe.md - > meta/headers.txt
+~/bin/grep-paragraph -H '#u# http' [0-Z]/* | ~/bin/grep-paragraph -v ReadMe.md - > meta/headers.txt
 
 # find non-ASCII
 echo ' '

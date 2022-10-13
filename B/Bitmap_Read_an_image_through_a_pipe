@@ -2,7 +2,7 @@
 #u# http://rosettacode.org/wiki/Bitmap/Read_an_image_through_a_pipe
 #c# 2021-12-26 <RC
 #p# OK
-#f# RC file: Lenna50.ppm
+#f# RC file: Lenna50-HOST.ppm
 
 use strict;
 use warnings;
@@ -21,7 +21,8 @@ my $enable = $Imager::formats{"jpeg"}; # some kind of tie ?
 my $IO = Imager::io_new_buffer $raw or die;
 my $im = Imager::File::JPEG::i_readjpeg_wiol $IO or die;
 
-open my $fh2, '>', 'run/Lenna50.ppm' or die;
+my($host) = `uname -a` =~ /Darwin (\S+)/;
+open my $fh2, '>', "run/Lenna50-$host.ppm" or die;
 binmode $fh2;
 my $IO2 = Imager::io_new_fd(fileno $fh2);
 Imager::i_writeppm_wiol $im, $IO2 ;
