@@ -4,6 +4,9 @@
 #p# OK
 #f# RC file: solving_coin_problems.dat
 #n# next step: remove dependence on MAXIMA
+#n# on iMac: actually broken, due to that dependence on MAXIMA
+
+die 'BROKEN on iMac, need MAXIMA' if `uname -a` =~ /iMac/;
 
 # In a bank, there are three times as many quarters as half dollars and 6 more dimes than half dollars. If the total amount of the money in the bank is $4.65, find the number of each type of coin in the bank.
 
