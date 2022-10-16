@@ -2,7 +2,7 @@
 #u# http://rosettacode.org/wiki/Walk_a_directory/Recursively
 #c# 2018-08-03 <>RC, 2021-11-15 <RC
 #p# OK
-#n# some kludges for lack if iMac no-default-sorting
+#n# some kludges for lack of iMac default-sorting
 
 use strict;
 use warnings;
