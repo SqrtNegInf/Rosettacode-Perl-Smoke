@@ -1079,7 +1079,7 @@ File: B/Bitmap_Read_an_image_through_a_pipe
 #u# http://rosettacode.org/wiki/Bitmap/Read_an_image_through_a_pipe
 #c# 2021-12-26 <RC
 #p# OK
-#f# RC file: Lenna50.ppm
+#f# RC file: Lenna50-HOST.ppm
 
 File: B/Bitmap_Write_a_PPM_file
 #!/usr/local/bin/perl5.32.1
@@ -1197,10 +1197,9 @@ File: C/CSV_data_manipulation-1
 File: C/CSV_data_manipulation-2
 #!/usr/local/bin/perl
 #u# http://rosettacode.org/wiki/CSV_data_manipulation
-#t# skiptest
 #c# 2018-07-19 <RC
 #p# OK
-#n# beyond stated scope of task
+#n# goes beyond stated scope of task
 
 File: C/CSV_to_HTML_translation
 #!/usr/local/bin/perl
@@ -1690,6 +1689,7 @@ File: C/Color_quantization
 #u# http://rosettacode.org/wiki/Color_quantization
 #c# 2019-10-14 >RC
 #p# OK
+#n# at long last, actually testing
 
 File: C/Color_wheel
 #!/usr/local/bin/perl5.32.1
@@ -2616,6 +2616,13 @@ File: D/Display_an_outline_as_a_nested_table.0
 #c# 2019-11-xx NOT ON RC
 #p# BROKEN
 #n# unlikely to work on this anytime soon
+
+File: D/Distance_and_Bearing
+#!/usr/local/bin/perl
+#u# https://rosettacode.org/wiki/Distance_and_Bearing
+#t# inprogress
+#c# 2022-xx-xx >RC
+#p# OK
 
 File: D/Distinct_Palindromes_Within_Decimal_Numbers
 #!/usr/local/bin/perl
@@ -9409,6 +9416,7 @@ File: S/Solving_coin_problems
 #p# OK
 #f# RC file: solving_coin_problems.dat
 #n# next step: remove dependence on MAXIMA
+#n# on iMac: actually broken, due to that dependence on MAXIMA
 
 File: S/Sort_a_list_of_object_identifiers-1
 #!/usr/local/bin/perl
@@ -10979,6 +10987,7 @@ File: U/Unix_ls
 #u# http://rosettacode.org/wiki/Unix/ls
 #c# 2018-08-07 <RC
 #p# OK
+#n# on iMac: does not read from dir in sorted order
 
 File: U/Unprimeable_numbers
 #!/usr/local/bin/perl

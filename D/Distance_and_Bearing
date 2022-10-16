@@ -52,21 +52,23 @@ sub distance_and_bearing ( $lat1, $lon1, $lat2, $lon2 ) {
 }
 
 __END__
-
 sub find_nearest_airports ( $latitude, $longitude, $csv_path ) {
-    my &d_and_b_from_here = &distance_and_bearing.assuming($latitude, $longitude);
+    #my &d_and_b_from_here = &distance_and_bearing.assuming($latitude, $longitude);
 
     my @airports = csv(
         in => $csv_path,
         headers => [<ID Name City Country IATA ICAO Latitude Longitude>],
     );
 
-    for @airports -> %row {
+    for my $airports (keys %row) {
+        
         %row<Distance Bearing> = d_and_b_from_here( +%row<Latitude>, +%row<Longitude> );
     }
 
-    return @airports.sort(*.<Distance>);
+    @airports; #.sort(*.<Distance>);
 }
+
+__END__
 
 my $lat = 51.514669; my $long = 2.198581; my $wanted = 20; my $csv = 'ref/airports.dat';
     @res.push: sprintf "%7s\t%7s\t%-7s\t%-15s\t%s", <Dist Bear ICAO Country Name>;
