@@ -2,6 +2,7 @@
 #u# http://rosettacode.org/wiki/Walk_a_directory/Recursively
 #c# 2018-08-03 <>RC, 2021-11-15 <RC
 #p# OK
+#n# some kludges for lack if iMac no-default-sorting
 
 use strict;
 use warnings;
@@ -10,45 +11,35 @@ use feature 'say';
 my($result1,$result2,$result3);
 
 # Use the File::Find module from CPAN:
-
-# Works with: Perl version 5.x
 use File::Find qw(find);
 my $dir      = 'ref/test';
 my $pattern  = 'txt';
-my $callback = sub { $result1 .= $File::Find::name. "\n" if /$pattern/ };
+my $callback = sub { $result1 .= $File::Find::name . "\n" if /$pattern/ };
 find $callback, $dir;
 
-#Or if you need maximum performance and are on a 'nix system, open a pipe to the GNU find program:
+$result1 = join "\n", sort { $a cmp $b } split "\n", $result1;
+say $result1;
 
+# Or if you need maximum performance and are on a 'nix system, open a pipe to the GNU find program:
 sub shellquote { "'".(shift =~ s/'/'\\''/gr). "'" }
-
 sub find_files {
     my $dir = shellquote(shift);
     my $test = shellquote(shift);
 
     local $/ = "\0";
-    open my $pipe, "find $dir -iname $test -print0 |" or die "find: $!.\n";
+    open my $pipe, "find -s $dir -iname $test -print0 |" or die "find: $!.\n";
     while (<$pipe>) { chop $_; $result2 .= "$_\n"; }
     close $pipe;
 }
-
 find_files('ref/test', '*txt');
+chomp $result2;
 
 # 2021-11-15 Tybalt89 adds:
 use Path::Tiny;
 path('ref/test')->visit( sub {/\.txt$/ and $result3 .= "$_\n"}, {recurse => 1} );
+$result3 = join "\n", sort { $a cmp $b } split "\n", $result3;
 
-say $result1;
-
-my $ref1 = <<'EOD';
-ref/test/not-in-kansas.txt
-ref/test/reverse_words.txt
-ref/test/sample.txt
-ref/test/dir1/not-in-kansas.txt
-ref/test/dir2/sample.txt
-EOD
-
-my $ref2 = <<'EOD';
+my $ref = <<'EOD';
 ref/test/dir1/not-in-kansas.txt
 ref/test/dir2/sample.txt
 ref/test/not-in-kansas.txt
@@ -57,7 +48,8 @@ ref/test/sample.txt
 EOD
 
 use Test::More;
-is ($result1, $ref1);
-is ($result2, $ref2);
-is ($result3, $ref1);
+chomp $ref;
+is ($result1, $ref);
+is ($result2, $ref);
+is ($result3, $ref);
 done_testing();
