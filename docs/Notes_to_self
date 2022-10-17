@@ -1,5 +1,11 @@
+2022-10-17
+Less overlap with RC tasks lately (that's a good thing).
+
+2022-10-16
+Revised testing on 'A/Active_object', hopefully stop errors.
+
 2022-10-12
-'A/Active_object' last failed on 2022-09-23, presumlably will be fine again tomorrow.
+'A/Active_object' last failed on 2022-09-23, presumably will be fine again tomorrow.
 
 2022-10-06
 Meanwhile, back at the iMac ranch... Most Perl tasks running, except:
