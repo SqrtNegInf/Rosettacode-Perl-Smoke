@@ -69,9 +69,10 @@ printf "Sum(4) takes %f seconds.\n", my $t2 = time_it(\&sum, 4);
 my $ref = <<'EOD';
 EOD
 
+say "f1: $f1";
 use Test::More;
-ok 2 <= $f1 <= 9;
-ok 0 <= $f2 <= 3;
-ok 0.0  <= $t1 < 0.02;
-ok 0.01 <  $t2 < 0.1;
+ok $f1 < 4.00;
+ok $f2 < 3.00;
+ok $t1 < 0.02;
+ok $t2 < 0.10;
 done_testing();
