@@ -4,6 +4,7 @@
 #p# OK
 #n# use 'orange.kame.net', like Raku
 #n# code to display IP* different on RC
+#n# on iMac: IPv6 doesn't work, why not?
 
 use strict;
 use warnings;
