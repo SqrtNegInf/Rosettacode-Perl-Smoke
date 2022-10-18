@@ -1,0 +1,47 @@
+#!/bin/sh
+## update Perl 5 smoke test / Github
+## version just for iMac, that places output in 'meta-i'
+
+source $HOME/.profile
+
+rakubrew switch moar-blead
+
+cd $HOME/perl5/Rosetta-Code
+
+# start fresh (except fake one result, just to quiet a warning)
+rm -f run/*
+cp -p ref/solving_coin_problems.dat run
+
+echo ' '
+perl -v | head -2
+
+bin/rc-p5 [0-Z]/*
+
+echo ' '
+bin/rc-stats5 2
+
+# keep tabs on status
+cd meta-i
+mv task.txt task.txt~
+#~/bin/rotate_log -d logs -b -r -f task.txt
+../bin/rc-task5-status > task.txt
+diff task.txt~ task.txt
+cd ..
+
+# see how slow the usual suspects are
+echo ' '
+bin/rc-timings5 bench/last | sort -r -n > meta-i/timings.txt
+head -10 meta-i/timings.txt
+
+# combine task headers for easy grep
+~/bin/grep-paragraph -H '#u# http' [0-Z]/* | ~/bin/grep-paragraph -v ReadMe.md - > meta-i/headers.txt
+
+# find non-ASCII
+echo ' '
+bin/rc-non-ascii [0-Z]/* > meta-i/non-ascii.txt
+
+# push changes to github
+echo ' '
+echo 'boring...'
+echo ' '
+bin/Task5-git
