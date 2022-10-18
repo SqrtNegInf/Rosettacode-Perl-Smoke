@@ -299,7 +299,7 @@ File: A/Active_object
 #u# http://rosettacode.org/wiki/Active_object
 #c# 2018-07-11 <RC
 #p# OK
-#n# timing flaps?
+#n# try to handle results that change with-in and between platforms, getting a bit silly
 
 File: A/Add_a_variable_to_a_class_instance_at_runtime
 #!/usr/local/bin/perl
@@ -2260,6 +2260,7 @@ File: D/DNS_query
 #p# OK
 #n# use 'orange.kame.net', like Raku
 #n# code to display IP* different on RC
+#n# on iMac: IPv6 doesn't work, why not?
 
 File: D/Damm_algorithm-1
 #!/usr/local/bin/perl
