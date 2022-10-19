@@ -1,3 +1,10 @@
+2022-10-19
+Very slight changes to 'Lenna50-iMac.home.ppm'? Update reference file, see if it sticks.
+
+2022-10-18
+Got 'S/Stream_Merge' working by 'sudo cpanm -f Heap::Simple::XS'
+(even though it completely fails tests, and only actually using Heap::Simple::Perl)
+
 2022-10-12
 And actually start making commits from iMac.
 
