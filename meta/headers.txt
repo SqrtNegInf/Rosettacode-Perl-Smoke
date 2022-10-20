@@ -9417,7 +9417,6 @@ File: S/Solving_coin_problems
 #p# OK
 #f# RC file: solving_coin_problems.dat
 #n# next step: remove dependence on MAXIMA
-#n# on iMac: actually broken, due to that dependence on MAXIMA
 
 File: S/Sort_a_list_of_object_identifiers-1
 #!/usr/local/bin/perl
