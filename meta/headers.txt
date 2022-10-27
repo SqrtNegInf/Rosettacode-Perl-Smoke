@@ -11593,6 +11593,13 @@ File: Z/Zig-zag_matrix-2
 #c# 2018-07-11 <RC
 #p# OK
 
+File: Z/Zsigmondy_numbers
+#!/usr/local/bin/perl
+#u# https://rosettacode.org/wiki/Zsigmondy_numbers
+#t# inprogress
+#c# 2022-10-27 >RC
+#p# OK
+
 File: Z/Zumkeller_numbers
 #!/usr/local/bin/perl
 #u# http://rosettacode.org/wiki/Zumkeller_numbers
