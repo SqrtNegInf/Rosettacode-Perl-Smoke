@@ -1,28 +1,26 @@
 #!/usr/local/bin/perl
 #u# https://rosettacode.org/wiki/Zsigmondy_numbers
-#t# inprogress
-#c# 2022-10-27 >RC
+#c# 2022-10-30 >RC
 #p# OK
+#n# awkward: $A/$B vs $a/$b given the necessity of an explicit numeric sort
 
 my @res;
 
 use v5.36;
 use experimental 'for_list';
 
-use ntheory <gcd divisors vecfirst>;
+use ntheory <gcd divisors vecall>;
 
-sub Zsigmondy ($a, $b, $c) {
-     my @aexp = map { $a ** $_ } 0..$c;
-     my @bexp = map { $b ** $_ } 0..$c;
-    #(1..$c).map: -> $n {
-     my @z;
-     for my $n (1..$c) {
-         my @divisors = reverse sort divisors($aexp[$n] - $bexp[$n]);
-    #    @divisors.first: -> $d { all (1..^$n).map: -> $m { (@aexp[$m] - @bexp[$m]) gcd $d == 1 } }
-        #push @z, vecfirst { { all map: -> $m { (@aexp[$m] - @bexp[$m]) gcd $_ == 1 } 1..$n-1 } } @divisors;
+sub Zsigmondy ($A, $B, $c) {
+    my @aexp = map { $A ** $_ } 0..$c;
+    my @bexp = map { $B ** $_ } 0..$c;
+    my @z;
+    for my $n (1..$c) {
+        for my $d (sort { $b <=> $a } divisors $aexp[$n] - $bexp[$n]) {
+            push @z, $d and last if vecall { gcd($aexp[$_] - $bexp[$_], $d) == 1 } 1..$n-1
+        }
+        return @z if 20 == @z
     }
-    say join ' ', @z; exit;
-    @z;
 }
 
 for my($name,$a,$b) (
@@ -35,8 +33,9 @@ for my($name,$a,$b) (
     'A109325: Zsigmondy(n,3,2)', 3,2,
     'A109347: Zsigmondy(n,5,3)', 5,3,
     'A109348: Zsigmondy(n,7,3)', 7,3,
-    'A109349: Zsigmondy(n,7,5)', 7,5 ) {
-        push @res, "\n$name:\n" . Zsigmondy($a,$b,20) 
+    'A109349: Zsigmondy(n,7,5)', 7,5,
+) {
+    push @res, "\n$name:\n" . join ' ', Zsigmondy($a, $b, 20) 
 }
 
 say my $result = join "\n", @res;
@@ -77,16 +76,4 @@ END
 use Test::More;
 chomp $ref;
 is($result, $ref);
-#is(($result =~ s/\s//gr), ($ref =~ s/\s//gr));
 done_testing();
-
-__END__
-
-=={{header|Perl}}==
-{{trans|Raku}}
-{{libheader|ntheory}}
-<syntaxhighlight lang="perl" line>
-</syntaxhighlight>
-{{out}}
-<pre>
-</pre>
