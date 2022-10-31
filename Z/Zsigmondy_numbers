@@ -12,12 +12,12 @@ use experimental 'for_list';
 use ntheory <gcd divisors vecall>;
 
 sub Zsigmondy ($A, $B, $c) {
-    my @aexp = map { $A ** $_ } 0..$c;
-    my @bexp = map { $B ** $_ } 0..$c;
+    my @A_exp = map { $A ** $_ } 0..$c;
+    my @B_exp = map { $B ** $_ } 0..$c;
     my @z;
     for my $n (1..$c) {
-        for my $d (sort { $b <=> $a } divisors $aexp[$n] - $bexp[$n]) {
-            push @z, $d and last if vecall { gcd($aexp[$_] - $bexp[$_], $d) == 1 } 1..$n-1
+        for my $d (sort { $b <=> $a } divisors $A_exp[$n] - $B_exp[$n]) {
+            push @z, $d and last if vecall { gcd($A_exp[$_] - $B_exp[$_], $d) == 1 } 1 .. $n-1
         }
         return @z if 20 == @z
     }
