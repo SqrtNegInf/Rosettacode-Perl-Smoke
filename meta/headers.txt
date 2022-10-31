@@ -11596,9 +11596,9 @@ File: Z/Zig-zag_matrix-2
 File: Z/Zsigmondy_numbers
 #!/usr/local/bin/perl
 #u# https://rosettacode.org/wiki/Zsigmondy_numbers
-#t# inprogress
-#c# 2022-10-27 >RC
+#c# 2022-10-30 >RC
 #p# OK
+#n# awkward: $A/$B vs $a/$b given the necessity of an explicit numeric sort
 
 File: Z/Zumkeller_numbers
 #!/usr/local/bin/perl
