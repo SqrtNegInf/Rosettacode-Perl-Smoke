@@ -2,8 +2,7 @@
 #u# http://rosettacode.org/wiki/Death_Star
 #c# 2018-07-28 <RC
 #p# OK
-
-# Writes a PGM to stdout.
+#f# RC file: death_star.pgm
 
 use strict;
 
