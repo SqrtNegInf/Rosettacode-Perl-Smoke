@@ -1,5 +1,6 @@
 #!/usr/local/bin/perl
 #u# http://rosettacode.org/wiki/Hunt_the_Wumpus
+#t# testok
 #c# 2021-01-25 <RC
 #p# OK
 #=# RC pipe: sB
