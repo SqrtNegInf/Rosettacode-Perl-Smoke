@@ -21,11 +21,11 @@ sub decide($q,$a) {
     $bit = 2**$bit;
 
     while (my ($bitpat,$diagnosis) = each %a) { 
-        $result .= $diagnosis if $bit & $bitpat;
+        $result .= "$diagnosis\n" if $bit & $bitpat;
     }
 
-    say 'ok 1 -' and exit if $result eq 'Check for paper jam';
-    say 'not ok 1 -'; exit;
+    say "\nok 1" and exit if $result eq 'Check for paper jam';
+    say "\nnot ok 1"; exit;
 }
 
 my @queries = (
