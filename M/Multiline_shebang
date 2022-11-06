@@ -1,5 +1,6 @@
 #!/usr/local/bin/perl
 #u# http://rosettacode.org/wiki/Multiline_shebang
+#t# testok
 #c# 2018-08-19 <RC
 #p# OK
 #n# runs and does nothing (with no args)
