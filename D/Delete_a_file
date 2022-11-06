@@ -1,8 +1,9 @@
 #!/usr/local/bin/perl
 #u# http://rosettacode.org/wiki/Delete_a_file
+#t# testok
 #c# 2018-07-28 <RC
 #p# OK
-#n# cf 'Create_a_file'
+#n# cf 'Create_a_file' (work as a pair)
 
 #use File::Spec::Functions qw(catfile rootdir);
 ## here
