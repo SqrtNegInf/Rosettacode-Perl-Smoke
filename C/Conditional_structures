@@ -1,5 +1,6 @@
 #!/usr/local/bin/perl
 #u# http://rosettacode.org/wiki/Conditional_structures
+#t# testok
 #c# 2018-07-24 <RC
 #p# OK
 #n# all pretty bogus, but it runs without errors
@@ -60,3 +61,5 @@ given ($input) {
     when (/rats/)     { print 'input matches rats' }
     default           { say 'hey' }
 }
+
+say 'ok 1';
