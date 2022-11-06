@@ -1,3 +1,10 @@
+2022-11-06
+Lots of fudging after 'port' update:
+cd /usr/local/lib
+ln -s /opt/local/lib/libicui18n.72.1.dylib libicui18n.71.dylib
+ln -s /opt/local/lib/libicuuc.72.1.dylib libicuuc.71.dylib
+ln -s /opt/local/lib/libicudata.72.1.dylib libicudata.71.dylib
+
 2022-11-03
 Alternate solution came up for 'S/Solve_a_Holy_Knight%27s_tour', see this only rarely.
 
