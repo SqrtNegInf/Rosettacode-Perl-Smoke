@@ -23,7 +23,6 @@ while ($u += 10) {
 }
 
 say my $result = join "\n", @res;
-exit;
 
 my $ref = <<'END';
 1
