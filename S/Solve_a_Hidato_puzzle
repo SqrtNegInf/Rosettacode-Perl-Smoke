@@ -2,7 +2,7 @@
 #u# http://rosettacode.org/wiki/Solve_a_Hidato_puzzle
 #c# 2018-08-14 <RC
 #p# OK
-#f# RC File: hidato.dat
+#f# RC file: hidato.dat
 #n# be explicit about value of each 'return'
 
 my $result;
