@@ -169,3 +169,5 @@ g|h|i
 It is your turn.
 Place your X on one of [a b c d e f g h i]:
 EOD
+
+use Test::More; # not actually used, faking tests
