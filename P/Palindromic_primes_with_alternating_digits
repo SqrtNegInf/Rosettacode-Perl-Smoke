@@ -1,5 +1,6 @@
 #!/usr/local/bin/perl
 #u# http://rosettacode.org/wiki/Palindromic_primes_with_alternating_digits
+#t# inprogress
 #c# 2021-12-10 NOT ON RC
 #p# OK
 #n# essentially 'smoothly undulating palindromic primes': a(ba){1,}, (but allowing a == b)
