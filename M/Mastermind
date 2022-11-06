@@ -1,5 +1,6 @@
 #!/usr/local/bin/perl
 #u# http://rosettacode.org/wiki/Mastermind
+#t# testok
 #c# 2018-10-04 >RC
 #p# OK
 #=# RC pipe: BCAE\nBDAC
@@ -67,6 +68,6 @@ sub get_guess { print 'Your guess?: '; my $g = <>; return split /\s*/, uc $g }
  
 sub is_valid { $length == @_ }
  
-sub win  { print 'You win! The correct answer is: ' . join(' ',@puzzle) . "\n"; exit }
+sub win  { print 'You win! The correct answer is: ' . join(' ',@puzzle) . "\n"; print "ok 1\n"; exit }
  
-sub lose { print 'Too bad, you ran out of guesses. The solution was: ' . join(' ',@puzzle) . "\n"; exit }
+sub lose { print 'Too bad, you ran out of guesses. The solution was: ' . join(' ',@puzzle) . "\n"; print "not ok 1\n"; exit }
