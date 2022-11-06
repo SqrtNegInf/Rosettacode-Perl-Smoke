@@ -1,5 +1,5 @@
 #!/usr/local/bin/perl
-#t# skiptest;
+#t# skiptest
 #u# http://rosettacode.org/wiki/Table_creation/Postal_addresses
 #c# 2019-09-21 <RC
 #p# OK
