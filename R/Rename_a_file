@@ -1,4 +1,5 @@
 #!/usr/local/bin/perl
+#t# testok
 #u# http://rosettacode.org/wiki/Rename_a_file
 #c# 2018-08-18 <RC
 #p# OK
