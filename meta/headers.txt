@@ -931,7 +931,7 @@ File: B/Bilinear_interpolation
 #u# http://rosettacode.org/wiki/Bilinear_interpolation
 #c# 2019-10-13 >RC
 #p# OK
-#f# RC File: color_wheel_interpolated.png
+#f# RC file: color_wheel_interpolated.png
 #n# 2022-06-27 warning wth v5.36: 
 #n#            Use of uninitialized value $pkg in concatenation (.) or string at /usr/local/lib/perl5/5.36.0/Symbol.pm line 131.
 
@@ -1926,6 +1926,7 @@ File: C/Concurrent_computing-2
 File: C/Conditional_structures
 #!/usr/local/bin/perl
 #u# http://rosettacode.org/wiki/Conditional_structures
+#t# testok
 #c# 2018-07-24 <RC
 #p# OK
 #n# all pretty bogus, but it runs without errors
@@ -2089,7 +2090,6 @@ File: C/Count_in_factors-5
 File: C/Count_in_octal
 #!/usr/local/bin/perl
 #u# http://rosettacode.org/wiki/Count_in_octal
-#t# trivial
 #c# 2018-07-02 <RC, 2019-12-11 <RC
 #p# OK
 
@@ -2128,9 +2128,10 @@ File: C/Cramer%27s_rule
 File: C/Create_a_file
 #!/usr/local/bin/perl
 #u# http://rosettacode.org/wiki/Create_a_file
+#t# testok
 #c# 2018-07-26 <RC
 #p# OK
-#n# cf 'Delete_a_file'
+#n# cf 'Delete_a_file' (work as a pair)
 
 File: C/Create_a_two-dimensional_array_at_runtime
 #!/usr/local/bin/perl
@@ -2360,6 +2361,7 @@ File: D/Death_Star
 #u# http://rosettacode.org/wiki/Death_Star
 #c# 2018-07-28 <RC
 #p# OK
+#f# RC file: death_star.pgm
 
 File: D/Deceptive_numbers
 #!/usr/local/bin/perl
@@ -2383,6 +2385,7 @@ File: D/Decimal_floating_point_number_to_binary
 File: D/Decision_tables
 #!/usr/local/bin/perl
 #u# http://rosettacode.org/wiki/Decision_tables
+#t# testok
 #c# 2019-03-18 >RC
 #p# OK
 #=# RC pipe: n\nn\ny\n
@@ -2423,9 +2426,10 @@ File: D/Delegates
 File: D/Delete_a_file
 #!/usr/local/bin/perl
 #u# http://rosettacode.org/wiki/Delete_a_file
+#t# testok
 #c# 2018-07-28 <RC
 #p# OK
-#n# cf 'Create_a_file'
+#n# cf 'Create_a_file' (work as a pair)
 
 File: D/Deming%27s_Funnel
 #!/usr/local/bin/perl
@@ -4039,6 +4043,7 @@ File: G/Gauss-Jordan_matrix_inversion
 
 File: G/Gaussian_elimination
 #!/usr/local/bin/perl
+#t# testok
 #u# http://rosettacode.org/wiki/Gaussian_elimination
 #c# 2018-08-08 <RC
 #p# OK
@@ -5848,6 +5853,7 @@ File: M/Make_a_backup_file
 File: M/Make_directory_path
 #!/usr/local/bin/perl
 #u# http://rosettacode.org/wiki/Make_directory_path
+#t# testok
 #c# 2018-08-18 <RC
 #p# OK
 
@@ -5887,6 +5893,7 @@ File: M/Markov_chain_text_generator
 File: M/Mastermind
 #!/usr/local/bin/perl
 #u# http://rosettacode.org/wiki/Mastermind
+#t# testok
 #c# 2018-10-04 >RC
 #p# OK
 #=# RC pipe: BCAE\nBDAC
@@ -6681,6 +6688,7 @@ File: N/Number_names
 File: N/Number_reversal_game
 #!/usr/local/bin/perl
 #u# http://rosettacode.org/wiki/Number_reversal_game
+#t# testok
 #c# 2018-08-20 <RC
 #p# OK
 
@@ -7964,7 +7972,7 @@ File: P/Probabilistic_choice
 #u# http://rosettacode.org/wiki/Probabilistic_choice
 #c# 2018-08-20 <RC
 #p# OK
-#n# no testing, can't stop random?
+#n# 2022-11-05 testing OK, just a simple matter of hash key order
 
 File: P/Problem_of_Apollonius
 #!/usr/local/bin/perl
@@ -8407,6 +8415,7 @@ File: R/Remove_vowels_from_a_string
 
 File: R/Rename_a_file
 #!/usr/local/bin/perl
+#t# testok
 #u# http://rosettacode.org/wiki/Rename_a_file
 #c# 2018-08-18 <RC
 #p# OK
@@ -9008,6 +9017,7 @@ File: S/Sexy_primes-3
 File: S/Shell_one-liner
 #!/usr/local/bin/perl
 #u# http://rosettacode.org/wiki/Shell_one-liner
+#t# testok
 #c# 2018-08-17 <RC
 #p# OK
 
@@ -9348,8 +9358,8 @@ File: S/Snake_And_Ladder.1
 
 File: S/Sockets
 #!/usr/local/bin/perl
+#t# nocode
 #u# http://rosettacode.org/wiki/Sockets
-#n# nocode
 #c# 2018-08-15 <RC
 #p# OK
 
@@ -9370,7 +9380,7 @@ File: S/Solve_a_Hidato_puzzle
 #u# http://rosettacode.org/wiki/Solve_a_Hidato_puzzle
 #c# 2018-08-14 <RC
 #p# OK
-#f# RC File: hidato.dat
+#f# RC file: hidato.dat
 #n# be explicit about value of each 'return'
 
 File: S/Solve_a_Holy_Knight%27s_tour
@@ -10367,7 +10377,7 @@ File: T/Table_creation
 
 File: T/Table_creation_Postal_addresses
 #!/usr/local/bin/perl
-#t# skiptest;
+#t# skiptest
 #u# http://rosettacode.org/wiki/Table_creation/Postal_addresses
 #c# 2019-09-21 <RC
 #p# OK
