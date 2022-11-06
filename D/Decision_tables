@@ -1,6 +1,5 @@
 #!/usr/local/bin/perl
 #u# http://rosettacode.org/wiki/Decision_tables
-#t# testok
 #c# 2019-03-18 >RC
 #p# OK
 #=# RC pipe: n\nn\ny\n
@@ -21,11 +20,15 @@ sub decide($q,$a) {
     $bit = 2**$bit;
 
     while (my ($bitpat,$diagnosis) = each %a) { 
-        $result .= "$diagnosis\n" if $bit & $bitpat;
+        $result .= $diagnosis if $bit & $bitpat;
     }
 
-    say "\nok 1" and exit if $result eq 'Check for paper jam';
-    say "\nnot ok 1"; exit;
+    use Test::More;
+    is $result, 'Check for paper jam';
+    done_testing();
+    exit;
+    #say 'ok 1' and exit if $result eq 'Check for paper jam';
+    #say 'not ok 1'; exit;
 }
 
 my @queries = (
