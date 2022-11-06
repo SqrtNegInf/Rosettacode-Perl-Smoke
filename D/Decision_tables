@@ -24,6 +24,7 @@ sub decide($q,$a) {
     }
 
     use Test::More;
+    print "\n";
     is $result, 'Check for paper jam';
     done_testing();
     exit;
