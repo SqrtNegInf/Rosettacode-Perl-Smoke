@@ -1,5 +1,6 @@
 #!/usr/local/bin/perl
 #u# http://rosettacode.org/wiki/Number_reversal_game
+#t# testok
 #c# 2018-08-20 <RC
 #p# OK
 
@@ -33,3 +34,4 @@ until ( join('', @jumble) eq '123456789' ) {
 
 print "    @jumble\n";
 print "You won in $turn turns.\n";
+say 'ok 1';
