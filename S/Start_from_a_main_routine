@@ -3,10 +3,12 @@
 #c# 2018-08-13 <RC
 #t# nocode
 #p# OK
+#n# Same as Raku, imagine that...
 
-# Same as Perl 6.
+use Test::More;
+my $r;
 
-#BEGIN {...} # as soon as parsed
-#CHECK {...} # end of compile time
-#INIT {...}  # beginning of run time
-#END {...}   # end of run time
+BEGIN { $r .= '1' } # as soon as parsed
+CHECK { $r .= '2' } # end of compile time
+INIT  { $r .= '3' } # beginning of run time
+END   { $r .= '4'; print "$r\n"; is $r, '1234'; done_testing() } # end of run time
