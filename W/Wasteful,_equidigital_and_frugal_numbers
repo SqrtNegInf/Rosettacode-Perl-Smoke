@@ -38,7 +38,6 @@ for my $base (10, 11) {
 }
 
 say my $result = join "\n", @res;
-exit;
 
 my $ref = <<'END';
 In base 10:
@@ -50,7 +49,7 @@ Wasteful numbers:
     58    60    62    63    65    66    68    69    70    72
     74    75    76    77    78    80    82    84    85    86
 
-1,000th: 1586
+10,000th: 14346
 
 Equidigital numbers:
      1     2     3     5     7    10    11    13    14    15
@@ -59,7 +58,7 @@ Equidigital numbers:
     67    71    73    79    81    83    89    97   101   103
    105   106   107   109   111   112   113   115   118   119
 
-1,000th: 2765
+10,000th: 33769
 
 Frugal numbers:
    125   128   243   256   343   512   625   729  1024  1029
@@ -68,12 +67,12 @@ Frugal numbers:
   3125  3481  3584  3645  3721  4096  4374  4375  4489  4802
   4913  5041  5103  5329  6241  6250  6561  6859  6889  7203
 
-1,000th: 160801
+10,000th: 1953125
 
 Of the positive integers up to ten thousand:
-   Wasteful: 7709
-Equidigital: 2236
-     Frugal: 54
+   Wasteful: 831231
+Equidigital: 165645
+     Frugal: 3123
 
 In base 11:
 
@@ -84,7 +83,7 @@ Wasteful numbers:
     57    58    60    62    63    65    66    68    69    70
     72    74    75    76    77    78    80    82    84    85
 
-1,000th: 1364
+10,000th: 12890
 
 Equidigital numbers:
      1     2     3     5     7    11    13    14    15    16
@@ -93,7 +92,7 @@ Equidigital numbers:
     71    73    79    81    83    89    97   101   103   107
    109   113   121   122   123   127   129   131   133   134
 
-1,000th: 2823
+10,000th: 33203
 
 Frugal numbers:
    125   128   243   256   343   512   625   729  1024  1331
@@ -102,12 +101,13 @@ Frugal numbers:
   3645  3721  4096  4374  4375  4489  4802  4913  5041  5103
   5120  5329  6241  6250  6561  6859  6889  7168  7203  7921
 
-1,000th: 222784
+10,000th: 2659171
 
 Of the positive integers up to ten thousand:
-   Wasteful: 7478
-Equidigital: 2468
-     Frugal: 53
+   Wasteful: 795861
+Equidigital: 200710
+     Frugal: 3428
+
 END
 
 use Test::More;
