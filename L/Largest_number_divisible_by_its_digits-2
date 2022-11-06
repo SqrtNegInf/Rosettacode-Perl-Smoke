@@ -33,10 +33,11 @@ for(my $num = $initial; $num > 0 ; $num -= $step) {      # only generate multipl
     last
 }
 
-say my $result = join "\n", @res; exit;
+say my $result = join "\n", @res;
 
 my $ref = <<'EOD';
-Found fedcb59726a1348
+Found fedcb59726a1348 after 954460 steps
+
             In base 16                                    In base 10
 fedcb59726a1348 / f = 10fda5b4be4f038  |  1147797065081426760 / 15 =   76519804338761784
 fedcb59726a1348 / e = 1234561d150b83c  |  1147797065081426760 / 14 =   81985504648673340
