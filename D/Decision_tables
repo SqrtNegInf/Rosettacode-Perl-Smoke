@@ -1,5 +1,6 @@
 #!/usr/local/bin/perl
 #u# http://rosettacode.org/wiki/Decision_tables
+#t# testok
 #c# 2019-03-18 >RC
 #p# OK
 #=# RC pipe: n\nn\ny\n
