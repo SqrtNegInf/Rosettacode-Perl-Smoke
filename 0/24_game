@@ -22,6 +22,8 @@ Otherwise you are repeatedly asked for an expression until it evaluates to 24.
 Note: you cannot form multiple digit numbers from the supplied digits,
 so an answer of 12+12 when given 1, 2, 2, and 1 would not be allowed.
 EOF
+
+my $result;
  
 my $try = 1;
 while () {
@@ -45,9 +47,11 @@ while () {
  
   my $n = eval $entry;
  
-  if    (!defined $n) { say "Invalid expression"; }
-  elsif ($n == 24)    { say "You win!"; last; }
-  else                { say "Sorry, your expression is $n, not 24"; }
+  if    (!defined $n) { say $result .= "Invalid expression"; }
+  elsif ($n == 24)    { say $result .= "You win!"; last; }
+  else                { say $result .= "Sorry, your expression is $n, not 24"; }
 }
 
-say 'ok 1';
+use Test::More;
+ok $result =~ /You win/ms;
+done_testing();
