@@ -2,12 +2,13 @@
 #u# http://rosettacode.org/wiki/Probabilistic_choice
 #c# 2018-08-20 <RC
 #p# OK
-#n# no testing, can't stop random?
+#n# 2022-11-05 testing OK, just a simple matter of hash key order
 
 srand 123456;
 
-use feature 'say';
 my $result;
+
+use feature 'say';
 
 use List::Util qw(first sum);
 use constant TRIALS => 1e4;
@@ -15,7 +16,9 @@ use constant TRIALS => 1e4;
 sub prob_choice_picker {
   my %options = @_;
   my ($n, @a) = 0;
-  while (my ($k,$v) = each %options) {
+  #while (my ($k,$v) = each %options) {
+  for my $k (sort keys %options) {          # for stability
+      $v = $options{$k};
       $n += $v;
       push @a, [$n, $k];
   }
@@ -49,17 +52,18 @@ foreach (sort {$results{$b} <=> $results{$a}} keys %results) {
 }
 
 say $result; 
+
 my $ref = <<'EOD';
-aleph   0.200136  0.200000  0.000136
-beth    0.166393  0.166667  0.000274
-gimel   0.142336  0.142857  0.000521
-daleth  0.125876  0.125000  0.000876
-he      0.110803  0.111111  0.000308
-waw     0.100205  0.100000  0.000205
-zayin   0.091095  0.090909  0.000186
-heth    0.063156  0.063456  0.000300
+aleph   0.205600  0.200000  0.005600
+beth    0.168100  0.166667  0.001433
+gimel   0.145500  0.142857  0.002643
+daleth  0.121100  0.125000  0.003900
+he      0.111800  0.111111  0.000689
+waw     0.094200  0.100000  0.005800
+zayin   0.093100  0.090909  0.002191
+heth    0.060600  0.063456  0.002856
 EOD
 
 use Test::More;
-#is ($result, $ref);
-#done_testing();
+is ($result, $ref);
+done_testing();
