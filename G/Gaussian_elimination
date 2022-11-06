@@ -1,4 +1,5 @@
 #!/usr/local/bin/perl
+#t# testok
 #u# http://rosettacode.org/wiki/Gaussian_elimination
 #c# 2018-08-08 <RC
 #p# OK
@@ -23,14 +24,11 @@ my $b = Math::Matrix->new([1],
 my $x = $a->concat($b)->solve;
 say $result = ~$x;
 
-#Math::Matrix solve() expects the column vector to be an extra column in the matrix, hence concat(). Putting not just a column there but a whole identity matrix (making Nx2N) is how its invert() is implemented. Note that solve() doesn't notice singular matrices and still gives a return when there is in fact no solution to Ax=B.
+# Math::Matrix solve() expects the column vector to be an extra column in the
+# matrix, hence concat(). Putting not just a column there but a whole
+# identity matrix (making Nx2N) is how its invert() is implemented. Note that
+# solve() doesn't notice singular matrices and still gives a return when
+# there is in fact no solution to Ax=B.
 
-my $ref = <<'EOD';
-   1.00000
-   1.00000
-   2.00000
-EOD
-
-#use Test::More;
 say 'ok 1' if 34 == length $result;
 say 'ok 2' if $result =~ /\s+1\.0+\s+1\.0+\s+2.0+/;
