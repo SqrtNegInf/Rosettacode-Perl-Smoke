@@ -2385,14 +2385,6 @@ File: D/Decimal_floating_point_number_to_binary
 File: D/Decision_tables
 #!/usr/local/bin/perl
 #u# http://rosettacode.org/wiki/Decision_tables
-#t# testok
-#c# 2019-03-18 >RC
-#p# OK
-#=# RC pipe: n\nn\ny\n
-
-File: D/Decision_tables-2
-#!/usr/local/bin/perl
-#u# http://rosettacode.org/wiki/Decision_tables
 #c# 2019-03-18 >RC
 #p# OK
 #=# RC pipe: n\nn\ny\n
@@ -4661,6 +4653,7 @@ File: H/Humble_numbers
 File: H/Hunt_the_Wumpus
 #!/usr/local/bin/perl
 #u# http://rosettacode.org/wiki/Hunt_the_Wumpus
+#t# testok
 #c# 2021-01-25 <RC
 #p# OK
 #=# RC pipe: sB
@@ -6381,6 +6374,7 @@ File: M/Multifactorial-2
 File: M/Multiline_shebang
 #!/usr/local/bin/perl
 #u# http://rosettacode.org/wiki/Multiline_shebang
+#t# testok
 #c# 2018-08-19 <RC
 #p# OK
 #n# runs and does nothing (with no args)
@@ -7076,6 +7070,7 @@ File: P/Palindromic_primes_in_base_16
 File: P/Palindromic_primes_with_alternating_digits
 #!/usr/local/bin/perl
 #u# http://rosettacode.org/wiki/Palindromic_primes_with_alternating_digits
+#t# inprogress
 #c# 2021-12-10 NOT ON RC
 #p# OK
 #n# essentially 'smoothly undulating palindromic primes': a(ba){1,}, (but allowing a == b)
@@ -8281,6 +8276,7 @@ File: R/Rate_counter
 #u# http://rosettacode.org/wiki/Rate_counter
 #c# 2018-08-19 <RC
 #p# OK
+#n# just test that results look vaguely reasonable
 
 File: R/Ray-casting_algorithm
 #!/usr/local/bin/perl
