@@ -1259,10 +1259,9 @@ File: C/Calendar.1
 File: C/Calendar_-_for_%22REAL%22_programmers
 #!/usr/local/bin/perl
 #u# http://rosettacode.org/wiki/Calendar_-_for_%22REAL%22_programmers
-#t# skiptest
 #c# 2018-07-21 <RC
 #p# OK
-#n# works, testing is the problem
+#f# RC file: calendar-for-real.txt
 
 File: C/Calkin-Wilf_sequence
 #!/usr/local/bin/perl
@@ -9821,6 +9820,7 @@ File: S/Start_from_a_main_routine
 #c# 2018-08-13 <RC
 #t# nocode
 #p# OK
+#n# Same as Raku, imagine that...
 
 File: S/Starting_a_web_browser
 #!/usr/local/bin/perl
