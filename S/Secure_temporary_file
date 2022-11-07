@@ -1,32 +1,32 @@
 #!/usr/local/bin/perl
 #u# http://rosettacode.org/wiki/Secure_temporary_file
-#t# skiptest
 #c# 2018-08-18 <RC
 #p# OK
+#n# just test one interface
 
+use strict;
+use warnings;
 use feature 'say';
-my $result;
 
 #function interface:
-
 use File::Temp qw(tempfile);
-$fh = tempfile();
-($fh2, $filename) = tempfile(); # this file stays around by default
-print "$filename\n";
-close $fh;
+my($fh2, $filename) = tempfile();
+say `ls -l $filename`;
+print $fh2 "zizzer\n";
 close $fh2;
 
 #object-oriented interface:
+#use File::Temp;
+#$fh = new File::Temp;
+#print $fh->filename, "\n";
+#close $fh;
 
-use File::Temp;
-$fh = new File::Temp;
-print $fh->filename, "\n";
-close $fh;
-
-say $result; 
-my $ref = <<'EOD';
-EOD
+my $result = `cat $filename`;
 
 use Test::More;
-#is ($result, $ref);
-#done_testing();
+ok -e $filename;
+ok $result =~ /zizzer/;
+done_testing();
+
+sleep 1;
+unlink $filename;
