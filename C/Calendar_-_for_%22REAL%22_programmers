@@ -1,14 +1,16 @@
 #!/usr/local/bin/perl
 #u# http://rosettacode.org/wiki/Calendar_-_for_%22REAL%22_programmers
-#t# skiptest
 #c# 2018-07-21 <RC
 #p# OK
-#n# works, testing is the problem
+#f# RC file: calendar-for-real.txt
 
 use strict;
 use warnings;
 use feature 'say';
 my $result;
+
+close(STDERR);
+open(STDERR, '>run/calendar-for-real.txt');
 
 # Since we can't use eval or print (or any other keywords)
 # at the top level, we need to abuse backticks in order to print anything, as in the infamous JAPH with no letters or numbers. Consequently, the calendar is printed to standard error instead of standard output.
