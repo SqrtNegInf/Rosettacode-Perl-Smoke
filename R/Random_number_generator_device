@@ -1,15 +1,19 @@
 #!/usr/local/bin/perl
 #u# http://rosettacode.org/wiki/Random_number_generator_(device)
-#t# skiptest
 #c# 2018-08-19 <RC
 #p# OK
-#n# what's desired is a non-reproducible random values, so no testing is possible
+#n# simple-minded testing, 1st test might fail once a year (or not)
 
-# Typically one would use a module as they will work on UNIX, Win32, and other O/S's. Crypt::Random::Seed, for instance, will use Win32 sources, EGD/PRNGD, /dev/u?random, or if none of those exist for some reason, a userspace entropy method.
+use feature 'say';
+
+# Typically one would use a module as they will work on UNIX, Win32, and other O/S's. 
+# Crypt::Random::Seed, for instance, will use Win32 sources, EGD/PRNGD, /dev/u?random, 
+# or if none of those exist for some reason, a userspace entropy method.
 
 use Crypt::Random::Seed;
 my $source = Crypt::Random::Seed->new( NonBlocking => 1 ); # Allow non-blocking sources like /dev/urandom
-print "$_\n" for $source->random_values(10);               # A method returning an array of 32-bit values
+print "$_ " for $source->random_values(10);                # A method returning an array of 32-bit values
+say '';
 
 # or (similar but many more dependencies):
 #use Crypt::Random::Source qw/get_weak/;    # Alternately get_strong
@@ -25,6 +29,22 @@ sub read_random {
         unpack('L*', $rand);
 }
  
-print "$_\n" for read_random(10);
+my($max,$eps) = (1e7, .001);
+my($lastA,$lastB,$A,$B,$c_mid);
+$A = substr read_random(1), -1, 1;
+do { $B = substr read_random(1), -1, 1 } until $A ne $B;
 
-# Whether /dev/urandom is good enough for cryptographic work is debated, though on most UNIX systems it is at least as good as the Win32 Crypto API.
+for my $rn (read_random($max)) {
+    $c_mid++ if 4294967295/2 < $rn;
+    $lastA++ if $A eq substr $rn, -1, 1;
+    $lastB++ if $B eq substr $rn, -1, 1;
+}
+
+say '';
+say abs($c_mid/($max/2)) . ' half/half';
+say "$A:$lastA vs $B:$lastB final digits";
+
+use Test::More;
+ok 1-abs($c_mid/($max/2)) < $eps;
+ok 1-abs($lastA/($lastB)) < 10*$eps;
+done_testing();
