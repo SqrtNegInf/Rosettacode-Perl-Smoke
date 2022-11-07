@@ -7,7 +7,7 @@ updating from RC…
 |||+---------> Interactive [15]
 ||||+--------> Touched (modified by me) [181]
 |||||+-------> Random seed [35]
-||||||+------> File output [22]
+||||||+------> File output [23]
 |||||||+-----> Draft [199]
 ||||||||+----> Ignoring [39]
 |||||||||+---> Void (no local copy) [48]
@@ -215,7 +215,7 @@ GS......... Calculating_the_value_of_e-2
 GS..T...... Calculating_the_value_of_e-3
 GS......... Calculating_the_value_of_e-4
 GS......... Calendar
-G.K........ Calendar_-_for_%22REAL%22_programmers
+GS....F.... Calendar_-_for_%22REAL%22_programmers
 GS..T...... Calkin-Wilf_sequence
 GS......... Call_a_foreign-language_function
 G.K........ Call_a_function
@@ -490,7 +490,7 @@ GS..T..D... N-body_problem
 GS..T..D... N-queens_minimum_and_knights_and_bishops
 GS..T..D... Names_to_numbers
 ........X.. Narcissist
-GS.....D... Native_shebang
+G.K....D... Native_shebang
 GS..T..D... Neighbour_primes
 GS..T..D... Next_special_primes
 GS..T..D... Nice_primes
