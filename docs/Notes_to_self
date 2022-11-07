@@ -1,3 +1,7 @@
+2022-11-06
+Fiddling continues apace, about done.
+Auto-commits to git failed (DNS? network?), had to 'git push' by hand.
+
 2022-11-05
 Lots of fiddling with edge-case testing, trying to improve/document coverage.
 
