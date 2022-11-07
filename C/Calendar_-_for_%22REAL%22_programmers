@@ -6,10 +6,7 @@
 
 use strict;
 use warnings;
-use feature 'say';
-my $result;
 
-close(STDERR);
 open(STDERR, '>run/calendar-for-real.txt');
 
 # Since we can't use eval or print (or any other keywords)
@@ -85,7 +82,3 @@ SU MO TU WE TH FR SA  SU MO TU WE TH FR SA  SU MO TU WE TH FR SA  SU MO TU WE TH
 27 28 29 30 31        24 25 26 27 28 29 30  28 29 30              26 27 28 29 30 31     23 24 25 26 27 28 29  28 29 30 31         
                       31                                                                30                                        
 EOD
-
-use Test::More;
-#is ($result, $ref);
-#done_testing();
