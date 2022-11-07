@@ -8846,9 +8846,9 @@ File: S/Search_a_list_of_records
 File: S/Secure_temporary_file
 #!/usr/local/bin/perl
 #u# http://rosettacode.org/wiki/Secure_temporary_file
-#t# skiptest
 #c# 2018-08-18 <RC
 #p# OK
+#n# just test one interface
 
 File: S/Selective_File_Copy
 #!/usr/local/bin/perl
@@ -9818,7 +9818,6 @@ File: S/Start_from_a_main_routine
 #!/usr/local/bin/perl
 #u# http://rosettacode.org/wiki/Start_from_a_main_routine
 #c# 2018-08-13 <RC
-#t# nocode
 #p# OK
 #n# Same as Raku, imagine that...
 
