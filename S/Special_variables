@@ -1,16 +1,39 @@
 #!/usr/local/bin/perl
 #u# http://rosettacode.org/wiki/Special_variables
-#t# nocode
 #c# 2018-08-14 <>RC
 #p# OK
 
+use v5.036;
+use English; # enables use of long variable names
+
+my $pn1 = $0;
+my $pn2 = $PROGRAM_NAME;
+my $ls  = $LIST_SEPARATOR;
+say "Program name: '$pn1'";
+say "List separator: '$ls'";
+
+my $ref = <<'END';
+S/Special_variables
+S/Special_variables
+ 
+END
+
+use Test::More;
+is $pn1, $pn2;
+chomp $ref;
+is join("\n", $pn1,$pn2,$ls), $ref;
+done_testing();
+
+# NB: some of the values below are obsolete/undefined in v5.036
+
 # Works with: Perl 5.28
-# A selection of the variables with special meaning to Perl. If you find it hard to remember the 'punctuation' names, longer 'English' names are available via a core module.
+# A selection of the variables with special meaning to Perl. 
+# If you find it hard to remember the 'punctuation' names, longer 'English' names are available via a core module.
 
 # use English;                     # enables use of long variable names
 # 
 # $.     $INPUT_LINE_NUMBER        # sequence number
-# $,     $OUTPUT_FIELD_SEPARATOR   # output field separator
+# $,     $OUTPUT_FIELD_SEPARATOR   # output field separator   ## gone now? ##
 # $;     $SUBSCRIPT_SEPARATOR      # subscript separator for multidimensional array emulation
 # $_     $ARG                      # topic/current/default variable
 # $"     $LIST_SEPARATOR           # alternative output field separator
