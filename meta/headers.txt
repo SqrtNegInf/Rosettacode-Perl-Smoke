@@ -8209,10 +8209,9 @@ File: R/Random_Latin_Squares
 File: R/Random_number_generator_device
 #!/usr/local/bin/perl
 #u# http://rosettacode.org/wiki/Random_number_generator_(device)
-#t# skiptest
 #c# 2018-08-19 <RC
 #p# OK
-#n# what's desired is a non-reproducible random values, so no testing is possible
+#n# simple-minded testing, 1st test might fail once a year (or not)
 
 File: R/Random_number_generator_included
 #!/usr/local/bin/perl
