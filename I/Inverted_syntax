@@ -1,25 +1,47 @@
 #!/usr/local/bin/perl
 #u# http://rosettacode.org/wiki/Inverted_syntax
-#t# skiptest
 #c# 2018-08-13 <RC
 #p# OK
 
-# Perl already has that:
+my @res;
 
-if ($guess == 6) { print "Wow! Lucky Guess!"; };    # Traditional syntax
-print 'Wow! Lucky Guess!' if $guess == 6;           # Inverted syntax (note missing braces and parens)
-unless ($guess == 6) { print "Sorry, your guess was wrong!"; }   # Traditional syntax
-print 'Huh! You Guessed Wrong!' unless $guess == 6;              # Inverted syntax
-# Inverted syntax can also be used with the ternary operator.
-# However this may produce different results to the traditional syntax form because when inverted syntax is used, we are effectively making an assignment to a ternary expression. so in the following example code, instead of the assignment being made to variable a (as it is in the traditional syntax form), the inverted syntax form will cause assignment to be made to either b or c, depending on value of the ok variable:
+use strict;
+use warnings;
+use feature 'say';
 
-# Note that the results obtained by the inverted syntax form
-# may produce differing results from the traditional syntax form
-$a = $ok ? $b : $c;     # Traditional syntax
-($ok ? $b : $c) = $a;   # Inverted syntax
+my $guess = 6;
+if ($guess == 6) { push @res, "Wow! Lucky Guess!"; };    # Traditional syntax
+push @res, 'Wow! Lucky Guess!' if $guess == 6;           # Inverted syntax (note missing braces and parens)
+unless ($guess == 5) { push @res, "Sorry, your guess was wrong!"; }   # Traditional syntax
+push @res, 'Huh! You Guessed Wrong!' unless $guess == 5;              # Inverted syntax
+
+my($ok,$a,$b,$c) = (1,1,2,3);
+$a = $ok ? $b : $c;        # Traditional syntax
+push @res, $a;
+($ok ? $b : $c) = 10*$a;   # Inverted syntax (conditional assignment)
+push @res, $b;
+push @res, $c;
+
 # We can also emulate inverted syntax for scalar assignment by creating a function as follows:
-
 sub assign { $_[1] = $_[0] }
 $a = $b;       # Traditional syntax
 assign $b, $a; # Inverted syntax
+
 # Inverted list assignment is not possible because it prevents arrays from flattening.
+
+say my $result = join "\n", @res;
+
+my $ref = <<'END';
+Wow! Lucky Guess!
+Wow! Lucky Guess!
+Sorry, your guess was wrong!
+Huh! You Guessed Wrong!
+2
+20
+3
+END
+
+use Test::More;
+chomp $ref;
+is $result, $ref;
+done_testing();
