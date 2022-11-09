@@ -21,5 +21,5 @@ sub job1 { my $num = 1 + 0.5 * sqrt(-2 * log rand) * cos(2 * $PI * rand) }
 sub job2 { my $num = 1 + 0.5 * sqrt(-2 * log rand) * cos(2 * $PI * rand) }
 
 use Test::More;
-ok $results =~ m#Job1\s+\d+/s.*%#; # Job1 73400320/s -- -19%
+ok $results =~ m#Job\d\s+\d+/s.*%#; # Job1 73400320/s -- -19%
 done_testing();
