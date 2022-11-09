@@ -4891,7 +4891,6 @@ File: I/Inverted_index
 File: I/Inverted_syntax
 #!/usr/local/bin/perl
 #u# http://rosettacode.org/wiki/Inverted_syntax
-#t# skiptest
 #c# 2018-08-13 <RC
 #p# OK
 
@@ -9715,7 +9714,6 @@ File: S/Special_neighbor_primes
 File: S/Special_variables
 #!/usr/local/bin/perl
 #u# http://rosettacode.org/wiki/Special_variables
-#t# nocode
 #c# 2018-08-14 <>RC
 #p# OK
 
