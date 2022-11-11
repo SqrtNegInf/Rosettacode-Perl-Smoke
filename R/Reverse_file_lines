@@ -1,9 +1,33 @@
 #!/usr/local/bin/perl
 #u# http://rosettacode.org/wiki/Reverse_file_lines
-#t# nocode
 #c# 2021-08-03 <RC
 #p# OK
+#n# as one-liner: perl -e 'print reverse <>'
 
-#  as one-liner ..
-#  perl -e 'print reverse <>'
+use v5.036;
 
+# this does the job
+say reverse `cat ref/test/sample.txt`; 
+
+# this allows for testing
+my $result = join "\n", reverse split("\n", `cat ref/test/sample.txt`);
+
+# and now for something completely different (tricky double reverse)
+say my $foo = reverse `cat ref/test/sample.txt`; say '';
+
+my $ref = <<'END';
+snorp glorp yorp 
+
+index can be in memory.
+returns a list of files that contain the query term / terms. The search
+Also create a user interface to do a search using that inverted index which
+Given a set of text files, implement a program to create an inverted index.
+
+This is done entirely in memory.
+An inverted index is a data structure used to create full text search.
+END
+
+use Test::More;
+chomp $ref;
+is $result, $ref;
+done_testing();
