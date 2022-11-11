@@ -8499,9 +8499,9 @@ File: R/Reverse_a_string
 File: R/Reverse_file_lines
 #!/usr/local/bin/perl
 #u# http://rosettacode.org/wiki/Reverse_file_lines
-#t# nocode
 #c# 2021-08-03 <RC
 #p# OK
+#n# as one-liner: perl -e 'print reverse <>'
 
 File: R/Reverse_the_gender_of_a_string
 #!/usr/local/bin/perl
