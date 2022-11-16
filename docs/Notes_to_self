@@ -1,3 +1,7 @@
+2022-11-16
+Ugh, 'Meissel–Mertens_constant' is on RC with non-ASCII 'hyphen', using for both Raku and Perl to match site.
+(only instance in all of the tasks; FWIW the char is '\342\200\223')
+
 2022-11-06
 Fiddling continues apace, about done.
 Auto-commits to git failed (DNS? network?), had to 'git push' by hand.
