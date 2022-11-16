@@ -1,5 +1,5 @@
 #!/usr/local/bin/perl
-#u# http://rosettacode.org/wiki/xx
+#u# https://rosettacode.org/wiki/xx
 #t# inprogress
 #c# 2022-xx-xx >RC
 #p# OK
