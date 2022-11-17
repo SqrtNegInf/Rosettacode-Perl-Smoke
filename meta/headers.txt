@@ -6023,6 +6023,12 @@ File: M/Median_filter
 #p# OK
 #f# RC file: plasma_median.png
 
+File: M/Meissel–Mertens_constant
+#!/usr/local/bin/perl
+#u# https://rosettacode.org/wiki/Meissel–Mertens_constant
+#c# 2022-11-16 >RC
+#p# OK
+
 File: M/Memory_allocation
 #!/usr/local/bin/perl
 #u# http://rosettacode.org/wiki/Memory_allocation
