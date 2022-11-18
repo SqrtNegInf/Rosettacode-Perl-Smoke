@@ -12,19 +12,14 @@ use ntheory 'is_prime';
 sub table ($c, @V) { my $t = $c * (my $w = 6); ( sprintf( ('%'.$w.'d')x@V, @V) ) =~ s/.{1,$t}\K/\n/gr }
 sub     X ($a, $b) { my @c; for my $aa (0..$a-1) { for my $bb (0..$b-1) { push @c, $aa, $bb } } @c }
 
-my ($threshold, @sums, @S) = 10000;
+sub display (@s) { table 10, grep { $_ < 5000 } grep { not $s[$_] and 0==$_%2 and $_ } 0..@s }
 
-my @twins = uniq map { $_, $_+2 } grep { is_prime $_ and is_prime($_+2) } 3 .. $threshold;
-for my($i,$j) (X ((scalar @twins) x 2) ) {
-    $sums[ $twins[$i] + $twins[$j] ]++;
-}
-map { push @S, $_ unless $sums[$_] or 0 != $_%2 or $_ == 0 } 0..@sums;
-my $result = "Non twin prime sums:\n" . table 10, grep { $_ < 5000 } @S;
-
-@S = ();
-$sums[1 + $_]++ for 1, @twins;
-map { push @S, $_ unless $sums[$_] or 0 != $_%2 or $_ == 0 } 0..@sums;
-say $result .= "\nNon twin prime sums (including 1):\n" . table 10, grep { $_ < 5000 } @S;
+my ($limit, @sums) = 10_000;
+my @twins = uniq map { $_, $_+2 } grep { is_prime $_ and is_prime($_+2) } 3 .. $limit;
+for my($i,$j) ( X ((scalar @twins) x 2) ) { ++$sums[ $twins[$i] + $twins[$j] ] }
+my $result   =   "Non twin prime sums:\n"               . display @sums;
+++$sums[1 + $_] for 1, @twins;
+say $result .= "\nNon twin prime sums (including 1):\n" . display @sums;
 
 my $ref = <<'END';
 Non twin prime sums:
@@ -45,42 +40,3 @@ use Test::More;
 chomp $ref;
 is($result, $ref);
 done_testing();
-
-__END__
-
-=={{header|Perl}}==
-{{trans|Raku}}
-{{libheader|ntheory}}
-<syntaxhighlight lang="perl" line>use v5.36;
-use experimental 'for_list';
-use List::Util 'uniq';
-use ntheory 'is_prime';
-
-sub table ($c, @V) { my $t = $c * (my $w = 6); ( sprintf( ('%'.$w.'d')x@V, @V) ) =~ s/.{1,$t}\K/\n/gr }
-sub     X ($a, $b) { my @c; for my $aa (0..$a-1) { for my $bb (0..$b-1) { push @c, $aa, $bb } } @c }
-
-my ($threshold, @sums, @S) = 10000;
-
-my @twins = uniq map { $_, $_+2 } grep { is_prime $_ and is_prime($_+2) } 3 .. $threshold;
-for my($i,$j) (X ((scalar @twins) x 2) ) {
-    $sums[ $twins[$i] + $twins[$j] ]++;
-}
-map { push @S, $_ unless $sums[$_] or 0 != $_%2 or $_ == 0 } 0..@sums;
-my $result = "Non twin prime sums:\n" . table 10, grep { $_ < 5000 } @S;
-
-@S = ();
-$sums[1 + $_]++ for 1, @twins;
-map { push @S, $_ unless $sums[$_] or 0 != $_%2 or $_ == 0 } 0..@sums;
-say $result .= "\nNon twin prime sums (including 1):\n" . table 10, grep { $_ < 5000 } @S;</syntaxhighlight>
-{{out}}
-<pre>Non twin prime sums:
-     2     4    94    96    98   400   402   404   514   516
-   518   784   786   788   904   906   908  1114  1116  1118
-  1144  1146  1148  1264  1266  1268  1354  1356  1358  3244
-  3246  3248  4204  4206  4208
-
-Non twin prime sums (including 1):
-    94    96    98   400   402   404   514   516   518   784
-   786   788   904   906   908  1114  1116  1118  1144  1146
-  1148  1264  1266  1268  1354  1356  1358  3244  3246  3248
-  4204  4206  4208</pre>
