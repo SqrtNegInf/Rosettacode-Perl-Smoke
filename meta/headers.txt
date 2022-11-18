@@ -2349,6 +2349,13 @@ File: D/De_Bruijn_sequences
 #c# 2019-09-03 >RC
 #p# OK
 
+File: D/De_Polignac_numbers
+#!/usr/local/bin/perl
+#u# https://rosettacode.org/wiki/De_Polignac_numbers
+#c# 2022-11-17 >RC
+#p# OK
+#n# for 10K: 3m 37s
+
 File: D/Deal_cards_for_FreeCell
 #!/usr/local/bin/perl
 #u# http://rosettacode.org/wiki/Deal_cards_for_FreeCell
