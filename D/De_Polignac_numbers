@@ -14,9 +14,9 @@ use bigint;
 sub comma { reverse ((reverse shift) =~ s/(.{3})/$1,/gr) =~ s/^,//r }
 sub table ($c, @V) { my $t = $c * (my $w = 2 + vecmax map { length } @V); ( sprintf( ('%'.$w.'s')x@V, @V) ) =~ s/.{1,$t}\K/\n/gr }
 
-my ($i, @D) = (1, 1);
-while ($i++) {
-    my $n = 2*$i + 1;
+my ($n, @D) = (3, 1);
+while ($n++) {
+    next unless $n % 2;
     next if vecany { is_prime($n - 2**$_) } 1 .. logint $n, 2;
     push @D, comma $n;
     last if 1_000 == @D; # 10_000
@@ -24,7 +24,7 @@ while ($i++) {
 
 push @res, 'First fifty de Polignac numbers:';
 push @res, table 10, @D[0..49]; 
-push @res, 'One thousandth: ' . $D[999];
+push @res, 'One thousandth: ' . $D[ 999];
 #push @res, 'Ten thousandth: ' . $D[9999];
 
 say my $result = join "\n", @res;
