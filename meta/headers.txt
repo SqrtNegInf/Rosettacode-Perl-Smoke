@@ -3048,6 +3048,12 @@ File: E/Evaluate_binomial_coefficients
 #c# 2018-08-01 <RC
 #p# OK
 
+File: E/Even_numbers_which_cannot_be_expressed_as_the_sum_of_two_twin_primes
+#!/usr/local/bin/perl
+#u# https://rosettacode.org/wiki/Even_numbers_which_cannot_be_expressed_as_the_sum_of_two_twin_primes
+#c# 2022-11-18 >RC
+#p# OK
+
 File: E/Even_or_odd
 #!/usr/local/bin/perl
 #u# http://rosettacode.org/wiki/Even_or_odd
@@ -3569,9 +3575,9 @@ File: F/Find_palindromic_numbers_in_both_binary_and_ternary_bases
 #c# 2018-07-02 <RC
 #p# OK
 
-File: F/Find_prime_n_for_that_reversed_n_is_also_prime
+File: F/Find_prime_n_such_that_reversed_n_is_also_prime
 #!/usr/local/bin/perl
-#u# http://rosettacode.org/wiki/Find_prime_n_for_that_reversed_n_is_also_prime
+#u# http://rosettacode.org/wiki/Find_prime_n_such_that_reversed_n_is_also_prime
 #c# 2021-03-22 >RC
 #p# OK
 
