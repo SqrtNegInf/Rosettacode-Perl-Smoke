@@ -4741,6 +4741,13 @@ File: I/Idiomatically_determine_all_the_lowercase_and_uppercase_letters
 #c# 2018-09-15 >RC
 #p# OK
 
+File: I/Idoneal_numbers
+#!/usr/local/bin/perl
+#u# https://rosettacode.org/wiki/Idoneal_numbers
+#c# 2022-11-19 >RC
+#p# OK
+#n# short-circuits make all the difference...
+
 File: I/Image_convolution
 #!/usr/local/bin/perl5.32.1
 #u# http://rosettacode.org/wiki/Image_convolution
