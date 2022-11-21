@@ -591,6 +591,11 @@ S/Snake
 S/Solving_coin_problems
 ¢:     2 CENT SIGN
 
+S/Sorensen–Dice_coefficient
+–:     1 EN DASH
+∩:     1 INTERSECTION
+⊎:     1 MULTISET UNION
+
 S/Sparkline_in_unicode
 ▁:     4 LOWER ONE EIGHTH BLOCK
 ▂:     5 LOWER ONE QUARTER BLOCK
