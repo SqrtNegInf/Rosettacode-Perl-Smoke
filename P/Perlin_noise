@@ -2,15 +2,15 @@
 #u# http://rosettacode.org/wiki/Perlin_noise
 #c# 2018-08-20 <RC, 2021-01-31 >RC
 #p# OK
-#n# little bit nicer with signatures, int replaces floor, clearer formatting
+#n# 2022-11-22 use built-in 'floor' with v5.036
+#n# 2021-01-31 little bit nicer with signatures, int replaces floor, clearer formatting
 #n# for this particular input: permutation doesn't need to be doubled, 'b' parameter to 'lerp' doesn't matter
 
 my $result;
 
-use strict;
-use warnings;
-use feature 'say';
-use experimental 'signatures';
+use v5.036;
+use builtin qw(floor);
+use experimental qw(builtin);
 
 use constant permutation => qw{
  151 160 137  91  90  15 131  13 201  95  96  53 194 233   7 225 140  36 103  30  69
@@ -27,14 +27,15 @@ use constant permutation => qw{
   45 127   4 150 254 138 236 205  93 222 114  67  29  24  72 243 141 128 195  78  66
  215  61 156 180
 };
-use constant p => permutation, permutation; # or: permutation x 2;
+#use constant p => permutation, permutation; # or: permutation x 2;
+use constant p => permutation;
 
-sub floor ($x) { my $xi = int($x); return $x < $xi ? $xi - 1 : $xi }
+#sub floor ($x) { my $xi = int($x); return $x < $xi ? $xi - 1 : $xi } # don't need with v5.036
 
 sub fade ($x) { $x**3 * ($x * ($x * 6 - 15) + 10) }
 
-sub lerp ($t,$a,$b) { $a + $t * ($b - $a) }
-#sub lerp ($t,$a,$b) { $a + $t * - $a }
+#sub lerp ($t,$a,$b) { $a + $t * ($b - $a) }
+sub lerp ($t,$a,$b) { $a + $t * - $a }
 
 sub grad ($h, $x, $y, $z) {
     $h &= 15;
