@@ -8673,6 +8673,7 @@ File: R/Rosetta_Code_Rank_languages_by_popularity
 #c# 2018-08-21 <RC, 2019-09-11 >RC, 2022-09-07 >RC
 #p# OK
 #n# test needs to be revised every time a new language crosses the 1000-task barrier
+#n# 2020-01-xx Started out with: Phix, Julia, Go, Python, Raku, Perl
 #n# 2020-01-29 Pleased to welcome 'C' to the '1000 club'
 #n# 2020-02-24 'Java' joins the no-longer-quite-so-exclusive club
 #n# 2020-11-05 Pleased to welcome 'J' to the club
@@ -8684,6 +8685,7 @@ File: R/Rosetta_Code_Rank_languages_by_popularity
 #n# 2022-02-20 Pleased to welcome 'FreeBASIC' to the club (BASIC shambles onward, 50 years later...)
 #n# 2022-07-01 Pleased to welcome 'Sidef' to the club
 #n# 2022-08-27 'Sidef' dropped off? Must be error of RC hosting move [p.s. now it's back]
+#n# 2022-11-21 Retroactively welcoming: REXX, Racket, Kotlin
 
 File: R/Rosetta_Code_Tasks_without_examples
 #!/usr/local/bin/perl
