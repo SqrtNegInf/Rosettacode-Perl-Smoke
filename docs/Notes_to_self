@@ -1,3 +1,6 @@
+2022-11-22
+Last note wrong, 'S/Sorensen–Dice_coefficient' has the same feature/bug...
+
 2022-11-16
 Ugh, 'Meissel–Mertens_constant' is on RC with non-ASCII 'hyphen', using for both Raku and Perl to match site.
 (only instance in all of the tasks; FWIW the char is '\342\200\223')
