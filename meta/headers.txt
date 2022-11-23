@@ -7448,7 +7448,8 @@ File: P/Perlin_noise
 #u# http://rosettacode.org/wiki/Perlin_noise
 #c# 2018-08-20 <RC, 2021-01-31 >RC
 #p# OK
-#n# little bit nicer with signatures, int replaces floor, clearer formatting
+#n# 2022-11-22 use built-in 'floor' with v5.036
+#n# 2021-01-31 little bit nicer with signatures, int replaces floor, clearer formatting
 #n# for this particular input: permutation doesn't need to be doubled, 'b' parameter to 'lerp' doesn't matter
 
 File: P/Perlin_noise.1
