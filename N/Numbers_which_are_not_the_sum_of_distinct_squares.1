@@ -1,0 +1,47 @@
+#!/usr/local/bin/perl
+#u# http://rosettacode.org/wiki/Numbers_which_are_not_the_sum_of_distinct_squares
+#c# 2022-07-13 NOT ON RC
+#p# OK
+#n# Trying to be just a little different, by progressively increasing the number of squared terms used to sum
+#n# currently with bogus termination condition, so not going on RC with it
+
+my @res;
+
+use strict;
+use warnings;
+use feature 'say';
+
+use List::Util <sum max>;
+use Algorithm::Combinatorics 'combinations';
+
+my $m = 20;  # way more than we need
+my @sq = map { $_**2 } 1..$m;
+
+my(%found,$t,$maxb,@last);
+
+LOOP: 
+while (++$t) {
+    for (combinations( [0..$m-1], $t)) { 
+        $found{$_}++ for sum @sq[@$_]; 
+    }
+    my($run, $prev) = (0,   0); 
+    my($base, $max) = (-1, -1);
+
+    for (sort { $a <=> $b } keys %found) {
+        if ($_ == $prev+1) { $run++; $prev = $_ }
+        else               { $max=$run and $maxb=$base if $run > $max; $run = 0; $base = $_; $prev=$_ }
+    }
+    say "Run of $max from $maxb";
+    push  @last, $maxb;
+    last LOOP if defined $last[-3] and $last[-3] eq $maxb;  # 'done' when the max value appears to stop changing
+}
+
+$found{$_} or push @res, $_ for 1..$maxb;
+
+say my $result = join ' ', @res;
+my $ref = '2 3 6 7 8 11 12 15 18 19 22 23 24 27 28 31 32 33 43 44 47 48 60 67 72 76 92 96 108 112 128';
+
+use Test::More;
+chomp $ref;
+is($result, $ref);
+done_testing();
