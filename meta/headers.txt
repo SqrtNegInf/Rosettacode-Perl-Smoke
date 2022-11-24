@@ -6744,10 +6744,17 @@ File: N/Numbers_n_in_which_number_1_occur_twice
 File: N/Numbers_which_are_not_the_sum_of_distinct_squares
 #!/usr/local/bin/perl
 #u# http://rosettacode.org/wiki/Numbers_which_are_not_the_sum_of_distinct_squares
+#t# inprogress
+#c# 2022-11-23 >RC
+#p# OK
+
+File: N/Numbers_which_are_not_the_sum_of_distinct_squares.1
+#!/usr/local/bin/perl
+#u# http://rosettacode.org/wiki/Numbers_which_are_not_the_sum_of_distinct_squares
 #c# 2022-07-13 NOT ON RC
 #p# OK
 #n# Trying to be just a little different, by progressively increasing the number of squared terms used to sum
-#n# currently with bogus termination condition, need to fix that and maybe ready for RC
+#n# currently with bogus termination condition, so not going on RC with it
 
 File: N/Numbers_which_are_the_cube_roots_of_the_product_of_their_proper_divisors-1
 #!/usr/local/bin/perl
