@@ -6744,8 +6744,7 @@ File: N/Numbers_n_in_which_number_1_occur_twice
 File: N/Numbers_which_are_not_the_sum_of_distinct_squares
 #!/usr/local/bin/perl
 #u# http://rosettacode.org/wiki/Numbers_which_are_not_the_sum_of_distinct_squares
-#t# inprogress
-#c# 2022-11-23 >RC
+#c# 2022-11-24 >RC
 #p# OK
 
 File: N/Numbers_which_are_not_the_sum_of_distinct_squares.1
