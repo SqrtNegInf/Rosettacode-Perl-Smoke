@@ -12,7 +12,6 @@ binmode STDOUT, ':utf8';
 
 use Text::CSV 'csv';
 use Math::Trig;
-use List::Util 'head';
 
 use constant EARTH_RADIUS_IN_NAUTICAL_MILES => 6372.8 / 1.852;
 use constant TAU                            => 2 * 2 * atan2(1, 0);
@@ -37,12 +36,9 @@ sub great_circle_bearing ( $p1, $l1, $p2, $l2 ) {
 
 sub distance_and_bearing ( $lat1, $lon1, $lat2, $lon2 ) {
     my @ll = map { radians $_ } $lat1, $lon1, $lat2, $lon2;
-
     my $dist  = great_circle_distance(@ll);
     my $theta = great_circle_bearing( @ll);
-
-    return $dist * EARTH_RADIUS_IN_NAUTICAL_MILES,
-           degrees( $theta < 0 ?  $theta + TAU : $theta);
+    $dist * EARTH_RADIUS_IN_NAUTICAL_MILES, degrees( $theta < 0 ?  $theta + TAU : $theta);
 }
 
 sub find_nearest_airports ( $latitude, $longitude, $csv_path ) {
@@ -52,17 +48,17 @@ sub find_nearest_airports ( $latitude, $longitude, $csv_path ) {
     );
 
     for my $row (@$airports) {
-        ($$row{'Distance'},$$row{'Bearing'}) = distance_and_bearing ( $latitude, $longitude, $$row{'Latitude'}, $$row{'Longitude'} );
+        ($$row{'Distance'},$$row{'Bearing'}) = distance_and_bearing( $latitude, $longitude, $$row{'Latitude'}, $$row{'Longitude'} );
     }
 
     sort { $a->{'Distance'} <=> $b->{'Distance'} } @$airports;
 }
 
-my($lat,$lon,$wanted,$csv) = (51.514669, 2.198581, 20, 'ref/airports.dat');
+my($lat, $lon, $wanted, $csv) = (51.514669, 2.198581, 20, 'ref/airports.dat');
 push @res, sprintf "%7s\t%7s\t%-7s\t%-15s\t%s", <Dist Bear ICAO Country Name>;
-for my $a (head $wanted, find_nearest_airports($lat, $lon, $csv)) {
-    push @res, sprintf "%7.1f\t    %03d\t%-7s\t%-15s\t%s", 
-        $$a{'Distance'}, $$a{'Bearing'}, $$a{'ICAO'}, $$a{'Country'}, $$a{'Name'};
+for my $airport (find_nearest_airports($lat, $lon, $csv)) {
+    push @res, sprintf "%7.1f\t    %03d\t%-7s\t%-15s\t%s", map { $airport->{$_} } <Distance Bearing ICAO Country Name>;
+    last unless --$wanted
 }
 
 say my $result = join "\n", @res;
@@ -95,13 +91,3 @@ use Test::More;
 chomp $ref;
 is($result, $ref);
 done_testing();
-
-__END__
-
-=={{header|Perl}}==
-{{trans|Raku}}
-<syntaxhighlight lang="perl" line>
-</syntaxhighlight>
-{{out}}
-<pre>
-</pre>
