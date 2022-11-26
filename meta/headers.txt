@@ -2630,8 +2630,7 @@ File: D/Display_an_outline_as_a_nested_table.0
 File: D/Distance_and_Bearing
 #!/usr/local/bin/perl
 #u# https://rosettacode.org/wiki/Distance_and_Bearing
-#t# inprogress
-#c# 2022-xx-xx >RC
+#c# 2022-11-25 >RC
 #p# OK
 
 File: D/Distinct_Palindromes_Within_Decimal_Numbers
