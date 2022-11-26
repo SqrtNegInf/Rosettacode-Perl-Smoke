@@ -2,17 +2,23 @@
 #u# https://rosettacode.org/wiki/Sorensen–Dice_coefficient
 #c# 2022-11-26
 #p# OK
-#n# just a minor rehash of 'T/Text_completion' (score differences from Raku maybe due to blanks, surpress them?)
+#n# fiddle with case/blanks
 
 my @res;
 
-use v5.036;
+use strict;
+use warnings;
+use feature 'say';
 
 use Path::Tiny;
 use List::Util <uniq head>;
 
+my $noblanks = 1;
+
 sub bi_gram {
-    my $line = lc shift;
+    my $line = shift;
+    $line =~ tr/A-Z/a-z/ if $noblanks;
+    $line =~ s/ //g if $noblanks;
     uniq map { substr $line,$_,2 } 0..length($line)-2;
 }
 
@@ -33,9 +39,13 @@ sub sorensen {
 
 my %dict = map { $_ => [ bi_gram($_) ] } path('ref/Sorensen-Dice-Tasks.txt')->slurp =~ /.{10,}/gm;
 
-for my $word ( ('Primordial primes', 'Sunkist-Giuliani formula', 'Sieve of Euripides', 'Chowder numbers') ) {
+for my $word ( 'Chowder numbers' ) { #, 'Primordial primes', 'Sunkist-Giuliani formula', 'Sieve of Euripides', 'Chowder numbers'
     my(%scored,@ranked); 
-    %scored = sorensen(\%dict,lc $word);
+    if ($noblanks) {
+        %scored = sorensen(\%dict,(lc $word) =~ s/ //gr);
+    } else {
+        %scored = sorensen(\%dict,$word);
+    }
     push @ranked, sprintf "%.3f $_", $scored{$_} for sort { $scored{$b} <=> $scored{$a} || $a cmp $b } keys %scored;
     push @res, "\n$word:\n" . join("\n", head 5, @ranked);
 }
@@ -44,33 +54,12 @@ say my $result = join "\n", @res;
 
 my $ref = <<'END';
 
-Primordial primes:
-0.741 Factorial primes
-0.629 Sequence of primorial primes
-0.583 Almost prime
-0.581 Next special primes
-0.571 Pandigital prime
-
-Sunkist-Giuliani formula:
-0.542 Almkvist-Giullera formula for pi
-0.368 Haversine formula
-0.359 Faulhaber's formula
-0.348 Check Machin-like formulas
-0.303 FASTA format
-
-Sieve of Euripides:
-0.541 Sieve of Eratosthenes
-0.529 Sieve of Pritchard
-0.457 Four sides of square
-0.457 The sieve of Sundaram
-0.387 Sum of a series
-
 Chowder numbers:
-0.769 Chowla numbers
-0.615 Rhonda numbers
-0.609 Bell numbers
-0.609 Lah numbers
-0.593 Kaprekar numbers
+0.750 Chowla numbers
+0.583 Rhonda numbers
+0.571 Bell numbers
+0.571 Lah numbers
+0.560 Bernoulli numbers
 END
 
 use Test::More;
