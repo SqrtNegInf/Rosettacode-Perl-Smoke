@@ -232,12 +232,6 @@ D/Display_an_outline_as_a_nested_table.0
 
 D/Distance_and_Bearing
 ô:     1 LATIN SMALL LETTER O WITH CIRCUMFLEX
-θ:     1 GREEK SMALL LETTER THETA
-λ:     1 GREEK SMALL LETTER LAMDA
-φ:     1 GREEK SMALL LETTER PHI
-₁:     3 SUBSCRIPT ONE
-₂:     3 SUBSCRIPT TWO
-−:     2 MINUS SIGN
 
 D/Draw_a_clock
 ─:    22 BOX DRAWINGS LIGHT HORIZONTAL
