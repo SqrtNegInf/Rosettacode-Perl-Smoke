@@ -9465,10 +9465,16 @@ File: S/Solving_coin_problems
 File: S/Sorensen–Dice_coefficient
 #!/usr/local/bin/perl
 #u# https://rosettacode.org/wiki/Sorensen–Dice_coefficient
-#t# inprogress
-#c# 2022-xx-xx >RC
+#c# 2022-11-26
 #p# OK
-#n# core of code from 'T/Text_Completion'
+#n# just a minor rehash of 'T/Text_completion' (score differences from Raku maybe due to blanks, surpress them?)
+
+File: S/Sorensen–Dice_coefficient_exp
+#!/usr/local/bin/perl
+#u# https://rosettacode.org/wiki/Sorensen–Dice_coefficient
+#c# 2022-11-26
+#p# OK
+#n# fiddle with case/blanks
 
 File: S/Sort_a_list_of_object_identifiers-1
 #!/usr/local/bin/perl
