@@ -8882,6 +8882,13 @@ File: S/Secure_temporary_file
 #p# OK
 #n# just test one interface
 
+File: S/Selection_bias_in_clinical_sciences
+#!/usr/local/bin/perl
+#u# https://rosettacode.org/wiki/xx
+#t# inprogress
+#c# 2022-11-2x >RC
+#p# OK
+
 File: S/Selective_File_Copy
 #!/usr/local/bin/perl
 #u# http://rosettacode.org/wiki/Selective_File_Copy
