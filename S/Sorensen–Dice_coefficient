@@ -35,7 +35,7 @@ my %dict = map { $_ => [ bi_gram($_) ] } path('ref/Sorensen-Dice-Tasks.txt')->sl
 
 for my $word ( ('Primordial primes', 'Sunkist-Giuliani formula', 'Sieve of Euripides', 'Chowder numbers') ) {
     my(%scored,@ranked); 
-    %scored = sorensen(\%dict,lc $word);
+    %scored = sorensen(\%dict,$word);
     push @ranked, sprintf "%.3f $_", $scored{$_} for sort { $scored{$b} <=> $scored{$a} || $a cmp $b } keys %scored;
     push @res, "\n$word:\n" . join("\n", head 5, @ranked);
 }
