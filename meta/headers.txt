@@ -8884,7 +8884,7 @@ File: S/Secure_temporary_file
 
 File: S/Selection_bias_in_clinical_sciences
 #!/usr/local/bin/perl
-#u# https://rosettacode.org/wiki/xx
+#u# https://rosettacode.org/wiki/Selection_bias_in_clinical_sciences
 #t# inprogress
 #c# 2022-11-2x >RC
 #p# OK
