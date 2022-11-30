@@ -553,6 +553,9 @@ R/Reverse_a_string
 R/Runge-Kutta_method
 ±:    12 PLUS-MINUS SIGN
 
+S/Selection_bias_in_clinical_sciences
+×:     8 MULTIPLICATION SIGN
+
 S/Separate_the_house_number_from_the_street_name
 ë:     2 LATIN SMALL LETTER E WITH DIAERESIS
 –:     2 EN DASH
