@@ -6,11 +6,9 @@
 
 use v5.036;
 
-srand 123456;
+srand 1234567;
 
-use Data::Printer;          # debug only
-use Time::HiRes qw(sleep);  # debug only
-use List::Util 'sum';
+use List::AllUtils <sum indexes firstidx>;
 
 use enum qw<False True UNTREATED REGULAR IRREGULAR>;
 use constant DOSE_FOR_REGULAR => 100;
@@ -21,11 +19,11 @@ my (@category) = (UNTREATED) x $nSubjects;
 my (@hadcovid) = (False)     x $nSubjects;
 
 sub update {
-   my $pCovid=1e-3; 
-   my $pStartTreatment=5e-3; 
-   my $pRedose=1/4;
-   my @dRange=<3 6 9>;
-   for my $i (0 .. $#dosage) { 
+   my $pCovid          = 1e-3; 
+   my $pStartTreatment = 5e-3; 
+   my $pRedose         = 1/4;
+   my @dRange          = <3 6 9>;
+   for my $i (0 .. $nSubjects-1) { 
       unless ($hadcovid[$i]) { 
          if (rand() < $pCovid) { 
             $hadcovid[$i] = True
@@ -34,23 +32,25 @@ sub update {
             if ($dose==0 && rand() < $pStartTreatment or $dose > 0 && rand() < $pRedose) {               
 	           $dosage[$i]   = $dose += $dRange[3*rand()];
                $category[$i] = ($dose > DOSE_FOR_REGULAR) ? REGULAR : IRREGULAR
-            } 
+            }
          } 
       } 
    } 
 }
 
 sub kruskal (@sets) {
-   my @ranked     = sort { $a cmp $b } @sets;
-   my $n          = @ranked;
-   my @sr         = (0) x @sets;
-   my $ix         = 0; #(@ranked.first: * == True, :k)+1, 
-   my ($arf,$art) = ($ix/2, ($ix+$n)/2);
+     my @ranked     = sort { $a cmp $b } @{$sets[0]}, @{$sets[1]}, @{$sets[2]};
+     my $n          = @ranked;
+     my @sr         = (0) x @sets;
+     my $ix         = firstidx { $_ == 1 } @ranked;
+     my ($arf,$art) = ($ix/2, ($ix+$n)/2);
 
-  #for @sets.kv -> \i,@set { for @set -> $b { @sr[i] += $b ?? $art !! $arf } } 
+    for my $i (0..2) { 
+        $sr[$i] += $_ ? $art : $arf for @{$sets[$i]}
+    } 
 
-   my $H = sum map { my $s = $sr[$_]; $s**2 / scalar($sets[$_]) } 0..$#sr; # [+] @sr.kv.map: -> \i,\s { s*s/@sets[i].elems }
-   return 12/($n*($n+1)) * $H - 3 * ($n + 1)
+    my $H = sum map { my $s = $sr[$_]; $s**2 / @{$sets[$_]} } 0..$#sr;
+    12/($n*($n+1)) * $H - 3 * ($n + 1)
 }
 
 my($unt,$irr,$reg,$hunt,$hirr,$hreg,@sunt,@sirr,@sreg);
@@ -61,78 +61,80 @@ my $result = "Total subjects: $nSubjects\n";
 for my $day (1 .. $duration) { 
    update();
    if (0 == $day % $interval or $day == $duration or $day == $midpoint) { 
-      #@sunt = @hadcovid[ @category.grep: UNTREATED,:k ];
-      #@sirr = @hadcovid[ @category.grep: IRREGULAR,:k ]; 
-      #@sreg = @hadcovid[ @category.grep: REGULAR,  :k ]; 
+      @sunt = @hadcovid[ indexes { $_ == UNTREATED } @category];
+      @sirr = @hadcovid[ indexes { $_ == IRREGULAR } @category];
+      @sreg = @hadcovid[ indexes { $_ ==   REGULAR } @category];
       $unt  = @sunt;
       $irr  = @sirr;
       $reg  = @sreg;
       $hunt = sum @sunt;
       $hirr = sum @sirr;
-      $hreg = sum @sreg;
+      $hreg = sum(@sreg) // 0;
    } 
+
    if (0 == $day % $interval) {
       $result .= sprintf "Day %d:\n", $day;
       $result .= sprintf "Untreated:     N = %4d, with infection = %4d\n",  $unt,$hunt;
       $result .= sprintf "Irregular Use: N = %4d, with infection = %4d\n",  $irr,$hirr;
       $result .= sprintf "Regular Use:   N = %4d, with infection = %4d\n\n",$reg,$hreg
    } 
+
    if ($day == $midpoint or $day == $duration) { 
       my $stage = $day == $midpoint ? 'midpoint' : 'study end';
       $result .= sprintf "At $stage, Infection case percentages are:\n";
-      $result .= sprintf "  Untreated : %f\n",  100*$hunt/$unt;
-      $result .= sprintf "  Irregulars: %f\n",  100*$hirr/$irr;
-      $result .= sprintf "  Regulars  : %f\n\n",100*$hreg/$reg
+      $result .= sprintf "  Untreated : %6.2f\n",   100*$hunt/$unt;
+      $result .= sprintf "  Irregulars: %6.2f\n",   100*$hirr/$irr;
+      $result .= sprintf "  Regulars  : %6.2f\n\n", 100*$hreg/$reg
    }    
 }
 
-$result .= sprintf "Final statistics: H = %f\n", kruskal ( @sunt, @sirr, @sreg );
+$result .= sprintf "Final statistics: H = %.2f\n", kruskal ( \@sunt, \@sirr, \@sreg );
 
-say $result;
+#say $result;
 
 my $ref = <<'END';
 Total subjects: 10000
 Day 30:
-Untreated:     N = 8684, with infection =  252
-Irregular Use: N = 1316, with infection =   16
+Untreated:     N = 8640, with infection =  283
+Irregular Use: N = 1360, with infection =   18
 Regular Use:   N =    0, with infection =    0
 
 Day 60:
-Untreated:     N = 7599, with infection =  481
-Irregular Use: N = 2249, with infection =   65
-Regular Use:   N =  152, with infection =    1
+Untreated:     N = 7499, with infection =  532
+Irregular Use: N = 2338, with infection =   75
+Regular Use:   N =  163, with infection =    1
 
 Day 90:
-Untreated:     N = 6616, with infection =  658
-Irregular Use: N = 2333, with infection =  141
-Regular Use:   N = 1051, with infection =   16
+Untreated:     N = 6537, with infection =  709
+Irregular Use: N = 2382, with infection =  144
+Regular Use:   N = 1081, with infection =   12
 
 At midpoint, Infection case percentages are:
-  Untreated : 9.945586
-  Irregulars: 6.043721
-  Regulars  : 1.522360
+  Untreated :  10.85
+  Irregulars:   6.05
+  Regulars  :   1.11
 
 Day 120:
-Untreated:     N = 5765, with infection =  811
-Irregular Use: N = 2176, with infection =  187
-Regular Use:   N = 2059, with infection =   60
+Untreated:     N = 5739, with infection =  855
+Irregular Use: N = 2102, with infection =  216
+Regular Use:   N = 2159, with infection =   52
 
 Day 150:
-Untreated:     N = 5067, with infection =  956
-Irregular Use: N = 1901, with infection =  245
-Regular Use:   N = 3032, with infection =  128
+Untreated:     N = 5091, with infection = 1012
+Irregular Use: N = 1792, with infection =  270
+Regular Use:   N = 3117, with infection =  134
 
 Day 180:
-Untreated:     N = 4505, with infection = 1068
-Irregular Use: N = 1654, with infection =  308
-Regular Use:   N = 3841, with infection =  210
+Untreated:     N = 4468, with infection = 1126
+Irregular Use: N = 1669, with infection =  315
+Regular Use:   N = 3863, with infection =  243
 
 At study end, Infection case percentages are:
-  Untreated : 23.706992
-  Irregulars: 18.621524
-  Regulars  : 5.467326
+  Untreated :  25.20
+  Irregulars:  18.87
+  Regulars  :   6.29
 
-Final statistics: H = 211.439120
+Final statistics: H = 218.74
 
 END
 
