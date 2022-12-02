@@ -1,14 +1,13 @@
 #!/usr/local/bin/perl
 #u# https://rosettacode.org/wiki/Selection_bias_in_clinical_sciences
-#t# inprogress
-#c# 2022-11-2x >RC
+#c# 2022-12-01 >RC
 #p# OK
-
-use v5.036;
 
 srand 1234567;
 
-use List::AllUtils <sum indexes firstidx>;
+use v5.036;
+
+use List::AllUtils <sum0 indexes firstidx>;
 
 use enum qw<False True UNTREATED REGULAR IRREGULAR>;
 use constant DOSE_FOR_REGULAR => 100;
@@ -19,37 +18,37 @@ my (@category) = (UNTREATED) x $nSubjects;
 my (@hadcovid) = (False)     x $nSubjects;
 
 sub update {
-   my $pCovid          = 1e-3; 
-   my $pStartTreatment = 5e-3; 
-   my $pRedose         = 1/4;
-   my @dRange          = <3 6 9>;
-   for my $i (0 .. $nSubjects-1) { 
-      unless ($hadcovid[$i]) { 
-         if (rand() < $pCovid) { 
-            $hadcovid[$i] = True
-         } else {
-            my $dose = $dosage[$i];
-            if ($dose==0 && rand() < $pStartTreatment or $dose > 0 && rand() < $pRedose) {               
-	           $dosage[$i]   = $dose += $dRange[3*rand()];
-               $category[$i] = ($dose > DOSE_FOR_REGULAR) ? REGULAR : IRREGULAR
-            }
-         } 
-      } 
-   } 
+    my $pCovid          = 1e-3; 
+    my $pStartTreatment = 5e-3; 
+    my $pRedose         = 1/4;
+    my @dRange          = <3 6 9>;
+    for my $i (0 .. $nSubjects-1) { 
+        unless ($hadcovid[$i]) { 
+            if (rand() < $pCovid) { 
+                $hadcovid[$i] = True
+            } else {
+                my $dose = $dosage[$i];
+                if ($dose==0 && rand() < $pStartTreatment or $dose > 0 && rand() < $pRedose) {               
+                    $dosage[$i]   = $dose += $dRange[3*rand()];
+                    $category[$i] = ($dose > DOSE_FOR_REGULAR) ? REGULAR : IRREGULAR
+                }
+            } 
+        } 
+    } 
 }
 
 sub kruskal (@sets) {
-     my @ranked     = sort { $a cmp $b } @{$sets[0]}, @{$sets[1]}, @{$sets[2]};
+     my @ranked     = sort @{$sets[0]}, @{$sets[1]}, @{$sets[2]};
      my $n          = @ranked;
      my @sr         = (0) x @sets;
-     my $ix         = firstidx { $_ == 1 } @ranked;
+     my $ix         = firstidx { $_ } @ranked;
      my ($arf,$art) = ($ix/2, ($ix+$n)/2);
 
     for my $i (0..2) { 
         $sr[$i] += $_ ? $art : $arf for @{$sets[$i]}
     } 
 
-    my $H = sum map { my $s = $sr[$_]; $s**2 / @{$sets[$_]} } 0..$#sr;
+    my $H = sum0 map { my $s = $sr[$_]; $s**2 / @{$sets[$_]} } 0..$#sr;
     12/($n*($n+1)) * $H - 3 * ($n + 1)
 }
 
@@ -59,38 +58,35 @@ my $midpoint = int $duration / 2;
 my $result = "Total subjects: $nSubjects\n";
 
 for my $day (1 .. $duration) { 
-   update();
-   if (0 == $day % $interval or $day == $duration or $day == $midpoint) { 
-      @sunt = @hadcovid[ indexes { $_ == UNTREATED } @category];
-      @sirr = @hadcovid[ indexes { $_ == IRREGULAR } @category];
-      @sreg = @hadcovid[ indexes { $_ ==   REGULAR } @category];
-      $unt  = @sunt;
-      $irr  = @sirr;
-      $reg  = @sreg;
-      $hunt = sum @sunt;
-      $hirr = sum @sirr;
-      $hreg = sum(@sreg) // 0;
-   } 
+    update();
+    if (0 == $day % $interval or $day == $duration or $day == $midpoint) { 
+        @sunt = @hadcovid[ indexes { $_ == UNTREATED } @category];
+        @sirr = @hadcovid[ indexes { $_ == IRREGULAR } @category];
+        @sreg = @hadcovid[ indexes { $_ ==   REGULAR } @category];
+        ( $unt, $irr, $reg) = (scalar(@sunt), scalar(@sirr), scalar(@sreg));
+        ($hunt,$hirr,$hreg) = (  sum0(@sunt),   sum0(@sirr),   sum0(@sreg));
+       #($hunt,$hirr,$hreg) = (   sum(@sunt),    sum(@sirr),    sum(@sreg) // 0);
+    }
 
-   if (0 == $day % $interval) {
-      $result .= sprintf "Day %d:\n", $day;
-      $result .= sprintf "Untreated:     N = %4d, with infection = %4d\n",  $unt,$hunt;
-      $result .= sprintf "Irregular Use: N = %4d, with infection = %4d\n",  $irr,$hirr;
-      $result .= sprintf "Regular Use:   N = %4d, with infection = %4d\n\n",$reg,$hreg
-   } 
+    if (0 == $day % $interval) {
+        $result .= sprintf "Day %d:\n", $day;
+        $result .= sprintf "Untreated:     N = %4d, with infection = %4d\n",  $unt, $hunt;
+        $result .= sprintf "Irregular Use: N = %4d, with infection = %4d\n",  $irr, $hirr;
+        $result .= sprintf "Regular Use:   N = %4d, with infection = %4d\n\n",$reg, $hreg
+    } 
 
-   if ($day == $midpoint or $day == $duration) { 
-      my $stage = $day == $midpoint ? 'midpoint' : 'study end';
-      $result .= sprintf "At $stage, Infection case percentages are:\n";
-      $result .= sprintf "  Untreated : %6.2f\n",   100*$hunt/$unt;
-      $result .= sprintf "  Irregulars: %6.2f\n",   100*$hirr/$irr;
-      $result .= sprintf "  Regulars  : %6.2f\n\n", 100*$hreg/$reg
-   }    
+    if ($day == $midpoint or $day == $duration) { 
+        my $stage = $day == $midpoint ? 'midpoint' : 'study end';
+        $result .= sprintf "At $stage, Infection case percentages are:\n";
+        $result .= sprintf "  Untreated : %6.2f\n",   100*$hunt/$unt;
+        $result .= sprintf "  Irregulars: %6.2f\n",   100*$hirr/$irr;
+        $result .= sprintf "  Regulars  : %6.2f\n\n", 100*$hreg/$reg
+    }    
 }
 
 $result .= sprintf "Final statistics: H = %.2f\n", kruskal ( \@sunt, \@sirr, \@sreg );
 
-#say $result;
+say $result;
 
 my $ref = <<'END';
 Total subjects: 10000
@@ -141,15 +137,4 @@ END
 use Test::More;
 chomp $ref;
 is($result, $ref);
-#is(($result =~ s/\s//gr), ($ref =~ s/\s//gr));
 done_testing();
-
-__END__
-
-=={{header|Perl}}==
-{{trans|Raku}}
-<syntaxhighlight lang="perl" line>
-</syntaxhighlight>
-{{out}}
-<pre>
-</pre>
