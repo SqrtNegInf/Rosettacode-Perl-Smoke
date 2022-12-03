@@ -8165,6 +8165,13 @@ File: Q/Quine
 #c# 2018-08-19 <RC
 #p# OK
 
+File: Q/Quoting_constructs
+#!/usr/local/bin/perl
+#u# https://rosettacode.org/wiki/Quoting_constructs
+#c# 2022-12-02 <RC
+#p# OK
+#n# kinda random
+
 File: R/RCRPG
 #!/usr/local/bin/perl
 #u# http://rosettacode.org/wiki/RCRPG/Perl
@@ -9892,6 +9899,13 @@ File: S/Statistics_Basic
 #c# 2018-08-13 <RC
 #p# OK
 #n# oops, was not displaying Mean/Stddev
+
+File: S/Statistics_Chi-squared_distribution
+#!/usr/local/bin/perl
+#u# https://rosettacode.org/wiki/Statistics_Chi-squared_distribution
+#t# inprogress
+#c# 2022-12-03 >RC
+#p# OK
 
 File: S/Statistics_Normal_distribution
 #!/usr/local/bin/perl
