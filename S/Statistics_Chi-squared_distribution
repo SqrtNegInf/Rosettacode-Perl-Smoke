@@ -11,6 +11,7 @@ use Time::HiRes qw(sleep);  # debug only
 
 my $result;
 
+use List::Util 'sum';
 use Math::MPFR; 
 Math::MPFR->import();
 
@@ -19,6 +20,12 @@ my $g = Math::MPFR->new();
 Math::MPFR::Rmpfr_gamma($result, Math::MPFR->new($z), 0);
 $g;
 }
+
+sub chi2($x,$k) { $x>0 && $k>0 ? ($x**($k/2 - 1) * exp(-$x/2)/(2**($k/2)*gamma($k / 2))) : 0}
+
+sub gamma_cdf($k,$x) { $x**$k * exp(-$x) * sum map { $x** $_ / gamma($k+$_+1) } 0..100 }
+
+sub cdf_chi2($x,$k) { ($x <= 0 or $k <= 0) ? 0.0 : gamma_cdf($k / 2, $x / 2) }
 
 $result .= join(' ', map { sprintf "%.12f", Gamma($_/3) } 1 .. 10);
 $result .= "\n";
