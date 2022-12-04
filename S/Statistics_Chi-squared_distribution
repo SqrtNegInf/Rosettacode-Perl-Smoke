@@ -1,53 +1,77 @@
 #!/usr/local/bin/perl
 #u# https://rosettacode.org/wiki/Statistics_Chi-squared_distribution
-#t# inprogress
 #c# 2022-12-03 >RC
 #p# OK
 
+my @res;
+
 use v5.36;
 
-use Data::Printer;          # debug only
-use Time::HiRes qw(sleep);  # debug only
-
-my $result;
-
-use List::Util 'sum';
 use Math::MPFR; 
-Math::MPFR->import();
+use List::Util 'sum';
 
 sub Gamma ($z) {
-my $g = Math::MPFR->new();
-Math::MPFR::Rmpfr_gamma($result, Math::MPFR->new($z), 0);
-$g;
+    my $g = Math::MPFR->new();
+    Math::MPFR::Rmpfr_gamma($g, Math::MPFR->new($z), 0);
+    $g;
 }
 
-sub chi2($x,$k) { $x>0 && $k>0 ? ($x**($k/2 - 1) * exp(-$x/2)/(2**($k/2)*gamma($k / 2))) : 0}
+sub chi2($x,$k)      { $x>0 && $k>0 ? ($x**($k/2 - 1) * exp(-$x/2)/(2**($k/2)*Gamma($k / 2))) : 0 }
+sub gamma_cdf($k,$x) { $x**$k * exp(-$x) * sum map { $x** $_ / Gamma($k+$_+1) } 0..100 }
+sub cdf_chi2($x,$k)  { ($x <= 0 or $k <= 0) ? 0.0 : gamma_cdf($k / 2, $x / 2) }
 
-sub gamma_cdf($k,$x) { $x**$k * exp(-$x) * sum map { $x** $_ / gamma($k+$_+1) } 0..100 }
+my $l1 = 'x           χ² '; 
+$l1 .= "k = $_" . ' 'x13 for 1..5;
+push @res, $l1;
+push @res, '-' x (my $width = 93);
 
-sub cdf_chi2($x,$k) { ($x <= 0 or $k <= 0) ? 0.0 : gamma_cdf($k / 2, $x / 2) }
+for my $x (0..10) {
+    my $l2 = sprintf '%2d', $x; 
+    $l2 .= sprintf '  %.' . (int(($width-2)/5)-4) . 'f', chi2($x, $_) for 1..5;
+    push @res, $l2;
+}
 
-$result .= join(' ', map { sprintf "%.12f", Gamma($_/3) } 1 .. 10);
-$result .= "\n";
+push @res, "\nχ² x     cdf for χ²   P value (df=3)\n" . '-' x 36;
+for my $p (map { 2**$_ } 0..5)  {
+    my $cdf = cdf_chi2($p, 3);
+    push @res, sprintf '%2d     %-.10f   %-.10f', $p, $cdf, 1-$cdf;
+}
 
-say $result;# = join "\n", @res;
-exit;
+my @airport  = <77 23 88 12 79 21 81 19>;
+my @expected = split ' ', '81.25 18.75 ' x 4;
+my $dtotal;
+$dtotal += ($airport[$_] - $expected[$_])**2 / $expected[$_] for 0..$#airport;
+push @res, sprintf "\nFor the airport data, diff total is %.5f, χ² is %.5f, p value %.5f\n", $dtotal, chi2($dtotal, 3), cdf_chi2($dtotal, 3);
+
+say my $result = join "\n", @res;
 
 my $ref = <<'END';
+x           χ² k = 1             k = 2             k = 3             k = 4             k = 5             
+---------------------------------------------------------------------------------------------
+ 0  0.00000000000000  0.00000000000000  0.00000000000000  0.00000000000000  0.00000000000000
+ 1  0.24197072451914  0.30326532985632  0.24197072451914  0.15163266492816  0.08065690817305
+ 2  0.10377687435515  0.18393972058572  0.20755374871030  0.18393972058572  0.13836916580686
+ 3  0.05139344326792  0.11156508007421  0.15418032980377  0.16734762011132  0.15418032980377
+ 4  0.02699548325659  0.06766764161831  0.10798193302638  0.13533528323661  0.14397591070183
+ 5  0.01464498256193  0.04104249931195  0.07322491280963  0.10260624827987  0.12204152134939
+ 6  0.00810869555494  0.02489353418393  0.04865217332964  0.07468060255180  0.09730434665928
+ 7  0.00455334292164  0.01509869171116  0.03187340045148  0.05284542098906  0.07437126772012
+ 8  0.00258337316926  0.00915781944437  0.02066698535409  0.03663127777747  0.05511196094425
+ 9  0.00147728280398  0.00555449826912  0.01329554523581  0.02499524221105  0.03988663570744
+10  0.00085003666025  0.00336897349954  0.00850036660252  0.01684486749771  0.02833455534173
+
+χ² x     cdf for χ²   P value (df=3)
+------------------------------------
+ 1     0.1987480431   0.8012519569
+ 2     0.4275932955   0.5724067045
+ 4     0.7385358701   0.2614641299
+ 8     0.9539882943   0.0460117057
+16     0.9988660157   0.0011339843
+32     0.9999994767   0.0000005233
+
+For the airport data, diff total is 4.51282, χ² is 0.08875, p value 0.78885
 END
 
 use Test::More;
-chomp $ref;
 is($result, $ref);
-#is(($result =~ s/\s//gr), ($ref =~ s/\s//gr));
 done_testing();
-
-__END__
-
-=={{header|Perl}}==
-{{trans|Raku}}
-<syntaxhighlight lang="perl" line>
-</syntaxhighlight>
-{{out}}
-<pre>
-</pre>
