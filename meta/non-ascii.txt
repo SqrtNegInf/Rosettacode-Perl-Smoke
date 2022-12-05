@@ -650,6 +650,14 @@ S/Starting_a_web_browser
 –:     1 EN DASH
 ’:     3 RIGHT SINGLE QUOTATION MARK
 
+S/Statistics_Chi-squared_distribution
+²:     8 SUPERSCRIPT TWO
+χ:     8 GREEK SMALL LETTER CHI
+
+S/Statistics_Chi-squared_distribution.1
+²:     4 SUPERSCRIPT TWO
+χ:     4 GREEK SMALL LETTER CHI
+
 S/Statistics_Normal_distribution
 ⎸:    11 LEFT VERTICAL BOX LINE
 █:   710 FULL BLOCK
