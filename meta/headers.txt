@@ -2691,9 +2691,17 @@ File: D/Documentation
 File: D/Dominoes
 #!/usr/local/bin/perl
 #u# http://rosettacode.org/wiki/Dominoes
-#c# 2021-11-17 <RC
+#c# 2021-11-17 <RC, 2022-12-04 >RC
 #p# OK
-#n# just testing one initial configuration
+#n# d'oh, full-width blank lines in grid
+#n# use 'bitwise' and '|.' to future-proof for v5.036
+
+File: D/Dominoes-2
+#!/usr/local/bin/perl
+#u# http://rosettacode.org/wiki/Dominoes
+#c# 2021-11-17 <RC, NOT ON RC
+#p# OK
+#n# works with v5.036, eliminate reliance on global, no 'eval'; should update RC with this version?
 
 File: D/Doomsday_rule
 #!/usr/local/bin/perl
@@ -9903,9 +9911,15 @@ File: S/Statistics_Basic
 File: S/Statistics_Chi-squared_distribution
 #!/usr/local/bin/perl
 #u# https://rosettacode.org/wiki/Statistics_Chi-squared_distribution
-#t# inprogress
 #c# 2022-12-03 >RC
 #p# OK
+
+File: S/Statistics_Chi-squared_distribution.1
+#!/usr/local/bin/perl
+#u# https://rosettacode.org/wiki/Statistics_Chi-squared_distribution
+#c# 2022-12-03 >RC
+#p# OK
+#n# this version on RC, direct-to-STDOUT print statments
 
 File: S/Statistics_Normal_distribution
 #!/usr/local/bin/perl
