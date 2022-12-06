@@ -2699,9 +2699,10 @@ File: D/Dominoes
 File: D/Dominoes-2
 #!/usr/local/bin/perl
 #u# http://rosettacode.org/wiki/Dominoes
-#c# 2021-11-17 <RC, NOT ON RC
+#c# 2021-11-17 <RC, 2022-12-05 NOT ON RC
 #p# OK
-#n# works with v5.036, eliminate reliance on global, no 'eval'; should update RC with this version?
+#n# works with v5.036, eliminate reliance on global, no 'eval', any size grid, added extra credit
+#n# should update RC with this version?
 
 File: D/Doomsday_rule
 #!/usr/local/bin/perl
