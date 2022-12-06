@@ -34,7 +34,6 @@ for my $n (3..14) { # ..17
                 $nope++ and last unless is_prime($rr[0]+$rr[1]);
             }
             unless ($nope) {
-                #say '1 ' . join ' ', @list unless $count[$n];
                 $count[$n]++;
             }
             $nope = 0;
