@@ -11507,6 +11507,19 @@ File: W/Wordle_comparison
 #c# 2022-02-16 <RC
 #p# OK
 
+File: W/Wordle_comparison-1
+#!/usr/local/bin/perl
+#u# https://rosettacode.org/wiki/Wordle_comparison
+#c# 2022-12-06 <RC
+#p# OK
+
+File: W/Wordle_comparison-2
+#!/usr/local/bin/perl
+#u# https://rosettacode.org/wiki/Wordle_comparison
+#c# 2022-12-06 <RC
+#p# OK
+#n# verbose variation
+
 File: W/Words_containing_%22the%22_substring
 #!/usr/local/bin/perl
 #u# http://rosettacode.org/wiki/Words_containing_%22the%22_substring
