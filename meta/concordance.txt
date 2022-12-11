@@ -1,0 +1,89 @@
+WIP: Way that Perl can provide same/approx functionality as Raku built-ins
+
+Pragmas
+=======
+
+==> modern-ish Perl
+
+P6   say state
+5.36 say state
+P5   use feature <say state>  
+
+==> v5.36 and up only
+
+use builtin <indexed floor>;
+use experimental qw(builtin for_list);
+
+Modules
+=======
+
+P6 Z  
+P5 List::Util 'mesh'
+
+P6 .rotor(2 => -1)
+P5 List::MoreUtils 'slide'
+
+P6 classify
+P5 List::Categorize 'categorize'
+
+P6 is-prime / gcd
+P5 ntheory <is_prime gcd>
+
+P6 [+]
+P5 ntheory <vecsum>
+P5 List::Util <sum sum0>
+
+P6 [×]
+P5 ntheory <vecprod>
+
+P6 pick(*)
+P5 List::Util 'shuffle'
+
+P6 first / first(*, :k)
+P5 List::Util <first firstidx>
+P5 ntheory <vecfirst vecfirstidx>
+
+P6 min / max / sum [+]
+P5 List::Util <min max sum sum0>
+
+# nb: tread carefully here, int/frac portions, sign 
+P6 %%
+P5 use POSIX 'fmod', Math::ModInt '
+
+P6    floor
+P5.36 floor
+P5    use POSIX 'floor'
+
+P6 ceiling
+P5 use POSIX 'ceil'
+
+P6 *.log(10)
+P5 use POSIX log10
+
+P6
+P5
+
+P6
+P5
+
+P6
+P5
+
+P6
+P5
+
+P6
+P5
+
+P6
+P5
+
+P6
+P5
+
+P6
+P5
+
+P6
+P5
+
