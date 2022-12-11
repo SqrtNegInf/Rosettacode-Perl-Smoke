@@ -23,7 +23,7 @@ P5.36 use experimental 'for_list';
 Modules
 =======
 
-Special mention: 
+Special mention:
 
 P6 [<op>]
 P5 List::Util::reduce 
@@ -32,6 +32,9 @@ P6 [\<op>]
 P5 List::Util::reductions
 
 -----
+
+P6 X  
+P5 ?
 
 P6 Z  
 P5 List::Util 'mesh' # aka 'zip'
