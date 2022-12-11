@@ -60,6 +60,9 @@ P5 ntheory 'vecprod'
 P6 pick(*)
 P5 List::Util 'shuffle'
 
+P6 grep(*, :k)
+P5 List::AllUtils <indexes>
+
 P6 first / first(*, :k)
 P5 List::Util <first firstidx>
 P5 ntheory <vecfirst vecfirstidx>
@@ -71,6 +74,7 @@ P5 List::Util <min max minstr maxstr>
 P6 %%
 P5 POSIX 'fmod'
 P5 Math::ModInt 'mod'
+P5 Math::AnyNum 'imod'
 
 # cf 'floor' pragma
 P6 floor
@@ -89,23 +93,23 @@ P5 List::Util 'uniq' # aka 'distinct'
 P6 for * -> $i, $j {
 P5 List:AllUtils 'natatime';
 
-P6
-P5
+P6 sleep
+P5 Time::HiRes 'sleep'
 
-P6
-P5
+P6 combinations
+P5 Algorithm::Combinatorics 'combinations'
 
-P6
-P5
+P6 head / tail
+P5 List::Util <head tail>
 
-P6
-P5
+P6 polymod
+P5 Math::AnyNum 'polymod'
 
-P6
-P5
+P6 round
+P5 Math::AnyNum 'round'
 
-P6
-P5
+P6 div
+P5 Math::AnyNum 'idiv'
 
 P6
 P5
