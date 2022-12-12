@@ -1,12 +1,32 @@
-WIP: Way that Perl can provide similar/approx functionality as Raku built-ins
+WIP: Ways that Perl can provide similar/approx functionality as Raku built-ins
+
+Notes
+=====
+
+For many of the math/numeric entries, Math::AnyNum is oftenn an option, but 
+typically list a more narrowly targeted module (reflects usage in RC tasks)
+
+Some modules referenced are core, most are not.
+
+For the List::* suite of modules, give priorit to List::Util, otherwise reference
+List::AllUtils (unless routine only found elsewhere, e.g. List::MoreUtils).
 
 Pragmas
 =======
 
 ==> modern-ish Perl
 
-P6 say state
+P6 say / state
 P5 use feature <say state>  
+
+P6 large values/extended precision (*.FatRat)
+P5 bigint / bigrat / bignum
+
+P6 "subroutine signatures"
+P5 use experimental 'signatures'
+
+P6 "display non-ASCII text"
+P5 use utf8; binmode STDOUT, ":encoding(UTF-8)";
 
 ==> v5.36 and up only
 
@@ -34,14 +54,16 @@ P5 List::Util::reductions
 -----
 
 P6 X  
-P5 ?
+P5 ntheory 'forsetproduct'
+P5 Set::Product 'product'
+P5 Math::Cartesian::Product 'cartesian'
 
 P6 Z  
-P5 List::Util 'mesh' # aka 'zip'
+P5 List::Util 'mesh'                # aka 'zip'
 
 P6 .rotor(2 => -1)
-P5 List::MoreUtils 'slide'        # as a filter
-P5 List::MoreUtils 'slideatatime' # as an iterator
+P5 List::MoreUtils 'slide'          # as a filter
+P5 List::MoreUtils 'slideatatime'   # as an iterator, e.g. slideatatime(1, 2, @a)
 
 P6 classify
 P5 List::Categorize 'categorize'
@@ -49,7 +71,7 @@ P5 List::Categorize 'categorize'
 P6 is-prime / gcd
 P5 ntheory <is_prime gcd>
 
-P6 [+]                      # aka 'sum'
+P6 [+]                              # aka 'sum'
 P5 List::Util <sum sum0>
 P5 ntheory <vecsum>
 
@@ -66,6 +88,9 @@ P5 List::AllUtils <indexes>
 P6 first / first(*, :k)
 P5 List::Util <first firstidx>
 P5 ntheory <vecfirst vecfirstidx>
+
+P6 last / last(*, :k)
+P5 List::MoreUtils <last lastidx>
 
 P6 min / max 
 P5 List::Util <min max minstr maxstr>
@@ -99,6 +124,11 @@ P5 Time::HiRes 'sleep'
 P6 combinations
 P5 Algorithm::Combinatorics 'combinations'
 
+P6 permutations
+P5 Algorithm::Permute                       # iterator
+P5 ntheory 'forperm'                        #    "
+P5 Algorithm::Combinatorics <permutations tuples_with_repetition>
+
 P6 head / tail
 P5 List::Util <head tail>
 
@@ -111,14 +141,39 @@ P5 Math::AnyNum 'round'
 P6 div
 P5 Math::AnyNum 'idiv'
 
-P6
-P5
+# not a simple one-to-one mapping here, diverse applications
+P6 base (and polymode)
+P5 ntheory <fromdigits todigitstring todigits>;
 
-P6
-P5
+P6 any / all / none
+P5 List::Util <any all none>
+P5 Quantum::Superpositions
 
-P6
-P5
+P6 "laziness"                   # very broadly applied
+P5 List::Lazy 'lazy_list'       # very narrowly implemented
+P5 List::Lazy 'lazy_range'      #           "
+
+P6 "complex arithmetic"
+P5 Math::Complex
+P5 Math::AnyNum
+
+P6 "trig functions"
+P5 Math::Trig
+
+P6 large values/extended precision (*.FatRat)
+P5 Math::BigInt / Math::BigRat / Math::BigFloat
+
+P6 π
+P5 Math::AnyNum 'pi'
+
+P6 *.uniname
+P5 Unicode::UCD 'charinfo'
+
+P6 $*TOLERANCE
+P5 Test::Number::Delta
+
+P6 minmax
+P5 List::AllUtils 'minmax'
 
 P6
 P5
