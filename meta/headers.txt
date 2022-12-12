@@ -3266,7 +3266,7 @@ File: F/Faces_from_a_mesh
 
 File: F/Factor-perfect_numbers
 #!/usr/local/bin/perl
-#u# https://rosettacode.org/wiki/xx
+#u# https://rosettacode.org/wiki/Factor-perfect_numbers
 #t# inprogress
 #c# 2022-xx-xx >RC
 #p# OK
@@ -6664,7 +6664,7 @@ File: N/Non-continuous_subsequences
 File: N/Non-decimal_radices_Convert
 #!/usr/local/bin/perl
 #u# http://rosettacode.org/wiki/Non-decimal_radices/Convert
-#c# 2018-08-20 <RC
+#c# 2018-08-20 <RC, 2022-12-11 <RC
 #p# OK
 
 File: N/Non-decimal_radices_Input
