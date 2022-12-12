@@ -1,5 +1,5 @@
 #!/usr/local/bin/perl
-#u# https://rosettacode.org/wiki/xx
+#u# https://rosettacode.org/wiki/Factor-perfect_numbers
 #t# inprogress
 #c# 2022-xx-xx >RC
 #p# OK
@@ -32,8 +32,5 @@ __END__
 <syntaxhighlight lang="perl" line>
 </syntaxhighlight>
 {{out}}
-<pre style="height:20ex">
+<pre>
 </pre>
-[[File:xx|300px|thumb|right]]
-# or
-[https://github.com/SqrtNegInf/Rosettacode-Perl-Smoke/blob/master/ref/xx xx]
