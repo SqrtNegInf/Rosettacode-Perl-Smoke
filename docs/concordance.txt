@@ -178,14 +178,16 @@ P5 List::AllUtils 'minmax'
 P6 "concurrency"
 P5 Parallel::ForkManager
 
-P6
-P5
+P6 "sets"
+P5 Set::Object
 
-P6
-P5
+P6 "bags"
+P5 Set::Bag
+P5 List::MoreUtils 'frequency'
 
-P6
-P5
+# a bit tenuous?
+P6 "is cached"
+P5 Memoize
 
 P6
 P5
