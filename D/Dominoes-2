@@ -47,7 +47,7 @@ sub find ($x, $y, $try, $orig) {
     state $solution;
     my $sum = $rows + $cols;
     my $gap = qr/(.{$sum}) (.{$sum})/s;
-   #my $gap = qr/(.{@{[$rows+$cols]}}) (.{@{[$rows+$cols]}})/s;  # heinous!
+   #my $gap = qr/(.{@{[$rows+$cols]}}) (.{@{[$rows+$cols]}})/s; # heinous!
 
     if( $x > $y ) {
         $x = 0;
@@ -76,7 +76,7 @@ say $result;
 
 sub comma { reverse ((reverse shift) =~ s/(.{3})/$1,/gr) =~ s/^,//r }
 
-use constant PI  => 2*atan2(1,0);
+use constant PI => 2*atan2(1,0);
 use ntheory 'factorial';
 
 my ($m,$n)  = (7,8);
@@ -88,10 +88,10 @@ for my $j (1 .. $m/2) {
 }
 
 $result .= "\n=======\n\n";
-$result  .= sprintf "%32s:%60s\n", 'Arrangements ignoring values',     comma    $arrangements;
-$result  .= sprintf "%32s:%60s\n", 'Permutations of 28 dominos',       comma my $permutations = factorial 28;
-$result  .= sprintf "%32s:%60s\n", 'Flip configurations',              comma my $flips = 2**28;
-$result  .= sprintf "%32s:%60s\n", 'Permuted arrangements with flips', comma    $flips * $permutations * $arrangements;
+$result .= sprintf "%32s:%60s\n", 'Arrangements ignoring values',     comma    $arrangements;
+$result .= sprintf "%32s:%60s\n", 'Permutations of 28 dominos',       comma my $permutations = factorial 28;
+$result .= sprintf "%32s:%60s\n", 'Flip configurations',              comma my $flips = 2**28;
+$result .= sprintf "%32s:%60s\n", 'Permuted arrangements with flips', comma    $flips * $permutations * $arrangements;
 
 my $ref = <<'EOD';
 0+5 1+3 2 2+3 1
