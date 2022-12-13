@@ -175,8 +175,8 @@ P5 Test::Number::Delta
 P6 minmax
 P5 List::AllUtils 'minmax'
 
-P6
-P5
+P6 "concurrency"
+P5 Parallel::ForkManager
 
 P6
 P5
