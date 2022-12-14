@@ -16,6 +16,7 @@ Pragmas
 
 ==> modern-ish Perl
 
+# in v5.36 these come 'for free'
 P6 say / state
 P5 use feature <say state>  
 
@@ -30,14 +31,14 @@ P5 use utf8; binmode STDOUT, ":encoding(UTF-8)";
 
 ==> v5.36 and up only
 
-P6    say state
-P5.36 say state
-
-P6    floor
+P6    *.floor
 P5.36 use builtin 'floor';
 
 P6    for * -> $i, $j {
 P5.36 use experimental 'for_list';
+
+P6    @*.kv
+P5.36 use builtin 'indexed'
 
 
 Modules
@@ -160,14 +161,25 @@ P5 Math::AnyNum
 P6 "trig functions"
 P5 Math::Trig
 
+# cf bigint / bigrat / bigfloat, which differ in having wider scope (among other things)
 P6 large values/extended precision (*.FatRat)
 P5 Math::BigInt / Math::BigRat / Math::BigFloat
+
+P6 Inf
+P5 Math::AnyNum 'Inf'
 
 P6 π
 P5 Math::AnyNum 'pi'
 
-P6 *.uniname
-P5 Unicode::UCD 'charinfo'
+P6 𝑒
+P5 Math::AnyNum 'e'
+P5 bignum <e>;
+
+P6 *.uniname / *.uniprops
+P5 Unicode::UCD <charinfo charprop>
+
+P6 "Unicode normalized form"
+P5 Unicode::Normalize <NFC NFD>
 
 P6 $*TOLERANCE
 P5 Test::Number::Delta
@@ -188,6 +200,19 @@ P5 List::MoreUtils 'frequency'
 # a bit tenuous?
 P6 "is cached"
 P5 Memoize
+
+# C/Currency, G/Generalised_floating_point_addition
+P6 "arithmetic with rationals"
+P5 Math::Decimal <dec_add dec_mul_pow10>
+
+P6
+P5
+
+P6
+P5
+
+P6
+P5
 
 P6
 P5
