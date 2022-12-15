@@ -8,8 +8,6 @@ use warnings;
 use feature 'say';
 my $result;
 
-# Recursive algorithm, as in the C sample. You are invited to comment out the line where it says so, and see the speed difference. By the way, there's the Memoize standard module, but it requires setting quite a few parameters to work right for this example, so I'm just showing the simple minded caching scheme here.
-
 use List::Util qw(min);
 
 my %cache;
