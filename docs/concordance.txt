@@ -29,6 +29,9 @@ P5 use experimental 'signatures'
 P6 "display non-ASCII text"
 P5 use utf8; binmode STDOUT, ":encoding(UTF-8)";
 
+P6 "subroutine signatures"
+P5 use experimental 'signatures'
+
 ==> v5.36 and up only
 
 P6    *.floor
