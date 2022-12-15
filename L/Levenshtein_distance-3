@@ -11,7 +11,7 @@ use warnings;
 use feature 'say';
 
 use experimental 'signatures';
-use experimental 'lexical_subs';
+#use experimental 'lexical_subs'; # ?
 
 use List::Util 'min';
 
