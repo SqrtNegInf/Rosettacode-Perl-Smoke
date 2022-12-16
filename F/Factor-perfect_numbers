@@ -10,9 +10,17 @@ use Time::HiRes qw(sleep);  # debug only
 my @res;
 
 use v5.36;
-#use strict; use warnings; use feature 'say';
 
-# code goes here
+use ntheory 'divisors';
+use enum qw(False True);
+use List::AllUtils <firstidx sum>;
+
+sub proper_divisors ($n) {
+  return 1 if $n == 0;
+  my @d = divisors($n);
+  pop @d;
+  @d;
+}
 
 say my $result = join "\n", @res;
 my $ref = <<'END';
