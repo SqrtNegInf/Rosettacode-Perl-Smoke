@@ -34,8 +34,11 @@ P5 use experimental 'signatures'
 
 ==> v5.36 and up only
 
-P6    *.floor
-P5.36 use builtin 'floor';
+P6    *.floor *.ceiling
+P5.36 use builtin <floor ceil>;
+
+P6    *.trim
+P5.36 use builtin 'trim';
 
 P6    for * -> $i, $j {
 P5.36 use experimental 'for_list';
