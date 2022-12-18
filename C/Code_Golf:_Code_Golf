@@ -17,6 +17,9 @@ push @res, 'Code Golf';
 # 35 bytes
 push @res, pack'H*','436F646520476F6C66';
 
+# 53 bytes (no quoted literal)
+push @res, pack chr(67).chr(78)x2,67,0x6f646520,0x476f6c66;
+
 #Actually just for storage purpose it is possible (just not always) to store the bytes string as an UTF string.
 
 my $string = "\x{436F}\x{6465} \x{476F}\x{6C66}";
@@ -34,6 +37,7 @@ push @res, "Extract to bytes '$bytes' with length = " . length($bytes);
 say my $result = join "\n", @res;
 
 my $ref = <<'EOD';
+Code Golf
 Code Golf
 Code Golf
 Extract to bytes 'Code Golf' with length = 9
