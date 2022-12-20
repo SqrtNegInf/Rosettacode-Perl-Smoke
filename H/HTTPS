@@ -1,7 +1,7 @@
 #!/usr/local/bin/perl
 #u# http://rosettacode.org/wiki/HTTPS
 #c# 2018-08-11 <RC
-#p# BROKEN
+#p# OK
 #n# is it LWP::UserAgent??
 
 use strict;
@@ -11,10 +11,10 @@ use LWP::UserAgent;
 
 my $url = 'https://www.google.com';
 
-my $response = LWP::UserAgent->new->get( $url );
+#my $response = LWP::UserAgent->new->get( $url ); # this works too
 
-#my $ua = LWP::UserAgent->new( protocols_allowed => ['http', 'https']);
-#my $response = $ua->get($url);
+my $ua = LWP::UserAgent->new( protocols_allowed => ['http', 'https']);
+my $response = $ua->get($url);
 
 $response->is_success or die "Failed to GET '$url': ", $response->status_line;
 
