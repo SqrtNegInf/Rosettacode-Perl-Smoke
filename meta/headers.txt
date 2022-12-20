@@ -4309,7 +4309,7 @@ File: H/HTTPS
 #!/usr/local/bin/perl
 #u# http://rosettacode.org/wiki/HTTPS
 #c# 2018-08-11 <RC
-#p# BROKEN
+#p# OK
 #n# is it LWP::UserAgent??
 
 File: H/HTTPS_Authenticated
