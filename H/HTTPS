@@ -2,7 +2,6 @@
 #u# http://rosettacode.org/wiki/HTTPS
 #c# 2018-08-11 <RC
 #p# OK
-#n# is it LWP::UserAgent??
 
 use strict;
 use warnings;
