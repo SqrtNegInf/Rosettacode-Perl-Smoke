@@ -1,7 +1,7 @@
 
 This is perl 5, version 36, subversion 0 (v5.36.0) built for darwin-thread-multi-2level
 updating from RC…
-+------------> Perl: Good/Bad [417/1]
++------------> Perl: Good/Bad [420/1]
 |+-----------> Smoke testing [393]
 ||+----------> sKipping validation [27]
 |||+---------> Interactive [15]
@@ -164,7 +164,7 @@ GS......... Bernoulli_numbers-3
 GS...R..... Best_shuffle-1
 GS...R..... Best_shuffle-2
 GS..T..D... Bifid_cipher
-!S..T.FD... Bilinear_interpolation
+GS..T.FD... Bilinear_interpolation
 GS..T...... Bin_given_limits-1
 GS..T...... Bin_given_limits-2
 .......D.V. Binary_coded_decimal
@@ -286,8 +286,8 @@ G.KIT...... Color_of_a_screen_pixel
 GS..T...... Color_quantization
 GS....F.... Color_wheel
 GS..T...... Colorful_numbers
-!S....F.... Colour_bars_Display
-!S....F.... Colour_pinstripe_Display
+GS....F.... Colour_bars_Display
+GS....F.... Colour_pinstripe_Display
 .........V. Colour_pinstripe_Printer
 GS......... Combinations-1
 GS......... Combinations-2
