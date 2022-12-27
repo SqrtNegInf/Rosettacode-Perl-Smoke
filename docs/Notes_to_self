@@ -1,3 +1,9 @@
+2022-12-26
+Rolling back libtiff to version @4.4.0_0 solved all issue with libgd and all the 'GD' modules.
+
+2022-12-24
+Oops, 'GD' modules have issues with libgd/libtiff.
+
 2022-12-19
 RC was down for maint. yesterday, which accounts for task failures.
 
