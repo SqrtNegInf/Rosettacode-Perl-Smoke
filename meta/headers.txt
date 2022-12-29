@@ -2224,6 +2224,13 @@ File: C/Curzon_numbers-1
 #p# OK
 #n# just a formatting experiment
 
+File: C/Curzon_numbers-2
+#!/usr/local/bin/perl
+#u# https://rosettacode.org/wiki/Curzon_numbers
+#c# 2022-12-28 <RC
+#p# OK
+#n# faster than using Math::AnyNum 'ipow' (cf 'M/Modular_exponentiation')
+
 File: C/Cut_a_rectangle
 #!/usr/local/bin/perl
 #u# http://rosettacode.org/wiki/Cut_a_rectangle
