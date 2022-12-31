@@ -15,6 +15,10 @@ use ntheory 'divisors';
 use enum qw(False True);
 use List::AllUtils <firstidx sum>;
 
+my $n = 4;
+my @fpns = (0, 1);
+my %cache;
+
 sub proper_divisors ($n) {
   return 1 if $n == 0;
   my @d = divisors($n);
@@ -22,7 +26,33 @@ sub proper_divisors ($n) {
   @d;
 }
 
+sub erdosFactorCount ($n) {
+   my @foo = proper_divisors($n); shift @foo;
+   my ($sum,@divs) = (0, @foo); #(proper_divisors $n)[1..*]);
+   for my $d (@divs) {
+      my $t = int($n/$d);
+      unless (exists $cache{$t}) { $cache{$t} = erdosFactorCount($t) }
+      $sum += $cache{$t}
+   }
+   return $sum + 1
+}
+
+sub moreMultiples ($to, $from) {
+   my @toSeq = @{$to};
+   my @fromSeq = @{$from};
+   my @oneMores;
+   for my $j (@fromSeq) {
+      push @oneMores, (@toSeq, $j) if $j > $toSeq[-1] && 0 == $j % $toSeq[-1]
+   }
+   return [] unless @oneMores;
+   for (0 .. $#oneMores) {
+      push @oneMores, moreMultiples($oneMores[$_], \@fromSeq)
+   }
+   return @oneMores
+}
+
 say my $result = join "\n", @res;
+
 my $ref = <<'END';
 END
 
@@ -35,7 +65,7 @@ done_testing();
 __END__
 
 =={{header|Perl}}==
-{{trans|xx}}
+{{trans|Raku}}
 {{libheader|ntheory}}
 <syntaxhighlight lang="perl" line>
 </syntaxhighlight>
