@@ -1,3 +1,6 @@
+2023-01-03
+This time the update of libtiff to @4.5.0_0 worked fine (just 'port' updates, 'brew' not involved).
+
 2022-12-26
 Rolling back libtiff to version @4.4.0_0 solved all issue with libgd and all the 'GD' modules.
 
