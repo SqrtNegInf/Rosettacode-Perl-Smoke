@@ -2,8 +2,8 @@
 #u# http://rosettacode.org/wiki/File_size_distribution
 #c# 2018-09-28 >RC
 #p# OK
-#n# hmmm, why doesn't it agree exactly with the Raku version (total files differ by one)
 #n# should update this once a year (before previous year logs are archived)
+#n# switch to testing Perl results, not Raku
 
 use strict;
 use warnings;
@@ -14,7 +14,8 @@ use File::Find;
 use List::Util 'max';
 
 my %fsize;
-my $dir = '/Users/dhoekman/perl6/Rosetta-Code/bench/2023-01-02-m';
+my $dir = 'bench/2023-01-02';
+#my $dir = '/Users/dhoekman/perl5/Rosetta-Code/last/2023-01-02';
 find(\&fsize, $dir);
 
 my($max,$size,$total) = (0,0,0);
@@ -28,8 +29,6 @@ for (0 .. max(keys %fsize)) {
 }
 push @res, "$total total files.";
 
-say my $result = join "\n", @res;
-
 sub histogram {
     my($max, $value, $width) = @_;
     my @blocks = <| ▏ ▎ ▍ ▌ ▋ ▊ ▉ █>;
@@ -42,16 +41,18 @@ sub histogram {
 sub log10 { my($s) = @_; $s ? int log($s)/log(10) : 0 }
 sub fsize { $fsize{ log10( (lstat($_))[7] ) }++ }
 
+say my $result = join "\n", @res;
+
 my $ref = <<'END';
-File size distribution in bytes for directory: /Users/dhoekman/perl6/Rosetta-Code/bench/2023-01-02-m
+File size distribution in bytes for directory: bench/2023-01-02
 
 # files @    0b        0: 
-# files @ 10e0b     1775: ████████████████████████████████████████████████████████████████████████████████
-# files @ 10e1b     1051: ████████████████████████████████████████▉
-# files @ 10e2b      204: ████████▏
-# files @ 10e3b        0: 
+# files @ 10e0b     1871: ████████████████████████████████████████████████████████████████████████████████
+# files @ 10e1b     1104: ████████████████████████████████████████▉
+# files @ 10e2b      172: ▉
+# files @ 10e3b        3: 
 # files @ 10e4b        1: 
-3031 total files.
+3151 total files.
 END
 
 use Test::More;
