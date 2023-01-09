@@ -1,6 +1,3 @@
-2023-01-08
-Odd: Raku not being updated currently, but output from 'P/Pick_random_element' changed, never has before.
-
 2022-11-30
 'S/Solve_a_Holy_Knight%27s_tour' flapping, twice in three days.
 
