@@ -3506,8 +3506,8 @@ File: F/File_size_distribution
 #u# http://rosettacode.org/wiki/File_size_distribution
 #c# 2018-09-28 >RC
 #p# OK
-#n# hmmm, why doesn't it agree exactly with the Raku version (total files differ by one)
 #n# should update this once a year (before previous year logs are archived)
+#n# switch to testing Perl results, not Raku
 
 File: F/Filter
 #!/usr/local/bin/perl
@@ -3724,7 +3724,7 @@ File: F/First_9_Prime_Fibonacci_Number
 #u# http://rosettacode.org/wiki/First_9_Prime_Fibonacci_Number
 #c# 2022-01-19 <RC
 #p# OK
-#n# starting with Fib(13) requires 'use bigint'
+#n# starting with Fib(13) requires 'use bigint'; do 20, like Raku
 
 File: F/First_class_environments
 #!/usr/local/bin/perl
