@@ -16,6 +16,7 @@
 #n# 2022-07-01 Pleased to welcome 'Sidef' to the club
 #n# 2022-08-27 'Sidef' dropped off? Must be error of RC hosting move [p.s. now it's back]
 #n# 2022-11-21 Retroactively welcoming: REXX, Racket, Kotlin
+#n# 2023-01-09 'Sidef' is back
 
 my @res;
 
@@ -66,5 +67,5 @@ for (@sorted_languages) {
 say join "\n", @res;
 
 use Test::More;
-ok @res == 21;
+ok @res == 22;
 done_testing();
