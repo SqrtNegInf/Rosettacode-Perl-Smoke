@@ -8720,6 +8720,7 @@ File: R/Rosetta_Code_Rank_languages_by_popularity
 #n# 2022-07-01 Pleased to welcome 'Sidef' to the club
 #n# 2022-08-27 'Sidef' dropped off? Must be error of RC hosting move [p.s. now it's back]
 #n# 2022-11-21 Retroactively welcoming: REXX, Racket, Kotlin
+#n# 2023-01-09 'Sidef' is back
 
 File: R/Rosetta_Code_Tasks_without_examples
 #!/usr/local/bin/perl
