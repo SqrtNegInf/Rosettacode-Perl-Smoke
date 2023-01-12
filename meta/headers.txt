@@ -2231,6 +2231,14 @@ File: C/Curzon_numbers-2
 #p# OK
 #n# faster than using Math::AnyNum 'ipow' (cf 'M/Modular_exponentiation')
 
+File: C/Curzon_numbers-3
+#!/usr/local/bin/perl
+#u# https://rosettacode.org/wiki/Curzon_numbers
+#c# 2022-12-28 <RC, 2023-01-11 >RC
+#p# OK
+#n# in-line 'sub modpow' was faster than using Math::AnyNum 'ipow' (cf 'C/Curzon_numbers-2)
+#n# but either version of 'powmod' is faster still, Trizen++
+
 File: C/Cut_a_rectangle
 #!/usr/local/bin/perl
 #u# http://rosettacode.org/wiki/Cut_a_rectangle
