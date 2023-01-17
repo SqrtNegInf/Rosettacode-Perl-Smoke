@@ -2234,7 +2234,7 @@ File: C/Curzon_numbers-2
 File: C/Curzon_numbers-3
 #!/usr/local/bin/perl
 #u# https://rosettacode.org/wiki/Curzon_numbers
-#c# 2022-12-28 <RC, 2023-01-11 >RC
+#c# 2022-12-28 <RC, 2023-01-15 >RC
 #p# OK
 #n# in-line 'sub modpow' was faster than using Math::AnyNum 'ipow' (cf 'C/Curzon_numbers-2)
 #n# but either version of 'powmod' is faster still, Trizen++
