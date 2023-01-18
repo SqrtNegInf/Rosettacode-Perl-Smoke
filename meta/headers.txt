@@ -9823,6 +9823,13 @@ File: S/Spelling_of_ordinal_numbers
 #p# OK
 #n# any identity operation could be used to force a numeric conversion, '1*' or '/1'
 
+File: S/Sphenic_numbers
+#!/usr/local/bin/perl
+#u# https://rosettacode.org/wiki/Sphenic_numbers
+#t# inprogress
+#c# 2022-xx-xx >RC
+#p# OK
+
 File: S/Spinning_rod_animation_Text
 #!/usr/local/bin/perl
 #u# http://rosettacode.org/wiki/Spinning_rod_animation/Text
