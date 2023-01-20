@@ -1,5 +1,6 @@
 2023-01-19
-Mass update of CPAN modules, watch for any fallout...
+Mass update of CPAN modules, watch for any fallout...  And got one:
+Percentage_difference_between_images-2 (which uses perl5.32.1 because of Imager)
 
 2023-01-03
 This time the update of libtiff to @4.5.0_0 worked fine (just 'port' updates, 'brew' not involved).
