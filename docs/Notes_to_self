@@ -1,3 +1,6 @@
+2023-01-19
+Mass update of CPAN modules, watch for any fallout...
+
 2023-01-03
 This time the update of libtiff to @4.5.0_0 worked fine (just 'port' updates, 'brew' not involved).
 
