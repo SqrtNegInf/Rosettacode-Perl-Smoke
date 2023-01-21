@@ -7399,11 +7399,12 @@ File: P/Percentage_difference_between_images-1
 #p# OK
 
 File: P/Percentage_difference_between_images-2
-#!/usr/local/bin/perl5.32.1
+#!/usr/local/bin/perl5.32.1 # do-not-check
 #u# http://rosettacode.org/wiki/Percentage_difference_between_images
 #c# 2018-12-08 <RC
 #p# OK
 #n# on iMac: result is different, adjust testing
+#n# 2023-01-19 after modules updates on Mac-Pro, not finding List::SomeUtils?
 
 File: P/Percolation_Bond_percolation
 #!/usr/local/bin/perl
