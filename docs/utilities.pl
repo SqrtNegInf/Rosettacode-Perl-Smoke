@@ -1,5 +1,10 @@
 # re-usable one-liner utilities
 
+#==== Host-specific croak
+
+BEGIN { die 'Busted on Mac-Pro' if `uname -a` =~ /Mac-Pro/ }
+BEGIN { die 'Busted on iMac' if `uname -a` =~ /iMac/ }
+
 #==== US-style ',' delimiter
 
 sub comma1 { reverse ((reverse shift) =~ s/(.{3})/$1,/gr) =~ s/^,//r }
