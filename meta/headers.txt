@@ -710,11 +710,12 @@ File: A/AudioAlarm
 #p# OK
 
 File: A/Audio_frequency_generator
-#!/usr/local/bin/perl5.32.1
+#!/usr/local/bin/perl5.32.1 # do-not-check
 #u# http://rosettacode.org/wiki/Audio_frequency_generator
 #t# interactive
 #c# 2019-09-22 >RC
 #p# OK
+BEGIN { die 'Busted on Mac-Pro' if `uname -a` =~ /Mac-Pro/ }
 
 File: A/Autogram_checker
 #!/usr/local/bin/perl
@@ -7405,6 +7406,7 @@ File: P/Percentage_difference_between_images-2
 #p# OK
 #n# on iMac: result is different, adjust testing
 #n# 2023-01-19 after modules updates on Mac-Pro, not finding List::SomeUtils?
+BEGIN { die 'Busted on Mac-Pro' if `uname -a` =~ /Mac-Pro/ }
 
 File: P/Percolation_Bond_percolation
 #!/usr/local/bin/perl
@@ -9311,11 +9313,12 @@ File: S/Simulated_annealing
 #p# OK
 
 File: S/Sine_wave
-#!/usr/local/bin/perl5.32.1
+#!/usr/local/bin/perl5.32.1 # do-not-check
 #u# http://rosettacode.org/wiki/Sine_wave
 #t# interactive
 #c# 2019-09-22 >RC
 #p# OK
+BEGIN { die 'Busted on Mac-Pro' if `uname -a` =~ /Mac-Pro/ }
 
 File: S/Singleton
 #!/usr/local/bin/perl
