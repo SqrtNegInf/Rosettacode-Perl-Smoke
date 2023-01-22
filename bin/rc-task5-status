@@ -126,7 +126,7 @@ my($task,$header,$compiles,$pout,$perr,$skip,$srand);
     $perr = (-e $pout) ? `grep STDERR $pout` : undef;
     $P{$p}{'P'} = '!' if $compiles =~ /SORRY/ || ($P{$p}{'P'} eq 'G' && $perr);
 
-    $skip = 'interactive|gui|toodamnslow|skiptest|inprogress|nocode|forever|broken';  # cf. def in 'rc-p5'
+    $skip = 'interactive|gui|toodamnslow|skiptest|inprogress|nocode|forever|broken|busted';  # cf. def in 'rc-p5'
     $P{$p}{'K'} = $header =~ /$skip/             ? 'K' : '.';
     $P{$p}{'T'} = $header =~ />RC/               ? 'T' : '.';
     $P{$p}{'F'} = $header =~ /#f#.*RC file/i     ? 'F' : '.';
