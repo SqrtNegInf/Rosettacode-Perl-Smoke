@@ -4,7 +4,6 @@
 #p# OK
 #n# on iMac: result is different, adjust testing
 #n# 2023-01-19 after modules updates on Mac-Pro, not finding List::SomeUtils?
-
 BEGIN { die 'Busted on Mac-Pro' if `uname -a` =~ /Mac-Pro/ }
 
 use strict;
