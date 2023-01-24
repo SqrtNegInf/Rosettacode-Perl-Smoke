@@ -1,0 +1,6 @@
+2023-01-24
+ntheory/GMP permformance issues solved with custom Perl 5.36:
+    perlbrew install perl-5.36.0 -Dusethreads -Duseshrplib
+
+2023-01-23
+This space intentionally left blank.
