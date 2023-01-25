@@ -1,3 +1,11 @@
+2023-01-24
+As with Raku, why does git ignore 'ref/test/dir3'
+Modify .gitignore to allow 'lib/Palindrome.pm'
+What to do: rc-runone/rc-capture, stdin/stderr, time/time -p
+
+2023-01-23
+Adding Ubunutu testing (this should be fun)
+
 2023-01-19
 Mass update of CPAN modules, watch for any fallout...  And got one:
 Percentage_difference_between_images-2 (which uses perl5.32.1 because of Imager)
