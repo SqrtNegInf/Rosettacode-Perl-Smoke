@@ -21,7 +21,7 @@ my $enable = $Imager::formats{"jpeg"}; # some kind of tie ?
 my $IO = Imager::io_new_buffer $raw or die;
 my $im = Imager::File::JPEG::i_readjpeg_wiol $IO or die;
 
-my($host) = `uname -a` =~ /Darwin (\S+)/;
+my($host) = `uname -a` =~ /^\S+ (\S+)/;
 open my $fh2, '>', "run/Lenna50-$host.ppm" or die;
 binmode $fh2;
 my $IO2 = Imager::io_new_fd(fileno $fh2);
