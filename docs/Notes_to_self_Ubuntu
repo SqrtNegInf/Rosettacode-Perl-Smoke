@@ -1,6 +1,46 @@
+2023-01-25
+Failures cut by over half, down to 30
+Location of shell(s) an issue vs Darwin
+
 2023-01-24
-ntheory/GMP permformance issues solved with custom Perl 5.36:
+ntheory/GMP permformance issues solved with perlbrew / Perl 5.36:
+
+2023-01-23
+Start with cloning repository:
+    git clone git://github.com/SqrtNegInf/Rosettacode-Perl-Smoke.git
+
+===== Pre-flight =====
+
+Libraries needed for modules/tools:
+    sudo apt-get install pcregrep ack libssl-dev                     # general
+    sudo apt-get install libssl-dev                                  # security
+    sudo apt-get install imagemagick libmagickwand-dev libimlib2-dev # image
+    sudo apt-get install libgmp-dev libmpfr-dev libmpc-dev           # math
+    sudo apt-get install sbcl maxima                                 # Lisp tool
+
+Custom Perl
     perlbrew install perl-5.36.0 -Dusethreads -Duseshrplib
+    perlbrew install-cpanm
+
+Perl modules (some fiddling required)
+    rgrep '^use [A-Z]' [0-Z] | pf 's/^.*:use //; s/[; ].*$//' | sort -u | pf 's/^/cpanm /' > modules.sh
+    source modules.sh
+    cpanm enum builtins Math::BigInt::GMP Filter::Simple IO::Socket::SSL LWP::Protocol::https
+    cpanm Class::Spiffy MooseX::Storage Role::Multiton # not installed on 1st pass, why?
+
+S/Stream_Merge requires this:
+    cpam --force Heap::Simple::XS
+
+Some directories that aren't in git repository
+    mkdir tmp run ref/test/dir3 exp meta-i
+
+Fake an older Perl (used on Mac-Pro)
+    (cd /usr/local/bin; sudo ln -s perl perl5.32.1) 
+
+===== Initial run =====
+
+Expect errors!
+    rc-p5 [0-Z]/*
 
 2023-01-23
 This space intentionally left blank.
