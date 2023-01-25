@@ -3,7 +3,7 @@
 #c# 2020-01-22 <RC, 2020-01-24 >RC
 #p# OK
 #f# RC file: solving_coin_problems.dat
-#n# next step: remove dependence on MAXIMA
+#n# next step: remove dependence on MAXIMA [yeah but the next step is a doozy]
 
 # In a bank, there are three times as many quarters as half dollars and 6 more dimes than half dollars. If the total amount of the money in the bank is $4.65, find the number of each type of coin in the bank.
 
@@ -23,6 +23,8 @@ use warnings;
 
 use List::Util qw(sum uniq);
 use File::Temp qw(tempfile);
+
+my $maxima = `which maxima` =~ s/\n//r or die 'Required external tool <maxima> not found';
 
 my %nums = (
         zero        => 0,   one       => 1,     two      => 2,    three    => 3,
@@ -145,7 +147,7 @@ while (<DATA>) {
             END
         close $fh;
 
-        open my $maxima_output, "/opt/local/bin/maxima -q -b $maxima_script |" or die "Couldn't open maxima: $!\n";
+        open my $maxima_output, "$maxima -q -b $maxima_script |" or die "External program 'maxima' failed: $!\n";
         while (<$maxima_output>) {
             print $results "solution: $1\n" if /\(\%o\d+\)\s+\[\[([^\]]+)\]\]/; # only display solution
         }
