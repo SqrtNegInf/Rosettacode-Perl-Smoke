@@ -2,8 +2,9 @@
 
 #==== Host-specific croak
 
-BEGIN { die 'Busted on Mac-Pro' if `uname -a` =~ /Mac-Pro/ }
-BEGIN { die 'Busted on iMac' if `uname -a` =~ /iMac/ }
+BEGIN { die 'BROKEN on Mac-Pro' if `uname -a` =~ /Mac-Pro/ }
+BEGIN { die 'BROKEN on iMac' if `uname -a` =~ /iMac/ }
+BEGIN { die 'BROKEN on Ubuntu' if `uname -a` =~ /osboxes/ }
 
 #==== US-style ',' delimiter
 
