@@ -2,6 +2,8 @@
 #u# http://rosettacode.org/wiki/QR_decomposition
 #c# 2019-02-12 >RC
 #p# OK
+BEGIN { die 'BROKEN on iMac' if `uname -a` =~ /iMac/ }
+BEGIN { die 'BROKEN on Ubuntu' if `uname -a` =~ /osboxes/ }
 
 use strict;
 use warnings;
