@@ -4,8 +4,8 @@
 
 chdir "$ENV{HOME}/perl5/Rosetta-Code";
 
-# at this time, don't do automatic commits from iMac host
-exit if `uname -a` =~ /iMac/;
+# at this time, allow automatic commits only from Mac-Pro
+exit unless -t or `uname -a` !~ /Mac-Pro/;
 
 $git      = '/usr/bin/git';
 $msg_task = 'update of task';
