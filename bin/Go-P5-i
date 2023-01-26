@@ -1,4 +1,4 @@
-#!/bin/sh
+#!/usr/bin/env sh
 ## update Perl 5 smoke test / Github
 ## version just for iMac, that places output in 'meta-i'
 
