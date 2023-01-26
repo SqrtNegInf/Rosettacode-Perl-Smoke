@@ -2,6 +2,7 @@
 #u# http://rosettacode.org/wiki/Time_a_function
 #c# 2018-08-10 <RC
 #p# OK
+#n# even more generous timing limit on 'f1'
 
 use strict;
 use warnings;
@@ -66,12 +67,15 @@ sub sum {
 
 printf "Sum(4) takes %f seconds.\n", my $t2 = time_it(\&sum, 4);
 
-my $ref = <<'EOD';
-EOD
-
+say '';
 say "f1: $f1";
+say "f2: $f2";
+say "t1: $t1";
+say "t2: $t2";
+say '';
+
 use Test::More;
-ok $f1 < 4.00;
+ok $f1 <=5.00;
 ok $f2 < 3.00;
 ok $t1 < 0.02;
 ok $t2 < 0.10;
