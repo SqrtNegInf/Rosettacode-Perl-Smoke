@@ -715,7 +715,7 @@ File: A/Audio_frequency_generator
 #t# interactive
 #c# 2019-09-22 >RC
 #p# OK
-BEGIN { die 'Busted on Mac-Pro' if `uname -a` =~ /Mac-Pro/ }
+BEGIN { die 'BROKEN on Mac-Pro' if `uname -a` =~ /Mac-Pro/ }
 
 File: A/Autogram_checker
 #!/usr/local/bin/perl
@@ -8153,6 +8153,8 @@ File: Q/QR_decomposition
 #u# http://rosettacode.org/wiki/QR_decomposition
 #c# 2019-02-12 >RC
 #p# OK
+BEGIN { die 'BROKEN on iMac' if `uname -a` =~ /iMac/ }
+BEGIN { die 'BROKEN on Ubuntu' if `uname -a` =~ /osboxes/ }
 
 File: Q/Quad-power_primes_seeds
 #!/usr/local/bin/perl
@@ -9319,7 +9321,7 @@ File: S/Sine_wave
 #t# interactive
 #c# 2019-09-22 >RC
 #p# OK
-BEGIN { die 'Busted on Mac-Pro' if `uname -a` =~ /Mac-Pro/ }
+BEGIN { die 'BROKEN on Mac-Pro' if `uname -a` =~ /Mac-Pro/ }
 
 File: S/Singleton
 #!/usr/local/bin/perl
@@ -9508,7 +9510,7 @@ File: S/Solving_coin_problems
 #c# 2020-01-22 <RC, 2020-01-24 >RC
 #p# OK
 #f# RC file: solving_coin_problems.dat
-#n# next step: remove dependence on MAXIMA
+#n# next step: remove dependence on MAXIMA [yeah but the next step is a doozy]
 
 File: S/Sorensen–Dice_coefficient
 #!/usr/local/bin/perl
@@ -11332,6 +11334,7 @@ File: W/Walk_a_directory_Recursively
 #c# 2018-08-03 <>RC, 2021-11-15 <RC
 #p# OK
 #n# some kludges for lack of iMac default-sorting
+#n# 2023-01-25 'find -s' not valid on Ubuntu (and don't see any obvious replacement)
 
 File: W/War_card_game
 #!/usr/local/bin/perl
