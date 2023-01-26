@@ -26,14 +26,21 @@ Custom Perl
     perlbrew install perl-5.36.0 -Dusethreads -Duseshrplib
     perlbrew install-cpanm
 
-Perl modules (some fiddling required)
+Perl modules (some extra fiddling required, grep doesn't get everything needed)
     rgrep '^use [A-Z]' [0-Z] | pf 's/^.*:use //; s/[; ].*$//' | sort -u | pf 's/^/cpanm /' > modules.sh
     source modules.sh
-    cpanm enum builtins Math::BigInt::GMP Filter::Simple IO::Socket::SSL LWP::Protocol::https DBD::SQLite
-    cpanm Class::Spiffy MooseX::Storage Role::Multiton # not installed on 1st pass, why?
+    cpanm enum builtins 
+    cpanm Math::BigInt::GMP Filter::Simple IO::Socket::SSL LWP::Protocol::https DBD::SQLite Inline::C
+    cpanm Class::Spiffy MooseX::Storage Role::Multiton
 
 S/Stream_Merge requires this:
     cpam --force Heap::Simple::XS
+
+E/Elliptic_Curve_Digital_Signature_Algorithm is the final piece:
+    curl -O http://backpan.cpantesters.org/authors/id/B/BR/BRIANC/Math-EllipticCurve-Prime-0.003.tar.gz
+    tar zxf Math-EllipticCurve-Prime-0.003.tar.gz
+    (cd Math-EllipticCurve-Prime-0.003/; perl Makefile.PL; make install)
+    cpanm Crypt::EC_DSA
 
 Some directories that aren't in git repository
     mkdir tmp run ref/test/dir3 exp meta-i
