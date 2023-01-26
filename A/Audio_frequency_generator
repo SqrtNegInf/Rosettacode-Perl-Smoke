@@ -3,7 +3,7 @@
 #t# interactive
 #c# 2019-09-22 >RC
 #p# OK
-BEGIN { die 'Busted on Mac-Pro' if `uname -a` =~ /Mac-Pro/ }
+BEGIN { die 'BROKEN on Mac-Pro' if `uname -a` =~ /Mac-Pro/ }
 
 use strict 'vars';
 use feature <say state>;
