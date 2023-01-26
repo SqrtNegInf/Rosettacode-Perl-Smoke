@@ -115,7 +115,7 @@ my $chain =
 
 say $result;
 
-my $ref = <<'EOD';
+my $darwin = <<'EOD';
 pop2            109/tcp     # Post Office Protocol - Version 2
 pop3            110/tcp     # Post Office Protocol - Version 3
 print-srv       170/tcp     # Network PostScript              
@@ -125,6 +125,12 @@ irdg-post	2632/tcp    # IRdg Post
 postgresql      5432/tcp    # PostgreSQL Database
 pmdmgr          7426/tcp    # OpenView DM Postmaster Manager
 EOD
+
+my $linux = <<'EOD';
+postgresql	5432/tcp	postgres	# PostgreSQL Database
+EOD
+
+my $ref = `uname` =~ /Darwin/ ? $darwin : $linux;
 
 use Test::More;
 is ($result, $ref);
