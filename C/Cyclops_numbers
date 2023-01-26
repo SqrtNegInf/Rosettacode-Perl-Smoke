@@ -3,6 +3,7 @@
 #c# 2021-06-26 >RC
 #p# OK
 #n# I am too lazy right now to make this list lazy
+#n# 2023-01-26 limit calculations as the VMware/Ubuntu croaks under larger memory requirements
 
 my @res;
 
@@ -16,7 +17,7 @@ use ntheory 'is_prime';
 sub comma { reverse ((reverse shift) =~ s/(.{3})/$1,/gr) =~ s/^,//r }
 
 my @cyclops = 0;
-for my $exp (0..3) {
+for my $exp (0..2) {
     my @oom = grep { ! /0/ } 10**$exp .. 10**($exp+1)-1;
     for my $l (@oom) {
         for my $r (@oom) {
@@ -25,12 +26,13 @@ for my $exp (0..3) {
     }
 }
 
+
 my @prime_cyclops = grep { is_prime $_           } @cyclops;
 my @prime_blind   = grep { is_prime $_ =~ s/0//r } @prime_cyclops;
 my @prime_palindr = grep { $_ eq reverse $_      } @prime_cyclops;
 
 my $upto = 50;
-my $over = 10_000_000;
+my $over = 1_000_000;
 
 for (
 ['', @cyclops],
@@ -55,7 +57,7 @@ First 50  cyclops numbers:
      403     404     405     406     407     408     409     501     502     503
      504     505     506     507     508     509     601     602     603     604
 
-First  number > 10,000,000: 111,101,111 at (zero based) index: 538,084
+First  number > 1,000,000: 1,110,111 at (zero based) index: 6,643
 
 First 50 prime cyclops numbers:
      101     103     107     109     307     401     409     503     509     601
@@ -64,7 +66,7 @@ First 50 prime cyclops numbers:
    12073   12097   13033   13037   13043   13049   13063   13093   13099   14011
    14029   14033   14051   14057   14071   14081   14083   14087   15013   15017
 
-First prime number > 10,000,000: 111,101,129 at (zero based) index: 39,319
+First prime number > 1,000,000: 1,110,127 at (zero based) index: 679
 
 First 50 blind prime cyclops numbers:
      101     103     107     109     307     401     503     509     601     607
@@ -73,7 +75,7 @@ First 50 blind prime cyclops numbers:
    15083   16057   16063   16067   16069   16097   17021   17033   17041   17047
    17053   17077   18047   18061   18077   18089   19013   19031   19051   19073
 
-First blind prime number > 10,000,000: 111,101,161 at (zero based) index: 11,393
+First blind prime number > 1,000,000: 1,110,127 at (zero based) index: 316
 
 First 50 palindromic prime cyclops numbers:
      101   16061   31013   35053   38083   73037   74047   91019   94049 1120211
@@ -82,7 +84,7 @@ First 50 palindromic prime cyclops numbers:
  1970791 3140413 3160613 3260623 3310133 3380833 3460643 3470743 3590953 3670763
  3680863 3970793 7190917 7250527 7310137 7540457 7630367 7690967 7750577 7820287
 
-First palindromic prime number > 10,000,000: 114,808,411 at (zero based) index: 66
+First palindromic prime number > 1,000,000: 1,120,211 at (zero based) index: 9
 
 END
 
