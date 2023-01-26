@@ -2,7 +2,8 @@
 #u# http://rosettacode.org/wiki/Reflection/Get_source
 #c# 2021-12-13 <RC
 #p# OK
-#n# do'h, tied to Perl release
+#n# do'h, tied to Perl release 
+#n# 2023-01-26 try to bypass that (and handle Linux too)
 
 use strict;
 use warnings;
@@ -12,7 +13,12 @@ use Class::Inspector;
 
 say my $result = Class::Inspector->resolved_filename( 'IO::Socket::INET' ), "\n";
 
-my $ref = '/usr/local/lib/perl5/5.36.0/darwin-thread-multi-2level/IO/Socket/INET.pm';
+my $ref = `uname` =~ /Darwin/ 
+          ? '/usr/local/lib/perl5/5.36.0/darwin-thread-multi-2level/IO/Socket/INET.pm'
+          : '/home/osboxes/perl5/perlbrew/perls/perl-5.36.0/lib/site_perl/5.36.0/x86_64-linux-thread-multi/IO/Socket/INET.pm';
+
+$ref    =~ s/5\.3\d\.\d/mumble/g;
+$result =~ s/5\.3\d\.\d/mumble/g;
 
 use Test::More;
 is ($result, $ref);
