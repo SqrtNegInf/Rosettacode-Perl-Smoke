@@ -2,8 +2,12 @@
 ## update Perl 5 smoke test / Github
 ## version just for iMac, that places output in 'meta-i'
 
-source $HOME/.zshenv
+source $HOME/.zshrc
 #source $HOME/.profile
+
+echo '======='
+echo $PATH
+echo '======='
 
 rakubrew switch moar-blead
 
@@ -14,7 +18,7 @@ rm -f run/*
 cp -p ref/solving_coin_problems.dat run
 
 echo ' '
-perl -v | head -2
+/usr/local/bin/perl -v | head -2
 
 bin/rc-p5 [0-Z]/*
 
@@ -26,8 +30,8 @@ cd meta-i
 mv task.txt task.txt~
 #~/bin/rotate_log -d logs -b -r -f task.txt
 ../bin/rc-task5-status > task.txt
-diff task.txt~ task.txt
 cd ..
+#diff task.txt~ task.txt
 
 # see how slow the usual suspects are
 echo ' '
