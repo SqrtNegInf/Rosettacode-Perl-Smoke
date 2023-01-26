@@ -3,14 +3,18 @@
 #c# 2018-08-03 <>RC
 #p# OK
 
+my($result,@tmp);
+
 use strict;
 use warnings;
 use feature 'say';
-my $result;
 
 opendir my $dh, 'ref';
-$result .= "$_\n" for grep { /^sqrt/ } readdir $dh;
+push @tmp, $_ for grep { /^sqrt/ } readdir $dh;
 closedir $dh;
+
+$result = join "\n", sort { $a cmp $b } @tmp;
+$result .= "\n";
 
 #Or using globbing, with the <> operator,
 
@@ -25,6 +29,7 @@ $result .= join "\n", my @filenames = glob('ref/sqrt*');
 #my @filenames = glob($pattern);
 
 say $result;
+
 my $ref = <<'EOD';
 sqrt-1.dat
 sqrt-2.dat
