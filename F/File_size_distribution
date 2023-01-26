@@ -13,8 +13,7 @@ use File::Find;
 use List::Util 'max';
 
 my %fsize;
-my $dir = 'ref'; #'bench/2023-01-02';
-#my $dir = '/Users/dhoekman/perl5/Rosetta-Code/last/2023-01-02';
+my $dir = 'ref';
 find(\&fsize, $dir);
 
 my($max,$size,$total) = (0,0,0);
@@ -63,9 +62,9 @@ File size distribution in bytes for directory: ref
 # files @ 10e1b       33: ████████████████████████████████████████████████████████████████▎
 # files @ 10e2b       40: ████████████████████████████████████████████████████████████████████████████████
 # files @ 10e3b       31: ████████████████████████████████████████████████████████▊
-# files @ 10e4b       23: ████████████████████████████████████████▊
+# files @ 10e4b       24: ████████████████████████████████████████████████
 # files @ 10e5b        4: ████████
-166 total files.
+167 total files.
 END
 
 my $ubuntu = <<'END';
