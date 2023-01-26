@@ -2,7 +2,7 @@
 #u# http://rosettacode.org/wiki/Hostname
 #c# 2018-08-13 <RC
 #p# OK
-#n# on iMac: different name obviously, so adjust testing (don't hard-code)
+#n# works on all platforms now
 
 use feature 'say';
 my $result;
@@ -11,7 +11,7 @@ use Sys::Hostname;
 
 say $name = hostname;
 
-my($ref) = `uname -a` =~ /Darwin (\S+)/;
+my($ref) = `uname -a` =~ /\S+ (\S+)/;
 
 use Test::More;
 is ($name, $ref);
