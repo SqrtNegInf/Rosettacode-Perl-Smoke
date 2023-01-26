@@ -45,6 +45,11 @@ for my $prog (@ARGV) {
     next if grep { /^#t#.*($skip)/ } @status;
     next if grep { /^#p#.*BROKEN/i } @status;
 
+    my($host) = `uname -a` =~ /\S+ (\S+)/;
+    next if $host =~ /Mac-Pro/ && grep { /BROKEN on Mac-Pro/i } @status;
+    next if $host =~ /iMac/    && grep { /BROKEN on iMac/i    } @status;
+    next if $host =~ /osboxes/ && grep { /BROKEN on Ubuntu/i  } @status;
+
     next unless -e $prog;
     $clargs = `grep 'RC.cli' $prog`; chomp $clargs; 
     $clargs =~ s/^.*RC.cli:\s+//; 
@@ -62,7 +67,6 @@ for my $prog (@ARGV) {
     $difftest = `grep 'RC.file' $prog`; chomp $difftest; 
     $difftest =~ s/^.*RC.file:\s+//; 
     $difftest =~ s/\s+$//;
-    my($host) = `uname -a` =~ /Darwin (\S+)/;
     $difftest =~ s/HOST/$host/;
 
     if (defined $Solo{$prog}) { push @P_one_at_a_time, $prog } else { push @Programs, $prog }
