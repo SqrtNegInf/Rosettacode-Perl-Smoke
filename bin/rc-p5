@@ -40,7 +40,7 @@ my $skip = 'interactive|gui|toodamnslow|skiptest|inprogress|nocode|forever|broke
 for my $prog (@ARGV) {
     next if $prog =~ /\.(pl|[0-9])$/;
     next if $prog =~ m#/lib# || $prog =~ /^Temp-/;
-    @status = `head -12 $prog`;
+    @status = `head -15 $prog`;
     next unless $status[0] =~ m#(env |bin/)perl#;
     next if grep { /^#t#.*($skip)/ } @status;
     next if grep { /^#p#.*BROKEN/i } @status;
