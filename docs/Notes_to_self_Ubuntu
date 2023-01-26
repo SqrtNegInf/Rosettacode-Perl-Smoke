@@ -1,3 +1,7 @@
+2023-01-26
+Failures < 10
+Memory requirements of 'C/Cyclops_numbers' crashed VM, lowered testing limits.
+
 2023-01-25
 Failures cut by over half, down to 30
 Location of shell(s) an issue vs Darwin
@@ -25,7 +29,7 @@ Custom Perl
 Perl modules (some fiddling required)
     rgrep '^use [A-Z]' [0-Z] | pf 's/^.*:use //; s/[; ].*$//' | sort -u | pf 's/^/cpanm /' > modules.sh
     source modules.sh
-    cpanm enum builtins Math::BigInt::GMP Filter::Simple IO::Socket::SSL LWP::Protocol::https
+    cpanm enum builtins Math::BigInt::GMP Filter::Simple IO::Socket::SSL LWP::Protocol::https DBD::SQLite
     cpanm Class::Spiffy MooseX::Storage Role::Multiton # not installed on 1st pass, why?
 
 S/Stream_Merge requires this:
@@ -36,6 +40,9 @@ Some directories that aren't in git repository
 
 Fake an older Perl (used on Mac-Pro)
     (cd /usr/local/bin; sudo ln -s perl perl5.32.1) 
+
+Home-grown tools:
+    (cd ~; scp -pr imac:bin .)
 
 ===== Initial run =====
 
