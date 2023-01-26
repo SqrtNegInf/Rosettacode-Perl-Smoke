@@ -2,4 +2,4 @@
 # capture output from job, display timing
 #  David H.  2016-07-31
 
-print `Capture time $ARGV[0]`;
+print `Capture $ARGV[0]`;

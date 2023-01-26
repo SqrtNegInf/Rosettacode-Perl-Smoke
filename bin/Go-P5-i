@@ -1,8 +1,9 @@
-#!/bin/sh
+#!/usr/bin/env zsh
 ## update Perl 5 smoke test / Github
 ## version just for iMac, that places output in 'meta-i'
 
-source $HOME/.profile
+source $HOME/.zshenv
+#source $HOME/.profile
 
 rakubrew switch moar-blead
 
@@ -19,6 +20,7 @@ bin/rc-p5 [0-Z]/*
 
 echo ' '
 bin/rc-stats5 2
+exit
 
 # keep tabs on status
 cd meta-i
