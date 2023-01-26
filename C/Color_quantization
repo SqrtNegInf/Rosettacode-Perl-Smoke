@@ -15,10 +15,10 @@ $img->read(file => 'ref/frog.png');
 my $img16 = $img->to_paletted({ max_colors => 16});
 $img16->write(file => "run/frog-16.png");
 
-say my $result = `/opt/local/bin/compare -metric MAE ref/frog-16.png run/frog-16.png null: 2>&1`;
+my $compare = `which compare` =~ s/\n$//r or die 'Required testing tool <compare> not found';
+say my $result = `$compare -metric MAE ref/frog-16.png run/frog-16.png null: 2>&1`;
 
 use Test::More;
-#is $result, '2321.22 (0.0354196)';
 my($mae,$percent)  = split ' ', $result;
 ok $mae < 2500 and $percent =~ /^.0\.0/;
 
