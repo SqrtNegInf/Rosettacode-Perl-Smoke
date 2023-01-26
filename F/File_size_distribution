@@ -2,8 +2,7 @@
 #u# http://rosettacode.org/wiki/File_size_distribution
 #c# 2018-09-28 >RC
 #p# OK
-#n# should update this once a year (before previous year logs are archived)
-#n# switch to testing Perl results, not Raku
+#n# 2023-01-26 test own 'ref' directory (it does change...)
 
 use strict;
 use warnings;
@@ -14,7 +13,7 @@ use File::Find;
 use List::Util 'max';
 
 my %fsize;
-my $dir = 'bench/2023-01-02';
+my $dir = 'ref'; #'bench/2023-01-02';
 #my $dir = '/Users/dhoekman/perl5/Rosetta-Code/last/2023-01-02';
 find(\&fsize, $dir);
 
@@ -44,15 +43,16 @@ sub fsize { $fsize{ log10( (lstat($_))[7] ) }++ }
 say my $result = join "\n", @res;
 
 my $ref = <<'END';
-File size distribution in bytes for directory: bench/2023-01-02
+File size distribution in bytes for directory: ref
 
-# files @    0b        0: 
-# files @ 10e0b     1871: ████████████████████████████████████████████████████████████████████████████████
-# files @ 10e1b     1104: ████████████████████████████████████████▉
-# files @ 10e2b      172: ▉
-# files @ 10e3b        3: 
-# files @ 10e4b        1: 
-3151 total files.
+# files @    0b        6: ████████▎
+# files @ 10e0b       25: ████████████████████████████████████████▎
+# files @ 10e1b       29: ████████████████████████████████████████████████▏
+# files @ 10e2b       47: ████████████████████████████████████████████████████████████████████████████████
+# files @ 10e3b       31: ████████████████████████████████████████████████▌
+# files @ 10e4b       23: ████████████████████████████████▉
+# files @ 10e5b        4: ▊
+165 total files.
 END
 
 use Test::More;
