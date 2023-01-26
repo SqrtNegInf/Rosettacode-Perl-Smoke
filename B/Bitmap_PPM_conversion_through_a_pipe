@@ -15,7 +15,8 @@ my $IO  = Imager::io_new_bufchain();
 Imager::i_writeppm_wiol($img, $IO) or die;
 my $raw = Imager::io_slurp($IO) or die;
 
-open my $fh, '|-', '/opt/local/bin/convert - -compress none run/pipe_image.jpg' or die;
+my $convert = `which convert` =~ s/\n$//r or die 'Required testing tool <convert> not found';
+open my $fh, '|-', "$convert - -compress none run/pipe_image.jpg" or die;
 binmode $fh;
 syswrite $fh, $raw or die;
 close $fh;
