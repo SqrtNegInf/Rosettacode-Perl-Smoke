@@ -20,7 +20,6 @@ bin/rc-p5 [0-Z]/*
 
 echo ' '
 bin/rc-stats5 2
-exit
 
 # keep tabs on status
 cd meta-i
