@@ -20,13 +20,15 @@ push @results, `uname`;            # same, but with back quotes
 #http://perldoc.perl.org/IPC/Open3.html
 
 say $result = join "\n", @results;; 
-my $ref = <<'EOD';
-Darwin
 
-Darwin
+my $os = `uname`; chomp $os;
+my $ref = <<"EOD";
+$os
+
+$os
 
 0
-Darwin
+$os
 EOD
 
 use Test::More;
