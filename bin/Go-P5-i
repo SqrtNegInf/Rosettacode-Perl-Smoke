@@ -1,10 +1,10 @@
-#!/usr/bin/env sh
+#!/usr/bin/env zsh
 ## update Perl 5 smoke test / Github
 ## version just for iMac, that places output in 'meta-i'
 
 source $HOME/.profile
 
-rakubrew switch moar-blead
+#rakubrew switch moar-blead
 
 cd $HOME/perl5/Rosetta-Code
 
