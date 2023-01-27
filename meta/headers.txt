@@ -2259,6 +2259,7 @@ File: C/Cyclops_numbers
 #c# 2021-06-26 >RC
 #p# OK
 #n# I am too lazy right now to make this list lazy
+#n# 2023-01-26 limit calculations as the VMware/Ubuntu croaks under larger memory requirements
 
 File: C/Cyclotomic_Polynomial
 #!/usr/local/bin/perl
@@ -3515,8 +3516,7 @@ File: F/File_size_distribution
 #u# http://rosettacode.org/wiki/File_size_distribution
 #c# 2018-09-28 >RC
 #p# OK
-#n# should update this once a year (before previous year logs are archived)
-#n# switch to testing Perl results, not Raku
+#n# 2023-01-26 test own 'ref' directory (it does change...)
 
 File: F/Filter
 #!/usr/local/bin/perl
@@ -4663,7 +4663,7 @@ File: H/Hostname
 #u# http://rosettacode.org/wiki/Hostname
 #c# 2018-08-13 <RC
 #p# OK
-#n# on iMac: different name obviously, so adjust testing (don't hard-code)
+#n# works on all platforms now
 
 File: H/Hough_transform
 #!/usr/local/bin/perl5.32.1
@@ -8430,7 +8430,8 @@ File: R/Reflection_Get_source
 #u# http://rosettacode.org/wiki/Reflection/Get_source
 #c# 2021-12-13 <RC
 #p# OK
-#n# do'h, tied to Perl release
+#n# do'h, tied to Perl release 
+#n# 2023-01-26 try to bypass that (and handle Linux too)
 
 File: R/Reflection_List_methods
 #!/usr/local/bin/perl
@@ -10790,6 +10791,7 @@ File: T/Time_a_function
 #u# http://rosettacode.org/wiki/Time_a_function
 #c# 2018-08-10 <RC
 #p# OK
+#n# even more generous timing limit on 'f1'
 
 File: T/Tokenize_a_string
 #!/usr/local/bin/perl
