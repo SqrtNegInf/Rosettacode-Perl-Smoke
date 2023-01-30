@@ -14,7 +14,7 @@ use Class::Inspector;
 say my $result = Class::Inspector->resolved_filename( 'IO::Socket::INET' ), "\n";
 
 my $ref = `uname` =~ /Darwin/ 
-          ? '/usr/local/lib/perl5/5.36.0/darwin-thread-multi-2level/IO/Socket/INET.pm'
+          ? '/usr/local/lib/perl5/site_perl/mumble/darwin-thread-multi-2level/IO/Socket/INET.pm'
           : '/home/osboxes/perl5/perlbrew/perls/perl-5.36.0/lib/site_perl/5.36.0/x86_64-linux-thread-multi/IO/Socket/INET.pm';
 
 $ref    =~ s/5\.3\d\.\d/mumble/g;
