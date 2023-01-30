@@ -5,9 +5,11 @@
 source $HOME/.zshrc
 #source $HOME/.profile
 
-echo '======='
-echo $PATH
-echo '======='
+#echo '======='
+#echo $PATH
+#echo '======='
+
+git pull
 
 #rakubrew switch moar-blead
 rakubrew switch moar-2022.12
