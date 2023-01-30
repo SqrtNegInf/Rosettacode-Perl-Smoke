@@ -2,6 +2,8 @@
 ## task run-times as real (wall-clock) and user + system (total CPU)
 #  2019-01-11
 
+BEGIN exit if $*KERNEL eq 'linux';
+ 
 sub MAIN($dir = "%*ENV<HOME>/perl5/Rosetta-Code/bench/last") {
 
     my $num = rx/<[\.0..9]>+/;
