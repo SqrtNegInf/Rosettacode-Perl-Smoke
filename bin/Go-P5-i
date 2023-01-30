@@ -9,7 +9,8 @@ echo '======='
 echo $PATH
 echo '======='
 
-rakubrew switch moar-blead
+#rakubrew switch moar-blead
+rakubrew switch moar-2022.12
 
 cd $HOME/perl5/Rosetta-Code
 
