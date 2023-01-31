@@ -1,0 +1,60 @@
+#!/usr/local/bin/perl
+## capture the command-line, stdout and stderr
+#  2022-11-16 still trying to reliably remove 'Potential difficulties' warnings...
+#  2020-02-25 kludge for 'unhandled Failure detected in DESTROY' flapper [now obsolete]
+#  2020-01-15 maybe that JIT thing is fixed? Let's see...
+#  2018-10-02 filter out out 'JIT ERROR' [now obsolete]
+
+# default temp file names
+$prefix = '/tmp/rc-capture.std';
+$out    = "$prefix.out.$$";
+$err    = "$prefix.err.$$";
+
+# usage
+exec "pod2text $0" unless @ARGV;
+
+if ($#ARGV == 0 && $ARGV[0] =~ /[\s>]/) {
+        ($cmd,$args,$out) = $ARGV[0] =~ /(\S+)\s*(.*)?>+\s*(.*)/;
+} else {
+        $args = join ' ', @ARGV;
+}
+
+system "$cmd $args > $out 2> $err";
+
+print "::CMD::\n$cmd $args\n\n";
+print "::STDOUT::\n" . `cat $out` . "\n" unless -z $out;
+print "::STDERR::\n" . `cat $err` . "\n" if -s $err and not `cat $err` =~ /Potential difficulties/ms;
+#   above line deals with spurious warnings from Clifford and Math::Matrix:
+#       F/Fibonacci_matrix-exponentiation 
+#       O/Orbital_elements 
+#       P/Polynomial_regression
+
+unlink $out, $err;
+
+#-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-
+
+=head1 NAME
+
+rc-capture - capture command-line, stdout and stderr
+
+=head1 SYNOPSIS
+
+rc-capture B<command> [ B<args> ]
+
+=head1 DESCRIPTION
+
+Captures the command-line, stdout and stderr, then present them on STDOUT,
+in that order.  The three sections of output are marked with the lines:
+
+        ::CMD:: ::STDOUT:: ::STDERR::
+
+If the 'command' being executed needs to redirect it's own STDOUT
+you must quote the entire command string:
+
+        Capture 'find / -type l -print > all_links'
+
+Note that appending (B<E<gt>E<gt>>) with STDOUT will not work.
+
+=head1 AUTHOR
+
+David Hoekman <dhoekman@halcyon.com>
