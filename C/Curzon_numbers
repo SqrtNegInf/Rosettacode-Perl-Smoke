@@ -1,6 +1,6 @@
 #!/usr/local/bin/perl
 #u# http://rosettacode.org/wiki/Curzon_numbers
-#c# 2022-02-14 >RC
+#c# 2022-02-14 >RC, 2023-01-31 <RC
 #p# OK
 
 my @res;
@@ -8,13 +8,15 @@ my @res;
 use strict;
 use warnings;
 use feature 'say';
-use Math::AnyNum 'ipow';
+use Math::AnyNum 'powmod';
 
 sub curzon {
     my($base,$cnt) = @_;
     my($n,@C) = 0;
     while (++$n) {
-        push @C, $n if 0 == (ipow($base,$n) + 1) % ($base * $n + 1);
+        my $r = $base * $n;
+       #push @C, $n if 0 == (ipow($base,$n) + 1) % ($base * $n + 1);
+        push @C, $n if powmod($base, $n, $r + 1) == $r;
         return @C if $cnt == @C;
     }
 }
