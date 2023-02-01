@@ -1,0 +1,23 @@
+#!/usr/local/bin/perl
+#n# NOT CURRENT, NOT SMOKE-TESTED
+#u# http://rosettacode.org/wiki/Hailstone_sequence
+#c# 2018-08-11 <>RC
+#p# OK
+#n# obfuscated (and now obsoleted)
+
+my $r;
+
+sub _{local$_=$_[''];push@_,$_&1?$_+=$_++<<1:($_>>=1)while$_^1;@_}
+@_=_($_=031^2);$r="$_: @_[0..3] ... @_[-4..-1] (".@_.")\n";
+$_[1]<($_[2]=_($_))and@_=($_,$_[2])for 1..1e5-1;$r.=sprintf "%d: (%d)\n", @_;
+
+print $r;
+
+my $ref = <<'END';
+27: 27 82 41 124 ... 8 4 2 1 (112)
+77031: (351)
+END
+
+use Test::More;
+is ($r, $ref);
+done_testing();

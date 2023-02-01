@@ -1,0 +1,73 @@
+#!/usr/bin/env perl
+#n# NOT CURRENT, NOT SMOKE-TESTED
+#u# http://rosettacode.org/wiki/Word_count
+#c# 2018-08-07 >RC
+#p# OK
+
+# {{trans|Perl 6}}
+
+$filename = 'ref/word-count.txt';
+$top = 10;
+
+open $fh, "<", $filename;
+($text = join '', <$fh>) =~ tr/A-Z/a-z/;
+#$text =~ tr/A-Z/a-z/;
+#$text = join '', <$fh>;
+#$text =~ tr/A-Z/a-z/;
+
+@matcher = (
+    qr/[a-z]+/,     # simple 7-bit ASCII
+    qr/\w+/,        # word characters with underscore
+    qr/[a-z0-9]+/,  # word characters without underscore
+);
+
+for $reg (@matcher) {
+    print "\nTop $top using regex: " . $reg . "\n";
+    @matches = $text =~ /$reg/g;
+    my %words;
+    for $w (@matches) { $words{$w}++ };
+    $c = 0;
+    for $w ( sort { $words{$b} <=> $words{$a} } keys %words ) {
+        printf "%-7s %6d\n", $w, $words{$w};
+        last if ++$c >= $top;
+    }
+}
+
+__END__
+{{out}}
+
+Top 10 using regex: (?^:[a-z]+)
+the      41089
+of       19949
+and      14942
+a        14608
+to       13951
+in       11214
+he        9648
+was       8621
+that      7924
+it        6661
+
+Top 10 using regex: (?^:\w+)
+the      41036
+of       19946
+and      14940
+a        14589
+to       13939
+in       11204
+he        9645
+was       8619
+that      7922
+it        6659
+
+Top 10 using regex: (?^:[a-z0-9]+)
+the      41089
+of       19949
+and      14942
+a        14608
+to       13951
+in       11214
+he        9648
+was       8621
+that      7924
+it        6661

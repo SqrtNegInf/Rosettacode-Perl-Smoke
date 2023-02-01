@@ -1,4 +1,5 @@
 #!/usr/local/bin/perl
+#n# NOT CURRENT, NOT SMOKE-TESTED
 #u# http://rosettacode.org/wiki/Thiele\'s_interpolation_formula
 #t# skiptest
 #c# 2019-10-xx NOT ON RC

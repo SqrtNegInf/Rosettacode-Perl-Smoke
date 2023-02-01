@@ -1,0 +1,79 @@
+#!/usr/local/bin/perl
+#n# NOT CURRENT, NOT SMOKE-TESTED
+#u# http://rosettacode.org/wiki/Text_Completion
+#c# 2020-08-22 >RC
+#p# OK
+
+use strict;
+use warnings;
+use feature 'say';
+
+use utf8;
+use Path::Tiny;
+use List::Util 'head';
+
+my @res;
+
+sub bi_gram { (lc shift) =~ /(?<=\K.)./g }
+
+sub score {
+    my($phrase, $word) = @_;
+    my %count;
+
+    my @match = bi_gram $phrase;
+    $count{$_}++ for @match, @$word;
+    2 * (grep { $count{$_} > 1 } keys %count) / (@match + @$word);
+}
+
+sub sorenson {
+    my($dict,$word,$cutoff) = @_; $cutoff //= 0.55;
+    my(%matches,$s);
+
+    ($s = score($word, $$dict{$_})) > $cutoff and $matches{$_} = $s for keys %$dict;
+    %matches;
+}
+
+my %dict = map { $_ => [ bi_gram($_) ] } path('ref/unixdict.txt')->slurp =~ /.{3,}/gm;
+
+for my $word (<complition inconsqual Sørenson>) {
+    my(%scored,@ranked); 
+
+    %scored = sorenson(\%dict,$word);
+    push @ranked, sprintf "%.3f $_", $scored{$_} for sort { $scored{$b} <=> $scored{$a} || $a cmp $b } keys %scored;
+    push @res, "\n$word:\n" . join("\n", head 10, @ranked);
+}
+
+say my $result = join "\n", @res;
+
+my $ref = <<'END';
+
+complition:
+0.778 completion
+0.737 competition
+0.737 composition
+0.706 coalition
+0.700 incompletion
+0.667 complexion
+0.667 complicity
+0.667 decomposition
+0.632 compilation
+0.632 compunction
+
+inconsqual:
+0.609 inconsequential
+0.588 continual
+0.571 squall
+0.556 conceptual
+0.556 continuant
+0.556 inconstant
+
+SÃ¸renson:
+0.667 sorenson
+0.615 benson
+0.571 swenson
+END
+
+use Test::More;
+chomp $ref;
+is($result, $ref);
+done_testing();

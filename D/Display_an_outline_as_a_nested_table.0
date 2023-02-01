@@ -1,0 +1,244 @@
+#!/usr/local/bin/perl
+#n# NOT CURRENT, NOT SMOKE-TESTED
+#u# http://rosettacode.org/wiki/Display_an_outline_as_a_nested_table
+#t# skiptest
+#c# 2019-11-xx NOT ON RC
+#p# BROKEN
+#n# unlikely to work on this anytime soon
+
+use Data::Printer;
+use Time::HiRes qw(sleep);
+
+use strict;
+use warnings;
+use feature 'say';
+
+my @res;
+
+my $outline = <<~END;
+    Display an outline as a nested table.
+        Parse the outline to a tree,
+            measuring the indent of each line,
+            translating the indentation to a nested structure,
+            and padding the tree to even depth.
+        count the leaves descending from each node,
+            defining the width of a leaf as 1,
+            and the width of a parent node as a sum.
+                (The sum of the widths of its children)
+                Propagating the sums upward as necessary.
+        and write out a table with 'colspan' values
+            either as a wiki table,
+            or as HTML.
+        Optionally add color to the nodes.
+    END
+
+sub import {
+    my($trees) = @_;
+    my $level = '    ';
+    my $forest;
+    my $last = -999;
+
+    for my $branch (split /\n/, $trees) {
+        $branch =~ m/(($level*))*/;
+        my $this = $1 ? length($1)/length($level) : 0;
+        $forest .= do {
+            if    ($this gt $last) { '['                   . trim_and_quote($branch) }
+            elsif ($this lt $last) { ']'x($last-$this).',' . trim_and_quote($branch) }
+            else                   {                         trim_and_quote($branch) }
+        };
+        $last = $this;
+    }
+    sub trim_and_quote { shift =~ s/^\s*(.*\S)\s*$/"$1",/r }
+
+    eval $forest . ']' x (1+$last);
+}
+
+my $AoA = import $outline; 
+my @layout;
+
+print np($AoA);
+say '';
+
+# Collect information about node depth, position and children
+my @width = 0;
+my $depth = -1;
+insert($AoA);
+
+sub insert {
+    my ($item) = @_;
+
+    if (! ref $item) {
+say 'hi'; exit;
+        $width[-1]++;
+        #push @layout, { :depth($depth.clone), :id(@width[*-1].clone), :text($item) };
+
+    } else {
+say 'ho'; exit;
+        push @width, $width[-1] * 10;
+        ++$depth;
+        map { insert($_) } @{$item};
+        --$depth;
+        pop @width;
+    }
+    }
+
+__END__
+
+sub hsv2rgb {
+    my($h,$s,$v) = @_;
+    my $c = $v * $s;
+    my $x = $c * (1 - ( abs( (fmod(($h*6),2)) - 1 ) ) );
+    our $m = $v - $c;
+    my @rgb;
+       if ( $h < 1/6 ){ @rgb = scale($c, $x,  0) }
+    elsif ( $h < 2/6 ){ @rgb = scale($x, $c,  0) }
+    elsif ( $h < 3/6 ){ @rgb = scale( 0, $c, $x) }
+    elsif ( $h < 4/6 ){ @rgb = scale( 0, $x, $c) }
+    elsif ( $h < 5/6 ){ @rgb = scale($x,  0, $c) }
+    else              { @rgb = scale($c,  0, $x) }
+    sub scale { int(255*($_[0]+$m)), int(255*($_[1]+$m)), int(255*($_[2]+$m)) }
+    return \@rgb;
+}
+
+my $max-depth = @layout.max( *.<depth> )<depth>;
+
+# Pad ragged nodes
+for (^$max-depth) -> $d {
+    my @nodes = @layout.grep( *.<depth> == $d );
+    for @nodes.sort( +*.<id> ) -> $n {
+        unless @layout.first( *.<id> == $n<id> ~ 1 ) {
+            @layout.push: { :depth($n<depth> + 1), :id($n<id> *10 + 1), :text('') };
+        }
+    }
+}
+
+# Calculate spans (child nodes)
+for (0..$max-depth).reverse -> $d {
+    my @nodes = @layout.grep( *.<depth> == $d );
+    for @nodes.sort( +*.<id> ) -> $n {
+        my @span = @layout.grep: {.<depth> == $d + 1 && .<id>.starts-with: $n<id> };
+        $n<span> = ( sum @span.map( { .<span> // 0} )) || +@span || 1;
+    }
+}
+
+# Programatically assign colors
+for (0..$max-depth) -> $d {
+    my @nodes = @layout.grep( *.<depth> == $d );
+    my $incr = 1 / (1 + @nodes);
+    for @nodes.sort( +*.<id> ) -> $n {
+        my $color = $d > 1 ??
+        @layout.first( *.<id> eq $n<id>.chop )<color> !!
+        "style=\"background: #" ~ hsv2rgb( ++$ * $incr, .1, 1) ~ '" ';
+        $n<color> = $n<text> ?? $color !! '';
+    }
+}
+
+# Generate wikitable
+my $result1 = '{| class="wikitable" style="text-align: center;"' ~ "\n" ~
+(join "\n|-\n", (0..$max-depth).map: -> $d {
+    my @nodes = @layout.grep( *.<depth> == $d );
+    (join "\n", @nodes.sort( +*.<id> ).map( -> $node {
+        '| ' ~
+        ($node<color> // '' ) ~
+        ($node<span> > 1 ?? "colspan=$node<span>" !! '' ) ~
+        ' | ' ~ $node<text> }
+    ))
+}) ~ "\n|}";
+
+#say "\n\nSometimes it makes more sense to display an outline as...
+#well... as an outline, rather than as a table." ~ Q|¯\_(ツ)_/¯| ~ "\n";
+
+my $result2;
+{ ## Outline - Ordered List #######
+    my @type = <upper-roman upper-latin decimal lower-latin lower-roman>;
+    my $depth = 0;
+
+    multi ol ($item) { "\<li>$item\n" }
+
+    multi ol (@array) {
+        my $li = $depth ?? "</li>" !! '';
+        $depth++;
+        my $list = "<ol style=\"list-style: {@type[$depth - 1]};\">\n" ~
+        ( @array.map( *.&ol ).join ) ~ "</ol>$li\n";
+        $depth--;
+        $list
+    }
+
+    $result2 = "<div style=\"background: #fee;\">\n" ~ @AoA.&ol ~ "</div>";
+}
+
+my $ref1 = <<'END';
+{| class="wikitable" style="text-align: center;"
+| style="background: #E5FFFF" colspan=9 | Display an outline as a nested table.
+|-
+| style="background: #F9FFE5" colspan=3 | Parse the outline to a tree,
+| style="background: #E5FFEF" colspan=3 | count the leaves descending from each node,
+| style="background: #E5EFFF" colspan=2 | and write out a table with 'colspan' values
+| style="background: #F9E5FF"  | Optionally add color to the nodes.
+|-
+| style="background: #F9FFE5"  | measuring the indent of each line,
+| style="background: #F9FFE5"  | translating the indentation to a nested structure,
+| style="background: #F9FFE5"  | and padding the tree to even depth.
+| style="background: #E5FFEF"  | defining the width of a leaf as 1,
+| style="background: #E5FFEF" colspan=2 | and the width of a parent node as a sum.
+| style="background: #E5EFFF"  | either as a wiki table,
+| style="background: #E5EFFF"  | or as HTML.
+|  | 
+|-
+|  | 
+|  | 
+|  | 
+|  | 
+| style="background: #E5FFEF"  | (The sum of the widths of its children)
+| style="background: #E5FFEF"  | Propagating the sums upward as necessary.
+|  | 
+|  | 
+|  | 
+|}
+END
+
+my $ref2 = <<'END';
+<div style="background: #fee;">
+<ol style="list-style: upper-roman;">
+<li>Display an outline as a nested table.
+<ol style="list-style: upper-latin;">
+<li>Parse the outline to a tree,
+<ol style="list-style: decimal;">
+<li>measuring the indent of each line,
+<li>translating the indentation to a nested structure,
+<li>and padding the tree to even depth.
+</ol></li>
+<li>count the leaves descending from each node,
+<ol style="list-style: decimal;">
+<li>defining the width of a leaf as 1,
+<li>and the width of a parent node as a sum.
+<ol style="list-style: lower-latin;">
+<li>(The sum of the widths of its children)
+<li>Propagating the sums upward as necessary.
+</ol></li>
+</ol></li>
+<li>and write out a table with 'colspan' values
+<ol style="list-style: decimal;">
+<li>either as a wiki table,
+<li>or as HTML.
+</ol></li>
+<li>Optionally add color to the nodes.
+</ol></li>
+</ol>
+</div>
+END
+
+say my $result = join "\n", @res;
+
+use Test::More;
+chomp $ref1; is($result1, $ref1);
+chomp $ref2; is($result2, $ref2);
+done_testing();
+
+__END__
+
+=={{header|Perl}}==
+{{trans|Perl 6}}
+<lang perl></lang>
+{{out}}
+<pre style="height:20ex"></pre>

@@ -1,0 +1,60 @@
+#!/usr/local/bin/perl
+#n# NOT CURRENT, NOT SMOKE-TESTED
+#u# http://rosettacode.org/wiki/Next_highest_int_from_digits
+#c# 2020-02-xx NOT ON RC
+#p# OK
+#n# works fine, but doesn't scale well
+
+use strict;
+use warnings;
+no warnings 'exiting';
+use feature 'say';
+use ntheory qw(formultiperm);
+
+my @res;
+
+sub comma { reverse ((reverse shift) =~ s/(.{3})/$1,/gr) =~ s/^,//r }
+sub show  { push @res, sprintf "%10s -> %10s", comma($_[0]), comma($_[1]) }
+#sub show  { printf "%10s -> %10s\n", comma($_[0]), comma($_[1]) }
+
+my $last = '';
+
+LOOP: 
+for my $n (<0 9 12 21 12453 738440 45072010 95322020>) {
+formultiperm { 
+    my $current = join '', @_;
+    show($n,$current) and next LOOP if $last eq $n;
+    #printf "%10s -> %10s\n", comma($n), comma($current) and next LOOP if $last eq $n;
+    $last = $current;
+} [split(//,$n)];
+#printf "%10s -> %10s\n", comma($n), 0;
+show($n,0)
+}
+
+say my $result = join "\n", @res;
+
+my $ref = <<'END';
+         0 ->          0
+         9 ->          0
+        12 ->         21
+        21 ->          0
+    12,453 ->     12,534
+   738,440 ->    740,348
+45,072,010 -> 45,072,100
+95,322,020 -> 95,322,200
+END
+
+use Test::More;
+chomp $ref;
+is($result, $ref);
+done_testing();
+
+# 9_589_776_899_767_587_796_600 -> 9_589_776_899_767_587_900_667
+
+__END__
+
+=={{header|Perl}}==
+{{libheader|ntheory}}
+<lang perl></lang>
+{{out}}
+<pre></pre>

@@ -1,4 +1,5 @@
 #!/usr/local/bin/perl
+#n# NOT CURRENT, NOT SMOKE-TESTED
 #t# skiptest
 #u# http://rosettacode.org/wiki/Colorize_diff_output
 #c# 2020-10-27 <RC
