@@ -1,3 +1,6 @@
+2023-01-31
+Sync .0 versions of tasks, add warning to all such obsolete tasks, e.g. [0-Z]/*\.[012]
+
 2022-01-26
 Back to zero errors (i.e. no unhandled exceptions)
 
