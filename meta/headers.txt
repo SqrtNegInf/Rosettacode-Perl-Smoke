@@ -2215,7 +2215,7 @@ File: C/Curve_that_touches_three_points
 File: C/Curzon_numbers
 #!/usr/local/bin/perl
 #u# http://rosettacode.org/wiki/Curzon_numbers
-#c# 2022-02-14 >RC
+#c# 2022-02-14 >RC, 2023-01-31 <RC
 #p# OK
 
 File: C/Curzon_numbers-1
