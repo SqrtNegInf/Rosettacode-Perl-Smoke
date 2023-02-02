@@ -60,6 +60,7 @@ File: 0/15_Puzzle_Game-2
 File: 0/15_Puzzle_Game-2.0
 #!/usr/local/bin/perl
 #u# http://rosettacode.org/wiki/15_Puzzle_Game
+#n# NOT CURRENT, NOT SMOKE-TESTED
 #c# 2018-07-01 <RC
 #p# OK
 #n3 the kind of Perl that gives Perl a bad name... re-write?
@@ -76,6 +77,7 @@ File: 0/15_puzzle_solver
 
 File: 0/15_puzzle_solver.1
 #!/usr/local/bin/perl
+#n# NOT CURRENT, NOT SMOKE-TESTED
 #u# http://rosettacode.org/wiki/15_puzzle_solver
 #c# 2021-06-27 NOT ON RC
 #p# OK
@@ -367,6 +369,7 @@ File: A/Almkvist-Giullera_formula_for_pi
 
 File: A/Almkvist-Giullera_formula_for_pi.1
 #!/usr/local/bin/perl
+#n# NOT CURRENT, NOT SMOKE-TESTED
 #u# http://rosettacode.org/wiki/Almkvist-Giullera_formula_for_pi
 #c# 2021-01-12 >RC
 #p# OK
@@ -537,6 +540,7 @@ File: A/Approximate_Equality
 
 File: A/Approximate_Equality.1
 #!/usr/local/bin/perl
+#n# NOT CURRENT, NOT SMOKE-TESTED
 #t# skiptest
 #u# http://rosettacode.org/wiki/Approximate_Equality
 #p# OK
@@ -1253,6 +1257,7 @@ File: C/Calendar
 
 File: C/Calendar.1
 #!/usr/local/bin/perl
+#n# NOT CURRENT, NOT SMOKE-TESTED
 #u# http://rosettacode.org/wiki/Calendar
 #c# 2018-07-21 <RC
 #p# OK
@@ -1462,6 +1467,7 @@ File: C/Character_codes-3
 
 File: C/Character_codes.1
 #!/usr/local/bin/perl
+#n# NOT CURRENT, NOT SMOKE-TESTED
 #u# http://rosettacode.org/wiki/Character_codes
 #c# 2018-07-22 <RC
 #p# OK
@@ -1641,6 +1647,7 @@ File: C/Closest-pair_problem
 
 File: C/Closest-pair_problem.1
 #!/usr/local/bin/perl
+#n# NOT CURRENT, NOT SMOKE-TESTED
 #u# http://rosettacode.org/wiki/Closest-pair_problem
 #c# 2018-07-23 <>RC
 #p# OK
@@ -1706,6 +1713,7 @@ File: C/Colorful_numbers
 
 File: C/Colorize_diff_output.0
 #!/usr/local/bin/perl
+#n# NOT CURRENT, NOT SMOKE-TESTED
 #t# skiptest
 #u# http://rosettacode.org/wiki/Colorize_diff_output
 #c# 2020-10-27 <RC
@@ -2638,6 +2646,7 @@ File: D/Display_an_outline_as_a_nested_table
 
 File: D/Display_an_outline_as_a_nested_table.0
 #!/usr/local/bin/perl
+#n# NOT CURRENT, NOT SMOKE-TESTED
 #u# http://rosettacode.org/wiki/Display_an_outline_as_a_nested_table
 #t# skiptest
 #c# 2019-11-xx NOT ON RC
@@ -3539,6 +3548,7 @@ File: F/Find_URI_in_text
 
 File: F/Find_URI_in_text.1
 #!/usr/local/bin/perl
+#n# NOT CURRENT, NOT SMOKE-TESTED
 #u# http://rosettacode.org/wiki/Find_URI_in_text
 #p# BROKEN
 
@@ -3853,6 +3863,7 @@ File: F/Forest_fire-2
 
 File: F/Forest_fire.0
 #!/usr/local/bin/perl
+#n# NOT CURRENT, NOT SMOKE-TESTED
 #u# http://rosettacode.org/wiki/Forest_fire
 #c# 2018-08-07 <RC
 #p# OK
@@ -3944,6 +3955,7 @@ File: F/Fraction_reduction
 
 File: F/Fraction_reduction.1
 #!/usr/local/bin/perl
+#n# NOT CURRENT, NOT SMOKE-TESTED
 #u# http://rosettacode.org/wiki/RC_REMOTE
 #c# 2019-09-07 >RC
 #p# OK
@@ -4015,6 +4027,7 @@ File: F/Functional_coverage_tree
 
 File: F/Functional_coverage_tree.1
 #!/usr/local/bin/perl
+#n# NOT CURRENT, NOT SMOKE-TESTED
 #u# http://rosettacode.org/wiki/Functional_coverage_tree
 #c# 2019-10-10 <RC
 #p# OK
@@ -4355,6 +4368,7 @@ File: H/Hailstone_sequence-2
 
 File: H/Hailstone_sequence-3.0
 #!/usr/local/bin/perl
+#n# NOT CURRENT, NOT SMOKE-TESTED
 #u# http://rosettacode.org/wiki/Hailstone_sequence
 #c# 2018-08-11 <>RC
 #p# OK
@@ -4753,6 +4767,7 @@ File: I/Identity_matrix
 
 File: I/Identity_matrix.1
 #!/usr/local/bin/perl
+#n# NOT CURRENT, NOT SMOKE-TESTED
 #u# http://rosettacode.org/wiki/Identity_matrix
 #c# 2018-08-13 <RC
 #p# OK
@@ -5203,6 +5218,7 @@ File: K/Kronecker_product
 
 File: K/Kronecker_product.1
 #!/usr/local/bin/perl5.32.1
+#n# NOT CURRENT, NOT SMOKE-TESTED
 #u# http://rosettacode.org/wiki/Kronecker_product
 #c# 2018-08-14 <RC
 #p# OK
@@ -5387,6 +5403,7 @@ File: L/Length_of_an_arc_between_two_angles
 
 File: L/Length_of_an_arc_between_two_angles.1
 #!/usr/local/bin/perl
+#n# NOT CURRENT, NOT SMOKE-TESTED
 #u# http://rosettacode.org/wiki/Length_of_an_arc_between_two_angles
 #c# 2020-03-16 NOT ON RC
 #p# OK
@@ -5439,6 +5456,7 @@ File: L/Line_circle_intersection
 
 File: L/Line_circle_intersection.0
 #!/usr/local/bin/perl
+#n# NOT CURRENT, NOT SMOKE-TESTED
 #u# http://rosettacode.org/wiki/Line_circle_intersection
 #c# 2020-03-11 NOT ON RC
 #p# OK
@@ -6521,6 +6539,7 @@ File: N/N-queens_minimum_and_knights_and_bishops
 
 File: N/N-queens_minimum_and_knights_and_bishops.1
 #!/usr/local/bin/perl5.32.1
+#n# NOT CURRENT, NOT SMOKE-TESTED
 #u# http://rosettacode.org/wiki/N-queens_minimum_and_knights_and_bishops
 #c# 2022-07-11 >RC
 #p# OK
@@ -6561,6 +6580,7 @@ File: N/Names_to_numbers
 
 File: N/Names_to_numbers.1
 #!/usr/local/bin/perl
+#n# NOT CURRENT, NOT SMOKE-TESTED
 #u# http://rosettacode.org/wiki/Names_to_numbers
 #c# 2018-08-19 <RC
 #p# OK
@@ -6639,6 +6659,7 @@ File: N/Next_highest_int_from_digits
 
 File: N/Next_highest_int_from_digits.0
 #!/usr/local/bin/perl
+#n# NOT CURRENT, NOT SMOKE-TESTED
 #u# http://rosettacode.org/wiki/Next_highest_int_from_digits
 #c# 2020-02-xx NOT ON RC
 #p# OK
@@ -6778,6 +6799,7 @@ File: N/Numbers_which_are_not_the_sum_of_distinct_squares
 
 File: N/Numbers_which_are_not_the_sum_of_distinct_squares.1
 #!/usr/local/bin/perl
+#n# NOT CURRENT, NOT SMOKE-TESTED
 #u# http://rosettacode.org/wiki/Numbers_which_are_not_the_sum_of_distinct_squares
 #c# 2022-07-13 NOT ON RC
 #p# OK
@@ -7063,6 +7085,7 @@ File: P/P-value_correction
 
 File: P/P-value_correction.1
 #!/usr/local/bin/perl
+#n# NOT CURRENT, NOT SMOKE-TESTED
 #u# http://rosettacode.org/wiki/P-value_correction
 #c# 2018-08-20 <RC, 2018-12-20 <RC,
 #p# OK
@@ -7302,6 +7325,7 @@ File: P/Password_generator
 
 File: P/Password_generator.0
 #!/usr/local/bin/perl
+#n# NOT CURRENT, NOT SMOKE-TESTED
 #u# http://rosettacode.org/wiki/Password_generator
 #c# 2018-08-20 <RC
 #p# OK
@@ -7334,6 +7358,7 @@ File: P/Peaceful_chess_queen_armies
 
 File: P/Peaceful_chess_queen_armies.1
 #!/usr/local/bin/perl
+#n# NOT CURRENT, NOT SMOKE-TESTED
 #u# http://rosettacode.org/wiki/Peaceful_chess_queen_armies
 #c# 2019-04-02 <RC
 #p# OK
@@ -7446,6 +7471,7 @@ File: P/Perfect_shuffle
 
 File: P/Perfect_shuffle.1
 #!/usr/local/bin/perl
+#n# NOT CURRENT, NOT SMOKE-TESTED
 #u# http://rosettacode.org/wiki/Perfect_shuffle
 #c# 2018-08-21 <RC
 #p# OK
@@ -7491,6 +7517,7 @@ File: P/Perlin_noise
 
 File: P/Perlin_noise.1
 #!/usr/local/bin/perl
+#n# NOT CURRENT, NOT SMOKE-TESTED
 #u# http://rosettacode.org/wiki/Perlin_noise
 #c# 2018-08-20 <RC
 #p# OK
@@ -7737,6 +7764,7 @@ File: P/Polynomial_regression-2
 
 File: P/Polynomial_regression.1
 #!/usr/local/bin/perl
+#n# NOT CURRENT, NOT SMOKE-TESTED
 #u# http://rosettacode.org/wiki/Polynomial_regression
 #c# 2018-08-20 <RC, 2019-02-09 >RC
 #p# OK
@@ -7757,6 +7785,7 @@ File: P/Polyspiral
 
 File: P/Polyspiral.0
 #!/usr/local/bin/perl
+#n# NOT CURRENT, NOT SMOKE-TESTED
 #u# http://rosettacode.org/wiki/Polyspiral
 #c# 2018-11-RC >RC
 #p# BROKEN
@@ -7939,6 +7968,7 @@ File: P/Prime_triplets
 
 File: P/Prime_triplets.1
 #!/usr/local/bin/perl
+#n# NOT CURRENT, NOT SMOKE-TESTED
 #u# http://rosettacode.org/wiki/Prime_triplets
 #c# 2021-04-22 <RC
 #p# OK
@@ -7994,6 +8024,7 @@ File: P/Primes_with_digits_in_nondecreasing_order
 
 File: P/Primes_with_digits_in_nondecreasing_order.1
 #!/usr/local/bin/perl
+#n# NOT CURRENT, NOT SMOKE-TESTED
 #u# http://rosettacode.org/wiki/Primes_with_digits_in_nondecreasing_order
 #c# 2021-04-23 <RC
 #p# OK
@@ -9639,6 +9670,7 @@ File: S/Sorting_algorithms_Cocktail_sort
 
 File: S/Sorting_algorithms_Cocktail_sort.1
 #!/usr/local/bin/perl
+#n# NOT CURRENT, NOT SMOKE-TESTED
 #u# http://rosettacode.org/wiki/Sorting_algorithms/Cocktail_sort
 #c# 2018-08-15 <RC
 #p# OK
@@ -9953,6 +9985,7 @@ File: S/Statistics_Chi-squared_distribution
 
 File: S/Statistics_Chi-squared_distribution.1
 #!/usr/local/bin/perl
+#n# NOT CURRENT, NOT SMOKE-TESTED
 #u# https://rosettacode.org/wiki/Statistics_Chi-squared_distribution
 #c# 2022-12-03 >RC
 #p# OK
@@ -9979,6 +10012,7 @@ File: S/Stem-and-leaf_plot
 
 File: S/Stem-and-leaf_plot.0
 #!/usr/local/bin/perl
+#n# NOT CURRENT, NOT SMOKE-TESTED
 #u# http://rosettacode.org/wiki/Stem-and-leaf_plot
 #c# 2018-08-13 <RC
 #p# OK
@@ -10242,6 +10276,7 @@ File: S/Successive_prime_differences
 
 File: S/Successive_prime_differences.1
 #!/usr/local/bin/perl
+#n# NOT CURRENT, NOT SMOKE-TESTED
 #u# http://rosettacode.org/wiki/Successive_prime_differences
 #c# 2019-04-29 >RC, 2021-01-30
 #p# OK
@@ -10664,6 +10699,7 @@ File: T/Text_Completion
 
 File: T/Text_Completion.0
 #!/usr/local/bin/perl
+#n# NOT CURRENT, NOT SMOKE-TESTED
 #u# http://rosettacode.org/wiki/Text_Completion
 #c# 2020-08-22 >RC
 #p# OK
@@ -10746,6 +10782,7 @@ File: T/Thiele%27s_interpolation_formula
 
 File: T/Thiele%27s_interpolation_formula.0
 #!/usr/local/bin/perl
+#n# NOT CURRENT, NOT SMOKE-TESTED
 #u# http://rosettacode.org/wiki/Thiele\'s_interpolation_formula
 #t# skiptest
 #c# 2019-10-xx NOT ON RC
@@ -10934,6 +10971,7 @@ File: T/Triplet_of_three_numbers
 
 File: T/Triplet_of_three_numbers.1
 #!/usr/local/bin/perl
+#n# NOT CURRENT, NOT SMOKE-TESTED
 #u# http://rosettacode.org/wiki/Triplet_of_three_numbers
 #c# 2021-05-20 <RC
 #p# OK
@@ -11406,6 +11444,7 @@ File: W/Welch%27s_t-test-2
 
 File: W/Welch%27s_t-test-2.0
 #!/usr/local/bin/perl
+#n# NOT CURRENT, NOT SMOKE-TESTED
 #u# http://rosettacode.org/wiki/Welch%27s_t-test
 #c# 2018-08-03 <RC
 #p# OK
@@ -11469,6 +11508,7 @@ File: W/Word_count
 
 File: W/Word_count.0
 #!/usr/bin/env perl
+#n# NOT CURRENT, NOT SMOKE-TESTED
 #u# http://rosettacode.org/wiki/Word_count
 #c# 2018-08-07 >RC
 #p# OK
@@ -11516,6 +11556,7 @@ File: W/Word_wheel
 
 File: W/Word_wheel.1
 #!/usr/local/bin/perl
+#n# NOT CURRENT, NOT SMOKE-TESTED
 #u# http://rosettacode.org/wiki/Word_wheel
 #c# 2020-07-21 <RC
 #p# OK
