@@ -38,18 +38,23 @@ sub erdosFactorCount ($n) {
 }
 
 sub moreMultiples ($to, $from) {
-   my @toSeq = @{$to};
-   my @fromSeq = @{$from};
+   no strict 'refs'; # wart!
+   my @toSeq = defined $to->[0]->[0] ? @{$to->[0]} : $to->[0];
+
    my @oneMores;
-   for my $j (@fromSeq) {
-      push @oneMores, (@toSeq, $j) if $j > $toSeq[-1] && 0 == $j % $toSeq[-1]
+   for my $j (@{$from->[0]}) {
+      push @oneMores, [@toSeq, $j] if $j > $toSeq[-1] && 0 == $j % $toSeq[-1]
    }
-   return [] unless @oneMores;
+   return unless @oneMores;
    for (0 .. $#oneMores) {
-      push @oneMores, moreMultiples($oneMores[$_], \@fromSeq)
+      push @oneMores, moreMultiples([$oneMores[$_]], $from);
    }
    return @oneMores
 }
+
+my @seq = [1, 2, 24, 3, 16, 4, 12, 6, 8]; # must be in this order
+my @listing = moreMultiples [1], \@seq; #[proper_divisors(48)]);
+p @listing; exit;
 
 say my $result = join "\n", @res;
 
