@@ -52,8 +52,26 @@ sub moreMultiples ($to, $from) {
 }
 
 my @listing = moreMultiples [1], [proper_divisors(48)];
-#say $#listing; exit;
+say $#listing; exit;
 p @listing; exit;
+
+__END__
+
+given @listing { $_.map: *.push: 48; $_.push: [1,48] }
+@res.push: @listing.elems ~ " sequences using first definition:";
+my $out = '';
+for @listing.rotor(4) -> \line { line.map: { $out ~= sprintf "%-20s", $_ } ; $out ~= "\n" }
+@res.push: $out;
+
+my @listing2 = gather for (0..^+@listing) -> \j {
+   my @seq = |@listing[j];
+   @seq.append: 48 if @seq[*-1] != 48;
+   take (1..^+@seq).map: { @seq[$_] div @seq[$_-1] }
+}
+@res.push: "\n{@listing2.elems} sequences using second definition:";
+$out = '';
+for @listing2.rotor(4) -> \line { line.map: { $out  ~= sprintf "%-20s", $_ } ; $out ~= "\n" }
+@res.push: $out;
 
 say my $result = join "\n", @res;
 
