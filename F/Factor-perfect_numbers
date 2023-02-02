@@ -19,11 +19,13 @@ my $n = 4;
 my @fpns = (0, 1);
 my %cache;
 
-sub proper_divisors ($n) {
-  return 1 if $n == 0;
-  my @d = divisors($n);
-  pop @d;
-  @d;
+sub proper_divisors ($x) {
+   my @l;
+   @l = 1 if $x > 1;
+   for my $d (2 .. int sqrt $x) {
+      if (0 == $x % $d) { push @l, $d; my $y = int($x/$d); push @l, $y if $y != $d }
+   }
+   @l
 }
 
 sub erdosFactorCount ($n) {
@@ -38,22 +40,19 @@ sub erdosFactorCount ($n) {
 }
 
 sub moreMultiples ($to, $from) {
-   no strict 'refs'; # wart!
-   my @toSeq = defined $to->[0]->[0] ? @{$to->[0]} : $to->[0];
-
    my @oneMores;
-   for my $j (@{$from->[0]}) {
-      push @oneMores, [@toSeq, $j] if $j > $toSeq[-1] && 0 == $j % $toSeq[-1]
+   for my $j (@$from) {
+      push @oneMores, [@$to, $j] if $j > $$to[-1] && 0 == $j % $$to[-1]
    }
    return unless @oneMores;
    for (0 .. $#oneMores) {
-      push @oneMores, moreMultiples([$oneMores[$_]], $from);
+      push @oneMores, moreMultiples($oneMores[$_], $from);
    }
    return @oneMores
 }
 
-my @seq = [1, 2, 24, 3, 16, 4, 12, 6, 8]; # must be in this order
-my @listing = moreMultiples [1], \@seq; #[proper_divisors(48)]);
+my @listing = moreMultiples [1], [proper_divisors(48)];
+#say $#listing; exit;
 p @listing; exit;
 
 say my $result = join "\n", @res;
