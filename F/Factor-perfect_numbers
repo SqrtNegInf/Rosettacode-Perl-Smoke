@@ -10,7 +10,7 @@ use v5.36;
 
 use ntheory 'divisors';
 use enum qw(False True);
-use List::AllUtils <firstidx sum>;
+#use List::AllUtils <firstidx sum>;
 
 sub table (@V) { my $t = 3 * (my $w = 2 + 20); ( sprintf( ('%-'.$w.'s')x@V, @V) ) =~ s/.{1,$t}\K/\n/gr }
 
