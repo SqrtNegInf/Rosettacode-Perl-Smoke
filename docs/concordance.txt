@@ -211,14 +211,14 @@ P5 Memoize
 P6 "arithmetic with rationals"
 P5 Math::Decimal <dec_add dec_mul_pow10>
 
-P6
-P5
+P6 (^a) X (^b)
+P5 sub X ($a,$b) { my @c; for my $aa (0..$a-1) { for my $bb (0..$b-1) { push @c, $aa, $bb } } @c }
 
-P6
-P5
+P6 (a..b) X (c..d)
+P5 sub Xr($a,$b,$c,$d) { my @c; for my $ab ($a..$b)  { for my $cd ($c..$d)  { push @c, $ab, $cd } } @c }
 
-P6
-P5
+P6 sub comma { $^i.flip.comb(3).join(',').flip }
+P5 sub comma { reverse ((reverse shift) =~ s/(.{3})/$1,/gr) =~ s/^,//r }
 
 P6
 P5
