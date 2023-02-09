@@ -23,7 +23,8 @@ for my $N ( 2 .. 10 )
     {
     my $fmt = join '', map({ /\n/; '%' . ($+[0] + 1) . 's' } @show), "\n";
     my $line;
-    grep $_, @show and $line .= sprintf($fmt, map s/(.*)\n// && $1, @show) for 0 .. $N;
+   #grep $_, @show and $line .= sprintf($fmt, map s/(.*)\n// && $1, @show) for 0 .. $N;
+    for (0..$N) { $line .= sprintf($fmt, map { s/(.*)\n// && $1} @show ) if grep $_, @show }
     push(@res,$line);
     }
   }
