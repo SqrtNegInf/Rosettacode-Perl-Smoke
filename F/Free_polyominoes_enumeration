@@ -12,22 +12,20 @@ my @res;
 
 my @new = "#\n";
 
-for my $N ( 2 .. 10 )
-  {
+for my $N ( 2 .. 10 ) {
   @new = find( @new );
   my %allbest;
   $allbest{best($_)}++ for @new;
   my @show = @new = sort keys %allbest;
   push @res, sprintf "rank: %2d  count: %d\n", $N, scalar @show;
-  if( @show <= 12 )
-    {
+  if( @show <= 12 ) {
     my $fmt = join '', map({ /\n/; '%' . ($+[0] + 1) . 's' } @show), "\n";
     my $line;
    #grep $_, @show and $line .= sprintf($fmt, map s/(.*)\n// && $1, @show) for 0 .. $N;
     for (0..$N) { $line .= sprintf($fmt, map { s/(.*)\n// && $1} @show ) if grep $_, @show }
-    push(@res,$line);
-    }
+    push @res, $line;
   }
+}
 
 sub bare {
   local $_ = shift;
