@@ -1,0 +1,49 @@
+#!/usr/local/bin/perl
+#u# https://rosettacode.org/wiki/Magic_numbers
+#t# inprogress
+#c# 2022-02-10 >RC
+#p# OK
+
+my @res;
+
+use v5.36;
+
+#my \Δ = $ = 1;
+my @magic = 0..9;
+#, {last if .not; ++Δ; [(.flat X~ 0..9).grep: * %% Δ]}…*;
+
+push @res, sprintf "There are %d magic numbers in total.", scalar @magic;
+push @res, "\nThe largest is $magic[-1].";
+
+say my $result = join "\n", @res;
+
+__END__
+
+@res.push: "\nThere are:";
+@res.push: "{(+.value).fmt: "%4d"} with {.key.fmt: "%2d"} digit{1 == +.key ?? '' !! 's'}"
+    for sort @magic.classify: {.chars};
+{
+    my $pan-digital = ($_..9).join.comb.Bag;
+    @res.push: "\nAll magic numbers that are pan-digital in $_ through 9 with no repeats: " ~
+    @magic.grep( { .comb.Bag eqv $pan-digital } );
+} for 1, 0;
+
+
+my $ref = <<'END';
+END
+
+use Test::More;
+chomp $ref;
+is($result, $ref);
+#is(($result =~ s/\s//gr), ($ref =~ s/\s//gr));
+done_testing();
+
+__END__
+
+=={{header|Perl}}==
+{{trans|xx}}
+<syntaxhighlight lang="perl" line>
+</syntaxhighlight>
+{{out}}
+<pre>
+</pre>
