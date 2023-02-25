@@ -505,6 +505,12 @@ File: A/Anti-primes
 #c# 2018-12-10 <RC
 #p# OK
 
+File: A/Apery%27s_constant
+#!/usr/local/bin/perl
+#u# https://rosettacode.org/wiki/Apéry%27s_constant
+#c# 2023-02-24 >RC
+#p# OK
+
 File: A/Append_a_record_to_the_end_of_a_text_file
 #!/usr/local/bin/perl
 #u# http://rosettacode.org/wiki/Append_a_record_to_the_end_of_a_text_file
