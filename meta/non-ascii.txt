@@ -42,6 +42,10 @@ A/Almkvist-Giullera_formula_for_pi.1
 A/Anadromes
 ↔:    19 LEFT RIGHT ARROW
 
+A/Apery%27s_constant
+é:     4 LATIN SMALL LETTER E WITH ACUTE
+ζ:     3 GREEK SMALL LETTER ZETA
+
 A/Approximate_Equality
 ≅:    12 APPROXIMATELY EQUAL TO
 
