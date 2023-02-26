@@ -1,6 +1,6 @@
 #!/usr/local/bin/perl
 #u# https://rosettacode.org/wiki/Apéry%27s_constant
-#c# 2023-02-24 >RC
+#c# 2023-02-25 >RC
 #p# OK
 
 my @res;
@@ -50,21 +50,3 @@ use Test::More;
 chomp $ref;
 is($result, $ref);
 done_testing();
-
-__END__
-
-=={{header|Perl}}==
-<syntaxhighlight lang="perl" line>
-</syntaxhighlight>
-{{out}}
-<pre>Actual value to 100 decimal places:
-1.2020569031595942853997381615114499907649862923404988817922715553418382057863130901864558736093352581
-
-First 1000 terms of ζ(3) truncated to 100 decimal places. (accurate to 6 decimal places):
-1.2020564036593442854830714115115999903483212709031775135036540966118572571921400836130084123260473112
-
-First 158 terms of Markov / Apéry representation truncated to 100 decimal places:
-1.2020569031595942853997381615114499907649862923404988817922715553418382057863130901864558736093352581
-
-First 20 terms of Wedeniwski representation truncated to 100 decimal places:
-1.2020569031595942853997381615114499907649862923404988817922715553418382057863130901864558736093352581</pre>
