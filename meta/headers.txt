@@ -508,7 +508,7 @@ File: A/Anti-primes
 File: A/Apery%27s_constant
 #!/usr/local/bin/perl
 #u# https://rosettacode.org/wiki/Apéry%27s_constant
-#c# 2023-02-24 >RC
+#c# 2023-02-25 >RC
 #p# OK
 
 File: A/Append_a_record_to_the_end_of_a_text_file
@@ -3300,7 +3300,7 @@ File: F/Factor-perfect_numbers
 #!/usr/local/bin/perl
 #u# https://rosettacode.org/wiki/Factor-perfect_numbers
 #t# inprogress
-#c# 2022-xx-xx >RC
+#c# 2023-02-26 >RC
 #p# OK
 
 File: F/Factorial-1
