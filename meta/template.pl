@@ -1,7 +1,7 @@
 #!/usr/local/bin/perl
 #u# https://rosettacode.org/wiki/xx
 #t# inprogress
-#c# 2022-xx-xx >RC
+#c# 2023-0x-xx >RC
 #p# OK
 
 use Data::Printer;          # debug only
