@@ -1,64 +1,66 @@
 #!/usr/local/bin/perl
 #u# https://rosettacode.org/wiki/Factor-perfect_numbers
-#t# inprogress
-#c# 2023-02-26 >RC
+#c# 2023-03-16 >RC
 #p# OK
-
-my @res;
 
 use v5.36;
 
-use ntheory 'divisors';
-use enum qw(False True);
-#use List::AllUtils <firstidx sum>;
-
 sub table (@V) { my $t = 3 * (my $w = 2 + 20); ( sprintf( ('%-'.$w.'s')x@V, @V) ) =~ s/.{1,$t}\K/\n/gr }
 
-my $n = 4;
-my @fpns = (0, 1);
-my %cache;
-
 sub proper_divisors ($x) {
-   my @l;
-   @l = 1 if $x > 1;
-   for my $d (2 .. int sqrt $x) {
-      if (0 == $x % $d) { push @l, $d; my $y = int($x/$d); push @l, $y if $y != $d }
-   }
-   @l
+    my @l;
+    @l = 1 if $x > 1;
+    for my $d (2 .. int sqrt $x) {
+        if (0 == $x % $d) { push @l, $d; my $y = int($x/$d); push @l, $y if $y != $d }
+    }
+    @l
 }
 
 sub erdosFactorCount ($n) {
-   my @foo = proper_divisors($n); shift @foo;
-   my ($sum,@divs) = (0, @foo); #(proper_divisors $n)[1..*]);
-   for my $d (@divs) {
-      my $t = int($n/$d);
-      unless (exists $cache{$t}) { $cache{$t} = erdosFactorCount($t) }
-      $sum += $cache{$t}
-   }
-   return $sum + 1
+    my @foo = proper_divisors($n); shift @foo;
+    state %cache;
+    my ($sum,@divs) = (0, @foo); #(proper_divisors $n)[1..*]);
+    for my $d (@divs) {
+        my $t = int($n/$d);
+        $cache{$t} = erdosFactorCount($t) unless $cache{$t};
+        $sum += $cache{$t}
+    }
+    ++$sum
 }
 
 sub moreMultiples ($to, $from) {
-   my @oneMores;
-   for my $j (@$from) {
-      push @oneMores, [@$to, $j] if $j > $$to[-1] && 0 == $j % $$to[-1]
-   }
-   return unless @oneMores;
-   for (0 .. $#oneMores) {
-      push @oneMores, moreMultiples($oneMores[$_], $from);
-   }
-   return @oneMores
+    my @oneMores;
+    for my $j (@$from) {
+        push @oneMores, [@$to, $j] if $j > $$to[-1] && 0 == $j % $$to[-1]
+    }
+    return unless @oneMores;
+    for (0 .. $#oneMores) {
+        push @oneMores, moreMultiples($oneMores[$_], $from);
+    }
+    @oneMores
 }
 
 my @listing = [1];
 push @listing, moreMultiples [1], [proper_divisors(48)];
 map { push @$_, 48 } @listing;
 
-my $result = @listing . " sequences using first definition:\n";
 my @lists; map { push @lists, join ' ', @$_ } @listing;
-$result .= table(@lists);
+my $result = @listing . " sequences using first definition:\n" . table(@lists);
 
-say $result; # = join "\n", @res;
+my @listing2;
+for my $j (0.. $#listing) {
+    my @seq = @{$listing[$j]};
+    push @seq, 48 if $seq[-1] != 48;
+    push @listing2, join ' ', map { int $seq[$_] / $seq[$_-1] } 1 .. $#seq;
+}
+
+$result .= "\n" . @listing2 . " sequences using second definition:\n" . table(@listing2);
+
+my($n,@fpns) = (4, 0, 1);
+while ($#fpns < 6) { push(@fpns, $n) if erdosFactorCount($n) == $n; $n += 4 }
+$result .= "\nOEIS A163272: @fpns";
+
+say $result;
 
 my $ref = <<'END';
 48 sequences using first definition:
@@ -79,33 +81,28 @@ my $ref = <<'END';
 1 12 24 48            1 6 24 48             1 6 12 48             
 1 6 12 24 48          1 8 24 48             1 8 16 48             
 
+48 sequences using second definition:
+48                    2 24                  24 2                  
+3 16                  16 3                  4 12                  
+12 4                  6 8                   8 6                   
+2 12 2                2 8 3                 2 2 12                
+2 6 4                 2 3 8                 2 4 6                 
+2 2 6 2               2 2 4 3               2 2 3 4               
+2 2 2 6               2 2 3 2 2             2 2 2 3 2             
+2 2 2 2 3             2 6 2 2               2 3 4 2               
+2 3 2 4               2 3 2 2 2             2 4 3 2               
+2 4 2 3               3 8 2                 3 4 4                 
+3 2 8                 3 4 2 2               3 2 4 2               
+3 2 2 4               3 2 2 2 2             4 6 2                 
+4 4 3                 4 3 4                 4 2 6                 
+4 3 2 2               4 2 3 2               4 2 2 3               
+12 2 2                6 4 2                 6 2 4                 
+6 2 2 2               8 3 2                 8 2 3                 
+
+OEIS A163272: 0 1 48 1280 2496 28672 29808
 END
-
-__END__
-
-my @listing2 = gather for (0..^+@listing) -> \j {
-   my @seq = |@listing[j];
-   @seq.append: 48 if @seq[*-1] != 48;
-   take (1..^+@seq).map: { @seq[$_] div @seq[$_-1] }
-}
-@res.push: "\n{@listing2.elems} sequences using second definition:";
-$out = '';
-for @listing2.rotor(4) -> \line { line.map: { $out  ~= sprintf "%-20s", $_ } ; $out ~= "\n" }
-@res.push: $out;
 
 use Test::More;
 chomp $ref;
 is($result, $ref);
-#is(($result =~ s/\s//gr), ($ref =~ s/\s//gr));
 done_testing();
-
-__END__
-
-=={{header|Perl}}==
-{{trans|Raku}}
-{{libheader|ntheory}}
-<syntaxhighlight lang="perl" line>
-</syntaxhighlight>
-{{out}}
-<pre>
-</pre>
