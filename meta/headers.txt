@@ -3299,8 +3299,7 @@ File: F/Faces_from_a_mesh
 File: F/Factor-perfect_numbers
 #!/usr/local/bin/perl
 #u# https://rosettacode.org/wiki/Factor-perfect_numbers
-#t# inprogress
-#c# 2023-02-26 >RC
+#c# 2023-03-16 >RC
 #p# OK
 
 File: F/Factorial-1
