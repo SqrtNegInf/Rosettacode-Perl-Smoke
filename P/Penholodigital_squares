@@ -13,8 +13,7 @@ use ntheory <fromdigits todigitstring>;
 
 for my $base (2 .. 8) {
     say "b: $base";
-    my $test  = substr('123456789abcdef',0,$base-1);
-    my $testr = join '', reverse split '', $test;
+    my $testr = reverse my $test  = substr('123456789abcdef',0,$base-1);
     my $start = int sqrt fromdigits($test,  $base);
     my $end   = int sqrt fromdigits($testr, $base);
 #say $test ; say $testr; say todigitstring($start,$base); say todigitstring($end,$base); exit;
@@ -23,15 +22,6 @@ for my $base (2 .. 8) {
 }
 
 exit;
-
-#(9 .. 12).map: -> $base {
-#    my $test = (1 ..^ $base)».base($base).join;
-#    my $start = $test     .parse-base($base).sqrt.Int;
-#    my $end   = $test.flip.parse-base($base).sqrt.Int;
-#    say "\nThere is a total of {+$_} penholodigital squares in base $base:\n" ~
-#        .map({"{.base($base)}² = {.².base($base)}"}).batch(3)».join(", ").join: "\n" given
-#        ($start .. $end).grep: *².base($base).comb.sort.join eq $test
-#}
 
 say my $result = join "\n", @res;
 my $ref = <<'END';
@@ -46,7 +36,7 @@ done_testing();
 __END__
 
 =={{header|Perl}}==
-{{trans|xx}}
+{{trans|Raku}}
 {{libheader|ntheory}}
 <syntaxhighlight lang="perl" line>
 </syntaxhighlight>
