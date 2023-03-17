@@ -3,12 +3,7 @@
 #c# 2019-04-11 <RC
 #p# OK
 
-use strict;
-use warnings;
-use feature qw<signatures current_sub say>;
-no warnings qw<experimental::signatures>;
-
-#use 5.020;
+use 5.36.0;
 
 use constant zero  => sub ($f) {
                       sub ($x) { $x }};
