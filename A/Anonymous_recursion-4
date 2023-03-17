@@ -3,10 +3,9 @@
 #c# 2018-07-13 <RC
 #p# OK
 
-use strict;
-use warnings;
-use feature <say current_sub>;
 my $result;
+
+use v5.36.0;
 
 $result .= sub {
   my $n = shift;
