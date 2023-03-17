@@ -458,6 +458,9 @@ P/Peaceful_chess_queen_armies
 P/Pell_numbers
 √:     2 SQUARE ROOT
 
+P/Penholodigital_squares
+²:    84 SUPERSCRIPT TWO
+
 P/Percolation_Bond_percolation
 ─:   141 BOX DRAWINGS LIGHT HORIZONTAL
 │:    65 BOX DRAWINGS LIGHT VERTICAL
