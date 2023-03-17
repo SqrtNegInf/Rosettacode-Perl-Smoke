@@ -7395,6 +7395,13 @@ File: P/Pell_numbers
 #c# 2022-05-19 >RC
 #p# OK
 
+File: P/Penholodigital_squares
+#!/usr/local/bin/perl
+#u# https://rosettacode.org/wiki/Penholodigital_squares
+#c# 2023-03-17 >RC
+#p# OK
+#n# maybe do stretch later?
+
 File: P/Penney%27s_game
 #!/usr/local/bin/perl
 #u# http://rosettacode.org/wiki/Penney%27s_game
@@ -8778,6 +8785,7 @@ File: R/Rosetta_Code_Rank_languages_by_popularity
 #n# 2022-08-27 'Sidef' dropped off? Must be error of RC hosting move [p.s. now it's back]
 #n# 2022-11-21 Retroactively welcoming: REXX, Racket, Kotlin
 #n# 2023-01-09 'Sidef' is back
+#n# 2023-03-16 Pleased to welcome 'Jq' to the club
 
 File: R/Rosetta_Code_Tasks_without_examples
 #!/usr/local/bin/perl
@@ -11257,6 +11265,7 @@ File: V/Variable-length_quantity
 #u# http://rosettacode.org/wiki/Variable-length_quantity
 #c# 2018-08-06 <RC
 #p# OK
+#n# 2023-03-16 a little nicer (but not on RC)
 
 File: V/Variable_declaration_reset
 #!/usr/local/bin/perl
