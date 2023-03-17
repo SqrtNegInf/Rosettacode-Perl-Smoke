@@ -5,10 +5,7 @@
 
 my $result;
 
-use strict;
-use warnings;
-use feature <say signatures>;
-no warnings 'experimental::signatures';
+use v5.36.0;
 
 sub leonardo ($n, $l0 = 1, $l1 = 1, $add = 1) {
   ($l0, $l1) = ($l1, $l0+$l1+$add)  for 1..$n;
