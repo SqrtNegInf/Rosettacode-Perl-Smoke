@@ -3,10 +3,11 @@
 #c# 2018-08-09 <RC
 #p# OK
 
+my $result;
+
 use strict;
 use warnings;
 use feature 'say';
-my $result;
 
 use List::Util 'sum';
 
@@ -26,14 +27,11 @@ my @condition = (
                  sub { 4==sum @_[1..11] },
                 );
 
-sub miss {
-  return grep { $condition[$_]->(@_) != $_[$_] } 1..12;
-}
+sub miss { grep { $condition[$_]->(@_) != $_[$_] } 1..12 }
 
-for (0..2**12-1) {
-  my @truth = split //, sprintf "0%012b", $_;
-  my @no = miss @truth;
-  $result .= "Solution: true statements are ". join( " ", grep { $truth[$_] } 1..12). "\n" if 0 == @no;
+for (0 .. 2**12-1) {
+  my @no = miss my @truth = split '', sprintf "0%012b", $_;
+  $result .= "Solution: true statements are ". join( " ", grep { $truth[$_] } 1..12). "\n"            unless @no; # if 0 == @no;
   $result .= "1 miss (".$no[0]."): true statements are ". join( " ", grep { $truth[$_] } 1..12). "\n" if 1 == @no;
 }
 
