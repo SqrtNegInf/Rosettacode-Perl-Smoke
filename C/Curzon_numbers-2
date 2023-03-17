@@ -6,7 +6,7 @@
 
 my @res;
 
-use v5.36.0;
+use v5.36;
 
 sub modpow($b,$e,$m) {
     my $p = 1;
