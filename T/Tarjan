@@ -5,21 +5,14 @@
 
 my @res;
 
-use strict;
-use warnings;
-use feature <say state current_sub>;
-
-#use 5.016;
-#use experimental qw(lexical_subs); # ?
+use v5.36.0;
 
 use List::Util qw(min);
 
-sub tarjan {
-    my (%k) = @_;
+sub tarjan (%k) {
     my (%onstack, %index, %lowlink, @stack, @connected);
 
-    my sub strong_connect {
-        my ($vertex, $i) = @_;
+    my sub strong_connect ($vertex, $i) {
         $index{$vertex}   = $i;
         $lowlink{$vertex} = $i + 1;
         $onstack{$vertex} = 1;
