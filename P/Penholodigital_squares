@@ -1,0 +1,55 @@
+#!/usr/local/bin/perl
+#u# https://rosettacode.org/wiki/Penholodigital_squares
+#t# inprogress
+#c# 2023-03-17 >RC
+#p# OK
+
+my @res;
+
+use v5.36;
+#use strict; use warnings; use feature 'say';
+
+use ntheory <fromdigits todigitstring>;
+
+for my $base (2 .. 8) {
+    say "b: $base";
+    my $test  = substr('123456789abcdef',0,$base-1);
+    my $testr = join '', reverse split '', $test;
+    my $start = int sqrt fromdigits($test,  $base);
+    my $end   = int sqrt fromdigits($testr, $base);
+#say $test ; say $testr; say todigitstring($start,$base); say todigitstring($end,$base); exit;
+    my @nums = grep { $test eq join '', sort split '', todigitstring($_**2, $base) } $start .. $end;
+    say todigitstring($_,$base) for @nums;
+}
+
+exit;
+
+#(9 .. 12).map: -> $base {
+#    my $test = (1 ..^ $base)».base($base).join;
+#    my $start = $test     .parse-base($base).sqrt.Int;
+#    my $end   = $test.flip.parse-base($base).sqrt.Int;
+#    say "\nThere is a total of {+$_} penholodigital squares in base $base:\n" ~
+#        .map({"{.base($base)}² = {.².base($base)}"}).batch(3)».join(", ").join: "\n" given
+#        ($start .. $end).grep: *².base($base).comb.sort.join eq $test
+#}
+
+say my $result = join "\n", @res;
+my $ref = <<'END';
+END
+
+use Test::More;
+chomp $ref;
+is($result, $ref);
+#is(($result =~ s/\s//gr), ($ref =~ s/\s//gr));
+done_testing();
+
+__END__
+
+=={{header|Perl}}==
+{{trans|xx}}
+{{libheader|ntheory}}
+<syntaxhighlight lang="perl" line>
+</syntaxhighlight>
+{{out}}
+<pre style="height:20ex">
+</pre>
