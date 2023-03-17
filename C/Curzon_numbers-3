@@ -7,7 +7,7 @@
 
 my @res;
 
-use v5.36.0;
+use v5.36;
 
 #use Math::AnyNum 'powmod';
 use ntheory 'powmod';
