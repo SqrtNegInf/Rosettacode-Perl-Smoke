@@ -7,10 +7,7 @@
 
 my @res;
 
-use strict;
-use warnings;
-use feature qw<signatures say>;
-no warnings qw<experimental::signatures>;
+use v5.36.0;
 
 use bigint try => 'GMP';
 use ntheory qw<vecprod vecsum vecreduce vecfirstidx>;
