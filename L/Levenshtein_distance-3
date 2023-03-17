@@ -6,12 +6,7 @@
 #n# https://en.wikipedia.org/wiki/Wagner%E2%80%93Fischer_algorithm
 #n# similar to -2 version, but a little more clearly written
 
-use strict;
-use warnings;
-use feature 'say';
-
-use experimental 'signatures';
-#use experimental 'lexical_subs'; # ?
+use v5.36.0;
 
 use List::Util 'min';
 
