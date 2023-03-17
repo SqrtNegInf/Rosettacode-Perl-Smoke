@@ -2,14 +2,13 @@
 #u# http://rosettacode.org/wiki/Variable-length_quantity
 #c# 2018-08-06 <RC
 #p# OK
-
-use feature 'say';
-my $result;
+#n# 2023-03-16 a little nicer (but not on RC)
 
 # The vlg_encode sub returns an array of octets in most -> least significant order. Simply reverse the array to reverse the order.
 
-use warnings;
-use strict;
+my $result;
+
+use v5.36.0;
 
 for my $testcase (
     0,   0xa,   123,   254,   255,   256,
@@ -21,25 +20,25 @@ for my $testcase (
     $result .= sprintf "%8s %12s %8s\n", $testcase, ( join ':', @vlq ), vlq_decode(@vlq);
 }
 
-sub vlq_encode {
+sub vlq_encode ($number) {
     my @vlq;
-    my $binary = sprintf "%s%b", 0 x 7, shift;
-    $binary =~ s/(.{7})$//;
+    my $binary = (sprintf '%s%b', 0 x 7, $number) =~ s/(.{7})$//r;
     @vlq = ( unpack 'H2', ( pack 'B8', '0' . $1 ) );
     while ( 0 + $binary ) {
         $binary =~ s/(.{7})$//;
         unshift @vlq, ( unpack 'H2', pack 'B8', '1' . $1 );
     }
-    return @vlq;
+    @vlq
 }
 
-sub vlq_decode {
+sub vlq_decode (@q) {
     my $num;
-    $num .= sprintf "%07b", hex(shift @_) & 0x7f while @_;
-    return oct '0b' . $num;
+    $num .= sprintf '%07b', hex(shift @q) & 0x7f while @q;
+    oct '0b' . $num
 }
 
 say $result; 
+
 my $ref = <<'EOD';
        0           00        0
       10           0a       10
