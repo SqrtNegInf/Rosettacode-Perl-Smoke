@@ -6,10 +6,7 @@
 #n# 'Memoize' does not help on 'comparer', and only a little faster using a hash to avoid the 'sort'
 #n# We're gonna need a bigger algorithm for SVG (upgrade to new implementation by thundergnat++) 
 
-use strict;
-use warnings;
-use feature qw{ say signatures state };
-no warnings qw<experimental::signatures>;
+use v5.36.0;
 
 use constant TAU => 2 * 2 * atan2(1, 0);
 
