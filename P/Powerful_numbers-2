@@ -5,15 +5,10 @@
 
 my @res;
 
-use strict;
-use warnings;
-use feature <say current_sub>;
-use experimental qw(signatures);
+use v5.36.0;
 
 use ntheory qw(is_square_free);
 use Math::AnyNum qw(:overload idiv iroot ipow is_coprime);
-
-# use 5.020;
 
 sub powerful_count ($n, $k = 2) {
 
@@ -38,7 +33,6 @@ foreach my $k (2 .. 10) {
     push @res, sprintf("Number of %2d-powerful <= 10^j for 0 <= j < %d: {%s}", $k, $k+10,
         join(', ', map { powerful_count(ipow(10, $_), $k) } 0..($k+10-1)));
 }
-
 
 say my $result = join "\n", @res;
 
