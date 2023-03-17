@@ -5,10 +5,7 @@
 
 my @res;
 
-use strict;
-use warnings;
-use feature qw{ say signatures };
-no warnings qw<experimental::signatures>;
+use v5.36.0;
 
 use constant PI => 2 * atan2(1, 0);
  
