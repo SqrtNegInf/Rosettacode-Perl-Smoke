@@ -5,11 +5,8 @@
 
 my @res;
 
-use strict;
-use warnings;
-use experimental qw(signatures current_sub say);
-
-#use 5.020;
+use v5.36.0;
+#use experimental qw(signatures current_sub say);
 
 use ntheory qw(fromdigits todigitstring);
 
