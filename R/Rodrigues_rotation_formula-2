@@ -4,10 +4,7 @@
 #p# OK
 #n# generalized routines, more idiomatic
 
-use strict;
-use warnings;
-use feature <say signatures>;
-no warnings 'experimental::signatures';
+use v5.36.0;
 
 use Math::Trig;
 use List::Util 'sum';
