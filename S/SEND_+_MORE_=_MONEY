@@ -1,0 +1,58 @@
+#!/usr/local/bin/perl
+#u# https://rosettacode.org/wiki/SEND_+_MORE_=_MONEY
+#t# inprogress
+#c# 2023-03-19 >RC
+#p# OK
+
+my @res;
+
+use v5.36;
+
+use enum <D E M N O R S Y>;
+
+sub find_solution {
+}
+
+my @s = find_solution();
+push @res, '    ' . join '', @s[  S,E,N,D];
+push @res, ' +  ' . join '', @s[  M,O,R,E];
+push @res, '==  ' . join '', @s[M,O,N,E,Y];
+
+say my $result = join "\n", @res;
+
+my $ref = <<'END';
+    9567
+ +  1085
+== 10652
+END
+
+use Test::More;
+chomp $ref;
+is($result, $ref);
+done_testing();
+
+__END__
+
+sub find_solution ( ) {
+    for ('0'..'9').combinations(8) -> @c {
+        .return with @c.permutations.first: -> @p {
+            @p[M] !== 0 and
+
+            @p[  S,E,N,D].join
+          + @p[  M,O,R,E].join
+         == @p[M,O,N,E,Y].join
+        }
+    }
+}
+
+=={{header|Perl}}==
+{{trans|xx}}
+{{libheader|ntheory}}
+<syntaxhighlight lang="perl" line>
+</syntaxhighlight>
+{{out}}
+<pre style="height:20ex">
+</pre>
+[[File:xx|300px|thumb|right]]
+# or
+[https://github.com/SqrtNegInf/Rosettacode-Perl-Smoke/blob/master/ref/xx xx]
