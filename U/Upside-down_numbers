@@ -25,13 +25,12 @@ sub updown ($n) {
     @ud;
 }
 
-my @ud = updown ( 50 );
+my @ud = updown( 5000 );
 
 say my $result = "First fifty upside-downs:\n" . table 10, @ud[0..49];
-
-my @udmore = updown ( 10000 );
-
-#say ucfirst(num2en_ordinal($_)) . ': ' . comma $_ for 5e2, 5e3, 5e4, 5e5, 5e6;
+say '';
+say ucfirst(num2en_ordinal($_)) . ': ' . comma $ud[$_-1] for 500, 5000;
+exit;
 
 my $ref = <<'END';
 First fifty upside-downs:
@@ -40,10 +39,10 @@ First fifty upside-downs:
  1289 1379 1469 1559 1649 1739 1829 1919 2198 2288
  2378 2468 2558 2648 2738 2828 2918 3197 3287 3377
  3467 3557 3647 3737 3827 3917 4196 4286 4376 4466
+Five hundredth: 494,616
+Five thousandth: 56,546,545
 END
 
-#Five hundredth: 494,616
-#Five thousandth: 56,546,545
 #Fifty thousandth: 6,441,469,664
 #Five hundred thousandth: 729,664,644,183
 #Five millionth: 82,485,246,852,682
