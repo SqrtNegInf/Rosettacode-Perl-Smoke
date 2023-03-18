@@ -8868,6 +8868,13 @@ File: S/SEDOLs
 #c# 2018-08-18 <RC
 #p# OK
 
+File: S/SEND_+_MORE_=_MONEY
+#!/usr/local/bin/perl
+#u# https://rosettacode.org/wiki/SEND_+_MORE_=_MONEY
+#t# inprogress
+#c# 2023-03-19 >RC
+#p# OK
+
 File: S/SHA-1
 #!/usr/local/bin/perl
 #u# http://rosettacode.org/wiki/SHA-1
@@ -11200,6 +11207,13 @@ File: U/Update_a_configuration_file
 #u# http://rosettacode.org/wiki/Update_a_configuration_file
 #c# 2018-08-07 <RC
 #p# OK
+
+File: U/Upside-down_numbers
+#!/usr/local/bin/perl
+#u# https://rosettacode.org/wiki/Upside-down_numbers
+#c# 2023-03-18 >RC
+#p# OK
+#n# Raku's generative approach better, this is pretty poky
 
 File: U/Useless_instructions
 #!/usr/local/bin/perl
