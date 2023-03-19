@@ -446,6 +446,13 @@ File: A/Anagrams_Deranged_anagrams-2
 #c# 2020-11-06 <RC
 #p# OK
 
+File: A/Anaprimes
+#!/usr/local/bin/perl
+#u# https://rosettacode.org/wiki/Anaprimes
+#t# inprogress
+#c# 2023-03-xx >RC
+#p# OK
+
 File: A/Angle_difference_between_two_bearings
 #!/usr/local/bin/perl
 #u# http://rosettacode.org/wiki/Angle_difference_between_two_bearings
@@ -8875,6 +8882,14 @@ File: S/SEND_+_MORE_=_MONEY
 #c# 2023-03-19 >RC
 #p# OK
 
+File: S/SEND_+_MORE_=_MONEY-2
+#!/usr/local/bin/perl
+#u# https://rosettacode.org/wiki/SEND_+_MORE_=_MONEY
+#c# 2023-03-19 >RC
+#p# OK
+#n# corresponds most closely to -3 Raku version
+#n# 'grep' works like junction/List::AllUtils::any here (and short-circuits?)
+
 File: S/SHA-1
 #!/usr/local/bin/perl
 #u# http://rosettacode.org/wiki/SHA-1
@@ -11797,7 +11812,7 @@ File: Z/Zero_to_the_zero_power
 File: Z/Zhang-Suen_thinning_algorithm
 #!/usr/local/bin/perl
 #u# http://rosettacode.org/wiki/Zhang-Suen_thinning_algorithm
-#c# 2018-09-18 >RC
+#c# 2018-09-18 >RC, 2023-03-19 >RC
 #p# OK
 
 File: Z/Zig-zag_matrix-1
