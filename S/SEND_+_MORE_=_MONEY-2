@@ -2,12 +2,12 @@
 #u# https://rosettacode.org/wiki/SEND_+_MORE_=_MONEY
 #c# 2023-03-19 >RC
 #p# OK
+#n# corresponds most closely to -3 Raku version
+#n# 'grep' works like junction/List::AllUtils::any here (and short-circuits?)
 
 my $result;
 
 use v5.36;
-
-use List::AllUtils 'any';
 
 my $s = 7;
 while (++$s <= 9) {
@@ -16,21 +16,21 @@ while (++$s <= 9) {
         next if $e == $s;
         my $n = -1;
         while (++$n <= 9) {
-            next if any { $n == $_ } $s,$e;
+            next if grep { $n == $_ } $s,$e;
             my $d = -1;
             while (++$d <= 9) {
-                next if any { $d == $_ } $s,$e,$n;
+                next if grep { $d == $_ } $s,$e,$n;
                 my $send = $s*10**3 + $e*10**2 + $n*10 + $d;
                 my ($m, $o) = (1, -1);
                 while (++$o <= 9) {
-                    next if any { $o == $_ } $s,$e,$n,$d,$m;
+                    next if grep { $o == $_ } $s,$e,$n,$d,$m;
                     my $r = -1;
                     while (++$r <= 9) {
-                        next if any { $r == $_ } $s,$e,$n,$d,$m,$o;
+                        next if grep { $r == $_ } $s,$e,$n,$d,$m,$o;
                         my $more = $m*10**3 + $o*10**2 + $r*10 + $e;
                         my $y = -1;
                         while (++$y <= 9) {
-                            next if any { $y == $_ } $s,$e,$n,$d,$m,$o,$r;
+                            next if grep { $y == $_ } $s,$e,$n,$d,$m,$o,$r;
                             my $money = $m*10**4 + $o*10**3 + $n*10**2 + $e*10 + $y;
                             next unless $send + $more == $money;
                             $result = "SEND + MORE == MONEY\n$send + $more == $money";
@@ -53,13 +53,3 @@ use Test::More;
 chomp $ref;
 is($result, $ref);
 done_testing();
-
-__END__
-
-=={{header|Perl}}==
-{{trans|Raku}}
-<syntaxhighlight lang="perl" line>
-</syntaxhighlight>
-{{out}}
-<pre>
-</pre>
