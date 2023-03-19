@@ -1,0 +1,75 @@
+#!/usr/local/bin/perl
+#u# https://rosettacode.org/wiki/Anaprimes
+#t# inprogress
+#c# 2023-03-xx >RC
+#p# OK
+
+use Data::Printer;          # debug only
+use Time::HiRes qw(sleep);  # debug only
+
+my @res;
+
+use v5.36;
+#use strict; use warnings; use feature 'say';
+
+# code goes here
+
+say my $result = join "\n", @res;
+my $ref = <<'END';
+END
+
+use Test::More;
+chomp $ref;
+is($result, $ref);
+#is(($result =~ s/\s//gr), ($ref =~ s/\s//gr));
+done_testing();
+
+__END__
+
+use Math::Primesieve;
+use List::Allmax;
+use Lingua::EN::Numbers;
+
+my $p = Math::Primesieve.new;
+
+for 5 .. 7 {
+    my $largest = $p.primes(10**($_-1), 10**$_).classify(*.comb.sort.join).max(+*.value).value;
+
+    @res.push: "\nLargest group of anaprimes before {cardinal 10 ** $_}: {+$largest} members.";
+    @res.push: 'First: ', ' Last: ' Z~ $largest[0, *-1];
+}
+
+.say for @res;
+
+#Largest group of anaprimes before one thousand: 4 members.
+#First: 179  Last: 971
+
+#Largest group of anaprimes before ten thousand: 11 members.
+#First: 1279  Last: 9721
+
+my $ref = q:to/END/;
+
+Largest group of anaprimes before one hundred thousand: 39 members.
+First: 13789  Last: 98731
+
+Largest group of anaprimes before one million: 148 members.
+First: 123479  Last: 974213
+
+Largest group of anaprimes before ten million: 731 members.
+First: 1235789  Last: 9875321
+END
+
+use Test;
+is @res.join("\n"), chomp $ref;
+
+=={{header|Perl}}==
+{{trans|xx}}
+{{libheader|ntheory}}
+<syntaxhighlight lang="perl" line>
+</syntaxhighlight>
+{{out}}
+<pre style="height:20ex">
+</pre>
+[[File:xx|300px|thumb|right]]
+# or
+[https://github.com/SqrtNegInf/Rosettacode-Perl-Smoke/blob/master/ref/xx xx]
