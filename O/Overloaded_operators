@@ -1,74 +1,33 @@
 #!/usr/local/bin/perl
 #u# http://rosettacode.org/wiki/Overloaded_operators
-#c# 2021-12-02 <RC
+#c# 2021-12-02 <RC, 2023-03-19 >RC
 #p# OK
 #n# See 'perldoc overload' for perl's overload capabilities. This example defines a class(package)
 #n# that represent non-negative numbers as a string of 1's and overloads the basic math operators
-#n# so that they can be used on members of that class(package). Also see 'Zeckendorf arithmetic' where overloading
-#n# is used on Zeckendorf numbers.
+#n# so that they can be used on members of that class(package).  cf 'Zeckendorf arithmetic'
 
 my @res;
 
-use strict;
-use warnings;
-use feature 'say';
-
-my $x = Ones->new( 15 );
-my $y = Ones->new( 4 );
-
-my $z = $x + $y;
-push @res, "$x + $y = $z";
-$z = $x - $y;
-push @res, "$x - $y = $z";
-$z = $x * $y;
-push @res, "$x * $y = $z";
-$z = $x / $y;
-push @res, "$x / $y = $z";
+use v5.36;
 
 package Ones;
 use overload qw("" asstring + add - subtract * multiply / divide);
 
-sub new
-  {
-  my ( $class, $value ) = @_;
-  bless \('1' x $value), ref $class || $class;
-  }
+sub new       ( $class, $value ) { bless \('1' x $value), ref $class || $class  }
+sub asstring  ($self, $other, $) { $$self                                       }
+sub asdecimal ($self, $other, $) { length $$self                                }
+sub add       ($self, $other, $) { bless \($$self . $$other),         ref $self }
+sub subtract  ($self, $other, $) { bless \($$self =~ s/$$other//r),   ref $self }
+sub multiply  ($self, $other, $) { bless \($$self =~ s/1/$$other/gr), ref $self }
+sub divide    ($self, $other, $) { $self->new( $$self =~ s/$$other/$$other/g )  }
 
-sub asstring
-  {
-  my ($self, $other, $swap) = @_;
-  $$self;
-  }
+package main;
 
-sub asdecimal
-  {
-  my ($self, $other, $swap) = @_;
-  length $$self;
-  }
-
-sub add
-  {
-  my ($self, $other, $swap) = @_;
-  bless \($$self . $$other), ref $self;
-  }
-
-sub subtract
-  {
-  my ($self, $other, $swap) = @_;
-  bless \($$self =~ s/$$other//r), ref $self;
-  }
-
-sub multiply
-  {
-  my ($self, $other, $swap) = @_;
-  bless \($$self =~ s/1/$$other/gr), ref $self;
-  }
-
-sub divide
-  {
-  my ($self, $other, $swap) = @_;
-  $self->new( $$self =~ s/$$other/$$other/g );
-  }
+my($x,$y,$z) = ( Ones->new(15), Ones->new(4) );
+$z = $x + $y; push @res, "$x + $y = $z";
+$z = $x - $y; push @res, "$x - $y = $z";
+$z = $x * $y; push @res, "$x * $y = $z";
+$z = $x / $y; push @res, "$x / $y = $z";
 
 say my $result = join "\n", @res;
 
