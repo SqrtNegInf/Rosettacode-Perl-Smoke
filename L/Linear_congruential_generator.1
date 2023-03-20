@@ -2,38 +2,39 @@
 #u# http://rosettacode.org/wiki/Linear_congruential_generator
 #c# 2018-08-15 <RC
 #p# OK
-#n# 2023-03-20 '$seed = 0' not working, still get warnings?
+
+use strict; 
+use warnings;
+use feature 'say';
 
 my $result;
 
-use v5.36.0;
-no warnings 'uninitialized';
-
 # Creates a magic scalar whose value is next in the LCG sequence when read.
+
 package LCG {
 
-use integer;
 use overload '0+'  => \&get;
 
-sub gen_bsd ($seed = 0) { 
-    (1103515245 * $seed + 12345) % (1 << 31) 
-}
+use integer;
+sub gen_bsd { (1103515245 * (shift() || 0) + 12345) % (1 << 31) }
 
-sub gen_ms ($seed = 0) {
-	my $s = (214013 * $seed + 2531011) % (1 << 31);
+sub gen_ms  {
+	my $s = (214013 * (shift() || 0) + 2531011) % (1 << 31);
 	$s, $s / (1 << 16)
 }
 
-sub set ($k,$v) { 
-    $k->{seed} = $v
-} 
-
-sub get ($o, $, $) {
+sub set { 
+    $_[0]->{seed} = $_[1] } # srand (never reached?)
+sub get {
+	my $o = shift;
 	($o->{seed}, my $r) = $o->{meth}->($o->{seed});
 	$r //= $o->{seed}
 }
 
-sub new ($cls, %opts) {
+sub new {
+	my $cls = shift;
+	my %opts = @_;
+    no warnings qw(uninitialized);
 	bless {
 		seed => $opts{seed},
 		meth => $opts{meth} eq 'MS' ? \&gen_ms : \&gen_bsd,
