@@ -5,7 +5,9 @@
 
 my @res;
 
-use v5.36;
+use strict;
+use warnings;
+use feature 'say';
 
 for ( split /\n/, <<END ) # test cases
   1 + 1
@@ -36,16 +38,20 @@ END
 package Zeckendorf;
 use overload qw("" zstring + zadd - zsub ++ zinc -- zdec * zmul / zdiv ge zge);
 
-sub new ($class, $value) { 
-    bless \$value, ref $class || $class;
-}
+sub new
+  {
+  my ($class, $value) = @_;
+  bless \$value, ref $class || $class;
+  }
 
-sub zinc ($self, $other, $swap) {
-    #local $_ = $self;
-    $self =~ s/0$/1/ or $self =~ s/(?:^|0)1$/10/;
-    1 while $self =~ s/(?:^|0)11/100/;
-    $_[0] = $self->new( $self =~ s/^0+\B//r );
-}
+sub zinc
+  {
+  my ($self, $other, $swap) = @_;
+  local $_ = $$self;
+  s/0$/1/ or s/(?:^|0)1$/10/;
+  1 while s/(?:^|0)11/100/;
+  $_[0] = $self->new( s/^0+\B//r );
+  }
 
 sub zdec
   {
