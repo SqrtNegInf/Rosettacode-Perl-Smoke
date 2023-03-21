@@ -78,7 +78,7 @@ $result .= "\n";
 # prefix ! (not) ['~' also can be used]
 $result .= "a\tNOT a" . "\n";
 $result .= "$_\t".(!$_)."\n" for @a;
-#$result .= "$_\t".(~$_)."\n" for @a;
+$result .= "$_\t".(~$_)."\n" for @a;
 
 # infix & (and)
 $result .= "\nAND\t" . join("\t",@a) . "\n";
@@ -119,6 +119,9 @@ my $ref = <<'EOD';
   1   0  -1
 
 a	NOT a
+true	false
+maybe	maybe
+false	true
 true	false
 maybe	maybe
 false	true
