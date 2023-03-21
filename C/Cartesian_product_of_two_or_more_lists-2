@@ -3,16 +3,18 @@
 #c# 2018-08-28 >RC
 #p# OK
 
+my $result;
+
 use strict;
 use warnings;
 use feature 'say';
-my $result;
 
 my $tuples = [ map { [split /:/] } glob '{1,2,3}:{30}:{500,100}' ];
 
 for my $a (@$tuples) { $result .= sprintf "(%1d %2d %3d) ", @$a; }
 
 say $result;
+
 use Test::More;
 is ($result, '(1 30 500) (1 30 100) (2 30 500) (2 30 100) (3 30 500) (3 30 100) ');
 done_testing();
