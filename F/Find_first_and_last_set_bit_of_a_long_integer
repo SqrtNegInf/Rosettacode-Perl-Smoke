@@ -3,26 +3,29 @@
 #c# 2018-08-06 <RC
 #p# OK
 #n# just testing 'msb' and 'lsb'
+#n# 2023-03-20 formatting changes not on RC
 
-use strict;
-use warnings;
-use feature 'say';
 my $result;
+
+use v5.36.0;
 
 # This is simple and works with both native and bigint numbers.
 
-sub msb {
-  my ($n, $base) = (shift, 0);
-  $base++ while $n >>= 1;
-  $base;
+sub msb ($n, $base = 0) {
+    $base++ while $n >>= 1;
+    $base;
 }
 
-sub lsb {
-  my $n = shift;
-  msb($n & -$n);
+sub lsb ($n) {
+    msb($n & -$n);
 }
 
-# With large bigints, this is much faster (while as_bin seems expensive, every Math::BigInt transaction has large overhead, so Perl ops on the binary string ends up being a huge win vs. anything doing shifts, ands, compares, etc.). If we want one function to work on both types, we could easily modify this to make a Math::BigInt object if the input isn't already one.
+# With large bigints, this is much faster (while as_bin seems expensive,
+# every Math::BigInt transaction has large overhead, so Perl ops on the
+# binary string ends up being a huge win vs. anything doing shifts, ands,
+# compares, etc.). If we want one function to work on both types, we could
+# easily modify this to make a Math::BigInt object if the input isn't already
+# one.
 
 sub bi_msb {         # Input should be a Math::BigInt object
   length(shift->as_bin)-3;
@@ -30,8 +33,7 @@ sub bi_msb {         # Input should be a Math::BigInt object
 
 # With native ints, this meets the task description assuming a 64-bit Perl:
 
-sub msb64 {
-  my($n, $pos) = (shift, 0);
+sub msb64 ($n, $pos = 0) {
   die "n must be a 64-bit integer)" if $n > ~0;
   no warnings 'portable';  # Remove this and adjust lines for 32-bit
   if (($n & 0xFFFFFFFF00000000) == 0) { $pos += 32; $n <<= 32; }
@@ -43,13 +45,14 @@ sub msb64 {
   63-$pos;
 }
 
-sub table {
-my($base,$power) = @_;
-    #my $digits = length sprintf("%d", $base ** $power); # '%.*d' didn't work?
-    $result .= sprintf "%30s lsb msb\n", 'number';
+sub table ($base,$power) {
+    my $digits = length $base ** $power;
+    $result .= sprintf "%*s lsb msb\n", $digits, 'number';
+   #$result .= sprintf "%${digits}s lsb msb\n", 'number';
     for my $p (0..$power) {
         my $x = $base ** $p;
-        $result .= sprintf "%30d  %2d  %2d\n", $x, lsb($x), msb($x);
+       #$result .= sprintf "%*d  %2d  %2d\n", $digits, $x, lsb($x), msb($x);
+        $result .= sprintf "%${digits}d  %2d  %2d\n", $x, lsb($x), msb($x);
     }
 }
 
@@ -59,6 +62,31 @@ table(1302, 6);
 say $result; 
 
 my $ref = <<'EOD';
+              number lsb msb
+                   1   0   0
+                  42   1   5
+                1764   2  10
+               74088   3  16
+             3111696   4  21
+           130691232   5  26
+          5489031744   6  32
+        230539333248   7  37
+       9682651996416   8  43
+     406671383849472   9  48
+   17080198121677824  10  53
+  717368321110468608  11  59
+
+              number lsb msb
+                   1   0   0
+                1302   1  10
+             1695204   2  20
+          2207155608   3  31
+       2873716601616   4  41
+    3741579015304032   5  51
+ 4871535877925850112  10  62
+EOD
+
+my $ref_old = <<'EOD';
                         number lsb msb
                              1   0   0
                             42   1   5
