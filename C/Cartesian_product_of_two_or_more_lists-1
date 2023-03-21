@@ -2,22 +2,21 @@
 #u# http://rosettacode.org/wiki/Cartesian_product_of_two_or_more_lists
 #c# 2018-08-28 >RC
 #p# OK
+#n# 2023-03-20 changes not on RC
 
-use strict;
-use warnings;
-use feature 'say';
 my $result;
 
-sub cartesian {
-    my $sets = shift @_;
+use v5.36.0;
+
+sub cartesian($sets) {
     for (@$sets) { return [] unless @$_ }
 
     my $products = [[]];
     for my $set (reverse @$sets) {
-        my $partial = $products;
+        my @partial = @$products;
         $products = [];
         for my $item (@$set) {
-            for my $product (@$partial) {
+            for my $product (@partial) {
                 push @$products, [$item, @$product];
             }
         }
@@ -25,10 +24,9 @@ sub cartesian {
     $products;
 }
 
-sub product {
-    my($s,$fmt) = @_; 
+sub product($s,$fmt) {
     my $tuples = '';
-    for $a ( @{ cartesian( \@$s ) } ) { $tuples .= sprintf "($fmt) ", @$a; }
+    for $a ( @{ cartesian($s) } ) { $tuples .= sprintf "($fmt) ", @$a; }
     $tuples . "\n";
 }
 
