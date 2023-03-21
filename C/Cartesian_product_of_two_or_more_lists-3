@@ -5,20 +5,24 @@
 
 use feature 'say';
 
-# Modules[edit]
-# A variety of modules can do this correctly for an arbitrary number of lists (each of independent length). Arguably using modules is very idiomatic Perl.
+# A variety of modules can do this correctly for an arbitrary number of lists (each of independent length). 
+# Arguably using modules is very idiomatic Perl.
+
+my @input = ( [1,2,3], [qw/a b c/], [qw/@ $ !/] );
 
 use ntheory qw/forsetproduct/;
-forsetproduct { push @res1, "@_" } [1,2,3],[qw/a b c/],[qw/@ $ !/];
+forsetproduct { push @res1, "@_" } @input;
 
 use Set::Product qw/product/;
-product { push @res2, "@_" } [1,2,3],[qw/a b c/],[qw/@ $ !/];
+product       { push @res2, "@_" } @input;
 
 use Math::Cartesian::Product;
-cartesian { push @res3, "@_" } [1,2,3],[qw/a b c/],[qw/@ $ !/];
+cartesian     { push @res3, "@_" } @input;
 
 use Algorithm::Loops qw/NestedLoops/;
-NestedLoops([[1,2,3],[qw/a b c/],[qw/@ $ !/]], sub { push @res4, "@_"; });
+NestedLoops(                      [@input],
+          sub { push @res4, "@_" }
+);
 
 say $result1 = join "\n", @res1;
 say $result2 = join "\n", @res2;
