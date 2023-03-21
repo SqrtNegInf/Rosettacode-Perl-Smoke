@@ -2,6 +2,9 @@
 #u# http://rosettacode.org/wiki/Ternary_logic
 #c# 2018-08-11 <RC, 2023-03-21 >RC
 #p# OK
+#n# experimental twiddling not on RC...
+
+my $result;
 
 use strict;
 use warnings;
@@ -15,9 +18,9 @@ our @EXPORT = qw(TRUE FALSE MAYBE);
 use List::Util qw(min max);
 
 use overload
-'='  => sub { $_[0]->clone() },
-'<=>'=> sub { $_[0]->cmp($_[1]) },
-'cmp'=> sub { $_[0]->cmp($_[1]) },
+#'='  => sub { $_[0]->clone() },        # non-essential
+#'<=>'=> sub { $_[0]->cmp($_[1]) },     # non-essential
+#'cmp'=> sub { $_[0]->cmp($_[1]) },     # non-essential
 '==' => sub { ${$_[0]} == ${$_[1]} },
 'eq' => sub { $_[0]->equiv($_[1]) },
 '>'  => sub { ${$_[0]} > ${$_[1]} },
@@ -61,7 +64,6 @@ sub cmp { ${$_[0]} <=> ${$_[1]} }
 sub not { new Trit(-${$_[0]}) }
 sub and { new Trit(min(${$_[0]}, ${$_[1]}) ) }
 sub or  { new Trit(max(${$_[0]}, ${$_[1]}) ) }
-
 sub equiv { new Trit( ${$_[0]} * ${$_[1]} ) }
 
 package main;
@@ -69,9 +71,14 @@ Trit->import;
 
 my @a = (TRUE(), MAYBE(), FALSE());
 
+$result .= sprintf "%6s %6s %6s\n", @a;
+$result .= sprintf "%3d %3d %3d\n", @a;
+$result .= "\n";
+
 # prefix ! (not) ['~' also can be used]
-my $result = "a\tNOT a" . "\n";
+$result .= "a\tNOT a" . "\n";
 $result .= "$_\t".(!$_)."\n" for @a;
+#$result .= "$_\t".(~$_)."\n" for @a;
 
 # infix & (and)
 $result .= "\nAND\t" . join("\t",@a) . "\n";
@@ -89,9 +96,28 @@ for my $a (@a) { $result .= $a; $result .= "\t" . ($a eq $_) for @a; $result .= 
 $result .= "\n==\t" . join("\t",@a) . "\n";
 for my $a (@a) { $result .= $a; $result .= "\t" . ($a == $_) for @a; $result .= "\n" }
 
-say $result;
+# infix <=
+$result .= "\n<=\t" . join("\t",@a) . "\n";
+for my $a (@a) { $result .= $a; $result .= "\t" . ($a <= $_) for @a; $result .= "\n" }
+
+# infix <
+$result .= "\n<\t" . join("\t",@a) . "\n";
+for my $a (@a) { $result .= $a; $result .= "\t" . ($a <  $_) for @a; $result .= "\n" }
+
+# infix >=
+$result .= "\n>=\t" . join("\t",@a) . "\n";
+for my $a (@a) { $result .= $a; $result .= "\t" . ($a >= $_) for @a; $result .= "\n" }
+
+# infix >
+$result .= "\n>\t" . join("\t",@a) . "\n";
+for my $a (@a) { $result .= $a; $result .= "\t" . ($a >  $_) for @a; $result .= "\n" }
+
+say $result; #exit;
 
 my $ref = <<'EOD';
+  true  maybe  false
+  1   0  -1
+
 a	NOT a
 true	false
 maybe	maybe
@@ -116,6 +142,26 @@ false	false	maybe	true
 true	1		
 maybe		1	
 false			1
+
+<=	true	maybe	false
+true	1		
+maybe	1	1	
+false	1	1	1
+
+<	true	maybe	false
+true			
+maybe	1		
+false	1	1	
+
+>=	true	maybe	false
+true	1	1	1
+maybe		1	1
+false			1
+
+>	true	maybe	false
+true		1	1
+maybe			1
+false			
 EOD
 
 use Test::More;
