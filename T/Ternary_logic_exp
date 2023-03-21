@@ -1,8 +1,8 @@
 #!/usr/bin/env perl
 #u# http://rosettacode.org/wiki/Ternary_logic
-#c# 2018-08-11 <RC, 2023-03-21 >RC, 2023-xx-xx >RC
+#c# 2018-08-11 <RC, 2023-03-21 >RC, 2023-03-xx >RC
 #p# OK
-#n# Moving to modern Perl is being was a bit troublesome... Still the wart of <no strict 'refs'>
+#n# factored out the logic values into %E hash table, all refs go through it now
 
 my $result;
 
@@ -11,11 +11,11 @@ use v5.36.0;
 package Trit;
 
 our @ISA = qw(Exporter);
-our @EXPORT = qw(TRUE FALSE MAYBE);
+our @EXPORT = qw(%E);
 
 use List::Util qw(min max);
 
-my %E = ('true' => 1, 'false' => -1, 'maybe' => 0); # equivalent numeric for 'string' input values
+my %E = ('true' => 1, 'false' => -1, 'maybe' => 0); # codes for logic values
 
 use overload
 '<=>'=> sub ($a,$b)       { $a->cmp($b)   },
@@ -38,20 +38,16 @@ use overload
 
 sub new ($class, $v) {
     my $ret =
-        !defined($v) ? 0 :
-        $v eq 'true' ? 1 :
-        $v eq 'false'? -1 :
-        $v eq 'maybe'? 0 :
-        $v > 0 ? 1 : $v < 0 ? -1 :
+        !defined($v) ? $E{maybe} :
+        $v eq 'true' ? $E{true} :
+        $v eq 'false'? $E{false} :
+        $v eq 'maybe'? $E{maybe} :
+        $v > $E{maybe} ? $E{true} : $v < $E{maybe} ? $E{false} :
         0;
     return bless \$ret, $class;
 }
 
-sub TRUE()  { Trit->new( 1) }
-sub MAYBE() { Trit->new( 0) }
-sub FALSE() { Trit->new(-1) }
-
-sub tostr ($a) { $$a > 0 ? 'true' : $$a < 0 ? 'false' : 'maybe' }
+sub tostr ($a) { $$a > $E{maybe} ? 'true' : $$a < $E{maybe} ? 'false' : 'maybe' }
 sub tonum ($a) { $$a }
 
 sub not   ($a)    { Trit->new( -$a        ) } # added overloaded operation "neg" for this
@@ -63,7 +59,7 @@ sub equiv ($a,$b) { Trit->new( $a*($b//0) ) } # added overloaded operation "*"  
 package main;
 Trit->import;
 
-my @a = (TRUE(), MAYBE(), FALSE());
+my @a = ( Trit->new($E{true}), Trit->new($E{maybe}), Trit->new($E{false}) );
 
 $result  = "Codes for logic values:\n";
 $result .= sprintf "%6s %6s %6s\n", @a;
