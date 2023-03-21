@@ -1365,6 +1365,7 @@ File: C/Cartesian_product_of_two_or_more_lists-1
 #u# http://rosettacode.org/wiki/Cartesian_product_of_two_or_more_lists
 #c# 2018-08-28 >RC
 #p# OK
+#n# 2023-03-20 changes not on RC
 
 File: C/Cartesian_product_of_two_or_more_lists-2
 #!/usr/local/bin/perl
@@ -3589,6 +3590,7 @@ File: F/Find_first_and_last_set_bit_of_a_long_integer
 #c# 2018-08-06 <RC
 #p# OK
 #n# just testing 'msb' and 'lsb'
+#n# 2023-03-20 changes not on RC (code there is not a single task that can be run)
 
 File: F/Find_first_missing_positive
 #!/usr/local/bin/perl
@@ -10721,10 +10723,18 @@ File: T/Terminal_control_Unicode_output
 #p# OK
 
 File: T/Ternary_logic
-#!/usr/local/bin/perl
+#!/usr/bin/env perl
 #u# http://rosettacode.org/wiki/Ternary_logic
-#c# 2018-08-11 <RC
+#c# 2018-08-11 <RC, 2023-03-21 >RC
 #p# OK
+#n# experimental twiddling not on RC...
+
+File: T/Ternary_logic_exp
+#!/usr/bin/env perl
+#u# http://rosettacode.org/wiki/Ternary_logic
+#c# 2018-08-11 <RC, 2023-03-21 >RC, 2023-03-xx >RC
+#p# OK
+#n# factored out the logic values into %E hash table, all refs go through it now
 
 File: T/Test_a_function
 #!/usr/local/bin/perl -Ilib do-not-check
