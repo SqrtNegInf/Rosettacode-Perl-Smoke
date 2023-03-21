@@ -1,27 +1,16 @@
-#!/usr/local/bin/perl
+#!/usr/bin/env perl
 #u# http://rosettacode.org/wiki/Ternary_logic
-#c# 2018-08-11 <RC
+#c# 2018-08-11 <RC, 2023-03-21 >RC
 #p# OK
 
 use strict;
 use warnings;
 use feature 'say';
-my $result;
-
-#File Trit.pm:
 
 package Trit;
 
-# -1 = false ; 0 = maybe ; 1 = true
-
-#use Exporter 'import';
-
-#our @EXPORT_OK = qw(TRUE FALSE MAYBE is_true is_false is_maybe);
-#our %EXPORT_TAGS = (
-#	all => \@EXPORT_OK,
-#	const => [qw(TRUE FALSE MAYBE)],
-#	bool => [qw(is_true is_false is_maybe)],
-#);
+our @ISA = qw(Exporter);
+our @EXPORT = qw(TRUE FALSE MAYBE);
 
 use List::Util qw(min max);
 
@@ -43,36 +32,30 @@ use overload
 '0+' => sub { $_[0]->tonum() },
 ;
 
-sub new
-{
-	my ($class, $v) = @_;
-	my $ret =
-		!defined($v) ? 0 :
-		$v eq 'true' ? 1 :
-		$v eq 'false'? -1 :
-		$v eq 'maybe'? 0 :
-		$v > 0 ? 1 :
-		$v < 0 ? -1 :
-		0;
-	return bless \$ret, $class;
+sub new {
+    my ($class, $v) = @_;
+    my $ret =
+        !defined($v) ? 0 :
+        $v eq 'true' ? 1 :
+        $v eq 'false'? -1 :
+        $v eq 'maybe'? 0 :
+        $v > 0 ? 1 :
+        $v < 0 ? -1 :
+        0;
+    return bless \$ret, $class;
 }
 
 sub TRUE()  { new Trit( 1) }
 sub FALSE() { new Trit(-1) }
 sub MAYBE() { new Trit( 0) }
 
-sub clone
-{
-	my $ret = ${$_[0]};
-	return bless \$ret, ref($_[0]);
+sub clone {
+    my $ret = ${$_[0]};
+    return bless \$ret, ref($_[0]);
 }
 
-sub tostr { ${$_[0]} > 0 ? "true" : ${$_[0]} < 0 ? "false" : "maybe" }
+sub tostr { ${$_[0]} > 0 ? 'true' : ${$_[0]} < 0 ? 'false' : 'maybe' }
 sub tonum { ${$_[0]} }
-
-sub is_true { ${$_[0]} > 0 }
-sub is_false { ${$_[0]} < 0 }
-sub is_maybe { ${$_[0]} == 0 }
 
 sub cmp { ${$_[0]} <=> ${$_[1]} }
 sub not { new Trit(-${$_[0]}) }
@@ -81,55 +64,34 @@ sub or  { new Trit(max(${$_[0]}, ${$_[1]}) ) }
 
 sub equiv { new Trit( ${$_[0]} * ${$_[1]} ) }
 
-#File test.pl:
-
-#use Trit ':all';
+package main;
+Trit->import;
 
 my @a = (TRUE(), MAYBE(), FALSE());
 
-$result .= "\na\tNOT a\n";
-$result .= "$_\t".(!$_)."\n" for @a;	# Example of use of prefix operator NOT. Tilde ~ also can be used.
- 
-$result .= "\nAND\t".join("\t",@a)."\n";
-for my $a (@a) {
-	$result .= $a;
-	for my $b (@a) {
-		$result .= "\t".($a & $b);	# Example of use of infix & (and)
-	}
-	$result .= "\n";
-}
+# prefix ! (not) ['~' also can be used]
+my $result = "a\tNOT a" . "\n";
+$result .= "$_\t".(!$_)."\n" for @a;
 
-$result .= "\nOR\t".join("\t",@a)."\n";
-for my $a (@a) {
-	$result .= $a;
-	for my $b (@a) {
-		$result .= "\t".($a | $b);	# Example of use of infix | (or)
-	}
-	$result .= "\n";
-}
+# infix & (and)
+$result .= "\nAND\t" . join("\t",@a) . "\n";
+for my $a (@a) { $result .= $a; $result .= "\t" . ($a & $_)  for @a; $result .= "\n" }
 
-$result .= "\nEQV\t".join("\t",@a)."\n";
-for my $a (@a) {
-	$result .= $a;
-	for my $b (@a) {
-		$result .= "\t".($a eq $b);	# Example of use of infix eq (equivalence)
-	}
-	$result .= "\n";
-}
+# infix | (or)
+$result .= "\nOR\t" . join("\t",@a) . "\n";
+for my $a (@a) { $result .= $a; $result .= "\t" . ($a | $_)  for @a; $result .= "\n" }
 
-$result .= "\n==\t".join("\t",@a)."\n";
-for my $a (@a) {
-	$result .= $a;
-	for my $b (@a) {
-		$result .= "\t".($a == $b);	# Example of use of infix == (equality)
-	}
-	$result .= "\n";
-}
+# infix eq (equivalence)
+$result .= "\nEQV\t" . join("\t",@a) . "\n";
+for my $a (@a) { $result .= $a; $result .= "\t" . ($a eq $_) for @a; $result .= "\n" }
+
+# infix == (equality)
+$result .= "\n==\t" . join("\t",@a) . "\n";
+for my $a (@a) { $result .= $a; $result .= "\t" . ($a == $_) for @a; $result .= "\n" }
 
 say $result;
 
 my $ref = <<'EOD';
-
 a	NOT a
 true	false
 maybe	maybe
