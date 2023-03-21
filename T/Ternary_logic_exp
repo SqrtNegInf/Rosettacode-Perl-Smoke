@@ -1,0 +1,163 @@
+#!/usr/bin/env perl
+#u# http://rosettacode.org/wiki/Ternary_logic
+#c# 2018-08-11 <RC, 2023-03-21 >RC, 2023-xx-xx >RC
+#p# OK
+#n# Moving to modern Perl is being was a bit troublesome... Still the wart of <no strict 'refs'>
+
+my $result;
+
+use v5.36.0;
+
+package Trit;
+
+our @ISA = qw(Exporter);
+our @EXPORT = qw(TRUE FALSE MAYBE);
+
+use List::Util qw(min max);
+
+my %E = ('true' => 1, 'false' => -1, 'maybe' => 0); # equivalent numeric for 'string' input values
+
+use overload
+'<=>'=> sub ($a,$b)       { $a->cmp($b)   },
+'cmp'=> sub ($a,$b)       { $a->cmp($b)   },
+'==' => sub ($a,$b,$)     { $$a == $$b    },
+'eq' => sub ($a,$b,$)     { $a->equiv($b) },
+'*'  => sub ($a,$b,$)     { $$a * ($b//0) }, # 'b' is different?
+'>'  => sub ($a,$b,$)     { $$a >  $E{$b} }, 
+'<'  => sub ($a,$b,$)     { $$a <  $E{$b} },
+'>=' => sub ($a,$b,$)     { $$a >= $$b    }, 
+'<=' => sub ($a,$b,$)     { $$a <= $$b    },
+'|'  => sub ($a,$b,$,$,$) { $a->or($b)    },
+'&'  => sub ($a,$b,$,$,$) { $a->and($b)   },
+'!'  => sub ($a,$,$)      { $a->not()     },
+'~'  => sub ($a,$,$,$,$)  { $a->not()     }, # ?
+'neg'=> sub ($a,$,$)      { -$$a          },
+'""' => sub ($a,$,$)      { $a->tostr()   },
+'0+' => sub ($a,$,$)      { $a->tonum()   },
+;
+
+sub new ($class, $v) {
+    my $ret =
+        !defined($v) ? 0 :
+        $v eq 'true' ? 1 :
+        $v eq 'false'? -1 :
+        $v eq 'maybe'? 0 :
+        $v > 0 ? 1 : $v < 0 ? -1 :
+        0;
+    return bless \$ret, $class;
+}
+
+sub TRUE()  { Trit->new( 1) }
+sub MAYBE() { Trit->new( 0) }
+sub FALSE() { Trit->new(-1) }
+
+sub tostr ($a) { $$a > 0 ? 'true' : $$a < 0 ? 'false' : 'maybe' }
+sub tonum ($a) { $$a }
+
+sub not   ($a)    { Trit->new( -$a        ) } # added overloaded operation "neg" for this
+sub cmp   ($a,$b) { Trit->new( $a <=> $b  ) }
+sub and   ($a,$b) { Trit->new( min $a, $b ) }
+sub or    ($a,$b) { Trit->new( max $a, $b ) }
+sub equiv ($a,$b) { Trit->new( $a*($b//0) ) } # added overloaded operation "*"   for this
+
+package main;
+Trit->import;
+
+my @a = (TRUE(), MAYBE(), FALSE());
+
+$result  = "Codes for logic values:\n";
+$result .= sprintf "%6s %6s %6s\n", @a;
+$result .= sprintf "%6d %6d %6d\n", @a;
+
+# prefix ! (not)
+$result .= "\na\tNOT a" . "\n";
+$result .= "$_\t".(!$_)."\n" for @a;
+
+# infix & (and)
+$result .= "\nAND\t" . join("\t",@a) . "\n";
+for my $a (@a) { $result .= $a; $result .= "\t" . ($a & $_)  for @a; $result .= "\n" }
+
+# infix | (or)
+$result .= "\nOR\t" . join("\t",@a) . "\n";
+for my $a (@a) { $result .= $a; $result .= "\t" . ($a | $_)  for @a; $result .= "\n" }
+
+# infix eq (equivalence)
+$result .= "\nEQV\t" . join("\t",@a) . "\n";
+for my $a (@a) { $result .= $a; $result .= "\t" . ($a eq $_) for @a; $result .= "\n" }
+
+# infix == (equality)
+$result .= "\n==\t" . join("\t",@a) . "\n";
+for my $a (@a) { $result .= $a; $result .= "\t" . ($a == $_) for @a; $result .= "\n" }
+
+# infix >
+$result .= "\n>\t" . join("\t",@a) . "\n";
+for my $a (@a) { $result .= $a; $result .= "\t" . ($a > $_)  for @a; $result .= "\n" }
+
+# infix >=
+$result .= "\n>=\t" . join("\t",@a) . "\n";
+for my $a (@a) { $result .= $a; $result .= "\t" . ($a >= $_) for @a; $result .= "\n" }
+
+# infix <
+$result .= "\n<\t" . join("\t",@a) . "\n";
+for my $a (@a) { $result .= $a; $result .= "\t" . ($a < $_)  for @a; $result .= "\n" }
+
+# infix <=
+$result .= "\n<=\t" . join("\t",@a) . "\n";
+for my $a (@a) { $result .= $a; $result .= "\t" . ($a <= $_) for @a; $result .= "\n" }
+
+say $result;
+
+my $ref = <<'EOD';
+Codes for logic values:
+  true  maybe  false
+     1      0     -1
+
+a	NOT a
+true	false
+maybe	maybe
+false	true
+
+AND	true	maybe	false
+true	true	maybe	false
+maybe	maybe	maybe	false
+false	false	false	false
+
+OR	true	maybe	false
+true	true	true	true
+maybe	true	maybe	maybe
+false	true	maybe	false
+
+EQV	true	maybe	false
+true	true	maybe	false
+maybe	maybe	maybe	maybe
+false	false	maybe	true
+
+==	true	maybe	false
+true	1		
+maybe		1	
+false			1
+
+>	true	maybe	false
+true		1	1
+maybe			1
+false			
+
+>=	true	maybe	false
+true	1	1	1
+maybe		1	1
+false			1
+
+<	true	maybe	false
+true			
+maybe	1		
+false	1	1	
+
+<=	true	maybe	false
+true	1		
+maybe	1	1	
+false	1	1	1
+EOD
+
+use Test::More;
+is ($result, $ref);
+done_testing();
