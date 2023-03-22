@@ -1,80 +1,78 @@
 #!/usr/bin/env perl
 #u# http://rosettacode.org/wiki/Ternary_logic
-#c# 2018-08-11 <RC, 2023-03-21 >RC, 2023-03-xx >RC
+#c# 2018-08-11 <RC, 2023-03-21 >RC, 2023-03-22 >RC
 #p# OK
 #n# factored out the logic values into %E hash table, all refs go through it now
 
 my $result;
 
 use v5.36.0;
+no strict 'refs';
 
 package Trit;
+use List::Util qw(min max);
 
 our @ISA = qw(Exporter);
 our @EXPORT = qw(%E);
 
-use List::Util qw(min max);
-
-my %E = ('true' => 1, 'false' => -1, 'maybe' => 0); # codes for logic values
+my %E = (true => 1, false => -1, maybe => 0); # codes for logic values
 
 use overload
-'<=>'=> sub ($a,$b)       { $a->cmp($b)   },
-'cmp'=> sub ($a,$b)       { $a->cmp($b)   },
-'==' => sub ($a,$b,$)     { $$a == $$b    },
-'eq' => sub ($a,$b,$)     { $a->equiv($b) },
-'*'  => sub ($a,$b,$)     { $$a * ($b//0) }, # 'b' is different?
-'>'  => sub ($a,$b,$)     { $$a >  $E{$b} }, 
-'<'  => sub ($a,$b,$)     { $$a <  $E{$b} },
-'>=' => sub ($a,$b,$)     { $$a >= $$b    }, 
-'<=' => sub ($a,$b,$)     { $$a <= $$b    },
-'|'  => sub ($a,$b,$,$,$) { $a->or($b)    },
-'&'  => sub ($a,$b,$,$,$) { $a->and($b)   },
-'!'  => sub ($a,$,$)      { $a->not()     },
-'~'  => sub ($a,$,$,$,$)  { $a->not()     }, # ?
-'neg'=> sub ($a,$,$)      { -$$a          },
-'""' => sub ($a,$,$)      { $a->tostr()   },
-'0+' => sub ($a,$,$)      { $a->tonum()   },
+'<=>' => sub ($a,$b)       { $a->cmp($b)   },
+'cmp' => sub ($a,$b)       { $a->cmp($b)   },
+'=='  => sub ($a,$b,$)     { $$a == $$b    },
+'eq'  => sub ($a,$b,$)     { $a->equiv($b) },
+'*'   => sub ($a,$b,$)     { $$a * ($$b//0) }, # 'b' is different?
+'>'   => sub ($a,$b,$)     { $$a > ($E{$b}//0) }, 
+'<'   => sub ($a,$b,$)     { $$a < ($E{$b}//0) },
+'>='  => sub ($a,$b,$)     { $$a >= $$b    }, 
+'<='  => sub ($a,$b,$)     { $$a <= $$b    },
+'|'   => sub ($a,$b,$,$,$) { $a->or($b)    },
+'&'   => sub ($a,$b,$,$,$) { $a->and($b)   },
+'!'   => sub ($a,$,$)      { $a->not()     },
+'~'   => sub ($a,$,$,$,$)  { $a->not()     }, # ?
+'neg' => sub ($a,$,$)      { -$$a          },
+'""'  => sub ($a,$,$)      { $a->tostr()   },
+'0+'  => sub ($a,$,$)      { $a->tonum()   },
 ;
 
 sub new ($class, $v) {
-    my $ret =
-        !defined($v) ? $E{maybe} :
-        $v eq 'true' ? $E{true} :
-        $v eq 'false'? $E{false} :
-        $v eq 'maybe'? $E{maybe} :
-        $v > $E{maybe} ? $E{true} : $v < $E{maybe} ? $E{false} :
-        0;
-    return bless \$ret, $class;
+    my $value =
+        ! defined $v   ? $E{maybe} :
+        $v eq 'true'   ? $E{true}  :
+        $v eq 'false'  ? $E{false} :
+        $v eq 'maybe'  ? $E{maybe} :
+        $v > $E{maybe} ? $E{true}  :
+        $v < $E{maybe} ? $E{false} :
+                         $E{maybe} ;
+    bless \$value, $class;
 }
 
 sub tostr ($a) { $$a > $E{maybe} ? 'true' : $$a < $E{maybe} ? 'false' : 'maybe' }
 sub tonum ($a) { $$a }
 
-sub not   ($a)    { Trit->new( -$a        ) } # added overloaded operation "neg" for this
+sub not   ($a)    { Trit->new( -$a        ) } # added overloaded operation 'neg' for this
 sub cmp   ($a,$b) { Trit->new( $a <=> $b  ) }
 sub and   ($a,$b) { Trit->new( min $a, $b ) }
 sub or    ($a,$b) { Trit->new( max $a, $b ) }
-sub equiv ($a,$b) { Trit->new( $a*($b//0) ) } # added overloaded operation "*"   for this
+sub equiv ($a,$b) { Trit->new( $a*($b//0) ) } # added overloaded operation '*' for this
 
 package main;
 Trit->import;
 
 my @a = ( Trit->new($E{true}), Trit->new($E{maybe}), Trit->new($E{false}) );
+$result = sprintf "Codes for logic values: %6s = %d %6s = %d %6s = %d\n", @a[0, 0, 1, 1, 2, 2]; # easier than List::Util::mesh
 
-$result  = "Codes for logic values:\n";
-$result .= sprintf "%6s %6s %6s\n", @a;
-$result .= sprintf "%6d %6d %6d\n", @a;
-
-# prefix ! (not)
+# prefix ! (not) ['~' also can be used]
 $result .= "\na\tNOT a" . "\n";
-$result .= "$_\t".(!$_)."\n" for @a;
+$result .= "$_\t" . (!$_) ."\n" for @a;
 
 # infix & (and)
 $result .= "\nAND\t" . join("\t",@a) . "\n";
 for my $a (@a) { $result .= $a; $result .= "\t" . ($a & $_)  for @a; $result .= "\n" }
 
 # infix | (or)
-$result .= "\nOR\t" . join("\t",@a) . "\n";
+$result .= "\nOR\t"  . join("\t",@a) . "\n";
 for my $a (@a) { $result .= $a; $result .= "\t" . ($a | $_)  for @a; $result .= "\n" }
 
 # infix eq (equivalence)
@@ -82,11 +80,11 @@ $result .= "\nEQV\t" . join("\t",@a) . "\n";
 for my $a (@a) { $result .= $a; $result .= "\t" . ($a eq $_) for @a; $result .= "\n" }
 
 # infix == (equality)
-$result .= "\n==\t" . join("\t",@a) . "\n";
+$result .= "\n==\t"  . join("\t",@a) . "\n";
 for my $a (@a) { $result .= $a; $result .= "\t" . ($a == $_) for @a; $result .= "\n" }
 
 # infix >
-$result .= "\n>\t" . join("\t",@a) . "\n";
+$result .= "\n>\t"  . join("\t",@a) . "\n";
 for my $a (@a) { $result .= $a; $result .= "\t" . ($a > $_)  for @a; $result .= "\n" }
 
 # infix >=
@@ -94,7 +92,7 @@ $result .= "\n>=\t" . join("\t",@a) . "\n";
 for my $a (@a) { $result .= $a; $result .= "\t" . ($a >= $_) for @a; $result .= "\n" }
 
 # infix <
-$result .= "\n<\t" . join("\t",@a) . "\n";
+$result .= "\n<\t"  . join("\t",@a) . "\n";
 for my $a (@a) { $result .= $a; $result .= "\t" . ($a < $_)  for @a; $result .= "\n" }
 
 # infix <=
@@ -104,9 +102,7 @@ for my $a (@a) { $result .= $a; $result .= "\t" . ($a <= $_) for @a; $result .= 
 say $result;
 
 my $ref = <<'EOD';
-Codes for logic values:
-  true  maybe  false
-     1      0     -1
+Codes for logic values:   true = 1  maybe = 0  false = -1
 
 a	NOT a
 true	false
