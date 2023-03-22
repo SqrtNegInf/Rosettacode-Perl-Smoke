@@ -3,6 +3,8 @@
 #c# 2018-07-04 <RC
 #p# OK
 
+use strict;
+use warnings;
 use feature 'say';
 
 # Will generate all possible solutions of any given four numbers according to the rules of the 24 game.
@@ -23,7 +25,7 @@ sub permute (&@) {
 		}
 	}
  
-@formats = (
+my @formats = (
 	'((%d %s %d) %s %d) %s %d',
 	'(%d %s (%d %s %d)) %s %d',
 	'(%d %s %d) %s (%d %s %d)',
@@ -32,14 +34,13 @@ sub permute (&@) {
 	);
  
 # generate all possible combinations of operators
-@op = qw( + - * / );
-@operators = map{ $a=$_; map{ $b=$_; map{ "$a $b $_" }@op }@op }@op;
+my @op = qw( + - * / );
+my @operators = map{ $a=$_; map{ $b=$_; map{ "$a $b $_" }@op }@op }@op;
  
-#while(1)
-sub bf
-{
+sub bf {
 my($ent) = @_;
-my @res;
+my(@res,@numbers);
+
 #	print "Enter four integers or 'q' to exit: ";
 #	chomp($ent = <>);
 #	last if $ent eq 'q';
@@ -47,20 +48,20 @@ my @res;
  
 	if($ent !~ /^[1-9] [1-9] [1-9] [1-9]$/){ print "invalid input\n"; return }
  
-	@n = split / /,$ent;
+	my @n = split / /, $ent;
 	permute { push @numbers,join ' ',@_ }@n;
  
-	for $format (@formats)
+	for my $format (@formats)
 	{
 		for(@numbers)
 		{
-			@n = split;
+			my @n = split;
 			for(@operators)
 			{
-				@o = split;
-				$str = sprintf $format,$n[0],$o[0],$n[1],$o[1],$n[2],$o[2],$n[3];
-				$r = eval($str);
-				push @res, "$str" if $r == 24;
+				my @o = split;
+				my $str = sprintf $format,$n[0],$o[0],$n[1],$o[1],$n[2],$o[2],$n[3];
+				my $r = eval($str);
+				push @res, "$str" if defined $r and $r == 24;
 			}
 		}
 	}
