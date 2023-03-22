@@ -3,13 +3,12 @@
 #c# 2018-07-28 <RC
 #p# OK
 
-use feature 'say';
 my $result;
 
-use Storable; # Storable::dclone() is exactly what you are looking for.
- 
 use strict;
 use warnings;
+use feature 'say';
+
 use Storable;
 use Data::Dumper;
  
