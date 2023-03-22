@@ -4,7 +4,7 @@
 #p# OK
 
 use strict;
-no warnings;
+use warnings;
 use feature 'say';
 
 sub eqv { (join '', sort split '', $_[0]) eq (join '', sort split '', $_[1]) }
