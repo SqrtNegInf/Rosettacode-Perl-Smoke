@@ -3,18 +3,20 @@
 #t# skiptest
 #c# 2018-07-28 <RC
 #p# OK
+#n# 2023-03-22 finally, testing added
+
+my @res;
 
 srand 123456;
 
+use strict;
+use warnings;
 use feature 'say';
-my $result;
-
 
 # This solution requires that perl have been compiled with threads enabled.
 # Deadlock is prevented by having even numbered and odd numbered philosophers
 # grab their forks in opposite orders.
 
- 
 use threads;
 use threads::shared;
 my @names = <Aristotle Kant Spinoza Marx Russell>;
@@ -47,15 +49,15 @@ sub philosopher {
    my $philosopher = shift;
    my $name = $names[$philosopher];
    for my $meal ( 1..5 ) {
-      print $name, " is pondering\n";
+      push @res, $name . " is pondering\n";
       sleep 1 + rand 8;
-      print $name, " is hungry\n";
+      push @res, $name . " is hungry\n";
       pick_up_forks( $philosopher );
-      $result .= $name, " is eating\n";
+      push @res, $name . " is eating\n";
       sleep 1 + rand 8;
       drop_forks( $philosopher );
    }
-   print $name, " is done\n";
+   push @res, $name . " is done\n";
 }
  
 my @t = map { threads->new(\&philosopher, $_) } 0 .. $#names;
@@ -63,7 +65,12 @@ for my $thread ( @t ) {
    $thread->join;
 }
  
-print "Done\n";
+say join "\n", @res; # in order of events
+#print "Done\n";
+
+# testing only totals
+#use Test::More;
+#done_testing();
 
 __END__
  
