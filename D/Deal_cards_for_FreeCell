@@ -3,14 +3,13 @@
 #c# 2018-07-28 <RC
 #p# OK
 
-srand 123456;
-
-use feature 'say';
 my $result;
 
+srand 123456;
 
 use strict;
 use warnings;
+use feature 'say';
  
 use utf8;
  
@@ -41,8 +40,7 @@ my $cards = deal($hand_idx);
 my $num_cards_in_height = 8;
 my $string = '';
  
-while (@$cards)
-{
+while (@$cards) {
     $string .= join(' ', splice(@$cards, 0, 8)) . "\n";
 }
  
@@ -50,8 +48,8 @@ binmode STDOUT, ':encoding(utf-8)';
 $result .= "Hand $hand_idx\n";
 $result .= $string;
 
-
 say $result; 
+
 my $ref = <<'EOD';
 Hand 11982
 hA sA h4 dA c2 s6 sT sJ
@@ -62,7 +60,6 @@ d6 d2 hT hQ c6 dT s4 s7
 cJ c7 h8 d9 h2 cQ d4 h5
 dK c8 s2 s3
 EOD
-
 
 use Test::More;
 is ($result, $ref);
