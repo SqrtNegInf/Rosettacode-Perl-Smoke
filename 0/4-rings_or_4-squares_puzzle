@@ -3,8 +3,11 @@
 #c# 2018-09-06 >RC
 #p# OK
 
-use feature 'say';
 my $result;
+
+use strict;
+use warnings;
+use feature 'say';
 
 use Set::CrossProduct;
 use ntheory qw/forperm/;
@@ -13,7 +16,7 @@ sub four_sq_permute {
     my( $list ) = @_;
     my @solutions;
     forperm {
-       @c = @$list[@_];
+       my @c = @$list[@_];
        push @solutions, [@c] if check(@c);
     } @$list;
     $result .= +@solutions . " unique solutions found using: " . join(', ', @$list) . "\n";
@@ -27,16 +30,16 @@ sub four_sq_cartesian {
     while( my $c = $iterator->get ) {
        push @solutions, [@$c] if check(@$c);
     }
-    $result .= +@solutions . " non-unique solutions found using: " . join(', ', @{@list[0]}) . "\n";
+    $result .= +@solutions . " non-unique solutions found using: " . join(', ', @{$list[0]}) . "\n";
     return @solutions;
 }
 
 sub check {
     my(@c) = @_;
-    $a = $c[0] + $c[1];
-    $b = $c[1] + $c[2] + $c[3];
-    $c = $c[3] + $c[4] + $c[5];
-    $d = $c[5] + $c[6];
+    my $a = $c[0] + $c[1];
+    my $b = $c[1] + $c[2] + $c[3];
+    my $c = $c[3] + $c[4] + $c[5];
+    my $d = $c[5] + $c[6];
     $a == $b and $a == $c and $a == $d;
 }
 
@@ -44,7 +47,7 @@ sub display {
     my(@solutions) = @_;
     my $fmt = "%2s " x 7 . "\n";
     $result .= sprintf $fmt, ('a'..'g');
-    $result .= sprintf $fmt, @$_ for @solutions;
+    $result .= sprintf $fmt, @$_[0..6] for @solutions;
     $result .= "\n";
 }
 
