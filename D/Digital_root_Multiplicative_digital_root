@@ -3,12 +3,11 @@
 #c# 2018-07-28 <RC
 #p# OK
 
-use feature 'say';
 my $result;
 
-# Translation of: D
-use warnings;
 use strict;
+use warnings;
+use feature 'say';
  
 sub mdr {
   my $n = shift;
