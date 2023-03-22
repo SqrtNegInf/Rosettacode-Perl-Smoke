@@ -3,14 +3,16 @@
 #c# 2018-07-09 <RC
 #p# OK
 
-use feature 'say';
 my @result;
+
+use strict;
+use warnings;
+use feature 'say';
 
 for (1..100) { push @result, "Door $_ is " . qw"closed open"[int sqrt == sqrt] }
 #print "Door $_ is ", qw"closed open"[int sqrt == sqrt], "\n" for 1..100;
 
-my $result = join "\n", @result;
-say $result;
+say my $result = join "\n", @result;
 
 my $ref = <<END;
 Door 1 is open
