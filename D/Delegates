@@ -1,21 +1,19 @@
 #!/usr/local/bin/perl
 #u# http://rosettacode.org/wiki/Delegates
-#t# skiptest
 #c# 2018-07-28 <RC
 #p# OK
 #n# skipping Moose implementation
+#n# 2023-03-22 hey, testing ain't that hard...
 
-use feature 'say';
-my $result;
-
-
-# Translation of: Python
 use strict;
- 
+use warnings;
+use feature 'say';
+
 package Delegator;
 sub new {
    bless {}
 }
+
 sub operation {
    my ($self) = @_;
    if (defined $self->{delegate} && $self->{delegate}->can('thing')) {
@@ -24,36 +22,29 @@ sub operation {
       'default implementation';
    }
 }
-1;
  
 package Delegate;
 sub new {
    bless {};
 }
+
 sub thing {
    'delegate implementation'
 }
-1;
- 
  
 package main;
+use Test::More;
+
 # No delegate
 my $a = Delegator->new;
-$a->operation eq 'default implementation' or die;
+is $a->operation, 'default implementation';
  
 # With a delegate that does not implement "thing"
-$a->{delegate} = 'A delegate may be any object';
-$a->operation eq 'default implementation' or die;
+is $a->{delegate}, undef;
+is $a->operation , 'default implementation';
  
 # With delegate that implements "thing"
 $a->{delegate} = Delegate->new;
-$a->operation eq 'delegate implementation' or die;
+is $a->operation, 'delegate implementation';
  
-
-say $result; 
-my $ref = <<'EOD';
-EOD
-
-use Test::More;
-#is ($result, $ref);
-#done_testing();
+done_testing();
