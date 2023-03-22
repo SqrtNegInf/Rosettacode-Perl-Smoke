@@ -3,22 +3,22 @@
 #c# 2018-07-28 <RC
 #p# OK
 
-use feature 'say';
 my $result;
 
-use DateTime;
 use strict;
+use warnings;
+use feature 'say';
 
-foreach my $i (2008 .. 2121)
-{
-  my $dt = DateTime->new( year   => $i,
+use DateTime;
+
+foreach my $i (2008 .. 2121) {
+    my $dt = DateTime->new( year   => $i,
                           month  => 12,
                           day    => 25
                         );
-  if ( $dt->day_of_week == 7 )
-  {
-    $result .= "25 Dec $i is Sunday\n";
-  }
+    if ( $dt->day_of_week == 7 ) {
+        $result .= "25 Dec $i is Sunday\n";
+    }
 }
 
 say $result;
