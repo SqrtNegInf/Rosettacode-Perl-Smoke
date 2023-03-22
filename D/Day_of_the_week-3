@@ -3,14 +3,16 @@
 #c# 2018-07-28 <RC
 #p# OK
 
-use feature 'say';
 my $result;
 
-use DateTime;
 use strict;
+use warnings;
+use feature 'say';
+
+use DateTime;
  
 for (2008 .. 2121) {
-  $result .= "25 Dec $_ is Sunday\n"
+    $result .= "25 Dec $_ is Sunday\n"
     if DateTime->new(year => $_, month => 12, day => 25)->day_of_week == 7;
 }
 
