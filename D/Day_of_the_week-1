@@ -3,25 +3,24 @@
 #c# 2018-07-28 <RC
 #p# OK
 
+my $result;
+
 use strict;
 use warnings;
 use feature 'say';
-my $result;
 
 use Time::Local;
-use strict;
 
-foreach my $i (2008 .. 2121)
-{
-  my $time = timelocal(0,0,0,25,11,$i);
-  my ($s,$m,$h,$md,$mon,$y,$wd,$yd,$is) = localtime($time);
-  if ( $wd == 0 )
-  {
-    $result .= "25 Dec $i is Sunday\n";
-  }
+foreach my $i (2008 .. 2121) {
+    my $time = timelocal(0,0,0,25,11,$i);
+    my ($s,$m,$h,$md,$mon,$y,$wd,$yd,$is) = localtime($time);
+    if ( $wd == 0 ) {
+        $result .= "25 Dec $i is Sunday\n";
+    }
 }
 
 say $result;
+
 my $ref = <<'END';
 25 Dec 2011 is Sunday
 25 Dec 2016 is Sunday
