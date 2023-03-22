@@ -4,6 +4,10 @@
 #p# OK
 
 srand 123456;
+
+use strict;
+use warnings;
+
 use Test::More;
 
 # Since there is no requirement that the computer play sensibly, it always plays a random guess so the player has some chance to win.
