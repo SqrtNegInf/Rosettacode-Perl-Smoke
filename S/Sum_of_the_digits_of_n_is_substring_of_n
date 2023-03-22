@@ -2,17 +2,19 @@
 #u# http://rosettacode.org/wiki/Sum_of_the_digits_of_n_is_substring_of_n
 #c# 2021-04-15 <RC
 #p# OK
+#n# without $sink use 'no warnings'
+
+my $result;
 
 use strict;
-no warnings;
+use warnings;
 use feature 'say';
 
 # perl -e 'for(0..999){my$n;s/(\d)/$n+=$1/egr;print"$_ "if/$n/}' # as one-liner ..
 
-my $result;
 for (0..999) {
     my $n;
-    s/(\d)/$n+=$1/egr;
+    my $sink = s/(\d)/$n+=$1/egr;
     $result .= "$_ " if /$n/
 }
 
