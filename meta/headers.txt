@@ -2462,10 +2462,10 @@ File: D/Define_a_primitive_data_type
 File: D/Delegates
 #!/usr/local/bin/perl
 #u# http://rosettacode.org/wiki/Delegates
-#t# skiptest
 #c# 2018-07-28 <RC
 #p# OK
 #n# skipping Moose implementation
+#n# 2023-03-22 hey, testing ain't that hard...
 
 File: D/Delete_a_file
 #!/usr/local/bin/perl
@@ -2623,6 +2623,7 @@ File: D/Dining_philosophers
 #t# skiptest
 #c# 2018-07-28 <RC
 #p# OK
+#n# 2023-03-22 finally, testing added
 
 File: D/Disarium_numbers
 #!/usr/local/bin/perl
@@ -10463,6 +10464,7 @@ File: S/Sum_of_the_digits_of_n_is_substring_of_n
 #u# http://rosettacode.org/wiki/Sum_of_the_digits_of_n_is_substring_of_n
 #c# 2021-04-15 <RC
 #p# OK
+#n# without $sink use 'no warnings'
 
 File: S/Sum_of_two_adjacent_numbers_are_primes
 #!/usr/local/bin/perl
@@ -10725,16 +10727,25 @@ File: T/Terminal_control_Unicode_output
 File: T/Ternary_logic
 #!/usr/bin/env perl
 #u# http://rosettacode.org/wiki/Ternary_logic
+#c# 2018-08-11 <RC, 2023-03-21 >RC, 2023-03-22 >RC
+#p# OK
+#n# using modern Perl required cleaning up some dodgy practices, results in cleaner code
+#n# factored out the logic values into %E hash table, all refs go through it now
+
+File: T/Ternary_logic.0
+#!/usr/bin/env perl
+#u# http://rosettacode.org/wiki/Ternary_logic
+#n# NOT CURRENT, NOT SMOKE-TESTED
+#c# 2018-08-11 <RC
+#p# OK
+#n# pre-5.36, getting away with some dodgy stuff...
+
+File: T/Ternary_logic.1
+#!/usr/bin/env perl
+#u# http://rosettacode.org/wiki/Ternary_logic
 #c# 2018-08-11 <RC, 2023-03-21 >RC
 #p# OK
 #n# experimental twiddling not on RC...
-
-File: T/Ternary_logic_exp
-#!/usr/bin/env perl
-#u# http://rosettacode.org/wiki/Ternary_logic
-#c# 2018-08-11 <RC, 2023-03-21 >RC, 2023-03-xx >RC
-#p# OK
-#n# factored out the logic values into %E hash table, all refs go through it now
 
 File: T/Test_a_function
 #!/usr/local/bin/perl -Ilib do-not-check
