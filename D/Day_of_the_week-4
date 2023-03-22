@@ -3,13 +3,13 @@
 #c# 2018-07-28 <RC
 #p# OK
 
+use strict;
+use warnings;
 use feature 'say';
-my $result;
 
 use DateTime;
-use strict;
 
-say $result = join " ", grep { DateTime->new(year => $_, month => 12, day => 25)->day_of_week == 7 } (2008 .. 2121);
+say my $result = join " ", grep { DateTime->new(year => $_, month => 12, day => 25)->day_of_week == 7 } 2008 .. 2121;
 
 use Test::More;
 is ($result, '2011 2016 2022 2033 2039 2044 2050 2061 2067 2072 2078 2089 2095 2101 2107 2112 2118');
