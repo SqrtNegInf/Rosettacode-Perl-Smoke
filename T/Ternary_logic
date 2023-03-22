@@ -7,7 +7,6 @@
 my $result;
 
 use v5.36.0;
-no strict 'refs';
 
 package Trit;
 use List::Util qw(min max);
@@ -22,7 +21,6 @@ use overload
 'cmp' => sub ($a,$b)       { $a->cmp($b)   },
 '=='  => sub ($a,$b,$)     { $$a == $$b    },
 'eq'  => sub ($a,$b,$)     { $a->equiv($b) },
-'*'   => sub ($a,$b,$)     { $$a * ($$b//0) }, # 'b' is different?
 '>'   => sub ($a,$b,$)     { $$a > ($E{$b}//0) }, 
 '<'   => sub ($a,$b,$)     { $$a < ($E{$b}//0) },
 '>='  => sub ($a,$b,$)     { $$a >= $$b    }, 
@@ -36,15 +34,29 @@ use overload
 '0+'  => sub ($a,$,$)      { $a->tonum()   },
 ;
 
+# $a = ref(Trit), $b = string
+sub eqv ($a,$b) { 
+    $$a == $E{maybe} || $E{$b} == $E{maybe} ? $E{maybe} :       # either arg 'maybe', return 'maybe'
+    $$a == $E{false} && $E{$b} == $E{false} ? $E{true}  :       #  both args 'false', return 'true'
+                                              min $$a, $E{$b}   # either arg 'false', return 'false', otherwise 'true'
+}
+
+# get in trouble here because the tests follow the overloading rules, resulting in unwanted ref(Trit) vs scalar comparisons
+# so use tests that avoid the overloaded operations, even if ends up seeming a bit silly
 sub new ($class, $v) {
     my $value =
-        ! defined $v   ? $E{maybe} :
-        $v eq 'true'   ? $E{true}  :
-        $v eq 'false'  ? $E{false} :
-        $v eq 'maybe'  ? $E{maybe} :
-        $v > $E{maybe} ? $E{true}  :
-        $v < $E{maybe} ? $E{false} :
-                         $E{maybe} ;
+        ! defined $v    ? $E{maybe} :
+       #$v eq 'true'    ? $E{true}  :
+       #$v eq 'false'   ? $E{false} :
+       #$v eq 'maybe'   ? $E{maybe} :
+        $v =~ /true/    ? $E{true}  :
+        $v =~ /false/   ? $E{false} :
+        $v =~ /maybe/   ? $E{maybe} :
+       #$v > $E{maybe}  ? $E{true}  :
+       #$v < $E{maybe}  ? $E{false} :
+        $v gt $E{maybe} ? $E{true}  :
+        $v lt $E{maybe} ? $E{false} :
+                          $E{maybe} ;
     bless \$value, $class;
 }
 
@@ -55,7 +67,7 @@ sub not   ($a)    { Trit->new( -$a        ) } # added overloaded operation 'neg'
 sub cmp   ($a,$b) { Trit->new( $a <=> $b  ) }
 sub and   ($a,$b) { Trit->new( min $a, $b ) }
 sub or    ($a,$b) { Trit->new( max $a, $b ) }
-sub equiv ($a,$b) { Trit->new( $a*($b//0) ) } # added overloaded operation '*' for this
+sub equiv ($a,$b) { Trit->new( eqv $a, $b ) }
 
 package main;
 Trit->import;
@@ -99,7 +111,7 @@ for my $a (@a) { $result .= $a; $result .= "\t" . ($a < $_)  for @a; $result .= 
 $result .= "\n<=\t" . join("\t",@a) . "\n";
 for my $a (@a) { $result .= $a; $result .= "\t" . ($a <= $_) for @a; $result .= "\n" }
 
-say $result;
+#say $result; exit;
 
 my $ref = <<'EOD';
 Codes for logic values:   true = 1  maybe = 0  false = -1
