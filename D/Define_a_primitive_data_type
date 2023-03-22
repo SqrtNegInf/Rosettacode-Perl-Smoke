@@ -3,10 +3,11 @@
 #c# 2018-07-28 <RC
 #p# OK
 
-use Test::More;
+use strict;
+use warnings;
 use feature 'say';
 
-# Works with: Perl version 5
+use Test::More;
 
 package One_To_Ten;
 #use Carp qw(croak);
@@ -14,8 +15,9 @@ use Tie::Scalar qw();
 use base qw(Tie::StdScalar);
  
 sub STORE {
+    no warnings;
     my $self = shift;
-    my $val = int shift;
+    my $val = int shift; # 'xyzzy' warns here
     say 'out of bounds' if $val < 1 or $val > 10;
     return undef if $val < 1 or $val > 10;
     $$self = $val;
@@ -27,11 +29,11 @@ tie my $t2, 'One_To_Ten';
 tie my $t3, 'One_To_Ten';
 tie my $t4, 'One_To_Ten';
 tie my $t5, 'One_To_Ten';
-$t1 = 3;   # ok
-$t2 = 5; # ok, silently coerced to int
-$t3 = -2;  # dies, too small
-$t4 = 11;  # dies, too big
-$t5 = 'xyzzy';
+$t1 = 3;        # ok
+$t2 = 5;        # ok, silently coerced to int
+$t3 = -2;       # dies, too small
+$t4 = 11;       # dies, too big
+$t5 = 'xyzzy';  # dies, not numeric
 
 is($t1,3);
 is($t2,5);
@@ -39,10 +41,3 @@ is($t3,undef);
 is($t4,undef);
 is($t5,undef);
 done_testing();
-
-say $result; 
-my $ref = <<'EOD';
-EOD
-
-#is ($result, $ref);
-#done_testing();
