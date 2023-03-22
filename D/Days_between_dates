@@ -3,12 +3,13 @@
 #c# 2019-10-01 >RC
 #p# OK
 
+my @res;
+
 use strict;
 use warnings;
 use feature 'say';
-use Date::Calc qw(Delta_Days);
 
-my @res;
+use Date::Calc qw(Delta_Days);
 
 push @res, Delta_Days(2018,7,13, 2019,9,13);   # triskaidekaphobia
 push @res, Delta_Days(1900,1,1,  2000,1,1);    # a century
