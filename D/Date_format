@@ -3,34 +3,19 @@
 #c# 2018-07-28 <RC
 #p# OK
 
+my $result;
+
 use strict;
 use warnings;
 use feature 'say';
-my $result;
 
-#Library: POSIX
 use POSIX;
  
 $result .= strftime('%Y-%m-%d', 0, 0, 0, 10, 10, 107). "\n";
 $result .= strftime('%A, %B %d, %Y', 0, 0, 0, 10, 10, 107). "\n";
 
-#Output: with locales cs_CZ.UTF-8:
-#2007-11-10
-#Sobota, listopad 10, 2007
-
-#Actual date:
-
-use POSIX;
- 
-print strftime('%Y-%m-%d', localtime), "\n";
-print strftime('%A, %B %d, %Y', localtime), "\n";
-
-#Output: with locales C:
-#2008-02-13
-#Wednesday, February 13, 2008
-
-
 say $result; 
+
 my $ref = <<'EOD';
 2007-11-10
 Saturday, November 10, 2007
