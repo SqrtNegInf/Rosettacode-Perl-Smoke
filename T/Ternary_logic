@@ -2,6 +2,7 @@
 #u# http://rosettacode.org/wiki/Ternary_logic
 #c# 2018-08-11 <RC, 2023-03-21 >RC, 2023-03-22 >RC
 #p# OK
+#n# using modern Perl required cleaning up some dodgy practices, results in cleaner code
 #n# factored out the logic values into %E hash table, all refs go through it now
 
 my $result;
@@ -21,14 +22,14 @@ use overload
 'cmp' => sub ($a,$b)       { $a->cmp($b)   },
 '=='  => sub ($a,$b,$)     { $$a == $$b    },
 'eq'  => sub ($a,$b,$)     { $a->equiv($b) },
-'>'   => sub ($a,$b,$)     { $$a > ($E{$b}//0) }, 
-'<'   => sub ($a,$b,$)     { $$a < ($E{$b}//0) },
+'>'   => sub ($a,$b,$)     { $$a >  $E{$b} }, 
+'<'   => sub ($a,$b,$)     { $$a <  $E{$b} },
 '>='  => sub ($a,$b,$)     { $$a >= $$b    }, 
 '<='  => sub ($a,$b,$)     { $$a <= $$b    },
 '|'   => sub ($a,$b,$,$,$) { $a->or($b)    },
 '&'   => sub ($a,$b,$,$,$) { $a->and($b)   },
 '!'   => sub ($a,$,$)      { $a->not()     },
-'~'   => sub ($a,$,$,$,$)  { $a->not()     }, # ?
+'~'   => sub ($a,$,$,$,$)  { $a->not()     }, # why is this different from '!' ?
 'neg' => sub ($a,$,$)      { -$$a          },
 '""'  => sub ($a,$,$)      { $a->tostr()   },
 '0+'  => sub ($a,$,$)      { $a->tonum()   },
@@ -111,7 +112,7 @@ for my $a (@a) { $result .= $a; $result .= "\t" . ($a < $_)  for @a; $result .= 
 $result .= "\n<=\t" . join("\t",@a) . "\n";
 for my $a (@a) { $result .= $a; $result .= "\t" . ($a <= $_) for @a; $result .= "\n" }
 
-#say $result; exit;
+say $result;
 
 my $ref = <<'EOD';
 Codes for logic values:   true = 1  maybe = 0  false = -1
