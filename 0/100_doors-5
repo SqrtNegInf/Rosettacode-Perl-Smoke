@@ -3,20 +3,21 @@
 #c# 2018-07-09 <RC
 #p# OK
 
+my $result;
+
+use strict;
+use warnings;
 use feature 'say';
 
-my $result;
+my $i;
 
 while( ++$i <= 100 )
 {
-    $root = sqrt($i);
-    if ( int( $root ) == $root )
-    {
+    my $root = sqrt($i);
+    if ( int( $root ) == $root ) {
         $result .= "Door $i is open\n";
-    }
-    else
-    {
-        #print "Door $i is closed\n";
+    } else {
+       #print "Door $i is closed\n";
     }
 }
 
