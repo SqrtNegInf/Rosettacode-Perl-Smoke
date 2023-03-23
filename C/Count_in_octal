@@ -6,6 +6,10 @@
 my $result1;
 my $result2;
 
+use strict;
+use warnings;
+no warnings 'uninitialized'; # $1 capture sometimes empty
+
 # Since task says "system register", I take it to mean "no larger than machine native integer limit":
 
 # DH: ha ha ha
