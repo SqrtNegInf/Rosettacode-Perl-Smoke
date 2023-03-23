@@ -3,6 +3,8 @@
 #c# 2020-07-09 <RC
 #p# OK
 
+use strict;
+use warnings;
 use feature 'say';
 
 use Socket qw(inet_aton inet_ntoa);
