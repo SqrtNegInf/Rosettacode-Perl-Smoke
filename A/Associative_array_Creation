@@ -3,12 +3,11 @@
 #c# 2018-07-15 <>RC
 #p# OK
 
-use feature 'say';
 my $result;
 
-
-#Hash[edit]
-#Definition:
+use strict;
+use warnings;
+use feature 'say';
 
 # using => key does not need to be quoted unless it contains special chars
 my %hash1 = (
@@ -25,16 +24,10 @@ my %hash2 = (
   'three', -238.83,
   4, 'val3',
 );
-#Use:
 
 $result .= $hash2{key1} . "\n";
- 
 $hash2{key1} = 'val1';
- 
 @hash2{'key1', 'three'} = ('val1', -238.83);
-
-#HashRef[edit]
-#Definition:
 
 my $hashref = {
  key1 => 'val1',
@@ -43,27 +36,20 @@ my $hashref = {
   4 => 'val3',
 };
 
-#Use:
-
 $result .= $hashref->{key1} . "\n";
- 
 $hashref->{key1} = 'val1';
  
 @{$hashref}{('key1', 'three')} = ('glorp', -47.42);
 #@{$hashref}{'key1', 'three'} = ('val1', -238.83);
 $result .= $hashref->{'key1'};
-$result .= $hashref->{'three'};
+$result .= ' ' . $hashref->{'three'};
 
 say $result;
-
-#Key Types[edit]
-#Keys are strings. Anything else is stringized in Perl's usual ways, which generally means integers work too, but for floating point care might be needed against round-off.
-#Various tie modules implement keys of other types, usually by constructing underlying string keys of suitable nature. For example Tie::RefHash allows objects (blessed or unblessed) as keys.
 
 my $ref = <<EOD;
 val1
 val1
-glorp-47.42
+glorp -47.42
 EOD
 
 use Test::More;
