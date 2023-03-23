@@ -1,22 +1,18 @@
 #!/usr/local/bin/perl
 #u# http://rosettacode.org/wiki/Resistance_Calculator
-#c# 2019-03-30 >RC
+#c# 2019-03-30 >RC, 2023-03-23 >RC
 #p# OK
-#n# import/export not on RC
 
-use strict;
-use warnings;
-use feature <say state>;
-
-{
+use v5.36.0;
 
 package Resistor;
 require Exporter;
-our @ISA = qw(Exporter);
+our @ISA    = qw(Exporter);
 our @EXPORT = qw(set_voltage report);
 
-sub new {
-    my ($class, $args) = @_;
+use overload '+' => \&serial, '*' => \&parallel;
+
+sub new ($class, $args) {
     my $self = {
         symbol     => $args->{symbol},
         voltage    => $args->{voltage},
@@ -27,15 +23,13 @@ sub new {
     return bless $self, $class;
 }
 
-sub res {
-    my $self = shift;
+sub res ($self) {
     if    ($self->{symbol} eq '+') { return res($self->{a}) + res($self->{b}) }
     elsif ($self->{symbol} eq '*') { return 1 / (1/res($self->{a}) + 1/res($self->{b})) }
-    else  { return $self->{resistance} }
+    else                           { return $self->{resistance} }
 }
 
-sub set_voltage {
-    my($self,$voltage) = @_;
+sub set_voltage ($self,$voltage) {
     if ($self->{symbol} eq '+') { 
         my $ra = res($self->{a});
         my $rb = res($self->{b});
@@ -48,17 +42,13 @@ sub set_voltage {
     $self->{voltage} = $voltage;
 }
 
-sub current { my $self = shift; return $self->{voltage} / res($self)     }
-sub effect  { my $self = shift; return $self->{voltage} * current($self) }
+sub current ($self) { return $self->{voltage} / res($self)     }
+sub effect  ($self) { return $self->{voltage} * current($self) }
 
-use overload '+' => \&serial,
-             '*' => \&parallel;
+sub serial   ($a,$b,$) { Resistor->new( {symbol => '+', a => $a, b => $b} ) }
+sub parallel ($a,$b,$) { Resistor->new( {symbol => '*', a => $a, b => $b} ) }
 
-sub serial   { my($a,$b) = @_; Resistor->new( {symbol => '+', a => $a, b => $b} ) }
-sub parallel { my($a,$b) = @_; Resistor->new( {symbol => '*', a => $a, b => $b} ) }
-
-sub report {
-    my($self,$level)  = @_;
+sub report ($self,$level = 0) {
     state @results;
     push @results, '      Ohm     Volt   Ampere     Watt   Network tree' and $level = 1 unless $level;
     my $pad = ('| ') x $level;
@@ -67,8 +57,6 @@ sub report {
     report($self->{a}, $level+1 ) if defined $self->{a};
     report($self->{b}, $level+1 ) if defined $self->{b};
     join "\n", @results;
-}
-
 }
 
 package main;
