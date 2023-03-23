@@ -3,7 +3,7 @@
 #c# 2019-04-11 <RC
 #p# OK
 
-use 5.36.0;
+use v5.36.0;
 
 use constant zero  => sub ($f) {
                       sub ($x) { $x }};
