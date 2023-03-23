@@ -3,11 +3,20 @@
 #c# 2018-07-17 <RC
 #p# OK
 
-use feature 'say';
 my $result;
 
-# Perl has a built-in glob function which does brace expansion, but it can't be used to solve this task because it also does shell-like word splitting, wildcard expansion, and tilde expansion at the same time.
-# The File::Glob core module gives access to the more low-level bsd_glob function which actually supports exclusive brace expansion, however it does not comply with this task's specification when it comes to preserving backslashes and handling unbalanced brace characters.
+use strict;
+use warnings;
+use feature 'say';
+
+# Perl has a built-in glob function which does brace expansion, but it can't
+# be used to solve this task because it also does shell-like word splitting,
+# wildcard expansion, and tilde expansion at the same time.  The File::Glob
+# core module gives access to the more low-level bsd_glob function which
+# actually supports exclusive brace expansion, however it does not comply
+# with this task's specification when it comes to preserving backslashes and
+# handling unbalanced brace characters.
+
 # So here is a manual solution that implements the specification precisely:
 
 sub brace_expand {
