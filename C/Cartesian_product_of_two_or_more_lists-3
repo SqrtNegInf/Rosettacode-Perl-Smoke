@@ -3,6 +3,10 @@
 #c# 2018-11-15 <RC
 #p# OK
 
+my(@res1,@res2,@res3,@res4);
+
+use strict;
+use warnings;
 use feature 'say';
 
 # A variety of modules can do this correctly for an arbitrary number of lists (each of independent length). 
@@ -24,10 +28,10 @@ NestedLoops(                      [@input],
           sub { push @res4, "@_" }
 );
 
-say $result1 = join "\n", @res1;
-say $result2 = join "\n", @res2;
-say $result3 = join "\n", @res3;
-say $result4 = join "\n", @res4;
+say my $result1 = join "\n", @res1;
+say my $result2 = join "\n", @res2;
+say my $result3 = join "\n", @res3;
+say my $result4 = join "\n", @res4;
 
 my $ref = <<'EOD';
 1 a @
