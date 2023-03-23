@@ -3,15 +3,18 @@
 #c# 2018-07-23 <RC
 #p# OK
 
+my $result;
+
 use strict;
 use warnings;
 use feature 'say';
-my $result;
 
 use ntheory qw/forcomb/;
+
 forcomb { $result .= "@_\n" } 5,3;
 
 say $result;
+
 my $ref = <<'END';
 0 1 2
 0 1 3
