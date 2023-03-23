@@ -3,11 +3,14 @@
 #c# 2018-07-17 <RC
 #p# OK
 
-use feature 'say';
 my $result;
 
+use strict;
+use warnings;
+use feature 'say';
 
-# Perl's object model does not enforce privacy. An object is just a blessed reference, and a blessed reference can be dereferenced just like an ordinary reference.
+# Perl's object model does not enforce privacy. An object is just a blessed reference, and a 
+# blessed reference can be dereferenced just like an ordinary reference.
 
 package Foo;
 sub new {
