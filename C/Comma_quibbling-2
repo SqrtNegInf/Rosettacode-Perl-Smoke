@@ -3,14 +3,11 @@
 #c# 2018-07-23 <RC
 #p# OK
 
-#use 5.01;
+my @res;
 
 use strict;
 use warnings;
 use feature 'say';
-
-my @res;
-my $result;
 
 sub comma_quibbling{
   my $last = pop // '';
@@ -20,7 +17,7 @@ sub comma_quibbling{
 push @res, $_ for map {comma_quibbling(@$_)}
   [], [qw<ABC>], [<ABC DEF>], [<ABC DEF G H>];
 
-say $result = join "\n", @res;
+say my $result = join "\n", @res;
 
 my $ref = <<'END';
 {}
