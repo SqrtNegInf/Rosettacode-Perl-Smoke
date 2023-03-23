@@ -3,8 +3,11 @@
 #c# 2018-07-25 <RC
 #p# OK
 
-use feature 'say';
 my $result;
+
+use strict;
+use warnings;
+use feature 'say';
 
 use Math::Factor::XS qw/prime_factors/;
 $result .=  "$_ = ". join(" x ", prime_factors($_)). "\n" for 1000000000000000000 .. 1000000000000000010;
