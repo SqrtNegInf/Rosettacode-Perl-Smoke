@@ -3,8 +3,11 @@
 #c# 2018-09-11 >RC
 #p# OK
 
-use feature 'say';
+my @res;
+
+use strict;
 use warnings;
+use feature 'say';
 
 use utf8;
 binmode STDOUT, ":utf8";
