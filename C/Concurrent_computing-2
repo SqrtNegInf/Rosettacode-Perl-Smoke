@@ -3,9 +3,11 @@
 #c# 2018-07-24 <RC
 #p# OK
 
-use feature 'say';
-my $result;
 my @res;
+
+use strict;
+use warnings;
+use feature 'say';
 
 use Coro;
 use Coro::Timer 'sleep';
@@ -17,10 +19,10 @@ $_->join for map {
     } $_
 } <Enjoy Rosetta Code>;
  
-say $result  = join ":", @res; 
+say my $result = join ":", @res; 
 
 use Test::More;
-is (length($result), 18);
+is (18, length $result);
 like  ($result, qr/Enjoy/);
 like  ($result, qr/Rosetta/);
 like  ($result, qr/Code/);
