@@ -3,20 +3,24 @@
 #c# 2018-07-24 <RC
 #p# OK
 
+use strict;
+use warnings;
 use feature 'say';
 
-# There are few limits on code you can put in BEGIN blocks, which are executed at compile-time. Unfortunately, you can't in general save the compiled form of a program to run later. Instead, perl recompiles your program every time you run it.
+# There are few limits on code you can put in BEGIN blocks, which are executed at compile-time. 
+# Unfortunately, you can't in general save the compiled form of a program to run later. 
+# Instead, perl recompiles your program every time you run it.
 
 my $tenfactorial;
 say $tenfactorial;
  
 BEGIN
    {$tenfactorial = 1;
-    $tenfactorial *= $_ foreach 1 .. 10;}
+    $tenfactorial *= $_ for 1 .. 10;}
 
-#Note however that all constant folding is done at compile time, so this actually does the factorial at compile time.
+# Note however that all constant folding is done at compile time, so this actually does the factorial at compile time.
 
-my $tenfactorial = 10 * 9 * 8 * 7 * 6 * 5 * 4 * 3 * 2;
+$tenfactorial = 10 * 9 * 8 * 7 * 6 * 5 * 4 * 3 * 2;
 
 use Test::More;
 is ($tenfactorial, 3628800);
