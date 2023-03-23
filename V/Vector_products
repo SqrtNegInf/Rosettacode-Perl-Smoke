@@ -2,15 +2,16 @@
 #u# http://rosettacode.org/wiki/Vector_products
 #c# 2018-08-06 <RC
 #p# OK
+#n# would need no updates if switched to v5.36
+
+my $result;
 
 use strict;
 use warnings;
 use feature 'say';
-my $result;
 
 package Vector;
-use List::Util 'sum';
-use List::MoreUtils 'pairwise';
+use List::AllUtils <sum pairwise>;
 
 sub new { shift; bless [@_] }
 
