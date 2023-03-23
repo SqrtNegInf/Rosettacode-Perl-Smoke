@@ -1,9 +1,9 @@
 #!/usr/local/bin/perl
 #u# http://rosettacode.org/wiki/Dining_philosophers
-#t# skiptest
 #c# 2018-07-28 <RC
 #p# OK
 #n# 2023-03-22 finally, testing added
+#f# RC file: dining.txt
 
 my @res;
 
@@ -16,6 +16,8 @@ use feature 'say';
 # This solution requires that perl have been compiled with threads enabled.
 # Deadlock is prevented by having even numbered and odd numbered philosophers
 # grab their forks in opposite orders.
+
+open my $fh, '|-', 'sort -u >run/dining.txt';
 
 use threads;
 use threads::shared;
@@ -49,15 +51,15 @@ sub philosopher {
    my $philosopher = shift;
    my $name = $names[$philosopher];
    for my $meal ( 1..5 ) {
-      push @res, $name . " is pondering\n";
+      print $fh $name . " is pondering\n";
       sleep 1 + rand 8;
-      push @res, $name . " is hungry\n";
+      print $fh $name . " is hungry\n";
       pick_up_forks( $philosopher );
-      push @res, $name . " is eating\n";
+      print $fh $name . " is eating\n";
       sleep 1 + rand 8;
       drop_forks( $philosopher );
    }
-   push @res, $name . " is done\n";
+   print $fh $name . " is done\n";
 }
  
 my @t = map { threads->new(\&philosopher, $_) } 0 .. $#names;
@@ -65,7 +67,6 @@ for my $thread ( @t ) {
    $thread->join;
 }
  
-say join "\n", @res; # in order of events
 #print "Done\n";
 
 # testing only totals
