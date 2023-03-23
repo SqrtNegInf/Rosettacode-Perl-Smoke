@@ -3,8 +3,11 @@
 #c# 2018-07-23 <RC
 #p# OK
 
-use feature 'say';
 my $result;
+
+use strict;
+use warnings;
+use feature 'say';
 
 use Algorithm::Combinatorics qw<combinations_with_repetition>;
 my $iter = combinations_with_repetition([<iced jam plain>], 2);
@@ -17,6 +20,7 @@ my $count =()= combinations_with_repetition([1..10],7);
 $result .= "There are $count ways to pick 7 out of 10\n";
 
 say $result;
+
 my $ref = <<'END';
 iced iced
 iced jam
