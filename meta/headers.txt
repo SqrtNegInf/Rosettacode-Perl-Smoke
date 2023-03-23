@@ -1125,6 +1125,7 @@ File: B/Boolean_values
 #u# http://rosettacode.org/wiki/Boolean_values
 #c# 2018-07-17 <RC
 #p# OK
+#n# chatty mish-mash, not much code
 
 File: B/Boustrophedon_transform
 #!/usr/local/bin/perl
@@ -1840,7 +1841,8 @@ File: C/Compare_a_list_of_strings
 #u# http://rosettacode.org/wiki/Compare_a_list_of_strings
 #c# 2018-07-24 <>RC
 #p# OK
-#n# had a bug: \1 replaces $1
+#n# had a bug: \1 replaces $1; testing much expanded over what is on RC
+#n# NB: With '<abc >', the trailing space makes a 1-item list, like Raku, and avoids errors under 'use strict'
 
 File: C/Compare_length_of_two_strings
 #!/usr/local/bin/perl
@@ -2160,7 +2162,7 @@ File: C/Create_a_two-dimensional_array_at_runtime
 #u# http://rosettacode.org/wiki/Create_a_two-dimensional_array_at_runtime
 #c# 2018-07-26 <RC
 #p# OK
-#n# not using strict to demonstrate array auto-vivification
+#n# not using 'strict' or 'warnings' to demonstrate array auto-vivification
 
 File: C/Create_an_HTML_table
 #!/usr/local/bin/perl
@@ -2289,6 +2291,7 @@ File: C/Cyclotomic_Polynomial
 #c# 2020-01-30 >RC, 2020-01-31 <RC
 #p# OK
 #n# post in haste, repent at leisure (kudos to trizen++ for cleaning up my mess)
+#n# 2023-03-23 something about 5.32.1 is special -- earlier and later versions slower
 #n# over 50x slower with v5.36? Now takes 30m for '<=4' (compare to old 'full' run) Do one fewer term in 2nd part...
 #n# 2219.698u 4.298s 37:06.13 99.9% for '<= 9' in 2nd part
 
@@ -2620,10 +2623,10 @@ File: D/Dinesman%27s_multiple-dwelling_problem-2
 File: D/Dining_philosophers
 #!/usr/local/bin/perl
 #u# http://rosettacode.org/wiki/Dining_philosophers
-#t# skiptest
 #c# 2018-07-28 <RC
 #p# OK
 #n# 2023-03-22 finally, testing added
+#f# RC file: dining.txt
 
 File: D/Disarium_numbers
 #!/usr/local/bin/perl
@@ -2740,10 +2743,18 @@ File: D/Dominoes
 File: D/Dominoes-2
 #!/usr/local/bin/perl
 #u# http://rosettacode.org/wiki/Dominoes
-#c# 2021-11-17 <RC, 2022-12-05 NOT ON RC
+#c# 2021-11-17 <RC, 2023-03-23 >RC
 #p# OK
-#n# works with v5.036, eliminate reliance on global, no 'eval', any size grid, added extra credit
-#n# should update RC with this version?
+#n# works with v5.36, eliminate use of globals, no 'eval', any size grid, added extra credit
+
+File: D/Dominoes-3
+#!/usr/local/bin/perl
+#u# http://rosettacode.org/wiki/Dominoes
+#c# 2021-11-17 <RC, 2023-03-23 NOT ON RC
+#p# OK
+#n# works with v5.36, eliminate use of globals, no 'eval', any size grid, added extra credit
+#n# to work with 'giant' dominoes use hex notation
+#n# cute idea, and nice not to pass rows/cols as args, but a substantial speed penalty for that
 
 File: D/Doomsday_rule
 #!/usr/local/bin/perl
@@ -8596,9 +8607,8 @@ File: R/Repunit_primes
 File: R/Resistance_Calculator
 #!/usr/local/bin/perl
 #u# http://rosettacode.org/wiki/Resistance_Calculator
-#c# 2019-03-30 >RC
+#c# 2019-03-30 >RC, 2023-03-23 >RC
 #p# OK
-#n# import/export not on RC
 
 File: R/Resistance_Calculator.1
 #!/usr/local/bin/perl
@@ -11375,6 +11385,7 @@ File: V/Vector_products
 #u# http://rosettacode.org/wiki/Vector_products
 #c# 2018-08-06 <RC
 #p# OK
+#n# would need no updates if switched to v5.36
 
 File: V/Verhoeff_algorithm
 #!/usr/local/bin/perl
