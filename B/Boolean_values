@@ -2,29 +2,25 @@
 #u# http://rosettacode.org/wiki/Boolean_values
 #c# 2018-07-17 <RC
 #p# OK
+#n# chatty mish-mash, not much code
 
-use feature 'say';
 my $result;
 
+use strict;
+use warnings;
+use feature 'say';
 
 my $x = 0.0;
-my $true_or_false = $x ? 'true' : 'false';     # false
+my $true_or_false = $x ? 'true' : 'false';  # false
 
-#or
+$x = 1;  # true
+ 
+if ($x) { $true_or_false = 'true'  }
+else    { $true_or_false = 'false' }
 
-my $x = 1;          # true
- 
-my $true_or_false;
- 
-if ($x) {
-    $true_or_false = 'true';
-}
-else {
-    $true_or_false = 'false';
-}
 # The values in Perl that are false are: 0 (as a number (including 0.0), or as the string '0', but not the string '0.0'), the empty string '', the empty list (), and undef. Everything else is true. See perlsyn.
 
-# Short circuit evaluations[edit]
+# Short circuit evaluations
 # Boolean comparison of zero against itself gives a value of one, but Perl uses short circuit evaluations, so any true or false value may be returned from a boolean expression:
 
 $result .= sprintf (7 && 2) . "\n";  # 2, rather than 1(true)
@@ -32,33 +28,30 @@ $result .= sprintf (2 && 7) . "\n";  # 7, rather than 1(true)
 $result .= sprintf (7 xor 2) . "\n"; # empty string, rather than 0(false)
 $result .= sprintf ('apples' && 'pears') . "\n";  # pears, rather than 1(true)
 $result .= sprintf ('apples' xor 'pears') . "\n"; # empty string, rather than 0(false)
-#Objects[edit]
+
 #Objects may break these rules at will via overloading.
 
-#There are no keywords for true and false[edit]
+#There are no keywords for true and false
 #Perl has no builtin "true" or "false" keywords. This is a caveat, because true and false are bareword strings and evaluate to true:
 
-# This does not work
+# This does not work with 'use strict'
 # true and false are not special so will be treated as bareword strings
-if (true) { $result .= sprintf "true is true\n" };            # This prints
-if (false) { $result .= sprintf "false is true\n" };          # So does this
-if (spongebob) { $result .= sprintf "spongebob is true\n" };  # A bareword string
+#if (true) { $result .= sprintf "true is true\n" };            # This prints
+#if (false) { $result .= sprintf "false is true\n" };          # So does this
+#if (spongebob) { $result .= sprintf "spongebob is true\n" };  # A bareword string
 
-#Special cases[edit]
+#Special cases
 #As a special case, literal 1s and 0s will never cause a "Useless use of a constant in void context" warning. Another special case worth pointing out here is that the string '0 but true' won't provoke a warning if it's used as a number.
 #
 
-
 say $result; 
+
 my $ref = <<'EOD';
 2
 7
 
 pears
 
-true is true
-false is true
-spongebob is true
 EOD
 
 use Test::More;
