@@ -2,10 +2,13 @@
 #u# http://rosettacode.org/wiki/Create_a_two-dimensional_array_at_runtime
 #c# 2018-07-26 <RC
 #p# OK
-#n# not using strict to demonstrate array auto-vivification
+#n# not using 'strict' or 'warnings' to demonstrate array auto-vivification
 
-use feature 'say';
 my $result;
+
+#use strict;
+#use warnings;
+use feature 'say';
 
 # Works with: Perl version 5.x
 # Predefining an array (or multi-dimension array) size is unnecessary, Perl dynamically resizes the array to meet the requirements. Of course I'm assuming that the user is entering array size 0 based.
