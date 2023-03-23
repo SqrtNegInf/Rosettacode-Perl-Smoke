@@ -3,9 +3,11 @@
 #c# 2018-07-25 <RC
 #p# OK
 
-use feature 'say';
 my $result;
 
+use strict;
+use warnings;
+use feature 'say';
 
 # To copy a string, just use ordinary assignment:
 
@@ -15,13 +17,13 @@ $new = 'Goodbye.';
 $result .=  "$original\n";   # prints "Hello."
 # To create a reference to an existing string, so that modifying the referent changes the original string, use a backslash:
 
-my $original = 'Hello.';
-my $ref = \$original;
-$$ref = 'Goodbye.';
+$original = 'Hello.';
+my $reference = \$original;
+$$reference = 'Goodbye.';
 $result .=  "$original\n";   # prints "Goodbye."
 # If you want a new name for the same string, so that you can modify it without dereferencing a reference, assign a reference to a typeglob:
 
-my $original = 'Hello.';
+$original = 'Hello.';
 our $alias;
 local *alias = \$original;
 $alias = 'Good evening.';
@@ -30,14 +32,13 @@ $result .=  "$original\n";   # prints "Good evening."
 # To make a lexical variable that is an alias of some other variable, the Lexical::Alias module can be used:
 
 use Lexical::Alias;
-my $original = 'Hello.';
-my $alias;
+$original = 'Hello.';
 alias $alias, $original;
 $alias = 'Good evening.';
 $result .=  "$original\n";   # prints "Good evening."
 
-
 say $result; 
+
 my $ref = <<'EOD';
 Hello.
 Goodbye.
