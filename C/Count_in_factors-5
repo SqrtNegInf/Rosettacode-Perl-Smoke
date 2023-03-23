@@ -3,12 +3,13 @@
 #c# 2018-07-25 <RC
 #p# OK
 
-use feature 'say';
 my $result;
 
-use utf8;
 use strict;
 use warnings;
+use feature 'say';
+
+use utf8;
 
 my $limit = 100;
 
