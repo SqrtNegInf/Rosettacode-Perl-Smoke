@@ -9,7 +9,7 @@
 
 my @res;
 
-se strict;
+use strict;
 use warnings;
 use feature 'say';
 
