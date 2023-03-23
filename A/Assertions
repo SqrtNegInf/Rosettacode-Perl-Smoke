@@ -3,9 +3,11 @@
 #c# 2018-07-14 <RC
 #p# OK
 
-use feature 'say';
 my $result;
 
+use strict;
+use warnings;
+use feature 'say';
 
 # While not exactly an assertion, a common Perl idiom is to use or die to throw an exception when a certain statement is false.
 
