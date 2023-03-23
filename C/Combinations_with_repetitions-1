@@ -3,10 +3,11 @@
 #c# 2018-07-23 <RC
 #p# OK
 
+my $result;
+
 use strict;
 use warnings;
 use feature 'say';
-my $result;
 
 sub p { $_[0] ? map p($_[0] - 1, [@{$_[1]}, $_[$_]], @_[$_ .. $#_]), 2 .. $#_ : $_[1] }
 sub f { $_[0] ? $_[0] * f($_[0] - 1) : 1 }
@@ -19,6 +20,7 @@ for (p(2, [], <iced jam plain>)) {
 $result .= sprintf "\nThere are %d ways to pick 7 out of 10\n", pn(7,10);
 
 say $result;
+
 my $ref = <<'END';
 iced iced
 iced jam
