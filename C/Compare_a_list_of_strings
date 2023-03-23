@@ -2,19 +2,26 @@
 #u# http://rosettacode.org/wiki/Compare_a_list_of_strings
 #c# 2018-07-24 <>RC
 #p# OK
-#n# had a bug: \1 replaces $1
+#n# had a bug: \1 replaces $1; testing much expanded over what is on RC
+#n# NB: With '<abc >', the trailing space makes a 1-item list, like Raku, and avoids errors under 'use strict'
 
+my $result;
+
+use strict;
+use warnings;
 use feature 'say';
 
 use List::Util 'all';
+ 
+my(@strings,$t1,$t2,$t3);
  
 #@strings = ();
 #$t1 = all { $strings[0] eq $strings[$_] } 1..$#strings;         # All equal
 #$t2 = all { $strings[$_-1] lt $strings[$_] } 1..$#strings;      # Strictly ascending
 #$t3 = join("\0", @strings) =~ /^ ( [^\0]*+ ) (?: \0 \1 )* $/x;  # All equal
 #say "t1:$t1 t2:$t2 t3:$t3 : "; # all 'true'
- 
-@strings = <abc>;
+
+@strings = <abc >;                                              # as per note above, '< abc>' would work too
 $t1 = all { $strings[0] eq $strings[$_] } 1..$#strings;         # All equal
 $t2 = all { $strings[$_-1] lt $strings[$_] } 1..$#strings;      # Strictly ascending
 $t3 = join("\0", @strings) =~ /^ ( [^\0]*+ ) (?: \0 \1 )* $/x;  # All equal
