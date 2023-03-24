@@ -3,14 +3,16 @@
 #c# 2018-08-14 <>RC
 #p# OK
 
-use v5.036;
+use strict;
+use warnings;
+
 use English; # enables use of long variable names
 
 my $pn1 = $0;
 my $pn2 = $PROGRAM_NAME;
 my $ls  = $LIST_SEPARATOR;
-say "Program name: '$pn1'";
-say "List separator: '$ls'";
+print "Program name: '$pn1'\n";
+print "List separator: '$ls'\n";
 
 my $ref = <<'END';
 S/Special_variables
