@@ -3,10 +3,13 @@
 #c# 2018-08-03 <RC
 #p# OK
 
-# modules
-
-use feature 'say';
 my $result;
+
+use strict;
+use warnings;
+use feature 'say';
+
+# using modules
 
 use ntheory qw/factorial/;
 # factorial returns a UV (native unsigned int) or Math::BigInt depending on size
