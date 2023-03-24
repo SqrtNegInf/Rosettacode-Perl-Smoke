@@ -3,8 +3,13 @@
 #c# 2018-08-06 <RC, 2018-11-30 <RC
 #p# OK
 
+my($result1,$result2,$result3,$result4,$result5,$result6);
+my(@res1,   @res2,   @res3,   @res4,   @res5);
+
+use strict;
+use warnings;
+no warnings 'uninitialized';
 use feature 'say';
-my $result;
 
 for my $i (1..100) {
     push @res1, $i % 15 == 0 ? 'FizzBuzz'
@@ -18,10 +23,10 @@ say for @res1;
 $result3 .= ('Fizz'x!($_ % 3) . 'Buzz'x!($_ % 5) || $_) . "\n" for 1 .. 100;
 
 # For code-golfing:
-push @res4, +(Fizz)[$_%3].(Buzz)[$_%5]||$_,$/for 1..1e2;
+push @res4, +('Fizz')[$_%3].('Buzz')[$_%5]||$_,$/for 1..1e2;
 
 # For array of values:
-$result5 = join "\n", map((Fizz)[$_%3].(Buzz)[$_%5]||$_,1..100);
+$result5 = join "\n", map(('Fizz')[$_%3].('Buzz')[$_%5]||$_,1..100);
 
 # Cheating:
 #@a = ('FizzBuzz', 0, 0, 'Fizz', 0, 'Buzz', 'Fizz', 0, 0, 'Fizz", 'Buzz', 0, 'Fizz');
@@ -41,14 +46,14 @@ sub fizz_buzz {
 $result2 = fizz_buzz;
 
 # by transforming a list:
-@FB1 = (1..100);
-@FB2 = map{!($_%3 or $_%5)?'FizzBuzz': $_}@FB1;
-@FB3 = map{(/\d/ and !($_%3))?'Fizz': $_}@FB2;
-@FB4 = map{(/\d/ and !($_%5))?'Buzz': $_}@FB3;
+my @FB1 = (1..100);
+my @FB2 = map{!($_%3 or $_%5)?'FizzBuzz': $_}@FB1;
+my @FB3 = map{(/\d/ and !($_%3))?'Fizz': $_}@FB2;
+my @FB4 = map{(/\d/ and !($_%5))?'Buzz': $_}@FB3;
 $result6 = join "\n", @FB4;
 $result6 .= "\n";
 
-say $result; 
+say $result1; 
 
 my $ref = <<'EOD';
 1
@@ -154,8 +159,8 @@ Buzz
 EOD
 
 use Test::More;
-my $result1 = join "\n", @res1; $result1 .= "\n";
-my $result4 = join '', @res4; 
+$result1  = join "\n", @res1; $result1 .= "\n";
+$result4  = join '', @res4; 
 $result5 .= "\n";
 is ($result1, $ref);
 is ($result2, $ref);
