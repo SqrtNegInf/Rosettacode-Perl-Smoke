@@ -4,12 +4,17 @@
 #p# OK
 #f# RC file: flr-outfile.dat
 
+my $result;
+
+use strict;
+use warnings;
 use feature 'say';
 
-open $in,  '<', 'ref/flr-infile.dat';
-open $out, '>', 'run/flr-outfile.dat';
+open my $in,  '<', 'ref/flr-infile.dat';
+open my $out, '>', 'run/flr-outfile.dat';
 
-while ($n=sysread($in, $record, 80)) {  # read in fixed sized binary chunks
+my $record;
+while (my $n=sysread($in, $record, 80)) {  # read in fixed sized binary chunks
      syswrite $out, reverse $record;    # write reversed records
      $result .= reverse($record)."\n"   # display reversed records, line-by-line
 }
