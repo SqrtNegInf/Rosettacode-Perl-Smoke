@@ -3,12 +3,15 @@
 #c# 2018-08-01 <RC
 #p# OK
 
-use feature 'say';
 my $result;
+
+use strict;
+use warnings;
+use feature 'say';
 
 $result .= "$_ = " . eval($_) . "\n"  for  qw/5**3**2  (5**3)**2  5**(3**2)/;
 
-say $result; 
+say $result;
 
 my $ref = <<'EOD';
 5**3**2 = 1953125
