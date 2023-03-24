@@ -4,8 +4,11 @@
 #p# OK
 #n# differs from what's on RC (this version easier to test)
 
-use feature 'say';
 my $result;
+
+use strict;
+use warnings;
+use feature 'say';
 
 use Net::FTP;
  
@@ -24,7 +27,7 @@ $f->cwd('pub/NetBSD');
 $result .= "$_\n" for $f->ls();
  
 #Download the file and store locally. get() returns the local filename
-$local = $f->get('README', 'run/README');
+my $local = $f->get('README', 'run/README');
 print "Your file was stored as $local in the current directory.\n";
 
 say $result;
