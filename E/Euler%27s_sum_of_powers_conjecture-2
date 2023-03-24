@@ -2,14 +2,16 @@
 #u# http://rosettacode.org/wiki/Euler%27s_sum_of_powers_conjecture
 #c# 2018-07-31 <RC
 #p# OK
+#n# Adding some optimizations makes it ~5x faster with similar output, but obfuscates things.  (translation of: C++)
 
-use feature 'say';
 my $result;
 
-# Adding some optimizations makes it ~5x faster with similar output, but obfuscates things.
-# Translation of: C++
+use strict;
+use warnings;
+use feature 'say';
 
 use constant MAX => 250;
+
 my @p5 = (0,map { $_**5 } 1 .. MAX-1);
 my $rs = 5;
 LOOP:
@@ -24,7 +26,6 @@ for my $x0 (1..MAX-1) {
         last if $x3 >= $x2;
         my $sum = $s2 + $p5[$x3];
         $rs++ while $rs < MAX-1 && $p5[$rs] < $sum;
-        # die "$x3 $x2 $x1 $x0 $rs\n" if $p5[$rs] == $sum;
         if ($p5[$rs] == $sum) {
             say $result = "$x3 $x2 $x1 $x0 $rs";
             last LOOP;
