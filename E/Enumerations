@@ -3,16 +3,20 @@
 #c# 2018-07-31 <RC
 #p# OK
 
+use strict;
+use warnings;
+
 # Using an array
 my @fruits = <apple banana cherry>;
  
 # Using a hash
 my %fruits = ( apple => 0, banana => 1, cherry => 2 );
 
-use enum qw(False True); # not on RC
+use enum qw(false true); # not on RC
 
 use Test::More;
 #is ($fruits{apple}  == 0, 1);
 #is ($fruits{banana} == 1, 1);
 is ($fruits{cherry} == 2, 1);
+is (false, 0 == 1 ? true : false);
 done_testing();
