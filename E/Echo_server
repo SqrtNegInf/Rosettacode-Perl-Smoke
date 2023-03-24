@@ -4,12 +4,14 @@
 #c# 2018-07-30 <RC
 #p# OK
 
-use feature 'say';
 my $result;
 
+use strict;
+use warnings;
+use feature 'say';
 
-# This server will run indefinitely listening in the port 12321 and forking every time a client connects, the childs listen to the client and write back.
-# This is an example using the IO::Socket module:
+# This server will run indefinitely listening in the port 12321 and forking every time a client connects, 
+# the children listen to the client and write back.  This is an example using the IO::Socket module:
 
 use IO::Socket;
 my $use_fork = 1;
