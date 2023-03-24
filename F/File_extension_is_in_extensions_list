@@ -3,30 +3,31 @@
 #c# 2018-08-04 <RC
 #p# OK
 
-use feature 'say';
 my $result;
 
+use strict;
+use warnings;
+use feature 'say';
 
-# Does the extra credit requirement.
-
-# Translation of: Perl 6
 sub check_extension {
     my ($filename, @extensions) = @_;
     my $extensions = join '|', map quotemeta, @extensions;
     scalar $filename =~ / \. (?: $extensions ) $ /xi
 }
-#Testing:
 
 my @extensions = ('zip', 'rar', '7z', 'gz', 'archive', 'A##', 'tar.bz2');
+
 my @files= (
     'MyData.a##', 'MyData.tar.Gz', 'MyData.gzip', 'MyData.7z.backup',
     'MyData...', 'MyData', 'MyData_v1.0.tar.bz2', 'MyData_v1.0.bz2'
 );
+
 $result .= sprintf "%-19s - %s\n",
     $_, check_extension($_, @extensions) ? 'true' : 'false'
     for @files;
 
 say $result; 
+
 my $ref = <<'EOD';
 MyData.a##          - true
 MyData.tar.Gz       - true
