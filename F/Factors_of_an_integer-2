@@ -3,14 +3,17 @@
 #c# 2018-08-03 <RC
 #p# OK
 
-use feature 'say';
 my $result;
+
+use strict;
+use warnings;
+use feature 'say';
 
 sub factors {
   my $n = shift;
   $n = -$n if $n < 0;
   my @divisors;
-  for (1 .. int(sqrt($n))) {  # faster and less memory than map/grep
+  for (1 .. int sqrt $n) {  # faster and less memory than map/grep
     push @divisors, $_ unless $n % $_;
   }
   # Return divisors including top half, without duplicating a square
