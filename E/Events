@@ -3,11 +3,15 @@
 #c# 2018-08-01 <RC
 #p# OK
 
-use feature 'say';
 my $result;
 
+use strict;
+use warnings;
+use feature 'say';
+
 # This is an example of using the AnyEvent module.
-# The result is this: it prints "Hello world!" after one second, then after another second prints "Hi!" four times every quarter of a second and then immediately prints "Bye!" and quits:
+# The result is this: it prints "Hello world!" after one second, then after another second 
+# prints "Hi!" four times every quarter of a second and then immediately prints "Bye!" and quits:
 
 use AnyEvent;
  
@@ -45,19 +49,19 @@ $quit->recv();
 
 use AnyEvent;
  
-my $quit = AE::cv sub { $result .= "Bye!\n" };
+my $quit1 = AE::cv sub { $result .= "Bye!\n" };
  
-my $counter = 1;
-my $hi = AE::timer 2, 0.25, sub {
+my $counter1 = 1;
+my $hi1 = AE::timer 2, 0.25, sub {
     $result .= "Hi!\n";
-    $quit->send if ++$counter > 4;
+    $quit1->send if ++$counter1 > 4;
 };
  
-my $hello = AE::timer 1, 0, sub {
+my $hello1 = AE::timer 1, 0, sub {
     $result .= "Hello world!\n";
 };
  
-$quit->recv;
+$quit1->recv;
 
 say $result; 
 
