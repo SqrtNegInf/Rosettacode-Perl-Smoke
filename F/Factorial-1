@@ -3,12 +3,13 @@
 #c# 2018-08-03 <RC
 #p# OK
 
-use warnings;
-use feature 'say';
 my $result;
 
-# Iterative
+use strict;
+use warnings;
+use feature 'say';
 
+# Iterative
 sub factorial1
 {
   my $n = shift;
