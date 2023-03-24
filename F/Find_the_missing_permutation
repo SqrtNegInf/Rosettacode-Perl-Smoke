@@ -3,9 +3,9 @@
 #c# 2018-08-06 <RC
 #p# OK
 
+use strict;
+use warnings;
 use feature 'say';
-my $result;
-
 
 # Because the set of all permutations contains all its own rotations,
 # the first missing rotation is the target.
@@ -17,8 +17,8 @@ sub check_perm {
 }
 
 # Check and display
-@perms = <ABCD CABD ACDB DACB BCDA ACBD ADCB CDAB DABC BCAD CADB CDBA CBAD ABDC ADBC BDCA DCBA BACD BADC BDAC CBDA DBCA DCAB>;
-say $result = check_perm(@perms); #, "\n";
+my @perms = <ABCD CABD ACDB DACB BCDA ACBD ADCB CDAB DABC BCAD CADB CDBA CBAD ABDC ADBC BDCA DCBA BACD BADC BDAC CBDA DBCA DCAB>;
+say my $result = check_perm(@perms);
 
 use Test::More;
 is ($result, 'DBAC');
