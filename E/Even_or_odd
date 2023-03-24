@@ -2,23 +2,18 @@
 #u# http://rosettacode.org/wiki/Even_or_odd
 #c# 2018-08-01 <RC
 #p# OK
-#n# either quoting will do
 
+my($result1, $result2);
+
+use strict;
+use warnings;
 use feature 'say';
-my $result;
 
-for(0..10){
-    #$result .= "$_ is ". qw(even odd)[$_ % 2]."\n";
-    $result .= "$_ is ". (<even odd>)[$_ % 2]."\n";
-}
+$result1 .= "$_ is " . (<even odd>)[$_ % 2]    . "\n" for 0..10;
+$result2 .= "$_ is " . ($_%2 ? 'odd' : 'even') . "\n" for 0..10;
 
-#or
+say $result1;
 
-$result .= 6 % 2  ? 'odd' : 'even';   # prints even
-$result .= "\n";
-
-
-say $result; 
 my $ref = <<'EOD';
 0 is even
 1 is odd
@@ -31,9 +26,9 @@ my $ref = <<'EOD';
 8 is even
 9 is odd
 10 is even
-even
 EOD
 
 use Test::More;
-is ($result, $ref);
+is ($result1, $ref);
+is ($result2, $ref);
 done_testing();
