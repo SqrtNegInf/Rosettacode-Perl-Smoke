@@ -3,6 +3,8 @@
 #c# 2018-07-31 <RC
 #p# OK
 
+use strict;
+use warnings;
 use feature 'say';
 
 # The %ENV hash maps environment variables to their values:
