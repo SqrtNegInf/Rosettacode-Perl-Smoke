@@ -4,6 +4,9 @@
 #p# OK
 #n# hard to test
 
+use strict;
+use warnings;
+
 use Test::More;
 
 # Using eval
@@ -19,7 +22,7 @@ eval {
 };
 print $@ if $@;
 
-is ($@, "this could go wrong mightily at E/Exceptions line 18.\n");
+is ($@, "this could go wrong mightily at E/Exceptions line 21.\n");
 done_testing()
  
 # rethrow
@@ -43,4 +46,3 @@ done_testing()
 
 #Other styles
 #More complicated exception handling can be achieved in Perl using TryCatch or Exception::Class modules.
-
