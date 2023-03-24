@@ -3,32 +3,25 @@
 #c# 2019-01-19 >RC
 #p# OK
 
+use strict;
+use warnings;
 use feature 'say';
 
-$str = 'eertree';
+my(@pal, %seen);
+my $str = 'eertree';
  
-for $n (1 .. length $str) {
-   for $m (1 .. length $str) {
-      $strrev = '';
-
-      next unless $strpal = substr($str, $n-1, $m);
+for my $n (1 .. length $str) {
+   for  my$m (1 .. length $str) {
+      my $strrev = '';
+      next unless my $strpal = substr($str, $n-1, $m);
       $strrev .= substr $strpal, $_-1, 1 for reverse 1 .. length $strpal;
       push @pal, $strpal if $strpal eq $strrev;
-
-#     $strpal = substr($str, $n-1, $m);
-#     if ($strpal ne '') {
-#        for $p (reverse 1 .. length $strpal) {
-#           $strrev .= substr $strpal, $p-1, 1;
-#        }
-#        ($strpal eq $strrev) and push @pal, $strpal;
-#     }
-
    }
 }
  
-say $result = join ' ', grep { not $seen{$_}++ } @pal;
+say my $result = join ' ', grep { not $seen{$_}++ } @pal;
 
-$ref = 'e ee eertree ertre r rtr t';
+my $ref = 'e ee eertree ertre r rtr t';
 
 use Test::More;
 is($result, $ref);
