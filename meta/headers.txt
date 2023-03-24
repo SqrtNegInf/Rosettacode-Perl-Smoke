@@ -2768,6 +2768,12 @@ File: D/Dot_product
 #c# 2018-07-28 <RC
 #p# OK
 
+File: D/Double_Twin_Primes
+#!/usr/local/bin/perl
+#u# https://rosettacode.org/wiki/Double_Twin_Primes
+#c# 2023-03-24 >RC
+#p# OK
+
 File: D/Doubly-linked_list_Element_definition
 #!/usr/local/bin/perl
 #u# http://rosettacode.org/wiki/Doubly-linked_list/Element_definition
@@ -3090,12 +3096,14 @@ File: E/Euler%27s_sum_of_powers_conjecture-1
 #u# http://rosettacode.org/wiki/Euler%27s_sum_of_powers_conjecture
 #c# 2018-07-31 <RC
 #p# OK
+#n# brute force approach
 
 File: E/Euler%27s_sum_of_powers_conjecture-2
 #!/usr/local/bin/perl
 #u# http://rosettacode.org/wiki/Euler%27s_sum_of_powers_conjecture
 #c# 2018-07-31 <RC
 #p# OK
+#n# Adding some optimizations makes it ~5x faster with similar output, but obfuscates things.  (translation of: C++)
 
 File: E/Euler_method
 #!/usr/local/bin/perl
@@ -3120,7 +3128,6 @@ File: E/Even_or_odd
 #u# http://rosettacode.org/wiki/Even_or_odd
 #c# 2018-08-01 <RC
 #p# OK
-#n# either quoting will do
 
 File: E/Events
 #!/usr/local/bin/perl
@@ -7565,7 +7572,7 @@ File: P/Perlin_noise
 #u# http://rosettacode.org/wiki/Perlin_noise
 #c# 2018-08-20 <RC, 2021-01-31 >RC
 #p# OK
-#n# 2022-11-22 use built-in 'floor' with v5.036
+#n# 2022-11-22 use built-in 'floor' with v5.36
 #n# 2021-01-31 little bit nicer with signatures, int replaces floor, clearer formatting
 #n# for this particular input: permutation doesn't need to be doubled, 'b' parameter to 'lerp' doesn't matter
 
