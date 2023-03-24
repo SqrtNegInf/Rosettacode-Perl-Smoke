@@ -6,26 +6,23 @@
 
 my @res;
 
-use v5.036;
+use v5.36.0;
 
 use Path::Tiny;
 use List::Util <uniq head>;
 
-sub bi_gram {
-    my $line = lc shift;
-    uniq map { substr $line,$_,2 } 0..length($line)-2;
+sub bi_gram ($line) {
+    uniq map { substr lc($line),$_,2 } 0..length($line)-2;
 }
 
-sub score {
-    my($phrase, $word) = @_;
+sub score ($phrase, $word) {
     my %count;
     my @match = bi_gram $phrase;
     $count{$_}++ for @match, @$word;
     2 * (grep { $count{$_} > 1 } keys %count) / (@match + @$word);
 }
 
-sub sorensen {
-    my($dict,$word,$cutoff) = @_; $cutoff //= 0.00;
+sub sorensen ($dict, $word, $cutoff = 0.00) {
     my(%matches,$s);
     ($s = score($word, $$dict{$_})) > $cutoff and $matches{$_} = $s for keys %$dict;
     %matches;
