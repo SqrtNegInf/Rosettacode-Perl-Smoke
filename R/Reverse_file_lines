@@ -4,7 +4,9 @@
 #p# OK
 #n# as one-liner: perl -e 'print reverse <>'
 
-use v5.036;
+use strict;
+use warnings;
+use feature 'say';
 
 # this does the job
 say reverse `cat ref/test/sample.txt`; 
