@@ -3,8 +3,11 @@
 #c# 2018-08-01 <RC
 #p# OK
 
-use feature 'say';
 my $result;
+
+use strict;
+use warnings;
+use feature 'say';
 
 #use Math::Prime::Util "prime_iterator_object";
 use ntheory "prime_iterator_object";
@@ -22,6 +25,7 @@ $result .= "$c primes between 7700 and 8000" . "\n";
 $result .= "${_}th prime: ". $it->ith($_) . "\n" for map { 10**$_ } 1..8;
 
 say $result;
+
 my $ref = <<'END';
 First 20: 2 3 5 7 11 13 17 19 23 29 31 37 41 43 47 53 59 61 67 71
 Between 100 and 150:
