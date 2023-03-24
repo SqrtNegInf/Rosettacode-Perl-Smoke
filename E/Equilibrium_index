@@ -3,10 +3,11 @@
 #c# 2018-07-31 <RC
 #p# OK
 
-use feature 'say';
 my $result;
 
-# Translation of: Perl 6
+use strict;
+use warnings;
+use feature 'say';
 
 sub eq_index {
     my ( $i, $sum, %sums ) = ( 0, 0 );
