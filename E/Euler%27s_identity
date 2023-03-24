@@ -3,11 +3,12 @@
 #c# 2018-07-31 <RC
 #p# OK
 
+use strict;
+use warnings;
 use feature 'say';
-my $result;
 
 use Math::Complex;
-say $result = sprintf "%s", exp(pi * i) + 1; #, "\n";
+say my $result = sprintf "%s", exp(pi * i) + 1;
 
 use Test::More;
 is ($result, '1.22464679914735e-16i');
