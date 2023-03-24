@@ -3,8 +3,11 @@
 #c# 2018-08-01 <RC , 2018-11-16 >RC
 #p# OK
 
-use feature 'say';
 my $result;
+
+use strict;
+use warnings;
+use feature 'say';
 
 my @results = qx(uname);  # run command and return STDOUT as a string
  
