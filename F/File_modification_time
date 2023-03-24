@@ -3,11 +3,14 @@
 #c# 2018-08-08 <RC
 #p# OK
 
-use feature 'say';
 my $result;
 
-$file = 'ref/write_entire_file.dat';
-$copy = 'run/write_entire_file.dat';
+use strict;
+use warnings;
+use feature 'say';
+
+my $file = 'ref/write_entire_file.dat';
+my $copy = 'run/write_entire_file.dat';
 
 # Works with: Perl version 5
 say my $mtime1 = (stat($file))[9]; # seconds since the epoch
