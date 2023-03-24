@@ -3,8 +3,11 @@
 #c# 2018-08-04 <RC
 #p# OK
 
-use feature 'say';
 my $result;
+
+use strict;
+use warnings;
+use feature 'say';
 
 my $fn = 'ref/lines_of_text.txt';
 
