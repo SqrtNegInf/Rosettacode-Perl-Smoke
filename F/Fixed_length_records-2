@@ -5,6 +5,9 @@
 #f# RC file: flr-outfile-2.dat
 #n# tybalt89++
 
+use strict;
+use warnings;
+
 #Read with standard <> using $/ set to a ref-to-int to read a fixed block size.
 {
 local ($/, @ARGV) = (\80, 'ref/flr-infile.dat');
