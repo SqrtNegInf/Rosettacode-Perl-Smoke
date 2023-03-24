@@ -6,6 +6,9 @@
 
 # using the GD::Simple module.
 
+use strict;
+use warnings;
+
 use GD::Simple;
 
 my ($width, $height) = (1000,1000); # image dimension
