@@ -3,8 +3,11 @@
 #c# 2018-08-03 <RC
 #p# OK
 
-use feature 'say';
 my $result;
+
+use strict;
+use warnings;
+use feature 'say';
 
 my $fasta_example = <<'END_FASTA_EXAMPLE';
 >Rosetta_Example_1
@@ -27,6 +30,7 @@ while ( < $fasta_example > ) {
 }
 
 say $result;
+
 my $ref = <<'EOD';
 Rosetta_Example_1: THERECANBENOSPACE
 Rosetta_Example_2: THERECANBESEVERALLINESBUTTHEYALLMUSTBECONCATENATED
