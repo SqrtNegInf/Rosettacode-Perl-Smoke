@@ -3,12 +3,11 @@
 #c# 2018-08-07 <RC
 #p# OK
 
+use strict;
+use warnings;
 use feature 'say';
-my $result;
 
-
-# Works with: Perl version 5.x
-say $result = sprintf "%09.3f", 7.125;
+say my $result = sprintf "%09.3f", 7.125;
 
 use Test::More;
 is ($result, '00007.125');
