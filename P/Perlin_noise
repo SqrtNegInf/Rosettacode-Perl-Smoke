@@ -2,13 +2,13 @@
 #u# http://rosettacode.org/wiki/Perlin_noise
 #c# 2018-08-20 <RC, 2021-01-31 >RC
 #p# OK
-#n# 2022-11-22 use built-in 'floor' with v5.036
+#n# 2022-11-22 use built-in 'floor' with v5.36
 #n# 2021-01-31 little bit nicer with signatures, int replaces floor, clearer formatting
 #n# for this particular input: permutation doesn't need to be doubled, 'b' parameter to 'lerp' doesn't matter
 
 my $result;
 
-use v5.036;
+use v5.36;
 use builtin qw(floor);
 use experimental qw(builtin);
 
@@ -27,6 +27,7 @@ use constant permutation => qw{
   45 127   4 150 254 138 236 205  93 222 114  67  29  24  72 243 141 128 195  78  66
  215  61 156 180
 };
+
 #use constant p => permutation, permutation; # or: permutation x 2;
 use constant p => permutation;
 
