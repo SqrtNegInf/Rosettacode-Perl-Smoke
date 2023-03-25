@@ -3,15 +3,16 @@
 #c# 2018-08-17 <RC
 #p# OK
 
+my($result1,$result2);
+
 use strict;
 use warnings;
 use feature 'say';
-my($result,$result2);
 
 my $val = 0;
 do {
    $val++;
-   $result .= "$val\n";
+   $result1 .= "$val\n";
 } while ($val % 6);
 
 # do ... until (condition) is equivalent to do ... while (not condition).
@@ -21,8 +22,8 @@ do {
    $result2 .= "$val\n";
 } until ($val % 6 == 0);
 
+say $result1;
 
-say $result;
 my $ref = <<'EOD';
 1
 2
@@ -33,6 +34,6 @@ my $ref = <<'EOD';
 EOD
 
 use Test::More;
-is ($result, $ref);
+is ($result1, $ref);
 is ($result2, $ref);
 done_testing();
