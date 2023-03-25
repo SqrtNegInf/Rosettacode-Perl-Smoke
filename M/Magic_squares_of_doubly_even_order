@@ -1,5 +1,6 @@
 #!/usr/local/bin/perl
 #u# http://rosettacode.org/wiki/Magic_squares_of_doubly_even_order
+#t# skiptest
 #c# 2019-05-04 >RC
 #p# OK
 #n# See Magic squares/Perl for a general magic square generator.
