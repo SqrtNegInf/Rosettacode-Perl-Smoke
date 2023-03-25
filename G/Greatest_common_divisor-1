@@ -3,8 +3,9 @@
 #c# 2018-08-11 <RC
 #p# OK
 
+use strict;
+use warnings;
 use feature 'say';
-my $result;
 
 sub gcd_iter($$) {
   my ($u, $v) = @_;
@@ -14,7 +15,7 @@ sub gcd_iter($$) {
   return abs($u);
 }
 
-say $result = gcd_iter(49865, 69811);
+say my $result = gcd_iter(49865, 69811);
 my $ref = <<'END';
 END
 
