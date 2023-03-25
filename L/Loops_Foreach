@@ -3,25 +3,36 @@
 #c# 2018-08-17 <RC
 #p# OK
 
-use feature 'say';
 my $result;
 
-foreach my $i (@collection) {
-   print "$i\n";
+use strict;
+use warnings;
+use feature 'say';
+
+my @collection = <apples bananas cherries>;
+
+for my $i (@collection) {
+   $result .= "$i\n"
 }
 
 #The keyword for can be used instead of foreach. If a loop variable (here $i) is not given, then $_ is used.
 
 #A more compact notation using perl statement modifier:
-print "$_\n"  foreach @collection;
+$result .= "$_\n"  for @collection;
 
 #In perl, it is possible to loop against an explicit list, so there is no need to define a container:
-foreach $l ( "apples", "bananas", "cherries" ) {
+for my $l ( "apples", "bananas", "cherries" ) {
   $result .= "I like $l\n";
 }
 
 say $result; 
 my $ref = <<'EOD';
+apples
+bananas
+cherries
+apples
+bananas
+cherries
 I like apples
 I like bananas
 I like cherries
