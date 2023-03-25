@@ -4,11 +4,6 @@
 #c# 2018-08-14 <RC
 #p# OK
 
-use feature 'say';
-my $result;
-
-use strict;
-use warnings;
 use Term::ReadKey;
 ReadMode 4;
 my $key;
@@ -20,6 +15,7 @@ print "got key '$key'\n";
 ReadMode('restore');
 
 __END__
+
 # In many cases one does not want to wait for each step end. In this case you can use two parallel processes:
 
 #!/usr/bin/perl
