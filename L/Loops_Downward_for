@@ -3,14 +3,18 @@
 #c# 2018-08-17 <RC
 #p# OK
 
-use feature 'say';
 my $result;
 
+use strict;
+use warnings;
+use feature 'say';
+
 foreach (reverse 0..10) {
-  $result .= "$_\n";
+    $result .= "$_\n";
 }
 
 say $result; 
+
 my $ref = <<'EOD';
 10
 9
