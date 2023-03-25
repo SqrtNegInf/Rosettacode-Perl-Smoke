@@ -7,16 +7,22 @@ use feature 'say';
 
 use lib 'lib';
 
-# You can textually transform code with a source filter, a module that when used modifies the following lines of source. Filter::Util::Call provides a general means of writing source filters. Filter::Simple is an interface to Filter::Util::Call that lets you elide a lot of boilerplate code. More important, Filter::Simple can hide the contents of quoting constructs from your filter, obviating the biggest dangers of textual metaprogramming. For example, given the following module:
+# You can textually transform code with a source filter, a module that when
+# used modifies the following lines of source. Filter::Util::Call provides a
+# general means of writing source filters. Filter::Simple is an interface to
+# Filter::Util::Call that lets you elide a lot of boilerplate code. More
+# important, Filter::Simple can hide the contents of quoting constructs from
+# your filter, obviating the biggest dangers of textual metaprogramming. For
+# example, given the following module:
 
 use UnicodeEllipsis;
 
 say $result = join(' … ', 1 … 5);
 
-# prints:
-
 use Test::More;
 is($result, '1 … 2 … 3 … 4 … 5');
 done_testing();
 
-# Devel::Declare lets you define a new keyword by setting up a hook to be run whenever the parser encounters a bareword of your choice. Devel::Declare is powerful, but it has a reputation for being difficult to understand. See this blog post for a relatively simple usage example.
+# Devel::Declare lets you define a new keyword by setting up a hook to be run
+# whenever the parser encounters a bareword of your choice. Devel::Declare is
+# powerful, but it has a reputation for being difficult to understand.
