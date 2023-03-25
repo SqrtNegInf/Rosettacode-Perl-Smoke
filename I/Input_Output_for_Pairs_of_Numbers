@@ -4,9 +4,13 @@
 #p# OK
 #i# RC cli: ref/lines_of_numbers.txt
 
+my $result;
+
+use strict;
+use warnings;
 use feature 'say';
 
-$n = scalar <>; 
+my $n = scalar <>; 
 
 for (1..$n) {
     ($a,$b) = split ' ', <>; 
@@ -15,7 +19,7 @@ for (1..$n) {
 
 say $result; 
 
-$ref = <<'EOD';
+my $ref = <<'EOD';
 3
 30
 2
