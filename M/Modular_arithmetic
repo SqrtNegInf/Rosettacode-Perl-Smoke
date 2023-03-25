@@ -3,17 +3,15 @@
 #c# 2018-08-18 <RC
 #p# OK
 
+use strict;
+no warnings;        # because of overloading
 use feature 'say';
 
-# There is a CPAN module called Math::ModInt which does the job.
-
-use Math::ModInt qw(mod);
+use Math::ModInt 'mod';
 sub f { my $x = shift; $x**100 + $x + 1 };
 
-print 'rewrites as: ' .  f mod(10, 13);
-print "\n";
-print 'evaluates as: ' . f('mod(10, 13)') . "\n";
-$result = f('mod(10, 13)');
+say 'rewrites as: ' .  f mod(10, 13);
+say 'evaluates as: ' . (my $result = f('mod(10, 13)'));
 
 use Test::More;
 is ($result, '1');
