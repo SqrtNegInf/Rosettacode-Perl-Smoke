@@ -3,19 +3,24 @@
 #c# 2018-08-17 <RC
 #p# OK
 
-use feature 'say';
 my $result;
+
+use strict;
+use warnings;
+use feature 'say';
 
 use ntheory qw/:all/;
 use bigint try=>"GMP,Pari";
+
 forprimes {
   my $p = $_;
   my $mp1 = 2**$p;
-  $result .= "M$p\n" if $p == 2 || 0 == (lucas_sequence($mp1-1, 4, 1, $mp1))[0];
+  $result .= "M$p\n" if $p == 2 or 0 == (lucas_sequence($mp1-1, 4, 1, $mp1))[0];
 } 4432 ;
 #} 43_112_609;
 
 say $result; 
+
 my $ref = <<'EOD';
 M2
 M3
