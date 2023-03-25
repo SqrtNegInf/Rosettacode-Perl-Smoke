@@ -3,8 +3,11 @@
 #c# 2018-08-14 <RC
 #p# OK
 
-use feature 'say';
 my $result;
+
+use strict;
+use warnings;
+use feature 'say';
 
 #Library: JSON
 use JSON;
@@ -12,7 +15,7 @@ use JSON;
 my $data = decode_json('{ "foo": 1, "bar": [10, "apples"] }');
 
 my $sample = { blue => [1,2], ocean => "water" };
-say $json = encode_json($sample);
+say my $json = encode_json($sample);
 
 use Test::More;
 #is ($json, '{"blue":[1,2],"ocean":"water"}');
