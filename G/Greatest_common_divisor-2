@@ -3,10 +3,11 @@
 #c# 2018-08-11 <RC
 #p# OK
 
+use strict;
+use warnings;
 use feature 'say';
-my $result;
 
-sub gcd1($$) {
+sub gcd1 {
   my ($u, $v) = @_;
   if ($v) {
     return gcd1($v, $u % $v);
@@ -21,8 +22,8 @@ sub gcd2 {
     $v ? gcd2($v, $u % $v) : abs($u);
 }
 
-say $result1 = gcd1(49865, 69811);
-say $result2 = gcd2(49865, 69811);
+say my $result1 = gcd1(49865, 69811);
+say my $result2 = gcd2(49865, 69811);
 
 use Test::More;
 is ($result1, 9973);
