@@ -3,15 +3,20 @@
 #c# 2018-08-17 <RC
 #p# OK
 
-use feature 'say';
 my $result;
 
-for($i=2; $i <= 8; $i += 2) {
+use strict;
+use warnings;
+use feature 'say';
+
+for(my $i=2; $i <= 8; $i += 2) {
   $result .= "$i, ";
 }
+
 $result .= "who do we appreciate?\n";
 
 say $result; 
+
 my $ref = <<'EOD';
 2, 4, 6, 8, who do we appreciate?
 EOD
