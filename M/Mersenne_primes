@@ -3,17 +3,30 @@
 #c# 2018-08-18 <RC
 #p# OK
 
+my $result;
+
+use strict;
+use warnings;
 use feature 'say';
 
-# Since GIMPS went to the trouble of dedicating thousands of CPU years to finding Mersenne primes, we should be kind enough to use the results. The ntheory module front end does this, so the results up to 43 million is extremely fast (4 seconds), and we can reduce this another 10x by only checking primes. After the GIMPS double-checked mark, a Lucas-Lehmer test is done using code similar to Rosetta Code Lucas-Lehmer in C+GMP.
-# If this is too contrived, we can use Math::Prime::Util::GMP::is_mersenne_prime instead, which will run the Lucas-Lehmer test on each input. The first 23 Mersenne primes are found in under 15 seconds.
+# Since GIMPS went to the trouble of dedicating thousands of CPU years to
+# finding Mersenne primes, we should be kind enough to use the results. The
+# ntheory module front end does this, so the results up to 43 million is
+# extremely fast (4 seconds), and we can reduce this another 10x by only
+# checking primes. After the GIMPS double-checked mark, a Lucas-Lehmer test
+# is done using code similar to Rosetta Code Lucas-Lehmer in C+GMP.
 
-# Library: ntheory
+# If this is too contrived, we can use
+# Math::Prime::Util::GMP::is_mersenne_prime instead, which will run the
+# Lucas-Lehmer test on each input. The first 23 Mersenne primes are found in
+# under 15 seconds.
+
 use ntheory qw/forprimes is_mersenne_prime/;
 forprimes { $result .= "$_\n" if is_mersenne_prime($_) } 1e7; # 1e9
 #forprimes { is_mersenne_prime($_) && $result .= "$_\n" } 1e7; # 1e9
 
 say $result; 
+
 my $ref = <<'EOD';
 2
 3
