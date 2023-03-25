@@ -7,6 +7,9 @@
 
 srand 123456;
 
+use strict;
+use warnings;
+
 my $min = 1;
 my $max = 99; 
 my $guess = int(rand $max) + $min;
