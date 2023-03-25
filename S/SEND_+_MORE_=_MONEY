@@ -3,6 +3,7 @@
 #c# 2023-03-19 >RC
 #p# OK
 #n# tweaks for speed not on RC
+#n# 5849 + 638 == 6487 if permitted that M == 0
 
 my @res;
 
@@ -11,16 +12,14 @@ use v5.36;
 use enum <D E M N O R S Y>;
 use Algorithm::Combinatorics <combinations permutations>;
 
-sub find_solution {
+sub solve {
   for my $p (map { permutations $_ } combinations [reverse 0..9], 8) {
-    next if @$p[M] == 0 or @$p[S] < 8;
-    return $p if join('',@$p[S,E,N,D]) + join('',@$p[M,O,R,E]) == join('',@$p[M,O,N,E,Y]);
+    return $p if @$p[M] > 0 and @$p[S] > 7 and join('',@$p[S,E,N,D]) + join('',@$p[M,O,R,E]) == join('',@$p[M,O,N,E,Y]);
   }
 }
 
-my $s = find_solution();
-push @res, 'SEND + MORE == MONEY';
-push @res, sprintf "%d + %d == %d", join('',@$s[S,E,N,D]), join('',@$s[M,O,R,E]), join '',@$s[M,O,N,E,Y];
+push @res, sprintf "SEND + MORE == MONEY\n%d + %d == %d", join('',@$_[S,E,N,D]), join('',@$_[M,O,R,E]), join '',@$_[M,O,N,E,Y]
+    for solve();
 
 say my $result = join "\n", @res;
 
