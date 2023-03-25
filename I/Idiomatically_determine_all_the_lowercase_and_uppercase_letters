@@ -3,10 +3,14 @@
 #c# 2018-09-15 >RC
 #p# OK
 
+use strict;
+use warnings;
 use feature 'say';
 
-for $i (0..2**8-1) {
-    $c = chr($i);
+my($lower,$upper);
+
+for my $i (0..2**8-1) {
+    my $c = chr($i);
     $lower .= $c if $c =~ /[[:lower:]]/;
     $upper .= $c if $c =~ /[[:upper:]]/;
 }
