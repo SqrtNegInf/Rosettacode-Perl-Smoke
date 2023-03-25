@@ -2,20 +2,22 @@
 #u# http://rosettacode.org/wiki/Integer_roots
 #c# 2018-09-10 <RC
 #p# OK
-#n# Danaj's code
+#n# Dana Jacobson's code
 
+my($result1,$result2);
+
+use strict;
+use warnings;
 use feature 'say';
 
-# Using a module[edit]
-
-# If using bigints, we can do this directly, which will be much faster than the method above:
+# If using bigints, we can do this directly, which will be much faster than the method in -1 version
 
 use bigint;
 $result1 .= 8->babs->broot(3)."\n";
 $result1 .= 9->babs->broot(3)."\n";
 $result1 .= +(2*100**2000)->babs->broot(2)."\n";
 
-#The babs calls are only necessary if the input might be non-negative.
+#The 'babs' calls are only necessary if the input might be non-negative.
 
 #Even faster, using a module:
 
@@ -24,7 +26,6 @@ use ntheory "rootint";
 $result2 .= rootint(8,3)."\n";
 $result2 .= rootint(9,3)."\n";
 $result2 .= rootint(2*100**2000,2)."\n";
-
 
 say $result1; 
 
