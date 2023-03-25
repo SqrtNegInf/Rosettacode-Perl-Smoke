@@ -4,6 +4,10 @@
 #p# OK
 #=# RC pipe: 1
 
+use strict;
+use warnings;
+use feature 'say';
+
 sub menu
 {
         my ($prompt,@array) = @_;
@@ -11,17 +15,17 @@ sub menu
 
         print "  $_: $array[$_]\n" for(0..$#array);
         print $prompt;
-        $n = <>;
+        my $n = <>;
         return $array[$n] if $n =~ /^\d+$/ and defined $array[$n];
         return &menu($prompt,@array);
 }
 
-@a = ('fee fie', 'huff and puff', 'mirror mirror', 'tick tock');
-$prompt = 'Which is from the three pigs: ';
+my @a = ('fee fie', 'huff and puff', 'mirror mirror', 'tick tock');
+my $prompt = 'Which is from the three pigs: ';
 
-$a = &menu($prompt,@a);
+my $a = &menu($prompt,@a);
 
-print "You chose: $a\n";
+say "You chose: $a";
 
 use Test::More;
 is $a, 'huff and puff';
