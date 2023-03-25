@@ -4,9 +4,6 @@
 #c# 2018-08-14 <RC
 #p# OK
 
-use feature 'say';
-my $result;
-
 use Term::ReadKey;
 ReadMode 'restore';    # Flush the keyboard and returns input stream to initial state
 # ReadMode 0;            # Numerical equivalent of keyboard restore (move comment marker to use instead)
@@ -24,12 +21,3 @@ while (defined ReadKey -1) {
 
 # Don't forget to restore the readmode, when we are finished using the keyboard
 ReadMode 'restore';
-
-
-say $result; 
-my $ref = <<'EOD';
-EOD
-
-use Test::More;
-#is ($result, $ref);
-#done_testing();
