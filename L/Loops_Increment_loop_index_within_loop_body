@@ -3,12 +3,13 @@
 #c# 2018-09-15 >RC
 #p# OK
 
+my $result;
+
 use strict;
 use warnings;
 use feature 'say';
-my $result;
 
-use ntheory qw(is_prime);
+use ntheory 'is_prime';
 
 my $n = 0;
 my $i = 42;
