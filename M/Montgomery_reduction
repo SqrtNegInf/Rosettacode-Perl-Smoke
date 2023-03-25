@@ -3,6 +3,10 @@
 #c# 2018-10-08 >RC
 #p# OK
 
+my @res;
+
+use strict;
+use warnings;
 use feature 'say';
 
 use bigint;
@@ -32,8 +36,6 @@ my $r2 = 435362628198191204145287283255;
 my $x1 = 540019781128412936473322405310;
 my $x2 = 515692107665463680305819378593;
 
-my @res;
-
 push @res, "Original x1:       ". $x1;
 push @res, "Recovered from r1: ". montgomery_reduce($m, $r1);
 push @res, "Original x2:       ". $x2;
@@ -52,7 +54,7 @@ for (my $exponent = $x2; $exponent >= 0; $exponent >>= 1) {
 push @res, montgomery_reduce($m, $prod);
 push @res, "Built-in op computation x1**x2 mod m: ". powmod($x1, $x2, $m);
 
-say $result = join "\n", @res;
+say my $result = join "\n", @res;
 
 my $ref = <<'EOD';
 Original x1:       540019781128412936473322405310
