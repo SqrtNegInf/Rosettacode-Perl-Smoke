@@ -3,21 +3,23 @@
 #c# 2018-08-17 <RC
 #p# OK
 
-use feature 'say';
 my $result;
 
-for my $i(1..10) {
+use strict;
+use warnings;
+use feature 'say';
+
+for my $i (1..10) {
     $result .= $i;
     last if $i == 10;
     $result .= ', ';
 }
 $result .= "\n";
 
-#In perl one would solve the task via join.
-$result .= join(', ', 1..10). "\n";
-
+$result .= join(', ', 1..10) . "\n";
 
 say $result; 
+
 my $ref = <<'EOD';
 1, 2, 3, 4, 5, 6, 7, 8, 9, 10
 1, 2, 3, 4, 5, 6, 7, 8, 9, 10
