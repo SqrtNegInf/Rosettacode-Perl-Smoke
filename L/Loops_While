@@ -3,26 +3,32 @@
 #c# 2018-08-17 <RC
 #p# OK
 
+my($result1,$result2,$result3);
+
+use strict;
+use warnings;
 use feature 'say';
+
 my $n = 1024;
-while($n){
+while ($n){
     $result1 .= "$n\n";
     $n = int $n / 2;
 }
 
 #or written as a for-loop and using the bit-shift operator
-for(my $n = 1024; $n > 0; $n >>= 1){
+for (my $n = 1024; $n > 0; $n >>= 1){
     $result2 .= "$n\n";
 }
 
 #until (condition) is equivalent to while (not condition).
-my $n = 1024;
+$n = 1024;
 until($n == 0){
     $result3 .= "$n\n";
     $n = int $n / 2;
 }
 
-say $result; 
+say $result1; 
+
 my $ref = <<'EOD';
 1024
 512
