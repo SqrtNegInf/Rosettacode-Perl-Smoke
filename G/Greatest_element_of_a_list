@@ -3,21 +3,21 @@
 #c# 2018-08-11 <RC
 #p# OK
 
+use strict;
+use warnings;
 use feature 'say';
-my $result;
 
-sub max {
+sub my_max {
     my $max = shift;
     for (@_) { $max = $_ if $_ > $max }
     return $max;
 }
 
-# It is already implemented in the module List::Util's max() function:
-# use List::Util 'max';
+say my $result = my_max(<1 -1 01 1e0 1.1>);
 
-$result .= max(<1 -1 01 1e0 1.1>);
-
-say $result; 
+# but in practice I always reach for
+use List::Util 'max';
+say List::Util::max(<1 -1 01 1e0 1.1>);
 
 use Test::More;
 is ($result, 1.1);
