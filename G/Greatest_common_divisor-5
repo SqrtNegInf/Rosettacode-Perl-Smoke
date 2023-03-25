@@ -4,7 +4,10 @@
 #c# 2018-08-11 <RC
 #p# OK
 
-sub gcd_iter($$) {
+use strict;
+use warnings;
+
+sub gcd_iter {
   my ($u, $v) = @_;
   while ($v) {
     ($u, $v) = ($v, $u % $v);
@@ -12,7 +15,7 @@ sub gcd_iter($$) {
   return abs($u);
 }
 
-sub gcd($$) {
+sub gcd {
   my ($u, $v) = @_;
   if ($v) {
     return gcd($v, $u % $v);
@@ -21,7 +24,7 @@ sub gcd($$) {
   }
 }
 
-sub gcd_bin($$) {
+sub gcd_bin {
   my ($u, $v) = @_;
   $u = abs($u);
   $v = abs($v);
