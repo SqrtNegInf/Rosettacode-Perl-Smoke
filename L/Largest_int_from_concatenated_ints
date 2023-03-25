@@ -3,16 +3,19 @@
 #c# 2018-08-14 <RC
 #p# OK
 
-use feature 'say';
 my $result;
-sub maxnum {
-    join '', sort { "$b$a" cmp "$a$b" } @_
-}
+
+use strict;
+use warnings;
+use feature 'say';
+
+sub maxnum { join '', sort { "$b$a" cmp "$a$b" } @_ }
 
 $result .= maxnum(1, 34, 3, 98, 9, 76, 45, 4). "\n";
 $result .= maxnum(54, 546, 548, 60). "\n";
 
 say $result; 
+
 my $ref = <<'EOD';
 998764543431
 6054854654
