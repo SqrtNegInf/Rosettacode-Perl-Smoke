@@ -1,3 +1,6 @@
+2023-03-25
+Installed Math::Big with cpanm, but not found when needed (F/Fibonacci_sequence-3)
+
 2023-01-26
 Down to zero errors (i.e. no unhandled exceptions)
 Memory requirements of 'C/Cyclops_numbers' crashed VM, lowered testing limits.
