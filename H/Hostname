@@ -4,12 +4,10 @@
 #p# OK
 #n# works on all platforms now
 
-use feature 'say';
-my $result;
-
 use Sys::Hostname;
 
-say $name = hostname;
+$name = hostname;
+print "$name\n";
 
 my($ref) = `uname -a` =~ /\S+ (\S+)/;
 
