@@ -3,8 +3,12 @@
 #c# 2018-08-18 <RC
 #p# OK
 
+my $result;
+
 srand 123456;
 
+use strict;
+use warnings;
 use feature 'say';
 
 sub pi {
@@ -23,6 +27,7 @@ sub pi {
 $result .= sprintf "%9d: %07f\n", $_, pi($_) for 10**4, 10**6;
 
 say $result; 
+
 my $ref = <<'EOD';
     10000: 3.129200
   1000000: 3.139348
