@@ -3,10 +3,11 @@
 #c# 2018-08-17 <RC
 #p# OK
 
+my($result1,$result2,$result3,$result4);
+
 use strict;
 use warnings;
 use feature 'say';
-my($result1,$result2,$result3,$result4);
 
 for(my $x = 1; $x <= 5; $x++) {
   for(my $y = 1; $y <= $x; $y++) {
@@ -27,8 +28,8 @@ $result3 .= ('*' x $_ . "\n") for 1..5;
 #or equivalently
 map {$result4 .= '*' x $_ . "\n"} 1..5;
 
-
 say $result1;
+
 my $ref = <<'EOD';
 *
 **
