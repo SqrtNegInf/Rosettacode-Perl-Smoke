@@ -4,11 +4,15 @@
 #p# OK
 #=# RC pipe: who\nwhat\nwhen\nwhere\n\n
 
-use feature 'say';
+my @res;
 
 srand 123456;
 
-@a = ('It is certain', 'It is decidedly so', 'Without a doubt', 'Yes, definitely',
+use strict;
+use warnings;
+use feature 'say';
+
+my @a = ('It is certain', 'It is decidedly so', 'Without a doubt', 'Yes, definitely',
  'You may rely on it', 'As I see it, yes', 'Most likely', 'Outlook good',
  'Signs point to yes', 'Yes', 'Reply hazy, try again', 'Ask again later',
  'Better not tell you now', 'Cannot predict now', 'Concentrate and ask again',
@@ -21,7 +25,7 @@ while () {
     push @res, @a[int rand @a];
 }
 
-say $result = join "\n", @res;
+say my $result = join "\n", @res;
 
 my $ref = <<'EOD';
 Outlook not so good
