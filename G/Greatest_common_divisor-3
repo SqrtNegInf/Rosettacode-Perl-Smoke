@@ -6,7 +6,6 @@
 use strict;
 use warnings;
 use feature 'say';
-my $result;
 
 sub gcd_bin($$) {
   my ($u, $v) = @_;
@@ -39,7 +38,7 @@ sub gcd_bin($$) {
   return $u * $k;
 }
 
-say $result = gcd_bin(49865, 69811);
+say my $result = gcd_bin(49865, 69811);
 
 use Test::More;
 is ($result, 9973);
