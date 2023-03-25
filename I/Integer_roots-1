@@ -5,10 +5,11 @@
 #n# the native/slow way, see -2 variant (Math::AnyNum doesn't really help here)
 #n# cf 'Isqrt__integer_square_root__of_X'
 
+my @res;
+
 use strict;
 use warnings;
 use feature 'say';
-my @res;
 
 use bigint;
 
