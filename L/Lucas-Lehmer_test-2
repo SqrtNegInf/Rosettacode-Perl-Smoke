@@ -4,8 +4,11 @@
 #p# OK
 #n# spits them out pretty rapidly up to 47, then hits a wall
 
-use feature 'say';
 my $result;
+
+use strict;
+use warnings;
+use feature 'say';
 
 # The ntheory module offers a couple options. This is direct:
 use ntheory qw<is_mersenne_prime>;
