@@ -9,7 +9,7 @@ print ++$i, "\n" while 1;
 #On 64-bit Perls this will get to 2^64-1 then print 1.84467440737096e+19 forever. On 32-bit Perls using standard doubles this will get to 999999999999999 then start incrementing and printing floats until they lose precision. This behavior can be changed by adding something like:
 
 use bigint;
-my $i = 0;  print ++$i, "\n" while 1;
+$i = 0;  print ++$i, "\n" while 1;
 #which makes almost all integers large (ranges are excluded). Faster alternatives exist with non-core modules, e.g.
 
 #use bigint lib=>"GMP";
