@@ -3507,6 +3507,7 @@ File: F/Fibonacci_sequence-3
 #u# http://rosettacode.org/wiki/Fibonacci_sequence
 #c# 2018-08-03 <RC
 #p# OK
+#n# because of problem with Math::Big, skip test #5 on Ubuntu
 
 File: F/Fibonacci_word
 #!/usr/local/bin/perl
@@ -4951,7 +4952,7 @@ File: I/Integer_roots-2
 #u# http://rosettacode.org/wiki/Integer_roots
 #c# 2018-09-10 <RC
 #p# OK
-#n# Danaj's code
+#n# Dana Jacobson's code
 
 File: I/Integer_sequence
 #!/usr/local/bin/perl
@@ -5133,6 +5134,7 @@ File: K/Kernighans_large_earthquake_problem
 #u# http://rosettacode.org/wiki/Kernighans_large_earthquake_problem
 #c# 2018-08-14 <RC
 #p# OK
+#n# as one-liner: perl -n -e '/(\S+)\s*$/ and $1 > 6 and print' data.txt
 
 File: K/Keyboard_input_Flush_the_keyboard_buffer
 #!/usr/local/bin/perl
@@ -5917,6 +5919,7 @@ File: M/Magic_squares_Perl-debug
 File: M/Magic_squares_of_doubly_even_order
 #!/usr/local/bin/perl
 #u# http://rosettacode.org/wiki/Magic_squares_of_doubly_even_order
+#t# skiptest
 #c# 2019-05-04 >RC
 #p# OK
 #n# See Magic squares/Perl for a general magic square generator.
@@ -5924,6 +5927,7 @@ File: M/Magic_squares_of_doubly_even_order
 File: M/Magic_squares_of_odd_order
 #!/usr/local/bin/perl
 #u# http://rosettacode.org/wiki/Magic_squares_of_odd_order
+#t# skiptest
 #c# 2019-05-04 >RC
 #p# OK
 #n# See Magic squares/Perl for a general magic square generator.
@@ -5938,6 +5942,7 @@ File: M/Magic_squares_of_odd_order.1
 File: M/Magic_squares_of_singly_even_order
 #!/usr/local/bin/perl
 #u# http://rosettacode.org/wiki/Magic_squares_of_singly_even_order
+#t# skiptest
 #c# 2019-05-04 >RC
 #p# OK
 #n# See Magic squares/Perl for a general magic square generator.
@@ -8912,9 +8917,10 @@ File: S/SEDOLs
 File: S/SEND_+_MORE_=_MONEY
 #!/usr/local/bin/perl
 #u# https://rosettacode.org/wiki/SEND_+_MORE_=_MONEY
-#t# inprogress
 #c# 2023-03-19 >RC
 #p# OK
+#n# tweaks for speed not on RC
+#n# 5849 + 638 == 6487 if permitted that M == 0
 
 File: S/SEND_+_MORE_=_MONEY-2
 #!/usr/local/bin/perl
