@@ -3,17 +3,22 @@
 #c# 2018-10-01 >RC
 #p# OK
 
+my $result;
+
+use strict;
+use warnings;
 use feature 'say';
 
 use Time::HiRes qw(sleep);
 
 #$| = 1; # not needed?
 
-$beats_per_minute = shift || 60;
-$beats_per_bar    = shift ||  4;
+my $beats_per_minute = shift || 60;
+my $beats_per_bar    = shift ||  4;
 
-$duration = 60 / ($beats_per_minute * $beats_per_bar);
+my $duration = 60 / ($beats_per_minute * $beats_per_bar);
 
+my $i;
 while () {
     if (0 == $i++ % $beats_per_bar) {
         $result .= "\nTICK";
