@@ -3,8 +3,11 @@
 #c# 2018-08-13 <>RC
 #p# OK
 
+my @res;
+
+use strict;
+use warnings;
 use feature 'say';
-$result;
 
 #Positive infinity:
 push @res, 0 + "inf";
@@ -38,9 +41,9 @@ push @res, 1e1000;
 push @res, inf;
 push @res, -inf;
 
-say $result = join "\n", @res; 
+say my $result = join "\n", @res; 
 
-$ref = <<'EOD';
+my $ref = <<'EOD';
 Inf
 Inf
 -Inf
