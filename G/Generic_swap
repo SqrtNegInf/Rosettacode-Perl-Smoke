@@ -3,19 +3,18 @@
 #c# 2018-08-10 <RC
 #p# OK
 
-use feature 'say';
 my $result;
 
-# Perl has support for swapping built-in
+use strict;
+use warnings;
+use feature 'say';
 
-$x = 42;
-$y = 47;
+my $x = 42;
+my $y = 47;
 
 $result .= "$x $y\n";
 ($y, $x) = ($x, $y);
 $result .= "$x $y\n";
-
-#Here's a generic swap routine:
 
 sub swap {@_[0, 1] = @_[1, 0]}
 
