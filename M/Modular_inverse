@@ -3,13 +3,13 @@
 #c# 2018-08-18 <RC
 #p# OK
 
-use feature 'say';
 my $result;
-# my @res;
 
+use strict;
+use warnings;
+use feature 'say';
 
 # Various CPAN modules can do this, such as:
-
 # use bigint; say 42->bmodinv(2017);
 # or
 # use Math::ModInt qw/mod/;  say mod(42, 2017)->inverse->residue;
@@ -37,9 +37,10 @@ sub invmod {
 
 say $result = invmod(42,2017);
 
-# Notes: Special cases to watch out for include (1) where the inverse doesn't exist, such as invmod(14,28474), which should return undef or raise an exception, not return a wrong value. (2) the high bit of a or n is set, e.g. invmod(11,2**63), (3) negative first arguments, e.g. invmod(-11,23).
-# The modules and code above handle these cases,
-# but some other language implementations for this task do not.
+# Notes: Special cases to watch out for include (1) where the inverse doesn't exist, such as invmod(14,28474), 
+# which should return undef or raise an exception, not return a wrong value. (2) the high bit of a or n is set, 
+# e.g. invmod(11,2**63), (3) negative first arguments, e.g. invmod(-11,23).
+# The modules and code above handle these cases, # but some other language implementations for this task do not.
 
 use Test::More;
 is ($result, 1969);
