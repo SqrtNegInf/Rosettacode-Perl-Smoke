@@ -3,10 +3,11 @@
 #c# 2018-09-15 >RC
 #p# OK
 
+my $result;
+
 use strict;
 use warnings;
 use feature 'say';
-my $result;
 
 use constant   one =>  1;
 use constant three =>  3;
@@ -41,6 +42,7 @@ for my $j (
 
 $result .= sprintf "%-8s %12s\n", 'Sum:',     comma $sum;
 $result .= sprintf "%-8s %12s\n", 'Product:', comma $prod;
+
 say $result; 
 
 my $ref = <<'EOD';
