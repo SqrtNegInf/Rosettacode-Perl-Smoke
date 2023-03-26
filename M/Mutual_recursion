@@ -3,18 +3,21 @@
 #c# 2018-08-19 <RC
 #p# OK
 
-use feature 'say';
 my $result;
+
+use strict;
+use warnings;
+use feature 'say';
 
 sub F { my $n = shift; $n ? $n - M(F($n-1)) : 1 }
 sub M { my $n = shift; $n ? $n - F(M($n-1)) : 0 }
 
-# Usage:
 foreach my $sequence (\&F, \&M) {
     $result .= join(' ', map $sequence->($_), 0 .. 19) . "\n";
 }
 
 say $result;
+
 my $ref = <<'EOD';
 1 1 2 2 3 3 4 5 5 6 6 7 8 8 9 9 10 11 11 12
 0 0 1 2 2 3 4 4 5 6 6 7 7 8 9 9 10 11 11 12
