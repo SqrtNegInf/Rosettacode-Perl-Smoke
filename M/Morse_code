@@ -2,7 +2,8 @@
 #u# http://rosettacode.org/wiki/Morse_code
 #c# 2019-01-22
 #p# OK
-#n# not on RC, no sound...
+#n# not on RC, no sound (and ignoring the code actually on RC)
+#n# doesn't do well with strict/warnings
 
 my %m =(' ', '_ ',
 qw<
