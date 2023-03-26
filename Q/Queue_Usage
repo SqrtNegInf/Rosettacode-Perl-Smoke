@@ -3,12 +3,15 @@
 #c# 2018-08-20 <RC
 #p# OK
 
-use feature 'say';
 my $result;
+
+use strict;
+use warnings;
+use feature 'say';
 
 # Perl has built-in support to these operations:
 
-@queue = (); # we will simulate a queue in a array
+my @queue = (); # we will simulate a queue in a array
 
 push @queue, (1..5); # enqueue numbers from 1 to 5
 
@@ -16,12 +19,13 @@ $result .= (shift @queue) . "\n"; # dequeue
 
 $result .= "array is empty\n" unless @queue; # is empty ?
 
+my $n;
 $result .= $n while($n = shift @queue); # dequeue all
 $result .= "\n";
 $result .= "array is empty\n" unless @queue; # is empty ?
 
-
 say $result; 
+
 my $ref = <<'EOD';
 1
 2345
