@@ -4,7 +4,11 @@
 #p# OK
 #n# lame, but better than nothing?
 
+my $result;
+
+use strict;
 no strict 'refs';
+use warnings;
 use feature 'say';
 
 package Nums;
