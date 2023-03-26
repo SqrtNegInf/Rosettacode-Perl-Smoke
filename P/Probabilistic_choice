@@ -4,10 +4,12 @@
 #p# OK
 #n# 2022-11-05 testing OK, just a simple matter of hash key order
 
-srand 123456;
-
 my $result;
 
+srand 123456;
+
+use strict;
+use warnings;
 use feature 'say';
 
 use List::Util qw(first sum);
@@ -15,11 +17,10 @@ use constant TRIALS => 1e4;
 
 sub prob_choice_picker {
   my %options = @_;
-  my ($n, @a) = 0;
+  our ($n, @a) = 0;
   #while (my ($k,$v) = each %options) {
   for my $k (sort keys %options) {          # for stability
-      $v = $options{$k};
-      $n += $v;
+      $n += $options{$k};
       push @a, [$n, $k];
   }
   return sub {
