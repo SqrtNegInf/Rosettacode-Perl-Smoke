@@ -3,18 +3,22 @@
 #c# 2018-08-20 <RC
 #p# OK
 
-use feature 'say';
 my $result;
 
-use ntheory qw/factor forprimes/;
+use strict;
+use warnings;
+use feature 'say';
+
 use bigint;
+use ntheory qw/factor forprimes/;
 
 forprimes {
-  my $p = 2 ** $_ - 1;
-  $result .= "2**$_-1: ". join(" ", factor($p)). "\n";
+    my $p = 2 ** $_ - 1;
+    $result .= "2**$_-1: ". join(" ", factor($p)). "\n";
 } 100, 150;
 
 say $result;
+
 my $ref = <<'END';
 2**101-1: 7432339208719 341117531003194129
 2**103-1: 2550183799 3976656429941438590393
