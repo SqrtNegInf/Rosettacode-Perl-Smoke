@@ -3,15 +3,18 @@
 #c# 2018-08-20 <RC
 #p# OK
 
-use feature 'say';
 my $result;
+
+use strict;
+use warnings;
+use feature 'say';
 
 # Lists are a central part of Perl. To implement a FIFO using OO will to many Perl programmers seem a bit awkward.
 
 use Carp;
-sub mypush (\@@) {my($list,@things)=@_; push @$list, @things}
-sub mypop  (\@)  {my($list)=@_; @$list or croak "Empty"; shift @$list }
-sub empty  (@)   {not @_}
+sub mypush (\@@) { my($list,@things)=@_; push @$list, @things }
+sub mypop  (\@)  { my($list)=@_; @$list or croak "Empty"; shift @$list }
+sub empty  (@)   { not @_ }
 
 my @fifo=<1 2 3 a b c>;
 
@@ -19,10 +22,7 @@ mypush @fifo, 44, 55, 66;
 mypop @fifo for 1 .. 8;
 #mypop @fifo; #empty now
 
-
 say $result = join "\n", @fifo;
-my $ref = <<'EOD';
-EOD
 
 use Test::More;
 is ($result, '66');
