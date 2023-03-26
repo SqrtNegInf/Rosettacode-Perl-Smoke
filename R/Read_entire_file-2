@@ -2,21 +2,24 @@
 #u# http://rosettacode.org/wiki/Read_entire_file
 #c# 2018-08-19 <RC
 #p# OK
+#n# code runs and tests OK, but something not 100% with Sys:Mmap
 
+use strict;
+no warnings;
 use feature 'say';
 
 # Memory-mapping
 
+# File::Map has the advantage of not requiring an explicit munmap(). Its tie is faster than the tie form of Sys::Mmap too.
 use File::Map 'map_file';
 map_file(my $result1, 'ref/sample.txt');
 
 use Sys::Mmap;
-Sys::Mmap->new(my $result2, 0, 'ref/sample.txt')
-  or die "Cannot Sys::Mmap->new: $!";
-# File::Map has the advantage of not requiring an explicit munmap(). Its tie is faster than the tie form of Sys::Mmap too.
+Sys::Mmap->new(my $result2, 0, 'ref/sample.txt');
+#  or die "Cannot Sys::Mmap->new: $!"; # if included, warning: (in cleanup) munmap failed! errno 22 Invalid argument
 
-say $result; 
-#say $result = join "\n", @res;
+say $result1; 
+
 my $ref = <<'EOD';
 An inverted index is a data structure used to create full text search.
 This is done entirely in memory.
