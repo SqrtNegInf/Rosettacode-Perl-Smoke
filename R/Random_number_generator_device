@@ -4,6 +4,8 @@
 #p# OK
 #n# simple-minded testing, 1st test might fail once a year (or not)
 
+use strict;
+use warnings;
 use feature 'say';
 
 # Typically one would use a module as they will work on UNIX, Win32, and other O/S's. 
