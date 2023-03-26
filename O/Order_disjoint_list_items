@@ -2,18 +2,18 @@
 #u# http://rosettacode.org/wiki/Order_disjoint_list_items
 #c# 2018-08-20 <RC
 #p# OK
-#n# $h{$_}-- > 0 has problem with uninit values, not sure why
 
-use feature 'say';
 my $result;
-# my @res;
 
+use strict;
+use warnings;
+use feature 'say';
 
 sub dsort {
         my ($m, $n) = @_;
         my %h;
         $h{$_}++ for @$n;
-        map $h{$_}-- > 0 ? shift @$n : $_, @$m;
+        map { defined $h{$_} && $h{$_}-- > 0 ? shift @$n : $_ } @$m;
 }
 
 for (split "\n", <<"IN")
@@ -26,12 +26,13 @@ for (split "\n", <<"IN")
         A B B A                 | B A
 IN
 {
-
-        my ($a, $b) = map([split], split '\|');
+       #my ($a, $b) = map ([split], split '\|');            # clever
+        my ($a, $b) = map {[split]} split '\|';             # but maybe clearer
         $result .= "@$a | @$b -> @{[dsort($a, $b)]}\n";
 }
 
 say $result; 
+
 my $ref = <<'EOD';
 the cat sat on the mat | mat cat -> the mat sat on the cat
 the cat sat on the mat | cat mat -> the cat sat on the mat
