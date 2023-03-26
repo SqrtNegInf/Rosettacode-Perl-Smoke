@@ -3,8 +3,11 @@
 #c# 2018-08-19 <RC
 #p# OK
 
-use feature 'say';
 my $result;
+
+use strict;
+use warnings;
+use feature 'say';
 
 use utf8;
 binmode STDOUT, ':utf8';  # so we can print wide chars without warning
@@ -18,8 +21,8 @@ while (read $fh, my $char, 1) {
 
 close $fh;
 
-#If the contents of the input.txt file are aă€⼥ then the output would be:
 say $result;
+
 my $ref = <<'EOD';
 got character a [U+0061]
 got character ă [U+0103]
