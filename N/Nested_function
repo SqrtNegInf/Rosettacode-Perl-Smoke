@@ -3,19 +3,20 @@
 #c# 2018-08-20 <RC
 #p# OK
 
+use strict;
+use warnings;
 use feature 'say';
-my $result;
 
 sub makeList {
-    my $separator = shift;
-    my $counter = 1;
+    our $separator = shift;
+    our $counter = 1;
 
     sub makeItem { $counter++ . $separator . shift . "\n" }
 
     makeItem("first") . makeItem("second") . makeItem("third")
 }
 
-say $result .= makeList(". ");
+say my $result = makeList(". ");
 
 my $ref = <<'EOD';
 1. first
