@@ -2,23 +2,48 @@
 #u# http://rosettacode.org/wiki/Null_object
 #c# 2018-08-20 <RC
 #p# OK
+#n# given the demonstration it's trying to make, won't play nice with strict/warnings
+
+my @res;
 
 use feature 'say';
-my $result;
 
-# In Perl, undef is a special scalar value, kind of like null in other languages. A scalar variable that has been declared but has not been assigned a value will be initialized to undef. (Array and hash variables are initialized to empty arrays or hashes.)
-# If strict mode is not on, you may start using a variable without declaring it; it will "spring" into existence, with value undef. In strict mode, you must declare a variable before using it. Indexing an array or hash with an index or key that does not exist, will return undef (however, this is not an indication that the index or key does not exist; rather, it could be that it does exist, and the value is undef itself). If warnings is on, most of the time, if you use the undef value in a calculation, it will produce a warning. undef is considered false in boolean contexts.
-# It is possible to use undef like most other scalar values: you can assign it to a variable (either by doing $var = undef; or undef($var);), return it from a function, assign it to an array element, assign it to a hash element, etc. When you do list assignment (i.e. assign a list to a list of variables on the left side), you can use undef to "skip" over some elements of the list that you don't want to keep.
+=head
+
+In Perl, undef is a special scalar value, kind of like null in other
+languages. A scalar variable that has been declared but has not been
+assigned a value will be initialized to undef. (Array and hash variables
+are initialized to empty arrays or hashes.)
+
+If strict mode is not on, you may start using a variable without declaring
+it; it will "spring" into existence, with value undef. In strict mode, you
+must declare a variable before using it. Indexing an array or hash with an
+index or key that does not exist, will return undef (however, this is not
+an indication that the index or key does not exist; rather, it could be
+that it does exist, and the value is undef itself). If warnings is on, most
+of the time, if you use the undef value in a calculation, it will produce a
+warning. undef is considered false in boolean contexts.
+
+It is possible to use undef like most other scalar values: you can assign
+it to a variable (either by doing $var = undef; or undef($var);), return it
+from a function, assign it to an array element, assign it to a hash
+element, etc. When you do list assignment (i.e. assign a list to a list of
+variables on the left side), you can use undef to "skip" over some elements
+of the list that you don't want to keep.
+
+=cut
+
 # You can check to see if a value is undef by using the defined operator:
-
 push @res, defined($x) ? 'Defined' : 'Undefined'; #, ".\n";
+
 # From the above discussion, it should be clear that if defined returns false, it does not mean that the variable has not been set; rather, it could be that it was explicitly set to undef.
 # Starting in Perl 5.10, there is also a defined-or operator in Perl. For example:
 
-push @res, $number // "unknown";
 # prints $number if it is defined (even if it is false) or the string "unknown" otherwise.
+push @res, $number // "unknown";
 
-say $result = join "\n", @res;
+say my $result = join "\n", @res;
+
 my $ref = <<'EOD';
 Undefined
 unknown
