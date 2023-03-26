@@ -3,11 +3,13 @@
 #c# 2018-08-19 <RC
 #p# OK
 
-use feature 'say';
 my $result;
-# my @res;
 
-sub process { $result .= @_[0] ; $result .= "\n"; }
+use strict;
+use warnings;
+use feature 'say';
+
+sub process { $result .= $_[0] ; $result .= "\n"; }
 
 #For the simple case of iterating over the lines of a file you can do:
 
@@ -25,10 +27,15 @@ close $fh;
 #open(my $fh, '< :encoding(UTF-8)', 'ref/1line.txt')
 #    || die "Could not open file: $!";
 
-#The angle bracket operator < > reads a filehandle line by line. (The angle bracket operator can also be used to open and read from files that match a specific pattern, by putting the pattern in the brackets.)
-#Without specifying the variable that each line should be put into, it automatically puts it into $_, which is also conveniently the default argument for many Perl functions. If you wanted to use your own variable, you can do something like this:
+# The angle bracket operator < > reads a filehandle line by line. (The angle
+# bracket operator can also be used to open and read from files that match a
+# specific pattern, by putting the pattern in the brackets.) Without
+# specifying the variable that each line should be put into, it automatically
+# puts it into $_, which is also conveniently the default argument for many
+# Perl functions. If you wanted to use your own variable, you can do
+# something like this:
 
-open(my $fh, '<', 'ref/1line.txt')
+open($fh, '<', 'ref/1line.txt')
     || die "Could not open file: $!";
 while (my $line = <$fh>) 
 {
@@ -42,21 +49,31 @@ close $fh;
 #    chomp;
 #    process($_);
 #}
-# As noted in perlop.pod under "I/O Operators", <> opens with the 2-arg open() and so can read from a piped command. This can be convenient but is also very much insecure--a user could supply a file with the name like
+
+# As noted in perlop.pod under "I/O Operators", <> opens with the 2-arg open() and so can read from a piped command. 
+# This can be convenient but is also very much insecure--a user could supply a file with the name like
 
 # perl myscript.pl 'rm -rf / |'
-# or any other arbitrary command, which will be executed when perl attempts to open a pipe for it. As such, this feature is best reserved for one-liners and is bad practice to use in production code. The same is true for the open(FILEHANDLE, EXPR) form of open as opposed to open(FILEHANDLE, MODE, EXPR). (See perlfunc.pod on the open() function.)
+
+# or any other arbitrary command, which will be executed when perl attempts
+# to open a pipe for it. As such, this feature is best reserved for
+# one-liners and is bad practice to use in production code. The same is true
+# for the open(FILEHANDLE, EXPR) form of open as opposed to open(FILEHANDLE,
+# MODE, EXPR). (See perlfunc.pod on the open() function.)
+
 # The ARGV::readonly module can defang @ARGV by modifying the names to ensure they are treated only as files by the open().
 # The readline function can be used instead of < >:
 
- open(my $fh, '<', 'ref/1line.txt') or die "$!";
+ open($fh, '<', 'ref/1line.txt') or die "$!";
  while (readline $fh)
  { process($_) }
 
-# The readline function is the internal function used to implement < >, but can be used directly and is useful for conveying programmer intent in certain situations.
+# The readline function is the internal function used to implement < >, but
+#can be used directly and is useful for conveying programmer intent in
+#certain situations.
 
 say $result; 
-#say $result = join "\n", @res;
+
 my $ref = <<'EOD';
 Hi
 Hi
