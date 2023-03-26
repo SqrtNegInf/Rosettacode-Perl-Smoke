@@ -3,8 +3,11 @@
 #c# 2018-08-20 <RC
 #p# OK
 
-use feature 'say';
 my $result;
+
+use strict;
+use warnings;
+use feature 'say';
 
 sub prime_factors {
   my($n, $p, @out) = (shift, 3);
@@ -22,9 +25,7 @@ sub prime_factors {
 }
 
 say $result = join ' ', prime_factors(1001);
-my $ref = <<'END';
-END
 
 use Test::More;
-is ($result, '7 11 13');
+is $result, '7 11 13';
 done_testing();
