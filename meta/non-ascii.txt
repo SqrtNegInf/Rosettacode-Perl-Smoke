@@ -526,9 +526,9 @@ R/Ramanujan%27s_constant
 ≈:     5 ALMOST EQUAL TO
 
 R/Read_a_file_character_by_character_UTF8
-ă:     2 LATIN SMALL LETTER A WITH BREVE
-€:     2 EURO SIGN
-⼥:     2 KANGXI RADICAL WOMAN
+ă:     1 LATIN SMALL LETTER A WITH BREVE
+€:     1 EURO SIGN
+⼥:     1 KANGXI RADICAL WOMAN
 
 R/Read_entire_file-1
 ǿ:     1 LATIN SMALL LETTER O WITH STROKE AND ACUTE
