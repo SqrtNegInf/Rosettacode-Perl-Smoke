@@ -3,14 +3,8 @@
 #c# 2018-08-19 <RC
 #p# OK
 
-use feature 'say';
-my $result;
-
-# Using modules:
-
-# Library: ntheory
 use ntheory qw/znorder/;
-$result .= znorder(54, 100001) . "\n";
+my $result = znorder(54, 100001) . "\n";
 use bigint; 
 $result .= znorder(11, 1 + 10**100) . "\n";
 
@@ -19,7 +13,8 @@ $result .= znorder(11, 1 + 10**100) . "\n";
 #say znorder(Mod(54, 100001));
 #say znorder(Mod(11, 1 + Math::Pari::PARI(10)**100));
 
-say $result; 
+print "$result\n"; 
+
 my $ref = <<'EOD';
 9090
 2583496112724752500580158969425549088007844580826869433740066152289289764829816356800
