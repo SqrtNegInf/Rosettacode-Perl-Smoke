@@ -2,10 +2,12 @@
 #u# http://rosettacode.org/wiki/Pascal%27s_triangle
 #c# 2018-08-20 <RC
 #p# OK
-#n# put Tartaglia code into -2 task?
 
-use feature 'say';
 my $result;
+
+use strict;
+use warnings;
+use feature 'say';
 
 # Here is a non-obvious version using bignum, which is limited to the first 23 rows because of the algorithm used:
 
@@ -14,6 +16,7 @@ sub pascal_line { $_[0] ? unpack "A(A6)*", 1000001**$_[0] : 1 }
 sub pascal { $result .= "@{[map -+-$_, pascal_line $_]}\n" for 0..$_[0]-1 }
 
 pascal(12);
+
 say $result;
 
 my $ref = <<'EOD';
