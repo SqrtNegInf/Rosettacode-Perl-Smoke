@@ -3,6 +3,10 @@
 #c# 2018-08-21 <RC
 #p# OK
 
+my $result;
+
+use strict;
+use warnings;
 use feature 'say';
 
 # Works with: Perl version 5.x
@@ -35,7 +39,7 @@ $result .= $hashref->{dd};
 
 # You may also create anonymous references:
 
-my $scalarref = \'a scalar';
+my $scalarref1 = \'a scalar';
 my $arrayref1 = ['an', 'array'];
 my $hashref1 = { firstkey => 'a', secondkey => 'hash' };
 
