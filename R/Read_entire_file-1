@@ -3,8 +3,11 @@
 #c# 2018-08-19 <RC
 #p# OK
 
+my($result1,$result2,$result3);
+
+use strict;
+use warnings;
 use feature 'say';
-my $result;
 
 # The modern recommended way, is using one of these CPAN modules:
 
@@ -17,7 +20,7 @@ my $result;
 
 # Traditional ways, without CPAN modules:
 
-$filename = 'ref/sample.txt';
+my $filename = 'ref/sample.txt';
 
 # 1
 open my $fh, '<:encoding(UTF-8)', $filename or die "Could not open '$filename':  $!";
@@ -33,7 +36,7 @@ close $fh;
 }
 
 # 3
-my $result3 = do { local( @ARGV, $/ ) = ( $filename ); <> };
+$result3 = do { local( @ARGV, $/ ) = ( $filename ); <> };
 
 #For a one-liner from shell, use -0[code]. It normally specifies the oct char code of record separator ($/), so for example perl -n -040 would read chunks of text ending at each space ($/ = ' '). However, -0777 has special meaning: $/ = undef, so the whole file is read in at once (chr 0777 happens to be "ǿ", but Larry doesn't think one should use that as record separator).
 # perl -n -0777 -e 'print "file len: ".length' stuff.txt
