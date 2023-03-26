@@ -3,10 +3,14 @@
 #c# 2019-01-22
 #p# OK
 #n# not on RC, no sound (and ignoring the code actually on RC)
-#n# doesn't do well with strict/warnings
 
-my %m =(' ', '_ ',
-qw<
+my $result;
+
+use strict;
+#use warnings;
+
+my %m = (' ', '_ ',
+ qw<
     !	---.
     "	.-..-.
     $	...-..-
