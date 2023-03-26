@@ -4,11 +4,10 @@
 #p# OK
 #n# on iMac: result is different, adjust testing
 #n# 2023-01-19 after modules updates on Mac-Pro, not finding List::SomeUtils?
-BEGIN { die 'BROKEN on Mac-Pro' if `uname -a` =~ /Mac-Pro/ }
+#n# 2023-03-26 /usr/local/bin/perl5.32.1 /usr/local/bin/cpan List::SomeUtils fixed it
 
 use strict;
 use warnings;
-my $result;
 
 use Imager;
 use List::AllUtils qw(sum pairwise);
@@ -38,9 +37,8 @@ sub img_diff {
     $sum / ($w1 * $h1 * 255 * 3);
 }
  
-printf "difference = %f%%\n", $result = 100 * img_diff('ref/Lenna50.jpg', 'ref/Lenna100.jpg');
+printf "difference = %f%%\n", my $result = 100 * img_diff('ref/Lenna50.jpg', 'ref/Lenna100.jpg');
 
 use Test::More;
-#is($result, 1.78189346213746);
 like $result, qr/1.78189346213746|1.62559309816049/;
 done_testing();
