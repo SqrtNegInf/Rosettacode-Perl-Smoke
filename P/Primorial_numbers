@@ -4,8 +4,11 @@
 #p# OK
 #n# after 5.30 update, needed to separately re-install Math::BigInt::GMP
 
-use feature 'say';
 my $result;
+
+use strict;
+use warnings;
+use feature 'say';
 
 use ntheory qw(pn_primorial vecprod primes nth_prime);
 
