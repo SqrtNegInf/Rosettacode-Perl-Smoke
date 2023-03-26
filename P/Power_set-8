@@ -6,7 +6,7 @@
 use strict;
 use warnings;
 use feature 'say';
-my $result;
+
 my @powerset;
 
 sub powerset {
@@ -18,7 +18,8 @@ sub set_to_string {
 }
 
 @powerset = powerset(<1 2 3>);
-say $result = set_to_string(@powerset); #, "\n";
+
+say my $result = set_to_string(@powerset); #, "\n";
 
 use Test::More;
 is ($result, '{{}, {1}, {2}, {1, 2}, {3}, {1, 3}, {2, 3}, {1, 2, 3}}');
