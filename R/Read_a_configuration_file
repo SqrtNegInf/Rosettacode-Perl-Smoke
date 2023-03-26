@@ -3,12 +3,14 @@
 #c# 2018-08-19 <RC
 #p# OK
 
-use feature 'say';
 my $result;
-# my @res;
 
+use strict;
+use warnings;
+use feature 'say';
 
-# This is an all-singing, all-dancing version that checks the configuration file syntax and contents and raises exceptions if it fails. (It is intentionally over-commented for pedagogical purposes.)
+# This is an all-singing, all-dancing version that checks the configuration file syntax and contents 
+# and raises exceptions if it fails. (It is intentionally over-commented for pedagogical purposes.)
 
 my $fullname;
 my $favouritefruit;
