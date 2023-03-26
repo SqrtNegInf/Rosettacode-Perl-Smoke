@@ -3,9 +3,11 @@
 #c# 2018-08-19 <RC
 #p# OK
 
-use feature 'say';
 my $result;
-# my @res;
+
+use strict;
+use warnings;
+use feature 'say';
 
 use List::Util "sum";
 for my $n (1..5000) {
@@ -13,6 +15,7 @@ for my $n (1..5000) {
 }
 
 say $result; 
+
 my $ref = <<'EOD';
 1
 3435
