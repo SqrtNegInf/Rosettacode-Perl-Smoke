@@ -2,15 +2,15 @@
 #u# http://rosettacode.org/wiki/Pascal%27s_triangle
 #c# 2018-08-20 <RC
 #p# OK
-#n# put Tartaglia code into -2 task?
+
+my($result1,$result2);
 
 use strict;
 use warnings;
 use feature 'say';
-my($result1,$result2);
 
-
-# These functions perform as requested in the task: they print out the first n lines. If n <= 0, they print nothing. The output is simple (no fancy formatting).
+# These functions perform as requested in the task: they print out the first n lines. 
+# If n <= 0, they print nothing. The output is simple (no fancy formatting).
 
 sub pascal {
   my $rows = shift;
@@ -21,9 +21,10 @@ sub pascal {
   }
 }
 
-# If you want more than 68 rows, then use either "use bigint" or "use Math::GMP qw/:constant/" inside the function to enable bigints. We can also use a binomial function which will expand to bigints if many rows are requested:
+# If you want more than 68 rows, then use either "use bigint" or "use Math::GMP qw/:constant/" 
+# inside the function to enable bigints. We can also use a binomial function which will expand 
+# to bigints if many rows are requested:
 
-# Library: ntheory
 use ntheory qw/binomial/;
 sub pascal2 {
   my $rows = shift;
@@ -36,6 +37,7 @@ pascal(12);
 pascal2(12);
 
 say $result1;
+
 my $ref = <<'EOD';
 1
 1 1
