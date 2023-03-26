@@ -2,7 +2,7 @@
 #u# http://rosettacode.org/wiki/Fibonacci_sequence
 #c# 2018-08-03 <RC
 #p# OK
-#n# because of problem with Math::Big, skip test #5 on Ubuntu
+#n# because of problem with Math::Big on Ubuntu, skip test #5
 
 my ($result1, $result2, $result3, $result4, $result5);
 
@@ -29,10 +29,8 @@ $result4 = $seq->ith(10000);
 
 # use full path (prototype conflict with Math::AnyNum)
 # Pure Perl
-if (`uname -a` !~ /osboxes/ ) {
-    use Math::Big; #qw/fibonacci/;
-    $result5 = Math::Big::fibonacci(10000);
-}
+#use Math::Big; #qw/fibonacci/;
+#$result5 = Math::Big::fibonacci(10000);
 
 say $result1;
 
@@ -43,5 +41,5 @@ is ($result1, $ref);
 is ($result2, $ref);
 is ($result3, $ref);
 is ($result4, $ref);
-is ($result5, $ref) if `uname -a` !~ /osboxes/;
+#is ($result5, $ref);
 done_testing();
