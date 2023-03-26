@@ -51,7 +51,7 @@ $c[2][2] = 42;
 #    [undef]
 #    [undef]
 #    [undef, undef, 42]
-use DDP; p @c;
+#use DDP; p @c;
 
 # Negative indicies to count backwards from the end of each dimension
 
