@@ -3,14 +3,10 @@
 #c# 2018-08-20 <RC
 #p# OK
 
-use feature 'say';
-my $result;
-# my @res;
-
 use Lingua::EN::Numbers 'num2en';
 
-say $result = num2en(123456789); #, "\n";
+print (my $result = num2en(123456789)) . "\n";
 
 use Test::More;
-is ($result, 'one hundred and twenty-three million, four hundred and fifty-six thousand, seven hundred and eighty-nine');
+is $result, 'one hundred and twenty-three million, four hundred and fifty-six thousand, seven hundred and eighty-nine';
 done_testing();
