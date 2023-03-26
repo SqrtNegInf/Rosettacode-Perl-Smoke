@@ -3,9 +3,14 @@
 #c# 2019-09-01 <RC
 #p# OK
 
+my $result;
+
+use strict;
+use warnings;
 use feature 'say';
 
-# Perl allows underscore as a grouping / separator character in numeric inputs, as long as you use it between digits, and you do not use two underscores in a row:
+# Perl allows underscore as a grouping / separator character in numeric inputs, as long as you use it 
+# between digits, and you do not use two underscores in a row:
 
 # Int
 $result .= 1_2_3 . "\n";  # 123
