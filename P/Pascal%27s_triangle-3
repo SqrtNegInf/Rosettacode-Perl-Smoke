@@ -3,6 +3,10 @@
 #c# 2018-08-20 <RC
 #p# OK
 
+my $result;
+
+use strict;
+use warnings;
 use feature 'say';
 
 {
@@ -27,11 +31,10 @@ sub tartaglia_row {
     return @row;
 }
 
- 
-for (0..5) {$result .= join(' ', tartaglia_row($_)) . "\n" }
+$result .= join(' ', tartaglia_row($_)) . "\n" for 0..5; 
 $result .= "\n\n";
  
-$result .= tartaglia(3,3)."\n";
+$result .= tartaglia(3,3) . "\n";
 my @third = tartaglia_row(5);
 $result .= "@third\n";
 
