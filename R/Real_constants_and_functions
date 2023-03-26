@@ -3,9 +3,11 @@
 #c# 2018-08-19 <RC
 #p# OK
 
+my @res;
+
+use strict;
+use warnings;
 use feature 'say';
-my $result;
-# my @res;
 
 use POSIX; # for floor() and ceil()
 
@@ -25,7 +27,8 @@ push @res, pi; # alternate way to get pi
 use Math::Complex;
 push @res, pi; # alternate way to get pi
 
-say $result = join "\n", @res;
+say my $result = join "\n", @res;
+
 my $ref = <<'EOD';
 2.71828182845905
 3.14159265358979
