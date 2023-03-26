@@ -3,8 +3,11 @@
 #c# 2018-08-20 <RC
 #p# OK
 
-use feature 'say';
 my $result;
+
+use strict;
+use warnings;
+use feature 'say';
 
 use Set::Object qw(set);
 
@@ -21,7 +24,7 @@ my $powerset = powerset($set);
 
 say $result = $powerset->as_string;
 
-$ref = 'Set::Object(Set::Object() Set::Object(1 2 3) Set::Object(1 2) Set::Object(1 3) Set::Object(1) Set::Object(2 3) Set::Object(2) Set::Object(3))';
+my $ref = 'Set::Object(Set::Object() Set::Object(1 2 3) Set::Object(1 2) Set::Object(1 3) Set::Object(1) Set::Object(2 3) Set::Object(2) Set::Object(3))';
 
 use Test::More;
 is ($result, $ref);
