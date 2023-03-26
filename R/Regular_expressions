@@ -3,13 +3,15 @@
 #c# 2018-08-18 <RC
 #p# OK
 
-use feature 'say';
 my $result;
-# my @res;
+
+use strict;
+use warnings;
+use feature 'say';
 
 #Test
 
-$string = "I am a string";
+my $string = "I am a string";
 if ($string =~ /string$/) {
    $result .= "Ends with 'string'\n";
 }
@@ -26,7 +28,7 @@ $result .= "$string\n";
 
 # In Perl 5.14+, you can return a new substituted string without altering the original string:
 $string = "I am a string";
-$string2 = $string =~ s/ a / another /r; # $string2 == "I am another string", $string is unaltered
+my $string2 = $string =~ s/ a / another /r; # $string2 == "I am another string", $string is unaltered
 $result .= "$string2\n";
 
 # Test and Substitute
