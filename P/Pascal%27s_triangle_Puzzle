@@ -3,8 +3,11 @@
 #c# 2018-08-20 <RC
 #p# OK
 
-use feature 'say';
 my $result;
+
+use strict;
+use warnings;
+use feature 'say';
 
 # set up triangle
 my $rows = 5;
@@ -24,6 +27,7 @@ for my $row ( reverse 0..@tri-2 ) {
         $tri[$row][$col]{$_} = $tri[$row+1][$col]{$_}+$tri[$row+1][$col+1]{$_} for 'x','z','v';
     }
 }
+
 # find equations
 my @eqn;
 for my $row ( @tri ) {
@@ -31,15 +35,18 @@ for my $row ( @tri ) {
         push @eqn, [ $$col{x}, $$col{z}, $$col{rhs}-$$col{v} ] if defined $$col{rhs};
     }
 }
+
 # print equations
 $result .= "Equations:\n";
 $result .= "  x +   z = y\n";
 $result .= sprintf "%d x + %d z = %d\n", @$_ for @eqn;
+
 # solve
 my $f = $eqn[0][1] / $eqn[1][1];
 $eqn[0][$_] -=  $f * $eqn[1][$_] for 0..2;
 $f = $eqn[1][0] / $eqn[0][0];
 $eqn[1][$_] -=  $f * $eqn[0][$_] for 0..2;
+
 # print solution
 $result .= "Solution:\n";
 my $x = $eqn[0][2]/$eqn[0][0];
@@ -48,6 +55,7 @@ my $y = $x+$z;
 $result .= sprintf "x=%d, y=%d, z=%d\n", $x, $y, $z;
 
 say $result; 
+
 my $ref = <<'EOD';
 Equations:
   x +   z = y
