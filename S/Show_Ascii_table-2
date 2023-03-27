@@ -7,6 +7,9 @@
 
 # Alternately, and perhaps more usefully, output as a wiki-table rather than ASCII art. Hover mouse over the glyph to get the name.
 
+use strict;
+use warnings;
+
 use charnames ':full';
 
 sub glyph {
@@ -17,7 +20,7 @@ sub glyph {
     else            { chr $n }
 }
 
-$result .= qq[{|class="wikitable" style="text-align:center;background-color:hsl(39, 90%, 95%)"\n];
+my $result = qq[{|class="wikitable" style="text-align:center;background-color:hsl(39, 90%, 95%)"\n];
 
 for (0..127) {
     $result .= qq[|-\n] unless $_ % 16;
