@@ -3,12 +3,15 @@
 #c# 2018-08-18 <RC
 #p# OK
 
-use feature 'say';
 my $result;
+
+use strict;
+use warnings;
+use feature 'say';
 
 sub nonsqr { my $n = shift;  $n + int(0.5 + sqrt $n) }
 
-say $result = join(' ', map nonsqr($_), 1..22); #, "\n";
+say $result = join(' ', map nonsqr($_), 1..22);
 
 foreach my $i (1..1_000_000) {
   my $root = sqrt nonsqr($i);
