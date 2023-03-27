@@ -4,8 +4,11 @@
 #p# OK
 #n# example of Schwartzian transform
 
-use feature 'say';
 my $result;
+
+use strict;
+use warnings;
+use feature 'say';
 
 my @OIDs = qw(
     1.3.6.1.4.1.11.2.17.19.3.4.0.10
