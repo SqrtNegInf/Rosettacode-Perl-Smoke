@@ -3,8 +3,11 @@
 #c# 2018-08-18 <RC
 #p# OK
 
-use feature 'say';
 my $result;
+
+use strict;
+use warnings;
+use feature 'say';
 
 #Library: Digest::SHA
 use Digest::SHA qw(sha1_hex);
@@ -17,6 +20,7 @@ $sha1->add('Rosetta Code');
 $result .= $sha1->hexdigest. "\n";
 
 say $result; 
+
 my $ref = <<'EOD';
 48c98f7e5a6e736d790ab740dfc3f51a61abe2b5
 48c98f7e5a6e736d790ab740dfc3f51a61abe2b5
