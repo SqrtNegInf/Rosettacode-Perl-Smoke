@@ -4,11 +4,14 @@
 #p# OK
 
 use feature 'say';
+
+use strict;
+use warnings;
 my $result;
 
 my @list = ( 1, 2, 3, 4 );
 
-my ( $sum, $prod ) = ( 0, 1 );
+my( $sum, $prod ) = ( 0, 1 );
 $sum  += $_ for @list;
 $prod *= $_ for @list;
 $result = "Sum: $sum\nProduct: $prod\n";
