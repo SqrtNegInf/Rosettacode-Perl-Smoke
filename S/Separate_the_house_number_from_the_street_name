@@ -3,9 +3,13 @@
 #c# 2018-09-29 >RC
 #p# OK
 
+my $result;
+
+use strict;
+use warnings;
 use feature 'say';
 
-@addresses = (
+my @addresses = (
 'Plataanstraat 5',      'Straat 12',             'Straat 12 II',            'Dr. J. Straat   12',
 'Dr. J. Straat 12 a',   'Dr. J. Straat 12-14',   'Laan 1940 – 1945 37',     'Plein 1940 2',
 '1213-laan 11',         '16 april 1944 Pad 1',   '1e Kruisweg 36',          'Laan 1940-’45 66',
