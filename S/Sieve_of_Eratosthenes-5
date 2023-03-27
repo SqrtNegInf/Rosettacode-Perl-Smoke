@@ -4,10 +4,11 @@
 #p# OK
 #n# https://www.perlmonks.org/?node_id=1125331
 
+my $result;
+
 use strict;
 use warnings;
 use feature 'say';
-my $result;
 
 sub string_sieve {
   my($n) = shift;
