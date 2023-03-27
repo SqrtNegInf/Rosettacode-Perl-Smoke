@@ -2,22 +2,10 @@
 #u# http://rosettacode.org/wiki/Rosetta_Code/Rank_languages_by_popularity
 #c# 2018-08-21 <RC, 2019-09-11 >RC, 2022-09-07 >RC
 #p# OK
-#n# test needs to be revised every time a new language crosses the 1000-task barrier
+#n# test needs to be revised every time a new language reaches 1200 tasks
 #n# 2020-01-xx Started out with: Phix, Julia, Go, Python, Raku, Perl
-#n# 2020-01-29 Pleased to welcome 'C' to the '1000 club'
-#n# 2020-02-24 'Java' joins the no-longer-quite-so-exclusive club
-#n# 2020-11-05 Pleased to welcome 'J' to the club
-#n# 2021-02-24 Pleased to welcome 'Ruby' AND 'Wren' to the club (on the same day)
-#n# 2021-03-25 Pleased to welcome 'C++' to the club (hey, when did Zkl sneak in?)
-#n# 2021-04-06 Pleased to welcome 'Nim' to the club
-#n# 2021-04-09 Pleased to welcome 'Haskell' to the club
-#n# 2021-09-07 Pleased to welcome 'Mathematica' to the club
-#n# 2022-02-20 Pleased to welcome 'FreeBASIC' to the club (BASIC shambles onward, 50 years later...)
-#n# 2022-07-01 Pleased to welcome 'Sidef' to the club
-#n# 2022-08-27 'Sidef' dropped off? Must be error of RC hosting move [p.s. now it's back]
-#n# 2022-11-21 Retroactively welcoming: REXX, Racket, Kotlin
-#n# 2023-01-09 'Sidef' is back
-#n# 2023-03-16 Pleased to welcome 'Jq' to the club
+#n# 2020-01-29 --> 2023-03-16 'C' ... 'Jq' reach 1000
+#n# 2023-03-26 Making the club more exclusive again, 1200 tasks is the cutoff (neatly truncating the list to 10 languages)
 
 my @res;
 
@@ -60,7 +48,7 @@ my @sorted_languages =
 binmode STDOUT, ':encoding(utf8)';
 my $n = 1;
 for (@sorted_languages) {
-    next unless $_->{'categoryinfo'}{'size'} > 1000;
+    next unless $_->{'categoryinfo'}{'size'} > 1200;
     push @res, sprintf "%3d. %20s - %3d", $n++, $_->{'title'},
       $_->{'categoryinfo'}{'size'};
 }
@@ -68,5 +56,5 @@ for (@sorted_languages) {
 say join "\n", @res;
 
 use Test::More;
-ok @res == 23;
+ok @res == 10;
 done_testing();
