@@ -3,6 +3,10 @@
 #c# 2018-08-18 <RC, 2018-09-08 >RC
 #p# OK
 
+my $result;
+
+use strict;
+use warnings;
 use feature 'say';
 
 use utf8;
@@ -14,7 +18,7 @@ $result .= reverse 'visor';
 $result .="\n";
 
 # to reverse graphemes:
-$string = "Jose\x{301}"; # "José" in NFD
+my $string = "Jose\x{301}"; # "José" in NFD
 $result .= join('', reverse $string =~ /\X/g); # becomes "ésoJ"
 $result .="\n";
 $string = 'ℵΑΩ 駱駝道 🤔 🇸🇧 🇺🇸 🇬🇧‍ 👨‍👩‍👧‍👦🆗🗺';
