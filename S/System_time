@@ -4,13 +4,15 @@
 #p# OK
 #n# better attribution for output; never really figured out testing for this...
 
+use strict;
+use warnings;
 use feature 'say';
 
 # simple localtime use in scalar context
 say 'A: ' . scalar localtime;
 
 # localtime use in array context
-($sec, $min, $hour, $mday, $mon, $year, $wday, $yday, $isdst) = localtime;
+my($sec, $min, $hour, $mday, $mon, $year, $wday, $yday, $isdst) = localtime;
 printf("B: %04d-%02d-%02d %02d:%02d:%02d\n", $year + 1900, $mon + 1, $mday, $hour, $min, $sec);
 
 # localtime use in array context with POSIX strftime
