@@ -4,6 +4,11 @@
 #p# OK
 #n# smartmatch deprecated (was only used to enable 'multi')
 
+my $result;
+
+use strict;
+use warnings;
+
 use List::MoreUtils qw( natatime );
 
 my %symbols = (
