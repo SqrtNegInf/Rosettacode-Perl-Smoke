@@ -10,13 +10,13 @@ use warnings;
 use feature 'say';
 
 my $str = 'abcdefgh';
-@res.push: substr($str, 2, 3);
-@res.push: substr($str, 2);
-@res.push: substr($str, 0, -1);
-@res.push: substr($str, index($str, 'd'), 3);
-@res.push: substr($str, index($str, 'de'), 3);
+push @res, substr($str, 2, 3);
+push @res, substr($str, 2);
+push @res, substr($str, 0, -1);
+push @res, substr($str, index($str, 'd'), 3);
+push @res, substr($str, index($str, 'de'), 3);
 
-say my $result = @res.join("\n"); 
+say my $result = join "\n", @res;
 
 my $ref = <<'EOD';
 cde
@@ -27,5 +27,6 @@ def
 EOD
 
 use Test::More;
+chomp $ref;
 is ($result, $ref);
 done_testing();
