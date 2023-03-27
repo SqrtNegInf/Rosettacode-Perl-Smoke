@@ -3,11 +3,12 @@
 #c# 2018-08-16 <RC
 #p# OK
 
-use feature 'say';
 my $result;
 
 use strict;
 use warnings;
+use feature 'say';
+
 package Tie::SieveOfEratosthenes;
 
 sub TIEARRAY {
@@ -92,7 +93,7 @@ BEGIN {
 
 }
 
-if( !caller ) {
+if ( !caller ) {
 	tie my (@prime_list), 'Tie::SieveOfEratosthenes';
 	my $limit = $ARGV[0] || 100;
 	my $line = '';
@@ -111,9 +112,8 @@ if( !caller ) {
 	$result .= $line. "\n" if $line;
 }
 
-1;
-
 say $result;
+
 my $ref = <<'END';
 2, 3, 5, 7, 11, 13, 17, 19, 23, 29, 31, 37, 41, 43, 47, 53, 59, 61,
 67, 71, 73, 79, 83, 89, 97
