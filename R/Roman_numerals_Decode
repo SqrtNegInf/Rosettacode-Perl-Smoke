@@ -3,10 +3,11 @@
 #c# 2018-08-18 <RC, 2019-04-25 <RC
 #p# OK
 
+my($result1,$result2,$result3);
+
 use strict;
 use warnings;
 use feature 'say';
-my($result1,$result2,$result3);
 
 {
  my @trans = (
