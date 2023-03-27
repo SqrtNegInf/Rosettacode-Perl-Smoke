@@ -4,6 +4,10 @@
 #p# OK
 #n# any identity operation could be used to force a numeric conversion, '1*' or '/1'
 
+my $result;
+
+use strict;
+use warnings;
 use feature 'say';
 
 use Lingua::EN::Numbers 'num2en_ordinal';
