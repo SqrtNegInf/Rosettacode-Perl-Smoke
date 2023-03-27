@@ -3,12 +3,13 @@
 #c# 2018-08-13 <RC
 #p# OK
 
-srand 123456;
-
-use feature 'say';
 my $result;
 
-use strict ;
+srand 123456;
+
+use strict;
+use warnings;
+use feature 'say';
 
 my @letters ;
 my @nocontrols ;
