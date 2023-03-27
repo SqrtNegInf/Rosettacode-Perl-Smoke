@@ -3,12 +3,18 @@
 #c# 2018-08-17 <RC
 #p# OK
 
-srand 123456;
-
-use feature 'say';
 my $result;
 
-# Using dice5 twice to generate numbers in the range 0 to 24. If we consider these modulo 8 and re-call if we get zero, we have eliminated 4 cases and created the necessary number in the range from 1 to 7.
+srand 123456;
+
+use strict;
+use warnings;
+use feature 'say';
+
+# Using dice5 twice to generate numbers in the range 0 to 24. 
+
+# If we consider these modulo 8 and re-call if we get zero, we have eliminated
+# 4 cases and created the necessary number in the range from 1 to 7.
 
 sub dice5 { 1+int rand(5) }
 
