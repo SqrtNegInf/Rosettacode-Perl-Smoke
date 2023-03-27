@@ -3,22 +3,24 @@
 #c# 2018-08-17 <RC
 #p# OK
 
+use strict;
+use warnings;
 use feature 'say';
 
 sub rot13 {
   shift =~ tr/A-Za-z/N-ZA-Mn-za-m/r;
 }
 
-$i = 'NOWHERE Abjurer';
-$r      .= rot13($i);
-$result = "$r\n";
+my $i = 'NOWHERE Abjurer';
+my $r      .= rot13($i);
+my $result = "$r\n";
 $result .= rot13($r) . "\n";
 
 # One-liner version:
 # perl -pe 'tr/A-Za-z/N-ZA-Mn-za-m/'
 
-
 say $result; 
+
 my $ref = <<'EOD';
 ABJURER Nowhere
 NOWHERE Abjurer
