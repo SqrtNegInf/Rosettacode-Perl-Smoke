@@ -4,11 +4,13 @@
 #p# OK
 #n# let it be random to see if it ever fails
 
+#srand 1;
+
+use strict;
+use warnings;
 use feature 'say';
 
-srand 1;
-
-@a = 0..30;
+my @a = 0..30;
 
 printf "%2d ", $_ for @a; print "\n";
 sattolo_cycle(\@a);
@@ -16,14 +18,14 @@ printf "%2d ", $_ for @a; print "\n";
 
 sub sattolo_cycle {
     my($array) = @_;
-    for $i (reverse 0 .. -1+@$array) {
+    for my $i (reverse 0 .. -1+@$array) {
         my $j = int rand $i;
         @$array[$j, $i] = @$array[$i, $j];
     }
 }
 
 use Test::More;
-$ok = 1;
-$a[$_] == $_ ? $ok = 0 : '' for 0..30;
+my $ok = 1;
+$a[$_] == $_ and $ok = 0 for 0..30;
 ok ( $ok );
 done_testing();
