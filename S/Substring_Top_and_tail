@@ -3,8 +3,12 @@
 #c# 2018-08-13 <RC
 #p# OK
 
-use feature 'say';
 my $result;
+
+use strict;
+use warnings;
+use feature 'say';
+
 use utf8;
 binmode(STDOUT, ':utf8');
 
@@ -13,8 +17,8 @@ $result .= substr("socks", 0, -1). "\n";    # strip last character
 $result .= substr("brooms", 1, -1). "\n";   # strip both first and last characters
 
 #In perl, we can also remove the last character from a string variable with the chop function:
-$string = 'ouch';
-$bits = chop($string);       # The last letter is returned by the chop function
+my $string = 'ouch';
+my $bits = chop($string);       # The last letter is returned by the chop function
 $result .= $bits . "\n";        # h
 $result .= $string . "\n";      # ouc    # See we really did chop the last letter off
 
