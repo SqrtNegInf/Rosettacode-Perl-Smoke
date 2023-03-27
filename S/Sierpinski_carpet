@@ -3,15 +3,14 @@
 #c# 2018-08-17 <RC
 #p# OK
 
+use strict;
+use warnings;
 use feature 'say';
-my $result;
 
 my @c = '##'; 
-@c = (map($_ x 3, @c), map($_.(' ' x length).$_, @c), map($_ x 3, @c)) 
-        for 1 .. 3;
-$result .= join("\n", @c). "\n";
+@c = (map($_ x 3, @c), map($_.(' ' x length).$_, @c), map($_ x 3, @c)) for 1 .. 3;
+say my $result = join("\n", @c);
 
-say $result; 
 my $ref = <<'EOD';
 ######################################################
 ##  ####  ####  ####  ####  ####  ####  ####  ####  ##
@@ -43,5 +42,6 @@ my $ref = <<'EOD';
 EOD
 
 use Test::More;
+chomp $ref;
 is ($result, $ref);
 done_testing();
