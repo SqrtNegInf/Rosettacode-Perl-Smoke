@@ -3,10 +3,12 @@
 #c# 2018-08-14 <RC
 #p# OK
 
-use feature 'say';
 my $result;
 
-# Library: ntheory
+use strict;
+use warnings;
+use feature 'say';
+
 use ntheory qw/:all/;
 
 my @smith;
