@@ -3,9 +3,7 @@
 #c# 2018-08-18 <RC
 #p# OK
 
-use feature 'say';
-
-say $result = "ha" x 5;
+print ($result = "ha" x 5) . "\n";
 
 use Test::More;
 is ($result, 'hahahahaha');
