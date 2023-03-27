@@ -3,15 +3,13 @@
 #c# 2018-08-15 <RC
 #p# OK
 
+use strict;
+use warnings;
 use feature 'say';
-my $result;
 
-# Works with: Perl version 5.8.6
-@nums = (2,4,3,1,2);
-@sorted = sort {$a <=> $b} @nums;
-
-say $result = join ' ', @sorted; 
+my @nums = (2,4,3,1,2);
+say my $result = join ' ', sort {$a <=> $b} @nums;
 
 use Test::More;
-is ($result, '1 2 2 3 4');
+is  $result, '1 2 2 3 4';
 done_testing();
