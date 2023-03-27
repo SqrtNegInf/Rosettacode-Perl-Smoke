@@ -3,8 +3,11 @@
 #c# 2018-08-13 <RC
 #p# OK
 
-use feature 'say';
 my $result;
+
+use strict;
+use warnings;
+use feature 'say';
 
 sub ltrim { shift =~ s/^\s+//r }
 sub rtrim { shift =~ s/\s+$//r }
