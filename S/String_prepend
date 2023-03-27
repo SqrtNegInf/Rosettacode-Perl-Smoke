@@ -3,10 +3,13 @@
 #c# 2018-08-13 <RC
 #p# OK
 
-use feature 'say';
 my $result;
 
-use feature ':all';
+use strict;
+use warnings;
+use feature 'say';
+
+#use feature ':all'; # ??
 
 # explicit concatentation
 $_ = 'bar';
@@ -25,6 +28,7 @@ $_ = "Foo$_";
 $result .= "$_\n";
 
 say $result; 
+
 my $ref = <<'EOD';
 Foobar
 Foobar
