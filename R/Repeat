@@ -3,10 +3,11 @@
 #c# 2018-08-18 <RC
 #p# OK
 
-use feature 'say';
 my $result;
 
-# Translation of: C
+use strict;
+use warnings;
+use feature 'say';
 
 sub repeat {
     my ($sub, $n) = @_;
@@ -20,6 +21,7 @@ sub example {
 repeat(\&example, 4);
 
 say $result; 
+
 my $ref = <<'EOD';
 Example
 Example
