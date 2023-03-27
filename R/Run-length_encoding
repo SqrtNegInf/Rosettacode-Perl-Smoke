@@ -2,34 +2,37 @@
 #u# http://rosettacode.org/wiki/Run-length_encoding
 #c# 2018-08-18 <RC
 #p# OK
+#n# not testing the enchancements of #2 and #3 versions
 
+my($result1,$result2,$result3);
+
+use strict;
+use warnings;
 use feature 'say';
-my $result;
-
 
 # Simple version using ASCII numerals as length markers, like the example in the task description (won't work correctly on input strings that already contain digits):
 
-sub encode {
+sub encode1 {
     shift =~ s/(.)\1*/length($&).$1/grse;
 }
 
-sub decode {
+sub decode1 {
     shift =~ s/(\d+)(.)/$2 x $1/grse;
 }
 
 # Modified version that can take arbitrary byte strings as input (produces encoded byte strings that are compatible with the C solution):
 
-sub encode {
+sub encode2 {
     shift =~ s/(.)\1{0,254}/pack('C', length($&)).$1/grse;
 }
 
-sub decode {
+sub decode2 {
     shift =~ s/(.)(.)/$2 x unpack('C', $1)/grse;
 }
 
 # Further modified version that supports compact representation of longer non-repeating substrings, just like the C solution (so should be fully compatible with that solution for both encoding and decoding):
 
-sub encode {
+sub encode3 {
     my $str = shift;
     my $ret = '';
     my $nonrep = '';
@@ -45,7 +48,7 @@ sub encode {
     return $ret;
 }
 
-sub decode {
+sub decode3 {
     my $str = shift;
     my $ret = '';
     for (my $i = 0; $i < length($str);) {
@@ -64,10 +67,20 @@ sub decode {
 
 # Demonstration of the third version:
 
-my $str = 'XXXXXABCDEFGHIoooooooooooooooooooooooooAAAAAA';
-my $enc = encode($str);
-say $result = decode($enc);
+my $str1 = 'XXXXXABCDEFGHIoooooooooooooooooooooooooAAAAAA';
+my $enc1 = encode1($str1);
+say $result1 = decode1($enc1);
+
+my $str2 = 'XXXXXABCDEFGHIoooooooooooooooooooooooooAAAAAA';
+my $enc2 = encode1($str2);
+say $result2 = decode1($enc2);
+
+my $str3 = 'XXXXXABCDEFGHIoooooooooooooooooooooooooAAAAAA';
+my $enc3 = encode1($str3);
+say $result3 = decode1($enc3);
 
 use Test::More;
-is ($result, 'XXXXXABCDEFGHIoooooooooooooooooooooooooAAAAAA');
+is ($result1, 'XXXXXABCDEFGHIoooooooooooooooooooooooooAAAAAA');
+is ($result2, 'XXXXXABCDEFGHIoooooooooooooooooooooooooAAAAAA');
+is ($result3, 'XXXXXABCDEFGHIoooooooooooooooooooooooooAAAAAA');
 done_testing();
