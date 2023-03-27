@@ -3,10 +3,13 @@
 #c# 2018-08-13 <RC
 #p# OK
 
-use feature 'say';
 my $result;
 
-$code = <<'END';
+use strict;
+use warnings;
+use feature 'say';
+
+my $code = <<'END';
 /**
 * Some comments
 * longer comments here that we can parse.
