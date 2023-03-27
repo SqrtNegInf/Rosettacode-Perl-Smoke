@@ -5,7 +5,10 @@
 
 my @res;
 
+use strict;
+use warnings;
 use feature 'say';
+
 use LWP::UserAgent;
 
 my $ua = LWP::UserAgent->new;
