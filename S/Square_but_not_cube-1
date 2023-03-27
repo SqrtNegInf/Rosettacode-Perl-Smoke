@@ -4,8 +4,13 @@
 #p# OK
 #n# part 1 on RC
 
+my $result;
+
+use strict;
+use warnings;
 use feature 'say';
 
+my($cnt,$n,%h) = (0);
 while ($cnt < 30) {
     $n++;
     $h{$n**2}++;              # tally, is a square
