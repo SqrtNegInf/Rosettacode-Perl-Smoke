@@ -3,11 +3,15 @@
 #c# 2018-08-18 <RC
 #p# OK
 
+my @res;
+
+use strict;
+use warnings;
 use feature 'say';
-my $result;
 
-
-# The first function from the core module List::Util provides short-circuiting search using a block as predicate. However, it can only return the value of the found element, not its index &#8211; so for the first test-case we need to operate on the list of indices.
+# The first function from the core module List::Util provides short-circuiting search using a 
+# block as predicate. However, it can only return the value of the found element, not its index &#8211; 
+# so for the first test-case we need to operate on the list of indices.
 
 use feature 'say';
 use List::Util qw(first);
@@ -41,8 +45,8 @@ use List::MoreUtils qw(first_index);
 
 push @res, $index1 = first_index { $_->{name} eq 'Dar Es Salaam' } @cities;
 
+say my $result = join "\n", @res; 
 
-say $result = join "\n", @res; 
 my $ref = <<'EOD';
 6
 Khartoum-Omdurman
