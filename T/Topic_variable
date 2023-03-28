@@ -4,8 +4,11 @@
 #p# OK
 #n# not such a great explainer?
 
+my @res;
+
+use strict;
+use warnings;
 use feature 'say';
-my $result;
 
 # In Perl the topic variable is $_.  
 # It is the default parameter for loops, and some functions (here 'sqrt'):
@@ -27,7 +30,7 @@ for (1..2) {
   push @res, " fini\n";
 }
 
-say $result = join "\n", @res;
+say my $result = join "\n", @res;
 
 my $ref = <<'EOD';
 2 4 8 
