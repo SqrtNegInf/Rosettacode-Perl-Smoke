@@ -3,11 +3,12 @@
 #c# 2018-08-06 <>RC
 #p# OK
 
-use feature 'say';
 my $result;
 
-# Works with: Perl version 5.x
-#Library: Devel::SizeSize
+use strict;
+use warnings;
+use feature 'say';
+
 use Devel::Size qw(size total_size);
 
 my $var = 9384752;
@@ -16,6 +17,7 @@ $result .= size($var) . "\n";
 $result .= total_size(\@arr) . "\n";
 
 say $result; 
+
 my $ref = <<'EOD';
 24
 256
