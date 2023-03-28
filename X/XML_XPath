@@ -4,13 +4,16 @@
 #p# BROKEN
 #n# does not fulfill task criteria
 
-use feature 'say';
 my $result;
+
+use strict;
+use warnings;
+use feature 'say';
 
 #Library: XML::XPathXPath
 use XML::XPath;
 
-$xml = <<END;
+my $xml = <<END;
 <inventory title="OmniCorp Store #45x10^3">
   <section name="health">
     <item upc="123456789" stock="12">
