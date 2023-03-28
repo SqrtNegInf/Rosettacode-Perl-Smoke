@@ -4,6 +4,9 @@
 #p# OK
 #f# RC file: truth-table.txt
 
+use strict;
+use warnings;
+
 open F, '>run/truth-table.txt';
 
 # Note: can't process stuff like "X xor Y"; "xor" would be treated as a variable name here.
