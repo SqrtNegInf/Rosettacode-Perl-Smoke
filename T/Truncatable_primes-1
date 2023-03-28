@@ -3,10 +3,14 @@
 #c# 2018-08-09 <RC
 #p# OK
 
-use feature 'say';
 my $result;
 
+use strict;
+use warnings;
+use feature 'say';
+
 use ntheory ":all";
+
 sub isltrunc {
   my $n = shift;
   return (is_prime($n) && $n !~ /0/ && ($n < 10 || isltrunc(substr($n,1))));
@@ -23,6 +27,7 @@ for (reverse @{primes(1e6)}) {
 }
 
 say $result;
+
 my $ref = <<'END';
 ltrunc: 998443
 rtrunc: 739399
