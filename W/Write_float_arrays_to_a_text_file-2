@@ -4,7 +4,8 @@
 #p# OK
 #f# RC file: sqrt-2.dat
 
-# Alternatively, with the CPAN List::MoreUtils package:
+use strict;
+use warnings;
 
 use List::MoreUtils 'each_array';
  
