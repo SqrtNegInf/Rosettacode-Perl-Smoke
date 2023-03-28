@@ -3,8 +3,11 @@
 #c# 2018-08-11 <RC
 #p# OK
 
-use feature 'say';
 my $result;
+
+use strict;
+use warnings;
+use feature 'say';
 
 my %scale = (
     Celcius    => { factor => 1  , offset => -273.15 },
@@ -14,7 +17,8 @@ my %scale = (
 
 #print "Enter a temperature in Kelvin: ";
 #chomp(my $kelvin = <STDIN>);
-$kelvin = 21;
+
+my $kelvin = 21;
 die "No such temperature!\n" unless $kelvin > 0;
 
 foreach (sort keys %scale) {
