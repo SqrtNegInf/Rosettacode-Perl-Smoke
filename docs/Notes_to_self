@@ -1,3 +1,6 @@
+2023-03-26
+Removed old 'use 5.x', standardized v5.36 notation.
+
 2023-03-23
 Adding strict/warnings is revealing, even learning a few things...
 
