@@ -3,17 +3,21 @@
 #c# 2018-08-31 >RC
 #p# OK
 
+my $result;
+
+use strict;
+use warnings;
 use feature 'say';
 
-$scalar    = 1;
-@array     = (1, 2);
-%hash      = ('a' => 1);
-$regex     = qr/foo.*bar/;
-$reference = \%hash;
+my $scalar    = 1;
+my @array     = (1, 2);
+my %hash      = ('a' => 1);
+my $regex     = qr/foo.*bar/;
+my $reference = \%hash;
 sub greet { print "Hello world!" };
-$subref    = \&greet;
+my $subref    = \&greet;
 
-$fmt = "%-11s is type:  %s\n";
+my $fmt = "%-11s is type:  %s\n";
 $result .= sprintf $fmt, '$scalar',    ref(\$scalar);
 $result .= sprintf $fmt, '@array',     ref(\@array);
 $result .= sprintf $fmt, '%hash',      ref(\%hash);
