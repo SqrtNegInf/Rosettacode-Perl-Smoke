@@ -4,8 +4,11 @@
 #p# OK
 #n# incomplete, need LibXML
 
-use feature 'say';
 my $result;
+
+use strict;
+use warnings;
+use feature 'say';
 
 
 #Library: XML::SimpleSimple
@@ -26,11 +29,11 @@ if (0) {
 #Library: LibXML
 #use XML::LibXML;
  
-$xml = XML::LibXML::Document->new('1.0');
-$node = $xml->createElement('root');
+my $xml = XML::LibXML::Document->new('1.0');
+my $node = $xml->createElement('root');
 $xml->setDocumentElement($node);
-$node2 = $xml->createElement('element');
-$text = $xml->createTextNode('Some text here');
+my $node2 = $xml->createElement('element');
+my $text = $xml->createTextNode('Some text here');
 $node2->addChild($text);
 $node->appendWellBalancedChunk('text');
 $node->addChild($node2);
@@ -42,6 +45,7 @@ $result .= $xml->toString;
 }
 
 say $result; 
+
 my $ref = <<'EOD';
   <root>
     <element>Some text here</element>
