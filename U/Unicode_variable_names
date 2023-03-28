@@ -4,18 +4,13 @@
 #p# OK
 
 my $result;
+
+use strict;
+use warnings;
 use feature 'state';
 
-# Requires Perl 5.8.1 at the minimum. See http://perldoc.perl.org/utf8.html
-
 use utf8;
-
-my $Δ = 1;
-$Δ++;
-$result .= $Δ . "\n";
-# $ sigil can be omitted by using lvalue subroutine:
-
-use utf8;
+binmode(STDOUT, ':utf8');
 
 BEGIN {
     my $val;
@@ -24,20 +19,25 @@ BEGIN {
     }
 }
 
+my $Δ = 1;
+$Δ++;
+$result .= $Δ . "\n";
+# $ sigil can be omitted by using lvalue subroutine:
+
 Δ = 1;
 Δ++;
 $result .= Δ. "\n";
 
-use utf8;
-
-sub Δ () : lvalue {
+sub 𝜑 () : lvalue {
     state $val;
 }
 
-Δ = 1;
-Δ++;
-$result .= Δ . "\n";
-#One can have Unicode in identifier or subroutine names and also in package or class names. Use of Unicode for the last two purposes is, due to file and directory names, dependent on the filesystem.
+𝜑 = 1;
+𝜑++;
+$result .= 𝜑 . "\n";
+
+# One can have Unicode in identifier or subroutine names and also in package or class names. 
+# Use of Unicode for the last two purposes is, due to file and directory names, dependent on the filesystem.
 
 print $result; 
 
