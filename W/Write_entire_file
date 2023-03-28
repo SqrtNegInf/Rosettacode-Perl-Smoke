@@ -6,6 +6,9 @@
 
 # Traditional way, in case using CPAN modules is not an option:
 
+use strict;
+use warnings;
+
 my $filename = 'run/write_entire_file.dat';
 my $data = 'Testing... 1 2 3';
 
