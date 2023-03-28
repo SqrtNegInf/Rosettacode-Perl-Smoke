@@ -4,6 +4,8 @@
 #p# OK
 #n# note double-space after 'face.'
 
+use strict;
+use warnings;
 use feature 'say';
 
 # Regex. Also showing degraded behavior on very long words:
