@@ -4,11 +4,13 @@
 #p# OK
 #n# not using 'warnings' as code desmonstrates errors that can occur
 #n# removed a few 'scalar' that weren't required
+#n# the whole 'order of magnitude' demo. is a crufty crock, but just letting it be for now
+
+my $result;
 
 use strict;
-#use warnings;
+#use warnings;    # on lines 41, 43, 46, 49
 use feature 'say';
-my $result;
 
 # The way to get the number of elements of an array in Perl is to put the array in scalar context.
 
