@@ -3,16 +3,11 @@
 #c# 2018-07-15 <RC
 #p# OK
 
-use strict;
-use warnings;
-use feature 'say';
-my $result;
+use v5.36.0;
  
 my ($a0, $g0, $a1, $g1);
  
-sub agm($$) {
-    $a0 = shift;
-    $g0 = shift;
+sub agm ($a0, $g0) {
     do { 
         $a1 = ($a0 + $g0)/2; 
         $g1 = sqrt($a0 * $g0); 
@@ -22,7 +17,7 @@ sub agm($$) {
     return $a0;
 }
  
-say $result = agm(1, 1/sqrt(2)) . "\n";
+say my $result = agm(1, 1/sqrt(2)) . "\n";
 
 my $ref = <<EOD;
 0.847213084793979
