@@ -7,16 +7,20 @@
 
 srand 123456;
 
-#use warnings;
 use strict;
+use warnings;
 
 # Simulation code. Showing three sample images with different STEP and ATTRACT parameters, to demonstrate how sensitive the result is to them.
 # Code runs until the tree reached specified radius. Output is written to "test.eps" of wherever the current directory is.
 
-sub PI() { atan2(1,1) * 4 }     # The, er, pi
-sub STEP() { .5 }               # How far does the particle move each step. Affects
-                                #       both speed and accuracy greatly
-sub STOP_RADIUS() { 100 }       # When the tree reaches this far from center, end
+use constant          PI => 4*atan2(1,1);
+use constant        STEP => .5;
+use constant STOP_RADIUS => 100;
+
+#sub PI() { atan2(1,1) * 4 }     # The, er, pi
+#sub STEP() { .5 }               # How far does the particle move each step. Affects
+#                                #       both speed and accuracy greatly
+#sub STOP_RADIUS() { 100 }       # When the tree reaches this far from center, end
 
 # At each step, move this much towards center.  Bigger numbers help the speed because
 # particles are less likely to wander off, but greatly affects tree shape.
@@ -30,8 +34,9 @@ my $r_start = 3;
 my $max_dist = 0;
 
 sub dist2 {
-        my ($dx, $dy) = ($_[0][0] - $_[1][0], $_[0][1] - $_[1][1]);
-        $dx * $dx + $dy * $dy
+    no warnings 'uninitialized';
+    my ($dx, $dy) = ($_[0][0] - $_[1][0], $_[0][1] - $_[1][1]);
+    $dx * $dx + $dy * $dy
 }
 
 sub move {
