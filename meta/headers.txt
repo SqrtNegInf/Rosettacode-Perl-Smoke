@@ -656,6 +656,7 @@ File: A/Array_length
 #p# OK
 #n# not using 'warnings' as code desmonstrates errors that can occur
 #n# removed a few 'scalar' that weren't required
+#n# the whole 'order of magnitude' demo. is a crufty crock, but just letting it be for now
 
 File: A/Arrays
 #!/usr/local/bin/perl
@@ -9938,8 +9939,7 @@ File: S/Spelling_of_ordinal_numbers
 File: S/Sphenic_numbers
 #!/usr/local/bin/perl
 #u# https://rosettacode.org/wiki/Sphenic_numbers
-#t# inprogress
-#c# 2022-xx-xx >RC
+#c# 2023-03-29 >RC
 #p# OK
 
 File: S/Spinning_rod_animation_Text
@@ -11844,15 +11844,15 @@ File: Z/Zebra_puzzle
 File: Z/Zeckendorf_arithmetic
 #!/usr/local/bin/perl
 #u# http://rosettacode.org/wiki/Zeckendorf_arithmetic
-#c# 2021-11-26 <RC
+#c# 2021-11-26 <RC, 2023-03-29 >RC
 #p# OK
+#n# 'upgrade' to 5.36, required tweaks to avoid using overloaded ops in Z* package itself
 
-File: Z/Zeckendorf_arithmetic_exp
+File: Z/Zeckendorf_arithmetic.1
 #!/usr/local/bin/perl
 #u# http://rosettacode.org/wiki/Zeckendorf_arithmetic
-#c# 2023-03-28 NOT ON RC
+#c# 2021-11-26 <RC
 #p# OK
-#n# 'upgrade' to 5.36 not complete, runs but code not quite there yet
 
 File: Z/Zeckendorf_number_representation
 #!/usr/local/bin/perl
