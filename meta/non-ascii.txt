@@ -824,7 +824,8 @@ U/Unicode_strings
 四:     3 CJK UNIFIED IDEOGRAPH-56DB
 
 U/Unicode_variable_names
-Δ:    11 GREEK CAPITAL LETTER DELTA
+Δ:     7 GREEK CAPITAL LETTER DELTA
+𝜑:     4 MATHEMATICAL ITALIC SMALL PHI
 
 U/Unique_characters
 ä:     2 LATIN SMALL LETTER A WITH DIAERESIS
