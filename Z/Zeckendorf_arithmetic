@@ -68,7 +68,7 @@ sub zadd
   {
   my ($self, $other, $swap) = @_;
   my ($x, $y) = map $self->new($$_), $self, $other; # copy
-  ++$x, $y-- while $$y ne 0;
+  $x++, $y-- while $$y ne 0;
   return $x;
   }
 
@@ -76,7 +76,7 @@ sub zsub
   {
   my ($self, $other, $swap) = @_;
   my ($x, $y) = map $self->new($$_), $self, $other; # copy
-  --$x, $y-- while $$y ne 0;
+  $x--, $y-- while $$y ne 0;
   return $x;
   }
 
