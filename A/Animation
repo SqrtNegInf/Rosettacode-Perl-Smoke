@@ -4,8 +4,7 @@
 #c# 2018-07-13 <RC, 2018-10-30 >RC
 #p# OK
 
-use strict;
-use warnings;
+use v5.36.0;
 
 use Tk;
 use Time::HiRes qw(sleep);
@@ -14,7 +13,7 @@ my $msg    = 'Hello World! ';
 my $first  = '.+';
 my $second = '.';
  
-my $mw = Tk::MainWindow->new(-title => 'Animated side-scroller',-bg=>"white");
+my $mw = MainWindow->new(-title => 'Animated side-scroller',-bg=>"white");
 $mw->geometry ("400x150+0+0");
  
 $mw->optionAdd('*Label.font', 'Courier 24 bold' );
