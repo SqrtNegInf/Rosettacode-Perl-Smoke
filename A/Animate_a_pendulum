@@ -5,18 +5,12 @@
 #p# OK
 #n# Tk graphics
 
-use strict;
-use warnings;
-use feature 'say';
-my $result;
+use 5.36.0;
 
-# Translation of: Tcl
-# This does not have the window resizing handling that Tcl does.
- 
-use Tk; 
+use Tk;
 use Math::Trig qw/:pi/;
  
-my $root =  new MainWindow( -title => 'Pendulum Animation' );
+my $root = MainWindow->new( -title => 'Pendulum Animation' );
 my $canvas = $root->Canvas(-width => 320, -height => 200);
 my $after_id;
  
