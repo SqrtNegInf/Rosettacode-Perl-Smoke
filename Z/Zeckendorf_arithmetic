@@ -66,13 +66,13 @@ sub asdecimal ($self) {
         $n += $bb * $_;
         ($aa, $bb) = ($bb, $aa + $bb);
     }
-    $n;
+    $n
 }
 
 sub fromdecimal ($self, $value) {
     my $z = $self->new(0);
-    ++$z for 1 .. $value;
-    $z;
+    $z++ for 1 .. $value;
+    $z
 }
 
 sub zstring { ${ shift() } }
