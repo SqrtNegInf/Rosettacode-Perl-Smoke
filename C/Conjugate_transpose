@@ -3,12 +3,14 @@
 #c# 2018-07-24 <RC
 #p# OK
 
-use feature 'say';
 my $result;
+
+use strict;
+use warnings;
+use feature 'say';
 
 # In general, using two or more modules which overload operators can be problematic. For this task, using both Math::Complex and Math::MatrixReal gives us the behavior we want for everything except matrix I/O, i.e. parsing and stringification.
 
-use strict;
 use English;
 use Math::Complex;
 use Math::MatrixReal;
@@ -16,15 +18,14 @@ use Math::MatrixReal;
 sub cmats_are_equal {
     my ($m1, $m2) = @ARG;
     my $max_norm = 1.0e-7;
-    return abs($m1 - $m2) < $max_norm;  # Math::MatrixReal overloads abs().
+    abs($m1 - $m2) < $max_norm;  # Math::MatrixReal overloads abs().
 }
 
 # Note that Math::Complex and Math::MatrixReal both overload '~', for
 # complex conjugates and matrix transpositions respectively.
 sub conjugate_transpose {
     my $m_T = ~ shift;
-    my $result = $m_T->each(sub {~ $ARG[0]});
-    return $result;
+    $m_T->each(sub {~ $ARG[0]});
 }
 
 sub cmat_as_string {
@@ -32,14 +33,14 @@ sub cmat_as_string {
     my $n_rows = ($m->dim())[0];
     my @row_strings = map { q{[} . join(q{, }, $m->row($ARG)->as_list) . q{]} }
                           (1 .. $n_rows);
-    return join("\n", @row_strings);
+    join("\n", @row_strings);
 }
 
 sub identity {
     my $N = shift;
     my $m = new Math::MatrixReal($N, $N);
     $m->one();
-    return $m;
+    $m;
 }
 
 sub example1 {
@@ -48,7 +49,7 @@ sub example1 {
     $m->assign(1, 2, cplx(2, 1));
     $m->assign(2, 1, cplx(2, -1));
     $m->assign(2, 2, cplx(1, 0));
-    return $m;
+    $m;
 }
 
 sub example2 {
@@ -62,7 +63,7 @@ sub example2 {
     $m->assign(3, 1, cplx(1, 0));
     $m->assign(3, 2, cplx(0, 0));
     $m->assign(3, 3, cplx(1, 0));
-    return $m;
+    $m;
 }
 
 sub example3 {
@@ -76,7 +77,7 @@ sub example3 {
     $m->assign(3, 1, cplx(0, 0));
     $m->assign(3, 2, cplx(0, 0));
     $m->assign(3, 3, cplx(0, 1));
-    return $m;
+    $m;
 }
 
 my @examples = (example1(), example2(), example3());
