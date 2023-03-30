@@ -3,8 +3,14 @@
 #c# 2018-08-06 <RC
 #p# OK
 #n# 'fruit' testing, but not variable assignments
+#n# 1st part does not play well with strict/warnings, or v5.36
 
 my $result;
+
+# PART 1
+
+no strict;
+no warnings;
 
 # In perl, variables are global by default and can be manipulated from anywhere in the program. Variables can be used without first being declared, providing that the strict pragmatic directive is not in effect:
 
@@ -31,7 +37,7 @@ my ($x, $y, @b, @c, $z) = @a; # Same thing, and also @c becomes empty
 # The kind of value a variable can hold depends on its sigil, "sigil" being a slang term for "funny character in front of a variable name". $dollarsigns can hold scalars: the undefined value, numbers, strings, or references. @atsigns can hold arrays of scalars, and %percentsigns can hold hashes of scalars (associative arrays mapping strings to scalars); nested data structures are constructed by making arrays or hashes of references to arrays or hashes.
 # There are two other sigils, but they behave quite unlike the others. A token of the form &foo refers to a subroutine named foo. In older versions of Perl, ampersands were necessary for calling user-defined subroutines, but since they no longer are, they have only a handful of obscure uses, like making references to named subroutines. Note that you can't assign to an ampersand-marked name. But you can assign to a typeglob, a kind of object represented with the notation *var. A typeglob *foo represents the symbol-table entry for all of the otherwise independent variables $foo, @foo, %foo, and &foo. Assigning a string "bar" to *foo makes these variables aliases for $bar, @bar, %bar, and &bar respectively. Alternatively, you can assign a reference to a typeglob, which creates an alias only for the variable of the appropriate type. In particular, you can say *twiddle = sub {...} to change the definition of the subroutine &twiddle without affecting $twiddle and friends.
 
-# The strict pragmatic directive[edit]
+# PART 2
 # If the strict pragmatic directive is in effect, then variables need explicit scope declaration, so should be prefixed with a my or our keyword depending on the required level of scope:
 
 {
