@@ -111,6 +111,9 @@ B/Brilliant_numbers
 ˢ:     1 MODIFIER LETTER SMALL S
 ᵗ:     3 MODIFIER LETTER SMALL T
 
+B/Brownian_tree
+π:     1 GREEK SMALL LETTER PI
+
 B/Burrows-Wheeler_transform
 ɐ:     2 LATIN SMALL LETTER TURNED A
 ɟ:     2 LATIN SMALL LETTER DOTLESS J WITH STROKE
