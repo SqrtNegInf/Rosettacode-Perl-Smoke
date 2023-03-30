@@ -3,14 +3,11 @@
 #c# 2018-07-21 <RC
 #p# OK
 
-use feature 'say';
-my $result;
-
 # These variables are all different
 $dog='Benjamin';
 $Dog='Samba';
 $DOG='Bernie';
-say $result = "The three dogs are named $dog, $Dog, and $DOG";
+print ($result = "The three dogs are named $dog, $Dog, and $DOG"); print "\n";
 
 use Test::More;
 is ($result, 'The three dogs are named Benjamin, Samba, and Bernie');
