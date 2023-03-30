@@ -3,10 +3,9 @@
 #c# 2018-07-22 <RC
 #p# OK
 
-use strict;
-use warnings;
-use feature 'say';
 my @res;
+
+use v5.36.0;
 
 # The perlipc man page details several approaches to interprocess communication. Here's one of my favourites: socketpair and fork. I've omitted some error-checking for brevity.
 
@@ -14,7 +13,7 @@ use Socket;
  
 my $nr_items = 3;
  
-sub short_sleep($) {
+sub short_sleep {
     (my $seconds) = @_;
     select undef, undef, undef, $seconds;
 }
@@ -23,7 +22,7 @@ sub short_sleep($) {
 # the main thread, and sends a value back to the main thread.  A short
 # sleep introduces random timing, just to keep us honest.
  
-sub be_worker($$) {
+sub be_worker {
     my ($socket, $value) = @_;
     for (1 .. $nr_items) {
         sysread $socket, my $dummy, 1;
@@ -39,7 +38,7 @@ sub be_worker($$) {
 # the main thread, as well as an initial value to work with.  It returns
 # (to the main thread) a socket on which to talk to the worker.
  
-sub fork_worker($) {
+sub fork_worker {
     (my $value) = @_;
     socketpair my $kidsock, my $dadsock, AF_UNIX, SOCK_STREAM, PF_UNSPEC
         or die "socketpair: $!";
