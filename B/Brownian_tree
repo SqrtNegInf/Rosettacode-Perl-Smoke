@@ -1,23 +1,24 @@
 #!/usr/local/bin/perl
 #u# http://rosettacode.org/wiki/Brownian_tree
-#c# 2018-07-17 <>RC
+#c# 2018-07-17 <>RC, 2023-03-29 >RC
 #p# OK
 #f# RC file: brownian_tree.eps
 #n# Used to be really slow? Not so in 5.28...
 
 srand 123456;
 
-use strict;
-use warnings;
+use v5.36.0;
 
-# Simulation code. Showing three sample images with different STEP and ATTRACT parameters, to demonstrate how sensitive the result is to them.
-# Code runs until the tree reached specified radius. Output is written to "test.eps" of wherever the current directory is.
+# Simulation code. Showing three sample images with different STEP and ATTRACT parameters, 
+# to demonstrate how sensitive the result is to them.  # Code runs until the tree reached 
+# specified radius. Output is written to "test.eps" of wherever the current directory is.
 
-use constant          PI => 4*atan2(1,1);
-use constant        STEP => .5;
+use constant          PI => 2*atan2(1,0);
+use constant        STEP => 0.5;
+use constant     ATTRACT => 0.2;
 use constant STOP_RADIUS => 100;
 
-#sub PI() { atan2(1,1) * 4 }     # The, er, pi
+#sub PI() { atan2(1,1) * 4 }     # π
 #sub STEP() { .5 }               # How far does the particle move each step. Affects
 #                                #       both speed and accuracy greatly
 #sub STOP_RADIUS() { 100 }       # When the tree reaches this far from center, end
@@ -25,13 +26,11 @@ use constant STOP_RADIUS => 100;
 # At each step, move this much towards center.  Bigger numbers help the speed because
 # particles are less likely to wander off, but greatly affects tree shape.
 # Should be between 0 and 1 ish.  Set to 0 for pain.
-sub ATTRACT() { .2 }
+#sub ATTRACT() { .2 } # see above
 
 my @particles = map([ map([], 0 .. 2 * STOP_RADIUS) ],  0 .. 2 * STOP_RADIUS);
 push @{ $particles[STOP_RADIUS][STOP_RADIUS] }, [0, 0];
-
-my $r_start = 3;
-my $max_dist = 0;
+my($r_start, $max_dist) = (3, 0);
 
 sub dist2 {
     no warnings 'uninitialized';
@@ -113,7 +112,6 @@ sub move {
                 $p->[0] -= $nudge * cos($angle);
                 $p->[1] -= $nudge * sin($angle);
         }
-
         return 1;
 }
 
@@ -121,11 +119,11 @@ my $count;
 PARTICLE: while () {
         my $a = rand(2 * PI);
         my $p = [ $r_start * cos($a), $r_start * sin($a) ];
-        while (my $m = move($p)) {
-            if    ($m == 1) { next }
-            elsif ($m == 2) { $count++; last; }
-            elsif ($m == 3) { last PARTICLE }
-            else            { last }
+        while (my $m = move $p) {
+            if    ($m == 1) { next           }
+            elsif ($m == 2) { $count++; last }
+            elsif ($m == 3) { last PARTICLE  }
+            else            { last           }
         }
         #print STDERR "$count $max_dist/@{[int($r_start)]}/@{[STOP_RADIUS]}\r" unless $count% 7;
 }
@@ -136,33 +134,30 @@ sub write_eps {
         my $b = STOP_RADIUS * $p;
         if ($p < 1) {
                 $size = STOP_RADIUS * 1.05;
-                $b = STOP_RADIUS;
                 $p = 1;
+                $b = STOP_RADIUS;
         }
-
         my $hp = $p / 2;
 
-        open OUT, ">", "run/brownian_tree.eps";
-
-        # print EPS to standard out
-        print OUT <<"HEAD";
-%!PS-Adobe-3.0 EPSF-3.0
-%%BoundingBox: 0 0 @{[$size*2, $size*2]}
-$size $size translate
-/l{ rlineto }def
-/c{ $hp 0 360 arc fill }def
--$size -$size moveto
-$size 2 mul 0 l
-0 $size 2 mul l
--$size 2 mul 0 l
-closepath
-0 setgray fill
-0 setlinewidth .1 setgray 0 0 $b 0 360 arc stroke
-.8 setgray /TimesRoman findfont 16 scalefont setfont
--$size 10 add $size -16 add moveto
-(Step = @{[STEP]}  Attract = @{[ATTRACT]}) show
-0 1 0 setrgbcolor newpath
-HEAD
+        open OUT, '>', 'run/brownian_tree.eps';
+        print OUT <<~"HEAD";
+            %!PS-Adobe-3.0 EPSF-3.0
+            %%BoundingBox: 0 0 @{[$size*2, $size*2]}
+            $size $size translate
+            /l{ rlineto }def
+            /c{ $hp 0 360 arc fill }def
+            -$size -$size moveto
+            $size 2 mul 0 l
+            0 $size 2 mul l
+            -$size 2 mul 0 l
+            closepath
+            0 setgray fill
+            0 setlinewidth .1 setgray 0 0 $b 0 360 arc stroke
+            .8 setgray /TimesRoman findfont 16 scalefont setfont
+            -$size 10 add $size -16 add moveto
+            (Step = @{[STEP]}  Attract = @{[ATTRACT]}) show
+            0 1 0 setrgbcolor newpath
+            HEAD
 
         for (@particles) {
                 for (@$_) {
@@ -173,4 +168,4 @@ HEAD
         close OUT;
 }
 
-write_eps;
+write_eps();
