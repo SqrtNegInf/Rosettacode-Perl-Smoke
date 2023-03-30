@@ -3,10 +3,6 @@
 #c# 2018-08-14 <RC
 #p# OK
 
-use feature 'say';
-my $result;
-
-
 # This performs simultaneous breadth first searches, starting from the initial state
 # and various possible final states, and meeting somewhere in the middle.
 # On my laptop, which has a slow cpu and little memory, it can solve the basic puzzle
@@ -19,8 +15,12 @@ my $result;
 # possible for the solution to be at most one step longer than the optimal one... but it
 # would still be a valid solution. I could fix it, but at the cost of speed and memory.
 
+my $result;
+
 use strict;
 use warnings <FATAL all>;
+use feature 'say';
+
 my @initial = split /\n/, <<'';
 #############
 #  #        #
@@ -53,10 +53,15 @@ my $initial = join '', @initial;
 my $size = length($initial);
 die unless $size == $cols * @initial;
 
-sub WALL() { 1 }
-sub PLAYER() { 2 }
-sub BOX() { 4 }
-sub GOAL() { 8 }
+use constant   WALL => 1;
+use constant PLAYER => 2;
+use constant    BOX => 4;
+use constant   GOAL => 8;
+
+#sub WALL() { 1 }
+#sub PLAYER() { 2 }
+#sub BOX() { 4 }
+#sub GOAL() { 8 }
 
 my %input = (
 	' ' => 0, '#' => WALL, '@' => PLAYER, '$' => BOX,
