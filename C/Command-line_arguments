@@ -4,18 +4,18 @@
 #p# OK
 #i# RC cli: ref/lines_of_numbers.txt mode=frobnicate iterations=42
 
-#use strict;
-#use warnings;
-use feature 'say';
-
 my @res;
+
+use strict;
+use warnings;
+use feature 'say';
 
 # @ARGV is the array containing all command line parameters
 
 push @res, join ':', @ARGV;
 push @res, scalar @ARGV; 
-push @res, $second = $ARGV[1];
-push @res, $third = $ARGV[2];
+push @res, $ARGV[1];
+push @res, $ARGV[2];
 
 #If you don't mind importing a module:
 #use Getopt::Long;
@@ -24,7 +24,7 @@ push @res, $third = $ARGV[2];
 #    'verbose|v'  => \my $verbose,
 #);
 
-say $result = join "\n", @res;
+say my $result = join "\n", @res;
 
 my $ref = <<'EOD';
 ref/lines_of_numbers.txt:mode=frobnicate:iterations=42
