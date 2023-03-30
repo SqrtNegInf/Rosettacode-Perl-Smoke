@@ -22,7 +22,7 @@ my $delay = 0;
 my $show = 1;
 
 my $server = shift // 'localhost:3141';
-my $socket = IO::Socket::INET->new($server) or die [email protected];
+my $socket = IO::Socket::INET->new($server) or die $@;
 getc $socket eq 'A' ? print $socket 'A' : die "no handshake";
 my $start = time;
 
