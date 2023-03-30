@@ -3,12 +3,10 @@
 #c# 2018-08-18 <RC
 #p# OK
 
-use strict;
-use warnings;
-use feature 'say';
-my $result;
+use v5.36.0;
 
 srand 123456;
+my $result;
 
 # This example includes maze generation code.
 
@@ -26,11 +24,11 @@ my @dy = <0 0 -1 1>;
 
 sub visit {
    my ($x, $y) = @_;
-   $visited{$x, $y} = 1;
+   $visited{"$x,$y"} = 1;
    my $rand = int rand 4;
    for my $n ( $rand .. 3, 0 .. $rand-1 ) {
       my ($xx, $yy) = ($x + $dx[$n], $y + $dy[$n]);
-      next if $visited{ $xx, $yy };
+      next if $visited{"$xx,$yy"};
       next if $xx < 0 or $xx >= $width;
       next if $yy < 0 or $yy >= $height;
 
@@ -54,11 +52,11 @@ my @d = ('>>', '<<', 'vv', '^^');
 sub solve {
    my ($x, $y) = @_;
    return 1 if $x == 0 and $y == 0;
-   $visited{ $x, $y } = 1;
+   $visited{"$x,$y"} = 1;
    my $rand = int rand 4;
    for my $n ( $rand .. 3, 0 .. $rand-1 ) {
       my ($xx, $yy) = ($x + $dx[$n], $y + $dy[$n]);
-      next if $visited{ $xx, $yy };
+      next if $visited{"$xx,$yy"};
       next if $xx < 0 or $xx >= $width;
       next if $yy < 0 or $yy >= $height;
 
@@ -87,6 +85,7 @@ if( solve( $width-1, $height-1 ) ) {
 }
 
 say $result; 
+
 my $ref = <<'EOD';
 Here is the maze:
 +--+--+--+--+--+--+--+--+--+--+
