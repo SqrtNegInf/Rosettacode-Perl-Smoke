@@ -4,8 +4,6 @@
 #p# OK
 #=# RC pipe: e\ni\nc\nd
 
-use v5.36;
-
 srand 123456;
 
 # A basic negamax search (with caching) is done to find the best move.
@@ -13,6 +11,9 @@ srand 123456;
 # The computer player is not perfect, and so a human player can sometimes win.
 # This is not perl's fault, but mine; it ought to always be a tie, or a win for
 # the computer. Anyone who can identify the mistake, is welcome to fix it.
+
+use warnings;
+use strict;
 
 my $initial = join ",", <abc def ghi>;
 my %reverse = <X O O X>;
@@ -22,11 +23,10 @@ my %reverse = <X O O X>;
 my %cache;
 sub best_move {
 	my ($b, $me) = @_;
-    my $key = "$b,$me," . wantarray;
-	if( exists $cache{$key} ) {
-		return $cache{$key};
+	if( exists $cache{$b,$me,wantarray} ) {
+		return $cache{$b,$me,wantarray};
 	} elsif( my $s = score( $b, $me ) ) {
-		return $cache{$key} = wantarray ? undef : $s;
+		return $cache{$b,$me,wantarray} = (wantarray ? undef : $s);
 	}
 	my $him = $reverse{$me};
 	my ($best, @best) = (-999);
@@ -40,7 +40,7 @@ sub best_move {
 			push @best, $m;
 		}
 	}
-	$cache{$key} = wantarray ? $best[rand @best] : $best;
+	$cache{$b,$me,wantarray} = wantarray ? $best[rand @best] : $best;
 }
 
 my $winner = q[([XOxo])(?:\1\1|...\1...\1|..\1..\1|....\1....\1)];
