@@ -3,8 +3,9 @@
 #c# 2018-08-18 <RC
 #p# OK
 
-use feature 'say';
 my $result;
+
+use v5.36.0;
 
 # For real code, try Set::Object from CPAN. Here we provide a primitive implementation using hashes.
 
@@ -63,7 +64,7 @@ sub union {
 
 sub intersection {
 	my ($this, $that) = @_;
-	my $s = new Set;
+	my $s = Set->new;
 	for (keys %$this) {
 		$s->{$_} = $this->{$_} if exists $that->{$_}
 	}
@@ -81,7 +82,7 @@ sub diff {
 
 sub xdiff { # xor, symmetric diff
 	my ($this, $that) = @_;
-	my $s = new Set;
+	my $s = Set->new;
 	bless { %{ ($this - $that) | ($that - $this) } }
 }
 
