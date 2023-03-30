@@ -1176,7 +1176,7 @@ File: B/Brilliant_numbers
 File: B/Brownian_tree
 #!/usr/local/bin/perl
 #u# http://rosettacode.org/wiki/Brownian_tree
-#c# 2018-07-17 <>RC
+#c# 2018-07-17 <>RC, 2023-03-29 >RC
 #p# OK
 #f# RC file: brownian_tree.eps
 #n# Used to be really slow? Not so in 5.28...
@@ -10907,6 +10907,13 @@ File: T/Tic-tac-toe-2
 #c# 2020-07-05 <RC
 #p# OK
 
+File: T/Tic-tac-toe.1
+#!/usr/local/bin/perl
+#u# http://rosettacode.org/wiki/Tic-tac-toe
+#c# 2018-08-10 <RC
+#p# OK
+#=# RC pipe: e\ni\nc\nd
+
 File: T/Time-based_One-time_Password_Algorithm
 #!/usr/local/bin/perl
 #u# http://rosettacode.org/wiki/Time-based_One-time_Password_Algorithm
@@ -11369,6 +11376,7 @@ File: V/Variables
 #c# 2018-08-06 <RC
 #p# OK
 #n# 'fruit' testing, but not variable assignments
+#n# 1st part does not play well with strict/warnings, or v5.36
 
 File: V/Variadic_function
 #!/usr/local/bin/perl
