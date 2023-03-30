@@ -9,7 +9,6 @@ use strict;
 use warnings;
 use feature 'say';
 
-use English;
 use String::Tokenizer;
 use Heap::Simple;
 
@@ -65,16 +64,16 @@ sapien bibendum, sit amet porta lorem fringilla. Morbi bibendum in turpis ac
 blandit. Mauris semper nibh nec dignissim dapibus. Proin sagittis lacus est.
 END_STREAM_6
 
-merge_two_streams(map {String::Tokenizer->new($ARG)->iterator()}
+merge_two_streams(map {String::Tokenizer->new($_)->iterator()}
                       ($stream1, $stream2));
 
-merge_N_streams(6, map {String::Tokenizer->new($ARG)->iterator()}
+merge_N_streams(6, map {String::Tokenizer->new($_)->iterator()}
                        ($stream1, $stream2, $stream3,
                         $stream4, $stream5, $stream6));
 
 sub merge_two_streams {
     no warnings 'uninitialized';
-    my ($iter1, $iter2) = @ARG;
+    my ($iter1, $iter2) = @_;
     $result .= "Merge of 2 streams:\n";
     while (1) {
         if (!$iter1->hasNextToken() && !$iter2->hasNextToken()) {
@@ -100,7 +99,7 @@ sub merge_two_streams {
 sub merge_N_streams {
     my $N = shift;
     $result .= "Merge of $N streams:\n";
-    my @iters = @ARG;
+    my @iters = @_;
     my $heap = Heap::Simple->new(order => 'lt', elements => 'Array');
     for (my $i=0; $i<$N; $i++) {
         my $iter = $iters[$i];
@@ -115,7 +114,7 @@ sub merge_N_streams {
         # obtained the element we just extracted.
         my $to_insert = _fetch_next_element($iter_idx, $N, @iters);
         if (! $to_insert) {
-            $result .= join('', map {$ARG->[0]} $heap->extract_all); last;
+            $result .= join('', map {$_->[0]} $heap->extract_all); last;
         }
         $heap->insert($to_insert);
     }
@@ -123,11 +122,11 @@ sub merge_N_streams {
 }
 
 sub _fetch_next_element {
-    my $starting_idx = shift; my $N = shift; my @iters = @ARG;
+    my $starting_idx = shift; my $N = shift; my @iters = @_;
     # Go round robin through every iterator exactly once, returning the first
     # element on offer.
     my @round_robin_idxs =
-        map {$ARG % $N} ($starting_idx .. $starting_idx + $N - 1);
+        map {$_ % $N} ($starting_idx .. $starting_idx + $N - 1);
     foreach my $iter_idx (@round_robin_idxs) {
         my $iter = $iters[$iter_idx];
         if ($iter->hasNextToken()) {
