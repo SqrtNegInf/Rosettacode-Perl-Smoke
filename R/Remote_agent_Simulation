@@ -104,7 +104,7 @@ if( $port ) # then we are tcp server
   {
   use IO::Socket;
   my $listen = IO::Socket::INET->new( LocalPort => $port,
-    Listen => 10, Reuse => 1 ) or die [email protected];
+    Listen => 10, Reuse => 1 ) or die $@;
 # warn "waiting for connect\n";
   my $socket = $listen->accept;
   close STDIN; # redir STDIN and STDOUT to socket
@@ -135,7 +135,7 @@ eval # here so die when on tty can reset tty back to normal
     ( $commands{$_} // sub {die "invalid command <$_>"} )->();
     print '.'; # eol
     }
-  1 } or warn [email protected];
+  1 } or warn $@;
 $terminal and ReadMode 'restore';
 #warn "final\n";
 #show;
