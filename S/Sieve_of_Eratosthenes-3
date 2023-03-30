@@ -42,7 +42,7 @@ sub prextend { # Extend the given list of primes using a segment sieve
   do { push @$primes, 1+2*($_+$s_beg) if !vec($segment,$_,1) } for 0 .. $s_len;
 }
 
-sub FETCHSIZE { 0x7FFF_FFFF }  # Allows foreach to work
+#sub FETCHSIZE { 0x7FFF_FFFF }  # Allows foreach to work  # 2023-03-29 obsolete? Seems fine without...
 sub FETCH {
   my($primes, $n) = @_;
   return if $n < 0;
@@ -59,8 +59,6 @@ if( !caller ) {
   while ($prime_list[$i] < $limit) { $result .= " ". $prime_list[$i++]; }
 #  $result .= "\n";
 }
-
-1;
 
 say $result;
 
