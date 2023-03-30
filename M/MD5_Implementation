@@ -3,19 +3,16 @@
 #c# 2018-08-17 <RC
 #p# OK
 
-# Works with: Perl version 5.10.1 (and later)
 use strict;
 use warnings;
 use integer;
 use Test::More;
 
-BEGIN { plan tests => 7 }
-
-sub A()   { 0x67_45_23_01 }
-sub B()   { 0xef_cd_ab_89 }
-sub C()   { 0x98_ba_dc_fe }
-sub D()   { 0x10_32_54_76 }
-sub MAX() { 0xFFFFFFFF }
+use constant A => 0x67_45_23_01;
+use constant B => 0xef_cd_ab_89;
+use constant C => 0x98_ba_dc_fe;
+use constant D => 0x10_32_54_76;
+use constant MAX => 0xFFFFFFFF;
 
 sub padding {
     my $l = length (my $msg = shift() . chr(128));
@@ -98,20 +95,11 @@ my $strings = {
     '57edf4a22be3c955ac49da2e2107b67a' => '12345678901234567890123456789012345678901234567890123456789012345678901234567890',
 };
 
+plan tests => 7;
 for my $k (keys %$strings) {
     my $digest = _encode_hex md5($strings->{$k});
     is($digest, $k, "$digest is MD5 digest $strings->{$k}");
 }
-
-
-#1..7
-#ok 1 - c3fcd3d76192e4007dfb496cca67e13b is MD5 digest abcdefghijklmnopqrstuvwxyz
-#ok 2 - f96b697d7cb7938d525a2f31aaf161d0 is MD5 digest message digest
-#ok 3 - 900150983cd24fb0d6963f7d28e17f72 is MD5 digest abc
-#ok 4 - d41d8cd98f00b204e9800998ecf8427e is MD5 digest
-#ok 5 - 57edf4a22be3c955ac49da2e2107b67a is MD5 digest 12345678901234567890123456789012345678901234567890123456789012345678901234567890
-#ok 6 - 0cc175b9c0f1b6a831c399e269772661 is MD5 digest a
-#ok 7 - d174ab98d277d9f5a5611c2c9f419d9f is MD5 digest ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789
 
 __DATA__
 FF,$a,$b,$c,$d,$_[4],7,0xd76aa478,/* 1 */
