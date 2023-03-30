@@ -5,12 +5,10 @@
 
 my @res;
 
-use strict;
-use warnings;
-use feature 'say';
+use v5.36.0;
 
 use List::Util 'reduce';
-use Math::AnyNum ':overload';
+use Math::AnyNum qw(:overload float);
 local $Math::AnyNum::PREC = 845;
 
 my(@S,$sum);
