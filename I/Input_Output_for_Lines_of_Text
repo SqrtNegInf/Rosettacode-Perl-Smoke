@@ -4,7 +4,10 @@
 #p# OK
 #i# RC cli: ref/lines_of_text.txt
 
-$n = scalar <>; 
+use strict;
+use warnings;
+
+my $n = scalar <>; 
 
 do_stuff(scalar <>) for 1..$n;
 
