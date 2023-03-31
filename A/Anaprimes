@@ -12,17 +12,13 @@ use ntheory 'primes';
 use List::Util 'max';
 use Lingua::EN::Numbers qw(num2en);
 
-my $primes = primes(1,1e7);
+my $primes = primes(1,1e8);
 
-for my $l (3..7) {
+for my $l (3..8) {
     my %p;
-   #for ( grep { $_ > 10**($l-1) && $_ < 10**$l } @{primes(1,1e8)} ) { # a bit slower
-    for ( @{ primes 10**($l-1), 10**$l } ) {
-        my $k = join '', sort split //, "$_";
-        $p{$k} .= "$_ ";
-    }
+    $p{ join '', sort split //, "$_" } .= "$_ " for @{ primes 10**($l-1), 10**$l };
     my $m = max map { length $p{$_} } keys %p;
-    push @res, sprintf "Largest group of anaprimes before %s: %d members.", num2en(10**($l+1)), $m/($l+1);
+    push @res, sprintf "Largest group of anaprimes before %s: %d members.", num2en(10**$l), $m/($l+1);
     for my $k (sort grep { $m == length $p{$_} } keys %p) {
         push @res, sprintf "First: %d  Last: %d", $p{$k} =~ /^(\d+).* (\d+) $/;
     }
@@ -32,28 +28,31 @@ for my $l (3..7) {
 say my $result = join "\n", @res;
 
 my $ref = <<'END';
-Largest group of anaprimes before ten thousand: 4 members.
+Largest group of anaprimes before one thousand: 4 members.
 First: 149  Last: 941
 First: 179  Last: 971
 First: 379  Last: 937
 
-Largest group of anaprimes before one hundred thousand: 11 members.
+Largest group of anaprimes before ten thousand: 11 members.
 First: 1237  Last: 7321
 First: 1279  Last: 9721
 
-Largest group of anaprimes before one million: 39 members.
+Largest group of anaprimes before one hundred thousand: 39 members.
 First: 13789  Last: 98731
 
-Largest group of anaprimes before ten million: 148 members.
+Largest group of anaprimes before one million: 148 members.
 First: 123479  Last: 974213
 
-Largest group of anaprimes before one hundred million: 731 members.
+Largest group of anaprimes before ten million: 731 members.
 First: 1235789  Last: 9875321
+
+Largest group of anaprimes before one hundred million: 4333 members.
+First: 12345769  Last: 97654321
 
 END
 
-#Largest group of anaprimes before one billion: 4333 members.
-#First: 12345769  Last: 97654321
+#Largest group of anaprimes before one billion: 26519 members.
+#First: 102345697  Last: 976542103
 
 use Test::More;
 chomp $ref;
