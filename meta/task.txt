@@ -5,7 +5,7 @@ updating from RC…
 |+-----------> Smoke testing [393]
 ||+----------> sKipping validation [27]
 |||+---------> Interactive [15]
-||||+--------> Touched (modified by me) [182]
+||||+--------> Touched (modified by me) [184]
 |||||+-------> Random seed [35]
 ||||||+------> File output [23]
 |||||||+-----> Draft [199]
@@ -286,8 +286,8 @@ G.KIT...... Color_of_a_screen_pixel
 GS..T...... Color_quantization
 GS....F.... Color_wheel
 GS..T...... Colorful_numbers
-GS....F.... Colour_bars_Display
-GS....F.... Colour_pinstripe_Display
+GS..T.F.... Colour_bars_Display
+GS..T.F.... Colour_pinstripe_Display
 .........V. Colour_pinstripe_Printer
 GS......... Combinations-1
 GS......... Combinations-2
