@@ -11,10 +11,10 @@ use warnings;
 use feature 'say';
 
 # superfluous alternative to qx/ / and ` ` 
-push @res, <<`EXEC`
+push @res, <<`EXEC`;  # DH how I like it
 ls bin/Go*                 
 EXEC
-;   # DH odd placement...
+#;   # DH odd placement...
 
 # only with quoted begin tag then you can have spaces in between
 push @res, <<END # so <<  'END' or <<     "END" and semi-colon is always optional
