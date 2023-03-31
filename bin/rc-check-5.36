@@ -9,7 +9,9 @@ chdir "$ENV{HOME}/perl5/Rosetta-Code/tmp";
 for my $d ('0', 'A'..'Z') {
    #print "$d\n";
     my $f = $d eq '0' ? '[0-9]' : $d;
-    system "cp -pr ../$d .; rm $d/*\.[0123] 2> /dev/null; perl -i -npe 's/#p#/use v5.36;\\n#p#/' $d/$f\*";
-    system "cd $d; ln -s ../../ref .; find . -name '$f*'     -exec perl -c {} \\; > ../out 2> ../err$d";
-    system "rm -rf $d";
+    system <<~`EXEC`;
+       cp -pr ../$d .; rm $d/*\.[01] 2> /dev/null; perl -i -npe 's/#p#/use v5.36;\\n#p#/' $d/$f\*
+       (cd $d; ln -s ../../ref .; find . -name '$f*' -exec perl -c {} \\; 2> ../err$d)
+       rm -rf $d
+       EXEC
 }
