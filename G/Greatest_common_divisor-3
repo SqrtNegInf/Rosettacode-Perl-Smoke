@@ -7,7 +7,7 @@ use strict;
 use warnings;
 use feature 'say';
 
-sub gcd_bin($$) {
+sub gcd_bin :prototype($$) {
   my ($u, $v) = @_;
   $u = abs($u);
   $v = abs($v);
