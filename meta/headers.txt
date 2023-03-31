@@ -449,9 +449,9 @@ File: A/Anagrams_Deranged_anagrams-2
 File: A/Anaprimes
 #!/usr/local/bin/perl
 #u# https://rosettacode.org/wiki/Anaprimes
-#t# inprogress
-#c# 2023-03-xx >RC
+#c# 2023-03-31 >RC
 #p# OK
+#n# a bit slow with billion, limit testing
 
 File: A/Angle_difference_between_two_bearings
 #!/usr/local/bin/perl
@@ -1740,14 +1740,14 @@ File: C/Colorize_diff_output.0
 File: C/Colour_bars_Display
 #!/usr/local/bin/perl
 #u# http://rosettacode.org/wiki/Colour_bars/Display
-#c# 2018-07-23 <RC
+#c# 2018-07-23 <RC, 2023-03-31 >RC
 #p# OK
 #f# RC file: colour_bars.png
 
 File: C/Colour_pinstripe_Display
 #!/usr/local/bin/perl
 #u# http://rosettacode.org/wiki/Colour_pinstripe/Display
-#c# 2018-07-23 <RC
+#c# 2018-07-23 <RC, 2023-03-31 >RC
 #p# OK
 #f# RC file: pinstripes.png
 
@@ -3519,7 +3519,7 @@ File: F/Fibonacci_word
 File: F/Fibonacci_word_fractal
 #!/usr/local/bin/perl
 #u# http://rosettacode.org/wiki/Fibonacci_word/fractal
-#c# 2018-08-03 <RC
+#c# 2018-08-03 <RC, 2023-03-31 >RC
 #p# OK
 #f# RC file: fword.png
 
@@ -4858,7 +4858,6 @@ File: I/Implicit_type_conversion
 File: I/Include_a_file
 #!/usr/local/bin/perl
 #u# http://rosettacode.org/wiki/Include_a_file
-#t# nocode
 #c# 2018-08-13 <RC
 #p# OK
 
@@ -6550,7 +6549,7 @@ File: M/Munchausen_numbers
 File: M/Munching_squares
 #!/usr/local/bin/perl
 #u# http://rosettacode.org/wiki/Munching_squares
-#c# 2018-08-19 <RC
+#c# 2018-08-19 <RC, 2023-03-31 >RC
 #p# OK
 #f# RC file: munching.png
 
@@ -8222,7 +8221,7 @@ File: P/Pseudo-random_numbers_Xorshift_star
 File: P/Pseudorandom_Number_Generator_Image
 #!/usr/local/bin/perl
 #u# http://rosettacode.org/wiki/Pseudorandom_Number_Generator_Image
-#c# 2020-08-19 >RC
+#c# 2020-08-19 >RC, 2023-03-31 >RC
 #p# OK
 #f# RC file: PNG-image500.png
 
