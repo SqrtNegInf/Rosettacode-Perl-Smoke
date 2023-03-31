@@ -1,6 +1,6 @@
 #!/usr/local/bin/perl
 #u# http://rosettacode.org/wiki/Pseudorandom_Number_Generator_Image
-#c# 2020-08-19 >RC
+#c# 2020-08-19 >RC, 2023-03-31 >RC
 #p# OK
 #f# RC file: PNG-image500.png
 
@@ -8,12 +8,13 @@ srand 123456;
 
 use strict;
 use warnings;
+
 use GD;
 
-my $img = new GD::Image(500, 500, 1);
+my $img = GD::Image->new(500, 500, 1);
 
-for my $y(0..500) {
-        for my $x(0..500) {
+for my $y (0..500) {
+        for my $x (0..500) {
                 my $color = $img->colorAllocate(rand 256, rand 256, rand 256);
                 $img->setPixel($x, $y, $color);
         }
