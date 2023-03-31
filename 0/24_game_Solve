@@ -3,16 +3,14 @@
 #c# 2018-07-04 <RC
 #p# OK
 
-use strict;
-use warnings;
-use feature 'say';
+use v5.36.0;
 
 # Will generate all possible solutions of any given four numbers according to the rules of the 24 game.
 # Note: the permute function was taken from here
 
 # Fischer-Krause ordered permutation generator
 # http://faq.perl.org/perlfaq4.html#How_do_I_permute_N_e
-sub permute (&@) {
+sub permute :prototype(&@) {
 		my $code = shift;
 		my @idx = 0..$#_;
 		while ( $code->(@_[@idx]) ) {
