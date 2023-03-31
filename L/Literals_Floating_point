@@ -4,6 +4,8 @@
 #c# 2018-08-15 <RC
 #p# OK
 
+=head 
+
 # Standard notations:
 .5;
 0.5;
@@ -12,3 +14,5 @@
 
 # The numbers can be grouped:
 100_000_000;	# equals to 100000000
+
+=cut
