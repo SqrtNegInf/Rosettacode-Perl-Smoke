@@ -11,7 +11,7 @@ use warnings;
 use feature 'say';
 my $result;
 
-sub max_sub(\@) {
+sub max_sub :prototype(\@) {
     my ($a, $maxs, $maxe, $s, $sum, $maxsum) = shift;
     $maxs   //= 0;
     $maxe   //= 0;
