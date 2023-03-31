@@ -1,0 +1,13 @@
+#!/bin/sh
+## see how v5.36 checks out with current RC code
+#  2023-03-30 replace Z with A, B, ...
+#  list of programs that fail: grep -v OK tmp/err[0-Z] | perl -npe 's/\s(\S+)\s/\n$1\n/g' | fgrep './' | sort -u 
+
+cd ~/perl5/Rosetta-Code/tmp
+cp -pr ../Z . 
+rm Z/*\.[0123]
+perl -i -npe 's/#p#/use v5.36;\n#p#/' Z/Z* 
+(cd Z; ln -s ../../ref .; find . -name 'Z*' -exec perl -c {} \; > ../out 2> ../errZ)
+#rm -rf Z
+
+#(cd 0; ln -s ../../ref .; find . -name '[0-9]*' -exec perl -c {} \; > ../out 2> ../err0)
