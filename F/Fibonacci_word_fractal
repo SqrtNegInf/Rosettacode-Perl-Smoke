@@ -1,6 +1,6 @@
 #!/usr/local/bin/perl
 #u# http://rosettacode.org/wiki/Fibonacci_word/fractal
-#c# 2018-08-03 <RC
+#c# 2018-08-03 <RC, 2023-03-31 >RC
 #p# OK
 #f# RC file: fword.png
 
@@ -19,7 +19,7 @@ sub fword {
 }
 
 my $size = 3000;
-my $im = new GD::Image($size,$size);
+my $im = GD::Image->new($size,$size);
 my $white = $im->colorAllocate(255,255,255);
 my $black = $im->colorAllocate(0,0,0);       
 $im->transparent($white);
