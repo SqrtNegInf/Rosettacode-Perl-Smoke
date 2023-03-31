@@ -4,6 +4,8 @@
 #c# 2018-08-15 <RC
 #p# OK
 
+=head
+
 # Perl makes no distinction between single characters and strings.
 # One can use single or double quotes, but they are different.
 # Double-quotes allows you to interpolate variables and escape sequences, while single-quotes do not.
@@ -29,3 +31,5 @@ END
 <<'END';                  # Here-Document like single-quoted
 Same as above, but no interpolation of $variables.
 END
+
+=cut
