@@ -9,18 +9,13 @@ use warnings;
 
 use Audio::Play::MPG123;
 
-my ($delay,$file);
-if ($ARGV[0]) { $delay = shift } else { print 'How long? ';  $delay = <>; chomp $delay }
-if ($ARGV[0]) { $file  = shift } else { print 'Which MP3? '; $file  = <>; chomp $file  }
-$file =~ s/\.mp3$//;
+#my ($delay,$file);
+#if ($ARGV[0]) { $delay = shift } else { print 'How long? ';  $delay = <>; chomp $delay }
+#if ($ARGV[0]) { $file  = shift } else { print 'Which MP3? '; $file  = <>; chomp $file  }
+#$file =~ s/\.mp3$//;
  
-sleep $delay;
+#sleep $delay;
 
-my $player = new Audio::Play::MPG123;
-$player->load("$file.mp3");
+my $player = Audio::Play::MPG123->new;
+$player->load("$ENV{HOME}/Music/iTunes/iTunes\ Media/Music/Dixie\ Chicks/Fly/Ready\ to\ Run.mp3");
 $player->poll(1) until $player->state == 0;
-
-__END__
-
-=={{header|Perl}}==
-<lang perl></lang>
