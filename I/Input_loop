@@ -4,6 +4,8 @@
 #c# 2018-08-13 <RC
 #p# OK
 
+=head 
+
 # The angle brackets operator ( <...> ) reads one line at a time from a filehandle in scalar context:
 open FH, "< $filename" or die "can't open file: $!";
 while (my $line = <FH>) {
