@@ -4,15 +4,17 @@
 #c# 2018-08-16 <RC
 #p# OK
 
-use feature 'say';
 my $result;
 
-# Library: Perl/Tk[edit]
+use strict;
+use warnings;
+use feature 'say';
+
 use Tk;
 
-$main = MainWindow->new;
-$l = $main->Label('-text' => 'There have been no clicks yet.')->pack;
-$count = 0;
+my $main = MainWindow->new;
+my $l = $main->Label('-text' => 'There have been no clicks yet.')->pack;
+my $count = 0;
 $main->Button(
   -text => ' Click Me ',
   -command => sub { $l->configure(-text => 'Number of clicks: '.(++$count).'.'); },
