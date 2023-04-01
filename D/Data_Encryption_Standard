@@ -3,14 +3,12 @@
 #c# 2020-07-23 <RC
 #p# OK
 
-use strict;
-use warnings;
-use feature 'say';
+use v5.36.0;
 
 use Crypt::DES;
 
 my $key        = pack("H*", "0E329232EA6D0D73");
-my $cipher     = new Crypt::DES $key;
+my $cipher     = Crypt::DES->new($key);
 my $ciphertext = $cipher->encrypt(pack("H*", "8787878787878787"));
 my $result  = "Encoded : ". unpack("H*", $ciphertext) . "\n";
    $result .= "Decoded : ". unpack("H*", $cipher->decrypt($ciphertext)) . "\n";
