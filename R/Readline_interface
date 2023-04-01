@@ -3,14 +3,14 @@
 #u# http://rosettacode.org/wiki/Readline_interface
 #c# 2019-04-10 >RC
 #p# OK
-#n# with 5.30, '$#' in character class flagged as the deprecated special variable
 
 use strict;
 use warnings;
+
 use Term::ReadLine;
 use POSIX;
 
-my $term = new Term::ReadLine 'simple Perl shell';
+my $term = Term::ReadLine->new( 'simple Perl shell' );
 my $attribs = $term->Attribs;
 $attribs->{completion_append_character}     = ' ';
 $attribs->{attempted_completion_function}   = \&attempt_perl_completion;
