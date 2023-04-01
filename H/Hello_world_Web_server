@@ -5,8 +5,11 @@
 #p# OK
 #n# commented out whole Plack solution, can't get module to install
 
-use feature 'say';
 my $result;
+
+use strict;
+#use warnings;
+use feature 'say';
 
 use Socket;
 
@@ -41,7 +44,7 @@ while( accept(CLIENT, SOCK) ){
 # Library: IO::Socket::INETINET
 use IO::Socket::INET;
 
-my $sock = new IO::Socket::INET ( LocalAddr => "127.0.0.1:8080",
+my $sock = IO::Socket::INET->new( LocalAddr => "127.0.0.1:8080",
                                   Listen    => 1,
                                   Reuse     => 1, ) or die "Could not create socket: $!";
 
