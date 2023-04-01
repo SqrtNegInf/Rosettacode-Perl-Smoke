@@ -6,10 +6,11 @@
 
 srand 123456;
 
+my $result;
+
 use strict;
 use warnings;
 use feature 'say';
-my $result;
 
 package Playing_Card_Deck;
 
@@ -50,7 +51,7 @@ sub shuffle {
 sub print_cards {$result .= "$_->{pip} of $_->{suit}\n" for @{shift(@_)} }
 
 # create a new deck, shuffle it, remove the top card, print out that card's name in all caps, and then prints the rest of the deck.
-my $deck = new Playing_Card_Deck;
+my $deck = Playing_Card_Deck->new;
 $deck->shuffle;
 my %card = $deck->deal;
 $result .= uc("$card{pip} OF $card{suit}\n");
