@@ -24,7 +24,7 @@ sub send_email
       @_);
   ref $o{$_} or $o{$_} = [$o{$_}] foreach 'to', 'cc';
 
-  my $smtp = new Net::SMTP($o{host} ? $o{host} : ())
+  my $smtp = Net::SMTP->new($o{host} ? $o{host} : ())
       or die "Couldn't connect to SMTP server";
 
   $o{password} and
