@@ -1,0 +1,90 @@
+#!/usr/local/bin/perl
+#u# http://rosettacode.org/wiki/Element-wise_operations
+#c# 2018-07-30 <RC
+#p# OK
+#n# not using two files...
+#n# will not work with v5.36 without a bunch of tweaking with regard to 'new'
+
+my $result;
+
+use strict;
+use warnings;
+use feature 'say';
+
+# There's no need to use real multi-dimentional arrays to represent matrix.
+# Since matrices have fixed row length, they can be represented by flat array.
+# This example demonstrates Perl's operator overload ability and bulk list operations using map.
+# File Elementwise.pm:
+
+package Elementwise;
+ 
+use overload
+'='  => sub { $_[0]->clone() },
+'+'  => sub { $_[0]->add($_[1]) },
+'-'  => sub { $_[0]->sub($_[1]) },
+'*'  => sub { $_[0]->mul($_[1]) },
+'/'  => sub { $_[0]->div($_[1]) },
+'**'  => sub { $_[0]->exp($_[1]) },
+;
+ 
+sub new
+{
+	my ($class, $v) = @_;
+	return bless $v, $class;
+}
+ 
+sub clone
+{
+	my @ret = @{$_[0]};
+	return bless \@ret, ref($_[0]);
+}
+ 
+sub add { new Elementwise ref($_[1]) ? [map { $_[0][$_]  + $_[1][$_] } 0 .. $#{$_[0]} ] : [map { $_[0][$_]  + $_[1] } 0 .. $#{$_[0]} ] }
+sub sub { new Elementwise ref($_[1]) ? [map { $_[0][$_]  - $_[1][$_] } 0 .. $#{$_[0]} ] : [map { $_[0][$_]  - $_[1] } 0 .. $#{$_[0]} ] }
+sub mul { new Elementwise ref($_[1]) ? [map { $_[0][$_]  * $_[1][$_] } 0 .. $#{$_[0]} ] : [map { $_[0][$_]  * $_[1] } 0 .. $#{$_[0]} ] }
+sub div { new Elementwise ref($_[1]) ? [map { $_[0][$_]  / $_[1][$_] } 0 .. $#{$_[0]} ] : [map { $_[0][$_]  / $_[1] } 0 .. $#{$_[0]} ] }
+sub exp { new Elementwise ref($_[1]) ? [map { $_[0][$_] ** $_[1][$_] } 0 .. $#{$_[0]} ] : [map { $_[0][$_] ** $_[1] } 0 .. $#{$_[0]} ] }
+ 
+$a = new Elementwise [
+	1,2,3,
+	4,5,6,
+	7,8,9
+];
+ 
+say $result = << "_E";
+a  @$a
+a OP a
++  @{$a+$a}
+-  @{$a-$a}
+*  @{$a*$a}
+/  @{$a/$a}
+^  @{$a**$a}
+a OP 5
++  @{$a+5}
+-  @{$a-5}
+*  @{$a*5}
+/  @{$a/5}
+^  @{$a**5}
+_E
+
+say $result; 
+
+my $ref = <<'EOD';
+a  1 2 3 4 5 6 7 8 9
+a OP a
++  2 4 6 8 10 12 14 16 18
+-  0 0 0 0 0 0 0 0 0
+*  1 4 9 16 25 36 49 64 81
+/  1 1 1 1 1 1 1 1 1
+^  1 4 27 256 3125 46656 823543 16777216 387420489
+a OP 5
++  6 7 8 9 10 11 12 13 14
+-  -4 -3 -2 -1 0 1 2 3 4
+*  5 10 15 20 25 30 35 40 45
+/  0.2 0.4 0.6 0.8 1 1.2 1.4 1.6 1.8
+^  1 32 243 1024 3125 7776 16807 32768 59049
+EOD
+
+use Test::More;
+is ($result, $ref);
+done_testing();
