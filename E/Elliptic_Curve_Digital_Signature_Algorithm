@@ -8,7 +8,7 @@ use warnings;
 
 use Crypt::EC_DSA;
 
-my $ecdsa = new Crypt::EC_DSA;
+my $ecdsa = Crypt::EC_DSA->new;
 
 my ($pubkey, $prikey) = $ecdsa->keygen;
 
