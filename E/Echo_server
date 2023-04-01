@@ -6,9 +6,7 @@
 
 my $result;
 
-use strict;
-use warnings;
-use feature 'say';
+use v5.36.0;
 
 # This server will run indefinitely listening in the port 12321 and forking every time a client connects, 
 # the children listen to the client and write back.  This is an example using the IO::Socket module:
@@ -16,7 +14,7 @@ use feature 'say';
 use IO::Socket;
 my $use_fork = 1;
  
-my $sock = new IO::Socket::INET (
+my $sock = IO::Socket::INET->new(
                                  LocalHost => '127.0.0.1',
                                  LocalPort => '12321',
                                  Proto => 'tcp',
