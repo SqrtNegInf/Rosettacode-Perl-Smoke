@@ -2930,6 +2930,13 @@ File: E/Egyptian_fractions
 File: E/Element-wise_operations
 #!/usr/local/bin/perl
 #u# http://rosettacode.org/wiki/Element-wise_operations
+#c# 2018-07-30 <RC, 2023-04-01 >RC
+#p# OK
+#n# substantial rewrite to work with v5.36, cloning never used
+
+File: E/Element-wise_operations.1
+#!/usr/local/bin/perl
+#u# http://rosettacode.org/wiki/Element-wise_operations
 #c# 2018-07-30 <RC
 #p# OK
 #n# not using two files...
@@ -8494,7 +8501,6 @@ File: R/Readline_interface
 #u# http://rosettacode.org/wiki/Readline_interface
 #c# 2019-04-10 >RC
 #p# OK
-#n# with 5.30, '$#' in character class flagged as the deprecated special variable
 
 File: R/Real_constants_and_functions
 #!/usr/local/bin/perl
