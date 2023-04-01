@@ -1,15 +1,10 @@
 #!/usr/local/bin/perl
 #u# http://rosettacode.org/wiki/Element-wise_operations
-#c# 2018-07-30 <RC
+#c# 2018-07-30 <RC, 2023-04-01 >RC
 #p# OK
-#n# not using two files...
-#n# will not work with v5.36 without a bunch of tweaking with regard to 'new'
+#n# substantial rewrite to work with v5.36, cloning never used
 
-my $result;
-
-use strict;
-use warnings;
-use feature 'say';
+use v5.36;
 
 # There's no need to use real multi-dimentional arrays to represent matrix.
 # Since matrices have fixed row length, they can be represented by flat array.
@@ -17,66 +12,66 @@ use feature 'say';
 # File Elementwise.pm:
 
 package Elementwise;
- 
+
 use overload
-'='  => sub { $_[0]->clone() },
-'+'  => sub { $_[0]->add($_[1]) },
-'-'  => sub { $_[0]->sub($_[1]) },
-'*'  => sub { $_[0]->mul($_[1]) },
-'/'  => sub { $_[0]->div($_[1]) },
-'**'  => sub { $_[0]->exp($_[1]) },
+#'='  => sub { $_[0]->clone()        },
+'+'  => sub ($a,$b,$) { $a->add($b) },
+'-'  => sub ($a,$b,$) { $a->sub($b) },
+'*'  => sub ($a,$b,$) { $a->mul($b) },
+'/'  => sub ($a,$b,$) { $a->div($b) },
+'**' => sub ($a,$b,$) { $a->exp($b) },
 ;
- 
-sub new
-{
-	my ($class, $v) = @_;
-	return bless $v, $class;
+
+sub new ($class, $value) {
+    bless $value, ref $class || $class;
 }
- 
-sub clone
-{
-	my @ret = @{$_[0]};
-	return bless \@ret, ref($_[0]);
-}
- 
-sub add { new Elementwise ref($_[1]) ? [map { $_[0][$_]  + $_[1][$_] } 0 .. $#{$_[0]} ] : [map { $_[0][$_]  + $_[1] } 0 .. $#{$_[0]} ] }
-sub sub { new Elementwise ref($_[1]) ? [map { $_[0][$_]  - $_[1][$_] } 0 .. $#{$_[0]} ] : [map { $_[0][$_]  - $_[1] } 0 .. $#{$_[0]} ] }
-sub mul { new Elementwise ref($_[1]) ? [map { $_[0][$_]  * $_[1][$_] } 0 .. $#{$_[0]} ] : [map { $_[0][$_]  * $_[1] } 0 .. $#{$_[0]} ] }
-sub div { new Elementwise ref($_[1]) ? [map { $_[0][$_]  / $_[1][$_] } 0 .. $#{$_[0]} ] : [map { $_[0][$_]  / $_[1] } 0 .. $#{$_[0]} ] }
-sub exp { new Elementwise ref($_[1]) ? [map { $_[0][$_] ** $_[1][$_] } 0 .. $#{$_[0]} ] : [map { $_[0][$_] ** $_[1] } 0 .. $#{$_[0]} ] }
- 
-$a = new Elementwise [
-	1,2,3,
-	4,5,6,
-	7,8,9
-];
- 
-say $result = << "_E";
+
+#sub clone
+#{
+#    my @ret = @{$_[0]};
+#    say 'cloning...';
+#    return bless \@ret, ref($_[0]);
+#}
+
+sub add { ref($_[1]) ? [map { $_[0][$_]  + $_[1][$_] } 0 .. $#{$_[0]} ] : [map { $_[0][$_]  + $_[1] } 0 .. $#{$_[0]} ] }
+sub sub { ref($_[1]) ? [map { $_[0][$_]  - $_[1][$_] } 0 .. $#{$_[0]} ] : [map { $_[0][$_]  - $_[1] } 0 .. $#{$_[0]} ] }
+sub mul { ref($_[1]) ? [map { $_[0][$_]  * $_[1][$_] } 0 .. $#{$_[0]} ] : [map { $_[0][$_]  * $_[1] } 0 .. $#{$_[0]} ] }
+sub div { ref($_[1]) ? [map { $_[0][$_]  / $_[1][$_] } 0 .. $#{$_[0]} ] : [map { $_[0][$_]  / $_[1] } 0 .. $#{$_[0]} ] }
+sub exp { ref($_[1]) ? [map { $_[0][$_] ** $_[1][$_] } 0 .. $#{$_[0]} ] : [map { $_[0][$_] ** $_[1] } 0 .. $#{$_[0]} ] }
+
+package main;
+#Elementwise->import; # one file, so no need
+
+$a = Elementwise->new([<1 2 3 4 5 6 7 8 9>]);
+
+say my $result = <<"END";
 a  @$a
+
 a OP a
 +  @{$a+$a}
 -  @{$a-$a}
 *  @{$a*$a}
 /  @{$a/$a}
 ^  @{$a**$a}
+
 a OP 5
 +  @{$a+5}
 -  @{$a-5}
 *  @{$a*5}
 /  @{$a/5}
 ^  @{$a**5}
-_E
-
-say $result; 
+END
 
 my $ref = <<'EOD';
 a  1 2 3 4 5 6 7 8 9
+
 a OP a
 +  2 4 6 8 10 12 14 16 18
 -  0 0 0 0 0 0 0 0 0
 *  1 4 9 16 25 36 49 64 81
 /  1 1 1 1 1 1 1 1 1
 ^  1 4 27 256 3125 46656 823543 16777216 387420489
+
 a OP 5
 +  6 7 8 9 10 11 12 13 14
 -  -4 -3 -2 -1 0 1 2 3 4
