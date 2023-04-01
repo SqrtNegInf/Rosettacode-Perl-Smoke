@@ -5,10 +5,9 @@
 #i# RC cli: wait
 #n# tweaked to self-test: call with an argument, but then run a copy (with slight delay) without no arg.
 
-use strict;
-use warnings;
-use feature 'say';
 my $result;
+
+use v5.36.0;
 
 # Using Data::Dumper and Safe to transmit arbitrary data structures as serialized text between hosts. Same code works as both sender and receiver.
 
@@ -17,18 +16,18 @@ use IO::Socket::INET;
 use Safe;
  
 sub get_data {
-	my $sock = new IO::Socket::INET
+	my $sock = IO::Socket::INET->new(
 		LocalHost =>	'localhost',
 		LocalPort =>	'10000',
 		Proto =>	'tcp',
 		Listen =>	1,
-		Reuse =>	1;
+		Reuse =>	1);
 	unless ($sock) { die 'Socket creation failure' }
 	my $cli = $sock->accept();
  
 	# of course someone may be tempted to send you 'system("rm -rf /")',
 	# to be safe(r), use Safe::
-	my $safe = new Safe;
+	my $safe = Safe->new();
 	my $x = $safe->reval(join '', <$cli>);
 	close $cli;
 	close $sock;
@@ -38,10 +37,10 @@ sub get_data {
 sub send_data {
 	my $host = shift;
 	my $data = shift;
-	my $sock = new IO::Socket::INET
+	my $sock = IO::Socket::INET->new(
 		PeerAddr =>	"$host:10000",
 		Proto =>	'tcp',
-		Reuse =>	1;
+		Reuse =>	1);
  
 	unless ($sock) { die 'Socket creation failure' }
  
