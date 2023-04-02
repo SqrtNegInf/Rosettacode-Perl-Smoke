@@ -1,22 +1,23 @@
 #!/usr/local/bin/perl
 #u# http://rosettacode.org/wiki/Anagrams/Deranged_anagrams
-#c# 2020-11-06 <RC
+#c# 2020-11-06 <RC, 2023-04-02 >RC
 #p# OK
+
+my @res;
 
 use strict;
 use warnings;
-use feature 'say';
-my @res;
+use feature <say bitwise>;
 
 local (@ARGV, $/) = 'ref/unixdict.txt';
 my %anagrams;
 
 sub foo {
-for my $word ( sort { length $b <=> length $a } split ' ', <> ) {
-    my $key = join '', sort +split //, $word;
-    ($_ ^ $word) =~ /\0/ or return !push(@res,"$_ $word") for @{ $anagrams{$key} };
-    push @{ $anagrams{$key} }, $word;
-}
+    for my $word ( sort { length $b <=> length $a } split ' ', <> ) {
+        my $key = join '', sort +split //, $word;
+        ($_ ^ $word) =~ /\0/ or return !push(@res,"$_ $word") for @{ $anagrams{$key} };
+        push @{ $anagrams{$key} }, $word;
+    }
 }
 
 foo(); # just to convert 'exit' to a 'return' for testing
