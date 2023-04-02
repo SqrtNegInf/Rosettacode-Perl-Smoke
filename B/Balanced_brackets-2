@@ -3,15 +3,16 @@
 #c# 2018-07-16 <RC
 #p# OK
 
+my $result;
+
 srand 123456;
 
 use strict;
 use warnings;
 use feature 'say';
-my $result;
 
 use Regexp::Common 'balanced';
-my $re = qr/^$RE{balanced}{-parens=>'[]'}$/;
+my $re = qr/^$RE{balanced}{-parens=>'[]'}$/; # not sure how to handle in v5.36 (multidimensional array error)
 
 sub balanced {
   return shift =~ $re;
