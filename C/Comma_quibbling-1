@@ -9,7 +9,7 @@ use strict;
 use warnings;
 use feature 'say';
 
-sub comma_quibbling(@) {
+sub comma_quibbling :prototype(@) {
     return "{$_}" for
         @_ < 2 ? "@_" :
         join(', ', @_[0..@_-2]) . ' and ' . $_[-1];
