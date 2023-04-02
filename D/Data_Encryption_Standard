@@ -1,6 +1,6 @@
 #!/usr/local/bin/perl
 #u# http://rosettacode.org/wiki/Data_Encryption_Standard
-#c# 2020-07-23 <RC
+#c# 2020-07-23 <RC, 2023-04-01 >RC
 #p# OK
 
 use v5.36.0;
