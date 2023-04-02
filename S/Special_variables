@@ -10,8 +10,10 @@ use English; # enables use of long variable names
 
 my $pn1 = $0;
 my $pn2 = $PROGRAM_NAME;
+my $pv  = $PERL_VERSION; # $^V
 my $ls  = $LIST_SEPARATOR;
 print "Program name: '$pn1'\n";
+print "Perl version: '$pv'\n";
 print "List separator: '$ls'\n";
 
 my $ref = <<'END';
