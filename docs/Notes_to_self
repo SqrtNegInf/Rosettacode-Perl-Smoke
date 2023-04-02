@@ -28,6 +28,7 @@ Revised instances of bare 'new' and updated on RC (mostly).
 Check how current code works under v5.36; majority of the errors have to do with:
   * prototypes
   * use of bare 'new' for classes
+  * bitwise operators
   * hash key quoting
   * PDL/GUI, needing Perl 5.32.1
 
