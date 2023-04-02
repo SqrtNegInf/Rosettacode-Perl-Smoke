@@ -4,12 +4,13 @@
 #p# OK
 #n# but fib(0) incorrect, not that it matters...
 
+my $result;
+
 use strict;
 use warnings;
 use feature 'say';
-my $result;
 
-sub recur (&@) {
+sub recur :prototype(&@) {
     my $f = shift;
     local *recurse = $f;
     $f->(@_);
@@ -25,6 +26,7 @@ sub fibo {
 }
 
 $result .= (fibo($_). " ") for (0 .. 10);
+
 say $result;
 
 use Test::More;
