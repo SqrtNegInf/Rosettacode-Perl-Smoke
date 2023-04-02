@@ -1,33 +1,45 @@
 #!/usr/local/bin/perl
 #u# http://rosettacode.org/wiki/Execute_Brain****/Perl
 #c# 2018-08-01 <RC
-#p# BROKEN
+#p# OK
 #n# note naming issues...
 
-use feature 'say';
 my $result;
 
-# Execute Brain****/Perl is an implementation of Brainf***.
-# Other implementations of Brainf***.Execute Brain****/Perl is part of RCBF. You may find other members of RCBF at Category:RCBF.
-# This is a simple non-optimizing and non-optimized interpreter that is written in Perl. To run a program, give the name of its file as an argument to the interpreter. If you don't provide an argument, the program will be read from standard input.
-# You can set your own values for the standard nonstandardized behaviors (like the value "," returns on EOF) by changing the variables listed under "Implementation-specific variables". The other nonstandardized aspects of the language are allowed to follow Perl's defaults: for instance, modifying a cell past the forward end of the tape will lengthen it, but going backward from the first cell will wrap around to the final cell. These could be made somewhat more sensible, but doing so would serve little purpose, as this interpreter is meant to serve as a simple example, not an industrial-strength tool.
-
 use strict;
+use warnings;
+use feature 'say';
 
-#  
+=head
+Execute Brain****/Perl is an implementation of Brainf***.
+
+Other implementations of Brainf***.Execute Brain****/Perl is part of RCBF. You may find other members of RCBF at Category:RCBF.
+
+This is a simple non-optimizing and non-optimized interpreter that is
+written in Perl. To run a program, give the name of its file as an argument
+to the interpreter. If you don't provide an argument, the program will be
+read from standard input.
+
+You can set your own values for the standard nonstandardized behaviors
+(like the value "," returns on EOF) by changing the variables listed under
+"Implementation-specific variables". The other nonstandardized aspects of
+the language are allowed to follow Perl's defaults: for instance, modifying
+a cell past the forward end of the tape will lengthen it, but going
+backward from the first cell will wrap around to the final cell. These
+could be made somewhat more sensible, but doing so would serve little
+purpose, as this interpreter is meant to serve as a simple example, not an
+industrial-strength tool.
+
+=cut
+
 # Implementation-specifc variables
-# ------------------------------------------------------------
-
 our $tape_length = 50_000; # How many memory cells the tape will have.
 our $eof_val = -1; # The value "," returns on EOF.
 our $unbalanced_exit_code = 1;
   # The exit code the interpreter will return if it reaches the
   # end of the code while searching for a matching "]" to jump to.
 
-# ------------------------------------------------------------
 # Declarations
-# ------------------------------------------------------------
-
 our @code; # The program's code split into characters.
 our $cmd;  # The index of the current command in @code.
 our @tape; # The program's memory tape.
@@ -63,47 +75,24 @@ sub jump
       $code[$cmd] eq '[' and ++$depth;
       $code[$cmd] eq ']' and --$depth;}}
 
-# ------------------------------------------------------------
-# Setup
-# ------------------------------------------------------------
-
-my @code = split //, '++++++++++[>+++++++>++++++++++>+++>+<<<<-]>++.>+.+++++++..+++.>++.<<+++++++++++++++.>.+++.------.--------.>+.>.';
-
-# Get the code.
-#@code = split //, do
-#   {undef $/;
-#    if (@ARGV)
-#       {open(IN, '<', $ARGV[0]) or
-#          die "Couldn't open program file.\n($!)\n";
-#        <IN>;}
-#    else
-#       {<STDIN>;}};
-
-# Initialize the other important variables.
+# Init
+@code = split //, '++++++++++[>+++++++>++++++++++>+++>+<<<<-]>++.>+.+++++++..+++.>++.<<+++++++++++++++.>.+++.------.--------.>+.>.';
 $cmd = 0;
 $tape[$_] = 0 foreach 0 .. $tape_length - 1;
 $cell = 0;
 @loops = ();
 
-# ------------------------------------------------------------
 # Execution
-# ------------------------------------------------------------
-
 for (;;)
    {if (exists $commands{$code[$cmd]})
        {$commands{$code[$cmd]}->();}
     # We simply ignore meaningless characters.
     ++$cmd;
-    say $cmd;
+    #say $cmd;
     $cmd < @code or last;}
 
-say 'eod';
-
-say $result; 
-my $ref = <<'EOD';
-EOD
+print $result; 
 
 use Test::More;
-#is ($result, $ref);
-#is chomp($result), 'Hello World!';
-#done_testing();
+is $result, "Hello World!\n";
+done_testing();
