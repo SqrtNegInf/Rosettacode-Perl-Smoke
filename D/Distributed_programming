@@ -1,6 +1,6 @@
 #!/usr/local/bin/perl
 #u# http://rosettacode.org/wiki/Distributed_programming
-#c# 2018-07-28 <RC
+#c# 2018-07-28 <RC, 2023-04-01 >RC
 #p# OK
 #i# RC cli: wait
 #n# tweaked to self-test: call with an argument, but then run a copy (with slight delay) without no arg.
@@ -27,7 +27,7 @@ sub get_data {
  
 	# of course someone may be tempted to send you 'system("rm -rf /")',
 	# to be safe(r), use Safe::
-	my $safe = Safe->new();
+	my $safe = Safe->new;
 	my $x = $safe->reval(join '', <$cli>);
 	close $cli;
 	close $sock;
