@@ -4,10 +4,11 @@
 #p# OK
 #n# removed given/when
 
+my $result;
+
 use strict;
 use warnings;
 use feature 'say';
-my $result;
 
 # Closures enable user-defined control structures, but the syntax is not always identical to that of built-in control structures. This example is a start, but needs improving.
 
@@ -25,12 +26,12 @@ use constant {
 # Most of the magic is in the (&) prototype, which lets a function accept a
 # closure marked by nothing except braces.
 
-sub orelse(&) {
+sub orelse :prototype(&) {
     my $clause = shift;
     return undef, undef, undef, $clause;
 }
 
-sub else2(&@) {
+sub else2 :prototype(&@) {
     my $clause = shift;
     die "Can't have two `else2' clauses"
         if defined $_[IdxElse2];
@@ -38,7 +39,7 @@ sub else2(&@) {
     return (undef, $_[IdxElse1], $clause, $_[IdxOrElse]);
 }
 
-sub else1(&@) {
+sub else1 :prototype(&@) {
     my $clause = shift;
     die "Can't have two `else1' clauses"
         if defined $_[IdxElse1];
@@ -46,7 +47,7 @@ sub else1(&@) {
     return (undef, $clause, $_[IdxElse2], $_[IdxOrElse]);
 }
 
-sub then2(&@) {
+sub then2 :prototype(&@) {
     die "Can't have two `then2' clauses"
         if defined $_[1+IdxThen];
 
@@ -65,7 +66,7 @@ use constant {
     False => (0 == 1)
 };
 
-sub if2($$@) {
+sub if2 :prototype($$@) {
     my $cond1 = !!shift;    # Convert to Boolean to guarantee matching
     my $cond2 = !!shift;    # against either True or False
 
@@ -86,28 +87,21 @@ sub if2($$@) {
 # This is test code.  You can play with it by deleting up to three of the
 # four clauses.
 
-sub test_bits($) {
-    (my $n) = @_;
+sub test_bits :prototype($) {
+    my($n) = @_;
+  #(my $n) = @_; # DH works, but odd
 
     $result .= "Testing $n: ";
-
-    if2 $n & 1, $n & 2, then2 {
-        $result .= "Both bits 0 and 1 are set\n";
-    }
-    else1 {
-        $result .= "Only bit 0 is set\n";
-    }
-    else2 {
-        $result .= "Only bit 1 is set\n";
-    }
-    orelse {
-        $result .= "Neither bit is set\n";
-    }
+    if2 $n & 1, $n & 2, then2 { $result .= "Both bits 0 and 1 are set\n" }
+    else1                     { $result .= "Only bit 0 is set\n"         }
+    else2                     { $result .= "Only bit 1 is set\n"         }
+    orelse                    { $result .= "Neither bit is set\n"        }
 }
 
 test_bits $_   for 0 .. 7;
 
 say $result; 
+
 my $ref = <<'EOD';
 Testing 0: Neither bit is set
 Testing 1: Only bit 0 is set
