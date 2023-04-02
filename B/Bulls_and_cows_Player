@@ -20,7 +20,7 @@ my @candidates = grep {not /0 | (\d) .* \1 /x} 1234 .. 9876;
 # The regex validates the user's input and then returns two numbers,
 # $+{BULLS} and $+{COWS}.
  
-sub read_score($) {
+sub read_score :prototype($) {
     (my $guess) = @_;
  
     for (;;) {
@@ -34,7 +34,7 @@ sub read_score($) {
     }
 }
  
-sub score_correct($$$$) {
+sub score_correct :prototype($$$$) {
     my ($a, $b, $bulls, $cows) = @_;
  
     # Count the positions at which the digits match: 
