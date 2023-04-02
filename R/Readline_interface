@@ -1,7 +1,7 @@
 #!/usr/local/bin/perl
 #t# interactive
 #u# http://rosettacode.org/wiki/Readline_interface
-#c# 2019-04-10 >RC
+#c# 2019-04-10 >RC, 2023-04-02 >RC
 #p# OK
 
 use strict;
@@ -24,7 +24,7 @@ while (defined(my $command = &reader)) {
 sub reader {
     my $command = $term->readline('> ');
     $term->addhistory($command) if $command;
-    return $command;
+    $command;
 }
 
 sub perl_symbol_display_match_list {
@@ -36,7 +36,7 @@ sub perl_symbol_display_match_list {
 
 sub attempt_perl_completion {
     my ($text, $line, $start, $end) = @_;
-    return  $term->completion_matches($text, \&perl_symbol_completion_function);
+    $term->completion_matches($text, \&perl_symbol_completion_function);
 }
 
 use vars qw($i @matches $prefix);
@@ -61,5 +61,5 @@ sub perl_symbol_completion_function {
 	    $entry = $prefix . $matches[$i];
 	    return $entry if ($entry =~ /^\Q$text/);
 	}
-	return undef;
+	undef;
 }
