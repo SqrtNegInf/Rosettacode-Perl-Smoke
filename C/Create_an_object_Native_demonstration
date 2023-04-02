@@ -2,15 +2,15 @@
 #u# http://rosettacode.org/wiki/Create_an_object/Native_demonstration
 #c# 2018-07-26 <RC
 #p# OK
-#n# "Tie::Hash" not allowed while "strict subs" in use
+#n# some modernizing tweaks not on RC
 
-use v5.36.0;
+use strict;
+use warnings;
+use feature 'say';
 
 package LockedHash;
-#use parent Tie::Hash;
-use parent -norequire => 'Tie::Hash';
+use parent 'Tie::Hash';
 use Carp;
-#use strict;
  
 sub TIEHASH {
 	my $cls = shift;
@@ -55,13 +55,11 @@ sub lock_hash :prototype(\%) {
 	tie(%$ref, __PACKAGE__, %$ref);
 }
  
-#1;
+1;
  
 package main;
 
 my $result;
-
-#use feature 'say';
 
 my %h = (a => 3, b => 4, c => 5);
  
