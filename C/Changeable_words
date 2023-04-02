@@ -2,6 +2,7 @@
 #u# http://rosettacode.org/wiki/Changeable_words
 #c# 2020-12-06 <RC
 #p# OK
+#n# 2023-04-02 fails dramaticallly with v5.36, why?
 
 use strict;
 use warnings;
@@ -12,16 +13,14 @@ my @res;
 my @words;
 @ARGV = 'ref/unixdict.txt';
 
-while( <> )
-  {
-  chomp;
-  length > 11 or next;
-  for my $prev ( @{ $words[length] } )
-    {
-    ($prev ^ $_) =~ tr/\0//c == 1 and push @res, sprintf "%30s <-> %s", $prev, $_;
+while( <> ) {
+    chomp;
+    length > 11 or next;
+    for my $prev ( @{ $words[length] } ) {
+        ($prev ^ $_) =~ tr/\0//c == 1 and push @res, sprintf "%30s <-> %s", $prev, $_;
     }
-  push @{ $words[length] }, $_;
-  }
+    push @{ $words[length] }, $_;
+}
 
 say my $result = join "\n", @res;
 
