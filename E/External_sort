@@ -14,7 +14,7 @@ my $max = 4; # records per merge file
 my(@chunk,@tempf);
 
 # just a simple numeric sort here, but you could get fancy...
-sub mysort ($$) { return $_[0] <=> $_[1] }
+sub mysort :prototype($$) { return $_[0] <=> $_[1] }
 
 sub store {
     my($a) = @_;
