@@ -10,7 +10,7 @@ my $result;
 
 use integer;
  
-sub bitwise($$) {
+sub bitwise :prototype($$) {
    ($a, $b) = @_;
    $result .= sprintf 'a and b: '. ($a & $b) ."\n";
    $result .= sprintf 'a or b: '.  ($a | $b) ."\n";
