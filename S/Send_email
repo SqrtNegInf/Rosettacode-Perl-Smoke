@@ -1,11 +1,14 @@
 #!/usr/local/bin/perl
 #u# http://rosettacode.org/wiki/Send_email
 #t# skiptest
-#c# 2018-08-18 <RC
+#c# 2018-08-18 <RC, 2023-04-02 >RC
 #p# OK
 
-use feature 'say';
 my $result;
+
+use strict;
+use warnings;
+use feature 'say';
 
 # This subroutine throws an appropriate error if it fails to connect to the server or authenticate. It should work on any platform Perl does.
 
@@ -16,8 +19,8 @@ use Authen::SASL;
   # method will just silently fail. Hence we explicitly use
   # Authen::SASL here.
 
-sub send_email
- {my %o =
+sub send_email1 {
+  my %o =
      (from => '', to => [], cc => [],
       subject => '', body => '',
       host => '', user => '', password => '',
@@ -41,13 +44,15 @@ sub send_email
   $smtp->datasend("\n$o{body}");
   $smtp->dataend;
 
-  return 1;}
+  return 1;
+}
 
-use strict;
+## alternate version using LWP
+
 use LWP::UserAgent;
 use HTTP::Request;
 
-sub send_email {
+sub send_email2 {
   my ($from, $to, $cc, $subject, $text) = @_;
 
   my $ua = LWP::UserAgent->new;
