@@ -1,6 +1,6 @@
 #!/usr/local/bin/perl
 #u# http://rosettacode.org/wiki/Elliptic_Curve_Digital_Signature_Algorithm
-#c# 2020-08-28 <RC
+#c# 2020-08-28 <RC, 2023-04-01 >RC
 #p# OK
 
 use strict;
