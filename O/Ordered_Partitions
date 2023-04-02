@@ -1,6 +1,6 @@
 #!/usr/local/bin/perl
 #u# http://rosettacode.org/wiki/Ordered_Partitions
-#c# 2018-08-20 <RC
+#c# 2018-08-20 <RC, 2023-04-02 >RC
 #p# OK
 
 my $result;
@@ -9,8 +9,18 @@ use strict;
 use warnings;
 use feature 'say';
 
-# Code 1: threaded generator method. This code demonstrates how to make something like Python's
-# generators or Go's channels by using Thread::Queue. Granted, this is horribly inefficient, with constantly creating and killing threads and whatnot (every time a partition is created, a thread is made to produce the next partition, so thousands if not millions of threads live and die, depending on the problem size). But algorithms are often more naturally expressed in a coroutine manner -- for this example, "making a new partition" and "picking elements for a partition" can be done in separate recursions cleanly if so desired. It's about 20 times slower than the next code example, so there.
+=head
+Code 1: threaded generator method. This code demonstrates how to make
+something like Python's generators or Go's channels by using Thread::Queue.
+Granted, this is horribly inefficient, with constantly creating and killing
+threads and whatnot (every time a partition is created, a thread is made to
+produce the next partition, so thousands if not millions of threads live
+and die, depending on the problem size). But algorithms are often more
+naturally expressed in a coroutine manner -- for this example, "making a
+new partition" and "picking elements for a partition" can be done in
+separate recursions cleanly if so desired. It's about 20 times slower than
+the next code example, so there.
+=cut
 
 use Thread 'async';
 use Thread::Queue;
@@ -58,6 +68,7 @@ while (my $a = $qa->dequeue) {
 }
 
 say $result;
+
 my $ref = <<'EOD';
 0 1 | 2 3 | 
 0 2 | 1 3 | 
