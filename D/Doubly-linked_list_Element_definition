@@ -1,12 +1,17 @@
 #!/usr/local/bin/perl
 #u# http://rosettacode.org/wiki/Doubly-linked_list/Element_definition
-#t# skiptest
+#t# nocode
 #c# 2018-07-28 <RC
 #p# OK
 
-my %node = (
+=head
+
+%node = (
      data => 'say what',
      next => \%foo_node,
      prev => \%bar_node,
 );
+
 $node{next} = \%quux_node;  # mutable
+
+=cut
