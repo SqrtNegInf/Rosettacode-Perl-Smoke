@@ -2,7 +2,7 @@
 ## see how v5.36 checks out with current RC code
 #  2023-03-30 replace Z with A, B, ...
 #  list of programs that fail (excluding those with just library lookup issues): 
-#     grep -v OK tmp/err[0-Z] | pg -v '( locate |aborted)' | perl -npe 's/\s(\S+)\s/\n$1\n/g' | fgrep './' | sort -u 
+#    grep -v OK tmp/err[0-Z] | pg -v '( locate |aborted)' | perl -npe 's/\s(\S+)\s/\n$1\n/g' | fgrep './' | pf 's#tmp/err.:##' | sort -u
 
 chdir "$ENV{HOME}/perl5/Rosetta-Code/tmp";
 
