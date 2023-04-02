@@ -4,13 +4,13 @@
 #p# OK
 #n# "Tie::Hash" not allowed while "strict subs" in use
 
-use feature 'say';
-my $result;
+use v5.36.0;
 
 package LockedHash;
-use parent Tie::Hash;
+#use parent Tie::Hash;
+use parent -norequire => 'Tie::Hash';
 use Carp;
-use strict;
+#use strict;
  
 sub TIEHASH {
 	my $cls = shift;
@@ -50,13 +50,19 @@ sub NEXTKEY {
 	each %$self;
 }
  
-sub lock_hash(\%) {
+sub lock_hash :prototype(\%) {
 	my $ref = shift;
 	tie(%$ref, __PACKAGE__, %$ref);
 }
  
-1;
+#1;
  
+package main;
+
+my $result;
+
+#use feature 'say';
+
 my %h = (a => 3, b => 4, c => 5);
  
 # lock down %h
@@ -76,20 +82,8 @@ $result .=  "\na => $h{a}\n";
 say $result; 
  
 # add a new key x: will die
-eval { $h{x} = 1 };
+eval { $h{'x'} = 1 };
 if ($@) { print "Operation error: $@" };
-
-# a => 3
-# b => 4
-# c => 5
-# 
-#after deleting b: b => 0
-# 
-# a => 100
-# operation error: Can't add key x at test.pl line 14
-#        LockedHash::STORE('LockedHash=HASH(0x8cebe14)', 'x', 1) called at test.pl line 66
-#        eval {...} called at test.pl line 66
-
 
 my $ref = <<'EOD';
 a => 3
