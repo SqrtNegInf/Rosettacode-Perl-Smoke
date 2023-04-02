@@ -3,14 +3,13 @@
 #c# 2018-07-30 <RC
 #p# OK
 
+my $result;
+
 use strict;
 use warnings;
 use feature 'say';
-my $result;
 
-# Translation of: Go
-
-sub cubLine ($$$$) {
+sub cubLine :prototype($$$$) {
     my ($n, $dx, $dy, $cde) = @_;
  
     $result .= sprintf '%*s', $n + 1, substr($cde, 0, 1);
@@ -23,7 +22,7 @@ sub cubLine ($$$$) {
     $result .= sprintf "%*s\n", $dy + 1, substr($cde, 2, 1);
 }
  
-sub cuboid ($$$) {
+sub cuboid :prototype($$$) {
     my ($dx, $dy, $dz) = @_;
  
     $result .= sprintf "cuboid %d %d %d:\n", $dx, $dy, $dz;
@@ -48,7 +47,6 @@ sub cuboid ($$$) {
 cuboid 2, 3, 4;
 cuboid 1, 1, 1;
 cuboid 6, 2, 1;
-
 
 my $ref = <<'EOD';
 cuboid 2 3 4:
