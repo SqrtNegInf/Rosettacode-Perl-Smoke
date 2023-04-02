@@ -1,16 +1,17 @@
 #!/usr/local/bin/perl
 #u# http://rosettacode.org/wiki/Word_search
-#c# 2019-12-19 <RC
+#c# 2019-12-19 <RC, 2023-04-02 >RC
 #p# OK
 #n# stick with word source inside git archive
-
-use strict;
-use warnings;
-use feature 'say';
+#n# 2023-04-02 fails dramaticallly with v5.36, must use new bitwise operators: &. |. ~.
 
 my @res;
 
 srand 123456;
+
+use strict;
+use warnings;
+use feature 'say';
 
 use Path::Tiny;
 use List::Util qw 'shuffle';
@@ -47,7 +48,8 @@ for my $word ( (@words) x 5 ) {
         $pos = $end;
         $expand = reverse $expand;
     }
-    substr $_, $pos, length $mask, (substr( $_, $pos, length $mask ) & ~ "$mask") | "$expand";
+    substr $_, $pos, length $mask, (substr( $_, $pos, length $mask ) &  ~  "$mask") |  "$expand"; 
+   #substr $_, $pos, length $mask, (substr( $_, $pos, length $mask ) &. ~. "$mask") |. "$expand"; # use this with v5.36
     push @played, join ' ', $word, $start, $end;
     tr/.// > 0 or last;
 }
@@ -80,7 +82,8 @@ sub find {
         my $mask = "\xff" . ($nulls . "\xff") x $nm1; # vert
         my $gap = qr/.{$space}/s;
         while (/(?=(.(?:$gap.){$nm1}))/g) {
-            my $pat = ($1 & $mask) =~ tr/\0//dr;
+            my $pat = ($1 &  $mask) =~ tr/\0//dr;
+           #my $pat = ($1 &. $mask) =~ tr/\0//dr; # use this with v5.36
             $pat =~ tr/.// or next;
             my $pos = "$-[1] $+[1]";
             $word =~ /$pat/ or reverse($word) =~ /$pat/ or next;
