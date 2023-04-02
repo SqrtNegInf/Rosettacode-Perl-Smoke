@@ -1,6 +1,6 @@
 #!/usr/local/bin/perl
 #u# http://rosettacode.org/wiki/Playing_cards
-#c# 2018-08-21 <RC
+#c# 2018-08-21 <RC, 2023-04-02 >RC
 #p# OK
 #n# no straight-up replacement for typeglob here
 
@@ -18,6 +18,7 @@ package Playing_Card_Deck;
 # with "our" to keep them from escaping into the scope of other
 # packages in the same file. Another possible solution is to use
 # "our" or "my", but to enclose this entire package in a bare block.
+
 @Playing_Card_Deck::suits = qw [Diamonds Clubs Hearts Spades];
 @Playing_Card_Deck::pips  = qw [Two Three Four Five Six Seven Eight Nine Ten Jack King Queen Ace];
 
@@ -25,17 +26,17 @@ package Playing_Card_Deck;
 sub new {
     my $invocant = shift;
     my $class = ref($invocant) || $invocant;
-    my @cards; # = ();
+    my @cards;
     for my $suit (@Playing_Card_Deck::suits) {
         for my $pip (@Playing_Card_Deck::pips) {
             push @cards, {suit => $suit, pip => $pip}
         } 
     }
-  return bless([@cards], $class);
+    return bless([@cards], $class);
 }
 
 # Removes the top card of the given deck and returns it as a hash with the keys "suit" and "pip".
-sub deal { %{ shift( @{shift(@_)} ) } }
+sub deal { %{ shift( @{shift()} ) } }
 
 # Randomly permutes the cards in the deck.
 # algorithm described at: http://en.wikipedia.org/wiki/Fisher-Yates_shuffle#The_modern_algorithm
@@ -48,7 +49,7 @@ sub shuffle {
 }
 
 # Prints out a description of every card in the deck, in order.
-sub print_cards {$result .= "$_->{pip} of $_->{suit}\n" for @{shift(@_)} }
+sub print_cards {$result .= "$_->{pip} of $_->{suit}\n" for @{shift()} }
 
 # create a new deck, shuffle it, remove the top card, print out that card's name in all caps, and then prints the rest of the deck.
 my $deck = Playing_Card_Deck->new;
