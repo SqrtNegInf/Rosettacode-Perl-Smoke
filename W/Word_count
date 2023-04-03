@@ -1,17 +1,19 @@
 #!/usr/bin/env perl
 #u# http://rosettacode.org/wiki/Word_count
-#c# 2018-08-07 >RC
+#c# 2018-08-07 >RC, 2023-04-04 >RC
 #p# OK
+
+my @res;
 
 use strict;
 use warnings;
 use feature 'say';
-my @res;
+use utf8;   # required with 5.36
 
 my $filename = 'ref/word-count.txt';
 my $top = 10;
 
-open my $fh, "<", $filename;
+open my $fh, '<', $filename;
 (my $text = join '', <$fh>) =~ tr/A-Z/a-z/;
 
 my @matcher = (
@@ -22,8 +24,6 @@ my @matcher = (
 #    qr/([a-z0-9]+['"\-]?[a-z0-9]+)*/   # word characters without underscore but with hyphens and contractions '
 #   rx/ <[\w]-[_]>+[["'"|'-'|"'-"]<[\w]-[_]>+]* / 
 
-
-#@res;
 for my $reg (@matcher) {
     push @res, "\nTop $top using regex: " . $reg;
     my @matches = $text =~ /$reg/g;
