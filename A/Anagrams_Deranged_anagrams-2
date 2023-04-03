@@ -15,7 +15,7 @@ my %anagrams;
 sub foo {
     for my $word ( sort { length $b <=> length $a } split ' ', <> ) {
         my $key = join '', sort +split //, $word;
-        ($_ ^ $word) =~ /\0/ or return !push(@res,"$_ $word") for @{ $anagrams{$key} };
+        ($_ ^. $word) =~ /\0/ or return !push(@res,"$_ $word") for @{ $anagrams{$key} };
         push @{ $anagrams{$key} }, $word;
     }
 }
