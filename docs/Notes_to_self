@@ -1,25 +1,28 @@
 2023-04-02
 Tasks that fail (sometimes dramatically so) under v5.36:
+ bitwise:
     Abelian_sandpile_model
     Anagrams_Deranged_anagrams-2
-    Best_shuffle-1
     Best_shuffle-2
-    Entropy_Narcissist
-    Exceptions
-    Exceptions_Catch_an_exception_thrown_in_a_nested_call
     Find_the_missing_permutation-2
+    Flipping_bits_game
     Forest_fire-2
-    Function_frequency
     Hourglass_puzzle
-    Idiomatically_determine_all_the_lowercase_and_uppercase_letters
     Longest_common_subsequence-2
     Longest_palindromic_substrings-2
     Morpion_solitaire-2
-    Names_to_numbers
+    Pentomino_tiling
     Set_right-adjacent_bits
+    Word_search
+  utf8:
+    Names_to_numbers
     Word_count
     Word_frequency
-    Word_search
+  other:
+    Entropy_Narcissist (self-describing issue)
+    Exceptions
+    Exceptions_Catch_an_exception_thrown_in_a_nested_call
+    Idiomatically_determine_all_the_lowercase_and_uppercase_letters
     
 2023-04-01
 Revised instances of bare 'new' and updated on RC (mostly).
