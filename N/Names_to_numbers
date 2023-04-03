@@ -1,6 +1,6 @@
 #!/usr/local/bin/perl
 #u# http://rosettacode.org/wiki/Names_to_numbers
-#c# 2018-08-19 <RC, 2019-11-26 >RC, 2023-04-03 >RC
+#c# 2018-08-19 <RC, 2019-11-26 >RC, 2023-04-04 >RC
 #p# OK
 #n# doesn't 'count' as high as P6 (goes to exp notation after quadrillion)
 #n# remaining issues: spacing around punctuation, decimal fraction support very minimal
@@ -10,7 +10,9 @@ my @res;
 use strict;
 use warnings;
 use feature 'say';
+
 use utf8; # required with 5.36
+binmode STDOUT, ':utf8';
 
 my $phrases_with_numbers = <<'END';
 One Hundred and One Dalmatians
