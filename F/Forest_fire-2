@@ -1,11 +1,11 @@
 #!/usr/local/bin/perl
 #u# http://rosettacode.org/wiki/Forest_fire
-#c# 2019-09-18 <RC
+#c# 2019-09-18 <RC, 2023-04-03 >RC
 #p# OK
 
 use strict;
 use warnings;
-use feature 'say';
+use feature <say bitwise>;
 
 srand 123456;
 
@@ -20,8 +20,8 @@ for( 1 .. 30) # 1e3 )
   {                                         # 0=border 1=empty 2=tree 3=burning
   #print "\e[H", $forest =~ tr/0123/  ^#/r, "\n"; # ^=tree  #=burning tree
   my $n = $forest =~ tr/123/004/r;          # 4=a neighbor is burning
-  $forest |= 0 x $_ . $n | substr $n, $_ for 1, $wide - 1 .. $wide + 1;
-  $forest &= $mask;                         # clear borders and trim
+  $forest |.= 0 x $_ . $n |. substr $n, $_ for 1, $wide - 1 .. $wide + 1;
+  $forest &.= $mask;                         # clear borders and trim
   $forest =~ tr/1-7/et10e31/;               # step to next generation
   $forest =~ s/t/ rand() < $f ? 3 : 2 /ge;  # rule 3) tree cell to burning
   $forest =~ s/e/ rand() < $p ? 2 : 1 /ge;  # rule 4) empty cell to tree
