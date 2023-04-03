@@ -2,18 +2,18 @@
 #u# http://rosettacode.org/wiki/Find_the_missing_permutation
 #c# 2018-08-06 <RC
 #p# OK
-#n# alternates
+#n# RC not updated, just a bunch of snippets not full programs.
 
 use strict;
 use warnings;
-use feature 'say';
+use feature <say bitwise>;
 
 my @perms = <ABCD CABD ACDB DACB BCDA ACBD ADCB CDAB DABC BCAD CADB CDBA CBAD ABDC ADBC BDCA DCBA BACD BADC BDAC CBDA DBCA DCAB>;
 
-my $result1 = eval join '^', map "'$_'", @perms;
+my $result1 = eval join '^.', map "'$_'", @perms; # bitwise op here as a string to be eval'd
 
 #or if you don't like eval...
-$\ ^= $_ for @perms;
+$\ ^.= $_ for @perms;
 say my $result2 = $\;
 
 #Every permutation has a "reverse", just take all reverses and remove the "normals".
