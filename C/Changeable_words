@@ -2,11 +2,10 @@
 #u# http://rosettacode.org/wiki/Changeable_words
 #c# 2020-12-06 <RC
 #p# OK
-#n# 2023-04-02 fails dramaticallly with v5.36, why?
 
 use strict;
 use warnings;
-use feature 'say';
+use feature <say bitwise>;
 
 my @res;
 
@@ -17,7 +16,7 @@ while( <> ) {
     chomp;
     length > 11 or next;
     for my $prev ( @{ $words[length] } ) {
-        ($prev ^ $_) =~ tr/\0//c == 1 and push @res, sprintf "%30s <-> %s", $prev, $_;
+        ($prev ^. $_) =~ tr/\0//c == 1 and push @res, sprintf "%30s <-> %s", $prev, $_;
     }
     push @{ $words[length] }, $_;
 }
