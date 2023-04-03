@@ -1,13 +1,13 @@
 #!/usr/local/bin/perl
 #u# http://rosettacode.org/wiki/Pentomino_tiling
-#c# 2020-12-06 <RC
+#c# 2020-12-06 <RC, 2023-04-04 >RC
 #p# OK
 
 srand 123456;
 
 use strict;
 use warnings;
-use feature 'say';
+use feature <say bitwise>;
 
 my $ref = <<'EOD';
 FIIIIILV
@@ -76,6 +76,6 @@ sub find {
   for ( grep ! $used{ $_->[2] }, @all ) {
     my ($pattern, $pentomino, $letter) = @$_;
     local $used{$letter} = 1;
-    $grid =~ /^[^ ]*\K$pattern/s and find( $grid ^ "\0" x $-[0] . $pentomino );
+    $grid =~ /^[^ ]*\K$pattern/s and find( $grid ^. "\0" x $-[0] . $pentomino );
   }
 }
