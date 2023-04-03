@@ -1,6 +1,6 @@
 #!/usr/local/bin/perl
 #u# http://rosettacode.org/wiki/Word_frequency
-#c# 2021-03-19 <RC
+#c# 2021-03-19 <RC, 2023-04-04 >RC
 #p# OK
 
 my @res;
@@ -8,10 +8,11 @@ my @res;
 use strict;
 use warnings;
 use feature 'say';
+use utf8;   # required with 5.36
 
 my $top = 10;
 
-open my $fh, "<", 'ref/word-count.txt';
+open my $fh, '<', 'ref/word-count.txt';
 (my $text = join '', <$fh>) =~ tr/A-Z/a-z/;
 
 my @matcher = (
