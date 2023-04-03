@@ -1,11 +1,11 @@
 #!/usr/local/bin/perl
 #u# http://rosettacode.org/wiki/Longest_palindromic_substrings
-#c# 2020-11-18 <RC
+#c# 2020-11-18 <RC, 2023-04-04 >RC
 #p# OK
 
 use strict;
 use warnings;
-use feature 'say';
+use feature <say bitwise>;
 
 my $forward = lc do { local $/; @ARGV ? <> : <DATA> };
 $forward =~ s/\W+//g;
@@ -19,10 +19,10 @@ for my $i ( 1 .. $length - 2 ) {
   do {
     my $right = substr $forward, $i, $range;
     my $left = substr $backward, $length - $i, $range;
-    ( $right ^ $left ) =~ /^\0\0+/ and                                # evens
+    ( $right ^. $left ) =~ /^\0\0+/ and                                # evens
       ($len = 2 * length $&) >= $#best and
       $best[ $len ]{substr $forward, $i - length $&, $len}++;
-    ( $right ^ "\0" . $left ) =~ /^.(\0+)/ and                        # odds
+    ( $right ^. "\0" . $left ) =~ /^.(\0+)/ and                        # odds
       ($len = 1 + 2 * length $1) >= $#best and
       $best[ $len ]{substr $forward, $i - length $1, $len}++;
   } while $range < $#best and $range = $#best;
