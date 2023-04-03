@@ -1,14 +1,17 @@
 #!/usr/local/bin/perl
 #u# http://rosettacode.org/wiki/Best_shuffle
-#c# 2018-07-16 <RC
+#c# 2018-07-16 <RC, 2023-04-03 >RC
 #p# OK
+
+my $result;
 
 srand 123456;
 
 use strict;
 use warnings;
 use feature 'say';
-my $result;
+
+use feature 'bitwise';
 
 use List::Util 'shuffle';
 
@@ -32,7 +35,7 @@ sub best_shuffle {
 	
 	my $word = join '', @t;
 
-	my $score = ($original_word ^ $word) =~ tr/\x00//;
+	my $score = ($original_word ^. $word) =~ tr/\x00//;
 	$result .= sprintf "$original_word, $word, $score\n";
 }
 
