@@ -5,7 +5,7 @@ updating from RC…
 |+-----------> Smoke testing [393]
 ||+----------> sKipping validation [27]
 |||+---------> Interactive [15]
-||||+--------> Touched (modified by me) [188]
+||||+--------> Touched (modified by me) [193]
 |||||+-------> Random seed [35]
 ||||||+------> File output [23]
 |||||||+-----> Draft [199]
@@ -87,7 +87,7 @@ GS..T..D... Anadromes
 GS..T...... Anagrams-1
 GS..T...... Anagrams-2
 GS......... Anagrams_Deranged_anagrams
-!S..T...... Anagrams_Deranged_anagrams-2
+GS..T...... Anagrams_Deranged_anagrams-2
 GS..T...... Angle_difference_between_two_bearings
 GS..T...... Angles_geometric,_normalization_and_conversion
 G.KI....... Animate_a_pendulum
@@ -161,8 +161,8 @@ GS......... Benford%27s_law
 GS......... Bernoulli_numbers-1
 GS......... Bernoulli_numbers-2
 GS......... Bernoulli_numbers-3
-GS...R..... Best_shuffle-1
-GS...R..... Best_shuffle-2
+GS..TR..... Best_shuffle-1
+GS..TR..... Best_shuffle-2
 GS..T..D... Bifid_cipher
 GS..T.FD... Bilinear_interpolation
 GS..T...... Bin_given_limits-1
@@ -422,7 +422,7 @@ G.KITR.D... Greed
 GS.....D... Hex_words
 G.KI...D... Hexapawn
 GS..T..D... Horse_racing
-GS.....D... Hourglass_puzzle
+GS..T..D... Hourglass_puzzle
 G.KI...D... IPC_via_named_pipe
 .......D.V. IRC_gateway
 G.K.T..D... Implicit_type_conversion
@@ -461,7 +461,7 @@ GS.....D... Longest_common_prefix
 GS..T..D... Longest_common_suffix
 .......D... Longest_palindromic_substrings
 GS......... Longest_palindromic_substrings-1
-GS......... Longest_palindromic_substrings-2
+GS..T...... Longest_palindromic_substrings-2
 GS.....D... Longest_substrings_without_repeating_characters
 GS..T.FD... Make_a_backup_file
 GS..T..D... Marching_squares
@@ -480,7 +480,7 @@ GS......... Minimum_primes-2
 .......DXV. Modulinos
 GS..T..D... Montgomery_reduction
 GS...R.D... Morpion_solitaire
-GS...R..... Morpion_solitaire-2
+GS..TR..... Morpion_solitaire-2
 GS..T..D... Mosaic_matrix
 GS.....D... Most_frequent_k_chars_distance
 G.K.T..D... Multidimensional_Newton-Raphson_method
@@ -488,7 +488,7 @@ GS.....D... Multiline_shebang
 GS.....D... Multiton
 GS..T..D... N-body_problem
 GS..T..D... N-queens_minimum_and_knights_and_bishops
-GS..T..D... Names_to_numbers
+!S..T..D... Names_to_numbers
 ........X.. Narcissist
 G.K....D... Native_shebang
 GS..T..D... Neighbour_primes
