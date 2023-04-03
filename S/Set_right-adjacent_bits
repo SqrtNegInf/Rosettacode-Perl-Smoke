@@ -1,19 +1,19 @@
 #!/usr/local/bin/perl
 #u# http://rosettacode.org/wiki/Set_right-adjacent_bits
-#c# 2021-12-21 <RC
+#c# 2021-12-21 <RC, 2023-04-04 >RC
 #p# OK
 
 my @res;
 
 use strict;
 use warnings;
-use feature 'say';
+use feature <say bitwise>;
 
 while( <DATA> ) {
   my ($n, $input) = split;
   my $width = length $input;
   my $result = '';
-  $result |= substr 0 x $_ . $input, 0, $width for 0 .. $n;
+  $result |.= substr 0 x $_ . $input, 0, $width for 0 .. $n;
   push @res, "n = $n  width = $width\n input $input\nresult $result\n";
 }
 
