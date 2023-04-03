@@ -1,19 +1,19 @@
 #!/usr/local/bin/perl
 #u# http://rosettacode.org/wiki/Flipping_bits_game
-#c# 2018-08-06 <RC
+#c# 2018-08-06 <RC, 2023-04-03 >RC
 #p# OK
+
+my $result;
 
 srand 123456;
 
-use feature 'say';
-my $result;
+use strict;
+use warnings; # qw(FATAL all);
+use feature <say bitwise>;
 
 # Pass the size of the puzzle on the command line. It defaults to 4. You can play any
 # size game between 2 and 26. While playing, the game accepts anything which looks like
 # valid rows or columns, and disregards any irrelevant text in between.
-
-use strict;
-use warnings qw(FATAL all);
 
 my $n = shift(@ARGV) || 4;
 if( $n < 2 or $n > 26 ) {
@@ -36,7 +36,7 @@ int(rand(2)) or (vec($goal, $_, 8) ^= 1) for 0 .. $n2-1;
 my $start = $goal;
 {
 	for(@rows, @cols) {
-		$start ^= $_ if int rand 2;
+		$start ^.= $_ if int rand 2;
 	}
 	redo if $start eq $goal; 
 }
@@ -77,10 +77,10 @@ while( 1 ) {
 		for( $input =~ /($re)/gi ) {
 			$did_one = 1;
 			if( /\d/ ) {
-				$start ^= $rows[$_-1];
+				$start ^.= $rows[$_-1];
 			} else {
 				$_ = ord(lc) - ord('a');
-				$start ^= $cols[$_];
+				$start ^.= $cols[$_];
 			}
 			++$moves_so_far;
 		}
