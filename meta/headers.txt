@@ -3171,13 +3171,13 @@ File: E/Exceptions
 #u# http://rosettacode.org/wiki/Exceptions
 #c# 2018-08-01 <RC
 #p# OK
-#n# hard to test
 
 File: E/Exceptions_Catch_an_exception_thrown_in_a_nested_call
 #!/usr/local/bin/perl
 #u# http://rosettacode.org/wiki/Exceptions/Catch_an_exception_thrown_in_a_nested_call
 #c# 2018-08-01 <RC
 #p# OK
+#n# testing a bit fragile
 
 File: E/Executable_library
 #!/usr/local/bin/perl
@@ -4826,8 +4826,9 @@ File: I/Idiomatically_determine_all_the_characters_that_can_be_used_for_symbols
 File: I/Idiomatically_determine_all_the_lowercase_and_uppercase_letters
 #!/usr/local/bin/perl
 #u# http://rosettacode.org/wiki/Idiomatically_determine_all_the_lowercase_and_uppercase_letters
-#c# 2018-09-15 >RC
+#c# 2018-09-15 >RC, 2023-04-04 >RC
 #p# OK
+#n# yikes, from 5.12 forward an extended charset available
 
 File: I/Idoneal_numbers
 #!/usr/local/bin/perl
@@ -6634,7 +6635,7 @@ File: N/Named_parameters
 File: N/Names_to_numbers
 #!/usr/local/bin/perl
 #u# http://rosettacode.org/wiki/Names_to_numbers
-#c# 2018-08-19 <RC, 2019-11-26 >RC, 2023-04-03 >RC
+#c# 2018-08-19 <RC, 2019-11-26 >RC, 2023-04-04 >RC
 #p# OK
 #n# doesn't 'count' as high as P6 (goes to exp notation after quadrillion)
 #n# remaining issues: spacing around punctuation, decimal fraction support very minimal
@@ -9241,9 +9242,10 @@ File: S/Shortest_common_supersequence
 File: S/Show_Ascii_table-1
 #!/usr/local/bin/perl
 #u# http://rosettacode.org/wiki/Show_Ascii_table
-#c# 2018-09-0x >RC
+#c# 2018-09-xx NOT ON RC
 #p# OK
 #f# RC file: ASCII_table.txt
+#n# see -2, translated from Raku
 
 File: S/Show_Ascii_table-2
 #!/usr/local/bin/perl
@@ -11617,8 +11619,9 @@ File: W/Word_break_problem
 File: W/Word_count
 #!/usr/bin/env perl
 #u# http://rosettacode.org/wiki/Word_count
-#c# 2018-08-07 >RC, 2023-04-04 >RC
+#c# 2018-08-07 >RC, 2023-04-04 NOT ON RC
 #p# OK
+#n# a duplicate of 'W/Word_frequency'
 
 File: W/Word_count.0
 #!/usr/bin/env perl
