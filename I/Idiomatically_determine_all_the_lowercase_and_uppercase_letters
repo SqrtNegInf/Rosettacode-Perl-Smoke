@@ -1,16 +1,20 @@
 #!/usr/local/bin/perl
 #u# http://rosettacode.org/wiki/Idiomatically_determine_all_the_lowercase_and_uppercase_letters
-#c# 2018-09-15 >RC
+#c# 2018-09-15 >RC, 2023-04-04 >RC
 #p# OK
+#n# yikes, from 5.12 forward an extended charset available
 
+use v5.12;
 use strict;
 use warnings;
-use feature 'say';
+
+use utf8;
+binmode STDOUT, ':utf8';
 
 my($lower,$upper);
 
 for my $i (0..2**8-1) {
-    my $c = chr($i);
+    my $c = chr $i;
     $lower .= $c if $c =~ /[[:lower:]]/;
     $upper .= $c if $c =~ /[[:upper:]]/;
 }
@@ -19,6 +23,6 @@ say $lower;
 say $upper;
 
 use Test::More;
-is ($lower, 'abcdefghijklmnopqrstuvwxyz');
-is ($upper, 'ABCDEFGHIJKLMNOPQRSTUVWXYZ');
+is ($lower, 'abcdefghijklmnopqrstuvwxyzªµºßàáâãäåæçèéêëìíîïðñòóôõöøùúûüýþÿ');
+is ($upper, 'ABCDEFGHIJKLMNOPQRSTUVWXYZÀÁÂÃÄÅÆÇÈÉÊËÌÍÎÏÐÑÒÓÔÕÖØÙÚÛÜÝÞ');
 done_testing();
