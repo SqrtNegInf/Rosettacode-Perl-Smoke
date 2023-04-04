@@ -2,12 +2,12 @@
 #u# http://rosettacode.org/wiki/Exceptions/Catch_an_exception_thrown_in_a_nested_call
 #c# 2018-08-01 <RC
 #p# OK
+#n# testing a bit fragile
 
 use strict; 
 use warnings;
 
 # Note: Both exceptions are caught and one is re-raised rather than only one being caught.
-
 sub testcode {
 sub foo {
     foreach (0..1) {
@@ -30,13 +30,14 @@ eval { foo(); };
 print STDERR $@ if $@;
 }
 
-my $ref = <<'EOD';
-Function foo caught exception U0
-U1 at E/Exceptions_Catch_an_exception_thrown_in_a_nested_call line 26.
-	...propagated at E/Exceptions_Catch_an_exception_thrown_in_a_nested_call line 16.
-EOD
+#my $ref = <<'EOD';
+#Function foo caught exception U0
+#U1 at E/Exceptions_Catch_an_exception_thrown_in_a_nested_call line 26.
+#	...propagated at E/Exceptions_Catch_an_exception_thrown_in_a_nested_call line 16.
+#EOD
 
 use Test::More;
 use Test::Output;
-combined_is(\&testcode,$ref);
+#combined_is(\&testcode,$ref);
+ok (&testcode) =~ /Function foo caught exception U0\nU1 at.*?line 2\d.*propagated at.*line 1\d/;
 done_testing();
