@@ -1,7 +1,8 @@
 #!/usr/bin/env perl
 #u# http://rosettacode.org/wiki/Word_count
-#c# 2018-08-07 >RC, 2023-04-04 >RC
+#c# 2018-08-07 >RC, 2023-04-04 NOT ON RC
 #p# OK
+#n# a duplicate of 'W/Word_frequency'
 
 my @res;
 
