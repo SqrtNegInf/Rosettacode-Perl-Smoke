@@ -1,13 +1,15 @@
 #!/usr/local/bin/perl
 #u# http://rosettacode.org/wiki/Show_Ascii_table
-#c# 2018-09-0x >RC
+#c# 2018-09-xx NOT ON RC
 #p# OK
 #f# RC file: ASCII_table.txt
+#n# see -2, translated from Raku
+
+my $result;
 
 use strict;
 use warnings;
 use feature 'say';
-my $result;
 
 use open ":encoding(utf8)";
 
