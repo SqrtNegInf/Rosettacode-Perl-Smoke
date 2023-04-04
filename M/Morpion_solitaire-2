@@ -11,7 +11,7 @@ use strict;
 use warnings;
 use feature <say bitwise>;
 
-use List::Util qw( none );
+use List::Util 'none';
  
 local $_ = <<END;
 .............XXXX.............
@@ -27,9 +27,7 @@ local $_ = <<END;
 END
 $_ = tr/X./ /r . tr/./ /r . tr/X./ /r; # expand to 30x30 and spaces
  
-my @moves;
-my %used;
-my $count = 0;
+my($count, @moves, %used) = 0;
 while () {
   my @try; # valid moves
   for my $i ( 1, 30 .. 32 ) { # directions 1 - 30 / 31 | 32 \
