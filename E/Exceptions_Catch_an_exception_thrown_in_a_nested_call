@@ -2,7 +2,6 @@
 #u# http://rosettacode.org/wiki/Exceptions/Catch_an_exception_thrown_in_a_nested_call
 #c# 2018-08-01 <RC
 #p# OK
-#n# testing a bit fragile
 
 use strict; 
 use warnings;
@@ -39,5 +38,5 @@ print STDERR $@ if $@;
 use Test::More;
 use Test::Output;
 #combined_is(\&testcode,$ref);
-ok (&testcode) =~ /Function foo caught exception U0\nU1 at.*?line 2\d.*propagated at.*line 1\d/;
+combined_like(\&testcode, qr/Function foo caught exception U0\nU1 at.*?line 2\d.*propagated at.*line 1\d/s);
 done_testing();
