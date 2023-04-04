@@ -1,7 +1,7 @@
 
 This is perl 5, version 36, subversion 0 (v5.36.0) built for darwin-thread-multi-2level
 updating from RC…
-+------------> Perl: Good/Bad [419/1]
++------------> Perl: Good/Bad [420/1]
 |+-----------> Smoke testing [393]
 ||+----------> sKipping validation [27]
 |||+---------> Interactive [15]
@@ -488,7 +488,7 @@ GS.....D... Multiline_shebang
 GS.....D... Multiton
 GS..T..D... N-body_problem
 GS..T..D... N-queens_minimum_and_knights_and_bishops
-!S..T..D... Names_to_numbers
+GS..T..D... Names_to_numbers
 ........X.. Narcissist
 G.K....D... Native_shebang
 GS..T..D... Neighbour_primes
