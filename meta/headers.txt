@@ -3177,7 +3177,6 @@ File: E/Exceptions_Catch_an_exception_thrown_in_a_nested_call
 #u# http://rosettacode.org/wiki/Exceptions/Catch_an_exception_thrown_in_a_nested_call
 #c# 2018-08-01 <RC
 #p# OK
-#n# testing a bit fragile
 
 File: E/Executable_library
 #!/usr/local/bin/perl
