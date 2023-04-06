@@ -199,6 +199,14 @@ File: A/ASCII_art_diagram_converter
 #c# 2020-07-21 <RC
 #p# OK
 
+File: A/ASCII_control_characters
+#!/usr/local/bin/perl
+#u# https://rosettacode.org/wiki/ASCII_control_characters
+#t# nocode
+#c# 2023-04-06 <RC
+#p# OK
+#n# incoherent
+
 File: A/A_star_search_algorithm
 #!/usr/local/bin/perl
 #u# http://rosettacode.org/wiki/A*_search_algorithm
@@ -846,6 +854,7 @@ File: B/Balanced_brackets-2
 #u# http://rosettacode.org/wiki/Balanced_brackets
 #c# 2018-07-16 <RC
 #p# OK
+#n# not working with 5.36: Multidimensional hash lookup is disabled at B/Balanced_brackets-2 line 17, near "'[]'}"
 
 File: B/Balanced_brackets-3
 #!/usr/local/bin/perl
@@ -1320,9 +1329,10 @@ File: C/Call_a_function_in_a_shared_library-2
 File: C/Call_an_object_method
 #!/usr/local/bin/perl
 #u# http://rosettacode.org/wiki/Call_an_object_method
-#t# skiptest
+#t# nocode
 #c# 2018-07-21 <RC
 #p# OK
+#n# just pseudo-code
 
 File: C/Camel_case_and_snake_case
 #!/usr/local/bin/perl
@@ -2870,7 +2880,7 @@ File: D/Dynamic_variable_names
 #u# http://rosettacode.org/wiki/Dynamic_variable_names
 #c# 2018-07-28 <RC
 #p# OK
-#n# doesn't play well with 'use strict'
+#n# 1st version doesn't play well with 'use strict' (or 5.36)
 
 File: E/EKG_sequence_convergence
 #!/usr/local/bin/perl
@@ -4044,7 +4054,6 @@ File: F/Function_composition
 File: F/Function_definition
 #!/usr/local/bin/perl
 #u# http://rosettacode.org/wiki/Function_definition
-#t# nocode
 #c# 2018-08-08 <RC
 #p# OK
 
@@ -4375,6 +4384,7 @@ File: H/HTTP
 #u# http://rosettacode.org/wiki/HTTP
 #c# 2018-08-11 <RC
 #p# OK
+#n# very minimal testing
 
 File: H/HTTPS
 #!/usr/local/bin/perl
@@ -4423,6 +4433,7 @@ File: H/Halt_and_catch_fire
 #c# 2021-09-12 >RC
 #p# OK
 #n# all these statements pass 'perl -c' but crash one way or another upon execution
+#n# 5.36 notes 'useless use';
 
 File: H/Hamming_numbers
 #!/usr/local/bin/perl
@@ -4437,6 +4448,7 @@ File: H/Handle_a_signal
 #c# 2018-08-12 <RC
 #p# OK
 #n# as written, works with really old Perl
+#n# 5.36 notes 'useless use' (same as earlier Perls)
 
 File: H/Happy_numbers-1
 #!/usr/local/bin/perl
@@ -4539,10 +4551,11 @@ File: H/Hello_world_Text
 File: H/Hello_world_Web_server
 #!/usr/local/bin/perl
 #u# http://rosettacode.org/wiki/Hello_world/Web_server
-#t# skiptest
+#t# interactive
 #c# 2018-08-12 <RC
 #p# OK
 #n# commented out whole Plack solution, can't get module to install
+#n# 5.36 requires \xd -> \x0d
 
 File: H/Here_document
 #!/usr/local/bin/perl
@@ -5906,7 +5919,7 @@ File: M/Magic_numbers
 #!/usr/local/bin/perl
 #u# https://rosettacode.org/wiki/Magic_numbers
 #t# inprogress
-#c# 2022-02-10 >RC
+#c# 2023-04-06 >RC
 #p# OK
 
 File: M/Magic_squares_Perl
