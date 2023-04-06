@@ -3,11 +3,14 @@
 #c# 2018-07-21 <RC
 #p# OK
 
+use strict;
+use warnings;
+
 # These variables are all different
-$dog='Benjamin';
-$Dog='Samba';
-$DOG='Bernie';
-print ($result = "The three dogs are named $dog, $Dog, and $DOG"); print "\n";
+my $dog='Benjamin';
+my $Dog='Samba';
+my $DOG='Bernie';
+print (my $result = "The three dogs are named $dog, $Dog, and $DOG"); print "\n";
 
 use Test::More;
 is ($result, 'The three dogs are named Benjamin, Samba, and Bernie');
