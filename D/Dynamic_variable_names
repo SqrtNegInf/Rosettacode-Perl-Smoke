@@ -2,9 +2,13 @@
 #u# http://rosettacode.org/wiki/Dynamic_variable_names
 #c# 2018-07-28 <RC
 #p# OK
-#n# doesn't play well with 'use strict'
+#n# 1st version doesn't play well with 'use strict' (or 5.36)
 
+use strict;
+use warnings;
 use feature 'say';
+
+=head
 
 #print "Enter a variable name: ";
 #$varname = <STDIN>; # type in "foo" on standard input
@@ -14,17 +18,19 @@ $$varname = 42; # when you try to dereference a string, it will be
                 # treated as a "symbolic reference", where they
                 # take the string as the name of the variable
 say my $result = $foo; # prints "42"
-#If you are operating in a strict environment, this isn't possible. You need to use 'eval' in this case
 
-#use strict;
+=cut
+
+#If you are operating in a strict environment, this isn't possible. You need to use 'eval' in this case
  
-#print "Enter a variable name: ";
-#my $foo;
+print "Enter a variable name: ";
+my $foo;
 #my $varname = <STDIN>; # type in "foo" on standard input
 #chomp($varname);
-#my $varref = eval('\$' . $varname);
-#$$varref = 42;
-#print "$foo\n"; # prints "42"
+my $varname = 'foo';
+my $varref = eval('\$' . $varname);
+$$varref = 42;
+say my $result = $foo; # prints "42"
 
 use Test::More;
 is ($result, 42);
