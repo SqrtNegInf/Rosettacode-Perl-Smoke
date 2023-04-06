@@ -1,13 +1,16 @@
 #!/usr/local/bin/perl
 #u# http://rosettacode.org/wiki/Call_an_object_method
-#t# skiptest
+#t# nocode
 #c# 2018-07-21 <RC
 #p# OK
+#n# just pseudo-code
+
+=head 
 
 # Class method
 MyClass->classMethod($someParameter);
 # Equivalently using a class name
-my $foo = 'MyClass';
+$foo = 'MyClass';
 $foo->classMethod($someParameter);
  
  
@@ -21,3 +24,5 @@ $myInstance->anotherMethod;
 # the package and calling it on the class name or object reference explicitly
 MyClass::classMethod('MyClass', $someParameter);
 MyClass::method($myInstance, $someParameter);
+
+=cut
