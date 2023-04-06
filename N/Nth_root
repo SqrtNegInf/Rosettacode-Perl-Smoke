@@ -8,7 +8,7 @@ use warnings;
 use feature 'say';
 my $result;
 
-sub nthroot ($$)
+sub nthroot :prototype($$)
 {
     my ( $n, $A ) = @_;
 
