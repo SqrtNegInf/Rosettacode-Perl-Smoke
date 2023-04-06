@@ -4,6 +4,7 @@
 #c# 2018-08-12 <RC
 #p# OK
 #n# as written, works with really old Perl
+#n# 5.36 notes 'useless use' (same as earlier Perls)
 
 #use strict; # b/c of time-waster loop
 #use warnings; #         "
@@ -26,11 +27,11 @@ alarm $arlm;  # trigger ALaRM after we've run  for a while
 
 print " ^C to interrupt, ^\\ to quit, takes a break at $arlm seconds \n";
 
+my $w = 0;
 while ( 1 ) {
    for ( $w=11935000; $w--; $w>0 ){}; # spinning is bad, but hey it's only a demo
-
-    print (  ++$i," \n");
-            }
+   print (  ++$i," \n");
+}
 
 __END__
 
