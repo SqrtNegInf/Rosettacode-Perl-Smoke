@@ -3,12 +3,15 @@
 #c# 2018-08-12 <RC, 2019-09-06 >RC
 #p# OK
 
-use feature 'say';
 my $result;
+
+use strict;
+use warnings;
+use feature 'say';
 
 # In Perl, there must not be a space between the "<<" and the token string. The ending token must always be the entire end line (i.e. no surrounding spaces) for it to be recognised. Interpolation is allowed, like a double-quoted string:
 
-$town_name = 'Worchestershire';
+my $town_name = 'Worchestershire';
 $result = <<END;
 1, High Street,
 $town_name,
@@ -75,6 +78,7 @@ if ((1+sqrt(5))/2 == 5**.5*.5+.5) {
 #   . "lamb\n");
 
 say $result; 
+
 my $ref = <<'EOD';
 1, High Street,
 Worchestershire,
