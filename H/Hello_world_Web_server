@@ -1,14 +1,15 @@
 #!/usr/local/bin/perl
 #u# http://rosettacode.org/wiki/Hello_world/Web_server
-#t# skiptest
+#t# interactive
 #c# 2018-08-12 <RC
 #p# OK
 #n# commented out whole Plack solution, can't get module to install
+#n# 5.36 requires \xd -> \x0d
 
 my $result;
 
 use strict;
-#use warnings;
+use warnings;
 use feature 'say';
 
 use Socket;
@@ -41,7 +42,6 @@ while( accept(CLIENT, SOCK) ){
 # which provides a simpler and more friendly OO interface for the socket layer.
 # Here is the solution using this module:
 
-# Library: IO::Socket::INETINET
 use IO::Socket::INET;
 
 my $sock = IO::Socket::INET->new( LocalAddr => "127.0.0.1:8080",
@@ -54,14 +54,13 @@ while( my $client = $sock->accept() ){
                 "<html><head><title>Goodbye, world!</title></head><body>Goodbye, world!</body></html>\r\n";
   close $client;
 }
-# Using Perl's glue power, provide a suicide note
-# with visitor counter via netcat:
 
+# Using Perl's glue power, provide a note with visitor counter via netcat:
 while (++(our $vn)) {
   open NC, "|-", qw(nc -l -p 8080 -q 1);
-  print NC "HTTP/1.0 200 OK\xd\xa",
-      "Content-type: text/plain; charset=utf-8\xd\xa\xd\xa",
-      "Goodbye, World! (hello, visitor No. $vn!)\xd\xa";
+  print NC "HTTP/1.0 200 OK\x0d\x0a",
+      "Content-type: text/plain; charset=utf-8\x0d\x0a\x0d\x0a",
+      "Goodbye, World! (hello, visitor No. $vn!)\x0d\x0a";
 }
 
 __END__
