@@ -3,10 +3,11 @@
 #c# 2021-09-12 >RC
 #p# OK
 #n# all these statements pass 'perl -c' but crash one way or another upon execution
+#n# 5.36 notes 'useless use';
 
 use Test::More tests => 3;
 use Test::Exception;
 
-'dies ok' if dies_ok { &a };
+'dies ok' if dies_ok { &a  };
 'dies ok' if dies_ok { 1/0 };
 'dies ok' if dies_ok { die };
