@@ -2,43 +2,39 @@
 #u# http://rosettacode.org/wiki/HTTP
 #c# 2018-08-11 <RC
 #p# OK
+#n# very minimal testing
 
-use feature 'say';
 my $result;
 
+use strict;
+use warnings;
+use feature 'say';
 
-# Core example[edit]
 # Library: HTTP/Tiny
-# Works with: Perl version 5.14
-# Works with: Perl/HTTP/Tiny
-# This sample is nearly identical to the LWP sample except that it uses HTTP::Tiny which was added to the core libraries in Perl/5.14.
-
-#use strict; use warnings;
-require 5.014; # check HTTP::Tiny part of core
 use HTTP::Tiny;
+my $rc0 = ( HTTP::Tiny->new()->get( 'http://rosettacode.org')->{content} );
 
-$rc0 = ( HTTP::Tiny->new()->get( 'http://rosettacode.org')->{content} );
-#Library examples[edit]
-#Library: LWP[edit]
-#Works with: Perl/LWP
 #Classic LWP sample.
-
 use LWP::Simple qw/get $ua/;
 $ua->agent(undef) ; # cloudflare blocks default LWP agent
-$rc1 = join '', get("http://www.rosettacode.org");
+my $rc1 = join '', get("http://www.rosettacode.org");
+
+=head
 
 #or with more error-checking
 
-#use LWP::UserAgent;
+use LWP::UserAgent;
 
-#my $url = 'http://www.rosettacode.org';
-#my $rc2 = LWP::UserAgent->new->get( $url );
+my $url = 'http://www.rosettacode.org';
+my $rc2 = LWP::UserAgent->new->get( $url );
 
-#$response->is_success or die "Failed to GET '$url': ", $response->status_line;
-#print $response->as_string;
+$response->is_success or die "Failed to GET '$url': ", $response->status_line;
+print $response->as_string;
 
-#say length $rc0;
-#say length $rc1;
+say length $rc0;
+say length $rc1;
+
+=cut
 
 use Test::More;
 ok (20000 < length $rc0);
