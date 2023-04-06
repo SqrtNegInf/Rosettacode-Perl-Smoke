@@ -1,0 +1,35 @@
+#!/usr/local/bin/perl
+#u# https://rosettacode.org/wiki/ASCII_control_characters
+#t# nocode
+#c# 2023-04-06 <RC
+#p# OK
+#n# incoherent
+
+my @res;
+
+use strict;
+use warnings;
+use feature 'say';
+
+# There is no EM, use END OF MEDIUM.  Do not confuse BEL with BELL. Starting
+# in Perl 5.18, BELL refers to unicode emoji 0x1F514. ALERT is an alias for
+# BEL.  compile time literal
+
+use charnames ":loose";
+
+my @c = qw[ /N{nul} /N{soh} /N{stx} /N{etx} /N{eot} /N{enq} /N{ack} /N{bel} /N{bs} /N{ht} /N{lf} /N{vt} /N{cr} /N{so} /N{si} /N{dle} /N{dc1} /N{dc2} /N{dc3} /N{dc4} /N{nak} /N{syn} /N{etb} /N{can} /N{end of medium} /N{sub} /N{esc} /N{fs} /N{gs} /N{rs} /N{us} /N{space} /N{delete}];
+
+# run time
+# charnames::string_vianame $_ for @c;
+
+__END__
+
+say my $result = join "\n", @res;
+
+my $ref = <<'END';
+END
+
+use Test::More;
+chomp $ref;
+is($result, $ref);
+done_testing();
