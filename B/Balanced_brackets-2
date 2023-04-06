@@ -2,6 +2,7 @@
 #u# http://rosettacode.org/wiki/Balanced_brackets
 #c# 2018-07-16 <RC
 #p# OK
+#n# not working with 5.36: Multidimensional hash lookup is disabled at B/Balanced_brackets-2 line 17, near "'[]'}"
 
 my $result;
 
