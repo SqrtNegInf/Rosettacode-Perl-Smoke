@@ -3,16 +3,18 @@
 #c# 2018-08-09 <RC
 #p# OK
 
+my $result;
+
 srand 123456;
 
 use strict;
 use warnings;
 use feature 'say';
-my $result;
 
-# Directly generates a configuration by inserting pieces at random appropriate places. Each config has an equal chance of being produced.
+# Directly generates a configuration by inserting pieces at random appropriate places. 
+# Each config has an equal chance of being produced.
 
-sub rnd($) { int(rand(shift)) }
+sub rnd :prototype($) { int(rand(shift)) }
 
 sub empties { grep !$_[0][$_], 0 .. 7 }
 
