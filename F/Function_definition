@@ -1,27 +1,39 @@
 #!/usr/local/bin/perl
 #u# http://rosettacode.org/wiki/Function_definition
-#t# nocode
 #c# 2018-08-08 <RC
 #p# OK
 
+my @res;
+
+use strict;
+use warnings;
+use feature 'say';
+
 # The most basic form:
-
 sub multiply1 { return $_[0] * $_[1] }
+
 # or simply:
-
 sub multiply2 { $_[0] * $_[1] }
-# Arguments in Perl subroutines are passed in the @_ array, and they can be accessed directly, first one as $_[0], second one as $_[1], etc. When the above function is called with only one or no arguments then the missing ones have an undefined value which is converted to 0 in multiplication.
-# This is an example using subroutine prototypes:
 
-sub multiply3( $$ )
-{
+# This is an example using subroutine prototypes:
+sub multiply3 :prototype( $$ ) {
    my ($a, $b) = @_;
    return $a * $b;
 }
-# The above subroutine can only be called with exactly two scalar values (two dollar signs in the signature) but those values may be not numbers or not even defined. The @_ array is unpacked into $a and $b lexical variables, which are used later.
-# The arguments can be automatically unpacked into lexical variables using the experimental signatures feature (in core as of 5.20):
 
+# The arguments can be automatically unpacked into lexical variables using the experimental signatures feature (in core as of 5.20):
 use experimental 'signatures';
 sub multiply4 ($x, $y) {
     return $x * $y;
 }
+
+push @res, multiply1( 3, 4 );
+push @res, multiply2( 3, 4 );
+push @res, multiply3( 3, 4 );
+push @res, multiply4( 3, 4 );
+
+say my $result = join "\n", @res;
+
+use Test::More;
+is ($result, "12\n12\n12\n12");
+done_testing();
