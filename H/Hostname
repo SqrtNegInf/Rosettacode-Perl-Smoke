@@ -6,7 +6,7 @@
 
 use Sys::Hostname;
 
-$name = hostname;
+my $name = hostname;
 print "$name\n";
 
 my($ref) = `uname -a` =~ /\S+ (\S+)/;
