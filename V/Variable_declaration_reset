@@ -11,8 +11,9 @@ my @s = <1 2 2 3 4 4 5>;
 
 # 'wrong' way
 {
-    for ($i = 0; $i < 7; $i++) {
-        $curr = $s[$i];
+    my $prev;
+    for (my $i = 0; $i < 7; $i++) {
+        my $curr = $s[$i];
         if ($i > 1 and $curr == $prev) { push @res, $i }
         $prev = $curr;
     }
