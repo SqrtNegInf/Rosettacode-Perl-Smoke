@@ -2,6 +2,8 @@
 #u# http://rosettacode.org/wiki/Unicode_variable_names
 #c# 2018-08-07 <RC
 #p# OK
+#n# not working with v5.36: Subroutine attributes must come before the signature at U/Unicode_variable_names line 18.
+#n# not sure why BEGIN was used, doesn't appear needed? [$val is global regardless]
 
 my $result;
 
@@ -12,21 +14,21 @@ use feature 'state';
 use utf8;
 binmode(STDOUT, ':utf8');
 
-BEGIN {
+#BEGIN {
     my $val;
     sub Δ () : lvalue {
         $val;
     }
-}
+#}
 
 my $Δ = 1;
 $Δ++;
 $result .= $Δ . "\n";
-# $ sigil can be omitted by using lvalue subroutine:
 
+# $ sigil can be omitted by using lvalue subroutine:
 Δ = 1;
 Δ++;
-$result .= Δ. "\n";
+$result .= Δ . "\n";
 
 sub 𝜑 () : lvalue {
     state $val;
