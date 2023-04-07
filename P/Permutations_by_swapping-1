@@ -1,15 +1,13 @@
 #!/usr/local/bin/perl
 #u# http://rosettacode.org/wiki/Permutations_by_swapping
-#c# 2018-08-21 <RC
+#c# 2018-08-21 <RC, 2023-04-07 >RC
 #p# OK
 
-use feature 'say';
 my $result;
-
-# S-J-T Based[edit]
 
 use strict;
 use warnings;
+use feature 'say';
 
 # This code uses "Even's Speedup," as described on
 # the Wikipedia page about the Steinhaus–Johnson–
@@ -22,7 +20,7 @@ use warnings;
 # The code was written to be read relatively easily
 # while demonstrating some common perl idioms.
 
-sub perms(&@) {
+sub perms :prototype(&@) {
    my $callback = shift;
    my @perm = map [$_, -1], @_;
    $perm[0][1] = 0;
