@@ -2,19 +2,20 @@
 #u# http://rosettacode.org/wiki/Loop_over_multiple_arrays_simultaneously
 #c# 2018-08-17 <RC
 #p# OK
+#n# This implementation will stop producing items when the shortest array ends.
+
+my $result;
 
 use strict;
 use warnings;
 use feature 'say';
-my $result;
 
-sub zip (&@)
-{
-        my $code = shift;
-        my $min;
-        $min = $min && $#$_ > $min ? $min : $#$_ for @_;
+sub zip :prototype(&@) {
+    my $code = shift;
+    my $min;
+    $min = $min && $#$_ > $min ? $min : $#$_ for @_;
 
-        for my $i(0..$min){ $code->(map $_->[$i] ,@_) }
+    for my $i(0..$min){ $code->(map $_->[$i] ,@_) }
 }
 
 my @a1 = < a b c >;
@@ -23,9 +24,8 @@ my @a3 = < 1 2 3 >;
 
 zip { $result .= join(' ', @_)."\n" } \(@a1, @a2, @a3);
 
-# This implementation will stop producing items when the shortest array ends.
-
 say $result; 
+
 my $ref = <<'EOD';
 a A 1
 b B 2
