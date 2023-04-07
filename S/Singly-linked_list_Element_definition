@@ -4,6 +4,8 @@
 #c# 2018-08-16 <RC
 #p# OK
 
+=head
+
 # Just use an array. You can traverse and splice it any way. Linked lists are way too low level.
 # However, if all you got is an algorithm in a foreign language, you can use references to accomplish the translation.
 
@@ -12,3 +14,5 @@ my %node = (
     next => \%foo_node,
 );
 $node{next} = \%bar_node;  # mutable
+
+=cut
