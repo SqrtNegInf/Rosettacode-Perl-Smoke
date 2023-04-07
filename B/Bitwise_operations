@@ -3,10 +3,11 @@
 #c# 2018-07-17 <RC
 #p# OK
 
+my $result;
+
 use strict;
 use warnings;
 use feature 'say';
-my $result;
 
 use integer;
  
@@ -25,6 +26,7 @@ sub bitwise :prototype($$) {
 }
 
 bitwise(7,2);
+
 say $result;
 
 my $ref = <<'EOD';
