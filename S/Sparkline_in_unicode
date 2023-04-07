@@ -1,9 +1,9 @@
 #!/usr/local/bin/perl
 #u# http://rosettacode.org/wiki/Sparkline_in_unicode
-#c# 2018-08-14 <RC, 2019-02-24 <RC
+#c# 2018-08-14 <RC, 2019-02-24 <RC, 2023-04-07 >RC
 #p# OK
 #n# not incorporated from RC: extreme ranges and multiple output styles
-#n# NB: use of '(_)' function prototype, but actually superfluous
+#n# NB: prior use of '_' function prototype disappeared from RC, '@' used now?
 
 my $result;
 
@@ -17,8 +17,8 @@ use open ':std', ':encoding(utf8)';
 
 my @sparks = map { chr } 0x2581..0x2588; # 'our' not needed here
 
-#sub sparkline {   # works too
-sub sparkline(_) {
+#sub sparkline {
+sub sparkline :prototype(@) { 
     my @n = map { 0 + $_ } grep {length} split /[\s,]+/,shift or return '';
     my($min,$max) = ($n[0]) x 2;
     if (@n > 1) {
