@@ -6,10 +6,10 @@
 use feature 'say';
 
 use Crypt::RIPEMD160;
-say $result = unpack "H*", Crypt::RIPEMD160->hash("Rosetta Code");
+say my $result = unpack "H*", Crypt::RIPEMD160->hash("Rosetta Code");
 
-
-# The CryptX module also implements RIPEMD-160 along with the 128-, 256-, and 320-bit variants, as well many many other hashes. This gives identical output as above as expected.
+# The CryptX module also implements RIPEMD-160 along with the 128-, 256-, and 320-bit variants, 
+# as well many many other hashes. This gives identical output as above as expected.
 #use Crypt::Digest::RIPEMD160 qw/ripemd160_hex/;
 #say ripemd160_hex("Rosetta Code")
 
