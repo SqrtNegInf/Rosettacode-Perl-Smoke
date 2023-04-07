@@ -1,22 +1,21 @@
 #!/usr/local/bin/perl
 #u# http://rosettacode.org/wiki/Partial_function_application
-#c# 2018-08-20 <RC
+#c# 2018-08-20 <RC, 2023-04-07 >RC
 #p# OK
+
+my $result;
 
 use strict;
 use warnings;
 use feature 'say';
-my $result;
 
-# Note: this is written according to my understanding of the task spec and the discussion page; it doesn't seem a consensus was reached regarding what counts as a "partial" yet.
-
-sub fs(&) { 
+sub fs :prototype(&) { 
         my $func = shift;
         sub { map $func->($_), @_ }
 }
 
-sub double($) { shift() * 2 }
-sub square($) { shift() ** 2 }
+sub double :prototype($) { shift() * 2 }
+sub square :prototype($) { shift() ** 2 }
 
 my $fs_double = fs(\&double);
 my $fs_square = fs(\&square);
