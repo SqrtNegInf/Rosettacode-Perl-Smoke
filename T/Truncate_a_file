@@ -9,12 +9,12 @@
 #truncate(FOO, 1234);
 #close FOO;
 
-$file = 'run/truncate.txt';
+my $file = 'run/truncate.txt';
 
 # Truncate a file to 567 bytes.
 truncate($file, 100);
 
-$fsize = `wc -c $file`; 
+my $fsize = `wc -c $file`; 
 chop $fsize;
 $fsize =~ s/^\s+//;
 
