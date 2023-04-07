@@ -5,10 +5,9 @@
 
 use feature 'say';
 
-#Library: Digest::MD5
 use Digest::MD5 qw(md5_hex);
 
-say $result = md5_hex("The quick brown fox jumped over the lazy dog's back"); #, "\n";
+say my $result = md5_hex("The quick brown fox jumped over the lazy dog's back"); #, "\n";
 
 #The same in OO manner
 #$md5 = Digest::MD5->new;
