@@ -4,26 +4,32 @@
 #p# OK
 #n# triples not unique
 
+my $result;
+
 use strict;
 use warnings;
 use feature 'say';
-my $result;
 
-# Perl 5 does not have built-in list comprehension syntax. The closest approach are the list map and grep (elsewhere often known as filter) operators:
+# Perl 5 does not have built-in list comprehension syntax. The closest
+# approach are the list map and grep (elsewhere often known as filter)
+# operators:
 
-sub triples ($) {
+sub triples :prototype($) {
   my ($n) = @_;
   map { my $x = $_; map { my $y = $_; map { [$x, $y, $_] } grep { $x**2 + $y**2 == $_**2 } 1..$n } 1..$n } 1..$n;
 }
 
-# map binds $_ to each element of the input list and collects the results from the block. grep returns every element of the input list for which the block returns true. The .. operator generates a list of numbers in a specific range.
+# map binds $_ to each element of the input list and collects the results
+# from the block. grep returns every element of the input list for which the
+# block returns true. The .. operator generates a list of numbers in a
+# specific range.
 
 for my $t (triples(10)) {
   $result .= "@$t\n";
 }
 
-
 say $result; 
+
 my $ref = <<'EOD';
 3 4 5
 4 3 5
