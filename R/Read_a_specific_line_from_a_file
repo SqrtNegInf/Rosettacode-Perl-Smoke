@@ -2,20 +2,25 @@
 #u# http://rosettacode.org/wiki/Read_a_specific_line_from_a_file
 #c# 2018-08-19 <RC
 #p# OK
-#n# supply defaults
+#n# supply defaults [ and a 'goto', nice! ]
 
-use feature 'say';
 my $result;
 
+use strict;
+use warnings;
+use feature 'say';
+
 open F, '<', 'ref/calendar-2016.base';
-$n = 7;
+my $n = 7;
 
 # invoke as <scriptname> -n=7 [input]
 while ($_ = <F>) { $. == $n and $result = $_, goto done }
 die "file too short\n";
 
 done:
+
 say $result; 
+
 my $ref = <<'EOD';
  10 11 12 13 14 15 16  15 16 17 18 19 20 21  12 13 14 15 16 17 18
 EOD
