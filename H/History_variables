@@ -3,10 +3,11 @@
 #c# 2018-08-12 <RC
 #p# OK
 
-use feature 'say';
 my $result;
 
-# Implemented via tie (and what's the usefulness of this?)
+use strict;
+use warnings;
+use feature 'say';
 
 package History;
 
@@ -26,10 +27,10 @@ sub STORE {
 	return $val;
 }
 
-sub get(\$) { @{tied ${+shift}} }
-sub on(\$) { tie ${+shift}, __PACKAGE__ } 
-sub off(\$) { untie ${+shift} }
-sub undo(\$) { pop @{tied ${+shift}} }
+sub get  :prototype(\$) { @{tied ${+shift}} }
+sub on   :prototype(\$) { tie ${+shift}, __PACKAGE__ } 
+sub off  :prototype(\$) { untie ${+shift} }
+sub undo :prototype(\$) { pop @{tied ${+shift}} }
 
 package main;
 
@@ -50,6 +51,7 @@ History::off($x);
 $result .= "\$x is: $x\n";
 
 say $result; 
+
 my $ref = <<'EOD';
 History: a b c d
 undo 1, current value: c
