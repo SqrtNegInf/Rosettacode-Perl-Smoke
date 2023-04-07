@@ -1,6 +1,6 @@
 #!/usr/local/bin/perl
 #u# http://rosettacode.org/wiki/Power_set
-#c# 2018-08-20 <RC
+#c# 2018-08-20 <RC, 2023-04-07 >RC
 #p# OK
 
 my $result;
@@ -9,7 +9,7 @@ use strict;
 use warnings;
 use feature 'say';
 
-sub powerset(&@) {
+sub powerset :prototype(&@) {
     my $callback = shift;
     my $bitmask = '';
     my $bytes = @_/8;
@@ -29,8 +29,8 @@ my $i = 0;
 powerset { ++$i } 1..9;
 $result .= "The powerset of a nine element set contains $i elements.\n";
 
-
 say $result;
+
 my $ref = <<'END';
 powerset of empty set:
 []
