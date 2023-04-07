@@ -4709,12 +4709,14 @@ File: H/Horner%27s_rule_for_polynomial_evaluation-2
 #u# http://rosettacode.org/wiki/Horner%27s_rule_for_polynomial_evaluation
 #c# 2018-08-13 <RC
 #p# OK
+#n# Functional version
 
 File: H/Horner%27s_rule_for_polynomial_evaluation-3
 #!/usr/local/bin/perl
 #u# http://rosettacode.org/wiki/Horner%27s_rule_for_polynomial_evaluation
 #c# 2018-08-13 <RC
 #p# OK
+#n# Recursive version
 
 File: H/Horse_racing
 #!/usr/local/bin/perl
@@ -5202,7 +5204,8 @@ File: K/Knapsack_problem_Bounded
 #u# http://rosettacode.org/wiki/Knapsack_problem/Bounded
 #c# 2018-08-15 <RC
 #p# OK
-#n# minor changes, not on RC
+#n# recursive solution with caching (minor changes, not on RC)
+#n# too-clever-by-half cache-update code doesn't translate easily to v5.36
 
 File: K/Knapsack_problem_Continuous
 #!/usr/local/bin/perl
@@ -5709,6 +5712,7 @@ File: L/Loop_over_multiple_arrays_simultaneously
 #u# http://rosettacode.org/wiki/Loop_over_multiple_arrays_simultaneously
 #c# 2018-08-17 <RC
 #p# OK
+#n# This implementation will stop producing items when the shortest array ends.
 
 File: L/Loops_Break
 #!/usr/local/bin/perl
@@ -5872,7 +5876,7 @@ File: M/MAC_Vendor_Lookup
 File: M/MD4
 #!/usr/local/bin/perl
 #u# http://rosettacode.org/wiki/MD4
-#c# 2018-08-17 <RC, 2019-01-26 >RC
+#c# 2018-08-17 <RC, 2019-01-26 >RC, 2023-04-07 >RC
 #p# OK
 #n# in-lining the code from Digest::MD4, lightly edited for clarity
 
@@ -5885,7 +5889,7 @@ File: M/MD5
 File: M/MD5_Implementation
 #!/usr/local/bin/perl
 #u# http://rosettacode.org/wiki/MD5/Implementation
-#c# 2018-08-17 <RC
+#c# 2018-08-17 <RC, 2023-04-07 >RC
 #p# OK
 
 File: M/Mad_Libs
@@ -6834,6 +6838,7 @@ File: N/Number_names
 #u# http://rosettacode.org/wiki/Number_names
 #c# 2018-08-20 <RC
 #p# OK
+#n# sure, could just use 'say'...
 
 File: N/Number_reversal_game
 #!/usr/local/bin/perl
@@ -7333,7 +7338,7 @@ File: P/Parsing_Shunting-yard_algorithm
 File: P/Partial_function_application
 #!/usr/local/bin/perl
 #u# http://rosettacode.org/wiki/Partial_function_application
-#c# 2018-08-20 <RC
+#c# 2018-08-20 <RC, 2023-04-07 >RC
 #p# OK
 
 File: P/Particle_Swarm_Optimization
@@ -7641,7 +7646,7 @@ File: P/Permutations_Rank_of_a_permutation
 File: P/Permutations_by_swapping-1
 #!/usr/local/bin/perl
 #u# http://rosettacode.org/wiki/Permutations_by_swapping
-#c# 2018-08-21 <RC
+#c# 2018-08-21 <RC, 2023-04-07 >RC
 #p# OK
 
 File: P/Permutations_by_swapping-2
@@ -7904,7 +7909,7 @@ File: P/Power_set-2
 File: P/Power_set-3
 #!/usr/local/bin/perl
 #u# http://rosettacode.org/wiki/Power_set
-#c# 2018-08-20 <RC
+#c# 2018-08-20 <RC, 2023-04-07 >RC
 #p# OK
 
 File: P/Power_set-4
@@ -8294,7 +8299,7 @@ File: Q/Quaternion_type
 File: Q/Queue_Definition
 #!/usr/local/bin/perl
 #u# http://rosettacode.org/wiki/Queue/Definition
-#c# 2018-08-20 <RC
+#c# 2018-08-20 <RC, 2023-04-07 >RC
 #p# OK
 
 File: Q/Queue_Usage
@@ -8494,7 +8499,7 @@ File: R/Read_a_specific_line_from_a_file
 #u# http://rosettacode.org/wiki/Read_a_specific_line_from_a_file
 #c# 2018-08-19 <RC
 #p# OK
-#n# supply defaults
+#n# supply defaults [ and a 'goto', nice! ]
 
 File: R/Read_entire_file-1
 #!/usr/local/bin/perl
@@ -8920,7 +8925,7 @@ File: S/S-Expressions
 File: S/SEDOLs
 #!/usr/local/bin/perl
 #u# http://rosettacode.org/wiki/SEDOLs
-#c# 2018-08-18 <RC
+#c# 2018-08-18 <RC, 2023-04-07 >RC
 #p# OK
 
 File: S/SEND_+_MORE_=_MONEY
@@ -9790,7 +9795,7 @@ File: S/Sorting_algorithms_Counting_sort
 File: S/Sorting_algorithms_Cycle_sort
 #!/usr/local/bin/perl
 #u# http://rosettacode.org/wiki/Sorting_algorithms/Cycle_sort
-#c# 2018-08-15 <RC
+#c# 2018-08-15 <RC, 2023-04-07 >RC
 #p# OK
 
 File: S/Sorting_algorithms_Gnome_sort
@@ -9888,10 +9893,10 @@ File: S/Soundex
 File: S/Sparkline_in_unicode
 #!/usr/local/bin/perl
 #u# http://rosettacode.org/wiki/Sparkline_in_unicode
-#c# 2018-08-14 <RC, 2019-02-24 <RC
+#c# 2018-08-14 <RC, 2019-02-24 <RC, 2023-04-07 >RC
 #p# OK
 #n# not incorporated from RC: extreme ranges and multiple output styles
-#n# NB: use of '(_)' function prototype, but actually superfluous
+#n# NB: prior use of '_' function prototype disappeared from RC, '@' used now?
 
 File: S/Sparkline_in_unicode.1
 #!/usr/local/bin/perl
@@ -11247,6 +11252,8 @@ File: U/Unicode_variable_names
 #u# http://rosettacode.org/wiki/Unicode_variable_names
 #c# 2018-08-07 <RC
 #p# OK
+#n# not working with v5.36: Subroutine attributes must come before the signature at U/Unicode_variable_names line 18.
+#n# not sure why BEGIN was used, doesn't appear needed? [$val is global regardless]
 
 File: U/Unique_characters
 #!/usr/local/bin/perl
@@ -11566,9 +11573,10 @@ File: W/Welch%27s_t-test-1
 File: W/Welch%27s_t-test-2
 #!/usr/local/bin/perl
 #u# http://rosettacode.org/wiki/Welch%27s_t-test
-#c# 2018-08-03 <RC
+#c# 2018-08-03 <RC, 2023-04-07 >RC
 #p# OK
 #n# interesting, different modules require different quoting constructions (when not using 'qw')
+#n# translation of Sidef
 
 File: W/Welch%27s_t-test-2.0
 #!/usr/local/bin/perl
