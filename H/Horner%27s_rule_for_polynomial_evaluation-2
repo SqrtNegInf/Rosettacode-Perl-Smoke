@@ -2,17 +2,17 @@
 #u# http://rosettacode.org/wiki/Horner%27s_rule_for_polynomial_evaluation
 #c# 2018-08-13 <RC
 #p# OK
+#n# Functional version
+
+my $result;
 
 use strict;
 use warnings;
 use feature 'say';
-my $result;
 
-#Functional version[edit]
-use strict;
 use List::Util qw(reduce);
 
-sub horner($$){
+sub horner :prototype($$){
 	my ($coeff_ref, $x) = @_;
 	reduce { $a * $x + $b } reverse @$coeff_ref;
 }
