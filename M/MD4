@@ -1,6 +1,6 @@
 #!/usr/local/bin/perl
 #u# http://rosettacode.org/wiki/MD4
-#c# 2018-08-17 <RC, 2019-01-26 >RC
+#c# 2018-08-17 <RC, 2019-01-26 >RC, 2023-04-07 >RC
 #p# OK
 #n# in-lining the code from Digest::MD4, lightly edited for clarity
 
@@ -10,7 +10,7 @@ use strict;
 use warnings;
 use feature 'say';
 
-sub md4(@) {
+sub md4 :prototype(@) {
     my @input = grep { defined && length > 0 } split /(.{64})/s, join '', @_;
     push @input, '' if !@input || length($input[$#input]) >= 56;
 
@@ -70,7 +70,7 @@ sub R { # reverse two bit number
     ($n&1)*2 + ($n&2)/2;
 }
 
-sub md4_hex(@) { # convert to hexadecimal
+sub md4_hex :prototype(@) { # convert to hexadecimal
   unpack 'H*', &md4;
 }
 
