@@ -7,7 +7,7 @@
 use feature 'say';
 
 say 'enter seconds:';
-$seconds = <>;
+my $seconds = <>;
 print "Sleeping...\n";
 sleep $seconds; # number is in seconds
 print "Awake!\n";
@@ -16,13 +16,13 @@ print "Awake!\n";
 use Time::HiRes qw( usleep nanosleep );
 
 say 'enter microseconds:';
-$microseconds = <>;
+my $microseconds = <>;
 print "Sleeping...\n";
 usleep $microseconds;
 print "Awake!\n";
 
 say 'enter nanoseconds:';
-$nanoseconds = <>;
+my $nanoseconds = <>;
 print "Sleeping...\n";
 nanosleep $nanoseconds;
 print "Awake!\n";
@@ -32,7 +32,7 @@ say "Sleeping...";
 select undef, undef, undef, 0.5;
 say "Awake!";
 
-$elapsed = (time() - $^T);
+my $elapsed = (time() - $^T);
 
 use Test::More;
 ok $elapsed >= 12;
