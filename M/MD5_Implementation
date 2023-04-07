@@ -1,12 +1,12 @@
 #!/usr/local/bin/perl
 #u# http://rosettacode.org/wiki/MD5/Implementation
-#c# 2018-08-17 <RC
+#c# 2018-08-17 <RC, 2023-04-07 >RC
 #p# OK
 
 use strict;
 use warnings;
+
 use integer;
-use Test::More;
 
 use constant A => 0x67_45_23_01;
 use constant B => 0xef_cd_ab_89;
@@ -21,7 +21,7 @@ sub padding {
     $msg .= pack 'VV', $l & MAX , ($l >> 16 >> 16);
 }
 
-sub rotate_left($$) {
+sub rotate_left {
     ($_[0] << $_[1]) | (( $_[0] >> (32 - $_[1])  )  & ((1 << $_[1]) - 1));
 }
 
@@ -95,6 +95,7 @@ my $strings = {
     '57edf4a22be3c955ac49da2e2107b67a' => '12345678901234567890123456789012345678901234567890123456789012345678901234567890',
 };
 
+use Test::More;
 plan tests => 7;
 for my $k (keys %$strings) {
     my $digest = _encode_hex md5($strings->{$k});
