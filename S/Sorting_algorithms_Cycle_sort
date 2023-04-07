@@ -1,6 +1,6 @@
 #!/usr/local/bin/perl
 #u# http://rosettacode.org/wiki/Sorting_algorithms/Cycle_sort
-#c# 2018-08-15 <RC
+#c# 2018-08-15 <RC, 2023-04-07 >RC
 #p# OK
 
 srand 2; # fragile!
@@ -11,7 +11,7 @@ use feature 'say';
 
 # This is based on the Wikipedia pseudocode.
 
-sub cycleSort(@) {
+sub cycleSort :prototype(@) {
 	my ($array) = @_;
 	my $writes = 0;
 
