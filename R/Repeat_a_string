@@ -3,7 +3,9 @@
 #c# 2018-08-18 <RC
 #p# OK
 
-print ($result = "ha" x 5) . "\n";
+#print ($result = "ha" x 5) . "\n";
+my $result = "ha" x 5;
+print "$result\n";
 
 use Test::More;
 is ($result, 'hahahahaha');
