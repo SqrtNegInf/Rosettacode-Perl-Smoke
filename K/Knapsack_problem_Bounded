@@ -2,14 +2,14 @@
 #u# http://rosettacode.org/wiki/Knapsack_problem/Bounded
 #c# 2018-08-15 <RC
 #p# OK
-#n# minor changes, not on RC
+#n# recursive solution with caching (minor changes, not on RC)
+#n# too-clever-by-half cache-update code doesn't translate easily to v5.36
+
+my $result;
 
 use strict;
 use warnings;
 use feature 'say';
-my $result;
-
-# Recursive solution with caching.
 
 my $raw = <<'TABLE';
 map     	9       150     1
@@ -81,6 +81,7 @@ for (0 .. $#$p) {
 $result .= "Value: $v; Weight: $w\n";
 
 say $result; 
+
 my $ref = <<'EOD';
 1 of map
 1 of compass
