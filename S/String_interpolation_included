@@ -4,14 +4,13 @@
 #p# OK
 
 use feature 'say';
-my $result;
 
-$extra = "little";
-$result .= "Mary had a $extra lamb.\n";
+my $extra = "little";
+my $result = "Mary had a $extra lamb.\n";
 $result .= sprintf "Mary had a %s lamb.\n", $extra;
 
-
 say $result; 
+
 my $ref = <<'EOD';
 Mary had a little lamb.
 Mary had a little lamb.
