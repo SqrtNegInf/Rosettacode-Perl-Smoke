@@ -4,10 +4,10 @@
 #c# 2018-08-18 <RC
 #p# OK
 
-# Using the File::Path core module:
+# a core module
 use File::Path qw(make_path);
 
-$path = 'path/to/dir';
+my $path = 'path/to/dir';
 die if -e $path;
 make_path('path/to/dir');
 die unless  -e $path;
