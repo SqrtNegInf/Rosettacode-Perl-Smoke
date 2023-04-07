@@ -2,10 +2,16 @@
 #u# http://rosettacode.org/wiki/Number_names
 #c# 2018-08-20 <RC
 #p# OK
+#n# sure, could just use 'say'...
+
+use strict;
+use warnings;
 
 use Lingua::EN::Numbers 'num2en';
 
-print (my $result = num2en(123456789)) . "\n";
+#print (my $result = num2en(123456789)) . "\n"; # aw, warnings
+my $result = num2en(123456789);
+print "$result\n";
 
 use Test::More;
 is $result, 'one hundred and twenty-three million, four hundred and fifty-six thousand, seven hundred and eighty-nine';
