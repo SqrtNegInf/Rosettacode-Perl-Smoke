@@ -17,7 +17,7 @@ use lib 'lib';
 
 use UnicodeEllipsis;
 
-say $result = join(' … ', 1 … 5);
+say my $result = join(' … ', 1 … 5);
 
 use Test::More;
 is($result, '1 … 2 … 3 … 4 … 5');
