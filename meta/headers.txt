@@ -5919,13 +5919,6 @@ File: M/Magic_constant-2
 #p# OK
 #n# DRY, even though calculation is trivial (and follow task offset with '3' being 1st)
 
-File: M/Magic_numbers
-#!/usr/local/bin/perl
-#u# https://rosettacode.org/wiki/Magic_numbers
-#t# inprogress
-#c# 2023-04-06 >RC
-#p# OK
-
 File: M/Magic_squares_Perl
 #!/usr/local/bin/perl
 #u# http://rosettacode.org/wiki/Magic_squares/Perl
