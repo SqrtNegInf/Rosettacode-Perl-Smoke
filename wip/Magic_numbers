@@ -12,8 +12,9 @@ use List::Categorize 'categorize';
 
 my @magic = 0..9;
 
-for (11..100) {
-    # xx
+my $d = 1;
+while () {
+    #last unless xxx;
 }
 
 push @res, sprintf "There are %d magic numbers in total.", scalar @magic;
@@ -24,7 +25,7 @@ say my $result = join "\n", @res;
 __END__
 
 #my \Δ = $ = 1;
-#, {last if .not; ++Δ; [(.flat X~ 0..9).grep: * %% Δ]}…*;
+my @magic = flat 0, [1..9], {last if .not; ++Δ; [(.flat X~ 0..9).grep: * %% Δ]}…*;
 
 @res.push: "\nThere are:";
 @res.push: "{(+.value).fmt: "%4d"} with {.key.fmt: "%2d"} digit{1 == +.key ?? '' !! 's'}"
