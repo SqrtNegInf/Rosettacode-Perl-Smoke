@@ -431,10 +431,6 @@ L/Length_of_an_arc_between_two_angles
 L/Long_primes
 ≤:    11 LESS-THAN OR EQUAL TO
 
-M/Magic_numbers
-Δ:     3 GREEK CAPITAL LETTER DELTA
-…:     1 HORIZONTAL ELLIPSIS
-
 M/Magnanimous_numbers
 »:     1 RIGHT-POINTING DOUBLE ANGLE QUOTATION MARK
 
