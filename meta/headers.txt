@@ -6534,6 +6534,13 @@ File: M/Multiple_regression
 #c# 2020-03-10 >RC
 #p# OK
 
+File: M/Multiple_regression-2
+#!/usr/local/bin/perl5.32.1
+#u# http://rosettacode.org/wiki/Multiple_regression
+#c# 2020-03-10 NOT ON RC
+#p# OK
+#n# separate results Mac-Pro vs iMac/Ubuntu due to rounding/precision issues
+
 File: M/Multiplication_tables
 #!/usr/local/bin/perl
 #u# http://rosettacode.org/wiki/Multiplication_tables
@@ -8380,6 +8387,8 @@ File: R/Ramer-Douglas-Peucker_line_simplification
 #u# http://rosettacode.org/wiki/Ramer_Douglas_Peucker_line_simplification
 #c# 2018-11-08 >RC, 2019-03-23 >RC
 #p# OK
+#n# minmax' is used (and min discarded) just to avoid loading 2nd module: use List::Util 'max'
+#n# could also have gone with: use List::Allutils qw<firstidx max>
 
 File: R/Ramsey%27s_theorem
 #!/usr/local/bin/perl
