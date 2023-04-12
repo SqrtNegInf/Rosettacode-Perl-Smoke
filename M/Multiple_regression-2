@@ -2,7 +2,7 @@
 #u# http://rosettacode.org/wiki/Multiple_regression
 #c# 2020-03-10 NOT ON RC
 #p# OK
-#n# separate results for Ubuntu too?
+#n# separate results Mac-Pro vs iMac/Ubuntu due to rounding/precision issues
 
 my @res;
 
