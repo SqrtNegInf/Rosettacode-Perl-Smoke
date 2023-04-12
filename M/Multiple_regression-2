@@ -1,0 +1,56 @@
+#!/usr/local/bin/perl
+#u# http://rosettacode.org/wiki/Multiple_regression
+#c# 2020-03-10 NOT ON RC
+#p# OK
+
+my @res;
+
+use strict;
+use warnings;
+use feature 'say';
+
+use PDL::LiteF;
+use PDL::NiceSlice;
+use PDL::Stats::GLM;
+
+my @x =  ( 1.47,  1.50,  1.52,  1.55,  1.57,  1.60,  1.63,  1.65,  1.68,  1.70,  1.73,  1.75,  1.78,  1.80,  1.83);
+my @y =  (52.21, 53.12, 54.48, 55.84, 57.20, 58.57, 59.93, 61.29, 63.11, 64.47, 66.28, 68.10, 69.92, 72.19, 74.46);
+
+my $y = pdl [ @y ];
+my @x2;
+map { push @x2, $_**2 } @x;
+
+my $x  = pdl[ [@x], [@x2] ];
+
+my %R = $y->ols( $x );
+push @res, "$_\n" . $R{$_} for sort keys %R;
+
+say my $result = join "\n", @res;
+
+my $ref = <<END;
+F
+5471.24333307378
+F_df
+[2 12]
+R2
+0.998904558436583
+b
+[-143.16202  61.960325   128.8128]
+b_se
+[ 19.833171   6.008429  16.308282]
+b_t
+[-7.2183123  10.312234  7.8986126]
+ss_model
+692.613090791194
+ss_residual
+0.759549208792452
+ss_total
+693.372639999987
+y_pred
+[ 52.254697  53.480502  54.359665   55.77135  56.774434     58.372  60.081095  61.282452  63.177428  64.502705  66.583562   68.03276  70.299498  71.872617  74.325236]
+END
+
+use Test::More;
+chomp $ref;
+is($result, $ref);
+done_testing();
