@@ -1,12 +1,13 @@
-#!/usr/local/bin/perl
+#!/usr/local/bin/perl5.32.1
 #u# http://rosettacode.org/wiki/Multiple_regression
 #c# 2020-03-10 NOT ON RC
 #p# OK
+#n# separate results for Ubuntu too?
 
 my @res;
 
 use strict;
-use warnings;
+no warnings;
 use feature 'say';
 
 use PDL::LiteF;
@@ -22,12 +23,35 @@ map { push @x2, $_**2 } @x;
 
 my $x  = pdl[ [@x], [@x2] ];
 
-my %R = $y->ols( $x );
+my %R = $y->ols( $x, {plot=>0} );
 push @res, "$_\n" . $R{$_} for sort keys %R;
 
 say my $result = join "\n", @res;
 
-my $ref = <<END;
+my $mac_pro = <<END;
+F
+5471.24333307342
+F_df
+[2 12]
+R2
+0.998904558436583
+b
+[-143.16202  61.960325   128.8128]
+b_se
+[ 19.833171   6.008429  16.308282]
+b_t
+[-7.2183123  10.312234  7.8986126]
+ss_model
+692.613090791194
+ss_residual
+0.759549208792502
+ss_total
+693.372639999987
+y_pred
+[ 52.254697  53.480502  54.359665   55.77135  56.774434     58.372  60.081095  61.282452  63.177428  64.502705  66.583562   68.03276  70.299498  71.872617  74.325236]
+END
+
+my $imac = <<END;
 F
 5471.24333307378
 F_df
@@ -49,6 +73,8 @@ ss_total
 y_pred
 [ 52.254697  53.480502  54.359665   55.77135  56.774434     58.372  60.081095  61.282452  63.177428  64.502705  66.583562   68.03276  70.299498  71.872617  74.325236]
 END
+
+my $ref = `uname -a` =~ /Mac-Pro/ ? $mac_pro : $imac;
 
 use Test::More;
 chomp $ref;
