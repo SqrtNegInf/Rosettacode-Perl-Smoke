@@ -2,11 +2,14 @@
 #u# http://rosettacode.org/wiki/Ramer_Douglas_Peucker_line_simplification
 #c# 2018-11-08 >RC, 2019-03-23 >RC
 #p# OK
+#n# minmax' is used (and min discarded) just to avoid loading 2nd module: use List::Util 'max'
+#n# could also have gone with: use List::Allutils qw<firstidx max>
+
+my $result;
 
 use strict;
 use warnings;
 use feature 'say';
-my $result;
 
 use List::MoreUtils qw(firstidx minmax);
 
@@ -47,9 +50,9 @@ sub Ramer_Douglas_Peucker {
     @points[0, -1];
 }
 
-# say '(' . join(' ', @$_) . ') ' 
 $result .= '(' . join(' ', @$_) . ') ' 
     for Ramer_Douglas_Peucker( [0,0],[1,0.1],[2,-0.1],[3,5],[4,6],[5,7],[6,8.1],[7,9],[8,9],[9,9]);
+
 say $result;
 
 use Test::More;
