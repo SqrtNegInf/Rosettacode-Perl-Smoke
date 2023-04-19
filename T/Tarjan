@@ -2,6 +2,7 @@
 #u# http://rosettacode.org/wiki/Tarjan
 #c# 2018-11-19 >RC, 2020-03-09 <RC
 #p# OK
+#n# use of the lexical subroutine required else the variables will not be shared
 
 my @res;
 
