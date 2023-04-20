@@ -905,6 +905,12 @@ File: B/Base64_encode_data
 #c# 2018-07-16 <RC
 #p# OK
 
+File: B/Base_16_numbers_needing_a_to_f
+#!/usr/local/bin/perl
+#u# https://rosettacode.org/wiki/Base_16_numbers_needing_a_to_f
+#c# 2023-04-19 <RC
+#p# OK
+
 File: B/Bell_numbers
 #!/usr/local/bin/perl
 #u# http://rosettacode.org/wiki/Bell_numbers
