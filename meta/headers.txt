@@ -6613,6 +6613,12 @@ File: N/N-body_problem
 #n# cycle through 1 Neptunian year
 #n# todo: show time-steps when planets complete annual orbits
 
+File: N/N-grams
+#!/usr/local/bin/perl
+#u# https://rosettacode.org/wiki/N-grams
+#c# 2023-04-22 >RC
+#p# OK
+
 File: N/N-queens_minimum_and_knights_and_bishops
 #!/usr/local/bin/perl
 #u# http://rosettacode.org/wiki/N-queens_minimum_and_knights_and_bishops
