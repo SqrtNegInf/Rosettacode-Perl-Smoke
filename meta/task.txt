@@ -1,16 +1,16 @@
 
 This is perl 5, version 36, subversion 0 (v5.36.0) built for darwin-thread-multi-2level
 updating from RC…
-+------------> Perl: Good/Bad [421/1]
++------------> Perl: Good/Bad [420/1]
 |+-----------> Smoke testing [394]
-||+----------> sKipping validation [27]
+||+----------> sKipping validation [26]
 |||+---------> Interactive [15]
-||||+--------> Touched (modified by me) [193]
+||||+--------> Touched (modified by me) [192]
 |||||+-------> Random seed [35]
 ||||||+------> File output [23]
 |||||||+-----> Draft [199]
 ||||||||+----> Ignoring [39]
-|||||||||+---> Void (no local copy) [46]
+|||||||||+---> Void (no local copy) [47]
 ||||||||||+--> Un-implemented/reliable []
 |||||||||||
 GS..T..D... 10001th_prime
@@ -483,7 +483,7 @@ GS...R.D... Morpion_solitaire
 GS..TR..... Morpion_solitaire-2
 GS..T..D... Mosaic_matrix
 GS.....D... Most_frequent_k_chars_distance
-G.K.T..D... Multidimensional_Newton-Raphson_method
+.......D.V. Multidimensional_Newton-Raphson_method
 GS.....D... Multiline_shebang
 GS.....D... Multiton
 GS..T..D... N-body_problem
