@@ -1,81 +1,69 @@
 #!/usr/local/bin/perl
 #u# https://rosettacode.org/wiki/Ormiston_pairs
-#t# inprogress
-#c# 2023-0x-xx >RC
+#c# 2023-04-23 >RC
 #p# OK
-
-use Data::Printer;          # debug only
-use Time::HiRes qw(sleep);  # debug only
 
 my @res;
 
 #use v5.36;
-use strict; no warnings; use feature 'say';
+use strict; 
+use warnings; 
+use feature 'say';
 
-use ntheory 'primes';
-use List::AllUtils 'firstidx';
+use ntheory <primes vecfirstidx>;
 
-my @primes = @{ primes(1,1e7) };
+my(@O,$pairs);
+#my @primes = @{ primes(1,1e8) };
+my @primes = @{ primes(1,5000+1e7) };
 
-my @O;
+my @A = map { join '', sort split '', $_ } @primes;
+for (1..$#primes-1) { push @O, $_ if $A[$_] eq $A[$_+1] }
 
-for my $i (0..1e6) {
-    my $lo = join '', sort split '', $primes[$i];
-    my $hi = join '', sort split '', $primes[$i+1];
-    push @O, $i if $lo eq $hi;
-}
-
-#push @res, "First thirty Ormiston pairs:"; 
+push @res, "First thirty Ormiston pairs:"; 
+$pairs .= sprintf "(%5d,%5d) ", $primes[$_], $primes[$_+1] for @O[0..29];
+push @res, $pairs =~ s/.{42}\K/\n/gr;
 
 for (
   [1e5, 'one hundred thousand'],
   [1e6, 'one million'],
-#  [1e7, 'ten million']
+  [1e7, 'ten million']
 ) {
     my($limit,$text) = @$_;
-    my $i = firstidx { $primes[$_] > $limit } @O;
-    push @res, sprintf "%5d Ormiston pairs before %s", $i, $text;
+    my $i = vecfirstidx { $primes[$_] >= $limit } @O;
+    push @res, sprintf "%4d Ormiston pairs before %s", $i, $text;
 }
 
-say my $result = join "\n", @res;
-exit;
+say my $result = join "\n", @res; 
 
 my $ref = <<'END';
+First thirty Ormiston pairs:
+( 1913, 1931) (18379,18397) (19013,19031) 
+(25013,25031) (34613,34631) (35617,35671) 
+(35879,35897) (36979,36997) (37379,37397) 
+(37813,37831) (40013,40031) (40213,40231) 
+(40639,40693) (45613,45631) (48091,48109) 
+(49279,49297) (51613,51631) (55313,55331) 
+(56179,56197) (56713,56731) (58613,58631) 
+(63079,63097) (63179,63197) (64091,64109) 
+(65479,65497) (66413,66431) (74779,74797) 
+(75913,75931) (76213,76231) (76579,76597) 
+
+  40 Ormiston pairs before one hundred thousand
+ 382 Ormiston pairs before one million
+3722 Ormiston pairs before ten million
 END
 
 use Test::More;
 chomp $ref;
 is($result, $ref);
-#is(($result =~ s/\s//gr), ($ref =~ s/\s//gr));
 done_testing();
 
 __END__
 
-my $ref = q:to/END/;
-First thirty Ormiston pairs:
-( 1913,  1931) (18379, 18397) (19013, 19031)
-(25013, 25031) (34613, 34631) (35617, 35671)
-(35879, 35897) (36979, 36997) (37379, 37397)
-(37813, 37831) (40013, 40031) (40213, 40231)
-(40639, 40693) (45613, 45631) (48091, 48109)
-(49279, 49297) (51613, 51631) (55313, 55331)
-(56179, 56197) (56713, 56731) (58613, 58631)
-(63079, 63097) (63179, 63197) (64091, 64109)
-(65479, 65497) (66413, 66431) (74779, 74797)
-(75913, 75931) (76213, 76231) (76579, 76597)
-
-END
-
-use Test;
-is @res.join("\n"), chomp $ref;
 =={{header|Perl}}==
-{{trans|xx}}
 {{libheader|ntheory}}
 <syntaxhighlight lang="perl" line>
 </syntaxhighlight>
 {{out}}
-<pre style="height:20ex">
+<pre>
 </pre>
-[[File:xx|300px|thumb|right]]
-# or
-[https://github.com/SqrtNegInf/Rosettacode-Perl-Smoke/blob/master/ref/xx xx]
