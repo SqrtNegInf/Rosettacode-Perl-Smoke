@@ -1,0 +1,65 @@
+#!/usr/local/bin/perl
+#u# https://rosettacode.org/wiki/Ormiston_pairs
+#c# 2023-04-23 >RC
+#p# OK
+#n# skipping extra tests, too slow
+
+my @res;
+
+#use v5.36;
+use strict; 
+use warnings; 
+use feature 'say';
+
+use ntheory <primes vecfirstidx>;
+
+my(@O,$pairs);
+my @primes = @{ primes(1,1e8) };
+
+my @A = map { join '', sort split '', $_ } @primes;
+for (1..$#primes-2) { push @O, $_ if $A[$_] eq $A[$_+1] and $A[$_] eq $A[$_+2] }
+
+push @res, "First 25 Ormiston triples:"; 
+$pairs .= sprintf "%8d, ", $primes[$_] for @O[0..24];
+$pairs =~ s/, $//;
+push @res, $pairs =~ s/.{50}\K/\n/gr;
+
+if (0) {
+for (
+  [1e8, 'one hundred million'],
+  [1e9, 'one billion'],
+) {
+    my($limit,$text) = @$_;
+    my $i = vecfirstidx { $primes[$_] >= $limit } @O;
+    push @res, sprintf "%3d Ormiston triples before %s", $i, $text;
+}
+}
+
+say my $result = join "\n", @res; 
+
+my $ref = <<'END';
+First 25 Ormiston triples:
+11117123, 12980783, 14964017, 32638213, 32964341, 
+33539783, 35868013, 44058013, 46103237, 48015013, 
+50324237, 52402783, 58005239, 60601237, 61395239, 
+74699789, 76012879, 78163123, 80905879, 81966341, 
+82324237, 82523017, 83279783, 86050781, 92514341
+END
+
+# 25 Ormiston triples before one hundred million
+#368 Ormiston triples before one billion
+
+use Test::More;
+chomp $ref;
+is($result, $ref);
+done_testing();
+
+__END__
+
+=={{header|Perl}}==
+{{libheader|ntheory}}
+<syntaxhighlight lang="perl" line>
+</syntaxhighlight>
+{{out}}
+<pre>
+</pre>
