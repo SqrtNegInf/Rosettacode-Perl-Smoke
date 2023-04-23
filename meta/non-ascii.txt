@@ -409,9 +409,6 @@ I/Integer_long_division
 8̅:    18 DIGIT EIGHT, COMBINING OVERLINE
 9̅:    16 DIGIT NINE, COMBINING OVERLINE
 
-K/K-means%2B%2B_clustering
-»:     1 RIGHT-POINTING DOUBLE ANGLE QUOTATION MARK
-
 L/Largest_palindrome_product
 ×:     7 MULTIPLICATION SIGN
 
@@ -467,10 +464,6 @@ M/Moebius_function
 »:     1 RIGHT-POINTING DOUBLE ANGLE QUOTATION MARK
 ö:     7 LATIN SMALL LETTER O WITH DIAERESIS
 μ:     2 GREEK SMALL LETTER MU
-
-M/Multidimensional_Newton-Raphson_method
-Δ:    13 GREEK CAPITAL LETTER DELTA
-ε:     8 GREEK SMALL LETTER EPSILON
 
 N/N-queens_minimum_and_knights_and_bishops.1
 ö:     1 LATIN SMALL LETTER O WITH DIAERESIS
