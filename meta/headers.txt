@@ -1340,6 +1340,12 @@ File: C/Call_an_object_method
 #p# OK
 #n# just pseudo-code
 
+File: C/CalmoSoft_primes
+#!/usr/local/bin/perl
+#u# https://rosettacode.org/wiki/CalmoSoft_primes
+#c# 2023-04-23 >RC
+#p# OK
+
 File: C/Camel_case_and_snake_case
 #!/usr/local/bin/perl
 #u# http://rosettacode.org/wiki/Camel_case_and_snake_case
@@ -3334,14 +3340,6 @@ File: F/FTP.1
 #c# 2018-07-31 <RC
 #p# OK
 
-File: F/Face_sums_with_primes
-#!/usr/local/bin/perl
-#u# http://rosettacode.org/wiki/xx
-#t# inprogress
-#c# 2022-02-19 NOT ON RC
-#p# OK
-#n# https://fivethirtyeight.com/features/can-you-prime-the-cube/
-
 File: F/Faces_from_a_mesh
 #!/usr/local/bin/perl
 #u# http://rosettacode.org/wiki/Faces_from_a_mesh
@@ -5133,13 +5131,6 @@ File: J/Just_in_time_processing_on_a_character_stream
 #c# 2019-05-15 >RC
 #p# OK
 
-File: K/K-means%2B%2B_clustering
-#!/usr/local/bin/perl
-#u# http://rosettacode.org/wiki/K-means%2B%2B_clustering
-#t# inprogress
-#c# 2019-10-07 >RC
-#p# OK
-
 File: K/Kahan_summation
 #!/usr/local/bin/perl
 #u# http://rosettacode.org/wiki/Kahan_summation
@@ -6500,13 +6491,6 @@ File: M/Multi-dimensional_array
 #c# 2019-03-21 >RC
 #p# OK
 
-File: M/Multidimensional_Newton-Raphson_method
-#!/usr/local/bin/perl
-#u# http://rosettacode.org/wiki/Multidimensional_Newton-Raphson_method
-#t# inprogress
-#c# 2019-03-xx >RC
-#p# OK
-
 File: M/Multifactorial-1
 #!/usr/local/bin/perl
 #u# http://rosettacode.org/wiki/Multifactorial
@@ -7143,6 +7127,19 @@ File: O/Ordered_words
 #c# 2018-08-20 <RC
 #p# OK
 
+File: O/Ormiston_pairs
+#!/usr/local/bin/perl
+#u# https://rosettacode.org/wiki/Ormiston_pairs
+#c# 2023-04-23 >RC
+#p# OK
+
+File: O/Ormiston_triples
+#!/usr/local/bin/perl
+#u# https://rosettacode.org/wiki/Ormiston_pairs
+#c# 2023-04-23 >RC
+#p# OK
+#n# skipping extra tests, too slow
+
 File: O/Overloaded_operators
 #!/usr/local/bin/perl
 #u# http://rosettacode.org/wiki/Overloaded_operators
@@ -7245,19 +7242,6 @@ File: P/Palindromic_primes_in_base_16
 #u# http://rosettacode.org/wiki/Palindromic_primes_in_base_16
 #c# 2021-06-26 >RC
 #p# OK
-
-File: P/Palindromic_primes_with_alternating_digits
-#!/usr/local/bin/perl
-#u# http://rosettacode.org/wiki/Palindromic_primes_with_alternating_digits
-#t# inprogress
-#c# 2021-12-10 NOT ON RC
-#p# OK
-#n# essentially 'smoothly undulating palindromic primes': a(ba){1,}, (but allowing a == b)
-#n# http://www.worldofnumbers.com/undulat.htm
-#n# So related to huge number of OEIS entries: OEIS:A032758 OEIS:A059758 OEIS:A242541
-#n# or in degenerate case of a=b, one digit, for lengths: 19, 23, 317, 1031 (the repunit primes, as per OEIS:A004023)
-#n# b=0 only once, never a=7, b=6 (proved) but 3/4, 7/1?
-#n# 3 .. 1501: 61.69s user 0.21s system 99% cpu 1:02.38 total
 
 File: P/Pan_base_non-primes
 #!/usr/local/bin/perl
