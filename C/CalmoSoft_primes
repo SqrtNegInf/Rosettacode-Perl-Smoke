@@ -5,8 +5,7 @@
 
 my @res;
 
-#use v5.36;
-use strict; use warnings; use feature 'say';
+use v5.36;
 
 use ntheory <primes is_prime vecsum>;
 
@@ -44,13 +43,3 @@ use Test::More;
 chomp $ref;
 is($result, $ref);
 done_testing();
-
-__END__
-
-=={{header|Perl}}==
-{{libheader|ntheory}}
-<syntaxhighlight lang="perl" line>
-</syntaxhighlight>
-{{out}}
-<pre>
-</pre>
