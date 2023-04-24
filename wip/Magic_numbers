@@ -14,10 +14,11 @@ my @magic = 0..9;
 
 my $d = 1;
 while () {
+    last;
     #last unless xxx;
 }
 
-push @res, sprintf "There are %d magic numbers in total.", scalar @magic;
+push @res, sprintf "There are %d magic numbers in total.", @magic;
 push @res, "\nThe largest is $magic[-1].";
 
 say my $result = join "\n", @res;
