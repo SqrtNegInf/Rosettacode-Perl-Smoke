@@ -303,6 +303,11 @@ F/First_perfect_square_in_base_N_with_N_unique_digits-2
 F/First_perfect_square_in_base_N_with_N_unique_digits.1
 ²:    16 SUPERSCRIPT TWO
 
+F/Forbidden_numbers
+»:     1 RIGHT-POINTING DOUBLE ANGLE QUOTATION MARK
+×:     3 MULTIPLICATION SIGN
+∞:     1 INFINITY
+
 F/French_Republican_calendar
 É:     1 LATIN CAPITAL LETTER E WITH ACUTE
 é:    35 LATIN SMALL LETTER E WITH ACUTE
