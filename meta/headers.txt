@@ -3906,6 +3906,13 @@ File: F/Floyd-Warshall_algorithm
 #c# 2018-08-07 <RC
 #p# OK
 
+File: F/Forbidden_numbers
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                    #t# inprogress
+<s-f3>IIIIUUUUUUUUUUUUUUUUUUUUUUUUUUUUUU,K6TTTTTTV    #!/usr/local/bin/perl
+#u# https://rosettacode.org/wiki/Forbidden_numbers
+#c# 2023-04-xx >RC
+#p# OK
+
 File: F/Forest_fire
 #!/usr/local/bin/perl
 #u# http://rosettacode.org/wiki/Forest_fire
