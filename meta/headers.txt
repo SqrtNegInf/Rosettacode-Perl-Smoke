@@ -3907,10 +3907,9 @@ File: F/Floyd-Warshall_algorithm
 #p# OK
 
 File: F/Forbidden_numbers
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                    #t# inprogress
-<s-f3>IIIIUUUUUUUUUUUUUUUUUUUUUUUUUUUUUU,K6TTTTTTV    #!/usr/local/bin/perl
+#!/usr/local/bin/perl
 #u# https://rosettacode.org/wiki/Forbidden_numbers
-#c# 2023-04-xx >RC
+#c# 2023-04-29 >RC
 #p# OK
 
 File: F/Forest_fire
@@ -4826,6 +4825,12 @@ File: I/I_before_E_except_after_C-2
 #!/usr/local/bin/perl
 #u# http://rosettacode.org/wiki/I_before_E_except_after_C
 #c# 2018-08-13 <RC
+#p# OK
+
+File: I/Iccanobif_primes
+#!/usr/local/bin/perl
+#u# https://rosettacode.org/wiki/Iccanobif_primes
+#c# 2023-04-29 >RC
 #p# OK
 
 File: I/Identity_matrix
