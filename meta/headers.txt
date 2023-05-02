@@ -675,9 +675,9 @@ File: A/Arrays
 File: A/Ascending_primes
 #!/usr/local/bin/perl
 #u# http://rosettacode.org/wiki/Ascending_primes
-#c# 2022-03-12 <RC
+#c# 2022-03-12 <RC, 2023-05-02 >RC
 #p# OK
-#n# cf D/Descending_primes
+#n# cf D/Descending_primes, handles map/sprintf/sort in another order
 
 File: A/Aspect_Oriented_Programming
 #!/usr/local/bin/perl
@@ -2522,9 +2522,9 @@ File: D/Department_Numbers-2
 File: D/Descending_primes
 #!/usr/local/bin/perl
 #u# http://rosettacode.org/wiki/Descending_primes
-#c# 2022-03-27 <RC
+#c# 2022-03-27 <RC, 2023-05-02 >RC
 #p# OK
-#n# cf A/Ascending_primes
+#n# cf A/Ascending_primes, handles sort/map/sprintf differently
 
 File: D/Detect_division_by_zero
 #!/usr/local/bin/perl
@@ -6867,6 +6867,7 @@ File: N/Numbers_divisible_by_their_individual_digits,_but_not_by_the_product_of_
 #u# http://rosettacode.org/wiki/Numbers_divisible_by_their_individual_digits,_but_not_by_the_product_of_their_digits.
 #c# 2021-04-18 <RC
 #p# OK
+#n# 2023-05-02 not much better, hard to get around issue of dual topic vars.
 
 File: N/Numbers_in_base-16_representation_that_cannot_be_written_with_decimal_digits
 #!/usr/local/bin/perl
@@ -7312,6 +7313,7 @@ File: P/Parallel_calculations
 #u# http://rosettacode.org/wiki/Parallel_calculations
 #c# 2018-07-06 <RC
 #p# OK
+#n# 2023-05-02 sort results for stable output (Ubuntu is flapping)
 
 File: P/Parse_EBNF
 #!/usr/local/bin/perl
