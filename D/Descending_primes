@@ -2,7 +2,7 @@
 #u# http://rosettacode.org/wiki/Descending_primes
 #c# 2022-03-27 <RC
 #p# OK
-#n# cf A/Ascending_primes
+#n# cf A/Ascending_primes, handles sort/map/sprintf differently
 
 my @res;
 
@@ -10,10 +10,15 @@ use strict;
 use warnings;
 use feature 'say';
 
-use ntheory qw( is_prime );
+use ntheory 'is_prime';
 
-push @res, join('', sort map { sprintf "%9d", $_ } grep /./ && is_prime($_),
-  glob join '', map "{$_,}", reverse 1 .. 9) =~ s/.{45}\K/\n/gr;
+push @res, 
+    join( '', 
+      sort 
+      map { sprintf '%9d', $_ }
+      grep /./ && is_prime $_,
+      glob join '', map "{$_,}", reverse 1..9
+    ) =~ s/.{45}\K/\n/gr;
 
 say my $result = join "\n", @res;
 
