@@ -25,7 +25,8 @@ my $sgit = sg_iterator();
 push @sg, $sgit->() for 1 .. $upto;
 
 say my $result = "First $upto terms:\n" .
-    (sprintf "@{['%5d' x $upto]}", @sg) =~ s/(.{50})/$1\n/gr;
+   #(sprintf "@{['%5d' x $upto]}", @sg) =~ s/(.{50})/$1\n/gr;
+    join('', map sprintf('%5d',$_), @sg) =~ s/(.{50})/$1\n/gr;
 
 my $ref = <<'END';
 First 50 terms:
