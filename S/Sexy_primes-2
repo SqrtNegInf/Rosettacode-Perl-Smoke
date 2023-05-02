@@ -23,7 +23,7 @@ sub tuple_tail {
     return @tail
 } 
 
-sub comma { reverse ((reverse shift) =~ s/(.{3})/$1,/gr) =~ s/^(-?),/$1/r }
+sub comma { reverse ((reverse shift) =~ s/(.{3})/$1,/gr) =~ s/^,//r }
 
 sub sexy_string { my $p = shift; defined $p && (is_prime($p+6) || is_prime($p-6)) ? 'sexy' : 'unsexy' }
  
