@@ -1,3 +1,9 @@
+2023-05-01
+Stipulated that tasks are near-dups, I'm not adding the 2nd/3rd to RC, seems silly to.
+S/Summarize_primes
+P/Prime_numbers_p_for_which_the_sum_of_primes_less_than_or_equal_to_p_is_prime
+E/Extreme_primes
+
 2023-04-07
 Done with review, just trivial/nuisance warnings remain.
 Two tasks not future-proofing, mis-reading of 'Multidimensional' syntax:
