@@ -5,7 +5,7 @@ updating from RC…
 |+-----------> Smoke testing [394]
 ||+----------> sKipping validation [26]
 |||+---------> Interactive [15]
-||||+--------> Touched (modified by me) [192]
+||||+--------> Touched (modified by me) [193]
 |||||+-------> Random seed [35]
 ||||||+------> File output [23]
 |||||||+-----> Draft [199]
@@ -119,7 +119,7 @@ GS..T...... Arithmetic_numbers
 GS......... Array_concatenation
 GS......... Array_length
 GS......... Arrays
-GS......... Ascending_primes
+GS..T...... Ascending_primes
 G.K.T..D... Aspect_oriented_programming
 GS......... Assertions
 GS.....DX.. Assertions_in_design_by_contract
