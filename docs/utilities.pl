@@ -8,8 +8,11 @@ BEGIN { die 'BROKEN on Ubuntu' if `uname -a` =~ /osboxes/ }
 
 #==== US-style ',' delimiter
 
-sub comma1 { reverse ((reverse shift) =~ s/(.{3})/$1,/gr) =~ s/^,//r }
-sub comma2 { scalar reverse join ',', unpack '(A3)*', reverse shift }
+sub comma { reverse ((reverse shift) =~ s/.{3}\K/,/gr) =~ s/^,//r }
+sub comma { reverse ((reverse shift) =~ s/.{3}\K/,/gr) =~ s/^(-?),/$1/r }   # handle negative sign
+sub comma { reverse ((reverse shift) =~ s/(.{3})/$1,/gr) =~ s/^,//r }
+sub comma { reverse ((reverse shift) =~ s/(.{3})/$1,/gr) =~ s/^(-?),/$1/r } # handle negative sign
+sub comma { scalar reverse join ',', unpack '(A3)*', reverse shift }
 
 #==== like Raku 'cross' operator
 
@@ -25,18 +28,18 @@ sub bag (@v) { my %h; $h{$_}++ for @v; %h }
 
 #==== column aligned tables
 
-# variable columns
+# numeric: variable columns
 use v5.36;
 use List::Util 'max';
-sub table1 ($c, @V) { my $t = $c * (my $w = 2 + length max @V); ( sprintf( ('%'.$w.'d')x@V, @V) ) =~ s/.{1,$t}\K/\n/gr }
+sub table ($c, @V) { my $t = $c * (my $w = 2 + length max @V); ( sprintf( ('%'.$w.'d')x@V, @V) ) =~ s/.{1,$t}\K/\n/gr }
 
-# fixed columns (doesn't need v5.36)
-sub table2 { my $t = 10 * (my $c = 1 + length max @_); ( sprintf( ('%'.$c.'d')x@_, @_) ) =~ s/.{1,$t}\K/\n/gr }
+# numeric: fixed columns (doesn't need sub. signatures) 
+sub table { my $t = 10 * (my $c = 1 + length max @_); ( sprintf( ('%'.$c.'d')x@_, @_) ) =~ s/.{1,$t}\K/\n/gr }
 
-# fixed widths (here '6')
-sub table3 ($c, @V) { my $t = $c * (my $w = 6); ( sprintf( ('%'.$w.'d')x@V, @V) ) =~ s/.{1,$t}\K/\n/gr }
+# numeric: fixed widths (here '6')
+sub table ($c, @V) { my $t = $c * (my $w = 6); ( sprintf( ('%'.$w.'d')x@V, @V) ) =~ s/.{1,$t}\K/\n/gr }
 
-# variable strings (above all assume numeric)
+# strings: variable widths
 sub table ($c, @V) { my $t = $c * (my $w = 2 + max map { length } @V); ( sprintf( ('%'.$w.'s')x@V, @V) ) =~ s/.{1,$t}\K/\n/gr }
 
 # see 'M/Moebius_function' for table with 1st-row indent
