@@ -1,6 +1,6 @@
 #!/usr/local/bin/perl
 #u# http://rosettacode.org/wiki/Descending_primes
-#c# 2022-03-27 <RC
+#c# 2022-03-27 <RC, 2023-05-02 >RC
 #p# OK
 #n# cf A/Ascending_primes, handles sort/map/sprintf differently
 
