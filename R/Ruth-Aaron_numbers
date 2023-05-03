@@ -8,38 +8,61 @@ use warnings;
 use feature 'say';
 
 use ntheory qw<factor vecsum>;
-use List::AllUtils qw( uniq );
+use List::AllUtils 'uniq';
 
-my $n = 1;
-my @answers;
+my($n, @answers) = (1);
 while( @answers < 30 ) {
     vecsum(factor($n)) == vecsum(factor($n+1)) and push @answers, $n;
     $n++;
 }
-my $result = "factors:\n\n@answers\n\n" =~ s/.{60}\K /\n/gr;
- 
-$n = 1;
-@answers = ();
-while( @answers < 30 ) {
+my $result = "double (factors):\n\n@answers\n\n" =~ s/.{60}\K /\n/gr;
+
+$n = 1; @answers = ();
+do {
     vecsum(uniq factor($n)) == vecsum(uniq factor($n+1)) and push @answers, $n;
     $n++;
+} until @answers == 30;
+$result .= "double (divisors):\n\n@answers\n" =~ s/.{60}\K /\n/gr;
+
+$n = 1; @answers = ();
+do {
+        vecsum(factor($n)) == vecsum(factor($n+1)) 
+    and vecsum(factor($n)) == vecsum(factor($n+2)) 
+    and push @answers, $n;
+    $n++;
+} until @answers;
+$result .= "\ntriple (factors):\n\n@answers\n" =~ s/.{60}\K /\n/gr;
+
+# works find, but skip (too slow)
+if (0) {
+$n = 1; @answers = ();
+do {
+        vecsum(uniq factor($n)) == vecsum(uniq factor($n+1)) 
+    and vecsum(uniq factor($n)) == vecsum(uniq factor($n+2)) 
+    and push @answers, $n;
+    $n++;
+} until @answers;
+$result .= "triple (divisors):\n\n@answers\n" =~ s/.{60}\K /\n/gr;
 }
-$result .= "divisors:\n\n@answers\n" =~ s/.{60}\K /\n/gr;
 
 say $result;
 
 my $ref = <<'END';
-factors:
+double (factors):
 
 5 8 15 77 125 714 948 1330 1520 1862 2491 3248 4185 4191 5405
 5560 5959 6867 8280 8463 10647 12351 14587 16932 17080 18490
 20450 24895 26642 26649
 
-divisors:
+double (divisors):
 
 5 24 49 77 104 153 369 492 714 1682 2107 2299 2600 2783 5405
 6556 6811 8855 9800 12726 13775 18655 21183 24024 24432 24880
 25839 26642 35456 40081
+
+triple (factors):
+
+417162
 END
 
 use Test::More;
