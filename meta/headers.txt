@@ -11648,6 +11648,13 @@ File: W/Wireworld
 #c# 2018-08-03 <RC
 #p# OK
 
+File: W/Wolstenholme_numbers
+#!/usr/local/bin/perl
+#u# https://rosettacode.org/wiki/Wolstenholme_numbers
+#t# inprogress
+#c# 2023-05-03 >RC
+#p# OK
+
 File: W/Word_break_problem
 #!/usr/local/bin/perl
 #u# http://rosettacode.org/wiki/Word_break_problem
