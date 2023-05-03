@@ -7,7 +7,7 @@
 use strict;
 use warnings;
 use feature 'say';
-my $result;
+my @res;
 
 use ntheory qw/factor vecmax/;
 use threads;
@@ -21,17 +21,17 @@ $_->join() for
   115284584522153 115280098190773 115797840077099 112582718962171 299866111963290359/);
  
 my $lmf = vecmax( map { $_->[1] } @results );
-$result = "Largest minimal factor of $lmf found in:\n";
-$result .= "  $_->[0] = [@$_[1..$#$_]]\n" for sort grep { $_->[1] == $lmf } @results;
+#$result = "Largest minimal factor of $lmf found in:\n";
+push @res, "  $_->[0] = [@$_[1..$#$_]]\n" for grep { $_->[1] == $lmf } @results;
+
+say my $result = join "", sort @res;
  
 sub tfactor {
   my($tnum, $n) = @_;
   push @results, shared_clone([$n, factor($n)]);
 }
 
-
 my $ref = <<EOD;
-Largest minimal factor of 544651 found in:
   115797840077099 = [544651 212609249]
   299866111963290359 = [544651 550565613509]
 EOD
