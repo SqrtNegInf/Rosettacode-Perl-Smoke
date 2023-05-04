@@ -1,12 +1,11 @@
 #!/usr/local/bin/perl
 #u# https://rosettacode.org/wiki/Wolstenholme_numbers
-#c# 2023-05-03 >RC
+#c# 2023-05-04 >RC
 #p# OK
 
 my @res;
 
 use v5.36;
-
 use ntheory 'is_prime';
 use Math::BigRat try => 'GMP';
 
@@ -19,8 +18,8 @@ push @res, 'Wolstenholme numbers:';
 push @res, sprintf "%5s: %s", $_, abbr $W[$_-1]->numerator() for 1..20, 5e2, 1e3, 2.5e3, 5e3, 1e4;
 
 push @res, "\nPrime Wolstenholme numbers:";
-my($n,$c) = (0,0);
-do { push @res, sprintf "%5s: %s", ++$c, abbr $W[$n]->numerator() if is_prime $W[$n++]->numerator() } until $c == 15;
+my($n,$c);
+do { push @res, sprintf "%5s: %s", ++$c, abbr $W[$n]->numerator() if is_prime $W[++$n]->numerator() } until $c == 15;
 #push @res, sprintf "%5s: %s", ++$n, abbr $_->numerator() for head 15, grep { is_prime $_->numerator() } @W; # slow, doesn't short-circuit
 
 say my $result = join "\n", @res;
@@ -54,50 +53,24 @@ Wolstenholme numbers:
 10000: 54714423173933343999..49175649667700005717 (8693 digits)
 
 Prime Wolstenholme numbers:
-    1: 49
-    2: 1077749
-    3: 40931552621
-    4: 17299975731542641
-    5: 36192394223738644958..27171797714854540029 (104 digits)
-    6: 23399991186667634597..05251135978219980231 (157 digits)
-    7: 99186617154523592223..50362924433949417963 (216 digits)
-    8: 28347814248165384870..83313777814247048059 (318 digits)
-    9: 78440689422637922023..44908392487283498419 (520 digits)
-   10: 22706918799928729936..16974005034583964989 (649 digits)
-   11: 27310408893789363209..34843218392244388271 (935 digits)
-   12: 61105071073093439687..74315550320844865337 (985 digits)
-   13: 15086867940394459185..97600970282504918693 (1202 digits)
-   14: 23541939894356277413..89911056856140468879 (1518 digits)
-   15: 40306790923909992915..09805498635135576941 (1539 digits)
+    1: 5
+    2: 266681
+    3: 40799043101
+    4: 86364397717734821
+    5: 36190908596780862323..79995976006474252029 (104 digits)
+    6: 33427988094524601237..48446489305085140033 (156 digits)
+    7: 22812704758392002353..84405125167217413149 (218 digits)
+    8: 28347687473208792918..45794572911130248059 (318 digits)
+    9: 78440559440644426017..30422337523878698419 (520 digits)
+   10: 22706893975121925531..02173859396183964989 (649 digits)
+   11: 27310394808585898968..86311385662644388271 (935 digits)
+   12: 13001072736642048751..08635832246554146071 (984 digits)
+   13: 15086863305391456002..05367804007944918693 (1202 digits)
+   14: 23541935187269979100..02324742766220468879 (1518 digits)
+   15: 40306783143871607599..58901192511859288941 (1539 digits)
 END
 
 use Test::More;
 chomp $ref;
 is($result, $ref);
 done_testing();
-
-__END__
-
-=={{header|Perl}}==
-{  {libheader|ntheory}}
-<syntaxhighlight lang="perl" line>
-use strict; 
-use warnings;
-use ntheory 'is_prime';
-use Math::BigRat try => 'GMP';
-
-sub abbr ($d) { my $l = length $d; $l < 41 ? $d : substr($d,0,20) . '..' . substr($d,-20) . " ($l digits)" }
-
-my @W = Math::BigRat->new('1/1');
-push @W, $W[-1] + Math::BigRat->new(join '/', 1, $_**2) for 2..10000;
-
-push @res, 'Wolstenholme numbers:';
-push @res, sprintf "%5s: %s", $_, abbr $W[$_-1]->numerator() for 1..20, 5e2, 1e3, 2.5e3, 5e3, 1e4;
-
-push @res, "\nPrime Wolstenholme numbers:";
-my($n,$c) = (0,0);
-do { push @res, sprintf "%5s: %s", ++$c, abbr $W[$n]->numerator() if is_prime $W[$n++]->numerator() } until $c == 15;
-</syntaxhighlight>
-{{out}}
-<pre>
-</pre>
