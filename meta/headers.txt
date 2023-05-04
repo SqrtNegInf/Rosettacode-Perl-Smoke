@@ -11651,9 +11651,15 @@ File: W/Wireworld
 File: W/Wolstenholme_numbers
 #!/usr/local/bin/perl
 #u# https://rosettacode.org/wiki/Wolstenholme_numbers
-#t# inprogress
-#c# 2023-05-03 >RC
+#c# 2023-05-04 >RC
 #p# OK
+
+File: W/Wolstenholme_numbers-2
+#!/usr/local/bin/perl
+#u# https://rosettacode.org/wiki/Wolstenholme_numbers
+#c# 2023-05-03 NOT ON RC
+#p# OK
+#n# faster than other version
 
 File: W/Word_break_problem
 #!/usr/local/bin/perl
