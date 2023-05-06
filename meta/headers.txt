@@ -5938,8 +5938,7 @@ File: M/Magic_constant-2
 File: M/Magic_numbers
 #!/usr/local/bin/perl
 #u# https://rosettacode.org/wiki/Magic_numbers
-#t# inprogress
-#c# 2023-05-xx >RC
+#c# 2023-05-06 >RC
 #p# OK
 
 File: M/Magic_squares_Perl
