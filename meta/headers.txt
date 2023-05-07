@@ -3036,6 +3036,12 @@ File: E/Engel_expansion
 #n#     447.62s user 2.39s system 99% cpu 7:30.88 total
 #n# the version on RC uses 'abbr' to condense output from high-precision values
 
+File: E/English_cardinal_anagrams
+#!/usr/local/bin/perl
+#u# https://rosettacode.org/wiki/English_cardinal_anagrams
+#c# 2023-05-07 >RC
+#p# OK
+
 File: E/Entropy
 #!/usr/local/bin/perl
 #u# http://rosettacode.org/wiki/Entropy
