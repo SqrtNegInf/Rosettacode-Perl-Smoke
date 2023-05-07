@@ -1,0 +1,58 @@
+#!/usr/local/bin/perl
+#u# https://rosettacode.org/wiki/English_cardinal_anagrams
+#c# 2023-05-07 >RC
+#p# OK
+
+my @res;
+
+use v5.36;
+
+use List::AllUtils 'max_by';
+use Lingua::EN::Numbers qw(num2en);
+
+for my $limit (1e3, 1e4) {
+    my(%E,@E);
+
+   #for my $n (0..$limit) {
+   #    my $ana = join '', sort split '', num2en($n); 
+   #    push $E{$ana}->@*, $n;
+   #}
+   #for (keys %E) { delete $E{$_} unless $E{$_}->@* > 1 }
+
+    push $E{ join '', sort split '', num2en($_) }->@*, $_ for 0..$limit;
+    map { delete $E{$_} if $E{$_}->@* < 2 } keys %E;
+
+    @E = sort { $a <=> $b } map { @$_ } values %E;
+
+    push @res, "First 30 English cardinal anagrams:\n" . join ' ', @E[0..29] if $limit == 1000;
+    push @res, "\nCount of English cardinal anagrams up to $limit: " . keys %E;
+    push @res, "\nLargest group(s) of English cardinal anagrams up to $limit";
+    push @res, join ' ', $E{$_}->@* for max_by { $E{$_}->@* } sort keys %E;
+}
+
+say my $result = join "\n", @res;
+
+my $ref = <<'END';
+First 30 English cardinal anagrams:
+67 69 76 79 96 97 102 103 104 105 106 107 108 109 112 122 123 124 125 126 127 128 129 132 133 134 135 136 137 138
+
+Count of English cardinal anagrams up to 1000: 317
+
+Largest group(s) of English cardinal anagrams up to 1000
+679 697 769 796 967 976
+
+Count of English cardinal anagrams up to 10000: 2534
+
+Largest group(s) of English cardinal anagrams up to 10000
+3679 3697 3769 3796 3967 3976 6379 6397 6793 6973 7369 7396 7693 7963 9367 9376 9673 9763
+5679 5697 5769 5796 5967 5976 6579 6597 6795 6975 7569 7596 7695 7965 9567 9576 9675 9765
+6798 6879 6897 6978 7698 7869 7896 7968 8679 8697 8769 8796 8967 8976 9678 9768 9867 9876
+1679 1697 1769 1796 1967 1976 6179 6197 6791 6971 7169 7196 7691 7961 9167 9176 9671 9761
+4679 4697 4769 4796 4967 4976 6479 6497 6794 6974 7469 7496 7694 7964 9467 9476 9674 9764
+2679 2697 2769 2796 2967 2976 6279 6297 6792 6972 7269 7296 7692 7962 9267 9276 9672 9762
+END
+
+use Test::More;
+chomp $ref;
+is($result, $ref);
+done_testing();
