@@ -17,6 +17,11 @@ push @res, 'Code Golf';
 # 35 bytes
 push @res, pack'H*','436F646520476F6C66';
 
+# 42 bytes (not counting testing scaffold, but 'print' implied)
+my $l;
+$l.=chr($_^102)for 37,9,2,3,70,33,9,10,0;
+push @res, $l;
+
 # 53 bytes (no quoted literal)
 push @res, pack chr(67).chr(78)x2,67,0x6f646520,0x476f6c66;
 
@@ -37,6 +42,7 @@ push @res, "Extract to bytes '$bytes' with length = " . length($bytes);
 say my $result = join "\n", @res;
 
 my $ref = <<'EOD';
+Code Golf
 Code Golf
 Code Golf
 Code Golf
