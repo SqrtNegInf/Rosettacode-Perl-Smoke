@@ -1,3 +1,6 @@
+2023-05-10
+As I work through v5.36 upgrades, also purge more near-duplicate Perl code (aided by bin/PWC-balance).
+
 2023-05-01
 Stipulated that tasks are near-dups, I'm not adding the 2nd/3rd to RC, seems silly to.
 S/Summarize_primes
