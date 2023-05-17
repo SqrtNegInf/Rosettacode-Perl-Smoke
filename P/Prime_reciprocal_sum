@@ -1,0 +1,54 @@
+#!/usr/local/bin/perl
+#u# https://rosettacode.org/wiki/Prime_reciprocal_sum
+#c# 2023-05-18 >RC
+#p# OK
+
+my @res;
+
+use v5.36;
+
+use Math::AnyNum <next_prime ceil>;
+
+sub abbr ($d) { my $l = length $d; $l < 41 ? $d : substr($d,0,20) . '..' . substr($d,-20) . " ($l digits)" }
+
+sub succ_prime {
+    state $sum = 0;
+    $sum += 1 / (my $next = next_prime ceil(1 / (1 - $sum)));
+    $next
+}
+
+push @res, sprintf "%2d: %s", $_, abbr succ_prime for 1..14;
+
+say my $result = join "\n", @res;
+
+my $ref = <<'END';
+ 1: 2
+ 2: 3
+ 3: 7
+ 4: 43
+ 5: 1811
+ 6: 654149
+ 7: 27082315109
+ 8: 153694141992520880899
+ 9: 337110658273917297268061074384231117039
+10: 84241975970641143191..13803869133407474043 (76 digits)
+11: 20300753813848234767..91313959045797597991 (150 digits)
+12: 20323705381471272842..21649394434192763213 (297 digits)
+13: 12748246592672078196..20708715953110886963 (592 digits)
+14: 46749025165138838243..65355869250350888941 (1180 digits)
+END
+
+use Test::More;
+chomp $ref;
+is($result, $ref);
+done_testing();
+
+__END__
+
+=={{header|Perl}}==
+{{trans|Raku}}
+<syntaxhighlight lang="perl" line>
+</syntaxhighlight>
+{{out}}
+<pre>
+</pre>
