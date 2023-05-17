@@ -8073,6 +8073,12 @@ File: P/Prime_numbers_which_contain_123
 #p# OK
 #n# tybalt89++
 
+File: P/Prime_reciprocal_sum
+#!/usr/local/bin/perl
+#u# https://rosettacode.org/wiki/Prime_reciprocal_sum
+#c# 2023-05-18 >RC
+#p# OK
+
 File: P/Prime_triangle
 #!/usr/local/bin/perl
 #u# http://rosettacode.org/wiki/Prime_triangle
