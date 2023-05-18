@@ -1,3 +1,6 @@
+2023-05-17
+As sometimes (not so rarely?) happens, 'S/Solve_a_Holy_Knight%27s_tour' gave correct results, but in a different order.
+
 2023-05-14
 Updated symlinks needed to get XML tasks working (/usr/local/lib -> /opt/local/lib), bit of a mess.
 
