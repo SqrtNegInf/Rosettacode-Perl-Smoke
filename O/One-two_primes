@@ -11,7 +11,7 @@ no warnings 'recursion';
 
 use ntheory 'is_prime';
 
-sub condense($n) { $n =~ /^((.)\2+)/; my $i = length $1; $i>9 ? "($2 x $i) " . substr($n,$i) : $n }
+sub condense($n) { $n =~ /^((.)\2+)/; my $i = length $1 // 0; $i>9 ? "($2 x $i) " . substr($n,$i) : $n }
 
 sub combine ($d, $a, $b, $s='') {                        # NB: $a < $b
        if ($d==1 && is_prime $s.$a) { return $s.$a }
