@@ -1,8 +1,8 @@
 #!/usr/local/bin/perl
 #u# https://rosettacode.org/wiki/One-two_primes
-#c# 2023-05-25 >RC
+#c# 2023-05-25 >RC, 2023-05-26 >RC
 #p# OK
-#n# slowish, so limit testing; 'condense' utility could be generalized
+#n# slowish, so limit testing
 
 my @res;
 
@@ -11,23 +11,23 @@ no warnings 'recursion';
 
 use ntheory 'is_prime';
 
-sub condense ($n,$a,$b) { my $i = index($n,$b); $i>9 ? "($a x $i) " . substr($n,$i) : $n }
+sub condense($n) { $n =~ /^((.)\2+)/; my $i = length $1; $i>9 ? "($2 x $i) " . substr($n,$i) : $n }
 
-sub combine ($d, $a, $b, $s='') {
-    if      ($d==1 && is_prime $s.$a) { return $s.$a
+sub combine ($d, $a, $b, $s='') {                        # NB: $a < $b
+         if ($d==1 && is_prime $s.$a) { return $s.$a
     } elsif ($d==1 && is_prime $s.$b) { return $s.$b
-    } elsif ($d==1)                   { return 0
+    } elsif ($d==1                  ) { return 0
     } else                            { return combine($d-1,$a,$b,$s.$a) || combine($d-1,$a,$b,$s.$b) }
 }
 
 my($a,$b) = (1,2);
 push @res, "Smallest n digit prime using only $a and $b (or '0' if none exists):";
-push @res, sprintf "%4d: %s", $_,          combine($_,$a,$b)        for 1..20;
-push @res, sprintf "%4d: %s", $_, condense(combine($_,$a,$b),$a,$b) for map { 100 * $_ } 1..10;
+push @res, sprintf "%4d: %s", $_,          combine($_,$a,$b) for             1..20;
+push @res, sprintf "%4d: %s", $_, condense combine($_,$a,$b) for map 100*$_, 1..10;
 
-($a,$b) = (7,9);
+($a,$b)   = (7,9);
 push @res, "\nSmallest n digit prime using only $a and $b (or '0' if none exists):";
-push @res, sprintf "%4d: %s", $_, condense(combine($_,$a,$b),$a,$b) for 1..20, 100, 200;
+push @res, sprintf "%4d: %s", $_, condense combine($_,$a,$b) for 1..20, 100, 200;
 
 # 1st term missing
 #($a,$b) = (0,1);
