@@ -1,0 +1,116 @@
+#!/usr/local/bin/perl
+#u# https://rosettacode.org/wiki/One-two_primes
+#c# 2023-05-25 >RC
+#p# OK
+#n# slowish, so limit testing; 'condense' utility could be generalized
+
+my @res;
+
+use v5.36;
+no warnings 'recursion';
+
+use ntheory 'is_prime';
+
+sub condense ($n,$a,$b) { my $i = index($n,$b); $i>9 ? "($a x $i) " . substr($n,$i) : $n }
+
+sub one_two ($d, $a, $b, $s='') {
+    if      ($d==1 && is_prime $s.$a) { return $s.$a
+    } elsif ($d==1 && is_prime $s.$b) { return $s.$b
+    } elsif ($d==1)                   { return 0
+    } else                            { return one_two($d-1,$a,$b,$s.$a) || one_two($d-1,$a,$b,$s.$b) }
+}
+
+my($a,$b) = (1,2);
+push @res, "Smallest n digit prime using only $a and $b (or '0' if none exists):";
+push @res, sprintf "%4d: %s", $_,          one_two($_,$a,$b)        for 1..20;
+push @res, sprintf "%4d: %s", $_, condense(one_two($_,$a,$b),$a,$b) for map { 100 * $_ } 1..10;
+
+($a,$b) = (7,9);
+push @res, "\nSmallest n digit prime using only $a and $b (or '0' if none exists):";
+push @res, sprintf "%4d: %s", $_, condense(one_two($_,$a,$b),$a,$b) for 1..20, 100, 200;
+
+say my $result = join "\n", @res;
+
+my $ref = <<'END';
+Smallest n digit prime using only 1 and 2 (or '0' if none exists):
+   1: 2
+   2: 11
+   3: 211
+   4: 2111
+   5: 12211
+   6: 111121
+   7: 1111211
+   8: 11221211
+   9: 111112121
+  10: 1111111121
+  11: 11111121121
+  12: 111111211111
+  13: 1111111121221
+  14: 11111111112221
+  15: 111111112111121
+  16: 1111111112122111
+  17: 11111111111112121
+  18: 111111111111112111
+  19: 1111111111111111111
+  20: 11111111111111212121
+ 100: (1 x 92) 21112211
+ 200: (1 x 192) 21112211
+ 300: (1 x 288) 211121112221
+ 400: (1 x 390) 2111122121
+ 500: (1 x 488) 221222111111
+ 600: (1 x 590) 2112222221
+ 700: (1 x 689) 21111111111
+ 800: (1 x 787) 2122222221111
+ 900: (1 x 891) 222221221
+1000: (1 x 988) 222122111121
+
+Smallest n digit prime using only 7 and 9 (or '0' if none exists):
+   1: 7
+   2: 79
+   3: 797
+   4: 0
+   5: 77797
+   6: 777977
+   7: 7777997
+   8: 77779799
+   9: 777777799
+  10: 7777779799
+  11: 77777779979
+  12: 777777779777
+  13: 7777777779977
+  14: (7 x 11) 977
+  15: (7 x 11) 9797
+  16: (7 x 11) 97799
+  17: (7 x 15) 97
+  18: (7 x 13) 97977
+  19: (7 x 16) 997
+  20: (7 x 16) 9997
+ 100: (7 x 93) 9979979
+ 200: (7 x 192) 99777779
+END
+
+#1100: (1 x 1087) 2112111121111
+#1200: (1 x 1191) 211222211
+#1300: (1 x 1289) 22121221121
+#1400: (1 x 1388) 222211222121
+#1500: (1 x 1489) 21112121121
+#1600: (1 x 1587) 2121222122111
+#1700: (1 x 1688) 212121211121
+#1800: (1 x 1791) 221211121
+#1900: (1 x 1889) 22212212211
+#2000: (1 x 1989) 22121121211
+
+use Test::More;
+chomp $ref;
+is($result, $ref);
+done_testing();
+
+__END__
+
+=={{header|Perl}}==
+{{libheader|ntheory}}
+<syntaxhighlight lang="perl" line>
+</syntaxhighlight>
+{{out}}
+<pre>
+</pre>
