@@ -13,21 +13,25 @@ use ntheory 'is_prime';
 
 sub condense ($n,$a,$b) { my $i = index($n,$b); $i>9 ? "($a x $i) " . substr($n,$i) : $n }
 
-sub one_two ($d, $a, $b, $s='') {
+sub combine ($d, $a, $b, $s='') {
     if      ($d==1 && is_prime $s.$a) { return $s.$a
     } elsif ($d==1 && is_prime $s.$b) { return $s.$b
     } elsif ($d==1)                   { return 0
-    } else                            { return one_two($d-1,$a,$b,$s.$a) || one_two($d-1,$a,$b,$s.$b) }
+    } else                            { return combine($d-1,$a,$b,$s.$a) || combine($d-1,$a,$b,$s.$b) }
 }
 
 my($a,$b) = (1,2);
 push @res, "Smallest n digit prime using only $a and $b (or '0' if none exists):";
-push @res, sprintf "%4d: %s", $_,          one_two($_,$a,$b)        for 1..20;
-push @res, sprintf "%4d: %s", $_, condense(one_two($_,$a,$b),$a,$b) for map { 100 * $_ } 1..10;
+push @res, sprintf "%4d: %s", $_,          combine($_,$a,$b)        for 1..20;
+push @res, sprintf "%4d: %s", $_, condense(combine($_,$a,$b),$a,$b) for map { 100 * $_ } 1..10;
 
 ($a,$b) = (7,9);
 push @res, "\nSmallest n digit prime using only $a and $b (or '0' if none exists):";
-push @res, sprintf "%4d: %s", $_, condense(one_two($_,$a,$b),$a,$b) for 1..20, 100, 200;
+push @res, sprintf "%4d: %s", $_, condense(combine($_,$a,$b),$a,$b) for 1..20, 100, 200;
+
+# 1st term missing
+#($a,$b) = (0,1);
+#printf "%4d: %s\n", $_+1, combine($_,$a,$b,1) for 1..19;
 
 say my $result = join "\n", @res;
 
@@ -104,13 +108,3 @@ use Test::More;
 chomp $ref;
 is($result, $ref);
 done_testing();
-
-__END__
-
-=={{header|Perl}}==
-{{libheader|ntheory}}
-<syntaxhighlight lang="perl" line>
-</syntaxhighlight>
-{{out}}
-<pre>
-</pre>
