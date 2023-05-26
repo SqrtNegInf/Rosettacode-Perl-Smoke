@@ -7071,6 +7071,13 @@ File: O/One-time_pad
 #c# 2020-08-14 <RC
 #p# OK
 
+File: O/One-two_primes
+#!/usr/local/bin/perl
+#u# https://rosettacode.org/wiki/One-two_primes
+#c# 2023-05-25 >RC, 2023-05-26 >RC
+#p# OK
+#n# slowish, so limit testing
+
 File: O/One_of_n_lines_in_a_file
 #!/usr/local/bin/perl
 #u# http://rosettacode.org/wiki/One_of_n_lines_in_a_file
