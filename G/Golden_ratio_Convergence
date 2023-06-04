@@ -1,0 +1,47 @@
+#!/usr/local/bin/perl
+#u# https://rosettacode.org/wiki/Golden_ratio/Convergence
+#t# inprogress
+#c# 2023-06-04 >RC
+#p# OK
+
+my @res;
+
+use v5.36;
+
+use constant phi => (1 + sqrt 5) / 2;
+
+sub GR ($n) { $n == 1 ? 2 : 1 + 1 / GR($n - 1) }
+
+printf "%8.6f %8.6f\n", GR($_), abs(phi - GR($_)) for 1..15;
+
+say my $result = join "\n", @res;
+my $ref = <<'END';
+END
+
+use Test::More;
+chomp $ref;
+is($result, $ref);
+done_testing();
+
+__END__
+
+# run as Perl or Raku
+my $oldPhi = 1;
+my ($phi, $iters);
+my $limit = 1e-5;
+while (++$iters) {
+    $phi = 1 + 1 / $oldPhi;
+    last if abs($phi - $oldPhi) <= $limit;
+    $oldPhi = $phi;
+}
+
+printf "Final value of phi : %.14f\n", $phi;
+printf "Number of iterations : %d\n", $iters;
+printf "Error (approx) : %16.14f\n", $phi - (1 + sqrt 5) / 2;
+
+=={{header|Perl}}==
+<syntaxhighlight lang="perl" line>
+</syntaxhighlight>
+{{out}}
+<pre>
+</pre>
