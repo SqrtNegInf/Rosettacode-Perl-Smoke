@@ -4275,6 +4275,13 @@ File: G/Goldbach%27s_comet
 #f# RC file: goldbachs-comet.png
 #n# testing text output and image file
 
+File: G/Golden_ratio_Convergence
+#!/usr/local/bin/perl
+#u# https://rosettacode.org/wiki/Golden_ratio/Convergence
+#t# inprogress
+#c# 2023-06-04 >RC
+#p# OK
+
 File: G/Gotchas
 #!/usr/local/bin/perl
 #u# http://rosettacode.org/wiki/Gotchas
