@@ -1,6 +1,6 @@
 #!/usr/local/bin/perl
 #u# https://rosettacode.org/wiki/Golden_ratio/Convergence
-#c# 2023-06-04 >RC
+#c# 2023-06-05 >RC
 #p# OK
 
 my $result;
@@ -19,7 +19,7 @@ while (++$i) {
 
 use Test::More;
 is($result, '12 iterations: 1.618034 vs 1.618026 (0.000008)');
-done_testing();
+done_testing;
 
 __END__
 
@@ -36,21 +36,3 @@ while (++$iters) {
 printf "Final value of phi : %.14f\n", $phi;
 printf "Number of iterations : %d\n", $iters;
 printf "Error (approx) : %16.14f\n", $phi - (1 + sqrt 5) / 2;
-
-=={{header|Perl}}==
-<syntaxhighlight lang="perl" line>
-use strict; use warnings; 
-use constant phi => (1 + sqrt 5) / 2;
-
-sub GR { my $n = shift; $n == 1 ? 2 : 1 + 1 / GR($n - 1) }
-
-my $i;
-while (++$i) {
-    my $dev = abs phi - GR($i);
-    (printf "%d iterations: %8.6f vs %8.6f (%8.6f)\n", $i, phi, GR($i), $dev and last) if $dev < 1e-5;
-}
-</syntaxhighlight>
-{{out}}
-<pre>
-12 iterations: 1.618034 vs 1.618026 (0.000008)
-</pre>
