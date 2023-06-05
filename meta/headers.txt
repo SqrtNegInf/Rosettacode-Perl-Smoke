@@ -4278,8 +4278,7 @@ File: G/Goldbach%27s_comet
 File: G/Golden_ratio_Convergence
 #!/usr/local/bin/perl
 #u# https://rosettacode.org/wiki/Golden_ratio/Convergence
-#t# inprogress
-#c# 2023-06-04 >RC
+#c# 2023-06-05 >RC
 #p# OK
 
 File: G/Gotchas
