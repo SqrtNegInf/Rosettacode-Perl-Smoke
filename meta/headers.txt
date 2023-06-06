@@ -8895,6 +8895,7 @@ File: R/Rosetta_Code_Rank_languages_by_popularity
 #n# 2020-01-xx Started out with: Phix, Julia, Go, Python, Raku, Perl
 #n# 2020-01-29 --> 2023-03-16 'C' ... 'Jq' reach 1000
 #n# 2023-03-26 Making the club more exclusive again, 1200 tasks is the cutoff (neatly truncating the list to 10 languages)
+#n# 2023-06-05  now it's 11 (Ruby)
 
 File: R/Rosetta_Code_Tasks_without_examples
 #!/usr/local/bin/perl
@@ -11290,6 +11291,12 @@ File: U/Undefined_values
 #!/usr/local/bin/perl
 #u# http://rosettacode.org/wiki/Undefined_values
 #c# 2018-08-07 <RC
+#p# OK
+
+File: U/Undulating_numbers
+#!/usr/local/bin/perl
+#u# https://rosettacode.org/wiki/Undulating_numbers
+#c# 2023-06-06 >RC
 #p# OK
 
 File: U/Unicode_strings
