@@ -18,21 +18,20 @@ sub table ($c, @V) { my $t = $c * (my $w = 6); ( sprintf( ('%'.$w.'d')x@V, @V) )
 my $max = 2**53;
 
 my(@pairs,@U);
-for my($i,$j) ( X(9,9) ) { push @pairs, $i . $j unless $i == 0 || $i == $j }
-
-for my $l (3..length $max) {
-    if (0 == $l%2) { push @U, "$_"x( $l   /2) for @pairs }
-    else           { push @U, "$_"x(($l+1)/2) and chop $U[-1] for @pairs }
+for my($i,$j) ( X(9,9) ) { push @pairs, $i . $j unless $i == 0 or $i == $j }
+for my $l (3 .. length $max) {
+    if (0 == $l%2) { push @U, $_ x ( $l   /2) for @pairs }
+    else           { push @U, $_ x (($l+1)/2) and chop $U[-1] for @pairs }
 }
 
 push @res, "All 3 digit undulating numbers:"; push @res, table 9, grep { 3 == length $_ } @U;
 push @res, "All 3 digit undulating primes:";  push @res, table 9, grep { 3 == length $_ and is_prime $_ } @U;
 push @res, "All 4 digit undulating numbers:"; push @res, table 9, grep { 4 == length $_ } @U;
 
-my $fmt = "%34s: %d"; 
-push @res, sprintf $fmt, 'The 600th undulating number is', $U[599];
-push @res, sprintf $fmt, 'Undulating numbers less than 2**53', (my $i = vecfirstidx { $_ >= $max } @U);
-push @res, sprintf $fmt, 'That number is', $U[$i-1];
+my $fmt = '%34s: %d'; 
+push @res, sprintf $fmt, 'The 600th undulating number is',        $U[599];
+push @res, sprintf $fmt, 'Undulating numbers less than 2**53', my $i = vecfirstidx { $_ >= $max } @U;
+push @res, sprintf $fmt, 'Last such number is',                   $U[$i-1];
 
 say my $result = join "\n", @res;
 
@@ -65,7 +64,7 @@ All 4 digit undulating numbers:
 
     The 600th undulating number is: 4646464646
 Undulating numbers less than 2**53: 1125
-                    That number is: 8989898989898989
+               Last such number is: 8989898989898989
 END
 
 use Test::More;
