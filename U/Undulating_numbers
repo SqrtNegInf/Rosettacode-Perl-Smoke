@@ -1,0 +1,74 @@
+#!/usr/local/bin/perl
+#u# https://rosettacode.org/wiki/Undulating_numbers
+#c# 2023-06-06 >RC
+#p# OK
+
+my @res;
+
+use v5.36;
+use experimental <builtin for_list>;
+use bigint;
+
+use ntheory <is_prime vecfirstidx>;
+
+# utilities
+sub X     ($a, $b) { my @c; for my $aa (0..$a) { for my $bb (0..$b) { push @c, $aa, $bb } } @c }
+sub table ($c, @V) { my $t = $c * (my $w = 6); ( sprintf( ('%'.$w.'d')x@V, @V) ) =~ s/.{1,$t}\K/\n/gr }
+
+my $max = 2**53;
+
+my(@pairs,@U);
+for my($i,$j) ( X(9,9) ) { push @pairs, $i . $j unless $i == 0 || $i == $j }
+
+for my $l (3..length $max) {
+    if (0 == $l%2) { push @U, "$_"x( $l   /2) for @pairs }
+    else           { push @U, "$_"x(($l+1)/2) and chop $U[-1] for @pairs }
+}
+
+push @res, "All 3 digit undulating numbers:"; push @res, table 9, grep { 3 == length $_ } @U;
+push @res, "All 3 digit undulating primes:";  push @res, table 9, grep { 3 == length $_ and is_prime $_ } @U;
+push @res, "All 4 digit undulating numbers:"; push @res, table 9, grep { 4 == length $_ } @U;
+
+my $fmt = "%34s: %d"; 
+push @res, sprintf $fmt, 'The 600th undulating number is', $U[599];
+push @res, sprintf $fmt, 'Undulating numbers less than 2**53', (my $i = vecfirstidx { $_ >= $max } @U);
+push @res, sprintf $fmt, 'That number is', $U[$i-1];
+
+say my $result = join "\n", @res;
+
+my $ref = <<'END';
+All 3 digit undulating numbers:
+   101   121   131   141   151   161   171   181   191
+   202   212   232   242   252   262   272   282   292
+   303   313   323   343   353   363   373   383   393
+   404   414   424   434   454   464   474   484   494
+   505   515   525   535   545   565   575   585   595
+   606   616   626   636   646   656   676   686   696
+   707   717   727   737   747   757   767   787   797
+   808   818   828   838   848   858   868   878   898
+   909   919   929   939   949   959   969   979   989
+
+All 3 digit undulating primes:
+   101   131   151   181   191   313   353   373   383
+   727   757   787   797   919   929
+
+All 4 digit undulating numbers:
+  1010  1212  1313  1414  1515  1616  1717  1818  1919
+  2020  2121  2323  2424  2525  2626  2727  2828  2929
+  3030  3131  3232  3434  3535  3636  3737  3838  3939
+  4040  4141  4242  4343  4545  4646  4747  4848  4949
+  5050  5151  5252  5353  5454  5656  5757  5858  5959
+  6060  6161  6262  6363  6464  6565  6767  6868  6969
+  7070  7171  7272  7373  7474  7575  7676  7878  7979
+  8080  8181  8282  8383  8484  8585  8686  8787  8989
+  9090  9191  9292  9393  9494  9595  9696  9797  9898
+
+    The 600th undulating number is: 4646464646
+Undulating numbers less than 2**53: 1125
+                    That number is: 8989898989898989
+END
+
+use Test::More;
+chomp $ref;
+is($result, $ref);
+done_testing();
