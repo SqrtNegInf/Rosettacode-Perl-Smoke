@@ -9654,6 +9654,7 @@ File: S/Solve_a_Holy_Knight%27s_tour
 #c# 2018-08-14 <RC
 #p# OK
 #f# RC file: holy_knight_tour.txt
+#n# 2023-06-06 without 'fork' much slower, but as-is race-condition causes order of results to vary fairly often
 
 File: S/Solve_a_Hopido_puzzle
 #!/usr/local/bin/perl
