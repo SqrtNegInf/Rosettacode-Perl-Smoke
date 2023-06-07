@@ -1,0 +1,93 @@
+#!/usr/local/bin/perl
+#u# https://rosettacode.org/wiki/Blum_integer
+#t# inprogress
+#c# 2023-06-xx >RC
+#p# OK
+
+my @res;
+
+use v5.36;
+
+use enum <false true>;
+use ntheory <is_prime gcd>;
+
+sub comma { reverse ((reverse shift) =~ s/.{3}\K/,/gr) =~ s/^,//r }
+sub table ($c, @V) { my $t = $c * (my $w = 5); ( sprintf( ('%'.$w.'d')x@V, @V) ) =~ s/.{1,$t}\K/\n/gr }
+
+sub is_blum ($n) {
+   #return false if $n < 2 or is_prime $n; # slower?
+    return false if is_prime $n;
+    my $factor = find_factor($n);
+    my $div = int($n / $factor);
+    return true if is_prime($factor) && is_prime($div) && ($div != $factor) && ($factor%4 == 3) && ($div%4 == 3);
+    false;
+}
+
+sub find_factor ($n, $constant = 1) {
+    my($x, $rho, $factor) = (2, 1, 1);
+    while ($factor == 1) {
+        $rho *= 2;
+        my $fixed = $x;
+        for (0..$rho) {
+            $x = ( $x * $x + $constant ) % $n;
+            $factor = gcd(($x-$fixed), $n);
+            last if 1 < $factor;
+        }
+    }
+    $factor = find_factor($n, $constant+1) if $n == $factor;
+    $factor;
+}
+
+my @nth = (10000, 26828);
+#my @nth = (26828, 1e5, 2e5, 3e5, 4e5);
+
+my($i, @blum) = (2);
+while (++$i) {
+    push @blum, $i if is_blum $i;
+    last if $nth[-1] == scalar @blum;
+}
+
+push @res, 'The first fifty Blum integers:';
+push @res, table  10, @blum[0..49];
+push @res, '';
+push @res, sprintf "The %9sth Blum integer: %9s", comma($_), comma $blum[$_-1] for @nth;
+
+#push @res, "\nBreakdown by last digit:";
+#  sprintf "%d => %%%7.4f:", .key, +.value / 4e3 for sort @blum[^2e5].categorize: {.substr(*-1)}
+#1 => %25.0013:
+#3 => %25.0168:
+#7 => %24.9973:
+#9 => %24.9848:
+
+say my $result = join "\n", @res;
+exit;
+
+my $ref = <<'END';
+   21   33   57   69   77   93  129  133  141  161
+  177  201  209  213  217  237  249  253  301  309
+  321  329  341  381  393  413  417  437  453  469
+  473  489  497  501  517  537  553  573  581  589
+  597  633  649  669  681  713  717  721  737  749
+
+The  26,828th Blum integer:   524,273
+The 100,000th Blum integer: 2,075,217
+The 200,000th Blum integer: 4,275,533
+The 300,000th Blum integer: 6,521,629
+The 400,000th Blum integer: 8,802,377
+END
+
+use Test::More;
+chomp $ref;
+is($result, $ref);
+done_testing();
+
+__END__
+
+=={{header|Perl}}==
+{{trans|Raku}}
+{{libheader|ntheory}}
+<syntaxhighlight lang="perl" line>
+</syntaxhighlight>
+{{out}}
+<pre>
+</pre>
