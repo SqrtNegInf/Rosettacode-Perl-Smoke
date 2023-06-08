@@ -1,0 +1,110 @@
+#!/usr/local/bin/perl
+#u# https://rosettacode.org/wiki/Triangular_numbers
+#c# 2023-06-08 >RC
+#p# OK
+
+my @res;
+
+use v5.36;
+use experimental <builtin for_list>;
+
+use Math::AnyNum <binomial cbrt max round>;
+
+sub table { my $t = 6 * (my $c = 1 + length max @_); ( sprintf( ('%'.$c.'d')x@_, @_) ) =~ s/.{1,$t}\K/\n/gr }
+
+sub triangular_root ($x) {
+    round( (sqrt(8 * $x + 1) - 1) / 2, -3);
+}
+
+sub tetrahedral_root ($x) {
+    round(
+      cbrt( 3 * $x + sqrt(9 * $x**2 - 1/27)) +
+      cbrt( 3 * $x - sqrt(9 * $x**2 - 1/27)) - 1,
+    -3)
+}
+
+sub pentatopic_root ($x) {
+    round( (sqrt(5 + 4 * sqrt(24 * $x + 1)) - 3) / 2, -3)
+}
+
+sub polytopic ($r, @range) { map { binomial $_ + $r - 1, $r } @range }
+
+for my($r,$label) (2, 'triangular', 3, 'tetrahedral', 4, 'pentatopic', 12, '12-simplex') {
+    push @res, "First 30 $label numbers:\n" . table polytopic $r, 0..29
+}
+
+for (7140, 21408696, 26728085384, 14545501785001) {
+    push @res, sprintf "Roots of $_:
+   triangular-root: %s
+  tetrahedral-root: %s
+   pentatopic-root: %s\n",
+            triangular_root($_), tetrahedral_root($_), pentatopic_root($_);
+}
+
+say my $result = join "\n", @res;
+
+my $ref = <<'END';
+First 30 triangular numbers:
+   0   1   3   6  10  15
+  21  28  36  45  55  66
+  78  91 105 120 136 153
+ 171 190 210 231 253 276
+ 300 325 351 378 406 435
+
+First 30 tetrahedral numbers:
+    0    1    4   10   20   35
+   56   84  120  165  220  286
+  364  455  560  680  816  969
+ 1140 1330 1540 1771 2024 2300
+ 2600 2925 3276 3654 4060 4495
+
+First 30 pentatopic numbers:
+     0     1     5    15    35    70
+   126   210   330   495   715  1001
+  1365  1820  2380  3060  3876  4845
+  5985  7315  8855 10626 12650 14950
+ 17550 20475 23751 27405 31465 35960
+
+First 30 12-simplex numbers:
+          0          1         13         91        455       1820
+       6188      18564      50388     125970     293930     646646
+    1352078    2704156    5200300    9657700   17383860   30421755
+   51895935   86493225  141120525  225792840  354817320  548354040
+  834451800 1251677700 1852482996 2707475148 3910797436 5586853480
+
+Roots of 7140:
+   triangular-root: 119
+  tetrahedral-root: 34
+   pentatopic-root: 18.877
+
+Roots of 21408696:
+   triangular-root: 6543
+  tetrahedral-root: 503.561
+   pentatopic-root: 149.061
+
+Roots of 26728085384:
+   triangular-root: 231205.406
+  tetrahedral-root: 5432
+   pentatopic-root: 893.442
+
+Roots of 14545501785001:
+   triangular-root: 5393607.158
+  tetrahedral-root: 44355.777
+   pentatopic-root: 4321
+
+END
+
+use Test::More;
+chomp $ref;
+is($result, $ref);
+done_testing();
+
+__END__
+
+=={{header|Perl}}==
+{{trans|Raku}}
+<syntaxhighlight lang="perl" line>
+</syntaxhighlight>
+{{out}}
+<pre>
+</pre>
