@@ -1136,6 +1136,12 @@ File: B/Bitwise_operations
 #c# 2018-07-17 <RC
 #p# OK
 
+File: B/Blum_integer
+#!/usr/local/bin/perl
+#u# https://rosettacode.org/wiki/Blum_integer
+#c# 2023-06-07 >RC
+#p# OK
+
 File: B/Boolean_values
 #!/usr/local/bin/perl
 #u# http://rosettacode.org/wiki/Boolean_values
@@ -9537,6 +9543,12 @@ File: S/Singly-linked_list_Traversal
 #c# 2018-08-16 <RC
 #p# OK
 
+File: S/Sisyphus_sequence
+#!/usr/local/bin/perl
+#u# https://rosettacode.org/wiki/Sisyphus_sequence
+#c# 2023-0x-xx NOT ON RC
+#p# OK
+
 File: S/Sleep
 #!/usr/local/bin/perl
 #u# http://rosettacode.org/wiki/Sleep
@@ -11130,6 +11142,12 @@ File: T/Tree_traversal
 #!/usr/local/bin/perl
 #u# http://rosettacode.org/wiki/Tree_traversal
 #c# 2018-08-09 <RC
+#p# OK
+
+File: T/Triangular_numbers
+#!/usr/local/bin/perl
+#u# https://rosettacode.org/wiki/Triangular_numbers
+#c# 2023-06-08 >RC
 #p# OK
 
 File: T/Trigonometric_functions
