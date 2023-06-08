@@ -18,13 +18,13 @@ sub triangular_root ($x) {
 
 sub tetrahedral_root ($x) {
     round(
-      cbrt( 3 * $x + sqrt(9 * $x**2 - 1/27)) +
-      cbrt( 3 * $x - sqrt(9 * $x**2 - 1/27)) - 1,
+      cbrt(3 * $x + sqrt 9 * $x**2 - 1/27) +
+      cbrt(3 * $x - sqrt 9 * $x**2 - 1/27) - 1,
     -3)
 }
 
 sub pentatopic_root ($x) {
-    round( (sqrt(5 + 4 * sqrt(24 * $x + 1)) - 3) / 2, -3)
+    round( (sqrt(5 + 4 * sqrt 24 * $x + 1) - 3) / 2, -3)
 }
 
 sub polytopic ($r, @range) { map { binomial $_ + $r - 1, $r } @range }
@@ -98,13 +98,3 @@ use Test::More;
 chomp $ref;
 is($result, $ref);
 done_testing();
-
-__END__
-
-=={{header|Perl}}==
-{{trans|Raku}}
-<syntaxhighlight lang="perl" line>
-</syntaxhighlight>
-{{out}}
-<pre>
-</pre>
