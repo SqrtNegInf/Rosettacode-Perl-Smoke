@@ -9548,6 +9548,7 @@ File: S/Sisyphus_sequence
 #u# https://rosettacode.org/wiki/Sisyphus_sequence
 #c# 2023-0x-xx NOT ON RC
 #p# OK
+#n# 9min for 100 million
 
 File: S/Sleep
 #!/usr/local/bin/perl
