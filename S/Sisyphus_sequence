@@ -2,6 +2,7 @@
 #u# https://rosettacode.org/wiki/Sisyphus_sequence
 #c# 2023-0x-xx NOT ON RC
 #p# OK
+#n# 9min for 100 million
 
 my @res;
 
@@ -9,23 +10,21 @@ my @res;
 use strict; use warnings; use feature 'say';
 
 use ntheory 'next_prime';
-use  List::Util <any max>;
+use List::Util <any max>;
 
 sub comma { reverse ((reverse shift) =~ s/.{3}\K/,/gr) =~ s/^,//r }
 sub table { my $t = 10 * (my $c = 1 + length max @_); ( sprintf( ('%'.$c.'d')x@_, @_) ) =~ s/.{1,$t}\K/\n/gr }
 
 my ($i, $j, $p, @S, %H) = (3, 7, 1, 1);
-while () {
+do {
    push @S, (0 == $S[-1] % 2) ? $S[-1]/2 : $S[-1] + ($p = next_prime($p));
    ($H{scalar @S}{value} = $S[-1] and $H{scalar @S}{prime} = $p) if any { 10**$_ == scalar @S } $i..$j;
-   last if 10**$j == scalar @S;
-}
-
+} until 10**$j == scalar @S;
 
 push @res, 'The first 100 members of the Sisyphus sequence are:';
 push @res, table @S[0..99];
 
-push @res, sprintf "%12s member is: %10s with prime: %10s", comma($_), comma($H{$_}{value}), comma($H{$_}{prime})
+push @res, sprintf '%12s member is: %10s with prime: %10s', comma($_), comma($H{$_}{value}), comma($H{$_}{prime})
     for map { 10**$_ } $i..$j;
 
 say my $result = join "\n", @res;
