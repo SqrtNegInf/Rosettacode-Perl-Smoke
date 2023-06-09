@@ -6,11 +6,12 @@
 
 my @res;
 
-#use v5.36;
-use strict; use warnings; use feature 'say';
+use v5.36;
+#use strict; use warnings; use feature 'say';
 
 use ntheory 'next_prime';
 use List::Util <any max>;
+use integer;  # a little faster
 
 sub comma { reverse ((reverse shift) =~ s/.{3}\K/,/gr) =~ s/^,//r }
 sub table { my $t = 10 * (my $c = 1 + length max @_); ( sprintf( ('%'.$c.'d')x@_, @_) ) =~ s/.{1,$t}\K/\n/gr }
