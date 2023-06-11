@@ -2,12 +2,13 @@
 #u# https://rosettacode.org/wiki/Sisyphus_sequence
 #c# 2023-06-11 >RC
 #p# OK
-#n# 5min for 100 million
+#n# 3..8:  334.28s user  0.61s system 99% cpu    5:36 
+#n# 3..8:  296.92s user  0.52s system 99% cpu    4:57 with 'use integer'
+#n# 3..9: 3419.67s user 40.60s system 97% cpu 1:25:03        "
 
 my @res;
 
-#use v5.36;
-use strict; use warnings; use feature 'say';
+use v5.36;
 
 use ntheory 'next_prime';
 use List::Util <any max>;
@@ -16,7 +17,7 @@ use integer;  # a little faster
 sub comma { reverse ((reverse shift) =~ s/.{3}\K/,/gr) =~ s/^,//r }
 sub table { my $t = 10 * (my $c = 1 + length max @_); ( sprintf( ('%'.$c.'d')x@_, @_) ) =~ s/.{1,$t}\K/\n/gr }
 
-my ($exp1, $exp2, $limit1, $limit2) = (3, 8, 100, 250);
+my ($exp1, $exp2, $limit1, $limit2) = (3, 5, 100, 250);
 my ($n, $s0, $s1, $p, @S1, %S, %S2) = (1, 1, 0, 1, 1);
 my @Nth = map { 10**$_ } $exp1..$exp2;
 
@@ -33,17 +34,15 @@ push @res, 'The first 100 members of the Sisyphus sequence are:';
 push @res, table @S1;
 
 push @res, sprintf '%12s member is: %10s with prime: %10s', comma($_), comma($S{$_}{value}), comma($S{$_}{prime}) for @Nth;
-#ush @res, sprintf '%12s member is: %13s with prime: %11s', comma($_), comma($S{$_}{value}), comma($S{$_}{prime}) for @Nth;
 
 push @res, sprintf "\nNumbers under $limit2 that do not occur in the first %s terms:", comma $Nth[-1];
 push @res, join ' ', grep { ! defined $S2{$_} } 1..$limit2;
 
 my $max = max values %S2;
-push @res, sprintf "\nNumbers under $limit2 occur the most ($max times) in the %s first terms:", comma $Nth[-1];
+push @res, sprintf "\nNumbers under $limit2 occur the most ($max times) in the first %s terms:", comma $Nth[-1];
 push @res, join ' ', sort { $a <=> $b } grep { $S2{$_} == $max } keys %S2;
 
 say my $result = join "\n", @res;
-exit;
 
 my $ref = <<'END';
 The first 100 members of the Sisyphus sequence are:
@@ -65,7 +64,7 @@ The first 100 members of the Sisyphus sequence are:
 Numbers under 250 that do not occur in the first 100,000 terms:
 27 36 54 60 72 97 107 108 115 120 127 144 157 167 184 189 194 195 211 212 214 216 223 230 231 232 239 240
 
-Numbers under 250 occur the most (6 times) in the first terms:
+Numbers under 250 occur the most (6 times) in the first 100,000 terms:
 3 57 114 228
 END
 
@@ -73,13 +72,3 @@ use Test::More;
 chomp $ref;
 is($result, $ref);
 done_testing();
-
-__END__
-
-=={{header|Perl}}==
-{{libheader|ntheory}}
-<syntaxhighlight lang="perl" line>
-</syntaxhighlight>
-{{out}}
-<pre>
-</pre>
