@@ -8,10 +8,10 @@ my @res;
 
 use v5.36;
 
-use enum <false true>;
+use enum    <false true>;
 use ntheory <is_prime gcd>;
 
-sub comma { reverse ((reverse shift) =~ s/.{3}\K/,/gr) =~ s/^,//r }
+sub comma          { reverse ((reverse shift) =~ s/.{3}\K/,/gr) =~ s/^,//r }
 sub table ($c, @V) { my $t = $c * (my $w = 5); ( sprintf( ('%'.$w.'d')x@V, @V) ) =~ s/.{1,$t}\K/\n/gr }
 
 sub is_blum ($n) {
@@ -22,7 +22,7 @@ sub is_blum ($n) {
     false;
 }
 
-sub find_factor ($n, $constant = 1) {
+sub find_factor ($n, $constant = 1) {   # NB: n > 1
     my($x, $rho, $factor) = (2, 1, 1);
     while ($factor == 1) {
         $rho *= 2;
