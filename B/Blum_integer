@@ -2,6 +2,7 @@
 #u# https://rosettacode.org/wiki/Blum_integer
 #c# 2023-06-07 >RC
 #p# OK
+#n# very similar to 'M/Multiplicatively_perfect_numbers'
 
 my @res;
 
@@ -16,7 +17,7 @@ sub table ($c, @V) { my $t = $c * (my $w = 5); ( sprintf( ('%'.$w.'d')x@V, @V) )
 sub is_blum ($n) {
     return false if $n < 2 or is_prime $n;
     my $factor = find_factor($n);
-    my $div = int($n / $factor);
+    my $div    = int($n / $factor);
     return true if is_prime($factor) && is_prime($div) && ($div != $factor) && ($factor%4 == 3) && ($div%4 == 3);
     false;
 }
