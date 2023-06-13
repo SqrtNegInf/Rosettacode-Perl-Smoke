@@ -8,6 +8,7 @@ my @res;
 use v5.36;
 
 use ntheory <is_prime next_prime>;
+use Lingua::EN::Numbers::Ordinate 'ordinate';
 
 sub abbr ($d) { my $l = length $d; $l < 41 ? $d : substr($d,0,20) . '..' . substr($d,-20) . " ($l digits)" }
 
@@ -17,22 +18,22 @@ do {
     $p  = next_prime($p);
     $n .= $p;
     $i++;
-    (++$nth and push @res, sprintf("$nth: Index:%5d  Last prime:%6d  S-W: %s", $i,$p,abbr $n)) if is_prime($n);
+    (++$nth and push @res, sprintf("%s: Index:%5d  Last prime:%6d  S-W: %s", ordinate $nth, $i,$p,abbr $n)) if is_prime $n;
 } until $nth == 7;
 
 say my $result = join "\n", @res;
 
 my $ref = <<'END';
 Smarandache-Wellen primes:
-1: Index:    0  Last prime:     2  S-W: 2
-2: Index:    1  Last prime:     3  S-W: 23
-3: Index:    3  Last prime:     7  S-W: 2357
-4: Index:  127  Last prime:   719  S-W: 23571113171923293137..73677683691701709719 (355 digits)
-5: Index:  173  Last prime:  1033  S-W: 23571113171923293137..10131019102110311033 (499 digits)
-6: Index:  341  Last prime:  2297  S-W: 23571113171923293137..22732281228722932297 (1171 digits)
-7: Index:  434  Last prime:  3037  S-W: 23571113171923293137..30013011301930233037 (1543 digits)
+1st: Index:    0  Last prime:     2  S-W: 2
+2nd: Index:    1  Last prime:     3  S-W: 23
+3rd: Index:    3  Last prime:     7  S-W: 2357
+4th: Index:  127  Last prime:   719  S-W: 23571113171923293137..73677683691701709719 (355 digits)
+5th: Index:  173  Last prime:  1033  S-W: 23571113171923293137..10131019102110311033 (499 digits)
+6th: Index:  341  Last prime:  2297  S-W: 23571113171923293137..22732281228722932297 (1171 digits)
+7th: Index:  434  Last prime:  3037  S-W: 23571113171923293137..30013011301930233037 (1543 digits)
 END
-#8: Index: 1428  Last prime: 11927  S-W: 23571113171923293137..11903119091192311927 (5719 digits)
+#8th: Index: 1428  Last prime: 11927  S-W: 23571113171923293137..11903119091192311927 (5719 digits)
 
 use Test::More;
 chomp $ref;
