@@ -1141,6 +1141,7 @@ File: B/Blum_integer
 #u# https://rosettacode.org/wiki/Blum_integer
 #c# 2023-06-07 >RC
 #p# OK
+#n# very similar to 'M/Multiplicatively_perfect_numbers'
 
 File: B/Boolean_values
 #!/usr/local/bin/perl
@@ -6586,6 +6587,13 @@ File: M/Multiplicative_order
 #c# 2018-08-19 <RC
 #p# OK
 
+File: M/Multiplicatively_perfect_numbers
+#!/usr/local/bin/perl
+#u# https://rosettacode.org/wiki/Multiplicatively_perfect_numbers
+#c# 2023-06-13 >RC
+#p# OK
+#n# similar to B/Blum_integer, and a little janky
+
 File: M/Multisplit
 #!/usr/local/bin/perl
 #u# http://rosettacode.org/wiki/Multisplit
@@ -9602,6 +9610,12 @@ File: S/Smallest_square_that_begins_with_n
 #!/usr/local/bin/perl
 #u# http://rosettacode.org/wiki/Smallest_square_that_begins_with_n
 #c# 2021-03-23 >RC
+#p# OK
+
+File: S/Smarandache-Wellin_primes
+#!/usr/local/bin/perl
+#u# https://rosettacode.org/wiki/Smarandache-Wellin_primes
+#c# 2023-06-12 >RC
 #p# OK
 
 File: S/Smarandache_prime-digital_sequence
