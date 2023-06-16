@@ -57,5 +57,5 @@ for (@sorted_languages) {
 say join "\n", @res;
 
 use Test::More;
-ok @res == 11;
+ok @res == 12;
 done_testing();
