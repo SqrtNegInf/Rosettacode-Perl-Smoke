@@ -1,0 +1,111 @@
+#!/usr/local/bin/perl
+#u# https://rosettacode.org/wiki/Eisenstein_primes
+#t# inprogress
+#c# 2023-0x-xx >RC
+#p# OK
+
+use Data::Printer;          # debug only
+use Time::HiRes qw(sleep);  # debug only
+
+my @res;
+
+use v5.36;
+#use strict; use warnings; use feature 'say';
+
+use Math::AnyNum <pi max complex reals>;
+
+#  ω(1+ω) = -1
+my $omega = exp ( complex(0,2) * pi/3 );
+#say $omega;
+#say $omega * (1+$omega);
+
+sub     X ($a, $b) { my @p; for my $x ($a..$b)  { for my $y ($a..$b)  { push @p, [$x, $y] } } @p }
+sub table ($c, @V) { my $t = $c * (my $w = 2 + max map { length } @V); ( sprintf( ('%'.$w.'s')x@V, @V) ) =~ s/.{1,$t}\K/\n/gr }
+
+sub norm    (@p) { $p[0]**2 - $p[0]*$p[1] + $p[1]**2 } 
+sub display (@p) { sprintf '%+8.4f%+8.4fi', reals($p[0] + $omega*$p[1]) }
+
+say join ' ', @$_ for X(-2,2);
+
+say my $result = join "\n", @res;
+my $ref = <<'END';
+END
+
+use Test::More;
+chomp $ref;
+is($result, $ref);
+#is(($result =~ s/\s//gr), ($ref =~ s/\s//gr));
+done_testing();
+
+__END__
+
+my @E = gather (-10..10 X -10..10).map: -> (\a,\b) {
+    take (a,b) if 0 == a|b || a == b ?? (.is-prime and 2 == $_ mod 3 given (a,b)».abs.max) !! norm((a,b)).is-prime
+}
+
+#say norm(@$_).fmt('%4d') ~ ' | ' ~ (.[0],.[1])>>.fmt('%3d') ~ ' | ' ~ display(@$_) for @E.sort: *.&norm; # debugging
+ 
+#say my $result =  @E.sort({norm($_)}).head(100).map({display($_)}).batch(4).join("\n");
+ say my $result = (@E.sort: *.&norm)  .head(100).map(*.&display)   .batch(4).join: "\n";
+
+my $ref = q:to/EOD/;                                                    # :  vim-kludge
+ -1.5000 -0.8660i  -0.0000 -1.7321i  -1.5000 +0.8660i  +1.5000 -0.8660i
+ +0.0000 +1.7321i  +1.5000 +0.8660i  -1.0000 -1.7321i  -2.0000 +0.0000i
+ +1.0000 -1.7321i  -1.0000 +1.7321i  +2.0000 +0.0000i  +1.0000 +1.7321i
+ -2.0000 -1.7321i  -2.5000 -0.8660i  -0.5000 -2.5981i  -2.5000 +0.8660i
+ +0.5000 -2.5981i  -2.0000 +1.7321i  +2.0000 -1.7321i  -0.5000 +2.5981i
+ +2.5000 -0.8660i  +0.5000 +2.5981i  +2.5000 +0.8660i  +2.0000 +1.7321i
+ -2.5000 -2.5981i  -3.5000 -0.8660i  -1.0000 -3.4641i  -3.5000 +0.8660i
+ +1.0000 -3.4641i  -2.5000 +2.5981i  +2.5000 -2.5981i  -1.0000 +3.4641i
+ +3.5000 -0.8660i  +1.0000 +3.4641i  +3.5000 +0.8660i  +2.5000 +2.5981i
+ -3.5000 -2.5981i  -4.0000 -1.7321i  -0.5000 -4.3301i  -4.0000 +1.7321i
+ +0.5000 -4.3301i  -3.5000 +2.5981i  +3.5000 -2.5981i  -0.5000 +4.3301i
+ +4.0000 -1.7321i  +0.5000 +4.3301i  +4.0000 +1.7321i  +3.5000 +2.5981i
+ -2.5000 -4.3301i  -5.0000 +0.0000i  +2.5000 -4.3301i  -2.5000 +4.3301i
+ +5.0000 +0.0000i  +2.5000 +4.3301i  -3.5000 -4.3301i  -5.5000 -0.8660i
+ -2.0000 -5.1962i  -5.5000 +0.8660i  +2.0000 -5.1962i  -3.5000 +4.3301i
+ +3.5000 -4.3301i  -2.0000 +5.1962i  +5.5000 -0.8660i  +2.0000 +5.1962i
+ +5.5000 +0.8660i  +3.5000 +4.3301i  -5.0000 -3.4641i  -5.5000 -2.5981i
+ -0.5000 -6.0622i  -5.5000 +2.5981i  +0.5000 -6.0622i  -5.0000 +3.4641i
+ +5.0000 -3.4641i  -0.5000 +6.0622i  +5.5000 -2.5981i  +0.5000 +6.0622i
+ +5.5000 +2.5981i  +5.0000 +3.4641i  -4.0000 -5.1962i  -6.5000 -0.8660i
+ -2.5000 -6.0622i  -6.5000 +0.8660i  +2.5000 -6.0622i  -4.0000 +5.1962i
+ +4.0000 -5.1962i  -2.5000 +6.0622i  +6.5000 -0.8660i  +2.5000 +6.0622i
+ +6.5000 +0.8660i  +4.0000 +5.1962i  -6.5000 -4.3301i  -7.0000 -3.4641i
+ -0.5000 -7.7942i  -7.0000 +3.4641i  +0.5000 -7.7942i  -6.5000 +4.3301i
+ +6.5000 -4.3301i  -0.5000 +7.7942i  +7.0000 -3.4641i  +0.5000 +7.7942i
+EOD
+
+use Test;
+is $result, chomp $ref;
+
+=finish 
+
+No great way to unambiguously get the 'first 100 nearest to 0' because the norm value of 61 
+straddles that cutoff (by two terms), so you end up selecting 10 of the 12 points.
+
+     91   61 |   4   9 |  -0.5000 +7.7942i
+     92   61 |   4  -5 |  +6.5000 -4.3301i
+     93   61 |   5   9 |  +0.5000 +7.7942i
+     94   61 |   5  -4 |  +7.0000 -3.4641i
+     95   61 |   9   4 |  +7.0000 +3.4641i
+     96   61 |   9   5 |  +6.5000 +4.3301i
+     97   61 |  -4   5 |  -6.5000 +4.3301i
+     98   61 |  -4  -9 |  +0.5000 -7.7942i
+     99   61 |  -5   4 |  -7.0000 +3.4641i
+    100   61 |  -5  -9 |  -0.5000 -7.7942i
+*   101   61 |  -9  -4 |  -7.0000 -3.4641i
+*   102   61 |  -9  -5 |  -6.5000 -4.3301i
+    103   67 |   2   9 |  -2.5000 +7.7942i
+
+=={{header|Perl}}==
+{{trans|xx}}
+{{libheader|ntheory}}
+<syntaxhighlight lang="perl" line>
+</syntaxhighlight>
+{{out}}
+<pre style="height:20ex">
+</pre>
+[[File:xx|300px|thumb|right]]
+# or
+[https://github.com/SqrtNegInf/Rosettacode-Perl-Smoke/blob/master/ref/xx xx]
