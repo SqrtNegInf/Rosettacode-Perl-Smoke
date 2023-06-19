@@ -513,6 +513,7 @@ File: A/Anonymous_recursion-4
 #u# http://rosettacode.org/wiki/Anonymous_recursion
 #c# 2018-07-13 <RC
 #p# OK
+#n# cf F/Fibonacci_sequence-2
 
 File: A/Anti-primes
 #!/usr/local/bin/perl
@@ -2961,6 +2962,13 @@ File: E/Egyptian_fractions
 #!/usr/local/bin/perl
 #u# http://rosettacode.org/wiki/Egyptian_fractions
 #c# 2018-10-02 <RC
+#p# OK
+
+File: E/Eisenstein_primes
+#!/usr/local/bin/perl
+#u# https://rosettacode.org/wiki/Eisenstein_primes
+#t# inprogress
+#c# 2023-0x-xx >RC
 #p# OK
 
 File: E/Element-wise_operations
