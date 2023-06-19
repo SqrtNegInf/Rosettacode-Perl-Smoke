@@ -2,10 +2,11 @@
 #u# http://rosettacode.org/wiki/Anonymous_recursion
 #c# 2018-07-13 <RC
 #p# OK
+#n# cf F/Fibonacci_sequence-2
 
 my $result;
 
-use v5.36.0;
+use v5.36;
 
 $result .= sub {
   my $n = shift;
