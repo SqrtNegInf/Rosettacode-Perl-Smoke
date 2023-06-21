@@ -8430,6 +8430,13 @@ File: R/RSA_code
 #c# 2018-10-14 >RC
 #p# OK
 
+File: R/Radical_of_an_integer
+#!/usr/local/bin/perl
+#u# https://rosettacode.org/wiki/Radical_of_an_integer
+#t# inprogress
+#c# 2023-0x-xx >RC
+#p# OK
+
 File: R/Railway_circuit
 #!/usr/local/bin/perl
 #u# http://rosettacode.org/wiki/Railway_circuit
