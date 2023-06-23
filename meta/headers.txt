@@ -2967,8 +2967,7 @@ File: E/Egyptian_fractions
 File: E/Eisenstein_primes
 #!/usr/local/bin/perl
 #u# https://rosettacode.org/wiki/Eisenstein_primes
-#t# inprogress
-#c# 2023-0x-xx >RC
+#c# 2023-06-20 >RC
 #p# OK
 
 File: E/Element-wise_operations
