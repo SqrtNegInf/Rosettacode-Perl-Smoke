@@ -75,11 +75,3 @@ straddles that cutoff (by two terms), so you end up selecting 10 of the 12 point
 *   101   61 |  -9  -4 |  -7.0000 -3.4641i
 *   102   61 |  -9  -5 |  -6.5000 -4.3301i
     103   67 |   2   9 |  -2.5000 +7.7942i
-
-=={{header|Perl}}==
-{{trans|Raku}}
-<syntaxhighlight lang="perl" line>
-</syntaxhighlight>
-{{out}}
-<pre>
-</pre>
