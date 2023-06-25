@@ -198,6 +198,7 @@ P5 Parallel::ForkManager
 
 P6 "sets"
 P5 Set::Object
+P5 Set::Scalar
 
 P6 "bags"
 P5 Set::Bag
