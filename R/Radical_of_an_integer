@@ -1,7 +1,7 @@
 #!/usr/local/bin/perl
 #u# https://rosettacode.org/wiki/Radical_of_an_integer
 #t# inprogress
-#c# 2023-0x-xx >RC
+#c# 2023-06-21 >RC
 #p# OK
 
 use Data::Printer;          # debug only
@@ -15,14 +15,18 @@ use v5.36;
 use List::Util 'uniq';
 use ntheory <vecprod factor>;
 
-sub table ($c, @V) { my $t = $c * (my $w = 3); ( sprintf( ('%'.$w.'d')x@V, @V) ) =~ s/.{1,$t}\K/\n/gr }
+sub comma { reverse ((reverse shift) =~ s/.{3}\K/,/gr) =~ s/^,//r }
+sub table (@V) { ( sprintf( ('%3d')x@V, @V) ) =~ s/.{1,30}\K/\n/gr }
 
 sub radical ($n) { vecprod uniq factor $n }
 
 push @res, 'First fifty radicals:';
-push @res, table 10, map { radical $_ } 1..50;
+push @res, table map { radical $_ } 1..50;
+
+push @res, sprintf "Radical for %7s => %7s", comma($_), comma radical($_) for 99999, 499999, 999999;
 
 say my $result = join "\n", @res;
+
 my $ref = <<'END';
 First fifty radicals:
   1  2  3  2  5  6  7  2  3 10
@@ -30,10 +34,67 @@ First fifty radicals:
  21 22 23  6  5 26  3 14 29 30
  31  2 33 34 35  6 37 38 39 10
  41 42 43 22 15 46 47  6  7 10
+
+Radical for  99,999 =>  33,333
+Radical for 499,999 =>   3,937
+Radical for 999,999 => 111,111
 END
 
 use Test::More;
-#chomp $ref;
+chomp $ref;
 is($result, $ref);
 #is(($result =~ s/\s//gr), ($ref =~ s/\s//gr));
 done_testing();
+
+__END__
+
+my %rad = 1 => 1; my $limit = 1e6.Int;
+
+%rad.push: $_ for (2..$limit).race(:1000batch).map: {(unique .&prime-factors).elems => $_};
+
+@res.push: "\nRadical factor count breakdown, 1 through {comma $limit}:";
+@res.push: .key ~ " => {comma +.value}" for sort %rad;
+
+my @primes = (2..$limit).grep: &is-prime;
+
+my int $powers;
+@primes.&upto($limit.sqrt.floor).map: -> $p {
+   for (2..*) { ($p ** $_) < $limit ?? ++$powers !! last }
+}
+
+@res.push: qq:to/RADICAL/;
+
+    Up to {comma $limit}:
+    Primes: {comma +@primes}
+    Powers:    $powers
+    Plus 1:      1
+    Total:  {comma 1 + $powers + @primes}
+    RADICAL
+
+Radical factor count breakdown, 1 through 1,000,000:
+1 => 78,735
+2 => 288,726
+3 => 379,720
+4 => 208,034
+5 => 42,492
+6 => 2,285
+7 => 8
+
+Up to 1,000,000:
+Primes: 78,498
+Powers:    236
+Plus 1:      1
+Total:  78,735
+
+END
+
+use Test;
+is @res.join("\n"), chomp $ref;
+
+=={{header|Perl}}==
+{{libheader|ntheory}}
+<syntaxhighlight lang="perl" line>
+</syntaxhighlight>
+{{out}}
+<pre>
+</pre>
