@@ -7861,6 +7861,8 @@ File: P/Playing_cards
 #c# 2018-08-21 <RC, 2023-04-02 >RC
 #p# OK
 #n# no straight-up replacement for typeglob here
+#n# 2023-07-02 can use non-paired characters with 'qw', as per <https://domm.plix.at/perl/2023_07_skewer.html>
+#n#            (but don't actually need the space after 'qw'?)
 
 File: P/Plot_coordinate_pairs
 #!/usr/local/bin/perl5.32.1
