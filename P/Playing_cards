@@ -3,6 +3,8 @@
 #c# 2018-08-21 <RC, 2023-04-02 >RC
 #p# OK
 #n# no straight-up replacement for typeglob here
+#n# 2023-07-02 can use non-paired characters with 'qw', as per <https://domm.plix.at/perl/2023_07_skewer.html>
+#n#            (but don't actually need the space after 'qw'?)
 
 srand 123456;
 
@@ -12,6 +14,8 @@ use strict;
 use warnings;
 use feature 'say';
 
+use utf8;
+
 package Playing_Card_Deck;
 
 # I choose to fully qualify these names rather than declare them
@@ -19,8 +23,10 @@ package Playing_Card_Deck;
 # packages in the same file. Another possible solution is to use
 # "our" or "my", but to enclose this entire package in a bare block.
 
-@Playing_Card_Deck::suits = qw [Diamonds Clubs Hearts Spades];
-@Playing_Card_Deck::pips  = qw [Two Three Four Five Six Seven Eight Nine Ten Jack King Queen Ace];
+@Playing_Card_Deck::suits = qw ♦Diamonds Clubs Hearts Spades♦;
+@Playing_Card_Deck::pips  = qw 🃁Two Three Four Five Six Seven Eight Nine Ten Jack King Queen Ace🃁;
+#Playing_Card_Deck::suits = qw [Diamonds Clubs Hearts Spades];
+#Playing_Card_Deck::pips  = qw [Two Three Four Five Six Seven Eight Nine Ten Jack King Queen Ace];
 
 # Creates a new deck-object. The cards are initially neatly ordered.
 sub new {
