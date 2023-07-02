@@ -548,6 +548,10 @@ P/Permutations_by_swapping-1
 P/Pisano_period
 »:     1 RIGHT-POINTING DOUBLE ANGLE QUOTATION MARK
 
+P/Playing_cards
+♦:     2 BLACK DIAMOND SUIT
+🃁:     2 PLAYING CARD ACE OF DIAMONDS
+
 P/Polynomial_derivative
 ²:     6 SUPERSCRIPT TWO
 ³:     5 SUPERSCRIPT THREE
