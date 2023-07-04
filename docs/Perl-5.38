@@ -1,0 +1,38 @@
+NB: These run for a very long time if proper Math::* modules not installed
+    J/Juggler_sequence
+    W/Wolstenholme_numbers
+
+=====
+
+The biggest hitch this time:
+
+Installing 'homebrew' put a version of 'pkg-config' at '/usr/local/bin', hid '/opt/local/bin/pkg-config' (the latter
+having all the info on MacPorts packages). Solved by:
+
+cd /usr/local/bin; mv pkg-config pkg-config-homebrew
+
+After that many fewer issues. Of course now Homebrew might have problems...
+
+---
+
+An old issue worth noting again:
+
+Image::Imlib2 needs by-hand massaging of 'Build.PL' file.  Saving it at '$HOME/.cpan' in a .tar.gz, not 
+updating that distribution, so it should work again for 'perl-5.40' next year, and etc.
+
+---
+
+To find modules needing installing:
+
+g -h locate bench/last/*out | pf 's/^.*need to install the //;s/ .*$//' | g -v 'Can.t' | sort -u | pf 's/^/sudo cpanm /' > run.sh
+
+A couple by-hand items, probably only the '--force' actually needed to be done, if I had just kept iterating on
+'run.sh', they would have been automatically installed.
+
+sudo cpanm --force DateTime
+sudo cpanm --force Imager
+sudo cpanm -n -f PDF::LiteF
+sudo cpanm Sub::Identity
+sudo cpanm Math::GMPq
+sudo cpanm Math::MPC
+sudo cpanm Math::BigInt::GMP
