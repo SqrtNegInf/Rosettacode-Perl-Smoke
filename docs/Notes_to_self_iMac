@@ -1,3 +1,6 @@
+2023-07-04
+Updated to Perl 5.38, dealing with the fallout...  Only about a dozen tasks still generating errors.
+
 2023-06-27
 Updated symlinks needed to get two XML tasks working (/usr/local/lib -> /opt/local/lib), bit of a mess.
 
