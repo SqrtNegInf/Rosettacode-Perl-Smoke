@@ -6,6 +6,7 @@
 #n# all pretty bogus, but it runs without errors
 
 use v5.36;
+no warnings 'deprecated';  # for v5.38
 
 my ($expression, $expression1, $expression2);
 my ($variable, $value_for_true, $value_for_false, $condition1, $condition2, $input);
