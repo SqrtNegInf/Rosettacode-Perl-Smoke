@@ -7,6 +7,7 @@
 use v5.36;
 use feature 'switch';
 no warnings 'experimental';
+no warnings 'deprecated';       # for v5.38
 
 my @res;
 
