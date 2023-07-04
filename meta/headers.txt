@@ -3402,6 +3402,13 @@ File: F/Factorial-4
 #c# 2018-08-03 <RC
 #p# OK
 
+File: F/Factorial-5
+#!/usr/local/bin/perl
+#u# http://rosettacode.org/wiki/Factorial
+#c# 2023-06-19 NOT ON RC
+#p# OK
+#n# recursive closure from: https://github.polettix.it/ETOOBUSY/2023/06/19/recursive-closure/
+
 File: F/Factorial_base_numbers_indexing_permutations_of_a_collection
 #!/usr/local/bin/perl
 #u# http://rosettacode.org/wiki/Factorial_base_numbers_indexing_permutations_of_a_collection
