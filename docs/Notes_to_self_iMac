@@ -1,7 +1,10 @@
 2023-07-05
-Modify testing for 'F/Find_Chess960_starting_position_identifier' (v5.36 and v5.38 results differ slightly).
 Update of Carp::Assert fixes 'A/Assertions'.
+'E/Events' worked on 2nd try, but is it stable? We shall see..
+Modify testing for 'F/Find_Chess960_starting_position_identifier' (v5.36 and v5.38 results differ slightly).
 Previous note about Heap::Simple::XS still applies.
+'M/Multiple_regression-2' needed more results filled in (due to update in PDL?)
+Installing IO::Socket::SSL gets H/HTTP* and R/Rosetta_Code* tasks working.
 
 2023-07-04
 Updated to Perl 5.38, dealing with the fallout...  Only about a dozen tasks still generating errors.
