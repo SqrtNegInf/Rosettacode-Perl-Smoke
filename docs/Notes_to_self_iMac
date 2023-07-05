@@ -1,3 +1,8 @@
+2023-07-05
+Modify testing for 'F/Find_Chess960_starting_position_identifier' (v5.36 and v5.38 results differ slightly).
+Update of Carp::Assert fixes 'A/Assertions'.
+Previous note about Heap::Simple::XS still applies.
+
 2023-07-04
 Updated to Perl 5.38, dealing with the fallout...  Only about a dozen tasks still generating errors.
 
