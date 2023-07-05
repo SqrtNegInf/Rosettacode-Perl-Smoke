@@ -63,7 +63,7 @@ my $hello1 = AE::timer 1, 0, sub {
  
 $quit1->recv;
 
-say $result; 
+#say $result; 
 
 my $ref = <<'EOD';
 Hello world!
