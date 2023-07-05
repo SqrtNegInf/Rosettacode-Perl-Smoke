@@ -1,6 +1,9 @@
 2023-07-04
 Why did 'E/Eisenstein_primes' lack the x/execute bit? [it still got run b/c of how 'rc-p5' is written]
 
+2023-07-04
+Experiments with v5.38 are being done on iMac, Mac-Pro won't change (at least not any times soon)
+
 2023-05-10
 As I work through v5.36 upgrades, also purge more near-duplicate Perl code (aided by bin/PWC-balance).
 
