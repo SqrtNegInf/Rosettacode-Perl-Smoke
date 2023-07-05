@@ -11,7 +11,7 @@ having all the info on MacPorts packages). Solved by:
 
 cd /usr/local/bin; mv pkg-config pkg-config-homebrew
 
-After that many fewer issues. Of course now Homebrew might have problems...
+After that many fewer issues. Of course now Homebrew will have problems...
 
 ---
 
@@ -19,6 +19,21 @@ An old issue worth noting again:
 
 Image::Imlib2 needs by-hand massaging of 'Build.PL' file.  Saving it at '$HOME/.cpan' in a .tar.gz, not 
 updating that distribution, so it should work again for 'perl-5.40' next year, and etc.
+
+---
+
+Functions using Inline::* are the canary in the coal mine for proper upgrade/module hygiene:
+    Call_a_foreign-language_function
+    Call_a_function_in_a_shared_library-1
+
+mkdir ~/PL-safe; mkdir ~/PL-safe/site_perl; 
+cd /usr/local/lib/perl5
+sudo mv 5.36.0 ~/PL-safe
+sudo mv site_perl/5.36.0 ~/PL-safe/site_perl
+===> now do all the module installs <===
+sudo mv ~/PL-safe/5.36.0 .
+sudo mv ~/PL-safe/site_perl/5.36.0 site_perl
+rm -rf ~/PL-safe
 
 ---
 
