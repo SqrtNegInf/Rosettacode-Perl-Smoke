@@ -26,12 +26,14 @@ To find modules needing installing:
 
 g -h locate bench/last/*out | pf 's/^.*need to install the //;s/ .*$//' | g -v 'Can.t' | sort -u | pf 's/^/sudo cpanm /' > run.sh
 
-A couple by-hand items, probably only the '--force' actually needed to be done, if I had just kept iterating on
+A couple by-hand items, probably only the first group actually needed to be done, if I had just kept iterating on
 'run.sh', they would have been automatically installed.
 
 sudo cpanm --force DateTime
 sudo cpanm --force Imager
 sudo cpanm -n -f PDF::LiteF
+sudo cpanm IO::Socket::SSL
+
 sudo cpanm Sub::Identity
 sudo cpanm Math::GMPq
 sudo cpanm Math::MPC
