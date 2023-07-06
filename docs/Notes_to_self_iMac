@@ -1,3 +1,8 @@
+2023-07-06
+Down to zero errors. The final two were Inline-related (and due my not taking my own advice, see 5.38 upgrade notes)
+    Call_a_foreign-language_function matches
+    Call_a_function_in_a_shared_library-1 matches
+
 2023-07-05
 Update of Carp::Assert fixes 'A/Assertions'.
 'E/Events' worked on 2nd try, but is it stable? We shall see..

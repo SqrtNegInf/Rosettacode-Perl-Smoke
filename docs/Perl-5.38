@@ -35,6 +35,9 @@ sudo mv ~/PL-safe/5.36.0 .
 sudo mv ~/PL-safe/site_perl/5.36.0 site_perl
 rm -rf ~/PL-safe
 
+This way modules never have conflicts with XS and so on. The current distribution would work even if the 
+previous were to be entirely wiped from the disk.
+
 ---
 
 To find modules needing installing:
