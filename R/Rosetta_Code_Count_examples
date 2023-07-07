@@ -5,7 +5,7 @@
 #n# replaced non-working LWP::Simple version with HTTP::Tiny
 #n# Mojo version: 'return' doesn't quit the anon. sub, so 'last' instead (thus 'no warnings')
 #n# should start using 'mediawiki-query' like P6...
-#n# 2023-07-06 started giving inconsistent results
+#n# 2023-07-06 started giving inconsistent results, randomly showing zero results for one or more tasks
 
 my (@res1,@res2);
 
