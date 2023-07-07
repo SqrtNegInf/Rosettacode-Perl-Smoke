@@ -1,4 +1,7 @@
-2023-07-04
+2023-07-06
+RC having some issues maybe? Hopefully the two failures today are one-offs.
+
+2023-07-05
 Why did 'E/Eisenstein_primes' lack the x/execute bit? [it still got run b/c of how 'rc-p5' is written]
 
 2023-07-04
