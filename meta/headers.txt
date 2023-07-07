@@ -8905,6 +8905,7 @@ File: R/Rosetta_Code_Count_examples
 #n# replaced non-working LWP::Simple version with HTTP::Tiny
 #n# Mojo version: 'return' doesn't quit the anon. sub, so 'last' instead (thus 'no warnings')
 #n# should start using 'mediawiki-query' like P6...
+#n# 2023-07-06 started giving inconsistent results, randomly showing zero results for one or more tasks
 
 File: R/Rosetta_Code_Find_bare_lang_tags
 #!/usr/local/bin/perl
