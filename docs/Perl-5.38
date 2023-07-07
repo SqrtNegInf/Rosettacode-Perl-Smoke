@@ -56,3 +56,13 @@ sudo cpanm Sub::Identity
 sudo cpanm Math::GMPq
 sudo cpanm Math::MPC
 sudo cpanm Math::BigInt::GMP
+
+# special PWC modules
+sudo cpanm Term::Table; #(cf note below)
+sudo cpanm --force Math::Calc::Parser Tie::Hash::Indexed DateTime 
+
+# trouble:
+Term::Table is a dependency of Struct::Dumb (and String::Pad?), but not properly flagged as one
+Inline @ 029/2 - move 5.36 stuff temporarily?
+Tree::Suffix force install, segv on run [128/1/adam-russell.pl]
+Math::GSL::Permutation - config failed [089/2/adam-russell.pl]
