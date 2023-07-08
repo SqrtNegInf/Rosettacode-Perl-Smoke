@@ -4,13 +4,13 @@
 #p# OK
 
 use strict;
-#use warnings;      # does slightly dodgy stuff
+no warnings;         # does slightly dodgy stuff ['uninitialized', 'substr outside of string']
 use feature 'say';
 
 my($result,$l);
 
-open F, '<'. 'ref/lsc.txt';
-while ($_ = <F>) {
+open my $F, '<'. 'ref/lsc.txt';
+while ($_ = <$F>) {
 substr(   $_, length($l)) and $result = $l = $_
 	   or substr($l, length) 
        or $result .= $_;
