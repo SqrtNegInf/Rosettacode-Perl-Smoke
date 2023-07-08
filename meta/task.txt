@@ -5,7 +5,7 @@ updating from RC…
 |+-----------> Smoke testing [394]
 ||+----------> sKipping validation [26]
 |||+---------> Interactive [15]
-||||+--------> Touched (modified by me) [193]
+||||+--------> Touched (modified by me) [194]
 |||||+-------> Random seed [35]
 ||||||+------> File output [23]
 |||||||+-----> Draft [199]
@@ -147,7 +147,7 @@ GS......... Babbage_problem
 GS..T..D... Babylonian_spiral
 GS..T.FD... Bacon_cipher
 GS...R..... Balanced_brackets-1
-GS...R..... Balanced_brackets-2
+GS..TR..... Balanced_brackets-2
 GS...R..... Balanced_brackets-3
 GS......... Balanced_ternary
 GS..T..D... Banker%27s_algorithm
