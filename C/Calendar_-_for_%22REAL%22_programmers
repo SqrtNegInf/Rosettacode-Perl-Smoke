@@ -3,11 +3,12 @@
 #c# 2018-07-21 <RC
 #p# OK
 #f# RC file: calendar-for-real.txt
+#n# for v5.36 and up need '|.' for numeric bitwise operations
 
 use strict;
 use warnings;
 
-open(STDERR, '>run/calendar-for-real.txt');
+open STDERR, '>', 'run/calendar-for-real.txt';
 
 # Since we can't use eval or print (or any other keywords)
 # at the top level, we need to abuse backticks in order to print anything, as in the infamous JAPH with no letters or numbers. Consequently, the calendar is printed to standard error instead of standard output.
@@ -46,16 +47,16 @@ FOREACH (UC("      JANUARY               FEBRUARY               MARCH           
 \'';
  
 # LOWERCASE LETTERS
-$E = '%' | '@';
-$C = '#' | '@';
-$H = '(' | '@';
-$O = '/' | '@';
-$T = '4' | '@';
-$R = '2' | '@';
-$A = '!' | '@';
-$Z = ':' | '@';
-$P = '0' | '@';
-$L = ',' | '@';
+$E = '%' |. '@';
+$C = '#' |. '@';
+$H = '(' |. '@';
+$O = '/' |. '@';
+$T = '4' |. '@';
+$R = '2' |. '@';
+$A = '!' |. '@';
+$Z = ':' |. '@';
+$P = '0' |. '@';
+$L = ',' |. '@';
  
 `${E}${C}${H}${O} $PROGRAM | ${T}${R} A-Z ${A}-${Z} | ${P}${E}${R}${L}`;
 
