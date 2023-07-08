@@ -29,7 +29,7 @@ sub build_dict {
 
 sub pick1 { return @_[ rand @_ ] }
  
-open F, "<$file"; my $text = <F>; close F;
+open my $F, '<', $file; my $text = <$F>; close $F;
 
 my @words = split ' ', $text;
 my %dict = build_dict($n, @words);
