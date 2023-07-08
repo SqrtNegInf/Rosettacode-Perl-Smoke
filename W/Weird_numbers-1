@@ -3,8 +3,8 @@
 #c# 2019-03-17 >RC
 #p# OK
 
-#use warnings;
 use strict;
+no warnings 'uninitialized';
 use feature 'say';
 
 use List::Util 'sum';
