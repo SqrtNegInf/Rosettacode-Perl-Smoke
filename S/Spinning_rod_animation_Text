@@ -6,12 +6,12 @@
 
 $|= 1;
 
-open F, ">run/spinner.dat" || die;
+open my $F, '>', 'run/spinner.dat' || die;
 
 for (1..3) {
     for (qw[ | / - \ ]) {
         select undef, undef, undef, 0.25;
-        printf F "\r ($_)";
+        printf $F "\r ($_)";
     }
 }
 
