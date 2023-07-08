@@ -3,10 +3,11 @@
 #c# 2018-08-11 <RC
 #p# OK
 
-use feature 'say';
 my $result;
 
 use strict;
+no warnings 'uninitialized';
+use feature 'say';
 
 sub hailstone {
     @_ = local $_ = shift;
@@ -19,7 +20,8 @@ $result .= "$_: @h[0 .. 3] ... @h[-4 .. -1] (".@h.")\n";
 
 @h = ();
 for (1 .. 99_999) { @h = ($_, $h[2]) if ($h[2] = hailstone($_)) > $h[1] }
-$result .= sprintf "%d: (%d)\n", @h;
+#$result .= sprintf "%d: (%d)\n", @h;
+$result .= sprintf "%d: (%d)\n", @h[0,1]; # there's a 3rd value '227'?
 
 say $result;
 my $ref = <<'END';
