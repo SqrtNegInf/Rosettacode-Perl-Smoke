@@ -26,7 +26,7 @@ foreach my $color ( sort keys %colors ) {
    $start++;
 }
 
-open ( DISPLAY , ">" , "run/colour_bars.png" ) || die;
-binmode DISPLAY;
-print DISPLAY $image->png;
-close DISPLAY;
+open ( my $DISPLAY , '>' , 'run/colour_bars.png' ) || die;
+binmode $DISPLAY;
+print $DISPLAY $image->png;
+close $DISPLAY;
