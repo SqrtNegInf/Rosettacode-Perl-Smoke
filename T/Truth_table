@@ -3,11 +3,13 @@
 #c# 2018-08-09 <RC
 #p# OK
 #f# RC file: truth-table.txt
+#n# with v5.38 simplest to just redirect all output
 
 use strict;
 use warnings;
+#no warnings 'portable'; # the warnings are in STDERR of eval'd code, so not visible?
 
-open my $F, '>', 'run/truth-table.txt';
+open STDOUT, '>', 'run/truth-table.txt';
 
 # Note: can't process stuff like "X xor Y"; "xor" would be treated as a variable name here.
 
@@ -18,11 +20,11 @@ sub truth_table {
 		$seen{$_} //= do { push @vars, $_; 1 };
 	}
 
-	print $F "\n", join("\t", @vars, $s), "\n", '-' x 40, "\n";
+	print "\n", join("\t", @vars, $s), "\n", '-' x 40, "\n";
 	@vars = map("\$$_", @vars);
 
 	$s =~ s/([a-zA-Z_]\w*)/\$$1/g;
-	$s = "print $F (".join(',"\t", ', map("($_?'T':'F')", @vars, $s)).",\"\\n\")";
+	$s = "print (".join(',"\t", ', map("($_?'T':'F')", @vars, $s)).",\"\\n\")";
 	$s = "for my $_ (0, 1) { $s }" for (reverse @vars);
 	eval $s;
 }
