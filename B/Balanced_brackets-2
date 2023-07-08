@@ -2,7 +2,7 @@
 #u# http://rosettacode.org/wiki/Balanced_brackets
 #c# 2018-07-16 <RC
 #p# OK
-#n# not working with 5.36: Multidimensional hash lookup is disabled at B/Balanced_brackets-2 line 17, near "'[]'}"
+#n# for v5.36 and above switch to subroutine interface
 
 my $result;
 
@@ -12,11 +12,15 @@ use strict;
 use warnings;
 use feature 'say';
 
-use Regexp::Common 'balanced';
-my $re = qr/^$RE{balanced}{-parens=>'[]'}$/; # not sure how to handle in v5.36 (multidimensional array error)
+#use Regexp::Common 'balanced';
+#my $re = qr/^$RE{balanced}{-parens=>'[]'}$/; # not sure how to handle in v5.36 (multidimensional array error)
+#sub balanced {
+#   return shift =~ $re;
+#}
 
+use Regexp::Common 'RE_balanced';
 sub balanced {
-  return shift =~ $re;
+    return shift =~ RE_balanced(-parens=>'[]')
 }
 
 sub generate {
@@ -38,11 +42,11 @@ bad: ''
  ok: '[]'
  ok: '[[]]'
 bad: ']]][[['
-bad: '[][][[]]'
-bad: ']][]]][[[['
-bad: '[][][[]][[]]'
+ ok: '[][][[]]'
+ ok: ']][]]][[[['
+ ok: '[][][[]][[]]'
  ok: '[[[]][[][[]]]]'
-bad: ']][][[[]]]][[[[]'
+ ok: ']][][[[]]]][[[[]'
 END
 
 use Test::More;
