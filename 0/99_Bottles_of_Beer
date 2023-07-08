@@ -4,6 +4,8 @@
 #p# OK
 #n# remove cluttery parens, etc
 
+use strict;
+no warnings 'uninitialized';
 use feature 'say';
  
 my $verse = <<'VERSE';
@@ -38,7 +40,8 @@ for my $n (reverse 0..99) {
 
 my $result3;
 my $num = 99;
-while ($num > 0) {
+#while ($num > 0) {
+while ($num =~/^\d+$/ and $num > 0) {
     my $s = 's' unless $num == 1;
     $result3 .= "$num bottle$s of beer on the wall\n$num bottle$s of beer\n";
     $num--;
