@@ -20,5 +20,5 @@ for my $y (0..500) {
         }
 }
 
-open  F, ">run/PNG-image500.png";
-print F  $img->png;
+open  my $F, '>', 'run/PNG-image500.png';
+print    $F  $img->png;
