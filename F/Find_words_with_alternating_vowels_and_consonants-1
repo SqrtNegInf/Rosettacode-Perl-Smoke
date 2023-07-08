@@ -11,9 +11,9 @@ my @res;
 
 my $alternatingCount = 0;
 
-open F, '<ref/unixdict.txt';
+open my $F, '<', 'ref/unixdict.txt';
 
-while (<F>) {
+while (<$F>) {
    (my $Fld1) = split(' ', $_, -1);
    if ((length($Fld1) >= 10)) { # have an arpropriate length word
       my $word = $Fld1;
