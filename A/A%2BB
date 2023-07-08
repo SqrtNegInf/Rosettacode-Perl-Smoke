@@ -12,10 +12,10 @@ use List::Util qw(sum);
 my $result1;
 my $result2;
 
-open F, "<ref/a+b.txt";
+open my $F, '<', 'ref/a+b.txt';
 
 #for (<STDIN>) {
-for (<F>) {
+for (<$F>) {
     my ($a,$b) = split(' ', scalar($_));
     $result1 .= "$a $b " . ($a + $b) . "\n";
     $result2 .= "$a $b "  . (sum split /\s+/, $_) . "\n";
