@@ -20,8 +20,8 @@ sub result {
 my @keys  = <ei cei ie cie>;
 my %count;
 
-open F, '<', 'ref/unixdict.txt';
-while ($_ = <F>) {
+open my $F, '<', 'ref/unixdict.txt';
+while ($_ = <$F>) {
     for my $k (@keys) {
         $count{$k}++ if -1 != index $_, $k;
     }
