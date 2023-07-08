@@ -29,5 +29,5 @@ for (0..127) {
 $result .= qq[|}\n];
 
 use open ":encoding(utf8)";
-open F, '>run/ASCII_wiki.txt';
-print F $result;
+open my $F, '>', 'run/ASCII_wiki.txt';
+print   $F $result;
