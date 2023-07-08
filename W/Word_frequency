@@ -2,6 +2,7 @@
 #u# http://rosettacode.org/wiki/Word_frequency
 #c# 2021-03-19 <RC, 2023-04-04 >RC
 #p# OK
+#n# 2023-07-08 no need to use 'qr' in @matcher
 
 my @res;
 
@@ -16,9 +17,9 @@ open my $fh, '<', 'ref/word-count.txt';
 (my $text = join '', <$fh>) =~ tr/A-Z/a-z/;
 
 my @matcher = (
-    qr/[a-z]+/,     # simple 7-bit ASCII
-    qr/\w+/,        # word characters with underscore
-    qr/[a-z0-9]+/,  # word characters without underscore
+    '[a-z]+',     # simple 7-bit ASCII
+    '\w+',        # word characters with underscore
+    '[a-z0-9]+',  # word characters without underscore
 );
 
 for my $reg (@matcher) {
@@ -37,7 +38,7 @@ say my $result = join "\n", @res;
 
 my $ref = <<'EOD';
 
-Top 10 using regex: (?^:[a-z]+)
+Top 10 using regex: [a-z]+
 the      41089
 of       19949
 and      14942
@@ -49,11 +50,11 @@ was       8621
 that      7924
 it        6661
 
-Top 10 using regex: (?^:\w+)
+Top 10 using regex: \w+
 the      41036
 of       19946
 and      14940
-a        14589
+a        14586
 to       13939
 in       11204
 he        9645
@@ -61,7 +62,7 @@ was       8619
 that      7922
 it        6659
 
-Top 10 using regex: (?^:[a-z0-9]+)
+Top 10 using regex: [a-z0-9]+
 the      41089
 of       19949
 and      14942
