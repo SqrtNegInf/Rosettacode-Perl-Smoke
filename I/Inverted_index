@@ -17,8 +17,8 @@ sub createindex {
     my %iindex;
 
     for my $file (@files) {
-	   open(F, "<", $file) or die "Can't read file $file: $!";
-	   while(<F>) {
+	   open(my $F, '<', $file) or die "Can't read file $file: $!";
+	   while(<$F>) {
           s/\A\W+//;
 	      foreach my $w (map {lc} grep {length() >= 3} split /\W+/) {
 		     if ( exists($iindex{$w}) ) {
@@ -28,7 +28,7 @@ sub createindex {
 		     }
 	      }
 	   }
-	   close(F);
+	   close($F);
     }
     return %iindex;
 }
