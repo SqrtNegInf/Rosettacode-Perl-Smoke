@@ -20,8 +20,8 @@ my $nodata_maxline = "!";     # ... and line number(s) where it occurs
 my $tot_file = 0;
 my $num_file = 0;
 
-open F, '<', 'ref/text-proc.txt';
-while ($_ = <F>) {
+open my $F, '<', 'ref/text-proc.txt';
+while ($_ = <$F>) {
   chomp;
   my $tot_line = 0;             # sum of line data
   my $num_line = 0;             # number of line data items with flag>0
