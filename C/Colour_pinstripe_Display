@@ -41,7 +41,7 @@ while ( $run < 4 ) {
     $run++;
 }
 
-open( DISPLAY , '>' , 'run/pinstripes.png' ) or die;
-binmode DISPLAY;
-print DISPLAY $image->png;
-close DISPLAY;
+open( my $DISPLAY , '>' , 'run/pinstripes.png' ) or die;
+binmode $DISPLAY;
+print $DISPLAY $image->png;
+close $DISPLAY;
