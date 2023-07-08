@@ -1,5 +1,6 @@
 2023-07-08
 Now working on enforcing v5.38 coding standards. Start with upgrading bareword file-handles.
+Then move on to misc. issues (some of which really date back to v5.36)
 
 2023-07-06
 Down to zero errors. [to be clear: for install issues, not v5.38 syntax & etc]
