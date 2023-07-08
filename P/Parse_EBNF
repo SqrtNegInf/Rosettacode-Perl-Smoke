@@ -10,7 +10,7 @@ use feature 'say';
 
 $SIG{__WARN__} = sub { print "\nWARN: @_\n"; exit };
 
-open STDOUT, '>run/ebnf.dat';
+open STDOUT, '>', 'run/ebnf.dat';
 
 my $h = qr/\G\s*/;
 my $identifier = qr/$h([a-z]\w*)\b/i;
