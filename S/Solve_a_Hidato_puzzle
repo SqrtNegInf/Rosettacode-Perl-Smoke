@@ -8,7 +8,7 @@
 my $result;
 
 use strict;
-#use warnings;
+no warnings 'uninitialized';
 use feature 'say';
 
 use enum qw(False True);
@@ -18,14 +18,14 @@ use List::Util 'max';
 our (@grid, @known, $n);
 
 sub show_board {
-    open F, '>', 'run/hidato.dat';
+    open my $F, '>', 'run/hidato.dat';
     for my $r (@grid) {
-        print F map(!defined($_) ? '   ' : $_
+        print $F map(!defined($_) ? '   ' : $_
              ? sprintf("%3d", $_)
              : ' __'
             , @$r), "\n"
     }
-    close F;
+    close $F;
 }
 
 sub parse_board {
