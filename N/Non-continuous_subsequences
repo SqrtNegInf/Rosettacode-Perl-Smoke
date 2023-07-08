@@ -2,9 +2,10 @@
 #u# http://rosettacode.org/wiki/Non-continuous_subsequences
 #c# 2018-08-20 <RC
 #p# OK
+#n# routine sometimes returns undef (nothing found) [really ?]
 
 use strict;
-# use warnings; # routine sometimes returns undef (nothing found)
+no warnings 'uninitialized';
 use feature 'say';
 my $result;
 
