@@ -11,7 +11,7 @@ use warnings;
 use feature 'say';
 my $result;
 
-open F, ">run/sunflower.svg";
+open my $F, '>', 'run/sunflower.svg';
 
 use utf8;
 use constant π => 2 * atan2(1, 0);
@@ -20,7 +20,7 @@ use constant φ => (1 + sqrt(5)) / 2;
 my $scale = 600;
 my $seeds = 5*$scale;
 
-print F qq{<svg xmlns="http://www.w3.org/2000/svg" width="$scale" height="$scale" style="stroke:gold">
+print $F qq{<svg xmlns="http://www.w3.org/2000/svg" width="$scale" height="$scale" style="stroke:gold">
            <rect width="100%" height="100%" fill="black" />\n};
 
 for my $i (1..$seeds) {
@@ -28,7 +28,7 @@ for my $i (1..$seeds) {
     my $t = 2 * π * φ * $i;
     my $x = $r * sin($t) + $scale/2;
     my $y = $r * cos($t) + $scale/2;
-    printf F qq{<circle cx="%.2f" cy="%.2f" r="%.1f" />\n}, $x, $y, sqrt($i)/13; 
+    printf $F qq{<circle cx="%.2f" cy="%.2f" r="%.1f" />\n}, $x, $y, sqrt($i)/13; 
 }
 
-print F "</svg>\n";
+print $F "</svg>\n";
