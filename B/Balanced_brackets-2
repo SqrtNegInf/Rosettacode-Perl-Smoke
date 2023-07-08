@@ -1,6 +1,6 @@
 #!/usr/local/bin/perl
 #u# http://rosettacode.org/wiki/Balanced_brackets
-#c# 2018-07-16 <RC
+#c# 2018-07-16 <RC, 2023-07-08 >RC
 #p# OK
 #n# for v5.36 and above switch to subroutine interface
 
