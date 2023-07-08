@@ -2,14 +2,14 @@
 #u# http://rosettacode.org/wiki/Array_length
 #c# 2018-07-14 <RC
 #p# OK
-#n# not using 'warnings' as code desmonstrates errors that can occur
 #n# removed a few 'scalar' that weren't required
 #n# the whole 'order of magnitude' demo. is a crufty crock, but just letting it be for now
 
 my $result;
 
 use strict;
-#use warnings;    # on lines 41, 43, 46, 49
+no warnings;   # the point of the RC code is to show the problems, but don't want that for testing
+#use warnings; # on lines 42, 44, 47, 50
 use feature 'say';
 
 # The way to get the number of elements of an array in Perl is to put the array in scalar context.
