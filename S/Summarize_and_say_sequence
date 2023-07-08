@@ -5,7 +5,7 @@
 #n# 2020-11-08 renamed from 'Self-referential_sequence'
 
 use strict;
-#use warnings; # code as written relies heavily on default actions with uninitialized values
+no warnings 'uninitialized'; # as written relies heavily on default actions with uninitialized values
 use feature 'say';
 my $result;
 
