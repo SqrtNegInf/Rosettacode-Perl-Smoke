@@ -10,10 +10,10 @@ my $result;
 
 # Counts letters in files given on command line or piped to stdin. Case insensitive.
 
-open F, '<', 'ref/word-count.txt';
+open my $F, '<', 'ref/word-count.txt';
 
 my %cnt;
-while ($_ = <F>) { $cnt{lc chop}++ while length }
+while ($_ = <$F>) { $cnt{lc chop}++ while length }
 $result .= "$_: " . ($cnt{$_}//0) . "\n" for 'a' .. 'z';
 
 say $result; 
