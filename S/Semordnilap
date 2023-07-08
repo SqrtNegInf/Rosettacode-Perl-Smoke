@@ -9,11 +9,11 @@ use strict;
 use warnings;
 use feature 'say';
 
-open F, '<', 'ref/unixdict.txt';
+open my $F, '<', 'ref/unixdict.txt';
 
 my (%seen,$c);
 
-while (<F>) {
+while (<$F>) {
 	chomp;
 	my $r = reverse;
 	$seen{$r}++ and $c++ < 10 and $result .= "$_ $r\n" or $seen{$_}++;
