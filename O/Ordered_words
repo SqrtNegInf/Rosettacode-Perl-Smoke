@@ -9,13 +9,13 @@ my $result;
 use strict;
 use warnings;
 
-open(FH, '<', 'ref/unixdict.txt') or die "Can't open file!\n";
+open( my $FH, '<', 'ref/unixdict.txt') or die "Can't open file!\n";
 my @words;
-while (<FH>) {
+while (<$FH>) {
    chomp;
    push @{$words[length]}, $_ if $_ eq join('', sort split(//));
 }
-close FH;
+close $FH;
 say $result = "@{$words[-1]}\n";
 
 my $ref = <<'EOD';
