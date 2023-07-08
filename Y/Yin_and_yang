@@ -9,11 +9,11 @@ use warnings;
 use feature 'say';
 my $result;
 
-open F, ">run/yin_and_yang.svg";
+open my $F, '>', 'run/yin_and_yang.svg';
  
 sub circle {
         my ($radius, $cx, $cy, $fill, $stroke) = @_;
-        print F "<circle cx='$cx' cy='$cy' r='$radius' ",
+        print $F "<circle cx='$cx' cy='$cy' r='$radius' ",
                 "fill='$fill' stroke='$stroke' stroke-width='1'/>\n";
 }
  
@@ -24,14 +24,14 @@ sub yin_yang {
         $opt{stroke} //= 'black';
         $opt{recurangle} //= 0;
  
-        print F "<g transform='rotate($opt{angle}, $cx, $cy)'>"
+        print $F "<g transform='rotate($opt{angle}, $cx, $cy)'>"
                 if $opt{angle};
  
         if ($opt{flip}) { ($c, $w) = ($w, $c) };
  
         circle($rad, $cx, $cy, $opt{fill}, $opt{stroke});
  
-        print F "<path d='M $cx ", $cy + $rad, "A ",
+        print $F "<path d='M $cx ", $cy + $rad, "A ",
                 $rad/2, " ", $rad/2, " 0 0 $c $cx $cy ",
                 $rad/2, " ", $rad/2, " 0 0 $w $cx ", $cy - $rad, " ",
                 $rad,   " ", $rad,   " 0 0 $c $cx ", $cy + $rad, " ",
@@ -49,10 +49,10 @@ sub yin_yang {
                 circle($rad/5, $cx, $cy + $rad/2, $opt{fill}, $opt{stroke});
                 circle($rad/5, $cx, $cy - $rad/2, $opt{stroke}, $opt{fill});
         }
-        print F "</g>" if $opt{angle};
+        print $F "</g>" if $opt{angle};
 }
  
-print F <<'HEAD';
+print $F <<'HEAD';
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" 
         "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
@@ -64,6 +64,6 @@ yin_yang(200, 250, 250, recur=>1,
          angle=>0, recurangle=>90, fill=>'white', stroke=>'black');
 yin_yang(100, 500, 500);
  
-print F "</svg>";
+print $F "</svg>";
 
 #Messy code. Note that the larger yin-yang is drawn recursively.
