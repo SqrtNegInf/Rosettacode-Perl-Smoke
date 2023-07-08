@@ -7,7 +7,7 @@
 use strict;
 use warnings;
 
-open F, ">run/death_star.pgm";
+open my $F, '>', 'run/death_star.pgm';
  
 sub sq {
     my $s = 0;
@@ -46,7 +46,7 @@ my $light = normalize([ -12, 13, -10 ]);
 sub draw {
     my ($k, $amb) = @_;
     binmode STDOUT, ":raw";
-    print F "P5\n". ($pos->[0] * 2 + 3). " ". ($pos->[1] * 2 + 3). "\n255\n";
+    print $F "P5\n". ($pos->[0] * 2 + 3). " ". ($pos->[1] * 2 + 3). "\n255\n";
     for my $y (($pos->[1] - $pos->[3] - 1) .. ($pos->[1] + $pos->[3] + 1)) {
         my @row = ();
         for my $x (($pos->[0] - $pos->[3] - 1) .. ($pos->[0] + $pos->[3] + 1)) {
@@ -77,7 +77,7 @@ sub draw {
             }
             push @row, $val;
         }
-        print F pack("C*", @row);
+        print $F pack("C*", @row);
     }
 }
  
