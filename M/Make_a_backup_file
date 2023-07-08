@@ -25,24 +25,24 @@ sub backup {
         if ($limit > 0) {
             my $orig = $abs . $ext . '1';
             rename $abs, $orig;
-            open(IN,  '<', $orig) or die "can't open $orig: $!";
-            open(OUT, '>', $abs) or die "can't open $abs: $!";
+            open(my $IN,  '<', $orig) or die "can't open $orig: $!";
+            open(my $OUT, '>', $abs) or die "can't open $abs: $!";
 
-            my $blksize = (stat IN)[11] || 2**14;          # preferred block size?
+            my $blksize = (stat $IN)[11] || 2**14;          # preferred block size?
             my $buf;
-            while (my $len = sysread IN, $buf, $blksize) {
+            while (my $len = sysread $IN, $buf, $blksize) {
                 die "System read error: $!\n" if !defined $len;
                 my $offset = 0;
                 while ($len) {          # Handle partial writes.
-                    defined(my $written = syswrite OUT, $buf, $len, $offset)
+                    defined(my $written = syswrite $OUT, $buf, $len, $offset)
                         or die "System write error: $!\n";
                     $len    -= $written;
                     $offset += $written;
                 };
             }
 
-            close(IN);
-            close(OUT);
+            close($IN);
+            close($OUT);
         }
     } else {
         warn "File not found: $abs" and return 0;
