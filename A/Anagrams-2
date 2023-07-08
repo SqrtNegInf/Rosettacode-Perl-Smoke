@@ -3,10 +3,12 @@
 #c# 2018-07-13 <RC, 2019-04-09 >RC
 #p# OK
 
-use strict;
-#use warnings;
-use feature 'say';
 my($result,@res);
+
+use strict;
+no warnings 'uninitialized';
+use feature 'say';
+
 my(%anagram,$max);
 
 my @words = split("\n", `cat ref/unixdict.txt`);
