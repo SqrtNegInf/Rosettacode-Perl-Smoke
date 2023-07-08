@@ -18,5 +18,5 @@ for my $y (0..255) {
         }
 }
 
-open F, ">run/munching.png";
-print F $img->png;
+open my $F, '>', 'run/munching.png';
+print $F $img->png;
