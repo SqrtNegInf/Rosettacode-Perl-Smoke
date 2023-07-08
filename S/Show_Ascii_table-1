@@ -38,5 +38,5 @@ for my $i (0..7) {
 }
 $result .= $bar;
 
-open F, '>run/ASCII_table.txt';
-print F $result;
+open my $F, '>', 'run/ASCII_table.txt';
+print   $F $result;
