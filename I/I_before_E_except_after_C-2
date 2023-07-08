@@ -22,8 +22,8 @@ sub result {
 my @keys  = <ei cei ie cie>;
 my %count;
 
-open F, '<', 'ref/1_2_all_freq.txt';
-while ($_ = <F>) {
+open my $F, '<', 'ref/1_2_all_freq.txt';
+while ($_ = <$F>) {
     my @columns = split;
     next if 3 < @columns;
     my ($word, $freq) = @columns[0, 2];
