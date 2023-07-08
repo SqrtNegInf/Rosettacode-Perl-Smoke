@@ -6,13 +6,14 @@
 #i# RC cli: "new note 1"
 #f# RC file: take-notes.txt
 
+my $NOTES;
 my $file = 'run/take-notes.txt';
 if ( @ARGV ) {
-  open NOTES, '>>', $file or die "Can't append to file $file: $!";
-  print NOTES "@ARGV\n";
+  open($NOTES, '>>', $file) or die "Can't append to file $file: $!";
+  print $NOTES "@ARGV\n";
   #print NOTES scalar localtime, "\n\t@ARGV\n";
 } else {
-  open NOTES, '<', $file or die "Can't read file $file: $!";
-  print <NOTES>;
+  open $NOTES, '<', $file or die "Can't read file $file: $!";
+  print <$NOTES>;
 }
-close NOTES;
+close $NOTES;
