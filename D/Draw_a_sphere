@@ -13,7 +13,7 @@ srand 123456;
 use strict;
 use warnings;
 
-open F, '>run/draw_a_sphere.pgm';
+open my $F, '>', 'run/draw_a_sphere.pgm';
  
 my $x = my $y = 255;
 $x |= 1; # must be odd
@@ -21,7 +21,7 @@ my $depth = 255;
  
 my $light = Vector->new(rand, rand, rand)->normalized;
  
-print F "P2\n$x $y\n$depth\n";
+print $F "P2\n$x $y\n$depth\n";
  
 my ($r, $ambient) = (($x - 1)/2, 0);
 my ($r2) = $r ** 2;
@@ -37,8 +37,8 @@ my ($r2) = $r ** 2;
 		$I = $I < 0 ? 0 : $I > 1 ? 1 : $I;
 		$pixel = int($I * $depth);
 	    }
-	    print F $pixel;
-	    print F $y == $r ? "\n" : ' ';
+	    print $F $pixel;
+	    print $F $y == $r ? "\n" : ' ';
 	}
     }
 }
