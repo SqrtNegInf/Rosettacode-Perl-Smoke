@@ -1,3 +1,6 @@
+2023-07-08
+Now working on enforcing v5.38 coding standards. Start with upgrading bareword file-handles.
+
 2023-07-06
 Down to zero errors. The final two were Inline-related (and due my not taking my own advice, see 5.38 upgrade notes)
     Call_a_foreign-language_function matches
