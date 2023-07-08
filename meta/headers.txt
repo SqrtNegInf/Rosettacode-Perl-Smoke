@@ -663,7 +663,6 @@ File: A/Array_length
 #u# http://rosettacode.org/wiki/Array_length
 #c# 2018-07-14 <RC
 #p# OK
-#n# not using 'warnings' as code desmonstrates errors that can occur
 #n# removed a few 'scalar' that weren't required
 #n# the whole 'order of magnitude' demo. is a crufty crock, but just letting it be for now
 
@@ -853,9 +852,9 @@ File: B/Balanced_brackets-1
 File: B/Balanced_brackets-2
 #!/usr/local/bin/perl
 #u# http://rosettacode.org/wiki/Balanced_brackets
-#c# 2018-07-16 <RC
+#c# 2018-07-16 <RC, 2023-07-08 >RC
 #p# OK
-#n# not working with 5.36: Multidimensional hash lookup is disabled at B/Balanced_brackets-2 line 17, near "'[]'}"
+#n# for v5.36 and above switch to subroutine interface
 
 File: B/Balanced_brackets-3
 #!/usr/local/bin/perl
@@ -1306,6 +1305,7 @@ File: C/Calendar_-_for_%22REAL%22_programmers
 #c# 2018-07-21 <RC
 #p# OK
 #f# RC file: calendar-for-real.txt
+#n# for v5.36 and up need '|.' for numeric bitwise operations
 
 File: C/Calkin-Wilf_sequence
 #!/usr/local/bin/perl
@@ -6841,6 +6841,7 @@ File: N/Non-continuous_subsequences
 #u# http://rosettacode.org/wiki/Non-continuous_subsequences
 #c# 2018-08-20 <RC
 #p# OK
+#n# routine sometimes returns undef (nothing found) [really ?]
 
 File: N/Non-decimal_radices_Convert
 #!/usr/local/bin/perl
@@ -11251,6 +11252,7 @@ File: T/Truth_table
 #c# 2018-08-09 <RC
 #p# OK
 #f# RC file: truth-table.txt
+#n# with v5.38 simplest to just redirect all output
 
 File: T/Twelve_statements
 #!/usr/local/bin/perl
@@ -11793,6 +11795,7 @@ File: W/Word_frequency
 #u# http://rosettacode.org/wiki/Word_frequency
 #c# 2021-03-19 <RC, 2023-04-04 >RC
 #p# OK
+#n# 2023-07-08 no need to use 'qr' in @matcher
 
 File: W/Word_ladder-1
 #!/usr/local/bin/perl
