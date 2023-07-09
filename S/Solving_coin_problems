@@ -4,6 +4,9 @@
 #p# OK
 #f# RC file: solving_coin_problems.dat
 #n# next step: remove dependence on MAXIMA [yeah but the next step is a doozy]
+#n# 2023-07-09 the '¢' problem
+#n# When requiring any non-ancient Perl semantics (v5.18 or up) the '¢' not rendered correctly in output (interaction with 'maxima'?).
+#n# Replacing '¢' in input (DATA handle) with 'cents' is a work-around.
 
 # In a bank, there are three times as many quarters as half dollars and 6 more dimes than half dollars. If the total amount of the money in the bank is $4.65, find the number of each type of coin in the bank.
 
@@ -162,7 +165,7 @@ while (<DATA>) {
 __DATA__
 If a person has three times as many quarters as dimes and the total amount of money is $5.95, find the number of quarters and dimes.
 
-A pile of 18 coins consists of pennies and nickels. If the total amount of the coins is 38¢, find the number of pennies and nickels.
+A pile of 18 coins consists of pennies and nickels. If the total amount of the coins is 38 cents, find the number of pennies and nickels.
 
 A small child has 6 more quarters than nickels. If the total amount of coins is $3.00, find the number of nickels and quarters the child has.
 
