@@ -4,10 +4,6 @@
 #p# OK
 #f# RC file: calendar-2016.txt
 
-# The value of deleting certain lines from a file notwithstanding, here's how you'd normally do it in Perl (call with perl rmlines -from=3 -to=10 filename:#!/usr/bin/perl -n -s -i
-# print unless $. >= $from && $. <= $to;
-# If you want a backup file (maybe because deleting lines from a file in place is a pretty silly idea), change the -i in the first line to -i.bak, for example.
-
 use strict;
 use warnings;
 
