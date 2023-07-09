@@ -6,4 +6,4 @@
 
 open my $SELF, '>', 'run/print_itself.txt';
 
-@ARGV=$0; print $SELF <> 
+@ARGV=$0; print $SELF <<>>
