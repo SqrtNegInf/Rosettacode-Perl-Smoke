@@ -4,6 +4,6 @@
 #p# OK
 #f# RC file: print_itself.txt
 
-open SELF, '>run/print_itself.txt';
+open my $SELF, '>', 'run/print_itself.txt';
 
-@ARGV=$0; print SELF <> 
+@ARGV=$0; print $SELF <<>>
