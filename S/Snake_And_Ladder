@@ -1,10 +1,12 @@
 #!/usr/local/bin/perl
+use v5.38;
 #u# http://rosettacode.org/wiki/Snake_And_Ladder
 #c# 2018-09-30 >RC
 #p# OK
+#n# 2023-07-09 tweaked how to exit to avoid warning in recent Perl
 
 use strict;
-#use warnings;
+use warnings;
 use feature 'say';
 
 srand 9282184;
@@ -21,8 +23,10 @@ GAME: {
 while () {
     for my $player (0..$#players) {
         $turn_count++;
-        turn(\$players[$player], $player + 1, $turn_count);
+        turn(\$players[$player], $player + 1, $turn_count) and last GAME;
     }
+}
+
 }
 
 sub turn {
@@ -33,7 +37,7 @@ sub turn {
     print sprintf "Player $player on square %2d rolls a $roll", $$square;
     if ($turn > 100) {
        print " but cannot move. Next players turn.\n";
-        return
+        return 0
     }
     if ($snl{$turn}) {
         $$square = $snl{$turn};
@@ -46,11 +50,10 @@ sub turn {
         $$square = $turn;
        print " and moves to square $$square\n";
     }
-    if ($$square == 100) {print "Player $player wins after $turn_count turns.\n"; last GAME }
-    return
+    if ($$square == 100) {print "Player $player wins after $turn_count turns.\n"; return 1 }
+    return 0
 }
 
-}
 
 use Test::More;
 is($turn_count, 706);
