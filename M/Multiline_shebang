@@ -7,7 +7,10 @@
 
 # From perldoc perlrun, the following is supposed to find perl one way or another under sh, csh or perl.
 
-eval '(exit $?0)' && eval 'exec perl -wS $0 ${1+"$@"}'
+#use v5.36;                 # brings up: Useless use of numeric bitwise and (&) in void context at M/Multiline_shebang line 13.
+#no strict; no warnings;
+
+eval '(exit $?0)' && eval 'exec /usr/bin/perl -wS $0 ${1+"$@"}'
 & eval 'exec /usr/bin/perl -wS $0 $argv:q'
 	if $running_under_some_shell;
 
