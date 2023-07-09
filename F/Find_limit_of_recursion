@@ -3,10 +3,9 @@
 #c# 2018-08-06 <RC
 #p# OK
 #n# stop at 1E6, but could easily go on
-#n# strict and prototype don't get along (and prototype wasn't really doing much for us anyhow)
 
 use strict;
-#use warnings;
+no warnings 'recursion';
 use feature 'say';
 
 #Maximum recursion depth is memory dependent.
