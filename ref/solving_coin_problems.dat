@@ -1,7 +1,7 @@
 problem: person 3 times as many quarter as dime and total amount money $ 5.95 , find number quarter and dime . 
 solution: n_quarter = 21, n_dime = 7
 
-problem: pile 18 coin consists penny and nickel . total amount coin 38 ¢ , find number penny and nickel . 
+problem: pile 18 coin consists penny and nickel . total amount coin 38 cents , find number penny and nickel . 
 solution: n_nickel = 5, n_penny = 13
 
 problem: small child 6 more quarter than nickel . total amount coin $ 3.0 , find number nickel and quarter child . 
