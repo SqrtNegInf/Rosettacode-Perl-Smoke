@@ -3692,7 +3692,6 @@ File: F/Find_limit_of_recursion
 #c# 2018-08-06 <RC
 #p# OK
 #n# stop at 1E6, but could easily go on
-#n# strict and prototype don't get along (and prototype wasn't really doing much for us anyhow)
 
 File: F/Find_minimum_number_of_coins_that_make_a_given_value
 #!/usr/local/bin/perl
@@ -9671,9 +9670,11 @@ File: S/Snake
 
 File: S/Snake_And_Ladder
 #!/usr/local/bin/perl
+use v5.38;
 #u# http://rosettacode.org/wiki/Snake_And_Ladder
 #c# 2018-09-30 >RC
 #p# OK
+#n# 2023-07-09 tweaked how to exit to avoid warning in recent Perl
 
 File: S/Snake_And_Ladder.1
 #!/usr/local/bin/perl
@@ -9748,6 +9749,17 @@ File: S/Solve_the_no_connection_puzzle
 #p# OK
 
 File: S/Solving_coin_problems
+#!/usr/local/bin/perl
+#u# http://rosettacode.org/wiki/Solving_coin_problems
+#c# 2020-01-22 <RC, 2020-01-24 >RC
+#p# OK
+#f# RC file: solving_coin_problems.dat
+#n# next step: remove dependence on MAXIMA [yeah but the next step is a doozy]
+#n# 2023-07-09 the '¢' problem
+#n# When requiring any non-ancient Perl semantics (v5.18 or up) the '¢' not rendered correctly in output (interaction with 'maxima'?).
+#n# Replacing '¢' in input (DATA handle) with 'cents' is a work-around.
+
+File: S/Solving_coin_problems.1
 #!/usr/local/bin/perl
 #u# http://rosettacode.org/wiki/Solving_coin_problems
 #c# 2020-01-22 <RC, 2020-01-24 >RC
@@ -11379,7 +11391,10 @@ File: U/Unicode_variable_names
 #u# http://rosettacode.org/wiki/Unicode_variable_names
 #c# 2018-08-07 <RC
 #p# OK
-#n# not working with v5.36: Subroutine attributes must come before the signature at U/Unicode_variable_names line 18.
+#n# Was not working with v5.36 (these problems not related to use of Unicode):
+#n#     Subroutine attributes must come before the signature at U/Unicode_variable_names
+#n#     ++Δ form works while Δ++ does not
+#n# 2023-07-09 fixes for v5.36 (and up) make old Perls fail
 #n# not sure why BEGIN was used, doesn't appear needed? [$val is global regardless]
 
 File: U/Unique_characters
