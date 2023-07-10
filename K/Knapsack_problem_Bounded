@@ -55,7 +55,7 @@ sub pick {
 	my ($weight, $pos) = @_;
 	return 0, 0, [] if $pos < 0 or $weight <= 0;
 
-	@{ $cache{$weight, $pos} //= [do{	# odd construct: for caching
+	@{ $cache{$weight . $pos} //= [do{	# odd construct: for caching
 		my $item = $items[$pos];
 		my ($bv, $bi, $bw, $bp) = (0, 0, 0, []);
 
