@@ -4106,6 +4106,8 @@ File: F/Function_frequency
 #c# 2018-08-08 <RC
 #p# OK
 #n# any changes to 'Almost_prime-2' might affect this task
+#n# if task is upgraded to use v5.38 semantics by default, the '$q' output item goes away 
+#n# (Perl must get smart enough to do some more constant folding...)
 
 File: F/Function_prototype
 #!/usr/local/bin/perl
@@ -4482,7 +4484,7 @@ File: H/Halt_and_catch_fire
 #c# 2021-09-12 >RC
 #p# OK
 #n# all these statements pass 'perl -c' but crash one way or another upon execution
-#n# 5.36 notes 'useless use';
+#n# subroutine form works better with v5.36+
 
 File: H/Hamming_numbers
 #!/usr/local/bin/perl
@@ -5457,6 +5459,7 @@ File: L/Latin_Squares_in_reduced_form
 #u# http://rosettacode.org/wiki/Latin_Squares_in_reduced_form
 #c# 2021-01-06 <RC
 #p# OK
+#n# for v5.36 needed to update bitwise operator: ^ ==> ^.
 
 File: L/Launch_rocket_with_countdown_and_acceleration_in_stdout
 #!/usr/local/bin/perl
@@ -6756,6 +6759,7 @@ File: N/Natural_sorting
 #u# http://rosettacode.org/wiki/Natural_sorting
 #c# 2018-08-19 <RC
 #p# OK
+#n# for 3 of 8 cases: Redundant argument in sprintf at N/Natural_sorting line 61
 
 File: N/Nautical_bell-1
 #!/usr/local/bin/perl
@@ -9670,7 +9674,6 @@ File: S/Snake
 
 File: S/Snake_And_Ladder
 #!/usr/local/bin/perl
-use v5.38;
 #u# http://rosettacode.org/wiki/Snake_And_Ladder
 #c# 2018-09-30 >RC
 #p# OK
