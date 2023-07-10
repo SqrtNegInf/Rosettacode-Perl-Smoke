@@ -8,9 +8,9 @@ use v5.36.0;
 do './H/Hello_world_Text';
 
 my $f = './tmp/include.pl';
-open F, '>', $f;
-print F q[ sub say_bye { print "Bye World!\n" } ];
-close F;
+open my $F, '>', $f;
+print $F q[ sub say_bye { print "Bye World!\n" } ];
+close $F;
 
 do $f;
 my $retval = say_bye();
