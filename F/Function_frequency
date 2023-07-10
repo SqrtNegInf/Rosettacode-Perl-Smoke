@@ -3,11 +3,14 @@
 #c# 2018-08-08 <RC
 #p# OK
 #n# any changes to 'Almost_prime-2' might affect this task
+#n# if task is upgraded to use v5.38 semantics by default, the '$q' output item goes away 
+#n# (Perl must get smart enough to do some more constant folding...)
+
+my $result;
 
 use strict;
 use warnings;
 use feature 'say';
-my $result;
 
 # We leverage the PPI::Tokenizer module.
 
@@ -29,6 +32,7 @@ foreach my $token (@top_ten_by_occurrence) {
 }
 
 say $result; 
+
 my $ref = <<'EOD';
 18	my
 10	$n
@@ -41,7 +45,6 @@ my $ref = <<'EOD';
 4	$primes
 4	$q
 EOD
-
 
 use Test::More;
 is ($result, $ref);
