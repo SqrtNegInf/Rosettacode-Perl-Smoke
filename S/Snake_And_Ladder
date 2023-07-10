@@ -1,5 +1,4 @@
 #!/usr/local/bin/perl
-use v5.38;
 #u# http://rosettacode.org/wiki/Snake_And_Ladder
 #c# 2018-09-30 >RC
 #p# OK
