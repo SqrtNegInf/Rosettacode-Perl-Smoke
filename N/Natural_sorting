@@ -2,13 +2,13 @@
 #u# http://rosettacode.org/wiki/Natural_sorting
 #c# 2018-08-19 <RC
 #p# OK
+#n# for 3 of 8 cases: Redundant argument in sprintf at N/Natural_sorting line 61
 
-use strict;
-#use warnings; # for 3 of 8 cases: Redundant argument in sprintf at N/Natural_sorting line 61
-use feature 'say';
 my $result;
 
-# This implements all 8 requirements*:
+use strict;
+no warnings;        # with v5.36+ have to be explicit about this
+use feature 'say';
 
 use feature 'fc';
 use Unicode::Normalize;
