@@ -61,7 +61,7 @@ sub read_conf_file {
         next if /^$/;           # skip blank lines
         chomp;                  # strip final newline
 
-        $_ =~ /^\s*(\w+)\s*(.*)$/i or die "Syntax error";
+        /^\s*(\w+)\s*(.*)$/i or die "Syntax error";
         my $key = $1;
         my $rest = $2;
         $key =~ tr/[A-Z]/[a-z]/; # convert keyword to lower case
