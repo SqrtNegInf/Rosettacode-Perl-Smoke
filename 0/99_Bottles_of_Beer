@@ -5,6 +5,7 @@
 #n# remove cluttery parens, etc
 
 use strict;
+use warnings;
 no warnings 'uninitialized';
 use feature 'say';
  
@@ -71,7 +72,7 @@ do { $result4 .= bottles . wall
 
 #say $result4;
 
-my $ref1 = <<EOD;
+my $ref1 = <<'EOD';
 99 bottles of beer on the wall
 99 bottles of beer
 Take one down, pass it around
@@ -568,7 +569,7 @@ Take one down, pass it around
 No bottles of beer on the wall
 EOD
 
-my $ref3 = <<EOD;
+my $ref3 = <<'EOD';
 99 bottles of beer on the wall
 99 bottles of beer
 Take one down, pass it around
@@ -1066,7 +1067,7 @@ No more bottles of beer on the wall
 
 EOD
 
-my $ref4 = <<EOD;
+my $ref4 = <<'EOD';
 99 bottles of beer on the wall
 99 bottles of beer
 Take one down, pass it around
