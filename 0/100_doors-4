@@ -9,12 +9,12 @@ use strict;
 use warnings;
 use feature 'say';
 
-for (1..100) { push @result, "Door $_ is " . qw"closed open"[int sqrt == sqrt] }
+for (1..100) { push @result, "Door $_ is " . (<closed open>)[int sqrt == sqrt] }
 #print "Door $_ is ", qw"closed open"[int sqrt == sqrt], "\n" for 1..100;
 
 say my $result = join "\n", @result;
 
-my $ref = <<END;
+my $ref = <<'END';
 Door 1 is open
 Door 2 is closed
 Door 3 is closed
@@ -120,4 +120,4 @@ END
 use Test::More;
 chop $ref;
 is ($result, $ref);
-done_testing();
+done_testing;
