@@ -3,7 +3,7 @@
 #c# 2021-03-07 <RC
 #p# BROKEN
 
-my @res;
+my $result;
 
 use strict;
 use warnings;
@@ -23,7 +23,6 @@ my $srch = $ldap->search( base   => "dc=example,dc=com",
 
 $srch->code and die $srch->error;
 
-my $result;
 foreach my $entry ($srch->entries) { #$entry->dump } # how to capture this output?
     say $result = $$entry{asn}{attributes}[4]{vals}[0]
 }
