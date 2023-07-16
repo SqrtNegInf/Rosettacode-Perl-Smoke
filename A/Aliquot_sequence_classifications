@@ -8,7 +8,7 @@ use warnings;
 use feature 'say';
 my $result;
 
-use ntheory qw/divisor_sum/;
+use ntheory 'divisor_sum';
  
 sub aliquot {
   my($n, $maxterms, $maxn) = @_;
@@ -21,18 +21,18 @@ sub aliquot {
     $n = divisor_sum($n)-$n;
     # push onto allterms here if we want the cyclic term to display
     last if $n > $maxn;
-    return ("terminates",@allterms, 0) if $n == 0;
+    return ('terminates',@allterms, 0) if $n == 0;
     if (defined $terms{$n}) {
-      return ("perfect",@allterms)  if $term == 2 && $terms{$n} == 1;
-      return ("amicible",@allterms) if $term == 3 && $terms{$n} == 1;
-      return ("sociable-".($term-1),@allterms) if $term >  3 && $terms{$n} == 1;
-      return ("aspiring",@allterms) if $terms{$n} == $term-1;
-      return ("cyclic-".($term-$terms{$n}),@allterms)   if $terms{$n} < $term-1;
+      return ('perfect',@allterms)  if $term == 2 && $terms{$n} == 1;
+      return ('amicible',@allterms) if $term == 3 && $terms{$n} == 1;
+      return ('sociable-'.($term-1),@allterms) if $term >  3 && $terms{$n} == 1;
+      return ('aspiring',@allterms) if $terms{$n} == $term-1;
+      return ('cyclic-'.($term-$terms{$n}),@allterms)   if $terms{$n} < $term-1;
     }
     $terms{$n} = $term;
     push @allterms, $n;
   }
-  ("non-term",@allterms);
+  ('non-term',@allterms);
 }
  
 for my $n (1..10) {
@@ -47,7 +47,7 @@ for my $n (qw/11 12 28 496 220 1184 12496 1264460 790 909 562 1064 1488 15355717
 
 say $result;
 
-my $ref = <<EOD;
+my $ref = <<'EOD';
              1 terminates [1 0]
              2 terminates [2 1 0]
              3 terminates [3 1 0]
@@ -76,4 +76,4 @@ EOD
 
 use Test::More;
 is ($result, $ref);
-done_testing();
+done_testing;
