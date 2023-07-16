@@ -45,7 +45,7 @@ sub control_points {
     $a       = angle $h;
     my @p2   = ($l->A->[0] - $lgt * cos($a) * $CURVE_F,  $l->A->[1] - $lgt * sin($a) * $CURVE_F);
 
-    \@p1, \@p2
+    (\@p1, \@p2)
 }
 
 my $surf = Cairo::ImageSurface->create ('argb32', $WIDTH, $HEIGHT);
