@@ -7,14 +7,15 @@ use strict;
 use warnings;
 use feature 'say';
 
-use List::AllUtils qw( nsort_by );
+use English;
+use List::AllUtils 'nsort_by';
 
 sub distance {
     my ($r1, $c1, $r2, $c2) = split /[, ]/, "@_";
     sqrt( ($r1-$r2)**2 + ($c1-$c2)**2 );
 }
 
-my $start = '0,0';
+my $start  = '0,0';
 my $finish = '7,7';
 my %barrier = map {$_, 100}
   split ' ', '2,4 2,5 2,6 3,6 4,6 5,6 5,5 5,4 5,3 5,2 4,2 3,2';
@@ -41,10 +42,10 @@ while( ! exists $values{$finish} and @new ) {
 }
 
 my $grid = "s.......\n" . ('.' x 8 . "\n") x 7;
-substr $grid, /,/ * $` * 9 + $', 1, 'b' for keys %barrier;
+substr $grid, /,/ * $PREMATCH * 9 + $POSTMATCH, 1, 'b' for keys %barrier;
 my @path = my $pos = $finish; # the walkback to get path
 while( $pos ne $start ) {
-  substr $grid, $pos =~ /,/ ? $` * 9 + $' : die, 1, 'x';
+  substr $grid, $pos =~ /,/ ? $PREMATCH * 9 + $POSTMATCH : die, 1, 'x';
   unshift @path, $pos = $from{$pos};
 }
 
@@ -65,7 +66,7 @@ EOD
 
 use Test::More;
 is ($result, $ref);
-done_testing();
+done_testing;
 
 __END__
 
