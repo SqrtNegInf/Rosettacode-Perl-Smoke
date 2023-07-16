@@ -14,10 +14,7 @@ $img->set_color(0, 255, 0, 255);
 $img->fill(100,100);
 $img->save("run/filledcircle1.jpg");
 
-#A homemade implementation can be:
-
-sub colordistance
-{
+sub colordistance {
     my ( $c1, $c2 ) = @_;
  
     my ( $r1, $g1, $b1 ) = @$c1;
@@ -25,40 +22,36 @@ sub colordistance
     return sqrt(( ($r1-$r2)**2 + ($g1-$g2)**2 + ($b1-$b2)**2 ))/(255.0*sqrt(3.0));
 }
  
-sub floodfill
-{
+sub floodfill {
     my ( $img, $x, $y, $r, $g, $b ) = @_;
     my $distparameter = 0.2;
- 
-    my %visited = ();
-    my @queue = ();
+    my (%visited,@queue);
  
     my @tcol = ( $r, $g, $b );
     my @col = $img->query_pixel($x, $y);
     if ( colordistance(\@tcol, \@col) > $distparameter ) { return; }
     push @queue, [$x, $y];
     while ( @queue ) {
-	my $pointref = shift(@queue);
-	( $x, $y ) = @$pointref;
-	if ( ($x < 0) || ($y < 0) || ( $x >= $img->width ) || ( $y >= $img->height ) ) { next; }
-	if ( ! exists($visited{"$x,$y"}) ) {
-	    @col = $img->query_pixel($x, $y);
-	    if ( colordistance(\@tcol, \@col) <= $distparameter ) {
-		$img->draw_point($x, $y);
-		$visited{"$x,$y"} = 1;
-		push @queue, [$x+1, $y];
-		push @queue, [$x-1, $y];
-		push @queue, [$x, $y+1];
-		push @queue, [$x, $y-1];
-	    }
-	}
+        my $pointref = shift(@queue);
+        ( $x, $y ) = @$pointref;
+        if ( ($x < 0) || ($y < 0) || ( $x >= $img->width ) || ( $y >= $img->height ) ) { next; }
+        if ( ! exists($visited{"$x,$y"}) ) {
+            @col = $img->query_pixel($x, $y);
+            if ( colordistance(\@tcol, \@col) <= $distparameter ) {
+                $img->draw_point($x, $y);
+                $visited{"$x,$y"} = 1;
+                push @queue, [$x+1, $y],
+                             [$x-1, $y],
+                             [$x, $y+1],
+                             [$x, $y-1];
+            }
+        }
     }
 }
  
-# usage example
 my $img2 = Image::Imlib2->load("ref/unfilledcircle.jpg");
 $img2->set_color(0,255,0,255);
 floodfill($img2, 100,100, 0, 0, 0);
 $img2->save("run/filledcircle2.jpg");
-exit 0;
+
 # This fills better than the Image::Imlib2 fill function the inner circle, since because of JPG compression and thanks to the $distparameter, it "sees" as black also pixel that are no more exactly black.
