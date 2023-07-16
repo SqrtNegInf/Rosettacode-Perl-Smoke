@@ -30,7 +30,7 @@ for (@c) {
 my $fmt = "%-10s";
 my $inp = sprintf $fmt, 'Input:';
 my $out = sprintf $fmt, 'Output:';
-for my $str ('', <riG rePEAT copies put mo rest types fup. 6 poweRin>) {
+for my $str ('', <riG rePEAT copies put mo rest types fup. 6 poweRin>) { # DH P::C sees this as 'readline'
     $inp .= sprintf $fmt, $str;
     $out .= sprintf $fmt, $abr{uc $str} // '*error*';
 }
@@ -41,4 +41,4 @@ my $ref = 'Output:             RIGHT     REPEAT    *error*   PUT       MOVE     
 
 use Test::More;
 is($out,$ref);
-done_testing();
+done_testing;
