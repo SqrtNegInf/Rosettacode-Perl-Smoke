@@ -1,18 +1,14 @@
 #!/usr/local/bin/perl
-## xxx
+## quick & dirty critic
 #    2023-07-15
 
-#use strict;
-use warnings;
-use feature 'say';
-#use Data::Printer;
+use v5.36;
 
 use Perl::Critic;
 my $file = shift;
 my $critic = Perl::Critic->new(-severity => 3);
-my @violations = $critic->critique($file);
+my @violations = grep { ! /Code before|does not end with|without a label|prototypes|use a real number/i } $critic->critique($file);
 print @violations;
-
 
 __END__
 
