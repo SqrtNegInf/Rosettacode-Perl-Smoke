@@ -9,7 +9,7 @@ use feature 'say';
 
 my @res;
 
-@ARGV = 'ref/unixdict.txt';
+local @ARGV = 'ref/unixdict.txt';
 push @res, grep /^[^bc]*a[^c]*b.*c/, <>;
 
 say my $result = join '', @res;
@@ -74,4 +74,4 @@ EOD
 
 use Test::More;
 is ($result, $ref);
-done_testing();
+done_testing;
