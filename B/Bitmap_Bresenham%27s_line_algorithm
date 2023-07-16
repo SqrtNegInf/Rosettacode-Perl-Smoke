@@ -6,8 +6,6 @@
 
 use strict;
 use warnings;
-use feature 'say';
-my $result;
 
 use Image::Imlib2;
  
@@ -45,7 +43,6 @@ sub my_draw_line
     }
 }
  
-# test
 my $img = Image::Imlib2->new(160, 160);
 $img->set_color(255, 255, 255, 255); # white
 $img->fill_rectangle(0,0,160,160);
