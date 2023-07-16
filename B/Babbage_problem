@@ -15,12 +15,12 @@ my $current = 0 ;
 while ( ($current ** 2 ) % 1000000  != 269696 ) {
    $current += 2;
 }
-say $result = sprintf "The square of $current is " . $current**2 . " !\n" ;
+say $result = sprintf "The square of $current is " . ($current**2) . " !\n" ;
 
-my $ref = <<EOD;
+my $ref = <<'EOD';
 The square of 25264 is 638269696 !
 EOD
 
 use Test::More;
 is ($result, $ref);
-done_testing();
+done_testing;
