@@ -18,7 +18,7 @@ for my $k ( 1 .. 5 ) {
 	} 1 .. 10) . "\n";
 }
 
-sub nth_prime { ... };  # DH curlies not strictly needed, but nice to have
+sub nth_prime;
 
 sub k_almost_prime {
 	my ($n, $k) = @_;
