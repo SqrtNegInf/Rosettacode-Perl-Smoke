@@ -1,0 +1,23 @@
+#!/usr/local/bin/perl
+## xxx
+#    2023-07-15
+
+#use strict;
+use warnings;
+use feature 'say';
+#use Data::Printer;
+
+use Perl::Critic;
+my $file = shift;
+my $critic = Perl::Critic->new(-severity => 3);
+my @violations = $critic->critique($file);
+print @violations;
+
+
+__END__
+
+new( [ -profile => $FILE, -severity => $N, -theme => $string, -include
+    => \@PATTERNS, -exclude => \@PATTERNS, -top => $N, -only => $B,
+    -profile-strictness => $PROFILE_STRICTNESS_{WARN|FATAL|QUIET}, -force =>
+    $B, -verbose => $N ], -color => $B, -pager => $string, -allow-unsafe =>
+    $B, -criticism-fatal => $B)"
