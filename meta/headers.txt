@@ -309,7 +309,7 @@ File: A/Active_object
 #u# http://rosettacode.org/wiki/Active_object
 #c# 2018-07-11 <RC
 #p# OK
-#n# try to handle results that change with-in and between platforms, getting a bit silly
+#n# weak testing (results change too much with-in and between platforms)
 
 File: A/Add_a_variable_to_a_class_instance_at_runtime
 #!/usr/local/bin/perl
@@ -581,7 +581,7 @@ File: A/Arbitrary-precision_integers_included-2
 #p# OK
 
 File: A/Archimedean_spiral
-#!/usr/bin/env perl5.32.1
+#!/usr/loca/bin/perl5.32.1
 #u# http://rosettacode.org/wiki/Archimedean_spiral
 #c# 2018-08-02 >RC
 #t# graphical
@@ -837,7 +837,7 @@ File: B/Babylonian_spiral
 #n# We're gonna need a bigger algorithm for SVG (upgrade to new implementation by thundergnat++) 
 
 File: B/Bacon_cipher
-#!/usr/local/bin/perl 
+#!/usr/local/bin/perl
 #u# http://rosettacode.org/wiki/Bacon_cipher
 #c# 2018-11-10 >RC, 2019-10-07 >RC
 #p# OK
@@ -875,7 +875,7 @@ File: B/Banker%27s_algorithm
 #p# OK
 
 File: B/Barnsley_fern
-#!/usr/bin/env perl5.32.1
+#!/usr/local/bin/perl5.32.1
 #u# http://rosettacode.org/wiki/Barnsley_fern
 #c# 2018-07-13 <RC
 #p# OK
@@ -1849,7 +1849,8 @@ File: C/Command-line_arguments
 #i# RC cli: ref/lines_of_numbers.txt mode=frobnicate iterations=42
 
 File: C/Commatizing_numbers
-#!/usr/local/bin/perl #u# http://rosettacode.org/wiki/Commatizing_numbers
+#!/usr/local/bin/perl
+#u# http://rosettacode.org/wiki/Commatizing_numbers
 #c# 2018-08-29 >RC, 2018-09-15 >RC
 #p# OK
 
@@ -9123,7 +9124,7 @@ File: S/Sattolo_cycle
 #n# let it be random to see if it ever fails
 
 File: S/Scope_Function_names_and_labels
-#!/usr/local/bin/perl 
+#!/usr/local/bin/perl
 #u# http://rosettacode.org/wiki/Scope/Function_names_and_labels
 #c# 2019-09-11 >RC
 #p# OK
