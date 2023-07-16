@@ -1,3 +1,6 @@
+2023-07-16
+Clean up hash-bang lines in prep for testing v5.36
+
 2023-07-15
 Yech, Perl::Critic takes a lot of the fun out of writing Perl.  But some suggestions are sound...
 
