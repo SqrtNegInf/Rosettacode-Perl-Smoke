@@ -29,7 +29,7 @@ sub reader {
 
 sub perl_symbol_display_match_list {
     my($matches, $num_matches, $max_length) = @_;
-    map { $_ =~ s/^((\$#|[\@\$%&])?).*::(.+)/$3/; }(@{$matches});
+    map { s/^((\$#|[\@\$%&])?).*::(.+)/$3/ } @$matches;
     $term->display_match_list($matches);
     $term->forced_update_display;
 }
