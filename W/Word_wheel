@@ -9,7 +9,9 @@ use strict;
 use warnings;
 use feature 'say';
 
-$_ = <<END;
+use English;
+
+$_ = <<'END';
                     N  D  E
                     O  K  G
                     E  L  W
@@ -18,8 +20,10 @@ END
 my $file = do { local(@ARGV, $/) = 'ref/unixdict.txt'; <> };
 my $length = my @letters = lc =~ /\w/g;
 my $center = $letters[@letters / 2];
-my $toomany = (join '', sort @letters) =~ s/(.)\1*/
-  my $count = length "$1$&"; "(?!(?:.*$1){$count})" /ger;
+
+my $toomany = (join '', sort @letters) =~ s/(.)\1*/ my $count = length "$1$MATCH"; "(?!(?:.*$1){$count})" /ger;  # DH should 'x'-pand
+# (?!(?:.*d){2})(?!(?:.*e){3})(?!(?:.*g){2})(?!(?:.*k){2})(?!(?:.*l){2})(?!(?:.*n){2})(?!(?:.*o){2})(?!(?:.*w){2})
+
 my $valid = qr/^(?=.*$center)$toomany([@letters]{3,$length}$)$/m;
 
 my @words;
