@@ -6,20 +6,19 @@
 use strict;
 use warnings;
 use feature 'say';
-
 my $result;
 
 sub k_almost_prime;
 
 for my $k ( 1 .. 5 ) {
-	my $almost = 0;
-	$result .= join(", ", map {
+	my $almost;
+	$result .= join(', ', map {
 		1 until k_almost_prime ++$almost, $k;
 		"$almost";
 	} 1 .. 10) . "\n";
 }
 
-sub nth_prime;
+sub nth_prime { ... };  # DH curlies not strictly needed, but nice to have
 
 sub k_almost_prime {
 	my ($n, $k) = @_;
@@ -36,8 +35,6 @@ sub k_almost_prime {
 }
 
 BEGIN {
-	# This is loosely based on one of the python solutions
-	# to the RC Sieve of Eratosthenes task.
 	my @primes = (2, 3, 5, 7);
 	my $p_iter = 1;
 	my $p = $primes[$p_iter];
@@ -73,7 +70,7 @@ BEGIN {
 
 say $result;
 
-my $ref = <<END;
+my $ref = <<'END';
 2, 3, 5, 7, 11, 13, 17, 19, 23, 29
 4, 6, 9, 10, 14, 15, 21, 22, 25, 26
 8, 12, 18, 20, 27, 28, 30, 42, 44, 45
@@ -83,4 +80,4 @@ END
 
 use Test::More;
 is ($result, $ref);
-done_testing();
+done_testing;
