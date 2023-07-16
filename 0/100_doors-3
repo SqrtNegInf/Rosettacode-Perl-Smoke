@@ -13,7 +13,7 @@ $result .= "Door $_ is open\n" for map $_**2, 1 .. 10;
 
 say $result;
 
-my $ref = <<END;
+my $ref = <<'END';
 Door 1 is open
 Door 4 is open
 Door 9 is open
@@ -28,4 +28,4 @@ END
 
 use Test::More;
 is ($result, $ref);
-done_testing();
+done_testing;
