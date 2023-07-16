@@ -38,7 +38,7 @@ my %h2;
 $h2{divisor_sum($_)-$_ <=> $_}++ for 1..20000;
 say my $result2b = "Perfect: $h2{0}    Deficient: $h2{-1}    Abundant: $h2{1}";
 
-my $ref = <<EOD;
+my $ref = <<'EOD';
  1 Deficient
  2 Deficient
  3 Deficient
@@ -59,4 +59,4 @@ is ($result1a, $ref);
 is ($result1b, 'Perfect: 4    Deficient: 7508    Abundant: 2488');
 is ($result2a, $ref);
 is ($result2b, 'Perfect: 4    Deficient: 15043    Abundant: 4953');
-done_testing();
+done_testing;
