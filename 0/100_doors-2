@@ -18,7 +18,7 @@ $result .= "The rest are closed\n";
 
 say $result;
 
-my $ref = <<END;
+my $ref = <<'END';
 Door 1 is Open
 Door 4 is Open
 Door 9 is Open
@@ -34,4 +34,4 @@ END
 
 use Test::More;
 is ($result, $ref);
-done_testing();
+done_testing;
