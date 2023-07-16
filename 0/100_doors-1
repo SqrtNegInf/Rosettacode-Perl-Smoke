@@ -3,11 +3,10 @@
 #c# 2018-07-09 <RC
 #p# OK
 
-my $result;
-
 use strict;
 use warnings;
 use feature 'say';
+my $result;
 
 my @doors;
 for my $pass (1 .. 100) {
@@ -23,7 +22,7 @@ for (1 .. 100) { $result .= "Door $_ is open\n" if $doors[$_] }
 
 say $result;
 
-my $ref = <<END;
+my $ref = <<'END';
 Door 1 is open
 Door 4 is open
 Door 9 is open
@@ -38,4 +37,4 @@ END
 
 use Test::More;
 is ($result, $ref);
-done_testing();
+done_testing;
