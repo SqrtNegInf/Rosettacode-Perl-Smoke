@@ -8,15 +8,16 @@ use warnings;
 use feature 'say';
 my $result;
 
-use ntheory qw/divisor_sum/;
+use ntheory 'divisor_sum';
+
 for my $x (1..20000) {
-  my $y = divisor_sum($x)-$x;
-  $result .= "$x $y\n" if $y > $x && $x == divisor_sum($y)-$y;
+  my $y = divisor_sum($x) - $x;
+  $result .= "$x $y\n" if $y > $x && $x == divisor_sum($y) - $y;
 }
 
 say $result;
 
-my $ref = <<END;
+my $ref = <<'END';
 220 284
 1184 1210
 2620 2924
@@ -29,4 +30,4 @@ END
 
 use Test::More;
 is ($result, $ref);
-done_testing();
+done_testing;
