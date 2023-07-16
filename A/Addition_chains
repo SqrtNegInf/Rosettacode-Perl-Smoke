@@ -9,7 +9,7 @@ use warnings;
 use feature 'say';
 my @res;
 
-my @Example = ();
+my @Example;
  
 sub checkSeq {
    my($pos, $n, $minLen, @seq) = @_;
@@ -70,7 +70,7 @@ sub isAdditionChain {
       my $ok = 0;
       for my $j (reverse 0 .. $i-1) {
          for my $k (reverse 0 .. $j) {
-            $ok = 1, last if $a[$j]+$a[$k] == $a[$i];
+            ($ok = 1, last) if $a[$j]+$a[$k] == $a[$i];
          }
       }
       return 0 unless $ok;
@@ -84,7 +84,7 @@ sub isBrauer {
    for my $i (2 .. $#a) {
       my $ok = 0;
       for my $j (reverse 0 .. $i-1) {
-         $ok = 1, last if $a[$i-1]+$a[$j] == $a[$i];
+         ($ok = 1, last) if $a[$i-1]+$a[$j] == $a[$i];
       }
       return 0 unless $ok;
    }
@@ -111,8 +111,8 @@ sub findNonBrauer {
    return $count - $brauer;
 }
  
-my @nums = (7, 14, 21, 29, 32, 42, 64);  # unlock below for extra credits,
-                                         # 47, 79, 191, 382, 379, 379, 12509);
+my @nums = <7 14 21 29 32 42 64>;  # unlock below for extra credits
+                                   # 47 79 191 382 379 379 12509>;
 say "Searching for Brauer chains up to a minimum length of 12:";
 for (@nums) { findBrauer $_, 12, 79 }
  
@@ -172,4 +172,4 @@ say my $result = join "\n", @res;
 use Test::More;
 chop $ref;
 is($result, $ref);
-done_testing();
+done_testing;
