@@ -3,11 +3,12 @@
 #c# 2018-07-11 <RC
 #p# OK
 
-use warnings;
 use strict;
+use warnings;
 use feature 'say';
+my $result;
 
-use ntheory qw/factor/;
+use ntheory 'factor';
 
 sub almost {
   my($k,$n) = @_;
@@ -15,11 +16,11 @@ sub almost {
   map { $i++ while scalar factor($i) != $k; $i++ } 1..$n;
 }
 
-my $result;
-$result .= "$_ : " . join(" ", almost($_,10)) . "\n" for 1..5;
+$result .= "$_ : " . join(' ', almost($_,10)) . "\n" for 1..5;
+
 say $result;
 
-my $ref = <<END;
+my $ref = <<'END';
 1 : 2 3 5 7 11 13 17 19 23 29
 2 : 4 6 9 10 14 15 21 22 25 26
 3 : 8 12 18 20 27 28 30 42 44 45
@@ -29,4 +30,4 @@ END
 
 use Test::More;
 is ($result, $ref);
-done_testing();
+done_testing;
