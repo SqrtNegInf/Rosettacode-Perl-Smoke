@@ -6,7 +6,6 @@
 use strict;
 use warnings;
 use feature 'say';
-my $result;
 
 use Math::BigInt;
 
@@ -14,18 +13,14 @@ use constant two => Math::BigInt->new(2);
 
 sub ack {
 	my $n = pop;
-	while( @_ ) {
+	while (@_) {
 		my $m = pop;
 		if( $m > 3 ) {
 			push @_, (--$m) x $n;
 			push @_, reverse 3 .. --$m;
 			$n = 13;
 		} elsif( $m == 3 ) {
-			if( $n < 29 ) {
-				$n = ( 1 << ( $n + 3 ) ) - 3;
-			} else {
-				$n = two ** ( $n + 3 ) - 3;
-			}
+			$n = $n < 29 ? (1 << ($n + 3)) - 3 : two ** ($n + 3) - 3;
 		} elsif( $m == 2 ) {
 			$n = 2 * $n + 3;
 		} elsif( $m >= 0 ) {
@@ -34,16 +29,14 @@ sub ack {
 			die "negative m!";
 		}
 	}
-	$n;
+	$n
 }
  
-$result  = "ack(3,4) is " . ack(3,4). "\n";
-$result .= "ack(4,1) is ". ack(4,1). "\n";
-$result .= "ack(4,2) has ". length(ack(4,2)). " digits\n";
+say my $result  = 'ack(3,4) is '  . ack(3,4). "\n"   .
+                  'ack(4,1) is '  . ack(4,1). "\n"   .
+                  'ack(4,2) has ' . length(ack(4,2)) . " digits\n";
 
-say $result;
-
-my $ref = <<END;
+my $ref = <<'END';
 ack(3,4) is 125
 ack(4,1) is 65533
 ack(4,2) has 19729 digits
@@ -51,4 +44,4 @@ END
 
 use Test::More;
 is ($result, $ref);
-done_testing();
+done_testing;
