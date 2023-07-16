@@ -24,7 +24,7 @@ sub string_sieve {
     1 while substr($_, $i += 2, 1);
   }
   $_ = substr($_, 1, $n); 
-  # For just the count:  return ($_ =~ tr/0//);
+  # For just the count:  return (tr/0//);
   push @primes, pos while m/0/g;
   @primes;
 }
