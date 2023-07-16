@@ -3,7 +3,7 @@
 #c# 2019-09-03 >RC
 #p# OK
 
-use strict 'vars';
+use strict;
 use warnings;
 use feature 'say';
 use bigint;
@@ -65,4 +65,4 @@ EOD
 use Test::More;
 chomp $ref;
 is($result, $ref);
-done_testing();
+done_testing;
