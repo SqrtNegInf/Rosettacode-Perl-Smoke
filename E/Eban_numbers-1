@@ -16,8 +16,8 @@ sub e_ban {
     my($power) = @_;
     my @n;
     for (1..10**$power) {
-        next unless 0 == $_%2;
-        next if $_ =~ /[789]/ or /[12].$/ or /[135]..$/ or /[135]...$/ or /[135].....$/;
+        next unless 0 == $_ % 2;
+        next if /[789]/ or /[12].$/ or /[135]..$/ or /[135]...$/ or /[135].....$/;
         push @n, $_ unless num2en($_) =~ /e/;
     }
     @n;
@@ -58,4 +58,4 @@ EOD
 use Test::More;
 chomp $ref;
 is($result, $ref);
-done_testing();
+done_testing;
