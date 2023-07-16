@@ -23,7 +23,7 @@ while( ++$i <= 100 )
 
 say $result;
 
-my $ref = <<END;
+my $ref = <<'END';
 Door 1 is open
 Door 4 is open
 Door 9 is open
@@ -38,4 +38,4 @@ END
 
 use Test::More;
 is ($result, $ref);
-done_testing();
+done_testing;
