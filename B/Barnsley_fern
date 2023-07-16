@@ -9,7 +9,6 @@ srand 123456;
 use strict;
 use warnings;
 use feature 'say';
-my $result;
 
 use Imager;
  
@@ -34,11 +33,3 @@ foreach (1 .. 2e5) {
  
 $img->flip(dir => 'v');
 $img->write(file => 'run/barnsleyFern.png');
-
-
-my $ref = <<EOD;
-EOD
-
-use Test::More;
-#is ($result, $ref);
-#done_testing();
