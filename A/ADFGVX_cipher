@@ -11,15 +11,17 @@ use strict;
 use warnings;
 use feature 'say';
 
+use English;
 use List::Util qw( shuffle );
 
-my @code = qw( A D F G V X );                      # generate polybius square
+my @code = qw( A D F G V X );                                   # generate polybius square
 my @pairs = map { my $left = $_; map "$left$_", @code } @code;
-my @letters = shuffle "A" .. 'Z' , 0 .. 9; # randomize polybius
+my @letters = shuffle "A" .. 'Z' , 0 .. 9;                      # randomize polybius
 my %char2pair;
-@char2pair{ @letters } = @pairs;    # map chars to pairs
-my %pair2char = reverse %char2pair; # map pairs to chars
-my $template = <<END;
+@char2pair{ @letters } = @pairs;                                # map chars to pairs
+my %pair2char = reverse %char2pair;                             # map pairs to chars
+
+my $template = <<'END';
   | A D F G V X
 --+------------
 A | x x x x x x
@@ -44,30 +46,26 @@ push @res, "encoded = $encoded\n\n";
 my $decoded = decode( $encoded, $keyword, \%pair2char );
 push @res, "decoded = $decoded\n\n";
 
-sub encode
-  {
+sub encode {
   my ($plain, $keyword, $c2p, %hash) = @_;
   my $len = length $keyword;
   my $cols = transpose($plain =~ s/./$c2p->{$&}/gr =~ s/.{$len}\K(?=.)/\n/gr);
   @hash{split //, $keyword} = split ' ', $cols;
-  return join ' ', @hash{sort keys %hash};
-  }
+  join ' ', @hash{sort keys %hash}
+}
 
-sub decode
-  {
+sub decode {
   my ($encoded, $keyword, $p2c, %hash) = @_;
   @hash{ sort split //, $keyword } = split ' ', $encoded;
-  return transpose( join "\n", @hash{ split //, $keyword }) =~
-    s/\s+//gr =~ s/../$p2c->{$&}/gr;
-  }
+  transpose( join "\n", @hash{ split //, $keyword }) =~ s/\s+//gr =~ s/../$p2c->{$&}/gr
+}
 
-sub transpose
-  {
-  local $_ = shift() =~ s/\s+/\n/gr;
-  my $answer = '';
-  $answer .= ' ' while s/^./ $answer .= $& ; '' /gem;
-  $answer;
-  }
+sub transpose {
+  local $_ = shift =~ s/\s+/\n/gr;
+  my $answer;
+  $answer .= ' ' while s/^./ $answer .= $MATCH ; '' /gem;
+  $answer
+}
 
 say my $result = join '', @res;
 
@@ -95,4 +93,4 @@ EOD
 
 use Test::More;
 is ($result, $ref);
-done_testing();
+done_testing;
