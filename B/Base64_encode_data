@@ -7,16 +7,14 @@ use strict;
 use warnings;
 use MIME::Base64;
 open(my($fh), "<", "ref/rc.ico") or die;
-local $/;
+local $/;   # DH required, but why?
 my @lines = split /\n/, encode_base64(<$fh>);
  
 #The first and last lines of output are:
 my $first = 'AAABAAIAEBAAAAAAAABoBQAAJgAAACAgAAAAAAAAqAgAAI4FAAAoAAAAEAAAACAAAAABAAgAAAAA';
 my $last  = 'AAABAAAAAQAAAAEAAAABAAAAAQAAAAEAAAABAAAAAQAAAAEAAAABAAAAAQAAAAE=';
 
-
 use Test::More;
 is($lines[0],  $first);
 is($lines[-1], $last);
-#is($result.substr(*-23,23), 'QAAAAEAAAABAAAAAQAAAAE=');
-done_testing();
+done_testing;
