@@ -1,4 +1,5 @@
-#!/usr/local/bin/perl #u# http://rosettacode.org/wiki/Commatizing_numbers
+#!/usr/local/bin/perl
+#u# http://rosettacode.org/wiki/Commatizing_numbers
 #c# 2018-08-29 >RC, 2018-09-15 >RC
 #p# OK
 
