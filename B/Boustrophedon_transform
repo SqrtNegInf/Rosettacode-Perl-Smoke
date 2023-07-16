@@ -19,7 +19,7 @@ sub sum  (@a) { my $sum = Math::BigInt->bzero(); $sum += $_ for @a; $sum }
 sub boustrophedon_transform (@seq) {
     my @bt;
     my @bx = $seq[0];
-    for (my $c = 0; $c < @seq; $c++) {  
+    for (my $c = 0; $c < @seq; $c++) {
         @bx = reverse map { sum head $_+1, $seq[$c], @bx } 0 .. $c;
         push @bt, $bx[0];
     }
@@ -38,7 +38,7 @@ for my($name,$seq) (
 ) {
     my @bt = boustrophedon_transform @$seq;
     push @res, "\n$name:\n" . join ' ', @bt[0..14];
-    push @res, "100th term: " . abbr $bt[$upto-1];
+    push @res, '100th term: ' . abbr $bt[$upto-1];
 }
 
 say my $result = join "\n", @res;
