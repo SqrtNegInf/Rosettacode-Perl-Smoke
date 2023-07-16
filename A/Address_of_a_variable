@@ -18,9 +18,8 @@ printf "%x\n", refaddr(\$v);
 printf "%p\n", $v;
 
 #Use Devel::Pointer::PP if you want to dereference a certain address in memory.
-#Changing the address of a variable is not easily possible, but see perlapi. Wanting to go against the automatic memory management is a sign that this is only used to hack around the deficiencies of dafter languages. I can imagine address munging is commonly used to make variable aliasing possible, but Perl already has a higher level syntax for that.
-#Simple reference (address) manipulation.
 
+#Simple reference (address) manipulation.
 my $a = 12;
 my $b = \$a; # get reference
 $$b = $$b + 30; # access referenced value
@@ -37,7 +36,7 @@ $b2++;
 say $a2; # prints 13
 $result .= "$a2\n";
 
-my $ref = <<EOD;
+my $ref = <<'EOD';
 42
 12
 13
@@ -45,4 +44,4 @@ EOD
 
 use Test::More;
 is ($result, $ref);
-done_testing();
+done_testing;
