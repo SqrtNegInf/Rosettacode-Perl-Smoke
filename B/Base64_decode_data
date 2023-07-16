@@ -20,16 +20,15 @@ sub decode_base64 {
     $r; 
 } 
 
-my $data = <<EOD;
-J1R3YXMgYnJpbGxpZywgYW5kIHRoZSBzbGl0aHkgdG92ZXMKRGlkIGd5cmUgYW5kIGdpbWJsZSBp
-biB0aGUgd2FiZToKQWxsIG1pbXN5IHdlcmUgdGhlIGJvcm9nb3ZlcywKQW5kIHRoZSBtb21lIHJh
-dGhzIG91dGdyYWJlLgo=
-EOD
-
+#my $data = <<'EOD';
+#J1R3YXMgYnJpbGxpZywgYW5kIHRoZSBzbGl0aHkgdG92ZXMKRGlkIGd5cmUgYW5kIGdpbWJsZSBp
+#biB0aGUgd2FiZToKQWxsIG1pbXN5IHdlcmUgdGhlIGJvcm9nb3ZlcywKQW5kIHRoZSBtb21lIHJh
+#dGhzIG91dGdyYWJlLgo=
+#EOD
 #say $result = decode_base64($data);
 
 # yes, yes, this is not good style... But it works!
-say my $result = decode_base64(<<EOD
+say my $result = decode_base64(<<'EOD'
 J1R3YXMgYnJpbGxpZywgYW5kIHRoZSBzbGl0aHkgdG92ZXMKRGlkIGd5cmUgYW5kIGdpbWJsZSBp
 biB0aGUgd2FiZToKQWxsIG1pbXN5IHdlcmUgdGhlIGJvcm9nb3ZlcywKQW5kIHRoZSBtb21lIHJh
 dGhzIG91dGdyYWJlLgo=
@@ -45,4 +44,4 @@ EOD
 
 use Test::More;
 is($result, $ref);
-done_testing();
+done_testing;
