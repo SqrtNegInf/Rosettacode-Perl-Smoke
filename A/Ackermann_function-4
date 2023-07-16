@@ -27,7 +27,7 @@ $result .= "ack2(4,2) has ". length(ack2(4,2)). " digits\n";
 
 say $result;
 
-my $ref = <<END;
+my $ref = <<'END';
 ack2(3,4) is 125
 ack2(4,1) is 65533
 ack2(4,2) has 19729 digits
@@ -35,4 +35,4 @@ END
 
 use Test::More;
 is ($result, $ref);
-done_testing();
+done_testing;
