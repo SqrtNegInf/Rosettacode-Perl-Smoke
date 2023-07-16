@@ -3,11 +3,11 @@
 #c# 2018-07-16 <RC
 #p# OK
 
+use strict;
+use warnings;
 use feature 'say';
 my $result;
 
-use strict;
-use warnings;
 use POSIX 'log10';
  
 my @fibonacci = ( 0 , 1  );
@@ -18,7 +18,9 @@ my @actuals;
 my @expected;
 for my $i( 1..9 ) {
    my $sum = 0;
-   map { $sum++ if $_ =~ /\A$i/ } @fibonacci;
+  #map { $sum++ if /\A$i/ } @fibonacci;
+  #/\A$i/ and $sum++ for @fibonacci;
+   for (@fibonacci) { $sum++ if /\A$i/ } 
    push @actuals , $sum / 1000;
    push @expected , log10( 1 + 1/$i );
 }
@@ -46,4 +48,4 @@ EOD
 
 use Test::More;
 is ($result, $ref);
-done_testing();
+done_testing;
