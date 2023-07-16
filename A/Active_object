@@ -2,7 +2,7 @@
 #u# http://rosettacode.org/wiki/Active_object
 #c# 2018-07-11 <RC
 #p# OK
-#n# try to handle results that change with-in and between platforms, getting a bit silly
+#n# weak testing (results change too much with-in and between platforms)
 
 use strict;
 use warnings;
@@ -13,50 +13,50 @@ use threads;
 use threads::shared;
  
 sub new {
-	my $cls = shift;
-	my $obj = bless {	t	=> 0,
-				sum	=> 0,
-				ref $cls ? %$cls : (),
-				stop	=> 0,
-				tid	=> 0,
-				func	=> shift,
-			}, ref $cls || $cls;
+    my $cls = shift;
+    my $obj = bless {    t    => 0,
+                sum    => 0,
+                ref $cls ? %$cls : (),
+                stop    => 0,
+                tid    => 0,
+                func    => shift,
+            }, ref $cls || $cls;
  
-	share($obj->{sum});
-	share($obj->{stop});
+    share($obj->{sum});
+    share($obj->{stop});
  
-	$obj->{tid} = async {
-		my $upd = 0.1; # update every 0.1 second
-		while (!$obj->{stop}) {
-			{
-				my $f = $obj->{func};
-				my $t = $obj->{t};
+    $obj->{tid} = async {
+        my $upd = 0.1; # update every 0.1 second
+        while (!$obj->{stop}) {
+            {
+                my $f = $obj->{func};
+                my $t = $obj->{t};
  
-				$obj->{sum} += ($f->($t) + $f->($t + $upd))* $upd/ 2;
-				$obj->{t} += $upd;
-			}
-			select(undef, undef, undef, $upd);
-		}
-	#	say "stopping $obj";
-	};
-	$obj
+                $obj->{sum} += ($f->($t) + $f->($t + $upd))* $upd/ 2;
+                $obj->{t} += $upd;
+            }
+            select(undef, undef, undef, $upd);
+        }
+       #say "stopping $obj";
+    };
+    $obj
 }
  
 sub output { shift->{sum} }
  
 sub delete {
-	my $obj = shift;
-	$obj->{stop} = 1;
-	$obj->{tid}->join;
+    my $obj = shift;
+    $obj->{stop} = 1;
+    $obj->{tid}->join;
 }
  
 sub setinput {
-	# This is surprisingly difficult because of the perl sharing model.
-	# Func refs can't be shared, thus can't be replaced by another thread.
-	# Have to create a whole new object... there must be a better way.
-	my $obj = shift;
-	$obj->delete;
-	$obj->new(shift);
+    # This is surprisingly difficult because of the perl sharing model.
+    # Func refs can't be shared, thus can't be replaced by another thread.
+    # Have to create a whole new object... there must be a better way.
+    my $obj = shift;
+    $obj->delete;
+    $obj->new(shift);
 }
  
 package main;
@@ -77,4 +77,4 @@ use Test::More;
 ok $x2sec < 1;
 #ok $x2sec =~ /^(0\.4132|0\.5710|0\.61592|0\.50124|5\.51642|0.63137|0\.015450)/;
 #ok $xhalf =~ /^(0\.4132|0\.5710|0\.61592|0\.50124|5\.51642|0.63137|0\.015450)/;
-done_testing();
+done_testing;
