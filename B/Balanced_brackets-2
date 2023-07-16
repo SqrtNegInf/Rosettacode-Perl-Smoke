@@ -37,7 +37,7 @@ for (0..8) {
 
 say $result;
 
-my $ref = <<END;
+my $ref = <<'END';
 bad: ''
  ok: '[]'
  ok: '[[]]'
