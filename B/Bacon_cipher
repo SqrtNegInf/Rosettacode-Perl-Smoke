@@ -7,7 +7,7 @@
 use strict;
 use warnings;
 use feature 'say';
-use utf8;
+#use utf8;
 
 my $secret = <<'END';
 This task is to implement a program for encryption and decryption
@@ -17,7 +17,7 @@ signify anything). This example will work with anything in the
 ASCII range... even code! $r%_-^&*(){}+~ #=`/\';*1234567890"'
 END
  
-my $text = <<'END';
+my $plaintext = <<'END';
 Bah. It isn't really practical to use typeface changes to encode
 information, it is too easy to tell that there is something going
 on and will attract attention. Font changes with enough regularity
@@ -67,11 +67,12 @@ sub reveal {
 }
 
 my @hidden = map  { encode($_) } split '', $secret;
-my $steganography = hide($text, @hidden);
+my $steganography = hide($plaintext, @hidden);
 my $decoded       = reveal $steganography;
 
-open my $fh, '>', 'run/bacon_cipher.txt';
-binmode($fh, ':utf8');
+#open my $fh, '>', 'run/bacon_cipher.txt';
+#binmode($fh, ':utf8');
+open my $fh, '>:encoding(UTF-8)', 'run/bacon_cipher.txt';
 say $fh 'Steganograpic message hidden in text:';
 say $fh $steganography;
 say $fh 'Hidden message revealed:';
