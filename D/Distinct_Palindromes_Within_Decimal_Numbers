@@ -10,13 +10,15 @@ use strict;
 use warnings;
 use feature 'say';
 
+use English;
+
 for ( 100 .. 125 ) {
   my %found;
-  /.+(?{$& eq reverse $& and $found{$&}++})(*FAIL)/;
+  /.+(?{$MATCH eq reverse $MATCH and $found{$MATCH}++})(*FAIL)/;
   push @res, "$_ => @{[ sort { $a <=> $b } keys %found ]}"
 }
 
-/..+(??{$& == (reverse $&) ? '' : '(*FAIL)' })/ and
+/..+(??{$MATCH == (reverse $MATCH) ? '' : '(*FAIL)' })/ and
   push @res, "$_ has a palindrome of 2 or more"
   for ' 9, 169, 12769, 1238769, 123498769, 12346098769, 1234572098769,
     123456832098769, 12345679432098769, 1234567905432098769,
@@ -59,4 +61,4 @@ EOD
 use Test::More;
 chomp $ref;
 is ($result, $ref);
-done_testing();
+done_testing;
