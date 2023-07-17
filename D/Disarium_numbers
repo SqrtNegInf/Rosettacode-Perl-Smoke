@@ -11,7 +11,7 @@ use feature 'say';
 my ($n,@D) = (0, 0);
 while (++$n) {
     my($m,$sum);
-    map { $sum += $_ ** ++$m } split '', $n;
+    $sum += $_ ** ++$m for split '', $n;
     push @D, $n if $n == $sum;
     last if 19 == @D;
 }
@@ -23,4 +23,4 @@ my $ref = '0 1 2 3 4 5 6 7 8 9 89 135 175 518 598 1306 1676 2427 2646798';
 use Test::More;
 chomp $ref;
 is($result, $ref);
-done_testing();
+done_testing;
