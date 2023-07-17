@@ -7,8 +7,10 @@
 my @res;
 
 use strict;
+use warnings;
 use feature 'say';
-use ntheory qw/forsetproduct/;
+
+use ntheory 'forsetproduct';
 
 # Deconvolution of N dimensional matrices
 sub deconvolve_N {
@@ -45,7 +47,7 @@ sub row {
         my @fc;
         for my $i (0..$#hc) {
             my $window = $gc[$i] - $hc[$i];
-            push(@fc, $window), next if 0 <= $window < $fdim[$i];
+            (push(@fc, $window), next) if 0 <= $window < $fdim[$i];
         }
         push @row, $#fc == $#hc ? $f [$fc[0]] [$fc[1]] [$fc[2]] : 0;
     }
@@ -216,4 +218,4 @@ END
 use Test::More;
 chop $ref;
 is ($result, $ref);
-done_testing();
+done_testing;
