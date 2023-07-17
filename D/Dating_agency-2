@@ -21,7 +21,7 @@ for my $name ( qw( Adam Bob Conrad Drew Eddie Fred George Harry Ian Jake Ken Lar
     $laddies{$name}{lovable} = hex substr sha1_hex($name), -4, 4;
 }
 
-for my $name ( < Elizabeth Swift Rip > ) {
+for my $name ( < Elizabeth Swift Rip > ) {          # DH P:C mis-reads this as readline
     $taylors{$name}{loves}   = hex substr sha1_hex($name),  0, 4;
     $taylors{$name}{lovable} = hex substr sha1_hex($name), -4, 4;
 }
@@ -61,4 +61,4 @@ END
 
 use Test::More;
 is($result, $ref);
-done_testing();
+done_testing;
