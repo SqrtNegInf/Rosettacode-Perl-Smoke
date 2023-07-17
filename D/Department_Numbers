@@ -34,7 +34,7 @@ foreach my $police_number (@even_numbers)
         $result1 .= "$police_number\t$fire_number\t$sanitation_number\n";
       }
     }
-  }	
+  }
 }
  
 say $result1; 
@@ -97,4 +97,4 @@ EOD
 use Test::More;
 is ($result1, $ref1);
 is ($result2, $ref2);
-done_testing();
+done_testing;
