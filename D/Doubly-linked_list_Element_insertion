@@ -5,7 +5,6 @@
 #p# OK
 
 use feature 'say';
-my $result;
 
 use Data::Dumper;
 
@@ -34,6 +33,5 @@ $node_b->{prev} = $node_a;
 # insert element C into a list {A,B}, between elements A and B.
 my $node_c = { %node_model };
 insert($node_a, $node_c);
-
 
 #say Dumper $node_c;
