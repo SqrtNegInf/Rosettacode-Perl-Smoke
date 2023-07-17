@@ -2686,6 +2686,7 @@ File: D/Discrete_Fourier_transform
 #c# 2021-06-17 <RC
 #p# OK
 #n# changes not on RC
+#n# 2023-07-17 depends on modifying $_ in 'map', not kosher but leaving as-is for now
 
 File: D/Display_a_linear_combination
 #!/usr/local/bin/perl
@@ -4781,6 +4782,13 @@ File: H/Host_introspection
 #u# http://rosettacode.org/wiki/Host_introspection
 #c# 2018-08-13 <RC
 #p# OK
+
+File: H/Host_introspection-2
+#!/usr/local/bin/perl
+#u# http://rosettacode.org/wiki/Host_introspection
+#c# 2023-07-17 NOT ON RC
+#p# OK
+#n# 2023-07-17 goof around with 'match'
 
 File: H/Hostname
 #!/usr/local/bin/perl
