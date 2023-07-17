@@ -1,7 +1,7 @@
 
 This is perl 5, version 36, subversion 0 (v5.36.0) built for darwin-thread-multi-2level
 updating from RC…
-+------------> Perl: Good/Bad [419/1]
++------------> Perl: Good/Bad [420/1]
 |+-----------> Smoke testing [394]
 ||+----------> sKipping validation [26]
 |||+---------> Interactive [15]
@@ -76,7 +76,7 @@ GS......... Align_columns-2
 GS......... Aliquot_sequence_classifications
 GS......... Almkvist-Giullera_formula_for_pi
 GS......... Almost_prime-1
-!S......... Almost_prime-2
+GS......... Almost_prime-2
 GS.....D... Alternade_words
 GS......... Amb-1
 GS......... Amb-2
