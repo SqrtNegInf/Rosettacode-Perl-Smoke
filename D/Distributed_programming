@@ -5,57 +5,58 @@
 #i# RC cli: wait
 #n# tweaked to self-test: call with an argument, but then run a copy (with slight delay) without no arg.
 
+use v5.36;
+
 my $result;
 
-use v5.36.0;
-
-# Using Data::Dumper and Safe to transmit arbitrary data structures as serialized text between hosts. Same code works as both sender and receiver.
+# Using Data::Dumper and Safe to transmit arbitrary data structures as
+# serialized text between hosts. Same code works as both sender and receiver.
 
 use Data::Dumper;
 use IO::Socket::INET;
 use Safe;
  
 sub get_data {
-	my $sock = IO::Socket::INET->new(
-		LocalHost =>	'localhost',
-		LocalPort =>	'10000',
-		Proto =>	'tcp',
-		Listen =>	1,
-		Reuse =>	1);
-	unless ($sock) { die 'Socket creation failure' }
-	my $cli = $sock->accept();
+    my $sock = IO::Socket::INET->new(
+        LocalHost =>    'localhost',
+        LocalPort =>    '10000',
+        Proto =>    'tcp',
+        Listen =>    1,
+        Reuse =>    1);
+    unless ($sock) { die 'Socket creation failure' }
+    my $cli = $sock->accept();
  
-	# of course someone may be tempted to send you 'system("rm -rf /")',
-	# to be safe(r), use Safe::
-	my $safe = Safe->new;
-	my $x = $safe->reval(join '', <$cli>);
-	close $cli;
-	close $sock;
-	return $x;
+    # of course someone may be tempted to send you 'system("rm -rf /")',
+    # to be safe(r), use Safe::
+    my $safe = Safe->new;
+    my $x = $safe->reval(join '', <$cli>);      # DH P:C complains
+    close $cli;
+    close $sock;
+    return $x;
 }
  
 sub send_data {
-	my $host = shift;
-	my $data = shift;
-	my $sock = IO::Socket::INET->new(
-		PeerAddr =>	"$host:10000",
-		Proto =>	'tcp',
-		Reuse =>	1);
+    my $host = shift;
+    my $data = shift;
+    my $sock = IO::Socket::INET->new(
+        PeerAddr =>    "$host:10000",
+        Proto =>    'tcp',
+        Reuse =>    1);
  
-	unless ($sock) { die 'Socket creation failure' }
+    unless ($sock) { die 'Socket creation failure' }
  
-	print $sock Data::Dumper->Dump([$data]);
-	close $sock;
+    print $sock Data::Dumper->Dump([$data]);
+    close $sock;
 }
  
 if (@ARGV) {
     system("$0 &"); # DH trick of self-test
-	my $x = get_data();
-	$result = "Got data\n" . Data::Dumper->Dump([$x]);
+    my $x = get_data();
+    $result = "Got data\n" . Data::Dumper->Dump([$x]);
 } else {
     sleep 1;
-	send_data('localhost', { b=>[1 .. 10] });
-	#send_data('localhost', { a=>100, b=>[1 .. 10] }); # hash elements might print as a/b or b/a
+    send_data('localhost', { b=>[1 .. 10] });
+    #send_data('localhost', { a=>100, b=>[1 .. 10] }); # hash elements might print as a/b or b/a
     exit;
 }
 
@@ -83,4 +84,4 @@ EOD
 use Test::More;
 chomp $ref;
 is ($result, $ref);
-done_testing();
+done_testing;
