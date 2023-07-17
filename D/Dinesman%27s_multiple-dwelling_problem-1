@@ -48,7 +48,7 @@ sub parse_and_solve {
     my $id = sub { defined $_[0] ? $ids{$_[0]} //= $i++ : () };
  
     foreach (@facts) {
-        /$parser/ or die "Cannot parse '$_'\n";
+        /$parser/ or die "Cannot parse '$_'\n";     # basis for $+ (aka $LAST_PAREN_MATCH)
  
         my $pred = $predicates{$+{pred}};
         { no warnings;
