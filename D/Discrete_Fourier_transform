@@ -3,6 +3,7 @@
 #c# 2021-06-17 <RC
 #p# OK
 #n# changes not on RC
+#n# 2023-07-17 depends on modifying $_ in 'map', not kosher but leaving as-is for now
 
 my @res;
 
@@ -16,23 +17,22 @@ use constant EPS => 1e-10;           # not 'ESP' I'd think...
 
 sub dft {
    my $n = scalar ( my @in = @_ );
-   #return map { # probably clearer to leave in?
+   #return map { # clearer to leave in? compare with below
    map {
       my $s=0;
       for my $k (0 .. $n-1) { $s += $in[$k] * exp(-2*i * PI * $k * $_ / $n) }
       $_ = $s;
-   } (0 .. $n-1);
+   } 0 .. $n-1;
 }
 
 sub idft {
    my $n = scalar ( my @in = @_ );
-   #return map { # probably clearer to leave in?
-   map {
+   return map {
       my $s=0;
       for my $k (0 .. $n-1) { $s += $in[$k] * exp(2*i * PI * $k * $_ / $n) }
       my $t = $s/$n;
       $_ = abs(Im $t) < EPS ? Re($t) : $t  
-   } (0 .. $n-1);
+   } 0 .. $n-1;
 }
 
 push @res, 'Original sequence                  : '. join ', ', my @series = ( 2, 3, 5, 7, 11 );
@@ -57,4 +57,4 @@ EOD
 use Test::More;
 chomp $ref;
 is ($result, $ref);
-done_testing();
+done_testing;
