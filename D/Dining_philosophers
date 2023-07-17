@@ -5,8 +5,6 @@
 #n# 2023-03-22 finally, testing added
 #f# RC file: dining.txt
 
-my @res;
-
 srand 123456;
 
 use strict;
@@ -66,12 +64,6 @@ my @t = map { threads->new(\&philosopher, $_) } 0 .. $#names;
 for my $thread ( @t ) {
    $thread->join;
 }
- 
-#print "Done\n";
-
-# testing only totals
-#use Test::More;
-#done_testing();
 
 __END__
  
