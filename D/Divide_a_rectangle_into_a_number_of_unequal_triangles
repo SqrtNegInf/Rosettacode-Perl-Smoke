@@ -37,8 +37,8 @@ sub UnequalDivider {
     for (0 .. @base) {
         push @vertices, [$bPartial/$bTotal*$L,0];
         if (@base == 1) {
-            0 == $N%2 ? return @vertices, ([$L,$H], [$L,0])
-                      : return @vertices, ([$L*(1-$roof[-1]/$rTotal),$H], [$L,0], [$L,$H]);
+            0 == $N%2 ? return (@vertices, ([$L,$H], [$L,0]))
+                      : return (@vertices, ([$L*(1-$roof[-1]/$rTotal),$H], [$L,0], [$L,$H]));
         }
         ($bPartial) += shift @base;
         ($rPartial) += shift @roof;
@@ -65,4 +65,4 @@ EOD
 use Test::More;
 chomp $ref;
 is ($result, $ref);
-done_testing();
+done_testing;
