@@ -10,88 +10,88 @@ use warnings;
 my $result;
 
 # Basically the same idea as C, though of course it's much easier to have Perl generate Perl code.
- 
+
 use utf8;
 binmode STDOUT, ":utf8";
- 
+
 my (@tgt, %names);
 sub setprops {
-	my %h = @_;
-	my @p = keys %h;
-	for my $p (@p) {
-		my @v = @{ $h{$p} };
-		@tgt = map(+{idx=>$_-1, map{ ($_, undef) } @p}, 1 .. @v)
-			unless @tgt;
-		$names{$_} = $p for @v;
-	}
+    my %h = @_;
+    my @p = keys %h;
+    for my $p (@p) {
+        my @v = @{ $h{$p} };
+        @tgt = map(+{idx=>$_-1, map{ ($_, undef) } @p}, 1 .. @v)
+            unless @tgt;
+        $names{$_} = $p for @v;
+    }
 }
- 
+
 my $solve = sub {
-	for my $i (@tgt) {
-		$result .= sprintf("%12s", ucfirst($i->{$_} // "¿Qué?"))
-				for reverse sort keys %$i;
-		$result .= "\n";
-	}
-	#"there is only one"  # <--- change this to a false value to find all solutions (if any)
+    for my $i (@tgt) {
+        $result .= sprintf("%12s", ucfirst($i->{$_} // "¿Qué?"))
+                for reverse sort keys %$i;
+        $result .= "\n";
+    }
+    #"there is only one"  # <--- change this to a false value to find all solutions (if any)
 };
- 
+
 sub pair {
-	my ($a, $b, @v) = @_;
-	if ($a =~ /^(\d+)$/) {
-		$tgt[$1]{ $names{$b} } = $b;
-		return;
-	}
- 
-	@v = (0) unless @v;
-	my %allowed;
-	$allowed{$_} = 1 for @v;
- 
-	my ($p1, $p2) = ($names{$a}, $names{$b});
- 
-	my $e = $solve;
-	$solve = sub {		# <--- sorta like how TeX \let...\def macro
-		my ($x, $y);
- 
+    my ($a, $b, @v) = @_;
+    if ($a =~ /^(\d+)$/) {
+        $tgt[$1]{ $names{$b} } = $b;
+        return;
+    }
+
+    @v = (0) unless @v;
+    my %allowed;
+    $allowed{$_} = 1 for @v;
+
+    my ($p1, $p2) = ($names{$a}, $names{$b});
+
+    my $e = $solve;
+    $solve = sub {        # <--- sorta like how TeX \let...\def macro
+        my ($x, $y);
+
         # DH - supress warnings with 'blah &&'
-		($x) = grep { $_->{$p1} && $_->{$p1} eq $a } @tgt; 
-		($y) = grep { $_->{$p2} && $_->{$p2} eq $b } @tgt;
- 
-		$x and $y and
-			return $allowed{ $x->{idx} - $y->{idx} } && $e->();
- 
-		my $try_stuff = sub {
-			my ($this, $p, $v, $sign) = @_;
-			for (@v) {
-				my $i = $this->{idx} + $sign * $_;
-				next unless $i >= 0 && $i < @tgt && !$tgt[$i]{$p};
-				local $tgt[$i]{$p} = $v;
-				$e->() and return 1;
-			}
-			return
-		};
- 
-		$x and return $try_stuff->($x, $p2, $b, 1);
-		$y and return $try_stuff->($y, $p1, $a, -1);
- 
-		for $x (@tgt) {
-			next if $x->{$p1};
-			local $x->{$p1} = $a;
-			$try_stuff->($x, $p2, $b, 1) and return 1;
-		}
-	};
+        ($x) = grep { $_->{$p1} && $_->{$p1} eq $a } @tgt; 
+        ($y) = grep { $_->{$p2} && $_->{$p2} eq $b } @tgt;
+
+        $x and $y and
+            return $allowed{ $x->{idx} - $y->{idx} } && $e->();
+
+        my $try_stuff = sub {
+            my ($this, $p, $v, $sign) = @_;
+            for (@v) {
+                my $i = $this->{idx} + $sign * $_;
+                next unless $i >= 0 && $i < @tgt && !$tgt[$i]{$p};
+                local $tgt[$i]{$p} = $v;
+                $e->() and return 1;
+            }
+            return
+        };
+
+        $x and return $try_stuff->($x, $p2, $b, 1);
+        $y and return $try_stuff->($y, $p1, $a, -1);
+
+        for my $xx (@tgt) {     # DH - was just $x, P:C rightly complains
+            next if $xx->{$p1};
+            local $xx->{$p1} = $a;
+            $try_stuff->($xx, $p2, $b, 1) and return 1;
+        }
+    };
 }
- 
+
 # ---- above should be generic for all similar puzzles ---- #
- 
+
 # ---- below: per puzzle setup ---- #
 
 #Incidentally, the same logic can be used to solve the dwelling problem, if somewhat awkwardly:
 
 # property names and values
 setprops
-	'Who'	=> [ <baker cooper fletcher miller smith> ],
-    'Level'	=> [ <one two three four five> ];
- 
+    'Who'   => [ <baker cooper fletcher miller smith> ],
+    'Level' => [ <one two three four five> ];
+
 # constraints
 pair <0 one>;
 pair <1 two>;
@@ -107,9 +107,10 @@ pair <smith fletcher 4 3 2 -2 -3 -4>;
 pair <cooper fletcher 4 3 2 -2 -3 -4>;
 
 $solve->();
+
 say $result; 
 
-my $ref = <<EOD;
+my $ref = <<'EOD';
            0       Smith         One
            1      Cooper         Two
            2       Baker       Three
@@ -119,4 +120,4 @@ EOD
 
 use Test::More;
 is ($result, $ref);
-done_testing();
+done_testing;
