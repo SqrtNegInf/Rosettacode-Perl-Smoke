@@ -5,8 +5,6 @@
 #p# OK
 
 use feature 'say';
-my $result;
-
 
 # The INIT block is runned just before the Perl runtime begins execution. See perlmod
 # Then it tries to get a lock to its own file, from where the script was called.
@@ -20,12 +18,3 @@ INIT
 }
  
 sleep 60; # then your code goes here
-
-
-say $result; 
-my $ref = <<'EOD';
-EOD
-
-use Test::More;
-#is ($result, $ref);
-#done_testing();
