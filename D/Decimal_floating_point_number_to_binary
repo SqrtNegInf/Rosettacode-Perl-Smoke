@@ -12,14 +12,14 @@ my @res;
 sub dec2bin {
     my($l,$r) = split /\./, shift;
     my $int  = unpack('B*',  pack('N',               $l ));
-    my $frac = unpack('B32', pack('N',4294967296 * ".$r"));
+    my $frac = unpack('B32', pack('N',4294967296 * ".$r"));   # DH P:C complains...
     "$int.$frac" =~ s/^0*(.*?)0*$/$1/r;
 }
 
 sub bin2dec {
     my($l,$r) = split /\./, shift;
     my $frac = my $i = 0;
-    --$i, $frac += $_ * 2**$i for split '', $r;
+    (--$i, $frac += $_ * 2**$i) for split '', $r;
     eval('0b'.$l) + $frac;
 }
 
@@ -37,4 +37,4 @@ chomp $ref;
 is($result, $ref);
 is(bin2dec(dec2bin(23.34375)),23.34375);
 is(dec2bin(bin2dec('1011.11101')),'1011.11101');
-done_testing();
+done_testing;
