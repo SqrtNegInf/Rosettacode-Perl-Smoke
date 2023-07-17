@@ -20,7 +20,7 @@ for my $name ( qw( Alice Beth Cecilia Donna Eunice Fran Genevieve Holly Irene Jo
     $ladies{$name}{lovable} = hex substr sha1_hex($name), -4, 4;
 }
 
-for my $name ( < Ahab Brutus Popeye > ) {
+for my $name ( < Ahab Brutus Popeye > ) {   # DH P:C mis-reads this as readline
     $sailors{$name}{loves}   = hex substr sha1_hex($name),  0, 4;
     $sailors{$name}{lovable} = hex substr sha1_hex($name), -4, 4;
 }
@@ -69,4 +69,4 @@ END
 
 use Test::More;
 is($result, $ref);
-done_testing();
+done_testing;
