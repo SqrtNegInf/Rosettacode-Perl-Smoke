@@ -31,7 +31,7 @@ sub digital_root ($n, $b) {
       $n = sum @digit{split '', $inbase};
       $inbase = base($n, $b);
    }
-   $additive_persistance, $n;
+   ($additive_persistance, $n);
 }
  
 my @numbers = <5 627615 39390 588225 393900588225>;
