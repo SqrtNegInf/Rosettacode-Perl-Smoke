@@ -8,25 +8,8 @@ use warnings;
 use feature 'say';
 my $result;
 
-# Most basic example:
-
 use Config;
 say $result .= "UV size: $Config{uvsize}, byte order: $Config{byteorder}";
-
-# More verbose example:
-
-#my ($size, $order, $end) = @Config{qw(uvsize byteorder)};
-#given ($order) {
-#    when (join '', sort split '') { $end = 'little' }
-#    when (join '', reverse sort split '') { $end = 'big' }
-#    default { $end = 'mixed' }
-#}
-#$end = (join '', sort split '') ? 'big' : 'little';
-#say "UV size: $size, byte order: $order ($end-endian)";
-
-#UV size: 4, byte order: 1234 (little-endian)
-#UV size: 4, byte order: 3412 (mixed-endian)
-#UV size: 8, byte order: 87654321 (big-endian)
 
 use Test::More;
 is ($result, 'UV size: 8, byte order: 12345678');
