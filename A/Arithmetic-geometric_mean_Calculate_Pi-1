@@ -14,7 +14,7 @@ my $result;
 use Math::BigFloat try => "GMP,Pari";
  
 my $digits = shift || 100;   # Get number of digits from command line
-say $result = agm_pi($digits). "\n";
+say $result = agm_pi($digits);
  
 sub agm_pi {
   my $digits = shift;
@@ -35,10 +35,11 @@ sub agm_pi {
   return $an;
 }
 
-my $ref = <<EOD;
+my $ref = <<'EOD';
 3.141592653589793238462643383279502884197169399375105820974944592307816406286208998628034825342117068
 EOD
 
 use Test::More;
+chomp $ref;
 is ($result, $ref);
-done_testing();
+done_testing;
