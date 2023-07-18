@@ -27,7 +27,7 @@ sub store {
 # read input and create sorted temporary files
 while (<DATA>) {
     push @chunk, $_;
-    store(\@chunk), @chunk = () if @chunk == $max;
+    ( store(\@chunk), @chunk = () ) if @chunk == $max;
 }
 store(\@chunk) if @chunk;
 
@@ -60,7 +60,7 @@ END
 
 use Test::More;
 is($result,$ref);
-done_testing();
+done_testing;
 
 __DATA__
 432
