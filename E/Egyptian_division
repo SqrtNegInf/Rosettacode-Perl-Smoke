@@ -21,7 +21,7 @@ sub egyptian_divmod {
         $accumulator += 1 << $k;
         $dividend    -= $table[$k];
     }
-    $accumulator, $dividend;
+    ($accumulator, $dividend)
 }
 
 for ([580,34], [578,34], [7532795332300578,235117]) {
@@ -40,4 +40,4 @@ EOD
 use Test::More;
 chop $ref;
 is ($result, $ref);
-done_testing();
+done_testing;
