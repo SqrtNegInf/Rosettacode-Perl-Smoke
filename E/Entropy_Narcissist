@@ -3,8 +3,6 @@
 #c# 2018-07-31 <RC
 #p# OK
 
-my $result;
-
 use v5.36;
  
 sub log2 {
@@ -12,13 +10,13 @@ sub log2 {
    return log( $number ) / log( 2 ) ;
 }
  
-open my $fh, "<$0" || die "Can't open $0!\n";
+open my $fh, '<', $0 || die "Can't open $0!\n";
 my %frequencies ;
 my $totallength = 0 ;
 while ( my $line = <$fh> ) {
    chomp $line ;
    next if $line =~ /^$/ ;
-   map { $frequencies{ $_ }++ } split( // , $line ) ;
+   $frequencies{ $_ }++ for split '', $line;
    $totallength += length ( $line ) ;
 }
 close $fh ;
@@ -32,5 +30,5 @@ $infocontent *= -1 ;
 say "The information content of the source file is $infocontent !" ;
 
 use Test::More;
-like($infocontent, qr/^4\.[89]/);
-done_testing();
+like($infocontent, qr/^4\.88/);
+done_testing;
