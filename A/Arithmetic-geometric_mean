@@ -17,12 +17,8 @@ sub agm ($a0, $g0) {
     return $a0;
 }
  
-say my $result = agm(1, 1/sqrt(2)) . "\n";
-
-my $ref = <<EOD;
-0.847213084793979
-EOD
+say my $result = agm 1, 1/sqrt(2);
 
 use Test::More;
-is ($result, $ref);
-done_testing();
+is ($result, 0.847213084793979);
+done_testing;
