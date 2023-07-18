@@ -3,6 +3,7 @@
 #c# 2018-08-19 <RC
 #p# OK
 #n# for 3 of 8 cases: Redundant argument in sprintf at N/Natural_sorting line 61
+#n# PBP: Sort blocks should have a single statement at line 25
 
 my $result;
 
