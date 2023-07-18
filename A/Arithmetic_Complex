@@ -8,9 +8,8 @@ use warnings;
 use feature 'say';
 my $result;
 
-# The Math::Complex module implements complex arithmetic.
-
 use Math::Complex;
+
 my $a = 1 + 1*i;
 my $b = 3.14159 + 1.25*i;
  
@@ -23,7 +22,7 @@ $result .= sprintf "$_\n" foreach
 
 say $result;
 
-my $ref = <<EOD;
+my $ref = <<'EOD';
 4.14159+2.25i
 1.89159+4.39159i
 -1-i
@@ -33,4 +32,4 @@ EOD
 
 use Test::More;
 is ($result, $ref);
-done_testing();
+done_testing;
