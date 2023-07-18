@@ -28,9 +28,9 @@ sub expon {
    }
 }
 $result .= "3 to the power of 10 as a function is " . expon( 3 , 10 ) . " !\n" ;
-$result .= "3 to the power of 10 as a builtin is " . 3**10 . " !\n" ;
+$result .= "3 to the power of 10 as a builtin is " . (3**10) . " !\n" ;
 $result .= "5.5 to the power of -3 as a function is " . expon( 5.5 , -3 ) . " !\n" ;
-$result .= "5.5 to the power of -3 as a builtin is " . 5.5**-3 . " !\n" ;
+$result .= "5.5 to the power of -3 as a builtin is " . (5.5**-3) . " !\n" ;
 
 say $result;
 
@@ -43,4 +43,4 @@ END
 
 use Test::More;
 is ($result, $ref);
-done_testing();
+done_testing;
