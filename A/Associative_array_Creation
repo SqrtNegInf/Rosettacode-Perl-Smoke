@@ -46,7 +46,7 @@ $result .= ' ' . $hashref->{'three'};
 
 say $result;
 
-my $ref = <<EOD;
+my $ref = <<'EOD';
 val1
 val1
 glorp -47.42
@@ -55,4 +55,4 @@ EOD
 use Test::More;
 chop $ref;
 is ($result, $ref);
-done_testing();
+done_testing;
