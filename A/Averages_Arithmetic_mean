@@ -4,22 +4,19 @@
 #p# OK
 #n# removed example with non-existent module Data::Average
 
-use feature 'say';
-use warnings;
 use strict;
+use warnings;
+use feature 'say';
 
 sub avg {
   @_ or return 0;
-  my $sum = 0;
-  $sum += $_ foreach @_;
+  my $sum;
+  $sum += $_ for @_;
   return $sum/@_;
 }
  
-my $result .= avg(<3 1 4 1 5 9>). "\n";
-
-say $result; 
+say my $result = avg(<3 1 4 1 5 9>);
 
 use Test::More;
-chomp $result;
 is ($result, '3.83333333333333');
-done_testing();
+done_testing;
