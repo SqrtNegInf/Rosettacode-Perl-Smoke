@@ -22,7 +22,7 @@ $result = sprintf
     ;
 
 
-my $ref = <<EOD;
+my $ref = <<'EOD';
 sum:              7
 difference:       -3
 product:          10
@@ -33,4 +33,4 @@ EOD
 
 use Test::More;
 is ($result, $ref);
-done_testing();
+done_testing;
