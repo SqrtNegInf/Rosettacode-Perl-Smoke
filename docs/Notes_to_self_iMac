@@ -1,3 +1,6 @@
+2023-07-18
+Auto-run 'rc-critic' first thing each morning.
+
 2023-07-08
 Now working on enforcing v5.38 coding standards. Start with upgrading bareword file-handles.
 Then move on to misc. issues (some of which really date back to v5.36)
