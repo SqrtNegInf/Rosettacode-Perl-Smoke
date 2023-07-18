@@ -4,8 +4,6 @@
 #p# OK
 #f# RC file: input_output.txt
 
-my $result;
-
 use strict;
 use warnings;
 use feature 'say';
