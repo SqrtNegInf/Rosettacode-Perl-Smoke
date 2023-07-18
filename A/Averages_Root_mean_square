@@ -6,17 +6,15 @@
 use strict;
 use warnings;
 use feature 'say';
-my $result;
 
-sub rms
-{
+sub rms {
         my $r = 0;
         $r += $_**2 for @_;
         sqrt( $r/@_ );
 }
  
-say $result = rms(1..10);
+say my $result = rms(1..10);
 
 use Test::More;
 is ($result, '6.20483682299543');
-done_testing();
+done_testing;
