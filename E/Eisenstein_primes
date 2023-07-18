@@ -3,8 +3,6 @@
 #c# 2023-06-20 >RC
 #p# OK
 
-my @res;
-
 use v5.36;
 
 use Math::AnyNum <pi mod max complex reals is_prime>;
@@ -55,7 +53,7 @@ END
 
 use Test::More;
 is($result, $ref);
-done_testing();
+done_testing;
 
 __END__
 
