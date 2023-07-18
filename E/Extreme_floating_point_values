@@ -6,7 +6,8 @@
 use feature 'say';
 my $result;
 
-# Perl numbers have three formats (integer, floating-point, string) and perlnumber explains the automatic conversions. Arithmetic tends to convert numbers to integers.
+# Perl numbers have three formats (integer, floating-point, string) and perlnumber explains the automatic conversions. 
+# Arithmetic tends to convert numbers to integers.
 # To get negative zero, one must negate a floating-point zero, not an integer zero.
 # So -0 is "0", -0.0 is "-0", but -(1.0 - 1.0) is again "0" because the result of 1.0 - 1.0 is an integer zero.
 # Stringification of minus zero may or may not keep the sign in the string, depending on the platform and Perl version.
@@ -99,4 +100,4 @@ EOD
 
 use Test::More;
 is ($result, $ref);
-done_testing();
+done_testing;
