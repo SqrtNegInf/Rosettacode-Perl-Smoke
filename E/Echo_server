@@ -4,8 +4,6 @@
 #c# 2018-07-30 <RC
 #p# OK
 
-my $result;
-
 use v5.36.0;
 
 # This server will run indefinitely listening in the port 12321 and forking every time a client connects, 
@@ -21,22 +19,22 @@ my $sock = IO::Socket::INET->new(
                                  Listen => 1,   # maximum queued connections
                                  Reuse => 1,
                                 )
-		or die "socket: $!";	# no newline, so perl appends stuff
+        or die "socket: $!";    # no newline, so perl appends stuff
  
-$SIG{CHLD} = 'IGNORE' if $use_fork;	# let perl deal with zombies
+$SIG{CHLD} = 'IGNORE' if $use_fork;    # let perl deal with zombies
  
 print "listening...\n";
 while (1) {
-	# declare $con 'my' so it's closed by parent every loop
+    # declare $con 'my' so it's closed by parent every loop
         my $con = $sock->accept()
-		or die "accept: $!";
-	fork and next if $use_fork;	# following are for child only
+        or die "accept: $!";
+    fork and next if $use_fork;    # following are for child only
  
-	print "incoming..\n";
-	print $con "echo:$_" while(<$con>);	# read each line and write back
-	print "done\n";
+    print "incoming..\n";
+    print $con "echo:$_" while(<$con>);    # read each line and write back
+    print "done\n";
  
-	last	if $use_fork;	# if not forking, loop
+    last    if $use_fork;    # if not forking, loop
 }
  
 # child will reach here and close its copy of $sock before exit
