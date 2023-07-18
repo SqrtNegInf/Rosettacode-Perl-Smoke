@@ -6,12 +6,8 @@
 use strict;
 use warnings;
 use feature 'say';
-my $result;
 
-#This program expects a source file as an argument and uses the standard input and output devices for the algorithm's I/O.
-
-#@ARGV == 1 or die "Please provide exactly one source file as an argument.\n";
-open my $source, '<ref/rules.markov1'; #, $ARGV[0] or die "I couldn't open \"$ARGV[0]\" for reading. ($!.)\n";
+open my $source, '<ref/rules.markov1';
 my @rules;
 while (<$source>)
    {/\A#/ and next;
@@ -22,7 +18,7 @@ close $source;
 my $input = 'I bought a B of As from T S.';
 
 OUTER:
-   {foreach (@rules)
+   {for (@rules)
        {my ($from, $terminating, $to) = @$_;
         $input =~ s/\Q$from\E/$to/
             and ($terminating ? last OUTER : redo OUTER);}}
@@ -30,4 +26,4 @@ say $input;
 
 use Test::More;
 is($input, 'I bought a bag of apples from my brother.');
-done_testing();
+done_testing;
