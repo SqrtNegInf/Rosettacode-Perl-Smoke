@@ -2,16 +2,13 @@
 #u# http://rosettacode.org/wiki/Compiler/syntax_analyzer
 #c# 2018-07-24 <RC
 #p# OK
+#n# 2023-07-18 P::C also seems to suggest non-capturing (?:) where it is in fact required (converted some, gets tiring though)
 
-use feature 'say';
 my $result;
 
-#Tested on perl v5.26.1
-
-#!/usr/bin/perl
- 
-use strict;   # parse.pl - inputs lex, outputs flattened ast
-use warnings; # http://www.rosettacode.org/wiki/Compiler/syntax_analyzer
+use strict;
+use warnings;
+use feature 'say';
  
 my $h = qr/\G\s*\d+\s+\d+\s+/;  # header of each line
  
@@ -25,7 +22,7 @@ $result = want stmtlist(), 'End_of_input';
  
 sub stmtlist
   {
-  /(?=$h (RightBrace|End_of_input))/gcx and return ";\n";
+  /(?=$h (?:RightBrace|End_of_input))/gcx and return ";\n";
   my ($stmt, $stmtlist) = (stmt(), stmtlist());
   $stmtlist eq ";\n" ? $stmt : "Sequence\n$stmt$stmtlist";
   }
@@ -60,7 +57,7 @@ sub expr               # (sort of EBNF) expr = operand { operator expr }
     /$h Integer \s+ (\d+) \n/gcx ? "Integer\t\t$1\n" :
     /$h Identifier \s+ (\w+) \n/gcx ? "Identifier\t$1\n" :
     /$h LeftParen \n/gcx ? want expr(0), 'RightParen' :
-    /$h Op_(negate|subtract) \n/gcx ? "Negate\n" . expr(8) . ";\n" :
+    /$h Op_(?:negate|subtract) \n/gcx ? "Negate\n" . expr(8) . ";\n" :
     /$h Op_not \n/gcx ? "Not\n" . expr(8) . ";\n" :
     /$h Op_add \n/gcx ? expr(8) :
     error "A PRIMARY";
@@ -70,12 +67,12 @@ sub expr               # (sort of EBNF) expr = operand { operator expr }
     $_[0] <= 7 && /$h Op_mod \n/gcx ? "Mod\n$ast" . expr(8) :
     $_[0] <= 6 && /$h Op_add \n/gcx ? "Add\n$ast" . expr(7) :
     $_[0] <= 6 && /$h Op_subtract \n/gcx ? "Subtract\n$ast" . expr(7) :
-    $_[0] == 5 && /(?=$h Op_(less|greater)(equal)? \n)/gcx ? error 'NO ASSOC' :
+    $_[0] == 5 && /(?=$h Op_(?:less|greater)(?:equal)? \n)/gcx ? error 'NO ASSOC' :
     $_[0] <= 5 && /$h Op_lessequal \n/gcx ? "LessEqual\n$ast" . expr(5) :
     $_[0] <= 5 && /$h Op_less \n/gcx ? "Less\n$ast" . expr(5) :
     $_[0] <= 5 && /$h Op_greater \n/gcx ? "Greater\n$ast" . expr(5) :
     $_[0] <= 5 && /$h Op_greaterequal \n/gcx ?  "GreaterEqual\n$ast" . expr(5) :
-    $_[0] == 3 && /(?=$h Op_(not)?equal \n)/gcx ? error 'NO ASSOC' :
+    $_[0] == 3 && /(?=$h Op_(?:not)?equal \n)/gcx ? error 'NO ASSOC' :
     $_[0] <= 3 && /$h Op_equal \n/gcx ? "Equal\n$ast" . expr(3) :
     $_[0] <= 3 && /$h Op_notequal \n/gcx ? "NotEqual\n$ast" . expr(3) :
     $_[0] <= 1 && /$h Op_and \n/gcx ? "And\n$ast" . expr(2) :
@@ -115,7 +112,7 @@ EOD
 
 use Test::More;
 is ($result, $ref);
-done_testing();
+done_testing;
 
 __END__
 1      1 Identifier      count
