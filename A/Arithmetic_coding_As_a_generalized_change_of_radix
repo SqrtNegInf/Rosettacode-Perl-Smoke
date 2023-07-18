@@ -121,7 +121,7 @@ foreach my $str (<DABDDB DABDDBBDDBA ABRACADABRA TOBEORNOTTOBEORTOBEORNOT>) {
 
 say $result;
 
-my $ref = <<EOD;
+my $ref = <<'EOD';
 DABDDB                   =>                 251 * 10^2
 DABDDBBDDBA              =>              167351 * 10^6
 ABRACADABRA              =>             7954170 * 10^4
@@ -130,4 +130,4 @@ EOD
 
 use Test::More;
 is ($result, $ref);
-done_testing();
+done_testing;
