@@ -4,9 +4,11 @@
 #p# OK
 #f# RC file: generatedparser.pl
 #n# not running the generated code, but verfied it worked by hand
+#n# 2023-07-18 the P::C warnings about 'captured value' are wrong
 
 use strict;
 use warnings;
+
 use Path::Tiny;
 
 my $h = qr/\G\s*/;
