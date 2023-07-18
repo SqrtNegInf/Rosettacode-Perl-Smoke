@@ -3,8 +3,6 @@
 #c# 2018-08-08 <RC
 #p# OK
 
-my $result;
-
 use strict;
 use warnings;
 use feature 'say';
@@ -16,7 +14,7 @@ my $copy = 'run/write_entire_file.dat';
 say my $mtime1 = (stat($file))[9]; # seconds since the epoch
 
 # you should use the more legible version below:
-use File::stat qw(stat);
+use File::stat 'stat';
 say my $mtime2 = stat($file)->mtime; # seconds since the epoch
 
 # keep atime unchanged, set mtime to current time
@@ -27,4 +25,4 @@ say my $mtime3 = stat($copy)->mtime; # seconds since the epoch
 use Test::More;
 is  ($mtime1, $mtime2);
 isnt($mtime1, $mtime3);
-done_testing();
+done_testing;
