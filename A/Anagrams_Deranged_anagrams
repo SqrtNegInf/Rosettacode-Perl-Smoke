@@ -22,14 +22,14 @@ sub find_deranged {
                 for my $j ( $i+1 .. $#_ ) {
                         next unless deranged $_[$i], $_[$j];
 
-                        $result = "length " . length($_[$i]) . ": $_[$i] => $_[$j]\n";
+                        say $result = "length " . length($_[$i]) . ": $_[$i] => $_[$j]\n";
                         return 1;
                 }
         }
 }
 
 my %letter_list;
-open my $in, 'ref/unixdict.txt';
+open my $in, '<', 'ref/unixdict.txt';
 
 local $/ = undef;
 
@@ -46,12 +46,6 @@ for (   sort { length($b) <=> length($a) }      # sort by length, descending
         last if find_deranged(@{ $letter_list{$_} });
 }
 
-say $result;
-
-my $ref = <<'END';
-length 10: excitation => intoxicate
-END
-
 use Test::More;
-is ($result, $ref);
-done_testing();
+is ($result, "length 10: excitation => intoxicate\n");
+done_testing;
