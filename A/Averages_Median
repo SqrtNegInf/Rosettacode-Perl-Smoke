@@ -6,10 +6,7 @@
 use strict;
 use warnings;
 use feature 'say';
-my $result;
 
-
-# Translation of: Python
 sub median {
   my @a = sort {$a <=> $b} @_;
   return ($a[$#a/2] + $a[@a/2]) / 2;
@@ -21,4 +18,4 @@ say median(27.984, 89.172, 0.250, 66.316, 41.805, 60.043), 50.924;
 use Test::More;
 is(median(28.207,74.916, 51.695, 72.486, 51.118, 3.241, 73.807), 51.695);
 is(median(27.984, 89.172, 0.250, 66.316, 41.805, 60.043), 50.924);
-done_testing();
+done_testing;
