@@ -1937,6 +1937,7 @@ File: C/Compiler_syntax_analyzer
 #u# http://rosettacode.org/wiki/Compiler/syntax_analyzer
 #c# 2018-07-24 <RC
 #p# OK
+#n# 2023-07-18 P::C also seems to suggest non-capturing (?:) where it is in fact required (converted some, gets tiring though)
 
 File: C/Compiler_virtual_machine_interpreter
 #!/usr/local/bin/perl
@@ -3564,7 +3565,7 @@ File: F/Fibonacci_sequence-3
 #u# http://rosettacode.org/wiki/Fibonacci_sequence
 #c# 2018-08-03 <RC
 #p# OK
-#n# because of problem with Math::Big on Ubuntu, skip test #5
+#n# Math::Big / Math::AnyNum conflict (routine 'fibonacci'), so skip test #5
 
 File: F/Fibonacci_word
 #!/usr/local/bin/perl
@@ -6769,6 +6770,7 @@ File: N/Natural_sorting
 #c# 2018-08-19 <RC
 #p# OK
 #n# for 3 of 8 cases: Redundant argument in sprintf at N/Natural_sorting line 61
+#n# PBP: Sort blocks should have a single statement at line 25
 
 File: N/Nautical_bell-1
 #!/usr/local/bin/perl
@@ -8647,6 +8649,7 @@ File: R/Recursive_descent_parser_generator
 #p# OK
 #f# RC file: generatedparser.pl
 #n# not running the generated code, but verfied it worked by hand
+#n# 2023-07-18 the P::C warnings about 'captured value' are wrong
 
 File: R/Reduced_row_echelon_form
 #!/usr/local/bin/perl
