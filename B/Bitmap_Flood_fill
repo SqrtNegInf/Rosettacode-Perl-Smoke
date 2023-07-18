@@ -9,10 +9,10 @@ use warnings;
 
 use Image::Imlib2;
  
-my $img = Image::Imlib2->load("ref/unfilledcircle.jpg");
-$img->set_color(0, 255, 0, 255);
-$img->fill(100,100);
-$img->save("run/filledcircle1.jpg");
+my $image1 = Image::Imlib2->load("ref/unfilledcircle.jpg");
+$image1->set_color(0, 255, 0, 255);
+$image1->fill(100,100);
+$image1->save("run/filledcircle1.jpg");
 
 sub colordistance {
     my ( $c1, $c2 ) = @_;
@@ -23,22 +23,22 @@ sub colordistance {
 }
  
 sub floodfill {
-    my ( $img, $x, $y, $r, $g, $b ) = @_;
+    my ( $image, $x, $y, $r, $g, $b ) = @_;
     my $distparameter = 0.2;
     my (%visited,@queue);
  
     my @tcol = ( $r, $g, $b );
-    my @col = $img->query_pixel($x, $y);
+    my @col = $image->query_pixel($x, $y);
     if ( colordistance(\@tcol, \@col) > $distparameter ) { return; }
     push @queue, [$x, $y];
     while ( @queue ) {
         my $pointref = shift(@queue);
         ( $x, $y ) = @$pointref;
-        if ( ($x < 0) || ($y < 0) || ( $x >= $img->width ) || ( $y >= $img->height ) ) { next; }
+        if ( ($x < 0) || ($y < 0) || ( $x >= $image->width ) || ( $y >= $image->height ) ) { next; }
         if ( ! exists($visited{"$x,$y"}) ) {
-            @col = $img->query_pixel($x, $y);
+            @col = $image->query_pixel($x, $y);
             if ( colordistance(\@tcol, \@col) <= $distparameter ) {
-                $img->draw_point($x, $y);
+                $image->draw_point($x, $y);
                 $visited{"$x,$y"} = 1;
                 push @queue, [$x+1, $y],
                              [$x-1, $y],
@@ -49,9 +49,9 @@ sub floodfill {
     }
 }
  
-my $img2 = Image::Imlib2->load("ref/unfilledcircle.jpg");
-$img2->set_color(0,255,0,255);
-floodfill($img2, 100,100, 0, 0, 0);
-$img2->save("run/filledcircle2.jpg");
+my $image2 = Image::Imlib2->load("ref/unfilledcircle.jpg");
+$image2->set_color(0,255,0,255);
+floodfill($image2, 100,100, 0, 0, 0);
+$image2->save("run/filledcircle2.jpg");
 
 # This fills better than the Image::Imlib2 fill function the inner circle, since because of JPG compression and thanks to the $distparameter, it "sees" as black also pixel that are no more exactly black.
