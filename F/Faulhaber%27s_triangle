@@ -23,7 +23,7 @@ sub faulhaber_triangle {
 
 # First 10 rows of Faulhaber's triangle
 foreach my $p (1 .. 10) {
-    map { $result .= sprintf("%6s", $_) } faulhaber_triangle($p);
+    $result .= sprintf("%6s", $_) for faulhaber_triangle($p);
     $result .= "\n";
 }
 
@@ -34,6 +34,7 @@ my @r = faulhaber_triangle($p+1);
 $result .= "\n". sum(map { $r[$_] * $n**($_ + 1) } 0 .. $#r) ."\n";
 
 say $result; 
+
 my $ref = <<'EOD';
      1
    1/2   1/2
@@ -51,4 +52,4 @@ EOD
 
 use Test::More;
 is ($result, $ref);
-done_testing();
+done_testing;
