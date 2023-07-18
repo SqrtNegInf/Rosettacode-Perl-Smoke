@@ -275,6 +275,9 @@ F/Factorial_base_numbers_indexing_permutations_of_a_collection
 F/Factors_of_a_Mersenne_number-1
 ×:    11 MULTIPLICATION SIGN
 
+F/Factors_of_a_Mersenne_number-2
+×:    16 MULTIPLICATION SIGN
+
 F/Feigenbaum_constant_calculation
 δ:     3 GREEK SMALL LETTER DELTA
 
