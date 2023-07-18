@@ -2,16 +2,16 @@
 #u# http://rosettacode.org/wiki/Fibonacci_sequence
 #c# 2018-08-03 <RC
 #p# OK
-#n# because of problem with Math::Big on Ubuntu, skip test #5
+#n# Math::Big / Math::AnyNum conflict (routine 'fibonacci'), so skip test #5
 
-my ($result1, $result2, $result3, $result4, $result5);
+my ($result1, $result2, $result3, $result4); #, $result5);
 
 use strict;
 use warnings;
 use feature 'say';
 
 # Uses GMP method so very fast
-use Math::AnyNum qw/fibonacci/;
+use Math::AnyNum 'fibonacci';
 $result1 = fibonacci(10000);
 
 # Uses GMP method, so also very fast
@@ -19,7 +19,7 @@ use Math::GMP;
 $result2 = '' . Math::GMP::fibonacci(10000); # force string context
 
 # Binary ladder, GMP if available, Pure Perl otherwise
-use ntheory qw/lucasu/;
+use ntheory 'lucasu';
 $result3 = lucasu(1, -1, 10000);
 
 # Pure Perl
@@ -42,4 +42,4 @@ is ($result2, $ref);
 is ($result3, $ref);
 is ($result4, $ref);
 #is ($result5, $ref);
-done_testing();
+done_testing;
