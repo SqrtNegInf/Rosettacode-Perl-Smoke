@@ -6,19 +6,16 @@
 use strict;
 use warnings;
 use feature 'say';
-my $result;
 
 # Perl's Math::BigInt core module handles big integers:
 
 use Math::BigInt;
 my $x = Math::BigInt->new('5') ** Math::BigInt->new('4') ** Math::BigInt->new('3') ** Math::BigInt->new('2');
 my $y = "$x";
-say $result = sprintf("5**4**3**2 = %s...%s and has %i digits\n", substr($y,0,20), substr($y,-20), length($y));
+say my $result = sprintf("5**4**3**2 = %s...%s and has %i digits\n", substr($y,0,20), substr($y,-20), length($y));
 
-my $ref = <<EOD;
-5**4**3**2 = 62060698786608744707...92256259918212890625 and has 183231 digits
-EOD
+my $ref = "5**4**3**2 = 62060698786608744707...92256259918212890625 and has 183231 digits\n";
 
 use Test::More;
 is ($result, $ref);
-done_testing();
+done_testing;
