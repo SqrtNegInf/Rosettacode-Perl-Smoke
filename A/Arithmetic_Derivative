@@ -38,7 +38,7 @@ sub D1 ($n) {
 sub D2 ($n) {
     my(%f, $s);
     $f{$_}++ for factor max 1, my $nabs = abs $n;
-    map { $s += $nabs * $f{$_} / $_ } keys %f;
+    $s += $nabs * $f{$_} / $_ for keys %f;
     $n > 0 ? $s : -$s;
 }
 
@@ -99,4 +99,4 @@ is($result1, $ref1);
 is($result2, $ref1);
 is($result3, $ref2);
 is($result4, $ref2);
-done_testing();
+done_testing;
