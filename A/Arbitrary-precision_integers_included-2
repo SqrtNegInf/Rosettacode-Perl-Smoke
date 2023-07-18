@@ -6,26 +6,18 @@
 use strict;
 use warnings;
 use feature 'say';
-my $result;
 
 # You can enable "transparent" big integer support by enabling the bigint pragma:
 
 use bigint;
 my $x = 5**4**3**2;
 my $y = "$x";
-say $result = sprintf("5**4**3**2 = %s...%s and has %i digits\n", substr($y,0,20), substr($y,-20), length($y));
+say my $result = sprintf("5**4**3**2 = %s...%s and has %i digits\n", substr($y,0,20), substr($y,-20), length($y));
 
 # Math::BigInt is very slow. Perl 5.10 was about 120 times slower than Ruby 1.9.2 (on one computer); Perl used more than one minute, but Ruby used less than one second.
 
-
-# $ time perl transparent-bigint.pl 
-#     1m4.28s real     1m4.30s user     0m0.00s system
-
-
-my $ref = <<EOD;
-5**4**3**2 = 62060698786608744707...92256259918212890625 and has 183231 digits
-EOD
+my $ref = "5**4**3**2 = 62060698786608744707...92256259918212890625 and has 183231 digits\n";
 
 use Test::More;
 is ($result, $ref);
-done_testing();
+done_testing;
