@@ -9,7 +9,7 @@ use feature 'say';
 my($result,$s);
 
 {
-no warnings  qw(uninitialized);
+no warnings 'uninitialized';
 if ($s eq '') {    # Test for empty string
   $result .= "The string is empty\n";
 }
@@ -43,4 +43,4 @@ EOD
 
 use Test::More;
 is ($result, $ref);
-done_testing();
+done_testing;
