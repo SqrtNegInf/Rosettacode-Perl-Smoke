@@ -35,7 +35,7 @@ while () {
     for (0..3) {
         print $fh (join ' ', map { $_ == 16 ? '  ' : sprintf '%02s',$_ } @{$tbl[$_]}), "\n" 
     }
-    chomp(my $m = <STDIN>);
+    chomp(my $m = <>);
     exit if $m =~ /q/;
     die "Enter a number to move!" unless $m;
     if ($m > 15) {
