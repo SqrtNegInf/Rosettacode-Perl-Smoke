@@ -19,7 +19,7 @@ sub evolve {
 	while (1) {
         last if $cnt++ > 12;
 		my ($l, $r, $st);
-		$pattern =~ s/^((.)\g2*)/$2$2/ and $l = $2, $offset -= length($2);
+		$pattern =~ s/^((.)\g2*)/$2$2/ and ($l = $2, $offset -= length($2));
 		$pattern =~ s/(.)\g1*$/$1$1/   and $r = $1;
  
 		$st = $pattern;
