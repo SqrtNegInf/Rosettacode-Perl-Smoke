@@ -5,8 +5,6 @@
 #p# OK
 #n# incoherent
 
-my @res;
-
 use strict;
 use warnings;
 
