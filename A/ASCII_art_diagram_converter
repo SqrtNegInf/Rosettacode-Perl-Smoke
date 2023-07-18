@@ -12,7 +12,7 @@ $Data::Dumper::Sortkeys = 1;
 
 my @res;
 
-$_ = <<END;
+$_ = <<'END';
 
     +--+--+--+--+--+--+--+--+--+--+--+--+--+--+--+--+
     |                      ID                       |
@@ -86,4 +86,4 @@ say my $result = join "\n", @res;
 
 use Test::More;
 is ($result, $ref);
-done_testing();
+done_testing;
