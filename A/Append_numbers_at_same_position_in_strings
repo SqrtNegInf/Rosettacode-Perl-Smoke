@@ -21,13 +21,14 @@ print $a[$_] . $b[$_] . $c[$_] . ' ' for 0..$#a; print "\n";
 $result1 .=  $a[$_] . $b[$_] . $c[$_] . ' ' for 0..$#a;
 
 for my $i (0 .. $#{$f[0]}) {
-    map { $result2 .= $f[$_][$i] } 0 .. $#f and $result2 .= ' '
+   #map { $result2 .= $f[$_][$i] } 0 .. $#f and $result2 .= ' '
+    $result2 .= $f[$_][$i] for 0 .. $#f;
+    $result2 .= ' '
 }
-print "\n";
 
 my $ref = '11019 21120 31221 41322 51423 61524 71625 81726 91827 ';
 
 use Test::More;
 is($result1, $ref);
 is($result2, $ref);
-done_testing();
+done_testing;
