@@ -3,10 +3,10 @@
 #c# 2018-06-30 <RC
 #p# OK
 
-use feature 'say';
-
 use strict;
 use warnings;
+use feature 'say';
+
 # Select one of these lines.  Math::BigInt is in core, but quite slow.
 #use Math::BigInt;  sub binomial { Math::BigInt->new(shift)->bnok(shift) }
 # use Math::Pari "binomial";
@@ -38,7 +38,7 @@ $result .= 'Primes to 80: ['. join(',', grep { binprime($_) } 2..80). "]\n";
 
 
 
-my $ref = <<END;
+my $ref = <<'END';
 expansions of (x-1)^p:
 1
 x - 1
@@ -66,4 +66,4 @@ $ref .= '1000000007 1000000009 1000000021 1000000033 1000000087 1000000093 10000
 
 use Test::More;
 is ($result, $ref);
-done_testing();
+done_testing;
