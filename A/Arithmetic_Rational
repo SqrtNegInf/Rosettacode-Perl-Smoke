@@ -10,9 +10,10 @@ use warnings;
 use feature 'say';
 my $result;
 
-# Perl's Math::BigRat core module implements arbitrary-precision rational numbers. The bigrat pragma can be used to turn on transparent BigRat support:
-
+# Perl's Math::BigRat core module implements arbitrary-precision rational numbers. 
+# The bigrat pragma can be used to turn on transparent BigRat support:
 #use bigrat;
+
 use Math::AnyNum qw(:overload);
  
 #foreach my $candidate (2 .. 2**19) {
@@ -31,7 +32,7 @@ foreach my $candidate (2 .. 2**15) {
 
 say $result;
 
-my $ref = <<EOD;
+my $ref = <<'EOD';
 Sum of reciprocal factors of 2 = 2 exactly 
 Sum of reciprocal factors of 28 = 1 exactly perfect!
 Sum of reciprocal factors of 120 = 2 exactly 
@@ -44,4 +45,4 @@ EOD
 
 use Test::More;
 is ($result, $ref);
-done_testing();
+done_testing;
