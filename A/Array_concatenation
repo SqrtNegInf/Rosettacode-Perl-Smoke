@@ -6,7 +6,7 @@
 use strict;
 use warnings;
 use feature 'say';
-my $result;
+
 use Test::More;
 
 # In Perl, arrays placed into list context are flattened:
@@ -21,12 +21,7 @@ is (+@arr3, 7);
 @arr1 = (1, 2, 3);
 @arr2 = (4, 5, 6);
 push @arr1, @arr2;
-$result = "@arr1\n"; # prints "1 2 3 4 5 6"
+say my $result = "@arr1";
 
-
-my $ref = <<EOD;
-1 2 3 4 5 6
-EOD
-
-is ($result, $ref);
-done_testing();
+is ($result, '1 2 3 4 5 6');
+done_testing;
