@@ -3,14 +3,14 @@
 #c# 2018-07-15 <RC
 #p# OK
 
-use warnings;
 use strict;
+use warnings;
 use feature 'say';
+my $result;
 
 use List::Util qw(max);
  
-sub mode
-{
+sub mode {
     my %c;
     foreach my $e ( @_ ) {
         $c{$e}++;
@@ -19,19 +19,18 @@ sub mode
     return grep { $c{$_} == $best } keys %c;
 }
 
-my $result;
 $result .= "$_ " for mode(1, 3, 6, 6, 6, 6, 7, 7, 12, 12, 17);
 $result .= "\n";
 $result .= "$_ " for sort (mode(1, 1, 2, 4, 4));
 
 say $result;
 
-my $ref = <<EOD;
+my $ref = <<'EOD';
 6 
 1 4 
 EOD
 
 use Test::More;
-chop $ref;
+chomp $ref;
 is ($result, $ref);
-done_testing();
+done_testing;
