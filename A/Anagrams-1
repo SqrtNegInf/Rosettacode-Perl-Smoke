@@ -25,7 +25,7 @@ for my $ana (sort values %anagram) {
 $result .= $_ for sort @res;
 say $result;
 
-my $ref = <<END;
+my $ref = <<'END';
 abel able bale bela elba
 alger glare lager large regal
 angel angle galen glean lange
@@ -36,4 +36,4 @@ END
 
 use Test::More;
 is ($result, $ref);
-done_testing();
+done_testing;
