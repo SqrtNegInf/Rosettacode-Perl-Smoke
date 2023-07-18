@@ -29,7 +29,7 @@ $result .= sprintf "The mean angle of [@$_] is: ". meandegrees(@$_) . " degrees\
 
 say $result;
 
-my $ref = <<EOD;
+my $ref = <<'EOD';
 The mean angle of [350 10] is: 360 degrees
 The mean angle of [90 180 270 360] is: 270 degrees
 The mean angle of [10 20 30] is: 20 degrees
@@ -37,4 +37,4 @@ EOD
 
 use Test::More;
 is ($result, $ref);
-done_testing();
+done_testing;
