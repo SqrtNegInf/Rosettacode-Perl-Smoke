@@ -42,7 +42,7 @@ while( my @values = $iter->() ) {
 
 say $result;
 
-my $ref = <<EOD;
+my $ref = <<'EOD';
   -0.152974  -0.435258  -0.136043   0.697503   0.656445
   -0.435482  -1.089239  -0.537677   0.517050   1.052250
    0.961854   0.695690   0.424356   0.196262  -0.027835
@@ -51,4 +51,4 @@ EOD
 
 use Test::More;
 is($result, $ref);
-done_testing();
+done_testing;
