@@ -8,7 +8,6 @@ use warnings;
 use feature 'say';
 my $result;
 
-
 # create array
 my @a = (1, 2, 3, 4, 5);
  
@@ -40,7 +39,7 @@ my @d = map $func->($_), @a;                  # @d is now (2, 4, 6, 8, 10)
 # filter an array 
 my @e = grep { $_ % 2 == 0 } @a;               # @e is now (2, 4)
 
-my $ref = <<EOD;
+my $ref = <<'EOD';
 mycallback(1) = 2
 mycallback(2) = 4
 mycallback(3) = 6
@@ -50,4 +49,4 @@ EOD
 
 use Test::More;
 is ($result, $ref);
-done_testing();
+done_testing;
