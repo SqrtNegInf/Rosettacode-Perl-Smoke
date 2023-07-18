@@ -139,8 +139,8 @@ sub write_eps {
         }
         my $hp = $p / 2;
 
-        open OUT, '>', 'run/brownian_tree.eps';
-        print OUT <<~"HEAD";
+        open my $fh, '>', 'run/brownian_tree.eps';
+        print $fh <<~"HEAD";
             %!PS-Adobe-3.0 EPSF-3.0
             %%BoundingBox: 0 0 @{[$size*2, $size*2]}
             $size $size translate
@@ -161,11 +161,11 @@ sub write_eps {
 
         for (@particles) {
                 for (@$_) {
-                        printf OUT "%.3g %.3g c ", map { $_ * $p } @$_ for @$_;
+                        printf $fh "%.3g %.3g c ", map { $_ * $p } @$_ for @$_;
                 }
         }
-        print OUT "\n%%EOF";
-        close OUT;
+        print $fh "\n%%EOF";
+        close $fh;
 }
 
 write_eps();
