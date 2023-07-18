@@ -6,6 +6,7 @@
 my($result,@res);
 
 use strict;
+use warnings;
 no warnings 'uninitialized';
 use feature 'say';
 
@@ -20,7 +21,7 @@ $max > @$_  or  $max = @$_    for values %anagram;
 $result .= $_ for sort @res;
 say $result;
 
-my $ref = <<END;
+my $ref = <<'END';
 abel able bale bela elba
 alger glare lager large regal
 angel angle galen glean lange
@@ -31,4 +32,4 @@ END
 
 use Test::More;
 is ($result, $ref);
-done_testing();
+done_testing;
