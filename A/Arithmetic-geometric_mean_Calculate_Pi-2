@@ -3,18 +3,12 @@
 #c# 2018-07-15 <RC
 #p# OK
 
-use feature 'say';
-my $result;
-
-use Math::BigFloat try => "GMP,Pari";
- 
-# The following is a translation, almost line-for-line, of the Ruby code. It is slower than the above and the last digit or two may not be correct.
-
-# Translation of: Ruby
 use strict;
 use warnings;
-use Math::BigFloat;
- 
+use feature 'say';
+
+use Math::BigFloat try => "GMP,Pari";
+
 Math::BigFloat->div_scale(100);
  
 my $a = my $n = 1;
@@ -27,12 +21,11 @@ for( 0 .. 17 ) {
 	$n += $n;
 	($a, $g) = @$x;
 }
-say $result = ($a * $a / $z) . "\n";
+say my $result = ($a * $a / $z);
 
-my $ref = <<EOD;
-3.141592653589793238462643383279502884197169399375105820974944592307816406286208998628034825342117067
-EOD
+
+my $ref = '3.141592653589793238462643383279502884197169399375105820974944592307816406286208998628034825342117067';
 
 use Test::More;
 is ($result, $ref);
-done_testing();
+done_testing;
