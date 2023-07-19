@@ -10,7 +10,7 @@ use DBI;
 
 my $db = DBI->connect('DBI:mysql:database:server','login','password');
 
-my $statment = <<EOF;
+my $statment = <<'EOF';
 CREATE TABLE `Address` (
     `addrID`       int(11)     NOT NULL   auto_increment,
     `addrStreet`   varchar(50) NOT NULL   default '',
