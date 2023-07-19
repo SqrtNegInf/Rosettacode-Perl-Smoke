@@ -10,6 +10,7 @@ use feature 'say';
 my @res;
 
 use ntheory qw/factor vecmax/;
+
 use threads;
 use threads::shared;
 my @results :shared;
@@ -31,7 +32,7 @@ sub tfactor {
   push @results, shared_clone([$n, factor($n)]);
 }
 
-my $ref = <<EOD;
+my $ref = <<'EOD';
   115797840077099 = [544651 212609249]
   299866111963290359 = [544651 550565613509]
 EOD
