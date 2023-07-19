@@ -3,13 +3,15 @@
 #t# skiptest
 #c# 2018-07-24 <RC
 #p# OK
+#n# unsure how to test
 
 srand 123456;
 
+use strict;
+use warnings;
 use feature 'say';
 my $result;
 
-# Library: Time::HiResHiRes
 use threads;
 use Time::HiRes 'sleep';
  
@@ -20,7 +22,7 @@ $_->join for map {
     }, $_)
 } <Enjoy Rosetta Code>;
 
-exit;
+__END__
 
 use Test::More;
 is (length($result), 19);
