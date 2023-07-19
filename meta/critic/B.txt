@@ -1,0 +1,60 @@
+
+= B/Babylonian_spiral
+Nested named subroutine at line 39, column 9. Declaring a named sub inside another named sub does not prevent the inner sub from being global.
+Map blocks should have a single statement at line 48, column 5. See page 113 of PBP.
+
+= B/Balanced_brackets-1
+Lvalue form of "substr" used at line 16, column 36. See page 165 of PBP.
+
+= B/Balanced_brackets-2
+Lvalue form of "substr" used at line 29, column 36. See page 165 of PBP.
+
+= B/Balanced_brackets-3
+Lvalue form of "substr" used at line 25, column 36. See page 165 of PBP.
+
+= B/Balanced_ternary
+Mismatched operator at line 30, column 8. Numeric/string operators and operands should match.
+
+= B/Base64_encode_data
+"local" variable not initialized at line 10, column 1. See page 78 of PBP.
+
+= B/Bin_given_limits-1
+Warnings disabled at line 8, column 1. See page 431 of PBP.
+
+= B/Bioinformatics_Sequence_mutation
+Reused variable name in lexical scope: $dna at line 30, column 5. Invent unique variable names.
+Lvalue form of "substr" used at line 32, column 37. See page 165 of PBP.
+
+= B/Bioinformatics_global_alignment
+Reused variable name in lexical scope: @seq at line 52, column 5. Invent unique variable names.
+
+= B/Bitcoin_address_validation
+Variable declared in conditional statement at line 21, column 5. Declare variables outside of the condition.
+Capture variable used outside conditional at line 21, column 26. See page 253 of PBP.
+Variable declared in conditional statement at line 29, column 5. Declare variables outside of the condition.
+Capture variable used outside conditional at line 29, column 26. See page 253 of PBP.
+
+= B/Bitmap_Flood_fill
+Too many arguments at line 25, column 1. See page 182 of PBP.
+
+= B/Bitmap_PPM_conversion_through_a_pipe
+Backtick operator used at line 18, column 15. Use IPC::Open3 instead.
+
+= B/Bitmap_Read_an_image_through_a_pipe
+Backtick operator used at line 24, column 13. Use IPC::Open3 instead.
+
+= B/Brace_expansion
+Map blocks should have a single statement at line 40, column 25. See page 113 of PBP.
+Map blocks should have a single statement at line 55, column 21. See page 113 of PBP.
+
+= B/Brazilian_numbers
+Mixed high and low-precedence booleans at line 44, column 26. See page 70 of PBP.
+Mixed high and low-precedence booleans at line 49, column 26. See page 70 of PBP.
+
+= B/Break_OO_privacy
+Multiple "package" declarations at line 27, column 1. Limit to one per file.
+
+= B/Brownian_tree
+Warnings disabled at line 36, column 5. See page 431 of PBP.
+Subroutine "move" with high complexity score (22) at line 41, column 1. Consider refactoring.
+Reused variable name in lexical scope: $idx at line 60, column 25. Invent unique variable names.

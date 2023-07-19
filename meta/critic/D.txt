@@ -1,0 +1,148 @@
+
+= D/DNS_query
+Backtick operator used at line 20, column 15. Use IPC::Open3 instead.
+
+= D/Dating_agency-1
+Readline inside "for" loop at line 23, column 16. See page 211 of PBP.
+
+= D/Dating_agency-2
+Readline inside "for" loop at line 24, column 16. See page 211 of PBP.
+
+= D/De_Bruijn_sequences
+Reused variable name in lexical scope: $seq at line 27, column 5. Invent unique variable names.
+
+= D/Death_Star
+Cascading if-elsif chain at line 56, column 13. See pages 117,118 of PBP.
+
+= D/Deceptive_numbers
+Mixed high and low-precedence booleans at line 15, column 5. See page 70 of PBP.
+
+= D/Decimal_floating_point_number_to_binary
+Mismatched operator at line 15, column 50. Numeric/string operators and operands should match.
+Return value of eval not tested at line 23, column 5. You can't depend upon the value of $@/$EVAL_ERROR to tell whether an eval failed.
+
+= D/Deconvolution_1D
+Reused variable name in lexical scope: $lv at line 72, column 11. Invent unique variable names.
+
+= D/Deconvolution_2D%2B
+Reused variable name in lexical scope: $lv at line 81, column 11. Invent unique variable names.
+
+= D/Define_a_primitive_data_type
+Warnings disabled at line 18, column 5. See page 431 of PBP.
+"return" statement with explicit "undef" at line 22, column 5. See page 199 of PBP.
+Multiple "package" declarations at line 26, column 1. Limit to one per file.
+
+= D/Delegates
+One-argument "bless" used at line 14, column 4. See page 365 of PBP.
+Multiple "package" declarations at line 26, column 1. Limit to one per file.
+One-argument "bless" used at line 28, column 4. See page 365 of PBP.
+Multiple "package" declarations at line 35, column 1. Limit to one per file.
+
+= D/Department_Numbers-2
+Split long regexps into smaller qr// chunks at line 16, column 3. See page 261 of PBP.
+
+= D/Detect_division_by_zero
+"local" variable not initialized at line 14, column 3. See page 78 of PBP.
+
+= D/Determinant_and_permanent
+"return" statement with explicit "undef" at line 19, column 2. See page 199 of PBP.
+
+= D/Determine_if_a_string_has_all_the_same_characters
+I/O layer ":utf8" used at line 10, column 1. Use ":encoding(UTF-8)" to get strict validation.
+
+= D/Determine_if_a_string_has_all_unique_characters
+I/O layer ":utf8" used at line 13, column 1. Use ":encoding(UTF-8)" to get strict validation.
+Found ">" in condition for an "unless" at line 40, column 18. See page 99 of PBP.
+
+= D/Determine_if_a_string_is_collapsible
+I/O layer ":utf8" used at line 9, column 1. Use ":encoding(UTF-8)" to get strict validation.
+
+= D/Determine_if_a_string_is_numeric
+"return" statement with explicit "undef" at line 39, column 9. See page 199 of PBP.
+
+= D/Determine_if_two_triangles_overlap
+"return" statement with explicit "undef" at line 27, column 5. See page 199 of PBP.
+Nested named subroutine at line 35, column 5. Declaring a named sub inside another named sub does not prevent the inner sub from being global.
+Nested named subroutine at line 36, column 5. Declaring a named sub inside another named sub does not prevent the inner sub from being global.
+
+= D/Dice_game_probabilities
+Warnings disabled at line 37, column 5. See page 431 of PBP.
+"map" used in void context at line 44, column 5. Use a "for" loop instead.
+
+= D/Digital_root
+Comma used to separate statements at line 13, column 19. See pages 68,71 of PBP.
+
+= D/Digital_root_Multiplicative_digital_root
+Map blocks should have a single statement at line 34, column 11. See page 113 of PBP.
+
+= D/Dijkstra%27s_algorithm
+Mixed high and low-precedence booleans at line 45, column 9. See page 70 of PBP.
+
+= D/Dinesman%27s_multiple-dwelling_problem-1
+Split long regexps into smaller qr// chunks at line 40, column 21. See page 261 of PBP.
+Warnings disabled at line 54, column 11. See page 431 of PBP.
+Return value of eval not tested at line 63, column 5. You can't depend upon the value of $@/$EVAL_ERROR to tell whether an eval failed.
+Literal line breaks in a string at line 63, column 10. See pages 60,61 of PBP.
+Literal line breaks in a string at line 66, column 52. See pages 60,61 of PBP.
+
+= D/Dinesman%27s_multiple-dwelling_problem-2
+I/O layer ":utf8" used at line 15, column 1. Use ":encoding(UTF-8)" to get strict validation.
+Mixed high and low-precedence booleans at line 59, column 9. See page 70 of PBP.
+Found ">=" in condition for an "unless" at line 66, column 22. See page 99 of PBP.
+Found "<" in condition for an "unless" at line 66, column 22. See page 99 of PBP.
+Found "!" in condition for an "unless" at line 66, column 22. See page 99 of PBP.
+
+= D/Discordian_date
+Integer with leading zeros: "07" at line 42, column 51. See page 58 of PBP.
+Integer with leading zeros: "02" at line 42, column 62. See page 58 of PBP.
+Integer with leading zeros: "02" at line 42, column 73. See page 58 of PBP.
+Integer with leading zeros: "03" at line 42, column 84. See page 58 of PBP.
+Integer with leading zeros: "-01" at line 42, column 86. See page 58 of PBP.
+
+= D/Discrete_Fourier_transform
+Map blocks should have a single statement at line 21, column 4. See page 113 of PBP.
+Don't modify $_ in list functions at line 21, column 4. See page 114 of PBP.
+Map blocks should have a single statement at line 30, column 11. See page 113 of PBP.
+Don't modify $_ in list functions at line 30, column 11. See page 114 of PBP.
+
+= D/Display_an_outline_as_a_nested_table
+"local" variable not initialized at line 18, column 20. See page 78 of PBP.
+Reused variable name in lexical scope: $bg at line 27, column 5. Invent unique variable names.
+
+= D/Distance_and_Bearing
+I/O layer ":utf8" used at line 11, column 1. Use ":encoding(UTF-8)" to get strict validation.
+
+= D/Distinct_Palindromes_Within_Decimal_Numbers
+Match variable used at line 21, column 9. See page 82 of PBP.
+Match variable used at line 21, column 28. See page 82 of PBP.
+Literal line breaks in a string at line 23, column 7. See pages 60,61 of PBP.
+
+= D/Distinct_power_numbers
+Map blocks should have a single statement at line 13, column 54. See page 113 of PBP.
+Map blocks should have a single statement at line 16, column 77. See page 113 of PBP.
+
+= D/Distributed_programming
+Use "local $/ = undef" or Path::Tiny instead of joined readline at line 32, column 26. See page 213 of PBP.
+
+= D/Divide_a_rectangle_into_a_number_of_unequal_triangles
+Found ">" in condition for an "unless" at line 17, column 9. See page 99 of PBP.
+
+= D/Dominoes
+Return value of eval not tested at line 31, column 1. You can't depend upon the value of $@/$EVAL_ERROR to tell whether an eval failed.
+Return value of eval not tested at line 51, column 1. You can't depend upon the value of $@/$EVAL_ERROR to tell whether an eval failed.
+
+= D/Dominoes-2
+Too many arguments at line 52, column 1. See page 182 of PBP.
+
+= D/Draw_a_clock
+I/O layer ":utf8" used at line 11, column 1. Use ":encoding(UTF-8)" to get strict validation.
+Backtick operator used at line 14, column 34. Use IPC::Open3 instead.
+yada operator (...) used at line 18, column 22. The yada operator is a placeholder for code you have not yet written.
+
+= D/Draw_a_rotating_cube
+Comma used to separate statements at line 27, column 22. See pages 68,71 of PBP.
+
+= D/Duffinian_numbers
+Mixed high and low-precedence booleans at line 21, column 10. See page 70 of PBP.
+Found ">" in condition for an "until" at line 21, column 76. See page 99 of PBP.
+

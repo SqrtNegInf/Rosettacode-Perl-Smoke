@@ -1,0 +1,193 @@
+
+= R/RCRPG
+Use "<>" or "<ARGV>" or a prompting module instead of "<STDIN>" at line 150, column 10. See pages 216,220,221 of PBP.
+Hard tabs used at line 214, column 20. See page 20 of PBP.
+Subroutine name is a homonym for builtin function link at line 356, column 1. See page 177 of PBP.
+Hard tabs used at line 648, column 26. See page 20 of PBP.
+
+= R/RPG_Attributes_Generator
+Found ">=" in condition for an "until" at line 28, column 3. See page 99 of PBP.
+Found ">=" in condition for an "until" at line 28, column 3. See page 99 of PBP.
+
+= R/RSA_code
+"$result" is declared but not used at line 9, column 1. Unused variables clutter code and make it harder to read.
+Reused variable name in lexical scope: $n at line 37, column 9. Invent unique variable names.
+Reused variable name in lexical scope: $n at line 48, column 5. Invent unique variable names.
+
+= R/Ramanujan_primes
+Found ">" in condition for an "until" at line 18, column 11. See page 99 of PBP.
+
+= R/Ramer-Douglas-Peucker_line_simplification
+Mixed high and low-precedence booleans at line 28, column 5. See page 70 of PBP.
+
+= R/Ramsey%27s_theorem
+Found "<" in condition for an "unless" at line 30, column 18. See page 99 of PBP.
+Found "<" in condition for an "unless" at line 30, column 18. See page 99 of PBP.
+
+= R/Random_number_generator_device
+Found "ne" in condition for an "until" at line 37, column 42. See page 99 of PBP.
+
+= R/Random_sentence_from_book
+Comma used to separate statements at line 17, column 1. See pages 68,71 of PBP.
+Comma used to separate statements at line 21, column 1. See pages 68,71 of PBP.
+Capture variable used outside conditional at line 21, column 6. See page 253 of PBP.
+Capture variable used outside conditional at line 21, column 10. See page 253 of PBP.
+Capture variable used outside conditional at line 21, column 22. See page 253 of PBP.
+Capture variable used outside conditional at line 21, column 26. See page 253 of PBP.
+Capture variable used outside conditional at line 21, column 30. See page 253 of PBP.
+
+= R/Range_expansion
+Return value of eval not tested at line 19, column 5. You can't depend upon the value of $@/$EVAL_ERROR to tell whether an eval failed.
+
+= R/Range_modifications
+Split long regexps into smaller qr// chunks at line 31, column 8. See page 261 of PBP.
+
+= R/Ranking_methods
+Reused variable name in lexical scope: $result at line 29, column 5. Invent unique variable names.
+Reused variable name in lexical scope: $result at line 40, column 5. Invent unique variable names.
+Reused variable name in lexical scope: $result at line 51, column 5. Invent unique variable names.
+Reused variable name in lexical scope: $result at line 58, column 5. Invent unique variable names.
+Reused variable name in lexical scope: $result at line 67, column 5. Invent unique variable names.
+
+= R/Ray-casting_algorithm
+Stricture disabled at line 81, column 5. See page 429 of PBP.
+
+= R/Read_a_configuration_file
+Two-argument "open" used at line 34, column 1. See page 207 of PBP.
+"local" variable not initialized at line 57, column 5. See page 78 of PBP.
+
+= R/Read_a_file_character_by_character_UTF8
+I/O layer ":utf8" used at line 13, column 1. Use ":encoding(UTF-8)" to get strict validation.
+
+= R/Read_a_specific_line_from_a_file
+Comma used to separate statements at line 17, column 21. See pages 68,71 of PBP.
+
+= R/Read_entire_file-2
+Warnings disabled at line 8, column 1. See page 431 of PBP.
+
+= R/Readline_interface
+"map" used in void context at line 32, column 5. Use a "for" loop instead.
+Don't modify $_ in list functions at line 32, column 5. See page 114 of PBP.
+Stricture disabled at line 53, column 6. See page 429 of PBP.
+Don't turn off strict for large blocks of code at line 53, column 6. See page 433 of PBP.
+
+= R/Recaman%27s_sequence
+Mixed high and low-precedence booleans at line 25, column 4. See page 70 of PBP.
+Found ">" in condition for an "unless" at line 25, column 30. See page 99 of PBP.
+Found "!" in condition for an "unless" at line 25, column 30. See page 99 of PBP.
+Mixed high and low-precedence booleans at line 27, column 4. See page 70 of PBP.
+Mixed high and low-precedence booleans at line 28, column 4. See page 70 of PBP.
+
+= R/Recursive_descent_parser_generator
+"local" variable not initialized at line 25, column 17. See page 78 of PBP.
+Only use a capturing group if you plan to use the captured value at line 46, column 5. See page 252 of PBP.
+Only use a capturing group if you plan to use the captured value at line 49, column 5. See page 252 of PBP.
+
+= R/Reduced_row_echelon_form
+Reused variable name in lexical scope: $lv at line 35, column 11. Invent unique variable names.
+
+= R/Reflection_Get_source
+Backtick operator used at line 16, column 11. Use IPC::Open3 instead.
+
+= R/Reflection_List_methods
+Stricture disabled at line 10, column 1. See page 429 of PBP.
+Don't turn off strict for large blocks of code at line 10, column 1. See page 433 of PBP.
+Hard tabs used at line 17, column 7. See page 20 of PBP.
+One-argument "bless" used at line 20, column 33. See page 365 of PBP.
+Multiple "package" declarations at line 25, column 1. Limit to one per file.
+
+= R/Reflection_List_properties
+Multiple "package" declarations at line 22, column 6. Limit to one per file.
+Multiple "package" declarations at line 27, column 1. Limit to one per file.
+
+= R/Remote_agent_Agent_logic
+Main code has high complexity score (38) at line 1, column 1. Consider refactoring.
+Map blocks should have a single statement at line 35, column 13. See page 113 of PBP.
+Ambiguously named subroutine "set" at line 60, column 1. See page 48 of PBP.
+Cascading if-elsif chain at line 72, column 3. See pages 117,118 of PBP.
+Match variable used at line 85, column 17. See page 82 of PBP.
+Match variable used at line 92, column 17. See page 82 of PBP.
+Reused variable name in lexical scope: $gap at line 109, column 3. Invent unique variable names.
+Reused variable name in lexical scope: %gap at line 128, column 3. Invent unique variable names.
+Reused variable name in lexical scope: $dir at line 131, column 5. Invent unique variable names.
+Comma used to separate statements at line 136, column 3. See pages 68,71 of PBP.
+Comma used to separate statements at line 171, column 5. See pages 68,71 of PBP.
+Mixed high and low-precedence booleans at line 180, column 1. See page 70 of PBP.
+Comma used to separate statements at line 212, column 3. See pages 68,71 of PBP.
+Comma used to separate statements at line 224, column 3. See pages 68,71 of PBP.
+
+= R/Remote_agent_Simulation
+Conditional "use" statement at line 105, column 3. Use "require" to conditionally include a module.
+Use IO::Interactive::is_interactive() instead of -t at line 115, column 8. See page 218 of PBP.
+"warn" used instead of "carp" at line 138, column 10. See page 283 of PBP.
+
+= R/Remove_vowels_from_a_string
+I/O layer ":utf8" used at line 12, column 1. Use ":encoding(UTF-8)" to get strict validation.
+
+= R/Rename_a_file
+"$result" is declared but not used at line 8, column 1. Unused variables clutter code and make it harder to read.
+
+= R/Rep-string
+Readline inside "for" loop at line 12, column 10. See page 211 of PBP.
+
+= R/Resistance_Calculator
+@ISA used instead of "use parent" at line 10, column 5. See page 360 of PBP.
+Symbols are exported by default at line 11, column 1. Use '@EXPORT_OK' or '%EXPORT_TAGS' instead.
+Multiple "package" declarations at line 62, column 1. Limit to one per file.
+
+= R/Respond_to_an_unknown_method_call
+One-argument "bless" used at line 13, column 5. See page 365 of PBP.
+AUTOLOAD method declared at line 21, column 1. See page 393 of PBP.
+Multiple "package" declarations at line 33, column 1. Limit to one per file.
+
+= R/Reverse_a_string
+I/O layer ":utf8" used at line 13, column 1. Use ":encoding(UTF-8)" to get strict validation.
+
+= R/Reverse_file_lines
+Backtick operator used at line 12, column 13. Use IPC::Open3 instead.
+Backtick operator used at line 15, column 45. Use IPC::Open3 instead.
+Backtick operator used at line 18, column 23. Use IPC::Open3 instead.
+
+= R/Rock-paper-scissors
+Augmented assignment operator '.=' used in declaration at line 103, column 20. Use simple assignment when initializing variables.
+Mixed high and low-precedence booleans at line 122, column 9. See page 70 of PBP.
+Mixed high and low-precedence booleans at line 124, column 9. See page 70 of PBP.
+
+= R/Roman_numerals_Decode
+"local" variable not initialized at line 37, column 4. See page 78 of PBP.
+Mismatched operator at line 38, column 10. Numeric/string operators and operands should match.
+Split long regexps into smaller qr// chunks at line 49, column 5. See page 261 of PBP.
+
+= R/Rosetta_Code_Count_examples
+Reused variable name in lexical scope: $response at line 26, column 5. Invent unique variable names.
+Warnings disabled at line 39, column 5. See page 431 of PBP.
+
+= R/Rosetta_Code_Find_unimplemented_tasks
+Comma used to separate statements at line 34, column 21. See pages 68,71 of PBP.
+
+= R/Rosetta_Code_Fix_code_tags
+Literal line breaks in a string at line 29, column 14. See pages 60,61 of PBP.
+
+= R/Rosetta_Code_Rank_languages_by_number_of_users
+Reused variable name in lexical scope: $url at line 29, column 5. Invent unique variable names.
+
+= R/Rosetta_Code_Rank_languages_by_popularity
+Found ">" in condition for an "unless" at line 52, column 10. See page 99 of PBP.
+
+= R/Rosetta_Code_Tasks_without_examples
+Backtick operator used at line 25, column 13. Use IPC::Open3 instead.
+Reused variable name in lexical scope: $html at line 30, column 5. Invent unique variable names.
+Unreachable code at line 34, column 5. Consider removing it.
+
+= R/Rot-13
+Augmented assignment operator '.=' used in declaration at line 15, column 12. Use simple assignment when initializing variables.
+
+= R/Round-robin_tournament_schedule-2
+Comma used to separate statements at line 23, column 85. See pages 68,71 of PBP.
+
+= R/Run-length_encoding
+Match variable used at line 40, column 26. See page 82 of PBP.
+
+= R/Run_as_a_daemon_or_service
+Unreachable code at line 45, column 1. Consider removing it.
+

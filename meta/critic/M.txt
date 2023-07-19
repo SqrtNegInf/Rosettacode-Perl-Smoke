@@ -1,0 +1,103 @@
+
+= M/MAC_Vendor_Lookup
+Warnings disabled at line 19, column 1. See page 431 of PBP.
+Mixed high and low-precedence booleans at line 60, column 11. See page 70 of PBP.
+
+= M/MD4
+Negative array index should be used at line 15, column 48. See page 88 of PBP.
+Map blocks should have a single statement at line 23, column 13. See page 113 of PBP.
+Comma used to separate statements at line 36, column 9. See pages 68,71 of PBP.
+
+= M/MD5_Implementation
+Capture variable used outside conditional at line 54, column 19. See page 253 of PBP.
+Capture variable used outside conditional at line 55, column 20. See page 253 of PBP.
+Literal line breaks in a string at line 63, column 14. See pages 60,61 of PBP.
+Literal line breaks in a string at line 66, column 25. See pages 60,61 of PBP.
+Literal line breaks in a string at line 68, column 49. See pages 60,61 of PBP.
+Return value of eval not tested at line 70, column 3. You can't depend upon the value of $@/$EVAL_ERROR to tell whether an eval failed.
+Loop iterator is not lexical at line 81, column 5. See page 108 of PBP.
+
+= M/Magic_squares_Perl
+Subroutine "generate_magic" with high complexity score (21) at line 28, column 1. Consider refactoring.
+Cascading if-elsif chain at line 31, column 5. See pages 117,118 of PBP.
+Backtick operator used at line 99, column 11. Use IPC::Open3 instead.
+
+= M/Main_step_of_GOST_28147-89
+Comma used to separate statements at line 39, column 5. See pages 68,71 of PBP.
+
+= M/Make_a_backup_file
+"warn" used instead of "carp" at line 48, column 9. See page 283 of PBP.
+
+= M/Man_or_boy_test
+Warnings disabled at line 13, column 1. See page 431 of PBP.
+Too many arguments at line 15, column 1. See page 182 of PBP.
+
+= M/Marching_squares
+Warnings disabled at line 8, column 1. See page 431 of PBP.
+Found "!=" in condition for an "unless" at line 19, column 14. See page 99 of PBP.
+
+= M/Markov_chain_text_generator
+Reused variable name in lexical scope: $n at line 19, column 5. Invent unique variable names.
+
+= M/Mastermind
+Reused variable name in lexical scope: @puzzle at line 49, column 5. Invent unique variable names.
+
+= M/Matrix-exponentiation_operator
+One-argument "bless" used at line 31, column 9. See page 365 of PBP.
+One-argument "bless" used at line 38, column 9. See page 365 of PBP.
+One-argument "bless" used at line 44, column 9. See page 365 of PBP.
+Found ">=" in condition for an "unless" at line 70, column 25. See page 99 of PBP.
+One-argument "bless" used at line 81, column 13. See page 365 of PBP.
+Multiple "package" declarations at line 84, column 1. Limit to one per file.
+
+= M/Matrix_Digital_Rain
+Unreachable code at line 83, column 1. Consider removing it.
+Literal line breaks in a string at line 131, column 8. See pages 60,61 of PBP.
+
+= M/Matrix_chain_multiplication
+"@path" is declared but not used at line 14, column 5. Unused variables clutter code and make it harder to read.
+
+= M/Matrix_with_two_diagonals-1
+"map" used in void context at line 16, column 5. Use a "for" loop instead.
+"map" used in void context at line 30, column 5. Use a "for" loop instead.
+
+= M/Matrix_with_two_diagonals-3
+Mismatched operator at line 16, column 16. Numeric/string operators and operands should match.
+Mismatched operator at line 16, column 31. Numeric/string operators and operands should match.
+Mismatched operator at line 16, column 35. Numeric/string operators and operands should match.
+Mismatched operator at line 16, column 47. Numeric/string operators and operands should match.
+Readline inside "for" loop at line 21, column 6. See page 211 of PBP.
+
+= M/Mayan_calendar
+I/O layer ":utf8" used at line 13, column 1. Use ":encoding(UTF-8)" to get strict validation.
+Comma used to separate statements at line 32, column 5. See pages 68,71 of PBP.
+Comma used to separate statements at line 59, column 5. See pages 68,71 of PBP.
+Comma used to separate statements at line 65, column 5. See pages 68,71 of PBP.
+Readline inside "for" loop at line 86, column 15. See page 211 of PBP.
+
+= M/Mayan_numerals
+Warnings disabled at line 30, column 5. See page 431 of PBP.
+Readline inside "for" loop at line 45, column 12. See page 211 of PBP.
+
+= M/Maze_generation
+Warnings disabled at line 8, column 1. See page 431 of PBP.
+Hard tabs used at line 30, column 21. See page 20 of PBP.
+Hard tabs used at line 45, column 32. See page 20 of PBP.
+Hard tabs used at line 47, column 16. See page 20 of PBP.
+
+= M/Maze_solving
+Warnings disabled at line 39, column 7. See page 431 of PBP.
+Warnings disabled at line 69, column 7. See page 431 of PBP.
+
+= M/McNuggets_Problem-2
+Mismatched operator at line 13, column 8. Numeric/string operators and operands should match.
+Mismatched operator at line 18, column 8. Numeric/string operators and operands should match.
+Mismatched operator at line 23, column 8. Numeric/string operators and operands should match.
+Mismatched operator at line 28, column 8. Numeric/string operators and operands should match.
+Mismatched operator at line 33, column 8. Numeric/string operators and operands should match.
+Mismatched operator at line 38, column 8. Numeric/string operators and operands should match.
+Mismatched operator at line 43, column 8. Numeric/string operators and operands should match.
+
+= M/Merge_and_aggregate_datasets
+"local" variable not initialized at line 16, column 29. See page 78 of PBP.
+Comma used to separate statements at line 21, column 3. See pages 68,71 of PBP.

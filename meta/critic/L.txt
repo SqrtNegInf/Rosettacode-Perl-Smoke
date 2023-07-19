@@ -1,0 +1,82 @@
+
+= L/LU_decomposition
+"map" used in void context at line 10, column 23. Use a "for" loop instead.
+Warnings disabled at line 38, column 9. See page 431 of PBP.
+Comma used to separate statements at line 47, column 5. See pages 68,71 of PBP.
+
+= L/LZW_compression
+Reused variable name in lexical scope: $result at line 53, column 5. Invent unique variable names.
+
+= L/Lah_numbers
+"map" used in void context at line 31, column 5. Use a "for" loop instead.
+
+= L/Langton%27s_ant
+Reused variable name in lexical scope: $y at line 45, column 6. Invent unique variable names.
+Reused variable name in lexical scope: $x at line 46, column 8. Invent unique variable names.
+
+= L/Largest_difference_between_adjacent_primes
+"map" used in void context at line 17, column 5. Use a "for" loop instead.
+
+= L/Largest_five_adjacent_number
+Capture variable used outside conditional at line 15, column 4. See page 253 of PBP.
+Capture variable used outside conditional at line 15, column 10. See page 253 of PBP.
+
+= L/Largest_palindrome_product
+Found ">=" in condition for an "unless" at line 19, column 14. See page 99 of PBP.
+
+= L/Largest_prime_factor
+Comma used to separate statements at line 12, column 5. See pages 68,71 of PBP.
+Reused variable name in lexical scope: $n at line 20, column 5. Invent unique variable names.
+
+= L/Largest_product_in_a_grid-2
+"map" used in void context at line 49, column 9. Use a "for" loop instead.
+
+= L/Last_letter-first_letter
+Capture variable used outside conditional at line 23, column 19. See page 253 of PBP.
+Capture variable used outside conditional at line 23, column 27. See page 253 of PBP.
+
+= L/Last_list_item
+Use "local $/ = undef" or Path::Tiny instead of joined readline at line 15, column 27. See page 213 of PBP.
+
+= L/Latin_Squares_in_reduced_form
+Mixed high and low-precedence booleans at line 23, column 3. See page 70 of PBP.
+Map blocks should have a single statement at line 36, column 5. See page 113 of PBP.
+
+= L/Launch_rocket_with_countdown_and_acceleration_in_stdout
+Backtick operator used at line 13, column 33. Use IPC::Open3 instead.
+Single-quote used as quote-like operator delimiter at line 22, column 10. Using quotes as delimiters for quote-like operators obfuscates code.
+Single-quote used as quote-like operator delimiter at line 22, column 22. Using quotes as delimiters for quote-like operators obfuscates code.
+Single-quote used as quote-like operator delimiter at line 22, column 35. Using quotes as delimiters for quote-like operators obfuscates code.
+Single-quote used as quote-like operator delimiter at line 22, column 47. Using quotes as delimiters for quote-like operators obfuscates code.
+Single-quote used as quote-like operator delimiter at line 22, column 59. Using quotes as delimiters for quote-like operators obfuscates code.
+Single-quote used as quote-like operator delimiter at line 23, column 10. Using quotes as delimiters for quote-like operators obfuscates code.
+Single-quote used as quote-like operator delimiter at line 23, column 22. Using quotes as delimiters for quote-like operators obfuscates code.
+Single-quote used as quote-like operator delimiter at line 23, column 35. Using quotes as delimiters for quote-like operators obfuscates code.
+Single-quote used as quote-like operator delimiter at line 23, column 47. Using quotes as delimiters for quote-like operators obfuscates code.
+Single-quote used as quote-like operator delimiter at line 24, column 10. Using quotes as delimiters for quote-like operators obfuscates code.
+Single-quote used as quote-like operator delimiter at line 24, column 22. Using quotes as delimiters for quote-like operators obfuscates code.
+Single-quote used as quote-like operator delimiter at line 24, column 35. Using quotes as delimiters for quote-like operators obfuscates code.
+Single-quote used as quote-like operator delimiter at line 24, column 47. Using quotes as delimiters for quote-like operators obfuscates code.
+Single-quote used as quote-like operator delimiter at line 48, column 15. Using quotes as delimiters for quote-like operators obfuscates code.
+Reused variable name in lexical scope: $a at line 67, column 5. Invent unique variable names.
+Single-quote used as quote-like operator delimiter at line 68, column 11. Using quotes as delimiters for quote-like operators obfuscates code.
+Single-quote used as quote-like operator delimiter at line 68, column 25. Using quotes as delimiters for quote-like operators obfuscates code.
+Single-quote used as quote-like operator delimiter at line 68, column 37. Using quotes as delimiters for quote-like operators obfuscates code.
+
+= L/Law_of_cosines_-_triples
+I/O layer ":utf8" used at line 12, column 1. Use ":encoding(UTF-8)" to get strict validation.
+
+= L/Leap_year
+Readline inside "for" loop at line 24, column 12. See page 211 of PBP.
+
+= L/Least_m_such_that_n!_%2B_m_is_prime
+Found ">" in condition for an "until" at line 18, column 3. See page 99 of PBP.
+
+= L/Least_square
+Found ">" in condition for an "until" at line 12, column 6. See page 99 of PBP.
+Found ">" in condition for an "until" at line 16, column 6. See page 99 of PBP.
+Found ">" in condition for an "until" at line 21, column 10. See page 99 of PBP.
+Found "<" in condition for an "until" at line 25, column 6. See page 99 of PBP.
+
+= L/Legendre_prime_counting_function
+Warnings disabled at line 10, column 1. See page 431 of PBP.

@@ -1,0 +1,69 @@
+
+= V/Validate_International_Securities_Identification_Number
+Hard tabs used at line 15, column 49. See page 20 of PBP.
+Hard tabs used at line 19, column 49. See page 20 of PBP.
+Hard tabs used at line 21, column 49. See page 20 of PBP.
+Reused variable name in lexical scope: $i at line 29, column 13. Invent unique variable names.
+
+= V/Vampire_number-1
+Comma used to separate statements at line 37, column 5. See pages 68,71 of PBP.
+
+= V/Variable-length_quantity
+Capture variable used outside conditional at line 26, column 46. See page 253 of PBP.
+Capture variable used outside conditional at line 29, column 55. See page 253 of PBP.
+
+= V/Variables
+Stricture disabled at line 12, column 1. See page 429 of PBP.
+Don't turn off strict for large blocks of code at line 12, column 1. See page 433 of PBP.
+Warnings disabled at line 13, column 1. See page 431 of PBP.
+Reused variable name in lexical scope: $x at line 29, column 1. Invent unique variable names.
+Reused variable name in lexical scope: @b at line 33, column 1. Invent unique variable names.
+Reused variable name in lexical scope: $x at line 33, column 1. Invent unique variable names.
+Reused variable name in lexical scope: $x at line 35, column 1. Invent unique variable names.
+Reused variable name in lexical scope: $y at line 35, column 1. Invent unique variable names.
+Reused variable name in lexical scope: @b at line 35, column 1. Invent unique variable names.
+Reused variable name in lexical scope: $fruit at line 54, column 3. Invent unique variable names.
+
+= V/Variadic_function
+Subroutine name is a homonym for builtin function print at line 28, column 1. See page 177 of PBP.
+
+= V/Vector
+Subroutine name is a homonym for builtin keyword sub at line 24, column 1. See page 177 of PBP.
+Multiple "package" declarations at line 29, column 1. Limit to one per file.
+
+= V/Vector_products
+One-argument "bless" used at line 16, column 18. See page 365 of PBP.
+One-argument "bless" used at line 24, column 33. See page 365 of PBP.
+Multiple "package" declarations at line 30, column 1. Limit to one per file.
+
+= V/Verhoeff_algorithm
+Mismatched operator at line 41, column 22. Numeric/string operators and operands should match.
+
+= V/Verify_distribution_uniformity_Naive
+Reused variable name in lexical scope: $threshold at line 28, column 1. Invent unique variable names.
+
+= V/Vibrating_rectangles
+I/O layer ":utf8" used at line 13, column 1. Use ":encoding(UTF-8)" to get strict validation.
+Reused variable name in lexical scope: @c at line 38, column 5. Invent unique variable names.
+
+= V/Video_display_modes
+Backtick operator used at line 10, column 24. Use IPC::Open3 instead.
+
+= V/Vigen%C3%A8re_cipher
+"map" used in void context at line 19, column 1. Use a "for" loop instead.
+
+= V/Vigen%C3%A8re_cipher_Cryptanalysis
+"$pos" is declared but not used at line 23, column 5. Unused variables clutter code and make it harder to read.
+
+= V/Visualize_a_tree
+I/O layer ":utf8" used at line 12, column 5. Use ":encoding(UTF-8)" to get strict validation.
+
+= V/Vogel%27s_approximation_method
+Map blocks should have a single statement at line 22, column 3. See page 113 of PBP.
+Match variable used at line 28, column 48. See page 82 of PBP.
+Match variable used at line 35, column 36. See page 82 of PBP.
+
+= V/Voronoi_diagram
+Reused variable name in lexical scope: $xmax at line 39, column 9. Invent unique variable names.
+Reused variable name in lexical scope: $ymax at line 39, column 9. Invent unique variable names.
+

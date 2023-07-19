@@ -1,0 +1,71 @@
+
+= G/Galton_box_animation
+I/O layer ":utf8" used at line 18, column 1. Use ":encoding(UTF-8)" to get strict validation.
+Two-argument "open" used at line 20, column 1. See page 207 of PBP.
+I/O layer ":utf8" used at line 21, column 1. Use ":encoding(UTF-8)" to get strict validation.
+Readline inside "for" loop at line 63, column 10. See page 211 of PBP.
+Reused variable name in lexical scope: @stats at line 73, column 5. Invent unique variable names.
+Nested named subroutine at line 79, column 9. Declaring a named sub inside another named sub does not prevent the inner sub from being global.
+Nested named subroutine at line 103, column 9. Declaring a named sub inside another named sub does not prevent the inner sub from being global.
+Nested named subroutine at line 104, column 9. Declaring a named sub inside another named sub does not prevent the inner sub from being global.
+Mixed high and low-precedence booleans at line 149, column 5. See page 70 of PBP.
+
+= G/Galton_box_animation-2
+"select" used to emulate "sleep" at line 38, column 3. See page 168 of PBP.
+
+= G/Gamma_function
+Cascading if-elsif chain at line 22, column 5. See pages 117,118 of PBP.
+Warnings disabled at line 64, column 9. See page 431 of PBP.
+Reused variable name in lexical scope: $result at line 68, column 9. Invent unique variable names.
+
+= G/Gauss-Jordan_matrix_inversion
+Reused variable name in lexical scope: $lv at line 32, column 11. Invent unique variable names.
+"map" used in void context at line 46, column 5. Use a "for" loop instead.
+
+= G/Gaussian_primes
+Reused variable name in lexical scope: $plot at line 18, column 5. Invent unique variable names.
+Reused variable name in lexical scope: @primes at line 19, column 5. Invent unique variable names.
+
+= G/General_FizzBuzz
+Warnings disabled at line 48, column 13. See page 431 of PBP.
+
+= G/Generate_random_chess_position
+Found "!=" in condition for an "unless" at line 25, column 18. See page 99 of PBP.
+Found ">" in condition for an "unless" at line 25, column 18. See page 99 of PBP.
+Found ">" in condition for an "unless" at line 25, column 18. See page 99 of PBP.
+
+= G/Get_system_command_output
+Backtick operator used at line 15, column 38. Use IPC::Open3 instead.
+Backtick operator used at line 26, column 25. Use IPC::Open3 instead.
+
+= G/Go_Fish
+Map blocks should have a single statement at line 16, column 29. See page 113 of PBP.
+Use "<>" or "<ARGV>" or a prompting module instead of "<STDIN>" at line 48, column 18. See pages 216,220,221 of PBP.
+Too many arguments at line 53, column 1. See page 182 of PBP.
+Reused variable name in lexical scope: $you at line 55, column 3. Invent unique variable names.
+Reused variable name in lexical scope: $me at line 55, column 3. Invent unique variable names.
+Reused variable name in lexical scope: $pick at line 71, column 9. Invent unique variable names.
+Match variable used at line 79, column 17. See page 82 of PBP.
+
+= G/Gradient_descent
+Map blocks should have a single statement at line 53, column 5. See page 113 of PBP.
+
+= G/Graph_colouring
+Warnings disabled at line 9, column 1. See page 431 of PBP.
+
+= G/Grayscale_image
+"$result" is declared but not used at line 8, column 1. Unused variables clutter code and make it harder to read.
+
+= G/Greed
+Main code has high complexity score (29) at line 1, column 1. Consider refactoring.
+
+= G/Guess_the_number_With_feedback
+"$result" is declared but not used at line 12, column 1. Unused variables clutter code and make it harder to read.
+Mixed high and low-precedence booleans at line 19, column 3. See page 70 of PBP.
+Use "<>" or "<ARGV>" or a prompting module instead of "<STDIN>" at line 19, column 16. See pages 216,220,221 of PBP.
+Comma used to separate statements at line 29, column 1. See pages 68,71 of PBP.
+
+= G/Guess_the_number_With_feedback_player
+Use "<>" or "<ARGV>" or a prompting module instead of "<STDIN>" at line 27, column 21. See pages 216,220,221 of PBP.
+Cascading if-elsif chain at line 29, column 9. See pages 117,118 of PBP.
+

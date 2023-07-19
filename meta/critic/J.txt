@@ -1,0 +1,31 @@
+
+= J/JSON
+"$result" is declared but not used at line 6, column 1. Unused variables clutter code and make it harder to read.
+
+= J/Jacobsthal_numbers
+Found ">" in condition for an "until" at line 20, column 95. See page 99 of PBP.
+Found ">" in condition for an "until" at line 21, column 95. See page 99 of PBP.
+"@jl" is declared but not used at line 23, column 1. Unused variables clutter code and make it harder to read.
+"@jo" is declared but not used at line 23, column 1. Unused variables clutter code and make it harder to read.
+
+= J/Jaro-Winkler_Distance
+Backtick operator used at line 54, column 25. Use IPC::Open3 instead.
+Readline inside "for" loop at line 56, column 15. See page 211 of PBP.
+
+= J/Jensen%27s_Device
+Reused variable name in lexical scope: $i at line 13, column 5. Invent unique variable names.
+
+= J/Jewels_and_Stones
+Warnings disabled at line 7, column 1. See page 431 of PBP.
+
+= J/Juggler_sequence
+Backtick operator used at line 17, column 13. Use IPC::Open3 instead.
+
+= J/Julia_set
+"$result" is declared but not used at line 10, column 1. Unused variables clutter code and make it harder to read.
+
+= J/Jump_anywhere
+Unreachable code at line 24, column 5. Consider removing it.
+Unreachable code at line 30, column 5. Consider removing it.
+Unreachable code at line 37, column 5. Consider removing it.
+

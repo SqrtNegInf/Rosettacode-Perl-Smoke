@@ -1,0 +1,27 @@
+
+= Q/QR_decomposition
+Backtick operator used at line 5, column 33. Use IPC::Open3 instead.
+Backtick operator used at line 6, column 35. Use IPC::Open3 instead.
+Don't modify $_ in list functions at line 28, column 12. See page 114 of PBP.
+
+= Q/Quadrat_Special_Primes
+Found ">=" in condition for an "until" at line 19, column 3. See page 99 of PBP.
+
+= Q/Quaternion_type
+One-argument "bless" used at line 17, column 34. See page 365 of PBP.
+One-argument "bless" used at line 18, column 34. See page 365 of PBP.
+One-argument "bless" used at line 23, column 12. See page 365 of PBP.
+One-argument "bless" used at line 29, column 9. See page 365 of PBP.
+One-argument "bless" used at line 37, column 9. See page 365 of PBP.
+One-argument "bless" used at line 42, column 31. See page 365 of PBP.
+One-argument "bless" used at line 45, column 9. See page 365 of PBP.
+One-argument "bless" used at line 54, column 9. See page 365 of PBP.
+Multiple "package" declarations at line 66, column 1. Limit to one per file.
+
+= Q/Quine
+"$result" is declared but not used at line 8, column 1. Unused variables clutter code and make it harder to read.
+Literal line breaks in a string at line 14, column 6. See pages 60,61 of PBP.
+
+= Q/Quoting_constructs
+Heredoc terminator must be quoted at line 14, column 12. See page 64 of PBP.
+

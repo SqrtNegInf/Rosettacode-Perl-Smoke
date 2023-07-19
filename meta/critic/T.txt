@@ -1,0 +1,53 @@
+
+= T/Table_creation
+Literal line breaks in a string at line 16, column 10. See pages 60,61 of PBP.
+
+= T/Taxicab_numbers
+Reused variable name in lexical scope: $end at line 38, column 3. Invent unique variable names.
+
+= T/Temperature_conversion
+Found ">" in condition for an "unless" at line 22, column 30. See page 99 of PBP.
+
+= T/Terminal_control_Clear_the_screen
+Backtick operator used at line 12, column 10. Use IPC::Open3 instead.
+
+= T/Terminal_control_Cursor_movement
+Backtick operator used at line 14, column 6. Use IPC::Open3 instead.
+
+= T/Terminal_control_Display_an_extended_character
+I/O layer ":utf8" used at line 13, column 1. Use ":encoding(UTF-8)" to get strict validation.
+
+= T/Ternary_logic
+@ISA used instead of "use parent" at line 15, column 5. See page 360 of PBP.
+Subroutine name is a homonym for builtin function not at line 67, column 1. See page 177 of PBP.
+Subroutine name is a homonym for builtin keyword cmp at line 68, column 1. See page 177 of PBP.
+Subroutine name is a homonym for builtin keyword and at line 69, column 1. See page 177 of PBP.
+Subroutine name is a homonym for builtin keyword or at line 70, column 1. See page 177 of PBP.
+Multiple "package" declarations at line 73, column 1. Limit to one per file.
+
+= T/Test_a_function
+"$result" is declared but not used at line 7, column 1. Unused variables clutter code and make it harder to read.
+
+= T/Tetris
+Subroutine "rotate" with high complexity score (21) at line 65, column 1. Consider refactoring.
+Mixed high and low-precedence booleans at line 116, column 3. See page 70 of PBP.
+Ambiguously named subroutine "right" at line 125, column 1. See page 48 of PBP.
+Ambiguously named subroutine "left" at line 127, column 1. See page 48 of PBP.
+Return value of eval not tested at line 173, column 1. You can't depend upon the value of $@/$EVAL_ERROR to tell whether an eval failed.
+
+= T/Text_Completion
+Readline inside "for" loop at line 44, column 15. See page 211 of PBP.
+
+= T/Textonyms
+"map" used in void context at line 17, column 1. Use a "for" loop instead.
+Don't modify $_ in list functions at line 17, column 1. See page 114 of PBP.
+"map" used in void context at line 18, column 1. Use a "for" loop instead.
+Don't modify $_ in list functions at line 18, column 1. See page 114 of PBP.
+Literal line breaks in a string at line 24, column 15. See pages 60,61 of PBP.
+
+= T/The_ISAAC_Cipher
+Reused variable name in lexical scope: $key at line 30, column 3. Invent unique variable names.
+
+= T/The_sieve_of_Sundaram
+"@res" is declared but not used at line 6, column 1. Unused variables clutter code and make it harder to read.
+Mixed high and low-precedence booleans at line 26, column 28. See page 70 of PBP.

@@ -1,0 +1,18 @@
+
+= U/URL_parser
+Warnings disabled at line 15, column 19. See page 431 of PBP.
+Readline inside "for" loop at line 30, column 19. See page 211 of PBP.
+Return value of eval not tested at line 31, column 9. You can't depend upon the value of $@/$EVAL_ERROR to tell whether an eval failed.
+
+= U/UTF-8_encode_and_decode
+Map blocks should have a single statement at line 18, column 1. See page 113 of PBP.
+"map" used in void context at line 18, column 1. Use a "for" loop instead.
+"map" used in void context at line 23, column 2. Use a "for" loop instead.
+
+= U/Ulam_spiral_for_primes
+"$result" is declared but not used at line 10, column 1. Unused variables clutter code and make it harder to read.
+Reused variable name in lexical scope: $start at line 20, column 3. Invent unique variable names.
+Reused variable name in lexical scope: $n at line 20, column 3. Invent unique variable names.
+
+= U/Ultra_useful_primes
+"@res" is declared but not used at line 7, column 1. Unused variables clutter code and make it harder to read.

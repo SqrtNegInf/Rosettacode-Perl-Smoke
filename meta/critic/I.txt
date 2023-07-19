@@ -1,0 +1,81 @@
+
+= I/I%27m_a_software_engineer,_get_me_out_of_here
+Use "local $/ = undef" or Path::Tiny instead of joined readline at line 17, column 9. See page 213 of PBP.
+Found "ne" in condition for an "unless" at line 37, column 14. See page 99 of PBP.
+
+= I/I.Q._Puzzle
+"return" statement with explicit "undef" at line 35, column 5. See page 199 of PBP.
+"return" statement with explicit "undef" at line 38, column 13. See page 199 of PBP.
+"return" statement with explicit "undef" at line 41, column 13. See page 199 of PBP.
+
+= I/ISBN13_check_digit
+Readline inside "for" loop at line 19, column 6. See page 211 of PBP.
+
+= I/Identity_matrix
+Readline inside "for" loop at line 17, column 6. See page 211 of PBP.
+
+= I/Idiomatically_determine_all_the_characters_that_can_be_used_for_symbols
+I/O layer ":utf8" used at line 12, column 1. Use ":encoding(UTF-8)" to get strict validation.
+Unreachable code at line 35, column 1. Consider removing it.
+Unreachable code at line 41, column 1. Consider removing it.
+
+= I/Idiomatically_determine_all_the_lowercase_and_uppercase_letters
+I/O layer ":utf8" used at line 12, column 1. Use ":encoding(UTF-8)" to get strict validation.
+
+= I/Image_noise
+Loop iterator is not lexical at line 31, column 3. See page 108 of PBP.
+Loop iterator is not lexical at line 32, column 5. See page 108 of PBP.
+
+= I/Imaginary_base_numbers
+Found ">" in condition for an "unless" at line 27, column 9. See page 99 of PBP.
+Found "<" in condition for an "unless" at line 27, column 9. See page 99 of PBP.
+Found "<=" in condition for an "until" at line 35, column 40. See page 99 of PBP.
+Found "<" in condition for an "until" at line 35, column 40. See page 99 of PBP.
+Found "not" in condition for an "unless" at line 40, column 25. See page 99 of PBP.
+Found "<=" in condition for an "unless" at line 49, column 36. See page 99 of PBP.
+Found "<=" in condition for an "unless" at line 49, column 36. See page 99 of PBP.
+Found "<=" in condition for an "unless" at line 49, column 36. See page 99 of PBP.
+Found "<=" in condition for an "unless" at line 49, column 36. See page 99 of PBP.
+Mismatched operator at line 61, column 15. Numeric/string operators and operands should match.
+
+= I/Implicit_type_conversion
+Mismatched operator at line 12, column 9. Numeric/string operators and operands should match.
+Mismatched operator at line 13, column 9. Numeric/string operators and operands should match.
+Mismatched operator at line 14, column 9. Numeric/string operators and operands should match.
+Mismatched operator at line 22, column 17. Numeric/string operators and operands should match.
+Mismatched operator at line 24, column 9. Numeric/string operators and operands should match.
+
+= I/Index_finite_lists_of_positive_integers-1
+Use "local $/ = undef" or Path::Tiny instead of joined readline at line 19, column 12. See page 213 of PBP.
+
+= I/Infinity
+Mismatched operator at line 13, column 14. Numeric/string operators and operands should match.
+Mismatched operator at line 14, column 14. Numeric/string operators and operands should match.
+Mismatched operator at line 17, column 14. Numeric/string operators and operands should match.
+Mismatched operator at line 18, column 14. Numeric/string operators and operands should match.
+
+= I/Integer_long_division
+I/O layer ":utf8" used at line 14, column 1. Use ":encoding(UTF-8)" to get strict validation.
+Comma used to separate statements at line 39, column 5. See pages 68,71 of PBP.
+
+= I/Integer_overflow
+Mismatched operator at line 16, column 9. Numeric/string operators and operands should match.
+Mismatched operator at line 16, column 52. Numeric/string operators and operands should match.
+Mismatched operator at line 17, column 9. Numeric/string operators and operands should match.
+Mismatched operator at line 17, column 55. Numeric/string operators and operands should match.
+Mismatched operator at line 18, column 9. Numeric/string operators and operands should match.
+Mismatched operator at line 18, column 36. Numeric/string operators and operands should match.
+Mismatched operator at line 19, column 42. Numeric/string operators and operands should match.
+
+= I/Integer_roots-1
+Nested named subroutine at line 25, column 5. Declaring a named sub inside another named sub does not prevent the inner sub from being global.
+
+= I/Integer_roots-2
+Mismatched operator at line 16, column 10. Numeric/string operators and operands should match.
+Mismatched operator at line 17, column 10. Numeric/string operators and operands should match.
+
+= I/Introspection
+Warnings disabled at line 19, column 5. See page 431 of PBP.
+Stricture disabled at line 20, column 5. See page 429 of PBP.
+Return value of eval not tested at line 25, column 1. You can't depend upon the value of $@/$EVAL_ERROR to tell whether an eval failed.
+

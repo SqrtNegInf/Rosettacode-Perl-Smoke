@@ -1,0 +1,39 @@
+
+= E/Earliest_difference_between_prime_gaps
+Mixed high and low-precedence booleans at line 23, column 5. See page 70 of PBP.
+Mixed high and low-precedence booleans at line 26, column 9. See page 70 of PBP.
+
+= E/Egyptian_division
+Found ">=" in condition for an "unless" at line 20, column 14. See page 99 of PBP.
+
+= E/Element-wise_operations
+Subroutine name is a homonym for builtin keyword sub at line 37, column 1. See page 177 of PBP.
+Subroutine name is a homonym for builtin function exp at line 40, column 1. See page 177 of PBP.
+Multiple "package" declarations at line 42, column 1. Limit to one per file.
+
+= E/Elementary_cellular_automaton
+Subroutine name is a homonym for builtin function next at line 20, column 5. See page 177 of PBP.
+
+= E/Elementary_cellular_automaton_Random_Number_Generator
+Subroutine name is a homonym for builtin function next at line 20, column 5. See page 177 of PBP.
+
+= E/Elliptic_curve_arithmetic
+Multiple "package" declarations at line 16, column 5. Limit to one per file.
+Subroutine name is a homonym for builtin keyword x at line 19, column 5. See page 177 of PBP.
+Subroutine name is a homonym for builtin keyword y at line 19, column 27. See page 177 of PBP.
+Multiple "package" declarations at line 46, column 1. Limit to one per file.
+
+= E/Empty_string
+Warnings disabled at line 12, column 1. See page 431 of PBP.
+
+= E/Enforced_immutability
+Return value of eval not tested at line 30, column 1. You can't depend upon the value of $@/$EVAL_ERROR to tell whether an eval failed.
+
+= E/Engel_expansion
+Map blocks should have a single statement at line 32, column 10. See page 113 of PBP.
+
+= E/Equal_prime_and_composite_sums
+Found "!" in condition for an "until" at line 27, column 41. See page 99 of PBP.
+
+= E/Erdos-Nicolas_numbers
+Found ">" in condition for an "unless" at line 23, column 18. See page 99 of PBP.

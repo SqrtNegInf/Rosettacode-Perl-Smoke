@@ -1,0 +1,35 @@
+
+= O/Object_serialization-1
+Multiple "package" declarations at line 23, column 5. Limit to one per file.
+Multiple "package" declarations at line 32, column 5. Limit to one per file.
+
+= O/Odd_squarefree_semiprimes
+"@res" is declared but not used at line 8, column 1. Unused variables clutter code and make it harder to read.
+
+= O/Old_Russian_measure_of_length
+Augmented assignment operator '.=' used in declaration at line 30, column 13. Use simple assignment when initializing variables.
+Match variable used at line 42, column 18. See page 82 of PBP.
+Match variable used at line 43, column 18. See page 82 of PBP.
+
+= O/One-time_pad
+"@res" is declared but not used at line 7, column 1. Unused variables clutter code and make it harder to read.
+
+= O/One-two_primes
+Warnings disabled at line 10, column 1. See page 431 of PBP.
+Capture variable used outside conditional at line 14, column 54. See page 253 of PBP.
+
+= O/OpenWebNet_Password
+Cascading if-elsif chain at line 19, column 9. See pages 117,118 of PBP.
+
+= O/Orbital_elements
+Nested named subroutine at line 26, column 5. Declaring a named sub inside another named sub does not prevent the inner sub from being global.
+
+= O/Order_by_pair_comparisons
+Match variable used at line 15, column 59. See page 82 of PBP.
+
+= O/Ordered_Partitions-2
+Map blocks should have a single statement at line 28, column 13. See page 113 of PBP.
+
+= O/Overloaded_operators
+Multiple "package" declarations at line 24, column 1. Limit to one per file.
+

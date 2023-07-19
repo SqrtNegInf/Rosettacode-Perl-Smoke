@@ -1,0 +1,162 @@
+
+= N/N-body_problem
+Too many arguments at line 26, column 1. See page 182 of PBP.
+
+= N/N-grams
+"map" used in void context at line 12, column 5. Use a "for" loop instead.
+
+= N/N-queens_minimum_and_knights_and_bishops
+Subroutine "is_attacked" with high complexity score (36) at line 19, column 1. Consider refactoring.
+"map" used in void context at line 54, column 9. Use a "for" loop instead.
+
+= N/Names_to_numbers
+I/O layer ":utf8" used at line 15, column 1. Use ":encoding(UTF-8)" to get strict validation.
+
+= N/Natural_sorting
+"$result" is declared but not used at line 8, column 1. Unused variables clutter code and make it harder to read.
+Warnings disabled at line 11, column 1. See page 431 of PBP.
+Map blocks should have a single statement at line 18, column 17. See page 113 of PBP.
+Sort blocks should have a single statement at line 25, column 28. See page 149 of PBP.
+
+= N/Nautical_bell-1
+"$result" is declared but not used at line 11, column 1. Unused variables clutter code and make it harder to read.
+I/O layer ":utf8" used at line 14, column 1. Use ":encoding(UTF-8)" to get strict validation.
+
+= N/Nautical_bell-2
+I/O layer ":utf8" used at line 13, column 1. Use ":encoding(UTF-8)" to get strict validation.
+
+= N/Negative_base_numbers
+Comma used to separate statements at line 21, column 9. See pages 68,71 of PBP.
+
+= N/Neighbour_primes
+Found ">=" in condition for an "until" at line 20, column 3. See page 99 of PBP.
+
+= N/Nested_function
+Nested named subroutine at line 14, column 5. Declaring a named sub inside another named sub does not prevent the inner sub from being global.
+
+= N/Nested_templated_data
+Reused variable name in lexical scope: $result at line 20, column 5. Invent unique variable names.
+Warnings disabled at line 21, column 5. See page 431 of PBP.
+
+= N/Next_special_primes
+Found ">=" in condition for an "until" at line 28, column 37. See page 99 of PBP.
+
+= N/Nimber_arithmetic
+Warnings disabled at line 31, column 5. See page 431 of PBP.
+
+= N/Non-continuous_subsequences
+Warnings disabled at line 8, column 1. See page 431 of PBP.
+
+= N/Non-decimal_radices_Input
+Mismatched operator at line 20, column 9. Numeric/string operators and operands should match.
+
+= N/Non-transitive_dice
+Reused variable name in lexical scope: @res at line 15, column 5. Invent unique variable names.
+Reused variable name in lexical scope: @res at line 71, column 5. Invent unique variable names.
+Code structure is deeply nested at line 80, column 25. Consider refactoring.
+Reused variable name in lexical scope: @res at line 100, column 5. Invent unique variable names.
+Code structure is deeply nested at line 108, column 25. Consider refactoring.
+Code structure is deeply nested at line 110, column 29. Consider refactoring.
+Code structure is deeply nested at line 112, column 33. Consider refactoring.
+Reused variable name in lexical scope: $line at line 152, column 9. Invent unique variable names.
+
+= N/Nonoblock
+Comma used to separate statements at line 17, column 3. See pages 68,71 of PBP.
+
+= N/Nonogram_solver
+Don't modify $_ in list functions at line 22, column 16. See page 114 of PBP.
+Map blocks should have a single statement at line 22, column 31. See page 113 of PBP.
+Don't modify $_ in list functions at line 22, column 31. See page 114 of PBP.
+Match variable used at line 22, column 44. See page 82 of PBP.
+Don't modify $_ in list functions at line 24, column 13. See page 114 of PBP.
+Map blocks should have a single statement at line 24, column 28. See page 113 of PBP.
+Don't modify $_ in list functions at line 24, column 28. See page 114 of PBP.
+Match variable used at line 24, column 41. See page 82 of PBP.
+Comma used to separate statements at line 27, column 51. See pages 68,71 of PBP.
+Subroutine name is a homonym for builtin keyword try at line 30, column 1. See page 177 of PBP.
+
+= N/Null_object
+Stricture disabled at line 9, column 1. See page 429 of PBP.
+Don't turn off strict for large blocks of code at line 9, column 1. See page 433 of PBP.
+Warnings disabled at line 10, column 1. See page 431 of PBP.
+
+= N/Number_Triplets_Game
+Comma used to separate statements at line 70, column 3. See pages 68,71 of PBP.
+Comma used to separate statements at line 73, column 3. See pages 68,71 of PBP.
+
+= N/Number_reversal_game
+"$result" is declared but not used at line 12, column 1. Unused variables clutter code and make it harder to read.
+
+= N/Numbers_divisible_by_their_individual_digits,_but_not_by_the_product_of_their_digits.
+Mixed high and low-precedence booleans at line 13, column 9. See page 70 of PBP.
+
+= N/Numbers_which_are_the_cube_roots_of_the_product_of_their_proper_divisors-2
+Cascading if-elsif chain at line 16, column 5. See pages 117,118 of PBP.
+
+= N/Numbers_with_equal_rises_and_falls
+Capture variable used outside conditional at line 15, column 11. See page 253 of PBP.
+Capture variable used outside conditional at line 15, column 18. See page 253 of PBP.
+Comma used to separate statements at line 24, column 3. See pages 68,71 of PBP.
+
+= N/Numeric_error_propagation
+One-argument "bless" used at line 41, column 21. See page 365 of PBP.
+One-argument "bless" used at line 77, column 5. See page 365 of PBP.
+One-argument "bless" used at line 83, column 5. See page 365 of PBP.
+One-argument "bless" used at line 89, column 5. See page 365 of PBP.
+One-argument "bless" used at line 97, column 5. See page 365 of PBP.
+One-argument "bless" used at line 105, column 5. See page 365 of PBP.
+One-argument "bless" used at line 112, column 5. See page 365 of PBP.
+One-argument "bless" used at line 125, column 5. See page 365 of PBP.
+One-argument "bless" used at line 130, column 5. See page 365 of PBP.
+Multiple "package" declarations at line 135, column 1. Limit to one per file.
+
+= N/Numeric_separator_syntax
+Mismatched operator at line 16, column 9. Numeric/string operators and operands should match.
+Mismatched operator at line 16, column 18. Numeric/string operators and operands should match.
+Mismatched operator at line 19, column 9. Numeric/string operators and operands should match.
+Mismatched operator at line 19, column 24. Numeric/string operators and operands should match.
+Mismatched operator at line 22, column 9. Numeric/string operators and operands should match.
+Mismatched operator at line 22, column 21. Numeric/string operators and operands should match.
+Mismatched operator at line 25, column 9. Numeric/string operators and operands should match.
+Mismatched operator at line 25, column 24. Numeric/string operators and operands should match.
+Mismatched operator at line 28, column 9. Numeric/string operators and operands should match.
+Mismatched operator at line 28, column 21. Numeric/string operators and operands should match.
+
+= N/Numerical_Integration
+Return value of eval not tested at line 76, column 37. You can't depend upon the value of $@/$EVAL_ERROR to tell whether an eval failed.
+Unreachable code at line 125, column 1. Consider removing it.
+Unreachable code at line 135, column 1. Consider removing it.
+Unreachable code at line 136, column 1. Consider removing it.
+Unreachable code at line 136, column 16. Consider removing it.
+Unreachable code at line 137, column 1. Consider removing it.
+Unreachable code at line 138, column 1. Consider removing it.
+Unreachable code at line 139, column 1. Consider removing it.
+Unreachable code at line 141, column 1. Consider removing it.
+Unreachable code at line 151, column 1. Consider removing it.
+Unreachable code at line 152, column 1. Consider removing it.
+Unreachable code at line 152, column 16. Consider removing it.
+Unreachable code at line 153, column 1. Consider removing it.
+Unreachable code at line 154, column 1. Consider removing it.
+Unreachable code at line 155, column 1. Consider removing it.
+Unreachable code at line 157, column 1. Consider removing it.
+
+= N/Numerical_and_alphabetical_suffixes
+Split long regexps into smaller qr// chunks at line 22, column 32. See page 261 of PBP.
+
+= N/Numerical_integration_Adaptive_Simpson%27s_method
+Nested named subroutine at line 17, column 5. Declaring a named sub inside another named sub does not prevent the inner sub from being global.
+Reused variable name in lexical scope: $rf at line 18, column 9. Invent unique variable names.
+Reused variable name in lexical scope: $lf at line 18, column 9. Invent unique variable names.
+Reused variable name in lexical scope: $mid at line 19, column 9. Invent unique variable names.
+Reused variable name in lexical scope: $midf at line 20, column 9. Invent unique variable names.
+Too many arguments at line 24, column 5. See page 182 of PBP.
+Nested named subroutine at line 24, column 5. Declaring a named sub inside another named sub does not prevent the inner sub from being global.
+Reused variable name in lexical scope: $whole at line 25, column 9. Invent unique variable names.
+Reused variable name in lexical scope: $eps at line 25, column 9. Invent unique variable names.
+Reused variable name in lexical scope: $left at line 26, column 9. Invent unique variable names.
+Reused variable name in lexical scope: $right at line 27, column 9. Invent unique variable names.
+
+= N/Numerical_integration_Gauss-Legendre_Quadrature
+Comma used to separate statements at line 19, column 24. See pages 68,71 of PBP.
+Nested named subroutine at line 74, column 5. Declaring a named sub inside another named sub does not prevent the inner sub from being global.
+

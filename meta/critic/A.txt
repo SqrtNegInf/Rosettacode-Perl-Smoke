@@ -1,0 +1,156 @@
+
+= A/A%2BB
+Readline inside "for" loop at line 17, column 6. See page 211 of PBP.
+
+= A/ABC_Problem-2
+Match variable used at line 24, column 25. See page 82 of PBP.
+Match variable used at line 24, column 37. See page 82 of PBP.
+
+= A/ADFGVX_cipher
+Map blocks should have a single statement at line 18, column 13. See page 113 of PBP.
+Reused variable name in lexical scope: $keyword at line 50, column 3. Invent unique variable names.
+Reused variable name in lexical scope: $encoded at line 58, column 3. Invent unique variable names.
+Reused variable name in lexical scope: $keyword at line 58, column 3. Invent unique variable names.
+
+= A/AKS_test_for_primes-1
+Found ">=" in condition for an "unless" at line 17, column 12. See page 99 of PBP.
+
+= A/AKS_test_for_primes-2
+Found ">=" in condition for an "unless" at line 17, column 12. See page 99 of PBP.
+
+= A/AKS_test_for_primes-3
+Found ">=" in condition for an "unless" at line 17, column 12. See page 99 of PBP.
+
+= A/ASCII_art_diagram_converter
+Match variable used at line 37, column 66. See page 82 of PBP.
+
+= A/A_star_search_algorithm
+Comma used to separate statements at line 20, column 20. See pages 68,71 of PBP.
+Mixed high and low-precedence booleans at line 27, column 8. See page 70 of PBP.
+Match variable used at line 45, column 21. See page 82 of PBP.
+Match variable used at line 45, column 37. See page 82 of PBP.
+Match variable used at line 48, column 31. See page 82 of PBP.
+Match variable used at line 48, column 47. See page 82 of PBP.
+
+= A/Abbreviations,_automatic
+I/O layer ":utf8" used at line 13, column 1. Use ":encoding(UTF-8)" to get strict validation.
+"map" used in void context at line 20, column 5. Use a "for" loop instead.
+
+= A/Abbreviations,_easy
+"map" used in void context at line 25, column 5. Use a "for" loop instead.
+Readline inside "for" loop at line 32, column 19. See page 211 of PBP.
+
+= A/Abbreviations,_simple
+"map" used in void context at line 27, column 5. Use a "for" loop instead.
+Readline inside "for" loop at line 33, column 18. See page 211 of PBP.
+
+= A/Abundant,_deficient_and_perfect_number_classifications
+"map" used in void context at line 17, column 5. Use a "for" loop instead.
+
+= A/Abundant_odd_numbers
+Found ">" in condition for an "unless" at line 21, column 14. See page 99 of PBP.
+
+= A/Achilles_numbers
+Mixed high and low-precedence booleans at line 33, column 1. See page 70 of PBP.
+
+= A/Achilles_numbers-1
+Mixed high and low-precedence booleans at line 46, column 30. See page 70 of PBP.
+Reused variable name in lexical scope: $count at line 63, column 6. Invent unique variable names.
+
+= A/Ackermann_function-1
+Warnings disabled at line 8, column 1. See page 431 of PBP.
+
+= A/Ackermann_function-5
+Cascading if-elsif chain at line 18, column 3. See pages 117,118 of PBP.
+
+= A/Active_object
+"select" used to emulate "sleep" at line 38, column 13. See page 168 of PBP.
+Subroutine name is a homonym for builtin function delete at line 47, column 1. See page 177 of PBP.
+Multiple "package" declarations at line 62, column 1. Limit to one per file.
+"select" used to emulate "sleep" at line 71, column 1. See page 168 of PBP.
+
+= A/Add_a_variable_to_a_class_instance_at_runtime
+Multiple "package" declarations at line 16, column 1. Limit to one per file.
+
+= A/Addition_chains
+Mixed high and low-precedence booleans at line 78, column 4. See page 70 of PBP.
+Nested named subroutine at line 99, column 4. Declaring a named sub inside another named sub does not prevent the inner sub from being global.
+
+= A/Align_columns-2
+Warnings disabled at line 8, column 1. See page 431 of PBP.
+Comma used to separate statements at line 20, column 28. See pages 68,71 of PBP.
+
+= A/Almost_prime-1
+Map blocks should have a single statement at line 16, column 3. See page 113 of PBP.
+
+= A/Almost_prime-2
+Map blocks should have a single statement at line 15, column 27. See page 113 of PBP.
+
+= A/Alternade_words
+Comma used to separate statements at line 13, column 19. See pages 68,71 of PBP.
+Mixed high and low-precedence booleans at line 17, column 5. See page 70 of PBP.
+
+= A/Amb-2
+Split long regexps into smaller qr// chunks at line 24, column 7. See page 261 of PBP.
+
+= A/Amb-3
+Warnings disabled at line 14, column 7. See page 431 of PBP.
+
+= A/Anadromes
+Readline inside "for" loop at line 13, column 95. See page 211 of PBP.
+
+= A/Anagrams-1
+Backtick operator used at line 14, column 25. Use IPC::Open3 instead.
+
+= A/Anagrams-2
+Warnings disabled at line 10, column 1. See page 431 of PBP.
+Backtick operator used at line 15, column 25. Use IPC::Open3 instead.
+
+= A/Anagrams_Deranged_anagrams
+Readline inside "for" loop at line 36, column 17. See page 211 of PBP.
+
+= A/Anagrams_Deranged_anagrams-2
+Readline inside "for" loop at line 16, column 64. See page 211 of PBP.
+Mixed high and low-precedence booleans at line 17, column 50. See page 70 of PBP.
+
+= A/Anonymous_recursion-2
+Reused variable name in lexical scope: $n at line 16, column 3. Invent unique variable names.
+
+= A/Anonymous_recursion-3
+Stricture disabled at line 8, column 1. See page 429 of PBP.
+Don't turn off strict for large blocks of code at line 8, column 1. See page 433 of PBP.
+
+= A/Apply_a_digital_filter_direct_form_II_transposed
+Warnings disabled at line 18, column 9. See page 431 of PBP.
+"map" used in void context at line 20, column 9. Use a "for" loop instead.
+"map" used in void context at line 21, column 9. Use a "for" loop instead.
+
+= A/Arithmetic-geometric_mean_Calculate_Pi-1
+Reused variable name in lexical scope: $digits at line 20, column 3. Invent unique variable names.
+
+= A/Arithmetic_Derivative
+Warnings disabled at line 9, column 1. See page 431 of PBP.
+
+= A/Arithmetic_coding_As_a_generalized_change_of_radix
+Reused variable name in lexical scope: $pow at line 94, column 10. Invent unique variable names.
+Readline inside "for" loop at line 111, column 18. See page 211 of PBP.
+
+= A/Array_length
+Warnings disabled at line 11, column 1. See page 431 of PBP.
+Mismatched operator at line 49, column 9. Numeric/string operators and operands should match.
+
+= A/Arrays
+"@empty" is declared but not used at line 13, column 2. Unused variables clutter code and make it harder to read.
+
+= A/Atomic_updates
+Warnings disabled at line 10, column 1. See page 431 of PBP.
+Found "!=" in condition for an "until" at line 25, column 24. See page 99 of PBP.
+
+= A/Audio_frequency_generator
+Backtick operator used at line 6, column 36. Use IPC::Open3 instead.
+Cascading if-elsif chain at line 33, column 13. See pages 117,118 of PBP.
+
+= A/Autogram_checker
+Capture variable used outside conditional at line 62, column 57. See page 253 of PBP.
+Capture variable used outside conditional at line 62, column 77. See page 253 of PBP.
+Capture variable used outside conditional at line 72, column 42. See page 253 of PBP.

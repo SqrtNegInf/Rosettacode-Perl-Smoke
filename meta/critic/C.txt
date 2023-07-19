@@ -1,0 +1,269 @@
+
+= C/CSV_data_manipulation-1
+Map blocks should have a single statement at line 37, column 17. See page 113 of PBP.
+
+= C/CSV_to_HTML_translation
+Map blocks should have a single statement at line 30, column 22. See page 113 of PBP.
+
+= C/CUSIP
+Loop iterator is not lexical at line 17, column 5. See page 108 of PBP.
+
+= C/Calculating_the_value_of_e-1
+Found "<" in condition for an "until" at line 21, column 3. See page 99 of PBP.
+
+= C/Calendar
+Map blocks should have a single statement at line 22, column 14. See page 113 of PBP.
+
+= C/Calendar_-_for_%22REAL%22_programmers
+Literal line breaks in a string at line 18, column 12. See pages 60,61 of PBP.
+Backtick operator used at line 73, column 1. Use IPC::Open3 instead.
+
+= C/Call_a_foreign-language_function
+Literal line breaks in a string at line 18, column 17. See pages 60,61 of PBP.
+Literal line breaks in a string at line 32, column 17. See pages 60,61 of PBP.
+
+= C/CalmoSoft_primes
+Readline inside "for" loop at line 12, column 16. See page 211 of PBP.
+Reused variable name in lexical scope: @primes at line 16, column 13. Invent unique variable names.
+
+= C/Canonicalize_CIDR
+Lvalue form of "substr" used at line 29, column 26. See page 165 of PBP.
+
+= C/Cantor_set
+Nested named subroutine at line 18, column 5. Declaring a named sub inside another named sub does not prevent the inner sub from being global.
+
+= C/Cartesian_product_of_two_or_more_lists-1
+Loop iterator is not lexical at line 29, column 5. See page 108 of PBP.
+
+= C/Casting_out_nines
+Found ">=" in condition for an "unless" at line 27, column 7. See page 99 of PBP.
+
+= C/Catalan_numbers-2
+"$result" is declared but not used at line 9, column 1. Unused variables clutter code and make it harder to read.
+
+= C/Catalan_numbers-3
+"$result" is declared but not used at line 9, column 1. Unused variables clutter code and make it harder to read.
+
+= C/Change_e_letters_to_i_in_words
+"@res" is declared but not used at line 6, column 1. Unused variables clutter code and make it harder to read.
+Warnings disabled at line 10, column 1. See page 431 of PBP.
+
+= C/Changeable_words-2
+Capture variable used outside conditional at line 14, column 53. See page 253 of PBP.
+Capture variable used outside conditional at line 14, column 57. See page 253 of PBP.
+
+= C/Character_codes-1
+I/O layer ":utf8" used at line 11, column 1. Use ":encoding(UTF-8)" to get strict validation.
+
+= C/Character_codes-2
+I/O layer ":utf8" used at line 11, column 1. Use ":encoding(UTF-8)" to get strict validation.
+
+= C/Character_codes-3
+I/O layer ":utf8" used at line 11, column 1. Use ":encoding(UTF-8)" to get strict validation.
+Capture variable used outside conditional at line 17, column 30. See page 253 of PBP.
+
+= C/Chat_server
+Reused variable name in lexical scope: $conn at line 86, column 9. Invent unique variable names.
+Return value of eval not tested at line 89, column 9. You can't depend upon the value of $@/$EVAL_ERROR to tell whether an eval failed.
+
+= C/Chat_server-2
+Ambiguously named subroutine "left" at line 36, column 1. See page 48 of PBP.
+Cascading if-elsif chain at line 59, column 5. See pages 117,118 of PBP.
+
+= C/Chebyshev_coefficients
+Backtick operator used at line 55, column 11. Use IPC::Open3 instead.
+
+= C/Check_input_device_is_a_terminal
+Use IO::Interactive::is_interactive() instead of -t at line 13, column 5. See page 218 of PBP.
+
+= C/Checkpoint_synchronization
+"select" used to emulate "sleep" at line 18, column 5. See page 168 of PBP.
+
+= C/Checksumcolor
+Two-argument "open" used at line 13, column 1. See page 207 of PBP.
+
+= C/Chemical_Calculator-2
+Readline inside "for" loop at line 27, column 6. See page 211 of PBP.
+
+= C/Chinese_zodiac
+I/O layer ":utf8" used at line 11, column 1. Use ":encoding(UTF-8)" to get strict validation.
+
+= C/Cipolla%27s_algorithm-1
+Multiple "package" declarations at line 26, column 1. Limit to one per file.
+Found "!=" in condition for an "unless" at line 31, column 15. See page 99 of PBP.
+"return" statement with explicit "undef" at line 40, column 5. See page 199 of PBP.
+Nested named subroutine at line 50, column 5. Declaring a named sub inside another named sub does not prevent the inner sub from being global.
+Reused variable name in lexical scope: $a at line 51, column 9. Invent unique variable names.
+"return" statement with explicit "undef" at line 64, column 5. See page 199 of PBP.
+
+= C/Cipolla%27s_algorithm-2
+Found "!=" in condition for an "unless" at line 18, column 15. See page 99 of PBP.
+"return" statement with explicit "undef" at line 27, column 5. See page 199 of PBP.
+Found "<" in condition for an "until" at line 31, column 10. See page 99 of PBP.
+
+= C/Circular_primes
+Warnings disabled at line 11, column 1. See page 431 of PBP.
+Found ">=" in condition for an "unless" at line 26, column 22. See page 99 of PBP.
+
+= C/Closest-pair_problem
+Comma used to separate statements at line 39, column 5. See pages 68,71 of PBP.
+Comma used to separate statements at line 71, column 5. See pages 68,71 of PBP.
+
+= C/Color_quantization
+Backtick operator used at line 18, column 15. Use IPC::Open3 instead.
+Backtick operator used at line 19, column 18. Use IPC::Open3 instead.
+
+= C/Color_wheel
+"$result" is declared but not used at line 10, column 1. Unused variables clutter code and make it harder to read.
+
+= C/Colorful_numbers
+"map" used in void context at line 39, column 1. Use a "for" loop instead.
+
+= C/Combinations_with_repetitions-1
+Readline inside "for" loop at line 16, column 15. See page 211 of PBP.
+
+= C/Combinations_with_repetitions_Square_Digit_Chain
+Warnings disabled at line 43, column 17. See page 431 of PBP.
+
+= C/Common_list_elements
+"map" used in void context at line 12, column 1. Use a "for" loop instead.
+
+= C/Compiler_AST_interpreter
+"local" variable not initialized at line 23, column 4. See page 78 of PBP.
+
+= C/Compiler_Simple_file_inclusion_pre_processor
+"require" statement with library name as string at line 11, column 1. Use a bareword instead.
+
+= C/Compiler_Verifying_Syntax
+Subroutine "expr" with high complexity score (21) at line 20, column 1. Consider refactoring.
+Mixed high and low-precedence booleans at line 24, column 3. See page 70 of PBP.
+
+= C/Compiler_code_generator
+"local" variable not initialized at line 22, column 6. See page 78 of PBP.
+Literal line breaks in a string at line 29, column 27. See pages 60,61 of PBP.
+
+= C/Compiler_lexical_analyzer-1
+Warnings disabled at line 11, column 1. See page 431 of PBP.
+Capture variable used outside conditional at line 68, column 24. See page 253 of PBP.
+Capture variable used outside conditional at line 68, column 28. See page 253 of PBP.
+Match variable used at line 80, column 11. See page 82 of PBP.
+Match variable used at line 85, column 5. See page 82 of PBP.
+Map blocks should have a single statement at line 95, column 5. See page 113 of PBP.
+Return value of eval not tested at line 125, column 9. You can't depend upon the value of $@/$EVAL_ERROR to tell whether an eval failed.
+
+= C/Compiler_lexical_analyzer-2
+Warnings disabled at line 11, column 1. See page 431 of PBP.
+Variable declared in conditional statement at line 13, column 1. Declare variables outside of the condition.
+Comma used to separate statements at line 13, column 22. See pages 68,71 of PBP.
+Use "local $/ = undef" or Path::Tiny instead of joined readline at line 19, column 12. See page 213 of PBP.
+Split long regexps into smaller qr// chunks at line 21, column 8. See page 261 of PBP.
+Match variable used at line 41, column 9. See page 82 of PBP.
+Match variable used at line 41, column 35. See page 82 of PBP.
+
+= C/Compiler_syntax_analyzer
+Use "local $/ = undef" or Path::Tiny instead of joined readline at line 20, column 12. See page 213 of PBP.
+Only use a capturing group if you plan to use the captured value at line 33, column 5. See page 252 of PBP.
+Only use a capturing group if you plan to use the captured value at line 49, column 13. See page 252 of PBP.
+Subroutine "expr" with high complexity score (38) at line 54, column 1. Consider refactoring.
+Only use a capturing group if you plan to use the captured value at line 57, column 5. See page 252 of PBP.
+Only use a capturing group if you plan to use the captured value at line 58, column 5. See page 252 of PBP.
+
+= C/Compiler_virtual_machine_interpreter
+Comma used to separate statements at line 50, column 18. See pages 68,71 of PBP.
+
+= C/Composite_numbers_k_with_no_single_digit_factors_whose_factors_are_all_substrings_of_k
+"map" used in void context at line 16, column 5. Use a "for" loop instead.
+
+= C/Compound_data_type
+"$result" is declared but not used at line 10, column 1. Unused variables clutter code and make it harder to read.
+
+= C/Concatenate_two_primes_is_also_prime
+Map blocks should have a single statement at line 15, column 3. See page 113 of PBP.
+
+= C/Concurrent_computing-1
+Unreachable code at line 26, column 1. Consider removing it.
+Unreachable code at line 27, column 1. Consider removing it.
+Unreachable code at line 28, column 1. Consider removing it.
+Unreachable code at line 29, column 1. Consider removing it.
+Unreachable code at line 30, column 1. Consider removing it.
+
+= C/Conditional_structures
+Warnings disabled at line 9, column 1. See page 431 of PBP.
+yada operator (...) used at line 15, column 5. The yada operator is a placeholder for code you have not yet written.
+Warnings disabled at line 56, column 1. See page 431 of PBP.
+
+= C/Conjugate_a_Latin_verb
+I/O layer ":utf8" used at line 14, column 1. Use ":encoding(UTF-8)" to get strict validation.
+
+= C/Consecutive_Primes_With_Ascending_Or_Descending_Differences
+Map blocks should have a single statement at line 19, column 17. See page 113 of PBP.
+
+= C/Continued_fraction
+Warnings disabled at line 10, column 1. See page 431 of PBP.
+
+= C/Convert_seconds_to_compound_duration
+Warnings disabled at line 13, column 5. See page 431 of PBP.
+Mismatched operator at line 17, column 33. Numeric/string operators and operands should match.
+Mismatched operator at line 18, column 33. Numeric/string operators and operands should match.
+Mismatched operator at line 19, column 33. Numeric/string operators and operands should match.
+Mismatched operator at line 20, column 33. Numeric/string operators and operands should match.
+
+= C/Convert_seconds_to_compound_duration-3
+Readline inside "for" loop at line 29, column 6. See page 211 of PBP.
+
+= C/Convex_hull
+Subroutine name is a homonym for builtin function print at line 16, column 1. See page 177 of PBP.
+
+= C/Conway%27s_Game_of_Life-1
+"$result" is declared but not used at line 12, column 1. Unused variables clutter code and make it harder to read.
+Comma used to separate statements at line 23, column 15. See pages 68,71 of PBP.
+Warnings disabled at line 80, column 1. See page 431 of PBP.
+
+= C/Conway%27s_Game_of_Life-2
+"$result" is declared but not used at line 10, column 1. Unused variables clutter code and make it harder to read.
+Backtick operator used at line 14, column 9. Use IPC::Open3 instead.
+Backtick operator used at line 15, column 9. Use IPC::Open3 instead.
+Hard tabs used at line 24, column 8. See page 20 of PBP.
+Hard tabs used at line 25, column 13. See page 20 of PBP.
+
+= C/Coprime_triplets
+Mixed high and low-precedence booleans at line 22, column 21. See page 70 of PBP.
+Found ">" in condition for an "until" at line 29, column 30. See page 99 of PBP.
+
+= C/Count_how_many_vowels_and_consonants_occur_in_a_string
+Literal line breaks in a string at line 14, column 14. See pages 60,61 of PBP.
+
+= C/Count_in_octal
+Warnings disabled at line 10, column 1. See page 431 of PBP.
+
+= C/Cousin_primes
+"map" used in void context at line 14, column 1. Use a "for" loop instead.
+
+= C/Create_a_file
+Backtick operator used at line 38, column 1. Use IPC::Open3 instead.
+
+= C/Create_an_object_Native_demonstration
+Multiple "package" declarations at line 60, column 1. Limit to one per file.
+Return value of eval not tested at line 83, column 1. You can't depend upon the value of $@/$EVAL_ERROR to tell whether an eval failed.
+
+= C/Cubic_Special_Primes
+Found ">=" in condition for an "until" at line 19, column 3. See page 99 of PBP.
+
+= C/Cullen_and_Woodall_numbers
+Mixed high and low-precedence booleans at line 35, column 23. See page 70 of PBP.
+Mixed high and low-precedence booleans at line 40, column 23. See page 70 of PBP.
+
+= C/Curzon_numbers
+Readline inside "for" loop at line 26, column 12. See page 211 of PBP.
+
+= C/Curzon_numbers-1
+Readline inside "for" loop at line 26, column 12. See page 211 of PBP.
+
+= C/Curzon_numbers-2
+Readline inside "for" loop at line 31, column 12. See page 211 of PBP.
+
+= C/Curzon_numbers-3
+Readline inside "for" loop at line 26, column 12. See page 211 of PBP.
+
+= C/Cut_a_rectangle
+Mixed high and low-precedence booleans at line 21, column 22. See page 70 of PBP.

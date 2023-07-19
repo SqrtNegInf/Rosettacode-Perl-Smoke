@@ -1,0 +1,176 @@
+
+= S/S-Expressions
+Split long regexps into smaller qr// chunks at line 17, column 9. See page 261 of PBP.
+Only use a capturing group if you plan to use the captured value at line 17, column 9. See page 252 of PBP.
+Negative array index should be used at line 41, column 17. See page 88 of PBP.
+Negative array index should be used at line 46, column 17. See page 88 of PBP.
+Hard tabs used at line 57, column 2. See page 20 of PBP.
+Literal line breaks in a string at line 57, column 2. See pages 60,61 of PBP.
+Literal line breaks in a string at line 64, column 15. See pages 60,61 of PBP.
+
+= S/SEND_+_MORE_=_MONEY-2
+Code structure is deeply nested at line 28, column 21. Consider refactoring.
+Code structure is deeply nested at line 32, column 25. Consider refactoring.
+
+= S/SHA-256
+Return value of eval not tested at line 85, column 23. You can't depend upon the value of $@/$EVAL_ERROR to tell whether an eval failed.
+Mixed high and low-precedence booleans at line 90, column 6. See page 70 of PBP.
+Hard tabs used at line 114, column 33. See page 20 of PBP.
+"map" used in void context at line 136, column 3. Use a "for" loop instead.
+"map" used in void context at line 144, column 3. Use a "for" loop instead.
+
+= S/SHA-256_Merkle_tree
+"@res" is declared but not used at line 6, column 1. Unused variables clutter code and make it harder to read.
+
+= S/Safe_and_Sophie_Germain_primes
+"@res" is declared but not used at line 6, column 1. Unused variables clutter code and make it harder to read.
+
+= S/Sailors,_coconuts_and_a_monkey_problem-2
+Mismatched operator at line 37, column 30. Numeric/string operators and operands should match.
+
+= S/Same_Fringe
+Mixed high and low-precedence booleans at line 34, column 9. See page 70 of PBP.
+
+= S/Scope_Function_names_and_labels
+Warnings disabled at line 8, column 1. See page 431 of PBP.
+Nested named subroutine at line 27, column 5. Declaring a named sub inside another named sub does not prevent the inner sub from being global.
+Nested named subroutine at line 29, column 5. Declaring a named sub inside another named sub does not prevent the inner sub from being global.
+Nested named subroutine at line 30, column 9. Declaring a named sub inside another named sub does not prevent the inner sub from being global.
+
+= S/Scope_modifiers
+Multiple "package" declarations at line 22, column 1. Limit to one per file.
+Multiple "package" declarations at line 27, column 1. Limit to one per file.
+Multiple "package" declarations at line 29, column 1. Limit to one per file.
+Reused variable name in lexical scope: $fruit at line 32, column 5. Invent unique variable names.
+Reused variable name in lexical scope: $fruit at line 37, column 1. Invent unique variable names.
+
+= S/Search_a_list
+Readline inside "for" loop at line 15, column 21. See page 211 of PBP.
+Readline inside "for" loop at line 31, column 21. See page 211 of PBP.
+Readline inside "for" loop at line 48, column 21. See page 211 of PBP.
+
+= S/Secure_temporary_file
+Backtick operator used at line 14, column 5. Use IPC::Open3 instead.
+Backtick operator used at line 24, column 14. Use IPC::Open3 instead.
+
+= S/Selection_bias_in_clinical_sciences
+Mixed high and low-precedence booleans at line 31, column 21. See page 70 of PBP.
+Map blocks should have a single statement at line 51, column 18. See page 113 of PBP.
+
+= S/Self-describing_numbers
+Warnings disabled at line 9, column 1. See page 431 of PBP.
+
+= S/Send_an_unknown_method_call
+One-argument "bless" used at line 14, column 5. See page 365 of PBP.
+Multiple "package" declarations at line 21, column 1. Limit to one per file.
+
+= S/Send_email
+"$result" is declared but not used at line 7, column 1. Unused variables clutter code and make it harder to read.
+Mixed high and low-precedence booleans at line 33, column 3. See page 70 of PBP.
+
+= S/Sequence:_nth_number_with_exactly_n_divisors
+Comma used to separate statements at line 26, column 13. See pages 68,71 of PBP.
+
+= S/Sequence:_smallest_number_greater_than_previous_term_with_exactly_n_divisors
+Comma used to separate statements at line 19, column 9. See pages 68,71 of PBP.
+
+= S/Set
+Hard tabs used at line 16, column 6. See page 20 of PBP.
+Hard tabs used at line 17, column 8. See page 20 of PBP.
+Hard tabs used at line 18, column 6. See page 20 of PBP.
+Hard tabs used at line 19, column 6. See page 20 of PBP.
+Hard tabs used at line 20, column 5. See page 20 of PBP.
+Hard tabs used at line 21, column 6. See page 20 of PBP.
+Hard tabs used at line 22, column 5. See page 20 of PBP.
+Hard tabs used at line 23, column 5. See page 20 of PBP.
+Hard tabs used at line 24, column 5. See page 20 of PBP.
+One-argument "bless" used at line 38, column 10. See page 365 of PBP.
+One-argument "bless" used at line 62, column 2. See page 365 of PBP.
+One-argument "bless" used at line 86, column 2. See page 365 of PBP.
+Subroutine name is a homonym for builtin keyword eq at line 91, column 1. See page 177 of PBP.
+Multiple "package" declarations at line 104, column 1. Limit to one per file.
+
+= S/Set_consolidation
+"return" statement followed by "sort" at line 45, column 5. Behavior is undefined if called in scalar context.
+
+= S/Set_of_real_numbers
+Hard tabs used at line 23, column 6. See page 20 of PBP.
+Hard tabs used at line 24, column 7. See page 20 of PBP.
+One-argument "bless" used at line 35, column 2. See page 365 of PBP.
+Multiple "package" declarations at line 61, column 1. Limit to one per file.
+Hard tabs used at line 64, column 6. See page 20 of PBP.
+Hard tabs used at line 65, column 5. See page 20 of PBP.
+Hard tabs used at line 66, column 5. See page 20 of PBP.
+Hard tabs used at line 67, column 5. See page 20 of PBP.
+Hard tabs used at line 68, column 5. See page 20 of PBP.
+Hard tabs used at line 69, column 8. See page 20 of PBP.
+Hard tabs used at line 75, column 38. See page 20 of PBP.
+One-argument "bless" used at line 91, column 2. See page 365 of PBP.
+Hard tabs used at line 97, column 25. See page 20 of PBP.
+Hard tabs used at line 105, column 8. See page 20 of PBP.
+Hard tabs used at line 122, column 8. See page 20 of PBP.
+Multiple "package" declarations at line 146, column 1. Limit to one per file.
+
+= S/Set_puzzle
+Integer with leading zeros: "01111" at line 18, column 49. See page 58 of PBP.
+Integer with leading zeros: "04444" at line 18, column 58. See page 58 of PBP.
+Comma used to separate statements at line 80, column 2. See pages 68,71 of PBP.
+
+= S/Shell_one-liner
+Backtick operator used at line 7, column 20. Use IPC::Open3 instead.
+
+= S/Short-circuit_evaluation
+Readline inside "for" loop at line 21, column 14. See page 211 of PBP.
+Return value of eval not tested at line 24, column 12. You can't depend upon the value of $@/$EVAL_ERROR to tell whether an eval failed.
+
+= S/Show_the_decimal_value_of_a_number_of_1s_appended_with_a_3,_then_squared
+Mismatched operator at line 14, column 28. Numeric/string operators and operands should match.
+
+= S/Sierpinski_triangle_Graphical
+Reused variable name in lexical scope: $side at line 16, column 18. Invent unique variable names.
+Too many arguments at line 18, column 1. See page 182 of PBP.
+Too many arguments at line 29, column 1. See page 182 of PBP.
+Reused variable name in lexical scope: $side at line 34, column 5. Invent unique variable names.
+Reused variable name in lexical scope: $height at line 35, column 5. Invent unique variable names.
+
+= S/Sieve_of_Eratosthenes-10
+Lvalue form of "substr" used at line 19, column 25. See page 165 of PBP.
+
+= S/Sieve_of_Eratosthenes-11
+Subroutine "BEGIN" with high complexity score (21) at line 27, column 1. Consider refactoring.
+Hard tabs used at line 83, column 17. See page 20 of PBP.
+Capture variable used outside conditional at line 105, column 15. See page 253 of PBP.
+
+= S/Sieve_of_Eratosthenes-5
+Found ">" in condition for an "until" at line 21, column 3. See page 99 of PBP.
+Found ">" in condition for an "until" at line 23, column 35. See page 99 of PBP.
+
+= S/Sieve_of_Eratosthenes-6
+Lvalue form of "substr" used at line 20, column 31. See page 165 of PBP.
+Lvalue form of "substr" used at line 24, column 29. See page 165 of PBP.
+
+= S/Sieve_of_Eratosthenes-8
+Warnings disabled at line 10, column 1. See page 431 of PBP.
+
+= S/Sieve_of_Eratosthenes-9
+Negative array index should be used at line 14, column 26. See page 88 of PBP.
+
+= S/Sieve_of_Pritchard
+"@res" is declared but not used at line 7, column 1. Unused variables clutter code and make it harder to read.
+Found ">" in condition for an "until" at line 52, column 3. See page 99 of PBP.
+Reused variable name in lexical scope: $p at line 55, column 6. Invent unique variable names.
+
+= S/Simple_database
+"$result" is declared but not used at line 11, column 1. Unused variables clutter code and make it harder to read.
+"local" variable not initialized at line 100, column 5. See page 78 of PBP.
+Unreachable code at line 136, column 5. Consider removing it.
+
+= S/Simple_turtle_graphics
+Ambiguously named subroutine "right" at line 36, column 1. See page 48 of PBP.
+Ambiguously named subroutine "left" at line 37, column 1. See page 48 of PBP.
+
+= S/Simple_windowed_application
+"$result" is declared but not used at line 7, column 1. Unused variables clutter code and make it harder to read.
+
+= S/Simulate_input_Keyboard
+"select" used to emulate "sleep" at line 19, column 49. See page 168 of PBP.
