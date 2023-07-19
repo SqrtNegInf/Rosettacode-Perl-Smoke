@@ -3,6 +3,8 @@
 #c# 2018-08-14 <RC, 2019-03-06 >RC
 #p# OK
 
+use v5.36;
+
 srand 123456;
 
 use strict;
@@ -18,7 +20,7 @@ use warnings;
 
 my(%f,@m);
 
-/^(.).*(.)$/,$f{$1}{$_}=$2 for qw(
+(/^(.).*(.)$/, $f{$1}{$_}=$2) for qw(
 audino bagon baltoy banette bidoof braviary bronzor carracosta charmeleon
 cresselia croagunk darmanitan deino emboar emolga exeggcute gabite
 girafarig gulpin haxorus heatmor heatran ivysaur jellicent jumpluff kangaskhan
@@ -29,25 +31,25 @@ sealeo silcoon simisear snivy snorlax spoink starly tirtouga trapinch treecko
 tyrogue vigoroth vulpix wailord wartortle whismur wingull yamask
 );
 
-sub poke
-{
+sub poke {
     our @w;
-	my $h = $f{$_[0]};
-	for my $word (keys %$h) {
-		my $v = $h->{$word};
-		delete $h->{$word};
-		push @w, $word;
-		@m = @w if @w > @m;
-		poke($v);
-		pop @w;
-		$h->{$word} = $v;
-	}
+    my $h = $f{$_[0]};
+    for my $word (keys %$h) {
+        my $v = $h->{$word};
+        delete $h->{$word};
+        push @w, $word;
+        @m = @w if @w > @m;
+       #poke($v);            # cannot skip parens here
+        __SUB__->($v);       # or here
+        pop @w;
+        $h->{$word} = $v;
+    }
 }
 
-poke($_) for keys %f;
+poke $_ for keys %f;
 print @m.": @m\n";
 
-my $ref = <<END;
+my $ref = <<'END';
 23: machamp petilil landorus simisear rufflet trapinch haxorus scrafty yamask kricketune exeggcute emboar relicanth heatmor registeel loudred darmanitan nosepass seaking girafarig gabite emolga audino
 END
 
