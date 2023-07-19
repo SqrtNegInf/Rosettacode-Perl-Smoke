@@ -79,7 +79,7 @@ sub zstring { ${ shift() } }
 
 package main;
 
-for ( split /\n/, <<END ) # test cases
+for ( split /\n/, <<'END' )
   1 + 1
   10 + 10
   10100 + 1010
