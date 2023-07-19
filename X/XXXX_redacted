@@ -10,7 +10,7 @@ use feature 'say';
 
 my @res;
 
-my $test = <<END;
+my $test = <<'END';
 Tom? Toms bottom tomato is in his stomach while playing the "Tom-tom" brand tom-toms. That's so tom.
 'Tis very tomish, don't you think?
 END
