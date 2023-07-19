@@ -11,23 +11,22 @@ use feature 'say';
 
 use Math::AnyNum ':all';
 
-my $result = join ' ', grep { is_prime $_ } map { $_**3 + 2 } grep { 0 != $_%2 } 1..199;
+my $result1 = join ' ', grep { is_prime $_ } map { $_**3 + 2 } grep { 0 != $_%2 } 1..199;
 
-if (0) {
-# output is $table
-say '   ' . sprintf '%4d'x11 , 1 .. 10;
+push my @res, '   ' . sprintf '%4d'x10 , 1 .. 10;
 for my $e (1..10) {
-  printf  '%2d ', $e;
+  my $line = sprintf  '%2d ', $e;
   for my $o (1..10) {
-    printf  '%4d', scalar grep { is_prime $_ } map { $_**$e + $o } 1..199;
+     $line .= sprintf  '%4d', scalar grep { is_prime $_ } map { $_**$e + $o } 1..199;
   }
-  print "\n";
+  push @res, $line;
 }
-}
+
+say my $result2 = join "\n", @res;
 
 my $ref = '3 29 127 24391 91127 250049 274627 328511 357913 571789 1157627 1442899 1860869 2146691 2924209 3581579 5000213 5177719 6751271';
 
-my $table = <<END;
+my $table = <<'END';
       1   2   3   4   5   6   7   8   9  10
  1   46  45  44  44  43  43  42  42  42  42
  2   34  17  29  34  12  19  49  19  24  32
@@ -43,5 +42,7 @@ END
 
 use Test::More;
 chomp $ref;
-is($result, $ref);
+is($result1, $ref);
+chomp $table;
+is($result2, $table);
 done_testing;
