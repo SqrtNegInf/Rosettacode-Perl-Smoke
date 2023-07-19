@@ -4,8 +4,6 @@
 #c# 2018-07-28 <RC
 #p# OK
 
-use feature 'say';
-
 # The INIT block is run just before the Perl runtime begins execution. See perlmod
 # Then it tries to get a lock to its own file, from where the script was called.
 
@@ -13,8 +11,8 @@ use Fcntl ':flock';
  
 INIT
 {
-	die "Not able to open $0\n" unless (open ME, $0);
-	die "I'm already running !!\n" unless(flock ME, LOCK_EX|LOCK_NB);
+die "Not able to open $0\n" unless (open my $ME, '<', $0);
+	die "I'm already running !!\n" unless(flock $ME, LOCK_EX|LOCK_NB);
 }
  
-sleep 60; # then your code goes here
+sleep 2; # then your code goes here
