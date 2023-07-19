@@ -19,7 +19,7 @@ for (0..2e5) {
   $result .= fromdigits($b2,2)."  $b3  $b2\n"   if $b2 eq reverse($b2);
 }
 
-my $ref = <<EOD;
+my $ref = <<'EOD';
 0  0  0
 1  1  1
 6643  100010001  1100111110011
