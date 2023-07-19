@@ -24,10 +24,11 @@ $result1 .= sprintf "%o\n", $i++ until $i == 17;
 print $result1;
 
 $_ = 0;
-(s/([^7])?(7*)$/ $1 + 1 . $2 =~ tr!7!0!r /e and $_ > 20 and goto DONE) while $result2 .= "$_\n";
-#s/([^7])?(7*)$/ $1 + 1 . $2 =~ tr!7!0!r /e while print "$_\n"; # on RC
+{ (s/([^7])?(7*)$/ $1 + 1 . $2 =~ tr!7!0!r /e and $_ > 20 and last) while $result2 .= "$_\n" } # curlies give a block to exit with 'last'
 
-DONE:
+#(s/([^7])?(7*)$/ $1 + 1 . $2 =~ tr!7!0!r /e and $_ > 20 and goto DONE) while $result2 .= "$_\n"; DONE: # I considered 'goto'...
+
+#s/([^7])?(7*)$/ $1 + 1 . $2 =~ tr!7!0!r /e while print "$_\n"; # this is on RC (never terminates)
 
 my $ref = <<'EOD';
 0
