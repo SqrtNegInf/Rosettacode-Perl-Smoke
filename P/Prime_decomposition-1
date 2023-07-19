@@ -20,4 +20,4 @@ say my $result = join ' ', prime_factors(1001);
 
 use Test::More;
 is ($result, '7 11 13');
-done_testing();
+done_testing;

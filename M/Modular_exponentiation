@@ -43,4 +43,4 @@ my $ans = 1527229998585248450016808958343740453059;
 is ($result1, $ans);
 is ($result2, $ans);
 is ($result3, $ans);
-done_testing();
+done_testing;

@@ -36,4 +36,4 @@ use Test::More;
 ok (strftime('%a %b %e %H:%M:%S %Y', localtime) =~ /202\d/);
 ok ($dt->iso8601() =~ /202\d/);
 ok (time > 1653300000);
-done_testing();
+done_testing;

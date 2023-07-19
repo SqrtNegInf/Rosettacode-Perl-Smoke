@@ -52,7 +52,7 @@ ok $result1 =~ /100 doors: 7[4-9]\d examples/i;
 ok $result1 =~ /100 prisoners: 1[7-9]\d examples/i;
 ok $result1 =~ /15 Puzzle Game: 2\d\d examples/i;
 #is($result1,$result2);
-done_testing();
+done_testing;
 
 __END__
 

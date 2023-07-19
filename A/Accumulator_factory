@@ -24,4 +24,4 @@ print $result, "\n";
 
 use Test::More;
 is ($result, '8.3');
-done_testing();
+done_testing;

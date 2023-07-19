@@ -31,4 +31,4 @@ say my $result = join ' ', solve( parse('3x + y = -1'), parse('2x - 3y = -19') )
 
 use Test::More;
 is($result, '-2 5');
-done_testing();
+done_testing;

@@ -17,4 +17,4 @@ say my $result = join ' ', grep { $c{$_} == @nums } sort keys %c;
 
 use Test::More;
 is($result, '3 6 9');
-done_testing();
+done_testing;

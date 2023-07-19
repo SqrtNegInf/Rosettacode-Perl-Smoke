@@ -19,4 +19,4 @@ say my $result2 = join ' ', sort { $a <=> $b } grep { is_prime $_  } <2 43 81 12
 use Test::More;
 is($result1, '2 7 13 43 103');
 is($result2, '2 7 13 43 103');
-done_testing();
+done_testing;

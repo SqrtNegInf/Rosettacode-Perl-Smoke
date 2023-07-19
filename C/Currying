@@ -28,4 +28,4 @@ say $result = &$plusXOne(3);
 
 use Test::More;
 is ($result, '4');
-done_testing();
+done_testing;

@@ -67,4 +67,4 @@ END
 
 use Test::More;
 is($result, $ref);
-done_testing();
+done_testing;

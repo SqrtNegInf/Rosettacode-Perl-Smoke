@@ -63,4 +63,4 @@ my $result = join '', @candidates;
 
 use Test::More;
 is($result,'9741');
-done_testing();
+done_testing;

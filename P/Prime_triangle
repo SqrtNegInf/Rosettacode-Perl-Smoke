@@ -46,4 +46,4 @@ my $ref = '1 1 1 1 1 2 4 7 24 80 216 648 1304';
 
 use Test::More;
 is($result, $ref);
-done_testing();
+done_testing;

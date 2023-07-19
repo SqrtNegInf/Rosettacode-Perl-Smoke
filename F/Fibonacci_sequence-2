@@ -19,4 +19,4 @@ say $result = fibRec(30);
 
 use Test::More;
 is ($result, 832040);
-done_testing();
+done_testing;

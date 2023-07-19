@@ -35,4 +35,4 @@ say $result;
 use Test::More;
 ok $result =~ /NetBSD-daily/;
 ok -e 'run/README';
-done_testing();
+done_testing;

@@ -154,4 +154,4 @@ use Test::More;
 chomp $ref1;
 is ($result, $ref1);
 is(($plot50 =~ s/\s//gr), ($ref2 =~ s/\s//gr));
-done_testing();
+done_testing;

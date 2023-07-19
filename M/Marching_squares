@@ -52,4 +52,4 @@ say my $result = sprintf "X: %d, Y: %d, Path: %s", identify_perimeter(@M);
 
 use Test::More;
 is $result, 'X: 2, Y: -2, Path: SSESENNNWW';
-done_testing();
+done_testing;

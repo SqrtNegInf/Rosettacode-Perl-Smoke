@@ -25,4 +25,4 @@ say $o->{'foo'};
 
 use Test::More;
 is($o->{'foo'},42);
-done_testing();
+done_testing;

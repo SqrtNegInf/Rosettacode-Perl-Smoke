@@ -17,4 +17,4 @@ my $ref = '1 7 23 59 119 191 287 395 615 839 1079 1439 1679 1931 2391 3015 3479 
 
 use Test::More;
 is($result, $ref);
-done_testing();
+done_testing;

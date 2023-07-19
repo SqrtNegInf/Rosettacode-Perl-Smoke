@@ -37,4 +37,4 @@ say $result2 = sum2($i, 1, 100, sub { 1 / $i });
 use Test::More;
 is ($result1, 5.18737751763962);
 is ($result2, 5.18737751763962);
-done_testing();
+done_testing;

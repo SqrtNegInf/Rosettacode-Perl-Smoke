@@ -20,4 +20,4 @@ say $result = eval_with_x('3 * $x', 5, 10); #, "\n"; # Prints "15".
 
 use Test::More;
 is ($result, 15);
-done_testing();
+done_testing;

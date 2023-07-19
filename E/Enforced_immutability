@@ -31,4 +31,4 @@ eval { $pi += 1 };
 
 use Test::More;
 is ($pi, 3.14159);
-done_testing();
+done_testing;

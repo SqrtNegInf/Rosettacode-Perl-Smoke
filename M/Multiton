@@ -48,4 +48,4 @@ my $ref = 'Instance0 and Instance2 share the same object';
 use Test::More;
 chomp $result;
 is ($result, $ref);
-done_testing();
+done_testing;

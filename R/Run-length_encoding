@@ -83,4 +83,4 @@ use Test::More;
 is ($result1, 'XXXXXABCDEFGHIoooooooooooooooooooooooooAAAAAA');
 is ($result2, 'XXXXXABCDEFGHIoooooooooooooooooooooooooAAAAAA');
 is ($result3, 'XXXXXABCDEFGHIoooooooooooooooooooooooooAAAAAA');
-done_testing();
+done_testing;

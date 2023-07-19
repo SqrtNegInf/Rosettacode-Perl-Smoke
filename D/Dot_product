@@ -24,4 +24,4 @@ $result = dotprod(\@vec_a,\@vec_b);# "\n"; # 3
 
 use Test::More;
 is ($result, 3);
-done_testing();
+done_testing;

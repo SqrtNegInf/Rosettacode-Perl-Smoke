@@ -45,4 +45,4 @@ use Test::More;
 #chomp $ref;
 #is($result, $ref);
 ok $result =~ /QNRBBNKR 105.RNBQKBNR.*RQNBBKRN.*RNQBBKRN.*QNBRBNKR Illegal position: Bishops not on opposite colors/s;
-done_testing();
+done_testing;

@@ -30,4 +30,4 @@ use Test::More;
 is ($result1, 'tsitest');
 is ($result2, '');
 is ($result3, 'tsitest');
-done_testing();
+done_testing;

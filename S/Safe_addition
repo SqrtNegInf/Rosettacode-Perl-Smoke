@@ -21,4 +21,4 @@ say my $result = sprintf "%.17f (%.17f, %.17f)", safe_add (1/9,1/7);
 
 use Test::More;
 is($result, '0.25396825396825395 (0.25396825396825390, 0.25396825396825401)');
-done_testing();
+done_testing;

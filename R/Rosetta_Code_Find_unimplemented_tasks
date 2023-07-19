@@ -38,4 +38,4 @@ say my $result = join "\n", @res;
 
 use Test::More;
 ok $result =~ /Weather.routing/i; # nobody implements this one
-done_testing();
+done_testing;

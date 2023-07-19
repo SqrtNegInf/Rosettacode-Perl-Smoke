@@ -12,4 +12,4 @@ say my $result = sprintf "%s", exp(pi * i) + 1;
 
 use Test::More;
 is ($result, '1.22464679914735e-16i');
-done_testing();
+done_testing;

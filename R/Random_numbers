@@ -26,4 +26,4 @@ say $result;
 
 use Test::More;
 ok ($result> 0.99 && $result < 1.01);
-done_testing();
+done_testing;

@@ -21,4 +21,4 @@ say my $result = join ' ', @res;
 
 use Test::More;
 is($result, '5 22 12 21 38');
-done_testing();
+done_testing;

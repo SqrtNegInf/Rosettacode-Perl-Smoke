@@ -66,4 +66,4 @@ say $result = 'left ' . join(', right ', @tprimes);
 
 use Test::More;
 is ($result, 'left 998443, right 739399');
-done_testing();
+done_testing;

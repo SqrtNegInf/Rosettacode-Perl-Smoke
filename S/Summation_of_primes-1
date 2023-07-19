@@ -13,4 +13,4 @@ print my $result =sum( @{ primes( 2e6 ) } ), "\n";
 
 use Test::More;
 is ($result, 142913828922);
-done_testing();
+done_testing;

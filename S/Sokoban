@@ -243,7 +243,7 @@ EOD
 
 use Test::More;
 is ($result, $ref);
-done_testing();
+done_testing;
 
 #On this particular puzzle, the branch factor for the different search directions
 #were clearly quite different, as the forward search only did 29 moves, while the

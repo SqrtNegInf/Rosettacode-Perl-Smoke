@@ -41,4 +41,4 @@ printf "difference = %f%%\n", my $result = 100 * img_diff('ref/Lenna50.jpg', 're
 
 use Test::More;
 like $result, qr/1.78189346213746|1.62559309816049/;
-done_testing();
+done_testing;

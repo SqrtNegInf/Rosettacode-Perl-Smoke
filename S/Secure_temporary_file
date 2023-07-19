@@ -26,7 +26,7 @@ my $result = `cat $filename`;
 use Test::More;
 ok -e $filename;
 ok $result =~ /zizzer/;
-done_testing();
+done_testing;
 
 sleep 1;
 unlink $filename;

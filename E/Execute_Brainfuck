@@ -95,4 +95,4 @@ print $result;
 
 use Test::More;
 is $result, "Hello World!\n";
-done_testing();
+done_testing;

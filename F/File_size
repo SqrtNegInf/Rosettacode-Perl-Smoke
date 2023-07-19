@@ -27,4 +27,4 @@ say $result = "$size1 $size2 $size3";
 
 use Test::More;
 is ($result, '35 35 35');
-done_testing();
+done_testing;

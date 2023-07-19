@@ -9,4 +9,4 @@ say my $result = scalar gmtime 0;
 
 use Test::More;
 is ($result, 'Thu Jan  1 00:00:00 1970');
-done_testing();
+done_testing;

@@ -26,4 +26,4 @@ say $result = strptime('%b %d %Y %I:%M%p %O', $input)
 
 use Test::More;
 is ($result, 'March 8 2009 6:30AM MDT');
-done_testing();
+done_testing;

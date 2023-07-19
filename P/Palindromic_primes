@@ -18,4 +18,4 @@ my $ref = '2 3 5 7 11 101 131 151 181 191 313 353 373 383 727 757 787 797 919 92
 use Test::More;
 chomp $ref;
 is ($result, $ref);
-done_testing();
+done_testing;

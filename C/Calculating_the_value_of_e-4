@@ -52,4 +52,4 @@ say $delta;
 
 use Test::More;
 ok($delta =~ /^0\.0{1131}/);
-done_testing();
+done_testing;

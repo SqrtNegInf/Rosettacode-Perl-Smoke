@@ -82,4 +82,4 @@ say " orig:\t$orig\nblack:\t$black\n  red:\t$red\n";
 use Test::More;
 is($black, 'BM OD ZB XD NA BE KU DM UI XM MO UV IF');
 is($red,   'HI DE TH EG OL DI NT HE TR EX ES TU MP');
-done_testing();
+done_testing;

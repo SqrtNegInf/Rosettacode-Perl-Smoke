@@ -10,4 +10,4 @@ say $result = join '', 'a'..'z';
 
 use Test::More;
 is ($result, 'abcdefghijklmnopqrstuvwxyz');
-done_testing();
+done_testing;

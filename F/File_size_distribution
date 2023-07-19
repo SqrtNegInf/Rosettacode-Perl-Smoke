@@ -85,4 +85,4 @@ my $ref = `uname` =~ /Linux/ ? $ubuntu : (`uname -a` =~ /iMac/) ? $imac : $macpr
 use Test::More;
 chomp $ref;
 is ($result, $ref);
-done_testing();
+done_testing;

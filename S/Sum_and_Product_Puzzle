@@ -52,4 +52,4 @@ say $result = sprintf "X = %d, Y = %d\n", split ' ', $final_pair[0];
 
 use Test::More;
 is($result, "X = 4, Y = 13\n");
-done_testing();
+done_testing;

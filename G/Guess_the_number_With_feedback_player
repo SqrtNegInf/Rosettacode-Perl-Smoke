@@ -46,5 +46,5 @@ print "Think of a number between $min and $max and I'll guess it!\n";
 print "G: $guess\n";
 use Test::More;
 is $guess, 42;
-done_testing();
+done_testing;
 

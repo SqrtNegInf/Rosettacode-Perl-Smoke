@@ -36,7 +36,7 @@ EOD
 
 use Test::More;
 is ($result, $ref);
-done_testing();
+done_testing;
 
 #The ntheory module also does this, for a solution similar to Perl 6, with identical output.
 #use ntheory "sumdigits";

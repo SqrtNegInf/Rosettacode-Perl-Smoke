@@ -36,4 +36,4 @@ use Test::More;
 is($result1,'RGB: 204, 206, 204');
 ok $red >= 240 && $green >= 240 && $blue >= 240; # varies?
 #is($result2,'RGB: 252, 254, 252');
-done_testing();
+done_testing;

@@ -29,7 +29,7 @@ EOD
 
 use Test::More;
 is ($result, $ref);
-done_testing();
+done_testing;
 
 __END__
 
@@ -149,4 +149,4 @@ EOD
 
 use Test::More;
 is ($result, $ref);
-done_testing();
+done_testing;

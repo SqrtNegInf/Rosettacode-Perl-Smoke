@@ -30,4 +30,4 @@ EOD
 
 use Test::More;
 is ($ref, $result);
-done_testing();
+done_testing;

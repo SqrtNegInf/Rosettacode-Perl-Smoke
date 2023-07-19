@@ -39,4 +39,4 @@ say $result;
 
 use Test::More;
 is($result, q{Outputting to '(undefined)' path, with No verbosity and a length of 24.});
-done_testing();
+done_testing;

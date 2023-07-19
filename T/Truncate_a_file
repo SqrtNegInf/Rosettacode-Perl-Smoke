@@ -20,4 +20,4 @@ $fsize =~ s/^\s+//;
 
 use Test::More;
 is ($fsize, '100 run/truncate.txt');
-done_testing();
+done_testing;

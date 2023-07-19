@@ -145,4 +145,4 @@ chomp $ref_graph;
 chomp $ref_table;
 is($result1, $ref_graph);
 is($result2, $ref_table);
-done_testing();
+done_testing;

@@ -14,4 +14,4 @@ say my $result = join ' ', @answer;
 
 use Test::More;
 is ($result, '1 4 16 36 100 196 256 400 576 676');
-done_testing();
+done_testing;

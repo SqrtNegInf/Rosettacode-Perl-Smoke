@@ -30,4 +30,4 @@ print "\n" ;
 
 use Test::More;
 is ($result, q[4I8E`gP+~Gx}']);
-done_testing();
+done_testing;

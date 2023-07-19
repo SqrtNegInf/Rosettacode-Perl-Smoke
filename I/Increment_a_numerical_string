@@ -10,4 +10,4 @@ say $s++;
 
 use Test::More;
 is ($s, 12346);
-done_testing();
+done_testing;

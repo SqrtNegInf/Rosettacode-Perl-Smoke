@@ -28,4 +28,4 @@ say my $result2 = gcd2(49865, 69811);
 use Test::More;
 is ($result1, 9973);
 is ($result2, 9973);
-done_testing();
+done_testing;

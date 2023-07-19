@@ -40,4 +40,4 @@ EOD
 
 use Test::More;
 ok $ecdsa->verify( Message => $msg, Key => $pubkey, Signature => $signature );
-done_testing();
+done_testing;

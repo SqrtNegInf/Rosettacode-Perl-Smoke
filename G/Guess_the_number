@@ -12,4 +12,4 @@ print "You got it!\n";
 
 use Test::More;
 is $number, 10;
-done_testing();
+done_testing;

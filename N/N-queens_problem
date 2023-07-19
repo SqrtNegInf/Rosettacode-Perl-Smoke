@@ -52,4 +52,4 @@ $result = "total ". @solutions . " solutions";
 
 use Test::More;
 is ($result, 'total 14200 solutions');
-done_testing();
+done_testing;

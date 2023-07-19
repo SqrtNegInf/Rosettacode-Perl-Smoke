@@ -83,4 +83,4 @@ EOD
 use Test::More;
 chomp $ref;
 is (join("\n", @res), $ref);
-done_testing();
+done_testing;

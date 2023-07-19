@@ -25,4 +25,4 @@ say $result = binary_search(\@data, 'qq', 0, -1 + scalar @data);
 
 use Test::More;
 is ($result, 432);
-done_testing();
+done_testing;

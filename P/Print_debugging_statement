@@ -20,4 +20,4 @@ sub fuddle { ( cluck("'$_[0]', interesting number.") ); }
 warnings_like {cluck "'$str' is futile."}   [qr/Resistance. is futile/];
 warnings_like {doodle($str)}                [qr/Resistance. is still futile/];
 warnings_like {fiddle(7)}                   [qr/42.*interesting number/];
-done_testing();
+done_testing;

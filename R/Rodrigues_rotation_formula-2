@@ -41,4 +41,4 @@ my $ref = '2.23222107330823 1.39513817081764 -8.37082902490585';
 
 use Test::More;
 is ($result, $ref);
-done_testing();
+done_testing;

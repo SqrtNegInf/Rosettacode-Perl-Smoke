@@ -30,4 +30,4 @@ $result = 'Oscar went for a walk in the park. he found a giraffe. Oscar decided 
 
 use Test::More;
 is ($result, $story);
-done_testing();
+done_testing;

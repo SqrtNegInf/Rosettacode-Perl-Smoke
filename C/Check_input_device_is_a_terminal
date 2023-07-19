@@ -24,4 +24,4 @@ else {
 
 use Test::More;
 is ($result, q{Input doesn't come from tty.});
-done_testing();
+done_testing;

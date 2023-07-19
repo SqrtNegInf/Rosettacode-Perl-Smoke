@@ -39,4 +39,4 @@ use Test::More;
 use Test::Output;
 #combined_is(\&testcode,$ref);
 combined_like(\&testcode, qr/Function foo caught exception U0\nU1 at.*?line 2\d.*propagated at.*line 1\d/s);
-done_testing();
+done_testing;

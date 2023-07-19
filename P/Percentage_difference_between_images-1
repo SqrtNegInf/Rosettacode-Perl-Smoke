@@ -27,4 +27,4 @@ printf "%% difference = %.4f\n", my $result = 100 * $sum / ($w * $h * 3 * 255);
 
 use Test::More;
 is($result, '1.77469091477737');
-done_testing();
+done_testing;

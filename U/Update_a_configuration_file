@@ -109,7 +109,7 @@ EOD
 
 use Test::More;
 is ($result, $ref);
-done_testing();
+done_testing;
 
 __DATA__
 # This is a configuration file in standard configuration file format

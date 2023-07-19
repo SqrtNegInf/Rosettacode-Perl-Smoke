@@ -82,4 +82,4 @@ use Test::More;
 is($total, 546986);
 chop $ref;
 is($result, $ref);
-done_testing();
+done_testing;

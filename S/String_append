@@ -12,4 +12,4 @@ say $str;
 
 use Test::More;
 is ($str, 'Foobar');
-done_testing();
+done_testing;

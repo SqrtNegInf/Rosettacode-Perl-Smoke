@@ -27,4 +27,4 @@ my $ref = '23:47:43 is the mean time of 23:00:17 23:40:20 00:12:45 00:17:19';
 
 use Test::More;
 is ($result, $ref);
-done_testing();
+done_testing;

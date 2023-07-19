@@ -30,4 +30,4 @@ say $result = "found ". non_continuous(1) . " sequences";
 
 use Test::More;
 is ($result, 'found 1048365 sequences');
-done_testing();
+done_testing;

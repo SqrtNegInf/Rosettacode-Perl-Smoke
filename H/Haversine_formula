@@ -32,4 +32,4 @@ say $result = sprintf "Distance: %.3f km", surfacedist(@BNA, @LAX);
 
 use Test::More;
 is ($result, 'Distance: 2887.260 km');
-done_testing();
+done_testing;

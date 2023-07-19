@@ -27,4 +27,4 @@ is (length($result), 19);
 like  ($result, qr/Enjoy/);
 like  ($result, qr/Rosetta/);
 like  ($result, qr/Code/);
-done_testing();
+done_testing;

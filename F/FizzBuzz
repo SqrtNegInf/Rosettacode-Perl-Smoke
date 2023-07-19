@@ -168,4 +168,4 @@ is ($result3, $ref);
 is ($result4, $ref);
 is ($result5, $ref);
 is ($result6, $ref);
-done_testing();
+done_testing;

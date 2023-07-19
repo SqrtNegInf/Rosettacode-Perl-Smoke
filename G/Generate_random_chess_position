@@ -58,4 +58,4 @@ say my $result = gen_FEN();
 
 use Test::More;
 is($result, 'p5Nq/1nn5/3N2bp/PRBkQr2/1QB1Pn2/Q5pK/1NRb2rN/p1R2r1N w - - 0 1');
-done_testing();
+done_testing;

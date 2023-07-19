@@ -21,7 +21,7 @@ say my $result = join(' … ', 1 … 5);
 
 use Test::More;
 is($result, '1 … 2 … 3 … 4 … 5');
-done_testing();
+done_testing;
 
 # Devel::Declare lets you define a new keyword by setting up a hook to be run
 # whenever the parser encounters a bareword of your choice. Devel::Declare is

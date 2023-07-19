@@ -42,4 +42,4 @@ say my $result = join ' ', map { to_int->($_) } (
 
 use Test::More;
 is ($result, '7 12 64 81');
-done_testing();
+done_testing;

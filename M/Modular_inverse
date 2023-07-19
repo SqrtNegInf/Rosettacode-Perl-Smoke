@@ -44,4 +44,4 @@ say $result = invmod(42,2017);
 
 use Test::More;
 is ($result, 1969);
-done_testing();
+done_testing;

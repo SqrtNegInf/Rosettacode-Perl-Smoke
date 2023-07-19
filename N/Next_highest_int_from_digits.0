@@ -47,7 +47,7 @@ END
 use Test::More;
 chomp $ref;
 is($result, $ref);
-done_testing();
+done_testing;
 
 # 9_589_776_899_767_587_796_600 -> 9_589_776_899_767_587_900_667
 

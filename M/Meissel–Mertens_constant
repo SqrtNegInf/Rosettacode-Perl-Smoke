@@ -15,4 +15,4 @@ use Test::More;
 is $result,  0.261497213105714; # 1e8 < 1min
 #is $result, 0.261497212871049; # 1e9 ~ 4min
 # J          0.2614972128591
-done_testing();
+done_testing;

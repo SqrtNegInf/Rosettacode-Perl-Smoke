@@ -84,7 +84,7 @@ use Test::More;
 is (@n, unrank(rank(@n)));
 chop $ref;
 is ($result, $ref);
-done_testing();
+done_testing;
 
 __END__
 

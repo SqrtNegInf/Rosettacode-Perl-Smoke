@@ -25,4 +25,4 @@ say $upper;
 use Test::More;
 is ($lower, 'abcdefghijklmnopqrstuvwxyzªµºßàáâãäåæçèéêëìíîïðñòóôõöøùúûüýþÿ');
 is ($upper, 'ABCDEFGHIJKLMNOPQRSTUVWXYZÀÁÂÃÄÅÆÇÈÉÊËÌÍÎÏÐÑÒÓÔÕÖØÙÚÛÜÝÞ');
-done_testing();
+done_testing;

@@ -27,4 +27,4 @@ say $result = A(4,1);
 
 use Test::More;
 is ($result, 65533);
-done_testing();
+done_testing;

@@ -19,4 +19,4 @@ say $result = div_check(1, 0);
 
 use Test::More;
 is ($result, 1);
-done_testing();
+done_testing;

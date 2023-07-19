@@ -56,4 +56,4 @@ sub turn {
 
 use Test::More;
 is($turn_count, 706);
-done_testing();
+done_testing;

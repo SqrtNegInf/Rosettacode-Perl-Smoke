@@ -40,7 +40,7 @@ sub win {
     my($player) = @_;
     print "$player wins.\n";
     is $player, 'Computer';
-    done_testing();
+    done_testing;
     exit;
 }
  

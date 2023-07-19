@@ -22,4 +22,4 @@ say $result = compose(sub {sin $_[0]}, \&asin)->(0.5);
 
 use Test::More;
 is ($result, 0.5);
-done_testing();
+done_testing;

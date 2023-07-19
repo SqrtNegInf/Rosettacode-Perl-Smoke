@@ -62,4 +62,4 @@ say 'Intersection at point: ', join ' ', @$p;
 
 use Test::More;
 is ((join ' ', @$p), '0 -5 5');
-done_testing();
+done_testing;

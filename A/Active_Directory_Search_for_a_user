@@ -47,4 +47,4 @@ EOD
 
 use Test::More;
 is ($result, 'gauss@ldap.forumsys.com');
-done_testing();
+done_testing;

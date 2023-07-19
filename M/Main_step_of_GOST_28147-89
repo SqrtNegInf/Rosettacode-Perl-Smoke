@@ -53,4 +53,4 @@ say $result;
 
 use Test::More;
 is($result, '1F 88 CF 07 21 04 3B 04 ');
-done_testing();
+done_testing;

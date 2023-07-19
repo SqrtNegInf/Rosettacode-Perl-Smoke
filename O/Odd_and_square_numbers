@@ -17,4 +17,4 @@ say my $result = join "\n", @res;
 
 use Test::More;
 is ($result, '121 169 225 289 361 441 529 625 729 841 961');
-done_testing();
+done_testing;

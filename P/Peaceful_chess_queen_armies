@@ -68,4 +68,4 @@ END
 use Test::More;
 chomp $ref;
 is ($solution, $ref);
-done_testing();
+done_testing;

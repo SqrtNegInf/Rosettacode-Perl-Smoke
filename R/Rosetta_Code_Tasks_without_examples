@@ -65,4 +65,4 @@ use Test::More;
 #is($result, $ref);
 #is(($result =~ s/\s//gr), ($ref =~ s/\s//gr));
 ok $result =~ /100.doors/;
-done_testing();
+done_testing;

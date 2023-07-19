@@ -23,5 +23,5 @@ my $ref = 'sorted: red yellow orange green blue indigo violet';
 
 use Test::More;
 is ($result, $ref);
-done_testing();
+done_testing;
 

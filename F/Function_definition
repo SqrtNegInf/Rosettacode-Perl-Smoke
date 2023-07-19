@@ -36,4 +36,4 @@ say my $result = join "\n", @res;
 
 use Test::More;
 is ($result, "12\n12\n12\n12");
-done_testing();
+done_testing;

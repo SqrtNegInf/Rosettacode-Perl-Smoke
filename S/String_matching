@@ -35,4 +35,4 @@ print "$result\n";
 
 use Test::More;
 is ($result, 'nyynyyny 4 12 4 12 ');
-done_testing();
+done_testing;

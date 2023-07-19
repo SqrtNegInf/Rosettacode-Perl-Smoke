@@ -99,4 +99,4 @@ use Test::More;
 my $ref = `cat ref/magic_squares.txt`;
 chomp $ref;
 is($result, $ref);
-done_testing();
+done_testing;

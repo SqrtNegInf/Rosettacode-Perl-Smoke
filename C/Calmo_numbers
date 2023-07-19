@@ -28,4 +28,4 @@ my $ref = '165 273 385 399 561 595 665 715 957';
 use Test::More;
 chomp $ref;
 is($result, $ref);
-done_testing();
+done_testing;

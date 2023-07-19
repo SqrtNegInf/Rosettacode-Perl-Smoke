@@ -29,4 +29,4 @@ say $result .= "@freq\n";
 
 use Test::More;
 is ($result, "100102 100259 99763 100235 100339 100442 100056 99939 99676 99189\n");
-done_testing();
+done_testing;

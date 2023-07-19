@@ -28,4 +28,4 @@ use Test::More;
 my $ok = 1;
 $a[$_] == $_ and $ok = 0 for 0..30;
 ok ( $ok );
-done_testing();
+done_testing;

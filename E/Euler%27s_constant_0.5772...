@@ -18,7 +18,7 @@ say EulerGamma;
 
 use Test::More;
 is ($result, 0.577216164900715);
-done_testing();
+done_testing;
 
 # 0.577216164900715 1*10**6 
 # 0.57721616490144952727317876508240243103481393  1*10**6 + bignum

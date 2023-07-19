@@ -18,7 +18,7 @@ unlink $f;
 
 use Test::More;
 is $retval, 1;
-done_testing();
+done_testing;
 
 __END__
 

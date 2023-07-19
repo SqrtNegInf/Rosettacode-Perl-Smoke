@@ -15,4 +15,4 @@ my $ref = '1 2 3 4 5 6 7 8 9 53 371 913 4100 5141 5412 6182 8200 9241 75120 7512
 
 use Test::More;
 is($result, $ref);
-done_testing();
+done_testing;

@@ -26,4 +26,4 @@ say my $result2 = sprintf "%0.16g", 333.75*$b**6 + $a**2 * ( 11*$a**2 * $b**2 - 
 use Test::More;
 is($result1,'After year 25, you will have $0.0399387296732302 in your account.');
 is($result2,-0.8273960599468214);
-done_testing();
+done_testing;

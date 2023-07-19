@@ -75,7 +75,7 @@ EOD
 
 use Test::More;
 is ($result, $ref);
-done_testing();
+done_testing;
 
 __END__
 Datasize: 1 Strings: 2

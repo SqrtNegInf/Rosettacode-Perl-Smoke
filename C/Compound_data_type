@@ -34,4 +34,4 @@ ok $point1[0] == 3 && $point1[1] == 8;
 ok $point->x == 3 && $point->y == 8;
 ok $point2{'y'} == 8;
 ok $point2{'x'} == 3;
-done_testing();
+done_testing;

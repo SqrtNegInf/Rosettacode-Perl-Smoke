@@ -39,4 +39,4 @@ $result = longestCommonSubstr( "thisisatest" ,"testing123testing" ) ;
 print "The longest common substring of <thisisatest> and <testing123testing> is $result !\n" ; 
 use Test::More;
 is ($result, 'test');
-done_testing();
+done_testing;

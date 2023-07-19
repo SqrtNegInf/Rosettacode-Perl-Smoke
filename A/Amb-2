@@ -36,4 +36,4 @@ say $result;
 
 use Test::More;
 is ($result, 'that thing grows slowly');
-done_testing();
+done_testing;

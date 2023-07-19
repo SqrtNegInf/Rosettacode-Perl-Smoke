@@ -23,4 +23,4 @@ say $result = entropy split //, "1223334444";
 
 use Test::More;
 is ($result, 1.84643934467102);
-done_testing();
+done_testing;

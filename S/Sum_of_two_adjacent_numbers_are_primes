@@ -56,4 +56,4 @@ use Test::More;
 chomp $ref;
 is($result, $ref);
 is($result2, $ref2);
-done_testing();
+done_testing;

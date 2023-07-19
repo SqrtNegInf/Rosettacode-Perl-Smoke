@@ -81,7 +81,7 @@ EOD
 
 use Test::More;
 is ($result, $ref);
-done_testing();
+done_testing;
 
 __END__
 # An object-oriented solution[edit]

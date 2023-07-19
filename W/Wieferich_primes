@@ -18,4 +18,4 @@ my $ref = 'Wieferich primes less than 5000: 1093, 3511';
 
 use Test::More;
 is($result, $ref);
-done_testing();
+done_testing;

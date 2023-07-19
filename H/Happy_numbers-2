@@ -33,4 +33,4 @@ EOD
 
 use Test::More;
 is ($result, '1 7 10 13 19 23 28 31 ');
-done_testing();
+done_testing;

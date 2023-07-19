@@ -34,4 +34,4 @@ say my $result = $foo; # prints "42"
 
 use Test::More;
 is ($result, 42);
-done_testing();
+done_testing;

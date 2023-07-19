@@ -48,4 +48,4 @@ use Test::More;
 is($result1, '69');
 is($result2, '69');
 is($result3, '69');
-done_testing();
+done_testing;

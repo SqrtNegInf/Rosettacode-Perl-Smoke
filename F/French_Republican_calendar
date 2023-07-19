@@ -94,7 +94,7 @@ while (<DATA>) {
 
 use Test::More;
 is (1,1, 'All round-trips successful.');
-done_testing();
+done_testing;
 
 __DATA__
 1792-09-22  1 Vendémiaire 1

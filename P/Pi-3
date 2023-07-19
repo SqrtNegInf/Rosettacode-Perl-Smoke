@@ -76,4 +76,4 @@ my $ref = '314159265358979323846264338327950288419716939937510582097494459230781
 
 use Test::More;
 is ($result, $ref);
-done_testing();
+done_testing;

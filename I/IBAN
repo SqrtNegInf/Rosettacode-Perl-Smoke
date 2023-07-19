@@ -57,4 +57,4 @@ use Test::More;
 ok ( validate_iban('GB82 WEST 1234 5698 7654 32'));
 ok ( validate_iban('gb82 west 1234 5698 7654 32'));
 ok (!validate_iban('GB82 TEST 1234 5698 7654 32'));
-done_testing();
+done_testing;

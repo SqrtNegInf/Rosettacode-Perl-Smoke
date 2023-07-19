@@ -70,7 +70,7 @@ sub find {
     print $grid; 
     use Test::More;
     is ($grid, $ref);
-    done_testing();
+    done_testing;
     exit
   }
   for ( grep ! $used{ $_->[2] }, @all ) {

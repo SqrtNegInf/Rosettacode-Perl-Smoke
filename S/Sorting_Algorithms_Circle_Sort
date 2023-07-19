@@ -50,4 +50,4 @@ say $result1 = join ' ', @res1;
 use Test::More;
 is ($result1,'-99 -81 -78 -64 -29 -7 -1 16 20 25 26 35 36 39 46 59 76 85 88 100');
 #is ($result2,'The brown dog. fox jumps lazy over quick the');
-done_testing();
+done_testing;

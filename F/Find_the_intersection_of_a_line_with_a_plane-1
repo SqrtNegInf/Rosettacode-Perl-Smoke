@@ -38,4 +38,4 @@ say 'Intersection at point: ', join ' ', my @p = line_plane_intersection(
 
 use Test::More;
 is ((join ' ', @p), '0 -5 5');
-done_testing();
+done_testing;

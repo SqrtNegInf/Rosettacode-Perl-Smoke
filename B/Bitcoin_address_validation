@@ -51,4 +51,4 @@ say "$a is valid bitcoin address" if $result;
 
 use Test::More;
 is ($result, 1);
-done_testing();
+done_testing;

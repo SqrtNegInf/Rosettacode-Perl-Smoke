@@ -14,4 +14,4 @@ print (my $result = "The three dogs are named $dog, $Dog, and $DOG"); print "\n"
 
 use Test::More;
 is ($result, 'The three dogs are named Benjamin, Samba, and Bernie');
-done_testing();
+done_testing;

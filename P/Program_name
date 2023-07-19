@@ -22,4 +22,4 @@ print "Program name $FindBin::Script\n";
 
 use Test::More;
 is ($result, 'Program: P/Program_name');
-done_testing();
+done_testing;

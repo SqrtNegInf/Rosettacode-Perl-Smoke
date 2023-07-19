@@ -75,4 +75,4 @@ my $result; $result .= sprintf '%7.2f' x 2, $xs[$_],$ys[$_] for 1..4;
 
 use Test::More;
 is($result, '   3.45  -3.74  -3.24  -9.52   9.24 -17.42  15.38 -25.92');
-done_testing();
+done_testing;

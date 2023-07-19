@@ -29,4 +29,4 @@ is $r2[1], '2001:200:dff:fff1:216:3eff:feb1:44d7';
 print "$r2[1]\n";
 }
 
-done_testing();
+done_testing;

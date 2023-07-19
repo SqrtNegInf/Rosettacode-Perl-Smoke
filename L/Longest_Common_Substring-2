@@ -18,4 +18,4 @@ say $result = "$_" for sort keys %{ $best[-1] };
 
 use Test::More;
 is ($result, 'test');
-done_testing();
+done_testing;

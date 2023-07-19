@@ -39,4 +39,4 @@ say $result;
 
 use Test::More;
 is ($result, "Hello, world!\n");
-done_testing();
+done_testing;

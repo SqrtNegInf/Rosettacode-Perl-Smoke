@@ -28,7 +28,7 @@ say $allowed;
 
 use Test::More;
 is($allowed,'0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZ_abcdefghijklmnopqrstuvwxyz');
-done_testing();
+done_testing;
 
 exit;
 

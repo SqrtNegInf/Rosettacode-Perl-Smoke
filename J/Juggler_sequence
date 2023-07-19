@@ -81,4 +81,4 @@ $ref .= ' 5812827   135   67  d(n) = 7996276 digits' if $host =~ /^iMac/;
 use Test::More;
 chomp $ref;
 is ($result, $ref);
-done_testing();
+done_testing;

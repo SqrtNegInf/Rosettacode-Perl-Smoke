@@ -70,4 +70,4 @@ say $result = sprintf "R = %.6f", 2 / iter();
 
 use Test::More;
 is ($result, 'R = 1.608991');
-done_testing();
+done_testing;

@@ -15,4 +15,4 @@ say my $result = unpack "H*", Crypt::RIPEMD160->hash("Rosetta Code");
 
 use Test::More;
 is ($result, 'b3be159860842cebaa7174c8fff0aa9e50a5199f');
-done_testing();
+done_testing;

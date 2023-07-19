@@ -120,7 +120,7 @@ $result = join "\n", @res2;
 chomp $ref2;
 is($result, $ref2);
 
-done_testing(); exit;  # calculations below are slow
+done_testing; exit;  # calculations below are slow
 
 my $ref3 = <<'END3';
 $_
@@ -154,4 +154,4 @@ $result = join "\n", @res4;
 chomp $ref4;
 is($result, $ref4);
 
-done_testing();
+done_testing;

@@ -39,4 +39,4 @@ use Test::More;
 is ($result1, 'Sh ws  soul strppr. Sh took my hrt!');
 is ($result2, 'Sh ws  soul strppr. Sh took my hrt!');
 is ($str, 'Sh ws  soul strppr. Sh took my hrt!');
-done_testing();
+done_testing;

@@ -9,4 +9,4 @@ print "$result\n";
 
 use Test::More;
 is ($result, 'hahahahaha');
-done_testing();
+done_testing;

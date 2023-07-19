@@ -24,4 +24,4 @@ say my $ans = eval 'abs($a * $b)';  # => 35
 
 use Test::More;
 is ($ans, 35);
-done_testing();
+done_testing;

@@ -15,4 +15,4 @@ say my $trim2 =          trim "\t this is a string \n";
 use Test::More;
 is ($trim1, 'this is a string');
 is ($trim2, 'this is a string');
-done_testing();
+done_testing;

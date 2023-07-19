@@ -81,7 +81,7 @@ EOD
 
 use Test::More;
 is ($result, $ref);
-done_testing();
+done_testing;
 
 __DATA__
 3 + not 5

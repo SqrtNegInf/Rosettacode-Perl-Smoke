@@ -15,4 +15,4 @@ sub do_stuff { print $_[0] }
 
 use Test::More;
 is($n, "3\n");
-done_testing();
+done_testing;

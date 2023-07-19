@@ -26,4 +26,4 @@ my $ref = 'NaN NaN NaN NaN 0.5 0 -0.346573590279973 -0.5 -0.549306144334055 -0.6
 
 use Test::More;
 is ($result, $ref);
-done_testing();
+done_testing;

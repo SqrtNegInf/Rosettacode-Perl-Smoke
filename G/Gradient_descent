@@ -63,4 +63,4 @@ say my $result = sprintf "The minimum is at x[0] = %.6f, x[1] = %.6f", steepestD
 
 use Test::More;
 is($result, 'The minimum is at x[0] = 0.107653, x[1] = -1.223370');
-done_testing();
+done_testing;

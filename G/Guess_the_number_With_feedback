@@ -33,4 +33,4 @@ print "Correct! You guessed it after $tries tries.\n";
 
 use Test::More;
 ok $tgt == 10 && $tries == 3;
-done_testing();
+done_testing;

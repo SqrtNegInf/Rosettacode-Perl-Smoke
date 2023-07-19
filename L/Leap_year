@@ -29,7 +29,7 @@ $result .= isleap2($y) ? 'Y' : 'N';
 say $result;
 
 is ($result, 'YYYYNNYY');
-done_testing();
+done_testing;
 
 __END__
 

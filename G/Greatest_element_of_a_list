@@ -21,4 +21,4 @@ say List::Util::max(<1 -1 01 1e0 1.1>);
 
 use Test::More;
 is ($result, 1.1);
-done_testing();
+done_testing;

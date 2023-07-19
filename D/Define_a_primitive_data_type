@@ -40,4 +40,4 @@ is($t2,5);
 is($t3,undef);
 is($t4,undef);
 is($t5,undef);
-done_testing();
+done_testing;

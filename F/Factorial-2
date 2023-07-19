@@ -20,4 +20,4 @@ say $result = factorial(5);
 
 use Test::More;
 is ($result, 120);
-done_testing();
+done_testing;

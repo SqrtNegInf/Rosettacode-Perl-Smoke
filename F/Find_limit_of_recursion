@@ -25,4 +25,4 @@ recurse($x);
 
 use Test::More;
 is ($x, $max);
-done_testing();
+done_testing;

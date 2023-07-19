@@ -36,4 +36,4 @@ say $result = leven('rosettacode', 'raisethysword');
 
 use Test::More;
 is ($result, 8);
-done_testing();
+done_testing;

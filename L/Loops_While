@@ -47,4 +47,4 @@ use Test::More;
 is ($result1, $ref);
 is ($result2, $ref);
 is ($result3, $ref);
-done_testing();
+done_testing;

@@ -42,5 +42,5 @@ my $ref = '2.7182818284590452353602874713526624977572470936999595749669676277240
 
 use Test::More;
 is($result, $ref);
-done_testing();
+done_testing;
 

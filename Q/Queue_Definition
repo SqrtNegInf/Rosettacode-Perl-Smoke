@@ -26,4 +26,4 @@ say $result = join "\n", @fifo;
 
 use Test::More;
 is ($result, '66');
-done_testing();
+done_testing;

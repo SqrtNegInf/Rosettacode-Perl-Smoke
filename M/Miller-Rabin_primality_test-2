@@ -38,4 +38,4 @@ for (1..100) { $result .= "$_ " if is_prime_mr($_) }
 
 use Test::More;
 is ($result, '2 3 5 11 13 17 19 23 29 31 37 41 43 47 53 59 67 71 73 79 83 89 97 ');
-done_testing();
+done_testing;

@@ -54,4 +54,4 @@ EOD
 
 use Test::More;
 is ($output, $ref);
-done_testing();
+done_testing;

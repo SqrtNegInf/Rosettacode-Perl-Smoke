@@ -47,4 +47,4 @@ is $a->operation , 'default implementation';
 $a->{delegate} = Delegate->new;
 is $a->operation, 'delegate implementation';
  
-done_testing();
+done_testing;

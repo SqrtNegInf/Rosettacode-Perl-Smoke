@@ -25,4 +25,4 @@ say $result = join ' ', sieve(100);
 
 use Test::More;
 is ($result, '.xx.x.x...x.x...x.x...x.....x.x.....x...x.x...x.....x.....x.x.....x...x.x.....x...x.....x.......x...x');
-done_testing();
+done_testing;

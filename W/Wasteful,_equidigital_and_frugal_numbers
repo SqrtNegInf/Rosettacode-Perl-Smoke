@@ -112,4 +112,4 @@ END
 
 use Test::More;
 is(($result =~ s/\s//gr), ($ref =~ s/\s//gr));
-done_testing();
+done_testing;

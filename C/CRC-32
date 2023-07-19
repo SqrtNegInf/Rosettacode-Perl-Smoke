@@ -31,4 +31,4 @@ say $result = "The checksum is " . $crc->hexdigest() ;
 use Test::More;
 is ($result, 'The checksum is 414fa339');
 is ($resultx, 1095738169);
-done_testing();
+done_testing;

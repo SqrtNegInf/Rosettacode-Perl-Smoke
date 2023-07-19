@@ -23,4 +23,4 @@ my $ref = 'sum 690  -  4 9 16 25 36 36 49 81 121 144 169';
 
 use Test::More;
 is ($result, $ref);
-done_testing();
+done_testing;

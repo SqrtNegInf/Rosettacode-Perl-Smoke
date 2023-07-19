@@ -19,4 +19,4 @@ say $result = A(3,2);
 
 use Test::More;
 is ($result, 29);
-done_testing();
+done_testing;

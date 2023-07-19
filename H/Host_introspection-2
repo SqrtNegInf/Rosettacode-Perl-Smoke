@@ -21,4 +21,4 @@ say my $result = "UV size: $size, byte order: $order ($end-endian)";
 
 use Test::More;
 is ($result, 'UV size: 8, byte order: 12345678 (little-endian)');
-done_testing();
+done_testing;

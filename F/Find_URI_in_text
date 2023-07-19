@@ -34,7 +34,7 @@ EOD
 use Test::More;
 chomp $ref;
 is ($result, $ref);
-done_testing();
+done_testing;
 
 __DATA__
 this URI contains an illegal character, parentheses and a misplaced full stop:

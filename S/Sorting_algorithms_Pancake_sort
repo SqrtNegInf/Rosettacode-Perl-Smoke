@@ -24,4 +24,4 @@ sub pancake {
 use Test::More;
 say 'input: ' . join ' ', my @a = map (int rand 100), 0 .. 50;
 is_deeply([pancake(@a)], [sort { $a <=> $b } @a]);
-done_testing();
+done_testing;

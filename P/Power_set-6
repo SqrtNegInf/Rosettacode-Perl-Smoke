@@ -28,4 +28,4 @@ my $ref = 'Set::Object(Set::Object() Set::Object(1 2 3) Set::Object(1 2) Set::Ob
 
 use Test::More;
 is ($result, $ref);
-done_testing();
+done_testing;

@@ -16,4 +16,4 @@ print "I:$integer\n";
 use Test::More;
 is($string,"ad astra, per asperagus\n");
 is($integer,1024);
-done_testing();
+done_testing;

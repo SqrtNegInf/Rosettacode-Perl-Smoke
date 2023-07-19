@@ -13,4 +13,4 @@ sub f {g;}
 use Test::More;
 use Test::Warn;
 warnings_like {f()} [qr/Hello from &g/];
-done_testing();
+done_testing;

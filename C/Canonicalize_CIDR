@@ -40,4 +40,4 @@ my $ref = '87.70.140.0/22';
 
 use Test::More;
 is ($result, $ref);
-done_testing();
+done_testing;

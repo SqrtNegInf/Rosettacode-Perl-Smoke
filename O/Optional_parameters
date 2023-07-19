@@ -36,4 +36,4 @@ EOD
 
 use Test::More;
 is ($result, 'zap  zip  Zot       q    z    a    b    c    ');
-done_testing();
+done_testing;

@@ -26,4 +26,4 @@ use Test::More;
 is ($result1, 'DBAC');
 is ($result2, 'DBAC');
 is ($result3, 'DBAC');
-done_testing();
+done_testing;

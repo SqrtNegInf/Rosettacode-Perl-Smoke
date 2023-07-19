@@ -25,4 +25,4 @@ my $ref = '1 2 3 5 7 b d 11 101 151 161 191 1b1 1c1 ';
 use Test::More;
 chomp $ref;
 is ($result, $ref);
-done_testing();
+done_testing;

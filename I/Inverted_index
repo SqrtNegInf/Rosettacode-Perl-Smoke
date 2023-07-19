@@ -62,4 +62,4 @@ say $result = "$_"
 
 use Test::More;
 is ($result, 'ref/sample1.txt');
-done_testing();
+done_testing;

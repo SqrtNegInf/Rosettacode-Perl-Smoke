@@ -35,4 +35,4 @@ printf "name: %s, ref: %s\n", $s2->name, $s2;
 
 use Test::More;
 ok $s1, $s2;
-done_testing();
+done_testing;

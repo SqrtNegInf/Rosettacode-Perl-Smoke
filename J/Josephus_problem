@@ -19,4 +19,4 @@ say $result = "Prisoner @prisoner survived.";
 
 use Test::More;
 is ($result, 'Prisoner 30 survived.');
-done_testing();
+done_testing;

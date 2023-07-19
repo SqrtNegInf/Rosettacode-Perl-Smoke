@@ -25,4 +25,4 @@ my $ref = 'e ee eertree ertre r rtr t';
 
 use Test::More;
 is($result, $ref);
-done_testing();
+done_testing;

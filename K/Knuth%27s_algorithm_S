@@ -46,4 +46,4 @@ say $result = join ' ', @bin;
 
 use Test::More;
 is ($result, '30086 29900 29970 29902 30007 30133 29970 30006 30020 30006');
-done_testing();
+done_testing;

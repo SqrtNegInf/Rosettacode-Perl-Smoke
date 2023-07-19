@@ -29,4 +29,4 @@ say "You chose: $a";
 
 use Test::More;
 is $a, 'huff and puff';
-done_testing();
+done_testing;

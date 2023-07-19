@@ -91,4 +91,4 @@ is($res1[0], 'm = 49.994568509795');
 is($res1[1], 'sigma = 4.00144438401351');
 chop $ref;
 is($result, $ref);
-done_testing();
+done_testing;

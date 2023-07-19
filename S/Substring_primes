@@ -25,4 +25,4 @@ my $ref = '  2  3  5  7  23  37  53  73  373';
 use Test::More;
 chomp $ref;
 is ($result, $ref);
-done_testing();
+done_testing;

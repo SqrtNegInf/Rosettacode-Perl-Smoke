@@ -83,4 +83,4 @@ say $line;
 
 use Test::More;
 is ($line, '110110000');
-done_testing();
+done_testing;

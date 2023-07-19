@@ -46,7 +46,7 @@ say $result;
 
 use Test::More;
 is ($result, $ref);
-done_testing();
+done_testing;
 
 __END__
 #Further flexibility can be obtained by using Pass by reference semantics:sub event

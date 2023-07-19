@@ -101,7 +101,7 @@ like($result, qr/2 Cooper/);
 like($result, qr/3 Baker/);
 like($result, qr/4 Fletcher/);
 like($result, qr/5 Miller/);
-done_testing();
+done_testing;
  
 __DATA__
 Baker not on top

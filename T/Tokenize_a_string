@@ -37,7 +37,7 @@ EOD
 use Test::More;
 chop $ref;
 is ($result, $ref);
-done_testing();
+done_testing;
 
 __END__
 Hello,How,Are,You,Today

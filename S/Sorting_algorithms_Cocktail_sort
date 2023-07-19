@@ -42,4 +42,4 @@ say my $result = join ' ', cocktail_sort(@nums);
 
 use Test::More;
 is ($result, $ref);
-done_testing();
+done_testing;

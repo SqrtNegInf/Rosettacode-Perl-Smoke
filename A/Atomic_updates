@@ -70,4 +70,4 @@ say join "\n", @res;
 
 use Test::More;
 is ($sum_total, 1000*$n);
-done_testing();
+done_testing;

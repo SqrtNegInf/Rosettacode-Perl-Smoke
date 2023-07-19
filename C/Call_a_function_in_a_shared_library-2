@@ -18,4 +18,4 @@ my $pi = 4*atan(1);
 
 use Test::More;
 is($pi, '3.14159265358979');
-done_testing();
+done_testing;

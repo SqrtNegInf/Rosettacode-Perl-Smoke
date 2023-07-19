@@ -39,4 +39,4 @@ say my $result2 = vecmax @p;
 use Test::More;
 is($result1,  7652413);
 is($result2, 76540231);
-done_testing();
+done_testing;

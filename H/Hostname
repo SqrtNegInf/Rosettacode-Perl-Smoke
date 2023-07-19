@@ -13,4 +13,4 @@ my($ref) = `uname -a` =~ /\S+ (\S+)/;
 
 use Test::More;
 is ($name, $ref);
-done_testing();
+done_testing;

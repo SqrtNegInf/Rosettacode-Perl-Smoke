@@ -55,4 +55,4 @@ chomp $ref;
 is ($result1, $ref);
 is ($result2, $ref) unless `uname` =~ /Linux/;
 is ($result3, $ref);
-done_testing();
+done_testing;

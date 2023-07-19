@@ -24,4 +24,4 @@ say $result = Example->new->$name(5); # "\n"; # prints "47"
 
 use Test::More;
 is ($result, 47);
-done_testing();
+done_testing;

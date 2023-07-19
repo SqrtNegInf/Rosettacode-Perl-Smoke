@@ -20,4 +20,4 @@ END
 
 use Test::More;
 is ($r, $ref);
-done_testing();
+done_testing;

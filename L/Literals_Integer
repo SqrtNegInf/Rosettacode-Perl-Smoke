@@ -11,4 +11,4 @@ ok ( 727 == 0x2d7 &&
    12345 == 12_345
    );
 
-done_testing();
+done_testing;

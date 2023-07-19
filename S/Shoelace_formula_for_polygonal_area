@@ -28,4 +28,4 @@ is($result1, 30);
 is($result2, 30);
 is($result3, 30);
 is($result4, 30);
-done_testing();
+done_testing;

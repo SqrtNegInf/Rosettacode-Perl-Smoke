@@ -80,7 +80,7 @@ EOD
 
 use Test::More;
 is ($result, $ref);
-done_testing();
+done_testing;
 
 # The parameter to the tabular environment defines the columns of the table. “r” and “c” are right- and center-aligned columns, “|” is a vertical rule, and “*{count}{cols}” repeats a column definition count times.
 # To get from the program above to a rendered PDF,

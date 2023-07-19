@@ -76,4 +76,4 @@ say $result = "$g->{e}{dist} $path";
 
 use Test::More;
 is ($result, '26 acde');
-done_testing();
+done_testing;

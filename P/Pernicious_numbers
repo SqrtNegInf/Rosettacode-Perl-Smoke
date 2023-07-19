@@ -51,4 +51,4 @@ EOD
 use Test::More;
 is ($result, $ref);
 is ($result1, $ref);
-done_testing();
+done_testing;

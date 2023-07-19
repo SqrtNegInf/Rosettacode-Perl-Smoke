@@ -58,4 +58,4 @@ say join "\n", @res;
 
 use Test::More;
 ok @res == 12;
-done_testing();
+done_testing;

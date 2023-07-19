@@ -43,7 +43,7 @@ for ( my $guesses = 1; ; $guesses++ ) {
     print "$cows cows, $bulls bulls\n";
 }
 
-done_testing();
+done_testing;
  
 sub checkguess {
     my $g = shift;

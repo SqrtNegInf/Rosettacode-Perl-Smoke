@@ -22,4 +22,4 @@ say my $result = join ' ', @res;
 
 use Test::More;
 is ($result, '1 2 3 4 5 6 11 13 24 66 68 75 167 171 172 287 310 352 384 457');
-done_testing();
+done_testing;

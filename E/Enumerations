@@ -19,4 +19,4 @@ use Test::More;
 #is ($fruits{banana} == 1, 1);
 is ($fruits{cherry} == 2, 1);
 is (false, 0 == 1 ? true : false);
-done_testing();
+done_testing;

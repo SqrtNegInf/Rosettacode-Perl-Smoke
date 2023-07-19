@@ -25,4 +25,4 @@ sub solveQuad
 
 use Test::More;
 is ($result, 'x1 = -1+1.4142135623731i, x2 = -1-1.4142135623731i');
-done_testing();
+done_testing;

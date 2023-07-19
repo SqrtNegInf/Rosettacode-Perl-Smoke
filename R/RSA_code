@@ -77,4 +77,4 @@ EOT
 
 use Test::More;
 is($secret_message, $secret_message2);
-done_testing();
+done_testing;

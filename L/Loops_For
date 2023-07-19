@@ -43,4 +43,4 @@ is ($result1, $ref);
 is ($result2, $ref);
 is ($result3, $ref);
 is ($result4, $ref);
-done_testing();
+done_testing;

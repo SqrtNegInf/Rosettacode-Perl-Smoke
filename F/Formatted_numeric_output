@@ -11,4 +11,4 @@ say my $result = sprintf "%09.3f", 7.125;
 
 use Test::More;
 is ($result, '00007.125');
-done_testing();
+done_testing;

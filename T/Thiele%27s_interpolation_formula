@@ -55,4 +55,4 @@ is($sin_pi, '3.14159265358979');
 is($cos_pi, '3.14159265358979');
 is($tan_pi, '3.14159265358979') if `uname` =~ /Linux/;
 is($tan_pi, '3.1415926535898' ) if `uname` =~ /Darwin/;
-done_testing();
+done_testing;

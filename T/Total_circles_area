@@ -62,4 +62,4 @@ say my $result = sprintf "Approximated area: %.9f", $count * $dx * $dy;
 
 use Test::More;
 is($result, 'Approximated area: 21.561559772');
-done_testing();
+done_testing;

@@ -28,4 +28,4 @@ while () { (1 x ++$n) !~ /^(11+)\1+$/ and ++$c == 101 and say $n and last }
 use Test::More;
 is($result, 104743);
 is($n     ,    547);
-done_testing();
+done_testing;

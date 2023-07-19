@@ -25,4 +25,4 @@ sub merge_sort {
 use Test::More;
 say 'input: ' . join ' ', my @a = map (int rand 100), 0 .. 50;
 is_deeply([merge_sort(@a)], [sort { $a <=> $b } @a]);
-done_testing();
+done_testing;

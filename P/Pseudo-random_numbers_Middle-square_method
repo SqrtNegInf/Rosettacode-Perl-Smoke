@@ -23,7 +23,7 @@ my $ref = '959861 333139 981593 524817 432883';
 use Test::More;
 chomp $ref;
 is($result, $ref);
-done_testing();
+done_testing;
 
 __END__
 

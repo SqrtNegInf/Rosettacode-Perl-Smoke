@@ -78,4 +78,4 @@ say $result = "Rosetta Code => " . md4_hex( "Rosetta Code" );
 
 use Test::More;
 is ($result, 'Rosetta Code => a52bcfc6a0d0d300cdc5ddbfbefe478b');
-done_testing();
+done_testing;

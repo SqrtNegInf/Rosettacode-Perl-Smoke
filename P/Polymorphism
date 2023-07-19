@@ -119,4 +119,4 @@ x: 1 y: 2
 EOD
 use Test::More;
 is ($result, $ref);
-done_testing();
+done_testing;

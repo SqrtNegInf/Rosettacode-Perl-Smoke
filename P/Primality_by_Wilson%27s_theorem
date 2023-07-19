@@ -33,4 +33,4 @@ my $ref2 = '7 17 37 47 67 97 107 127 137 157 167 197 227 257 277 307 317 337 347
 use Test::More;
 is($ends_in_3, $ref1);
 is($ends_in_7, $ref2);
-done_testing();
+done_testing;

@@ -20,4 +20,4 @@ my $ref = 'First sixteen: 2 3 7 43 13 53 5 6221671 38709183810571 139 2801 11 17
 
 use Test::More;
 is($result, $ref);
-done_testing();
+done_testing;

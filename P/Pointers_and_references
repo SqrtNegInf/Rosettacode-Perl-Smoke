@@ -50,4 +50,4 @@ $result .= $$hashref1{'secondkey'};
 
 use Test::More;
 is ($result, 'aa2ccEEbararrayhash');
-done_testing();
+done_testing;

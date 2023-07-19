@@ -17,5 +17,5 @@ my $ref = "I have a bad feeling about this about this Chewy.\n";
 
 use Test::More;
 is($result, $ref);
-done_testing();
+done_testing;
 

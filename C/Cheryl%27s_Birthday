@@ -52,4 +52,4 @@ say my $result = "Cheryl's birthday is $months[$m] $d.";
 
 use Test::More;
 is($result, qq{Cheryl's birthday is July 16.});
-done_testing();
+done_testing;

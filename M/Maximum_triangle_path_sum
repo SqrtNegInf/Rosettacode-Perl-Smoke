@@ -22,7 +22,7 @@ say $result = max(@sum);
 
 use Test::More;
 is ($result, 1320);
-done_testing();
+done_testing;
 
 __END__
                           55

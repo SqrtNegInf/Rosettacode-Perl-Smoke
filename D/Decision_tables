@@ -26,7 +26,7 @@ sub decide($q,$a) {
     use Test::More;
     print "\n";
     is $result, 'Check for paper jam';
-    done_testing();
+    done_testing;
     exit;
     #say 'ok 1' and exit if $result eq 'Check for paper jam';
     #say 'not ok 1'; exit;

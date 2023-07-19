@@ -25,4 +25,4 @@ say $result .= ' ' . $1;
 
 use Test::More;
 is ($result, '✈ Σ σ ע');
-done_testing();
+done_testing;

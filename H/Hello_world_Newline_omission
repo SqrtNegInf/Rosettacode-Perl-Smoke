@@ -12,4 +12,4 @@ my $result = sprintf "%s", $msg;
 
 use Test::More;
 is $result, $msg;
-done_testing();
+done_testing;

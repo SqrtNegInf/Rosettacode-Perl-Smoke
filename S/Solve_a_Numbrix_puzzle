@@ -51,7 +51,7 @@ EOD
 
 use Test::More;
 is ($in, $ref);
-done_testing();
+done_testing;
     exit;
   }
   if( $in =~ ++(my $want = $have) )

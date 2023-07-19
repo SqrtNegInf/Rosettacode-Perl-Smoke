@@ -43,7 +43,7 @@ say $result;
 
 use Test::More;
 is ($result, "what,si,the;gninaem,of:efil.\n");
-done_testing();
+done_testing;
 
 __END__
 what,is,the;meaning,of:life.

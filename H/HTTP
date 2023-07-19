@@ -39,4 +39,4 @@ say length $rc1;
 use Test::More;
 ok (20000 < length $rc0);
 ok (20000 < length $rc1);
-done_testing();
+done_testing;

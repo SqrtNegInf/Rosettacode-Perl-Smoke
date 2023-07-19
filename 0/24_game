@@ -56,4 +56,4 @@ while () {
 
 use Test::More;
 ok $result =~ /You win/ms;
-done_testing();
+done_testing;

@@ -49,4 +49,4 @@ say $result;
 
 use Test::More;
 is ($result, 't1:1 t2:1 t3:1 : t1: t2:1 t3: : t1:1 t2: t3:1 : t1: t2: t3: : ');
-done_testing();
+done_testing;

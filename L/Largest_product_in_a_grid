@@ -43,4 +43,4 @@ my $ref = 'max is 51267216';
 
 use Test::More;
 is ($result, $ref);
-done_testing();
+done_testing;

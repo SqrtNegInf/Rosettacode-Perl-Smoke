@@ -35,4 +35,4 @@ say $cnt;
 use Test::More;
 is ($cnt, 856929);
 #is ($cnt, 85744333);
-done_testing();
+done_testing;

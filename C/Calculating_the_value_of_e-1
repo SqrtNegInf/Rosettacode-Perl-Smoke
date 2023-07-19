@@ -38,4 +38,4 @@ use Test::More;
 is(substr($e,0,41), '2.718281828459045235360287471352662497757');
 chop $ref;
 is($result, $ref);
-done_testing();
+done_testing;

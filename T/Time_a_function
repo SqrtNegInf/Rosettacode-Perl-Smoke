@@ -79,4 +79,4 @@ ok $f1 <=8.00; # increase limit for sake of Linux VM (now running 'moar-parallel
 ok $f2 < 3.00;
 ok $t1 < 0.02;
 ok $t2 < 0.10;
-done_testing();
+done_testing;

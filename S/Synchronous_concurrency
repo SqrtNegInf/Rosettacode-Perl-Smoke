@@ -45,4 +45,4 @@ $printer->join;
 
 use Test::More;
 is ($result, 5);
-done_testing();
+done_testing;

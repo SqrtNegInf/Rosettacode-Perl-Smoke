@@ -22,4 +22,4 @@ use Test::More;
 my($mae,$percent)  = split ' ', $result;
 ok $mae < 2500 and $percent =~ /^.0\.0/;
 
-done_testing();
+done_testing;

@@ -1577,5 +1577,5 @@ chomp $result2;
 is ($ref1, $result2);
 is ($ref3, $result3);
 is ($ref4, $result4);
-done_testing();
+done_testing;
 

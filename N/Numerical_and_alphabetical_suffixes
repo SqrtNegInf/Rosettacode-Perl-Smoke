@@ -58,7 +58,7 @@ EOD
 
 use Test::More;
 is ($result, $ref);
-done_testing();
+done_testing;
 
 __DATA__
 2greatGRo   24Gros  288Doz  1,728pairs  172.8SCOre

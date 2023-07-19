@@ -134,4 +134,4 @@ my $ref = `uname` =~ /Darwin/ ? $darwin : $linux;
 
 use Test::More;
 is ($result, $ref);
-done_testing();
+done_testing;

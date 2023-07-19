@@ -43,7 +43,7 @@ EOD
 
 use Test::More;
 ok ($result =~ /perl in 1/ && $result =~ /no language in 1/ && $result =~ /2 bare language tags/);
-done_testing();
+done_testing;
 
 __END__
 Description

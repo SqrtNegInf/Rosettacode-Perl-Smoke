@@ -39,4 +39,4 @@ say "Simpson's integration of sine from $a to $b = $sin";
 
 use Test::More;
 is($sin, '0.459697694');
-done_testing();
+done_testing;

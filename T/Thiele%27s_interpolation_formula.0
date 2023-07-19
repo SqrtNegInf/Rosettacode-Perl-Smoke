@@ -102,7 +102,7 @@ use Test::More;
 is($sin_pi, '3.1415926535896332');
 #is($cos_pi, '3.138724321984095';
 #is($tan_pi, '3.14163334892717';
-done_testing();
+done_testing;
 
 __END__
 

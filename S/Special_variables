@@ -26,7 +26,7 @@ use Test::More;
 is $pn1, $pn2;
 chomp $ref;
 is join("\n", $pn1,$pn2,$ls), $ref;
-done_testing();
+done_testing;
 
 # NB: some of the values below are obsolete/undefined in v5.036
 

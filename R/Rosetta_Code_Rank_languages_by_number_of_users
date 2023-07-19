@@ -59,7 +59,7 @@ say $result;
 
 use Test::More;
 ok $result =~ /1[89]\d Perl/;
-done_testing();
+done_testing;
 
 __END__
 

@@ -34,4 +34,4 @@ my $ref = '1 4 16 36 100 196 256 400 576 676';
 use Test::More;
 chomp $ref;
 is($result, $ref);
-done_testing();
+done_testing;

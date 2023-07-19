@@ -15,4 +15,4 @@ say 'evaluates as: ' . (my $result = f('mod(10, 13)'));
 
 use Test::More;
 is ($result, '1');
-done_testing();
+done_testing;

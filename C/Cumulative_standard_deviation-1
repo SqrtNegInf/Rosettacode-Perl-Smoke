@@ -56,4 +56,4 @@ say $result = "std dev = $sd";
 
 use Test::More;
 is ($result, 'std dev = 2');
-done_testing();
+done_testing;

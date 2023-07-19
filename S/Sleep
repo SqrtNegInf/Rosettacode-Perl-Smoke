@@ -36,4 +36,4 @@ my $elapsed = (time() - $^T);
 
 use Test::More;
 ok $elapsed >= 12;
-done_testing();
+done_testing;

@@ -34,4 +34,4 @@ print           gender_swap($xs);
 
 use Test::More;
 is($original, $reverted);
-done_testing();
+done_testing;

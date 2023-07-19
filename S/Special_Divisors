@@ -35,7 +35,7 @@ my $ref = '1 2 3 4 5 6 7 8 9 11 13 17 19 22 23 26 27 29 31 33 37 39 41 43 44 46 
 use Test::More;
 chomp $ref;
 is($result, $ref);
-done_testing();
+done_testing;
 
 __END__
 

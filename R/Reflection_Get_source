@@ -24,4 +24,4 @@ $result =~ s#perl5/.*darwin#perl5/mumble/darwin#g;
 
 use Test::More;
 is ($result, $ref);
-done_testing();
+done_testing;

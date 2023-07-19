@@ -24,4 +24,4 @@ for my $i (0..15) {
 
 use Test::More;
 is($result, 6857);
-done_testing();
+done_testing;

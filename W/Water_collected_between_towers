@@ -36,4 +36,4 @@ EOD
 
 use Test::More;
 is ($result, '2 14 35 0 0 0 0');
-done_testing();
+done_testing;

@@ -16,4 +16,4 @@ say $sum;
 
 use Test::More;
 is($sum, 142913828922);
-done_testing();
+done_testing;

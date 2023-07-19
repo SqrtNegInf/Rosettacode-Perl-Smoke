@@ -17,4 +17,4 @@ get($url) =~ /(Chuuk Time)/ and print "$1\n";
 
 use Test::More;
 is $1, 'Chuuk Time';
-done_testing();
+done_testing;

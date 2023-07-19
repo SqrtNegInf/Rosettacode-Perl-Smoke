@@ -25,4 +25,4 @@ EOD
 use Test::More;
 chomp $ref;
 is ($result, $ref);
-done_testing();
+done_testing;

@@ -17,4 +17,4 @@ say my $result2 = getenv("HOME");
 use Test::More;
 is ($result1, $result2);
 ok rindex($result1,'/') > 0;
-done_testing();
+done_testing;

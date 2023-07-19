@@ -83,4 +83,4 @@ say $result = join ' ', @wins;
 
 use Test::More;
 is($result, '5 36 41 15 3');
-done_testing();
+done_testing;

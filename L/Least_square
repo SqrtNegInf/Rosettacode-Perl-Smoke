@@ -27,4 +27,4 @@ say $x;
 
 use Test::More;
 is ($n, 501);
-done_testing();
+done_testing;

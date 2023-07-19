@@ -23,4 +23,4 @@ say $result = binary_search(\@data, 42, 0, -1 + scalar @data);
 
 use Test::More;
 is ($result, 41);
-done_testing();
+done_testing;

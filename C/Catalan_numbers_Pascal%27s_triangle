@@ -39,4 +39,4 @@ my $lastline = '2046105521468021692642519982997827217179245642339057975844538099
 use Test::More;
 is ($result, $ref);
 is ($c1000[-1], $lastline);
-done_testing();
+done_testing;

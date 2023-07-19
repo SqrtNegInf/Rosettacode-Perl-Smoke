@@ -42,4 +42,4 @@ say my $result = gcd_bin(49865, 69811);
 
 use Test::More;
 is ($result, 9973);
-done_testing();
+done_testing;

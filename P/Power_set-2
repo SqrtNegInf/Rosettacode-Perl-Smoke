@@ -17,4 +17,4 @@ say $result;
 
 use Test::More;
 is ($result, '[]  [a]  [b]  [c]  [a b]  [a c]  [b c]  [a b c]  ');
-done_testing();
+done_testing;

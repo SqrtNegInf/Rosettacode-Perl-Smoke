@@ -20,4 +20,4 @@ say $result = join("  ",@PS);
 
 use Test::More;
 is ($result, '[a b c]  [b c]  [a c]  [c]  [a b]  [b]  [a]  []');
-done_testing();
+done_testing;

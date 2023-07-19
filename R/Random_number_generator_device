@@ -49,4 +49,4 @@ say "$A:$lastA vs $B:$lastB final digits";
 use Test::More;
 ok 1-abs($c_mid/($max/2)) < $eps;
 ok 1-abs($lastA/($lastB)) < 10*$eps;
-done_testing();
+done_testing;
