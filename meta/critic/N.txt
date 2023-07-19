@@ -160,3 +160,4 @@ Reused variable name in lexical scope: $right at line 27, column 9. Invent uniqu
 Comma used to separate statements at line 19, column 24. See pages 68,71 of PBP.
 Nested named subroutine at line 74, column 5. Declaring a named sub inside another named sub does not prevent the inner sub from being global.
 
+
