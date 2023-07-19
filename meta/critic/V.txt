@@ -67,3 +67,4 @@ Match variable used at line 35, column 36. See page 82 of PBP.
 Reused variable name in lexical scope: $xmax at line 39, column 9. Invent unique variable names.
 Reused variable name in lexical scope: $ymax at line 39, column 9. Invent unique variable names.
 
+
