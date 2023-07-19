@@ -11,9 +11,6 @@ my $result;
 
 # Basically the same idea as C, though of course it's much easier to have Perl generate Perl code.
 
-#use utf8;
-#binmode STDOUT, ":utf8";
-
 my (@tgt, %names);
 sub setprops {
 	my %h = @_;
@@ -138,7 +135,7 @@ say $result;
 # 
 #$solve->();
 
-my $ref = <<EOD;
+my $ref = <<'EOD';
            0      Norske     Dunhill        Cats       Water      Yellow
            1      Danske       Blend       Horse         Tea        Blue
            2    AEnglisk   Pall_mall       Birds        Milk         Red
