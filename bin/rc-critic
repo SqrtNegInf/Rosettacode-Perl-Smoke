@@ -31,7 +31,7 @@ for my $file (grep { ! /\.(\d)$/ } @ARGV) {             # skip alternate version
     my @violations = grep { ! /$exclude/i } $critic->critique($file);
     print "\n= $file\n" . join '', @violations if @violations
 }
-print "\n";
+print "\n\n";
 
 __END__
 
