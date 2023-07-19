@@ -160,11 +160,6 @@ Negative array index should be used at line 14, column 26. See page 88 of PBP.
 Found ">" in condition for an "until" at line 52, column 3. See page 99 of PBP.
 Reused variable name in lexical scope: $p at line 55, column 6. Invent unique variable names.
 
-= S/Simple_database
-"$result" is declared but not used at line 11, column 1. Unused variables clutter code and make it harder to read.
-"local" variable not initialized at line 100, column 5. See page 78 of PBP.
-Unreachable code at line 136, column 5. Consider removing it.
-
 = S/Simple_turtle_graphics
 Ambiguously named subroutine "right" at line 36, column 1. See page 48 of PBP.
 Ambiguously named subroutine "left" at line 37, column 1. See page 48 of PBP.
