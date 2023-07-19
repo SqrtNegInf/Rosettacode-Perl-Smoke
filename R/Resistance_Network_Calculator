@@ -65,7 +65,7 @@ for (
 
 say $result;
 
-my $ref = <<EOD;
+my $ref = <<'EOD';
     10.000
      1.500
      1.857
