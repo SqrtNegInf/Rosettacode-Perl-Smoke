@@ -13,7 +13,7 @@ use feature 'say';
 #Library: XML::XPathXPath
 use XML::XPath;
 
-my $xml = <<END;
+my $xml = <<'END';
 <inventory title="OmniCorp Store #45x10^3">
   <section name="health">
     <item upc="123456789" stock="12">
