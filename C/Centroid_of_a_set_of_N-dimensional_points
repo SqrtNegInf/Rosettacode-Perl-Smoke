@@ -1,10 +1,14 @@
-#!/usr/local/bin/perl
+#!/usr/local/bin/perl5.32.1
 #u# https://rosettacode.org/wiki/Centroid_of_a_set_of_N-dimensional_points
 #c# 2023-07-19 <RC
 #p# OK
 #n# plot works fine on Ubuntu
+#BEGIN { die 'BROKEN on Mac-Pro' if `uname -a` =~ /Mac-Pro/ }
 
-use v5.36;
+#use v5.36;
+
+use experimental qw/signatures/;
+use feature 'say';
 
 my @res;
 
@@ -53,4 +57,4 @@ EOD
 use Test::More;
 chomp $ref;
 is ($result, $ref);
-done_testing();
+done_testing;
