@@ -1,8 +1,11 @@
+2023-07-19
+Auto-run 'rc-critic' as part of the daily smoke test.
+
 2023-07-16
 Clean up hash-bang lines in prep for testing v5.36
 
 2023-07-15
-Yech, Perl::Critic takes a lot of the fun out of writing Perl.  But some suggestions are sound...
+Yech, Perl::Critic tries to take a lot of the fun out of writing Perl.  But some of the suggestions are sound...
 
 2023-07-06
 RC having some issues maybe? Hopefully the two failures today are one-offs.
