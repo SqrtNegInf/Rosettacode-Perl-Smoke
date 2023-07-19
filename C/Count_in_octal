@@ -3,8 +3,7 @@
 #c# 2018-07-02 <RC, 2019-12-11 <RC
 #p# OK
 
-my $result1;
-my $result2;
+my($result1,$result2);
 
 use strict;
 use warnings;
@@ -30,7 +29,7 @@ $_ = 0;
 
 DONE:
 
-my $ref = <<EOD;
+my $ref = <<'EOD';
 0
 1
 2
