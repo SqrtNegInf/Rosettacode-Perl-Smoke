@@ -1,13 +1,10 @@
 #!/usr/local/bin/perl
 #u# http://rosettacode.org/wiki/Web_scraping
 #c# 2018-07-31 <RC
-#p# BROKEN
-#n# is it LWP::UserAgent??
+#n# 2023-07-19 working again
 
 use feature 'say';
-my $result;
 
-#Library: LWP
 use LWP::Simple;
 
 my $url = "https://en.wikipedia.org/wiki/List_of_time_zone_abbreviations";
