@@ -6,7 +6,7 @@
 
 use feature 'say';
 
-# The INIT block is runned just before the Perl runtime begins execution. See perlmod
+# The INIT block is run just before the Perl runtime begins execution. See perlmod
 # Then it tries to get a lock to its own file, from where the script was called.
 
 use Fcntl ':flock';
