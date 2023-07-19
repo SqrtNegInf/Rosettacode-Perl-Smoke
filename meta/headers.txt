@@ -1459,6 +1459,14 @@ File: C/Catamorphism
 #c# 2018-07-22 <RC
 #p# OK
 
+File: C/Centroid_of_a_set_of_N-dimensional_points
+#!/usr/local/bin/perl5.32.1
+#u# https://rosettacode.org/wiki/Centroid_of_a_set_of_N-dimensional_points
+#c# 2023-07-19 <RC
+#p# OK
+#n# plot works fine on Ubuntu
+#BEGIN { die 'BROKEN on Mac-Pro' if `uname -a` =~ /Mac-Pro/ }
+
 File: C/Change_e_letters_to_i_in_words
 #!/usr/local/bin/perl
 #u# http://rosettacode.org/wiki/Change_e_letters_to_i_in_words
@@ -1979,6 +1987,7 @@ File: C/Concurrent_computing-1
 #t# skiptest
 #c# 2018-07-24 <RC
 #p# OK
+#n# unsure how to test
 
 File: C/Concurrent_computing-2
 #!/usr/local/bin/perl
@@ -4573,6 +4582,7 @@ File: H/Hello_world_Line_printer
 #t# skiptest
 #c# 2018-08-12 <RC
 #p# OK
+#n# Assuming that the line printer is attached to /dev/lp0 (all very silly)
 
 File: H/Hello_world_Newbie
 #!/usr/local/bin/perl
@@ -11705,8 +11715,7 @@ File: W/Web_scraping
 #!/usr/local/bin/perl
 #u# http://rosettacode.org/wiki/Web_scraping
 #c# 2018-07-31 <RC
-#p# BROKEN
-#n# is it LWP::UserAgent??
+#n# 2023-07-19 working again
 
 File: W/Weird_numbers-1
 #!/usr/local/bin/perl
