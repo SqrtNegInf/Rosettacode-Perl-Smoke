@@ -8,9 +8,6 @@
 use strict;
 use warnings;
 use feature 'say';
-my $result;
-
-use feature qw{ say };
 
 use JSON::PP;
 use Time::Piece;
@@ -97,7 +94,7 @@ sub print_all {
 
 sub load {
     open my $in, '<', DB or die "Can't open database: $!\n";
-    local $/;
+    #local $/ = ''; # DH not needed?
     return { by_id => decode_json(<$in>) };
 }
 
@@ -132,8 +129,7 @@ say "2: $ARGV[2]";
 if ($dispatch{$operation}) {
     $dispatch{$operation}->(@ARGV);
 } else {
-    die "$operation";
-    die "Invalid option. Use one of n, l, L, a.\n"
+    die "$operation is an invalid option. Use one of n, l, L, a.\n"
 }
 }
 
