@@ -39,8 +39,6 @@ while( not /(?:O$g){$bottom}/ )
   }
 
 
-exit;
-my $result;
 #say my $result = join "\n", @res;
 
 my $ref = <<'EOD';
@@ -75,7 +73,3 @@ my $ref = <<'EOD';
     O O O O    
   O O O O O O
 EOD
-
-use Test::More;
-is ($result, $ref);
-done_testing();
