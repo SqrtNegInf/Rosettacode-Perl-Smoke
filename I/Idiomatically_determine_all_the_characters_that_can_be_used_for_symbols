@@ -10,7 +10,6 @@ use feature 'say';
 
 use utf8;
 binmode STDOUT, "utf8:";
-#use experimentals;
 
 # any word character in the ASCII range, as long as the first character is not a digit.
 my $allowed;
@@ -21,16 +20,16 @@ for my $i (0..0x7f) {
 }
 
 say $allowed;
-
-#my $candidate = '鲜';
-#say 'OK ' if $candidate =~ / (?[ ( \p{Word} & \p{XID_Start} ) + [_] ]) (?[ ( \p{Word} & \p{XID_Continue} ) ]) * /x;
-#my $鲜 = 42; say "The answer is: $鲜";
+#my $鲜 = 42; say "The answer is: $鲜"; # DH P::C cannot handle non-Latin variable names
 
 use Test::More;
 is($allowed,'0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZ_abcdefghijklmnopqrstuvwxyz');
+ok '鲜' =~ / (?[ ( \p{Word} & \p{XID_Start} ) + [_] ]) (?[ ( \p{Word} & \p{XID_Continue} ) ]) * /x;
 done_testing;
 
-exit;
+__END__
+
+# what follows is slow and verbose, can be run but you were warned...
 
 for (0..0x1ffff) {
     my $c = chr($_);
