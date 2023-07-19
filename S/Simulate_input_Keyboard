@@ -12,11 +12,11 @@
 my $target = '/dev/pts/51'; 
 ### How to get the correct value for $TIOCSTI is discussed here : http://www.perlmonks.org/?node_id=10920
 my $TIOCSTI = 0x5412 ; 
-open(TTY,">$target") or die "cannot open $target" ; 
+open(my $TTY, '>', "$target") or die "cannot open $target" ; 
 my $b="sleep 99334 &\015"; 
 my @c=split('',$b); 
 sleep(2); 
-foreach my $a ( @c ) { ioctl(TTY,$TIOCSTI,$a); select(undef,undef,undef,0.1);} ; 
+foreach my $a ( @c ) { ioctl($TTY,$TIOCSTI,$a); select(undef,undef,undef,0.1);} ; 
 print "DONE\n";
 
 
