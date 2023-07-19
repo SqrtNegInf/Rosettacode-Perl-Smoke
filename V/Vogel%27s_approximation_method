@@ -9,7 +9,7 @@ use feature 'say';
 
 use List::AllUtils qw( max_by nsort_by min );
 
-my $data = <<END;
+my $data = <<'END';
 A=30 B=20 C=70 D=30 E=60
 W=50 X=60 Y=50 Z=50
 AW=16 BW=16 CW=13 DW=22 EW=17
