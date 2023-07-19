@@ -3,8 +3,6 @@
 #c# 2018-08-12 <RC, 2019-09-06 >RC
 #p# OK
 
-my $result;
-
 use strict;
 use warnings;
 use feature 'say';
@@ -12,7 +10,7 @@ use feature 'say';
 # In Perl, there must not be a space between the "<<" and the token string. The ending token must always be the entire end line (i.e. no surrounding spaces) for it to be recognised. Interpolation is allowed, like a double-quoted string:
 
 my $town_name = 'Worchestershire';
-$result = <<END;
+my $result = <<"END";
 1, High Street,
 $town_name,
 West Midlands.
@@ -51,14 +49,14 @@ BAR
 # To further illustrate this fact, we can use the "<<END" inside a complex,
 # nested expression:
 
-$result .=(<<EOF . "lamb\n");
+$result .=(<<'EOF' . "lamb\n");
 Mary had
   a little
 EOF
 
 # Since Perl 5.26, the document can be indented by putting a '~' before the token:
 if ((1+sqrt(5))/2 == 5**.5*.5+.5) {
-    $result .= <<~END;
+    $result .= <<~'END';
         Mary had
           a little
         lamb
