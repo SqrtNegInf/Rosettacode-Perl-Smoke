@@ -3,9 +3,8 @@
 #t# skiptest
 #c# 2018-08-12 <RC
 #p# OK
+#n# Assuming that the line printer is attached to /dev/lp0 (all very silly)
 
-# Assuming that the line printer is attached to /dev/lp0
-
-open O, ">", "/dev/lp0";
-print O "Hello World!\n";
-close O;
+open my $P, ">", "/dev/lp0";
+print $P "Hello World!\n";
+close $P;
