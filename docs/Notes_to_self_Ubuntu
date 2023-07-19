@@ -1,3 +1,7 @@
+2023-07-18
+Must use full paths with 'sudo', gets pretty long-winded:
+sudo ~/perl5/perlbrew/perls/perl-5.36.0/bin/perl5.36.0 ~/perl5/perlbrew/bin/cpanm Syntax::Keyword::Match
+
 2023-07-06
 Same two RC tasks failed here as well, so a real problem.
 
