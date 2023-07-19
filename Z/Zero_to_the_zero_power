@@ -12,7 +12,7 @@ $result .= cplx(0,0) ** cplx(0,0) . "\n";
 
 say $result;
 
-my $ref = <<EOD;
+my $ref = <<'EOD';
 1
 1
 EOD
