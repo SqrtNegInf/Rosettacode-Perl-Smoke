@@ -181,11 +181,7 @@ Comma used to separate statements at line 50, column 18. See pages 68,71 of PBP.
 Map blocks should have a single statement at line 15, column 3. See page 113 of PBP.
 
 = C/Concurrent_computing-1
-Unreachable code at line 26, column 1. Consider removing it.
-Unreachable code at line 27, column 1. Consider removing it.
-Unreachable code at line 28, column 1. Consider removing it.
-Unreachable code at line 29, column 1. Consider removing it.
-Unreachable code at line 30, column 1. Consider removing it.
+"$result" is declared but not used at line 13, column 1. Unused variables clutter code and make it harder to read.
 
 = C/Conditional_structures
 Warnings disabled at line 9, column 1. See page 431 of PBP.
