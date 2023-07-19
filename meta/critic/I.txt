@@ -16,8 +16,6 @@ Readline inside "for" loop at line 17, column 6. See page 211 of PBP.
 
 = I/Idiomatically_determine_all_the_characters_that_can_be_used_for_symbols
 I/O layer ":utf8" used at line 12, column 1. Use ":encoding(UTF-8)" to get strict validation.
-Unreachable code at line 35, column 1. Consider removing it.
-Unreachable code at line 41, column 1. Consider removing it.
 
 = I/Idiomatically_determine_all_the_lowercase_and_uppercase_letters
 I/O layer ":utf8" used at line 12, column 1. Use ":encoding(UTF-8)" to get strict validation.
@@ -78,4 +76,5 @@ Mismatched operator at line 17, column 10. Numeric/string operators and operands
 Warnings disabled at line 19, column 5. See page 431 of PBP.
 Stricture disabled at line 20, column 5. See page 429 of PBP.
 Return value of eval not tested at line 25, column 1. You can't depend upon the value of $@/$EVAL_ERROR to tell whether an eval failed.
+
 
