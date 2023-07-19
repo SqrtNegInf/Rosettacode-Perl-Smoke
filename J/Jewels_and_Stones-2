@@ -12,7 +12,7 @@ my @res;
 
 sub count_jewels { scalar( () =  $_[0] =~ /[ $_[1] ]/gx ) } # stones, jewels
 
-push @res, "$_ = " . count_jewels( split )for split /\n/, <<END;
+push @res, "$_ = " . count_jewels( split ) for split /\n/, <<'END';
 aAAbbbb aA
 aAAbbbb abc
 ZZ z
