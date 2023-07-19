@@ -9,10 +9,6 @@ my @res;
 use v5.36;
 use experimental 'for_list';
 
-#use strict;
-#use warnings;
-#use feature 'say';
-
 #use List::MoreUtils 'natatime';
 use constant FIELDS => 49;
 
@@ -21,8 +17,8 @@ binmode STDIN, ':crlf';
   # Windows.
 
 my ($line, $good_records, %dates) = (0, 0);
-open F, '<', 'ref/text-proc.txt';
-while ($_ = <F>) {
+open my $F, '<', 'ref/text-proc.txt';
+while ($_ = <$F>) {
     ++$line;
     my @fs = split /\s+/;
     @fs == FIELDS or die "$line: Bad number of fields.\n";
