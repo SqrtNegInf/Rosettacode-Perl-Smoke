@@ -33,7 +33,7 @@ sub zeckendorf {
 $result .=  sprintf "%4d: %8s\n", $_, zeckendorf($_) for 0..20;
 say $result;
 
-my $ref = <<EOD;
+my $ref = <<'EOD';
    0:        0
    1:        1
    2:       10
