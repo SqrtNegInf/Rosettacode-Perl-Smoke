@@ -3,75 +3,74 @@
 #c# 2018-08-13 <RC
 #p# OK
 
-use feature 'say';
 my $result;
 
-# Library: Date::CalcCalc
+use strict; 
+use warnings;
+use feature 'say';
 
-use strict; use warnings;
 use Date::Calc ':all';
 
 my @abbr = <Not Jan Feb Mar Apr May Jun Jul Aug Sep Oct Nov Dec>;
 
 my %c_hols = (
- 	Easter=>     0,
- 	Ascension=> 39,
- 	Pentecost=> 49,
- 	Trinity=>   56,
- 	Corpus=>    60
+     Easter=>     0,
+     Ascension=> 39,
+     Pentecost=> 49,
+     Trinity=>   56,
+     Corpus=>    60
 );
 
 sub easter {
-	my $year=shift;
+    my $year=shift;
 
-	my $ay=$year % 19;
-	my $by=int($year / 100);
-	my $cy=$year % 100;
-	my $dy=int($by/4);
-	my $ey=$by % 4;
-	my $fy=int(($by+8)/25);
-	my $gy=int(($by-$fy+1)/3);
-	my $hy=($ay*19+$by-$dy-$gy+15) % 30;
-	my $iy=int($cy/4);
-	my $ky=$cy % 4;
-	my $ly=(32+2*$ey+2*$iy-$hy-$ky) % 7;
-	my $m_y=int(($ay+11*$hy+22*$ly)/451);
+    my $ay=$year % 19;
+    my $by=int($year / 100);
+    my $cy=$year % 100;
+    my $dy=int($by/4);
+    my $ey=$by % 4;
+    my $fy=int(($by+8)/25);
+    my $gy=int(($by-$fy+1)/3);
+    my $hy=($ay*19+$by-$dy-$gy+15) % 30;
+    my $iy=int($cy/4);
+    my $ky=$cy % 4;
+    my $ly=(32+2*$ey+2*$iy-$hy-$ky) % 7;
+    my $m_y=int(($ay+11*$hy+22*$ly)/451);
 
-	my $month=int(($hy+$ly-7*$m_y+114)/31);
-	my $day=(($hy+$ly-7*$m_y+114) % 31)+1;
+    my $month=int(($hy+$ly-7*$m_y+114)/31);
+    my $day=(($hy+$ly-7*$m_y+114) % 31)+1;
 
-	return ($month, $day, $year);
+    return ($month, $day, $year);
 }
 
 sub cholidays {
-	my $year=shift;
-	my ($emon, $eday)=easter($year);
-	my @fields;
-	$result .= sprintf("%4s: ", $year);
+    my $year=shift;
+    my ($emon, $eday)=easter($year);
+    my @fields;
+    $result .= sprintf("%4s: ", $year);
 
-	foreach my $hol (sort { $c_hols{$a}<=>$c_hols{$b} } keys %c_hols) {
-		my ($ye,$mo,$da)=Add_Delta_Days($year,$emon,$eday,$c_hols{$hol});
-		my $month=$abbr[$mo];
-		push @fields, sprintf("%s: %02s %s",$hol,$da,$month);
-	}
-	$result .= join (", ",@fields);
-	$result .= "\n";
+    foreach my $hol (sort { $c_hols{$a}<=>$c_hols{$b} } keys %c_hols) {
+        my ($ye,$mo,$da)=Add_Delta_Days($year,$emon,$eday,$c_hols{$hol});
+        my $month=$abbr[$mo];
+        push @fields, sprintf("%s: %02s %s",$hol,$da,$month);
+    }
+    $result .= join (", ",@fields);
+    $result .= "\n";
 }
 
  
-$result .= 	"Christian holidays, related to Easter, for each centennial from ".
-		"400 to 2100 CE:\n";
+$result .= "Christian holidays, related to Easter, for each centennial from ".
+        "400 to 2100 CE:\n";
 for (my $year=400; $year<=2100; $year+=100) {
-	cholidays($year);
+    cholidays($year);
 }
 
-$result .=	"Christian holidays, related to Easter, ".
-		"for years from 2010 to 2020 CE:\n";
-
+$result .= "\nChristian holidays, related to Easter, for years from 2010 to 2020 CE:\n";
  
 cholidays($_) for(2010..2020);
 
 say $result; 
+
 my $ref = <<'EOD';
 Christian holidays, related to Easter, for each centennial from 400 to 2100 CE:
  400: Easter: 02 Apr, Ascension: 11 May, Pentecost: 21 May, Trinity: 28 May, Corpus: 01 Jun
@@ -92,6 +91,7 @@ Christian holidays, related to Easter, for each centennial from 400 to 2100 CE:
 1900: Easter: 15 Apr, Ascension: 24 May, Pentecost: 03 Jun, Trinity: 10 Jun, Corpus: 14 Jun
 2000: Easter: 23 Apr, Ascension: 01 Jun, Pentecost: 11 Jun, Trinity: 18 Jun, Corpus: 22 Jun
 2100: Easter: 28 Mar, Ascension: 06 May, Pentecost: 16 May, Trinity: 23 May, Corpus: 27 May
+
 Christian holidays, related to Easter, for years from 2010 to 2020 CE:
 2010: Easter: 04 Apr, Ascension: 13 May, Pentecost: 23 May, Trinity: 30 May, Corpus: 03 Jun
 2011: Easter: 24 Apr, Ascension: 02 Jun, Pentecost: 12 Jun, Trinity: 19 Jun, Corpus: 23 Jun
