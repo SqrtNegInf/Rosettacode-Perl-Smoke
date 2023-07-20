@@ -5197,6 +5197,7 @@ File: J/Jump_anywhere
 #u# http://rosettacode.org/wiki/Jump_anywhere
 #c# 2018-08-14 <RC
 #p# OK
+#n# P::C correctly finds unreachable code, but that's part of the point here...
 
 File: J/Just_in_time_processing_on_a_character_stream
 #!/usr/local/bin/perl
