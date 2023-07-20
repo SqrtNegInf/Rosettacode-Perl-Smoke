@@ -26,10 +26,6 @@ Backtick operator used at line 83, column 11. Use IPC::Open3 instead.
 Backtick operator used at line 83, column 43. Use IPC::Open3 instead.
 
 = F/Find_Chess960_starting_position_identifier
-Integer with leading zeros: "01" at line 21, column 57. See page 58 of PBP.
-Integer with leading zeros: "02" at line 21, column 60. See page 58 of PBP.
-Integer with leading zeros: "03" at line 21, column 63. See page 58 of PBP.
-Integer with leading zeros: "04" at line 21, column 66. See page 58 of PBP.
 Split long regexps into smaller qr// chunks at line 47, column 15. See page 261 of PBP.
 
 = F/Find_common_directory_path
