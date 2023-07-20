@@ -105,8 +105,6 @@ Hard tabs used at line 105, column 8. See page 20 of PBP.
 Hard tabs used at line 122, column 8. See page 20 of PBP.
 
 = S/Set_puzzle
-Integer with leading zeros: "01111" at line 18, column 49. See page 58 of PBP.
-Integer with leading zeros: "04444" at line 18, column 58. See page 58 of PBP.
 Comma used to separate statements at line 80, column 2. See pages 68,71 of PBP.
 
 = S/Shell_one-liner
