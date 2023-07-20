@@ -13,7 +13,7 @@ sub kmp_search ($S, $W) {
 
     sub kmp_table (@W) {
         my($pos,$cnd,@T) = (1,0,-1);
-        for (; $pos < @W ; $pos++, $cnd++) {
+        for (; $pos < @W ; ($pos++, $cnd++) ) { 
             if ($W[$pos] eq $W[$cnd]) {
                 $T[$pos]  = $T[$cnd]
             } else {
