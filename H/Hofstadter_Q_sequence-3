@@ -3,15 +3,18 @@
 #c# 2018-08-13 <RC
 #p# OK
 
-use feature 'say';
 my $result;
 
 use strict;
 use warnings;
+use feature 'say';
+
 package Hofstadter;
+
 sub TIEARRAY {
    bless [undef, 1, 1], shift;
 }
+
 sub FETCH {
    my ($self, $n) = @_;
    die if $n < 1;
@@ -41,8 +44,8 @@ for my $n ( 2 .. 100_000 ) {
 }
 $result .= "Extra credit: $count\n";
 
-
 say $result;
+
 my $ref = <<'END';
 1 1 2 3 3 4 5 5 6 6
 502
@@ -50,5 +53,5 @@ Extra credit: 49798
 END
 
 use Test::More;
-is ($result, $ref);
+is($result, $ref);
 done_testing;
