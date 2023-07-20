@@ -4,37 +4,25 @@
 #p# OK
 #n# very minimal testing
 
-my $result;
-
 use strict;
 use warnings;
 use feature 'say';
 
-# Library: HTTP/Tiny
 use HTTP::Tiny;
 my $rc0 = ( HTTP::Tiny->new()->get( 'http://rosettacode.org')->{content} );
 
-#Classic LWP sample.
 use LWP::Simple qw/get $ua/;
 $ua->agent(undef) ; # cloudflare blocks default LWP agent
 my $rc1 = join '', get("http://www.rosettacode.org");
-
-=head
+say length $rc0;
 
 #or with more error-checking
-
 use LWP::UserAgent;
-
 my $url = 'http://www.rosettacode.org';
 my $rc2 = LWP::UserAgent->new->get( $url );
-
-$response->is_success or die "Failed to GET '$url': ", $response->status_line;
-print $response->as_string;
-
-say length $rc0;
+$rc2->is_success or die "Failed to GET '$url': ", $rc2->status_line;
+#print $rc2->as_string;
 say length $rc1;
-
-=cut
 
 use Test::More;
 ok (20000 < length $rc0);
