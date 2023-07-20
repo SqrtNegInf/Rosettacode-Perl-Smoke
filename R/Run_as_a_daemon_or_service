@@ -5,8 +5,6 @@
 #p# OK
 #n# tested once by hand, went fine
 
-#my @res;
-
 # First off, start with a standalone script and let's call it "count.pl"
 use strict;
 use warnings;
@@ -40,9 +38,8 @@ exit Daemon::Control->new(
    pid_file   => '/tmp/counter.pid',
 )->run;
 
-#say my $result = join "\n", @res;
+__END__
 
-my $ref = <<'EOD';
 ./daemon.pl status
 Counter daemon                                            [Not Running]
 ./daemon.pl start
@@ -76,8 +73,3 @@ Counter daemon                                                [Stopped]
 Counter daemon                                            [Not Running]
 cat /tmp/counter.pid
 cat: /tmp/counter.pid: No such file or directory
-EOD
-
-#use Test::More;
-#is ($result, $ref);
-#done_testing;
