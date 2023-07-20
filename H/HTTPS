@@ -6,6 +6,7 @@
 use strict;
 use warnings;
 use feature 'say';
+
 use LWP::UserAgent;
 
 my $url = 'https://www.google.com';
