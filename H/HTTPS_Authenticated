@@ -5,8 +5,9 @@
 #p# OK
 #n# credentials fail at this time...
 
+use strict;
+use warnings;
 use feature 'say';
-my $result;
 
 use LWP::UserAgent qw();
 my $ua = LWP::UserAgent->new;
