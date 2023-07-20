@@ -13,69 +13,69 @@ my $result;
 
 my (@tgt, %names);
 sub setprops {
-	my %h = @_;
-	my @p = keys %h;
-	for my $p (@p) {
-		my @v = @{ $h{$p} };
-		@tgt = map(+{idx=>$_-1, map{ ($_, undef) } @p}, 1 .. @v)
-			unless @tgt;
-		$names{$_} = $p for @v;
-	}
+    my %h = @_;
+    my @p = keys %h;
+    for my $p (@p) {
+        my @v = @{ $h{$p} };
+        @tgt = map(+{idx=>$_-1, map{ ($_, undef) } @p}, 1 .. @v)
+            unless @tgt;
+        $names{$_} = $p for @v;
+    }
 }
 
 my $solve = sub {
-	for my $i (@tgt) {
-		#$result .= sprintf("%12s", ucfirst($i->{$_} // "¿Qué?"))
-		$result .= sprintf("%12s", ucfirst($i->{$_} // 'Zebra')) # DH - answer the initial question
-				for reverse sort keys %$i;
-		$result .= "\n";
-	}
-	#"there is only one"  # <--- change this to a false value to find all solutions (if any)
+    for my $i (@tgt) {
+        #$result .= sprintf("%12s", ucfirst($i->{$_} // "¿Qué?"))
+        $result .= sprintf("%12s", ucfirst($i->{$_} // 'Zebra')) # DH - answer the initial question
+                for reverse sort keys %$i;
+        $result .= "\n";
+    }
+    #"there is only one"  # <--- change this to a false value to find all solutions (if any)
 };
 
 sub pair {
-	my ($a, $b, @v) = @_;
-	if ($a =~ /^(\d+)$/) {
-		$tgt[$1]{ $names{$b} } = $b;
-		return;
-	}
+    my ($a, $b, @v) = @_;
+    if ($a =~ /^(\d+)$/) {
+        $tgt[$1]{ $names{$b} } = $b;
+        return;
+    }
 
-	@v = (0) unless @v;
-	my %allowed;
-	$allowed{$_} = 1 for @v;
+    @v = (0) unless @v;
+    my %allowed;
+    $allowed{$_} = 1 for @v;
 
-	my ($p1, $p2) = ($names{$a}, $names{$b});
+    my ($p1, $p2) = ($names{$a}, $names{$b});
 
-	my $e = $solve;
-	$solve = sub {		# <--- sorta like how TeX \let...\def macro
-		my ($x, $y);
+    my $e = $solve;
+    $solve = sub {        # <--- sorta like how TeX \let...\def macro
+        my ($x, $y);
 
-		($x) = grep { $_->{$p1} && $_->{$p1} eq $a } @tgt;
-		($y) = grep { $_->{$p2} && $_->{$p2} eq $b } @tgt;
+        ($x) = grep { $_->{$p1} && $_->{$p1} eq $a } @tgt;
+        ($y) = grep { $_->{$p2} && $_->{$p2} eq $b } @tgt;
 
-		$x and $y and
-			return $allowed{ $x->{idx} - $y->{idx} } && $e->();
+        $x and $y and
+            return $allowed{ $x->{idx} - $y->{idx} } && $e->();
 
-		my $try_stuff = sub {
-			my ($this, $p, $v, $sign) = @_;
-			for (@v) {
-				my $i = $this->{idx} + $sign * $_;
-				next unless $i >= 0 && $i < @tgt && !$tgt[$i]{$p};
-				local $tgt[$i]{$p} = $v;
-				$e->() and return 1;
-			}
-			return
-		};
+        my $try_stuff = sub {
+            my ($this, $p, $v, $sign) = @_;
+            for (@v) {
+                my $i = $this->{idx} + $sign * $_;
+                next unless $i >= 0 && $i < @tgt && !$tgt[$i]{$p};
+                local $tgt[$i]{$p} = $v;
+                $e->() and return 1;
+            }
+            return
+        };
 
-		$x and return $try_stuff->($x, $p2, $b, 1);
-		$y and return $try_stuff->($y, $p1, $a, -1);
+        $x and return $try_stuff->($x, $p2, $b, 1);
+        $y and return $try_stuff->($y, $p1, $a, -1);
 
-		for $x (@tgt) {
-			next if $x->{$p1};
-			local $x->{$p1} = $a;
-			$try_stuff->($x, $p2, $b, 1) and return 1;
-		}
-	};
+        for $x (@tgt) {
+            next if $x->{$p1};
+            local $x->{$p1} = $a;
+            $try_stuff->($x, $p2, $b, 1) and return 1;
+        }
+    };
 }
 
 # ---- above should be generic for all similar puzzles ---- #
@@ -83,20 +83,20 @@ sub pair {
 # ---- below: per puzzle setup ---- #
 # property names and values
 setprops (
-	# Svensk n. a Swede, not a swede (kålrot).
-	# AEnglisk (from middle Viking "Æŋløsåksen") n. a Brit.
-	'Who'	=> [ <Deutsch Svensk Norske Danske AEnglisk> ],
-	'Pet'	=> [ <birds dog horse zebra cats> ],
-	'Drink'	=> [ <water tea milk beer coffee> ],
-	'Smoke'	=> [ <dunhill blue_master prince blend pall_mall> ],
-	'Color'	=> [ <red green yellow white blue> ]
+    # Svensk n. a Swede, not a swede (kålrot).
+    # AEnglisk (from middle Viking "Æŋløsåksen") n. a Brit.
+    'Who'    => [ <Deutsch Svensk Norske Danske AEnglisk> ],
+    'Pet'    => [ <birds dog horse zebra cats> ],
+    'Drink'    => [ <water tea milk beer coffee> ],
+    'Smoke'    => [ <dunhill blue_master prince blend pall_mall> ],
+    'Color'    => [ <red green yellow white blue> ]
 );
 
 # constraints
 pair <AEnglisk red >;
 pair <Svensk dog >;
 pair <Danske tea >;
-pair <green white 1 >;	# "to the left of" can mean either 1 or -1: ambiguous
+pair <green white 1 >;    # "to the left of" can mean either 1 or -1: ambiguous
 pair <coffee green >;
 pair <pall_mall birds >;
 pair <yellow dunhill >;
@@ -104,7 +104,7 @@ pair <2 milk >;
 pair <0 Norske >;
 pair <blend cats -1 1 >;
 pair <horse dunhill -1 1 >;
-pair <blue_master beer >;	# Nicht das Deutsche Bier trinken? Huh.
+pair <blue_master beer >;    # Nicht das Deutsche Bier trinken? Huh.
 pair <Deutsch prince >;
 pair <Norske blue -1 1 >;
 pair <water blend -1 1 >;
@@ -116,8 +116,8 @@ say $result;
 #...
 # property names and values
 #setprops
-#	'Who'	=> [ qw(baker cooper fletcher miller smith) ],
-#	'Level'	=> [ qw(one two three four five) ];
+#    'Who'    => [ qw(baker cooper fletcher miller smith) ],
+#    'Level'    => [ qw(one two three four five) ];
 # 
 ## constraints
 #pair qw(0 one);
