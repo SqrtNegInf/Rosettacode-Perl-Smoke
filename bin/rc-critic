@@ -1,7 +1,8 @@
 #!/usr/local/bin/perl 
 ## quick & dirty critic
 #    2023-07-15
-# perl -e '`rc-critic $_/* > tmp/$_.critic` for "A".."Z"'
+# perl -e '`rc-critic $_/* > meta/critic/$_.txt` for "0", "A".."Z"'
+# pf 's/at line.*//;s/: .*//;s/^.* is de/de/' meta/critic/* | g -v '^=' | sortcnt | m
 # errors from P::C itself: Can't parse code: Encountered unexpected character '204'
 # https://github.com/Perl-Critic/PPI/issues/226 problem with non-Latin variable/constant names
 
@@ -26,6 +27,7 @@ my $exclude = join '|',
     'Return value of .open',
     'Ambiguously named',
     'Multiple "package" declarations',
+    'leading zeros',
 ;
 
 for my $file (grep { ! /\.(\d)$/ } @ARGV) {             # skip alternate versions
