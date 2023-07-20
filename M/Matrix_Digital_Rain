@@ -78,7 +78,8 @@ my $neo = $canvas->createImage(
 while ($run) {
     drop('Nothing Like The Matrix');
 }
-exit;
+
+exit; # without this line, exiting via the GUI controls doesn't work?
 
 MainLoop;
 
