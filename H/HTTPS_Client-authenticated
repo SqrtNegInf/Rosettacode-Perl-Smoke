@@ -8,8 +8,6 @@ use strict;
 use warnings;
 use feature 'say';
 
-#use 5.018_002;
-
 use LWP;
 
 our $VERSION = 1.000_000;
