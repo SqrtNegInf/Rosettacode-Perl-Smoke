@@ -30,13 +30,10 @@ Reused variable name in lexical scope: $lv at line 81, column 11. Invent unique 
 = D/Define_a_primitive_data_type
 Warnings disabled at line 18, column 5. See page 431 of PBP.
 "return" statement with explicit "undef" at line 22, column 5. See page 199 of PBP.
-Multiple "package" declarations at line 26, column 1. Limit to one per file.
 
 = D/Delegates
 One-argument "bless" used at line 14, column 4. See page 365 of PBP.
-Multiple "package" declarations at line 26, column 1. Limit to one per file.
 One-argument "bless" used at line 28, column 4. See page 365 of PBP.
-Multiple "package" declarations at line 35, column 1. Limit to one per file.
 
 = D/Department_Numbers-2
 Split long regexps into smaller qr// chunks at line 16, column 3. See page 261 of PBP.

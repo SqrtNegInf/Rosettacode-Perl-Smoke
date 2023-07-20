@@ -38,9 +38,6 @@ Nested named subroutine at line 29, column 5. Declaring a named sub inside anoth
 Nested named subroutine at line 30, column 9. Declaring a named sub inside another named sub does not prevent the inner sub from being global.
 
 = S/Scope_modifiers
-Multiple "package" declarations at line 22, column 1. Limit to one per file.
-Multiple "package" declarations at line 27, column 1. Limit to one per file.
-Multiple "package" declarations at line 29, column 1. Limit to one per file.
 Reused variable name in lexical scope: $fruit at line 32, column 5. Invent unique variable names.
 Reused variable name in lexical scope: $fruit at line 37, column 1. Invent unique variable names.
 
@@ -62,7 +59,6 @@ Warnings disabled at line 9, column 1. See page 431 of PBP.
 
 = S/Send_an_unknown_method_call
 One-argument "bless" used at line 14, column 5. See page 365 of PBP.
-Multiple "package" declarations at line 21, column 1. Limit to one per file.
 
 = S/Send_email
 "$result" is declared but not used at line 7, column 1. Unused variables clutter code and make it harder to read.
@@ -88,7 +84,6 @@ One-argument "bless" used at line 38, column 10. See page 365 of PBP.
 One-argument "bless" used at line 62, column 2. See page 365 of PBP.
 One-argument "bless" used at line 86, column 2. See page 365 of PBP.
 Subroutine name is a homonym for builtin keyword eq at line 91, column 1. See page 177 of PBP.
-Multiple "package" declarations at line 104, column 1. Limit to one per file.
 
 = S/Set_consolidation
 "return" statement followed by "sort" at line 45, column 5. Behavior is undefined if called in scalar context.
@@ -97,7 +92,6 @@ Multiple "package" declarations at line 104, column 1. Limit to one per file.
 Hard tabs used at line 23, column 6. See page 20 of PBP.
 Hard tabs used at line 24, column 7. See page 20 of PBP.
 One-argument "bless" used at line 35, column 2. See page 365 of PBP.
-Multiple "package" declarations at line 61, column 1. Limit to one per file.
 Hard tabs used at line 64, column 6. See page 20 of PBP.
 Hard tabs used at line 65, column 5. See page 20 of PBP.
 Hard tabs used at line 66, column 5. See page 20 of PBP.
@@ -109,7 +103,6 @@ One-argument "bless" used at line 91, column 2. See page 365 of PBP.
 Hard tabs used at line 97, column 25. See page 20 of PBP.
 Hard tabs used at line 105, column 8. See page 20 of PBP.
 Hard tabs used at line 122, column 8. See page 20 of PBP.
-Multiple "package" declarations at line 146, column 1. Limit to one per file.
 
 = S/Set_puzzle
 Integer with leading zeros: "01111" at line 18, column 49. See page 58 of PBP.

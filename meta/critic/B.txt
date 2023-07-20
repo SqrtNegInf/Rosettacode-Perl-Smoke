@@ -51,9 +51,6 @@ Map blocks should have a single statement at line 55, column 21. See page 113 of
 Mixed high and low-precedence booleans at line 44, column 26. See page 70 of PBP.
 Mixed high and low-precedence booleans at line 49, column 26. See page 70 of PBP.
 
-= B/Break_OO_privacy
-Multiple "package" declarations at line 27, column 1. Limit to one per file.
-
 = B/Brownian_tree
 Warnings disabled at line 36, column 5. See page 431 of PBP.
 Subroutine "move" with high complexity score (22) at line 41, column 1. Consider refactoring.

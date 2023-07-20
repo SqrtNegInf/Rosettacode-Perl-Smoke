@@ -108,7 +108,6 @@ One-argument "bless" used at line 105, column 5. See page 365 of PBP.
 One-argument "bless" used at line 112, column 5. See page 365 of PBP.
 One-argument "bless" used at line 125, column 5. See page 365 of PBP.
 One-argument "bless" used at line 130, column 5. See page 365 of PBP.
-Multiple "package" declarations at line 135, column 1. Limit to one per file.
 
 = N/Numeric_separator_syntax
 Mismatched operator at line 16, column 9. Numeric/string operators and operands should match.

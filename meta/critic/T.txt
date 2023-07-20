@@ -23,7 +23,6 @@ Subroutine name is a homonym for builtin function not at line 67, column 1. See 
 Subroutine name is a homonym for builtin keyword cmp at line 68, column 1. See page 177 of PBP.
 Subroutine name is a homonym for builtin keyword and at line 69, column 1. See page 177 of PBP.
 Subroutine name is a homonym for builtin keyword or at line 70, column 1. See page 177 of PBP.
-Multiple "package" declarations at line 73, column 1. Limit to one per file.
 
 = T/Test_a_function
 "$result" is declared but not used at line 7, column 1. Unused variables clutter code and make it harder to read.

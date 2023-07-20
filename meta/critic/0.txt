@@ -1,0 +1,28 @@
+
+= 0/15_Puzzle_Game-1
+Mixed high and low-precedence booleans at line 82, column 10. See page 70 of PBP.
+Subroutine "shuffle_board" with high complexity score (22) at line 104, column 1. Consider refactoring.
+Found "<=>" in condition for an "unless" at line 220, column 5. See page 99 of PBP.
+
+= 0/15_Puzzle_Game-2
+Reused variable name in lexical scope: $e at line 56, column 5. Invent unique variable names.
+
+= 0/15_puzzle_solver
+Warnings disabled at line 9, column 1. See page 431 of PBP.
+Conditional "use" statement at line 25, column 7. Use "require" to conditionally include a module.
+Nested named subroutine at line 34, column 4. Declaring a named sub inside another named sub does not prevent the inner sub from being global.
+
+= 0/2048
+Mixed high and low-precedence booleans at line 55, column 3. See page 70 of PBP.
+Mismatched operator at line 76, column 11. Numeric/string operators and operands should match.
+
+= 0/24_game_Solve
+Map blocks should have a single statement at line 36, column 17. See page 113 of PBP.
+Map blocks should have a single statement at line 36, column 29. See page 113 of PBP.
+Reused variable name in lexical scope: @n at line 56, column 4. Invent unique variable names.
+
+= 0/99_Bottles_of_Beer
+Warnings disabled at line 9, column 1. See page 431 of PBP.
+Variable declared in conditional statement at line 46, column 5. Declare variables outside of the condition.
+
+

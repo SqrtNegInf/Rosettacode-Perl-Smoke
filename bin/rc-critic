@@ -24,6 +24,7 @@ my $exclude = join '|',
     'Close filehandles',
     'Return value of .open',
     'Ambiguously named',
+    'Multiple "package" declarations',
 ;
 
 for my $file (grep { ! /\.(\d)$/ } @ARGV) {             # skip alternate versions

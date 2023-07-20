@@ -88,7 +88,6 @@ Readline inside "for" loop at line 27, column 6. See page 211 of PBP.
 I/O layer ":utf8" used at line 11, column 1. Use ":encoding(UTF-8)" to get strict validation.
 
 = C/Cipolla%27s_algorithm-1
-Multiple "package" declarations at line 26, column 1. Limit to one per file.
 Found "!=" in condition for an "unless" at line 31, column 15. See page 99 of PBP.
 "return" statement with explicit "undef" at line 40, column 5. See page 199 of PBP.
 Nested named subroutine at line 50, column 5. Declaring a named sub inside another named sub does not prevent the inner sub from being global.
@@ -238,7 +237,6 @@ Warnings disabled at line 10, column 1. See page 431 of PBP.
 Backtick operator used at line 38, column 1. Use IPC::Open3 instead.
 
 = C/Create_an_object_Native_demonstration
-Multiple "package" declarations at line 60, column 1. Limit to one per file.
 Return value of eval not tested at line 83, column 1. You can't depend upon the value of $@/$EVAL_ERROR to tell whether an eval failed.
 
 = C/Cubic_Special_Primes

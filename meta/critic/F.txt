@@ -48,13 +48,6 @@ Too many arguments at line 53, column 1. See page 182 of PBP.
 = F/Find_limit_of_recursion
 Warnings disabled at line 8, column 1. See page 431 of PBP.
 
-= F/Find_the_intersection_of_a_line_with_a_plane-1
-Multiple "package" declarations at line 11, column 1. Limit to one per file.
-Multiple "package" declarations at line 13, column 1. Limit to one per file.
-
-= F/Find_the_intersection_of_a_line_with_a_plane-2
-Multiple "package" declarations at line 21, column 1. Limit to one per file.
-
 = F/Find_the_intersection_of_two_lines
 Warnings disabled at line 8, column 1. See page 431 of PBP.
 Too many arguments at line 15, column 1. See page 182 of PBP.

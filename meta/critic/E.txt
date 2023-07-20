@@ -9,7 +9,6 @@ Found ">=" in condition for an "unless" at line 20, column 14. See page 99 of PB
 = E/Element-wise_operations
 Subroutine name is a homonym for builtin keyword sub at line 37, column 1. See page 177 of PBP.
 Subroutine name is a homonym for builtin function exp at line 40, column 1. See page 177 of PBP.
-Multiple "package" declarations at line 42, column 1. Limit to one per file.
 
 = E/Elementary_cellular_automaton
 Subroutine name is a homonym for builtin function next at line 20, column 5. See page 177 of PBP.
@@ -18,10 +17,8 @@ Subroutine name is a homonym for builtin function next at line 20, column 5. See
 Subroutine name is a homonym for builtin function next at line 20, column 5. See page 177 of PBP.
 
 = E/Elliptic_curve_arithmetic
-Multiple "package" declarations at line 16, column 5. Limit to one per file.
 Subroutine name is a homonym for builtin keyword x at line 19, column 5. See page 177 of PBP.
 Subroutine name is a homonym for builtin keyword y at line 19, column 27. See page 177 of PBP.
-Multiple "package" declarations at line 46, column 1. Limit to one per file.
 
 = E/Empty_string
 Warnings disabled at line 12, column 1. See page 431 of PBP.

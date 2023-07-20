@@ -39,7 +39,3 @@ Comma used to separate statements at line 161, column 34. See pages 68,71 of PBP
 
 = H/History_variables
 One-argument "bless" used at line 17, column 9. See page 365 of PBP.
-Multiple "package" declarations at line 35, column 1. Limit to one per file.
-
-= H/Hofstadter_Q_sequence-3
-Multiple "package" declarations at line 31, column 1. Limit to one per file.

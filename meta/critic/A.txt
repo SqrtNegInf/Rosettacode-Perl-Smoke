@@ -66,11 +66,7 @@ Cascading if-elsif chain at line 18, column 3. See pages 117,118 of PBP.
 = A/Active_object
 "select" used to emulate "sleep" at line 38, column 13. See page 168 of PBP.
 Subroutine name is a homonym for builtin function delete at line 47, column 1. See page 177 of PBP.
-Multiple "package" declarations at line 62, column 1. Limit to one per file.
 "select" used to emulate "sleep" at line 71, column 1. See page 168 of PBP.
-
-= A/Add_a_variable_to_a_class_instance_at_runtime
-Multiple "package" declarations at line 16, column 1. Limit to one per file.
 
 = A/Addition_chains
 Mixed high and low-precedence booleans at line 78, column 4. See page 70 of PBP.

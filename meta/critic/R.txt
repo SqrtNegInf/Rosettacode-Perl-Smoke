@@ -94,11 +94,6 @@ Stricture disabled at line 10, column 1. See page 429 of PBP.
 Don't turn off strict for large blocks of code at line 10, column 1. See page 433 of PBP.
 Hard tabs used at line 17, column 7. See page 20 of PBP.
 One-argument "bless" used at line 20, column 33. See page 365 of PBP.
-Multiple "package" declarations at line 25, column 1. Limit to one per file.
-
-= R/Reflection_List_properties
-Multiple "package" declarations at line 22, column 6. Limit to one per file.
-Multiple "package" declarations at line 27, column 1. Limit to one per file.
 
 = R/Remote_agent_Agent_logic
 Main code has high complexity score (38) at line 1, column 1. Consider refactoring.
@@ -132,12 +127,10 @@ Readline inside "for" loop at line 12, column 10. See page 211 of PBP.
 = R/Resistance_Calculator
 @ISA used instead of "use parent" at line 10, column 5. See page 360 of PBP.
 Symbols are exported by default at line 11, column 1. Use '@EXPORT_OK' or '%EXPORT_TAGS' instead.
-Multiple "package" declarations at line 62, column 1. Limit to one per file.
 
 = R/Respond_to_an_unknown_method_call
 One-argument "bless" used at line 13, column 5. See page 365 of PBP.
 AUTOLOAD method declared at line 21, column 1. See page 393 of PBP.
-Multiple "package" declarations at line 33, column 1. Limit to one per file.
 
 = R/Reverse_a_string
 I/O layer ":utf8" used at line 13, column 1. Use ":encoding(UTF-8)" to get strict validation.
