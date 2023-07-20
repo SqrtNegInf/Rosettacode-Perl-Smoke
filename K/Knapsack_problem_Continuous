@@ -10,15 +10,15 @@ my $result;
 
 my @items = sort { $b->[2]/$b->[1] <=> $a->[2]/$a->[1] }
 (
-        [qw'beef    3.8 36'],
-        [qw'pork    5.4 43'],
-        [qw'ham     3.6 90'],
-        [qw'greaves 2.4 45'],
-        [qw'flitch  4.0 30'],
-        [qw'brawn   2.5 56'],
-        [qw'welt    3.7 67'],
-        [qw'salami  3.0 95'],
-        [qw'sausage 5.9 98'],
+        [<beef    3.8 36>],
+        [<pork    5.4 43>],
+        [<ham     3.6 90>],
+        [<greaves 2.4 45>],
+        [<flitch  4.0 30>],
+        [<brawn   2.5 56>],
+        [<welt    3.7 67>],
+        [<salami  3.0 95>],
+        [<sausage 5.9 98>],
 );
 
 my ($limit, $value) = (15, 0);
