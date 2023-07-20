@@ -2,6 +2,7 @@
 #u# http://rosettacode.org/wiki/Jump_anywhere
 #c# 2018-08-14 <RC
 #p# OK
+#n# P::C correctly finds unreachable code, but that's part of the point here...
 
 use strict;
 use warnings;
