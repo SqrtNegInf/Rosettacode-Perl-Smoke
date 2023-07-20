@@ -3,13 +3,10 @@
 #c# 2018-08-14 <RC
 #p# OK
 
-my $result;
-
 use strict;
 use warnings;
 use feature 'say';
 
-#Library: JSON
 use JSON;
 
 my $data = decode_json('{ "foo": 1, "bar": [10, "apples"] }');
@@ -18,6 +15,5 @@ my $sample = { blue => [1,2], ocean => "water" };
 say my $json = encode_json($sample);
 
 use Test::More;
-#is ($json, '{"blue":[1,2],"ocean":"water"}');
 ok ( $json eq '{"blue":[1,2],"ocean":"water"}' || $json eq '{"ocean":"water","blue":[1,2]}');
 done_testing;
