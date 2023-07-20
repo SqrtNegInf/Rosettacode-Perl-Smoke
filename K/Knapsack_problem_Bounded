@@ -52,31 +52,31 @@ my $max_weight = 400;
 
 my %cache;
 sub pick {
-	my ($weight, $pos) = @_;
-	return 0, 0, [] if $pos < 0 or $weight <= 0;
+    my ($weight, $pos) = @_;
+    return 0, 0, [] if $pos < 0 or $weight <= 0;
 
-	@{ $cache{$weight . $pos} //= [do{	# odd construct: for caching
-		my $item = $items[$pos];
-		my ($bv, $bi, $bw, $bp) = (0, 0, 0, []);
+    @{ $cache{$weight . $pos} //= [ do {
+        my $item = $items[$pos];
+        my ($bv, $bi, $bw, $bp) = (0, 0, 0, []);
 
-		for my $i (0 .. $item->{quant}) {
-			last if $i * $item->{weight} > $weight;
-			my ($v, $w, $p) = pick($weight - $i * $item->{weight}, $pos - 1);
-			next if ($v += $i * $item->{value}) <= $bv;
+        for my $i (0 .. $item->{quant}) {
+            last if $i * $item->{weight} > $weight;
+            my ($v, $w, $p) = pick($weight - $i * $item->{weight}, $pos - 1);
+            next if ($v += $i * $item->{value}) <= $bv;
 
-			($bv, $bi, $bw, $bp) = ($v, $i, $w, $p);
-		}
+            ($bv, $bi, $bw, $bp) = ($v, $i, $w, $p);
+        }
 
-		my @picked = ( @$bp, $bi );
-		$bv, $bw + $bi * $item->{weight}, \@picked
-	}]}
+        my @picked = ( @$bp, $bi );
+        ($bv, $bw + $bi * $item->{weight}, \@picked)
+    } ] }
 }
 
 my ($v, $w, $p) = pick($max_weight, $#items);
 for (0 .. $#$p) {
-	if ($p->[$_] > 0) {
-		$result .= "$p->[$_] of $items[$_]{name}\n";
-	}
+    if ($p->[$_] > 0) {
+        $result .= "$p->[$_] of $items[$_]{name}\n";
+    }
 }
 $result .= "Value: $v; Weight: $w\n";
 
