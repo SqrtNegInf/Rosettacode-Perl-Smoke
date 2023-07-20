@@ -11,8 +11,8 @@ use warnings;
 use feature 'say';
 
 while ($_ = <DATA>) {
-    /(\S+)\s*$/;
-    $result .= $_ if $1 > 6;
+    /(?<magnitude>\S+)\s*$/;
+    $result .= $_ if $+{magnitude} > 6;
 }
 
 say $result; 
