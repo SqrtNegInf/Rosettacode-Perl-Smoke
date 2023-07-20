@@ -67,7 +67,6 @@ Reused variable name in lexical scope: $conn at line 86, column 9. Invent unique
 Return value of eval not tested at line 89, column 9. You can't depend upon the value of $@/$EVAL_ERROR to tell whether an eval failed.
 
 = C/Chat_server-2
-Ambiguously named subroutine "left" at line 36, column 1. See page 48 of PBP.
 Cascading if-elsif chain at line 59, column 5. See pages 117,118 of PBP.
 
 = C/Chebyshev_coefficients

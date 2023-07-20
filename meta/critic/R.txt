@@ -103,7 +103,6 @@ Multiple "package" declarations at line 27, column 1. Limit to one per file.
 = R/Remote_agent_Agent_logic
 Main code has high complexity score (38) at line 1, column 1. Consider refactoring.
 Map blocks should have a single statement at line 35, column 13. See page 113 of PBP.
-Ambiguously named subroutine "set" at line 60, column 1. See page 48 of PBP.
 Cascading if-elsif chain at line 72, column 3. See pages 117,118 of PBP.
 Match variable used at line 85, column 17. See page 82 of PBP.
 Match variable used at line 92, column 17. See page 82 of PBP.
@@ -177,7 +176,6 @@ Found ">" in condition for an "unless" at line 52, column 10. See page 99 of PBP
 = R/Rosetta_Code_Tasks_without_examples
 Backtick operator used at line 25, column 13. Use IPC::Open3 instead.
 Reused variable name in lexical scope: $html at line 30, column 5. Invent unique variable names.
-Unreachable code at line 34, column 5. Consider removing it.
 
 = R/Rot-13
 Augmented assignment operator '.=' used in declaration at line 15, column 12. Use simple assignment when initializing variables.
@@ -187,8 +185,5 @@ Comma used to separate statements at line 23, column 85. See pages 68,71 of PBP.
 
 = R/Run-length_encoding
 Match variable used at line 40, column 26. See page 82 of PBP.
-
-= R/Run_as_a_daemon_or_service
-Unreachable code at line 45, column 1. Consider removing it.
 
 

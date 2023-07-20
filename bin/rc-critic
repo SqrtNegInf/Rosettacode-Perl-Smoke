@@ -23,7 +23,7 @@ my $exclude = join '|',
     'Magic variable',
     'Close filehandles',
     'Return value of .open',
-    'Ambiguously named variable',
+    'Ambiguously named',
 ;
 
 for my $file (grep { ! /\.(\d)$/ } @ARGV) {             # skip alternate versions

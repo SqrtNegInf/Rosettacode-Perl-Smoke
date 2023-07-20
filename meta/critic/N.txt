@@ -124,21 +124,6 @@ Mismatched operator at line 28, column 21. Numeric/string operators and operands
 
 = N/Numerical_Integration
 Return value of eval not tested at line 76, column 37. You can't depend upon the value of $@/$EVAL_ERROR to tell whether an eval failed.
-Unreachable code at line 125, column 1. Consider removing it.
-Unreachable code at line 135, column 1. Consider removing it.
-Unreachable code at line 136, column 1. Consider removing it.
-Unreachable code at line 136, column 16. Consider removing it.
-Unreachable code at line 137, column 1. Consider removing it.
-Unreachable code at line 138, column 1. Consider removing it.
-Unreachable code at line 139, column 1. Consider removing it.
-Unreachable code at line 141, column 1. Consider removing it.
-Unreachable code at line 151, column 1. Consider removing it.
-Unreachable code at line 152, column 1. Consider removing it.
-Unreachable code at line 152, column 16. Consider removing it.
-Unreachable code at line 153, column 1. Consider removing it.
-Unreachable code at line 154, column 1. Consider removing it.
-Unreachable code at line 155, column 1. Consider removing it.
-Unreachable code at line 157, column 1. Consider removing it.
 
 = N/Numerical_and_alphabetical_suffixes
 Split long regexps into smaller qr// chunks at line 22, column 32. See page 261 of PBP.

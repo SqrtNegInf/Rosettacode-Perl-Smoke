@@ -1,15 +1,9 @@
 
-= H/HTTP
-"$result" is declared but not used at line 7, column 1. Unused variables clutter code and make it harder to read.
-
-= H/HTTPS_Authenticated
-"$result" is declared but not used at line 9, column 1. Unused variables clutter code and make it harder to read.
-
 = H/Hailstone_sequence-1
 Reused variable name in lexical scope: $n at line 27, column 5. Invent unique variable names.
 
 = H/Hailstone_sequence-2
-Warnings disabled at line 9, column 1. See page 431 of PBP.
+Warnings disabled at line 10, column 1. See page 431 of PBP.
 
 = H/Hamming_numbers
 Comma used to separate statements at line 36, column 1. See pages 68,71 of PBP.
@@ -32,12 +26,6 @@ Found ">" in condition for an "until" at line 11, column 60. See page 99 of PBP.
 = H/Hash_join
 Map blocks should have a single statement at line 21, column 5. See page 113 of PBP.
 
-= H/Hello_world_Graphical
-"$result" is declared but not used at line 8, column 1. Unused variables clutter code and make it harder to read.
-
-= H/Hello_world_Web_server
-"$result" is declared but not used at line 9, column 1. Unused variables clutter code and make it harder to read.
-
 = H/Here_document
 Heredoc terminator must be quoted at line 38, column 12. See page 64 of PBP.
 
@@ -49,16 +37,9 @@ Comma used to separate statements at line 98, column 32. See pages 68,71 of PBP.
 Comma used to separate statements at line 147, column 32. See pages 68,71 of PBP.
 Comma used to separate statements at line 161, column 34. See pages 68,71 of PBP.
 
-= H/Higher-order_functions
-Ambiguously named subroutine "second" at line 49, column 1. See page 48 of PBP.
-
 = H/History_variables
 One-argument "bless" used at line 17, column 9. See page 365 of PBP.
 Multiple "package" declarations at line 35, column 1. Limit to one per file.
 
 = H/Hofstadter_Q_sequence-3
 Multiple "package" declarations at line 31, column 1. Limit to one per file.
-
-= H/Holidays_related_to_Easter
-Hard tabs used at line 62, column 11. See page 20 of PBP.
-Hard tabs used at line 68, column 11. See page 20 of PBP.
