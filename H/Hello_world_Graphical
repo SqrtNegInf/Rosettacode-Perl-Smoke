@@ -4,16 +4,10 @@
 #c# 2018-08-12 <RC
 #p# OK
 
-use feature 'say';
-my $result;
-
-
-# Works with: Perl version 5.8.8
-# Library: Perl/Tk[edit]
-# Just output as a label in a window:
-
 use strict;
 use warnings;
+use feature 'say';
+
 use Tk;
 
 my $main = MainWindow->new;
@@ -21,6 +15,7 @@ $main->Label(-text => 'Goodbye, World')->pack;
 MainLoop();
 
 __END__
+
 Output as text on a button that exits the current application:
 
 use strict;
