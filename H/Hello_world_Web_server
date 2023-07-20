@@ -6,8 +6,6 @@
 #n# commented out whole Plack solution, can't get module to install
 #n# 5.36 requires \xd -> \x0d
 
-my $result;
-
 use strict;
 use warnings;
 use feature 'say';
@@ -64,6 +62,7 @@ while (++(our $vn)) {
 }
 
 __END__
+
 # Here's another solution using Plack (may be found on CPAN):
 use Plack::Runner;
 my $app = sub {
