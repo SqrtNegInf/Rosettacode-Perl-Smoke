@@ -6,6 +6,7 @@
 my $result;
 
 use strict;
+use warnings;
 no warnings 'uninitialized';
 use feature 'say';
 
