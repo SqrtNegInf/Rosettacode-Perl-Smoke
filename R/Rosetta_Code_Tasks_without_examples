@@ -31,7 +31,7 @@ for my $title (@tasks) {
     my($task_at_hand) = $html =~ m#using any language you may know.</div>(.*?)<div id="toc"#s;
     $result = "$title\n$task_at_hand\n\n";
     last; # DH stop after one
-    sleep 10; # so you have time to read each task...
+   #sleep 10; # so you have time to read each task...
 }
 
 $result =~ s#Alternate</a>:</b> #Alternate</a>:</b>#; # sometimes a trailing blank
