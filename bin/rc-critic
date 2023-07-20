@@ -1,4 +1,5 @@
-#!/usr/local/bin/perl ## quick & dirty critic
+#!/usr/local/bin/perl 
+## quick & dirty critic
 #    2023-07-15
 # perl -e '`rc-critic $_/* > tmp/$_.critic` for "A".."Z"'
 # errors from P::C itself: Can't parse code: Encountered unexpected character '204'
