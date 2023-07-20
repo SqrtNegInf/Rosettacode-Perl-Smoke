@@ -89,13 +89,6 @@ Found ">=" in condition for an "unless" at line 66, column 22. See page 99 of PB
 Found "<" in condition for an "unless" at line 66, column 22. See page 99 of PBP.
 Found "!" in condition for an "unless" at line 66, column 22. See page 99 of PBP.
 
-= D/Discordian_date
-Integer with leading zeros: "07" at line 42, column 51. See page 58 of PBP.
-Integer with leading zeros: "02" at line 42, column 62. See page 58 of PBP.
-Integer with leading zeros: "02" at line 42, column 73. See page 58 of PBP.
-Integer with leading zeros: "03" at line 42, column 84. See page 58 of PBP.
-Integer with leading zeros: "-01" at line 42, column 86. See page 58 of PBP.
-
 = D/Discrete_Fourier_transform
 Map blocks should have a single statement at line 21, column 4. See page 113 of PBP.
 Don't modify $_ in list functions at line 21, column 4. See page 114 of PBP.
