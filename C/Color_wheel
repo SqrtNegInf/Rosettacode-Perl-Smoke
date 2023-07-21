@@ -7,9 +7,6 @@
 use strict;
 use warnings;
 use feature 'say';
-my $result;
-
-# Translation of: Sidef
 
 use Imager;
 use Math::Complex qw(cplx i pi);
