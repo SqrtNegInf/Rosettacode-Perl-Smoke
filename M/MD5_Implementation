@@ -77,8 +77,8 @@ sub _encode_hex { unpack 'H*', $_[0] }
 sub md5 {
     my $message = padding(join'',@_);
     my ($a,$b,$c,$d) = (A,B,C,D);
-    my $i;
-    for $i (0 .. (length $message)/64-1) {
+   #my $i; # ???
+    for my $i (0 .. (length $message)/64-1) {
         my @X = unpack 'V16', substr $message,$i*64,64;
         ($a,$b,$c,$d) = round($a,$b,$c,$d,@X);
     }
