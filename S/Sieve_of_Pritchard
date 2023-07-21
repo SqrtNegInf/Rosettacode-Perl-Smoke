@@ -4,8 +4,6 @@
 #p# OK
 #n# calculate 1e6 primes, show first 34 (<150)
 
-my @res;
-
 use v5.36;
 
 use List::Util 'min';
