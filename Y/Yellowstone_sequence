@@ -13,8 +13,6 @@ use GD::Graph::bars;
 
 use constant Inf  => 1e5;
 
-my @res;
-
 sub gcd {
   my ($u, $v) = @_;
   while ($v) {
