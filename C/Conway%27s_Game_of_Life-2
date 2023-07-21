@@ -7,7 +7,6 @@
 use strict;
 use warnings;
 use feature 'say';
-my $result;
 
 # Another version, takes up the whole area of your terminal. Using warping edges.
 
