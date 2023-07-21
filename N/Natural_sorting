@@ -5,16 +5,15 @@
 #n# for 3 of 8 cases: Redundant argument in sprintf at N/Natural_sorting line 61
 #n# PBP: Sort blocks should have a single statement at line 25
 
-my $result;
-
 use strict;
-no warnings;        # with v5.36+ have to be explicit about this
+use warnings;
 use feature 'say';
 
 use feature 'fc';
 use Unicode::Normalize;
 
 sub natural_sort {
+    use warnings;
     my @items = map {
         my $str = fc(NFKD($_));
         $str =~ s/\s+/ /;
@@ -57,6 +56,7 @@ my @testcases = (
 plan tests => scalar @testcases;
 
 foreach (@testcases) {
+    no warnings;
     my ($name, $pattern, @args) = @$_;
     my $i = 0;
     my @strings = map { sprintf $pattern, ref $_ ? @$_ : $_, $i++ } @args;
@@ -67,9 +67,8 @@ foreach (@testcases) {
     print "\n";
 }
 
-
 __END__
-#Output:
+
 1..9
 ok 1 - Leading spaces
 (
@@ -138,8 +137,6 @@ ok 9 - Alternate forms
   "Start with an \x{17F}: 1",
   "Start with an \xDF: 2",
 )
-
-
 
 say $result; 
 #say $result = join "\n", @res;
