@@ -28,6 +28,7 @@ my $exclude = join '|',
     'Ambiguously named',
     'Multiple "package" declarations',
     'leading zeros',
+    'Backtick operator',
 ;
 
 for my $file (grep { ! /\.(\d)$/ } @ARGV) {             # skip alternate versions
