@@ -4,15 +4,15 @@
 #p# OK
 #f# RC file: color-wheel-gray.jpg
 
-use feature 'say';
-my $result;
-
-
-#Library: Imlib2
-#Since we are using Imlib2, this one does not implement really a gray-scale (single channel) storage; it only converts an RGB image to an RGB image with the same three colour components for each pixel (which result in a gray-scale-like image)
-
 use strict;
+use warnings;
+use feature 'say';
+
 use Image::Imlib2;
+
+# Since we are using Imlib2, this one does not implement really a gray-scale (single channel) storage; 
+# it only converts an RGB image to an RGB image with the same three colour components for each pixel 
+# (which result in a gray-scale-like image)
 
 sub tograyscale
 {
@@ -31,6 +31,6 @@ sub tograyscale
 }
 
 my $animage = Image::Imlib2->load("ref/color_wheel.png");
-my $gscale = tograyscale($animage);
+my $gscale  = tograyscale($animage);
 $gscale->set_quality(80);
 $gscale->save("run/color-wheel-gray.jpg");
