@@ -16,7 +16,7 @@ use PDL::NiceSlice;
 sub permanent{
 	my $mat = shift;
 	my $n = shift // $mat->dim(0);
-	return undef if $mat->dim(0) != $mat->dim(1);
+	return if $mat->dim(0) != $mat->dim(1);
 	return $mat(0,0) if $n == 1;
 	my $sum = 0;
 	--$n;
