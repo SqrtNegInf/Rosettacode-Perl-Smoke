@@ -8,9 +8,9 @@ srand 123456;
 use strict;
 use warnings;
 use feature 'say';
-my $result;
 
-# Starts "filling" from the top left. Fluid flow favours directions in Down, Left, Right, Up order. I interpreted p to be porosity, so small p mean low permeability, large p means high permeability.
+# Starts "filling" from the top left. Fluid flow favours directions in Down, Left, Right, Up order. i
+# I interpreted p to be porosity, so small p mean low permeability, large p means high permeability.
 
 my @bond;
 my $grid = 10;
@@ -46,10 +46,10 @@ sub direction {
  
 sub move {
     my($dir,$x,$y) = @_;
-    fill(  $x,--$y), fill(  $x,--$y) if $dir == $D{Up};
-    fill(  $x,++$y), fill(  $x,++$y) if $dir == $D{Down};
-    fill(--$x,  $y), fill(--$x,  $y) if $dir == $D{Left};
-    fill(++$x,  $y), fill(++$x,  $y) if $dir == $D{Right};
+    ( fill(  $x,--$y), fill(  $x,--$y) ) if $dir == $D{Up};
+    ( fill(  $x,++$y), fill(  $x,++$y) ) if $dir == $D{Down};
+    ( fill(--$x,  $y), fill(--$x,  $y) ) if $dir == $D{Left};
+    ( fill(++$x,  $y), fill(++$x,  $y) ) if $dir == $D{Right};
     $x, $y
 }
  
