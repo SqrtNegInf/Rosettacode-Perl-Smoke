@@ -7,10 +7,9 @@
 use strict;
 use warnings;
 use feature 'say';
-my $result;
 
-use ntheory qw/is_prime/;
 use Imager;
+use ntheory 'is_prime';
  
 my $n = shift || 512;
 my $start = shift || 1;
