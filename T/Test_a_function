@@ -3,19 +3,14 @@
 #c# 2018-08-11 <RC
 #p# OK
 
+use strict;
+use warnings;
 use feature 'say';
-my $result;
 
 # A test file, with a .t suffix, is just a Perl program that prints a test stream in Test Anything Protocol (TAP). There are modules to help print things in the correct TAP format; Perl 5 bundles Test, Test::Simple and Test::More.
 # This example uses Test and requires the Palindrome.pm file from Palindrome detection#Perl.
 
-# Translation of: Perl 6
-# ptest.t
-use strict;
-use warnings;
-
 use lib 'lib';
-
 use Test;
 
 my %tests;
