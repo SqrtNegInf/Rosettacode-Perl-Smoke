@@ -20,7 +20,7 @@ my $max_key_lengths = 5; # number of keylengths to try
 
 sub myguess {
     my ($text) = (@_);
-    my ($seqtext, @spacing, @factors, @sortedfactors, $pos, %freq, %Keys);
+    my ($seqtext, @spacing, @factors, @sortedfactors, %freq, %Keys);
 
     # Kasiski examination
     $seqtext = $text;
