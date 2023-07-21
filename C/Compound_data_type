@@ -7,7 +7,6 @@
 use strict;
 use warnings;
 use feature 'say';
-my $result;
 
 # Array
 my @point1 = (3, 8);
