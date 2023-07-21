@@ -4,9 +4,6 @@
 #c# 2018-08-18 <RC
 #p# OK
 
-use feature 'say';
-my $result;
-
 rename 'ref/rename-source.txt', 'run/rename-dest.txt';
 print "ok 1\n" if -e 'run/rename-dest.txt';
 rename 'run/rename-dest.txt', 'ref/rename-source.txt'; # now move if back for next run
