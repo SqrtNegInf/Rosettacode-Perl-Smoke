@@ -4,11 +4,6 @@
 #c# 2018-08-19 <RC
 #p# OK
 
-use feature 'say';
-my $result;
-# my @res;
-
-
 #This relatively simple Perl example imitates the C example.
 
 $s = q($s = q(%s); printf($s, $s);
