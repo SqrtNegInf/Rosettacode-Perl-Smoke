@@ -4,20 +4,17 @@
 #c# 2018-08-18 <RC, 2023-04-02 >RC
 #p# OK
 
-my $result;
-
 use strict;
 use warnings;
 use feature 'say';
 
-# This subroutine throws an appropriate error if it fails to connect to the server or authenticate. It should work on any platform Perl does.
-
 use Net::SMTP;
 use Authen::SASL;
-  # Net::SMTP's 'auth' method needs Authen::SASL to work, but
-  # this is undocumented, and if you don't have the latter, the
-  # method will just silently fail. Hence we explicitly use
-  # Authen::SASL here.
+
+# Net::SMTP's 'auth' method needs Authen::SASL to work, but
+# this is undocumented, and if you don't have the latter, the
+# method will just silently fail. Hence we explicitly use
+# Authen::SASL here.
 
 sub send_email1 {
   my %o =
@@ -67,6 +64,5 @@ sub send_email2 {
   }
 }
 
-#send_email('john@doe.com', 'jane@doe.com', '',
-#           "very important subject",
-#           "Body text\n");
+# works fine for local delivery
+#send_email2('dhoekman', 'dhoekman', '', 'The Subject', 'The Body');
