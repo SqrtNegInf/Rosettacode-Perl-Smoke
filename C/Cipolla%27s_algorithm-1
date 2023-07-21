@@ -37,7 +37,7 @@ sub Legendre {
  
 sub cipolla {
     our($n, $p) = @_;
-    return undef if kronecker($n,$p) != 1;
+    return if kronecker($n,$p) != 1;
     our $w2;
     my $a = 0;
     while () {
@@ -61,7 +61,7 @@ sub cipolla {
         $r = Fp_mult($r,$s) if $i % 2;
         $s = Fp_mult($s,$s);
     }
-    return undef if $r->{y};
+    return if $r->{y};
     $r->{x};
 }
  
