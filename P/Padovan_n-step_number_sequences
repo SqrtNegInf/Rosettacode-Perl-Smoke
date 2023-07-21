@@ -14,7 +14,7 @@ use List::Lazy 'lazy_list';
 
 say 'Padovan N-step sequences; first 25 terms:';
 
-for our $N (2..8) {
+for my $N (2..8) { # was 'our'???
 
     my $pad_n = lazy_list { 
         state $n  = 2; 
