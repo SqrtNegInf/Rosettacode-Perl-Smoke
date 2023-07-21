@@ -3,8 +3,6 @@
 #c# 2022-09-08 >RC
 #p# OK
 
-my @res;
-
 use v5.36;
 
 use ntheory 'factor';
