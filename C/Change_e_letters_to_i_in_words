@@ -3,8 +3,6 @@
 #c# 2021-02-20 <RC
 #p# OK
 
-my @res;
-
 use strict;
 use warnings;
 no warnings 'uninitialized';
