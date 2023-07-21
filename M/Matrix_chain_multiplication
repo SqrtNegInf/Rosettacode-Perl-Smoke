@@ -3,15 +3,14 @@
 #c# 2018-11-30 >RC, 2019-02-06 >RC
 #p# OK
 
-use warnings;
 use strict;
+use warnings;
 use feature 'say';
-
 my @res;
 
 sub matrix_mult_chaining {
     my(@dimensions) = @_;
-    my(@cp,@path);
+    my(@cp);
 
     # a matrix never needs to be multiplied with itself, so it has cost 0
     $cp[$_][$_] = 0 for keys @dimensions;
