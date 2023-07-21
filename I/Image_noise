@@ -4,6 +4,9 @@
 #c# 2018-11-28 >RC
 #p# OK
 
+use strict;
+use warnings;
+
 use Gtk3 '-init';
 use Glib qw/TRUE FALSE/;
 use Time::HiRes qw/ tv_interval gettimeofday/;
@@ -28,8 +31,8 @@ Gtk3->main;
 sub draw_in_drawingarea {
   my ($widget, $cr, $data) = @_;
   $cr->set_line_width(1);
-  for $x (1..320) {
-    for $y (1..240) {
+  for my $x (1..320) {
+    for my $y (1..240) {
       int rand 2 ? $cr->set_source_rgb(0, 0, 0) : $cr->set_source_rgb(1, 1, 1);
       $cr->rectangle( $x, $y, 1, 1);
       $cr->stroke;
