@@ -70,7 +70,7 @@ sub pair {
         $x and return $try_stuff->($x, $p2, $b, 1);
         $y and return $try_stuff->($y, $p1, $a, -1);
 
-        for $x (@tgt) {
+        for my $x (@tgt) { # which has nothing to do with the $x just preceding...
             next if $x->{$p1};
             local $x->{$p1} = $a;
             $try_stuff->($x, $p2, $b, 1) and return 1;
