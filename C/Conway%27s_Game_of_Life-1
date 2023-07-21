@@ -11,7 +11,7 @@ use warnings;
 use feature 'say';
 my $result;
 
-# This a perl example the simulates Conway's life starting with a random grid of the given size for the given number of steps. Example:
+# This a perl example the simulates Conway's life starting with a random grid of the given size for the given number of steps.
 # life.pl numrows numcols numiterations 
 # life.pl 5 10 15 
 # would do 15 iterations over 5 rows and 10 columns.
@@ -76,11 +76,10 @@ foreach my $stage ( 1 .. $generations ) {
 }
 #print "\n";
 
-my $line;
 no warnings; # portions of @life not initialized?
-for my $r ( 0 .. 4 ) { for my $c ( 0 .. 9 ) { $line .= $life[$r][$c]; } }
-say $line;
+for my $r ( 0 .. 4 ) { for my $c ( 0 .. 9 ) { $result .= $life[$r][$c]; } }
+say $result;
 
 use Test::More;
-is ($line, '110110000');
+is ($result, '110110000');
 done_testing;
