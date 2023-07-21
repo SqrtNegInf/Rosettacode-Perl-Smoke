@@ -4,8 +4,6 @@
 #p# OK
 #n# pre-calc of primes not useful, span too large for '..' iterator
 
-my @res;
-
 use strict;
 use warnings;
 use feature 'say';
