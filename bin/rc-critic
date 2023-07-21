@@ -28,6 +28,7 @@ my $exclude = join '|',
     'Ambiguously named',
     'Multiple "package" declarations',
     'leading zeros',
+   #'hard tabs',
     'Backtick operator',
 ;
 
