@@ -19,7 +19,7 @@ sub STORE {
     my $self = shift;
     my $val = int shift; # 'xyzzy' warns here
     say 'out of bounds' if $val < 1 or $val > 10;
-    return undef if $val < 1 or $val > 10;
+    return if $val < 1 or $val > 10;
     $$self = $val;
 };
  
