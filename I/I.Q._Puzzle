@@ -32,13 +32,13 @@ sub solve {
     my ($move, $turns, @board) = @_;
     $turns = 1 unless $turns;
     return "\nSolved" if $turns + 1 == @board;
-    return undef if $board[$$move[1]] == 0;
+    return if $board[$$move[1]] == 0;
     my $valid = do  {
         if ($board[$$move[0]] == 0) {
-            return undef if $board[$$move[2]] == 0;
+            return if $board[$$move[2]] == 0;
             "\nmove $$move[2] to $$move[0]\n";
         } else {
-            return undef if $board[$$move[2]] == 1;
+            return if $board[$$move[2]] == 1;
             "\nmove $$move[0] to $$move[2]\n";
         }
     };
