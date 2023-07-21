@@ -24,7 +24,7 @@ sub checkTriWinding {
         if ($allowReversed) { ($$p3,$$p2) = ($$p2,$$p3) }
         else                { die "triangle has wrong winding direction" }
     }
-    return undef;
+    return
 }
 
 sub check_edge {
