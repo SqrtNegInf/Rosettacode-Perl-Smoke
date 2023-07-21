@@ -4,7 +4,7 @@
 #p# OK
 
 my($result1,$result2,$result3,$result4,$result5,$result6);
-my(@res1,   @res2,   @res3,   @res4,   @res5);
+my(@res1,                     @res4);
 
 use strict;
 use warnings;
