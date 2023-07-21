@@ -3,8 +3,6 @@
 #c# 2021-02-22 <RC
 #p# OK
 
-my @res;
-
 use strict;
 use warnings;
 use feature 'say';
