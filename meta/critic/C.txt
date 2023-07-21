@@ -5,9 +5,6 @@ Map blocks should have a single statement at line 37, column 17. See page 113 of
 = C/CSV_to_HTML_translation
 Map blocks should have a single statement at line 30, column 22. See page 113 of PBP.
 
-= C/CUSIP
-Loop iterator is not lexical at line 17, column 5. See page 108 of PBP.
-
 = C/Calculating_the_value_of_e-1
 Found "<" in condition for an "until" at line 21, column 3. See page 99 of PBP.
 
@@ -31,15 +28,11 @@ Lvalue form of "substr" used at line 29, column 26. See page 165 of PBP.
 = C/Cantor_set
 Nested named subroutine at line 18, column 5. Declaring a named sub inside another named sub does not prevent the inner sub from being global.
 
-= C/Cartesian_product_of_two_or_more_lists-1
-Loop iterator is not lexical at line 29, column 5. See page 108 of PBP.
-
 = C/Casting_out_nines
 Found ">=" in condition for an "unless" at line 27, column 7. See page 99 of PBP.
 
 = C/Change_e_letters_to_i_in_words
-"@res" is declared but not used at line 6, column 1. Unused variables clutter code and make it harder to read.
-Warnings disabled at line 10, column 1. See page 431 of PBP.
+Warnings disabled at line 8, column 1. See page 431 of PBP.
 
 = C/Changeable_words-2
 Capture variable used outside conditional at line 14, column 53. See page 253 of PBP.

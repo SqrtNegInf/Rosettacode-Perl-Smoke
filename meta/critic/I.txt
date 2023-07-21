@@ -15,10 +15,6 @@ I/O layer ":utf8" used at line 12, column 1. Use ":encoding(UTF-8)" to get stric
 = I/Idiomatically_determine_all_the_lowercase_and_uppercase_letters
 I/O layer ":utf8" used at line 12, column 1. Use ":encoding(UTF-8)" to get strict validation.
 
-= I/Image_noise
-Loop iterator is not lexical at line 31, column 3. See page 108 of PBP.
-Loop iterator is not lexical at line 32, column 5. See page 108 of PBP.
-
 = I/Imaginary_base_numbers
 Found ">" in condition for an "unless" at line 27, column 9. See page 99 of PBP.
 Found "<" in condition for an "unless" at line 27, column 9. See page 99 of PBP.

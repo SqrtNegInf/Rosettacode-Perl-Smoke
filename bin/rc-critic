@@ -34,6 +34,7 @@ my $exclude = join '|',
 
 for my $file (grep { ! /\.(\d)$/ } @ARGV) {             # skip alternate versions
     my $critic = Perl::Critic->new(-severity => 3);
+   #my @violations = $critic->critique($file);                          # test with no exclusions
     my @violations = grep { ! /$exclude/i } $critic->critique($file);
     print "\n= $file\n" . join '', @violations if @violations
 }

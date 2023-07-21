@@ -44,9 +44,6 @@ Reused variable name in lexical scope: @c at line 38, column 5. Invent unique va
 = V/Vigen%C3%A8re_cipher
 "map" used in void context at line 19, column 1. Use a "for" loop instead.
 
-= V/Vigen%C3%A8re_cipher_Cryptanalysis
-"$pos" is declared but not used at line 23, column 5. Unused variables clutter code and make it harder to read.
-
 = V/Visualize_a_tree
 I/O layer ":utf8" used at line 12, column 5. Use ":encoding(UTF-8)" to get strict validation.
 

@@ -3,9 +3,6 @@
 Subroutine "p_adjust" with high complexity score (34) at line 75, column 1. Consider refactoring.
 Cascading if-elsif chain at line 116, column 2. See pages 117,118 of PBP.
 
-= P/Padovan_n-step_number_sequences
-Loop iterator is not lexical at line 17, column 1. See page 108 of PBP.
-
 = P/Palindrome_dates-1
 Found ">" in condition for an "unless" at line 25, column 10. See page 99 of PBP.
 
