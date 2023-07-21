@@ -24,7 +24,7 @@ sub Legendre {
 
 sub Cipolla {
     my($n, $p) = @_;
-    return undef if Legendre($n,$p) != 1;
+    return if Legendre($n,$p) != 1;
 
     my $w2;
     my $a = 0;
@@ -41,7 +41,8 @@ sub Cipolla {
                y => (($s{x} * $s{y} + $s{x} * $s{y})       % $p)
              )
     }
-    $r{y} ?  undef : $r{x};
+   #$r{y} ? undef : $r{x};
+    $r{y} ? return : return $r{x}; # to work around P::C gripe about returning 'undef'
 }
 
 my @tests = (
