@@ -10,7 +10,6 @@ srand 123456;
 use strict;
 use warnings;
 use feature 'say';
-my $result;
 
 # You can have as many players as you want, simply provide their names on the command line.
 
@@ -19,7 +18,7 @@ use Test::More;
 #my @players = @ARGV;
 my @players = qw(David);
 my @scores = (0) x @players;
-while( 1 ) {
+while() {
 	PLAYER: for my $i ( 0 .. $#players ) {
 		my $name = $players[$i];
 		my $score = $scores[$i];
@@ -54,4 +53,3 @@ while( 1 ) {
         exit;
 	}
 }
-
