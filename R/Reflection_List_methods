@@ -14,7 +14,7 @@ use feature 'say';
 package Nums;
 
 use overload (
-	'<=>'	=> \&compare,
+    '<=>' => \&compare,
 );
 
 sub new     { my $self = shift; bless [@_] }

@@ -11,8 +11,6 @@ use strict;
 use warnings;
 use feature 'say';
 
-# use 5.10.0;
-
 #Requires terminal that understands ANSI escape sequences: 
 
 #my $w = `tput cols` - 1;
@@ -30,55 +28,55 @@ my $burn_prob = .01;
 my @forest = map([ map((rand(1) < $tree_prob) ? 1 : 0, 1 .. $w) ], 1 .. $h);
 
 sub iterate {
-	my @new = map([ map(0, 1 .. $w) ], 1 .. $h);
-	for my $i (0 .. $h - 1) {
-	for my $j (0 .. $w - 1) {
-		$new[$i][$j] = $forest[$i][$j];
-		if ($forest[$i][$j] == 2) {
-			$new[$i][$j] = 3;
-			next;
-		} elsif ($forest[$i][$j] == 1) {
-			if (rand() < $burn_prob) {
-				$new[$i][$j] = 2;
-				next;
-			}
-			for (	[-1, -1], [-1, 0], [-1, 1],
-				[ 0, -1], 	   [ 0, 1],
-				[ 1, -1], [ 1, 0], [ 1, 1] )
-			{
-				my $y = $_->[0] + $i;
-				next if $y < 0 || $y >= $h;
-				my $x = $_->[1] + $j;
-				next if $x < 0 || $x >= $w;
-				if ($forest[$y][$x] == 2) {
-					$new[$i][$j] = 2;
-					last;
-				}
-			}
-		} elsif (rand() < $tree_prob) {
-			$new[$i][$j] = 1;
-		} elsif ($forest[$i][$j] == 3) {
-			$new[$i][$j] = 0;
-		}
-	}}
-	@forest = @new;
+    my @new = map([ map(0, 1 .. $w) ], 1 .. $h);
+    for my $i (0 .. $h - 1) {
+    for my $j (0 .. $w - 1) {
+        $new[$i][$j] = $forest[$i][$j];
+        if ($forest[$i][$j] == 2) {
+            $new[$i][$j] = 3;
+            next;
+        } elsif ($forest[$i][$j] == 1) {
+            if (rand() < $burn_prob) {
+                $new[$i][$j] = 2;
+                next;
+            }
+            for (    [-1, -1], [-1, 0], [-1, 1],
+                [ 0, -1],        [ 0, 1],
+                [ 1, -1], [ 1, 0], [ 1, 1] )
+            {
+                my $y = $_->[0] + $i;
+                next if $y < 0 || $y >= $h;
+                my $x = $_->[1] + $j;
+                next if $x < 0 || $x >= $w;
+                if ($forest[$y][$x] == 2) {
+                    $new[$i][$j] = 2;
+                    last;
+                }
+            }
+        } elsif (rand() < $tree_prob) {
+            $new[$i][$j] = 1;
+        } elsif ($forest[$i][$j] == 3) {
+            $new[$i][$j] = 0;
+        }
+    }}
+    @forest = @new;
 }
 
 sub forest {
 my($c) = @_;
-	#print $r;
-	$result .= "Generation: $c\n";
-	for (@forest) {
-		for my $i (@$_) {
-			if ($i == 0) { $result .= " "; }
-			if ($i == 1) { $result .= "*" } #"${green}*"}
-			if ($i == 2) { $result .= "&" } #"${red}&" }
-			if ($i == 3) { $result .= "@" } #"${yellow}&" }
-		}
+    #print $r;
+    $result .= "Generation: $c\n";
+    for (@forest) {
+        for my $i (@$_) {
+            if ($i == 0) { $result .= " "; }
+            if ($i == 1) { $result .= "*" } #"${green}*"}
+            if ($i == 2) { $result .= "&" } #"${red}&" }
+            if ($i == 3) { $result .= "@" } #"${yellow}&" }
+        }
         $result .= "\n";
-		#print "\033[E\033[1G";
-	}
-	iterate;
+        #print "\033[E\033[1G";
+    }
+    iterate;
 }
 
 forest($_) for 1..7;
