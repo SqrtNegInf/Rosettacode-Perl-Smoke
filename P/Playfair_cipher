@@ -6,11 +6,10 @@
 use strict;
 use warnings;
 use feature 'say';
-my $result;
 
 use Math::Cartesian::Product;
 
-# Pregenerate all forward and reverse translations.
+# Pre-generate all forward and reverse translations.
 sub playfair {
     our($key,$from) = @_;
     $from //= 'J';
