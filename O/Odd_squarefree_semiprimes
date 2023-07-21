@@ -5,8 +5,6 @@
 #n# interesting technique: "@primes" =~ 
 #n# (also used in 'Nonogram_solver', for other than just table formatting)
 
-my @res;
-
 use strict;
 use warnings;
 use feature 'say';
