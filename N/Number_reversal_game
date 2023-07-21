@@ -9,7 +9,6 @@ srand 123456;
 use strict;
 use warnings;
 use feature 'say';
-my $result;
 
 use List::Util 'shuffle';
 
