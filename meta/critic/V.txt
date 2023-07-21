@@ -1,9 +1,6 @@
 
 = V/Validate_International_Securities_Identification_Number
-Hard tabs used at line 15, column 49. See page 20 of PBP.
-Hard tabs used at line 19, column 49. See page 20 of PBP.
-Hard tabs used at line 21, column 49. See page 20 of PBP.
-Reused variable name in lexical scope: $i at line 29, column 13. Invent unique variable names.
+Reused variable name in lexical scope: $i at line 28, column 13. Invent unique variable names.
 
 = V/Vampire_number-1
 Comma used to separate statements at line 37, column 5. See pages 68,71 of PBP.
@@ -43,9 +40,6 @@ Reused variable name in lexical scope: $threshold at line 28, column 1. Invent u
 = V/Vibrating_rectangles
 I/O layer ":utf8" used at line 13, column 1. Use ":encoding(UTF-8)" to get strict validation.
 Reused variable name in lexical scope: @c at line 38, column 5. Invent unique variable names.
-
-= V/Video_display_modes
-Backtick operator used at line 10, column 24. Use IPC::Open3 instead.
 
 = V/Vigen%C3%A8re_cipher
 "map" used in void context at line 19, column 1. Use a "for" loop instead.

@@ -20,7 +20,6 @@ Loop iterator is not lexical at line 81, column 5. See page 108 of PBP.
 = M/Magic_squares_Perl
 Subroutine "generate_magic" with high complexity score (21) at line 28, column 1. Consider refactoring.
 Cascading if-elsif chain at line 31, column 5. See pages 117,118 of PBP.
-Backtick operator used at line 99, column 11. Use IPC::Open3 instead.
 
 = M/Main_step_of_GOST_28147-89
 Comma used to separate statements at line 39, column 5. See pages 68,71 of PBP.
@@ -53,9 +52,6 @@ One-argument "bless" used at line 81, column 13. See page 365 of PBP.
 Unreachable code at line 84, column 1. Consider removing it.
 Literal line breaks in a string at line 132, column 8. See pages 60,61 of PBP.
 
-= M/Matrix_chain_multiplication
-"@path" is declared but not used at line 14, column 5. Unused variables clutter code and make it harder to read.
-
 = M/Matrix_with_two_diagonals-1
 "map" used in void context at line 16, column 5. Use a "for" loop instead.
 "map" used in void context at line 30, column 5. Use a "for" loop instead.
@@ -79,10 +75,7 @@ Warnings disabled at line 30, column 5. See page 431 of PBP.
 Readline inside "for" loop at line 45, column 12. See page 211 of PBP.
 
 = M/Maze_generation
-Warnings disabled at line 8, column 1. See page 431 of PBP.
-Hard tabs used at line 30, column 21. See page 20 of PBP.
-Hard tabs used at line 45, column 32. See page 20 of PBP.
-Hard tabs used at line 47, column 16. See page 20 of PBP.
+Warnings disabled at line 10, column 1. See page 431 of PBP.
 
 = M/Maze_solving
 Warnings disabled at line 39, column 7. See page 431 of PBP.

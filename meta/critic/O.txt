@@ -1,14 +1,8 @@
 
-= O/Odd_squarefree_semiprimes
-"@res" is declared but not used at line 8, column 1. Unused variables clutter code and make it harder to read.
-
 = O/Old_Russian_measure_of_length
 Augmented assignment operator '.=' used in declaration at line 30, column 13. Use simple assignment when initializing variables.
 Match variable used at line 42, column 18. See page 82 of PBP.
 Match variable used at line 43, column 18. See page 82 of PBP.
-
-= O/One-time_pad
-"@res" is declared but not used at line 7, column 1. Unused variables clutter code and make it harder to read.
 
 = O/One-two_primes
 Warnings disabled at line 10, column 1. See page 431 of PBP.

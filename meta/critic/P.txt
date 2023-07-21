@@ -6,14 +6,8 @@ Cascading if-elsif chain at line 116, column 2. See pages 117,118 of PBP.
 = P/Padovan_n-step_number_sequences
 Loop iterator is not lexical at line 17, column 1. See page 108 of PBP.
 
-= P/Pairs_with_common_factors
-"@res" is declared but not used at line 6, column 1. Unused variables clutter code and make it harder to read.
-
 = P/Palindrome_dates-1
 Found ">" in condition for an "unless" at line 25, column 10. See page 99 of PBP.
-
-= P/Palindrome_detection
-Hard tabs used at line 64, column 16. See page 20 of PBP.
 
 = P/Pan_base_non-primes
 Found "<" in condition for an "unless" at line 19, column 18. See page 99 of PBP.
@@ -28,11 +22,6 @@ Reused variable name in lexical scope: $tnum at line 31, column 3. Invent unique
 "local" variable not initialized at line 25, column 42. See page 78 of PBP.
 Readline inside "for" loop at line 25, column 60. See page 211 of PBP.
 
-= P/Parse_an_IP_Address
-Hard tabs used at line 34, column 26. See page 20 of PBP.
-Hard tabs used at line 41, column 23. See page 20 of PBP.
-Hard tabs used at line 49, column 31. See page 20 of PBP.
-
 = P/Parsing_RPN_calculator_algorithm
 Return value of eval not tested at line 34, column 3. You can't depend upon the value of $@/$EVAL_ERROR to tell whether an eval failed.
 
@@ -43,14 +32,8 @@ Reused variable name in lexical scope: @res at line 33, column 5. Invent unique 
 Found ">=" in condition for an "unless" at line 30, column 32. See page 99 of PBP.
 Found ">=" in condition for an "unless" at line 30, column 32. See page 99 of PBP.
 
-= P/Pathological_floating_point_problems-3
-"$result" is declared but not used at line 10, column 1. Unused variables clutter code and make it harder to read.
-
 = P/Peaceful_chess_queen_armies
 I/O layer ":utf8" used at line 11, column 1. Use ":encoding(UTF-8)" to get strict validation.
-
-= P/Peano_curve
-"$result" is declared but not used at line 10, column 1. Unused variables clutter code and make it harder to read.
 
 = P/Pell_numbers
 Map blocks should have a single statement at line 47, column 1. See page 113 of PBP.
@@ -61,22 +44,13 @@ Use "<>" or "<ARGV>" or a prompting module instead of "<STDIN>" at line 40, colu
 Use "<>" or "<ARGV>" or a prompting module instead of "<STDIN>" at line 58, column 24. See pages 216,220,221 of PBP.
 
 = P/Penrose_tiling
-"$result" is declared but not used at line 11, column 1. Unused variables clutter code and make it harder to read.
-Cascading if-elsif chain at line 33, column 5. See pages 117,118 of PBP.
-
-= P/Pentagram
-"$result" is declared but not used at line 10, column 1. Unused variables clutter code and make it harder to read.
+Cascading if-elsif chain at line 32, column 5. See pages 117,118 of PBP.
 
 = P/Pentomino_tiling
 Reused variable name in lexical scope: $grid at line 67, column 3. Invent unique variable names.
 Conditional "use" statement at line 71, column 5. Use "require" to conditionally include a module.
 
 = P/Percolation_Bond_percolation
-"$result" is declared but not used at line 11, column 1. Unused variables clutter code and make it harder to read.
-Comma used to separate statements at line 49, column 5. See pages 68,71 of PBP.
-Comma used to separate statements at line 50, column 5. See pages 68,71 of PBP.
-Comma used to separate statements at line 51, column 5. See pages 68,71 of PBP.
-Comma used to separate statements at line 52, column 5. See pages 68,71 of PBP.
 Comma used to separate statements at line 53, column 5. See pages 68,71 of PBP.
 Nested named subroutine at line 73, column 5. Declaring a named sub inside another named sub does not prevent the inner sub from being global.
 Nested named subroutine at line 74, column 5. Declaring a named sub inside another named sub does not prevent the inner sub from being global.
@@ -125,9 +99,6 @@ Too many arguments at line 14, column 1. See page 182 of PBP.
 = P/Pierpont_primes
 Negative array index should be used at line 44, column 55. See page 88 of PBP.
 
-= P/Pig_the_dice_game
-"$result" is declared but not used at line 13, column 1. Unused variables clutter code and make it harder to read.
-
 = P/Pig_the_dice_game_Player
 Found ">=" in condition for an "until" at line 71, column 7. See page 99 of PBP.
 
@@ -136,5 +107,4 @@ Map blocks should have a single statement at line 18, column 10. See page 113 of
 Found ">=" in condition for an "until" at line 20, column 37. See page 99 of PBP.
 
 = P/Playfair_cipher
-"$result" is declared but not used at line 9, column 1. Unused variables clutter code and make it harder to read.
-Nested named subroutine at line 20, column 5. Declaring a named sub inside another named sub does not prevent the inner sub from being global.
+Nested named subroutine at line 19, column 5. Declaring a named sub inside another named sub does not prevent the inner sub from being global.

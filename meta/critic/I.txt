@@ -3,11 +3,6 @@
 Use "local $/ = undef" or Path::Tiny instead of joined readline at line 17, column 9. See page 213 of PBP.
 Found "ne" in condition for an "unless" at line 37, column 14. See page 99 of PBP.
 
-= I/I.Q._Puzzle
-"return" statement with explicit "undef" at line 35, column 5. See page 199 of PBP.
-"return" statement with explicit "undef" at line 38, column 13. See page 199 of PBP.
-"return" statement with explicit "undef" at line 41, column 13. See page 199 of PBP.
-
 = I/ISBN13_check_digit
 Readline inside "for" loop at line 19, column 6. See page 211 of PBP.
 

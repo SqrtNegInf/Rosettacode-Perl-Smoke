@@ -16,7 +16,6 @@ Map blocks should have a single statement at line 22, column 14. See page 113 of
 
 = C/Calendar_-_for_%22REAL%22_programmers
 Literal line breaks in a string at line 18, column 12. See pages 60,61 of PBP.
-Backtick operator used at line 73, column 1. Use IPC::Open3 instead.
 
 = C/Call_a_foreign-language_function
 Literal line breaks in a string at line 18, column 17. See pages 60,61 of PBP.
@@ -37,12 +36,6 @@ Loop iterator is not lexical at line 29, column 5. See page 108 of PBP.
 
 = C/Casting_out_nines
 Found ">=" in condition for an "unless" at line 27, column 7. See page 99 of PBP.
-
-= C/Catalan_numbers-2
-"$result" is declared but not used at line 9, column 1. Unused variables clutter code and make it harder to read.
-
-= C/Catalan_numbers-3
-"$result" is declared but not used at line 9, column 1. Unused variables clutter code and make it harder to read.
 
 = C/Change_e_letters_to_i_in_words
 "@res" is declared but not used at line 6, column 1. Unused variables clutter code and make it harder to read.
@@ -69,9 +62,6 @@ Return value of eval not tested at line 89, column 9. You can't depend upon the 
 = C/Chat_server-2
 Cascading if-elsif chain at line 59, column 5. See pages 117,118 of PBP.
 
-= C/Chebyshev_coefficients
-Backtick operator used at line 55, column 11. Use IPC::Open3 instead.
-
 = C/Check_input_device_is_a_terminal
 Use IO::Interactive::is_interactive() instead of -t at line 13, column 5. See page 218 of PBP.
 
@@ -89,14 +79,11 @@ I/O layer ":utf8" used at line 11, column 1. Use ":encoding(UTF-8)" to get stric
 
 = C/Cipolla%27s_algorithm-1
 Found "!=" in condition for an "unless" at line 31, column 15. See page 99 of PBP.
-"return" statement with explicit "undef" at line 40, column 5. See page 199 of PBP.
 Nested named subroutine at line 50, column 5. Declaring a named sub inside another named sub does not prevent the inner sub from being global.
 Reused variable name in lexical scope: $a at line 51, column 9. Invent unique variable names.
-"return" statement with explicit "undef" at line 64, column 5. See page 199 of PBP.
 
 = C/Cipolla%27s_algorithm-2
 Found "!=" in condition for an "unless" at line 18, column 15. See page 99 of PBP.
-"return" statement with explicit "undef" at line 27, column 5. See page 199 of PBP.
 Found "<" in condition for an "until" at line 31, column 10. See page 99 of PBP.
 
 = C/Circular_primes
@@ -106,13 +93,6 @@ Found ">=" in condition for an "unless" at line 26, column 22. See page 99 of PB
 = C/Closest-pair_problem
 Comma used to separate statements at line 39, column 5. See pages 68,71 of PBP.
 Comma used to separate statements at line 71, column 5. See pages 68,71 of PBP.
-
-= C/Color_quantization
-Backtick operator used at line 18, column 15. Use IPC::Open3 instead.
-Backtick operator used at line 19, column 18. Use IPC::Open3 instead.
-
-= C/Color_wheel
-"$result" is declared but not used at line 10, column 1. Unused variables clutter code and make it harder to read.
 
 = C/Colorful_numbers
 "map" used in void context at line 39, column 1. Use a "for" loop instead.
@@ -172,14 +152,8 @@ Comma used to separate statements at line 50, column 18. See pages 68,71 of PBP.
 = C/Composite_numbers_k_with_no_single_digit_factors_whose_factors_are_all_substrings_of_k
 "map" used in void context at line 16, column 5. Use a "for" loop instead.
 
-= C/Compound_data_type
-"$result" is declared but not used at line 10, column 1. Unused variables clutter code and make it harder to read.
-
 = C/Concatenate_two_primes_is_also_prime
 Map blocks should have a single statement at line 15, column 3. See page 113 of PBP.
-
-= C/Concurrent_computing-1
-"$result" is declared but not used at line 13, column 1. Unused variables clutter code and make it harder to read.
 
 = C/Conditional_structures
 Warnings disabled at line 9, column 1. See page 431 of PBP.
@@ -209,16 +183,8 @@ Readline inside "for" loop at line 29, column 6. See page 211 of PBP.
 Subroutine name is a homonym for builtin function print at line 16, column 1. See page 177 of PBP.
 
 = C/Conway%27s_Game_of_Life-1
-"$result" is declared but not used at line 12, column 1. Unused variables clutter code and make it harder to read.
 Comma used to separate statements at line 23, column 15. See pages 68,71 of PBP.
-Warnings disabled at line 80, column 1. See page 431 of PBP.
-
-= C/Conway%27s_Game_of_Life-2
-"$result" is declared but not used at line 10, column 1. Unused variables clutter code and make it harder to read.
-Backtick operator used at line 14, column 9. Use IPC::Open3 instead.
-Backtick operator used at line 15, column 9. Use IPC::Open3 instead.
-Hard tabs used at line 24, column 8. See page 20 of PBP.
-Hard tabs used at line 25, column 13. See page 20 of PBP.
+Warnings disabled at line 79, column 1. See page 431 of PBP.
 
 = C/Coprime_triplets
 Mixed high and low-precedence booleans at line 22, column 21. See page 70 of PBP.
@@ -232,9 +198,6 @@ Warnings disabled at line 10, column 1. See page 431 of PBP.
 
 = C/Cousin_primes
 "map" used in void context at line 14, column 1. Use a "for" loop instead.
-
-= C/Create_a_file
-Backtick operator used at line 38, column 1. Use IPC::Open3 instead.
 
 = C/Create_an_object_Native_demonstration
 Return value of eval not tested at line 83, column 1. You can't depend upon the value of $@/$EVAL_ERROR to tell whether an eval failed.

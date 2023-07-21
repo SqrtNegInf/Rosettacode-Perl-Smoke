@@ -22,8 +22,6 @@ Mismatched operator at line 27, column 17. Numeric/string operators and operands
 
 = F/File_size_distribution
 Reused variable name in lexical scope: $max at line 31, column 5. Invent unique variable names.
-Backtick operator used at line 83, column 11. Use IPC::Open3 instead.
-Backtick operator used at line 83, column 43. Use IPC::Open3 instead.
 
 = F/Find_Chess960_starting_position_identifier
 Split long regexps into smaller qr// chunks at line 47, column 15. See page 261 of PBP.
@@ -57,12 +55,6 @@ Mixed high and low-precedence booleans at line 13, column 1. See page 70 of PBP.
 = F/Find_words_which_contains_most_consonants
 Mixed high and low-precedence booleans at line 16, column 1. See page 70 of PBP.
 
-= F/Find_words_whose_first_and_last_three_letters_are_equal
-"@words" is declared but not used at line 16, column 1. Unused variables clutter code and make it harder to read.
-
-= F/Find_words_with_alternating_vowels_and_consonants-2
-Backtick operator used at line 16, column 42. Use IPC::Open3 instead.
-
 = F/Finite_state_machine
 Reused variable name in lexical scope: $action at line 17, column 3. Invent unique variable names.
 
@@ -79,9 +71,6 @@ Cascading if-elsif chain at line 41, column 9. See pages 117,118 of PBP.
 "map" used in void context at line 43, column 1. Use a "for" loop instead.
 
 = F/FizzBuzz
-"@res2" is declared but not used at line 7, column 1. Unused variables clutter code and make it harder to read.
-"@res3" is declared but not used at line 7, column 1. Unused variables clutter code and make it harder to read.
-"@res5" is declared but not used at line 7, column 1. Unused variables clutter code and make it harder to read.
 Warnings disabled at line 11, column 1. See page 431 of PBP.
 Map blocks should have a single statement at line 37, column 16. See page 113 of PBP.
 Nested named subroutine at line 38, column 9. Declaring a named sub inside another named sub does not prevent the inner sub from being global.
@@ -96,9 +85,7 @@ Map blocks should have a single statement at line 16, column 2. See page 113 of 
 "map" used in void context at line 16, column 2. Use a "for" loop instead.
 
 = F/Forest_fire
-Cascading if-elsif chain at line 37, column 3. See pages 117,118 of PBP.
-Hard tabs used at line 45, column 9. See page 20 of PBP.
-Hard tabs used at line 46, column 14. See page 20 of PBP.
+Cascading if-elsif chain at line 35, column 9. See pages 117,118 of PBP.
 
 = F/Forest_fire-2
 Mismatched operator at line 16, column 27. Numeric/string operators and operands should match.

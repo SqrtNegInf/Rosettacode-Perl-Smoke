@@ -13,14 +13,12 @@ Subroutine "is_attacked" with high complexity score (36) at line 19, column 1. C
 I/O layer ":utf8" used at line 15, column 1. Use ":encoding(UTF-8)" to get strict validation.
 
 = N/Natural_sorting
-"$result" is declared but not used at line 8, column 1. Unused variables clutter code and make it harder to read.
-Warnings disabled at line 11, column 1. See page 431 of PBP.
-Map blocks should have a single statement at line 18, column 17. See page 113 of PBP.
-Sort blocks should have a single statement at line 25, column 28. See page 149 of PBP.
+Map blocks should have a single statement at line 17, column 17. See page 113 of PBP.
+Sort blocks should have a single statement at line 24, column 28. See page 149 of PBP.
+Warnings disabled at line 59, column 5. See page 431 of PBP.
 
 = N/Nautical_bell-1
-"$result" is declared but not used at line 11, column 1. Unused variables clutter code and make it harder to read.
-I/O layer ":utf8" used at line 14, column 1. Use ":encoding(UTF-8)" to get strict validation.
+I/O layer ":utf8" used at line 13, column 1. Use ":encoding(UTF-8)" to get strict validation.
 
 = N/Nautical_bell-2
 I/O layer ":utf8" used at line 13, column 1. Use ":encoding(UTF-8)" to get strict validation.
@@ -83,9 +81,6 @@ Warnings disabled at line 10, column 1. See page 431 of PBP.
 = N/Number_Triplets_Game
 Comma used to separate statements at line 70, column 3. See pages 68,71 of PBP.
 Comma used to separate statements at line 73, column 3. See pages 68,71 of PBP.
-
-= N/Number_reversal_game
-"$result" is declared but not used at line 12, column 1. Unused variables clutter code and make it harder to read.
 
 = N/Numbers_divisible_by_their_individual_digits,_but_not_by_the_product_of_their_digits.
 Mixed high and low-precedence booleans at line 13, column 9. See page 70 of PBP.

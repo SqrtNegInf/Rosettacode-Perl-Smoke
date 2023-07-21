@@ -43,7 +43,6 @@ Mixed high and low-precedence booleans at line 23, column 3. See page 70 of PBP.
 Map blocks should have a single statement at line 36, column 5. See page 113 of PBP.
 
 = L/Launch_rocket_with_countdown_and_acceleration_in_stdout
-Backtick operator used at line 13, column 33. Use IPC::Open3 instead.
 Single-quote used as quote-like operator delimiter at line 22, column 10. Using quotes as delimiters for quote-like operators obfuscates code.
 Single-quote used as quote-like operator delimiter at line 22, column 22. Using quotes as delimiters for quote-like operators obfuscates code.
 Single-quote used as quote-like operator delimiter at line 22, column 35. Using quotes as delimiters for quote-like operators obfuscates code.

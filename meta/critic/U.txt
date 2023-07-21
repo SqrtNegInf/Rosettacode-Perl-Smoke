@@ -10,9 +10,5 @@ Map blocks should have a single statement at line 18, column 1. See page 113 of 
 "map" used in void context at line 23, column 2. Use a "for" loop instead.
 
 = U/Ulam_spiral_for_primes
-"$result" is declared but not used at line 10, column 1. Unused variables clutter code and make it harder to read.
-Reused variable name in lexical scope: $start at line 20, column 3. Invent unique variable names.
-Reused variable name in lexical scope: $n at line 20, column 3. Invent unique variable names.
-
-= U/Ultra_useful_primes
-"@res" is declared but not used at line 7, column 1. Unused variables clutter code and make it harder to read.
+Reused variable name in lexical scope: $start at line 19, column 3. Invent unique variable names.
+Reused variable name in lexical scope: $n at line 19, column 3. Invent unique variable names.

@@ -1,7 +1,4 @@
 
-= D/DNS_query
-Backtick operator used at line 20, column 15. Use IPC::Open3 instead.
-
 = D/Dating_agency-1
 Readline inside "for" loop at line 23, column 16. See page 211 of PBP.
 
@@ -29,7 +26,6 @@ Reused variable name in lexical scope: $lv at line 81, column 11. Invent unique 
 
 = D/Define_a_primitive_data_type
 Warnings disabled at line 18, column 5. See page 431 of PBP.
-"return" statement with explicit "undef" at line 22, column 5. See page 199 of PBP.
 
 = D/Delegates
 One-argument "bless" used at line 14, column 4. See page 365 of PBP.
@@ -41,9 +37,6 @@ Split long regexps into smaller qr// chunks at line 16, column 3. See page 261 o
 = D/Detect_division_by_zero
 "local" variable not initialized at line 14, column 3. See page 78 of PBP.
 
-= D/Determinant_and_permanent
-"return" statement with explicit "undef" at line 19, column 2. See page 199 of PBP.
-
 = D/Determine_if_a_string_has_all_the_same_characters
 I/O layer ":utf8" used at line 10, column 1. Use ":encoding(UTF-8)" to get strict validation.
 
@@ -54,11 +47,7 @@ Found ">" in condition for an "unless" at line 40, column 18. See page 99 of PBP
 = D/Determine_if_a_string_is_collapsible
 I/O layer ":utf8" used at line 9, column 1. Use ":encoding(UTF-8)" to get strict validation.
 
-= D/Determine_if_a_string_is_numeric
-"return" statement with explicit "undef" at line 39, column 9. See page 199 of PBP.
-
 = D/Determine_if_two_triangles_overlap
-"return" statement with explicit "undef" at line 27, column 5. See page 199 of PBP.
 Nested named subroutine at line 35, column 5. Declaring a named sub inside another named sub does not prevent the inner sub from being global.
 Nested named subroutine at line 36, column 5. Declaring a named sub inside another named sub does not prevent the inner sub from being global.
 
@@ -126,7 +115,6 @@ Too many arguments at line 52, column 1. See page 182 of PBP.
 
 = D/Draw_a_clock
 I/O layer ":utf8" used at line 11, column 1. Use ":encoding(UTF-8)" to get strict validation.
-Backtick operator used at line 14, column 34. Use IPC::Open3 instead.
 yada operator (...) used at line 18, column 22. The yada operator is a placeholder for code you have not yet written.
 
 = D/Draw_a_rotating_cube

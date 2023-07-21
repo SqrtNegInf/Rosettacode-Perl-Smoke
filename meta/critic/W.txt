@@ -6,10 +6,8 @@ Found "!=" in condition for an "unless" at line 19, column 10. See page 99 of PB
 Glob written as <...> at line 21, column 25. See page 167 of PBP.
 
 = W/Walk_a_directory_Recursively
-Backtick operator used at line 24, column 9. Use IPC::Open3 instead.
 Reused variable name in lexical scope: $dir at line 28, column 5. Invent unique variable names.
 Two-argument "open" used at line 32, column 5. See page 207 of PBP.
-Backtick operator used at line 56, column 28. Use IPC::Open3 instead.
 
 = W/War_card_game
 Map blocks should have a single statement at line 19, column 3. See page 113 of PBP.

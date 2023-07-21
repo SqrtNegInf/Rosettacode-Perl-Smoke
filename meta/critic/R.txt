@@ -1,18 +1,15 @@
 
 = R/RCRPG
-Use "<>" or "<ARGV>" or a prompting module instead of "<STDIN>" at line 150, column 10. See pages 216,220,221 of PBP.
-Hard tabs used at line 214, column 20. See page 20 of PBP.
+Use "<>" or "<ARGV>" or a prompting module instead of "<STDIN>" at line 150, column 13. See pages 216,220,221 of PBP.
 Subroutine name is a homonym for builtin function link at line 356, column 1. See page 177 of PBP.
-Hard tabs used at line 648, column 26. See page 20 of PBP.
 
 = R/RPG_Attributes_Generator
 Found ">=" in condition for an "until" at line 28, column 3. See page 99 of PBP.
 Found ">=" in condition for an "until" at line 28, column 3. See page 99 of PBP.
 
 = R/RSA_code
-"$result" is declared but not used at line 9, column 1. Unused variables clutter code and make it harder to read.
-Reused variable name in lexical scope: $n at line 37, column 9. Invent unique variable names.
-Reused variable name in lexical scope: $n at line 48, column 5. Invent unique variable names.
+Reused variable name in lexical scope: $n at line 36, column 9. Invent unique variable names.
+Reused variable name in lexical scope: $n at line 47, column 5. Invent unique variable names.
 
 = R/Ramanujan_primes
 Found ">" in condition for an "until" at line 18, column 11. See page 99 of PBP.
@@ -86,13 +83,9 @@ Only use a capturing group if you plan to use the captured value at line 49, col
 = R/Reduced_row_echelon_form
 Reused variable name in lexical scope: $lv at line 35, column 11. Invent unique variable names.
 
-= R/Reflection_Get_source
-Backtick operator used at line 16, column 11. Use IPC::Open3 instead.
-
 = R/Reflection_List_methods
 Stricture disabled at line 10, column 1. See page 429 of PBP.
 Don't turn off strict for large blocks of code at line 10, column 1. See page 433 of PBP.
-Hard tabs used at line 17, column 7. See page 20 of PBP.
 One-argument "bless" used at line 20, column 33. See page 365 of PBP.
 
 = R/Remote_agent_Agent_logic
@@ -118,9 +111,6 @@ Use IO::Interactive::is_interactive() instead of -t at line 115, column 8. See p
 = R/Remove_vowels_from_a_string
 I/O layer ":utf8" used at line 12, column 1. Use ":encoding(UTF-8)" to get strict validation.
 
-= R/Rename_a_file
-"$result" is declared but not used at line 8, column 1. Unused variables clutter code and make it harder to read.
-
 = R/Rep-string
 Readline inside "for" loop at line 12, column 10. See page 211 of PBP.
 
@@ -134,11 +124,6 @@ AUTOLOAD method declared at line 21, column 1. See page 393 of PBP.
 
 = R/Reverse_a_string
 I/O layer ":utf8" used at line 13, column 1. Use ":encoding(UTF-8)" to get strict validation.
-
-= R/Reverse_file_lines
-Backtick operator used at line 12, column 13. Use IPC::Open3 instead.
-Backtick operator used at line 15, column 45. Use IPC::Open3 instead.
-Backtick operator used at line 18, column 23. Use IPC::Open3 instead.
 
 = R/Rock-paper-scissors
 Augmented assignment operator '.=' used in declaration at line 103, column 20. Use simple assignment when initializing variables.
@@ -167,7 +152,6 @@ Reused variable name in lexical scope: $url at line 29, column 5. Invent unique 
 Found ">" in condition for an "unless" at line 52, column 10. See page 99 of PBP.
 
 = R/Rosetta_Code_Tasks_without_examples
-Backtick operator used at line 25, column 13. Use IPC::Open3 instead.
 Reused variable name in lexical scope: $html at line 30, column 5. Invent unique variable names.
 
 = R/Rot-13

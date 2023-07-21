@@ -4,7 +4,6 @@ Found ">" in condition for an "until" at line 20, column 95. See page 99 of PBP.
 Found ">" in condition for an "until" at line 21, column 95. See page 99 of PBP.
 
 = J/Jaro-Winkler_Distance
-Backtick operator used at line 54, column 25. Use IPC::Open3 instead.
 Readline inside "for" loop at line 56, column 15. See page 211 of PBP.
 
 = J/Jensen%27s_Device
@@ -12,9 +11,6 @@ Reused variable name in lexical scope: $i at line 13, column 5. Invent unique va
 
 = J/Jewels_and_Stones
 Warnings disabled at line 7, column 1. See page 431 of PBP.
-
-= J/Juggler_sequence
-Backtick operator used at line 17, column 13. Use IPC::Open3 instead.
 
 = J/Jump_anywhere
 Unreachable code at line 25, column 5. Consider removing it.
