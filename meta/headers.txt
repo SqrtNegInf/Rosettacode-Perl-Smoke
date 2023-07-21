@@ -7585,7 +7585,7 @@ File: P/Penney%27s_game
 
 File: P/Penrose_tiling
 #!/usr/local/bin/perl
-#u# http://rosettacode.org/wiki/Pwwrose_tiling
+#u# http://rosettacode.org/wiki/Penrose_tiling
 #c# 2018-11-24 >RC
 #t# graphical
 #p# OK
