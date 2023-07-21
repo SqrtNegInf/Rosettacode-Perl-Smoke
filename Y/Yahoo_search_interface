@@ -7,8 +7,6 @@
 
 use v5.36.0;
 
-my $result;
-
 package YahooSearch;
  
 use Encode;
@@ -78,7 +76,3 @@ sub next_page
 
 my $ys = YahooSearch->new();
 print $ys->results();
-
-#use Test::More;
-#is ($result, $ref);
-#done_testing;
