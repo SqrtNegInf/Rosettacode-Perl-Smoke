@@ -99,7 +99,7 @@ sub find {
             return $key, @parts[ 1, 0, 2, 3]
         }
     }
-    return undef
+    return # undef     # DH an explicit 'return' is required here (but not the 'undef')
 }
 
 say my $result = join "\n", @res;
