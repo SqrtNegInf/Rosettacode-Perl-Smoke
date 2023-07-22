@@ -3,6 +3,7 @@
 #c# 2021-06-xx NOT ON RC
 #p# OK
 #n# debatable if worth putting on RC...
+#n# P::C says: "require" statement with library name as string at line 11, column 1. Use a bareword instead.
 
 use strict;
 use warnings;
