@@ -17,7 +17,7 @@ use List::AllUtils <pairwise pairs>;
 use utf8;
 binmode STDOUT, ':utf8';
 
-open my $fh, '>run/galton_box.dat' || die;
+open my $fh, '>', 'run/galton_box.dat' || die;
 binmode $fh, ':utf8';
 
 my $peg_lines  = shift || 13;
