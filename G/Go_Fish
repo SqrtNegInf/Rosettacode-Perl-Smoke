@@ -45,7 +45,7 @@ sub human
   do
     {
     print "You have $have, enter request: ";
-    ($pick) = lc(<STDIN>) =~ /$pat/g;
+    ($pick) = lc(<>) =~ /$pat/g;
     } until $pick and $have =~ /$pick/;
   return $pick;
   }
