@@ -5,10 +5,6 @@ Only use a capturing group if you plan to use the captured value at line 17, col
 Negative array index should be used at line 41, column 26. See page 88 of PBP.
 Negative array index should be used at line 46, column 26. See page 88 of PBP.
 
-= S/SEND_+_MORE_=_MONEY-2
-Code structure is deeply nested at line 28, column 21. Consider refactoring.
-Code structure is deeply nested at line 32, column 25. Consider refactoring.
-
 = S/SHA-256
 Return value of eval not tested at line 85, column 23. You can't depend upon the value of $@/$EVAL_ERROR to tell whether an eval failed.
 "map" used in void context at line 136, column 9. Use a "for" loop instead.

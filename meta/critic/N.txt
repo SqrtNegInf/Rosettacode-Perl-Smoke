@@ -48,11 +48,7 @@ Mismatched operator at line 20, column 9. Numeric/string operators and operands 
 = N/Non-transitive_dice
 Reused variable name in lexical scope: @res at line 15, column 5. Invent unique variable names.
 Reused variable name in lexical scope: @res at line 71, column 5. Invent unique variable names.
-Code structure is deeply nested at line 80, column 25. Consider refactoring.
 Reused variable name in lexical scope: @res at line 100, column 5. Invent unique variable names.
-Code structure is deeply nested at line 108, column 25. Consider refactoring.
-Code structure is deeply nested at line 110, column 29. Consider refactoring.
-Code structure is deeply nested at line 112, column 33. Consider refactoring.
 Reused variable name in lexical scope: $line at line 152, column 9. Invent unique variable names.
 
 = N/Nonoblock

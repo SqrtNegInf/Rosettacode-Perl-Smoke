@@ -35,6 +35,7 @@ my $exclude = join '|',
     'Too many arg',
     'Mixed high and low',
     'homonym',
+    'deeply nested',
 ;
 
 for my $file (grep { ! /\.(\d)$/ } @ARGV) {             # skip alternate versions
