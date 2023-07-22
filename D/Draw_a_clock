@@ -15,7 +15,7 @@ my ($rows, $cols) = split /\s+/, `stty size`;
 my $x = int($rows / 2 - 1);
 my $y = int($cols / 2 - 16);
  
-my @chars = map {[ /(...)/g ]}
+my @chars = map {[ /(...)/g ]}                      # P::C gripes about 'yada', but it is confused...
             ("┌─┐  ╷╶─┐╶─┐╷ ╷┌─╴┌─╴╶─┐┌─┐┌─┐   ",
              "│ │  │┌─┘╶─┤└─┤└─┐├─┐  │├─┤└─┤ : ",
              "└─┘  ╵└─╴╶─┘  ╵╶─┘└─┘  ╵└─┘╶─┘   ");
