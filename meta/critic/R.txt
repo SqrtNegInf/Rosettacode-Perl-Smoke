@@ -1,6 +1,5 @@
 
 = R/RCRPG
-Use "<>" or "<ARGV>" or a prompting module instead of "<STDIN>" at line 150, column 13. See pages 216,220,221 of PBP.
 Subroutine name is a homonym for builtin function link at line 356, column 1. See page 177 of PBP.
 
 = R/RPG_Attributes_Generator

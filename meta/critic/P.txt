@@ -35,10 +35,6 @@ I/O layer ":utf8" used at line 11, column 1. Use ":encoding(UTF-8)" to get stric
 Map blocks should have a single statement at line 47, column 1. See page 113 of PBP.
 "map" used in void context at line 47, column 1. Use a "for" loop instead.
 
-= P/Penney%27s_game
-Use "<>" or "<ARGV>" or a prompting module instead of "<STDIN>" at line 40, column 19. See pages 216,220,221 of PBP.
-Use "<>" or "<ARGV>" or a prompting module instead of "<STDIN>" at line 58, column 24. See pages 216,220,221 of PBP.
-
 = P/Penrose_tiling
 Cascading if-elsif chain at line 32, column 5. See pages 117,118 of PBP.
 
