@@ -34,9 +34,6 @@ Capture variable used outside conditional at line 21, column 26. See page 253 of
 Variable declared in conditional statement at line 29, column 5. Declare variables outside of the condition.
 Capture variable used outside conditional at line 29, column 26. See page 253 of PBP.
 
-= B/Bitmap_Flood_fill
-Too many arguments at line 25, column 1. See page 182 of PBP.
-
 = B/Brace_expansion
 Map blocks should have a single statement at line 40, column 25. See page 113 of PBP.
 Map blocks should have a single statement at line 55, column 21. See page 113 of PBP.

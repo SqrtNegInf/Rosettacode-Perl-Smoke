@@ -84,9 +84,6 @@ Mismatched operator at line 14, column 46. Numeric/string operators and operands
 = P/Pernicious_numbers
 Map blocks should have a single statement at line 40, column 12. See page 113 of PBP.
 
-= P/Pi-2
-Too many arguments at line 14, column 1. See page 182 of PBP.
-
 = P/Pierpont_primes
 Negative array index should be used at line 44, column 55. See page 88 of PBP.
 

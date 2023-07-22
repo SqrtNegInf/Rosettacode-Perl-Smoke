@@ -36,7 +36,6 @@ Found ">" in condition for an "unless" at line 25, column 18. See page 99 of PBP
 = G/Go_Fish
 Map blocks should have a single statement at line 16, column 29. See page 113 of PBP.
 Use "<>" or "<ARGV>" or a prompting module instead of "<STDIN>" at line 48, column 18. See pages 216,220,221 of PBP.
-Too many arguments at line 53, column 1. See page 182 of PBP.
 Reused variable name in lexical scope: $you at line 55, column 3. Invent unique variable names.
 Reused variable name in lexical scope: $me at line 55, column 3. Invent unique variable names.
 Reused variable name in lexical scope: $pick at line 71, column 9. Invent unique variable names.

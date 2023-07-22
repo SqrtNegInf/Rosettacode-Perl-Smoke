@@ -74,8 +74,6 @@ Mismatched operator at line 14, column 28. Numeric/string operators and operands
 
 = S/Sierpinski_triangle_Graphical
 Reused variable name in lexical scope: $side at line 16, column 18. Invent unique variable names.
-Too many arguments at line 18, column 1. See page 182 of PBP.
-Too many arguments at line 29, column 1. See page 182 of PBP.
 Reused variable name in lexical scope: $side at line 34, column 5. Invent unique variable names.
 Reused variable name in lexical scope: $height at line 35, column 5. Invent unique variable names.
 

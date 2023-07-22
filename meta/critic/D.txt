@@ -102,9 +102,6 @@ Found ">" in condition for an "unless" at line 17, column 9. See page 99 of PBP.
 Return value of eval not tested at line 31, column 1. You can't depend upon the value of $@/$EVAL_ERROR to tell whether an eval failed.
 Return value of eval not tested at line 51, column 1. You can't depend upon the value of $@/$EVAL_ERROR to tell whether an eval failed.
 
-= D/Dominoes-2
-Too many arguments at line 52, column 1. See page 182 of PBP.
-
 = D/Draw_a_clock
 I/O layer ":utf8" used at line 11, column 1. Use ":encoding(UTF-8)" to get strict validation.
 yada operator (...) used at line 18, column 22. The yada operator is a placeholder for code you have not yet written.

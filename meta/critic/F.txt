@@ -29,19 +29,11 @@ Capture variable used outside conditional at line 17, column 12. See page 253 of
 = F/Find_first_and_last_set_bit_of_a_long_integer
 Warnings disabled at line 36, column 3. See page 431 of PBP.
 
-= F/Find_if_a_point_is_within_a_triangle
-Too many arguments at line 17, column 1. See page 182 of PBP.
-Too many arguments at line 22, column 1. See page 182 of PBP.
-Too many arguments at line 30, column 1. See page 182 of PBP.
-Too many arguments at line 39, column 1. See page 182 of PBP.
-Too many arguments at line 53, column 1. See page 182 of PBP.
-
 = F/Find_limit_of_recursion
 Warnings disabled at line 8, column 1. See page 431 of PBP.
 
 = F/Find_the_intersection_of_two_lines
 Warnings disabled at line 8, column 1. See page 431 of PBP.
-Too many arguments at line 15, column 1. See page 182 of PBP.
 
 = F/Find_the_missing_permutation-2
 Comma used to separate statements at line 21, column 15. See pages 68,71 of PBP.
