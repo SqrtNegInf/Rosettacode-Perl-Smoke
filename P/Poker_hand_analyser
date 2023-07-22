@@ -82,7 +82,7 @@ package Hand {
         my $sequence = join ' ', sort { $a <=> $b } @_;
         return 1       if index('2 3 4 5 6 7 8 9 10 11 12 13 14', $sequence) != -1;
         return 'wheel' if index('2 3 4 5 14 6 7 8 9 10 11 12 13', $sequence) ==  0;
-        return undef;
+       #return undef;
     }
 
     sub get_high {
