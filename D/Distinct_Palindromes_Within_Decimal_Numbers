@@ -2,7 +2,7 @@
 #u# http://rosettacode.org/wiki/Distinct_Palindromes_Within_Decimal_Numbers
 #c# 2021-04-15 <RC
 #p# OK
-#n# skipping entry '100' as the sort output switche between '00 0 1' and '0 00 1'
+#n# skipping entry '100' as the sort output switches between '00 0 1' and '0 00 1'
 
 my @res;
 
@@ -26,9 +26,9 @@ for ( 100 .. 125 ) {
     =~ /\d+/g;
 
 shift @res;
-my $result = join "\n", @res;
+say my $result = join "\n", @res;
 
-# 100 => 00 0 1
+#100 => 00 0 1
 my $ref = <<'EOD';
 101 => 0 1 101
 102 => 0 1 2
