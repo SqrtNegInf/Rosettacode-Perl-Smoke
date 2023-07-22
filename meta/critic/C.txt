@@ -46,9 +46,6 @@ Use IO::Interactive::is_interactive() instead of -t at line 13, column 5. See pa
 = C/Checkpoint_synchronization
 "select" used to emulate "sleep" at line 18, column 5. See page 168 of PBP.
 
-= C/Checksumcolor
-Two-argument "open" used at line 13, column 1. See page 207 of PBP.
-
 = C/Cipolla%27s_algorithm-1
 Found "!=" in condition for an "unless" at line 31, column 15. See page 99 of PBP.
 Nested named subroutine at line 50, column 5. Declaring a named sub inside another named sub does not prevent the inner sub from being global.
