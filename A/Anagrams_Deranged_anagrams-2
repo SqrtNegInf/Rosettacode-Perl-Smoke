@@ -2,6 +2,7 @@
 #u# http://rosettacode.org/wiki/Anagrams/Deranged_anagrams
 #c# 2020-11-06 <RC, 2023-04-02 >RC
 #p# OK
+#n# rare case where P::C warning of 'Readline inside for loop' is accurate
 
 my @res;
 
