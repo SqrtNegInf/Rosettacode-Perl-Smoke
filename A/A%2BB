@@ -2,6 +2,7 @@
 #u# http://rosettacode.org/wiki/A%2BB
 #c# 2018-07-05 <RC
 #p# OK
+#n# rare case where P::C warning of 'Readline inside for loop' is accurate
 
 use strict;
 use warnings;
