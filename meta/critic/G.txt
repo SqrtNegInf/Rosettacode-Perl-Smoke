@@ -1,8 +1,6 @@
 
 = G/Galton_box_animation
-I/O layer ":utf8" used at line 18, column 1. Use ":encoding(UTF-8)" to get strict validation.
 Two-argument "open" used at line 20, column 1. See page 207 of PBP.
-I/O layer ":utf8" used at line 21, column 1. Use ":encoding(UTF-8)" to get strict validation.
 Reused variable name in lexical scope: @stats at line 73, column 5. Invent unique variable names.
 Nested named subroutine at line 79, column 9. Declaring a named sub inside another named sub does not prevent the inner sub from being global.
 Nested named subroutine at line 103, column 9. Declaring a named sub inside another named sub does not prevent the inner sub from being global.

@@ -30,14 +30,7 @@ Warnings disabled at line 8, column 1. See page 431 of PBP.
 Capture variable used outside conditional at line 14, column 53. See page 253 of PBP.
 Capture variable used outside conditional at line 14, column 57. See page 253 of PBP.
 
-= C/Character_codes-1
-I/O layer ":utf8" used at line 11, column 1. Use ":encoding(UTF-8)" to get strict validation.
-
-= C/Character_codes-2
-I/O layer ":utf8" used at line 11, column 1. Use ":encoding(UTF-8)" to get strict validation.
-
 = C/Character_codes-3
-I/O layer ":utf8" used at line 11, column 1. Use ":encoding(UTF-8)" to get strict validation.
 Capture variable used outside conditional at line 17, column 30. See page 253 of PBP.
 
 = C/Chat_server
@@ -55,9 +48,6 @@ Use IO::Interactive::is_interactive() instead of -t at line 13, column 5. See pa
 
 = C/Checksumcolor
 Two-argument "open" used at line 13, column 1. See page 207 of PBP.
-
-= C/Chinese_zodiac
-I/O layer ":utf8" used at line 11, column 1. Use ":encoding(UTF-8)" to get strict validation.
 
 = C/Cipolla%27s_algorithm-1
 Found "!=" in condition for an "unless" at line 31, column 15. See page 99 of PBP.
@@ -89,7 +79,7 @@ Warnings disabled at line 43, column 17. See page 431 of PBP.
 "local" variable not initialized at line 23, column 4. See page 78 of PBP.
 
 = C/Compiler_Simple_file_inclusion_pre_processor
-"require" statement with library name as string at line 11, column 1. Use a bareword instead.
+"require" statement with library name as string at line 12, column 1. Use a bareword instead.
 
 = C/Compiler_Verifying_Syntax
 Subroutine "expr" with high complexity score (21) at line 20, column 1. Consider refactoring.
@@ -136,9 +126,6 @@ Map blocks should have a single statement at line 15, column 3. See page 113 of 
 Warnings disabled at line 9, column 1. See page 431 of PBP.
 yada operator (...) used at line 15, column 5. The yada operator is a placeholder for code you have not yet written.
 Warnings disabled at line 56, column 1. See page 431 of PBP.
-
-= C/Conjugate_a_Latin_verb
-I/O layer ":utf8" used at line 14, column 1. Use ":encoding(UTF-8)" to get strict validation.
 
 = C/Consecutive_Primes_With_Ascending_Or_Descending_Differences
 Map blocks should have a single statement at line 19, column 17. See page 113 of PBP.

@@ -3,12 +3,6 @@
 "map" used in void context at line 45, column 1. Use a "for" loop instead.
 "map" used in void context at line 47, column 12. Use a "for" loop instead.
 
-= F/Factors_of_a_Mersenne_number-1
-I/O layer ":utf8" used at line 12, column 1. Use ":encoding(UTF-8)" to get strict validation.
-
-= F/Factors_of_a_Mersenne_number-2
-I/O layer ":utf8" used at line 12, column 1. Use ":encoding(UTF-8)" to get strict validation.
-
 = F/Factors_of_an_integer-2
 Comma used to separate statements at line 20, column 3. See pages 68,71 of PBP.
 

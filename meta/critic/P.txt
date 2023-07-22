@@ -28,9 +28,6 @@ Reused variable name in lexical scope: @res at line 33, column 5. Invent unique 
 Found ">=" in condition for an "unless" at line 30, column 32. See page 99 of PBP.
 Found ">=" in condition for an "unless" at line 30, column 32. See page 99 of PBP.
 
-= P/Peaceful_chess_queen_armies
-I/O layer ":utf8" used at line 11, column 1. Use ":encoding(UTF-8)" to get strict validation.
-
 = P/Pell_numbers
 Map blocks should have a single statement at line 47, column 1. See page 113 of PBP.
 "map" used in void context at line 47, column 1. Use a "for" loop instead.

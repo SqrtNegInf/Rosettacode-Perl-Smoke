@@ -29,7 +29,6 @@ Match variable used at line 48, column 31. See page 82 of PBP.
 Match variable used at line 48, column 47. See page 82 of PBP.
 
 = A/Abbreviations,_automatic
-I/O layer ":utf8" used at line 13, column 1. Use ":encoding(UTF-8)" to get strict validation.
 "map" used in void context at line 20, column 5. Use a "for" loop instead.
 
 = A/Abbreviations,_easy

@@ -46,9 +46,6 @@ Stricture disabled at line 81, column 5. See page 429 of PBP.
 Two-argument "open" used at line 34, column 1. See page 207 of PBP.
 "local" variable not initialized at line 57, column 5. See page 78 of PBP.
 
-= R/Read_a_file_character_by_character_UTF8
-I/O layer ":utf8" used at line 13, column 1. Use ":encoding(UTF-8)" to get strict validation.
-
 = R/Read_a_specific_line_from_a_file
 Comma used to separate statements at line 17, column 21. See pages 68,71 of PBP.
 
@@ -97,9 +94,6 @@ Conditional "use" statement at line 105, column 3. Use "require" to conditionall
 Use IO::Interactive::is_interactive() instead of -t at line 115, column 8. See page 218 of PBP.
 "warn" used instead of "carp" at line 138, column 10. See page 283 of PBP.
 
-= R/Remove_vowels_from_a_string
-I/O layer ":utf8" used at line 12, column 1. Use ":encoding(UTF-8)" to get strict validation.
-
 = R/Resistance_Calculator
 @ISA used instead of "use parent" at line 10, column 5. See page 360 of PBP.
 Symbols are exported by default at line 11, column 1. Use '@EXPORT_OK' or '%EXPORT_TAGS' instead.
@@ -107,9 +101,6 @@ Symbols are exported by default at line 11, column 1. Use '@EXPORT_OK' or '%EXPO
 = R/Respond_to_an_unknown_method_call
 One-argument "bless" used at line 13, column 5. See page 365 of PBP.
 AUTOLOAD method declared at line 21, column 1. See page 393 of PBP.
-
-= R/Reverse_a_string
-I/O layer ":utf8" used at line 13, column 1. Use ":encoding(UTF-8)" to get strict validation.
 
 = R/Roman_numerals_Decode
 "local" variable not initialized at line 37, column 4. See page 78 of PBP.

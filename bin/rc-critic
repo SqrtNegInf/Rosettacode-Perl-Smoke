@@ -36,6 +36,7 @@ my $exclude = join '|',
     'Mixed high and low',
     'homonym',
     'deeply nested',
+    'I.O layer',
 ;
 
 for my $file (grep { ! /\.(\d)$/ } @ARGV) {             # skip alternate versions

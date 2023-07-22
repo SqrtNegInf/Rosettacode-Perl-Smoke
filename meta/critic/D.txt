@@ -28,15 +28,8 @@ Split long regexps into smaller qr// chunks at line 16, column 3. See page 261 o
 = D/Detect_division_by_zero
 "local" variable not initialized at line 14, column 3. See page 78 of PBP.
 
-= D/Determine_if_a_string_has_all_the_same_characters
-I/O layer ":utf8" used at line 10, column 1. Use ":encoding(UTF-8)" to get strict validation.
-
 = D/Determine_if_a_string_has_all_unique_characters
-I/O layer ":utf8" used at line 13, column 1. Use ":encoding(UTF-8)" to get strict validation.
 Found ">" in condition for an "unless" at line 40, column 18. See page 99 of PBP.
-
-= D/Determine_if_a_string_is_collapsible
-I/O layer ":utf8" used at line 9, column 1. Use ":encoding(UTF-8)" to get strict validation.
 
 = D/Determine_if_two_triangles_overlap
 Nested named subroutine at line 35, column 5. Declaring a named sub inside another named sub does not prevent the inner sub from being global.
@@ -59,7 +52,6 @@ Return value of eval not tested at line 65, column 5. You can't depend upon the 
 Return value of eval not tested at line 74, column 5. You can't depend upon the value of $@/$EVAL_ERROR to tell whether an eval failed.
 
 = D/Dinesman%27s_multiple-dwelling_problem-2
-I/O layer ":utf8" used at line 15, column 1. Use ":encoding(UTF-8)" to get strict validation.
 Found ">=" in condition for an "unless" at line 66, column 22. See page 99 of PBP.
 Found "<" in condition for an "unless" at line 66, column 22. See page 99 of PBP.
 Found "!" in condition for an "unless" at line 66, column 22. See page 99 of PBP.
@@ -73,9 +65,6 @@ Don't modify $_ in list functions at line 30, column 11. See page 114 of PBP.
 = D/Display_an_outline_as_a_nested_table
 "local" variable not initialized at line 18, column 20. See page 78 of PBP.
 Reused variable name in lexical scope: $bg at line 27, column 5. Invent unique variable names.
-
-= D/Distance_and_Bearing
-I/O layer ":utf8" used at line 11, column 1. Use ":encoding(UTF-8)" to get strict validation.
 
 = D/Distinct_Palindromes_Within_Decimal_Numbers
 Match variable used at line 21, column 9. See page 82 of PBP.
@@ -96,7 +85,6 @@ Return value of eval not tested at line 31, column 1. You can't depend upon the 
 Return value of eval not tested at line 51, column 1. You can't depend upon the value of $@/$EVAL_ERROR to tell whether an eval failed.
 
 = D/Draw_a_clock
-I/O layer ":utf8" used at line 11, column 1. Use ":encoding(UTF-8)" to get strict validation.
 yada operator (...) used at line 18, column 22. The yada operator is a placeholder for code you have not yet written.
 
 = D/Draw_a_rotating_cube

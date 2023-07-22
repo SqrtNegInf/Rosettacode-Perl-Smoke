@@ -6,19 +6,10 @@
 Subroutine "is_attacked" with high complexity score (36) at line 19, column 1. Consider refactoring.
 "map" used in void context at line 54, column 9. Use a "for" loop instead.
 
-= N/Names_to_numbers
-I/O layer ":utf8" used at line 15, column 1. Use ":encoding(UTF-8)" to get strict validation.
-
 = N/Natural_sorting
 Map blocks should have a single statement at line 17, column 17. See page 113 of PBP.
 Sort blocks should have a single statement at line 24, column 28. See page 149 of PBP.
 Warnings disabled at line 59, column 5. See page 431 of PBP.
-
-= N/Nautical_bell-1
-I/O layer ":utf8" used at line 13, column 1. Use ":encoding(UTF-8)" to get strict validation.
-
-= N/Nautical_bell-2
-I/O layer ":utf8" used at line 13, column 1. Use ":encoding(UTF-8)" to get strict validation.
 
 = N/Negative_base_numbers
 Comma used to separate statements at line 21, column 9. See pages 68,71 of PBP.

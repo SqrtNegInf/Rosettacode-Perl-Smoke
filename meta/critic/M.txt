@@ -56,7 +56,6 @@ Mismatched operator at line 16, column 35. Numeric/string operators and operands
 Mismatched operator at line 16, column 47. Numeric/string operators and operands should match.
 
 = M/Mayan_calendar
-I/O layer ":utf8" used at line 13, column 1. Use ":encoding(UTF-8)" to get strict validation.
 Comma used to separate statements at line 32, column 5. See pages 68,71 of PBP.
 Comma used to separate statements at line 59, column 5. See pages 68,71 of PBP.
 Comma used to separate statements at line 65, column 5. See pages 68,71 of PBP.
