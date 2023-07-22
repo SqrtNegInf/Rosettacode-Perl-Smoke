@@ -46,7 +46,6 @@ Comma used to separate statements at line 19, column 9. See pages 68,71 of PBP.
 One-argument "bless" used at line 41, column 13. See page 365 of PBP.
 One-argument "bless" used at line 65, column 5. See page 365 of PBP.
 One-argument "bless" used at line 89, column 5. See page 365 of PBP.
-Subroutine name is a homonym for builtin keyword eq at line 94, column 1. See page 177 of PBP.
 
 = S/Set_consolidation
 "return" statement followed by "sort" at line 45, column 5. Behavior is undefined if called in scalar context.

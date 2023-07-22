@@ -55,7 +55,6 @@ Cascading if-elsif chain at line 18, column 3. See pages 117,118 of PBP.
 
 = A/Active_object
 "select" used to emulate "sleep" at line 38, column 13. See page 168 of PBP.
-Subroutine name is a homonym for builtin function delete at line 47, column 1. See page 177 of PBP.
 "select" used to emulate "sleep" at line 71, column 1. See page 168 of PBP.
 
 = A/Addition_chains

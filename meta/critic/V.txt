@@ -21,12 +21,6 @@ Reused variable name in lexical scope: $y at line 35, column 1. Invent unique va
 Reused variable name in lexical scope: @b at line 35, column 1. Invent unique variable names.
 Reused variable name in lexical scope: $fruit at line 54, column 3. Invent unique variable names.
 
-= V/Variadic_function
-Subroutine name is a homonym for builtin function print at line 28, column 1. See page 177 of PBP.
-
-= V/Vector
-Subroutine name is a homonym for builtin keyword sub at line 24, column 1. See page 177 of PBP.
-
 = V/Vector_products
 One-argument "bless" used at line 16, column 18. See page 365 of PBP.
 One-argument "bless" used at line 24, column 33. See page 365 of PBP.

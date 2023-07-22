@@ -153,9 +153,6 @@ Mismatched operator at line 18, column 33. Numeric/string operators and operands
 Mismatched operator at line 19, column 33. Numeric/string operators and operands should match.
 Mismatched operator at line 20, column 33. Numeric/string operators and operands should match.
 
-= C/Convex_hull
-Subroutine name is a homonym for builtin function print at line 16, column 1. See page 177 of PBP.
-
 = C/Conway%27s_Game_of_Life-1
 Comma used to separate statements at line 23, column 15. See pages 68,71 of PBP.
 Warnings disabled at line 79, column 1. See page 431 of PBP.

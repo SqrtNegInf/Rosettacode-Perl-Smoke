@@ -10,10 +10,6 @@ I/O layer ":utf8" used at line 13, column 1. Use ":encoding(UTF-8)" to get stric
 
 = T/Ternary_logic
 @ISA used instead of "use parent" at line 15, column 5. See page 360 of PBP.
-Subroutine name is a homonym for builtin function not at line 67, column 1. See page 177 of PBP.
-Subroutine name is a homonym for builtin keyword cmp at line 68, column 1. See page 177 of PBP.
-Subroutine name is a homonym for builtin keyword and at line 69, column 1. See page 177 of PBP.
-Subroutine name is a homonym for builtin keyword or at line 70, column 1. See page 177 of PBP.
 
 = T/Tetris
 Subroutine "rotate" with high complexity score (21) at line 65, column 1. Consider refactoring.
