@@ -3,12 +3,13 @@
 #c# 2018-08-03 <>RC
 #p# OK
 
-my($result,@tmp);
+my $result;
 
 use strict;
 use warnings;
 use feature 'say';
 
+my @tmp;
 opendir my $dh, 'ref';
 push @tmp, $_ for grep { /^sqrt/ } readdir $dh;
 closedir $dh;
@@ -17,22 +18,23 @@ $result = join "\n", sort { $a cmp $b } @tmp;
 $result .= "\n";
 
 #Or using globbing, with the <> operator,
-
-$result .= "$_\n" while <ref/sqrt*>;
+$result .= "$_\n" while <ref/sqrt*>; # P::C gripes, but this is fine...
 
 #Or the same with the builtin glob() function,
-
 $result .= join "\n", my @filenames = glob('ref/sqrt*');
+$result .= "\n";
 
 #The glob() function takes any expression for its pattern, whereas <> is only for a literal.
-#my $pattern = '*.c';
-#my @filenames = glob($pattern);
+my $pattern = 'ref/sqrt*';
+$result .= join "\n", glob($pattern);
 
 say $result;
 
 my $ref = <<'EOD';
 sqrt-1.dat
 sqrt-2.dat
+ref/sqrt-1.dat
+ref/sqrt-2.dat
 ref/sqrt-1.dat
 ref/sqrt-2.dat
 ref/sqrt-1.dat
