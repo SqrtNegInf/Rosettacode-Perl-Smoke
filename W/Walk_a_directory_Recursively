@@ -29,7 +29,8 @@ sub find_files {
     my $test = shellquote(shift);
 
     local $/ = "\0";
-    open my $pipe, "find -s $dir -iname $test -print0 |" or die "find: $!.\n";
+   #open my $pipe, "find -s $dir -iname $test -print0 |" or die "find: $!.\n";
+    open my $pipe, '-|', "find -s $dir -iname $test -print0" or die "find: $!.\n";
     while (<$pipe>) { chop $_; $result2 .= "$_\n"; }
     close $pipe;
 }
