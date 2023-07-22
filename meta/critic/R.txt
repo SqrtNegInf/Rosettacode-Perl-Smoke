@@ -43,7 +43,6 @@ Reused variable name in lexical scope: $result at line 67, column 5. Invent uniq
 Stricture disabled at line 81, column 5. See page 429 of PBP.
 
 = R/Read_a_configuration_file
-Two-argument "open" used at line 34, column 1. See page 207 of PBP.
 "local" variable not initialized at line 57, column 5. See page 78 of PBP.
 
 = R/Read_a_specific_line_from_a_file
