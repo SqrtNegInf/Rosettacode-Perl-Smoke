@@ -2,6 +2,7 @@
 #u# http://rosettacode.org/wiki/Anagrams_Deranged_anagrams
 #c# 2018-07-13 <RC
 #p# OK
+#n# rare case where P::C warning of 'Readline inside for loop' is accurate
 
 use strict;
 use warnings;
