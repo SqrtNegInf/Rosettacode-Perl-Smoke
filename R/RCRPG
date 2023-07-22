@@ -147,7 +147,7 @@ sub mainloop
     print WHITE, "Welcome to Muddy.  It's kinda like a MUD, but it lacks multiple players...\n";
     &greet( \%self, $room );
 
-    while ( <STDIN> ) {
+    while ( <> ) {
         print RED;
         my @args = split / /;
         my $command = lc shift @args;
