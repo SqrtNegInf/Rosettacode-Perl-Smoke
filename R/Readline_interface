@@ -50,7 +50,7 @@ sub perl_symbol_completion_function {
 	    my ($pre, $pkg, $sym);
 	    $i = 0;
 
-	    no strict qw(refs);
+	    no strict 'refs';
 	    ($prefix, $pre, $pkg) = ($text =~ m/^((\$#|[\@\$%&])?(.*::)?)/);
 	    @matches = grep /::$/, $pkg ? keys %$pkg : keys %::;
 	    $pkg = '::' unless $pkg;
@@ -61,5 +61,5 @@ sub perl_symbol_completion_function {
 	    $entry = $prefix . $matches[$i];
 	    return $entry if ($entry =~ /^\Q$text/);
 	}
-	undef;
+    #undef;
 }
