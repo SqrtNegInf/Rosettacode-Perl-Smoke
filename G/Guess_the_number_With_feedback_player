@@ -24,7 +24,7 @@ print "Think of a number between $min and $max and I'll guess it!\n";
         $tries++;
         print "\n=>> My guess is: $guess Is your number higher, lower, or equal? (h/l/e)\n> ";
  
-        my $score = <STDIN>;
+        my $score = <>;
  
         if ($max <= $min) {
             print "\nI give up...\n" and last;
