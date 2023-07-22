@@ -31,7 +31,7 @@ my $arg = 'ref/file.cfg';
 #my $arg = shift;               # take the configuration file name from the command line
                                # (or first subroutine argument if this were in a sub)
 my $file;                      # this is going to be a file handle reference
-open $file, $arg or die "Can't open configuration file '$arg': $!";
+open $file, '<', $arg or die "Can't open configuration file '$arg': $!";
 
 read_conf_file($file, $conf_definition); 
 
