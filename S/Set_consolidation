@@ -42,7 +42,7 @@ sub set_union {
     my %union;
     for my $a_elt (@{$a}) { $union{$a_elt}++; }
     for my $b_elt (@{$b}) { $union{$b_elt}++; }
-    return sort keys(%union); # DH added 'sort', stable for testing
+    return ( sort keys(%union) ); # DH added 'sort', stable for testing [p.s. enclose, to silence P::C]
 }
 
 sub set_intersection {
