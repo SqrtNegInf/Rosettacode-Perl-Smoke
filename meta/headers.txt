@@ -147,6 +147,7 @@ File: A/A%2BB
 #u# http://rosettacode.org/wiki/A%2BB
 #c# 2018-07-05 <RC
 #p# OK
+#n# rare case where P::C warning of 'Readline inside for loop' is accurate
 
 File: A/ABC_Problem
 #!/usr/local/bin/perl
@@ -429,6 +430,7 @@ File: A/Anadromes
 #u# http://rosettacode.org/wiki/Anadromes
 #c# 2022-06-24 >RC
 #p# OK
+#n# rare case where P::C warning of 'Readline inside for loop' is accurate
 
 File: A/Anagrams-1
 #!/usr/local/bin/perl
@@ -447,12 +449,14 @@ File: A/Anagrams_Deranged_anagrams
 #u# http://rosettacode.org/wiki/Anagrams_Deranged_anagrams
 #c# 2018-07-13 <RC
 #p# OK
+#n# rare case where P::C warning of 'Readline inside for loop' is accurate
 
 File: A/Anagrams_Deranged_anagrams-2
 #!/usr/local/bin/perl
 #u# http://rosettacode.org/wiki/Anagrams/Deranged_anagrams
 #c# 2020-11-06 <RC, 2023-04-02 >RC
 #p# OK
+#n# rare case where P::C warning of 'Readline inside for loop' is accurate
 
 File: A/Anaprimes
 #!/usr/local/bin/perl
@@ -1914,6 +1918,7 @@ File: C/Compiler_Simple_file_inclusion_pre_processor
 #c# 2021-06-xx NOT ON RC
 #p# OK
 #n# debatable if worth putting on RC...
+#n# P::C says: "require" statement with library name as string at line 11, column 1. Use a bareword instead.
 
 File: C/Compiler_Verifying_Syntax
 #!/usr/local/bin/perl
@@ -2731,7 +2736,7 @@ File: D/Distinct_Palindromes_Within_Decimal_Numbers
 #u# http://rosettacode.org/wiki/Distinct_Palindromes_Within_Decimal_Numbers
 #c# 2021-04-15 <RC
 #p# OK
-#n# skipping entry '100' as the sort output switche between '00 0 1' and '0 00 1'
+#n# skipping entry '100' as the sort output switches between '00 0 1' and '0 00 1'
 
 File: D/Distinct_power_numbers
 #!/usr/local/bin/perl
@@ -7582,6 +7587,7 @@ File: P/Penney%27s_game
 #c# 2018-08-21 <RC
 #p# OK
 #=# RC pipe: THH
+#n# works only in batch, non-responsive at terminal?
 
 File: P/Penrose_tiling
 #!/usr/local/bin/perl
