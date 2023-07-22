@@ -15,8 +15,6 @@ my $result;
 # perl arrays.
 # It's also a bit more object oriented, and probably more extensible.
 
-use strict;
-use warnings;
 package FPS;
 use Math::BigRat;
 
