@@ -2,6 +2,7 @@
 #u# http://rosettacode.org/wiki/Anadromes
 #c# 2022-06-24 >RC
 #p# OK
+#n# rare case where P::C warning of 'Readline inside for loop' is accurate
 
 my @res;
 
