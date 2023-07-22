@@ -60,18 +60,15 @@ Mismatched operator at line 16, column 16. Numeric/string operators and operands
 Mismatched operator at line 16, column 31. Numeric/string operators and operands should match.
 Mismatched operator at line 16, column 35. Numeric/string operators and operands should match.
 Mismatched operator at line 16, column 47. Numeric/string operators and operands should match.
-Readline inside "for" loop at line 21, column 6. See page 211 of PBP.
 
 = M/Mayan_calendar
 I/O layer ":utf8" used at line 13, column 1. Use ":encoding(UTF-8)" to get strict validation.
 Comma used to separate statements at line 32, column 5. See pages 68,71 of PBP.
 Comma used to separate statements at line 59, column 5. See pages 68,71 of PBP.
 Comma used to separate statements at line 65, column 5. See pages 68,71 of PBP.
-Readline inside "for" loop at line 86, column 15. See page 211 of PBP.
 
 = M/Mayan_numerals
 Warnings disabled at line 30, column 5. See page 431 of PBP.
-Readline inside "for" loop at line 45, column 12. See page 211 of PBP.
 
 = M/Maze_generation
 Warnings disabled at line 10, column 1. See page 431 of PBP.

@@ -19,7 +19,6 @@ Literal line breaks in a string at line 18, column 17. See pages 60,61 of PBP.
 Literal line breaks in a string at line 32, column 17. See pages 60,61 of PBP.
 
 = C/CalmoSoft_primes
-Readline inside "for" loop at line 12, column 16. See page 211 of PBP.
 Reused variable name in lexical scope: @primes at line 16, column 13. Invent unique variable names.
 
 = C/Canonicalize_CIDR
@@ -64,9 +63,6 @@ Use IO::Interactive::is_interactive() instead of -t at line 13, column 5. See pa
 = C/Checksumcolor
 Two-argument "open" used at line 13, column 1. See page 207 of PBP.
 
-= C/Chemical_Calculator-2
-Readline inside "for" loop at line 27, column 6. See page 211 of PBP.
-
 = C/Chinese_zodiac
 I/O layer ":utf8" used at line 11, column 1. Use ":encoding(UTF-8)" to get strict validation.
 
@@ -89,9 +85,6 @@ Comma used to separate statements at line 71, column 5. See pages 68,71 of PBP.
 
 = C/Colorful_numbers
 "map" used in void context at line 39, column 1. Use a "for" loop instead.
-
-= C/Combinations_with_repetitions-1
-Readline inside "for" loop at line 16, column 15. See page 211 of PBP.
 
 = C/Combinations_with_repetitions_Square_Digit_Chain
 Warnings disabled at line 43, column 17. See page 431 of PBP.
@@ -169,9 +162,6 @@ Mismatched operator at line 18, column 33. Numeric/string operators and operands
 Mismatched operator at line 19, column 33. Numeric/string operators and operands should match.
 Mismatched operator at line 20, column 33. Numeric/string operators and operands should match.
 
-= C/Convert_seconds_to_compound_duration-3
-Readline inside "for" loop at line 29, column 6. See page 211 of PBP.
-
 = C/Convex_hull
 Subroutine name is a homonym for builtin function print at line 16, column 1. See page 177 of PBP.
 
@@ -201,18 +191,6 @@ Found ">=" in condition for an "until" at line 19, column 3. See page 99 of PBP.
 = C/Cullen_and_Woodall_numbers
 Mixed high and low-precedence booleans at line 35, column 23. See page 70 of PBP.
 Mixed high and low-precedence booleans at line 40, column 23. See page 70 of PBP.
-
-= C/Curzon_numbers
-Readline inside "for" loop at line 26, column 12. See page 211 of PBP.
-
-= C/Curzon_numbers-1
-Readline inside "for" loop at line 26, column 12. See page 211 of PBP.
-
-= C/Curzon_numbers-2
-Readline inside "for" loop at line 31, column 12. See page 211 of PBP.
-
-= C/Curzon_numbers-3
-Readline inside "for" loop at line 26, column 12. See page 211 of PBP.
 
 = C/Cut_a_rectangle
 Mixed high and low-precedence booleans at line 21, column 22. See page 70 of PBP.

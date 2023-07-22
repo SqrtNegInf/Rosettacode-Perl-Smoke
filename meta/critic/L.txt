@@ -65,9 +65,6 @@ Single-quote used as quote-like operator delimiter at line 68, column 37. Using 
 = L/Law_of_cosines_-_triples
 I/O layer ":utf8" used at line 12, column 1. Use ":encoding(UTF-8)" to get strict validation.
 
-= L/Leap_year
-Readline inside "for" loop at line 24, column 12. See page 211 of PBP.
-
 = L/Least_m_such_that_n!_%2B_m_is_prime
 Found ">" in condition for an "until" at line 18, column 3. See page 99 of PBP.
 

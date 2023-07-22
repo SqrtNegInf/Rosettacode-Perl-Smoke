@@ -30,6 +30,7 @@ my $exclude = join '|',
     'leading zeros',
    #'hard tabs',
     'Backtick operator',
+    'Readline inside',
 ;
 
 for my $file (grep { ! /\.(\d)$/ } @ARGV) {             # skip alternate versions

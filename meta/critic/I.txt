@@ -3,12 +3,6 @@
 Use "local $/ = undef" or Path::Tiny instead of joined readline at line 17, column 9. See page 213 of PBP.
 Found "ne" in condition for an "unless" at line 37, column 14. See page 99 of PBP.
 
-= I/ISBN13_check_digit
-Readline inside "for" loop at line 19, column 6. See page 211 of PBP.
-
-= I/Identity_matrix
-Readline inside "for" loop at line 17, column 6. See page 211 of PBP.
-
 = I/Idiomatically_determine_all_the_characters_that_can_be_used_for_symbols
 I/O layer ":utf8" used at line 12, column 1. Use ":encoding(UTF-8)" to get strict validation.
 

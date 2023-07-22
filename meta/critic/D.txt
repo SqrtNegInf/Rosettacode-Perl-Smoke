@@ -1,10 +1,4 @@
 
-= D/Dating_agency-1
-Readline inside "for" loop at line 23, column 16. See page 211 of PBP.
-
-= D/Dating_agency-2
-Readline inside "for" loop at line 24, column 16. See page 211 of PBP.
-
 = D/De_Bruijn_sequences
 Reused variable name in lexical scope: $seq at line 27, column 5. Invent unique variable names.
 

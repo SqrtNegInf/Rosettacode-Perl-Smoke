@@ -1,7 +1,6 @@
 
 = U/URL_parser
 Warnings disabled at line 15, column 19. See page 431 of PBP.
-Readline inside "for" loop at line 30, column 19. See page 211 of PBP.
 Return value of eval not tested at line 31, column 9. You can't depend upon the value of $@/$EVAL_ERROR to tell whether an eval failed.
 
 = U/UTF-8_encode_and_decode

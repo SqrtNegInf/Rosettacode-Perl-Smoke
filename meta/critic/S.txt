@@ -33,11 +33,6 @@ Nested named subroutine at line 30, column 9. Declaring a named sub inside anoth
 Reused variable name in lexical scope: $fruit at line 32, column 5. Invent unique variable names.
 Reused variable name in lexical scope: $fruit at line 37, column 1. Invent unique variable names.
 
-= S/Search_a_list
-Readline inside "for" loop at line 15, column 21. See page 211 of PBP.
-Readline inside "for" loop at line 31, column 21. See page 211 of PBP.
-Readline inside "for" loop at line 48, column 21. See page 211 of PBP.
-
 = S/Selection_bias_in_clinical_sciences
 Mixed high and low-precedence booleans at line 31, column 21. See page 70 of PBP.
 Map blocks should have a single statement at line 51, column 18. See page 113 of PBP.
@@ -74,7 +69,6 @@ One-argument "bless" used at line 91, column 5. See page 365 of PBP.
 Comma used to separate statements at line 80, column 2. See pages 68,71 of PBP.
 
 = S/Short-circuit_evaluation
-Readline inside "for" loop at line 21, column 14. See page 211 of PBP.
 Return value of eval not tested at line 24, column 12. You can't depend upon the value of $@/$EVAL_ERROR to tell whether an eval failed.
 
 = S/Show_the_decimal_value_of_a_number_of_1s_appended_with_a_3,_then_squared

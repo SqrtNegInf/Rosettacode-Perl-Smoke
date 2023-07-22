@@ -111,9 +111,6 @@ Use IO::Interactive::is_interactive() instead of -t at line 115, column 8. See p
 = R/Remove_vowels_from_a_string
 I/O layer ":utf8" used at line 12, column 1. Use ":encoding(UTF-8)" to get strict validation.
 
-= R/Rep-string
-Readline inside "for" loop at line 12, column 10. See page 211 of PBP.
-
 = R/Resistance_Calculator
 @ISA used instead of "use parent" at line 10, column 5. See page 360 of PBP.
 Symbols are exported by default at line 11, column 1. Use '@EXPORT_OK' or '%EXPORT_TAGS' instead.

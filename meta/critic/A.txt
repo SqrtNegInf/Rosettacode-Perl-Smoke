@@ -1,7 +1,4 @@
 
-= A/A%2BB
-Readline inside "for" loop at line 17, column 6. See page 211 of PBP.
-
 = A/ABC_Problem-2
 Match variable used at line 24, column 25. See page 82 of PBP.
 Match variable used at line 24, column 37. See page 82 of PBP.
@@ -38,11 +35,9 @@ I/O layer ":utf8" used at line 13, column 1. Use ":encoding(UTF-8)" to get stric
 
 = A/Abbreviations,_easy
 "map" used in void context at line 25, column 5. Use a "for" loop instead.
-Readline inside "for" loop at line 32, column 19. See page 211 of PBP.
 
 = A/Abbreviations,_simple
 "map" used in void context at line 27, column 5. Use a "for" loop instead.
-Readline inside "for" loop at line 33, column 18. See page 211 of PBP.
 
 = A/Abundant,_deficient_and_perfect_number_classifications
 "map" used in void context at line 17, column 5. Use a "for" loop instead.
@@ -92,18 +87,11 @@ Split long regexps into smaller qr// chunks at line 24, column 7. See page 261 o
 = A/Amb-3
 Warnings disabled at line 14, column 7. See page 431 of PBP.
 
-= A/Anadromes
-Readline inside "for" loop at line 13, column 95. See page 211 of PBP.
-
 = A/Anagrams-2
 Warnings disabled at line 10, column 1. See page 431 of PBP.
 
-= A/Anagrams_Deranged_anagrams
-Readline inside "for" loop at line 36, column 17. See page 211 of PBP.
-
 = A/Anagrams_Deranged_anagrams-2
-Readline inside "for" loop at line 16, column 64. See page 211 of PBP.
-Mixed high and low-precedence booleans at line 17, column 50. See page 70 of PBP.
+Mixed high and low-precedence booleans at line 18, column 50. See page 70 of PBP.
 
 = A/Anonymous_recursion-2
 Reused variable name in lexical scope: $n at line 16, column 3. Invent unique variable names.
@@ -125,7 +113,6 @@ Warnings disabled at line 9, column 1. See page 431 of PBP.
 
 = A/Arithmetic_coding_As_a_generalized_change_of_radix
 Reused variable name in lexical scope: $pow at line 94, column 10. Invent unique variable names.
-Readline inside "for" loop at line 111, column 18. See page 211 of PBP.
 
 = A/Array_length
 Warnings disabled at line 11, column 1. See page 431 of PBP.
