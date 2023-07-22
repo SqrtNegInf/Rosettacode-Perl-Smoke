@@ -60,11 +60,25 @@ sub parse_and_solve {
     }
  
     my @f = 1..$i;
+if (1) {
+    # this has literal line-breaks, P::C gripes
     eval '
           permute {
               $result .= join(", ", pairmap { "$f[$b] $a" } %ids)
                   if ('.join(' && ', @expressions).');
           } @f;';
+
+} else { 
+
+    # this passes tests, but prints out permuted results?
+    eval <<~'END';
+          permute {
+              $result .= join(", ", pairmap { "$f[$b] $a" } %ids)
+                  if ('.join(' && ', @expressions).');
+          } @f;
+          END
+}
+
 }
 
 
