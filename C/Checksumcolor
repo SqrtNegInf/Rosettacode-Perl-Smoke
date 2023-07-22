@@ -10,9 +10,9 @@ use warnings;
 use Term::ANSIColor qw<colored :constants256>;
 my $result;
 
-open STDIN, '<ref/checksumcolor.dat';
+open my $fh, '<', 'ref/checksumcolor.dat';
 
-while (<>) {
+while (<$fh>) {
     my($cs,$fn) = /(^\S+)\s+(.*)/;
     $result .= colored($_, 'ansi' . hex $_) for $cs =~ /(..)/g;
     $result .= " $fn\n";
