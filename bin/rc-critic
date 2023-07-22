@@ -33,6 +33,7 @@ my $exclude = join '|',
     'Readline inside',
     'Literal line breaks',
     'Too many arg',
+    'Mixed high and low',
 ;
 
 for my $file (grep { ! /\.(\d)$/ } @ARGV) {             # skip alternate versions

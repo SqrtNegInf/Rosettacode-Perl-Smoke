@@ -17,7 +17,6 @@ Subroutine name is a homonym for builtin keyword or at line 70, column 1. See pa
 
 = T/Tetris
 Subroutine "rotate" with high complexity score (21) at line 65, column 1. Consider refactoring.
-Mixed high and low-precedence booleans at line 116, column 3. See page 70 of PBP.
 Return value of eval not tested at line 173, column 1. You can't depend upon the value of $@/$EVAL_ERROR to tell whether an eval failed.
 
 = T/Textonyms
@@ -28,6 +27,3 @@ Don't modify $_ in list functions at line 18, column 1. See page 114 of PBP.
 
 = T/The_ISAAC_Cipher
 Reused variable name in lexical scope: $key at line 30, column 3. Invent unique variable names.
-
-= T/The_sieve_of_Sundaram
-Mixed high and low-precedence booleans at line 24, column 28. See page 70 of PBP.

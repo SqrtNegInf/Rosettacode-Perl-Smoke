@@ -79,9 +79,6 @@ Warnings disabled at line 10, column 1. See page 431 of PBP.
 Comma used to separate statements at line 70, column 3. See pages 68,71 of PBP.
 Comma used to separate statements at line 73, column 3. See pages 68,71 of PBP.
 
-= N/Numbers_divisible_by_their_individual_digits,_but_not_by_the_product_of_their_digits.
-Mixed high and low-precedence booleans at line 13, column 9. See page 70 of PBP.
-
 = N/Numbers_which_are_the_cube_roots_of_the_product_of_their_proper_divisors-2
 Cascading if-elsif chain at line 16, column 5. See pages 117,118 of PBP.
 

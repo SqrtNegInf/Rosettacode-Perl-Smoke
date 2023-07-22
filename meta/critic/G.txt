@@ -7,7 +7,6 @@ Reused variable name in lexical scope: @stats at line 73, column 5. Invent uniqu
 Nested named subroutine at line 79, column 9. Declaring a named sub inside another named sub does not prevent the inner sub from being global.
 Nested named subroutine at line 103, column 9. Declaring a named sub inside another named sub does not prevent the inner sub from being global.
 Nested named subroutine at line 104, column 9. Declaring a named sub inside another named sub does not prevent the inner sub from being global.
-Mixed high and low-precedence booleans at line 149, column 5. See page 70 of PBP.
 
 = G/Galton_box_animation-2
 "select" used to emulate "sleep" at line 38, column 3. See page 168 of PBP.
@@ -48,9 +47,6 @@ Warnings disabled at line 9, column 1. See page 431 of PBP.
 
 = G/Greed
 Main code has high complexity score (29) at line 1, column 1. Consider refactoring.
-
-= G/Guess_the_number_With_feedback
-Mixed high and low-precedence booleans at line 18, column 3. See page 70 of PBP.
 
 = G/Guess_the_number_With_feedback_player
 Cascading if-elsif chain at line 29, column 9. See pages 117,118 of PBP.

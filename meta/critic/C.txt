@@ -93,7 +93,6 @@ Warnings disabled at line 43, column 17. See page 431 of PBP.
 
 = C/Compiler_Verifying_Syntax
 Subroutine "expr" with high complexity score (21) at line 20, column 1. Consider refactoring.
-Mixed high and low-precedence booleans at line 24, column 3. See page 70 of PBP.
 
 = C/Compiler_code_generator
 "local" variable not initialized at line 22, column 6. See page 78 of PBP.
@@ -162,7 +161,6 @@ Comma used to separate statements at line 23, column 15. See pages 68,71 of PBP.
 Warnings disabled at line 79, column 1. See page 431 of PBP.
 
 = C/Coprime_triplets
-Mixed high and low-precedence booleans at line 22, column 21. See page 70 of PBP.
 Found ">" in condition for an "until" at line 29, column 30. See page 99 of PBP.
 
 = C/Count_in_octal
@@ -176,10 +174,3 @@ Return value of eval not tested at line 83, column 1. You can't depend upon the 
 
 = C/Cubic_Special_Primes
 Found ">=" in condition for an "until" at line 19, column 3. See page 99 of PBP.
-
-= C/Cullen_and_Woodall_numbers
-Mixed high and low-precedence booleans at line 35, column 23. See page 70 of PBP.
-Mixed high and low-precedence booleans at line 40, column 23. See page 70 of PBP.
-
-= C/Cut_a_rectangle
-Mixed high and low-precedence booleans at line 21, column 22. See page 70 of PBP.

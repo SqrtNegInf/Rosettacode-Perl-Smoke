@@ -23,7 +23,6 @@ Match variable used at line 37, column 66. See page 82 of PBP.
 
 = A/A_star_search_algorithm
 Comma used to separate statements at line 20, column 20. See pages 68,71 of PBP.
-Mixed high and low-precedence booleans at line 27, column 8. See page 70 of PBP.
 Match variable used at line 45, column 21. See page 82 of PBP.
 Match variable used at line 45, column 37. See page 82 of PBP.
 Match variable used at line 48, column 31. See page 82 of PBP.
@@ -45,11 +44,7 @@ I/O layer ":utf8" used at line 13, column 1. Use ":encoding(UTF-8)" to get stric
 = A/Abundant_odd_numbers
 Found ">" in condition for an "unless" at line 21, column 14. See page 99 of PBP.
 
-= A/Achilles_numbers
-Mixed high and low-precedence booleans at line 33, column 1. See page 70 of PBP.
-
 = A/Achilles_numbers-1
-Mixed high and low-precedence booleans at line 46, column 30. See page 70 of PBP.
 Reused variable name in lexical scope: $count at line 63, column 6. Invent unique variable names.
 
 = A/Ackermann_function-1
@@ -64,7 +59,6 @@ Subroutine name is a homonym for builtin function delete at line 47, column 1. S
 "select" used to emulate "sleep" at line 71, column 1. See page 168 of PBP.
 
 = A/Addition_chains
-Mixed high and low-precedence booleans at line 78, column 4. See page 70 of PBP.
 Nested named subroutine at line 99, column 4. Declaring a named sub inside another named sub does not prevent the inner sub from being global.
 
 = A/Align_columns-2
@@ -79,7 +73,6 @@ Map blocks should have a single statement at line 15, column 27. See page 113 of
 
 = A/Alternade_words
 Comma used to separate statements at line 13, column 19. See pages 68,71 of PBP.
-Mixed high and low-precedence booleans at line 17, column 5. See page 70 of PBP.
 
 = A/Amb-2
 Split long regexps into smaller qr// chunks at line 24, column 7. See page 261 of PBP.
@@ -89,9 +82,6 @@ Warnings disabled at line 14, column 7. See page 431 of PBP.
 
 = A/Anagrams-2
 Warnings disabled at line 10, column 1. See page 431 of PBP.
-
-= A/Anagrams_Deranged_anagrams-2
-Mixed high and low-precedence booleans at line 18, column 50. See page 70 of PBP.
 
 = A/Anonymous_recursion-2
 Reused variable name in lexical scope: $n at line 16, column 3. Invent unique variable names.

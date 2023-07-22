@@ -5,9 +5,6 @@ Reused variable name in lexical scope: $seq at line 27, column 5. Invent unique 
 = D/Death_Star
 Cascading if-elsif chain at line 56, column 13. See pages 117,118 of PBP.
 
-= D/Deceptive_numbers
-Mixed high and low-precedence booleans at line 15, column 5. See page 70 of PBP.
-
 = D/Decimal_floating_point_number_to_binary
 Mismatched operator at line 15, column 50. Numeric/string operators and operands should match.
 Return value of eval not tested at line 23, column 5. You can't depend upon the value of $@/$EVAL_ERROR to tell whether an eval failed.
@@ -55,9 +52,6 @@ Comma used to separate statements at line 13, column 19. See pages 68,71 of PBP.
 = D/Digital_root_Multiplicative_digital_root
 Map blocks should have a single statement at line 34, column 11. See page 113 of PBP.
 
-= D/Dijkstra%27s_algorithm
-Mixed high and low-precedence booleans at line 45, column 9. See page 70 of PBP.
-
 = D/Dinesman%27s_multiple-dwelling_problem-1
 Split long regexps into smaller qr// chunks at line 40, column 21. See page 261 of PBP.
 Warnings disabled at line 54, column 11. See page 431 of PBP.
@@ -66,7 +60,6 @@ Return value of eval not tested at line 74, column 5. You can't depend upon the 
 
 = D/Dinesman%27s_multiple-dwelling_problem-2
 I/O layer ":utf8" used at line 15, column 1. Use ":encoding(UTF-8)" to get strict validation.
-Mixed high and low-precedence booleans at line 59, column 9. See page 70 of PBP.
 Found ">=" in condition for an "unless" at line 66, column 22. See page 99 of PBP.
 Found "<" in condition for an "unless" at line 66, column 22. See page 99 of PBP.
 Found "!" in condition for an "unless" at line 66, column 22. See page 99 of PBP.
@@ -110,7 +103,6 @@ yada operator (...) used at line 18, column 22. The yada operator is a placehold
 Comma used to separate statements at line 27, column 22. See pages 68,71 of PBP.
 
 = D/Duffinian_numbers
-Mixed high and low-precedence booleans at line 21, column 10. See page 70 of PBP.
 Found ">" in condition for an "until" at line 21, column 76. See page 99 of PBP.
 
 

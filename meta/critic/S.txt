@@ -11,15 +11,11 @@ Code structure is deeply nested at line 32, column 25. Consider refactoring.
 
 = S/SHA-256
 Return value of eval not tested at line 85, column 23. You can't depend upon the value of $@/$EVAL_ERROR to tell whether an eval failed.
-Mixed high and low-precedence booleans at line 90, column 9. See page 70 of PBP.
 "map" used in void context at line 136, column 9. Use a "for" loop instead.
 "map" used in void context at line 144, column 9. Use a "for" loop instead.
 
 = S/Sailors,_coconuts_and_a_monkey_problem-2
 Mismatched operator at line 37, column 30. Numeric/string operators and operands should match.
-
-= S/Same_Fringe
-Mixed high and low-precedence booleans at line 34, column 9. See page 70 of PBP.
 
 = S/Scope_Function_names_and_labels
 Warnings disabled at line 8, column 1. See page 431 of PBP.
@@ -32,7 +28,6 @@ Reused variable name in lexical scope: $fruit at line 32, column 5. Invent uniqu
 Reused variable name in lexical scope: $fruit at line 37, column 1. Invent unique variable names.
 
 = S/Selection_bias_in_clinical_sciences
-Mixed high and low-precedence booleans at line 31, column 21. See page 70 of PBP.
 Map blocks should have a single statement at line 51, column 18. See page 113 of PBP.
 
 = S/Self-describing_numbers
@@ -40,9 +35,6 @@ Warnings disabled at line 9, column 1. See page 431 of PBP.
 
 = S/Send_an_unknown_method_call
 One-argument "bless" used at line 14, column 5. See page 365 of PBP.
-
-= S/Send_email
-Mixed high and low-precedence booleans at line 30, column 3. See page 70 of PBP.
 
 = S/Sequence:_nth_number_with_exactly_n_divisors
 Comma used to separate statements at line 26, column 13. See pages 68,71 of PBP.

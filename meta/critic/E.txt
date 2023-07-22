@@ -1,8 +1,4 @@
 
-= E/Earliest_difference_between_prime_gaps
-Mixed high and low-precedence booleans at line 23, column 5. See page 70 of PBP.
-Mixed high and low-precedence booleans at line 26, column 9. See page 70 of PBP.
-
 = E/Egyptian_division
 Found ">=" in condition for an "unless" at line 20, column 14. See page 99 of PBP.
 

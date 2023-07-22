@@ -1,7 +1,6 @@
 
 = M/MAC_Vendor_Lookup
 Warnings disabled at line 19, column 1. See page 431 of PBP.
-Mixed high and low-precedence booleans at line 60, column 11. See page 70 of PBP.
 
 = M/MD4
 Negative array index should be used at line 15, column 48. See page 88 of PBP.

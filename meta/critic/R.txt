@@ -13,9 +13,6 @@ Reused variable name in lexical scope: $n at line 47, column 5. Invent unique va
 = R/Ramanujan_primes
 Found ">" in condition for an "until" at line 18, column 11. See page 99 of PBP.
 
-= R/Ramer-Douglas-Peucker_line_simplification
-Mixed high and low-precedence booleans at line 28, column 5. See page 70 of PBP.
-
 = R/Ramsey%27s_theorem
 Found "<" in condition for an "unless" at line 30, column 18. See page 99 of PBP.
 Found "<" in condition for an "unless" at line 30, column 18. See page 99 of PBP.
@@ -68,11 +65,8 @@ Stricture disabled at line 53, column 6. See page 429 of PBP.
 Don't turn off strict for large blocks of code at line 53, column 6. See page 433 of PBP.
 
 = R/Recaman%27s_sequence
-Mixed high and low-precedence booleans at line 25, column 4. See page 70 of PBP.
 Found ">" in condition for an "unless" at line 25, column 30. See page 99 of PBP.
 Found "!" in condition for an "unless" at line 25, column 30. See page 99 of PBP.
-Mixed high and low-precedence booleans at line 27, column 4. See page 70 of PBP.
-Mixed high and low-precedence booleans at line 28, column 4. See page 70 of PBP.
 
 = R/Recursive_descent_parser_generator
 "local" variable not initialized at line 25, column 17. See page 78 of PBP.
@@ -98,7 +92,6 @@ Reused variable name in lexical scope: %gap at line 128, column 3. Invent unique
 Reused variable name in lexical scope: $dir at line 131, column 5. Invent unique variable names.
 Comma used to separate statements at line 136, column 3. See pages 68,71 of PBP.
 Comma used to separate statements at line 171, column 5. See pages 68,71 of PBP.
-Mixed high and low-precedence booleans at line 180, column 1. See page 70 of PBP.
 Comma used to separate statements at line 212, column 3. See pages 68,71 of PBP.
 Comma used to separate statements at line 224, column 3. See pages 68,71 of PBP.
 
@@ -120,11 +113,6 @@ AUTOLOAD method declared at line 21, column 1. See page 393 of PBP.
 
 = R/Reverse_a_string
 I/O layer ":utf8" used at line 13, column 1. Use ":encoding(UTF-8)" to get strict validation.
-
-= R/Rock-paper-scissors
-Augmented assignment operator '.=' used in declaration at line 103, column 20. Use simple assignment when initializing variables.
-Mixed high and low-precedence booleans at line 122, column 9. See page 70 of PBP.
-Mixed high and low-precedence booleans at line 124, column 9. See page 70 of PBP.
 
 = R/Roman_numerals_Decode
 "local" variable not initialized at line 37, column 4. See page 78 of PBP.
