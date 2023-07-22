@@ -11,8 +11,7 @@ use feature 'say';
 
 while( <DATA> )
   {
-  push @res, "@{[ $- = tr/aeiouAEIOU// ]} vowels @{[ tr/a-zA-Z// - $-
-    ]} consonants in: $_"
+  push @res, "@{[ $- = tr/aeiouAEIOU// ]} vowels @{[ tr/a-zA-Z// - $-]} consonants in: $_"
   }
 
 say my $result = join "\n", @res;
