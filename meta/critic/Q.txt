@@ -15,9 +15,6 @@ One-argument "bless" used at line 42, column 31. See page 365 of PBP.
 One-argument "bless" used at line 45, column 9. See page 365 of PBP.
 One-argument "bless" used at line 54, column 9. See page 365 of PBP.
 
-= Q/Quine
-Literal line breaks in a string at line 9, column 6. See pages 60,61 of PBP.
-
 = Q/Quoting_constructs
 Heredoc terminator must be quoted at line 14, column 12. See page 64 of PBP.
 

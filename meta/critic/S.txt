@@ -4,8 +4,6 @@ Split long regexps into smaller qr// chunks at line 17, column 12. See page 261 
 Only use a capturing group if you plan to use the captured value at line 17, column 12. See page 252 of PBP.
 Negative array index should be used at line 41, column 26. See page 88 of PBP.
 Negative array index should be used at line 46, column 26. See page 88 of PBP.
-Literal line breaks in a string at line 57, column 5. See pages 60,61 of PBP.
-Literal line breaks in a string at line 64, column 15. See pages 60,61 of PBP.
 
 = S/SEND_+_MORE_=_MONEY-2
 Code structure is deeply nested at line 28, column 21. Consider refactoring.

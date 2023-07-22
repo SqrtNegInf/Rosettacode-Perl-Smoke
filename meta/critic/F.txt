@@ -55,9 +55,6 @@ Mixed high and low-precedence booleans at line 16, column 1. See page 70 of PBP.
 = F/Finite_state_machine
 Reused variable name in lexical scope: $action at line 17, column 3. Invent unique variable names.
 
-= F/First_class_environments
-Literal line breaks in a string at line 35, column 16. See pages 60,61 of PBP.
-
 = F/First_perfect_square_in_base_N_with_N_unique_digits-1
 Mixed high and low-precedence booleans at line 32, column 13. See page 70 of PBP.
 

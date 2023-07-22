@@ -11,13 +11,6 @@ Found "<" in condition for an "until" at line 21, column 3. See page 99 of PBP.
 = C/Calendar
 Map blocks should have a single statement at line 22, column 14. See page 113 of PBP.
 
-= C/Calendar_-_for_%22REAL%22_programmers
-Literal line breaks in a string at line 18, column 12. See pages 60,61 of PBP.
-
-= C/Call_a_foreign-language_function
-Literal line breaks in a string at line 18, column 17. See pages 60,61 of PBP.
-Literal line breaks in a string at line 32, column 17. See pages 60,61 of PBP.
-
 = C/CalmoSoft_primes
 Reused variable name in lexical scope: @primes at line 16, column 13. Invent unique variable names.
 
@@ -104,7 +97,6 @@ Mixed high and low-precedence booleans at line 24, column 3. See page 70 of PBP.
 
 = C/Compiler_code_generator
 "local" variable not initialized at line 22, column 6. See page 78 of PBP.
-Literal line breaks in a string at line 29, column 27. See pages 60,61 of PBP.
 
 = C/Compiler_lexical_analyzer-1
 Warnings disabled at line 11, column 1. See page 431 of PBP.
@@ -172,9 +164,6 @@ Warnings disabled at line 79, column 1. See page 431 of PBP.
 = C/Coprime_triplets
 Mixed high and low-precedence booleans at line 22, column 21. See page 70 of PBP.
 Found ">" in condition for an "until" at line 29, column 30. See page 99 of PBP.
-
-= C/Count_how_many_vowels_and_consonants_occur_in_a_string
-Literal line breaks in a string at line 14, column 14. See pages 60,61 of PBP.
 
 = C/Count_in_octal
 Warnings disabled at line 10, column 1. See page 431 of PBP.
