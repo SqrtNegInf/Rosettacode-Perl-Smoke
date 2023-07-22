@@ -3,6 +3,7 @@
 #c# 2018-08-21 <RC
 #p# OK
 #=# RC pipe: THH
+#n# works only in batch, non-responsive at terminal?
 
 srand 123456;
 
@@ -19,6 +20,7 @@ sub binaryRand
 {
     return int(rand(2));
 }
+
 #Converts 1's and 0's to H's and T's, respectively.
 sub convert
 {
@@ -37,7 +39,7 @@ sub convert
 sub uSeq
 {
     $result .=("Please enter a sequence of 3 of \"H\" and \"T\". EG: HHT\n>");
-    my $uString = <STDIN>;
+    my $uString = <>;
 
     while(1)
     {
@@ -55,7 +57,7 @@ sub uSeq
         {
             $result .=("Error, try again. \n");
             $result .=("Please enter a sequence of 3 of \"H\" and \"T\". EG: HHT\n");
-            $uString = <STDIN>;
+            $uString = <>;
         }
     }
     return $uString;
