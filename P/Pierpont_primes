@@ -41,7 +41,8 @@ sub pierpont {
 
         if ($min >= $add_one) {
             push @iterators, iter2($po3);
-            $add_one = $head[$#iterators] = $iterators[$#iterators]->();
+            $add_one = $head[$#iterators] = $iterators[-1]->();
+           #$add_one = $head[$#iterators] = $iterators[$#iterators]->();
             $po3 *= 3;
         }
     } until @pierpont == $max; 
