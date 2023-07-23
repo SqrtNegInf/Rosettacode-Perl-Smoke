@@ -16,7 +16,7 @@ sub sexpr
 
     while (m{
         \G    # start match right at the end of the previous one
-        \s*+  # skip whitespaces
+        \s*   # skip whitespaces                                    # DH removed the '+'
         # now try to match any of possible tokens in THIS order:
         (?<lparen>\() |
         (?<rparen>\)) |
@@ -38,12 +38,14 @@ sub sexpr
 
         if ($token eq 'lparen') {
             my $a = [];
-            push @{$stack[$#stack]}, $a;
+            push @{$stack[-1]}, $a;
+           #push @{$stack[$#stack]}, $a;
             push @stack, $a;
         } elsif ($token eq 'rparen') {
             pop @stack;
         } else {
-            push @{$stack[$#stack]}, bless \$val, $token;
+            push @{$stack[-1]}, bless \$val, $token;
+           #push @{$stack[$#stack]}, bless \$val, $token;
         }
     }
     return $stack[0]->[0];
