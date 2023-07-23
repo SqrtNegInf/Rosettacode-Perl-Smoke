@@ -64,9 +64,6 @@ Warnings disabled at line 28, column 16. See page 431 of PBP.
 = P/Permuted_multiples
 Mismatched operator at line 14, column 46. Numeric/string operators and operands should match.
 
-= P/Pierpont_primes
-Negative array index should be used at line 44, column 55. See page 88 of PBP.
-
 = P/Pig_the_dice_game_Player
 Found ">=" in condition for an "until" at line 71, column 7. See page 99 of PBP.
 
