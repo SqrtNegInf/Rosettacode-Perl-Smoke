@@ -14,9 +14,6 @@ Mismatched operator at line 27, column 17. Numeric/string operators and operands
 = F/File_size_distribution
 Reused variable name in lexical scope: $max at line 31, column 5. Invent unique variable names.
 
-= F/Find_common_directory_path
-Capture variable used outside conditional at line 17, column 12. See page 253 of PBP.
-
 = F/Find_first_and_last_set_bit_of_a_long_integer
 Warnings disabled at line 36, column 3. See page 431 of PBP.
 
@@ -70,8 +67,6 @@ Don't modify $_ in list functions at line 24, column 42. See page 114 of PBP.
 Found ">=" in condition for an "until" at line 14, column 94. See page 99 of PBP.
 
 = F/Functional_coverage_tree
-Capture variable used outside conditional at line 20, column 41. See page 253 of PBP.
-Capture variable used outside conditional at line 21, column 41. See page 253 of PBP.
 Comma used to separate statements at line 24, column 9. See pages 68,71 of PBP.
 Use "local $/ = undef" or Path::Tiny instead of joined readline at line 35, column 34. See page 213 of PBP.
 

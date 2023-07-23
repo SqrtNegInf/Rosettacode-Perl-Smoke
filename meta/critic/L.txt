@@ -17,10 +17,6 @@ Reused variable name in lexical scope: $x at line 46, column 8. Invent unique va
 = L/Largest_difference_between_adjacent_primes
 "map" used in void context at line 17, column 5. Use a "for" loop instead.
 
-= L/Largest_five_adjacent_number
-Capture variable used outside conditional at line 15, column 4. See page 253 of PBP.
-Capture variable used outside conditional at line 15, column 10. See page 253 of PBP.
-
 = L/Largest_palindrome_product
 Found ">=" in condition for an "unless" at line 19, column 14. See page 99 of PBP.
 
@@ -31,32 +27,11 @@ Reused variable name in lexical scope: $n at line 20, column 5. Invent unique va
 = L/Largest_product_in_a_grid-2
 "map" used in void context at line 49, column 9. Use a "for" loop instead.
 
-= L/Last_letter-first_letter
-Capture variable used outside conditional at line 23, column 19. See page 253 of PBP.
-Capture variable used outside conditional at line 23, column 27. See page 253 of PBP.
-
 = L/Last_list_item
 Use "local $/ = undef" or Path::Tiny instead of joined readline at line 15, column 27. See page 213 of PBP.
 
 = L/Launch_rocket_with_countdown_and_acceleration_in_stdout
-Single-quote used as quote-like operator delimiter at line 22, column 10. Using quotes as delimiters for quote-like operators obfuscates code.
-Single-quote used as quote-like operator delimiter at line 22, column 22. Using quotes as delimiters for quote-like operators obfuscates code.
-Single-quote used as quote-like operator delimiter at line 22, column 35. Using quotes as delimiters for quote-like operators obfuscates code.
-Single-quote used as quote-like operator delimiter at line 22, column 47. Using quotes as delimiters for quote-like operators obfuscates code.
-Single-quote used as quote-like operator delimiter at line 22, column 59. Using quotes as delimiters for quote-like operators obfuscates code.
-Single-quote used as quote-like operator delimiter at line 23, column 10. Using quotes as delimiters for quote-like operators obfuscates code.
-Single-quote used as quote-like operator delimiter at line 23, column 22. Using quotes as delimiters for quote-like operators obfuscates code.
-Single-quote used as quote-like operator delimiter at line 23, column 35. Using quotes as delimiters for quote-like operators obfuscates code.
-Single-quote used as quote-like operator delimiter at line 23, column 47. Using quotes as delimiters for quote-like operators obfuscates code.
-Single-quote used as quote-like operator delimiter at line 24, column 10. Using quotes as delimiters for quote-like operators obfuscates code.
-Single-quote used as quote-like operator delimiter at line 24, column 22. Using quotes as delimiters for quote-like operators obfuscates code.
-Single-quote used as quote-like operator delimiter at line 24, column 35. Using quotes as delimiters for quote-like operators obfuscates code.
-Single-quote used as quote-like operator delimiter at line 24, column 47. Using quotes as delimiters for quote-like operators obfuscates code.
-Single-quote used as quote-like operator delimiter at line 48, column 15. Using quotes as delimiters for quote-like operators obfuscates code.
-Reused variable name in lexical scope: $a at line 67, column 5. Invent unique variable names.
-Single-quote used as quote-like operator delimiter at line 68, column 11. Using quotes as delimiters for quote-like operators obfuscates code.
-Single-quote used as quote-like operator delimiter at line 68, column 25. Using quotes as delimiters for quote-like operators obfuscates code.
-Single-quote used as quote-like operator delimiter at line 68, column 37. Using quotes as delimiters for quote-like operators obfuscates code.
+Reused variable name in lexical scope: $a at line 68, column 5. Invent unique variable names.
 
 = L/Least_m_such_that_n!_%2B_m_is_prime
 Found ">" in condition for an "until" at line 18, column 3. See page 99 of PBP.

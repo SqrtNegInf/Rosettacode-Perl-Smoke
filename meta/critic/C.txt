@@ -14,13 +14,6 @@ Found ">=" in condition for an "unless" at line 27, column 7. See page 99 of PBP
 = C/Change_e_letters_to_i_in_words
 Warnings disabled at line 8, column 1. See page 431 of PBP.
 
-= C/Changeable_words-2
-Capture variable used outside conditional at line 14, column 53. See page 253 of PBP.
-Capture variable used outside conditional at line 14, column 57. See page 253 of PBP.
-
-= C/Character_codes-3
-Capture variable used outside conditional at line 17, column 30. See page 253 of PBP.
-
 = C/Chat_server
 Reused variable name in lexical scope: $conn at line 86, column 9. Invent unique variable names.
 
@@ -66,8 +59,6 @@ Warnings disabled at line 43, column 17. See page 431 of PBP.
 
 = C/Compiler_lexical_analyzer-1
 Warnings disabled at line 11, column 1. See page 431 of PBP.
-Capture variable used outside conditional at line 68, column 24. See page 253 of PBP.
-Capture variable used outside conditional at line 68, column 28. See page 253 of PBP.
 
 = C/Compiler_lexical_analyzer-2
 Warnings disabled at line 8, column 1. See page 431 of PBP.

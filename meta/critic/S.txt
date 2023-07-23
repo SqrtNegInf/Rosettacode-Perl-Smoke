@@ -51,9 +51,6 @@ Reused variable name in lexical scope: $height at line 35, column 5. Invent uniq
 = S/Sieve_of_Eratosthenes-10
 Lvalue form of "substr" used at line 19, column 25. See page 165 of PBP.
 
-= S/Sieve_of_Eratosthenes-11
-Capture variable used outside conditional at line 105, column 24. See page 253 of PBP.
-
 = S/Sieve_of_Eratosthenes-5
 Found ">" in condition for an "until" at line 21, column 3. See page 99 of PBP.
 Found ">" in condition for an "until" at line 23, column 35. See page 99 of PBP.
