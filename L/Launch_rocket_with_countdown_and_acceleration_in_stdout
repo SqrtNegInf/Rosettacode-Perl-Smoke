@@ -3,6 +3,7 @@
 #t# interactive
 #c# 2019-10-16 >RC
 #p# OK
+#n# changed the q'...' to q{...}  (1) silences P::C  (2) makes vim syntax high-lighter happier
 
 use strict;
 use warnings;
@@ -19,9 +20,9 @@ my $j =  0;
 my $t = -5;
 my $start = $^T;
 
-my @r = (q'   |',    q'  /_\\',   q'  | |',   q' /| |\\', q'/_|_|_\\');
-my @x = (q' (/|\\)', q' {/|\\}',  q'  \\|/',  q'   |');
-my @y = (q'  /|\\',  q' // \\\\', q' (/ \\)', q'  \\ /'); #'
+my @r = (q{   |},    q{  /_\\},   q{  | |},   q{ /| |\\}, q{/_|_|_\\});
+my @x = (q{ (/|\\)}, q{ {/|\\}},  q{  \\|/},  q{   |});
+my @y = (q{  /|\\},  q{ // \\\\}, q{ (/ \\)}, q{  \\ /});
 
 my $sp = ' ' x $h;
 
@@ -45,7 +46,7 @@ while (1) {
     print "\e[H\e[J", ("\n")x$v, W, $sp, join("\n$sp",@r), "\n", $sp;
 
     if ($t < 0) {
-        print q'\\/   \\/'
+        print q{\\/   \\/}
     } else {
         exhaust( $pal[$i], $a )
     }
@@ -65,7 +66,7 @@ while (1) {
 
 sub exhaust {
     my($clr, $a) = @_;
-    print q'\\/', $clr, q'/^\\', W, q'\\/'; #'
+    print q{\\/}, $clr, q{/^\\}, W, q{\\/};
     return if $a == 0;
     if ($a < 4) {
         print "\n", $clr,
