@@ -40,7 +40,7 @@ sub dot {
     $s > 0 ? $s : 0;
 }
  
-my $pos = [ 120, 120, 0, 120 ];
+my $pos = [ 120, 120,    0, 120 ];
 my $neg = [ -77, -33, -100, 190 ];
 my $light = normalize([ -12, 13, -10 ]);
 sub draw {
@@ -53,11 +53,11 @@ sub draw {
             my ($hit, @hs) = 0;
             my @h = hit($pos, $x, $y);
  
-            if (!@h) { $hit = 0 }
-            elsif (!(@hs = hit($neg, $x, $y))) { $hit = 1 }
-            elsif ($hs[0] > $h[0]) { $hit = 1 }
-            elsif ($hs[1] > $h[0]) { $hit = $hs[1] > $h[1] ? 0 : 2 }
-            else { $hit = 1 }
+            if    (!@h)                         { $hit = 0                      }
+            elsif (!(@hs = hit($neg, $x, $y)))  { $hit = 1                      }
+            elsif ($hs[0] > $h[0])              { $hit = 1                      }
+            elsif ($hs[1] > $h[0])              { $hit = $hs[1] > $h[1] ? 0 : 2 }
+            else                                { $hit = 1                      }
  
             my ($val, $v);
             if ($hit == 0) { $val = 0 }
