@@ -1,8 +1,4 @@
 
-= A/ABC_Problem-2
-Match variable used at line 24, column 25. See page 82 of PBP.
-Match variable used at line 24, column 37. See page 82 of PBP.
-
 = A/ADFGVX_cipher
 Reused variable name in lexical scope: $keyword at line 50, column 3. Invent unique variable names.
 Reused variable name in lexical scope: $encoded at line 58, column 3. Invent unique variable names.
@@ -17,15 +13,8 @@ Found ">=" in condition for an "unless" at line 17, column 12. See page 99 of PB
 = A/AKS_test_for_primes-3
 Found ">=" in condition for an "unless" at line 17, column 12. See page 99 of PBP.
 
-= A/ASCII_art_diagram_converter
-Match variable used at line 37, column 66. See page 82 of PBP.
-
 = A/A_star_search_algorithm
 Comma used to separate statements at line 20, column 20. See pages 68,71 of PBP.
-Match variable used at line 45, column 21. See page 82 of PBP.
-Match variable used at line 45, column 37. See page 82 of PBP.
-Match variable used at line 48, column 31. See page 82 of PBP.
-Match variable used at line 48, column 47. See page 82 of PBP.
 
 = A/Abbreviations,_automatic
 "map" used in void context at line 20, column 5. Use a "for" loop instead.

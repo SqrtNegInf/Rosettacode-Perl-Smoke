@@ -29,7 +29,6 @@ Found ">" in condition for an "unless" at line 25, column 18. See page 99 of PBP
 Reused variable name in lexical scope: $you at line 55, column 3. Invent unique variable names.
 Reused variable name in lexical scope: $me at line 55, column 3. Invent unique variable names.
 Reused variable name in lexical scope: $pick at line 71, column 9. Invent unique variable names.
-Match variable used at line 79, column 17. See page 82 of PBP.
 
 = G/Graph_colouring
 Warnings disabled at line 9, column 1. See page 431 of PBP.

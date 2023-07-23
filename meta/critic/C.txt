@@ -68,16 +68,12 @@ Warnings disabled at line 43, column 17. See page 431 of PBP.
 Warnings disabled at line 11, column 1. See page 431 of PBP.
 Capture variable used outside conditional at line 68, column 24. See page 253 of PBP.
 Capture variable used outside conditional at line 68, column 28. See page 253 of PBP.
-Match variable used at line 80, column 11. See page 82 of PBP.
-Match variable used at line 85, column 5. See page 82 of PBP.
 
 = C/Compiler_lexical_analyzer-2
 Warnings disabled at line 8, column 1. See page 431 of PBP.
 Variable declared in conditional statement at line 12, column 1. Declare variables outside of the condition.
 Comma used to separate statements at line 12, column 22. See pages 68,71 of PBP.
 Use "local $/ = undef" or Path::Tiny instead of joined readline at line 18, column 12. See page 213 of PBP.
-Match variable used at line 40, column 9. See page 82 of PBP.
-Match variable used at line 40, column 35. See page 82 of PBP.
 
 = C/Compiler_syntax_analyzer
 Use "local $/ = undef" or Path::Tiny instead of joined readline at line 20, column 12. See page 213 of PBP.

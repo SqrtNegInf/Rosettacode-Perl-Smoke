@@ -62,8 +62,6 @@ Reused variable name in lexical scope: $lv at line 35, column 11. Invent unique 
 One-argument "bless" used at line 20, column 33. See page 365 of PBP.
 
 = R/Remote_agent_Agent_logic
-Match variable used at line 85, column 17. See page 82 of PBP.
-Match variable used at line 92, column 17. See page 82 of PBP.
 Reused variable name in lexical scope: $gap at line 109, column 3. Invent unique variable names.
 Reused variable name in lexical scope: %gap at line 128, column 3. Invent unique variable names.
 Reused variable name in lexical scope: $dir at line 131, column 5. Invent unique variable names.
@@ -106,8 +104,5 @@ Reused variable name in lexical scope: $html at line 30, column 5. Invent unique
 
 = R/Round-robin_tournament_schedule-2
 Comma used to separate statements at line 23, column 85. See pages 68,71 of PBP.
-
-= R/Run-length_encoding
-Match variable used at line 40, column 26. See page 82 of PBP.
 
 

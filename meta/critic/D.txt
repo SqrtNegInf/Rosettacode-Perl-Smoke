@@ -47,10 +47,6 @@ Don't modify $_ in list functions at line 30, column 11. See page 114 of PBP.
 "local" variable not initialized at line 18, column 20. See page 78 of PBP.
 Reused variable name in lexical scope: $bg at line 27, column 5. Invent unique variable names.
 
-= D/Distinct_Palindromes_Within_Decimal_Numbers
-Match variable used at line 21, column 9. See page 82 of PBP.
-Match variable used at line 21, column 28. See page 82 of PBP.
-
 = D/Distributed_programming
 Use "local $/ = undef" or Path::Tiny instead of joined readline at line 32, column 26. See page 213 of PBP.
 
