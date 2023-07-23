@@ -12,7 +12,7 @@ sub rot13 {
 }
 
 my $i = 'NOWHERE Abjurer';
-my $r      .= rot13($i);
+my $r    = rot13($i);
 my $result = "$r\n";
 $result .= rot13($r) . "\n";
 
