@@ -121,9 +121,6 @@ Found ">" in condition for an "unless" at line 52, column 10. See page 99 of PBP
 = R/Rosetta_Code_Tasks_without_examples
 Reused variable name in lexical scope: $html at line 30, column 5. Invent unique variable names.
 
-= R/Rot-13
-Augmented assignment operator '.=' used in declaration at line 15, column 12. Use simple assignment when initializing variables.
-
 = R/Round-robin_tournament_schedule-2
 Comma used to separate statements at line 23, column 85. See pages 68,71 of PBP.
 
