@@ -19,9 +19,9 @@ while(my $row = <DATA>) {
   while ($prev ne "@rows") {
     $prev = "@rows";
     try(\@rows, \@rpats);
-    my @cols = map { join '', map { s/.//; $& } @rows } 0..$#cpats;
+    my @cols = map { join '', map { s/.//; $& } @rows } 0..$#cpats;          # NB: nested maps
     try(\@cols, \@cpats);
-    @rows = map { join '', map { s/.//; $& } @cols } 0..$#rpats;
+       @rows = map { join '', map { s/.//; $& } @cols } 0..$#rpats;          # NB: nested maps
   }
   push @res, "\n";
   push @res, "@rows" =~ /\./ ? "Failed\n" : map { tr/01/.#/r, "\n" } @rows;
