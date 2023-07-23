@@ -8,11 +8,5 @@ Found ">" in condition for an "unless" at line 22, column 30. See page 99 of PBP
 = T/Ternary_logic
 @ISA used instead of "use parent" at line 15, column 5. See page 360 of PBP.
 
-= T/Textonyms
-"map" used in void context at line 17, column 1. Use a "for" loop instead.
-Don't modify $_ in list functions at line 17, column 1. See page 114 of PBP.
-"map" used in void context at line 18, column 1. Use a "for" loop instead.
-Don't modify $_ in list functions at line 18, column 1. See page 114 of PBP.
-
 = T/The_ISAAC_Cipher
 Reused variable name in lexical scope: $key at line 30, column 3. Invent unique variable names.
