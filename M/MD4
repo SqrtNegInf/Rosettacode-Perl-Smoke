@@ -12,7 +12,8 @@ use feature 'say';
 
 sub md4 :prototype(@) {
     my @input = grep { defined && length > 0 } split /(.{64})/s, join '', @_;
-    push @input, '' if !@input || length($input[$#input]) >= 56;
+    push @input, '' if !@input || length($input[-1]) >= 56;
+   #push @input, '' if !@input || length($input[$#input]) >= 56;
 
     my @A = (0x67452301, 0xefcdab89, 0x98badcfe, 0x10325476); # initial regs
     my @T = (0, 0x5A827999, 0x6ED9EBA1);
