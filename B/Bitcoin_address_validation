@@ -18,7 +18,8 @@ my %b58 = map { $b58[$_] => $_ } 0 .. 57;
 sub unbase58 {
     use integer;
     my @out;
-    my $azeroes = length($1) if $_[0] =~ /^(1*)/;
+    $_[0] =~ /^(1*)/ and my $azeroes = length($1); 
+   #my $azeroes = length($1) if $_[0] =~ /^(1*)/;
     for my $c ( map { $b58{$_} } $_[0] =~ /./g ) {
         for (my $j = 25; $j--; ) {
             $c += 58 * ($out[$j] // 0);
@@ -26,7 +27,8 @@ sub unbase58 {
             $c /= 256;
         }
     }
-    my $bzeroes = length($1) if join('', @out) =~ /^(0*)/;
+    join('', @out) =~ /^(0*)/ and my $bzeroes = length($1);
+   #my $bzeroes = length($1) if join('', @out) =~ /^(0*)/;
     die "not a 25 byte address\n" if $bzeroes != $azeroes;
     return @out;
 }
