@@ -25,7 +25,9 @@ my $a = pdl(
 my ( $q, $r )  = mqr($a);
 push @res, $q; 
 push @res, $r;
-push @res, grep { s/(-?[\d.]{3,}e\-1[56])/' 'x(-1+length($1)) . '0'/ge } $q x $r;
+
+# compute result ('x' is overloaded) and round output for display (one value nearly zero)
+push @res, grep { s/(-?[\d.]{3,}e\-1[56])/' 'x(-1+length($1)) . '0'/ge } $q x $r; 
 
 say my $result = join "\n", @res;
 
