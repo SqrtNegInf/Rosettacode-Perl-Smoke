@@ -5493,6 +5493,7 @@ File: L/Launch_rocket_with_countdown_and_acceleration_in_stdout
 #t# interactive
 #c# 2019-10-16 >RC
 #p# OK
+#n# changed the q'...' to q{...}  (1) silences P::C  (2) makes vim syntax high-lighter happier
 
 File: L/Law_of_cosines_-_triples
 #!/usr/local/bin/perl
