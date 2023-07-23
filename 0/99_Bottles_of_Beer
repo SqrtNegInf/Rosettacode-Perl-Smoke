@@ -43,7 +43,8 @@ my $result3;
 my $num = 99;
 #while ($num > 0) {
 while ($num =~/^\d+$/ and $num > 0) {
-    my $s = 's' unless $num == 1;
+    my $s = $num == 1 ? '' : 's';
+   #my $s = 's' unless $num == 1;
     $result3 .= "$num bottle$s of beer on the wall\n$num bottle$s of beer\n";
     $num--;
     $s = 's' unless $num == 1; 
