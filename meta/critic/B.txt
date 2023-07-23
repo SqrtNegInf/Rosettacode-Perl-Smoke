@@ -24,12 +24,6 @@ Lvalue form of "substr" used at line 32, column 37. See page 165 of PBP.
 = B/Bioinformatics_global_alignment
 Reused variable name in lexical scope: @seq at line 52, column 5. Invent unique variable names.
 
-= B/Bitcoin_address_validation
-Variable declared in conditional statement at line 21, column 5. Declare variables outside of the condition.
-Capture variable used outside conditional at line 21, column 26. See page 253 of PBP.
-Variable declared in conditional statement at line 29, column 5. Declare variables outside of the condition.
-Capture variable used outside conditional at line 29, column 26. See page 253 of PBP.
-
 = B/Brownian_tree
 Warnings disabled at line 36, column 5. See page 431 of PBP.
 Reused variable name in lexical scope: $idx at line 60, column 25. Invent unique variable names.
