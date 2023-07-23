@@ -62,9 +62,6 @@ Mismatched operator at line 16, column 45. Numeric/string operators and operands
 Mismatched operator at line 16, column 64. Numeric/string operators and operands should match.
 Mismatched operator at line 23, column 12. Numeric/string operators and operands should match.
 
-= F/Fork
-"warn" used instead of "carp" at line 38, column 5. See page 283 of PBP.
-
 = F/Formal_power_series-1
 UNIVERSAL::isa should not be used as a function at line 64, column 32. Use eval{$obj->isa($pkg)} instead.
 

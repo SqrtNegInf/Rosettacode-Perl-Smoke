@@ -91,7 +91,6 @@ Comma used to separate statements at line 224, column 3. See pages 68,71 of PBP.
 = R/Remote_agent_Simulation
 Conditional "use" statement at line 105, column 3. Use "require" to conditionally include a module.
 Use IO::Interactive::is_interactive() instead of -t at line 115, column 8. See page 218 of PBP.
-"warn" used instead of "carp" at line 138, column 10. See page 283 of PBP.
 
 = R/Resistance_Calculator
 @ISA used instead of "use parent" at line 10, column 5. See page 360 of PBP.

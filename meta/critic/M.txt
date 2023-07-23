@@ -19,9 +19,6 @@ Cascading if-elsif chain at line 31, column 5. See pages 117,118 of PBP.
 = M/Main_step_of_GOST_28147-89
 Comma used to separate statements at line 39, column 5. See pages 68,71 of PBP.
 
-= M/Make_a_backup_file
-"warn" used instead of "carp" at line 48, column 9. See page 283 of PBP.
-
 = M/Man_or_boy_test
 Warnings disabled at line 13, column 1. See page 431 of PBP.
 
