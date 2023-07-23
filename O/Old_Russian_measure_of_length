@@ -38,16 +38,18 @@ sub sigdig {
     my($num,$sig) = @_;
     return $num unless $num =~ /\./; # only mogrify numbers with fractional component
 
-    $num =~ /([1-9]\d*\.?\d*)/;
-    my $prefix = $`;
-    my $match  = $&;
-    return $num if length($match) < $sig; # no limitation will apply
+    no warnings 'uninitialized';
+    $num =~ /^(?<prefix>.*?)(?<match>[1-9]\d*\.?\d*)/;
+#   my $prefix = $`;
+#   my $match  = $&;
+    return $num if length($+{match}) < $sig; # no limitation will apply
 
-    $sig++ if $match =~ /\./;
-    my $digits = substr $match, 0, $sig;
-    my $nextd  = substr $match, $sig, 1;
+    $sig++ if index($+{match}, '.') >= 0;
+   #$sig++ if $+{match} =~ /\./;
+    my $digits = substr $+{match}, 0, $sig;                 # can use $+{match} here if we avoid the regex on previous line?
+    my $nextd  = substr $+{match}, $sig, 1;
     $digits =~ s/(.)$/{1+$1}/e if $nextd && $nextd > 5;
-    return $prefix . $digits;
+    return $+{prefix} . $digits;
 }
 
 $result .= convert(1,'meter');
