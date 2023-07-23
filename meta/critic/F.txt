@@ -46,9 +46,6 @@ Warnings disabled at line 11, column 1. See page 431 of PBP.
 Map blocks should have a single statement at line 37, column 16. See page 113 of PBP.
 Nested named subroutine at line 38, column 9. Declaring a named sub inside another named sub does not prevent the inner sub from being global.
 
-= F/Flipping_bits_game
-Main code has high complexity score (22) at line 1, column 1. Consider refactoring.
-
 = F/Floyd-Warshall_algorithm
 Map blocks should have a single statement at line 16, column 2. See page 113 of PBP.
 "map" used in void context at line 16, column 2. Use a "for" loop instead.

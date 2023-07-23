@@ -75,7 +75,6 @@ Don't turn off strict for large blocks of code at line 10, column 1. See page 43
 One-argument "bless" used at line 20, column 33. See page 365 of PBP.
 
 = R/Remote_agent_Agent_logic
-Main code has high complexity score (38) at line 1, column 1. Consider refactoring.
 Map blocks should have a single statement at line 35, column 13. See page 113 of PBP.
 Cascading if-elsif chain at line 72, column 3. See pages 117,118 of PBP.
 Match variable used at line 85, column 17. See page 82 of PBP.

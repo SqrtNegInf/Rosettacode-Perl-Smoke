@@ -78,9 +78,6 @@ Warnings disabled at line 43, column 17. See page 431 of PBP.
 = C/Compiler_Simple_file_inclusion_pre_processor
 "require" statement with library name as string at line 12, column 1. Use a bareword instead.
 
-= C/Compiler_Verifying_Syntax
-Subroutine "expr" with high complexity score (21) at line 20, column 1. Consider refactoring.
-
 = C/Compiler_code_generator
 "local" variable not initialized at line 22, column 6. See page 78 of PBP.
 
@@ -106,7 +103,6 @@ Match variable used at line 41, column 35. See page 82 of PBP.
 Use "local $/ = undef" or Path::Tiny instead of joined readline at line 20, column 12. See page 213 of PBP.
 Only use a capturing group if you plan to use the captured value at line 33, column 5. See page 252 of PBP.
 Only use a capturing group if you plan to use the captured value at line 49, column 13. See page 252 of PBP.
-Subroutine "expr" with high complexity score (38) at line 54, column 1. Consider refactoring.
 Only use a capturing group if you plan to use the captured value at line 57, column 5. See page 252 of PBP.
 Only use a capturing group if you plan to use the captured value at line 58, column 5. See page 252 of PBP.
 

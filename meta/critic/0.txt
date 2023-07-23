@@ -1,6 +1,5 @@
 
 = 0/15_Puzzle_Game-1
-Subroutine "shuffle_board" with high complexity score (22) at line 104, column 1. Consider refactoring.
 Found "<=>" in condition for an "unless" at line 220, column 5. See page 99 of PBP.
 
 = 0/15_Puzzle_Game-2

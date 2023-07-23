@@ -42,9 +42,6 @@ Map blocks should have a single statement at line 53, column 5. See page 113 of 
 = G/Graph_colouring
 Warnings disabled at line 9, column 1. See page 431 of PBP.
 
-= G/Greed
-Main code has high complexity score (29) at line 1, column 1. Consider refactoring.
-
 = G/Guess_the_number_With_feedback_player
 Cascading if-elsif chain at line 29, column 9. See pages 117,118 of PBP.
 

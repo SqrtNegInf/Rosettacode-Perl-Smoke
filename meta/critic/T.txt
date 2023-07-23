@@ -9,7 +9,6 @@ Found ">" in condition for an "unless" at line 22, column 30. See page 99 of PBP
 @ISA used instead of "use parent" at line 15, column 5. See page 360 of PBP.
 
 = T/Tetris
-Subroutine "rotate" with high complexity score (21) at line 65, column 1. Consider refactoring.
 Return value of eval not tested at line 173, column 1. You can't depend upon the value of $@/$EVAL_ERROR to tell whether an eval failed.
 
 = T/Textonyms

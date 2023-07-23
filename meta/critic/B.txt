@@ -40,5 +40,4 @@ Map blocks should have a single statement at line 55, column 21. See page 113 of
 
 = B/Brownian_tree
 Warnings disabled at line 36, column 5. See page 431 of PBP.
-Subroutine "move" with high complexity score (22) at line 41, column 1. Consider refactoring.
 Reused variable name in lexical scope: $idx at line 60, column 25. Invent unique variable names.

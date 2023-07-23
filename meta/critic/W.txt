@@ -16,7 +16,6 @@ Found "<" in condition for an "until" at line 28, column 7. See page 99 of PBP.
 
 = W/Wave_function_collapse
 "map" used in void context at line 20, column 46. Use a "for" loop instead.
-Subroutine "wfc" with high complexity score (25) at line 25, column 1. Consider refactoring.
 Found ">" in condition for an "unless" at line 98, column 30. See page 99 of PBP.
 
 = W/Web_scraping
@@ -26,6 +25,3 @@ Capture variable used outside conditional at line 16, column 4. See page 253 of 
 Warnings disabled at line 7, column 1. See page 431 of PBP.
 Found ">=" in condition for an "unless" at line 29, column 5. See page 99 of PBP.
 Found "!" in condition for an "unless" at line 29, column 5. See page 99 of PBP.
-
-= W/Welch%27s_t-test-1
-Subroutine "calculate_P_value" with high complexity score (21) at line 35, column 1. Consider refactoring.

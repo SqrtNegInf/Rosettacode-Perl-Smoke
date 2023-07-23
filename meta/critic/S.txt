@@ -65,7 +65,6 @@ Reused variable name in lexical scope: $height at line 35, column 5. Invent uniq
 Lvalue form of "substr" used at line 19, column 25. See page 165 of PBP.
 
 = S/Sieve_of_Eratosthenes-11
-Subroutine "BEGIN" with high complexity score (21) at line 27, column 1. Consider refactoring.
 Capture variable used outside conditional at line 105, column 24. See page 253 of PBP.
 
 = S/Sieve_of_Eratosthenes-5

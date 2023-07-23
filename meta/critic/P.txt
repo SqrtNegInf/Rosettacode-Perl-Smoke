@@ -1,6 +1,5 @@
 
 = P/P-value_correction
-Subroutine "p_adjust" with high complexity score (34) at line 75, column 1. Consider refactoring.
 Cascading if-elsif chain at line 116, column 2. See pages 117,118 of PBP.
 
 = P/Palindrome_dates-1

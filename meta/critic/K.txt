@@ -1,6 +1,5 @@
 
 = K/Keyboard_macros
-Main code has high complexity score (22) at line 1, column 1. Consider refactoring.
 Cascading if-elsif chain at line 17, column 9. See pages 117,118 of PBP.
 Cascading if-elsif chain at line 32, column 13. See pages 117,118 of PBP.
 
