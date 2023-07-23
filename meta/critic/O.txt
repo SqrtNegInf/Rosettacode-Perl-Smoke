@@ -1,6 +1,5 @@
 
 = O/Old_Russian_measure_of_length
-Augmented assignment operator '.=' used in declaration at line 30, column 13. Use simple assignment when initializing variables.
 Match variable used at line 42, column 18. See page 82 of PBP.
 Match variable used at line 43, column 18. See page 82 of PBP.
 
