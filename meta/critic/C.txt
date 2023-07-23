@@ -23,7 +23,6 @@ Capture variable used outside conditional at line 17, column 30. See page 253 of
 
 = C/Chat_server
 Reused variable name in lexical scope: $conn at line 86, column 9. Invent unique variable names.
-Return value of eval not tested at line 89, column 9. You can't depend upon the value of $@/$EVAL_ERROR to tell whether an eval failed.
 
 = C/Chat_server-2
 Cascading if-elsif chain at line 59, column 5. See pages 117,118 of PBP.
@@ -74,7 +73,6 @@ Capture variable used outside conditional at line 68, column 24. See page 253 of
 Capture variable used outside conditional at line 68, column 28. See page 253 of PBP.
 Match variable used at line 80, column 11. See page 82 of PBP.
 Match variable used at line 85, column 5. See page 82 of PBP.
-Return value of eval not tested at line 125, column 9. You can't depend upon the value of $@/$EVAL_ERROR to tell whether an eval failed.
 
 = C/Compiler_lexical_analyzer-2
 Warnings disabled at line 11, column 1. See page 431 of PBP.
@@ -125,9 +123,6 @@ Warnings disabled at line 10, column 1. See page 431 of PBP.
 
 = C/Cousin_primes
 "map" used in void context at line 14, column 1. Use a "for" loop instead.
-
-= C/Create_an_object_Native_demonstration
-Return value of eval not tested at line 83, column 1. You can't depend upon the value of $@/$EVAL_ERROR to tell whether an eval failed.
 
 = C/Cubic_Special_Primes
 Found ">=" in condition for an "until" at line 19, column 3. See page 99 of PBP.

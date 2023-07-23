@@ -8,7 +8,6 @@ Comma used to separate statements at line 37, column 9. See pages 68,71 of PBP.
 = M/MD5_Implementation
 Capture variable used outside conditional at line 54, column 19. See page 253 of PBP.
 Capture variable used outside conditional at line 55, column 20. See page 253 of PBP.
-Return value of eval not tested at line 70, column 3. You can't depend upon the value of $@/$EVAL_ERROR to tell whether an eval failed.
 
 = M/Magic_squares_Perl
 Cascading if-elsif chain at line 31, column 5. See pages 117,118 of PBP.

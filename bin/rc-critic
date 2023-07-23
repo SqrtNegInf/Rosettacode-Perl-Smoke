@@ -28,7 +28,7 @@ my $exclude = join '|',
     'Ambiguously named',
     'Multiple "package" declarations',
     'leading zeros',
-   #'hard tabs',
+    'hard tabs',
     'Backtick operator',
     'Readline inside',
     'Literal line breaks',
@@ -42,6 +42,7 @@ my $exclude = join '|',
     'Nested named subroutine',
     'strict',
     'Map blocks',
+    'Return value',
 ;
 
 for my $file (grep { ! /\.(\d)$/ } @ARGV) {             # skip alternate versions

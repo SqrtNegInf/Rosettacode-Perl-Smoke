@@ -26,9 +26,6 @@ Capture variable used outside conditional at line 21, column 22. See page 253 of
 Capture variable used outside conditional at line 21, column 26. See page 253 of PBP.
 Capture variable used outside conditional at line 21, column 30. See page 253 of PBP.
 
-= R/Range_expansion
-Return value of eval not tested at line 19, column 5. You can't depend upon the value of $@/$EVAL_ERROR to tell whether an eval failed.
-
 = R/Range_modifications
 Split long regexps into smaller qr// chunks at line 31, column 8. See page 261 of PBP.
 

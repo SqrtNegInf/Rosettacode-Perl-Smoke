@@ -4,7 +4,6 @@ Split long regexps into smaller qr// chunks at line 17, column 12. See page 261 
 Only use a capturing group if you plan to use the captured value at line 17, column 12. See page 252 of PBP.
 
 = S/SHA-256
-Return value of eval not tested at line 85, column 23. You can't depend upon the value of $@/$EVAL_ERROR to tell whether an eval failed.
 "map" used in void context at line 136, column 9. Use a "for" loop instead.
 "map" used in void context at line 144, column 9. Use a "for" loop instead.
 
@@ -41,9 +40,6 @@ One-argument "bless" used at line 91, column 5. See page 365 of PBP.
 
 = S/Set_puzzle
 Comma used to separate statements at line 80, column 2. See pages 68,71 of PBP.
-
-= S/Short-circuit_evaluation
-Return value of eval not tested at line 24, column 12. You can't depend upon the value of $@/$EVAL_ERROR to tell whether an eval failed.
 
 = S/Show_the_decimal_value_of_a_number_of_1s_appended_with_a_3,_then_squared
 Mismatched operator at line 14, column 28. Numeric/string operators and operands should match.

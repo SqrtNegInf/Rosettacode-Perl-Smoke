@@ -17,9 +17,6 @@ Reused variable name in lexical scope: $tnum at line 31, column 3. Invent unique
 = P/Parse_EBNF
 "local" variable not initialized at line 25, column 42. See page 78 of PBP.
 
-= P/Parsing_RPN_calculator_algorithm
-Return value of eval not tested at line 34, column 3. You can't depend upon the value of $@/$EVAL_ERROR to tell whether an eval failed.
-
 = P/Parsing_Shunting-yard_algorithm
 Reused variable name in lexical scope: @res at line 33, column 5. Invent unique variable names.
 

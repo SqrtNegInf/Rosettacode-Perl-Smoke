@@ -87,9 +87,6 @@ Mismatched operator at line 25, column 24. Numeric/string operators and operands
 Mismatched operator at line 28, column 9. Numeric/string operators and operands should match.
 Mismatched operator at line 28, column 21. Numeric/string operators and operands should match.
 
-= N/Numerical_Integration
-Return value of eval not tested at line 76, column 37. You can't depend upon the value of $@/$EVAL_ERROR to tell whether an eval failed.
-
 = N/Numerical_and_alphabetical_suffixes
 Split long regexps into smaller qr// chunks at line 22, column 32. See page 261 of PBP.
 
