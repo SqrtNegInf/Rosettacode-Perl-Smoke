@@ -27,7 +27,7 @@ sub convert {
     );
 
     my $base= $magnitude * $factor{$unit};
-    my $out .= "$magnitude $unit to:\n";
+    my $out = "$magnitude $unit to:\n";
     for (sort { $factor{$a} <=> $factor{$b} } keys %factor) {
         $out .= sprintf "%10s: %s\n", $_, sigdig($base / $factor{$_}, 5) unless $_ eq $unit
     }
