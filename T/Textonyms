@@ -10,13 +10,17 @@ use feature 'say';
 my $result;
 
 my $src = 'ref/unixdict.txt';
-my(%h,@dials);
+my(%h);
  
 open my $fh, "<", $src;
-my @words = grep { /^[a-zA-Z]+$/ } <$fh>;
-map { tr/A-Z/a-z/ } @words;
-map { tr/abcdefghijklmnopqrstuvwxyz/22233344455566677778889999/ } @dials = @words;
-@dials = grep {!$h{$_}++} @dials;
+my @words = map { s/A-Z/a-z/r } grep { /^[a-zA-Z]+$/ } <$fh>;
+my @dials = grep {!$h{$_}++} map { tr/a-z/22233344455566677778889999/r } @words;
+
+# old way relies on (slightly opaque) method of in-place edits
+#map { tr/A-Z/a-z/ } @words;                                                        # modify in-place
+#map { tr/abcdefghijklmnopqrstuvwxyz/22233344455566677778889999/ } @dials = @words; # modify while assigning
+#@dials = grep {!$h{$_}++} @dials;
+
 my @textonyms = grep { $h{$_} > 1 } @dials;
 
 #for (keys %t) { push @textonyms, $_ if $t{$_} > 1 } # not as nice
