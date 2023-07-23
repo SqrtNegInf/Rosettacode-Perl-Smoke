@@ -81,10 +81,6 @@ Warnings disabled at line 10, column 1. See page 431 of PBP.
 = A/Anonymous_recursion-2
 Reused variable name in lexical scope: $n at line 16, column 3. Invent unique variable names.
 
-= A/Anonymous_recursion-3
-Stricture disabled at line 8, column 1. See page 429 of PBP.
-Don't turn off strict for large blocks of code at line 8, column 1. See page 433 of PBP.
-
 = A/Apply_a_digital_filter_direct_form_II_transposed
 Warnings disabled at line 18, column 9. See page 431 of PBP.
 "map" used in void context at line 20, column 9. Use a "for" loop instead.

@@ -39,9 +39,6 @@ Reused variable name in lexical scope: $result at line 51, column 5. Invent uniq
 Reused variable name in lexical scope: $result at line 58, column 5. Invent unique variable names.
 Reused variable name in lexical scope: $result at line 67, column 5. Invent unique variable names.
 
-= R/Ray-casting_algorithm
-Stricture disabled at line 81, column 5. See page 429 of PBP.
-
 = R/Read_a_configuration_file
 "local" variable not initialized at line 57, column 5. See page 78 of PBP.
 
@@ -54,8 +51,6 @@ Warnings disabled at line 8, column 1. See page 431 of PBP.
 = R/Readline_interface
 "map" used in void context at line 32, column 5. Use a "for" loop instead.
 Don't modify $_ in list functions at line 32, column 5. See page 114 of PBP.
-Stricture disabled at line 53, column 6. See page 429 of PBP.
-Don't turn off strict for large blocks of code at line 53, column 6. See page 433 of PBP.
 
 = R/Recaman%27s_sequence
 Found ">" in condition for an "unless" at line 25, column 30. See page 99 of PBP.
@@ -70,8 +65,6 @@ Only use a capturing group if you plan to use the captured value at line 49, col
 Reused variable name in lexical scope: $lv at line 35, column 11. Invent unique variable names.
 
 = R/Reflection_List_methods
-Stricture disabled at line 10, column 1. See page 429 of PBP.
-Don't turn off strict for large blocks of code at line 10, column 1. See page 433 of PBP.
 One-argument "bless" used at line 20, column 33. See page 365 of PBP.
 
 = R/Remote_agent_Agent_logic

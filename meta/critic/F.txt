@@ -64,8 +64,6 @@ UNIVERSAL::isa should not be used as a function at line 64, column 32. Use eval{
 = F/Formal_power_series-2
 UNIVERSAL::isa should not be used as a function at line 50, column 24. Use eval{$obj->isa($pkg)} instead.
 UNIVERSAL::isa should not be used as a function at line 60, column 14. Use eval{$obj->isa($pkg)} instead.
-Stricture disabled at line 67, column 4. See page 429 of PBP.
-Stricture disabled at line 77, column 4. See page 429 of PBP.
 
 = F/Fortunate_numbers
 Warnings disabled at line 8, column 1. See page 431 of PBP.

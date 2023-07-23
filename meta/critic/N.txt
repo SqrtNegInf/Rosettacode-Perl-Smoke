@@ -53,8 +53,6 @@ Match variable used at line 24, column 41. See page 82 of PBP.
 Comma used to separate statements at line 27, column 51. See pages 68,71 of PBP.
 
 = N/Null_object
-Stricture disabled at line 9, column 1. See page 429 of PBP.
-Don't turn off strict for large blocks of code at line 9, column 1. See page 433 of PBP.
 Warnings disabled at line 10, column 1. See page 431 of PBP.
 
 = N/Number_Triplets_Game
