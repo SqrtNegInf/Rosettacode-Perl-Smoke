@@ -10,9 +10,6 @@ Capture variable used outside conditional at line 14, column 54. See page 253 of
 = O/OpenWebNet_Password
 Cascading if-elsif chain at line 19, column 9. See pages 117,118 of PBP.
 
-= O/Orbital_elements
-Nested named subroutine at line 26, column 5. Declaring a named sub inside another named sub does not prevent the inner sub from being global.
-
 = O/Order_by_pair_comparisons
 Match variable used at line 15, column 59. See page 82 of PBP.
 

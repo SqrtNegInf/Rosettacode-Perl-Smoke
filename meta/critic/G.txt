@@ -1,9 +1,6 @@
 
 = G/Galton_box_animation
 Reused variable name in lexical scope: @stats at line 73, column 5. Invent unique variable names.
-Nested named subroutine at line 79, column 9. Declaring a named sub inside another named sub does not prevent the inner sub from being global.
-Nested named subroutine at line 103, column 9. Declaring a named sub inside another named sub does not prevent the inner sub from being global.
-Nested named subroutine at line 104, column 9. Declaring a named sub inside another named sub does not prevent the inner sub from being global.
 
 = G/Galton_box_animation-2
 "select" used to emulate "sleep" at line 38, column 3. See page 168 of PBP.

@@ -40,10 +40,6 @@ Conditional "use" statement at line 71, column 5. Use "require" to conditionally
 
 = P/Percolation_Bond_percolation
 Comma used to separate statements at line 53, column 5. See pages 68,71 of PBP.
-Nested named subroutine at line 73, column 5. Declaring a named sub inside another named sub does not prevent the inner sub from being global.
-Nested named subroutine at line 74, column 5. Declaring a named sub inside another named sub does not prevent the inner sub from being global.
-Nested named subroutine at line 75, column 5. Declaring a named sub inside another named sub does not prevent the inner sub from being global.
-Nested named subroutine at line 76, column 5. Declaring a named sub inside another named sub does not prevent the inner sub from being global.
 
 = P/Percolation_Mean_cluster_density
 Comma used to separate statements at line 70, column 5. See pages 68,71 of PBP.
@@ -85,6 +81,3 @@ Found ">=" in condition for an "until" at line 71, column 7. See page 99 of PBP.
 = P/Piprimes
 Map blocks should have a single statement at line 18, column 10. See page 113 of PBP.
 Found ">=" in condition for an "until" at line 20, column 37. See page 99 of PBP.
-
-= P/Playfair_cipher
-Nested named subroutine at line 19, column 5. Declaring a named sub inside another named sub does not prevent the inner sub from being global.

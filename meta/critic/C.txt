@@ -17,9 +17,6 @@ Reused variable name in lexical scope: @primes at line 16, column 13. Invent uni
 = C/Canonicalize_CIDR
 Lvalue form of "substr" used at line 29, column 26. See page 165 of PBP.
 
-= C/Cantor_set
-Nested named subroutine at line 18, column 5. Declaring a named sub inside another named sub does not prevent the inner sub from being global.
-
 = C/Casting_out_nines
 Found ">=" in condition for an "unless" at line 27, column 7. See page 99 of PBP.
 
@@ -48,7 +45,6 @@ Use IO::Interactive::is_interactive() instead of -t at line 13, column 5. See pa
 
 = C/Cipolla%27s_algorithm-1
 Found "!=" in condition for an "unless" at line 31, column 15. See page 99 of PBP.
-Nested named subroutine at line 50, column 5. Declaring a named sub inside another named sub does not prevent the inner sub from being global.
 Reused variable name in lexical scope: $a at line 51, column 9. Invent unique variable names.
 
 = C/Cipolla%27s_algorithm-2

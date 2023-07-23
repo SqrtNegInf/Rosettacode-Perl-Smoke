@@ -16,9 +16,6 @@ Comma used to separate statements at line 21, column 9. See pages 68,71 of PBP.
 = N/Neighbour_primes
 Found ">=" in condition for an "until" at line 20, column 3. See page 99 of PBP.
 
-= N/Nested_function
-Nested named subroutine at line 14, column 5. Declaring a named sub inside another named sub does not prevent the inner sub from being global.
-
 = N/Nested_templated_data
 Reused variable name in lexical scope: $result at line 20, column 5. Invent unique variable names.
 Warnings disabled at line 21, column 5. See page 431 of PBP.
@@ -102,12 +99,10 @@ Return value of eval not tested at line 76, column 37. You can't depend upon the
 Split long regexps into smaller qr// chunks at line 22, column 32. See page 261 of PBP.
 
 = N/Numerical_integration_Adaptive_Simpson%27s_method
-Nested named subroutine at line 17, column 5. Declaring a named sub inside another named sub does not prevent the inner sub from being global.
 Reused variable name in lexical scope: $rf at line 18, column 9. Invent unique variable names.
 Reused variable name in lexical scope: $lf at line 18, column 9. Invent unique variable names.
 Reused variable name in lexical scope: $mid at line 19, column 9. Invent unique variable names.
 Reused variable name in lexical scope: $midf at line 20, column 9. Invent unique variable names.
-Nested named subroutine at line 24, column 5. Declaring a named sub inside another named sub does not prevent the inner sub from being global.
 Reused variable name in lexical scope: $whole at line 25, column 9. Invent unique variable names.
 Reused variable name in lexical scope: $eps at line 25, column 9. Invent unique variable names.
 Reused variable name in lexical scope: $left at line 26, column 9. Invent unique variable names.
@@ -115,6 +110,5 @@ Reused variable name in lexical scope: $right at line 27, column 9. Invent uniqu
 
 = N/Numerical_integration_Gauss-Legendre_Quadrature
 Comma used to separate statements at line 19, column 24. See pages 68,71 of PBP.
-Nested named subroutine at line 74, column 5. Declaring a named sub inside another named sub does not prevent the inner sub from being global.
 
 

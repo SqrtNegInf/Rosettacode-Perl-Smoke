@@ -1,6 +1,5 @@
 
 = B/Babylonian_spiral
-Nested named subroutine at line 39, column 9. Declaring a named sub inside another named sub does not prevent the inner sub from being global.
 Map blocks should have a single statement at line 48, column 5. See page 113 of PBP.
 
 = B/Balanced_brackets-1

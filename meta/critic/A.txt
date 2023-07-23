@@ -56,9 +56,6 @@ Cascading if-elsif chain at line 18, column 3. See pages 117,118 of PBP.
 "select" used to emulate "sleep" at line 38, column 13. See page 168 of PBP.
 "select" used to emulate "sleep" at line 71, column 1. See page 168 of PBP.
 
-= A/Addition_chains
-Nested named subroutine at line 99, column 4. Declaring a named sub inside another named sub does not prevent the inner sub from being global.
-
 = A/Align_columns-2
 Warnings disabled at line 8, column 1. See page 431 of PBP.
 Comma used to separate statements at line 20, column 28. See pages 68,71 of PBP.

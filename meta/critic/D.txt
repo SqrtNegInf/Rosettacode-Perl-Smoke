@@ -31,10 +31,6 @@ Split long regexps into smaller qr// chunks at line 16, column 3. See page 261 o
 = D/Determine_if_a_string_has_all_unique_characters
 Found ">" in condition for an "unless" at line 40, column 18. See page 99 of PBP.
 
-= D/Determine_if_two_triangles_overlap
-Nested named subroutine at line 35, column 5. Declaring a named sub inside another named sub does not prevent the inner sub from being global.
-Nested named subroutine at line 36, column 5. Declaring a named sub inside another named sub does not prevent the inner sub from being global.
-
 = D/Dice_game_probabilities
 Warnings disabled at line 37, column 5. See page 431 of PBP.
 "map" used in void context at line 44, column 5. Use a "for" loop instead.

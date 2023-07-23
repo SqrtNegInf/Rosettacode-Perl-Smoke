@@ -3,10 +3,6 @@
 Cascading if-elsif chain at line 17, column 9. See pages 117,118 of PBP.
 Cascading if-elsif chain at line 32, column 13. See pages 117,118 of PBP.
 
-= K/Klarner-Rado_sequence
-Nested named subroutine at line 27, column 5. Declaring a named sub inside another named sub does not prevent the inner sub from being global.
-Nested named subroutine at line 28, column 5. Declaring a named sub inside another named sub does not prevent the inner sub from being global.
-
 = K/Knight%27s_tour
 Reused variable name in lexical scope: $i at line 52, column 6. Invent unique variable names.
 Reused variable name in lexical scope: $j at line 53, column 8. Invent unique variable names.
@@ -17,13 +13,6 @@ Reused variable name in lexical scope: $i at line 77, column 3. Invent unique va
 Reused variable name in lexical scope: $j at line 77, column 3. Invent unique variable names.
 Reused variable name in lexical scope: $i at line 89, column 4. Invent unique variable names.
 Reused variable name in lexical scope: $j at line 89, column 4. Invent unique variable names.
-
-= K/Knuth-Morris-Pratt_string_search
-Nested named subroutine at line 14, column 5. Declaring a named sub inside another named sub does not prevent the inner sub from being global.
-
-= K/Kosaraju
-Nested named subroutine at line 20, column 5. Declaring a named sub inside another named sub does not prevent the inner sub from being global.
-Nested named subroutine at line 32, column 5. Declaring a named sub inside another named sub does not prevent the inner sub from being global.
 
 = K/Kronecker_product
 Warnings disabled at line 12, column 1. See page 431 of PBP.

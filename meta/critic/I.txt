@@ -43,9 +43,6 @@ Mismatched operator at line 18, column 9. Numeric/string operators and operands 
 Mismatched operator at line 18, column 36. Numeric/string operators and operands should match.
 Mismatched operator at line 19, column 42. Numeric/string operators and operands should match.
 
-= I/Integer_roots-1
-Nested named subroutine at line 25, column 5. Declaring a named sub inside another named sub does not prevent the inner sub from being global.
-
 = I/Integer_roots-2
 Mismatched operator at line 16, column 10. Numeric/string operators and operands should match.
 Mismatched operator at line 17, column 10. Numeric/string operators and operands should match.
