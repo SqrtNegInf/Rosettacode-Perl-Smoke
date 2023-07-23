@@ -9,10 +9,12 @@ use strict;
 use warnings;
 use feature 'say';
 
+use English;
+
 sub ask {
   while (1) {
     #print "Compare $a to $b [<,=,>]: ";
-    <STDIN> =~ /[<=>]/ and return +{qw( < -1 = 0 > 1 )}->{$&};
+    <STDIN> =~ /[<=>]/ and return +{qw( < -1 = 0 > 1 )}->{$MATCH};
   }
 }
 
