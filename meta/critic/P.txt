@@ -1,7 +1,4 @@
 
-= P/P-value_correction
-Cascading if-elsif chain at line 116, column 2. See pages 117,118 of PBP.
-
 = P/Palindrome_dates-1
 Found ">" in condition for an "unless" at line 25, column 10. See page 99 of PBP.
 
@@ -26,9 +23,6 @@ Found ">=" in condition for an "unless" at line 30, column 32. See page 99 of PB
 
 = P/Pell_numbers
 "map" used in void context at line 47, column 1. Use a "for" loop instead.
-
-= P/Penrose_tiling
-Cascading if-elsif chain at line 32, column 5. See pages 117,118 of PBP.
 
 = P/Pentomino_tiling
 Reused variable name in lexical scope: $grid at line 67, column 3. Invent unique variable names.

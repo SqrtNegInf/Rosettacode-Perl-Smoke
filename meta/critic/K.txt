@@ -1,8 +1,4 @@
 
-= K/Keyboard_macros
-Cascading if-elsif chain at line 17, column 9. See pages 117,118 of PBP.
-Cascading if-elsif chain at line 32, column 13. See pages 117,118 of PBP.
-
 = K/Knight%27s_tour
 Reused variable name in lexical scope: $i at line 52, column 6. Invent unique variable names.
 Reused variable name in lexical scope: $j at line 53, column 8. Invent unique variable names.

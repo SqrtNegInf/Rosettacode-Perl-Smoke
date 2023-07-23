@@ -48,9 +48,6 @@ Reused variable name in lexical scope: $count at line 63, column 6. Invent uniqu
 = A/Ackermann_function-1
 Warnings disabled at line 8, column 1. See page 431 of PBP.
 
-= A/Ackermann_function-5
-Cascading if-elsif chain at line 18, column 3. See pages 117,118 of PBP.
-
 = A/Active_object
 "select" used to emulate "sleep" at line 38, column 13. See page 168 of PBP.
 "select" used to emulate "sleep" at line 71, column 1. See page 168 of PBP.
@@ -95,9 +92,6 @@ Mismatched operator at line 49, column 9. Numeric/string operators and operands 
 = A/Atomic_updates
 Warnings disabled at line 10, column 1. See page 431 of PBP.
 Found "!=" in condition for an "until" at line 25, column 24. See page 99 of PBP.
-
-= A/Audio_frequency_generator
-Cascading if-elsif chain at line 33, column 13. See pages 117,118 of PBP.
 
 = A/Autogram_checker
 Capture variable used outside conditional at line 62, column 57. See page 253 of PBP.

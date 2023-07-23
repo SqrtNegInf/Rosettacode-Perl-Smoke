@@ -9,9 +9,6 @@ Comma used to separate statements at line 37, column 9. See pages 68,71 of PBP.
 Capture variable used outside conditional at line 54, column 19. See page 253 of PBP.
 Capture variable used outside conditional at line 55, column 20. See page 253 of PBP.
 
-= M/Magic_squares_Perl
-Cascading if-elsif chain at line 31, column 5. See pages 117,118 of PBP.
-
 = M/Main_step_of_GOST_28147-89
 Comma used to separate statements at line 39, column 5. See pages 68,71 of PBP.
 

@@ -2,9 +2,6 @@
 = D/De_Bruijn_sequences
 Reused variable name in lexical scope: $seq at line 27, column 5. Invent unique variable names.
 
-= D/Death_Star
-Cascading if-elsif chain at line 56, column 13. See pages 117,118 of PBP.
-
 = D/Decimal_floating_point_number_to_binary
 Mismatched operator at line 15, column 50. Numeric/string operators and operands should match.
 
