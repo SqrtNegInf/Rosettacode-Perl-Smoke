@@ -14,9 +14,6 @@ Mismatched operator at line 27, column 17. Numeric/string operators and operands
 = F/File_size_distribution
 Reused variable name in lexical scope: $max at line 31, column 5. Invent unique variable names.
 
-= F/Find_Chess960_starting_position_identifier
-Split long regexps into smaller qr// chunks at line 47, column 15. See page 261 of PBP.
-
 = F/Find_common_directory_path
 Capture variable used outside conditional at line 17, column 12. See page 253 of PBP.
 
@@ -74,9 +71,6 @@ Found ">" in condition for an "until" at line 20, column 5. See page 99 of PBP.
 
 = F/Free_polyominoes_enumeration
 Don't modify $_ in list functions at line 25, column 42. See page 114 of PBP.
-
-= F/French_Republican_calendar
-Split long regexps into smaller qr// chunks at line 34, column 17. See page 261 of PBP.
 
 = F/Frobenius_numbers
 Found ">=" in condition for an "until" at line 14, column 94. See page 99 of PBP.

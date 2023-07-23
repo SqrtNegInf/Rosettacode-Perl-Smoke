@@ -62,9 +62,6 @@ Comma used to separate statements at line 20, column 28. See pages 68,71 of PBP.
 = A/Alternade_words
 Comma used to separate statements at line 13, column 19. See pages 68,71 of PBP.
 
-= A/Amb-2
-Split long regexps into smaller qr// chunks at line 24, column 7. See page 261 of PBP.
-
 = A/Amb-3
 Warnings disabled at line 14, column 7. See page 431 of PBP.
 

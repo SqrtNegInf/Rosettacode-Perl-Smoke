@@ -21,9 +21,6 @@ Warnings disabled at line 18, column 5. See page 431 of PBP.
 One-argument "bless" used at line 14, column 4. See page 365 of PBP.
 One-argument "bless" used at line 28, column 4. See page 365 of PBP.
 
-= D/Department_Numbers-2
-Split long regexps into smaller qr// chunks at line 16, column 3. See page 261 of PBP.
-
 = D/Detect_division_by_zero
 "local" variable not initialized at line 14, column 3. See page 78 of PBP.
 
@@ -38,7 +35,6 @@ Warnings disabled at line 37, column 5. See page 431 of PBP.
 Comma used to separate statements at line 13, column 19. See pages 68,71 of PBP.
 
 = D/Dinesman%27s_multiple-dwelling_problem-1
-Split long regexps into smaller qr// chunks at line 40, column 21. See page 261 of PBP.
 Warnings disabled at line 54, column 11. See page 431 of PBP.
 
 = D/Dinesman%27s_multiple-dwelling_problem-2

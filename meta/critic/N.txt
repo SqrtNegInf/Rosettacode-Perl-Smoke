@@ -87,9 +87,6 @@ Mismatched operator at line 25, column 24. Numeric/string operators and operands
 Mismatched operator at line 28, column 9. Numeric/string operators and operands should match.
 Mismatched operator at line 28, column 21. Numeric/string operators and operands should match.
 
-= N/Numerical_and_alphabetical_suffixes
-Split long regexps into smaller qr// chunks at line 22, column 32. See page 261 of PBP.
-
 = N/Numerical_integration_Adaptive_Simpson%27s_method
 Reused variable name in lexical scope: $rf at line 18, column 9. Invent unique variable names.
 Reused variable name in lexical scope: $lf at line 18, column 9. Invent unique variable names.

@@ -1,6 +1,5 @@
 
 = S/S-Expressions
-Split long regexps into smaller qr// chunks at line 17, column 12. See page 261 of PBP.
 Only use a capturing group if you plan to use the captured value at line 17, column 12. See page 252 of PBP.
 
 = S/SHA-256

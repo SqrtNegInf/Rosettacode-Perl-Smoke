@@ -43,6 +43,7 @@ my $exclude = join '|',
     'strict',
     'Map blocks',
     'Return value',
+    'Split long regexps',
 ;
 
 for my $file (grep { ! /\.(\d)$/ } @ARGV) {             # skip alternate versions
