@@ -3,14 +3,13 @@
 #c# 2018-07-25 <RC
 #p# OK
 
+use strict;
+use warnings;
+no warnings 'qw';
 use feature 'say';
 my $result;
-
-use strict;   # lex.pl - source to tokens
-use warnings; # http://www.rosettacode.org/wiki/Compiler/lexical_analyzer
-no warnings 'qw';
  
-my %keywords = map { $_, "Keyword_$_" } <while print if else putc>;
+my %keywords = map { $_, "Keyword_$_" } <while print if else putc>;             # P::C makes a spurious warning here
 my %tokens = qw[ ; Semicolon ( LeftParen ) RightParen { LeftBrace } RightBrace
   + Op_add - Op_subtract * Op_multiply % Op_mod = Op_assign >= Op_greaterequal
   != Op_notequal == Op_equal ! Op_not < Op_less <= Op_lessequal > Op_greater
