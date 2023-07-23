@@ -4,7 +4,6 @@ Warnings disabled at line 19, column 1. See page 431 of PBP.
 
 = M/MD4
 Negative array index should be used at line 15, column 48. See page 88 of PBP.
-Map blocks should have a single statement at line 23, column 13. See page 113 of PBP.
 Comma used to separate statements at line 36, column 9. See pages 68,71 of PBP.
 
 = M/MD5_Implementation

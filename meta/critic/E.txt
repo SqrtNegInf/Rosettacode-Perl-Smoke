@@ -8,9 +8,6 @@ Warnings disabled at line 12, column 1. See page 431 of PBP.
 = E/Enforced_immutability
 Return value of eval not tested at line 30, column 1. You can't depend upon the value of $@/$EVAL_ERROR to tell whether an eval failed.
 
-= E/Engel_expansion
-Map blocks should have a single statement at line 32, column 10. See page 113 of PBP.
-
 = E/Equal_prime_and_composite_sums
 Found "!" in condition for an "until" at line 27, column 41. See page 99 of PBP.
 

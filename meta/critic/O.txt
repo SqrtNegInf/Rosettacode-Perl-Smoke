@@ -13,7 +13,4 @@ Cascading if-elsif chain at line 19, column 9. See pages 117,118 of PBP.
 = O/Order_by_pair_comparisons
 Match variable used at line 15, column 59. See page 82 of PBP.
 
-= O/Ordered_Partitions-2
-Map blocks should have a single statement at line 28, column 13. See page 113 of PBP.
-
 

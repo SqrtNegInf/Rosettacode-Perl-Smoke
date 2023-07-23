@@ -4,7 +4,6 @@ Match variable used at line 24, column 25. See page 82 of PBP.
 Match variable used at line 24, column 37. See page 82 of PBP.
 
 = A/ADFGVX_cipher
-Map blocks should have a single statement at line 18, column 13. See page 113 of PBP.
 Reused variable name in lexical scope: $keyword at line 50, column 3. Invent unique variable names.
 Reused variable name in lexical scope: $encoded at line 58, column 3. Invent unique variable names.
 Reused variable name in lexical scope: $keyword at line 58, column 3. Invent unique variable names.
@@ -59,12 +58,6 @@ Cascading if-elsif chain at line 18, column 3. See pages 117,118 of PBP.
 = A/Align_columns-2
 Warnings disabled at line 8, column 1. See page 431 of PBP.
 Comma used to separate statements at line 20, column 28. See pages 68,71 of PBP.
-
-= A/Almost_prime-1
-Map blocks should have a single statement at line 16, column 3. See page 113 of PBP.
-
-= A/Almost_prime-2
-Map blocks should have a single statement at line 15, column 27. See page 113 of PBP.
 
 = A/Alternade_words
 Comma used to separate statements at line 13, column 19. See pages 68,71 of PBP.

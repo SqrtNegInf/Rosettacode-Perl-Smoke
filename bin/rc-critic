@@ -41,6 +41,7 @@ my $exclude = join '|',
     'high complexity',
     'Nested named subroutine',
     'strict',
+    'Map blocks',
 ;
 
 for my $file (grep { ! /\.(\d)$/ } @ARGV) {             # skip alternate versions

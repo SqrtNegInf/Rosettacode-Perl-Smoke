@@ -1,7 +1,4 @@
 
-= B/Babylonian_spiral
-Map blocks should have a single statement at line 48, column 5. See page 113 of PBP.
-
 = B/Balanced_brackets-1
 Lvalue form of "substr" used at line 16, column 36. See page 165 of PBP.
 
@@ -32,10 +29,6 @@ Variable declared in conditional statement at line 21, column 5. Declare variabl
 Capture variable used outside conditional at line 21, column 26. See page 253 of PBP.
 Variable declared in conditional statement at line 29, column 5. Declare variables outside of the condition.
 Capture variable used outside conditional at line 29, column 26. See page 253 of PBP.
-
-= B/Brace_expansion
-Map blocks should have a single statement at line 40, column 25. See page 113 of PBP.
-Map blocks should have a single statement at line 55, column 21. See page 113 of PBP.
 
 = B/Brownian_tree
 Warnings disabled at line 36, column 5. See page 431 of PBP.

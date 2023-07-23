@@ -38,9 +38,6 @@ Capture variable used outside conditional at line 23, column 27. See page 253 of
 = L/Last_list_item
 Use "local $/ = undef" or Path::Tiny instead of joined readline at line 15, column 27. See page 213 of PBP.
 
-= L/Latin_Squares_in_reduced_form
-Map blocks should have a single statement at line 36, column 5. See page 113 of PBP.
-
 = L/Launch_rocket_with_countdown_and_acceleration_in_stdout
 Single-quote used as quote-like operator delimiter at line 22, column 10. Using quotes as delimiters for quote-like operators obfuscates code.
 Single-quote used as quote-like operator delimiter at line 22, column 22. Using quotes as delimiters for quote-like operators obfuscates code.

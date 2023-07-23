@@ -1,15 +1,6 @@
 
-= C/CSV_data_manipulation-1
-Map blocks should have a single statement at line 37, column 17. See page 113 of PBP.
-
-= C/CSV_to_HTML_translation
-Map blocks should have a single statement at line 30, column 22. See page 113 of PBP.
-
 = C/Calculating_the_value_of_e-1
 Found "<" in condition for an "until" at line 21, column 3. See page 99 of PBP.
-
-= C/Calendar
-Map blocks should have a single statement at line 22, column 14. See page 113 of PBP.
 
 = C/CalmoSoft_primes
 Reused variable name in lexical scope: @primes at line 16, column 13. Invent unique variable names.
@@ -83,7 +74,6 @@ Capture variable used outside conditional at line 68, column 24. See page 253 of
 Capture variable used outside conditional at line 68, column 28. See page 253 of PBP.
 Match variable used at line 80, column 11. See page 82 of PBP.
 Match variable used at line 85, column 5. See page 82 of PBP.
-Map blocks should have a single statement at line 95, column 5. See page 113 of PBP.
 Return value of eval not tested at line 125, column 9. You can't depend upon the value of $@/$EVAL_ERROR to tell whether an eval failed.
 
 = C/Compiler_lexical_analyzer-2
@@ -108,16 +98,10 @@ Comma used to separate statements at line 50, column 18. See pages 68,71 of PBP.
 = C/Composite_numbers_k_with_no_single_digit_factors_whose_factors_are_all_substrings_of_k
 "map" used in void context at line 16, column 5. Use a "for" loop instead.
 
-= C/Concatenate_two_primes_is_also_prime
-Map blocks should have a single statement at line 15, column 3. See page 113 of PBP.
-
 = C/Conditional_structures
 Warnings disabled at line 9, column 1. See page 431 of PBP.
 yada operator (...) used at line 15, column 5. The yada operator is a placeholder for code you have not yet written.
 Warnings disabled at line 56, column 1. See page 431 of PBP.
-
-= C/Consecutive_Primes_With_Ascending_Or_Descending_Differences
-Map blocks should have a single statement at line 19, column 17. See page 113 of PBP.
 
 = C/Continued_fraction
 Warnings disabled at line 10, column 1. See page 431 of PBP.

@@ -43,10 +43,8 @@ Cascading if-elsif chain at line 41, column 9. See pages 117,118 of PBP.
 
 = F/FizzBuzz
 Warnings disabled at line 11, column 1. See page 431 of PBP.
-Map blocks should have a single statement at line 37, column 16. See page 113 of PBP.
 
 = F/Floyd-Warshall_algorithm
-Map blocks should have a single statement at line 16, column 2. See page 113 of PBP.
 "map" used in void context at line 16, column 2. Use a "for" loop instead.
 
 = F/Forest_fire

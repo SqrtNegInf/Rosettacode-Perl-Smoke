@@ -8,9 +8,6 @@ Glob written as <...> at line 21, column 25. See page 167 of PBP.
 = W/Walk_a_directory_Recursively
 Reused variable name in lexical scope: $dir at line 28, column 5. Invent unique variable names.
 
-= W/War_card_game
-Map blocks should have a single statement at line 19, column 3. See page 113 of PBP.
-
 = W/Wasteful,_equidigital_and_frugal_numbers
 Found "<" in condition for an "until" at line 28, column 7. See page 99 of PBP.
 

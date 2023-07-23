@@ -13,8 +13,6 @@ Conditional "use" statement at line 25, column 7. Use "require" to conditionally
 Mismatched operator at line 76, column 11. Numeric/string operators and operands should match.
 
 = 0/24_game_Solve
-Map blocks should have a single statement at line 36, column 17. See page 113 of PBP.
-Map blocks should have a single statement at line 36, column 29. See page 113 of PBP.
 Reused variable name in lexical scope: @n at line 56, column 4. Invent unique variable names.
 
 = 0/99_Bottles_of_Beer

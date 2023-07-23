@@ -36,7 +36,6 @@ Reused variable name in lexical scope: @c at line 38, column 5. Invent unique va
 "map" used in void context at line 19, column 1. Use a "for" loop instead.
 
 = V/Vogel%27s_approximation_method
-Map blocks should have a single statement at line 22, column 3. See page 113 of PBP.
 Match variable used at line 28, column 48. See page 82 of PBP.
 Match variable used at line 35, column 36. See page 82 of PBP.
 

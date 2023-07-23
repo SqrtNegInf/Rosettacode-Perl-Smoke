@@ -6,7 +6,6 @@
 "map" used in void context at line 54, column 9. Use a "for" loop instead.
 
 = N/Natural_sorting
-Map blocks should have a single statement at line 17, column 17. See page 113 of PBP.
 Sort blocks should have a single statement at line 24, column 28. See page 149 of PBP.
 Warnings disabled at line 59, column 5. See page 431 of PBP.
 
@@ -43,11 +42,9 @@ Comma used to separate statements at line 17, column 3. See pages 68,71 of PBP.
 
 = N/Nonogram_solver
 Don't modify $_ in list functions at line 22, column 16. See page 114 of PBP.
-Map blocks should have a single statement at line 22, column 31. See page 113 of PBP.
 Don't modify $_ in list functions at line 22, column 31. See page 114 of PBP.
 Match variable used at line 22, column 44. See page 82 of PBP.
 Don't modify $_ in list functions at line 24, column 13. See page 114 of PBP.
-Map blocks should have a single statement at line 24, column 28. See page 113 of PBP.
 Don't modify $_ in list functions at line 24, column 28. See page 114 of PBP.
 Match variable used at line 24, column 41. See page 82 of PBP.
 Comma used to separate statements at line 27, column 51. See pages 68,71 of PBP.
