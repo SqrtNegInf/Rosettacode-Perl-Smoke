@@ -21,8 +21,9 @@ for my $N ( 2 .. 10 ) {
   if( @show <= 12 ) {
     my $fmt = join '', map({ /\n/; '%' . ($+[0] + 1) . 's' } @show), "\n";
     my $line;
-   #grep $_, @show and $line .= sprintf($fmt, map s/(.*)\n// && $1, @show) for 0 .. $N;
-    for (0..$N) { $line .= sprintf($fmt, map { s/(.*)\n// && $1} @show ) if grep $_, @show }
+    for (0..$N) { $line .= sprintf($fmt, map { s/(.*)\n// && $1} @show ) if grep $_, @show }  # NB: 'nested' use of $_, 'for' and 'map'
+   #grep $_, @show and $line .= sprintf($fmt, map s/(.*)\n// && $1, @show) for 0 .. $N;       # even a bit less clear
+
     push @res, $line;
   }
 }
