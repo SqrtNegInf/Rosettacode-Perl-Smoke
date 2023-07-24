@@ -22,7 +22,7 @@ for (my $i = 0; $i < @c; $i += 2) {
     my $sl = length(my $s =    $c[$i]  );
     my $ll = length(my $l = uc $c[$i+1]);
     $abr{$s} = my $w = $s.$l;
-    map { $abr{substr($w, 0, $_)} = $w } $sl .. $ll;
+    $abr{substr($w, 0, $_)} = $w for $sl .. $ll;
     $abr{$w} = $w; # full command should always work
 }
 
