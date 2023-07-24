@@ -40,7 +40,7 @@ foreach my $i ( -5..-1 ) {
    $result .= "$happymonths[ $i ]\n" ;
 }
 $result .= "No long weekends in the following " . @workhardyears . " years:\n" ;
-map { $result .= "$_\n" } @workhardyears ;
+$result .= "$_\n" for @workhardyears ;
 
 say $result; 
 
