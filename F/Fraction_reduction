@@ -23,7 +23,7 @@ for my $exp (map { $_ - 1 } <2 3>) {
         for my $num ($start .. $den-1) {
             next if $num =~ /0/ or (uniqnum split '',$num) <= $exp;
             my %i;
-            map { $i{$_}++ } (uniq head -1, split '',$den), uniq tail -1, split '',$num;
+            $i{$_}++ for (uniq head -1, split '',$den), uniq tail -1, split '',$num;
             my @set = grep { $_ if $i{$_} > 1 } keys %i;
             next if @set < 1;
             for (@set) {
