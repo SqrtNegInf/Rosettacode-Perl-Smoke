@@ -41,7 +41,7 @@ sub winning {
         $loss += $p1[$i] * sum0(@p2[$i+1 .. $#p2  ]);
     }
     my $total = sum0(@p1) * sum0(@p2);
-    map { $_ / $total } ($win, $tie, $loss);
+    (map { $_ / $total } $win, $tie, $loss)
 }
 
 }
