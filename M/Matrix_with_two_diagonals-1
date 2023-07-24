@@ -13,7 +13,7 @@ use feature 'say';
 sub both_diag {
     my($n) = @_;
     my @a = map { [ (0) x $_, 1, (0) x ($n-1 - $_) ] } 0..$n-1;
-    map { $a[$_][$n-$_-1] = 1 } 0..$n-1;
+    $a[$_][$n-$_-1] = 1 for 0..$n-1;
     @a
 }
 
@@ -27,7 +27,7 @@ sub both_diag1 {
 sub both_diag2 {
     my($n) = shift() - 1;
     my @a = map { [ (0) x ($n+1) ] } 0..$n;
-    map { ($a[$_][$_], $a[$_][$n-$_]) = (1, 1) } 0..$n; # wish we could assign to a dis-contiguous slice...
+    ($a[$_][$_], $a[$_][$n-$_]) = (1, 1) for 0..$n; # wish we could assign to a dis-contiguous slice...
     @a
 }
 
