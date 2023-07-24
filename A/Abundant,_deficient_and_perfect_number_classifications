@@ -14,7 +14,8 @@ use ntheory qw/divisor_sum/;
 sub div_sum {
     my($n) = @_;
     my $sum = 0;
-    map { $sum += $_ unless $n % $_ } 1 .. $n-1;
+   #map { $sum += $_ if 0 == $n % $_ } 1 .. $n-1;
+    map { $sum += $_ unless $n % $_ } 1 .. $n-1;   # DH stick with original
     $sum;
 }
 
