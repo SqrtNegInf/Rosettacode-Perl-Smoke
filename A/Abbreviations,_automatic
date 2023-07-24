@@ -17,7 +17,9 @@ sub auto_abbreviate {
     my @words = split ' ', $string;
     my $max = 0;
     return '' unless @words;
-    map { $max = length($_) if length($_) > $max } @words;
+   #length($_) > $max and $max = length($_) for @words;
+   #for (@words) { $max = length($_) if length($_) > $max };
+    map { $max = length($_) if length($_) > $max } @words;      # DH stick with the version that P::C warns about
     for my $i (1..$max) {
         my %seen;
         return $i if @words == grep {!$seen{substr($_,0,$i)}++} @words;
