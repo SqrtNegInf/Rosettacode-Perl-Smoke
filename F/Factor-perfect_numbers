@@ -42,9 +42,10 @@ sub moreMultiples ($to, $from) {
 
 my @listing = [1];
 push @listing, moreMultiples [1], [proper_divisors(48)];
-map { push @$_, 48 } @listing;
+push @$_, 48 for @listing;
 
-my @lists; map { push @lists, join ' ', @$_ } @listing;
+my @lists; 
+push @lists, join ' ', @$_ for @listing;
 my $result = @listing . " sequences using first definition:\n" . table(@lists);
 
 my @listing2;
