@@ -24,7 +24,7 @@ for (@c) {
     my $ll = length($w);
     $sl = $ll unless $sl;
     $abr{substr($w,0,$sl)} = $w;
-    map { $abr{substr($w, 0, $_)} = $w } $sl .. $ll;
+    $abr{substr($w, 0, $_)} = $w for $sl .. $ll;
 }
 
 my $fmt = "%-10s";
