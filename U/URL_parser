@@ -5,6 +5,7 @@
 
 use strict;
 use warnings;
+no warnings 'qw';
 use feature 'say';
 my $result;
 
@@ -12,7 +13,7 @@ my $result;
 
 use URI;
 
-for my $uri (do { no warnings 'qw';
+for my $uri (do {
                   qw( foo://example.com:8042/over/there?name=ferret#nose
                       urn:example:animal:ferret:nose
                       jdbc:mysql://test_user:ouupppssss@localhost:3306/sakila?profileSQL=true
