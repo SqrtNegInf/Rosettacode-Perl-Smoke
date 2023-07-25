@@ -17,16 +17,10 @@ Found ">=" in condition for an "unless" at line 17, column 12. See page 99 of PB
 Comma used to separate statements at line 20, column 20. See pages 68,71 of PBP.
 
 = A/Abbreviations,_automatic
-"map" used in void context at line 20, column 5. Use a "for" loop instead.
-
-= A/Abbreviations,_easy
-"map" used in void context at line 25, column 5. Use a "for" loop instead.
-
-= A/Abbreviations,_simple
-"map" used in void context at line 27, column 5. Use a "for" loop instead.
+"map" used in void context at line 22, column 5. Use a "for" loop instead.
 
 = A/Abundant,_deficient_and_perfect_number_classifications
-"map" used in void context at line 17, column 5. Use a "for" loop instead.
+"map" used in void context at line 18, column 5. Use a "for" loop instead.
 
 = A/Abundant_odd_numbers
 Found ">" in condition for an "unless" at line 21, column 14. See page 99 of PBP.
@@ -36,10 +30,6 @@ Reused variable name in lexical scope: $count at line 63, column 6. Invent uniqu
 
 = A/Ackermann_function-1
 Warnings disabled at line 8, column 1. See page 431 of PBP.
-
-= A/Active_object
-"select" used to emulate "sleep" at line 38, column 13. See page 168 of PBP.
-"select" used to emulate "sleep" at line 71, column 1. See page 168 of PBP.
 
 = A/Align_columns-2
 Warnings disabled at line 8, column 1. See page 431 of PBP.

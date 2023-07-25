@@ -20,9 +20,6 @@ Reused variable name in lexical scope: $conn at line 86, column 9. Invent unique
 = C/Check_input_device_is_a_terminal
 Use IO::Interactive::is_interactive() instead of -t at line 13, column 5. See page 218 of PBP.
 
-= C/Checkpoint_synchronization
-"select" used to emulate "sleep" at line 18, column 5. See page 168 of PBP.
-
 = C/Cipolla%27s_algorithm-1
 Found "!=" in condition for an "unless" at line 31, column 15. See page 99 of PBP.
 Reused variable name in lexical scope: $a at line 51, column 9. Invent unique variable names.
@@ -40,13 +37,10 @@ Comma used to separate statements at line 39, column 5. See pages 68,71 of PBP.
 Comma used to separate statements at line 71, column 5. See pages 68,71 of PBP.
 
 = C/Colorful_numbers
-"map" used in void context at line 39, column 1. Use a "for" loop instead.
+"map" used in void context at line 40, column 1. Use a "for" loop instead.
 
 = C/Combinations_with_repetitions_Square_Digit_Chain
 Warnings disabled at line 43, column 17. See page 431 of PBP.
-
-= C/Common_list_elements
-"map" used in void context at line 12, column 1. Use a "for" loop instead.
 
 = C/Compiler_AST_interpreter
 "local" variable not initialized at line 23, column 4. See page 78 of PBP.

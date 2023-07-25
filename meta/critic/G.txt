@@ -2,9 +2,6 @@
 = G/Galton_box_animation
 Reused variable name in lexical scope: @stats at line 73, column 5. Invent unique variable names.
 
-= G/Galton_box_animation-2
-"select" used to emulate "sleep" at line 38, column 3. See page 168 of PBP.
-
 = G/Gamma_function
 Warnings disabled at line 64, column 9. See page 431 of PBP.
 Reused variable name in lexical scope: $result at line 68, column 9. Invent unique variable names.
