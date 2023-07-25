@@ -5,6 +5,7 @@
 #n# routine sometimes returns undef (nothing found) [really ?]
 
 use strict;
+use warnings;
 no warnings 'uninitialized';
 use feature 'say';
 my $result;
