@@ -16,12 +16,6 @@ Found ">=" in condition for an "unless" at line 17, column 12. See page 99 of PB
 = A/A_star_search_algorithm
 Comma used to separate statements at line 20, column 20. See pages 68,71 of PBP.
 
-= A/Abbreviations,_automatic
-"map" used in void context at line 22, column 5. Use a "for" loop instead.
-
-= A/Abundant,_deficient_and_perfect_number_classifications
-"map" used in void context at line 18, column 5. Use a "for" loop instead.
-
 = A/Abundant_odd_numbers
 Found ">" in condition for an "unless" at line 21, column 14. See page 99 of PBP.
 
@@ -36,10 +30,6 @@ Comma used to separate statements at line 13, column 19. See pages 68,71 of PBP.
 
 = A/Anonymous_recursion-2
 Reused variable name in lexical scope: $n at line 16, column 3. Invent unique variable names.
-
-= A/Apply_a_digital_filter_direct_form_II_transposed
-"map" used in void context at line 20, column 9. Use a "for" loop instead.
-"map" used in void context at line 21, column 9. Use a "for" loop instead.
 
 = A/Arithmetic-geometric_mean_Calculate_Pi-1
 Reused variable name in lexical scope: $digits at line 20, column 3. Invent unique variable names.
