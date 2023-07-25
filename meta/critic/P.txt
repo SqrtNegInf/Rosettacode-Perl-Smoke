@@ -18,9 +18,6 @@ Reused variable name in lexical scope: @res at line 33, column 5. Invent unique 
 Found ">=" in condition for an "unless" at line 30, column 32. See page 99 of PBP.
 Found ">=" in condition for an "unless" at line 30, column 32. See page 99 of PBP.
 
-= P/Pell_numbers
-"map" used in void context at line 47, column 1. Use a "for" loop instead.
-
 = P/Pentomino_tiling
 Reused variable name in lexical scope: $grid at line 67, column 3. Invent unique variable names.
 Conditional "use" statement at line 71, column 5. Use "require" to conditionally include a module.
