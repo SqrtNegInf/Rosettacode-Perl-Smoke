@@ -7,7 +7,6 @@ Reused variable name in lexical scope: $result at line 68, column 9. Invent uniq
 
 = G/Gauss-Jordan_matrix_inversion
 Reused variable name in lexical scope: $lv at line 32, column 11. Invent unique variable names.
-"map" used in void context at line 46, column 5. Use a "for" loop instead.
 
 = G/Gaussian_primes
 Reused variable name in lexical scope: $plot at line 18, column 5. Invent unique variable names.
