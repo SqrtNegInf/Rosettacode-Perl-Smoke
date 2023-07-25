@@ -1,10 +1,4 @@
 
-= N/N-grams
-"map" used in void context at line 12, column 5. Use a "for" loop instead.
-
-= N/N-queens_minimum_and_knights_and_bishops
-"map" used in void context at line 54, column 9. Use a "for" loop instead.
-
 = N/Natural_sorting
 Sort blocks should have a single statement at line 24, column 28. See page 149 of PBP.
 
