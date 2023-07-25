@@ -35,7 +35,6 @@ Reused variable name in lexical scope: $result at line 67, column 5. Invent uniq
 Comma used to separate statements at line 17, column 21. See pages 68,71 of PBP.
 
 = R/Readline_interface
-"map" used in void context at line 32, column 5. Use a "for" loop instead.
 Don't modify $_ in list functions at line 32, column 5. See page 114 of PBP.
 
 = R/Recaman%27s_sequence
