@@ -9525,7 +9525,6 @@ File: S/Sieve_of_Eratosthenes-8
 #u# http://rosettacode.org/wiki/Sieve_of_Eratosthenes
 #c# 2018-08-16 <RC
 #p# OK
-#n# $s remains undefined throughout?
 
 File: S/Sieve_of_Eratosthenes-9
 #!/usr/local/bin/perl
