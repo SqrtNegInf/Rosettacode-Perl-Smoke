@@ -6,6 +6,7 @@
 
 use v5.36;
 use bigint;
+use warnings;
 no warnings 'uninitialized'; # %f is uninitialized for $n = -1/0/1
 
 use List::Util <sum max>;
