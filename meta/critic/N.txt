@@ -46,17 +46,6 @@ Comma used to separate statements at line 73, column 3. See pages 68,71 of PBP.
 = N/Numbers_with_equal_rises_and_falls
 Comma used to separate statements at line 24, column 3. See pages 68,71 of PBP.
 
-= N/Numeric_error_propagation
-One-argument "bless" used at line 41, column 21. See page 365 of PBP.
-One-argument "bless" used at line 77, column 5. See page 365 of PBP.
-One-argument "bless" used at line 83, column 5. See page 365 of PBP.
-One-argument "bless" used at line 89, column 5. See page 365 of PBP.
-One-argument "bless" used at line 97, column 5. See page 365 of PBP.
-One-argument "bless" used at line 105, column 5. See page 365 of PBP.
-One-argument "bless" used at line 112, column 5. See page 365 of PBP.
-One-argument "bless" used at line 125, column 5. See page 365 of PBP.
-One-argument "bless" used at line 130, column 5. See page 365 of PBP.
-
 = N/Numeric_separator_syntax
 Mismatched operator at line 16, column 9. Numeric/string operators and operands should match.
 Mismatched operator at line 16, column 18. Numeric/string operators and operands should match.

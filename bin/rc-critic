@@ -49,6 +49,7 @@ my $exclude = join '|',
     'Capture variable used',
     'used to emulate',
     'Warnings disabled',
+    'One-argument "bless"',
 ;
 
 for my $file (grep { ! /\.(\d)$/ } @ARGV) {             # skip alternate versions

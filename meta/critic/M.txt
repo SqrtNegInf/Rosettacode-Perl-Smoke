@@ -15,11 +15,7 @@ Reused variable name in lexical scope: $n at line 19, column 5. Invent unique va
 Reused variable name in lexical scope: @puzzle at line 49, column 5. Invent unique variable names.
 
 = M/Matrix-exponentiation_operator
-One-argument "bless" used at line 31, column 9. See page 365 of PBP.
-One-argument "bless" used at line 38, column 9. See page 365 of PBP.
-One-argument "bless" used at line 44, column 9. See page 365 of PBP.
 Found ">=" in condition for an "unless" at line 70, column 25. See page 99 of PBP.
-One-argument "bless" used at line 81, column 13. See page 365 of PBP.
 
 = M/Matrix_Digital_Rain
 Unreachable code at line 84, column 1. Consider removing it.

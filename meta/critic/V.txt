@@ -14,10 +14,6 @@ Reused variable name in lexical scope: $y at line 35, column 1. Invent unique va
 Reused variable name in lexical scope: @b at line 35, column 1. Invent unique variable names.
 Reused variable name in lexical scope: $fruit at line 54, column 3. Invent unique variable names.
 
-= V/Vector_products
-One-argument "bless" used at line 16, column 18. See page 365 of PBP.
-One-argument "bless" used at line 24, column 33. See page 365 of PBP.
-
 = V/Verhoeff_algorithm
 Mismatched operator at line 41, column 22. Numeric/string operators and operands should match.
 
