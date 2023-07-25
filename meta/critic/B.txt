@@ -14,9 +14,6 @@ Mismatched operator at line 30, column 8. Numeric/string operators and operands 
 = B/Base64_encode_data
 "local" variable not initialized at line 10, column 1. See page 78 of PBP.
 
-= B/Bin_given_limits-1
-Warnings disabled at line 8, column 1. See page 431 of PBP.
-
 = B/Bioinformatics_Sequence_mutation
 Reused variable name in lexical scope: $dna at line 30, column 5. Invent unique variable names.
 Lvalue form of "substr" used at line 32, column 37. See page 165 of PBP.
@@ -25,5 +22,4 @@ Lvalue form of "substr" used at line 32, column 37. See page 165 of PBP.
 Reused variable name in lexical scope: @seq at line 52, column 5. Invent unique variable names.
 
 = B/Brownian_tree
-Warnings disabled at line 36, column 5. See page 431 of PBP.
 Reused variable name in lexical scope: $idx at line 60, column 25. Invent unique variable names.

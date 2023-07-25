@@ -11,9 +11,6 @@ Lvalue form of "substr" used at line 29, column 26. See page 165 of PBP.
 = C/Casting_out_nines
 Found ">=" in condition for an "unless" at line 27, column 7. See page 99 of PBP.
 
-= C/Change_e_letters_to_i_in_words
-Warnings disabled at line 8, column 1. See page 431 of PBP.
-
 = C/Chat_server
 Reused variable name in lexical scope: $conn at line 86, column 9. Invent unique variable names.
 
@@ -29,7 +26,6 @@ Found "!=" in condition for an "unless" at line 18, column 15. See page 99 of PB
 Found "<" in condition for an "until" at line 31, column 10. See page 99 of PBP.
 
 = C/Circular_primes
-Warnings disabled at line 11, column 1. See page 431 of PBP.
 Found ">=" in condition for an "unless" at line 26, column 22. See page 99 of PBP.
 
 = C/Closest-pair_problem
@@ -38,9 +34,6 @@ Comma used to separate statements at line 71, column 5. See pages 68,71 of PBP.
 
 = C/Colorful_numbers
 "map" used in void context at line 40, column 1. Use a "for" loop instead.
-
-= C/Combinations_with_repetitions_Square_Digit_Chain
-Warnings disabled at line 43, column 17. See page 431 of PBP.
 
 = C/Compiler_AST_interpreter
 "local" variable not initialized at line 23, column 4. See page 78 of PBP.
@@ -51,11 +44,7 @@ Warnings disabled at line 43, column 17. See page 431 of PBP.
 = C/Compiler_code_generator
 "local" variable not initialized at line 22, column 6. See page 78 of PBP.
 
-= C/Compiler_lexical_analyzer-1
-Warnings disabled at line 11, column 1. See page 431 of PBP.
-
 = C/Compiler_lexical_analyzer-2
-Warnings disabled at line 8, column 1. See page 431 of PBP.
 Variable declared in conditional statement at line 12, column 1. Declare variables outside of the condition.
 Comma used to separate statements at line 12, column 22. See pages 68,71 of PBP.
 Use "local $/ = undef" or Path::Tiny instead of joined readline at line 18, column 12. See page 213 of PBP.
@@ -74,15 +63,9 @@ Comma used to separate statements at line 50, column 18. See pages 68,71 of PBP.
 "map" used in void context at line 16, column 5. Use a "for" loop instead.
 
 = C/Conditional_structures
-Warnings disabled at line 9, column 1. See page 431 of PBP.
 yada operator (...) used at line 15, column 5. The yada operator is a placeholder for code you have not yet written.
-Warnings disabled at line 56, column 1. See page 431 of PBP.
-
-= C/Continued_fraction
-Warnings disabled at line 10, column 1. See page 431 of PBP.
 
 = C/Convert_seconds_to_compound_duration
-Warnings disabled at line 13, column 5. See page 431 of PBP.
 Mismatched operator at line 17, column 33. Numeric/string operators and operands should match.
 Mismatched operator at line 18, column 33. Numeric/string operators and operands should match.
 Mismatched operator at line 19, column 33. Numeric/string operators and operands should match.
@@ -90,13 +73,9 @@ Mismatched operator at line 20, column 33. Numeric/string operators and operands
 
 = C/Conway%27s_Game_of_Life-1
 Comma used to separate statements at line 23, column 15. See pages 68,71 of PBP.
-Warnings disabled at line 79, column 1. See page 431 of PBP.
 
 = C/Coprime_triplets
 Found ">" in condition for an "until" at line 29, column 30. See page 99 of PBP.
-
-= C/Count_in_octal
-Warnings disabled at line 10, column 1. See page 431 of PBP.
 
 = C/Cousin_primes
 "map" used in void context at line 14, column 1. Use a "for" loop instead.

@@ -34,9 +34,6 @@ Reused variable name in lexical scope: $result at line 67, column 5. Invent uniq
 = R/Read_a_specific_line_from_a_file
 Comma used to separate statements at line 17, column 21. See pages 68,71 of PBP.
 
-= R/Read_entire_file-2
-Warnings disabled at line 8, column 1. See page 431 of PBP.
-
 = R/Readline_interface
 "map" used in void context at line 32, column 5. Use a "for" loop instead.
 Don't modify $_ in list functions at line 32, column 5. See page 114 of PBP.
@@ -83,7 +80,6 @@ Mismatched operator at line 38, column 10. Numeric/string operators and operands
 
 = R/Rosetta_Code_Count_examples
 Reused variable name in lexical scope: $response at line 26, column 5. Invent unique variable names.
-Warnings disabled at line 39, column 5. See page 431 of PBP.
 
 = R/Rosetta_Code_Find_unimplemented_tasks
 Comma used to separate statements at line 34, column 21. See pages 68,71 of PBP.

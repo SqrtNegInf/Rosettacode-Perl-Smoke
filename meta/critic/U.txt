@@ -1,7 +1,4 @@
 
-= U/URL_parser
-Warnings disabled at line 15, column 19. See page 431 of PBP.
-
 = U/UTF-8_encode_and_decode
 "map" used in void context at line 18, column 1. Use a "for" loop instead.
 "map" used in void context at line 23, column 2. Use a "for" loop instead.

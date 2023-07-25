@@ -3,7 +3,6 @@
 Reused variable name in lexical scope: @stats at line 73, column 5. Invent unique variable names.
 
 = G/Gamma_function
-Warnings disabled at line 64, column 9. See page 431 of PBP.
 Reused variable name in lexical scope: $result at line 68, column 9. Invent unique variable names.
 
 = G/Gauss-Jordan_matrix_inversion
@@ -14,9 +13,6 @@ Reused variable name in lexical scope: $lv at line 32, column 11. Invent unique 
 Reused variable name in lexical scope: $plot at line 18, column 5. Invent unique variable names.
 Reused variable name in lexical scope: @primes at line 19, column 5. Invent unique variable names.
 
-= G/General_FizzBuzz
-Warnings disabled at line 48, column 13. See page 431 of PBP.
-
 = G/Generate_random_chess_position
 Found "!=" in condition for an "unless" at line 25, column 18. See page 99 of PBP.
 Found ">" in condition for an "unless" at line 25, column 18. See page 99 of PBP.
@@ -26,8 +22,5 @@ Found ">" in condition for an "unless" at line 25, column 18. See page 99 of PBP
 Reused variable name in lexical scope: $you at line 55, column 3. Invent unique variable names.
 Reused variable name in lexical scope: $me at line 55, column 3. Invent unique variable names.
 Reused variable name in lexical scope: $pick at line 71, column 9. Invent unique variable names.
-
-= G/Graph_colouring
-Warnings disabled at line 9, column 1. See page 431 of PBP.
 
 

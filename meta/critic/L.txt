@@ -1,7 +1,6 @@
 
 = L/LU_decomposition
 "map" used in void context at line 10, column 23. Use a "for" loop instead.
-Warnings disabled at line 38, column 9. See page 431 of PBP.
 Comma used to separate statements at line 47, column 5. See pages 68,71 of PBP.
 
 = L/LZW_compression
@@ -41,6 +40,3 @@ Found ">" in condition for an "until" at line 12, column 6. See page 99 of PBP.
 Found ">" in condition for an "until" at line 16, column 6. See page 99 of PBP.
 Found ">" in condition for an "until" at line 21, column 10. See page 99 of PBP.
 Found "<" in condition for an "until" at line 25, column 6. See page 99 of PBP.
-
-= L/Legendre_prime_counting_function
-Warnings disabled at line 10, column 1. See page 431 of PBP.

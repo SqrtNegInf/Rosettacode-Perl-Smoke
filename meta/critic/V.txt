@@ -6,7 +6,6 @@ Reused variable name in lexical scope: $i at line 28, column 13. Invent unique v
 Comma used to separate statements at line 37, column 5. See pages 68,71 of PBP.
 
 = V/Variables
-Warnings disabled at line 13, column 1. See page 431 of PBP.
 Reused variable name in lexical scope: $x at line 29, column 1. Invent unique variable names.
 Reused variable name in lexical scope: @b at line 33, column 1. Invent unique variable names.
 Reused variable name in lexical scope: $x at line 33, column 1. Invent unique variable names.

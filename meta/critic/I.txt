@@ -47,7 +47,4 @@ Mismatched operator at line 19, column 42. Numeric/string operators and operands
 Mismatched operator at line 16, column 10. Numeric/string operators and operands should match.
 Mismatched operator at line 17, column 10. Numeric/string operators and operands should match.
 
-= I/Introspection
-Warnings disabled at line 19, column 5. See page 431 of PBP.
-
 
