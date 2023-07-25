@@ -50,6 +50,7 @@ my $exclude = join '|',
     'used to emulate',
     'Warnings disabled',
     'One-argument "bless"',
+    'used in void context',
 ;
 
 for my $file (grep { ! /\.(\d)$/ } @ARGV) {             # skip alternate versions
