@@ -1,20 +1,13 @@
 
 = L/LU_decomposition
-"map" used in void context at line 10, column 23. Use a "for" loop instead.
 Comma used to separate statements at line 47, column 5. See pages 68,71 of PBP.
 
 = L/LZW_compression
 Reused variable name in lexical scope: $result at line 53, column 5. Invent unique variable names.
 
-= L/Lah_numbers
-"map" used in void context at line 31, column 5. Use a "for" loop instead.
-
 = L/Langton%27s_ant
 Reused variable name in lexical scope: $y at line 45, column 6. Invent unique variable names.
 Reused variable name in lexical scope: $x at line 46, column 8. Invent unique variable names.
-
-= L/Largest_difference_between_adjacent_primes
-"map" used in void context at line 17, column 5. Use a "for" loop instead.
 
 = L/Largest_palindrome_product
 Found ">=" in condition for an "unless" at line 19, column 14. See page 99 of PBP.
@@ -22,9 +15,6 @@ Found ">=" in condition for an "unless" at line 19, column 14. See page 99 of PB
 = L/Largest_prime_factor
 Comma used to separate statements at line 12, column 5. See pages 68,71 of PBP.
 Reused variable name in lexical scope: $n at line 20, column 5. Invent unique variable names.
-
-= L/Largest_product_in_a_grid-2
-"map" used in void context at line 49, column 9. Use a "for" loop instead.
 
 = L/Last_list_item
 Use "local $/ = undef" or Path::Tiny instead of joined readline at line 15, column 27. See page 213 of PBP.
