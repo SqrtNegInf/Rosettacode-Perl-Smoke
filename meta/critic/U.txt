@@ -1,8 +1,4 @@
 
-= U/UTF-8_encode_and_decode
-"map" used in void context at line 18, column 1. Use a "for" loop instead.
-"map" used in void context at line 23, column 2. Use a "for" loop instead.
-
 = U/Ulam_spiral_for_primes
 Reused variable name in lexical scope: $start at line 19, column 3. Invent unique variable names.
 Reused variable name in lexical scope: $n at line 19, column 3. Invent unique variable names.
