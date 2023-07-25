@@ -2,19 +2,19 @@
 #u# http://rosettacode.org/wiki/Sieve_of_Eratosthenes
 #c# 2018-08-16 <RC
 #p# OK
-#n# $s remains undefined throughout?
 
 my $result;
 
 use strict;
-no warnings;
+use warnings;
 use feature 'say';
 
-sub sieve{ 
+sub sieve { 
+    my ($n) = @_;
     my ($s, $i);
 	grep { not vec $s, $i  = $_, 1 and do 
-		{ (vec $s, $i += $_, 1) = 1 while $i <= $_[0]; 1 }
-	} 2..$_[0]
+		{ (vec $s, $i += $_, 1) = 1 while $i <= $n; 1 }
+	} 2..$n
 }
 
 say $result = join ' ', sieve(100);
