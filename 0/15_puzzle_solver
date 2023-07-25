@@ -6,7 +6,8 @@
 #n# wait, what happened? : 204.62s user 0.22s system 99% cpu 3:24.91 total
 
 use strict;
-no  warnings;
+use warnings;
+no  warnings <uninitialized portable>;
 use feature 'say';
 
 use enum qw(False True);
