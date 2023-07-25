@@ -4,6 +4,7 @@
 #p# OK
 
 use strict;
+use warnings;
 no warnings 'uninitialized'; # $S{$_} is sometimes undefined
 use feature 'say';
 my $result;
