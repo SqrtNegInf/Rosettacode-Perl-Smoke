@@ -6,7 +6,8 @@
 my $result;
 
 use strict;
-no warnings;
+use warnings;
+no warnings 'uninitialized';
 use feature 'say';
 
 # The idea is to make two arrays: the first one contains the digits at their positions 
