@@ -12,7 +12,6 @@ Reused variable name in lexical scope: $dir at line 28, column 5. Invent unique 
 Found "<" in condition for an "until" at line 28, column 7. See page 99 of PBP.
 
 = W/Wave_function_collapse
-"map" used in void context at line 20, column 46. Use a "for" loop instead.
 Found ">" in condition for an "unless" at line 98, column 30. See page 99 of PBP.
 
 = W/Weird_numbers-1
