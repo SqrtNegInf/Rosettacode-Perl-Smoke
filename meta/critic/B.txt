@@ -11,9 +11,6 @@ Lvalue form of "substr" used at line 25, column 36. See page 165 of PBP.
 = B/Balanced_ternary
 Mismatched operator at line 30, column 8. Numeric/string operators and operands should match.
 
-= B/Base64_encode_data
-"local" variable not initialized at line 10, column 1. See page 78 of PBP.
-
 = B/Bioinformatics_Sequence_mutation
 Reused variable name in lexical scope: $dna at line 30, column 5. Invent unique variable names.
 Lvalue form of "substr" used at line 32, column 37. See page 165 of PBP.

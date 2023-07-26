@@ -14,9 +14,6 @@ Reused variable name in lexical scope: $result at line 51, column 5. Invent uniq
 Reused variable name in lexical scope: $result at line 58, column 5. Invent unique variable names.
 Reused variable name in lexical scope: $result at line 67, column 5. Invent unique variable names.
 
-= R/Read_a_configuration_file
-"local" variable not initialized at line 57, column 5. See page 78 of PBP.
-
 = R/Read_a_specific_line_from_a_file
 Comma used to separate statements at line 17, column 21. See pages 68,71 of PBP.
 
@@ -24,7 +21,6 @@ Comma used to separate statements at line 17, column 21. See pages 68,71 of PBP.
 Don't modify $_ in list functions at line 32, column 5. See page 114 of PBP.
 
 = R/Recursive_descent_parser_generator
-"local" variable not initialized at line 25, column 17. See page 78 of PBP.
 Only use a capturing group if you plan to use the captured value at line 46, column 5. See page 252 of PBP.
 Only use a capturing group if you plan to use the captured value at line 49, column 5. See page 252 of PBP.
 

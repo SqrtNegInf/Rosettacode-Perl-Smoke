@@ -2,9 +2,6 @@
 = P/Parallel_calculations
 Reused variable name in lexical scope: $tnum at line 31, column 3. Invent unique variable names.
 
-= P/Parse_EBNF
-"local" variable not initialized at line 25, column 42. See page 78 of PBP.
-
 = P/Parsing_Shunting-yard_algorithm
 Reused variable name in lexical scope: @res at line 33, column 5. Invent unique variable names.
 

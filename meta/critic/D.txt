@@ -11,9 +11,6 @@ Reused variable name in lexical scope: $lv at line 72, column 11. Invent unique 
 = D/Deconvolution_2D%2B
 Reused variable name in lexical scope: $lv at line 81, column 11. Invent unique variable names.
 
-= D/Detect_division_by_zero
-"local" variable not initialized at line 14, column 3. See page 78 of PBP.
-
 = D/Digital_root
 Comma used to separate statements at line 13, column 19. See pages 68,71 of PBP.
 
@@ -22,7 +19,6 @@ Don't modify $_ in list functions at line 21, column 4. See page 114 of PBP.
 Don't modify $_ in list functions at line 30, column 11. See page 114 of PBP.
 
 = D/Display_an_outline_as_a_nested_table
-"local" variable not initialized at line 18, column 20. See page 78 of PBP.
 Reused variable name in lexical scope: $bg at line 27, column 5. Invent unique variable names.
 
 = D/Distributed_programming

@@ -35,5 +35,4 @@ Mismatched operator at line 38, column 8. Numeric/string operators and operands 
 Mismatched operator at line 43, column 8. Numeric/string operators and operands should match.
 
 = M/Merge_and_aggregate_datasets
-"local" variable not initialized at line 16, column 29. See page 78 of PBP.
 Comma used to separate statements at line 21, column 3. See pages 68,71 of PBP.
