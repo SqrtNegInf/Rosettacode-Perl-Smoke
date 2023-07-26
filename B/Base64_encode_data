@@ -7,7 +7,7 @@ use strict;
 use warnings;
 use MIME::Base64;
 open(my($fh), "<", "ref/rc.ico") or die;
-local $/;   # DH required, but why?
+local $/ = undef;
 my @lines = split /\n/, encode_base64(<$fh>);
  
 #The first and last lines of output are:
