@@ -14,7 +14,7 @@ open my $F, '<', 'ref/calendar-2016.base';
 my $n = 7;
 
 # invoke as <scriptname> -n=7 [input]
-while ($_ = <$F>) { $. == $n and $result = $_, goto done }
+while ($_ = <$F>) { $. == $n and ( $result = $_, goto done ) }
 die "file too short\n";
 
 done:
