@@ -9,7 +9,7 @@ use feature 'say';
 
 sub f {
     my($n) = @_;
-    $n % $_ or return $_, f($n/$_) for 2..$n
+    ( $n % $_ or return $_, f($n/$_) ) for 2..$n
 }
 
 my $n = 600851475143; 
