@@ -34,7 +34,7 @@ use feature 'say';
 $result1 .= "$_: ". from_roman($_) . "\n" for <MCMXC MMVIII MDCLXVI>;
 
 sub roman2decimal_1 {
-  (local $_, my $sum, my $zeros) = (shift, 0, '');
+  (local $_, my $sum, my $zeros) = (shift, 0, '');          # P::C mistakenly warns about $_ 
   $zeros .= 0 while
     $sum -= s/I(?=[VX])// - s/V// * 5 - s/I//g . $zeros,
     tr/MDCLX/CLXVI/;
