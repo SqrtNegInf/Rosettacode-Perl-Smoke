@@ -50,7 +50,7 @@ sub move {
     ( fill(  $x,++$y), fill(  $x,++$y) ) if $dir == $D{Down};
     ( fill(--$x,  $y), fill(--$x,  $y) ) if $dir == $D{Left};
     ( fill(++$x,  $y), fill(++$x,  $y) ) if $dir == $D{Right};
-    $x, $y
+    ($x, $y)
 }
  
 sub fill {
