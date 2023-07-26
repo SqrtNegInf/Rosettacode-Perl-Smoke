@@ -36,7 +36,7 @@ sub closest_pair_simple {
             ($a, $b, $d) = ($p, $l, $t) if $t < $d;
         }
     }
-    $a, $b, $d
+    ($a, $b, $d)
 }
 
 sub closest_pair {
@@ -68,7 +68,7 @@ sub closest_pair_real {
             $k++;
         }
     }
-    $w1, $w2, $closest
+    ($w1, $w2, $closest)
 }
 
 my @points;
