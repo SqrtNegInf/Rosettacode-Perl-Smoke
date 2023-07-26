@@ -36,7 +36,7 @@ sub long_division {
 
     my $period = length($fraction) - $seen{$numerator};
     substr $fraction, $seen{$numerator}+(2*$_)+1, 0, "\N{COMBINING OVERLINE}" for 0 .. $period-1;
-    $period, $negative . $fraction  # "$negative$fraction}"
+    ($period, $negative . $fraction)  # "$negative$fraction}"
 }
 
 push @res, sprintf  "%35s Period is %5d : %s", $_, long_division split '/', $_
