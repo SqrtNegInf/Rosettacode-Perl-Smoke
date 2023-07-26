@@ -2,29 +2,10 @@
 = N/Natural_sorting
 Sort blocks should have a single statement at line 24, column 28. See page 149 of PBP.
 
-= N/Nested_templated_data
-Reused variable name in lexical scope: $result at line 20, column 5. Invent unique variable names.
-
-= N/Non-transitive_dice
-Reused variable name in lexical scope: @res at line 15, column 5. Invent unique variable names.
-Reused variable name in lexical scope: @res at line 71, column 5. Invent unique variable names.
-Reused variable name in lexical scope: @res at line 100, column 5. Invent unique variable names.
-Reused variable name in lexical scope: $line at line 152, column 9. Invent unique variable names.
-
 = N/Nonogram_solver
 Don't modify $_ in list functions at line 22, column 16. See page 114 of PBP.
 Don't modify $_ in list functions at line 22, column 31. See page 114 of PBP.
 Don't modify $_ in list functions at line 24, column 16. See page 114 of PBP.
 Don't modify $_ in list functions at line 24, column 31. See page 114 of PBP.
-
-= N/Numerical_integration_Adaptive_Simpson%27s_method
-Reused variable name in lexical scope: $rf at line 18, column 9. Invent unique variable names.
-Reused variable name in lexical scope: $lf at line 18, column 9. Invent unique variable names.
-Reused variable name in lexical scope: $mid at line 19, column 9. Invent unique variable names.
-Reused variable name in lexical scope: $midf at line 20, column 9. Invent unique variable names.
-Reused variable name in lexical scope: $whole at line 25, column 9. Invent unique variable names.
-Reused variable name in lexical scope: $eps at line 25, column 9. Invent unique variable names.
-Reused variable name in lexical scope: $left at line 26, column 9. Invent unique variable names.
-Reused variable name in lexical scope: $right at line 27, column 9. Invent unique variable names.
 
 
