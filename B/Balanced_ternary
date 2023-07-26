@@ -27,7 +27,8 @@ sub from_bt {
   my $n = 0; 
   for( split //, shift ) { # Horner 
     $n *= 3; 
-    $n += "${_}1" if $_; 
+    $n += ("${_}1") if $_;  # what it takes to silence P::C about mismatched operator
+   #$n += "${_}1" if $_; 
   } 
   return $n; 
 } 
