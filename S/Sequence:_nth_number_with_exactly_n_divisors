@@ -23,7 +23,7 @@ for my $n (1..$limit) {
         while () {
             my $nn = $n%2 ? ++$x**2 : ++$x;
             next unless $n == divisors($nn) and ++$i == $n;
-            $result .= "$nn ", last;
+            ( $result .= "$nn ", last )
       }
     }
 }
