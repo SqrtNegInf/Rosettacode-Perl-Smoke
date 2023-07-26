@@ -15,7 +15,7 @@ say 'First 15 terms of OEIS: A005179';
 for my $n (1..15) { 
     my $l = 0;
     while (++$l) {
-        push @res, $l and last if $n == divisors($l);
+        ( push @res, $l and last ) if $n == divisors($l)
     }
 }
 say my $result = join ' ', @res; 
