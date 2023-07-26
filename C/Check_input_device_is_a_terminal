@@ -10,7 +10,10 @@ use strict;
 use warnings;
 use feature 'say';
 
-if (-t) {
+use IO::Interactive;
+
+#if (-t) {
+if (IO::Interactive::is_interactive()) {
     say $result = "Input comes from tty.";
 }
 else {
