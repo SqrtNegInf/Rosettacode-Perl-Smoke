@@ -1,16 +1,3 @@
 
-= L/LZW_compression
-Reused variable name in lexical scope: $result at line 53, column 5. Invent unique variable names.
-
-= L/Langton%27s_ant
-Reused variable name in lexical scope: $y at line 45, column 6. Invent unique variable names.
-Reused variable name in lexical scope: $x at line 46, column 8. Invent unique variable names.
-
-= L/Largest_prime_factor
-Reused variable name in lexical scope: $n at line 20, column 5. Invent unique variable names.
-
 = L/Last_list_item
 Use "local $/ = undef" or Path::Tiny instead of joined readline at line 15, column 27. See page 213 of PBP.
-
-= L/Launch_rocket_with_countdown_and_acceleration_in_stdout
-Reused variable name in lexical scope: $a at line 68, column 5. Invent unique variable names.
