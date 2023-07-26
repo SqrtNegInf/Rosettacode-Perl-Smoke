@@ -67,10 +67,8 @@ sub press
 
 sub newgame
   {
-  $_->[0] && $_->[0]->configure(-bg => $_->[1], -text => ' ',
-    -state => 'disabled'), $_->[2] = 0, for @buttons; # clear
+  ( $_->[0] && $_->[0]->configure(-bg => $_->[1], -text => ' ', -state => 'disabled'), $_->[2] = 0,) for @buttons; # clear
   my @valid = shuffle grep $_->[1] =~ /blue|yellow/, @buttons;
-  $valid[0][0]->configure(-bg => 'red3', -text => $_, -state => 'normal'),
-    $valid[0][2] = $_, shift @valid for qw(1 2 3 4) x 3;
+  ( $valid[0][0]->configure(-bg => 'red3', -text => $_, -state => 'normal'), $valid[0][2] = $_, shift @valid for qw(1 2 3 4) x 3 )
   }
 
