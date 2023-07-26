@@ -22,7 +22,7 @@ sub error { die "ERROR: ", s/\G\s*\K/<**ERROR @_**>/r, "\n" }
 sub want { /$h\Q$_[1]\E/gc ? shift : error "missing '$_[1]' " }
 sub addin { node $_[0] => ref $_[1] eq $_[0] ? @{$_[1]} : $_[1], pop }
 
-local $_ = do { local $/; @ARGV ? <> : <DATA> }; # the EBNF
+local $_ = do { local $/ = undef; @ARGV ? <> : <DATA> }; # the EBNF
 $usercode = s/^(#usercode.*)//ms ? $1 : "# no usercode included\n";;
 $patches{PATCHUSER} = $usercode . "#end usercode\n"; # grammar support code
 s/^\h*#.*\n//gm; # remove comment lines
