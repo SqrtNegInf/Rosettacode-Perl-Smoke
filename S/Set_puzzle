@@ -77,7 +77,7 @@ sub combine {
 	my $head = shift;
 	my @result = combine( $n-1, @_ );
 	unshift @$_, $head for @result;
-	@result, combine( $n, @_ );
+	( @result, combine( $n, @_ ) )
 }
 
 say $result; 
