@@ -1,11 +1,5 @@
 
-= 0/15_Puzzle_Game-2
-Reused variable name in lexical scope: $e at line 56, column 5. Invent unique variable names.
-
 = 0/15_puzzle_solver
 Conditional "use" statement at line 26, column 7. Use "require" to conditionally include a module.
-
-= 0/24_game_Solve
-Reused variable name in lexical scope: @n at line 56, column 4. Invent unique variable names.
 
 
