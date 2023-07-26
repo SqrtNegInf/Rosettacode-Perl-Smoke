@@ -5,9 +5,6 @@ Reused variable name in lexical scope: @primes at line 16, column 13. Invent uni
 = C/Chat_server
 Reused variable name in lexical scope: $conn at line 86, column 9. Invent unique variable names.
 
-= C/Check_input_device_is_a_terminal
-Use IO::Interactive::is_interactive() instead of -t at line 13, column 5. See page 218 of PBP.
-
 = C/Cipolla%27s_algorithm-1
 Reused variable name in lexical scope: $a at line 51, column 9. Invent unique variable names.
 
