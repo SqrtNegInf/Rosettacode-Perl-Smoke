@@ -34,7 +34,7 @@ my $i     = 9;
 while ($count < 25) {
     $i++;
     my @f = fangs($i);
-    $count++, push @res, join ' ', "$count. $i:", map "[@$_]", @f if @f;
+    ($count++, push @res, join ' ', "$count. $i:", map { "[@$_]" } @f) if @f;
 }
 
 push @res, join ' ', $_, map "[@$_]", fangs($_) for 16758243290880, 24959017348650, 14593825548650;
