@@ -22,7 +22,7 @@ sub err { die 'ERROR: ', s/\G\s*\K/<**ERROR @_**>/r, "\n" }
 sub want { /$h\Q$_[1]\E/gc ? shift : err "missing '$_[1]' " }
 sub addin { node $_[0] => ref $_[1] eq $_[0] ? @{$_[1]} : $_[1], pop }
 
-for my $case ( split /^-{50}.*\n/m, do { local $/; @ARGV ? <> : <DATA> } )
+for my $case ( split /^-{50}.*\n/m, do { local $/ = undef; @ARGV ? <> : <DATA> } )
   {
   $show = $case =~ s/^#show.*//m;
   my ($ebnf, $tests) = map s/^#.*\n//gmr, split /^#test.*\n/m, $case, 2;
