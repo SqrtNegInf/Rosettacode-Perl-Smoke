@@ -1,6 +1,3 @@
 
-= H/Hailstone_sequence-1
-Reused variable name in lexical scope: $n at line 27, column 5. Invent unique variable names.
-
 = H/Here_document
 Heredoc terminator must be quoted at line 38, column 12. See page 64 of PBP.
