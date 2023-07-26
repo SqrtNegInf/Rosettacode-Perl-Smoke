@@ -4,9 +4,3 @@ Reused variable name in lexical scope: $n at line 27, column 5. Invent unique va
 
 = H/Here_document
 Heredoc terminator must be quoted at line 38, column 12. See page 64 of PBP.
-
-= H/Hexapawn
-Comma used to separate statements at line 92, column 32. See pages 68,71 of PBP.
-Comma used to separate statements at line 98, column 32. See pages 68,71 of PBP.
-Comma used to separate statements at line 147, column 32. See pages 68,71 of PBP.
-Comma used to separate statements at line 161, column 34. See pages 68,71 of PBP.

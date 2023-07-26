@@ -54,6 +54,7 @@ my $exclude = join '|',
     'Found.*in condition',
     'modify .._',
     'Lvalue form of "substr"',
+    'Comma used to separate statements',
 ;
 
 for my $file (grep { ! /\.(\d)$/ } @ARGV) {             # skip alternate versions

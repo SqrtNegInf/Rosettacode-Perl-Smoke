@@ -9,9 +9,6 @@ Mismatched operator at line 37, column 30. Numeric/string operators and operands
 Reused variable name in lexical scope: $fruit at line 32, column 5. Invent unique variable names.
 Reused variable name in lexical scope: $fruit at line 37, column 1. Invent unique variable names.
 
-= S/Sequence:_smallest_number_greater_than_previous_term_with_exactly_n_divisors
-Comma used to separate statements at line 19, column 9. See pages 68,71 of PBP.
-
 = S/Show_the_decimal_value_of_a_number_of_1s_appended_with_a_3,_then_squared
 Mismatched operator at line 14, column 28. Numeric/string operators and operands should match.
 
