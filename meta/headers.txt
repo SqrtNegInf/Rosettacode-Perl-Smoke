@@ -7782,6 +7782,13 @@ File: P/Permuted_multiples
 #u# http://rosettacode.org/wiki/Permuted_multiples
 #c# 2021-08-18 <RC
 #p# OK
+#n# DRY (compare with .1 version)
+
+File: P/Permuted_multiples.1
+#!/usr/local/bin/perl
+#u# http://rosettacode.org/wiki/Permuted_multiples
+#c# 2021-08-18 <RC
+#p# OK
 
 File: P/Pernicious_numbers
 #!/usr/local/bin/perl
