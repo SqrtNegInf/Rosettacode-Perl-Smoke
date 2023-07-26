@@ -29,7 +29,7 @@ my %correlation = (
 
 sub mayan_calendar_round {
     my $date = shift;
-    tzolkin($date), haab($date);
+    ( tzolkin($date), haab($date) )
 }
  
 sub offset {
@@ -56,14 +56,13 @@ sub haab {
             $month = $civil[int (1 + $index) / 20];
         }
     }
-    $day, $month
+    ($day, $month)
 }
  
 sub tzolkin {
     my $date   = shift;
     my $offset = offset $date;
-    1 + ($offset + $correlation{'round'}[0]) % 13,
-    $sacred[($offset + $correlation{'round'}[1]) % 20]
+    ( 1 + ($offset + $correlation{'round'}[0]) % 13, $sacred[($offset + $correlation{'round'}[1]) % 20] )
 }
  
 sub lord {
