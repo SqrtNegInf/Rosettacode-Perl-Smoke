@@ -1,9 +1,0 @@
-
-= B/Bioinformatics_Sequence_mutation
-Reused variable name in lexical scope: $dna at line 30, column 5. Invent unique variable names.
-
-= B/Bioinformatics_global_alignment
-Reused variable name in lexical scope: @seq at line 52, column 5. Invent unique variable names.
-
-= B/Brownian_tree
-Reused variable name in lexical scope: $idx at line 60, column 25. Invent unique variable names.
