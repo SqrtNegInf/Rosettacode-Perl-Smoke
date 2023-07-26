@@ -1,12 +1,2 @@
 
-= K/Knight%27s_tour
-Reused variable name in lexical scope: $i at line 52, column 6. Invent unique variable names.
-Reused variable name in lexical scope: $j at line 53, column 8. Invent unique variable names.
-Reused variable name in lexical scope: $i at line 63, column 6. Invent unique variable names.
-Reused variable name in lexical scope: $j at line 64, column 8. Invent unique variable names.
-Reused variable name in lexical scope: $i at line 77, column 3. Invent unique variable names.
-Reused variable name in lexical scope: $j at line 77, column 3. Invent unique variable names.
-Reused variable name in lexical scope: $i at line 89, column 4. Invent unique variable names.
-Reused variable name in lexical scope: $j at line 89, column 4. Invent unique variable names.
-
 
