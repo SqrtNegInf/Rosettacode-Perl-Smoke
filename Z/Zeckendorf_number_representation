@@ -23,7 +23,7 @@ sub zeckendorf {
   $i++ while fib($i) <= $n;
   my $z = '';
   while( --$i ) {
-    $z .= "0", next if fib( $i ) > $n;
+    ($z .= "0", next) if fib( $i ) > $n;
     $z .= "1";
     $n -= fib( $i );
   }
