@@ -14,11 +14,10 @@ use feature 'say';
 my $book = do { local (@ARGV, $/) = 'ref/waroftheworlds.txt'; <> };
 my (%one, %two);
 
-s/^.*?START OF THIS\N*\n//s, s/END OF THIS.*//s,
-  tr/a-zA-Z.!?/ /c, tr/ / /s for $book;
+( s/^.*?START OF THIS\N*\n//s, s/END OF THIS.*//s, tr/a-zA-Z.!?/ /c, tr/ / /s ) for $book;  # 3 statements
 
 my $qr = qr/(\b\w+\b|[.!?])/;
-$one{$1}{$2}++, $two{$1}{$2}{$3}++ while $book =~ /$qr(?= *$qr *$qr)/g;
+( $one{$1}{$2}++, $two{$1}{$2}{$3}++ ) while $book =~ /$qr(?= *$qr *$qr)/g;
 
 sub weightedpick {
   my $href = shift;
