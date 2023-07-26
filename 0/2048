@@ -73,7 +73,7 @@ sub arrow
   $oldboard eq "@squares" and return;
   add2();
   losecheck();
-  grep $_ eq 2048, @squares and $winner = 'WINNER !!';
+  grep $_ == 2048, @squares and $winner = 'WINNER !!';
   }
 
 sub add2
