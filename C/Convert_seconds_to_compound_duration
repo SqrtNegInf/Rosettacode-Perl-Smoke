@@ -10,9 +10,12 @@ my $result;
 
 sub compound_duration {
     my $sec = shift;
-    no warnings 'numeric';
+
+   #no warnings 'numeric';
+   #return join ', ', grep { $_ > 0 }
  
-    return join ', ', grep { $_ > 0 }
+    # revised test to avoid warnings
+    return join ', ', grep { $_ =~ /^[^0]/ }
         int($sec/60/60/24/7)    . " wk",
         int($sec/60/60/24) % 7  . " d",
         int($sec/60/60)    % 24 . " hr",
