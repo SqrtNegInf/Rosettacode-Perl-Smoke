@@ -13,7 +13,7 @@ use feature 'say';
 
 sub diagonal {
   my $n =  shift() - 1;
-  local $_ = 1 . 0 x ($n - 1) . 2 . "\n" . (0 . 0 x $n . "\n") x $n;
+  local $_ = '1' . '0' x ($n - 1) . '2' . "\n" . ('0' . '0' x $n . "\n") x $n;  # just to silence P::C warnings
   1 while s/(?<=1...{$n})0/1/s or s/(?<=2.{$n})[01]/2/s;
   map { [ split ' ', $_ ] } split /\n/, tr/2/1/r =~ s/\B/ /gr; # DH convert string to array, for crying out loud
 }
