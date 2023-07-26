@@ -15,7 +15,7 @@ no warnings qw<uninitialized experimental::signatures>;
 
 use List::Util <sum head>;
 
-sub divmod ($v, $r) { int $v/$r, $v%$r }
+sub divmod ($v, $r) { ( int $v/$r, $v%$r ) }
 
 my $x = 2 * (my $b = 18);
 my(@offset,@span,$cnt);  
