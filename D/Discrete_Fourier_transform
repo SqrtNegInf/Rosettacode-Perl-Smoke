@@ -17,8 +17,7 @@ use constant EPS => 1e-10;           # not 'ESP' I'd think...
 
 sub dft {
    my $n = scalar ( my @in = @_ );
-   #return map { # clearer to leave in? compare with below
-   map {
+   return map { # 'return' not required, but clearer to leave in
       my $s=0;
       for my $k (0 .. $n-1) { $s += $in[$k] * exp(-2*i * PI * $k * $_ / $n) }
       $_ = $s;
