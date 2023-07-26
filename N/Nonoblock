@@ -14,7 +14,7 @@ while( <DATA> ) {
   my ($cells, @blocks) = split;
   my $letter = 'A';
   $_ = join '.', map { $letter++ x $_ } @blocks;
-  $cells < length and push(@res, "no solution\n"), next;
+  $cells < length and ( push(@res, "no solution\n"), next );
   $_ .= '.' x ($cells - length) . "\n";
   1 while push(@res, $_), s/^(\.*)\b(.*?)\b(\w+)\.\B/$2$1.$3/;
 }
