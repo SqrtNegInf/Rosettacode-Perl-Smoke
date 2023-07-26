@@ -33,14 +33,14 @@ sub ham_gen {
 my $h = ham_gen;
 my $i = 0;
 
-++$i, $result .= $h->(). " " until $i > 20;
+( ++$i, $result .= $h->(). " " ) until $i > 20;
 $result .= "...\n";
 
-++$i, $h->() until $i == 1690;
+( ++$i, $h->() ) until $i == 1690;
 $result .= ++$i. "-th: ". $h->(). "\n";
 
 # You will need to pick one of the bigint choices
-++$i, $h->() until $i == 999999;
+( ++$i, $h->() ) until $i == 999999;
 $result .= sprintf "%d-th: %s\n", ++$i, $h->();
 
 say $result; 
