@@ -1,19 +1,9 @@
 
-= B/Balanced_brackets-1
-Lvalue form of "substr" used at line 16, column 36. See page 165 of PBP.
-
-= B/Balanced_brackets-2
-Lvalue form of "substr" used at line 29, column 36. See page 165 of PBP.
-
-= B/Balanced_brackets-3
-Lvalue form of "substr" used at line 25, column 36. See page 165 of PBP.
-
 = B/Balanced_ternary
 Mismatched operator at line 30, column 8. Numeric/string operators and operands should match.
 
 = B/Bioinformatics_Sequence_mutation
 Reused variable name in lexical scope: $dna at line 30, column 5. Invent unique variable names.
-Lvalue form of "substr" used at line 32, column 37. See page 165 of PBP.
 
 = B/Bioinformatics_global_alignment
 Reused variable name in lexical scope: @seq at line 52, column 5. Invent unique variable names.

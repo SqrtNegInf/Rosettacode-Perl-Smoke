@@ -26,12 +26,5 @@ Reused variable name in lexical scope: $side at line 16, column 18. Invent uniqu
 Reused variable name in lexical scope: $side at line 34, column 5. Invent unique variable names.
 Reused variable name in lexical scope: $height at line 35, column 5. Invent unique variable names.
 
-= S/Sieve_of_Eratosthenes-10
-Lvalue form of "substr" used at line 19, column 25. See page 165 of PBP.
-
-= S/Sieve_of_Eratosthenes-6
-Lvalue form of "substr" used at line 20, column 31. See page 165 of PBP.
-Lvalue form of "substr" used at line 24, column 29. See page 165 of PBP.
-
 = S/Sieve_of_Pritchard
 Reused variable name in lexical scope: $p at line 53, column 6. Invent unique variable names.

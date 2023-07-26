@@ -2,9 +2,6 @@
 = C/CalmoSoft_primes
 Reused variable name in lexical scope: @primes at line 16, column 13. Invent unique variable names.
 
-= C/Canonicalize_CIDR
-Lvalue form of "substr" used at line 29, column 26. See page 165 of PBP.
-
 = C/Chat_server
 Reused variable name in lexical scope: $conn at line 86, column 9. Invent unique variable names.
 
