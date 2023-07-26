@@ -21,7 +21,7 @@ my $n = 0;
 my @numbers;
 
 while( $count < 200 ) {
-  rf(++$n) or $count++, push @numbers, $n;
+  rf(++$n) or ( $count++, push @numbers, $n )
 }
 @res = "first 200: @numbers\n" =~ s/.{1,70}\K\s/\n/gr;
 
