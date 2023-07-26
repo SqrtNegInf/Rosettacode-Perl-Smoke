@@ -34,9 +34,9 @@ sub check {
     if (@piles) {
         push @res, "\nSailors $sailors: Coconuts $coconuts:";
         for my $k (0..-1 + $#piles) {
-             push @res, $k+1 . $suffix[$k+1] . " takes " . $piles[$k] . ", gives 1 to the monkey."
+             push @res, $k+1 . $suffix[$k+1] . ' takes ' . $piles[$k] . ', gives 1 to the monkey.'
         }
-        push @res, "The next morning, each sailor takes " . $piles[-1] . "\nwith none left over for the monkey.";
+        push @res, 'The next morning, each sailor takes ' . $piles[-1] . "\nwith none left over for the monkey.";
         return 1
     }
     return 0
