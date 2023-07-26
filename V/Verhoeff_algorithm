@@ -38,7 +38,7 @@ END
 my $debug;
 
 sub generate {
-  local $_ = shift() . 0;
+  local $_ = shift() . '0';
   my $c = my $i = 0;
   my ($n, $p);
   $debug and push @res, "i ni d(c,p(i%8,ni)) c";
