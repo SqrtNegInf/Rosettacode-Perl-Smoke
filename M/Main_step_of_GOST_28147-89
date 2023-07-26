@@ -36,7 +36,7 @@ sub GOST_round {
  
 sub feistel_step {
     my($F, $L, $R, $K) = @_;    
-    $R, $L ^ &$F($R, $K) 
+    ( $R, $L ^ &$F($R, $K) )
 }
  
 my @input = (0x21, 0x04, 0x3B, 0x04, 0x30, 0x04, 0x32, 0x04);
