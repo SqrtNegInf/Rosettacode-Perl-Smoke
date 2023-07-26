@@ -15,7 +15,7 @@ my $width = 0;
 my $color = 0;
 our $bg = 'e0ffe0';
 
-parseoutline( do { local $/; <DATA> =~ s/\t/  /gr } );
+parseoutline( do { local $/ = undef; <DATA> =~ s/\t/  /gr } );
 
 push @res, "<table border=1 cellspacing=0>";
 for ( @rows )
