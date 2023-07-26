@@ -133,8 +133,7 @@ sub moveto
     $path .= $dir;
     $bloc += $gap{$dir};
     }
-  set($_), $_ = command( '^' ), /[|]/ && die "wall during moveto"
-    for split //, $path; # walk agent along path
+  ( set($_), $_ = command( '^' ), /[|]/ && die "wall during moveto" ) for split //, $path; # walk agent along path
   $agent = $to; # arrived
   }
 
@@ -168,9 +167,7 @@ while( $grid =~ /  / ) ############################################  main
     }
   else
     {
-    substr($grid, $agent + $gap{$dir}, 2, '||'),
-      set('NESWN' =~ /$dir(.)/ ? $1 : die "bad dir")
-      while $_ = command('^'), /\|/;
+    ( substr($grid, $agent + $gap{$dir}, 2, '||'), set('NESWN' =~ /$dir(.)/ ? $1 : die "bad dir") ) while $_ = command('^'), /\|/;
     $agent += $gap{$dir};
     out tr/RGBY//cdr . (tr/rgby//cdr || ' ');
     expand();
@@ -209,8 +206,7 @@ while( 1 )
   show;
   my $from = nearest( qr/$wrong/, $agent ) or last;
   my $ball = substr $grid, $from + 1, 1;
-  $grid =~ /\u$ball / or $from = any( qr/$wrong/ ),
-    $ball = substr $grid, $from + 1, 1;
+  $grid =~ /\u$ball / or ( $from = any( qr/$wrong/ ), $ball = substr $grid, $from + 1, 1 );
   my $to = nearest( qr/\u$ball /, $from ) || any( qr/[RGBY] / );
 # my $to = ( $grid =~ /\u$ball / && $-[0] ) || any( qr/[RGBY] / );
   moveto($from);
@@ -221,7 +217,7 @@ while( 1 )
   $_ = command '!';
   /[as]/i and die "ERROR $_ on drop";
   substr $grid, $to + 1, 1, $ball;
-  /\+/ and $success = "\e[JSUCCESS          ", last;
+  ( /\+/ and $success = "\e[JSUCCESS          ", last );
   $delay and sleep $delay;
   }
 show;
