@@ -12,7 +12,7 @@ my $result;
 # Machin's Formula[edit]
 # Here is an original Perl 5 code, using Machin's formula. Not the fastest program in the world. As with the previous code, using either Math::GMP or Math::BigInt::GMP instead of the default bigint Calc backend will make it run thousands of times faster.
 
-use bigint try=>"GMP";
+use bigint try=>'GMP';
 
 # Pi/4 = 4 arctan 1/5 - arctan 1/239
 # expanding it with Taylor series with what's probably the dumbest method
@@ -57,8 +57,8 @@ for (my $x = 5; ; $x += 4) {
 		$ns %= $ds;
 
 		my $reps = length($ppow) - length($out) - 1;
-		$out = ("0" x $reps) . $out if $reps > 0;
-		#$out = ("0" x (length($ppow) - length($out) - 1)) . $out;
+		$out = ('0' x $reps) . $out if $reps > 0;
+		#$out = ('0' x (length($ppow) - length($out) - 1)) . $out;
         goto done if length($result) > 1000;
         $result .= $out;
 	}
