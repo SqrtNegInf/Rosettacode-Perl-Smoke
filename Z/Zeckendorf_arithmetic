@@ -31,27 +31,27 @@ sub zdec ($self, $, $) {
 
 sub zadd ($self, $other, $) {
     my ($x, $y) = map $self->new($$_), $self, $other;
-    $x++, $y-- while $$y;
+    ($x++, $y--) while $$y;
     $x
 }
 
 sub zsub ($self, $other, $) {
     my ($x, $y) = map $self->new($$_), $self, $other;
-    $x--, $y-- while $$y;
+    ($x--, $y--) while $$y;
     $x
 }
 
 sub zmul ($self, $other, $) {
     my ($x, $y) = map $self->new($$_), $self, $other;
     my $product = Zeckendorf->new(0);
-    $product = $product + $x, $y-- while $y;
+    ($product = $product + $x, $y--) while $y;
     $product
 }
 
 sub zdiv ($self, $other, $) {
     my ($x, $y) = map $self->new($$_), $self, $other;
     my $quotient = Zeckendorf->new(0);
-    $quotient++, $x = $x - $y while $x ge $y;
+    ($quotient++, $x = $x - $y) while $x ge $y;
     $quotient
 }
 
