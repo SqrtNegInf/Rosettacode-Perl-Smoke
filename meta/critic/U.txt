@@ -1,4 +1,0 @@
-
-= U/Ulam_spiral_for_primes
-Reused variable name in lexical scope: $start at line 19, column 3. Invent unique variable names.
-Reused variable name in lexical scope: $n at line 19, column 3. Invent unique variable names.
