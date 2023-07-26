@@ -9,9 +9,6 @@ Reused variable name in lexical scope: $result at line 53, column 5. Invent uniq
 Reused variable name in lexical scope: $y at line 45, column 6. Invent unique variable names.
 Reused variable name in lexical scope: $x at line 46, column 8. Invent unique variable names.
 
-= L/Largest_palindrome_product
-Found ">=" in condition for an "unless" at line 19, column 14. See page 99 of PBP.
-
 = L/Largest_prime_factor
 Comma used to separate statements at line 12, column 5. See pages 68,71 of PBP.
 Reused variable name in lexical scope: $n at line 20, column 5. Invent unique variable names.
@@ -21,12 +18,3 @@ Use "local $/ = undef" or Path::Tiny instead of joined readline at line 15, colu
 
 = L/Launch_rocket_with_countdown_and_acceleration_in_stdout
 Reused variable name in lexical scope: $a at line 68, column 5. Invent unique variable names.
-
-= L/Least_m_such_that_n!_%2B_m_is_prime
-Found ">" in condition for an "until" at line 18, column 3. See page 99 of PBP.
-
-= L/Least_square
-Found ">" in condition for an "until" at line 12, column 6. See page 99 of PBP.
-Found ">" in condition for an "until" at line 16, column 6. See page 99 of PBP.
-Found ">" in condition for an "until" at line 21, column 10. See page 99 of PBP.
-Found "<" in condition for an "until" at line 25, column 6. See page 99 of PBP.

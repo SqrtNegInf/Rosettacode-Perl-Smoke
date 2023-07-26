@@ -4,18 +4,8 @@ Reused variable name in lexical scope: $n at line 27, column 5. Invent unique va
 
 = H/Hamming_numbers
 Comma used to separate statements at line 36, column 1. See pages 68,71 of PBP.
-Found ">" in condition for an "until" at line 36, column 30. See page 99 of PBP.
 Comma used to separate statements at line 39, column 1. See pages 68,71 of PBP.
 Comma used to separate statements at line 43, column 1. See pages 68,71 of PBP.
-
-= H/Harmonic_series
-Found ">=" in condition for an "until" at line 18, column 40. See page 99 of PBP.
-
-= H/Harshad_or_Niven_series
-Found ">" in condition for an "until" at line 18, column 7. See page 99 of PBP.
-
-= H/Harshad_or_Niven_series-2
-Found ">" in condition for an "until" at line 11, column 60. See page 99 of PBP.
 
 = H/Here_document
 Heredoc terminator must be quoted at line 38, column 12. See page 64 of PBP.

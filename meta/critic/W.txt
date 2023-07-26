@@ -1,19 +1,6 @@
 
-= W/Wagstaff_primes
-Found "!=" in condition for an "unless" at line 19, column 10. See page 99 of PBP.
-
 = W/Walk_a_directory_Non-recursively
 Glob written as <...> at line 21, column 25. See page 167 of PBP.
 
 = W/Walk_a_directory_Recursively
 Reused variable name in lexical scope: $dir at line 28, column 5. Invent unique variable names.
-
-= W/Wasteful,_equidigital_and_frugal_numbers
-Found "<" in condition for an "until" at line 28, column 7. See page 99 of PBP.
-
-= W/Wave_function_collapse
-Found ">" in condition for an "unless" at line 98, column 30. See page 99 of PBP.
-
-= W/Weird_numbers-1
-Found ">=" in condition for an "unless" at line 30, column 5. See page 99 of PBP.
-Found "!" in condition for an "unless" at line 30, column 5. See page 99 of PBP.

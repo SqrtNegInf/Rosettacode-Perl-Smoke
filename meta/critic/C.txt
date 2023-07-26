@@ -1,15 +1,9 @@
 
-= C/Calculating_the_value_of_e-1
-Found "<" in condition for an "until" at line 21, column 3. See page 99 of PBP.
-
 = C/CalmoSoft_primes
 Reused variable name in lexical scope: @primes at line 16, column 13. Invent unique variable names.
 
 = C/Canonicalize_CIDR
 Lvalue form of "substr" used at line 29, column 26. See page 165 of PBP.
-
-= C/Casting_out_nines
-Found ">=" in condition for an "unless" at line 27, column 7. See page 99 of PBP.
 
 = C/Chat_server
 Reused variable name in lexical scope: $conn at line 86, column 9. Invent unique variable names.
@@ -18,15 +12,7 @@ Reused variable name in lexical scope: $conn at line 86, column 9. Invent unique
 Use IO::Interactive::is_interactive() instead of -t at line 13, column 5. See page 218 of PBP.
 
 = C/Cipolla%27s_algorithm-1
-Found "!=" in condition for an "unless" at line 31, column 15. See page 99 of PBP.
 Reused variable name in lexical scope: $a at line 51, column 9. Invent unique variable names.
-
-= C/Cipolla%27s_algorithm-2
-Found "!=" in condition for an "unless" at line 18, column 15. See page 99 of PBP.
-Found "<" in condition for an "until" at line 31, column 10. See page 99 of PBP.
-
-= C/Circular_primes
-Found ">=" in condition for an "unless" at line 26, column 22. See page 99 of PBP.
 
 = C/Closest-pair_problem
 Comma used to separate statements at line 39, column 5. See pages 68,71 of PBP.
@@ -67,9 +53,3 @@ Mismatched operator at line 20, column 33. Numeric/string operators and operands
 
 = C/Conway%27s_Game_of_Life-1
 Comma used to separate statements at line 23, column 15. See pages 68,71 of PBP.
-
-= C/Coprime_triplets
-Found ">" in condition for an "until" at line 29, column 30. See page 99 of PBP.
-
-= C/Cubic_Special_Primes
-Found ">=" in condition for an "until" at line 19, column 3. See page 99 of PBP.

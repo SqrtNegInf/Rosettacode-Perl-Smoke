@@ -1,21 +1,7 @@
 
-= R/RPG_Attributes_Generator
-Found ">=" in condition for an "until" at line 28, column 3. See page 99 of PBP.
-Found ">=" in condition for an "until" at line 28, column 3. See page 99 of PBP.
-
 = R/RSA_code
 Reused variable name in lexical scope: $n at line 36, column 9. Invent unique variable names.
 Reused variable name in lexical scope: $n at line 47, column 5. Invent unique variable names.
-
-= R/Ramanujan_primes
-Found ">" in condition for an "until" at line 18, column 11. See page 99 of PBP.
-
-= R/Ramsey%27s_theorem
-Found "<" in condition for an "unless" at line 30, column 18. See page 99 of PBP.
-Found "<" in condition for an "unless" at line 30, column 18. See page 99 of PBP.
-
-= R/Random_number_generator_device
-Found "ne" in condition for an "until" at line 37, column 42. See page 99 of PBP.
 
 = R/Random_sentence_from_book
 Comma used to separate statements at line 17, column 1. See pages 68,71 of PBP.
@@ -36,10 +22,6 @@ Comma used to separate statements at line 17, column 21. See pages 68,71 of PBP.
 
 = R/Readline_interface
 Don't modify $_ in list functions at line 32, column 5. See page 114 of PBP.
-
-= R/Recaman%27s_sequence
-Found ">" in condition for an "unless" at line 25, column 30. See page 99 of PBP.
-Found "!" in condition for an "unless" at line 25, column 30. See page 99 of PBP.
 
 = R/Recursive_descent_parser_generator
 "local" variable not initialized at line 25, column 17. See page 78 of PBP.
@@ -81,9 +63,6 @@ Comma used to separate statements at line 34, column 21. See pages 68,71 of PBP.
 
 = R/Rosetta_Code_Rank_languages_by_number_of_users
 Reused variable name in lexical scope: $url at line 29, column 5. Invent unique variable names.
-
-= R/Rosetta_Code_Rank_languages_by_popularity
-Found ">" in condition for an "unless" at line 52, column 10. See page 99 of PBP.
 
 = R/Rosetta_Code_Tasks_without_examples
 Reused variable name in lexical scope: $html at line 30, column 5. Invent unique variable names.

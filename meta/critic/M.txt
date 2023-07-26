@@ -5,17 +5,11 @@ Comma used to separate statements at line 37, column 9. See pages 68,71 of PBP.
 = M/Main_step_of_GOST_28147-89
 Comma used to separate statements at line 39, column 5. See pages 68,71 of PBP.
 
-= M/Marching_squares
-Found "!=" in condition for an "unless" at line 19, column 14. See page 99 of PBP.
-
 = M/Markov_chain_text_generator
 Reused variable name in lexical scope: $n at line 19, column 5. Invent unique variable names.
 
 = M/Mastermind
 Reused variable name in lexical scope: @puzzle at line 49, column 5. Invent unique variable names.
-
-= M/Matrix-exponentiation_operator
-Found ">=" in condition for an "unless" at line 70, column 25. See page 99 of PBP.
 
 = M/Matrix_Digital_Rain
 Unreachable code at line 84, column 1. Consider removing it.

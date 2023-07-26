@@ -51,6 +51,7 @@ my $exclude = join '|',
     'Warnings disabled',
     'One-argument "bless"',
     'used in void context',
+    'Found.*in condition',
 ;
 
 for my $file (grep { ! /\.(\d)$/ } @ARGV) {             # skip alternate versions

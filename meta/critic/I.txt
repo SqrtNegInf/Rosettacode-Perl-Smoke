@@ -1,18 +1,8 @@
 
 = I/I%27m_a_software_engineer,_get_me_out_of_here
 Use "local $/ = undef" or Path::Tiny instead of joined readline at line 17, column 9. See page 213 of PBP.
-Found "ne" in condition for an "unless" at line 37, column 14. See page 99 of PBP.
 
 = I/Imaginary_base_numbers
-Found ">" in condition for an "unless" at line 27, column 9. See page 99 of PBP.
-Found "<" in condition for an "unless" at line 27, column 9. See page 99 of PBP.
-Found "<=" in condition for an "until" at line 35, column 40. See page 99 of PBP.
-Found "<" in condition for an "until" at line 35, column 40. See page 99 of PBP.
-Found "not" in condition for an "unless" at line 40, column 25. See page 99 of PBP.
-Found "<=" in condition for an "unless" at line 49, column 36. See page 99 of PBP.
-Found "<=" in condition for an "unless" at line 49, column 36. See page 99 of PBP.
-Found "<=" in condition for an "unless" at line 49, column 36. See page 99 of PBP.
-Found "<=" in condition for an "unless" at line 49, column 36. See page 99 of PBP.
 Mismatched operator at line 61, column 15. Numeric/string operators and operands should match.
 
 = I/Implicit_type_conversion

@@ -1,10 +1,4 @@
 
-= P/Palindrome_dates-1
-Found ">" in condition for an "unless" at line 25, column 10. See page 99 of PBP.
-
-= P/Pan_base_non-primes
-Found "<" in condition for an "unless" at line 19, column 18. See page 99 of PBP.
-
 = P/Parallel_calculations
 Reused variable name in lexical scope: $tnum at line 31, column 3. Invent unique variable names.
 
@@ -13,10 +7,6 @@ Reused variable name in lexical scope: $tnum at line 31, column 3. Invent unique
 
 = P/Parsing_Shunting-yard_algorithm
 Reused variable name in lexical scope: @res at line 33, column 5. Invent unique variable names.
-
-= P/Password_generator
-Found ">=" in condition for an "unless" at line 30, column 32. See page 99 of PBP.
-Found ">=" in condition for an "unless" at line 30, column 32. See page 99 of PBP.
 
 = P/Pentomino_tiling
 Reused variable name in lexical scope: $grid at line 67, column 3. Invent unique variable names.
@@ -35,8 +25,6 @@ Comma used to separate statements at line 65, column 5. See pages 68,71 of PBP.
 Comma used to separate statements at line 18, column 23. See pages 68,71 of PBP.
 
 = P/Permutation_test
-Found ">" in condition for an "until" at line 26, column 9. See page 99 of PBP.
-Found "not" in condition for an "until" at line 32, column 7. See page 99 of PBP.
 Comma used to separate statements at line 41, column 5. See pages 68,71 of PBP.
 
 = P/Permutations_Derangements-1
@@ -44,9 +32,3 @@ Reused variable name in lexical scope: $result at line 21, column 9. Invent uniq
 
 = P/Permuted_multiples
 Mismatched operator at line 14, column 46. Numeric/string operators and operands should match.
-
-= P/Pig_the_dice_game_Player
-Found ">=" in condition for an "until" at line 71, column 7. See page 99 of PBP.
-
-= P/Piprimes
-Found ">=" in condition for an "until" at line 20, column 37. See page 99 of PBP.

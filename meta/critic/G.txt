@@ -12,11 +12,6 @@ Reused variable name in lexical scope: $lv at line 32, column 11. Invent unique 
 Reused variable name in lexical scope: $plot at line 18, column 5. Invent unique variable names.
 Reused variable name in lexical scope: @primes at line 19, column 5. Invent unique variable names.
 
-= G/Generate_random_chess_position
-Found "!=" in condition for an "unless" at line 25, column 18. See page 99 of PBP.
-Found ">" in condition for an "unless" at line 25, column 18. See page 99 of PBP.
-Found ">" in condition for an "unless" at line 25, column 18. See page 99 of PBP.
-
 = G/Go_Fish
 Reused variable name in lexical scope: $you at line 55, column 3. Invent unique variable names.
 Reused variable name in lexical scope: $me at line 55, column 3. Invent unique variable names.

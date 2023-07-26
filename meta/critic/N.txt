@@ -5,14 +5,8 @@ Sort blocks should have a single statement at line 24, column 28. See page 149 o
 = N/Negative_base_numbers
 Comma used to separate statements at line 21, column 9. See pages 68,71 of PBP.
 
-= N/Neighbour_primes
-Found ">=" in condition for an "until" at line 20, column 3. See page 99 of PBP.
-
 = N/Nested_templated_data
 Reused variable name in lexical scope: $result at line 20, column 5. Invent unique variable names.
-
-= N/Next_special_primes
-Found ">=" in condition for an "until" at line 28, column 37. See page 99 of PBP.
 
 = N/Non-decimal_radices_Input
 Mismatched operator at line 20, column 9. Numeric/string operators and operands should match.

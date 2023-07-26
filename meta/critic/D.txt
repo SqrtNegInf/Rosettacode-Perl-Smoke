@@ -14,16 +14,8 @@ Reused variable name in lexical scope: $lv at line 81, column 11. Invent unique 
 = D/Detect_division_by_zero
 "local" variable not initialized at line 14, column 3. See page 78 of PBP.
 
-= D/Determine_if_a_string_has_all_unique_characters
-Found ">" in condition for an "unless" at line 40, column 18. See page 99 of PBP.
-
 = D/Digital_root
 Comma used to separate statements at line 13, column 19. See pages 68,71 of PBP.
-
-= D/Dinesman%27s_multiple-dwelling_problem-2
-Found ">=" in condition for an "unless" at line 66, column 22. See page 99 of PBP.
-Found "<" in condition for an "unless" at line 66, column 22. See page 99 of PBP.
-Found "!" in condition for an "unless" at line 66, column 22. See page 99 of PBP.
 
 = D/Discrete_Fourier_transform
 Don't modify $_ in list functions at line 21, column 4. See page 114 of PBP.
@@ -36,16 +28,10 @@ Reused variable name in lexical scope: $bg at line 27, column 5. Invent unique v
 = D/Distributed_programming
 Use "local $/ = undef" or Path::Tiny instead of joined readline at line 32, column 26. See page 213 of PBP.
 
-= D/Divide_a_rectangle_into_a_number_of_unequal_triangles
-Found ">" in condition for an "unless" at line 17, column 9. See page 99 of PBP.
-
 = D/Draw_a_clock
 yada operator (...) used at line 18, column 22. The yada operator is a placeholder for code you have not yet written.
 
 = D/Draw_a_rotating_cube
 Comma used to separate statements at line 27, column 22. See pages 68,71 of PBP.
-
-= D/Duffinian_numbers
-Found ">" in condition for an "until" at line 21, column 76. See page 99 of PBP.
 
 

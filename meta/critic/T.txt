@@ -2,9 +2,6 @@
 = T/Taxicab_numbers
 Reused variable name in lexical scope: $end at line 38, column 3. Invent unique variable names.
 
-= T/Temperature_conversion
-Found ">" in condition for an "unless" at line 22, column 30. See page 99 of PBP.
-
 = T/Ternary_logic
 @ISA used instead of "use parent" at line 15, column 5. See page 360 of PBP.
 

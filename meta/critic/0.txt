@@ -1,7 +1,4 @@
 
-= 0/15_Puzzle_Game-1
-Found "<=>" in condition for an "unless" at line 220, column 5. See page 99 of PBP.
-
 = 0/15_Puzzle_Game-2
 Reused variable name in lexical scope: $e at line 56, column 5. Invent unique variable names.
 
