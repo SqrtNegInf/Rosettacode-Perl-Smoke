@@ -18,7 +18,7 @@ my %score;
 for ( $visits =~ /^\d.*/gm ) {
   my ($id, undef, $score) = split /,/;
   $score{$id} //= ['', ''];
-  $score and $score{$id}[0]++, $score{$id}[1] += $score;
+  ( $score and $score{$id}[0]++, $score{$id}[1] += $score )
 }
 
 for ( sort $names =~ /^\d.*/gm ) {
