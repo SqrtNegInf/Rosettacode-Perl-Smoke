@@ -58,7 +58,7 @@ sub base_c {
     #my $whole = reverse zip join('', reverse split '', $re_wh), join('', reverse split '', $im_wh);
     #my $whole = join '', reverse split '', zip join('', reverse split '', $re_wh), join('', reverse split '', $im_wh);
     my $fraction = zip $im_fr, $re_fr;
-    $fraction eq 0 ? "$whole" : "$whole.$fraction"
+    $fraction eq '0' ? "$whole" : "$whole.$fraction"
 }
 
 sub parse_base {
