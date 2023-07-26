@@ -31,9 +31,6 @@ UNIVERSAL::isa should not be used as a function at line 60, column 14. Use eval{
 = F/Fraction_reduction
 Comma used to separate statements at line 26, column 13. See pages 68,71 of PBP.
 
-= F/Free_polyominoes_enumeration
-Don't modify $_ in list functions at line 24, column 42. See page 114 of PBP.
-
 = F/Functional_coverage_tree
 Comma used to separate statements at line 24, column 9. See pages 68,71 of PBP.
 Use "local $/ = undef" or Path::Tiny instead of joined readline at line 35, column 34. See page 213 of PBP.

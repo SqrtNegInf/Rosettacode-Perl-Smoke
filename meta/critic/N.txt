@@ -21,10 +21,6 @@ Reused variable name in lexical scope: $line at line 152, column 9. Invent uniqu
 Comma used to separate statements at line 17, column 3. See pages 68,71 of PBP.
 
 = N/Nonogram_solver
-Don't modify $_ in list functions at line 22, column 16. See page 114 of PBP.
-Don't modify $_ in list functions at line 22, column 31. See page 114 of PBP.
-Don't modify $_ in list functions at line 24, column 16. See page 114 of PBP.
-Don't modify $_ in list functions at line 24, column 31. See page 114 of PBP.
 Comma used to separate statements at line 27, column 51. See pages 68,71 of PBP.
 
 = N/Number_Triplets_Game
