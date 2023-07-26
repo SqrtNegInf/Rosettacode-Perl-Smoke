@@ -1,9 +1,3 @@
 
-= T/Taxicab_numbers
-Reused variable name in lexical scope: $end at line 38, column 3. Invent unique variable names.
-
 = T/Ternary_logic
 @ISA used instead of "use parent" at line 15, column 5. See page 360 of PBP.
-
-= T/The_ISAAC_Cipher
-Reused variable name in lexical scope: $key at line 30, column 3. Invent unique variable names.
