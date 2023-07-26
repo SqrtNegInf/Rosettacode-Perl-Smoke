@@ -17,7 +17,7 @@ sub legendre_pair {
     if ($n == 1) { return $x, 1 }
     my ($m1, $m2) = legendre_pair($n - 1, $x);
     my $u = 1 - 1 / $n;
-    (1 + $u) * $x * $m1 - $u * $m2, $m1;
+    ( (1 + $u) * $x * $m1 - $u * $m2, $m1 )     # P::C pointed to the line above, odd
 }
 
 sub legendre {
