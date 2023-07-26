@@ -5,9 +5,6 @@ Reused variable name in lexical scope: $e at line 56, column 5. Invent unique va
 = 0/15_puzzle_solver
 Conditional "use" statement at line 26, column 7. Use "require" to conditionally include a module.
 
-= 0/2048
-Mismatched operator at line 76, column 11. Numeric/string operators and operands should match.
-
 = 0/24_game_Solve
 Reused variable name in lexical scope: @n at line 56, column 4. Invent unique variable names.
 

@@ -38,7 +38,6 @@ AUTOLOAD method declared at line 21, column 1. See page 393 of PBP.
 
 = R/Roman_numerals_Decode
 "local" variable not initialized at line 37, column 4. See page 78 of PBP.
-Mismatched operator at line 38, column 10. Numeric/string operators and operands should match.
 
 = R/Rosetta_Code_Count_examples
 Reused variable name in lexical scope: $response at line 26, column 5. Invent unique variable names.

@@ -16,8 +16,5 @@ Reused variable name in lexical scope: $digits at line 20, column 3. Invent uniq
 = A/Arithmetic_coding_As_a_generalized_change_of_radix
 Reused variable name in lexical scope: $pow at line 94, column 10. Invent unique variable names.
 
-= A/Array_length
-Mismatched operator at line 49, column 9. Numeric/string operators and operands should match.
-
 = A/Arrays
 "@empty" is declared but not used at line 13, column 2. Unused variables clutter code and make it harder to read.

@@ -55,6 +55,7 @@ my $exclude = join '|',
     'modify .._',
     'Lvalue form of "substr"',
     'Comma used to separate statements',
+    'Mismatched operator',
 ;
 
 for my $file (grep { ! /\.(\d)$/ } @ARGV) {             # skip alternate versions

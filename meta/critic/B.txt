@@ -1,7 +1,4 @@
 
-= B/Balanced_ternary
-Mismatched operator at line 30, column 8. Numeric/string operators and operands should match.
-
 = B/Bioinformatics_Sequence_mutation
 Reused variable name in lexical scope: $dna at line 30, column 5. Invent unique variable names.
 

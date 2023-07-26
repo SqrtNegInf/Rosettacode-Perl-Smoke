@@ -5,9 +5,6 @@ Sort blocks should have a single statement at line 24, column 28. See page 149 o
 = N/Nested_templated_data
 Reused variable name in lexical scope: $result at line 20, column 5. Invent unique variable names.
 
-= N/Non-decimal_radices_Input
-Mismatched operator at line 20, column 9. Numeric/string operators and operands should match.
-
 = N/Non-transitive_dice
 Reused variable name in lexical scope: @res at line 15, column 5. Invent unique variable names.
 Reused variable name in lexical scope: @res at line 71, column 5. Invent unique variable names.
@@ -19,18 +16,6 @@ Don't modify $_ in list functions at line 22, column 16. See page 114 of PBP.
 Don't modify $_ in list functions at line 22, column 31. See page 114 of PBP.
 Don't modify $_ in list functions at line 24, column 16. See page 114 of PBP.
 Don't modify $_ in list functions at line 24, column 31. See page 114 of PBP.
-
-= N/Numeric_separator_syntax
-Mismatched operator at line 16, column 9. Numeric/string operators and operands should match.
-Mismatched operator at line 16, column 18. Numeric/string operators and operands should match.
-Mismatched operator at line 19, column 9. Numeric/string operators and operands should match.
-Mismatched operator at line 19, column 24. Numeric/string operators and operands should match.
-Mismatched operator at line 22, column 9. Numeric/string operators and operands should match.
-Mismatched operator at line 22, column 21. Numeric/string operators and operands should match.
-Mismatched operator at line 25, column 9. Numeric/string operators and operands should match.
-Mismatched operator at line 25, column 24. Numeric/string operators and operands should match.
-Mismatched operator at line 28, column 9. Numeric/string operators and operands should match.
-Mismatched operator at line 28, column 21. Numeric/string operators and operands should match.
 
 = N/Numerical_integration_Adaptive_Simpson%27s_method
 Reused variable name in lexical scope: $rf at line 18, column 9. Invent unique variable names.

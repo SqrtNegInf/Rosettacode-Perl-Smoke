@@ -33,9 +33,3 @@ Only use a capturing group if you plan to use the captured value at line 58, col
 
 = C/Conditional_structures
 yada operator (...) used at line 15, column 5. The yada operator is a placeholder for code you have not yet written.
-
-= C/Convert_seconds_to_compound_duration
-Mismatched operator at line 17, column 33. Numeric/string operators and operands should match.
-Mismatched operator at line 18, column 33. Numeric/string operators and operands should match.
-Mismatched operator at line 19, column 33. Numeric/string operators and operands should match.
-Mismatched operator at line 20, column 33. Numeric/string operators and operands should match.

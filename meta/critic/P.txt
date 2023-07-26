@@ -11,6 +11,3 @@ Conditional "use" statement at line 71, column 5. Use "require" to conditionally
 
 = P/Permutations_Derangements-1
 Reused variable name in lexical scope: $result at line 21, column 9. Invent unique variable names.
-
-= P/Permuted_multiples
-Mismatched operator at line 14, column 46. Numeric/string operators and operands should match.

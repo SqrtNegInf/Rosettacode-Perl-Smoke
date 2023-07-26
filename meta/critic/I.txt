@@ -2,36 +2,7 @@
 = I/I%27m_a_software_engineer,_get_me_out_of_here
 Use "local $/ = undef" or Path::Tiny instead of joined readline at line 17, column 9. See page 213 of PBP.
 
-= I/Imaginary_base_numbers
-Mismatched operator at line 61, column 15. Numeric/string operators and operands should match.
-
-= I/Implicit_type_conversion
-Mismatched operator at line 12, column 9. Numeric/string operators and operands should match.
-Mismatched operator at line 13, column 9. Numeric/string operators and operands should match.
-Mismatched operator at line 14, column 9. Numeric/string operators and operands should match.
-Mismatched operator at line 22, column 17. Numeric/string operators and operands should match.
-Mismatched operator at line 24, column 9. Numeric/string operators and operands should match.
-
 = I/Index_finite_lists_of_positive_integers-1
 Use "local $/ = undef" or Path::Tiny instead of joined readline at line 19, column 12. See page 213 of PBP.
-
-= I/Infinity
-Mismatched operator at line 13, column 14. Numeric/string operators and operands should match.
-Mismatched operator at line 14, column 14. Numeric/string operators and operands should match.
-Mismatched operator at line 17, column 14. Numeric/string operators and operands should match.
-Mismatched operator at line 18, column 14. Numeric/string operators and operands should match.
-
-= I/Integer_overflow
-Mismatched operator at line 16, column 9. Numeric/string operators and operands should match.
-Mismatched operator at line 16, column 52. Numeric/string operators and operands should match.
-Mismatched operator at line 17, column 9. Numeric/string operators and operands should match.
-Mismatched operator at line 17, column 55. Numeric/string operators and operands should match.
-Mismatched operator at line 18, column 9. Numeric/string operators and operands should match.
-Mismatched operator at line 18, column 36. Numeric/string operators and operands should match.
-Mismatched operator at line 19, column 42. Numeric/string operators and operands should match.
-
-= I/Integer_roots-2
-Mismatched operator at line 16, column 10. Numeric/string operators and operands should match.
-Mismatched operator at line 17, column 10. Numeric/string operators and operands should match.
 
 

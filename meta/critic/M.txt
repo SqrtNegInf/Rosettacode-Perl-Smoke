@@ -7,18 +7,3 @@ Reused variable name in lexical scope: @puzzle at line 49, column 5. Invent uniq
 
 = M/Matrix_Digital_Rain
 Unreachable code at line 84, column 1. Consider removing it.
-
-= M/Matrix_with_two_diagonals-3
-Mismatched operator at line 16, column 16. Numeric/string operators and operands should match.
-Mismatched operator at line 16, column 31. Numeric/string operators and operands should match.
-Mismatched operator at line 16, column 35. Numeric/string operators and operands should match.
-Mismatched operator at line 16, column 47. Numeric/string operators and operands should match.
-
-= M/McNuggets_Problem-2
-Mismatched operator at line 13, column 8. Numeric/string operators and operands should match.
-Mismatched operator at line 18, column 8. Numeric/string operators and operands should match.
-Mismatched operator at line 23, column 8. Numeric/string operators and operands should match.
-Mismatched operator at line 28, column 8. Numeric/string operators and operands should match.
-Mismatched operator at line 33, column 8. Numeric/string operators and operands should match.
-Mismatched operator at line 38, column 8. Numeric/string operators and operands should match.
-Mismatched operator at line 43, column 8. Numeric/string operators and operands should match.
