@@ -11,7 +11,7 @@ use feature 'say';
 
 sub sieve { 
     my ($n) = @_;
-    my ($s, $i);
+    my($s,$i) = ('');                                        # just to avoid 'uninitialized' warning;
 	grep { not vec $s, $i  = $_, 1 and do 
 		{ (vec $s, $i += $_, 1) = 1 while $i <= $n; 1 }
 	} 2..$n
