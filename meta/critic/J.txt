@@ -1,7 +1,4 @@
 
-= J/Jensen%27s_Device
-Reused variable name in lexical scope: $i at line 13, column 5. Invent unique variable names.
-
 = J/Jump_anywhere
 Unreachable code at line 25, column 5. Consider removing it.
 Unreachable code at line 31, column 5. Consider removing it.
