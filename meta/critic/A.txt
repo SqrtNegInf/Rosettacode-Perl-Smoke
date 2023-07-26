@@ -5,7 +5,7 @@ Reused variable name in lexical scope: $encoded at line 58, column 3. Invent uni
 Reused variable name in lexical scope: $keyword at line 58, column 3. Invent unique variable names.
 
 = A/A_star_search_algorithm
-Comma used to separate statements at line 20, column 20. See pages 68,71 of PBP.
+Comma used to separate statements at line 20, column 21. See pages 68,71 of PBP.
 
 = A/Achilles_numbers-1
 Reused variable name in lexical scope: $count at line 63, column 6. Invent unique variable names.

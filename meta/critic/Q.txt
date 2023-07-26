@@ -1,4 +1,7 @@
 
+= Q/QR_decomposition
+Don't modify $_ in list functions at line 30, column 12. See page 114 of PBP.
+
 = Q/Quoting_constructs
 Heredoc terminator must be quoted at line 14, column 12. See page 64 of PBP.
 

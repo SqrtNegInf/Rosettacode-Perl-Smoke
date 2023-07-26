@@ -1,10 +1,4 @@
 
-= M/MD4
-Comma used to separate statements at line 37, column 9. See pages 68,71 of PBP.
-
-= M/Main_step_of_GOST_28147-89
-Comma used to separate statements at line 39, column 5. See pages 68,71 of PBP.
-
 = M/Markov_chain_text_generator
 Reused variable name in lexical scope: $n at line 19, column 5. Invent unique variable names.
 
@@ -20,11 +14,6 @@ Mismatched operator at line 16, column 31. Numeric/string operators and operands
 Mismatched operator at line 16, column 35. Numeric/string operators and operands should match.
 Mismatched operator at line 16, column 47. Numeric/string operators and operands should match.
 
-= M/Mayan_calendar
-Comma used to separate statements at line 32, column 5. See pages 68,71 of PBP.
-Comma used to separate statements at line 59, column 5. See pages 68,71 of PBP.
-Comma used to separate statements at line 65, column 5. See pages 68,71 of PBP.
-
 = M/McNuggets_Problem-2
 Mismatched operator at line 13, column 8. Numeric/string operators and operands should match.
 Mismatched operator at line 18, column 8. Numeric/string operators and operands should match.
@@ -33,6 +22,3 @@ Mismatched operator at line 28, column 8. Numeric/string operators and operands 
 Mismatched operator at line 33, column 8. Numeric/string operators and operands should match.
 Mismatched operator at line 38, column 8. Numeric/string operators and operands should match.
 Mismatched operator at line 43, column 8. Numeric/string operators and operands should match.
-
-= M/Merge_and_aggregate_datasets
-Comma used to separate statements at line 21, column 3. See pages 68,71 of PBP.

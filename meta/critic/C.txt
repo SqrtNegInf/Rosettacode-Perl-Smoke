@@ -11,10 +11,6 @@ Use IO::Interactive::is_interactive() instead of -t at line 13, column 5. See pa
 = C/Cipolla%27s_algorithm-1
 Reused variable name in lexical scope: $a at line 51, column 9. Invent unique variable names.
 
-= C/Closest-pair_problem
-Comma used to separate statements at line 39, column 5. See pages 68,71 of PBP.
-Comma used to separate statements at line 71, column 5. See pages 68,71 of PBP.
-
 = C/Compiler_AST_interpreter
 "local" variable not initialized at line 22, column 4. See page 78 of PBP.
 

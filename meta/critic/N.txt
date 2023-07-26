@@ -17,18 +17,12 @@ Reused variable name in lexical scope: @res at line 71, column 5. Invent unique 
 Reused variable name in lexical scope: @res at line 100, column 5. Invent unique variable names.
 Reused variable name in lexical scope: $line at line 152, column 9. Invent unique variable names.
 
-= N/Nonoblock
-Comma used to separate statements at line 17, column 3. See pages 68,71 of PBP.
-
 = N/Nonogram_solver
+Don't modify $_ in list functions at line 22, column 16. See page 114 of PBP.
+Don't modify $_ in list functions at line 22, column 31. See page 114 of PBP.
+Don't modify $_ in list functions at line 24, column 16. See page 114 of PBP.
+Don't modify $_ in list functions at line 24, column 31. See page 114 of PBP.
 Comma used to separate statements at line 27, column 51. See pages 68,71 of PBP.
-
-= N/Number_Triplets_Game
-Comma used to separate statements at line 70, column 3. See pages 68,71 of PBP.
-Comma used to separate statements at line 73, column 3. See pages 68,71 of PBP.
-
-= N/Numbers_with_equal_rises_and_falls
-Comma used to separate statements at line 24, column 3. See pages 68,71 of PBP.
 
 = N/Numeric_separator_syntax
 Mismatched operator at line 16, column 9. Numeric/string operators and operands should match.
@@ -51,8 +45,5 @@ Reused variable name in lexical scope: $whole at line 25, column 9. Invent uniqu
 Reused variable name in lexical scope: $eps at line 25, column 9. Invent unique variable names.
 Reused variable name in lexical scope: $left at line 26, column 9. Invent unique variable names.
 Reused variable name in lexical scope: $right at line 27, column 9. Invent unique variable names.
-
-= N/Numerical_integration_Gauss-Legendre_Quadrature
-Comma used to separate statements at line 19, column 24. See pages 68,71 of PBP.
 
 

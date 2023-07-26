@@ -14,6 +14,10 @@ Reused variable name in lexical scope: $lv at line 81, column 11. Invent unique 
 = D/Digital_root
 Comma used to separate statements at line 13, column 19. See pages 68,71 of PBP.
 
+= D/Discrete_Fourier_transform
+Don't modify $_ in list functions at line 20, column 11. See page 114 of PBP.
+Don't modify $_ in list functions at line 29, column 11. See page 114 of PBP.
+
 = D/Display_an_outline_as_a_nested_table
 Reused variable name in lexical scope: $bg at line 27, column 5. Invent unique variable names.
 

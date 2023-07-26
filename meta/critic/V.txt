@@ -2,9 +2,6 @@
 = V/Validate_International_Securities_Identification_Number
 Reused variable name in lexical scope: $i at line 28, column 13. Invent unique variable names.
 
-= V/Vampire_number-1
-Comma used to separate statements at line 37, column 5. See pages 68,71 of PBP.
-
 = V/Variables
 Reused variable name in lexical scope: $x at line 29, column 1. Invent unique variable names.
 Reused variable name in lexical scope: @b at line 33, column 1. Invent unique variable names.

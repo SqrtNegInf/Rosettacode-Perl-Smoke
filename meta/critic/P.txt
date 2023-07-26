@@ -9,21 +9,6 @@ Reused variable name in lexical scope: @res at line 33, column 5. Invent unique 
 Reused variable name in lexical scope: $grid at line 67, column 3. Invent unique variable names.
 Conditional "use" statement at line 71, column 5. Use "require" to conditionally include a module.
 
-= P/Percolation_Bond_percolation
-Comma used to separate statements at line 53, column 5. See pages 68,71 of PBP.
-
-= P/Percolation_Mean_cluster_density
-Comma used to separate statements at line 70, column 5. See pages 68,71 of PBP.
-
-= P/Percolation_Site_percolation
-Comma used to separate statements at line 65, column 5. See pages 68,71 of PBP.
-
-= P/Periodic_table
-Comma used to separate statements at line 18, column 23. See pages 68,71 of PBP.
-
-= P/Permutation_test
-Comma used to separate statements at line 41, column 5. See pages 68,71 of PBP.
-
 = P/Permutations_Derangements-1
 Reused variable name in lexical scope: $result at line 21, column 9. Invent unique variable names.
 

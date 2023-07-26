@@ -1,7 +1,4 @@
 
-= L/LU_decomposition
-Comma used to separate statements at line 47, column 5. See pages 68,71 of PBP.
-
 = L/LZW_compression
 Reused variable name in lexical scope: $result at line 53, column 5. Invent unique variable names.
 
@@ -10,7 +7,6 @@ Reused variable name in lexical scope: $y at line 45, column 6. Invent unique va
 Reused variable name in lexical scope: $x at line 46, column 8. Invent unique variable names.
 
 = L/Largest_prime_factor
-Comma used to separate statements at line 12, column 5. See pages 68,71 of PBP.
 Reused variable name in lexical scope: $n at line 20, column 5. Invent unique variable names.
 
 = L/Last_list_item

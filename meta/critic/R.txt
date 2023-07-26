@@ -3,10 +3,6 @@
 Reused variable name in lexical scope: $n at line 36, column 9. Invent unique variable names.
 Reused variable name in lexical scope: $n at line 47, column 5. Invent unique variable names.
 
-= R/Random_sentence_from_book
-Comma used to separate statements at line 17, column 1. See pages 68,71 of PBP.
-Comma used to separate statements at line 21, column 1. See pages 68,71 of PBP.
-
 = R/Ranking_methods
 Reused variable name in lexical scope: $result at line 29, column 5. Invent unique variable names.
 Reused variable name in lexical scope: $result at line 40, column 5. Invent unique variable names.
@@ -14,8 +10,8 @@ Reused variable name in lexical scope: $result at line 51, column 5. Invent uniq
 Reused variable name in lexical scope: $result at line 58, column 5. Invent unique variable names.
 Reused variable name in lexical scope: $result at line 67, column 5. Invent unique variable names.
 
-= R/Read_a_specific_line_from_a_file
-Comma used to separate statements at line 17, column 21. See pages 68,71 of PBP.
+= R/Readline_interface
+Don't modify $_ in list functions at line 32, column 5. See page 114 of PBP.
 
 = R/Recursive_descent_parser_generator
 Only use a capturing group if you plan to use the captured value at line 46, column 5. See page 252 of PBP.
@@ -28,10 +24,6 @@ Reused variable name in lexical scope: $lv at line 35, column 11. Invent unique 
 Reused variable name in lexical scope: $gap at line 109, column 3. Invent unique variable names.
 Reused variable name in lexical scope: %gap at line 128, column 3. Invent unique variable names.
 Reused variable name in lexical scope: $dir at line 131, column 5. Invent unique variable names.
-Comma used to separate statements at line 136, column 3. See pages 68,71 of PBP.
-Comma used to separate statements at line 171, column 5. See pages 68,71 of PBP.
-Comma used to separate statements at line 212, column 3. See pages 68,71 of PBP.
-Comma used to separate statements at line 224, column 3. See pages 68,71 of PBP.
 
 = R/Remote_agent_Simulation
 Conditional "use" statement at line 105, column 3. Use "require" to conditionally include a module.
@@ -59,8 +51,5 @@ Reused variable name in lexical scope: $url at line 29, column 5. Invent unique 
 
 = R/Rosetta_Code_Tasks_without_examples
 Reused variable name in lexical scope: $html at line 30, column 5. Invent unique variable names.
-
-= R/Round-robin_tournament_schedule-2
-Comma used to separate statements at line 23, column 85. See pages 68,71 of PBP.
 
 
