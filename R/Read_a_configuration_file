@@ -54,7 +54,7 @@ for (my $i = 0; $i < @otherfamily; ++$i) {
 sub read_conf_file {
     my ($fh, $def) = @_;        # copy parameters
 
-    local $_;                   # avoid interfering with use of $_ in main program
+    local $_ = undef;           # avoid interfering with use of $_ in main program
     while (<$fh>) {             # read a line from $fh into $_ until end of file
         next if /^#/;           # skip "#" comments
         next if /^;/;           # skip ";" comments
