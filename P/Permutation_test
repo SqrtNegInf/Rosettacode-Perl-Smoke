@@ -38,7 +38,7 @@ my @groups;
 my $i = 0;
 while (<DATA>) {
     chomp;
-    $i++, next if /^$/;
+    ($i++, next) if /^$/;
     push @{ $groups[$i] }, $_;
 }
 
