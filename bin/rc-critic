@@ -28,7 +28,7 @@ my $exclude = join '|',
     'Ambiguously named',
     'Multiple "package" declarations',
     'leading zeros',
-    'hard tabs',
+   #'hard tabs',
     'Backtick operator',
     'Readline inside',
     'Literal line breaks',
@@ -56,6 +56,7 @@ my $exclude = join '|',
     'Lvalue form of "substr"',
     'Comma used to separate statements',
     'Mismatched operator',
+    'Reused variable name',
 ;
 
 for my $file (grep { ! /\.(\d)$/ } @ARGV) {             # skip alternate versions
