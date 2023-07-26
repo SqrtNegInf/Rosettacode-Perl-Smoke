@@ -1,24 +1,2 @@
 
-= V/Validate_International_Securities_Identification_Number
-Reused variable name in lexical scope: $i at line 28, column 13. Invent unique variable names.
-
-= V/Variables
-Reused variable name in lexical scope: $x at line 29, column 1. Invent unique variable names.
-Reused variable name in lexical scope: @b at line 33, column 1. Invent unique variable names.
-Reused variable name in lexical scope: $x at line 33, column 1. Invent unique variable names.
-Reused variable name in lexical scope: $x at line 35, column 1. Invent unique variable names.
-Reused variable name in lexical scope: $y at line 35, column 1. Invent unique variable names.
-Reused variable name in lexical scope: @b at line 35, column 1. Invent unique variable names.
-Reused variable name in lexical scope: $fruit at line 54, column 3. Invent unique variable names.
-
-= V/Verify_distribution_uniformity_Naive
-Reused variable name in lexical scope: $threshold at line 28, column 1. Invent unique variable names.
-
-= V/Vibrating_rectangles
-Reused variable name in lexical scope: @c at line 38, column 5. Invent unique variable names.
-
-= V/Voronoi_diagram
-Reused variable name in lexical scope: $xmax at line 39, column 9. Invent unique variable names.
-Reused variable name in lexical scope: $ymax at line 39, column 9. Invent unique variable names.
-
 
