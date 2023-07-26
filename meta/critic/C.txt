@@ -1,13 +1,4 @@
 
-= C/CalmoSoft_primes
-Reused variable name in lexical scope: @primes at line 16, column 13. Invent unique variable names.
-
-= C/Chat_server
-Reused variable name in lexical scope: $conn at line 86, column 9. Invent unique variable names.
-
-= C/Cipolla%27s_algorithm-1
-Reused variable name in lexical scope: $a at line 51, column 9. Invent unique variable names.
-
 = C/Compiler_AST_interpreter
 "local" variable not initialized at line 22, column 4. See page 78 of PBP.
 
