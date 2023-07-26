@@ -1,3 +1,7 @@
+2023-07-26
+Finished checking Perl::Critic results.  No attempt to zero out the warnings (most of them ignored/surpressed).
+But the review informed a number of code changes.
+
 2023-07-23
 Ignoring addition to 'F/Fibonacci_sequence' from the 21st, does nothing of note.
 
