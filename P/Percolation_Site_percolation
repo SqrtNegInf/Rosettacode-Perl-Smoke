@@ -62,7 +62,7 @@ sub move {
     $site[++$y][   $x] = $water if $dir == $D{Down};
     $site[  $y][ --$x] = $water if $dir == $D{Left};
     $site[  $y][ ++$x] = $water if $dir == $D{Right};
-    $x, $y
+    ($x, $y)
 }
 
 my $prob = 0.65;
