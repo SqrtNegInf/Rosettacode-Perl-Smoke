@@ -34,7 +34,7 @@ sub md4 :prototype(@) {
     foreach (@input) {
         my $r = length($_);
         $l += $r;
-        $r++, $_.="\x80" if $r<64 && !$p++;
+        ($r++, $_.="\x80") if $r<64 && !$p++;
         my @W = unpack 'V16', $_ . "\0"x7;
         push @W, (0)x16 if @W < 16;
         $W[14] = $l*8 if $r < 57;              # add bit-length in low 32-bits
