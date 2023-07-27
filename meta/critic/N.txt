@@ -2,10 +2,4 @@
 = N/Natural_sorting
 Sort blocks should have a single statement at line 24, column 28. See page 149 of PBP.
 
-= N/Nonogram_solver
-Don't modify $_ in list functions at line 22, column 16. See page 114 of PBP.
-Don't modify $_ in list functions at line 22, column 31. See page 114 of PBP.
-Don't modify $_ in list functions at line 24, column 16. See page 114 of PBP.
-Don't modify $_ in list functions at line 24, column 31. See page 114 of PBP.
-
 

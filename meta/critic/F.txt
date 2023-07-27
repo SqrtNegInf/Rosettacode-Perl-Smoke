@@ -6,7 +6,4 @@ UNIVERSAL::isa should not be used as a function at line 64, column 32. Use eval{
 UNIVERSAL::isa should not be used as a function at line 50, column 24. Use eval{$obj->isa($pkg)} instead.
 UNIVERSAL::isa should not be used as a function at line 60, column 14. Use eval{$obj->isa($pkg)} instead.
 
-= F/Free_polyominoes_enumeration
-Don't modify $_ in list functions at line 24, column 42. See page 114 of PBP.
-
 
