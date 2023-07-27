@@ -57,6 +57,7 @@ my $exclude = join '|',
     'Comma used to separate statements',
     'Mismatched operator',
     'Reused variable name',
+    'joined readline',
 ;
 
 for my $file (grep { ! /\.(\d)$/ } @ARGV) {             # skip alternate versions

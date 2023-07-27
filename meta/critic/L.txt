@@ -1,3 +1,0 @@
-
-= L/Last_list_item
-Use "local $/ = undef" or Path::Tiny instead of joined readline at line 15, column 27. See page 213 of PBP.

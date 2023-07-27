@@ -1,8 +1,2 @@
 
-= I/I%27m_a_software_engineer,_get_me_out_of_here
-Use "local $/ = undef" or Path::Tiny instead of joined readline at line 17, column 9. See page 213 of PBP.
-
-= I/Index_finite_lists_of_positive_integers-1
-Use "local $/ = undef" or Path::Tiny instead of joined readline at line 19, column 12. See page 213 of PBP.
-
 
