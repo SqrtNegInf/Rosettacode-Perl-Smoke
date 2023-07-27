@@ -8,6 +8,7 @@
 
 use v5.36;
 
+use IO::Interactive;
 use Perl::Critic;
 
 my $exclude = join '|', 
@@ -52,7 +53,6 @@ my $exclude = join '|',
     'One-argument "bless"',
     'used in void context',
     'Found.*in condition',
-   #'modify .._',
     'modify.*in list functions',
     'Lvalue form of "substr"',
     'Comma used to separate statements',
@@ -64,6 +64,7 @@ my $exclude = join '|',
 for my $file (grep { ! /\.(\d)$/ } @ARGV) {             # skip alternate versions
     my $critic = Perl::Critic->new(-severity => 3);
    #my @violations = $critic->critique($file);                          # test with no exclusions
+    $exclude = 'changed my mind, do not exclude anything!' if IO::Interactive::is_interactive;
     my @violations = grep { ! /$exclude/i } $critic->critique($file);
     print "\n= $file\n" . join '', @violations if @violations
 }
