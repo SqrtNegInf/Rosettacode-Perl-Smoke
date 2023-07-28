@@ -8482,8 +8482,7 @@ File: R/RSA_code
 File: R/Radical_of_an_integer
 #!/usr/local/bin/perl
 #u# https://rosettacode.org/wiki/Radical_of_an_integer
-#t# inprogress
-#c# 2023-06-21 >RC
+#c# 2023-07-28 >RC
 #p# OK
 
 File: R/Railway_circuit
