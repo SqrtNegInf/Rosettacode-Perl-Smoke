@@ -1,16 +1,11 @@
 #!/usr/local/bin/perl
 #u# https://rosettacode.org/wiki/Radical_of_an_integer
-#t# inprogress
-#c# 2023-06-21 >RC
+#c# 2023-07-28 >RC
 #p# OK
-
-use Data::Printer;          # debug only
-use Time::HiRes qw(sleep);  # debug only
 
 my @res;
 
 use v5.36;
-#use strict; use warnings; use feature 'say';
 
 use List::Util 'uniq';
 use ntheory <primes vecprod factor>;
@@ -20,16 +15,33 @@ sub table (@V) { ( sprintf( ('%3d')x@V, @V) ) =~ s/.{1,30}\K/\n/gr }
 
 sub radical ($n) { vecprod uniq factor $n }
 
-push @res, 'First fifty radicals:';
-push @res, table map { radical $_ } 1..50;
-
-push @res, sprintf "Radical for %7s => %7s", comma($_), comma radical($_) for 99999, 499999, 999999;
-
-my $rad{1} = 1; 
 my $limit = 1e6;
 
 my $primes = primes(1,$limit);
-say 0+@$primes;
+
+my %rad; 
+$rad{1} = 1; 
+$rad{ uniq factor $_ }++ for 2..$limit;
+
+my $powers;
+my $upto = int sqrt $limit;
+for my $p ( grep { $_< $upto} @$primes ) {
+   for (2..$upto) { ($p ** $_) < $limit ? ++$powers : last }
+}
+
+push @res, 'First fifty radicals:';
+push @res, table map { radical $_ } 1..50;
+push @res, sprintf "Radical for %7s => %7s", comma($_), comma radical($_) for 99999, 499999, 999999;
+push @res, sprintf "\nRadical factor count breakdown, 1 through %s:", comma $limit;
+push @res, "$_ => " . comma $rad{$_} for sort keys %rad;
+push @res, <<~"END";
+
+    Up to @{[comma $limit]}:
+    Primes: @{[comma 0+@$primes]}
+    Powers:    $powers
+    Plus 1:      1
+    Total:  @{[comma 1 + $powers + @$primes]}
+    END
 
 say my $result = join "\n", @res;
 
@@ -44,10 +56,23 @@ First fifty radicals:
 Radical for  99,999 =>  33,333
 Radical for 499,999 =>   3,937
 Radical for 999,999 => 111,111
+
+Radical factor count breakdown, 1 through 1,000,000:
+1 => 78,735
+2 => 288,726
+3 => 379,720
+4 => 208,034
+5 => 42,492
+6 => 2,285
+7 => 8
+
+Up to 1,000,000:
+Primes: 78,498
+Powers:    236
+Plus 1:      1
+Total:  78,735
 END
 
 use Test::More;
-chomp $ref;
 is($result, $ref);
-#is(($result =~ s/\s//gr), ($ref =~ s/\s//gr));
 done_testing();
