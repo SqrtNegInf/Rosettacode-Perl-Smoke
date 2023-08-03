@@ -1,0 +1,79 @@
+#!/usr/local/bin/perl
+#u# https://rosettacode.org/wiki/CORDIC
+#c# 2023-08-03 >RC
+#p# OK
+
+use v5.36;
+
+my @res;
+
+sub CORDIC ($a) {
+    my ($k, $x, $y) = (0, 1, 0);
+    my @PoT = (1, 0.1, 0.01, 0.001, 0.0001, 0.00001);
+    my @Tbl = <7.853981633e-1 9.966865249e-2 9.999666686e-3 9.999996666e-4 9.999999966e-5 9.999999999e-6 0>;
+
+    while ($a > 1e-5) { 
+        $k++ while $a < $Tbl[$k];
+        $a -= $Tbl[$k];
+        ($x,$y) = ($x - $PoT[$k]*$y, $y + $PoT[$k]*$x);
+    }
+    $x / sqrt($x*$x + $y*$y)
+}
+
+@res = "Angle    CORDIC       Cosine       Error";
+for my $angle (<-9 0 1.5 6>) { 
+    my $cordic = CORDIC abs $angle;
+    push @res, sprintf '%4.1f %12.8f %12.8f %12.8f', $angle, $cordic, cos($angle), cos($angle) - $cordic
+}
+
+say my $result = join "\n", @res;
+
+my $ref = <<'END';
+Angle    CORDIC       Cosine       Error
+-9.0  -0.91112769  -0.91113026  -0.00000257
+ 0.0   1.00000000   1.00000000   0.00000000
+ 1.5   0.07073880   0.07073720  -0.00000160
+ 6.0   0.96016761   0.96017029   0.00000268
+END
+
+use Test::More;
+chomp $ref;
+is($result, $ref);
+done_testing;
+
+__END__
+
+=={{header|Perl}}==
+{{trans|Raku}}
+<syntaxhighlight lang="perl" line>
+use strict; 
+use warnings; 
+
+sub CORDIC {
+    my($a) = shift;
+    my ($k, $x, $y) = (0, 1, 0);
+    my @PoT = (1, 0.1, 0.01, 0.001, 0.0001, 0.00001);
+    my @Tbl = <7.853981633e-1 9.966865249e-2 9.999666686e-3 9.999996666e-4 9.999999966e-5 9.999999999e-6 0>;
+
+    while ($a > 1e-5) { 
+        $k++ while $a < $Tbl[$k];
+        $a -= $Tbl[$k];
+        ($x,$y) = ($x - $PoT[$k]*$y, $y + $PoT[$k]*$x);
+    }
+    $x / sqrt($x*$x + $y*$y)
+}
+
+print "Angle    CORDIC       Cosine       Error\n";
+for my $angle (<-9 0 1.5 6>) { 
+    my $cordic = CORDIC abs $angle;
+    printf "%4.1f %12.8f %12.8f %12.8f\n", $angle, $cordic, cos($angle), cos($angle) - $cordic
+}
+</syntaxhighlight>
+{{out}}
+<pre>
+Angle    CORDIC       Cosine       Error
+-9.0  -0.91112769  -0.91113026  -0.00000257
+ 0.0   1.00000000   1.00000000   0.00000000
+ 1.5   0.07073880   0.07073720  -0.00000160
+ 6.0   0.96016761   0.96017029   0.00000268
+</pre>
