@@ -1227,6 +1227,12 @@ File: B/Burrows-Wheeler_transform
 #c# 2018-09-11 >RC
 #p# OK
 
+File: C/CORDIC
+#!/usr/local/bin/perl
+#u# https://rosettacode.org/wiki/CORDIC
+#c# 2023-08-03 >RC
+#p# OK
+
 File: C/CRC-32
 #!/usr/local/bin/perl
 #u# http://rosettacode.org/wiki/CRC-32
