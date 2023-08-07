@@ -6,7 +6,8 @@
 #n# 2020-01-xx Started out with: Phix, Julia, Go, Python, Raku, Perl
 #n# 2020-01-29 --> 2023-03-16 'C' ... 'Jq' reach 1000
 #n# 2023-03-26 Making the club more exclusive again, 1200 tasks is the cutoff (neatly truncating the list to 10 languages)
-#n# 2023-06-05  now it's 11 (Ruby)
+#n# 2023-06-05  now it's 12 (Ruby)
+#n# 2023-08-06  now it's 13 (C++)
 
 my @res;
 
@@ -57,5 +58,5 @@ for (@sorted_languages) {
 say join "\n", @res;
 
 use Test::More;
-ok @res == 12;
+ok @res == 13;
 done_testing;
