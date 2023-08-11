@@ -5089,6 +5089,13 @@ File: I/Introspection
 #c# 2018-08-13 <>RC
 #p# OK
 
+File: I/Inventory_sequence
+#!/usr/local/bin/perl
+#u# https://rosettacode.org/wiki/Inventory_sequence
+#c# 2023-08-11 >RC
+#f# RC file: inventory-sequence.png
+#p# OK
+
 File: I/Inverted_index
 #!/usr/local/bin/perl
 #u# http://rosettacode.org/wiki/Inverted_index
@@ -5178,6 +5185,12 @@ File: J/Jewels_and_Stones-2
 #c# 2020-11-04 <RC
 #p# OK
 #n# Alternate using regex
+
+File: J/Jordan-Polya_numbers
+#!/usr/local/bin/perl
+#u# https://rosettacode.org/wiki/Jordan-Polya_numbers
+#c# 2023-08-11 >RC
+#p# OK
 
 File: J/Josephus_problem
 #!/usr/local/bin/perl
