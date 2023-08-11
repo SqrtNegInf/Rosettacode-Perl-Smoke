@@ -1,0 +1,60 @@
+#!/usr/local/bin/perl
+#u# https://rosettacode.org/wiki/Jordan-Polya_numbers
+#c# 2023-08-11 >RC
+#p# OK
+
+my @res;
+
+use strict; 
+use warnings; 
+use feature 'say';
+
+use ntheory 'factorial';
+use List::AllUtils <max firstidx>;
+
+sub table { my $t = 10 * (my $c = 1 + length max @_); ( sprintf( ('%'.$c.'d')x@_, @_) ) =~ s/.{1,$t}\K/\n/gr }
+
+sub JordanPolya {
+    my $limit = shift;
+    my($k,@JP) = (2);
+    push @JP, factorial($_) for 0..18;
+
+    while ($k < @JP) {
+        my $rk = $JP[$k];
+        for my $l (2 .. @JP) {
+            my $kl = $JP[$l] * $rk;
+            last if $kl > $limit;
+            LOOP: {
+                my $p = firstidx { $_ >= $kl } @JP;
+                if    ($p  < $#JP and $JP[$p] != $kl) { splice @JP, $p, 0, $kl }
+                elsif ($p == $#JP                   ) {   push @JP,        $kl }
+                $kl > $limit/$rk ? last LOOP : ($kl *= $rk)
+            }
+        }
+        $k++
+    }
+    shift @JP; return @JP
+}
+
+my @JP = JordanPolya(2**27); 
+push @res, 'First 50 Jordan-Pólya numbers:';
+push @res, table(@JP[0..49]);
+push @res, "The largest Jordan-Pólya number before 100 million: " . $JP[-1 + firstidx { $_ > 100_000_000 } @JP];
+
+say my $result = join "\n", @res;
+
+my $ref = <<'END';
+First 50 Jordan-Pólya numbers:
+    1    2    4    6    8   12   16   24   32   36
+   48   64   72   96  120  128  144  192  216  240
+  256  288  384  432  480  512  576  720  768  864
+  960 1024 1152 1296 1440 1536 1728 1920 2048 2304
+ 2592 2880 3072 3456 3840 4096 4320 4608 5040 5184
+
+The largest Jordan-Pólya number before 100 million: 99532800
+END
+
+use Test::More;
+chomp $ref;
+is($result, $ref);
+done_testing;
