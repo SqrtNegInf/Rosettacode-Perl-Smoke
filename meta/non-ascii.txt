@@ -412,6 +412,9 @@ I/Integer_long_division
 8̅:    18 DIGIT EIGHT, COMBINING OVERLINE
 9̅:    16 DIGIT NINE, COMBINING OVERLINE
 
+J/Jordan-Polya_numbers
+ó:     4 LATIN SMALL LETTER O WITH ACUTE
+
 L/Largest_palindrome_product
 ×:     7 MULTIPLICATION SIGN
 
