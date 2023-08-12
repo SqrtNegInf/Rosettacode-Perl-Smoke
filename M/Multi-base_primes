@@ -36,9 +36,13 @@ $l = length and $max_bases{$l} = max( $#{$prime_base{$_}}, $max_bases{$l} // 0 )
 for my $m (1 .. $chars) {
     push @res, sprintf "$m character strings that are prime in maximum bases: %d", 1+$max_bases{$m};
     for (sort grep { length($_) ==  $m } keys %prime_base) {
-        my @bases = @{($prime_base{$_})[0]};
-        #my @bases = @{$prime_base{$_}->@[0]}; # nope, not good postfix de-ref syntax
-        push @res,  "$_: " . join ' ', @bases if $max_bases{$m} eq $#bases;
+       #my @bases = $prime_base{$_}->@[0];      # nope, don't need postfix de-ref here
+       #my @bases = @{($prime_base{$_})[0]};    # OK
+       #my @bases = @{$prime_base{$_}};         # OK
+       #push @res,  "$_: " . join ' ', @bases if $max_bases{$m} eq $#bases; # with above lines
+
+        my $bases = $prime_base{$_};            # OK (with next line)
+        push @res,  "$_: " . join ' ', @$bases if $max_bases{$m} eq @$bases-1;
     }
     push @res, ''
 }
