@@ -7,12 +7,13 @@ use v5.36;
 
 my @res;
 
+# a little more concise
 sub centroid_alt ($LoL) {
-    my $n = $#{ $LoL       };
-    my $d = $#{ $LoL->@[0] };
+    my $n = $#{ $LoL      };
+    my $d = $#{ $LoL->[0] };
     my @C = 0 x ($d+1);
     for my $i (0..$d) {
-        $C[$i] += $LoL->@[$_]->@[$i] for 0..$n;
+        $C[$i] += $LoL->[$_]->[$i] for 0..$n;
         $C[$i] /= $n+1
     }
     @C
@@ -24,8 +25,9 @@ sub centroid ($LoL) {
     my @C = 0 x ($d+1);
     for my $a (0..$d) {
         for my $b (0..$n) {
-           #$C[$a] += (@{(@{$LoL})[$b]})[$a];     # traditional
-            $C[$a] += $LoL->@[$b]->@[$a];         # double postfix-deref, cute
+           #$C[$a] += (@{(@{$LoL})[$b]})[$a];     # traditional/obsfuscated
+           #$C[$a] += $LoL->@[$b]->@[$a];         # '@' informative, but not required
+            $C[$a] += $LoL->[$b]->[$a];           # double postfix de-ref, cute [singleton?]
         }
         $C[$a] /= $n+1; 
     }
@@ -40,6 +42,7 @@ my @tests = (
     [ [0, 0, 0, 0, 1], [0, 0, 0, 1, 0], [0, 0, 1, 0, 0], [0, 1, 0, 0, 0] ],
 );
 
+#ush @res, join ' ', centroid_alt($_) for @tests;
 push @res, join ' ', centroid($_) for @tests;
 
 say my $result = join "\n", @res;
