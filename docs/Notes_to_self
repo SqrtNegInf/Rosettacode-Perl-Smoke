@@ -1,3 +1,6 @@
+2023-08-16
+RC off-line during daily test?  Probably a one-off...
+
 2023-07-26
 Finished checking Perl::Critic results.  No attempt to zero out the warnings (most of them ignored/surpressed).
 But the review informed a number of code changes.
