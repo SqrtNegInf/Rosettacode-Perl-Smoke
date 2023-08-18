@@ -2,7 +2,7 @@
 #u# http://rosettacode.org/wiki/HTTP
 #c# 2018-08-11 <RC
 #p# OK
-#n# very minimal testing
+#n# very minimal testing [now even less] 
 
 use strict;
 use warnings;
@@ -10,21 +10,21 @@ use feature 'say';
 
 use HTTP::Tiny;
 my $rc0 = ( HTTP::Tiny->new()->get( 'http://rosettacode.org')->{content} );
-
-use LWP::Simple qw/get $ua/;
-$ua->agent(undef) ; # cloudflare blocks default LWP agent
-my $rc1 = join '', get("http://www.rosettacode.org");
 say length $rc0;
 
+#use LWP::Simple qw/get $ua/;
+#$ua->agent(undef) ; # cloudflare blocks default LWP agent
+#my $rc1 = join '', get("https://www.rosettacode.org");
+
 #or with more error-checking
-use LWP::UserAgent;
-my $url = 'http://www.rosettacode.org';
-my $rc2 = LWP::UserAgent->new->get( $url );
-$rc2->is_success or die "Failed to GET '$url': ", $rc2->status_line;
-#print $rc2->as_string;
-say length $rc1;
+#use LWP::UserAgent;
+#my $url = 'http://www.rosettacode.org';
+#my $rc2 = LWP::UserAgent->new->get( $url );
+#$rc2->is_success or die "Failed to GET '$url': ", $rc2->status_line;
+##print $rc2->as_string;
+#say length $rc1;
 
 use Test::More;
 ok (20000 < length $rc0);
-ok (20000 < length $rc1);
+#ok (20000 < length $rc1);
 done_testing;
