@@ -4456,7 +4456,7 @@ File: H/HTTP
 #u# http://rosettacode.org/wiki/HTTP
 #c# 2018-08-11 <RC
 #p# OK
-#n# very minimal testing
+#n# very minimal testing [now even less] 
 
 File: H/HTTPS
 #!/usr/local/bin/perl
