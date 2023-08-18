@@ -1,5 +1,8 @@
+2023-08-18
+'R/Rosetta_Code_Count_examples' started working, but other R/Rosetta* tasks use wikimedia API, and that's still defunct.
+
 2023-08-16
-RC off-line during daily test?  Probably a one-off...
+RC off-line during daily test?  Probably a one-off... [p.s. Nope, new hosting causing problems]
 
 2023-07-26
 Finished checking Perl::Critic results.  No attempt to zero out the warnings (most of them ignored/surpressed).
