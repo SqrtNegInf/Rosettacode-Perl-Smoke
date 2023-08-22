@@ -58,23 +58,23 @@ for my $k (sort { $table{$b} <=> $table{$a} } keys %table) {
 say $result;
 
 use Test::More;
-ok $result =~ /1[89]\d Perl/;
+ok $result =~ /1[789]\d Perl/;
 done_testing;
 
 __END__
 
-As of 2020-12-06:
+2023-08-22
 
- 420 C
- 304 Java
- 298 C++
- 295 Python
- 271 JavaScript
- 180 Perl       <=== testing this value
- 180 PHP
- 156 SQL
- 144 UNIX Shell
- 129 C sharp
- 128 Pascal
- 125 BASIC
- 111 Haskell
+ 428 C
+ 324 Java
+ 317 Python
+ 304 C++
+ 282 JavaScript
+ 186 PHP
+ 179 Perl
+ 165 SQL
+ 143 UNIX Shell
+ 126 Pascal
+ 124 BASIC
+ 108 Haskell
+ 101 Ruby
