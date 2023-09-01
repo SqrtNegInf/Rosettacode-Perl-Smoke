@@ -1,0 +1,40 @@
+Description of files and subdirectories in pub/NetBSD:
+
+This directory contains files related to NetBSD.
+
+NetBSD is a freely available and redistributable UNIX-like operating
+system. NetBSD is based on a variety of free software, including
+4.4BSD Lite from the University of California, Berkeley. It runs
+on a large number of hardware platforms and is highly portable. It
+comes with The X Window System, complete source code, and is
+user-supported.
+
+NetBSD is currently at release version 9.2
+
+Files and directories:
+NetBSD-7.1		The NetBSD 7.1 release
+NetBSD-7.1.1		The NetBSD 7.1.1 release
+NetBSD-7.1.2		The NetBSD 7.1.2 release
+NetBSD-7.2		The NetBSD 7.2 release
+NetBSD-8.0		The NetBSD 8.0 release
+NetBSD-8.1		The NetBSD 8.1 release
+NetBSD-8.2		The NetBSD 8.2 release
+NetBSD-9.0		The NetBSD 9.0 release
+NetBSD-9.1		The NetBSD 9.1 release
+NetBSD-9.2		The NetBSD 9.2 release
+NetBSD-9.3		The NetBSD 9.3 release
+NetBSD-current		Daily snapshot of the NetBSD sources under development
+NetBSD-release-7	Tri-weekly snapshot of the NetBSD 7 release branch
+NetBSD-release-8	Tri-weekly snapshot of the NetBSD 8 release branch
+NetBSD-release-9	Tri-weekly snapshot of the NetBSD 9 release branch
+README			This file
+README.export-control	Please read this before exporting the sources
+arch			binary snapshots, typically of "current"
+images			ISO/USB images of NetBSD releases
+iso			The former home of the above ISO/USB images
+misc			misc. stuff, mostly Usenix BOF slides
+packages		Source and binary distributions of application software
+security		Security advisories and patches
+
+See https://archive.netbsd.org/pub/NetBSD-archive/ for older, unsupported
+releases, NetBSD 1.0 through 7.0.
