@@ -1,3 +1,9 @@
+2023-09-01
+The differences between Mac-Pro and here for 'run':
+    deleted:    run/Lenna50-Mac-Pro.local.ppm
+    modified:   run/filledcircle1.jpg
+    modified:   run/frog-16.png
+
 2023-08-16
 RC/network tasks failed here too, must getting rejected? (credentials issue?)
 
