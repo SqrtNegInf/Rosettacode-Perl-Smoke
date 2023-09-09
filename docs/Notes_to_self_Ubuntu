@@ -1,3 +1,6 @@
+2023-09-08
+'T/Time_a_function' failed two days in a row, but probably just poor VM response, will reboot it...
+
 2023-07-18
 Must use full paths with 'sudo', gets pretty long-winded:
 sudo ~/perl5/perlbrew/perls/perl-5.36.0/bin/perl5.36.0 ~/perl5/perlbrew/bin/cpanm Syntax::Keyword::Match
