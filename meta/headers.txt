@@ -2194,6 +2194,19 @@ File: C/Count_the_coins_0-1
 #c# 2021-01-06 <RC
 #p# OK
 
+File: C/Countdown
+#!/usr/local/bin/perl
+#u# https://rosettacode.org/wiki/Countdown
+#t# inprogress
+#c# 2023-09-17 >RC
+#p# OK
+
+File: C/Countdown-1
+#!/usr/local/bin/perl
+#u# https://rosettacode.org/wiki/Countdown
+#c# 2022-09-17 >RC
+#p# OK
+
 File: C/Cousin_primes
 #!/usr/local/bin/perl
 #u# http://rosettacode.org/wiki/Cousin_primes
@@ -4455,9 +4468,10 @@ File: H/HTTP
 #!/usr/local/bin/perl
 #u# http://rosettacode.org/wiki/HTTP
 #c# 2018-08-11 <RC
-#p# OK
+#p# BROKEN
 #n# very minimal testing
 #n# 2023-08-21 'www' prefix not currently valid [should be safe to leave it off for good]
+#n# 2023-09-16 LWP::UserAgent no longer working, everything else is fine
 
 File: H/HTTPS
 #!/usr/local/bin/perl
@@ -9001,6 +9015,7 @@ File: R/Rosetta_Code_Rank_languages_by_popularity
 #n# 2023-03-26 Making the club more exclusive again, 1200 tasks is the cutoff (neatly truncating the list to 10 languages)
 #n# 2023-06-05  now it's 12 (Ruby)
 #n# 2023-08-06  now it's 13 (C++)
+#n# 2023-09-17 now site *requires* 'www' prefix
 
 File: R/Rosetta_Code_Tasks_without_examples
 #!/usr/local/bin/perl
