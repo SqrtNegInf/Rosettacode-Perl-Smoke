@@ -1,0 +1,100 @@
+#!/usr/local/bin/perl
+#u# https://rosettacode.org/wiki/Countdown
+#t# inprogress
+#c# 2023-09-17 >RC
+#p# OK
+
+my @res;
+
+use v5.36;
+
+my $sat      = 0;
+my $best     = 0;
+my $best_out = '';
+
+sub sol($target, $out='', @nbrs) {
+
+    if (abs($target - $best) > abs($target - $nbrs[0])) {
+        $best = $nbrs[0];
+        $best_out = $out
+    }
+
+    if ($target == $nbrs[0]) {
+        say $out; sleep 1;
+        $out = '';
+
+    } elsif (@nbrs > 0) {
+    
+        for my $i1 (0 .. $#nbrs) {
+            for my $i2 ($i1+1 .. $#nbrs) {
+$DB::single = 1;
+               #my @remains = (@nbrs[0 .. $i1], @nbrs[$i1+1 .. $i2], @nbrs[$i2+1 .. $#nbrs]);
+                my @remains; 
+                push @remains, @nbrs[0 .. $i1] if $i1 > 0; 
+                push @remains, @nbrs[$i1+1 .. $i2] if ($i1+1) < $i2; 
+                push @remains, @nbrs[$i2+1 .. $#nbrs] if ($i2+1) < $#nbrs;
+#say join ' ', @remains; sleep 1;
+                my($a, $b) = ($nbrs[$i1], $nbrs[$i2]);
+                ($a, $b) = ($b, $a) if $a > $b;
+                my $res = $b + $a;
+                my $op = "$b + $a  = $res ;";
+                say "rr: $res . " . join ' ', @remains;
+                sol($target, $out . $op, ($res,@remains) );
+                if ($b != $a) {
+                    $res = $b - $a;
+                    $op = "$b - $a = $res ; ";
+                    sol($target, $out . $op, ($res,@remains) );
+                }
+                if ($a != 1) {
+                    $res = $b * $a;
+                    $op = "$b * $a = $res ; ";
+                    sol($target, $out . $op, ($res,@remains) );
+                    if (($b % $a) == 0) {
+                        $res = int($b / $a);
+                        $op = "$b / $a = $res ;";
+                        sol($target, $out . $op, ($res,@remains) );
+                    }
+                }
+            }
+        }
+    }
+}
+
+#  [50, 25, 6, 3]
+#  [25, 6, 3]
+#  [6, 3]
+#  [3]
+#  []
+#  []
+#  []
+#  [6]
+#  []
+#  []
+#  []
+#  [250]
+#  []
+
+sol(my $goal = 952, '', <100 75 50 25 6 3> );
+say "Best solution: $best, $best_out" if $best != $goal;
+
+__END__
+
+my $result = join "\n", @res;
+
+my $ref = <<'END';
+END
+
+use Test::More;
+chomp $ref;
+is($result, $ref);
+done_testing;
+
+__END__
+
+=={{header|Perl}}==
+{{trans|Python}}
+<syntaxhighlight lang="perl" line>
+</syntaxhighlight>
+{{out}}
+<pre>
+</pre>
