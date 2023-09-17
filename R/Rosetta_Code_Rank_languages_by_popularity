@@ -8,6 +8,7 @@
 #n# 2023-03-26 Making the club more exclusive again, 1200 tasks is the cutoff (neatly truncating the list to 10 languages)
 #n# 2023-06-05  now it's 12 (Ruby)
 #n# 2023-08-06  now it's 13 (C++)
+#n# 2023-09-17 now site *requires* 'www' prefix
 
 my @res;
 
@@ -18,7 +19,7 @@ use feature 'say';
 use MediaWiki::API;
 
 my $api =
-  MediaWiki::API->new( { api_url => 'https://rosettacode.org/w/api.php' } );
+  MediaWiki::API->new( { api_url => 'https://www.rosettacode.org/w/api.php' } );
 
 my @languages;
 my $gcmcontinue;
@@ -37,6 +38,8 @@ while (1) {
 
     last if not $gcmcontinue = $apih->{'continue'}{'gcmcontinue'};
 }
+
+#use DDP; p @languages; exit;
 
 for (@languages) {
     $_->{'title'} =~ s/Category://;
