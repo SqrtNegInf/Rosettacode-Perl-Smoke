@@ -3,6 +3,7 @@
 #t# inprogress
 #c# 2023-09-17 >RC
 #p# OK
+#n# from Python
 
 my @res;
 
@@ -12,7 +13,7 @@ my $sat      = 0;
 my $best     = 0;
 my $best_out = '';
 
-sub sol($target, $out='', @nbrs) {
+sub sol($target, $out //= '', @nbrs) {
 
     if (abs($target - $best) > abs($target - $nbrs[0])) {
         $best = $nbrs[0];
@@ -21,7 +22,6 @@ sub sol($target, $out='', @nbrs) {
 
     if ($target == $nbrs[0]) {
         say $out; sleep 1;
-        $out = '';
 
     } elsif (@nbrs > 0) {
     
