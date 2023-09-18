@@ -2194,18 +2194,19 @@ File: C/Count_the_coins_0-1
 #c# 2021-01-06 <RC
 #p# OK
 
-File: C/Countdown
-#!/usr/local/bin/perl
-#u# https://rosettacode.org/wiki/Countdown
-#t# inprogress
-#c# 2023-09-17 >RC
-#p# OK
-
 File: C/Countdown-1
 #!/usr/local/bin/perl
 #u# https://rosettacode.org/wiki/Countdown
 #c# 2022-09-17 >RC
 #p# OK
+
+File: C/Countdown-2
+#!/usr/local/bin/perl
+#u# https://rosettacode.org/wiki/Countdown
+#t# inprogress
+#c# 2023-09-17 >RC
+#p# OK
+#n# from Python
 
 File: C/Cousin_primes
 #!/usr/local/bin/perl
