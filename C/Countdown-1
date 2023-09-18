@@ -23,9 +23,13 @@ sub countdown ($target, @numbers) {
          if ($n1v >= $n0v) {
             @numsNew = @nums2;
             push @numsNew, my $res = $n1v + $n0v; 
-            if ($res == $target or countdown($target, @numsNew)) {
-               say "$res = $n1v + $n0v" and return 1
-            }
+
+            say "$res = $n1v + $n0v" and return 1
+                if $res == $target or countdown($target, @numsNew);
+           #if ($res == $target or countdown($target, @numsNew)) {
+           #   say "$res = $n1v + $n0v" and return 1
+           #}
+
 	        if ($n0v != 1) {
                @numsNew = @nums2;
                push @numsNew, my $res = $n1v * $n0v;	
@@ -40,7 +44,7 @@ sub countdown ($target, @numbers) {
                   say "$res = $n1v - $n0v" and return 1
                }
             }
-            if ($n0v != 1 and  0==($n1v%$n0v)) {
+            if ($n0v != 1 and 0==($n1v%$n0v)) {
                @numsNew = @nums2;
                push @numsNew, my $res = int($n1v / $n0v);
                if ($res == $target or countdown($target, @numsNew)) {
