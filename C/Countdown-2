@@ -22,6 +22,7 @@ sub sol($target, $out='', @nbrs) {
 
     if ($target == $nbrs[0]) {
         say $out; sleep 1;
+        push @res, $out
 
     } elsif (@nbrs > 0) {
     
