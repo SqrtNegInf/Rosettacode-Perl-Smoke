@@ -21,8 +21,4 @@ Only use a capturing group if you plan to use the captured value at line 58, col
 yada operator (...) used at line 15, column 5. The yada operator is a placeholder for code you have not yet written.
 
 = C/Countdown-1
-"@res" is declared but not used at line 6, column 1. Unused variables clutter code and make it harder to read.
 Hard tabs used at line 35, column 53. See page 20 of PBP.
-
-= C/Countdown-2
-"@res" is declared but not used at line 8, column 1. Unused variables clutter code and make it harder to read.
