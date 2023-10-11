@@ -14,7 +14,7 @@ use JSON;
 
 my $client = LWP::UserAgent->new;
 $client->agent("Rosettacode Perl task solver");
-my $url = 'https://rosettacode.org/w';
+my $url = 'https://www.rosettacode.org/w';
 
 my $minimum = 100;
 
