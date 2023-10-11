@@ -8991,7 +8991,6 @@ File: R/Rosetta_Code_Find_unimplemented_tasks
 #u# http://rosettacode.org/wiki/Rosetta_Code/Find_unimplemented_tasks
 #c# 2018-08-21 <RC, 2019-05-02 >RC, 2022-09-07 >RC
 #p# OK
-#n# 2023-08-21 'www' prefix not currently valid [should be safe to leave it off for good]
 
 File: R/Rosetta_Code_Fix_code_tags
 #!/usr/local/bin/perl
