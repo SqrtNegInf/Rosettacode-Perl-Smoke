@@ -13,7 +13,7 @@ use strict;
 use warnings;
 use feature 'say';
 
-my $site = "https://rosettacode.org";
+my $site = "https://www.rosettacode.org";
 my $list_url = "/w/api.php?action=query&list=categorymembers&cmtitle=Category:Programming_Tasks&cmlimit=10&format=xml";
 
 use HTTP::Tiny;
