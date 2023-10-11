@@ -2,7 +2,6 @@
 #u# http://rosettacode.org/wiki/Rosetta_Code/Find_unimplemented_tasks
 #c# 2018-08-21 <RC, 2019-05-02 >RC, 2022-09-07 >RC
 #p# OK
-#n# 2023-08-21 'www' prefix not currently valid [should be safe to leave it off for good]
 
 my @res;
 
@@ -20,7 +19,7 @@ sub get { $ua->request( HTTP::Request->new( GET => shift))->content }
 
 sub tasks {
     my($category) = shift;
-    my $fmt = 'http://rosettacode.org/w/api.php?' .
+    my $fmt = 'http://www.rosettacode.org/w/api.php?' .
               'action=query&generator=categorymembers&gcmtitle=Category:%s&gcmlimit=500&format=json&rawcontinue=';
     my @tasks;
     my $json = get(sprintf $fmt, $category);
