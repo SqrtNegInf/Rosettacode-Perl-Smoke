@@ -1,5 +1,5 @@
 #!/usr/local/bin/perl
-#u# http://rosettacode.org/wiki/Primes_which_contain_only_one_odd_number
+#u# http://rosettacode.org/wiki/Primes_which_contain_only_one_odd_digit
 #c# 2021-07-28 <RC
 #p# OK
 #n# tybalt89++, this is the version on RC
