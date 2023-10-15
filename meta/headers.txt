@@ -8240,15 +8240,15 @@ File: P/Primes_-_allocate_descendants_to_their_ancestors
 #c# 2018-11-29 >RC
 #p# OK
 
-File: P/Primes_which_contain_only_one_odd_number-1
+File: P/Primes_which_contain_only_one_odd_digit-1
 #!/usr/local/bin/perl
-#u# http://rosettacode.org/wiki/Primes_which_contain_only_one_odd_number
+#u# http://rosettacode.org/wiki/Primes_which_contain_only_one_odd_digit
 #c# 2021-07-xx NOT ON RC
 #p# OK
 
-File: P/Primes_which_contain_only_one_odd_number-2
+File: P/Primes_which_contain_only_one_odd_digit-2
 #!/usr/local/bin/perl
-#u# http://rosettacode.org/wiki/Primes_which_contain_only_one_odd_number
+#u# http://rosettacode.org/wiki/Primes_which_contain_only_one_odd_digit
 #c# 2021-07-28 <RC
 #p# OK
 #n# tybalt89++, this is the version on RC
