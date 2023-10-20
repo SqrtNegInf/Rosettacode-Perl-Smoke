@@ -9016,6 +9016,7 @@ File: R/Rosetta_Code_Rank_languages_by_popularity
 #n# 2023-06-05  now it's 12 (Ruby)
 #n# 2023-08-06  now it's 13 (C++)
 #n# 2023-09-17 now site *requires* 'www' prefix
+#n# 2023-10-19 arrgh, now the 'www' has to be removed
 
 File: R/Rosetta_Code_Tasks_without_examples
 #!/usr/local/bin/perl
