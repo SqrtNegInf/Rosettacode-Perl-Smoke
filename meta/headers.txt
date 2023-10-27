@@ -10948,6 +10948,13 @@ File: T/Terminal_control_Preserve_screen
 #c# 2018-08-12 <RC
 #p# OK
 
+File: T/Terminal_control_Restricted_width_positional_input_No_wrapping
+#!/usr/local/bin/perl
+#u# https://www.rosettacode.org/wiki/Terminal_control/Restricted_width_positional_input/No_wrapping
+#t# interactive
+#c# 2023-10-27 <RC
+#p# OK
+
 File: T/Terminal_control_Ringing_the_terminal_bell
 #!/usr/local/bin/perl
 #u# http://rosettacode.org/wiki/Terminal_control/Ringing_the_terminal_bell
