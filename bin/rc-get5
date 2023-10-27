@@ -28,7 +28,7 @@ system "mv $f $f.1"
 
 $w =~ s/'/\\'/g;
 
-my $perl5 = `curl -s -o - 'https://www.rosettacode.org/wiki/$w' | tee _download.html | perl -0 -npe 's/^.*id="Perl".(.*?)<h2>.*/\$1/s; s/&#160;/ /sg;s#<br */>#<br/>\\n#sg' | strip-html - `;
+my $perl5 = `curl -s -o - 'https://rosettacode.org/wiki/$w' | tee _download.html | perl -0 -npe 's/^.*id="Perl".(.*?)<h2>.*/\$1/s; s/&#160;/ /sg;s#<br */>#<br/>\\n#sg' | strip-html - `;
 die "No text!" if $perl5 =~ /currently no text/i;
 
 $perl5 =~ s/^Perl\s*\[edit\]//;
