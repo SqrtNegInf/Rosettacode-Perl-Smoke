@@ -1,8 +1,3 @@
 
-= T/Terminal_control_Restricted_width_positional_input_No_wrapping
-"local" variable not initialized at line 27, column 5. See page 78 of PBP.
-Conditional "use" statement at line 33, column 29. Use "require" to conditionally include a module.
-Hard tabs used at line 33, column 52. See page 20 of PBP.
-
 = T/Ternary_logic
 @ISA used instead of "use parent" at line 15, column 5. See page 360 of PBP.
