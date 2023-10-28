@@ -8,6 +8,7 @@ use strict;
 use warnings;
 
 use List::Util qw( min max );
+use Data::Dump 'dd'; 
 $| = 1;
 
 sub label { printf "\e[%d;%dH%s", @_; }
@@ -24,13 +25,14 @@ sub getinput
   eval
     {
     ReadMode 'cbreak';
-    local $_;
+    local $_ = '';
     my $more = 1;
     while( $more )
       {
       printf $at, $row, $column, $input, $row, $column + $pos;
       0 < sysread *STDIN, $_, 1024 or last;
-      print "\e[10;1H\e[J"; use Data::Dump 'dd'; dd $_;
+      print "\e[10;1H\e[J"; 
+      dd $_;
       for( /\e[O\[][0-9;]*[A-~]|./gs )
         {
         /^[\n\r\e]\z/ ? do { $more = 0 } :
