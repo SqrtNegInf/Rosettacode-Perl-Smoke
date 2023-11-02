@@ -1,0 +1,15 @@
+#!/usr/local/bin/perl # do-not-check
+#u# http://rosettacode.org/wiki/Draw_a_pixel
+#t# gui
+#c# 2023-11-01 <RC
+#p# OK
+
+use strict;
+use warnings;
+
+use Tk;
+
+my $mw = MainWindow->new;
+my $canvas = $mw->Canvas( -width => 320, -height => 240 )->pack;
+$canvas->createRectangle( 100, 100, 100, 100, -outline => 'red' );
+MainLoop;
