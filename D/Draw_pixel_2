@@ -3,6 +3,7 @@
 #t# gui
 #c# 2018-11-10 >RC
 #p# OK
+#n# the only difference from 'Draw_a_pixel' is fixed placement of pixel
 
 use Gtk3 '-init';
 
