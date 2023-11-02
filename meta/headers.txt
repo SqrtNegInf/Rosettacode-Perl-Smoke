@@ -2901,6 +2901,13 @@ File: D/Draw_a_pixel
 #c# 2018-11-03 >RC
 #p# OK
 
+File: D/Draw_a_pixel-2
+#!/usr/local/bin/perl # do-not-check
+#u# http://rosettacode.org/wiki/Draw_a_pixel
+#t# gui
+#c# 2023-11-01 <RC
+#p# OK
+
 File: D/Draw_a_rotating_cube
 #!/usr/local/bin/perl
 #u# http://rosettacode.org/wiki/Draw_a_rotating_cube
@@ -2922,6 +2929,7 @@ File: D/Draw_pixel_2
 #t# gui
 #c# 2018-11-10 >RC
 #p# OK
+#n# the only difference from 'Draw_a_pixel' is fixed placement of pixel
 
 File: D/Duffinian_numbers
 #!/usr/local/bin/perl
