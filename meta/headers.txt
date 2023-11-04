@@ -2521,6 +2521,12 @@ File: D/Deconvolution_2D%2B
 #p# OK
 #n# not fully general: hard-coded for 3D arrays
 
+File: D/Decorate-sort-undecorate_idiom
+#!/usr/local/bin/perl
+#u# https://www.rosettacode.org/wiki/Decorate-sort-undecorate_idiom
+#c# 2023-11-04 <RC
+#p# OK
+
 File: D/Deepcopy
 #!/usr/local/bin/perl
 #u# http://rosettacode.org/wiki/Deepcopy
