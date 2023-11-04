@@ -1,0 +1,25 @@
+#!/usr/local/bin/perl
+#u# https://www.rosettacode.org/wiki/Decorate-sort-undecorate_idiom
+#c# 2023-11-04 <RC
+#p# OK
+
+my @res;
+
+use strict;
+use warnings;
+use feature 'say';
+
+use List::AllUtils qw( nsort_by );
+
+my @list = <Rosetta Code is a programming chrestomathy site>;
+
+@res = nsort_by { length } @list;
+print "@res\n";
+
+say my $result = join ' ', @res;
+
+my $ref = 'a is Code site Rosetta programming chrestomathy';
+
+use Test::More;
+is ($result, $ref);
+done_testing();
