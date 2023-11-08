@@ -8898,6 +8898,12 @@ File: R/Rhonda_numbers
 #p# OK
 #n# I owe it all to 'ntheory'...
 
+File: R/Rice_coding
+#!/usr/local/bin/perl
+#u# https://www.rosettacode.org/wiki/Rice_coding
+#c# 2023-11-07 <RC
+#p# OK
+
 File: R/Riordan_numbers
 #!/usr/local/bin/perl
 #u# http://rosettacode.org/wiki/Riordan_numbers
