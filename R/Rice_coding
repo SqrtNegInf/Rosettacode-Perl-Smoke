@@ -1,0 +1,73 @@
+#!/usr/local/bin/perl
+#u# https://www.rosettacode.org/wiki/Rice_coding
+#c# 2023-11-07 <RC
+#p# OK
+
+my @res;
+
+use strict;
+use warnings;
+use feature 'say';
+
+sub rice # args k arrayofnumbers
+  {
+  my $k = shift;
+  join '', map { 1 x ($_ >> $k) . 0 . sprintf "%0*b", $k, $_ % 2**$k } @_;
+  }
+
+sub derice # args k stringof0and1representingbinarydata
+  {
+  (my $k, local $_) = @_;
+  my @answers;
+  push @answers, (length($1) << $k) + oct "0b$2" while /\G(1*)0(.{$k})/g;
+  return @answers;
+  }
+
+for my $k ( 2 .. 6)
+  {
+  push @res, "\nk = $k\n";
+  my $rice = rice( $k, my @input = 0 .. 17 );
+  my @decoded = derice $k, $rice;
+  push @res, "  input: @input\n   rice: $rice\ndecoded: @decoded";
+  "@input" eq "@decoded" or die "MISMATCH";
+  }
+
+say my $result = join "\n", @res;
+
+my $ref = <<'EOD';
+
+k = 2
+
+  input: 0 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17
+   rice: 00000101001110001001101010111100011001110101101111100011100111101011101111110001111001
+decoded: 0 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17
+
+k = 3
+
+  input: 0 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17
+   rice: 000000010010001101000101011001111000010001100101001110100101011011010111110000110001
+decoded: 0 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17
+
+k = 4
+
+  input: 0 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17
+   rice: 00000000010001000011001000010100110001110100001001010100101101100011010111001111100000100001
+decoded: 0 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17
+
+k = 5
+
+  input: 0 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17
+   rice: 000000000001000010000011000100000101000110000111001000001001001010001011001100001101001110001111010000010001
+decoded: 0 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17
+
+k = 6
+
+  input: 0 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17
+   rice: 000000000000010000010000001100001000000101000011000001110001000000100100010100001011000110000011010001110000111100100000010001
+decoded: 0 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17
+EOD
+
+use Test::More;
+chomp $ref;
+is ($result, $ref);
+done_testing();
