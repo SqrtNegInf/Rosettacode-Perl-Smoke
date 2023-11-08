@@ -1,9 +1,8 @@
 #!/usr/local/bin/perl
 #u# https://www.rosettacode.org/wiki/Rainbow
-#t# inprogress
 #c# 2023-11-07 <RC
 #p# OK
-#n# of course it works, but testing...
+#f# RC file:: rainbow.dat
 
 use strict;
 use warnings;
@@ -15,15 +14,7 @@ print zip_by { "\e[38;2;$_[1]m$_[0]\e[m" } [ split //, 'RAINBOW' ],
   [qw( 255;0;0 255;128;0 255;255;0 0;255;0 0;0;255 75;0;130 128;0;255 )];
 print "\n";
 
-__END__
-my $result;
-$result .= $_ for zip_by { "\e[38;2;$_[1]m$_[0]\e[m" } [ split //, 'RAINBOW' ];
-
-my $ref = <<'EOD';
-[38;2;255;0;0mR[m[38;2;255;128;0mA[m[38;2;255;255;0mI[m[38;2;0;255;0mN[m[38;2;0;0;255mB[m[38;2;75;0;130mO[m[38;2;128;0;255mW[m
-EOD
-
-use Test::More;
-chomp $ref;
-is ($result, $ref);
-done_testing();
+open F, '>', 'run/rainbow.dat';
+print F zip_by { "\e[38;2;$_[1]m$_[0]\e[m" } [ split //, 'RAINBOW' ],
+  [qw( 255;0;0 255;128;0 255;255;0 0;255;0 0;0;255 75;0;130 128;0;255 )];
+close F;
