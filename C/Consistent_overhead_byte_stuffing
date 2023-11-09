@@ -19,6 +19,7 @@ my @data = map { pack 'H*', tr/ //dr } split /\n/, <<END;
 00 00 00 00 00 00
 33 33 33 33 33 33 33
 END
+
 push @data, ( " " x $_ ) for 1269 .. 1272;
 
 sub showbytes
@@ -40,7 +41,7 @@ sub encode
 
 sub decode
   {
-  (local $_, my $keep, my $answer) = (shift, 0, '');
+  (local $_ = '', my $keep, my $answer) = (shift, 0, '');
   while( /\G[^\Q$marker\E]/g ) # advance over count byte
     {
     my $len = -1 + ord $&;     # length of data block
