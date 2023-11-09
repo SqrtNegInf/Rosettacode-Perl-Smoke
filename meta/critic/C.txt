@@ -20,5 +20,9 @@ Only use a capturing group if you plan to use the captured value at line 58, col
 = C/Conditional_structures
 yada operator (...) used at line 15, column 5. The yada operator is a placeholder for code you have not yet written.
 
+= C/Consistent_overhead_byte_stuffing
+Heredoc terminator must be quoted at line 12, column 52. See page 64 of PBP.
+"local" variable not initialized at line 43, column 4. See page 78 of PBP.
+
 = C/Countdown-1
 Hard tabs used at line 35, column 53. See page 20 of PBP.
