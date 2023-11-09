@@ -2031,6 +2031,12 @@ File: C/Consecutive_Primes_With_Ascending_Or_Descending_Differences
 #c# 2021-04-26 >RC
 #p# OK
 
+File: C/Consistent_overhead_byte_stuffing
+#!/usr/local/bin/perl
+#u# https://www.rosettacode.org/wiki/Consistent_overhead_byte_stuffing
+#c# 2023-11-08 <RC
+#p# OK
+
 File: C/Constrained_random_points_on_a_circle
 #!/usr/local/bin/perl
 #u# http://rosettacode.org/wiki/Constrained_random_points_on_a_circle
@@ -8538,6 +8544,13 @@ File: R/Railway_circuit
 #c# 2021-02-02 >RC
 #p# OK
 
+File: R/Rainbow
+#!/usr/local/bin/perl
+#u# https://www.rosettacode.org/wiki/Rainbow
+#c# 2023-11-07 <RC
+#p# OK
+#f# RC file:: rainbow.dat
+
 File: R/Ramanujan%27s_constant
 #!/usr/local/bin/perl
 #u# http://rosettacode.org/wiki/Ramanujan%27s_constant
@@ -11753,6 +11766,12 @@ File: W/Walk_a_directory_Recursively
 #p# OK
 #n# some kludges for lack of iMac default-sorting
 #n# 2023-01-25 'find -s' not valid on Ubuntu (and don't see any obvious replacement)
+
+File: W/Walsh_matrix
+#!/usr/local/bin/perl
+#u# https://www.rosettacode.org/wiki/Walsh_matrix
+#c# 2023-11-07 <RC
+#p# OK
 
 File: W/War_card_game
 #!/usr/local/bin/perl
