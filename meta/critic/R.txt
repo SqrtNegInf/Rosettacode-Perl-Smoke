@@ -1,7 +1,4 @@
 
-= R/Rainbow
-Bareword file handle opened at line 17, column 1. See pages 202,204 of PBP.
-
 = R/Recursive_descent_parser_generator
 Only use a capturing group if you plan to use the captured value at line 46, column 5. See page 252 of PBP.
 Only use a capturing group if you plan to use the captured value at line 49, column 5. See page 252 of PBP.
