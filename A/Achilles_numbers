@@ -1,15 +1,16 @@
 #!/usr/local/bin/perl
 #u# http://rosettacode.org/wiki/Achilles_numbers
-#c# 2022-02-02 >RC
+#c# 2022-02-02 >RC, 2023-12-07 <RC
 #p# OK
+#n# incoporated the more substantial of Trizen's changes
 
 my @res;
 
 use v5.36.0;
 
-use List::AllUtils <max head uniqint>;
-use ntheory <is_square_free is_power euler_phi>;
-use Math::AnyNum <:overload idiv iroot ipow is_coprime>;
+use List::AllUtils <max head>;
+use ntheory <is_square_free euler_phi>;
+use Math::AnyNum <:overload idiv iroot ipow is_power is_coprime>;
 
 sub table { my $t = shift() * (my $c = 1 + length max @_); ( sprintf( ('%'.$c.'d')x@_, @_) ) =~ s/.{1,$t}\K/\n/gr }
 
@@ -27,9 +28,9 @@ sub powerful_numbers ($n, $k = 2) {
     sort { $a <=> $b } @powerful;
 }
 
-my(@P,@Ac,%Ac,@S);
+my(@Ac,%Ac,@S);
 
-@P = uniqint @P, powerful_numbers(10**9, $_) for 2..9; shift @P;
+my @P = powerful_numbers(10**9, 2);
 !is_power($_) and push @Ac, $_ and $Ac{$_}++ for @P;
 $Ac{euler_phi $_} and push @S, $_ for @Ac;
 
