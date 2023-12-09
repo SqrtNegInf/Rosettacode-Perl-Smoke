@@ -259,8 +259,9 @@ File: A/Accumulator_factory
 File: A/Achilles_numbers
 #!/usr/local/bin/perl
 #u# http://rosettacode.org/wiki/Achilles_numbers
-#c# 2022-02-02 >RC
+#c# 2022-02-02 >RC, 2023-12-07 <RC
 #p# OK
+#n# incoporated the more substantial of Trizen's changes
 
 File: A/Achilles_numbers-1
 #!/usr/local/bin/perl
