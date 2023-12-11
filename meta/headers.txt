@@ -1148,6 +1148,13 @@ File: B/Blum_integer
 #p# OK
 #n# very similar to 'M/Multiplicatively_perfect_numbers'
 
+File: B/Blum_integer-2
+#!/usr/local/bin/perl
+#u# https://www.rosettacode.org/wiki/Blum_integer
+#c# 2023-12-10 <RC
+#p# OK
+#n# Trizen, faster than original
+
 File: B/Boolean_values
 #!/usr/local/bin/perl
 #u# http://rosettacode.org/wiki/Boolean_values
@@ -1158,7 +1165,7 @@ File: B/Boolean_values
 File: B/Boustrophedon_transform
 #!/usr/local/bin/perl
 #u# https://rosettacode.org/wiki/Boustrophedon_transform
-#c# 2022-09-30 >RC
+#c# 2022-09-30 >RC, 2023-12-10 <RC
 #p# OK
 #n# to keep things quick, doing 100th term, not 1000th
 
