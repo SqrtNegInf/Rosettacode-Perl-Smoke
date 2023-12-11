@@ -12,8 +12,6 @@ use ntheory 'primes';
 use List::Util 'max';
 use Lingua::EN::Numbers qw(num2en);
 
-my $primes = primes(1,1e8);
-
 for my $l (3..8) {
     my %p;
     $p{ join '', sort split //, "$_" } .= "$_ " for @{ primes 10**($l-1), 10**$l };
