@@ -5945,6 +5945,12 @@ File: L/Loops_with_multiple_ranges
 #c# 2018-09-15 >RC
 #p# OK
 
+File: L/Lucas-Carmichael_numbers
+#!/usr/local/bin/perl
+#u# https://www.rosettacode.org/wiki/Lucas-Carmichael_numbers
+#c# 2023-12-14 <RC
+#p# OK
+
 File: L/Lucas-Lehmer_test-1
 #!/usr/local/bin/perl
 #u# http://rosettacode.org/wiki/Lucas-Lehmer_test
