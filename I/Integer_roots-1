@@ -2,6 +2,7 @@
 #u# http://rosettacode.org/wiki/Integer_roots
 #c# 2018-09-09 >RC
 #p# OK
+#n# 2023-12-16 bigint/GMP makes this much faster
 #n# the native/slow way, see -2 variant (Math::AnyNum doesn't really help here)
 #n# cf 'Isqrt__integer_square_root__of_X'
 
@@ -11,7 +12,7 @@ use strict;
 use warnings;
 use feature 'say';
 
-use bigint;
+use bigint try => 'GMP';
 
 sub integer_root {
     our($a,$b) = @_;
