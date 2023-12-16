@@ -7,7 +7,7 @@ my @res;
 
 use v5.36;
 
-use bigint;
+use bigint try => 'GMP';
 use ntheory 'is_prime';
 
 for my $n (1..400) {
