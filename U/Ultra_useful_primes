@@ -3,12 +3,15 @@
 #c# 2022-01-13 >RC
 #p# OK
 #n# pre-calc of primes not useful, span too large for '..' iterator
+#n# not finding a way to speed this up...
 
 use strict;
 use warnings;
 use feature 'say';
 
 use bigint;
+#use bigint try => 'GMP';
+#use Math::AnyNum ':overload';
 use ntheory 'is_prime';
 
 sub useful {
