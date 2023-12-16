@@ -1,6 +1,9 @@
 2023-12-16
-Use this where it seems to make a big difference (prompted by trizen++):
+Use this where it makes enough of a difference (prompted by trizen++):
     use bigint try => 'GMP';
+
+Is this getting updated? Check on iMac:
+fatal: pathspec 'M/Meissel\342\200\223Mertens_constant' did not match any files
 
 2023-10-10
 The 'www' prefix is back (and required!) for R/Rosetta* tasks.
