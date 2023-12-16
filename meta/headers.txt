@@ -2479,9 +2479,9 @@ File: D/De_Bruijn_sequences
 File: D/De_Polignac_numbers
 #!/usr/local/bin/perl
 #u# https://rosettacode.org/wiki/De_Polignac_numbers
-#c# 2022-11-17 >RC
+#c# 2022-11-17 >RC, 2023-12-15 <RC
 #p# OK
-#n# for 10K: 3m 37s
+#n# XXX for 10K: 3m 37s XXX  can now do 10K very quickly
 
 File: D/Deal_cards_for_FreeCell
 #!/usr/local/bin/perl
@@ -3168,6 +3168,13 @@ File: E/Erdos-Nicolas_numbers
 #u# http://rosettacode.org/wiki/Erd%C5%91s-Nicolas_numbers
 #c# 2022-09-14 >RC
 #p# OK
+
+File: E/Erdos-Nicolas_numbers-2
+#!/usr/local/bin/perl
+#u# http://rosettacode.org/wiki/Erd%C5%91s-Nicolas_numbers
+#c# 2022-09-14 >RC, 2023-12-15 <RC
+#p# OK
+#n# speed improvement from Trizen++
 
 File: E/Erdos-Selfridge_categorization_of_primes
 #!/usr/local/bin/perl
