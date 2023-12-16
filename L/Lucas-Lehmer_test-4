@@ -25,7 +25,7 @@ sub is_prime {
 }
 
 sub is_mersenne_prime {
-    use bigint;
+    use bigint try => 'GMP'; # has to be here!
     my $p = shift;
     if ($p == 2) {
         return 1;
