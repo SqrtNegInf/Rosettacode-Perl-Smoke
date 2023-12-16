@@ -9,7 +9,7 @@ use strict;
 use warnings;
 use feature 'say';
 
-#use bigint; # too durn slow
+#use bigint try => 'GMP'; # too durn slow [even with GMP]
 use Math::AnyNum qw(:overload);
 
 sub comma { reverse ((reverse shift) =~ s/(.{3})/$1,/gr) =~ s/^,//r }
