@@ -2,16 +2,16 @@
 #u# https://rosettacode.org/wiki/Wagstaff_primes
 #c# 2022-09-16 >RC
 #p# OK
-#n# no way to speed this up, 'bigint' makes it slow
+#n# XXX no way to speed this up, 'bigint' makes it slow XXX
+#n# 2023-12-16 it's not slow??
 
 my @res;
 
 use v5.36;
 
+use bigint;
 use ntheory 'is_prime';
-use bigint try => 'GMP';
 
-#sub abbr ($d) { my $l = length $d; $l < 61 ? $d : substr($d,0,30) . '..' . substr($d,-30) . " ($l digits)" }
 sub abbr ($d,$w) { my $l = length $d; $l < $w+1 ? $d : substr($d,0,$w/2) . '..' . substr($d,-$w/2) . " ($l digits)" }
 
 my($p,@W) = 2;
