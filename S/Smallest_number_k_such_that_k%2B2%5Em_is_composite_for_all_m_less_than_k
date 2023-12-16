@@ -7,9 +7,9 @@ use strict;
 use warnings;
 use feature 'say';
 
-use bigint;
+#use bigint try => 'GMP';     # GMP helps
 use ntheory 'is_prime';
-#use Math::AnyNum 'is_prime'; # also needs 'use bigint'
+use Math::AnyNum ':overload'; # but  even faster
 
 my $result;
 
