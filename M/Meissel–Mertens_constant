@@ -1,18 +1,20 @@
 #!/usr/local/bin/perl
 #u# https://rosettacode.org/wiki/Meissel–Mertens_constant
-#c# 2022-11-16 >RC
+#c# 2022-11-16 >RC, 2023-12-16 <RC
 #p# OK
+#n# faster version from trizen++
 
 use v5.36;
 
-use ntheory 'is_prime';
+use ntheory 'forprimes';
 
 my $s;
-is_prime $_ and $s += log(1 - 1/$_)+1/$_ for 2 .. 10**8;
+#is_prime $_ and $s += log(1 - 1/$_)+1/$_ for 2 .. 10**8;
+forprimes { $s += log(1 - 1/$_)+1/$_ } 1e9;
 say my $result = $s + .57721566490153286;
 
 use Test::More;
-is $result,  0.261497213105714; # 1e8 < 1min
-#is $result, 0.261497212871049; # 1e9 ~ 4min
+#is $result,  0.261497213105714; # 1e8 < 1min
+is $result, 0.261497212871049; # 1e9 ~ 4min
 # J          0.2614972128591
 done_testing;
