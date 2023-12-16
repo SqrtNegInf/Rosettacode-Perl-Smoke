@@ -6,9 +6,9 @@
 use strict;
 use warnings;
 use feature <say state>;
-use bigint;
 
 use List::Util qw(max);
+use Math::AnyNum ':overload';
 
 my @res;
 
