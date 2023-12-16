@@ -50,7 +50,7 @@ for (1..33550336) {
 
 # Or we can be clever and look for 2^(p-1) * (2^p-1) where 2^p -1 is prime. The first 20 takes about a second.
 use ntheory qw/forprimes is_prime/;
-use bigint;
+use bigint; # GMP doesn't help here
 forprimes {
   my $n = 2**$_ - 1;
   $result .= "$_\t". ($n * 2**($_-1)) . "\n"   if is_prime($n);
