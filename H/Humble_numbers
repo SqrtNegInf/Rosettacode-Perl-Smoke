@@ -11,8 +11,9 @@ use List::Util 'min';
 
 my @res;
 
-#use bigint     # works, but slow
-use Math::GMPz; # this module gives roughly 16x speed-up
+#use bigint                 # works, but slow
+use bigint try => 'GMP';    # no better?
+use Math::GMPz;             # roughly 16x speed-up
 
 sub humble_gen {
     my @s = ([1], [1], [1], [1]);
