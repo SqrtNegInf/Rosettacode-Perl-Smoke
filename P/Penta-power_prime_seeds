@@ -8,8 +8,9 @@ my @res;
 
 use v5.36;
 
-use bigint;
 use ntheory 'is_prime';
+#use bigint;                   # GMP doesn't help
+use Math::AnyNum ':overload';  # 4x speed-up
 use List::Util 'max';
 
 sub comma { reverse ((reverse shift) =~ s/(.{3})/$1,/gr) =~ s/^,//r }
