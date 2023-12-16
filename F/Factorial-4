@@ -17,6 +17,7 @@ $result .= length(  factorial(10000)  );
 $result .= "\n";
 
 use bigint;
+#use bigint try => 'GMP'; # this not different than next variation
 $result .= length(  10000->bfac  );
 $result .= "\n";
 
