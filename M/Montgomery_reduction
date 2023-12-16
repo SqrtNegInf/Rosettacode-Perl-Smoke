@@ -9,7 +9,7 @@ use strict;
 use warnings;
 use feature 'say';
 
-use bigint;
+use bigint try => 'GMP'; # helps only a little bit
 use ntheory qw(powmod);
 
 sub msb {
