@@ -10,7 +10,7 @@ my @res;
 
 #Here is a cheap solution using a base-11 encoding and string operations:
 
-use bigint;
+use bigint try => 'GMP';
 use ntheory <todigits fromdigits todigitstring>;
 
 sub rank   { join   '', fromdigits(join('a',@_), 11) }
