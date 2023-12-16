@@ -7,8 +7,9 @@ my @res;
 
 use v5.36;
 
-use bigint;
+#use bigint; # doesn't help: try => 'GMP';
 use ntheory 'is_prime';
+use Math::AnyNum ':overload';
 use List::Util 'max';
 
 sub comma { reverse ((reverse shift) =~ s/(.{3})/$1,/gr) =~ s/^,//r }
