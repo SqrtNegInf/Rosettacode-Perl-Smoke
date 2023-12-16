@@ -8,7 +8,7 @@ my @res;
 
 use v5.36;
 
-use bigint;
+use bigint; # try/GMP doesn't help here
 use ntheory <is_prime nth_prime>;
 
 my ($max,$p,$i) = (20,1,0);
