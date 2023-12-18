@@ -10565,6 +10565,13 @@ File: S/Sub-unit_squares-3
 #n# 8th term is slow:  488.51s user 0.87s system 99% cpu 8:09.53 total
 #n# (but roughly twice the speed of -1)
 
+File: S/Sub-unit_squares-4
+#!/usr/local/bin/perl
+#u# https://www.rosettacode.org/wiki/Sub-unit_squares
+#c# 2023-12-17 <RC
+#p# OK
+#n# trizen++, much faster
+
 File: S/Subleq
 #!/usr/local/bin/perl
 #u# http://rosettacode.org/wiki/Subleq
