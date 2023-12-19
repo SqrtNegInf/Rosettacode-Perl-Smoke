@@ -12,7 +12,7 @@ use List::Util 'min';
 my @res;
 
 #use bigint                 # works, but slow
-use bigint try => 'GMP';    # no better?
+#use bigint try => 'GMP';    # no better?
 use Math::GMPz;             # roughly 16x speed-up
 
 sub humble_gen {
