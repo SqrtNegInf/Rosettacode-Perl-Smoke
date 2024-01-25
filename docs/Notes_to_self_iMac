@@ -1,3 +1,10 @@
+2024-01-24
+Updated symlinks needed to get XML tasks working (/usr/local/lib -> /opt/local/lib):
+(in each case must maintain the '73' version number while symlinking to the latest release)
+    libicuuc* 
+    libicudata* 
+    libicui18n*
+
 2023-09-01
 The differences between Mac-Pro and here for 'run':
     deleted:    run/Lenna50-Mac-Pro.local.ppm
