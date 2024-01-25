@@ -1,9 +1,10 @@
 2024-01-24
 Updated symlinks needed to get XML tasks working (/usr/local/lib -> /opt/local/lib):
-(in each case must maintain the '73' version number while symlinking to the latest release)
-    libicuuc* 
-    libicudata* 
-    libicui18n*
+In each case must maintain the '73' version number while symlinking to the latest release, e.g.:
+    cd /usr/local/lib
+    rm libicuuc.73.dylib;   ln -s /opt/local/lib/libicuuc.74.2.dylib   libicuuc.73.dylib
+    rm libicudata.73.dylib; ln -s /opt/local/lib/libicudata.74.2.dylib libicudata.73.dylib 
+    rm libicui18n.73.dylib; ln -s /opt/local/lib/libicui18n.74.2.dylib libicui18n.73.dylib
 
 2023-09-01
 The differences between Mac-Pro and here for 'run':
