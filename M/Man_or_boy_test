@@ -2,7 +2,7 @@
 #u# http://rosettacode.org/wiki/Man_or_boy_test
 #c# 2018-08-18 <RC
 #p# OK
-#n# really gobbles memory for larger values of k
+#n# really gobbles memory for larger values of k (22 was max completed)
 
 my @res;
 
