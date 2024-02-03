@@ -9073,6 +9073,7 @@ File: R/Rosetta_Code_Rank_languages_by_popularity
 #n# 2023-03-26 Making the club more exclusive again, 1200 tasks is the cutoff (neatly truncating the list to 10 languages)
 #n# 2023-06-05  now it's 12 (Ruby)
 #n# 2023-08-06  now it's 13 (C++)
+#n# 2024-02-01  now it's 14 (Mathematica)
 #n# 2023-09-17 now site *requires* 'www' prefix
 #n# 2023-10-19 arrgh, now the 'www' has to be removed
 
