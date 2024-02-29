@@ -11,6 +11,7 @@
 #n# 2024-02-01  now it's 14 (Mathematica)
 #n# 2023-09-17 now site *requires* 'www' prefix
 #n# 2023-10-19 arrgh, now the 'www' has to be removed
+#n# 2024-02-27 Making the club more exclusive again, 1500 tasks is the cutoff
 
 my @res;
 
@@ -55,7 +56,7 @@ my @sorted_languages =
 binmode STDOUT, ':encoding(utf8)';
 my $n = 1;
 for (@sorted_languages) {
-    next unless $_->{'categoryinfo'}{'size'} > 1200;
+    next unless $_->{'categoryinfo'}{'size'} > 1500;
     push @res, sprintf "%3d. %20s - %3d", $n++, $_->{'title'},
       $_->{'categoryinfo'}{'size'};
 }
@@ -63,5 +64,5 @@ for (@sorted_languages) {
 say join "\n", @res;
 
 use Test::More;
-ok @res == 14;
+ok @res == 8;
 done_testing;
