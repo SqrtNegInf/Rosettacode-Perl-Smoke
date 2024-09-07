@@ -1,0 +1,89 @@
+#!/usr/local/bin/perl
+#u# https://www.rosettacode.org/wiki/Goodstein_Sequence
+#c# 2024-09-07 <RC
+#p# OK
+
+my @res;
+
+use strict;
+use warnings;
+use feature 'say';
+
+sub bump {
+   my ($n, $b)  = @_;
+   my ($res,$i) = 0,0;
+   while ($n) {
+      if (my $d = int($n % $b)) { $res += $d * (($b + 1) ** &bump($i, $b)) }
+      $n = int($n / $b);
+      $i++;
+   }
+   return $res;
+}
+
+sub goodstein {
+   my ($n, $maxterms) = @_;
+   $maxterms = 10 unless defined $maxterms;
+   my @res = ($n);
+   while (@res < $maxterms && $res[-1] != 0) {
+      push @res, &bump($res[-1], scalar @res + 1) - 1
+   }
+   return @res;
+}
+
+push @res, "Goodstein(n) sequence (first 10) for values of n from 0 through 7:";
+foreach (0..7) { push @res, "Goodstein of $_: ", join(", ", goodstein($_)), "" }
+
+my $max = 10;
+push @res, "\nThe Nth term of Goodstein(N) sequence counting from 0, for values of N from 0 through $max :";
+foreach my $i (0..$max) {
+   my @seq = goodstein($i, $i + 1);
+   push @res, sprintf "Term %2d of Goodstein(%2d): %s", $i, $i, $seq[-1] 
+}
+
+say my $result = join "\n", @res;
+
+my $ref = <<'EOD';
+Goodstein(n) sequence (first 10) for values of n from 0 through 7:
+Goodstein of 0: 
+0
+
+Goodstein of 1: 
+1, 0
+
+Goodstein of 2: 
+2, 2, 1, 0
+
+Goodstein of 3: 
+3, 3, 3, 2, 1, 0
+
+Goodstein of 4: 
+4, 26, 41, 60, 83, 109, 139, 173, 211, 253
+
+Goodstein of 5: 
+5, 27, 255, 467, 775, 1197, 1751, 2454, 3325, 4382
+
+Goodstein of 6: 
+6, 29, 257, 3125, 46655, 98039, 187243, 332147, 555551, 885775
+
+Goodstein of 7: 
+7, 30, 259, 3127, 46657, 823543, 16777215, 37665879, 77777775, 150051213
+
+
+The Nth term of Goodstein(N) sequence counting from 0, for values of N from 0 through 10 :
+Term  0 of Goodstein( 0): 0
+Term  1 of Goodstein( 1): 0
+Term  2 of Goodstein( 2): 1
+Term  3 of Goodstein( 3): 2
+Term  4 of Goodstein( 4): 83
+Term  5 of Goodstein( 5): 1197
+Term  6 of Goodstein( 6): 187243
+Term  7 of Goodstein( 7): 37665879
+Term  8 of Goodstein( 8): 20000000211
+Term  9 of Goodstein( 9): 855935016215
+Term 10 of Goodstein(10): 44580503598539
+EOD
+
+use Test::More;
+chomp $ref;
+is ($result, $ref);
+done_testing();
