@@ -2073,6 +2073,12 @@ File: C/Continued_fraction_Arithmetic_Construct_from_rational_number
 #c# 2018-07-25 <RC
 #p# OK
 
+File: C/Continued_fraction_convergents
+#!/usr/local/bin/perl
+#u# https://www.rosettacode.org/wiki/Continued_fraction_convergents
+#c# 2024-09-06 <RC
+#p# OK
+
 File: C/Convert_decimal_number_to_rational
 #!/usr/local/bin/perl
 #u# http://rosettacode.org/wiki/Convert_decimal_number_to_rational
@@ -4388,6 +4394,12 @@ File: G/Golden_ratio_Convergence
 #c# 2023-06-05 >RC
 #p# OK
 
+File: G/Goodstein_Sequence
+#!/usr/local/bin/perl
+#u# https://www.rosettacode.org/wiki/Goodstein_Sequence
+#c# 2024-09-07 <RC
+#p# OK
+
 File: G/Gotchas
 #!/usr/local/bin/perl
 #u# http://rosettacode.org/wiki/Gotchas
@@ -5193,6 +5205,12 @@ File: J/JSON
 #!/usr/local/bin/perl
 #u# http://rosettacode.org/wiki/JSON
 #c# 2018-08-14 <RC
+#p# OK
+
+File: J/JSON_pointer
+#!/usr/local/bin/perl
+#u# https://www.rosettacode.org/wiki/JSON_pointer
+#c# 2024-09-06 <RC
 #p# OK
 
 File: J/Jaccard_index
@@ -9283,6 +9301,14 @@ File: S/Search_a_list_of_records
 #u# http://rosettacode.org/wiki/Search_a_list_of_records
 #c# 2018-08-18 <RC
 #p# OK
+
+File: S/Search_in_paragraph%27s_text
+#!/usr/local/bin/perl
+#u# https://www.rosettacode.org/wiki/Search_in_paragraph%27s_text
+#t# skiptest
+#c# 2024-06-22 <RC
+#p# BROKEN
+#n# translated from AWK
 
 File: S/Secure_temporary_file
 #!/usr/local/bin/perl
