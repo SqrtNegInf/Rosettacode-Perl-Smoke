@@ -1,7 +1,8 @@
 #!/usr/local/bin/perl
 #u# http://rosettacode.org/wiki/Rosetta_Code/Find_unimplemented_tasks
 #c# 2018-08-21 <RC, 2019-05-02 >RC, 2022-09-07 >RC
-#p# OK
+#p# BROKEN
+#n# 2024-09-07 interface changed? not going to fix
 
 my @res;
 
