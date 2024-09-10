@@ -1,0 +1,40 @@
+#!/usr/local/bin/perl
+#u# https://www.rosettacode.org/wiki/Extreme_primes
+#c# 2024-09-10 <RC
+#p# OK
+
+my @res;
+
+use strict;
+use warnings;
+use feature 'say';
+
+use Math::Prime::Util qw(is_prime next_prime);
+
+for ( my ($ecount,$p,$n) = (0,0,0); $ecount < 50_000; ) {
+   if ( is_prime($n += $p = next_prime($p)) ) {
+      $ecount++;
+#     if ($ecount < 31) { print "Sum of prime series up to $p: prime $n\n" }
+      if ($ecount =~ /^(1000|2000|3000|4000|5000|30000|40000|50000)$/) {
+         push @res, "Sum of $ecount in prime series up to $p: prime $n"
+      }
+   }
+}
+
+say my $result = join "\n", @res;
+
+my $ref = <<'EOD';
+Sum of 1000 in prime series up to 196831: prime 1657620079
+Sum of 2000 in prime series up to 495571: prime 9744982591
+Sum of 3000 in prime series up to 808837: prime 24984473177
+Sum of 4000 in prime series up to 1152763: prime 49394034691
+Sum of 5000 in prime series up to 1500973: prime 82195983953
+Sum of 30000 in prime series up to 12437401: prime 4889328757567
+Sum of 40000 in prime series up to 17245391: prime 9207632380589
+Sum of 50000 in prime series up to 22272277: prime 15118097491121
+EOD
+
+use Test::More;
+chomp $ref;
+is ($result, $ref);
+done_testing();
