@@ -1,0 +1,56 @@
+#!/usr/local/bin/perl
+#u# https://www.rosettacode.org/wiki/Singly-linked_list/Reversal
+#c# 2024-09-14 <RC
+#p# OK
+
+my @res;
+
+use strict;
+use warnings;
+use feature 'say';
+
+my %node3 = ( data => 'Node 3', next => undef );
+my %node2 = ( data => 'Node 2', next => \%node3 );
+my %node1 = ( data => 'Node 1', next => \%node2 );
+my $head  = \%node1;
+
+sub print_list {
+   my ($head_ref) = @_;
+   my $current = $head_ref;
+   while ($current) {
+      push @res, $current->{data}, " -> ";
+      $current = $current->{next};
+   }
+   push @res, "undef\n";
+}
+
+sub reverse_list {
+   my ($head_ref) = @_;
+   my ($prev, $current, $next) = (undef, $$head_ref);
+   while ($current) {
+      $next = $current->{next};
+      $current->{next} = $prev;
+      ($prev, $current) = ($current, $next);
+   }
+   $$head_ref = $prev;
+}
+
+push @res, "Original list:\n";
+print_list($head);
+reverse_list(\$head);
+push @res, "\nList after reversal:\n";
+print_list($head);
+
+say my $result = join "", @res;
+
+my $ref = <<'EOD';
+Original list:
+Node 1 -> Node 2 -> Node 3 -> undef
+
+List after reversal:
+Node 3 -> Node 2 -> Node 1 -> undef
+EOD
+
+use Test::More;
+is ($result, $ref);
+done_testing();
