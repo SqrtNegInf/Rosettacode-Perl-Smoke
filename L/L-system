@@ -1,0 +1,47 @@
+#!/usr/local/bin/perl
+#u# https://www.rosettacode.org/wiki/L-system
+#c# 2024-09-19 <RC
+#p# OK
+
+my @res;
+
+package Lindenmayer;
+
+use strict;
+use warnings;
+use feature 'say';
+
+sub new {
+   my ($class, $rules) = @_;
+   return bless { rules => $rules }, $class;
+}
+
+sub succ {
+   my ($self, $current) = @_;
+   my @result;
+   foreach my $char (split //, $current) {
+      exists $self->{rules}{$char} ? push @result, $self->{rules}{$char}  
+                                   : push @result, $char;
+   }
+   return join('', @result);
+}
+
+my $rabbits = Lindenmayer->new({ I => 'M', M => 'MI' });
+push @res, my $current = 'I';
+for (1..5) { push @res, $current = $rabbits->succ($current) }
+
+say my $result = join "\n", @res;
+
+my $ref = <<'EOD';
+I
+M
+MI
+MIM
+MIMMI
+MIMMIMIM
+EOD
+
+use Test::More;
+chomp $ref;
+is ($result, $ref);
+done_testing();
