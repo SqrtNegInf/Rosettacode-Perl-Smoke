@@ -2,6 +2,7 @@
 #u# https://www.rosettacode.org/wiki/Singular_value_decomposition
 #c# 2024-09-20 <RC
 #p# OK
+#n# to get Math::GSL working again: cd /opt/local/lib; sudo ln -s libgsl.28.dylib 'libgsl.27.dylib'
 
 my @res;
 
@@ -42,6 +43,5 @@ Vt factor:
 EOD
 
 use Test::More;
-chomp $ref;
 is ($result, $ref);
 done_testing();
