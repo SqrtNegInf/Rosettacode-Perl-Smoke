@@ -1,0 +1,106 @@
+#!/usr/local/bin/perl
+#u# https://www.rosettacode.org/wiki/Iterators
+#c# 2024-09-23 <RC
+#p# OK
+
+my @res;
+
+use strict;
+use warnings;
+use feature 'say';
+
+sub skip_one {
+   my ($it, $n) = @_;
+   for (1..$n) { next unless defined $it->() }
+}
+
+sub next_element {
+   my ($it) = @_;
+   return $it->();
+}
+
+sub print_first_fourth_fifth {
+   my ($container) = @_;
+   my $it = new_iterator($container);
+
+   my $line = '';
+   $line .= next_element($it). " "; 
+   skip_one($it, 2);                      
+   $line .= next_element($it). " ";
+   $line .= next_element($it). "";
+   $line;
+}
+
+sub print_reversed_first_fourth_fifth {
+   my ($container) = @_;
+   my $it = new_reverse_iterator($container);
+
+   my $line = '';
+   $line .= next_element($it). " ";
+   skip_one($it, 2);
+   $line .= next_element($it). " ";
+   $line .= next_element($it). "";
+   $line;
+}
+
+sub new_iterator {
+   my ($container) = @_;
+   my $index = 0;
+   sub { 
+      return undef if $index >= @$container; 
+      return $container->[$index++] 
+   }
+}
+
+sub new_reverse_iterator {
+   my ($container) = @_;
+   my $index = @$container - 1;
+   sub { 
+      return undef if $index < 0; 
+      return $container->[$index--] 
+   }
+}
+
+sub print_elements {
+   my ($container) = @_;
+   my $it = new_iterator($container);  
+   my $element;
+
+   my $line = '';
+   while (defined($element = next_element($it))) { $line .= "$element " }
+   return $line; 
+}
+
+my @days = qw(Monday Tuesday Wednesday Thursday Friday Saturday Sunday);
+my @colors = qw(red yellow pink green purple orange blue);
+
+push @res, "All elements:";
+push @res, print_elements(\@days);
+push @res, print_elements(\@colors);
+
+push @res, "First, fourth, fifth:";
+push @res, print_first_fourth_fifth(\@days);
+push @res, print_first_fourth_fifth(\@colors);
+
+push @res, "Last, fourth to last, fifth to last:";
+push @res, print_reversed_first_fourth_fifth(\@days);
+push @res, print_reversed_first_fourth_fifth(\@colors);
+
+say my $result = join "\n", @res;
+
+my $ref = <<'EOD';
+All elements:
+Monday Tuesday Wednesday Thursday Friday Saturday Sunday 
+red yellow pink green purple orange blue 
+First, fourth, fifth:
+Monday Thursday Friday
+red green purple
+Last, fourth to last, fifth to last:
+Sunday Thursday Wednesday
+blue green pink
+EOD
+
+use Test::More;
+chomp $ref;
+is ($result, $ref);
+done_testing();
