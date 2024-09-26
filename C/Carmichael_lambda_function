@@ -1,0 +1,88 @@
+#!/usr/local/bin/perl
+#u# https://www.rosettacode.org/wiki/Carmichael_lambda_function
+#c# 2024-09-25 <RC
+#p# OK
+
+my @res;
+
+use strict;
+use warnings;
+use feature 'say';
+
+use ntheory qw(is_carmichael carmichael_lambda);
+
+sub iterated_to_one {
+   my ($n) = @_;
+   for (my $k = 0;;) { ($n = carmichael_lambda($n)) > 1 ? $k++ : return ++$k }
+}
+
+push @res, " n   λ   k\n----------\n";
+for my $n (1..25) {
+   push @res, sprintf "%2d  %2d  %2d\n", $n, carmichael_lambda($n), iterated_to_one($n)
+}
+
+push @res, "\nIterations to 1       i     lambda(i)\n" . '='x37 . "\n";
+push @res, "   0                  1            1\n";
+
+my ($max_n, $max_i, @found) = (15, 5_000_000, (1));
+for my $i (1 .. $max_i) {
+   unless ($found[ my $n = iterated_to_one($i) ]) {
+      push @res, sprintf "%4d %18d %12d\n", $n, $i, carmichael_lambda($i);
+      $n == $max_n ?  last  : ( $found[$n] = 1 ) 
+   }
+}
+
+say my $result = join "", @res;
+
+my $ref = <<'EOD';
+ n   λ   k
+----------
+ 1   1   1
+ 2   1   1
+ 3   2   2
+ 4   2   2
+ 5   4   3
+ 6   2   2
+ 7   6   3
+ 8   2   2
+ 9   6   3
+10   4   3
+11  10   4
+12   2   2
+13  12   3
+14   6   3
+15   4   3
+16   4   3
+17  16   4
+18   6   3
+19  18   4
+20   4   3
+21   6   3
+22  10   4
+23  22   5
+24   2   2
+25  20   4
+
+Iterations to 1       i     lambda(i)
+=====================================
+   0                  1            1
+   1                  1            1
+   2                  3            2
+   3                  5            4
+   4                 11           10
+   5                 23           22
+   6                 47           46
+   7                283          282
+   8                719          718
+   9               1439         1438
+  10               2879         2878
+  11              34549        34548
+  12             138197       138196
+  13             531441       354294
+  14            1594323      1062882
+  15            4782969      3188646
+EOD
+
+use Test::More;
+is ($result, $ref);
+done_testing();
