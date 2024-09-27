@@ -1,0 +1,132 @@
+#!/usr/local/bin/perl
+#u# https://www.rosettacode.org/wiki/Numbers_k_such_that_the_last_letter_of_k_is_the_same_as_the_first_letter_of_k%2B1
+#c# 2024-09-27 <RC
+#p# OK
+
+my @res;
+
+use strict;
+use warnings;
+use feature 'say';
+
+use constant I 
+   => [ qw( zero one two three four five six seven eight nine ten eleven twelve
+            thirteen fourteen fifteen sixteen seventeen eighteen nineteen ) ];
+use constant X 
+   => [ qw( 0 X twenty thirty forty fifty sixty seventy eighty ninety ) ];
+use constant C => [map { I->[$_] . ' hundred' } 0..19];
+use constant M => [
+   map { $_ . ' thousand' } (0),
+   map { $_ . 'illion' } ('m', 'b', 'tr', 'quadr', 'quint', 'sext', 'sept', 'oct', 'non',
+   map { ('', 'un', 'duo', 'tre', 'quattuor', 'quin', 'sex', 'septen', 'octo', 'novem') } 
+   qw(dec vigint trigint quadragint quinquagint sexagint septuagint octogint nonagint))
+];
+
+sub int_name {
+   my ($num) = @_;
+   return "negative " . int_name(-$num) if $num < 0;
+   return I->[0] if $num == 0;
+
+   my ($m, @parts) = 0;
+   while ($num > 0) {
+      my $chunk = $num % 1000;
+      my $hundreds = int($chunk / 100);
+      my $tens = int(($chunk % 100) / 10);
+      my $ones = $chunk % 10;
+
+      if ($hundreds || $tens || $ones) {
+         my @chunk_parts;
+         push @chunk_parts, C->[$hundreds] if $hundreds;
+         if ($tens == 1) {
+            push @chunk_parts, I->[$ones + 10];
+         } else {
+            push @chunk_parts, X->[$tens] if $tens;
+            push @chunk_parts, I->[$ones] if $ones;
+         }
+         push @chunk_parts, M->[$m] if $m;
+         unshift @parts, join " ", @chunk_parts;
+      }
+
+      $num = int($num / 1000);
+      $m++;
+   }
+   return join ", ", @parts;
+}
+
+my ($i, $c, $limit, $prev, @nums, @lastDigs) = (0, 0, 1000, int_name(0));
+
+while ($limit <= 1e4) {
+   my $next = int_name($i + 1);
+   if (substr($prev, -1) eq substr($next, 0, 1)) {
+      if ($c < 50) { push @nums, $i }
+      $lastDigs[$i % 10]++;
+      $c++;
+
+      if ($c == 50) {
+         push @res, "First 50 numbers:\n";
+         for (my $j = 0; $j < @nums; $j += 10) {
+             push @res, sprintf "%4s", $_ for @nums[$j .. $j + 9];
+             push @res, "\n";
+         }
+         push @res, "\n";
+      } elsif ($c == $limit) {
+         push @res, "The $c-th number is $i.\n";
+         push @res, "Breakdown by last digit of first $c-th numbers\n";
+         push @res, "N Freq\n";
+         my $max = (sort { $b <=> $a } @lastDigs)[0];
+         for my $d (0..9) {
+            push @res, sprintf "%d %4s %s\n", $d, $lastDigs[$d], '█' x int($lastDigs[$d] / $max * 72);
+         }
+         push @res, "\n";
+         $limit *= 10;
+      }
+   }
+   $prev = $next;
+   $i++;
+}
+
+say my $result = join "", @res;
+
+my $ref = <<'EOD';
+First 50 numbers:
+   0  18  28  38  79  81  83  85  97 102
+ 122 132 142 152 162 172 182 192 208 228
+ 238 248 258 268 278 288 298 308 328 338
+ 348 358 368 378 388 398 799 801 803 805
+ 809 812 821 823 825 829 831 833 835 839
+
+The 1000-th number is 10988.
+Breakdown by last digit of first 1000-th numbers
+N Freq
+0   12 ██
+1  111 ██████████████████████████
+2  110 ██████████████████████████
+3  111 ██████████████████████████
+4   11 ██
+5  111 ██████████████████████████
+6   11 ██
+7  111 ██████████████████████████
+8  301 ████████████████████████████████████████████████████████████████████████
+9  111 ██████████████████████████
+
+The 10000-th number is 106652.
+Breakdown by last digit of first 10000-th numbers
+N Freq
+0  122 ███
+1 1301 ███████████████████████████████████████
+2  829 ████████████████████████
+3 1301 ███████████████████████████████████████
+4  121 ███
+5 1301 ███████████████████████████████████████
+6  121 ███
+7 1211 ████████████████████████████████████
+8 2392 ████████████████████████████████████████████████████████████████████████
+9 1301 ███████████████████████████████████████
+
+
+EOD
+
+use Test::More;
+chomp $ref;
+is ($result, $ref);
+done_testing();
