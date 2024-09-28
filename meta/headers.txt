@@ -987,6 +987,12 @@ File: B/Bin_given_limits-2
 #c# 2021-02-08 >RC
 #p# OK
 
+File: B/Binary_coded_decimal
+#!/usr/local/bin/perl
+#u# https://www.rosettacode.org/wiki/Binary_coded_decimal
+#c# 2024-09-22 <RC
+#p# OK
+
 File: B/Binary_digits
 #!/usr/local/bin/perl
 #u# http://rosettacode.org/wiki/Binary_digits
@@ -1011,6 +1017,12 @@ File: B/Binary_strings
 #!/usr/local/bin/perl
 #u# http://rosettacode.org/wiki/Binary_strings
 #c# 2019-10-05 >RC
+#p# OK
+
+File: B/Binomial_transform
+#!/usr/local/bin/perl
+#u# https://www.rosettacode.org/wiki/Binomial_transform
+#c# 2024-09-26 <RC
 #p# OK
 
 File: B/Bioinformatics_Sequence_mutation
@@ -1417,6 +1429,12 @@ File: C/Carmichael_3_strong_pseudoprimes
 #c# 2018-07-21 <RC
 #p# OK
 
+File: C/Carmichael_lambda_function
+#!/usr/local/bin/perl
+#u# https://www.rosettacode.org/wiki/Carmichael_lambda_function
+#c# 2024-09-25 <RC
+#p# OK
+
 File: C/Cartesian_product_of_two_or_more_lists-1
 #!/usr/local/bin/perl
 #u# http://rosettacode.org/wiki/Cartesian_product_of_two_or_more_lists
@@ -1476,6 +1494,12 @@ File: C/Catamorphism
 #!/usr/local/bin/perl
 #u# http://rosettacode.org/wiki/Catamorphism
 #c# 2018-07-22 <RC
+#p# OK
+
+File: C/Centre_and_radius_of_a_circle_passing_through_3_points_in_a_plane
+#!/usr/local/bin/perl
+#u# https://www.rosettacode.org/wiki/Centre_and_radius_of_a_circle_passing_through_3_points_in_a_plane
+#c# 2024-09-14 <RC
 #p# OK
 
 File: C/Centroid_of_a_set_of_N-dimensional_points
@@ -3189,6 +3213,12 @@ File: E/Erdos-Selfridge_categorization_of_primes
 #c# 2022-05-27 >RC
 #p# OK
 
+File: E/Erdos-Woods_numbers
+#!/usr/local/bin/perl
+#u# https://www.rosettacode.org/wiki/Erdős–Woods_numbers
+#c# 2024-09-16 <RC
+#p# OK
+
 File: E/Erdos-primes
 #!/usr/local/bin/perl
 #u# http://rosettacode.org/wiki/Erdős-primes
@@ -3429,6 +3459,12 @@ File: E/Extreme_floating_point_values
 #c# 2018-08-01 <RC
 #p# OK
 
+File: E/Extreme_primes
+#!/usr/local/bin/perl
+#u# https://www.rosettacode.org/wiki/Extreme_primes
+#c# 2024-09-10 <RC
+#p# OK
+
 File: F/FASTA_format
 #!/usr/local/bin/perl
 #u# http://rosettacode.org/wiki/FASTA_format
@@ -3517,6 +3553,12 @@ File: F/Factorions-2
 #c# 2022-01-16 <RC
 #p# OK
 #n# Trizen++ (translation of Sidef)
+
+File: F/Factorize_string_into_Lyndon_words
+#!/usr/local/bin/perl
+#u# https://www.rosettacode.org/wiki/Factorize_string_into_Lyndon_words
+#c# 2024-09-08 <RC
+#p# OK
 
 File: F/Factors_of_a_Mersenne_number-1
 #!/usr/local/bin/perl
@@ -4221,6 +4263,12 @@ File: F/Fusc_sequence
 #p# OK
 #n# golfing the comma routine: 'r' option to subst. operator, no negative value input
 
+File: G/GSTrans_string_conversion
+#!/usr/local/bin/perl
+#u# https://www.rosettacode.org/wiki/GSTrans_string_conversion
+#c# 2024-09-11 <RC
+#p# OK
+
 File: G/GUI_Maximum_window_dimensions
 #!/usr/local/bin/perl
 #u# http://rosettacode.org/wiki/GUI/Maximum_window_dimensions
@@ -4469,6 +4517,12 @@ File: G/Greatest_element_of_a_list
 #c# 2018-08-11 <RC
 #p# OK
 
+File: G/Greatest_prime_dividing_the_n-th_cubefree_number
+#!/usr/local/bin/perl
+#u# https://www.rosettacode.org/wiki/Greatest_prime_dividing_the_n-th_cubefree_number
+#c# 2024-09-18 <RC
+#p# OK
+
 File: G/Greatest_subsequential_sum-1
 #!/usr/local/bin/perl
 #u# http://rosettacode.org/wiki/Greatest_subsequential_sum
@@ -4634,6 +4688,12 @@ File: H/Hash_join
 #!/usr/local/bin/perl
 #u# http://rosettacode.org/wiki/Hash_join
 #c# 2018-08-12 <RC
+#p# OK
+
+File: H/Hashtron_inference
+#!/usr/local/bin/perl
+#u# https://www.rosettacode.org/wiki/Hashtron_inference
+#c# 2024-09-24 <RC
 #p# OK
 
 File: H/Haversine_formula
@@ -5201,6 +5261,12 @@ File: I/Iterated_digits_squaring
 #p# OK
 #n# reduced limit to expedite testing (in pure Perl it's slow, and that will never change)
 
+File: I/Iterators
+#!/usr/local/bin/perl
+#u# https://www.rosettacode.org/wiki/Iterators
+#c# 2024-09-23 <RC
+#p# OK
+
 File: J/JSON
 #!/usr/local/bin/perl
 #u# http://rosettacode.org/wiki/JSON
@@ -5303,6 +5369,12 @@ File: J/Just_in_time_processing_on_a_character_stream
 #!/usr/local/bin/perl
 #u# http://rosettacode.org/wiki/Just_in_time_processing_on_a_character_stream
 #c# 2019-05-15 >RC
+#p# OK
+
+File: K/K-d_tree
+#!/usr/local/bin/perl
+#u# https://www.rosettacode.org/wiki/K-d_tree
+#c# 2024-09-17 <RC
 #p# OK
 
 File: K/Kahan_summation
@@ -5464,6 +5536,12 @@ File: K/Kronecker_product_based_fractals
 #n# xx file: kronecker-carpet-perl6.png
 #n# xx file: kronecker-six-perl6.png
 #n# minor bug: an off-by-one error lurking, one extra row/column in each image
+
+File: L/L-system
+#!/usr/local/bin/perl
+#u# https://www.rosettacode.org/wiki/L-system
+#c# 2024-09-19 <RC
+#p# OK
 
 File: L/LU_decomposition
 #!/usr/local/bin/perl
@@ -6049,6 +6127,12 @@ File: L/Lychrel_numbers
 #c# 2018-08-17 <RC, 2021-01-18 >RC
 #p# OK
 #n# main utility of Const::Fast here seems to be the string interpolation of $n_max
+
+File: L/Lyndon_word
+#!/usr/local/bin/perl
+#u# https://www.rosettacode.org/wiki/Lyndon_word
+#c# 2024-09-12 <RC
+#p# OK
 
 File: M/MAC_Vendor_Lookup
 #!/usr/local/bin/perl
@@ -7066,6 +7150,12 @@ File: N/Numbers_in_base_10_that_are_palindromic_in_bases_2,_4,_and_16
 #!/usr/local/bin/perl
 #u# http://rosettacode.org/wiki/Numbers_in_base_10_that_are_palindromic_in_bases_2,_4,_and_16
 #c# 2021-06-24 >RC
+#p# OK
+
+File: N/Numbers_k_such_that_the_last_letter_of_k_is_the_same_as_the_first_letter_of_k%2B1
+#!/usr/local/bin/perl
+#u# https://www.rosettacode.org/wiki/Numbers_k_such_that_the_last_letter_of_k_is_the_same_as_the_first_letter_of_k%2B1
+#c# 2024-09-27 <RC
 #p# OK
 
 File: N/Numbers_n_in_which_number_1_occur_twice
@@ -8115,6 +8205,12 @@ File: P/Population_count-2
 #p# OK
 #n# compare with main routine, here just use state variables
 
+File: P/Posit_numbers_encoding
+#!/usr/local/bin/perl
+#u# https://www.rosettacode.org/wiki/Posit_numbers/encoding
+#c# 2024-09-28 <RC
+#p# OK
+
 File: P/Power_set-1
 #!/usr/local/bin/perl
 #u# http://rosettacode.org/wiki/Power_set
@@ -9072,7 +9168,8 @@ File: R/Rosetta_Code_Find_unimplemented_tasks
 #!/usr/local/bin/perl
 #u# http://rosettacode.org/wiki/Rosetta_Code/Find_unimplemented_tasks
 #c# 2018-08-21 <RC, 2019-05-02 >RC, 2022-09-07 >RC
-#p# OK
+#p# BROKEN
+#n# 2024-09-07 interface changed? not going to fix
 
 File: R/Rosetta_Code_Fix_code_tags
 #!/usr/local/bin/perl
@@ -9737,17 +9834,29 @@ File: S/Singly-linked_list_Element_insertion
 #n# the linked-list code works fine, but too lazy to format it nicely for testing
 
 File: S/Singly-linked_list_Element_removal
-#!/usr/bin/env perl
-#u# http://rosettacode.org/wiki/Singly-linked_list/Element_removal
-#c# 2022-xx-xx NOT ON RC
+#!/usr/local/bin/perl
+#u# https://www.rosettacode.org/wiki/Singly-linked_list/Element_removal
+#c# 2024-09-14 <RC
 #p# OK
-#n# ~/PWC/071/2/e-chorba.pl
+
+File: S/Singly-linked_list_Reversal
+#!/usr/local/bin/perl
+#u# https://www.rosettacode.org/wiki/Singly-linked_list/Reversal
+#c# 2024-09-14 <RC
+#p# OK
 
 File: S/Singly-linked_list_Traversal
 #!/usr/local/bin/perl
 #u# http://rosettacode.org/wiki/Singly-linked_list/Traversal
 #c# 2018-08-16 <RC
 #p# OK
+
+File: S/Singular_value_decomposition
+#!/usr/local/bin/perl
+#u# https://www.rosettacode.org/wiki/Singular_value_decomposition
+#c# 2024-09-20 <RC
+#p# OK
+#n# to get Math::GSL working again: cd /opt/local/lib; sudo ln -s libgsl.28.dylib 'libgsl.27.dylib'
 
 File: S/Sisyphus_sequence
 #!/usr/local/bin/perl
@@ -10391,6 +10500,12 @@ File: S/Steady_Squares
 #c# 2021-12-22 <RC
 #p# OK
 
+File: S/Steffensen%27s_method
+#!/usr/local/bin/perl
+#u# https://www.rosettacode.org/wiki/Steffensen%27s_method
+#c# 2024-09-23 <RC
+#p# OK
+
 File: S/Stem-and-leaf_plot
 #!/usr/local/bin/perl
 #u# http://rosettacode.org/wiki/Stem-and-leaf_plot
@@ -10571,6 +10686,12 @@ File: S/Strong_and_weak_primes
 #!/usr/local/bin/perl
 #u# http://rosettacode.org/wiki/Strong_and_weak_primes
 #c# 2018-12-05 >RC
+#p# OK
+
+File: S/Sturmian_word
+#!/usr/local/bin/perl
+#u# https://www.rosettacode.org/wiki/Sturmian_word
+#c# 2024-09-16 <RC
 #p# OK
 
 File: S/Sub-unit_squares-1
@@ -11446,6 +11567,12 @@ File: T/Truth_table
 #p# OK
 #f# RC file: truth-table.txt
 #n# with v5.38 simplest to just redirect all output
+
+File: T/Tupper%27s_self-referential_formula
+#!/usr/local/bin/perl
+#u# https://www.rosettacode.org/wiki/Tupper%27s_self-referential_formula
+#c# 2024-09-09 <RC
+#p# OK
 
 File: T/Twelve_statements
 #!/usr/local/bin/perl
