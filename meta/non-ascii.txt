@@ -122,6 +122,9 @@ B/Burrows-Wheeler_transform
 ʇ:     2 LATIN SMALL LETTER TURNED T
 👍:     5 THUMBS UP SIGN
 
+C/Carmichael_lambda_function
+λ:     2 GREEK SMALL LETTER LAMDA
+
 C/Character_codes-1
 Α:     3 GREEK CAPITAL LETTER ALPHA
 А:     3 CYRILLIC CAPITAL LETTER A
@@ -262,6 +265,10 @@ E/Engel_expansion
 
 E/Erdos-Selfridge_categorization_of_primes
 ö:     5 LATIN SMALL LETTER O WITH DIAERESIS
+
+E/Erdos-Woods_numbers
+ő:     3 LATIN SMALL LETTER O WITH DOUBLE ACUTE
+–:     3 EN DASH
 
 E/Erdos-primes
 ő:    10 LATIN SMALL LETTER O WITH DOUBLE ACUTE
@@ -497,6 +504,9 @@ N/Nimber_arithmetic
 ─:   109 BOX DRAWINGS LIGHT HORIZONTAL
 │:    36 BOX DRAWINGS LIGHT VERTICAL
 ┼:     3 BOX DRAWINGS LIGHT VERTICAL AND HORIZONTAL
+
+N/Numbers_k_such_that_the_last_letter_of_k_is_the_same_as_the_first_letter_of_k%2B1
+█:   532 FULL BLOCK
 
 N/Numeric_error_propagation
 ±:     4 PLUS-MINUS SIGN
