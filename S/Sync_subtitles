@@ -1,0 +1,151 @@
+#!/usr/local/bin/perl
+#u# https://www.rosettacode.org/wiki/Sync_subtitles
+#c# 2024-10-07 <RC
+#p# OK
+
+my @res;
+
+use strict;
+use warnings;
+use feature 'say';
+
+use Time::Piece;
+use Time::Seconds;
+
+my @lines = `cat ref/movie.srt`; 
+for my $seconds (9, -9) {
+   push @res, "Original subtitle adjusted by ".sprintf("%+d", $seconds)." seconds.\n";
+   for my $line (@lines) {
+      if ($line =~ /(\d{2}:\d{2}:\d{2},\d{3}) --> (\d{2}:\d{2}:\d{2},\d{3})/) {
+         my $start = adjust_time($1, $seconds);
+         my $end   = adjust_time($2, $seconds);
+         $line =~ s/\d{2}:\d{2}:\d{2},\d{3} --> \d{2}:\d{2}:\d{2},\d{3}/$start --> $end/;
+         push @res, $line
+      } else {
+         push @res, $line  
+      }
+   }
+   push @res, "\n"  
+}
+
+sub adjust_time {
+    my ($time, $seconds) = @_;
+    my ($time_str, $milliseconds_str) = split /,/, $time;
+    my ($hh, $mm, $ss) = split /:/, $time_str;
+    my $t = Time::Piece->strptime("$hh:$mm:$ss", "%H:%M:%S");
+    $t += $seconds;
+    push @res, sprintf("%02d:%02d:%02d,%03d",$t->hour,$t->min,$t->sec,$milliseconds_str);
+}
+
+say my $result = join "", @res;
+
+my $ref = <<'EOD';
+Original subtitle adjusted by +9 seconds.
+1
+00:01:40,55000:01:45,3473 --> 4
+Four billion years ago,
+the first marine life forms.
+
+2
+00:01:45,55500:01:51,01910 --> 11
+First came the fish...then slowly
+other life forms evolved.
+
+3
+00:01:51,14400:01:52,97917 --> 18
+Therefore, our ancestors...
+
+4
+00:01:52,97900:01:54,89823 --> 24
+...came from fish.
+
+5
+00:01:55,23200:01:56,60829 --> 30
+Everyone, come and see this.
+
+6
+00:01:56,73300:01:59,36135 --> 36
+Cretaceous Tyrannosaurus.
+
+7
+00:01:59,73600:02:01,48841 --> 42
+Ferocious!
+
+8
+00:02:07,03500:02:07,86947 --> 48
+Red,
+
+9
+00:02:08,20300:02:09,07953 --> 54
+Pong!
+
+10
+00:02:11,54000:02:12,99959 --> 60
+Isn't this a gecko?
+
+11
+00:02:13,41600:02:16,41965 --> 66
+How else can I get a 15 ton T-Rex in here?
+
+12
+00:02:16,50300:02:20,04871 --> 72
+With our advanced technology, I shrank it down.
+
+Original subtitle adjusted by -9 seconds.
+1
+3 --> 4
+Four billion years ago,
+the first marine life forms.
+
+2
+10 --> 11
+First came the fish...then slowly
+other life forms evolved.
+
+3
+17 --> 18
+Therefore, our ancestors...
+
+4
+23 --> 24
+...came from fish.
+
+5
+29 --> 30
+Everyone, come and see this.
+
+6
+35 --> 36
+Cretaceous Tyrannosaurus.
+
+7
+41 --> 42
+Ferocious!
+
+8
+47 --> 48
+Red,
+
+9
+53 --> 54
+Pong!
+
+10
+59 --> 60
+Isn't this a gecko?
+
+11
+65 --> 66
+How else can I get a 15 ton T-Rex in here?
+
+12
+71 --> 72
+With our advanced technology, I shrank it down.
+
+
+EOD
+
+use Test::More;
+chomp $ref;
+is ($result, $ref);
+done_testing();
