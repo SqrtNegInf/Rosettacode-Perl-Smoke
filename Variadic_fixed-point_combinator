@@ -1,0 +1,55 @@
+#!/usr/local/bin/perl
+#u# https://www.rosettacode.org/wiki/Variadic_fixed-point_combinator
+#c# 2024-10-07 <RC
+#p# OK
+
+my @res;
+
+use strict;
+use warnings;
+use feature 'say';
+
+sub Y {
+   my ($a) = @_;
+   [ map { my $f = $_; sub { $f->(Y($a)) } } @$a ]
+}
+
+my $even_odd_fix = [
+   sub { my ($f) = @_; sub { my ($n) = @_; $n == 0 || $f->[1]->()->($n - 1) } },
+   sub { my ($f) = @_; sub { my ($n) = @_; $n != 0 && $f->[0]->()->($n - 1) } },
+];
+
+my $collatz_fix = [
+   sub { my ($f) = @_; sub { my ($n,$d) = @_; $n == 1 ? $d : $f->[($n % 2) + 1]->()->($n, $d + 1) } },
+   sub { my ($f) = @_; sub { my ($n,$d) = @_; $f->[0]->()->(int($n/2), $d)  } },
+   sub { my ($f) = @_; sub { my ($n,$d) = @_; $f->[0]->()->(3 * $n + 1, $d) } },
+];
+
+my $even_odd = [ map { $_->() } @{Y $even_odd_fix} ];
+my $collatz  = Y($collatz_fix)->[0]->();
+
+for my $i (1..10) {
+   my $e = $even_odd->[0]->($i);
+   my $o = $even_odd->[1]->($i);
+   my $c = $collatz->($i, 0);
+   push @res, sprintf "%2d: Even: %5s  Odd: %5s  Collatz: %2d\n", $i, $e ? 'True' : 'False', $o ? 'True' : 'False', $c;
+}
+
+say my $result = join "", @res;
+
+my $ref = <<'EOD';
+ 1: Even: False  Odd:  True  Collatz:  0
+ 2: Even:  True  Odd: False  Collatz:  1
+ 3: Even: False  Odd:  True  Collatz:  7
+ 4: Even:  True  Odd: False  Collatz:  2
+ 5: Even: False  Odd:  True  Collatz:  5
+ 6: Even:  True  Odd: False  Collatz:  8
+ 7: Even: False  Odd:  True  Collatz: 16
+ 8: Even:  True  Odd: False  Collatz:  3
+ 9: Even: False  Odd:  True  Collatz: 19
+10: Even:  True  Odd: False  Collatz:  6
+EOD
+
+use Test::More;
+is ($result, $ref);
+done_testing();
